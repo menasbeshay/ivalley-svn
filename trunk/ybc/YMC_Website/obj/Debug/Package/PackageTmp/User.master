@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="YMC_Website.User" %>
+<%@ Register src="Controls/UserLinks.ascx" tagname="UserLinks" tagprefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="content" style="width:735px;">
+        <asp:ContentPlaceHolder ID="MContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="rightCol">        
+        <uc1:UserLinks ID="UserLinks1" runat="server" />
+    </div>
+</asp:Content>
