@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="YMC_Website.SiteMaster" %>
+
+<%@ Register src="Controls/NewsTicker.ascx" tagname="NewsTicker" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/menu.css" rel="stylesheet" type="text/css" />
+    <%--<script src="http://code.jquery.com/jquery-latest.min.js"></script> --%>   
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.id.chopslider-2.2.0.free.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.id.cstransitions-1.2.min.js" type="text/javascript"></script>
+    <script src="Scripts/main.js" type="text/javascript"></script>    
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">         
+                <div class="Logo">
+                    
+                </div>              
+                <div class="title">
+                </div>
+
+                <div class="mainLinks">
+                    <div style="float: left;">
+                        <a href="Page.aspx?pid=10" >English </a>|
+                    </div>
+                    <div style="float:left;direction:rtl">
+                        <a href="UserLogin.aspx">دخول الأعضاء</a>
+                    |
+                   <a href="Default.aspx"> عربى</a>
+                     
+                    </div>
+                    
+                    
+                </div>
+                <div class="clear"></div>    
+                
+            <div id="slider">
+                <div class="slide cs-activeSlide">
+                    <img src="images/sliderimage/image1.gif" alt="photo #1" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/image2.gif" alt="photo #2" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/image3.gif" alt="photo #3" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/image4.gif" alt="photo #4" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/simple_img5.gif" alt="photo #5" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/simple_img6.gif" alt="photo #6" />
+                </div>
+                <div class="slide">
+                    <img src="images/sliderimage/simple_img7.gif" alt="photo #7" />
+                </div>
+            </div>   
+            <div class="clear" style="/*height:5px;*/"></div>
+            <%--<div style="background-color:Black;height:50px;">--%>
+            <div id="menu">
+                <ul class="menu">
+                    <li id="mi1" class="first"><a href="Default.aspx"><span>الرئيسية</span></a></li>
+                    <li id="mi2"><a href="Page.aspx?pid=2"><span>من نحن</span></a></li>
+                    <li id="mi3"><a href='Page.aspx?pid=3'><span>نبذة عن المدينة</span></a></li>
+                    <li id="mi4"><a href="Persons.aspx"><span>كبار الشخصيات</span></a></li>
+                    <li id="mi5"><a href="ViewNews.aspx"><span>أخبار اللجان</span></a></li>
+                    <%--<li id="mi6"><a href='Page.aspx?pid=9'><span>معلومات وموارد</span></a></li>--%>
+                    <li id="mi7"><a href="Committe.aspx"><span>أعضاء اللجنة</span></a></li>
+                    <li id="mi8"><a href="RequestConsulting.aspx"><span>طلب إستشارة</span></a></li>
+                    <li id="mi9"><a href="RegistrationForm.aspx"><span>إستمارة عضوية</span></a></li>
+                    <li id="mi10"><a href="ContactUs.aspx"><span>الإتصال</span></a></li>
+                </ul>
+            </div>
+            <div id="copyright" style="display:none"">
+                Copyright &copy; 2013 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
+            <%--</div> --%>               
+        </div>
+        <div class="newsbar">
+
+            <uc1:NewsTicker ID="NewsTicker1" runat="server" />
+
+        </div>
+        <div class="main">
+            
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            
+        </div>
+        <div class="clear">
+        </div>
+        <div style="background-color:#fff;height:119px;">
+        <div id="footermain">
+            <div style="float: left; width: 150px;margin-top:80px;margin-left:10px;">
+                <a href="Page.aspx?pid=11" style="text-decoration: none; color: #000; font-family: Georgia, Times New Roman, Times, serif;
+                    font-size: 16px; font-weight: bold; text-align: center;">إدراة الموقع</a></div>
+        </div>
+        <div class="footer" id="footerback">
+            لجنه شباب وشابات الاعمال بالمدينه المنورة            
+        </div>
+            
+        </div>
+    </div>
+    
+    </form>
+    <script src="Scripts/menu.js" type="text/javascript"></script>
+</body>
+</html>
