@@ -1,0 +1,3 @@
+D:\SmartValley\globlogistics\GlobalLogistics\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads.dll
+D:\SmartValley\globlogistics\GlobalLogistics\MyGeneration.dOOdads\obj\Release\ResolveAssemblyReference.cache
+D:\SmartValley\globlogistics\GlobalLogistics\MyGeneration.dOOdads\obj\Release\MyGeneration.dOOdads.dll
