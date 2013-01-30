@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A161D45-44EB-4250-8DD1-47DDD388C9AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlobalLogistics.BLL</RootNamespace>
+    <AssemblyName>GlobalLogistics.BLL</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>C:\Program Files (x86)\Microsoft Application Blocks for .NET\Data Access v2\Code\CS\Microsoft.ApplicationBlocks.Data\bin\Debug\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ads.cs" />
+    <Compile Include="AdsLocations.cs" />
+    <Compile Include="AirLines.cs" />
+    <Compile Include="AirPorts.cs" />
+    <Compile Include="ArNews.cs" />
+    <Compile Include="Categories.cs" />
+    <Compile Include="Cities.cs" />
+    <Compile Include="Companies.cs" />
+    <Compile Include="CompanyEnabledOptions.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="Exchange.cs" />
+    <Compile Include="Magazine.cs" />
+    <Compile Include="Mineral.cs" />
+    <Compile Include="Mines.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="PackageOptions.cs" />
+    <Compile Include="PackageOptionsLink.cs" />
+    <Compile Include="Packages.cs" />
+    <Compile Include="Pages.cs" />
+    <Compile Include="Photos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SeaPorts.cs" />
+    <Compile Include="Services.cs" />
+    <Compile Include="ServiceTypes.cs" />
+    <Compile Include="ShippingLines.cs" />
+    <Compile Include="Sponsors.cs" />
+    <Compile Include="SubCategories.cs" />
+    <Compile Include="Subscribers.cs" />
+    <Compile Include="Vedios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlobalLogistics.DAL\GlobalLogistics.DAL.csproj">
+      <Project>{04875714-8D63-4313-8E89-CAB325ABFC13}</Project>
+      <Name>GlobalLogistics.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
+      <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
+      <Name>MyGeneration.dOOdads</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
