@@ -1,0 +1,1051 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>User</Author>
+  <LastAuthor>mkbadrawi</LastAuthor>
+  <Created>2012-01-16T12:08:14Z</Created>
+  <LastSaved>2012-07-11T22:58:14Z</LastSaved>
+  <Company>HOME</Company>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9015</WindowHeight>
+  <WindowWidth>15315</WindowWidth>
+  <WindowTopX>360</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:CharSet="178"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s54" ss:Name="Hyperlink">
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#0000FF"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="RightToLeft" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="14" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Bold="1"/>
+   <Interior ss:Color="#33CCCC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="14" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="14" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="RightToLeft" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="RightToLeft" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="RightToLeft" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="LeftToRight" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="LeftToRight" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="13.5" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s83" ss:Parent="s54">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="RightToLeft" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"
+    ss:ReadingOrder="LeftToRight" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s86" ss:Parent="s54">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Underline="Single"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="ورقة1" ss:RightToLeft="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="48" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="5.625">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="144" ss:Span="3"/>
+   <Column ss:Index="6" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="144"
+    ss:Span="1"/>
+   <Column ss:Index="8" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="144.75"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="144"/>
+   <Column ss:AutoFitWidth="0" ss:Width="144" ss:Span="3"/>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">شركات النقل</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Logo</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">الشركة</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Company</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">العنوان</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">المدينة</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">City</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">قطاع</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Category</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">التليفون</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">فاكس</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">البريد الإلكتروني</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">الموقع الإلكتروني</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">شركات نقل ميناء الاسكندرية </Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الحلموشى</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Halmoushi Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">1 شارع النصر-أمام باب 10 المنشية </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1 El Nasr St., InFront of Door 10 , Near To Alexandria Port El Mansheya- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034850288</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">أوفر نايت لنقل الطرود</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Over Night Express Cargo</Data></Cell>
+    <Cell ss:StyleID="s79"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40">9 <Font html:Face="Arial"
+       x:Family="Swiss">ش الفلكي محطة الرمل </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">9 El Falaky St. Raml Station - Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">034869985 - 034879248</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">شركة الأمل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Al Amal Group</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">شارع النصر – أمام باب 10</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Al Nasr St., In Front of Door 10</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">034803470</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ابراهيم الباشا للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Ibrahim El Pasha For Transportation &amp; Engineering </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">135 شارع رفعت الجمال المنشية</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">135 Refaat El Gammal St. El Mansheya- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034803470</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">أسامة شلبى للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Usama Shalaby For Transportation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">مساكن النوبارية – بلوك 2 </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Block 2, El Noubareya Bldgs. - Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034412013</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الاسلامية للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Islamia For Transportation</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">شارع الرياض -العجمي</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">El Tiad St. Agami-Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">033084703-034424949</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">التعاون للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Taawon For Transportation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">5 شارع جبل الزيتون-مينا البصل</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">5 Gabal El Zaiton St. Mina El Bassal- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034402071-01227163786</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الاسماعيلية الدولية للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Ismailia International Transport Co. - ITC</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">9 شارع النصر-المنشية </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">9 El Nasr St., El Mansheya - Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034805809</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">الشركة الاسلامية لخدمات النقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Islamia  Compnay For Transportation Services</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">سوق الجمعة باب 18 &#10;مكتب رقم 1 اللبان</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Souq AL Gouma Door 18, Office No:1 Al Laban</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034947367-01200453145</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الشركة العربية للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><B>Arab Transport &amp; Tourism Co.</B><Font> </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">51 طريق 26 يوليو – المنشية </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">51 26th of July St. El Mansheya-Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034854504</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">العالمية للشحن والنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Mebco -El Alameya For Freight &amp; Transportation </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">173 شارع المكس - الورديان &#10; أمام العيادة الشاملة  </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">173 El Max St. Wardeyan in front of AlEyada Al Shamela- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034423541</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">العماد للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Al Emad Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">9 شارع صلاح الدين-العطارين </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">9 Salah El Din St., El Attarin - Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">033900915-033900925</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s83" ss:HRef="http://www.alemadtrans.com/"><Data
+      ss:Type="String">www.alemadtrans.com</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الكابتن للنقل البرى </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Captain For Land Transportation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">6 شارع النصر-المنشية أمام الشركة&#10;المصرية للملاحة البحرية</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">6 El Nasr St. In Front Of Egyptian Navigation Co. - ENC, El Mansheya- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034830552-034815532</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">شركة الغانم للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Ghanem For Transportation Co. </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">80 شارع المكس – القباري </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">80 El Max St., El Kabbari- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034447855</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">اليسر للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Yousr For Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">5 شارع النصر - الجمرك</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">5 El Nasr St., El Gomrok- Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034816910</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">المصرية للشحن</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Egyptian Freight &amp; Customs Clearance </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">9 ش محمود مختار من &#10;السلطان حسين الأزريطة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">9 Mahmoud Mokhtar St., Azarita - Alexandria</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034868001</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">السيد خليفة الغرباوي&#10;واخوته للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Khalifa Al Gharabawy and his brothers For Transportation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">29 ميدان فيكتوريا&#10;برج الخلود - سموحة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">29 Victoria Square, Al Kholood Tower- Semouha</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034295120-034298862</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034295120</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">بسيوني للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Bassiouni For Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">11 ش سنان باشا - المنشية</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">11 Senan Basha St.- El Mansheya</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الإسكندرية</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Alex</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034806831-034816540&#10;034802459</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">034806831</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">شركات نقل القاهرة </Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">اكسبريس للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Express For Transportation </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">446 شارع الأهرام </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">446 Al Haram St.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الجيزة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Giza</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">35695852</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">الشركة الذهبية للنقل &#10;الدولي البرى المبرد (ش.م.م)</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The company's golden TIR coolant (LLC. M. M)</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">53 طريق مصر السويس &#10;طريق القاهرة السويس </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">53 Masr Suez Rd. , Cairo Suez Rd.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">22757607-0122311722</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الحمد للنقليات </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Al Hamd For Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">8 شارع دنش باشا </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">8 Danash Basha St. Abbasseya- Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">29224066</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">الخليل ابراهيم للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Khalil Ibrahim For Transportation </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">4 شارع المطار المهندسين</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">4 El Matar St.Mohandeseen - Giza</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الجيزة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Giza</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">01222810983</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الشركة الذهبية لنقل&#10;المبردات والشاحنات </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The Golden Co. For Transformer </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">كم 53 طريق السويس القاهرة&#10;مدينة بدر</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Km 53, El Suez Cairo Rd. Badr City-Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0121231127&#10;01005255238</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">الشركة الشرقية للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The East Co. For Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">مدينة السلام – مساكن صف الضباط&#10;عمارة 21 – قطعة 3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Madinet AlSalam, Masaken Saf Al Zabat, 21 Bldgs., Item 3.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">22785529</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الشركة العربية للنقل والسياحة </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Arab Transport &amp; Tourism Co. </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">72 شارع الكابلات – المطرية </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">72 Al Kablat St. - Al Matareya</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">22506859</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الشيخ ابراهيم للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Sheikh Ibrahim For Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">36 شارع سكة الوايلى - حدائق القبة </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">36 Sekket el Waily st. Hadayek El Kobba-Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">22601906&#10;01001590312</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">الطارق للنقل الخفيف </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Tarek For Light Transportation </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">7 شارع السكة الحديد منشية البكري</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">7 El Sekah El Hadid St., Mansheyet El Bakry, Heliopolis- Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">01005151747</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">العماد للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"> <B>Al Emad Transport</B></ss:Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">25 شارع الشهيد سيد زكريا &#10;مساكن شيراتون مصر الجديدة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">25 Shahid Sayed Zakeryia St. Sheraton Bldgs. - Heliopolis</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">22663182</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الغردقة للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Hurghada Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">16 شارع الباب البحرى العتبة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">16 Bab AlBahry ElAtaba</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">25889485</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الصواف للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">AlSawaf Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">2 ش الأزهر العتبة عمارة المعايرجي</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">2 Alazhar Ataba, AlMayergy Bldgs.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">25104863</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الصفتي للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Safty Center </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">25 ش الجيش - العتبة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">25 El Guish St., Ataba-Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">25908452</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">الحكيم للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">AlHakim Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">505 ش بور سعيد - العتبة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">505 Port Said St.- Ataba</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">25933951</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">السويس والبحر الأحمر للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Suez &amp; Red Sea For Motor Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">17 ش محمد علي - العتبة</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">170 Mohamed Aly St. Ataba -Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">25069270-23904615</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">المكتب البورسعيدي للنقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">El Porsaidy Office For Transport </Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">17 ش محمد مجدي - عابدين</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">17 Mohamed Magdy St. Abdin- Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="Number">23904503</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">23378851</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">النيل للنقل الثقيل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Nile Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">16أ ش الكابلات - المطرية</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">16 A AlKablat St., ElMatareya</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">22507013-22506894&#10;22506639</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">22506178</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s83" ss:HRef="http://www.nile-transport.com/"><Data
+      ss:Type="String">www.nile-transport.com</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">شركات نقل ميناء السخنة والأدبية </Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">يوتام للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Utam Transport</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">98 عمارات الفتح&#10;آخر عباس العقاد - مدينة نصر </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">98 El-Fath Builings, Abbas El-Akkad St.,Nasr City, Cairo- Egypt</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">القاهرة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Cairo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">26719948-26719949</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">شركات نقل ميناء بورسعيد  </Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">الشركة العربية للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">AlArabeya Transport</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">المناصرة – طريق بورسعيد دمياط </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AlManasra- Port Said Rd.- Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">بور سعيد</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Port Said</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">066358034</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">شركات نقل ميناء دمياط  </Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">الحبشى للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">AlHabashy Transport</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">الطريق السريع – دمياط </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Fast Rd.- Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">دمياط</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">057341085</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">شركة أبو العلا للنقل </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Abo Alala</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ميناء دمياط -المبنى الاستثمارى&#10;مبنى أبو غالب </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Damietta Port, Investment Bldgs., Abo Ghali Bldg.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">دمياط</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0125575015</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">شركة جمال مؤمن </Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Gamal Moamen </Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">شارع الشهداء – دمياط</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Alshohada St.- Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">دمياط</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Damietta</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transportition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">057328587</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:Height="36">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ايجي لوجيستكس لجميع أنواع النقل</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Egylogistics for all Transport</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">رقم 6 ش البدراوى - الوفاء والأمل - مشعل - الهرم</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">6 Al-Badrawi st. Al-Wafaa we Alamal - Mashaal - Al-Haram</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">الجيزة</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Giza</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">شركات النقل</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Transport companies</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">+202 33830281 / 01111106886</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">+202 33830281</Data></Cell>
+    <Cell ss:StyleID="s86" ss:HRef="mailto:relbardesy@hotmail.com"><Data
+      ss:Type="String">relbardesy@hotmail.com</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">م/ ربيع البرديسي</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <DisplayRightToLeft/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="ورقة2" ss:RightToLeft="1">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1">
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <DisplayRightToLeft/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="ورقة3" ss:RightToLeft="1">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1">
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <DisplayRightToLeft/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
