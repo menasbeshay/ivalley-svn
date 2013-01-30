@@ -1,0 +1,47 @@
+/* CSS Document */
+
+*
+{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+.breadcrumb {
+	width:100%;
+	display:inline-block;
+	padding-bottom:18px;
+}
+
+.breadcrumb span.title {
+	font-size:9px;
+	color:#a4a4a4;
+	float:left;
+	display:inline;
+	margin-right:7px;
+	margin-left: 10px;
+	font-family:Arial, Helvetica, sans-serif;	
+	font-weight:bold;
+}
+
+.breadcrumb span.nodes span {
+	float:left;
+	display:inline;
+	margin-right:6px;
+	font-size:9px;
+	color:#a4a4a4;
+	font-family:Arial, Helvetica, sans-serif;	
+}
+
+.breadcrumb span.nodes a{
+	color:#b7b7b7 !important;
+	fotn-size:9px;
+	text-decoration:none;
+	text-transform:none;
+	font-weight:normal;
+}
+
+.breadcrumb span.nodes:last-child {
+	text-transform:uppercase;
+	font-weight:bold;
+}

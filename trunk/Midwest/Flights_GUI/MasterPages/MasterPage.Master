@@ -1,0 +1,219 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs"
+    Inherits="Flights_GUI.MasterPages.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.9.0.custom.min.js" type="text/javascript"></script>
+    <link href="../Styles/jquery-ui-1.9.0.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/ThemeMaster.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/ThemeHome.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/ga.js" type="text/javascript"></script>
+    <script language="JavaScript" type="text/javascript">
+        function setVisibility(id, visibility) {
+            document.getElementById(id).style.display = visibility;
+        }
+    </script>
+    <script language="JavaScript" type="text/javascript">
+        function HideContent(d) {
+            document.getElementById(d).style.display = "none";
+        }
+        function ShowContent(d) {
+            document.getElementById(d).style.display = "block";
+        }
+        function ReverseDisplay(d) {
+            if (document.getElementById(d).style.display == "none") {
+                document.getElementById(d).style.display = "block";
+            }
+            else {
+                document.getElementById(d).style.display = "none";
+            }
+        }
+        </script>
+    <script src="../Scripts/calendar.js" type="text/javascript"></script>
+    <script src="../Scripts/all.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="Container">
+        <div id="HeaderPlan" style="margin-top: 12px;">
+            <div id="HeaderContent">
+                <div id="logo">
+                    <a id="A1" href="../Default.aspx" title="Midwest AirLines">
+                        <img border="0" src="../images/newLogo.gif" alt="Midwest AirLines"
+                            width="228" height="70"></a>
+                </div>
+                <div id="TopMenu">
+                    <div id="menu2" style="width:570px;">                
+                        <div id="facebook_like" >
+                            
+                        </div>
+                        
+                    </div>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <h3>
+                                    <a href="#" title="Airfare Cheap Flights">
+                                        Flights</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="../AvailableAircrafts.aspx" title="Airfare Cheap Hotels">
+                                        Air crafts</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="#" title="Travel Insurance">
+                                        Documnets</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="#" title="Contact Airfare"
+                                        rel="nofollow">Contact Us</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a  title="Customer Support" rel="nofollow">Support</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="#"
+                                        title="Login to " rel="nofollow">Login</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <%--<div id="sub3" style="display: none;" onmouseover="setVisibility(&#39;sub3&#39;, &#39;inline&#39;);"
+                    onmouseout="setVisibility(&#39;sub3&#39;, &#39;none&#39;);">
+                    <a href="http://www.airfare.com/airfare5/ATCMuser/PNRLookUp.aspx" style="background: url(/airfare5/master/images/emailButton.gif) no-repeat 0 50%;"
+                        rel="nofollow">Changes by E-Mail (Beta)</a><br>
+                    <a href="http://www.airfare.com/WTC-Ticket-Information_Change.htm" style="background: url(/airfare5/master/images/print.png) no-repeat 0 50%;"
+                        rel="nofollow">Change Reservation by Fax</a><br>
+                    <a href="http://www.airfare.com/airfare5/content/changes.aspx" style="background: url(/airfare5/master/images/icoAirport.gif) no-repeat 0 50%;"
+                        rel="nofollow">Trip Cancellation</a><br>
+                    <a href="http://www.airfare.com/airfare5/flights/uploader.aspx" style="background: url(/airfare5/master/images/newsletter.png) no-repeat 0 50%;"
+                        rel="nofollow">Verification Documents</a><br>
+                    <a href="http://www.airfare.com/airfare5/WTC-Ticket-Information.htm" style="background: url(/airfare5/master/images/vcard.png) no-repeat 0 50%;"
+                        rel="nofollow">Credit Card Authorization</a><br>
+                    <a href="http://www.airfare.com/airfare5/content/feedback.aspx" style="background: url(/airfare5/master/images/blog.png) no-repeat 0 50%;"
+                        rel="nofollow">Send a Question to Airfare</a><br>
+                    <a href="http://www.airfare.com/airfare5/content/customersupport.aspx" style="background: url(/airfare5/master/images/support.png) no-repeat 0 50%;"
+                        rel="nofollow">Customer Support</a><br>
+                </div>--%>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div id="PageContent">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div id="footerPanl">
+            <div id="FooterContent">
+                <div id="FooterTop">
+                    <div id="FooterMiddle">
+                        <div id="FooterMid1" class="FooterMids">
+                        </div>
+                        <div id="FooterMid2" class="FooterMids">
+                        </div>
+                        <div id="FooterMid3" class="FooterMids">
+                        </div>
+                        <div id="FooterMid4" class="FooterMids">
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div id="FooterBottom">
+                        <p>
+                            Copyright © 1995-2012 Midwest.com. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: none;">
+            <input id="RoomsCount" type="hidden" value="1">
+            <script type="text/javascript" language="javascript">                function AddRow() {
+                    var NewCount = parseInt(document.getElementById("RoomsCount").value) + 1
+                    document.getElementById("RoomsCount").value = NewCount
+                    var td1 = document.createElement("td")
+                    var td2 = document.createElement("td")
+                    var td3 = document.createElement("td")
+                    td1.innerHTML = document.getElementById("RoomName").innerHTML.replace(/#RoomCount#/g, NewCount)
+                    td2.innerHTML = document.getElementById("AdultsDrp").innerHTML.replace(/#RoomCount#/g, (NewCount - 1))
+                    td3.innerHTML = document.getElementById("ChildrenDrp").innerHTML.replace(/#RoomCount#/g, (NewCount - 1))
+                    var tr = document.createElement("tr")
+                    tr.appendChild(td1)
+                    tr.appendChild(td2)
+                    tr.appendChild(td3)
+                    document.getElementById("Tbl").getElementsByTagName('tbody')[0].appendChild(tr);
+                }
+                function RemoveRow() {
+                    var NewCount = parseInt(document.getElementById("RoomsCount").value) - 1
+                    document.getElementById("RoomsCount").value = NewCount
+                    document.getElementById("Tbl").getElementsByTagName('tbody')[0].removeChild(document.getElementById("Tbl").getElementsByTagName('tbody')[0].lastChild)
+                }
+                function AddRemoveRooms(RoomsNewCount) {
+                    var RoomsOldCount = parseInt(document.getElementById("RoomsCount").value)
+                    if (RoomsNewCount > RoomsOldCount) { for (var i = 0; i < (RoomsNewCount - RoomsOldCount); i++) { AddRow() } }
+                    else if (RoomsOldCount > RoomsNewCount) { for (var i = 0; i < (RoomsOldCount - RoomsNewCount); i++) { RemoveRow() } }
+                }
+                function BuildSearchUrl() {
+                    var now = new Date()
+                    var BaseUrl = 'hotels.airfare.com'
+                    var CheckInDate = document.getElementById("hotelsDay1").value
+                    var CheckOutDate = document.getElementById("hotelsDay2").value
+                    var CityCode = document.getElementById("HomeCity").value
+                    var HotelName = document.getElementById("HotelName").value
+                    var TransID = now.format("yyyyMMddHHmmss") + Math.round(Math.random() * 1000, 0); var Occupancystr = GetOccupancyStr()
+                    var URL = new String(); URL = "http://" + BaseUrl + "/Airfare5/Hotels/default.aspx?"
+                    URL += "SearchMode=City&"
+                    URL += "CityCode=" + CityCode + "&"
+                    URL += "Location=" + CityCode + "&"
+                    URL += "TransID=" + TransID + "&"
+                    URL += "CheckInDate=" + CheckInDate + "&"
+                    URL += "CheckOutDate=" + CheckOutDate + "&"
+                    URL += "TrackingID=airfare" + "&"
+                    URL += "Name=" + HotelName + "&"
+                    URL += "AutoSearch=1&"; URL += Occupancystr
+                    location.href = URL;
+                }
+                function GetOccupancyStr() {
+                    var OccupancyArr = GetTotalPassengers()
+                    var OccupancyStr = new String(); for (var Key in OccupancyArr) { OccupancyStr += Key + "=" + OccupancyArr[Key] + "&" }
+                    return OccupancyStr.substring(0, OccupancyStr.length - 1)
+                }
+                function GetBaseUrl() {
+                    var Url = window.location.href.toString().toLowerCase().replace("http://", "")
+                    return Url.split("/")[0]
+                }
+                function GetTotalPassengers() {
+                    var OccupancyArr = new Array(); var RoomsCount = parseInt(document.getElementById("RoomsCount").value)
+                    var TotalPassengersCount = 0; var ChildrenAges = ""; for (var i = 0; i < RoomsCount; i++) {
+                        var RoomAdultsCount = document.getElementById("Room" + i + "AdultsDrp").value
+                        var RoomChildrenCount = document.getElementById("Room" + i + "ChildrenDrp").value
+                        TotalPassengersCount += parseInt(RoomAdultsCount) + parseInt(RoomChildrenCount)
+                        OccupancyArr["Room" + i + "Adults"] = RoomAdultsCount
+                        OccupancyArr["Room" + i + "Children"] = RoomChildrenCount; ChildrenAges = ""; for (var j = 0; j < RoomChildrenCount; j++) {
+                            if (ChildrenAges != "")
+                                ChildrenAges += ","; ChildrenAges += "10";
+                        }
+                        OccupancyArr["Room" + i + "ChildrenAges"] = ChildrenAges;
+                    }
+                    OccupancyArr["TotalPassengers"] = parseInt(TotalPassengersCount)
+                    OccupancyArr["RoomsCount"] = RoomsCount
+                    return OccupancyArr
+                }</script>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    </form>
+</body>
+</html>
