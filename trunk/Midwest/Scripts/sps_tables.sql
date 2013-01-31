@@ -403,8 +403,8 @@ inner join Pilot P on SP.PilotID = P.PilotID
 inner join AirPlane AP on S.AirCraft_AirPlaneID = AP.AirPlaneID
 where  (@PilotID = 0 Or P.PilotID = @PilotID) and 
 	   S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and 
-	   S.SectorDate <= ISNULL(@EndDate, '01/01/2500') /*And 
-	  (S.IsPAX <> 1 or S.IsPAX is null)*/
+	   S.SectorDate <= ISNULL(@EndDate, '01/01/2500') And 
+	  (S.IsPAX <> 1 or S.IsPAX is null)
 order by S.SectorDate
 
 Go

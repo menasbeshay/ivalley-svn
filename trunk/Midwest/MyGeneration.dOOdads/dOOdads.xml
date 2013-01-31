@@ -4,174 +4,6 @@
         <name>MyGeneration.dOOdads</name>
     </assembly>
     <members>
-        <member name="T:MyGeneration.dOOdads.AggregateParameter">
-             <summary>
-             This class is dynamcially created when you add an AggregateParameter to your BusinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
-             </summary>
-             <remarks>
-             Aggregate and GROUP BY Feature Support by DBMS:
-             <code>
-                             MS    MS    My    SQ    Vista Fire  Post
-             Feature         SQL   Acces SQL   Lite  DB    bird  gre   Oracle  Ads
-             --------------- ----- ----- ----- ----- ----- ----- ----- ------ -----
-             Avg              Y     Y     Y     Y     Y     Y     Y     Y       Y
-             Count            Y     Y     Y     Y     Y     Y     Y     Y       Y
-             Max              Y     Y     Y     Y     Y     Y     Y     Y       Y
-             Min              Y     Y     Y     Y     Y     Y     Y     Y       Y
-             Sum              Y     Y     Y     Y     Y     Y     Y     Y       Y
-             StdDev           Y     Y     Y     -     Y     -     Y    (4)      -
-             Var              Y     Y     Y     -     -     -     Y     Y       -
-             Aggregate in
-               ORDER BY       Y     Y    (1)    Y    (3)    Y     Y     Y       Y
-               GROUP BY       -     -     -     Y    (3)    Y     Y     Y       -
-             WITH ROLLUP      Y     -    (2)    -     Y     -     -     Y       -
-             COUNT(DISTINCT)  Y     -     Y     -     Y     Y     Y     Y       Y
-             
-             Notes:
-               (1) - MySQL - accepts an aggregate's alias in an
-                     ORDER BY clause.
-               (2) - MySQL - WITH ROLLUP and ORDER BY are mutually
-                     exclusive
-               (3) - VistaDB - will not ORDER BY or GROUP BY 'COUNT(*)' 
-                     the rest works fine.   
-               (4) - Uses TRUNC(STDDEV(column),10) to avoid overflow errors
-               
-             </code>
-             This will be the extent of your use of the AggregateParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
-             <code>
-             prds  = new Products();
-            
-             // To include a COUNT(*) with NULLs included
-             prds.Query.CountAll = true;
-             prds.Query.CountAllAlias = "Product Count";
-            
-             // To exclude NULLs in the COUNT for a column
-             prds.Aggregate.UnitsInStock.Function = AggregateParameter.Func.Count;
-             prds.Aggregate.UnitsInStock.Alias = "With Stock";
-            
-             // To have two aggregates for the same column, use a tearoff
-             AggregateParameter ap = prds.Aggregate.TearOff.UnitsInStock;
-             ap.Function = AggregateParameter.Func.Sum;
-             ap.Alias = "Total Units";
-            
-             prds.Aggregate.ReorderLevel.Function = AggregateParameter.Func.Avg;
-             prds.Aggregate.ReorderLevel.Alias = "Avg Reorder";
-            
-             prds.Aggregate.UnitPrice.Function = AggregateParameter.Func.Min;
-             prds.Aggregate.UnitPrice.Alias = "Min Price";
-            
-             ap = prds.Aggregate.TearOff.UnitPrice;
-             ap.Function = AggregateParameter.Func.Max;
-             ap.Alias = "Max Price";
-            
-             // If you have no aggregates or AddResultColumns,
-             // Then the query defaults to SELECT *
-             // If you have an aggregate and no AddResultColumns,
-             // Then only aggregates are reurned in the query.
-             prds.Query.AddResultColumn(Products.ColumnNames.CategoryID);
-             prds.Query.AddResultColumn(Products.ColumnNames.Discontinued);
-            
-             // If you have an Aggregate, ANSI SQL requires an AddGroupBy
-             // for each AddResultColumn. Check your DBMS docs.
-             prds.Query.AddGroupBy(Products.ColumnNames.CategoryID);
-             prds.Query.AddGroupBy(Products.ColumnNames.Discontinued);
-            
-             prds.Query.AddOrderBy(Products.ColumnNames.Discontinued, WhereParameter.Dir.ASC);
-             
-             // You can use aggregates in AddOrderBy by
-             // referencing either the entity AggregateParameter or a tearoff
-             // You must create the aggregate before using it here.
-             prds.Query.AddOrderBy(prds.Aggregate.UnitsInStock, WhereParameter.Dir.DESC);
-             
-             // Load it.
-             prds.Query.Load();
-             </code>
-             </remarks>
-        </member>
-        <member name="M:MyGeneration.dOOdads.AggregateParameter.#ctor(System.String,System.Data.IDataParameter)">
-            <summary>
-            This is only called by dOOdads architecture.
-            </summary>
-            <param name="column"></param>
-            <param name="param"></param>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.IsDirty">
-            <summary>
-            Used to determine if the AggregateParameter has a value
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Column">
-            <summary>
-            The column in the BusinessEntity that this AggregateParameter is going to query against. 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Param">
-            <summary>
-            The actual database Parameter 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Value">
-            <summary>
-            The value that will be placed into the Parameter
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Function">
-            <summary>
-            The type of aggregate function desired.
-            Avg, Count, Min, Max, Sum, StdDev, or Var.
-            (See AggregateParameter.Func enumeration.)
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Alias">
-            <summary>
-            The user-friendly name of the aggregate column
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.AggregateParameter.Distinct">
-            <summary>
-            If true, then use (DISTINCT columnName) in the aggregate.
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.AggregateParameter.Func">
-            <summary>
-            The aggregate function used by Aggregate.Function
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Avg">
-            <summary>
-            Average
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Count">
-            <summary>
-            Count
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Max">
-            <summary>
-            Maximum
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Min">
-            <summary>
-            Minimum
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.StdDev">
-            <summary>
-            Standard Deviation
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Var">
-            <summary>
-            Variance
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Sum">
-            <summary>
-            Sum
-            </summary>
-        </member>
         <member name="T:MyGeneration.dOOdads.WhereParameter">
             <summary>
             This class is dynamcially created when you add a WhereParameter to your BusiinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
@@ -1860,9 +1692,172 @@
             This property returns the DynamicQuery object which will allow you to build complex queries using your BusinessEntity.
             </summary>
         </member>
-        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
+        <member name="T:MyGeneration.dOOdads.AggregateParameter">
+             <summary>
+             This class is dynamcially created when you add an AggregateParameter to your BusinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
+             </summary>
+             <remarks>
+             Aggregate and GROUP BY Feature Support by DBMS:
+             <code>
+                             MS    MS    My    SQ    Vista Fire  Post
+             Feature         SQL   Acces SQL   Lite  DB    bird  gre   Oracle  Ads
+             --------------- ----- ----- ----- ----- ----- ----- ----- ------ -----
+             Avg              Y     Y     Y     Y     Y     Y     Y     Y       Y
+             Count            Y     Y     Y     Y     Y     Y     Y     Y       Y
+             Max              Y     Y     Y     Y     Y     Y     Y     Y       Y
+             Min              Y     Y     Y     Y     Y     Y     Y     Y       Y
+             Sum              Y     Y     Y     Y     Y     Y     Y     Y       Y
+             StdDev           Y     Y     Y     -     Y     -     Y    (4)      -
+             Var              Y     Y     Y     -     -     -     Y     Y       -
+             Aggregate in
+               ORDER BY       Y     Y    (1)    Y    (3)    Y     Y     Y       Y
+               GROUP BY       -     -     -     Y    (3)    Y     Y     Y       -
+             WITH ROLLUP      Y     -    (2)    -     Y     -     -     Y       -
+             COUNT(DISTINCT)  Y     -     Y     -     Y     Y     Y     Y       Y
+             
+             Notes:
+               (1) - MySQL - accepts an aggregate's alias in an
+                     ORDER BY clause.
+               (2) - MySQL - WITH ROLLUP and ORDER BY are mutually
+                     exclusive
+               (3) - VistaDB - will not ORDER BY or GROUP BY 'COUNT(*)' 
+                     the rest works fine.   
+               (4) - Uses TRUNC(STDDEV(column),10) to avoid overflow errors
+               
+             </code>
+             This will be the extent of your use of the AggregateParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
+             <code>
+             prds  = new Products();
+            
+             // To include a COUNT(*) with NULLs included
+             prds.Query.CountAll = true;
+             prds.Query.CountAllAlias = "Product Count";
+            
+             // To exclude NULLs in the COUNT for a column
+             prds.Aggregate.UnitsInStock.Function = AggregateParameter.Func.Count;
+             prds.Aggregate.UnitsInStock.Alias = "With Stock";
+            
+             // To have two aggregates for the same column, use a tearoff
+             AggregateParameter ap = prds.Aggregate.TearOff.UnitsInStock;
+             ap.Function = AggregateParameter.Func.Sum;
+             ap.Alias = "Total Units";
+            
+             prds.Aggregate.ReorderLevel.Function = AggregateParameter.Func.Avg;
+             prds.Aggregate.ReorderLevel.Alias = "Avg Reorder";
+            
+             prds.Aggregate.UnitPrice.Function = AggregateParameter.Func.Min;
+             prds.Aggregate.UnitPrice.Alias = "Min Price";
+            
+             ap = prds.Aggregate.TearOff.UnitPrice;
+             ap.Function = AggregateParameter.Func.Max;
+             ap.Alias = "Max Price";
+            
+             // If you have no aggregates or AddResultColumns,
+             // Then the query defaults to SELECT *
+             // If you have an aggregate and no AddResultColumns,
+             // Then only aggregates are reurned in the query.
+             prds.Query.AddResultColumn(Products.ColumnNames.CategoryID);
+             prds.Query.AddResultColumn(Products.ColumnNames.Discontinued);
+            
+             // If you have an Aggregate, ANSI SQL requires an AddGroupBy
+             // for each AddResultColumn. Check your DBMS docs.
+             prds.Query.AddGroupBy(Products.ColumnNames.CategoryID);
+             prds.Query.AddGroupBy(Products.ColumnNames.Discontinued);
+            
+             prds.Query.AddOrderBy(Products.ColumnNames.Discontinued, WhereParameter.Dir.ASC);
+             
+             // You can use aggregates in AddOrderBy by
+             // referencing either the entity AggregateParameter or a tearoff
+             // You must create the aggregate before using it here.
+             prds.Query.AddOrderBy(prds.Aggregate.UnitsInStock, WhereParameter.Dir.DESC);
+             
+             // Load it.
+             prds.Query.Load();
+             </code>
+             </remarks>
+        </member>
+        <member name="M:MyGeneration.dOOdads.AggregateParameter.#ctor(System.String,System.Data.IDataParameter)">
             <summary>
-            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
+            This is only called by dOOdads architecture.
+            </summary>
+            <param name="column"></param>
+            <param name="param"></param>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.IsDirty">
+            <summary>
+            Used to determine if the AggregateParameter has a value
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Column">
+            <summary>
+            The column in the BusinessEntity that this AggregateParameter is going to query against. 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Param">
+            <summary>
+            The actual database Parameter 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Value">
+            <summary>
+            The value that will be placed into the Parameter
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Function">
+            <summary>
+            The type of aggregate function desired.
+            Avg, Count, Min, Max, Sum, StdDev, or Var.
+            (See AggregateParameter.Func enumeration.)
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Alias">
+            <summary>
+            The user-friendly name of the aggregate column
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.AggregateParameter.Distinct">
+            <summary>
+            If true, then use (DISTINCT columnName) in the aggregate.
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.AggregateParameter.Func">
+            <summary>
+            The aggregate function used by Aggregate.Function
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Avg">
+            <summary>
+            Average
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Max">
+            <summary>
+            Maximum
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Min">
+            <summary>
+            Minimum
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.StdDev">
+            <summary>
+            Standard Deviation
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Var">
+            <summary>
+            Variance
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Sum">
+            <summary>
+            Sum
             </summary>
         </member>
         <member name="T:MyGeneration.dOOdads.SqlClientDynamicQuery">
@@ -2413,6 +2408,11 @@
             <summary>
             This is the Transaction's strength. The default is "IsolationLevel.Unspecified, the strongest is "IsolationLevel.Serializable" which is what
             is recommended for serious enterprize level projects.
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
+            <summary>
+            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
             </summary>
         </member>
     </members>
