@@ -91,6 +91,7 @@
     <Content Include="images\Operation.png" />
     <Content Include="images\pilot.gif" />
     <Content Include="images\Safety.png" />
+    <Content Include="Operation\AllPilotStatus.aspx" />
     <Content Include="Operation\Default.aspx" />
     <Content Include="Operation\FlightDetails.aspx" />
     <Content Include="images\4.jpg" />
@@ -483,6 +484,7 @@
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\CalculationUtils.cs" />
     <Compile Include="Common\Controls\SectorInfo.ascx.cs">
       <DependentUpon>SectorInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +519,13 @@
     </Compile>
     <Compile Include="MasterPages\Start.Master.designer.cs">
       <DependentUpon>Start.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\AllPilotStatus.aspx.cs">
+      <DependentUpon>AllPilotStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\AllPilotStatus.aspx.designer.cs">
+      <DependentUpon>AllPilotStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Operation\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
