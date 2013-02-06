@@ -147,6 +147,14 @@ namespace GlobalLogistics.DAL
 				}
 			}
 			
+			public static SqlParameter IconPath
+			{
+				get
+				{
+					return new SqlParameter("@IconPath", SqlDbType.NVarChar, 250);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace GlobalLogistics.DAL
             public const string EnDescription = "EnDescription";
             public const string ArDescription = "ArDescription";
             public const string CategoryID = "CategoryID";
+            public const string IconPath = "IconPath";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace GlobalLogistics.DAL
 					ht[EnDescription] = _SubCategories.PropertyNames.EnDescription;
 					ht[ArDescription] = _SubCategories.PropertyNames.ArDescription;
 					ht[CategoryID] = _SubCategories.PropertyNames.CategoryID;
+					ht[IconPath] = _SubCategories.PropertyNames.IconPath;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace GlobalLogistics.DAL
             public const string EnDescription = "EnDescription";
             public const string ArDescription = "ArDescription";
             public const string CategoryID = "CategoryID";
+            public const string IconPath = "IconPath";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace GlobalLogistics.DAL
 					ht[EnDescription] = _SubCategories.ColumnNames.EnDescription;
 					ht[ArDescription] = _SubCategories.ColumnNames.ArDescription;
 					ht[CategoryID] = _SubCategories.ColumnNames.CategoryID;
+					ht[IconPath] = _SubCategories.ColumnNames.IconPath;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace GlobalLogistics.DAL
             public const string EnDescription = "s_EnDescription";
             public const string ArDescription = "s_ArDescription";
             public const string CategoryID = "s_CategoryID";
+            public const string IconPath = "s_IconPath";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace GlobalLogistics.DAL
 			set
 	        {
 				base.Setint(ColumnNames.CategoryID, value);
+			}
+		}
+
+		public virtual string IconPath
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.IconPath);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.IconPath, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace GlobalLogistics.DAL
 			}
 		}
 
+		public virtual string s_IconPath
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IconPath) ? string.Empty : base.GetstringAsString(ColumnNames.IconPath);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IconPath);
+				else
+					this.IconPath = base.SetstringAsString(ColumnNames.IconPath, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace GlobalLogistics.DAL
 					}
 				}
 
+				public WhereParameter IconPath
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IconPath, Parameters.IconPath);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace GlobalLogistics.DAL
 				}
 			}
 
+			public WhereParameter IconPath
+		    {
+				get
+		        {
+					if(_IconPath_W == null)
+	        	    {
+						_IconPath_W = TearOff.IconPath;
+					}
+					return _IconPath_W;
+				}
+			}
+
 			private WhereParameter _SubCategoryID_W = null;
 			private WhereParameter _EnName_W = null;
 			private WhereParameter _ArName_W = null;
 			private WhereParameter _EnDescription_W = null;
 			private WhereParameter _ArDescription_W = null;
 			private WhereParameter _CategoryID_W = null;
+			private WhereParameter _IconPath_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace GlobalLogistics.DAL
 				_EnDescription_W = null;
 				_ArDescription_W = null;
 				_CategoryID_W = null;
+				_IconPath_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace GlobalLogistics.DAL
 					}
 				}
 
+				public AggregateParameter IconPath
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IconPath, Parameters.IconPath);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace GlobalLogistics.DAL
 				}
 			}
 
+			public AggregateParameter IconPath
+		    {
+				get
+		        {
+					if(_IconPath_W == null)
+	        	    {
+						_IconPath_W = TearOff.IconPath;
+					}
+					return _IconPath_W;
+				}
+			}
+
 			private AggregateParameter _SubCategoryID_W = null;
 			private AggregateParameter _EnName_W = null;
 			private AggregateParameter _ArName_W = null;
 			private AggregateParameter _EnDescription_W = null;
 			private AggregateParameter _ArDescription_W = null;
 			private AggregateParameter _CategoryID_W = null;
+			private AggregateParameter _IconPath_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace GlobalLogistics.DAL
 				_EnDescription_W = null;
 				_ArDescription_W = null;
 				_CategoryID_W = null;
+				_IconPath_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace GlobalLogistics.DAL
 
 			p = cmd.Parameters.Add(Parameters.CategoryID);
 			p.SourceColumn = ColumnNames.CategoryID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IconPath);
+			p.SourceColumn = ColumnNames.IconPath;
 			p.SourceVersion = DataRowVersion.Current;
 
 

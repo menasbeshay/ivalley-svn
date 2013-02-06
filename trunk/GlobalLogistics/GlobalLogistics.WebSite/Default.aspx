@@ -8,6 +8,7 @@
 <%@ Register src="Controls/LogisticsConsulting.ascx" tagname="LogisticsConsulting" tagprefix="uc15" %>
 <%@ Register src="Controls/TrainingCourses.ascx" tagname="TrainingCourses" tagprefix="uc16" %>
 <%@ Register src="Controls/Sponsors.ascx" tagname="Sponsors" tagprefix="uc17" %>
+<%@ Register src="Controls/HomeBlock.ascx" tagname="HomeBlock" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,8 +21,12 @@
             <uc6:Ads6 ID="Ads61" runat="server" />
         </div>
         <div class="ContentLeftDivRight">
-            <uc13:LatestOffers ID="LatestOffers1" runat="server" />
-            <uc14:LatestRequests ID="LatestRequests1" runat="server" />            
+            <a href="Service.aspx?T=off" class="blue_med ir" style="margin-right: 5px;">blue med</a>
+            <a href="Service.aspx?T=req" class="green_med ir">green med</a> <a href="Service.aspx?T=job"
+                class="yellow_med ir">yellow med</a>
+            <div class="clear10">
+            </div>
+            <uc1:HomeBlock ID="HomeBlock1" runat="server" />
             <div class="clear">
             </div>
         </div>

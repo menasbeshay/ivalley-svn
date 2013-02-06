@@ -49,22 +49,13 @@ namespace GlobalLogistics.WebSite {
         protected global::GlobalLogistics.WebSite.Controls.Ads6 Ads61;
         
         /// <summary>
-        /// LatestOffers1 control.
+        /// HomeBlock1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::GlobalLogistics.WebSite.Controls.LatestOffers LatestOffers1;
-        
-        /// <summary>
-        /// LatestRequests1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GlobalLogistics.WebSite.Controls.LatestRequests LatestRequests1;
+        protected global::GlobalLogistics.WebSite.Controls.HomeBlock HomeBlock1;
         
         /// <summary>
         /// Sponsors1 control.

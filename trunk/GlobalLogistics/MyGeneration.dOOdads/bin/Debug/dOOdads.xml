@@ -4,546 +4,177 @@
         <name>MyGeneration.dOOdads</name>
     </assembly>
     <members>
-        <member name="T:MyGeneration.dOOdads.DynamicQuery">
-             <summary>
-             DynamicQuery allows you to (without writing any stored procedures) query your database on the fly. All selection criteria are passed in
-             via Parameters (SqlParameter, OleDbParameter) in order to prevent sql injection tecniques often attempted by hackers.  
-             </summary>
-             <example>
-             VB.NET
-             <code>
-             Dim emps As New Employees
-            
-             ' LastNames that have "A" anywher in them
-             emps.Where.LastName.Value = "%A%"
-             emps.Where.LastName.Operator = WhereParameter.Operand.Like_
-            
-             ' Only return the EmployeeID and LastName
-             emps.Query.AddResultColumn(Employees.ColumnNames.EmployeeID)
-             emps.Query.AddResultColumn(Employees.ColumnNames.LastName)
-            
-             ' Order by LastName 
-             ' (you can add as many order by columns as you like by repeatedly calling this)
-             emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC)
-            
-             ' Bring back only distinct rows
-             emps.Query.Distinct = True
-            
-             ' Bring back the top 10 rows
-             emps.Query.Top = 10
-            
-             emps.Query.Load()</code>
-            	C#
-            	<code>
-             Employees emps = new Employees();
-            
-             // LastNames that have "A" anywher in them
-             emps.Where.LastName.Value = "%A%";
-             emps.Where.LastName.Operator = WhereParameter.Operand.Like;
-            
-             // Only return the EmployeeID and LastName
-             emps.Query.AddResultColumn(Employees.ColumnNames.EmployeeID);
-             emps.Query.AddResultColumn(Employees.ColumnNames.LastName);
-            
-             // Order by LastName 
-             // (you can add as many order by columns as you like by repeatedly calling this)
-             emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC);
-            
-             // Bring back only distinct rows
-             emps.Query.Distinct = true;
-            
-             // Bring back the top 10 rows
-             emps.Query.Top = 10;
-            
-             emps.Query.Load();</code>
-             </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery._Load(System.String)">
+        <member name="T:MyGeneration.dOOdads.TransactionMgr">
             <summary>
-            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery to account for differences in DBMS systems.
-            </summary>
-            <param name="conjuction">The conjuction, "AND" or "OR"</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.#ctor(MyGeneration.dOOdads.BusinessEntity)">
-            <summary>
-            You never need to call this, just access your BusinessEntity.Query property.
-            </summary>
-            <param name="entity">Passed in via the BusinessEntity</param>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.Load">
-            <summary>
-            Execute the Query and loads your BusinessEntity. The default conjuction between the WHERE parameters is "AND"
-            </summary>
-            <returns>True if at least one record was loaded</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.Load(System.String)">
-            <summary>
-            Execute the Query and loads your BusinessEntity. 
-            You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
-            Also, if you need to be notified that this is being called override BusinessEntity.OnQueryLoad().
-            </summary>
-            <returns>True if at least one record was loaded</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.GenerateSQL">
-            <summary>
-            Builds the SQL Statement that it would use to execute the Query, however, it doesn't execute, just returns it as a string for debugging purposes.
-            "AND" is the default conjuction.
-            </summary>
-            <returns>The SQL statement</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.GenerateSQL(System.String)">
-            <summary>
-            Builds the SQL Statement that it would use to execute the Query, however, it doesn't execute, just returns it as a string for debugging purposes.
-            You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
-            </summary>
-            <returns>The SQL statement</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.ReturnReader">
-            <summary>
-            Executes the Query, however, your BusinessEntity will not be loaded with the data from the query, instead, a DataReader is returned that will allow you 
-            to iterate over the data. The default conjuction is "AND" between WHERE parameters.
-            </summary>
-            <returns>The DataReader</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.ReturnReader(System.String)">
-            <summary>
-            Executes the Query, however, your BusinessEntity will not be loaded with the data from the query, instead, a DataReader is returned that will allow you 
-            to iterate over the data. You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
-            </summary>
-            <returns>The DataReader</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddWhereParameter(MyGeneration.dOOdads.WhereParameter)">
-            <summary>
-            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
-            </summary>
-            <param name="wItem">The WhereParameter</param>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddAggregateParameter(MyGeneration.dOOdads.AggregateParameter)">
-            <summary>
-            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
-            </summary>
-            <param name="wItem">The AggregateParameter</param>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(System.String,MyGeneration.dOOdads.WhereParameter.Dir)">
-            <overloads>
-            Use this to have your Query order the data. If you want to order the data by two columns you will need to call this method twice.
-            </overloads>
-            <summary>
-            Use this to have your Query order the data. If you want to order the data by two columns you will need to call this method twice.
-            </summary>
-            <param name="column">This should be an entry from your ColumnNames class</param>
-            <param name="direction">Either Descending or Ascending</param>
-            <example>
-            <code>
-            emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC)</code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(MyGeneration.dOOdads.DynamicQuery,MyGeneration.dOOdads.WhereParameter.Dir)">
-            <summary>
-            Overloaded to let your Query order the data by COUNT(*).
-            Used with Query.CountAll set to true.
-            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
-            to account for differences in DBMS systems.
-            </summary>
-            <param name="countAll">This should be entity.Query</param>
-            <param name="direction">Either Descending or Ascending</param>
-            <example>
-            <code>
-            emps.Query.AddOrderBy(emps.Query, WhereParameter.Dir.ASC)</code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(MyGeneration.dOOdads.AggregateParameter,MyGeneration.dOOdads.WhereParameter.Dir)">
-            <summary>
-            Overloaded to support aggregates.
-            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
-            to account for differences in DBMS systems.
-            </summary>
-            <param name="aggregate">This should be an entry from your Aggregate class</param>
-            <param name="direction">Either Descending or Ascending</param>
-            <example>
-            <code>
-            emps.Query.AddOrderBy(emps.Aggregate.CategoryID, WhereParameter.Dir.ASC)</code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddGroupBy(System.String)">
-            <overloads>
-            Use this to have your Query group the data. If you want to group the data by two columns you will need to call this method twice.
-            </overloads>
-            <summary>
-            Use this to have your Query group the data. If you want to group the data by two columns you will need to call this method twice.
-            If you call AddGroupBy, ANSI SQL requires an AddGroupBy for each AddResultColumn that is not an aggregate. Check your DBMS docs.
-            </summary>
-            <param name="column">This should be an entry from your ColumnNames class</param>
-            <example>
-            <code>
-            emps.Query.AddGroupBy(Employees.ColumnNames.City)</code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddGroupBy(MyGeneration.dOOdads.AggregateParameter)">
-            <summary>
-            Overloaded to support aggregates.
-            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
-            to account for differences in DBMS systems.
-            </summary>
-            <param name="aggregate">This should be an entry from your Aggregate class</param>
-            <example>
-            <code>
-            emps.Query.AddGroupBy(emps.Aggregate.City)</code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.FlushWhereParameters">
-            <summary>
-            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.FlushAggregateParameters">
-            <summary>
-            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddResultColumn(System.String)">
-             <summary>
-             The default result set for Query.Load is all of the columns in your Table or View. Once you call AddResultColumn this changes to only
-             the columns you have added via this method. For instance, if you call AddResultColumn twice then only two columns will be returned
-             in your result set. 
-             </summary>
-             <param name="columnName">This should be an entry from your ColumnNames class.</param>
-             <example>
-             VB.NET
-             <code>
-             Public Sub FillComboBox()
-            
-             	Dim prds As New Products
-            
-             	' Note we only bring back these two columns for performance reasons, why bring back more?
-             	prds.Query.AddResultColumn(prds.ColumnNames.ProductID)
-             	prds.Query.AddResultColumn(prds.ColumnNames.ProductName)
-            
-             	' Sort
-             	prds.Query.AddOrderBy(prds.ColumnNames.ProductName, MyGeneration.dOOdads.WhereParameter.Dir.ASC)
-             	
-             	' Load it
-             	prds.Query.Load()
-             	
-             	' Bind it 
-             	Me.cmbBox.DisplayMember = prds.ColumnNames.ProductName
-             	Me.cmbBox.DataSource    = prds.DefaultView
-             	End Sub
-             </code>
-             C#
-             <code>
-             public void FillComboBox()
-             {
-             	Products prds = new Products();
-            
-             	// Note we only bring back these two columns for performance reasons, why bring back more?
-             	prds.Query.AddResultColumn(Products.ColumnNames.ProductID);
-             	prds.Query.AddResultColumn(Products.ColumnNames.ProductName);
-            
-             	// Sort
-             	prds.Query.AddOrderBy(Products.ColumnNames.ProductName, MyGeneration.dOOdads.WhereParameter.Dir.ASC);
-             	
-             	// Load it
-             	prds.Query.Load();
-            
-             	// Bind it (there no combo box in this code, see demo)
-             	Me.cmbBox.DisplayMember = prds.ColumnNames.ProductName
-             	Me.cmbBox.DataSource    = prds.DefaultView
-             }
-             </code>
-             </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.ResultColumnsClear">
-            <summary>
-            Calling this will set the result columns back to "all".
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddConjunction(MyGeneration.dOOdads.WhereParameter.Conj)">
-            <summary>
-            A Query has a default conjuction between WHERE parameters, this method lets you intermix those and alternate between AND/OR.
-            </summary>
-            <param name="conjuction"></param>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.OpenParenthesis">
-            <summary>
-            Used for advanced queries
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.DynamicQuery.CloseParenthesis">
-            <summary>
-            Used for advanced queries
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._distinct">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._top">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._countAll">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._countAllAlias">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._withRollup">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._whereParameters">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._aggregateParameters">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._resultColumns">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._orderBy">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._groupBy">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery._entity">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.DynamicQuery.inc">
-            <summary>
-            Used by derived classes
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.LastQuery">
-            <summary>
-            Contains the Query string from your last call to Query.Load(), this is useful for debugging purposes.
-            </summary>
-            <returns>The SQL statement</returns>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.Top">
-            <summary>
-            This will limit the number of rows returned, after sorting. Setting Top to 10 will return the top ten rows after sorting.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.Distinct">
-            <summary>
-            Setting Distinct = True will elimate duplicate rows from the data.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.CountAll">
-            <summary>
-            If true, add a COUNT(*) Aggregate to the selected columns list.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.CountAllAlias">
-            <summary>
-            If CountAll is set to true, use this to add a user-friendly column name.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.WithRollup">
-            <summary>
-            If true, add WITH ROLLUP to the GROUP BY clause.
-            </summary>
-            <example>
-            <code>
-            prds.Query.WithRollup = true;
-            </code>
-            </example>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.ParameterCount">
-            <summary>
-            This represents the number of WhereParameters contained within the Query.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.DynamicQuery.AggregateCount">
-            <summary>
-            This represents the number of Aggregates contained within the Query.
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter">
-            <summary>
-            This class is dynamcially created when you add a WhereParameter to your BusiinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
+            TransactionMgr is used to seemlessly enroll BusinessEntity's  into a transaction. TransactionMgr uses
+            ADO.NET transactions and therefore is not a distributed transaction as you would get with COM+. You only have
+            to use TransactionMgr if two or more BusinessEntity's need to be saved as a transaction.  The BusinessEntity.Save
+            method is already protected by a transaction.
             </summary>
             <remarks>
-            This will be the extent of your use of the WhereParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
-            <code>
-            emps.Where.LastName.Value = "%A%";
-            emps.Where.LastName.Operator = WhereParameter.Operand.Like;
-            </code>
+            Transaction Rules:
+            <list type="bullet">
+            	<item>Your transactions paths do not have to be pre-planned. At any time you can begin a transaction</item>
+            	<item>You can nest BeginTransaction/CommitTransaction any number of times as long as they are sandwiched appropriately</item>
+            	<item>Once RollbackTransaction is called the transaction is doomed, nothing can be committed even it is attempted.</item>
+            	<item>Transactions are stored in the Thread Local Storage.</item>
+            </list>
+            Transactions are stored in the Thread Local Storage or
+            TLS. This way the API isn't intrusive, ie, forcing you
+            to pass a SqlConnection around everywhere.  There is one
+            thing to remember, once you call RollbackTransaction you will
+            be unable to commit anything on that thread until you
+            call ThreadTransactionMgrReset().
+            
+            In an ASP.NET application each page is handled by a thread
+            that is pulled from a thread pool. Thus, you need to clear
+            out the TLS (thread local storage) before your page begins
+            execution. The best way to do this is to create a base page
+            that inhertis from System.Web.UI.Page and clears the state
+            like this:	
             </remarks>
+            <example>
+            VB.NET
+            <code>
+            Dim tx As TransactionMgr
+            tx = TransactionMgr.ThreadTransactionMgr()
+            
+            Try
+            	tx.BeginTransaction()
+            	emps.Save()
+            	prds.Save()
+            	tx.CommitTransaction()
+            Catch ex As Exception
+            	tx.RollbackTransaction()
+            	tx.ThreadTransactionMgrReset()
+            End Try
+            </code>
+            C#
+            <code>
+            TransactionMgr tx = TransactionMgr.ThreadTransactionMgr();
+            
+            try
+            {
+            	tx.BeginTransaction();
+            	emps.Save();
+            	prds.Save();
+            	tx.CommitTransaction();
+            }
+            catch(Exception ex)
+            {
+            	tx.RollbackTransaction();
+            	tx.ThreadTransactionMgrReset();
+            }
+            </code>
+            </example>
         </member>
-        <member name="M:MyGeneration.dOOdads.WhereParameter.#ctor(System.String,System.Data.IDataParameter)">
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.#ctor">
             <summary>
-            This is only called by dOOdads architecture.
-            </summary>
-            <param name="column"></param>
-            <param name="param"></param>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.IsDirty">
-            <summary>
-            Used to determine if the WhereParameters has a value
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Column">
-            <summary>
-            The column in the BusinessEntity that this WhereParameter is going to query against. 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Param">
-            <summary>
-            The actual database Parameter 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Value">
-            <summary>
-            The value that will be placed into the Parameter
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Operator">
-            <summary>
-            The type of comparison desired
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Conjuction">
-            <summary>
-            The type of conjuction to use, "AND" or "OR"
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue">
-            <summary>
-            Used when use the Operand.Between comparison
+            You cannot new an instance of the TransactionMgr class, see the static method <see cref="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr"/>
             </summary>
         </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue">
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction">
             <summary>
-            Used when use the Operand.Between comparison
+            BeginTransaction should always be a followed by a call to CommitTransaction if all goes well, or
+            RollbackTransaction if problems are detected.  BeginTransaction() can be nested any number of times
+            as long as each call is unwound with a call to CommitTransaction().
             </summary>
         </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Operand">
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.CommitTransaction">
             <summary>
-            The type of comparison this parameter shoud use
+            The final call to CommitTransaction commits the transaction to the database, BeginTransaction and
+            CommitTransaction calls can be nested, <see cref="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction"/>
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Equal">
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.RollbackTransaction">
             <summary>
-            Equal Comparison
+            RollbackTransaction dooms the transaction regardless of nested calls to BeginTransaction. Once this method is called
+            nothing can be done to commit the transaction.  To reset the thread state a call to <see cref="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgrReset"/> must be made.
+            You must call 
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotEqual">
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.Enlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)">
             <summary>
-            Not Equal Comparison
+            Enlist by the dOOdads architecture when a IDbCommand (SqlCommand is an IDbCommand). The command may or may not be enrolled 
+            in a transaction depending on whether or not BeginTransaction has been called. Each call to Enlist must be followed by a
+            call to <see cref="M:MyGeneration.dOOdads.TransactionMgr.DeEnlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)"/>.
+            </summary>
+            <param name="cmd">Your SqlCommand, OleDbCommand, etc ...</param>
+            <param name="entity">Your business entity, in C# use 'this', VB.NET use 'Me'.</param>
+            <example>
+            C#
+            <code>
+            txMgr.Enlist(cmd, this);
+            cmd.ExecuteNonQuery();
+            txMgr.DeEnlist(cmd, this);
+            </code>
+            VB.NET
+            <code>
+            txMgr.Enlist(cmd, Me)
+            cmd.ExecuteNonQuery()
+            txMgr.DeEnlist(cmd, Me)
+            </code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.DeEnlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)">
+            <summary>
+            Each call to Enlist must be followed eventually by a call to DeEnlist.  
+            </summary>
+            <param name="cmd"></param>
+            <param name="entity"></param>
+            <example>
+            C#
+            <code>
+            txMgr.Enlist(cmd, this);
+            cmd.ExecuteNonQuery();
+            txMgr.DeEnlist(cmd, this); 
+            </code>
+            VB.NET
+            <code>>
+            txMgr.Enlist(cmd, Me)
+            cmd.ExecuteNonQuery()
+            txMgr.DeEnlist(cmd, Me)
+            </code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.AddBusinessEntity(MyGeneration.dOOdads.BusinessEntity)">
+            <summary>
+            Called internally by BusinessEntity
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr">
+            <summary>
+            This static method is how you obtain a reference to the TransactionMgr. You cannot call "new" on TransactionMgr.
+            If a TransactionMgr doesn't exist on the current thread, one is created and returned to you.
+            </summary>
+            <returns>The one and only TransactionMgr for this thread.</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgrReset">
+            <summary>
+            This must be called after RollbackTransaction or no futher database activity will happen successfully on the current thread.
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThan">
+        <member name="P:MyGeneration.dOOdads.TransactionMgr.NestingCount">
             <summary>
-            Greater Than Comparison
+            Returns the number of outstanding calls to <see cref="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction"/> without subsequent calls to 
+            <see cref="M:MyGeneration.dOOdads.TransactionMgr.CommitTransaction"/>
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual">
+        <member name="P:MyGeneration.dOOdads.TransactionMgr.HasBeenRolledBack">
             <summary>
-            Greater Than or Equal Comparison
+            True if <see cref="M:MyGeneration.dOOdads.TransactionMgr.RollbackTransaction"/> has been called on this thread. 
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThan">
+        <member name="P:MyGeneration.dOOdads.TransactionMgr.IsolationLevel">
             <summary>
-            Less Than Comparison
+            This is the Transaction's strength. The default is "IsolationLevel.Unspecified, the strongest is "IsolationLevel.Serializable" which is what
+            is recommended for serious enterprize level projects.
             </summary>
         </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual">
+        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
             <summary>
-            Less Than or Equal Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Like">
-            <summary>
-            Like Comparison, "%s%" does it have an 's' in it? "s%" does it begin with 's'?
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNull">
-            <summary>
-            Is the value null in the database
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull">
-            <summary>
-            Is the value non-null in the database
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Between">
-            <summary>
-            Is the value between two parameters? see <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue"/> and <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue"/>. 
-            Note that Between can be for other data types than just dates.
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.In">
-            <summary>
-            Is the value in a list, ie, "4,5,6,7,8"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotIn">
-            <summary>
-            NOT in a list, ie not in, "4,5,6,7,8"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotLike">
-            <summary>
-            Not Like Comparison, "%s%", anything that does not it have an 's' in it.
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Dir">
-            <summary>
-            The direction used by DynamicQuery.AddOrderBy
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.ASC">
-            <summary>
-            Ascending
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.DESC">
-            <summary>
-            Descending
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Conj">
-            <summary>
-            The conjuction used between WhereParameters
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.And">
-            <summary>
-            WhereParameters are joined via "And"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.Or">
-            <summary>
-            WhereParameters are joined via "Or"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.UseDefault">
-            <summary>
-            WhereParameters are used via the default passed into DynamicQuery.Load.
+            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
             </summary>
         </member>
         <member name="T:MyGeneration.dOOdads.BusinessEntity">
@@ -2069,9 +1700,551 @@
             This property returns the DynamicQuery object which will allow you to build complex queries using your BusinessEntity.
             </summary>
         </member>
-        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
+        <member name="T:MyGeneration.dOOdads.DynamicQuery">
+             <summary>
+             DynamicQuery allows you to (without writing any stored procedures) query your database on the fly. All selection criteria are passed in
+             via Parameters (SqlParameter, OleDbParameter) in order to prevent sql injection tecniques often attempted by hackers.  
+             </summary>
+             <example>
+             VB.NET
+             <code>
+             Dim emps As New Employees
+            
+             ' LastNames that have "A" anywher in them
+             emps.Where.LastName.Value = "%A%"
+             emps.Where.LastName.Operator = WhereParameter.Operand.Like_
+            
+             ' Only return the EmployeeID and LastName
+             emps.Query.AddResultColumn(Employees.ColumnNames.EmployeeID)
+             emps.Query.AddResultColumn(Employees.ColumnNames.LastName)
+            
+             ' Order by LastName 
+             ' (you can add as many order by columns as you like by repeatedly calling this)
+             emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC)
+            
+             ' Bring back only distinct rows
+             emps.Query.Distinct = True
+            
+             ' Bring back the top 10 rows
+             emps.Query.Top = 10
+            
+             emps.Query.Load()</code>
+            	C#
+            	<code>
+             Employees emps = new Employees();
+            
+             // LastNames that have "A" anywher in them
+             emps.Where.LastName.Value = "%A%";
+             emps.Where.LastName.Operator = WhereParameter.Operand.Like;
+            
+             // Only return the EmployeeID and LastName
+             emps.Query.AddResultColumn(Employees.ColumnNames.EmployeeID);
+             emps.Query.AddResultColumn(Employees.ColumnNames.LastName);
+            
+             // Order by LastName 
+             // (you can add as many order by columns as you like by repeatedly calling this)
+             emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC);
+            
+             // Bring back only distinct rows
+             emps.Query.Distinct = true;
+            
+             // Bring back the top 10 rows
+             emps.Query.Top = 10;
+            
+             emps.Query.Load();</code>
+             </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery._Load(System.String)">
             <summary>
-            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
+            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery to account for differences in DBMS systems.
+            </summary>
+            <param name="conjuction">The conjuction, "AND" or "OR"</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.#ctor(MyGeneration.dOOdads.BusinessEntity)">
+            <summary>
+            You never need to call this, just access your BusinessEntity.Query property.
+            </summary>
+            <param name="entity">Passed in via the BusinessEntity</param>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.Load">
+            <summary>
+            Execute the Query and loads your BusinessEntity. The default conjuction between the WHERE parameters is "AND"
+            </summary>
+            <returns>True if at least one record was loaded</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.Load(System.String)">
+            <summary>
+            Execute the Query and loads your BusinessEntity. 
+            You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
+            Also, if you need to be notified that this is being called override BusinessEntity.OnQueryLoad().
+            </summary>
+            <returns>True if at least one record was loaded</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.GenerateSQL">
+            <summary>
+            Builds the SQL Statement that it would use to execute the Query, however, it doesn't execute, just returns it as a string for debugging purposes.
+            "AND" is the default conjuction.
+            </summary>
+            <returns>The SQL statement</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.GenerateSQL(System.String)">
+            <summary>
+            Builds the SQL Statement that it would use to execute the Query, however, it doesn't execute, just returns it as a string for debugging purposes.
+            You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
+            </summary>
+            <returns>The SQL statement</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.ReturnReader">
+            <summary>
+            Executes the Query, however, your BusinessEntity will not be loaded with the data from the query, instead, a DataReader is returned that will allow you 
+            to iterate over the data. The default conjuction is "AND" between WHERE parameters.
+            </summary>
+            <returns>The DataReader</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.ReturnReader(System.String)">
+            <summary>
+            Executes the Query, however, your BusinessEntity will not be loaded with the data from the query, instead, a DataReader is returned that will allow you 
+            to iterate over the data. You can pass in the conjustion that will be used between the WHERE parameters, either, "AND" or "OR". "AND" is the default.
+            </summary>
+            <returns>The DataReader</returns>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddWhereParameter(MyGeneration.dOOdads.WhereParameter)">
+            <summary>
+            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
+            </summary>
+            <param name="wItem">The WhereParameter</param>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddAggregateParameter(MyGeneration.dOOdads.AggregateParameter)">
+            <summary>
+            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
+            </summary>
+            <param name="wItem">The AggregateParameter</param>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(System.String,MyGeneration.dOOdads.WhereParameter.Dir)">
+            <overloads>
+            Use this to have your Query order the data. If you want to order the data by two columns you will need to call this method twice.
+            </overloads>
+            <summary>
+            Use this to have your Query order the data. If you want to order the data by two columns you will need to call this method twice.
+            </summary>
+            <param name="column">This should be an entry from your ColumnNames class</param>
+            <param name="direction">Either Descending or Ascending</param>
+            <example>
+            <code>
+            emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC)</code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(MyGeneration.dOOdads.DynamicQuery,MyGeneration.dOOdads.WhereParameter.Dir)">
+            <summary>
+            Overloaded to let your Query order the data by COUNT(*).
+            Used with Query.CountAll set to true.
+            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
+            to account for differences in DBMS systems.
+            </summary>
+            <param name="countAll">This should be entity.Query</param>
+            <param name="direction">Either Descending or Ascending</param>
+            <example>
+            <code>
+            emps.Query.AddOrderBy(emps.Query, WhereParameter.Dir.ASC)</code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddOrderBy(MyGeneration.dOOdads.AggregateParameter,MyGeneration.dOOdads.WhereParameter.Dir)">
+            <summary>
+            Overloaded to support aggregates.
+            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
+            to account for differences in DBMS systems.
+            </summary>
+            <param name="aggregate">This should be an entry from your Aggregate class</param>
+            <param name="direction">Either Descending or Ascending</param>
+            <example>
+            <code>
+            emps.Query.AddOrderBy(emps.Aggregate.CategoryID, WhereParameter.Dir.ASC)</code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddGroupBy(System.String)">
+            <overloads>
+            Use this to have your Query group the data. If you want to group the data by two columns you will need to call this method twice.
+            </overloads>
+            <summary>
+            Use this to have your Query group the data. If you want to group the data by two columns you will need to call this method twice.
+            If you call AddGroupBy, ANSI SQL requires an AddGroupBy for each AddResultColumn that is not an aggregate. Check your DBMS docs.
+            </summary>
+            <param name="column">This should be an entry from your ColumnNames class</param>
+            <example>
+            <code>
+            emps.Query.AddGroupBy(Employees.ColumnNames.City)</code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddGroupBy(MyGeneration.dOOdads.AggregateParameter)">
+            <summary>
+            Overloaded to support aggregates.
+            Derived classes implement this, like SqlClientDynamicQuery and OleDbDynamicQuery
+            to account for differences in DBMS systems.
+            </summary>
+            <param name="aggregate">This should be an entry from your Aggregate class</param>
+            <example>
+            <code>
+            emps.Query.AddGroupBy(emps.Aggregate.City)</code>
+            </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.FlushWhereParameters">
+            <summary>
+            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
+            </summary>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.FlushAggregateParameters">
+            <summary>
+            NOTE: This is called by the dOOdad framework and you should never call it. We reserve the right to remove or change this method.
+            </summary>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddResultColumn(System.String)">
+             <summary>
+             The default result set for Query.Load is all of the columns in your Table or View. Once you call AddResultColumn this changes to only
+             the columns you have added via this method. For instance, if you call AddResultColumn twice then only two columns will be returned
+             in your result set. 
+             </summary>
+             <param name="columnName">This should be an entry from your ColumnNames class.</param>
+             <example>
+             VB.NET
+             <code>
+             Public Sub FillComboBox()
+            
+             	Dim prds As New Products
+            
+             	' Note we only bring back these two columns for performance reasons, why bring back more?
+             	prds.Query.AddResultColumn(prds.ColumnNames.ProductID)
+             	prds.Query.AddResultColumn(prds.ColumnNames.ProductName)
+            
+             	' Sort
+             	prds.Query.AddOrderBy(prds.ColumnNames.ProductName, MyGeneration.dOOdads.WhereParameter.Dir.ASC)
+             	
+             	' Load it
+             	prds.Query.Load()
+             	
+             	' Bind it 
+             	Me.cmbBox.DisplayMember = prds.ColumnNames.ProductName
+             	Me.cmbBox.DataSource    = prds.DefaultView
+             	End Sub
+             </code>
+             C#
+             <code>
+             public void FillComboBox()
+             {
+             	Products prds = new Products();
+            
+             	// Note we only bring back these two columns for performance reasons, why bring back more?
+             	prds.Query.AddResultColumn(Products.ColumnNames.ProductID);
+             	prds.Query.AddResultColumn(Products.ColumnNames.ProductName);
+            
+             	// Sort
+             	prds.Query.AddOrderBy(Products.ColumnNames.ProductName, MyGeneration.dOOdads.WhereParameter.Dir.ASC);
+             	
+             	// Load it
+             	prds.Query.Load();
+            
+             	// Bind it (there no combo box in this code, see demo)
+             	Me.cmbBox.DisplayMember = prds.ColumnNames.ProductName
+             	Me.cmbBox.DataSource    = prds.DefaultView
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.ResultColumnsClear">
+            <summary>
+            Calling this will set the result columns back to "all".
+            </summary>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.AddConjunction(MyGeneration.dOOdads.WhereParameter.Conj)">
+            <summary>
+            A Query has a default conjuction between WHERE parameters, this method lets you intermix those and alternate between AND/OR.
+            </summary>
+            <param name="conjuction"></param>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.OpenParenthesis">
+            <summary>
+            Used for advanced queries
+            </summary>
+        </member>
+        <member name="M:MyGeneration.dOOdads.DynamicQuery.CloseParenthesis">
+            <summary>
+            Used for advanced queries
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._distinct">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._top">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._countAll">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._countAllAlias">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._withRollup">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._whereParameters">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._aggregateParameters">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._resultColumns">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._orderBy">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._groupBy">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery._entity">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.DynamicQuery.inc">
+            <summary>
+            Used by derived classes
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.LastQuery">
+            <summary>
+            Contains the Query string from your last call to Query.Load(), this is useful for debugging purposes.
+            </summary>
+            <returns>The SQL statement</returns>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.Top">
+            <summary>
+            This will limit the number of rows returned, after sorting. Setting Top to 10 will return the top ten rows after sorting.
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.Distinct">
+            <summary>
+            Setting Distinct = True will elimate duplicate rows from the data.
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.CountAll">
+            <summary>
+            If true, add a COUNT(*) Aggregate to the selected columns list.
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.CountAllAlias">
+            <summary>
+            If CountAll is set to true, use this to add a user-friendly column name.
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.WithRollup">
+            <summary>
+            If true, add WITH ROLLUP to the GROUP BY clause.
+            </summary>
+            <example>
+            <code>
+            prds.Query.WithRollup = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.ParameterCount">
+            <summary>
+            This represents the number of WhereParameters contained within the Query.
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.DynamicQuery.AggregateCount">
+            <summary>
+            This represents the number of Aggregates contained within the Query.
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.SqlClientDynamicQuery">
+            <summary>
+            SqlClientDynamicQuery is the Microsoft SQL implementation of DynamicQuery
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter">
+            <summary>
+            This class is dynamcially created when you add a WhereParameter to your BusiinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
+            </summary>
+            <remarks>
+            This will be the extent of your use of the WhereParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
+            <code>
+            emps.Where.LastName.Value = "%A%";
+            emps.Where.LastName.Operator = WhereParameter.Operand.Like;
+            </code>
+            </remarks>
+        </member>
+        <member name="M:MyGeneration.dOOdads.WhereParameter.#ctor(System.String,System.Data.IDataParameter)">
+            <summary>
+            This is only called by dOOdads architecture.
+            </summary>
+            <param name="column"></param>
+            <param name="param"></param>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.IsDirty">
+            <summary>
+            Used to determine if the WhereParameters has a value
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Column">
+            <summary>
+            The column in the BusinessEntity that this WhereParameter is going to query against. 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Param">
+            <summary>
+            The actual database Parameter 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Value">
+            <summary>
+            The value that will be placed into the Parameter
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Operator">
+            <summary>
+            The type of comparison desired
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Conjuction">
+            <summary>
+            The type of conjuction to use, "AND" or "OR"
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue">
+            <summary>
+            Used when use the Operand.Between comparison
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue">
+            <summary>
+            Used when use the Operand.Between comparison
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Operand">
+            <summary>
+            The type of comparison this parameter shoud use
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Equal">
+            <summary>
+            Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotEqual">
+            <summary>
+            Not Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThan">
+            <summary>
+            Greater Than Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual">
+            <summary>
+            Greater Than or Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThan">
+            <summary>
+            Less Than Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual">
+            <summary>
+            Less Than or Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Like">
+            <summary>
+            Like Comparison, "%s%" does it have an 's' in it? "s%" does it begin with 's'?
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNull">
+            <summary>
+            Is the value null in the database
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull">
+            <summary>
+            Is the value non-null in the database
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Between">
+            <summary>
+            Is the value between two parameters? see <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue"/> and <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue"/>. 
+            Note that Between can be for other data types than just dates.
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.In">
+            <summary>
+            Is the value in a list, ie, "4,5,6,7,8"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotIn">
+            <summary>
+            NOT in a list, ie not in, "4,5,6,7,8"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotLike">
+            <summary>
+            Not Like Comparison, "%s%", anything that does not it have an 's' in it.
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Dir">
+            <summary>
+            The direction used by DynamicQuery.AddOrderBy
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.ASC">
+            <summary>
+            Ascending
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.DESC">
+            <summary>
+            Descending
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Conj">
+            <summary>
+            The conjuction used between WhereParameters
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.And">
+            <summary>
+            WhereParameters are joined via "And"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.Or">
+            <summary>
+            WhereParameters are joined via "Or"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.UseDefault">
+            <summary>
+            WhereParameters are used via the default passed into DynamicQuery.Load.
             </summary>
         </member>
         <member name="T:MyGeneration.dOOdads.AggregateParameter">
@@ -2240,179 +2413,6 @@
         <member name="F:MyGeneration.dOOdads.AggregateParameter.Func.Sum">
             <summary>
             Sum
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.TransactionMgr">
-            <summary>
-            TransactionMgr is used to seemlessly enroll BusinessEntity's  into a transaction. TransactionMgr uses
-            ADO.NET transactions and therefore is not a distributed transaction as you would get with COM+. You only have
-            to use TransactionMgr if two or more BusinessEntity's need to be saved as a transaction.  The BusinessEntity.Save
-            method is already protected by a transaction.
-            </summary>
-            <remarks>
-            Transaction Rules:
-            <list type="bullet">
-            	<item>Your transactions paths do not have to be pre-planned. At any time you can begin a transaction</item>
-            	<item>You can nest BeginTransaction/CommitTransaction any number of times as long as they are sandwiched appropriately</item>
-            	<item>Once RollbackTransaction is called the transaction is doomed, nothing can be committed even it is attempted.</item>
-            	<item>Transactions are stored in the Thread Local Storage.</item>
-            </list>
-            Transactions are stored in the Thread Local Storage or
-            TLS. This way the API isn't intrusive, ie, forcing you
-            to pass a SqlConnection around everywhere.  There is one
-            thing to remember, once you call RollbackTransaction you will
-            be unable to commit anything on that thread until you
-            call ThreadTransactionMgrReset().
-            
-            In an ASP.NET application each page is handled by a thread
-            that is pulled from a thread pool. Thus, you need to clear
-            out the TLS (thread local storage) before your page begins
-            execution. The best way to do this is to create a base page
-            that inhertis from System.Web.UI.Page and clears the state
-            like this:	
-            </remarks>
-            <example>
-            VB.NET
-            <code>
-            Dim tx As TransactionMgr
-            tx = TransactionMgr.ThreadTransactionMgr()
-            
-            Try
-            	tx.BeginTransaction()
-            	emps.Save()
-            	prds.Save()
-            	tx.CommitTransaction()
-            Catch ex As Exception
-            	tx.RollbackTransaction()
-            	tx.ThreadTransactionMgrReset()
-            End Try
-            </code>
-            C#
-            <code>
-            TransactionMgr tx = TransactionMgr.ThreadTransactionMgr();
-            
-            try
-            {
-            	tx.BeginTransaction();
-            	emps.Save();
-            	prds.Save();
-            	tx.CommitTransaction();
-            }
-            catch(Exception ex)
-            {
-            	tx.RollbackTransaction();
-            	tx.ThreadTransactionMgrReset();
-            }
-            </code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.#ctor">
-            <summary>
-            You cannot new an instance of the TransactionMgr class, see the static method <see cref="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr"/>
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction">
-            <summary>
-            BeginTransaction should always be a followed by a call to CommitTransaction if all goes well, or
-            RollbackTransaction if problems are detected.  BeginTransaction() can be nested any number of times
-            as long as each call is unwound with a call to CommitTransaction().
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.CommitTransaction">
-            <summary>
-            The final call to CommitTransaction commits the transaction to the database, BeginTransaction and
-            CommitTransaction calls can be nested, <see cref="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction"/>
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.RollbackTransaction">
-            <summary>
-            RollbackTransaction dooms the transaction regardless of nested calls to BeginTransaction. Once this method is called
-            nothing can be done to commit the transaction.  To reset the thread state a call to <see cref="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgrReset"/> must be made.
-            You must call 
-            </summary>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.Enlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)">
-            <summary>
-            Enlist by the dOOdads architecture when a IDbCommand (SqlCommand is an IDbCommand). The command may or may not be enrolled 
-            in a transaction depending on whether or not BeginTransaction has been called. Each call to Enlist must be followed by a
-            call to <see cref="M:MyGeneration.dOOdads.TransactionMgr.DeEnlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)"/>.
-            </summary>
-            <param name="cmd">Your SqlCommand, OleDbCommand, etc ...</param>
-            <param name="entity">Your business entity, in C# use 'this', VB.NET use 'Me'.</param>
-            <example>
-            C#
-            <code>
-            txMgr.Enlist(cmd, this);
-            cmd.ExecuteNonQuery();
-            txMgr.DeEnlist(cmd, this);
-            </code>
-            VB.NET
-            <code>
-            txMgr.Enlist(cmd, Me)
-            cmd.ExecuteNonQuery()
-            txMgr.DeEnlist(cmd, Me)
-            </code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.DeEnlist(System.Data.IDbCommand,MyGeneration.dOOdads.BusinessEntity)">
-            <summary>
-            Each call to Enlist must be followed eventually by a call to DeEnlist.  
-            </summary>
-            <param name="cmd"></param>
-            <param name="entity"></param>
-            <example>
-            C#
-            <code>
-            txMgr.Enlist(cmd, this);
-            cmd.ExecuteNonQuery();
-            txMgr.DeEnlist(cmd, this); 
-            </code>
-            VB.NET
-            <code>>
-            txMgr.Enlist(cmd, Me)
-            cmd.ExecuteNonQuery()
-            txMgr.DeEnlist(cmd, Me)
-            </code>
-            </example>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.AddBusinessEntity(MyGeneration.dOOdads.BusinessEntity)">
-            <summary>
-            Called internally by BusinessEntity
-            </summary>
-            <param name="entity"></param>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr">
-            <summary>
-            This static method is how you obtain a reference to the TransactionMgr. You cannot call "new" on TransactionMgr.
-            If a TransactionMgr doesn't exist on the current thread, one is created and returned to you.
-            </summary>
-            <returns>The one and only TransactionMgr for this thread.</returns>
-        </member>
-        <member name="M:MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgrReset">
-            <summary>
-            This must be called after RollbackTransaction or no futher database activity will happen successfully on the current thread.
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.TransactionMgr.NestingCount">
-            <summary>
-            Returns the number of outstanding calls to <see cref="M:MyGeneration.dOOdads.TransactionMgr.BeginTransaction"/> without subsequent calls to 
-            <see cref="M:MyGeneration.dOOdads.TransactionMgr.CommitTransaction"/>
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.TransactionMgr.HasBeenRolledBack">
-            <summary>
-            True if <see cref="M:MyGeneration.dOOdads.TransactionMgr.RollbackTransaction"/> has been called on this thread. 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.TransactionMgr.IsolationLevel">
-            <summary>
-            This is the Transaction's strength. The default is "IsolationLevel.Unspecified, the strongest is "IsolationLevel.Serializable" which is what
-            is recommended for serious enterprize level projects.
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.SqlClientDynamicQuery">
-            <summary>
-            SqlClientDynamicQuery is the Microsoft SQL implementation of DynamicQuery
             </summary>
         </member>
     </members>
