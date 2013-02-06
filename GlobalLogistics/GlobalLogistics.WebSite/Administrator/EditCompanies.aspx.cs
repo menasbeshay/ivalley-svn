@@ -186,6 +186,14 @@ namespace GlobalLogistics.WebSite.Administrator
                 objData.ArAddress = uiTextBoxArAddress.Text;
                 objData.Tele = uiTextBoxTele.Text;
                 objData.Fax = uiTextBoxFax.Text;
+                try
+                {
+                    objData.Rank = Convert.ToInt32(uiTextBoxRank.Text);
+                }
+                catch (Exception ee)
+                {
+                    objData.Rank = 0;
+                }
                 objData.CityID = Convert.ToInt32(uiDropDownListCity.SelectedValue);
                 objData.CategoryID = Convert.ToInt32(uiDropDownListCategory.SelectedValue);
                 if (!string.IsNullOrEmpty(uiDropDownListSubCategory.SelectedValue))
@@ -277,6 +285,14 @@ namespace GlobalLogistics.WebSite.Administrator
                     objData.LogoPath = filepath;
                     objData.UserName = uiTextBoxUserName.Text;
                     objData.PackageTypeID = Convert.ToInt32(uiDropDownListPackages.SelectedValue);
+                    try
+                    {
+                        objData.Rank = Convert.ToInt32(uiTextBoxRank.Text);
+                    }
+                    catch (Exception ee)
+                    {
+                        objData.Rank = 0;
+                    }
                     objData.Save();
                     CompanyEnabledOptions option = new CompanyEnabledOptions();
                     foreach (ListItem item in uiCheckBoxListPackageOptions.Items)

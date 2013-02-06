@@ -129,6 +129,16 @@ namespace GlobalLogistics.WebSite.Administrator
             objData.ArName = uiTextBoxArName.Text;
             objData.EnDescription = uiTextBoxEnDesc.Text;
             objData.ArDescription = uiTextBoxArDesc.Text;
+            string filepath = "";
+            if (uiFileUploadLogoPath.HasFile)
+            {
+                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/Categories" + "/" + uiFileUploadLogoPath.FileName));
+                filepath = "/Fileuploads/Categories" + "/" + uiFileUploadLogoPath.FileName;
+            }
+            if (!string.IsNullOrEmpty(filepath))
+            {
+                objData.IconPath = filepath;
+            }
             objData.Save();
         }
 
@@ -139,6 +149,16 @@ namespace GlobalLogistics.WebSite.Administrator
             objData.ArName = uiTextBoxArName.Text;
             objData.EnDescription = uiTextBoxEnDesc.Text;
             objData.ArDescription = uiTextBoxArDesc.Text;
+            string filepath = "";
+            if (uiFileUploadLogoPath.HasFile)
+            {
+                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/Categories" + "/" + uiFileUploadLogoPath.FileName));
+                filepath = "/Fileuploads/Categories" + "/" + uiFileUploadLogoPath.FileName;
+            }
+            if (!string.IsNullOrEmpty(filepath))
+            {
+                objData.IconPath = filepath;
+            }
             objData.Save();
         }
 

@@ -2,12 +2,19 @@
     AutoEventWireup="true" CodeBehind="CompanyProfile.aspx.cs" Inherits="GlobalLogistics.WebSite.CompanyProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../Scripts/purl.js" type="text/javascript"></script>
  <script type="text/javascript">
      $(document).ready(function () {
          // Tabs
-         $('#CompanyTabs').tabs();
+         var tid = $.url().param('tid');
+         if (tid == "undefined") {
+             $('#CompanyTabs').tabs();
+         }
+         else {
+             $('#CompanyTabs').tabs({ selected: tid });
+         }
      });
-    </script>
+ </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="ContentLeftDiv">

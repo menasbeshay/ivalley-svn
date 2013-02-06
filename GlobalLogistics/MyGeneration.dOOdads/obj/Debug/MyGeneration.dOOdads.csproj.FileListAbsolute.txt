@@ -21,3 +21,9 @@ D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_subversion\M
 D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache
 D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
 D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\globlogistics\GlobalLogistics_Search\GlobalLogistics_newSVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb

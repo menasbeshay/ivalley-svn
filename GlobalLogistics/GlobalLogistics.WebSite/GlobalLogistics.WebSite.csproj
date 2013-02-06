@@ -155,8 +155,27 @@
     <Content Include="Administrator\EditUsers.aspx" />
     <Content Include="CompanyProfile.aspx" />
     <Content Include="ContactUs.aspx" />
+    <Content Include="Controls\HomeBlock.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Directory.aspx" />
+    <Content Include="DirectorySC.aspx" />
+    <Content Include="en\DirectorySC.aspx" />
+    <Content Include="en\images\Icons\airandshippingicon.gif" />
+    <Content Include="en\images\Icons\customclearanceicon.gif" />
+    <Content Include="en\images\Icons\export-importicon.gif" />
+    <Content Include="en\images\Icons\Factoryicon.gif" />
+    <Content Include="en\images\Icons\icon_freight_forwarding.gif" />
+    <Content Include="en\images\Icons\insurance-icon.gif" />
+    <Content Include="en\images\Icons\othersectoricon.gif" />
+    <Content Include="en\images\Icons\petroleumicon.gif" />
+    <Content Include="en\images\Jobs_ar.gif" />
+    <Content Include="en\images\Jobs_en.gif" />
+    <Content Include="en\images\offers_ar.gif" />
+    <Content Include="en\images\offers_en.gif" />
+    <Content Include="en\images\request_ar.gif" />
+    <Content Include="en\images\request_en.gif" />
+    <Content Include="en\images\specialoffer.png" />
+    <Content Include="en\images\title1000.png" />
     <Content Include="Exchange.aspx" />
     <Content Include="en\images\action_delete.gif" />
     <Content Include="en\images\AdDef_1.gif" />
@@ -224,6 +243,22 @@
     <Content Include="en\images\title675.png" />
     <Content Include="en\images\title728.png" />
     <Content Include="en\images\xChangeBg.png" />
+    <Content Include="images\Icons\airandshippingicon.gif" />
+    <Content Include="images\Icons\customclearanceicon.gif" />
+    <Content Include="images\Icons\export-importicon.gif" />
+    <Content Include="images\Icons\Factoryicon.gif" />
+    <Content Include="images\Icons\icon_freight_forwarding.gif" />
+    <Content Include="images\Icons\insurance-icon.gif" />
+    <Content Include="images\Icons\othersectoricon.gif" />
+    <Content Include="images\Icons\petroleumicon.gif" />
+    <Content Include="images\Jobs_ar.gif" />
+    <Content Include="images\Jobs_en.gif" />
+    <Content Include="images\offers_ar.gif" />
+    <Content Include="images\offers_en.gif" />
+    <Content Include="images\request_ar.gif" />
+    <Content Include="images\request_en.gif" />
+    <Content Include="images\SpecialOffer.gif" />
+    <Content Include="images\title1000.png" />
     <Content Include="IntCodes.aspx" />
     <Content Include="LogisticConsulting.aspx" />
     <Content Include="MagazineSubscribtion.aspx" />
@@ -231,6 +266,11 @@
     <Content Include="News.aspx" />
     <Content Include="Pages.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\interface.js" />
+    <Content Include="Scripts\jquery.jqdock.min.js" />
+    <Content Include="Scripts\jscroller-0.4.js" />
+    <Content Include="Scripts\navDock_1.2.min.js" />
+    <Content Include="Scripts\purl.js" />
     <Content Include="SearchResults.aspx" />
     <Content Include="Service.aspx" />
     <Content Include="en\CompanyProfile.aspx" />
@@ -836,6 +876,7 @@
     <Content Include="en\Service.aspx" />
     <Content Include="Styles\css.css" />
     <Content Include="Styles\css_ar.css" />
+    <Content Include="Styles\jscroller.0.3.css" />
     <Content Include="Styles\lightbox.css" />
     <Content Include="Styles\main.css" />
     <Content Include="Styles\Style.css" />
@@ -1065,6 +1106,13 @@
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\HomeBlock.ascx.cs">
+      <DependentUpon>HomeBlock.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\HomeBlock.ascx.designer.cs">
+      <DependentUpon>HomeBlock.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1078,6 +1126,20 @@
     </Compile>
     <Compile Include="Directory.aspx.designer.cs">
       <DependentUpon>Directory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorySC.aspx.cs">
+      <DependentUpon>DirectorySC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DirectorySC.aspx.designer.cs">
+      <DependentUpon>DirectorySC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\DirectorySC.aspx.cs">
+      <DependentUpon>DirectorySC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\DirectorySC.aspx.designer.cs">
+      <DependentUpon>DirectorySC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Exchange.aspx.cs">
       <DependentUpon>Exchange.aspx</DependentUpon>
@@ -1522,6 +1584,7 @@
     <Folder Include="Arabic\" />
     <Folder Include="FileUploads\AdsLocations\" />
     <Folder Include="FileUploads\Ads\" />
+    <Folder Include="FileUploads\Categories\" />
     <Folder Include="FileUploads\Companies\" />
     <Folder Include="FileUploads\Magazine\" />
     <Folder Include="FileUploads\News\" />

@@ -635,6 +635,20 @@ Create Table SeaPorts
 )
 Go
 
+Alter table companies
+Add [Rank] int default(0)
+Go
+
+
+ALTER table Categories 
+Add IconPath nvarchar(250) null 
+Go
+
+ALTER table SubCategories 
+Add IconPath nvarchar(250) null 
+Go
+
+
 /*******************************************************************************************************/
 
 /* pages procedures  */
@@ -3205,6 +3219,58 @@ Where S.FromSeaPortID = @FromSeaPortID and
 	  S.ToSeaPortID = @ToSeaPortID
 Go
 
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetSubCategoriesForOtherTypes' and
+		        xtype = 'P')
+Drop Procedure GetSubCategoriesForOtherTypes
+Go
+Create Procedure GetSubCategoriesForOtherTypes 
+as
+
+Select * from subCategories 
+Where CategoryID in (4,5,8,10,11,12,13,14,15,17,18)
+
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchCompaniesForShipping' and
+		        xtype = 'P')
+Drop Procedure SearchCompaniesForShipping
+Go
+Create Procedure SearchCompaniesForShipping  
+as
+
+Select C.* from Companies C
+Where C.CategoryID = 1 and 
+	  (C.SubCategoryID = 1 OR C.SubCategoryID = 3 )
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchCompaniesForOffers' and
+		        xtype = 'P')
+Drop Procedure SearchCompaniesForOffers
+Go
+Create Procedure SearchCompaniesForOffers  @CategoryID int = 0,
+										   @SubCategoryID int =0
+as
+
+Select C.* from Companies C
+inner Join SubCategories SC on C.SubCategoryID = SC.SubCategoryID 
+Inner Join Categories CC on CC.CategoryID = SC.CategoryID
+Inner JOIN [Services] S ON C.CompanyID = S.CompanyID
+Where (@SubCategoryID = 0 Or SC.SubCategoryID = @SubCategoryID  ) And 
+	  (@CategoryID = 0 Or CC.CategoryID = @CategoryID  )  and 
+	  S.TypeID = 1
+	  
+Go
 
 /*
 

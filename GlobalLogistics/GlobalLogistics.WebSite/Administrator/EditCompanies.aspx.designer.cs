@@ -391,6 +391,24 @@ namespace GlobalLogistics.WebSite.Administrator {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxFax;
         
         /// <summary>
+        /// Label18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label18;
+        
+        /// <summary>
+        /// uiTextBoxRank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxRank;
+        
+        /// <summary>
         /// UpdateProgress1 control.
         /// </summary>
         /// <remarks>

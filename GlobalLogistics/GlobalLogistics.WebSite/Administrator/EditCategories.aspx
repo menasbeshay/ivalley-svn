@@ -121,6 +121,17 @@
                     </div>
                     <div class="clear5">
                     </div>
+                    <div class="AdminRight" style="width: 130px">
+                        <asp:Label ID="Label5" runat="server" Text="اللوجو :" CssClass="Label"></asp:Label>
+                    </div>
+                    <div class="AdminMiddle">
+                        <asp:FileUpload ID="uiFileUploadLogoPath" runat="server" />
+                        &nbsp;<asp:Image ID="uiImageLogo" runat="server" Height="50px" ImageAlign="Top" />
+                    </div>
+                    <div class="AdminLeft">
+                    </div>
+                    <div class="clear5">
+                    </div>
                     <div class="AdminRight" style="width: 120px">
                         <asp:Label ID="Label3" runat="server" Text="الوصف بالإنجليزية :" CssClass="Label"></asp:Label></div>
                     <div class="AdminMiddle">

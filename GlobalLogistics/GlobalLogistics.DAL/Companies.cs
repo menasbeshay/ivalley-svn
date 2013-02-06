@@ -283,6 +283,14 @@ namespace GlobalLogistics.DAL
 				}
 			}
 			
+			public static SqlParameter Rank
+			{
+				get
+				{
+					return new SqlParameter("@Rank", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -312,6 +320,7 @@ namespace GlobalLogistics.DAL
             public const string ArContact = "ArContact";
             public const string PackageTypeID = "PackageTypeID";
             public const string SchedulePath = "SchedulePath";
+            public const string Rank = "Rank";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -342,6 +351,7 @@ namespace GlobalLogistics.DAL
 					ht[ArContact] = _Companies.PropertyNames.ArContact;
 					ht[PackageTypeID] = _Companies.PropertyNames.PackageTypeID;
 					ht[SchedulePath] = _Companies.PropertyNames.SchedulePath;
+					ht[Rank] = _Companies.PropertyNames.Rank;
 
 				}
 				return (string)ht[columnName];
@@ -377,6 +387,7 @@ namespace GlobalLogistics.DAL
             public const string ArContact = "ArContact";
             public const string PackageTypeID = "PackageTypeID";
             public const string SchedulePath = "SchedulePath";
+            public const string Rank = "Rank";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -407,6 +418,7 @@ namespace GlobalLogistics.DAL
 					ht[ArContact] = _Companies.ColumnNames.ArContact;
 					ht[PackageTypeID] = _Companies.ColumnNames.PackageTypeID;
 					ht[SchedulePath] = _Companies.ColumnNames.SchedulePath;
+					ht[Rank] = _Companies.ColumnNames.Rank;
 
 				}
 				return (string)ht[propertyName];
@@ -442,6 +454,7 @@ namespace GlobalLogistics.DAL
             public const string ArContact = "s_ArContact";
             public const string PackageTypeID = "s_PackageTypeID";
             public const string SchedulePath = "s_SchedulePath";
+            public const string Rank = "s_Rank";
 
 		}
 		#endregion		
@@ -721,6 +734,18 @@ namespace GlobalLogistics.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.SchedulePath, value);
+			}
+		}
+
+		public virtual int Rank
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.Rank);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.Rank, value);
 			}
 		}
 
@@ -1074,6 +1099,21 @@ namespace GlobalLogistics.DAL
 			}
 		}
 
+		public virtual string s_Rank
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Rank) ? string.Empty : base.GetintAsString(ColumnNames.Rank);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Rank);
+				else
+					this.Rank = base.SetintAsString(ColumnNames.Rank, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1332,6 +1372,16 @@ namespace GlobalLogistics.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.SchedulePath, Parameters.SchedulePath);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Rank
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Rank, Parameters.Rank);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1618,6 +1668,18 @@ namespace GlobalLogistics.DAL
 				}
 			}
 
+			public WhereParameter Rank
+		    {
+				get
+		        {
+					if(_Rank_W == null)
+	        	    {
+						_Rank_W = TearOff.Rank;
+					}
+					return _Rank_W;
+				}
+			}
+
 			private WhereParameter _CompanyID_W = null;
 			private WhereParameter _EnName_W = null;
 			private WhereParameter _ArName_W = null;
@@ -1641,6 +1703,7 @@ namespace GlobalLogistics.DAL
 			private WhereParameter _ArContact_W = null;
 			private WhereParameter _PackageTypeID_W = null;
 			private WhereParameter _SchedulePath_W = null;
+			private WhereParameter _Rank_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1667,6 +1730,7 @@ namespace GlobalLogistics.DAL
 				_ArContact_W = null;
 				_PackageTypeID_W = null;
 				_SchedulePath_W = null;
+				_Rank_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1953,6 +2017,16 @@ namespace GlobalLogistics.DAL
 					}
 				}
 
+				public AggregateParameter Rank
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Rank, Parameters.Rank);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2234,6 +2308,18 @@ namespace GlobalLogistics.DAL
 				}
 			}
 
+			public AggregateParameter Rank
+		    {
+				get
+		        {
+					if(_Rank_W == null)
+	        	    {
+						_Rank_W = TearOff.Rank;
+					}
+					return _Rank_W;
+				}
+			}
+
 			private AggregateParameter _CompanyID_W = null;
 			private AggregateParameter _EnName_W = null;
 			private AggregateParameter _ArName_W = null;
@@ -2257,6 +2343,7 @@ namespace GlobalLogistics.DAL
 			private AggregateParameter _ArContact_W = null;
 			private AggregateParameter _PackageTypeID_W = null;
 			private AggregateParameter _SchedulePath_W = null;
+			private AggregateParameter _Rank_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2283,6 +2370,7 @@ namespace GlobalLogistics.DAL
 				_ArContact_W = null;
 				_PackageTypeID_W = null;
 				_SchedulePath_W = null;
+				_Rank_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2447,6 +2535,10 @@ namespace GlobalLogistics.DAL
 
 			p = cmd.Parameters.Add(Parameters.SchedulePath);
 			p.SourceColumn = ColumnNames.SchedulePath;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Rank);
+			p.SourceColumn = ColumnNames.Rank;
 			p.SourceVersion = DataRowVersion.Current;
 
 

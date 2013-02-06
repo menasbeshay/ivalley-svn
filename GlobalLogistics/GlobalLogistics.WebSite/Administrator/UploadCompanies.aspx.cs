@@ -138,7 +138,7 @@ namespace GlobalLogistics.WebSite.Administrator
                             objData.ArName = item[0].ToString();
                             objData.EnAddress = item[3].ToString();
                             objData.ArAddress = item[2].ToString();
-                            
+                            objData.Rank = 0;
                             try
                             {
                                 objData.Tele = item[4].ToString();

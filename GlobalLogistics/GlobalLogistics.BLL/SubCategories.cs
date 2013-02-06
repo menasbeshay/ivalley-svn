@@ -26,6 +26,14 @@ namespace GlobalLogistics.BLL
 
         }
 
+        public virtual bool GetSubCategoriesForOtherTypes()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetSubCategoriesForOtherTypes", parameters);
+
+        }
+
 
         public virtual bool SearchSubCategories(string filterText)
         {

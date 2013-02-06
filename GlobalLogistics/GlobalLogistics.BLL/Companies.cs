@@ -79,5 +79,26 @@ namespace GlobalLogistics.BLL
 
         }
 
+        public virtual bool SearchCompaniesForShipping()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("SearchCompaniesForShipping", parameters);
+
+        }
+
+        public virtual bool SearchCompaniesForOffers(
+                int CategoryID,
+                int SubCategoryID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            
+            parameters.Add(new SqlParameter("@CategoryID", SqlDbType.Int, 0), CategoryID);
+            parameters.Add(new SqlParameter("@SubCategoryID", SqlDbType.Int, 0), SubCategoryID);
+
+            return LoadFromSql("SearchCompaniesForOffers", parameters);
+
+        }
+
 	}
 }

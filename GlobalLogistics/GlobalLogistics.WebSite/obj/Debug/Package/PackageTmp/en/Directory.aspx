@@ -13,10 +13,17 @@
                         <ItemTemplate>
                        
                             <div class="ItemHeader" style="font-weight:bold;text-decoration:underline;color:#0B538E;">
-                               <asp:HyperLink ID="CompanyLink" runat="server" ><%# Eval("EnName") %></asp:HyperLink>
-                                <div runat="server" ID="CompanyName"><%# Eval("EnName")%></div>
+                               <asp:HyperLink ID="CompanyLink" runat="server" Style="float: left; display: block;
+                                   height: 30px; vertical-align: middle; padding-top: 15px;"><%# Eval("EnName") %></asp:HyperLink>
+                                <div runat="server" id="CompanyName" style="float: left; height: 30px; padding-top: 15px;"><%# Eval("EnName")%></div>
+                                <div id="OffersDiv" runat="server" style="width: 100px; float: left;">
+                                    <a href="CompanyProfile.aspx?cid=<%# Eval("CompanyID") %>&tid=4">
+                                        <img src="images/specialoffer.png" style="width: 60px; border: 0px; margin: 0px;
+                                            margin-left: 10px; float: none; vertical-align: middle" />
+                                    </a>
+                                </div>
                             </div>
-                            <div class="Clear">
+                            <div class="clear">
                             </div>
                             <div class="ItemLogo">
                                 <img src='<%# string.IsNullOrEmpty(Eval("LogoPath").ToString()) ? "images/default_logo.gif" : Eval("LogoPath") %>' />

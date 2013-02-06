@@ -60,10 +60,32 @@ namespace GlobalLogistics.WebSite.Arabic
                     subcatid = 0;
                 }
             }
+            string searchfor = "";
+            if (Request.QueryString["f"] != null)
+            {
+                try
+                {
+                    searchfor = Request.QueryString["f"].ToString();
+                }
+                catch (Exception ex)
+                {
+                    searchfor = "";
+                }
+            }
 
             PagedDataSource dt = new PagedDataSource();
             Companies objData = new Companies();
-            objData.SearchCompanies("", 0, catid, subcatid);
+            if(!string.IsNullOrEmpty(searchfor ) || searchfor != "sh")
+                objData.SearchCompanies("", 0, catid, subcatid);
+            else if (searchfor == "sh")
+            {
+                objData.SearchCompaniesForShipping();
+            }
+            else if (searchfor == "off")
+            {
+                objData.SearchCompaniesForOffers(catid, subcatid);
+            }
+
             Categories cat = new Categories();
             cat.LoadByPrimaryKey(catid);
             SubCategories subcat = new SubCategories();
@@ -110,8 +132,21 @@ namespace GlobalLogistics.WebSite.Arabic
                 HyperLink linkName = (HyperLink)e.Item.FindControl("CompanyLink");
                 linkName.NavigateUrl = "CompanyProfile.aspx?cid=" + row["CompanyID"].ToString();
                 System.Web.UI.HtmlControls.HtmlGenericControl Name = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("CompanyName");
+                System.Web.UI.HtmlControls.HtmlGenericControl offersDiv = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("OffersDiv");
 
-                if (!string.IsNullOrEmpty(row["PackageTypeID"].ToString()) && row["PackageTypeID"] != "1")
+                Services ser = new Services();
+                ser.GetServicesByCompanyIDAndTypeID(Convert.ToInt32(row["CompanyID"].ToString()), 1);
+
+                if (ser.RowCount > 0)
+                {
+                    offersDiv.Visible = true;
+                }
+                else
+                {
+                    offersDiv.Visible = false;
+                }
+
+                if (!string.IsNullOrEmpty(row["PackageTypeID"].ToString()) && row["PackageTypeID"].ToString() != "1")
                 {
                     linkName.Visible = true;
                     Name.Visible = false;

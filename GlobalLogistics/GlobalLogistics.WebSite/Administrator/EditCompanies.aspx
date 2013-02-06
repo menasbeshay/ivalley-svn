@@ -263,6 +263,16 @@
                             </div>
                             <div class="clear5">
                             </div>
+                            <div class="AdminRight" style="width: 130px">
+                                <asp:Label ID="Label18" runat="server" Text="الترتيب :" CssClass="Label"></asp:Label>
+                            </div>
+                            <div class="AdminMiddle">
+                                <asp:TextBox ID="uiTextBoxRank" runat="server" ValidationGroup="EditPage" Width="350px"></asp:TextBox>
+                            </div>
+                            <div class="AdminLeft">
+                            </div>
+                            <div class="clear5">
+                            </div>
                         </div>
                         <div id="CompanyTabs-2">
                             <asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="true">

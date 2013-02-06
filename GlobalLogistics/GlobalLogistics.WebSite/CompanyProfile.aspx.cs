@@ -37,7 +37,7 @@ namespace GlobalLogistics.WebSite.Arabic
                 {
                     Companies current = new Companies();
                     current.LoadByPrimaryKey(compId);
-
+                    
                     uiLabelCompanyName.Text = current.ArName;
 
                     Categories cat = new Categories();
