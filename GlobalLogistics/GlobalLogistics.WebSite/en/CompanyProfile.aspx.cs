@@ -241,7 +241,7 @@ namespace GlobalLogistics.WebSite
                                 {
                                     LIVideos.Attributes.Add("style", "display:block");
                                     CompanyTabs_9.Attributes.Add("style", "display:block");
-                                    Vedios Videos = new Vedios();
+                                    BLL.Vedios Videos = new BLL.Vedios();
                                     Videos.GetVedioByCompanyID(current.CompanyID);
                                     uiDataListVideos.DataSource = Videos.DefaultView;
                                     uiDataListVideos.DataBind();

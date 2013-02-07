@@ -11,7 +11,7 @@
                         <asp:Repeater ID="uiRepeaterResults" runat="server" 
                             onitemdatabound="uiRepeaterResults_ItemDataBound">
                         <ItemTemplate>
-                       
+                            <div class="rounded_box_comp">
                             <div class="ItemHeader" style="font-weight:bold;text-decoration:underline;color:#0B538E;">
                                <asp:HyperLink ID="CompanyLink" runat="server" Style="float: left; display: block;
                                    height: 30px; vertical-align: middle; padding-top: 15px;"><%# Eval("EnName") %></asp:HyperLink>
@@ -39,6 +39,9 @@
                                 <div class="clear"></div>
                                 <div class="ItemHead" style="font-weight:bold;">Fax</div><div class="ItemValue"><%# Eval("Fax") %></div>
                                 <div class="clear"></div>
+                            </div>
+                                <div class="clear">
+                                </div>
                             </div>
                             <div class="clear10">
                             </div>

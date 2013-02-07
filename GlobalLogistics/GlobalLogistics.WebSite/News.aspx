@@ -10,15 +10,36 @@
             <asp:Panel ID="uiPanelAllNews" runat="server">
         <asp:Repeater ID="uiRepeaterCurrentNews" runat="server">
             <ItemTemplate>
-                    <div >
-                        <a class="title" href='News.aspx?NID=<%# Eval("NewsID") %>'>
+                    <div class="ItemHeader">
+                        <a class="title" href='News.aspx?NID=<%# Eval("NewsID") %>' style="display:block;float:right;width:64%">
                             <%# Eval("ArTitle") %>
-                            </a>                          
+                            </a>    
+                        <div class="Post" style="width:35%;float:left;background-color:#ddd;padding-right:5px;" >
+                            تاريخ النشر :
+                            <%# string.Format("{0:yyyy-MM-dd}", Eval("CreatedDate"))%>
+                            | الساعة
+                            <%# string.Format("{0:hh:mm:ss}", Eval("CreatedDate"))%>
+                        </div>                      
                     </div>
+                <div class="clear">
+                </div>
+                <div class="ItemLogo">
+                    <img src='<%# string.IsNullOrEmpty(Eval("MainPicturePath").ToString()) ? "images/logo_Big_watermark.jpg" : Eval("MainPicturePath") %>'
+                        style="width: 60px; height: 60px;" />
+                </div>
+                <div class="ItemDetails">
+                <%# Eval("ArBrief") %>
+                </div>
                     <div class="clear">
-                    </div>    
+                    </div> 
+                    <hr />   
             </ItemTemplate>
         </asp:Repeater>
+                <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center; direction: rtl;">
+                    <asp:LinkButton ID="uiLinkButtonPrev" runat="server" OnClick="uiLinkButtonPrev_Click"><< السابق</asp:LinkButton>&nbsp;
+                    <asp:Label ID="uiLabelPages" runat="server" Text="Page "></asp:Label>&nbsp;
+                    <asp:LinkButton ID="uiLinkButtonNext" runat="server" OnClick="uiLinkButtonNext_Click">التالى >></asp:LinkButton>
+                </asp:Panel>
     </asp:Panel>
     <asp:Panel ID="uiPanelViewNews" runat="server">
                     <div style="font-weight:bold;color:#0B538E;font-size:16px;"><asp:Label ID="uiLabelTitle" runat="server" ></asp:Label></div>

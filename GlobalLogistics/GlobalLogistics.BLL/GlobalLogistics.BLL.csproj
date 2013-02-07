@@ -75,6 +75,8 @@
     <Compile Include="Sponsors.cs" />
     <Compile Include="SubCategories.cs" />
     <Compile Include="Subscribers.cs" />
+    <Compile Include="VedioCategories.cs" />
+    <Compile Include="VedioLib.cs" />
     <Compile Include="Vedios.cs" />
   </ItemGroup>
   <ItemGroup>

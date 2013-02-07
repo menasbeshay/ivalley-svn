@@ -113,8 +113,12 @@ namespace GlobalLogistics.WebSite
                     subcatid = 0;
                 }
             }
+            if (subcatid == 0 && type != "o" && type == "sh")
+            {
+                LoadSubcatsForShipping(catid);
+            }
 
-            if (subcatid == 0 && type != "o")
+            else if (subcatid == 0 && type != "o")
             {
                 LoadSubcats(catid);
             }
@@ -129,6 +133,35 @@ namespace GlobalLogistics.WebSite
 
 
             
+        }
+
+        private void LoadSubcatsForShipping(int catid)
+        {
+            PagedDataSource dt = new PagedDataSource();
+            SubCategories objData = new SubCategories();
+            objData.GetSubCategoriesForShipping(catid);
+
+            dt.DataSource = objData.DefaultView;
+            dt.AllowPaging = true;
+            dt.PageSize = 10;
+            dt.CurrentPageIndex = PageIndex;
+            if (objData.RowCount > 0 && dt != null)
+            {
+                uiDataListSubCats.DataSource = dt;
+                uiDataListSubCats.DataBind();
+                uiLinkButtonPrev.Enabled = !dt.IsFirstPage;
+                uiLinkButtonNext.Enabled = !dt.IsLastPage;
+                uiLabelPages.Text = "صفحة " + (PageIndex + 1).ToString() + " من " + dt.PageCount.ToString() + " صفحات";
+                uiPanelNoResults.Visible = false;
+                uiPanelCategories.Visible = true;
+                uiPanelResults.Visible = false;
+            }
+            else
+            {
+                uiPanelCategories.Visible = false;
+                uiPanelNoResults.Visible = true;
+                uiPanelResults.Visible = false;
+            }
         }
 
         private void LoadOtherSubcats()

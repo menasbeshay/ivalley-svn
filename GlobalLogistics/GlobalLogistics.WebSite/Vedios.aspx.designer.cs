@@ -10,25 +10,43 @@
 namespace GlobalLogistics.WebSite {
     
     
-    public partial class News {
+    public partial class Vedios {
         
         /// <summary>
-        /// uiPanelAllNews control.
+        /// uiPanelCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelAllNews;
+        protected global::System.Web.UI.WebControls.Panel uiPanelCategories;
         
         /// <summary>
-        /// uiRepeaterCurrentNews control.
+        /// uiDataListSubCats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater uiRepeaterCurrentNews;
+        protected global::System.Web.UI.WebControls.DataList uiDataListSubCats;
+        
+        /// <summary>
+        /// uiPanelAllVedios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAllVedios;
+        
+        /// <summary>
+        /// uiRepeaterCurrentVedios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterCurrentVedios;
         
         /// <summary>
         /// uiPanelPaging control.
@@ -67,57 +85,21 @@ namespace GlobalLogistics.WebSite {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonNext;
         
         /// <summary>
-        /// uiPanelViewNews control.
+        /// uiPanelVedio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelViewNews;
+        protected global::System.Web.UI.WebControls.Panel uiPanelVedio;
         
         /// <summary>
-        /// uiLabelTitle control.
+        /// uiRepeaterVedio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelTitle;
-        
-        /// <summary>
-        /// uiLabelDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelDate;
-        
-        /// <summary>
-        /// uiLabelTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelTime;
-        
-        /// <summary>
-        /// uiImageNews control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image uiImageNews;
-        
-        /// <summary>
-        /// uiLiteralContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal uiLiteralContent;
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterVedio;
     }
 }

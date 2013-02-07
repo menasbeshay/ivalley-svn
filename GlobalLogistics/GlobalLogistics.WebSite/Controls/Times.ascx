@@ -73,7 +73,7 @@
                                                 flashMap.addParam("movie", "http://24timezones.com/timescript/clock_digit_12.swf");
                                                 flashMap.addParam("quality", "high");
                                                 flashMap.addParam("wmode", "transparent");
-                                                flashMap.addParam("flashvars", "color=FF0000&logo=1&city=1117144");
+                                                flashMap.addParam("flashvars", "color=660099&logo=1&city=1117144");
                                                 flashMap.write("flash_container_tt511101d5d816c");
                                             </script>
                                         </td>
@@ -282,7 +282,7 @@
                                                 flashMap.addParam("movie", "http://24timezones.com/timescript/clock_digit_12.swf");
                                                 flashMap.addParam("quality", "high");
                                                 flashMap.addParam("wmode", "transparent");
-                                                flashMap.addParam("flashvars", "color=FF0000&logo=1&city=1117144");
+                                                flashMap.addParam("flashvars", "color=660099&logo=1&city=1117144");
                                                 flashMap.write("flash_container_tt511101d5d816c");
                                             </script>
                                         </td>

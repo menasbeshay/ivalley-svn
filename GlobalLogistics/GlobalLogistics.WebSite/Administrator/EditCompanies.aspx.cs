@@ -141,7 +141,7 @@ namespace GlobalLogistics.WebSite.Administrator
                 pics.DeleteAll();
                 pics.Save();
 
-                Vedios videos = new Vedios();
+                BLL.Vedios videos = new BLL.Vedios();
                 videos.GetVedioByCompanyID(objData.CompanyID);
                 videos.DeleteAll();
                 videos.Save();

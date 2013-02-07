@@ -203,7 +203,7 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../en/Pages.aspx?pid=10">Agreements</a></li>
                     <li class="MenuBorder"></li>
-                    <li><a class="hide" href="#">Vedio</a></li>
+                    <li><a class="hide" href="../en/Vedios.aspx">Video</a></li>
                     <li class="MenuBorder"></li>
                 </ul>
             </div>
@@ -271,7 +271,7 @@
                         <li><a href="../en/Directory.aspx?cid=2&scid=7&f=off" >
                             <img src="../en/images/Icons/customclearanceicon.gif" alt="Costume Clearance" /><span>Costume
                                 Clearance</span></a> </li>
-                        <li><a href="../en/Directory.aspx?cid=1&f=sh" >
+                        <li><a href="../en/DirectorySC.aspx?cid=1&type=sh">
                             <img src="../en/images/Icons/airandshippingicon.gif" alt="Air and Shipping lines" /><span>Air
                                 and Shipping lines</span></a> </li>
                         <li><a href="../en/Directory.aspx?cid=3&scid=20" >
@@ -283,7 +283,7 @@
                         <li><a href="../en/Directory.aspx?cid=3&scid=16" >
                             <img src="../en/images/Icons/petroleumicon.gif" alt="Petroleum" /><span>Petroleum</span></a>
                         </li>
-                        <li><a href="../en/Directory.aspx?cid=7" >
+                        <li><a href="../en/DirectorySC.aspx?cid=7" >
                             <img src="../en/images/Icons/Factoryicon.gif" alt="Factories" /><span>Factories</span></a>
                         </li>
                         <li><a href="../en/DirectorySC.aspx?type=o" >
