@@ -153,6 +153,8 @@
     <Content Include="Administrator\EditSubCategories.aspx" />
     <Content Include="Administrator\EditSubscribers.aspx" />
     <Content Include="Administrator\EditUsers.aspx" />
+    <Content Include="Administrator\EditVedioCats.aspx" />
+    <Content Include="Administrator\EditVedioLib.aspx" />
     <Content Include="CompanyProfile.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Controls\HomeBlock.ascx" />
@@ -176,6 +178,7 @@
     <Content Include="en\images\request_en.gif" />
     <Content Include="en\images\specialoffer.png" />
     <Content Include="en\images\title1000.png" />
+    <Content Include="en\Vedios.aspx" />
     <Content Include="Exchange.aspx" />
     <Content Include="en\images\action_delete.gif" />
     <Content Include="en\images\AdDef_1.gif" />
@@ -897,6 +900,7 @@
     <Content Include="Styles\ui-lightness\jquery-ui-1.8.21.custom.css" />
     <Content Include="Styles\ui-lightness\jquery-ui-1.8.21.custom_ar.css" />
     <Content Include="UserControls\Login.ascx" />
+    <Content Include="Vedios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1092,6 +1096,20 @@
     <Compile Include="Administrator\EditUsers.aspx.designer.cs">
       <DependentUpon>EditUsers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\EditVedioCats.aspx.cs">
+      <DependentUpon>EditVedioCats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\EditVedioCats.aspx.designer.cs">
+      <DependentUpon>EditVedioCats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\EditVedioLib.aspx.cs">
+      <DependentUpon>EditVedioLib.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\EditVedioLib.aspx.designer.cs">
+      <DependentUpon>EditVedioLib.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CompanyProfile.aspx.cs">
       <DependentUpon>CompanyProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1140,6 +1158,13 @@
     </Compile>
     <Compile Include="en\DirectorySC.aspx.designer.cs">
       <DependentUpon>DirectorySC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\Vedios.aspx.cs">
+      <DependentUpon>Vedios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\Vedios.aspx.designer.cs">
+      <DependentUpon>Vedios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Exchange.aspx.cs">
       <DependentUpon>Exchange.aspx</DependentUpon>
@@ -1551,6 +1576,13 @@
     <Compile Include="UserControls\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Vedios.aspx.cs">
+      <DependentUpon>Vedios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vedios.aspx.designer.cs">
+      <DependentUpon>Vedios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1588,6 +1620,8 @@
     <Folder Include="FileUploads\Companies\" />
     <Folder Include="FileUploads\Magazine\" />
     <Folder Include="FileUploads\News\" />
+    <Folder Include="FileUploads\VedioCategories\" />
+    <Folder Include="FileUploads\VedioLogos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPages\MasterPage.Master" />

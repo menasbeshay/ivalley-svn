@@ -181,7 +181,7 @@ ul#icons span.ui-icon {float: left; margin: 0 4px;}
 /* Search results */
 .ItemHeader { background: transparent url() no-repeat;padding:3px;text-align:right; }
 .ItemLogo {float:right;width:68px;padding:3px;}
-.ItemDetails {float:right; width:560px;padding:3px;}
+.ItemDetails {float:right; width:555px;padding:3px;}
 .ItemHead {float: right;width:70px;padding:3px;}
 .ItemValue {float:right;padding:3px;}
 
@@ -526,3 +526,22 @@ a.dock-item {
 .green_med:hover{ background-position:0 -44px;}
 .yellow_med{ background:url(../images/Jobs_ar.gif) no-repeat; width:154px; height:44px;float:right;margin-left:5px;}
 .yellow_med:hover{ background-position:0 -44px;}
+
+
+.rounded_box_comp
+{
+    border: 3px solid #003366;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    padding-right:3px;
+}
+
+
+.videoTitle
+{
+    font-family: Tahoma;
+    font-size: 16px;
+    font-weight: bold;
+    color: #006666;
+}

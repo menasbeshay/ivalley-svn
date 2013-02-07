@@ -54,7 +54,7 @@ namespace GlobalLogistics.WebSite.Company
         {
             if (e.CommandName == "EditVideo")
             {
-                Vedios objData = new Vedios();
+                BLL.Vedios objData = new BLL.Vedios();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 uiTextBoxEnName.Text = objData.EnTitle;
                 uiTextBoxArName.Text = objData.ArTitle;
@@ -64,8 +64,8 @@ namespace GlobalLogistics.WebSite.Company
                 CurrentVedio = objData;
             }
             else if (e.CommandName == "DeleteVideo")
-            {                
-                Vedios objData = new Vedios();
+            {
+                BLL.Vedios objData = new BLL.Vedios();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 objData.MarkAsDeleted();
                 objData.Save();
@@ -81,7 +81,7 @@ namespace GlobalLogistics.WebSite.Company
         {
             if (CurrentVedio != null)
             {
-                Vedios objData = CurrentVedio;
+                BLL.Vedios objData = CurrentVedio;
                 objData.ArTitle = uiTextBoxArName.Text;
                 objData.EnTitle = uiTextBoxEnName.Text;
                 objData.URL = uiTextBoxURL.Text;
@@ -91,7 +91,7 @@ namespace GlobalLogistics.WebSite.Company
             {
                 Companies objCompany = new Companies();
                 objCompany.GetCompanyByUserName(User.Identity.Name);
-                Vedios objData = new Vedios();
+                BLL.Vedios objData = new BLL.Vedios();
                 objData.AddNew();
                 objData.ArTitle = uiTextBoxArName.Text;
                 objData.EnTitle = uiTextBoxEnName.Text;
@@ -118,7 +118,7 @@ namespace GlobalLogistics.WebSite.Company
         #region Method
         private void BindData()
         {
-            Vedios objData = new Vedios();
+            BLL.Vedios objData = new BLL.Vedios();
             Companies objCompany = new Companies();
             objCompany.GetCompanyByUserName(User.Identity.Name);
             objData.GetVedioByCompanyID(objCompany.CompanyID);

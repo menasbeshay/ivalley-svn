@@ -16,7 +16,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="ContentLeftDiv">
-        <h1 style="font-family:Tahoma, Verdana, Arial, sans-serif;text-transform:none;">
+        <h1 style="font-family:Tahoma, Verdana, Arial, sans-serif;text-transform:none;font-size:16px;">
             <asp:Label ID="uiLabelPath" runat="server" ></asp:Label>&nbsp;<asp:Label 
                 ID="uiLabelCompanyName" runat="server" ForeColor="#000099" ></asp:Label>
         </h1>

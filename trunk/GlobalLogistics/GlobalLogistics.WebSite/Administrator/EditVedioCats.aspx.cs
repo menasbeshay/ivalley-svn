@@ -4,30 +4,29 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GlobalLogistics.BLL;
-using System.Data;
 
 namespace GlobalLogistics.WebSite.Administrator
 {
-    public partial class EditCategories : System.Web.UI.Page
+    public partial class EditVedioCats : System.Web.UI.Page
     {
         #region properties
-        public BLL.Categories CurrentCategory
+        public BLL.VedioCategories CurrentCategory
         {
             get
             {
-                if (Session["CurrentCategory"] != null)
-                    return (BLL.Categories)Session["CurrentCategory"];
+                if (Session["CurrentVCategory"] != null)
+                    return (BLL.VedioCategories)Session["CurrentVCategory"];
                 else
                     return null;
             }
             set
             {
-                Session["CurrentCategory"] = value;
+                Session["CurrentVCategory"] = value;
             }
         }
         #endregion
 
-        #region Events 
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,7 +34,7 @@ namespace GlobalLogistics.WebSite.Administrator
                 BindData();
                 uiPanelViewCategories.Visible = true;
                 uiPanelEdit.Visible = false;
-            }   
+            }
         }
 
 
@@ -43,7 +42,7 @@ namespace GlobalLogistics.WebSite.Administrator
         {
             if (e.CommandName == "EditCategory")
             {
-                Categories objData = new Categories();
+                VedioCategories objData = new VedioCategories();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 uiTextBoxEnName.Text = objData.EnName;
                 uiTextBoxArName.Text = objData.ArName;
@@ -55,7 +54,7 @@ namespace GlobalLogistics.WebSite.Administrator
             }
             else if (e.CommandName == "DeleteCategory")
             {
-                Categories objData = new Categories();
+                VedioCategories objData = new VedioCategories();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 objData.MarkAsDeleted();
                 objData.Save();
@@ -104,8 +103,8 @@ namespace GlobalLogistics.WebSite.Administrator
 
         protected void uiButtonSearch_Click(object sender, EventArgs e)
         {
-            BLL.Categories objData = new Categories();
-            objData.SearchCategories(uiTextBoxSearch.Text);
+            BLL.VedioCategories objData = new VedioCategories();
+            objData.SearchVedioCat(uiTextBoxSearch.Text);
             uiGridViewCategories.DataSource = objData.DefaultView;
             uiGridViewCategories.DataBind();
         }
@@ -114,7 +113,7 @@ namespace GlobalLogistics.WebSite.Administrator
         #region Methods
         private void BindData()
         {
-            BLL.Categories objData = new Categories();
+            BLL.VedioCategories objData = new VedioCategories();
             objData.LoadAll();
             uiGridViewCategories.DataSource = objData.DefaultView;
             uiGridViewCategories.DataBind();
@@ -123,7 +122,7 @@ namespace GlobalLogistics.WebSite.Administrator
 
         private void AddNewRecord()
         {
-            Categories objData = new Categories();
+            VedioCategories objData = new VedioCategories();
             objData.AddNew();
             objData.EnName = uiTextBoxEnName.Text;
             objData.ArName = uiTextBoxArName.Text;
@@ -132,8 +131,8 @@ namespace GlobalLogistics.WebSite.Administrator
             string filepath = "";
             if (uiFileUploadLogoPath.HasFile)
             {
-                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/Categories" + "/" + uiFileUploadLogoPath.FileName));
-                filepath = "/Fileuploads/Categories" + "/" + uiFileUploadLogoPath.FileName;
+                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/VedioCategories" + "/" + uiFileUploadLogoPath.FileName));
+                filepath = "/Fileuploads/VedioCategories" + "/" + uiFileUploadLogoPath.FileName;
             }
             if (!string.IsNullOrEmpty(filepath))
             {
@@ -144,7 +143,7 @@ namespace GlobalLogistics.WebSite.Administrator
 
         private void UpdateRecord()
         {
-            Categories objData = CurrentCategory;
+            VedioCategories objData = CurrentCategory;
             objData.EnName = uiTextBoxEnName.Text;
             objData.ArName = uiTextBoxArName.Text;
             objData.EnDescription = uiTextBoxEnDesc.Text;
@@ -152,8 +151,8 @@ namespace GlobalLogistics.WebSite.Administrator
             string filepath = "";
             if (uiFileUploadLogoPath.HasFile)
             {
-                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/Categories" + "/" + uiFileUploadLogoPath.FileName));
-                filepath = "/Fileuploads/Categories" + "/" + uiFileUploadLogoPath.FileName;
+                uiFileUploadLogoPath.SaveAs(Server.MapPath("~/FileUploads/VedioCategories" + "/" + uiFileUploadLogoPath.FileName));
+                filepath = "/Fileuploads/VedioCategories" + "/" + uiFileUploadLogoPath.FileName;
             }
             if (!string.IsNullOrEmpty(filepath))
             {
@@ -170,6 +169,6 @@ namespace GlobalLogistics.WebSite.Administrator
             uiTextBoxArDesc.Text = "";
             uiLabelError.Visible = false;
         }
-        #endregion     
+        #endregion 
     }
 }

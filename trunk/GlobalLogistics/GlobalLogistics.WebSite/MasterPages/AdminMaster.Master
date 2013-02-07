@@ -92,6 +92,10 @@
                         <li class="VMenuBorder"></li>
                         <li><a id="mi23"  class="hide" href="../Administrator/UploadCompanies.aspx">رفع الشركات</a></li>
                         <li class="VMenuBorder"></li>
+                        <li><a id="A1" class="hide" href="../Administrator/EditVedioCats.aspx">أقسام مكتبة الفيديو</a></li>
+                        <li class="VMenuBorder"></li>
+                        <li><a id="A2" class="hide" href="../Administrator/EditVedioLib.aspx">رفع فيديوهات</a></li>
+                        <li class="VMenuBorder"></li>
                         <li>
                             <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="تسجيل الخروج" />
                         </li>

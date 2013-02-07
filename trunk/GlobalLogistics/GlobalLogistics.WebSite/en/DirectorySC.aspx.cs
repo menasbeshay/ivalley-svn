@@ -115,7 +115,12 @@ namespace GlobalLogistics.WebSite.en
                 }
             }
 
-            if (subcatid == 0 && type != "o")
+            if (subcatid == 0 && type != "o" && type == "sh")
+            {
+                LoadSubcatsForShipping(catid);
+            }
+
+            else if (subcatid == 0 && type != "o")
             {
                 LoadSubcats(catid);
             }
@@ -130,6 +135,35 @@ namespace GlobalLogistics.WebSite.en
 
 
 
+        }
+
+        private void LoadSubcatsForShipping(int catid)
+        {
+            PagedDataSource dt = new PagedDataSource();
+            SubCategories objData = new SubCategories();
+            objData.GetSubCategoriesForShipping(catid);
+
+            dt.DataSource = objData.DefaultView;
+            dt.AllowPaging = true;
+            dt.PageSize = 10;
+            dt.CurrentPageIndex = PageIndex;
+            if (objData.RowCount > 0 && dt != null)
+            {
+                uiDataListSubCats.DataSource = dt;
+                uiDataListSubCats.DataBind();
+                uiLinkButtonPrev.Enabled = !dt.IsFirstPage;
+                uiLinkButtonNext.Enabled = !dt.IsLastPage;
+                uiLabelPages.Text = "Page " + (PageIndex + 1).ToString() + " of " + dt.PageCount.ToString() + " Pages";
+                uiPanelNoResults.Visible = false;
+                uiPanelCategories.Visible = true;
+                uiPanelResults.Visible = false;
+            }
+            else
+            {
+                uiPanelCategories.Visible = false;
+                uiPanelNoResults.Visible = true;
+                uiPanelResults.Visible = false;
+            }
         }
 
         private void LoadOtherSubcats()

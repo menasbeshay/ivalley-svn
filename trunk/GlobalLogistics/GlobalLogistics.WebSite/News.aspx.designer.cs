@@ -31,6 +31,42 @@ namespace GlobalLogistics.WebSite.Arabic {
         protected global::System.Web.UI.WebControls.Repeater uiRepeaterCurrentNews;
         
         /// <summary>
+        /// uiPanelPaging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelPaging;
+        
+        /// <summary>
+        /// uiLinkButtonPrev control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonPrev;
+        
+        /// <summary>
+        /// uiLabelPages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelPages;
+        
+        /// <summary>
+        /// uiLinkButtonNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonNext;
+        
+        /// <summary>
         /// uiPanelViewNews control.
         /// </summary>
         /// <remarks>

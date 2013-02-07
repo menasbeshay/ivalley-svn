@@ -207,6 +207,50 @@ Go
 
 
 
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'VedioCategories' and
+		        xtype = 'U')
+Drop Table VedioCategories
+Go
+Create Table VedioCategories
+(
+	CategoryID int not null
+			identity(1,1)
+			Primary Key,
+	EnName Nvarchar(200),
+	ArName Nvarchar(200),
+	EnDescription Nvarchar(500),
+	ArDescription Nvarchar(500),
+	IconPath nvarchar(250) null 
+)
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'VedioLib' and
+		        xtype = 'U')
+Drop Table VedioLib
+Go
+Create Table VedioLib
+(
+	VedioID int not null
+			identity(1,1)
+			Primary Key,
+	EnTitle Nvarchar(200),
+	ArTitle Nvarchar(200),
+	EnDescription Nvarchar(500),
+	ArDescription Nvarchar(500),
+	URL Nvarchar(500),
+	CategoryID int	null
+		Foreign Key References VedioCategories (CategoryID),
+	CreatedDate DateTime,
+	IconPath nvarchar(250) null 
+)
+Go
+
+
 
 If Exists (select Name 
 		   from sysobjects 
@@ -3231,7 +3275,7 @@ Create Procedure GetSubCategoriesForOtherTypes
 as
 
 Select * from subCategories 
-Where CategoryID in (4,5,8,10,11,12,13,14,15,17,18)
+Where SubCategoryID in (4,5,8,10,11,12,13,14,15,17,18)
 
 Go
 
@@ -3248,6 +3292,21 @@ as
 Select C.* from Companies C
 Where C.CategoryID = 1 and 
 	  (C.SubCategoryID = 1 OR C.SubCategoryID = 3 )
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetSubCategoriesForShipping' and
+		        xtype = 'P')
+Drop Procedure GetSubCategoriesForShipping
+Go
+Create Procedure GetSubCategoriesForShipping @CategoryID int = 0  
+as
+
+Select * from subCategories 
+Where CategoryID = 1 and 
+	  (SubCategoryID = 1 OR SubCategoryID = 3 )
 Go
 
 
@@ -3270,6 +3329,54 @@ Where (@SubCategoryID = 0 Or SC.SubCategoryID = @SubCategoryID  ) And
 	  (@CategoryID = 0 Or CC.CategoryID = @CategoryID  )  and 
 	  S.TypeID = 1
 	  
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllVediosLibByCategory' and
+		        xtype = 'P')
+Drop Procedure GetAllVediosLibByCategory
+Go
+Create Procedure GetAllVediosLibByCategory @CategoryID int = 0
+as
+
+Select * from VedioLib
+where (@CategoryID = 0 Or CategoryID = @CategoryID  )
+
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchVedioLib' and
+		        xtype = 'P')
+Drop Procedure SearchVedioLib
+Go
+Create Procedure SearchVedioLib @filterText nvarchar(250)
+as
+
+Select * from VedioLib
+Where EnTitle like N'%' + @filterText + N'%' or 
+	  ArTitle like N'%' + @filterText + N'%'
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchVedioCat' and
+		        xtype = 'P')
+Drop Procedure SearchVedioCat
+Go
+Create Procedure SearchVedioCat @filterText nvarchar(250)
+as
+
+Select * from VedioCategories
+Where EnName like N'%' + @filterText + N'%' or 
+	  ArName like N'%' + @filterText + N'%'
 Go
 
 /*

@@ -45,5 +45,14 @@ namespace GlobalLogistics.BLL
 
         }
 
-	}
+
+        public virtual bool GetSubCategoriesForShipping(int CategoryID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@CategoryID", SqlDbType.Int, 0), CategoryID);
+
+            return LoadFromSql("GetSubCategoriesForShipping", parameters);
+        }
+    }
 }

@@ -192,7 +192,7 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../Pages.aspx?pid=10">إتفاقيات</a></li>
                     <li class="MenuBorder"></li>
-                    <li><a class="hide" href="#">فيديو</a></li>
+                    <li><a class="hide" href="../Vedios.aspx">فيديو</a></li>
                     <li class="MenuBorder"></li>
                 </ul>
             </div>
@@ -258,7 +258,7 @@
                         <a href="../DirectorySC.aspx?type=o" >
                             <img src="../images/Icons/othersectoricon.gif" alt="قطاعات أخرى" /><span>قطاعات أخرى</span></a>
                         </li>
-                        <li ><a href="../Directory.aspx?cid=7" >
+                        <li ><a href="../DirectorySC.aspx?cid=7" >
                             <img src="../images/Icons/Factoryicon.gif" alt="مصانع" /><span>مصانع</span></a>
                         </li>
                         <li ><a href="../Directory.aspx?cid=3&scid=16" >
@@ -270,7 +270,7 @@
                         <li ><a href="../Directory.aspx?cid=3&scid=20" >
                             <img src="../images/Icons/export-importicon.gif" alt="شركات إستيراد وتصدير" /><span>
                                 إستيراد وتصدير</span></a> </li>
-                        <li ><a href="../Directory.aspx?cid=1&f=sh" >
+                        <li ><a href="../DirectorySC.aspx?cid=1&type=sh" >
                             <img src="../images/Icons/airandshippingicon.gif" alt="خطوط جوية وملاحية" /><span>خطوط
                                 جوية وملاحية</span></a> </li>
                         <li ><a href="../Directory.aspx?cid=2&scid=7&f=off" >
