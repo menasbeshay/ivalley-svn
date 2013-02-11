@@ -1,0 +1,9 @@
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Taqwa.BLL.dll
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Taqwa.BLL.pdb
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.pdb
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.xml
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\obj\Debug\Taqwa.BLL.dll
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\obj\Debug\Taqwa.BLL.pdb
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\bin\Debug\Taqwa.BLL.dll.config
+D:\SmartValley\El-Taqwa School\Taqwa.Website\Taqwa.BLL\obj\Debug\Taqwa.BLL.csprojResolveAssemblyReference.cache
