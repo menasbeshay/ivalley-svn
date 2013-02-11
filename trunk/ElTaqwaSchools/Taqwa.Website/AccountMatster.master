@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AccountMatster.master.cs" Inherits="Taqwa.Website.AccountMatster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="styles/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="styles/dropdown.vertical.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="styles/default.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.dropdown.js" type="text/javascript"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="mainContent">
+    <div class="Right">   
+    <h3>
+        <asp:Label ID="uiLabelAccount" runat="server" ></asp:Label>
+</h3>
+        
+    <ul id="nav" class="dropdown dropdown-vertical dropdown-vertical-rtl">
+
+	<li>
+       <asp:HyperLink ID="HyperLink1" runat="server" 
+            NavigateUrl="~/Fees.aspx">المصروفات الدراسية</asp:HyperLink>
+    </li>
+    <li class="dir">
+    نتائج الإمتحانات
+            <ul>
+            <li>
+                <asp:HyperLink ID="HyperLink5" runat="server" 
+            NavigateUrl="~/Results.aspx?ResultType=1">نتيجة إختبار نصف الفصل الدراسى الأول</asp:HyperLink>
+            </li>
+            <li>
+                <asp:HyperLink ID="HyperLink3" runat="server" 
+            NavigateUrl="~/Results.aspx?ResultType=2">نتيجة إختبار نصف العام الدراسى </asp:HyperLink>
+            </li>
+
+            <li>
+                <asp:HyperLink ID="HyperLink6" runat="server" 
+            NavigateUrl="~/Results.aspx?ResultType=3">نتيجة إختبار نصف الفصل الدراسى الثانى</asp:HyperLink>
+            </li>
+
+            <li>
+                <asp:HyperLink ID="HyperLink7" runat="server" 
+            NavigateUrl="~/Results.aspx?ResultType=4">نتيجة إختبار نهاية العام</asp:HyperLink>
+            </li>
+            </ul>
+    </li>
+    <li class="dir">
+     التقارير الشهرية
+     <ul>
+            <li>
+                <asp:HyperLink ID="HyperLink2" runat="server" 
+            NavigateUrl="~/MonthlyReport.aspx">التقرير الشهرى عن الطالب</asp:HyperLink>
+            </li>
+            <li>
+                <asp:HyperLink ID="HyperLink8" runat="server" 
+            NavigateUrl="~/MonthlyAttendanceReport.aspx">تقرير الغياب الشهرى </asp:HyperLink>
+            </li>
+            </ul>
+    </li>    
+   <li>
+     <asp:HyperLink ID="HyperLink4" runat="server" 
+            NavigateUrl="~/Schedule.aspx">جدول الحصص</asp:HyperLink>
+    </li> 
+    <li>
+     <asp:HyperLink ID="HyperLink9" runat="server" 
+            NavigateUrl="~/SchoolBus.aspx">مواعيد سيارة المدرسة</asp:HyperLink>
+    </li> 
+    </ul>
+    <div class="clear" style="height:5px;">&nbsp;</div>
+    </div>
+    <div class="Middle" style="width:78%;color: #0E528F;">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+     </asp:ContentPlaceHolder>   
+    </div>
+    </div>
+</asp:Content>

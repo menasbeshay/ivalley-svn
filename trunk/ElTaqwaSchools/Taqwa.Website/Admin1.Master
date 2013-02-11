@@ -1,0 +1,169 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Taqwa.Website.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>مدرسـة التقـوى الخـاصـة</title>
+    <link href="styles/Style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
+    <form id="form1" runat="server">
+    <div>
+        <table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top" background="images/index_01.jpg" width="980" height="142">
+                    <table width="509" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td width="41" rowspan="2" valign="bottom">
+                                &nbsp;</td>
+                            <td>
+                                <div align="center" class="style37">
+                                </div>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="82">
+                                &nbsp;
+                            </td>
+                            <td width="144">
+                                <form id="form2" name="form1" method="post" action="">
+                                &nbsp;
+                                </form>
+                            </td>
+                            <td width="13">
+                                <br />
+                            </td>
+                            <td width="66">
+                                &nbsp;</td>
+                            <td width="163">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td colspan="3">
+                                <div align="center">
+                                </div>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+                        width="980" height="70">
+                        <param name="movie" value="images/buttons2.swf" />
+                        <param name="quality" value="high" />
+                        <embed src="images/buttons2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                            type="application/x-shockwave-flash" width="980" height="70"></embed>
+                    </object>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="980" border="0" bordercolor="#000000" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td background="images/footer.jpg" width="980" height="254">
+                    <table width="960" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="952">
+                                &nbsp;
+                            </td>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="960" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="2">
+                                <div align="center">
+                                    <span class="style45"><span class="style46"><a href="index.html" id="Footer">الصـفـحة
+                                        الـرئـيســية </a>:: <a href="index.html" id="Footer">مـن نــحــن </a>:: <a href="index.html"
+                                            id="Footer">انشطة المدرسة </a>:: <a href="index.html" id="Footer">اخر الاخبار
+                                        </a>:: <a href="index.html" id="Footer">معرض الصور </a>:: <a href="index.html" id="Footer">
+                                            فـريــق الـــعــمـل &nbsp;</a>:: <a href="index.html" id="Footer">مقترحات </a>
+                                        :: <a href="index.html" id="Footer">&nbsp;اتـصـل بـنــا </a></span><a href="contact_ar.html"
+                                            id="Footer">&nbsp; </a></span>
+                                </div>
+                            </td>
+                            <td width="71" rowspan="2">
+                                <img src="images/face.png" width="25" height="26" /><img src="images/twe.png" width="25"
+                                    height="26" />
+                            </td>
+                            <td width="28">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="583">
+                                &nbsp;
+                            </td>
+                            <td width="278">
+                                <img src="images/MTG-logo_nobackgroung.png" width="50" height="19" />
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

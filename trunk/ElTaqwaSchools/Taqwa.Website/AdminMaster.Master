@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="Taqwa.Website.AdminMaster" %>
+
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>مدرسـة التقـوى الخـاصـة</title>
+    <link href="styles/Style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+   
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
+    <form id="form1" runat="server"> 
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top" background="images/index_01.jpg" width="980" height="142">
+                    
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <table width="980" border="0" bordercolor="#000000" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td background="images/footer.jpg" width="980" height="150" style="background: url(images/footer.jpg) no-repeat center;">
+                    <table width="960" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="952">
+                                &nbsp;
+                            </td>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="960" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="2">
+                                <div align="center">
+                                    <span class="style45"><span class="style46"><a href="Default.aspx" id="Footer">الصـفـحة
+                                        الـرئـيســية </a>:: <a href="Pages.aspx?PID=5" id="Footer">مـن نــحــن </a>:: <a href="Pages.aspx?PID=2"
+                                            id="Footer">انشطة المدرسة </a>:: <a href="News.aspx" id="Footer">اخر الاخبار
+                                        </a>:: <a href="Gallery.aspx" id="Footer">معرض الصور </a>:: <a href="Pages.aspx?PID=3" id="Footer">
+                                            فـريــق الـــعــمـل &nbsp;</a>:: <a href="Suggestions.aspx" id="Footer">مقترحات </a>
+                                        :: <a href="Pages.aspx?PID=7" id="Footer">&nbsp;اتـصـل بـنــا </a> :: <a href="Careers.aspx"
+                                            id="Footer">الوظائف </a></span></span>
+                                </div>
+                            </td>
+                            <td width="71" rowspan="2">
+                                <img src="images/face.png" width="25" height="26" /><img src="images/twe.png" width="25"
+                                    height="26" />
+                            </td>
+                            <td width="28">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="583">
+                                &nbsp;
+                            </td>
+                            <td width="278">
+                                <img src="images/MTG-logo_nobackgroung.png" width="50" height="19" />
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
