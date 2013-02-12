@@ -1,0 +1,66 @@
+*
+{
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+.footer-pay{
+	width:980px;
+	height:auto;
+	margin-top: 50px;
+}
+
+.footer-pay h4{
+	width:100%;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#878789;
+	padding:0 0 5px 0;
+}
+
+.footer-pay h5{
+	width:100%;
+	display:inline-block;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#878789;
+	font-weight:normal;	
+	border-bottom:3px double #d7d8d7;
+	padding:0 0 5px 3px;
+}
+
+.footer-pay .boxOpcao{
+	float:left;
+	display:inline;
+	margin:5px 50px 30px 0;	
+}
+
+.footer-pay .boxOpcao ul{
+	padding:5px 0 0 0;	
+}
+
+.footer-pay .boxOpcao ul li{
+	height:38px;
+	float:left;
+	display:inline;
+	margin:0 11px 10px 0;
+}
+
+.footer-pay .boxCredito{
+	max-width:492px;
+}
+
+.footer-pay .boxPayPal{
+	max-width:110px;
+}
+
+.footer-pay .boxDebito{
+	max-width:280px;
+	margin-right:0;
+}
+
+.page-footer
+{
+	height: 820px !important;
+}
