@@ -203,7 +203,8 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../en/Pages.aspx?pid=10">Agreements</a></li>
                     <li class="MenuBorder"></li>
-                    <li><a class="hide" href="../en/Vedios.aspx">Video</a></li>
+                    <li style="background-color: #994c00;"><a style="background-color: #994c00; font-size: 14px;"
+                        class="hide" href="../en/Vedios.aspx">Video</a></li>
                     <li class="MenuBorder"></li>
                 </ul>
             </div>
@@ -273,10 +274,10 @@
                                 Clearance</span></a> </li>
                         <li><a href="../en/DirectorySC.aspx?cid=1&type=sh">
                             <img src="../en/images/Icons/airandshippingicon.gif" alt="Air and Shipping lines" /><span>Air
-                                and Shipping lines</span></a> </li>
+                                & Shipping lines</span></a> </li>
                         <li><a href="../en/Directory.aspx?cid=3&scid=20" >
                             <img src="../en/images/Icons/export-importicon.gif" alt="Import and Export Co." /><span>Import
-                                and Export</span></a> </li>
+                                & Export</span></a> </li>
                         <li><a href="../en/Directory.aspx?cid=3&scid=9" >
                             <img src="../en/images/Icons/insurance-icon.gif" alt="Insurance Co. " /><span>Insurance
                                 </span></a></li>

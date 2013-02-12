@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Sponsors.ascx.cs" Inherits="GlobalLogistics.WebSite.Controls.Sponsors" %>
 <!-- Sponsers -->
-<div class="clear" style="height:38px;"></div>
+<div class="clear" style="height:20px;"></div>
 <asp:Panel ID="EnPanel" runat="server">
     <script type="text/javascript">
 
