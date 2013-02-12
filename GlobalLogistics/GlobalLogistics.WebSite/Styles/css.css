@@ -70,7 +70,7 @@ h6 { width:713px; height:29px; padding:6px 0px 0px 15px; margin:0px; text-transf
 .Details728 img { float:left; margin:0px 10px 0px 0px; border:1px #dddddd solid; -moz-border-radius: 10px; border-radius: 10px; display:block; background-color:#FFF;  }
 .AdminDetails728 { padding:14px; width:698px; background-color:#eee; font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:#5c5c5c; -moz-border-radius:  0px 0px 5px 5px; border-radius: 0px 0px 5px 5px; border:1px #dddddd solid; border-top:none; text-align:justify; line-height:18px; }
 
-.xChange { background-image: url(../images/xChangeBg.png); background-position: canter top; background-repeat: no-repeat; width:645px; height:10px; padding:15px; font-family:10px; text-transform:uppercase; font-size:10px; font-family:Tahoma, Geneva, sans-serif;}
+.xChange { background-image: url(../images/xChangeBg.png); background-position: center top; background-repeat: no-repeat; width:645px; height:10px; padding:15px; text-transform:uppercase; font-size:14px; font-family:Tahoma, Geneva, sans-serif;}
 
 .DateShare { display:block; background-color:#ddd; padding:5px 7px 5px 7px; margin-bottom:10px; }
 .Post { font-size:11px; float:left; width:50%; }

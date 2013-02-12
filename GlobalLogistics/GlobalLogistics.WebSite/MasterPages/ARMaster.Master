@@ -192,7 +192,8 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../Pages.aspx?pid=10">إتفاقيات</a></li>
                     <li class="MenuBorder"></li>
-                    <li><a class="hide" href="../Vedios.aspx">فيديو</a></li>
+                    <li style="background-color: #994c00;"><a style="background-color: #994c00; font-size: 17px;"
+                        class="hide" href="../Vedios.aspx">فيديو</a></li>
                     <li class="MenuBorder"></li>
                 </ul>
             </div>

@@ -261,6 +261,7 @@
     <Content Include="images\request_ar.gif" />
     <Content Include="images\request_en.gif" />
     <Content Include="images\SpecialOffer.gif" />
+    <Content Include="images\specialoffer.png" />
     <Content Include="images\title1000.png" />
     <Content Include="IntCodes.aspx" />
     <Content Include="LogisticConsulting.aspx" />
