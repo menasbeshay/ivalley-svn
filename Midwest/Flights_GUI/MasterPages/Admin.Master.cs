@@ -36,7 +36,7 @@ namespace Flights_GUI.MasterPages
                     {
                         uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi1' class='hide' href='../Default.aspx'>Back to All Modules</a></li>";
                     }
-                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/FlightDetails.aspx'>Flights' List</a></li>";
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi3' class='hide' href='../Operation/Reports.aspx'>Flight Reports</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi31' class='hide' href='../Operation/ViewSchedule.aspx'>Schedule</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi35' class='hide' href='../Operation/PilotSchedule.aspx'>Pilot status</a></li>";
@@ -45,17 +45,17 @@ namespace Flights_GUI.MasterPages
                 }
                 else if(Roles.IsUserInRole("Hosting"))
                 {
-                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/FlightDetails.aspx'>Flights' List</a></li>";
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi34' class='hide' href='../ChangePassword.aspx'>Change Password</a></li>";
                 }
-                else if(Roles.IsUserInRole("Dispatch"))
+                else if(Roles.IsUserInRole("Dispatcher"))
                 {
-                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/FlightDetails.aspx'>Flights' List</a></li>";
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi34' class='hide' href='../ChangePassword.aspx'>Change Password</a></li>";
                 }
                 else if (Roles.IsUserInRole("Flight Data Entry"))
                 {
-                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/FlightDetails.aspx'>Flights' List</a></li>";
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi3' class='hide' href='../Operation/Reports.aspx'>Flight Reports</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi34' class='hide' href='../ChangePassword.aspx'>Change Password</a></li>";
                 }

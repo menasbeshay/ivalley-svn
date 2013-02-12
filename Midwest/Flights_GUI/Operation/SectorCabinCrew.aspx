@@ -9,9 +9,10 @@
         <h4>
             Edit Sector Details</h4>
         <div class="Details900">
+            <div class="whiteArea">
             <asp:UpdatePanel ID="uiUpdatePanel" runat="server">
                 <ContentTemplate>
-                    <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 50px;
+                    <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 60px;
                         height: 25px; z-index: 99999;">
                         <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click">Back to flight list</asp:LinkButton>
                     </div>
@@ -96,6 +97,7 @@
                     <asp:PostBackTrigger ControlID="uiLinkButtonBack" />
                 </Triggers>
             </asp:UpdatePanel>
+            </div>
         </div>
         </div>
 </asp:Content>

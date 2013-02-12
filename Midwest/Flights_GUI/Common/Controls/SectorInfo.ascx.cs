@@ -42,7 +42,7 @@ namespace Flights_GUI.Common.Controls
             AirPort from = new AirPort();
             from.LoadByPrimaryKey(CurrentSector.From_AirportID);
             AirPort to = new AirPort();
-            to.LoadByPrimaryKey(CurrentSector.From_AirportID);
+            to.LoadByPrimaryKey(CurrentSector.To_AirportID);
             uiLabelFrom.Text = from.IATACode;
             uiLabelTo.Text = to.IATACode;
             uiLabelNO.Text = CurrentSector.FlightNo;

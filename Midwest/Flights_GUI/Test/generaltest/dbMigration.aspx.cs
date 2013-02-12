@@ -28,8 +28,7 @@ namespace Flights_GUI.Test.generaltest
             SqlCommand comm = new SqlCommand();
             comm.CommandText = @"SELECT F.ReportID , S.SectorID
                                  From Flight F 
-                                 INNER JOIN Sector S ON F.ReportID = S.ReportID
-                                 Where F.ReportID > 869
+                                 INNER JOIN Sector S ON F.ReportID = S.ReportID                                 
                                  ORDER BY F.ReportID";
             comm.Connection = con1;
             SqlDataAdapter da = new SqlDataAdapter(comm.CommandText,con1);
@@ -89,19 +88,33 @@ namespace Flights_GUI.Test.generaltest
             {
                 //insCrewcomm.Parameters["@SectorID"].Value = item["SectorID"];
                 crewSelect.Parameters["@ReportID"].Value = item["ReportID"];
-                Crewda = new SqlDataAdapter(crewSelect.CommandText, con1);
+                crewSelect.Connection = con1;
+                Crewda = new SqlDataAdapter(crewSelect);
                 Crewds.Clear();
                 Crewda.Fill(Crewds);
                 foreach (DataRow Crewitem in Crewds.Tables[0].Rows)
                 {
-                    insCrewcomm.CommandText = crewSQL + item["SectorID"] + "," + Crewitem["CrewID"] + "," + Crewitem["PositionID"] + ")";
-                    insCrewcomm.Connection.Open();
-                    insCrewcomm.ExecuteNonQuery();
-                    insCrewcomm.Connection.Close();
+                    if (!string.IsNullOrEmpty(Crewitem["PositionID"].ToString()))
+                    {
+                        insCrewcomm.CommandText = crewSQL + item["SectorID"] + "," + Crewitem["CrewID"] + "," + Crewitem["PositionID"] + ")";
+                        insCrewcomm.Connection.Open();
+                        insCrewcomm.ExecuteNonQuery();
+                        insCrewcomm.Connection.Close();
+                    }
+                    else
+                    {
+                        SqlCommand comm11 = new SqlCommand();
+                        comm11.CommandText = "insert INTO SectorCrew ( SectorID, CrewID ) values (" + item["SectorID"] + "," + Crewitem["CrewID"] + ")";
+                        comm11.Connection = con2;
+                        comm11.Connection.Open();
+                        comm11.ExecuteNonQuery();
+                        comm11.Connection.Close();
+                    }
                 }
                 //insPilotcomm.Parameters["@SectorID"].Value = item["SectorID"];
                 pilotSelect.Parameters["@ReportID"].Value = item["ReportID"];
-                Pilotda = new SqlDataAdapter(pilotSelect.CommandText, con1);
+                Pilotda = new SqlDataAdapter(pilotSelect);
+                pilotSelect.Connection = con1;
                 pilotds.Clear();
                 Pilotda.Fill(pilotds);
                 foreach (DataRow pilotitem in pilotds.Tables[0].Rows)

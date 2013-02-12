@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="uiUpdatePanel" runat="server">
         <ContentTemplate>
-            <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 50px;
+            <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 60px;
                 height: 25px; z-index: 99999;">
                 <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click">Back to flight list</asp:LinkButton>
             </div>
@@ -15,7 +15,7 @@
                 <h4>
                     Edit Sector Details</h4>
                 <div class="Details900">
-            
+                    <div class="whiteArea">
                                 <div style="height:25px;clear:both;"></div>
                     <div>
                         <uc1:sectorinfo id="SectorInfo1" runat="server" />
@@ -129,6 +129,7 @@
                                     </div>
                                     
                                     <div class="clear">
+                                    </div>
                                     </div>
                                 </div>
                                 </div>

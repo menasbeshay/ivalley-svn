@@ -65,6 +65,7 @@ h6 { width:713px; height:29px; padding:6px 0px 0px 15px; margin:0px; text-transf
 .Details728 img { float:left; margin:0px 10px 0px 0px; border:1px #dddddd solid; -moz-border-radius: 10px; border-radius: 10px; display:block; background-color:#FFF;  }
 .AdminDetails728 { padding:14px; width:698px; background-color:#eee; font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:#5c5c5c; -moz-border-radius:  0px 0px 5px 5px; border-radius: 0px 0px 5px 5px; border:1px #dddddd solid; border-top:none; text-align:justify; line-height:18px; }
 .Details900 { padding:14px; width:870px; background-color:#dcdcdc; font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:#5c5c5c; -moz-border-radius:  0px 0px 5px 5px; border-radius: 0px 0px 5px 5px; border:1px #848484 solid; border-top:none; text-align:justify; line-height:18px; }
+.whiteArea {padding:10px; background-color: White; border: 1px solid #999999;-moz-border-radius: 5px; border-radius: 5px;-webkit-border-radius: 5px;}
 
 .xChange { background-image: url(../images/xChangeBg.png); background-position: canter top; background-repeat: no-repeat; width:645px; height:10px; padding:15px; font-family:10px; text-transform:uppercase; font-size:10px; font-family:Tahoma, Geneva, sans-serif;}
 
