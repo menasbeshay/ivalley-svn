@@ -54,6 +54,7 @@
             <h4>
                 Edit Flight Details</h4>
             <div class="Details900">
+                <div class="whiteArea">
                 <asp:UpdateProgress ID="uiUpdateProgress" runat="server">
                     <ProgressTemplate>
                         <div style="width: 100%; height: 100%; top: 0px; left: 0px; position: fixed; display: block;
@@ -69,7 +70,7 @@
                 </asp:UpdateProgress>
                 <asp:UpdatePanel ID="uiUpdatePanel" runat="server">
                     <ContentTemplate>
-                        <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 50px;
+                        <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 60px;
                             height: 25px; z-index: 99999;">
                             <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click">Back to sector list</asp:LinkButton>
                         </div>
@@ -78,23 +79,8 @@
                                     <div style="float: left; width: 98%" id="FlightForm">
                                         <div>
                                             <uc1:SectorInfo ID="SectorInfo1" runat="server" />
-                                        </div>
-                                        <div class="clear" style="height: 5px;">
-                                        </div>
-                                        <div class="AdminLeft" style="width: 18%">
-                                            <asp:Label ID="Label5" runat="server" Text="Fuel Uplifted" CssClass="Label"></asp:Label></div>
-                                        <div class="AdminMiddle">
-                                            <asp:TextBox ID="uiTextBoxFule" runat="server" Style="margin-left: -1px;"></asp:TextBox></div>
-                                        <div class="AdminRight">
-                                            &nbsp;&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
-                                                ControlToValidate="uiTextBoxFule" Display="Dynamic" ErrorMessage="Numbers only."
-                                                ForeColor="Red" ValidationExpression="^[-+]?(\d)+$" ValidationGroup="Flight">*</asp:RegularExpressionValidator>
-                                            <cc1:ValidatorCalloutExtender ID="RegularExpressionValidator1_ValidatorCalloutExtender"
-                                                runat="server" Enabled="True" TargetControlID="RegularExpressionValidator1">
-                                            </cc1:ValidatorCalloutExtender>
-                                        </div>
-                                        <div class="clear">
-                                        </div>
+                                        </div>                                       
+                                        
                                         <div class="clear10">
                                         </div>
                                         <div class="seprator">
@@ -119,7 +105,8 @@
                                             </asp:DropDownList>
                                         </div>
                                         <div class="AdminRight" style="width: 30%">
-                                            <asp:Label ID="Label9" runat="server" Text="A/B" CssClass="Label"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="Label9" runat="server" Text="A/B" CssClass="Label"></asp:Label>&nbsp;&nbsp; 
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                             <asp:DropDownList ID="uiDropDownListATDHours" runat="server">
                                             </asp:DropDownList>
                                             :
@@ -163,7 +150,8 @@
                                             </asp:DropDownList>
                                         </div>
                                         <div class="AdminMiddle" style="width: 30%; margin-left: 5px;">
-                                            <asp:Label ID="Label38" runat="server" Text="Night" CssClass="Label"></asp:Label>&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="Label38" runat="server" Text="Night" CssClass="Label"></asp:Label>
+                                            &nbsp;&nbsp;&nbsp;
                                             <asp:DropDownList ID="uiDropDownListNightHours" runat="server">
                                             </asp:DropDownList>
                                             :
@@ -229,6 +217,20 @@
                                                 runat="server" Enabled="True" TargetControlID="RegularExpressionValidator6">
                                             </cc1:ValidatorCalloutExtender>
                                         </div>
+                                        <div class="clear5">
+                                        </div>
+                                        <div class="AdminLeft" style="width: 20%; padding-right: 0px;">
+                                            <asp:Label ID="Label5" runat="server" Text="Fuel Uplifted" CssClass="Label"></asp:Label></div>
+                                        <div class="AdminMiddle">
+                                            <asp:TextBox ID="uiTextBoxFule" runat="server" Width="100px" CssClass="digits"></asp:TextBox></div>
+                                        <div class="AdminRight">
+                                            &nbsp;&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                                ControlToValidate="uiTextBoxFule" Display="Dynamic" ErrorMessage="Numbers only."
+                                                ForeColor="Red" ValidationExpression="^[-+]?(\d)+$" ValidationGroup="Flight">*</asp:RegularExpressionValidator>
+                                            <cc1:ValidatorCalloutExtender ID="RegularExpressionValidator1_ValidatorCalloutExtender"
+                                                runat="server" Enabled="True" TargetControlID="RegularExpressionValidator1">
+                                            </cc1:ValidatorCalloutExtender>
+                                        </div>
                                         <div class="clear" style="height: 5px">
                                         </div>
                                         <div class="AdminLeft" style="width: 20%; padding-right: 0px;">
@@ -255,6 +257,8 @@
                                                 runat="server" Enabled="True" TargetControlID="RegularExpressionValidator7">
                                             </cc1:ValidatorCalloutExtender>
                                         </div>
+                                        
+                                        
                                         <div class="clear10">
                                         </div>
                                         <div class="AdminLeft" style="width: 24%; border-right: 1px solid black;">
@@ -439,6 +443,7 @@
                         <asp:PostBackTrigger ControlID="uiLinkButtonBack" />
                     </Triggers>
                 </asp:UpdatePanel>
+                </div>
             </div>
         </div>
     </asp:Panel>

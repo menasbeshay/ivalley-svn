@@ -45,13 +45,14 @@ namespace Flights_GUI.Operation
 
         protected void uiRadGridFlights_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            Sector objData = new Sector();
-            objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
-            CurrentSector = objData;
+            
             if (e.CommandName == "EditSectorDetails")
             {
-                
-                if (Roles.IsUserInRole("Operation"))
+
+                Sector objData = new Sector();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                CurrentSector = objData;
+                if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("Dispatcher"))
                 {
                     Response.Redirect("~/Operation/SectorDetails.aspx?F=" + uiRadDatePickerFrom.SelectedDate.Value.ToString("dd/MM/yyyy") + "&T=" + uiRadDatePickerTo.SelectedDate.Value.ToString("dd/MM/yyyy"));
                 }
@@ -63,15 +64,26 @@ namespace Flights_GUI.Operation
             }
             else if (e.CommandName == "EditSectorPilots")
             {
+
+                Sector objData = new Sector();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                CurrentSector = objData;
                 Response.Redirect("~/Operation/SectorPilots.aspx?F=" + uiRadDatePickerFrom.SelectedDate.Value.ToString("dd/MM/yyyy") + "&T=" + uiRadDatePickerTo.SelectedDate.Value.ToString("dd/MM/yyyy"));
             }
             else if (e.CommandName == "EditSectorCrew")
             {
+
+                Sector objData = new Sector();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                CurrentSector = objData;
                 Response.Redirect("~/Operation/SectorCabinCrew.aspx?F=" + uiRadDatePickerFrom.SelectedDate.Value.ToString("dd/MM/yyyy") + "&T=" + uiRadDatePickerTo.SelectedDate.Value.ToString("dd/MM/yyyy"));
             }
             else if (e.CommandName == "DeleteSector")
             {
-                
+
+                Sector objData = new Sector();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                CurrentSector = objData;
                 SectorCrew crew = new SectorCrew();
                 crew.GetCrewBySectorID(objData.SectorID);
                 SectorPilot pilots = new SectorPilot();
@@ -91,6 +103,10 @@ namespace Flights_GUI.Operation
 
             else if (e.CommandName == "ViewReport")
             {
+
+                Sector objData = new Sector();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                CurrentSector = objData;
                 Response.Redirect("FlightReport.aspx?RID=" + e.CommandArgument.ToString());
             }
         }
@@ -135,15 +151,15 @@ namespace Flights_GUI.Operation
                 {
                     e.Item.BackColor = Color.FromArgb(240, 176, 106);
                 }
-                
-                if (Roles.IsUserInRole("Commercial") || Roles.IsUserInRole("SuperAdmin"))
+
+                if (Roles.IsUserInRole("Commercial") || Roles.IsUserInRole("SuperAdmin") || Roles.IsUserInRole("Operation"))
                 {
                     LinkButton delButton = (LinkButton)e.Item.FindControl("uiLinkButtonDelete");
                     if(delButton != null)
                         delButton.Visible = true;
                 }
 
-                if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("SuperAdmin"))
+                if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("SuperAdmin") )
                 {
                     LinkButton delButton = (LinkButton)e.Item.FindControl("uiLinkButtonEditPilots");
                     if (delButton != null)
@@ -179,7 +195,7 @@ namespace Flights_GUI.Operation
             if (Request.IsAuthenticated)
             {
                 AddDiv.Visible = false;
-                if (Roles.IsUserInRole("SuperAdmin") || Roles.IsUserInRole("Commercial"))
+                if (Roles.IsUserInRole("SuperAdmin") || Roles.IsUserInRole("Commercial") || Roles.IsUserInRole("Operation"))
                 {
                     AddDiv.Visible = true;
                 }                
@@ -193,22 +209,27 @@ namespace Flights_GUI.Operation
         private void SearchSectors()
         {
             Sector sectorObj = new Sector();
-            if (Request.QueryString["F"] != null)
+
+            if (Request.QueryString["F"] != null && uiRadDatePickerFrom.SelectedDate == null)
             {
-                uiRadDatePickerFrom.SelectedDate = DateTime.ParseExact(Request.QueryString["F"].ToString(),"dd/MM/yyyy",null);
+                uiRadDatePickerFrom.SelectedDate = DateTime.ParseExact(Request.QueryString["F"].ToString(), "dd/MM/yyyy", null);
             }
-            else if(uiRadDatePickerFrom.SelectedDate == null)
+
+            if (uiRadDatePickerFrom.SelectedDate == null)
             {
                 uiRadDatePickerFrom.SelectedDate = GetWeekStartDaTe();
             }
-            if (Request.QueryString["T"] != null)
+
+            if (Request.QueryString["T"] != null && uiRadDatePickerTo.SelectedDate == null)
             {
                 uiRadDatePickerTo.SelectedDate = DateTime.ParseExact(Request.QueryString["T"].ToString(), "dd/MM/yyyy", null);
             }
-            else if (uiRadDatePickerTo.SelectedDate == null)
+
+            if (uiRadDatePickerTo.SelectedDate == null)
             {
                 uiRadDatePickerTo.SelectedDate = GetWeekStartDaTe().AddDays(7);
             }
+            
 
             sectorObj.SearchSectors(uiTextBoxSearch.Text, (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
                 , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));

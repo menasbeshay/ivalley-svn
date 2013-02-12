@@ -19,6 +19,7 @@
             <h4>
                 Edit Sector Details</h4>
             <div class="Details900">
+            <div class="whiteArea">
                 <asp:UpdateProgress ID="uiUpdateProgress" runat="server">
                     <ProgressTemplate>
                         <div style="width: 100%; height: 100%; top: 0px; left: 0px; position: fixed; display: block;
@@ -167,6 +168,7 @@
                         <asp:PostBackTrigger ControlID="uiLinkButtonBack" />
                     </Triggers>
                 </asp:UpdatePanel>
+            </div>
             </div>
         </div>
     </asp:Panel>

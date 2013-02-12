@@ -4525,13 +4525,6 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetPilotReportRow FindByAirPlaneID(int AirPlaneID) {
-                return ((GetPilotReportRow)(this.Rows.Find(new object[] {
-                            AirPlaneID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 GetPilotReportDataTable cln = ((GetPilotReportDataTable)(base.Clone()));
                 cln.InitVars();
@@ -4636,8 +4629,6 @@ namespace Flights_GUI {
                 base.Columns.Add(this.columnTotalMonthNightH);
                 this.columnTotalMonthNightM = new global::System.Data.DataColumn("TotalMonthNightM", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalMonthNightM);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnAirPlaneID}, true));
                 this.columnFirstName.MaxLength = 50;
                 this.columnSecondName.MaxLength = 50;
                 this.columnSureName.MaxLength = 50;
@@ -4658,7 +4649,6 @@ namespace Flights_GUI {
                 this.columnAirPlaneID.AutoIncrementStep = -1;
                 this.columnAirPlaneID.AllowDBNull = false;
                 this.columnAirPlaneID.ReadOnly = true;
-                this.columnAirPlaneID.Unique = true;
                 this.columnTimeBlock.ReadOnly = true;
                 this.columnTimeBlock.MaxLength = 7;
                 this.columnFlyAtDay.ReadOnly = true;

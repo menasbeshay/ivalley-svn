@@ -35,6 +35,7 @@ namespace Flights_GUI.MasterPages
                     {
                         uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi1' class='hide' href='../Default.aspx'>Back to All Modules</a></li>";
                     }
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi1' class='hide' href='../CabinCrew/CrewSchedule.aspx'>Schedule</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../CabinCrew/Profile.aspx'>Profile</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi3' class='hide' href='../CabinCrew/Reports.aspx'>Reports</a></li>";
