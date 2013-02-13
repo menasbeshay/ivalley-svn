@@ -82,6 +82,7 @@
     <Content Include="CabinCrew\Reports.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Common\Controls\SectorInfo.ascx" />
+    <Content Include="Common\SectorClients.aspx" />
     <Content Include="Common\Tickets.aspx" />
     <Content Include="images\Accounting.png" />
     <Content Include="images\Courses.png" />
@@ -494,6 +495,13 @@
     <Compile Include="Common\Controls\SectorInfo.ascx.designer.cs">
       <DependentUpon>SectorInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Common\SectorClients.aspx.cs">
+      <DependentUpon>SectorClients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\SectorClients.aspx.designer.cs">
+      <DependentUpon>SectorClients.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Tickets.aspx.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -724,6 +732,7 @@
   <ItemGroup>
     <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
+    <Folder Include="FileUploads\Clients\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

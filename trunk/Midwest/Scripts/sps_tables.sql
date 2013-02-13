@@ -914,3 +914,17 @@ Go
 ALTER table sector 
 Add ClientID int Foreign Key References SectorClients(ClientID) null 
 Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchSectorClients' and
+		        xtype = 'P')
+Drop Procedure SearchSectorClients
+Go
+Create Procedure SearchSectorClients @filterText nvarchar(200)
+as
+
+Select * from SectorClients
+where (ISNULL(@filterText,'') = '' Or Name Like N'%' + @filterText + N'%' Or ContactName Like N'%' + @filterText + N'%') 
+Go

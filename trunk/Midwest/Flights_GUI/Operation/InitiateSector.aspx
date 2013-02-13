@@ -115,7 +115,14 @@
                                                 runat="server" Enabled="True" TargetControlID="RequiredFieldValidator3">
                                             </cc1:ValidatorCalloutExtender>
                                         </div>
-                                        
+                                        <div class="clear5">
+                                        </div>
+                                        <div class="AdminLeft" style="width: 18%">
+                                            <asp:Label ID="Label2" runat="server" CssClass="Label" Text="Client "></asp:Label></div>
+                                        <div class="AdminMiddle" style="vertical-align: 50%">
+                                            <asp:DropDownList ID="uiDropDownListClients" runat="server" Width="100px">
+                                            </asp:DropDownList>
+                                        </div>
                                         <div class="clear10">
                                         </div>
                                         <div class="seprator">

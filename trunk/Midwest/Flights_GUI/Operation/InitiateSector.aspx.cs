@@ -80,7 +80,15 @@ namespace Flights_GUI.Operation
                 {
                     objData.STA = Convert.ToDateTime(STA.ToString());
                 }
-                
+
+                if (uiDropDownListClients.SelectedIndex > -1)
+                {
+                    if (uiDropDownListClients.SelectedValue != "0")
+                        objData.ClientID = Convert.ToInt32(uiDropDownListClients.SelectedValue);
+                    else
+                        objData.SetColumnNull("ClientID");
+                }
+
                 objData.Save();                
 
             }
@@ -109,7 +117,15 @@ namespace Flights_GUI.Operation
                 {
                     objData.STA = Convert.ToDateTime(STA.ToString());
                 }
-                
+
+                if (uiDropDownListClients.SelectedIndex > -1)
+                {
+                    if (uiDropDownListClients.SelectedValue != "0")
+                        objData.ClientID = Convert.ToInt32(uiDropDownListClients.SelectedValue);
+                    else
+                        objData.SetColumnNull("ClientID");
+                }
+
                 objData.Save();
                 CurrentSector = null;
             }
@@ -171,11 +187,20 @@ namespace Flights_GUI.Operation
             uiDropDownListAirCraftRegistration.DataTextField = "Name";
             uiDropDownListAirCraftRegistration.DataValueField = "AirPlaneID";
             uiDropDownListAirCraftRegistration.DataBind();
+
+            SectorClients SC = new SectorClients();
+            SC.LoadAll();
+            uiDropDownListClients.DataSource = SC.DefaultView;
+            uiDropDownListClients.DataTextField = "Name";
+            uiDropDownListClients.DataValueField = "ClientID";
+            uiDropDownListClients.DataBind();
+            uiDropDownListClients.Items.Insert(0, new ListItem("Select Client", "0"));
         }
 
         private void ClearFields()
         {
-            uiDropDownListAirCraftRegistration.SelectedIndex = 0;            
+            uiDropDownListAirCraftRegistration.SelectedIndex = 0;
+            uiDropDownListClients.SelectedIndex = -1;
             uiTextBoxDate.Text = "";
             uiCheckBoxIsHeavy.Checked = false;
             ClearSectorFields();
@@ -202,12 +227,23 @@ namespace Flights_GUI.Operation
             uiDropDownListSectorFrom.SelectedValue = CurrentSector.From_AirportID.ToString();
             uiDropDownListSectorTo.SelectedValue = CurrentSector.To_AirportID.ToString();
             uiTextBoxSectorFlightNo.Text = CurrentSector.FlightNo;
-            
-            uiDropDownListSTAHours.SelectedValue = CurrentSector.STA.Hour.ToString("00");
-            uiDropDownListSTDHours.SelectedValue = CurrentSector.STD.Hour.ToString("00");
 
-            uiDropDownListSTAMins.SelectedValue = CurrentSector.STA.Minute.ToString("00");
-            uiDropDownListSTDMins.SelectedValue = CurrentSector.STD.Minute.ToString("00");            
+            if (!CurrentSector.IsColumnNull("STA"))
+            {
+                uiDropDownListSTAHours.SelectedValue = CurrentSector.STA.Hour.ToString("00");
+                uiDropDownListSTAMins.SelectedValue = CurrentSector.STA.Minute.ToString("00");    
+            }
+
+            if (!CurrentSector.IsColumnNull("STD"))
+            {
+                uiDropDownListSTDHours.SelectedValue = CurrentSector.STD.Hour.ToString("00");
+                uiDropDownListSTDMins.SelectedValue = CurrentSector.STD.Minute.ToString("00");
+            }
+
+            if (!CurrentSector.IsColumnNull("ClientID"))
+            {
+                uiDropDownListClients.SelectedValue = CurrentSector.ClientID.ToString();
+            }
         }
         
         #endregion
