@@ -220,6 +220,24 @@ namespace Flights_GUI.Operation {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator3_ValidatorCalloutExtender;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// uiDropDownListClients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListClients;
+        
+        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>

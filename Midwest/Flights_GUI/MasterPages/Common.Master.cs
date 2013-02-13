@@ -47,7 +47,7 @@ namespace Flights_GUI.MasterPages
                 }
                 else if (Roles.IsUserInRole("Operation"))
                 {
-                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/FlightDetails.aspx'>Flights' List</a></li>";
+                    uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi2' class='hide' href='../Operation/SectorsList.aspx'>Flights' List</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi3' class='hide' href='../Operation/Reports.aspx'>Flight Reports</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi31' class='hide' href='../Operation/ViewSchedule.aspx'>Schedule</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi35' class='hide' href='../Operation/PilotSchedule.aspx'>Pilot status</a></li>";
