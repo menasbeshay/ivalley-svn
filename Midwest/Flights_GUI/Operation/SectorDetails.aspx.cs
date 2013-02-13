@@ -418,13 +418,41 @@ namespace Flights_GUI.Operation
             {
                 uiTextBoxPlanBurnOff.Text = CurrentSector.StandardBurnOff.ToString();
             }
-            uiDropDownListATAHours.SelectedValue = CurrentSector.ATA.Hour.ToString("00");
-            uiDropDownListATDHours.SelectedValue = CurrentSector.ATD.Hour.ToString("00");
-            uiDropDownListOFFHours.SelectedValue = CurrentSector.ChoxOff.Hour.ToString("00"); ;
-            uiDropDownListOnHours.SelectedValue = CurrentSector.ChoxOn.Hour.ToString("00");
-            uiDropDownListSTAHours.SelectedValue = CurrentSector.STA.Hour.ToString("00");
-            uiDropDownListSTDHours.SelectedValue = CurrentSector.STD.Hour.ToString("00");
-
+            if (!CurrentSector.IsColumnNull("ATA"))
+            {
+                uiDropDownListATAHours.SelectedValue = CurrentSector.ATA.Hour.ToString("00");
+                uiDropDownListATAMins.SelectedValue = CurrentSector.ATA.Minute.ToString("00");
+                
+            }
+            if (!CurrentSector.IsColumnNull("ATD"))
+            {
+                uiDropDownListATDHours.SelectedValue = CurrentSector.ATD.Hour.ToString("00");
+                uiDropDownListATDMins.SelectedValue = CurrentSector.ATD.Minute.ToString("00");
+                
+            }
+            if (!CurrentSector.IsColumnNull("ChoxOff"))
+            {
+                uiDropDownListOFFHours.SelectedValue = CurrentSector.ChoxOff.Hour.ToString("00");
+                uiDropDownListOFFMins.SelectedValue = CurrentSector.ChoxOff.Minute.ToString("00");
+                
+            }
+            if (!CurrentSector.IsColumnNull("ChoxOn"))
+            {
+                uiDropDownListOnHours.SelectedValue = CurrentSector.ChoxOn.Hour.ToString("00");
+                uiDropDownListOnMins.SelectedValue = CurrentSector.ChoxOn.Minute.ToString("00");
+                
+            }
+            if (!CurrentSector.IsColumnNull("STA"))
+            {
+                uiDropDownListSTAHours.SelectedValue = CurrentSector.STA.Hour.ToString("00");
+                uiDropDownListSTAMins.SelectedValue = CurrentSector.STA.Minute.ToString("00");
+                
+            }
+            if (!CurrentSector.IsColumnNull("STD"))
+            {
+                uiDropDownListSTDHours.SelectedValue = CurrentSector.STD.Hour.ToString("00");
+                uiDropDownListSTDMins.SelectedValue = CurrentSector.STD.Minute.ToString("00");
+            }
 
             if (!CurrentSector.IsColumnNull("DepDelayID1"))
             {
@@ -470,17 +498,17 @@ namespace Flights_GUI.Operation
                 uiDropDownListArrDelay3Mins.SelectedValue = CurrentSector.ArrDelayTime3.Minute.ToString("00");
             }
 
-            uiDropDownListDayHours.SelectedValue = CurrentSector.FlyAtDay.Hour.ToString("00");
-            uiDropDownListNightHours.SelectedValue = CurrentSector.FlyAtNight.Hour.ToString("00");
-            uiDropDownListATAMins.SelectedValue = CurrentSector.ATA.Minute.ToString("00");
-            uiDropDownListATDMins.SelectedValue = CurrentSector.ATD.Minute.ToString("00");
-            uiDropDownListOFFMins.SelectedValue = CurrentSector.ChoxOff.Minute.ToString("00");
-            uiDropDownListOnMins.SelectedValue = CurrentSector.ChoxOn.Minute.ToString("00");
-            uiDropDownListSTAMins.SelectedValue = CurrentSector.STA.Minute.ToString("00");
-            uiDropDownListSTDMins.SelectedValue = CurrentSector.STD.Minute.ToString("00");
+            if (!CurrentSector.IsColumnNull("FlyAtDay"))
+            {
+                uiDropDownListDayHours.SelectedValue = CurrentSector.FlyAtDay.Hour.ToString("00");
+                uiDropDownListDayMins.SelectedValue = CurrentSector.FlyAtDay.Minute.ToString("00");
+            }
 
-            uiDropDownListDayMins.SelectedValue = CurrentSector.FlyAtDay.Minute.ToString("00");
-            uiDropDownListNightMins.SelectedValue = CurrentSector.FlyAtNight.Minute.ToString("00");
+            if (!CurrentSector.IsColumnNull("FlyAtDay"))
+            {
+                uiDropDownListNightHours.SelectedValue = CurrentSector.FlyAtNight.Hour.ToString("00");
+                uiDropDownListNightMins.SelectedValue = CurrentSector.FlyAtNight.Minute.ToString("00");
+            }
 
             if (!CurrentSector.IsColumnNull("DepFule"))
             {

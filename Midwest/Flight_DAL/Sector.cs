@@ -491,6 +491,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter ClientID
+			{
+				get
+				{
+					return new SqlParameter("@ClientID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -546,6 +554,7 @@ namespace Flight_DAL
             public const string SectorDate = "SectorDate";
             public const string IsReturnSector = "IsReturnSector";
             public const string ReturnSectorID = "ReturnSectorID";
+            public const string ClientID = "ClientID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -602,6 +611,7 @@ namespace Flight_DAL
 					ht[SectorDate] = _Sector.PropertyNames.SectorDate;
 					ht[IsReturnSector] = _Sector.PropertyNames.IsReturnSector;
 					ht[ReturnSectorID] = _Sector.PropertyNames.ReturnSectorID;
+					ht[ClientID] = _Sector.PropertyNames.ClientID;
 
 				}
 				return (string)ht[columnName];
@@ -663,6 +673,7 @@ namespace Flight_DAL
             public const string SectorDate = "SectorDate";
             public const string IsReturnSector = "IsReturnSector";
             public const string ReturnSectorID = "ReturnSectorID";
+            public const string ClientID = "ClientID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -719,6 +730,7 @@ namespace Flight_DAL
 					ht[SectorDate] = _Sector.ColumnNames.SectorDate;
 					ht[IsReturnSector] = _Sector.ColumnNames.IsReturnSector;
 					ht[ReturnSectorID] = _Sector.ColumnNames.ReturnSectorID;
+					ht[ClientID] = _Sector.ColumnNames.ClientID;
 
 				}
 				return (string)ht[propertyName];
@@ -780,6 +792,7 @@ namespace Flight_DAL
             public const string SectorDate = "s_SectorDate";
             public const string IsReturnSector = "s_IsReturnSector";
             public const string ReturnSectorID = "s_ReturnSectorID";
+            public const string ClientID = "s_ClientID";
 
 		}
 		#endregion		
@@ -1371,6 +1384,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.ReturnSectorID, value);
+			}
+		}
+
+		public virtual int ClientID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ClientID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ClientID, value);
 			}
 		}
 
@@ -2114,6 +2139,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_ClientID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ClientID) ? string.Empty : base.GetintAsString(ColumnNames.ClientID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ClientID);
+				else
+					this.ClientID = base.SetintAsString(ColumnNames.ClientID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2632,6 +2672,16 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.ReturnSectorID, Parameters.ReturnSectorID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ClientID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ClientID, Parameters.ClientID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -3230,6 +3280,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter ClientID
+		    {
+				get
+		        {
+					if(_ClientID_W == null)
+	        	    {
+						_ClientID_W = TearOff.ClientID;
+					}
+					return _ClientID_W;
+				}
+			}
+
 			private WhereParameter _SectorID_W = null;
 			private WhereParameter _ReportID_W = null;
 			private WhereParameter _From_AirportID_W = null;
@@ -3279,6 +3341,7 @@ namespace Flight_DAL
 			private WhereParameter _SectorDate_W = null;
 			private WhereParameter _IsReturnSector_W = null;
 			private WhereParameter _ReturnSectorID_W = null;
+			private WhereParameter _ClientID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -3331,6 +3394,7 @@ namespace Flight_DAL
 				_SectorDate_W = null;
 				_IsReturnSector_W = null;
 				_ReturnSectorID_W = null;
+				_ClientID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -3872,6 +3936,16 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReturnSectorID, Parameters.ReturnSectorID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ClientID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientID, Parameters.ClientID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -4470,6 +4544,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter ClientID
+		    {
+				get
+		        {
+					if(_ClientID_W == null)
+	        	    {
+						_ClientID_W = TearOff.ClientID;
+					}
+					return _ClientID_W;
+				}
+			}
+
 			private AggregateParameter _SectorID_W = null;
 			private AggregateParameter _ReportID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
@@ -4519,6 +4605,7 @@ namespace Flight_DAL
 			private AggregateParameter _SectorDate_W = null;
 			private AggregateParameter _IsReturnSector_W = null;
 			private AggregateParameter _ReturnSectorID_W = null;
+			private AggregateParameter _ClientID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -4571,6 +4658,7 @@ namespace Flight_DAL
 				_SectorDate_W = null;
 				_IsReturnSector_W = null;
 				_ReturnSectorID_W = null;
+				_ClientID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -4839,6 +4927,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.ReturnSectorID);
 			p.SourceColumn = ColumnNames.ReturnSectorID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ClientID);
+			p.SourceColumn = ColumnNames.ClientID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -883,3 +883,34 @@ Where L.PilotID = @PilotID And
 DROP TABLE #PilotPerDiemLogCurrrentRun
 
 Go
+
+
+
+/********************************* add new table **********************************************************/
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SectorClients' and
+		        xtype = 'U')
+Drop Table SectorClients
+Go
+
+CREATE TABLE SectorClients(
+	ClientID int identity(1,1) not null primary key,
+	Name nvarchar(200),
+	Tele nvarchar(50),
+	Fax nvarchar(50),
+	Mail nvarchar(100),
+	[Address] nvarchar(300),
+	Website nvarchar(100),
+	ContactName nvarchar(200),
+	ContactTele nvarchar(50),
+	ContactMail nvarchar(100),
+	ContactMobile nvarchar(100),
+	LogoPath nvarchar(200)
+	)
+Go 
+
+
+ALTER table sector 
+Add ClientID int Foreign Key References SectorClients(ClientID) null 
+Go
