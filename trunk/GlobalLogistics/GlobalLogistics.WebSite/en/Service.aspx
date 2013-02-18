@@ -7,6 +7,7 @@
                     <asp:Label ID="uiLabelTypeName" runat="server" ></asp:Label>
                 </h1>
                 <div class="Details675">
+                    <div class="serviceContent">
                     <asp:Panel ID="uiPanelOffers" runat="server">
                         <asp:Repeater ID="uiRepeaterOffers" runat="server">
                         <HeaderTemplate>
@@ -66,7 +67,7 @@
                         </asp:Repeater>
                         <asp:Literal ID="uiLiteralServices" runat="server"></asp:Literal>
                     </asp:Panel>
-
+                    </div>
                 </div>
                 </div>
 </asp:Content>

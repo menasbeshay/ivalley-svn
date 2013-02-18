@@ -79,10 +79,10 @@ namespace GlobalLogistics.BLL
 
         }
 
-        public virtual bool SearchCompaniesForShipping()
+        public virtual bool SearchCompaniesForShipping(int SubCategoryID)
         {
             ListDictionary parameters = new ListDictionary();
-
+            parameters.Add(new SqlParameter("@SubCategoryID", SqlDbType.Int, 0), SubCategoryID);
             return LoadFromSql("SearchCompaniesForShipping", parameters);
 
         }

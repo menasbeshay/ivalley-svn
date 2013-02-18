@@ -3286,12 +3286,12 @@ If Exists (select Name
 		        xtype = 'P')
 Drop Procedure SearchCompaniesForShipping
 Go
-Create Procedure SearchCompaniesForShipping  
+Create Procedure SearchCompaniesForShipping  @SubCategoryID int = 0
 as
 
 Select C.* from Companies C
 Where C.CategoryID = 1 and 
-	  (C.SubCategoryID = 1 OR C.SubCategoryID = 3 )
+	  (@SubCategoryID= 0 Or C.SubCategoryID = @SubCategoryID )
 Go
 
 
