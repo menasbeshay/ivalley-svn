@@ -12,7 +12,7 @@
                     RepeatDirection="Horizontal" Width="100%" CellPadding="5" CellSpacing="5">
                     <ItemTemplate>  
                     <div class="IconHost">
-                    <a href='Directory.aspx?<%# "scid=" + Eval("SubCategoryID").ToString() %>'>
+                    <a href='Directory.aspx?<%# "scid=" + Eval("SubCategoryID").ToString() + (((Request.QueryString["type"] != null) && (Request.QueryString["type"].ToString() == "sh")) ? "&f=sh" : "") %>'>
                         <div>
                             <img style="width:130px;" src='<%# string.IsNullOrEmpty(Eval("IconPath").ToString()) ? "images/default_logo.gif" : Eval("IconPath") %>' />
                         </div>

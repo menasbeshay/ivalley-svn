@@ -181,7 +181,7 @@
                         <ul>
                             <li><a href="../Service.aspx?T=off">عروض</a></li>
                             <li><a href="../Service.aspx?T=req">طلبات</a></li>
-                            <li><a href="../Service.aspx?T=job">وظائف</a></li>
+                            <%--<li><a href="../Service.aspx?T=job">وظائف</a></li>--%>
                             <li><a href="../LogisticConsulting.aspx">إستشارات لوجيستية</a></li>
                             <li><a href="../Pages.aspx?pid=9">دورات تدريبية</a></li>
                             <li><a href="../Exchange.aspx">أسعار العملات</a></li>
@@ -192,9 +192,9 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../Pages.aspx?pid=10">إتفاقيات</a></li>
                     <li class="MenuBorder"></li>
-                    <li style="background-color: #994c00;"><a style="background-color: #994c00; font-size: 17px;"
+                    <li style="background-color: #000;width:73px"><a style="background-color: #000; font-size: 17px;"
                         class="hide" href="../Vedios.aspx">فيديو</a></li>
-                    <li class="MenuBorder"></li>
+                    
                 </ul>
             </div>
             <div class="Login">

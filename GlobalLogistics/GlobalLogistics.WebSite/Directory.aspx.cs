@@ -75,15 +75,15 @@ namespace GlobalLogistics.WebSite.Arabic
 
             PagedDataSource dt = new PagedDataSource();
             Companies objData = new Companies();
-            if(!string.IsNullOrEmpty(searchfor ) || searchfor != "sh")
-                objData.SearchCompanies("", 0, catid, subcatid);
-            else if (searchfor == "sh")
-            {
-                objData.SearchCompaniesForShipping();
-            }
-            else if (searchfor == "off")
+            if(!string.IsNullOrEmpty(searchfor ) && searchfor == "sh")
+                objData.SearchCompaniesForShipping(subcatid);
+            else if (!string.IsNullOrEmpty(searchfor) && searchfor == "off")
             {
                 objData.SearchCompaniesForOffers(catid, subcatid);
+            }
+            else 
+            {
+                objData.SearchCompanies("", 0, catid, subcatid);                
             }
 
             Categories cat = new Categories();
