@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://cso.citc" xmlns:impl="http://cso.citc" xmlns:intf="http://cso.citc" xmlns:tns2="http://Elements.cso.citc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://cso.citc" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://Elements.cso.citc"/>
+   <element name="csogetPersonDetByapfn">
+    <complexType>
+     <sequence>
+      <element name="apfn" nillable="true" type="xsd:string"/>
+      <element name="organizationID" nillable="true" type="xsd:string"/>
+      <element name="orgIpAddres" nillable="true" type="xsd:string"/>
+      <element name="prkey" nillable="true" type="xsd:string"/>
+      <element name="stype" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="csogetPersonDetByapfnResponse">
+    <complexType>
+     <sequence>
+      <element name="csogetPersonDetByapfnReturn" nillable="true" type="tns2:CSOOutput"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="csogetPersonDetByIdnum">
+    <complexType>
+     <sequence>
+      <element name="idNum" nillable="true" type="xsd:string"/>
+      <element name="organizationID" nillable="true" type="xsd:string"/>
+      <element name="orgIpAddres" nillable="true" type="xsd:string"/>
+      <element name="prkey" nillable="true" type="xsd:string"/>
+      <element name="stype" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="csogetPersonDetByIdnumResponse">
+    <complexType>
+     <sequence>
+      <element name="csogetPersonDetByIdnumReturn" nillable="true" type="tns2:CSOOutput"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="csogetPersonDetByFcn">
+    <complexType>
+     <sequence>
+      <element name="fcn" nillable="true" type="xsd:string"/>
+      <element name="organizationID" nillable="true" type="xsd:string"/>
+      <element name="orgIpAddres" nillable="true" type="xsd:string"/>
+      <element name="prkey" nillable="true" type="xsd:string"/>
+      <element name="stype" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="csogetPersonDetByFcnResponse">
+    <complexType>
+     <sequence>
+      <element name="csogetPersonDetByFcnReturn" nillable="true" type="tns2:CSOOutput"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://Elements.cso.citc" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="CSOOutput">
+    <sequence>
+     <element name="dateofBirth" nillable="true" type="xsd:string"/>
+     <element name="errorCode" nillable="true" type="xsd:string"/>
+     <element name="errorDesc" nillable="true" type="xsd:string"/>
+     <element name="fcn" nillable="true" type="xsd:string"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="gender" nillable="true" type="xsd:string"/>
+     <element name="governofBirth" nillable="true" type="xsd:string"/>
+     <element name="lastNames" nillable="true" type="xsd:string"/>
+     <element name="nationalNumber" nillable="true" type="xsd:string"/>
+     <element name="pdd" nillable="true" type="xsd:string"/>
+     <element name="policeStatinofBirth" nillable="true" type="xsd:string"/>
+     <element name="stat" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="csogetPersonDetByIdnumResponse">
+
+      <wsdl:part element="impl:csogetPersonDetByIdnumResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="csogetPersonDetByFcnResponse">
+
+      <wsdl:part element="impl:csogetPersonDetByFcnResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="csogetPersonDetByIdnumRequest">
+
+      <wsdl:part element="impl:csogetPersonDetByIdnum" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="csogetPersonDetByapfnRequest">
+
+      <wsdl:part element="impl:csogetPersonDetByapfn" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="csogetPersonDetByFcnRequest">
+
+      <wsdl:part element="impl:csogetPersonDetByFcn" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="csogetPersonDetByapfnResponse">
+
+      <wsdl:part element="impl:csogetPersonDetByapfnResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CsoCheckPrs">
+
+      <wsdl:operation name="csogetPersonDetByapfn">
+
+         <wsdl:input message="impl:csogetPersonDetByapfnRequest" name="csogetPersonDetByapfnRequest"/>
+
+         <wsdl:output message="impl:csogetPersonDetByapfnResponse" name="csogetPersonDetByapfnResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="csogetPersonDetByIdnum">
+
+         <wsdl:input message="impl:csogetPersonDetByIdnumRequest" name="csogetPersonDetByIdnumRequest"/>
+
+         <wsdl:output message="impl:csogetPersonDetByIdnumResponse" name="csogetPersonDetByIdnumResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="csogetPersonDetByFcn">
+
+         <wsdl:input message="impl:csogetPersonDetByFcnRequest" name="csogetPersonDetByFcnRequest"/>
+
+         <wsdl:output message="impl:csogetPersonDetByFcnResponse" name="csogetPersonDetByFcnResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CsoCheckPrsSoapBinding" type="impl:CsoCheckPrs">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="csogetPersonDetByapfn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="csogetPersonDetByapfnRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="csogetPersonDetByapfnResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="csogetPersonDetByIdnum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="csogetPersonDetByIdnumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="csogetPersonDetByIdnumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="csogetPersonDetByFcn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="csogetPersonDetByFcnRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="csogetPersonDetByFcnResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+</wsdl:definitions>

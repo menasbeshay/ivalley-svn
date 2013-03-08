@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblDayResource1.Text" xml:space="preserve">
+    <value>يوم</value>
+  </data>
+  <data name="lblDayResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDayResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDayResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDateResource1.Text" xml:space="preserve">
+    <value>تاريخ القرار</value>
+  </data>
+  <data name="lblDecisionDateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDateResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDateResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionResource1.Text" xml:space="preserve">
+    <value>جهة القرار  :</value>
+  </data>
+  <data name="lblDecisionDirectionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionValueResource1.Text" xml:space="preserve">
+    <value>أدارة الأحوال المدنية ب  :</value>
+  </data>
+  <data name="lblDecisionDirectionValueResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionValueResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionDirectionValueResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionNumberResource1.Text" xml:space="preserve">
+    <value>رقم القرار</value>
+  </data>
+  <data name="lblDecisionNumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionNumberResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDecisionNumberResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHeaderPage" xml:space="preserve">
+    <value>ساقط قيد ميلاد</value>
+  </data>
+  <data name="lblHealthOfficeResource1.Text" xml:space="preserve">
+    <value>مكتب الصحة :</value>
+  </data>
+  <data name="lblHealthOfficeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeValueResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeValueResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeValueResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHealthOfficeValueResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMainPage" xml:space="preserve">
+    <value>بيانات واقعة ميلاد - ساقط قيد أو طفل معثور عليه</value>
+  </data>
+  <data name="lblMonthResource1.Text" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="lblMonthResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonthResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonthResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNotesResource1.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="lblNotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNotesResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNotesResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRegisterTypeResource1.Text" xml:space="preserve">
+    <value>نوع القيد</value>
+  </data>
+  <data name="lblRegisterTypeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRegisterTypeResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRegisterTypeResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblYearResource1.Text" xml:space="preserve">
+    <value>سنة</value>
+  </data>
+  <data name="lblYearResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblYearResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblYearResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>ساقط قيد</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>معثور عليه</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource2.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlbornInfoResource1.GroupingText" xml:space="preserve">
+    <value>بيانات المولود</value>
+  </data>
+  <data name="pnlbornInfoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlbornInfoResource2.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlbornInfoResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlFatherInfoResource1.GroupingText" xml:space="preserve">
+    <value>بيانات الأب</value>
+  </data>
+  <data name="pnlFatherInfoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlFatherInfoResource2.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlFatherInfoResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlMotherInfoResource1.GroupingText" xml:space="preserve">
+    <value>بيانات الأم</value>
+  </data>
+  <data name="pnlMotherInfoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlMotherInfoResource2.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlMotherInfoResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlNotifierResource1.GroupingText" xml:space="preserve">
+    <value>بيانات المبلغ</value>
+  </data>
+  <data name="pnlNotifierResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlNotifierResource2.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlNotifierResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSummaryResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSummaryResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSummaryResource2.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSummaryResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdTypeListResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdTypeListResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDayResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDayResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDayResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDayResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionDirectionValueResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionDirectionValueResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionDirectionValueResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionDirectionValueResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionNumberResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionNumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionNumberResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDecisionNumberResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtMonthResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtMonthResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtMonthResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtMonthResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtNotesValueResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtNotesValueResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtNotesValueResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtNotesValueResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtYearResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtYearResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtYearResource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtYearResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnAddResource1.Text" xml:space="preserve">
+    <value>اضافة</value>
+  </data>
+</root>

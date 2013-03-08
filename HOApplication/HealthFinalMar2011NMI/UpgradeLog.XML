@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="HOSol">
+</Property><Property Name="Solution File" Value="F:\MHO\HealthOfficesSolution\HOSol.sln">
+</Property><Property Name="Date" Value="Tuesday, April 27, 2010">
+</Property><Property Name="Time" Value="12:32:10 PM">
+</Property></Properties><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\MyGeneration.dOOdads.csproj" Description="Project file successfully backed up as F:\MHO\HealthOfficesSolution\Backup\MyGeneration.dOOdads.csproj">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\AggregateParameter.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\AggregateParameter.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\AssemblyInfo.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\BusinessEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\BusinessEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\TransactionMgr.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\TransactionMgr.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\WhereParameter.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\WhereParameter.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\FirebirdSqlDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\FirebirdSqlDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\FirebirdSqlEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\FirebirdSqlEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\MySql4DynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\MySql4DynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\MySql4Entity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\MySql4Entity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\OleDbDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\OleDbDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\OleDbEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\OleDbEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\OracleClientDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\OracleClientDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\OracleClientEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\OracleClientEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\PostgreSqlDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\PostgreSqlDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\PostgreSqlEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\PostgreSqlEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\SqlClientDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\SqlClientDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\SqlClientEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\SqlClientEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\SQLiteDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\SQLiteDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\SQLiteEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\SQLiteEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\VistaDBDynamicQuery.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\VistaDBDynamicQuery.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\DbAdapters\VistaDBEntity.cs" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\DbAdapters\VistaDBEntity.cs">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\README.TXT" Description="File successfully backed up as F:\MHO\HealthOfficesSolution\Backup\README.TXT">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\MyGeneration.dOOdads.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\MyGeneration.dOOdads.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MyGeneration.dOOdads" Source="MyGeneration.dOOdads\MyGeneration.dOOdads.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

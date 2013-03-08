@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ICD10Master.master.cs" Inherits="MasterPages_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ربط مكاتب الصحة</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" type="text/css" href="../Style/CSSAdapters.css" />
+    <link rel="Stylesheet" type="text/css" href="../Style/MainStyle.css" />
+
+    <script language="JavaScript1.1">
+function right(e) {
+if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2))
+return false;
+else if (navigator.appName == 'Microsoft Internet Explorer' && 
+(event.button == 2 || event.button == 3)) {
+//alert("لا توجد صلاحية.");
+return false;
+}
+return true;
+}
+
+document.onmousedown=right;
+document.onmouseup=right;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=right;
+window.onmouseup=right;
+//  End -->
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="myScriptManager" runat="server" >
+   
+    </asp:ScriptManager>
+    <div id="wrapperICD">
+        <div id="containerICD">
+            <div id="header_container">
+                <!-- navigation_container --->
+                <div id="content_container">
+                    <div id="navigation_container">
+                        <p style="text-align: center">
+                            <asp:LoginStatus ID="LoginStatus1" Font-Bold="true" runat="server" LoginText="تسجيل الدخول" LogoutText="خروج" />
+                        </p>
+                        <asp:Menu ID="Menu1" runat="server">
+                            <Items>
+                             <asp:MenuItem NavigateUrl="~/ICD10Admin/Categories.aspx" Text="Categories" Value="Categories">
+                                </asp:MenuItem>
+                              <asp:MenuItem NavigateUrl="~/ICD10Admin/Items.aspx" Text="Items" Value="Items">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ICD10Admin/Codes.aspx" Text="Codes" Value="Items">
+                                </asp:MenuItem>
+                                
+                                 <asp:MenuItem NavigateUrl="~/ICD10Admin/9000Code.aspx" Text="9000 Code" Value="Items">
+                                </asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </div>
+                    <!-- navigation --->
+                    <!-- content_right --->
+                    <div id="content_middle">
+                        <table align="center">
+                            <tr>
+                                <td align="center">
+                                    <asp:Label ID="lblPageHeader" Font-Size="XX-Large" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <asp:Label ID="lblMainheader" Font-Bold="true" Font-Underline="true" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- 
+							<ul id="right_content">
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							</ul>right_content --->
+                    </div>
+                    <!-- content_middle --->
+                </div>
+                <!-- content_container --->
+                <div id="footer_container">
+                </div>
+                <!-- footer_container --->
+            </div>
+            <!-- container --->
+        </div>
+        <!-- wrapper  
+ --->
+    </form>
+</body>
+</html>
