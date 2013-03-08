@@ -1,0 +1,147 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPages_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ربط مكاتب الصحة</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" type="text/css" href="../Style/CSSAdapters.css" />
+    <link rel="Stylesheet" type="text/css" href="../Style/MainStyle.css" />
+    <link rel="Stylesheet" type="text/css" href="../Style/Calendar.css" />
+  
+  
+
+
+
+    <script language="JavaScript1.1">
+function right(e) {
+if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2))
+return false;
+else if (navigator.appName == 'Microsoft Internet Explorer' && 
+(event.button == 2 || event.button == 3)) {
+//alert("لا توجد صلاحية.");
+return false;
+}
+return true;
+}
+
+document.onmousedown=right;
+document.onmouseup=right;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=right;
+window.onmouseup=right;
+//  End -->
+    </script>
+
+    <%-- <script type="text/javascript">
+        function adjustDivs() {
+            //debugger
+            var df = document.getElementById('ctl00_progParents');
+            df.style.position = 'absolute';
+            df.style.left = document.body.offsetWidth / 2 + document.body.scrollLeft - 100
+            df.style.top = document.body.offsetHeight / 2 + document.body.scrollTop - 50
+
+        }
+
+
+        window.onload = adjustDivs;
+        window.onresize = adjustDivs;
+        window.onscroll = adjustDivs;
+    </script>--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="myScriptManager"  runat="server" />
+    <%--  <asp:UpdateProgress runat="server" DisplayAfter="5"
+        ID="progParents">
+        <ProgressTemplate>
+        
+        <div class="overlay">
+            <asp:Image runat="server" ID="img" ImageUrl="~/Images/loading.gif" />
+            <br />
+            جارى التحميل ...
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>--%>
+    <div id="wrapper" runat="server">
+        <div id="container">
+            <div id="header_container">
+                <!-- navigation_container --->
+                <div id="content_container">
+                    <div id="navigation_container" >
+                        <p style="text-align: center">
+                            <asp:LoginStatus ID="LoginStatus1" Font-Bold="true" runat="server" LoginText="تسجيل الدخول"
+                                LogoutText="خروج" />
+                        </p>
+                        <asp:Menu ID="Menu1" runat="server">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/ApproveBirth.aspx" Text="توثيق بيانات واقعة ميلاد" Value="ApproveBirth">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterBirthInfo.aspx" Text="تسجيل بيانات واقعة الميلاد"
+                                    Value="RegisterBirth"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ApproveDead.aspx" Text="توثيق بيانات واقعة وفاة" Value="ApproveDead">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ListDeadMedicalInfo.aspx" Text="تسجيل البيانات الصحية لمتوفي"
+                                    Value="List"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ListDeadMedicalInfo.aspx?ForUpdate=1" Text="تعديل البيانات الصحية للمتوفى"
+                                    Value="EditDeadMedicalInfo"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterBirthInfo.aspx?IsLostCase=true" Text="ساقط قيد ميلاد"
+                                    Value="IsLostBirth"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/SearchBirth.aspx" Text="استعلام/تعديل بيانات واقعة ميلاد"
+                                    Value="تعديل بيانات واقعة ميلاد"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterDeathCase.aspx" Text="تسجيل واقعة الوفاه" Value="RegisterDeathCase">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterDeathCase.aspx?IsLostCase=true" Text="ساقط قيد وفاة"
+                                    Value="IsLostDeath"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/SearchDeath.aspx" Text="استعلام / تعديل بيانات واقعة وفاه"
+                                    Value="EditDeathCase"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Admin/Reports.aspx?pageRole=HealthOffice" Text="التقارير" Value="تقارير"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/OpenRegister.aspx" Text="فتح دفتر" Value="OpenRegister"> </asp:MenuItem>
+                                 <asp:MenuItem NavigateUrl="~/ChangePassword.aspx" Text="تغيير كلمة المرور" Value="changePassword">
+                                </asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </div>
+                    <!-- navigation --->
+                    <!-- content_right --->
+                    <div id="content_middle">
+                        <table dir="rtl" align="center">
+                            <tr>
+                                <td align="center">
+                                    <asp:Label ID="lblPageHeader" Font-Size="XX-Large" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <asp:Label ID="lblMainheader" Font-Bold="true" Font-Underline="true" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- 
+							<ul id="right_content">
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							<li><a href="#"><Images src="Images/button_2.png"></a></li>
+							</ul>right_content --->
+                    </div>
+                    <!-- content_middle --->
+                </div>
+                <!-- content_container --->
+            </div>
+            <!-- container --->
+            <div id="footer_container">
+            </div>
+            <!-- footer_container --->
+        </div>
+        <!-- wrapper  
+ --->
+    </div>
+    </form>
+</body>
+</html>

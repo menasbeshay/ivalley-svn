@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="New Project" description="New Zeus Project file">
+  <items>
+    <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Data Source=192.168.0.4;Initial Catalog=Health_Final;User ID=sa ;pwd=saumisproject" />
+    <item name="__dbDriver" type="System.String" val="SQL" />
+    <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\Languages.xml" />
+    <item name="__dbTarget" type="System.String" val="SqlClient" />
+    <item name="__dbTargetMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\DbTargets.xml" />
+    <item name="__defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+    <item name="__defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+    <item name="__domainOverride" type="System.Boolean" val="True" />
+    <item name="__language" type="System.String" val="C#" />
+    <item name="__userMetaDataFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\UserMetaData.xml" />
+    <item name="__version" type="System.String" val="1.2.0.7" />
+    <item name="dbConnectionString" type="System.Boolean" val="True" />
+    <item name="dbDriver" type="System.String" val="SQL" />
+    <item name="defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+    <item name="defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+  </items>
+  <objects>
+    <obj name="HOBLL" uid="545956e4-940d-450e-af5f-dfdf8dbdc3b4" path="C:\Program Files\MyGeneration\Templates\C#\CSharp_SQL_dOOdads_ConcreteClass.vbgen">
+      <items>
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Healt_Final;Data Source=myoussef" />
+        <item name="__dbDriver" type="System.String" val="SQL" />
+        <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\Languages.xml" />
+        <item name="__dbTarget" type="System.String" val="SqlClient" />
+        <item name="__dbTargetMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\DbTargets.xml" />
+        <item name="__defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="__defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="__domainOverride" type="System.Boolean" val="True" />
+        <item name="__language" type="System.String" val="C#" />
+        <item name="__userMetaDataFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\UserMetaData.xml" />
+        <item name="__version" type="System.String" val="1.2.0.7" />
+        <item name="btnPath" type="System.String" val="" />
+        <item name="cmbDatabase" type="System.String" val="Healt_Final" />
+        <item name="dbConnectionString" type="System.Boolean" val="True" />
+        <item name="dbDriver" type="System.String" val="SQL" />
+        <item name="defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|AREA;System.String|H|Born;System.String|H|BornMedicalInfo;System.String|H|Chemises;System.String|H|CIVIL_OFFICE;System.String|H|Dead;System.String|H|DeadMedicalInfo;System.String|H|GOVERNORATE;System.String|H|health_admins;System.String|H|health_office;System.String|H|ICD10CAT;System.String|H|ICD10CODE;System.String|H|ICD10ITEM;System.String|H|ICDCODE9000;System.String|H|ManualRegister;System.String|H|Methods;System.String|H|Organization;System.String|H|OrganizationIP;System.String|H|POLICE_STATION;" />
+        <item name="txtNamespace" type="System.String" val="MHO.BLL" />
+        <item name="txtPath" type="System.String" val="F:\MHO\GeneratedCode" />
+      </items>
+    </obj>
+    <obj name="HODAL" uid="1b2935a3-16f8-45ed-b50b-5cc6d1855428" path="C:\Program Files\MyGeneration\Templates\C#\CSharp_SQL_dOOdads_BusinessEntity.vbgen">
+      <items>
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Data Source=192.168.0.4;Initial Catalog=Health_Final;User ID=sa ;pwd=saumisproject" />
+        <item name="__dbDriver" type="System.String" val="SQL" />
+        <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\Languages.xml" />
+        <item name="__dbTarget" type="System.String" val="SqlClient" />
+        <item name="__dbTargetMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\DbTargets.xml" />
+        <item name="__defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="__defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="__domainOverride" type="System.Boolean" val="True" />
+        <item name="__language" type="System.String" val="C#" />
+        <item name="__userMetaDataFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\UserMetaData.xml" />
+        <item name="__version" type="System.String" val="1.2.0.7" />
+        <item name="btnPath" type="System.String" val="" />
+        <item name="cmbDatabase" type="System.String" val="Health_Final" />
+        <item name="dbConnectionString" type="System.Boolean" val="True" />
+        <item name="dbDriver" type="System.String" val="SQL" />
+        <item name="defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|AREA;System.String|H|Born;System.String|H|BornMedicalInfo;System.String|H|CIVIL_OFFICE;System.String|H|Dead;System.String|H|DeadMedicalInfo;System.String|H|GOVERNORATE;System.String|H|health_admins;System.String|H|Health_Office;System.String|H|ICD10CAT;System.String|H|ICD10CODE;System.String|H|ICD10ITEM;System.String|H|ICDCODE9000;System.String|H|Location_types;System.String|H|Machine;System.String|H|ManualRegister;System.String|H|NATIONALITY;System.String|H|Organization;System.String|H|OrganizationMachineIP;System.String|H|OrgUser;System.String|H|POLICE_STATION;" />
+        <item name="prefix" type="System.Boolean" val="False" />
+        <item name="trimName" type="System.Boolean" val="False" />
+        <item name="txtNamespace" type="System.String" val="MHO.DAL" />
+        <item name="txtPath" type="System.String" val="F:\MHO\GeneratedCode\DAL" />
+      </items>
+    </obj>
+    <obj name="SQL" uid="10998336-5037-496c-a163-050060de065a" path="C:\Program Files\MyGeneration\Templates\Microsoft_SQL_Server\SQL_StoredProcs.vbgen">
+      <items>
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Data Source=192.168.0.4;Initial Catalog=Health_Final;User ID=sa ;pwd=saumisproject" />
+        <item name="__dbDriver" type="System.String" val="SQL" />
+        <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\Languages.xml" />
+        <item name="__dbTarget" type="System.String" val="SqlClient" />
+        <item name="__dbTargetMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\DbTargets.xml" />
+        <item name="__defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="__defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="__domainOverride" type="System.Boolean" val="True" />
+        <item name="__language" type="System.String" val="C#" />
+        <item name="__userMetaDataFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\UserMetaData.xml" />
+        <item name="__version" type="System.String" val="1.2.0.7" />
+        <item name="btnPath" type="System.String" val="" />
+        <item name="chk2005" type="System.Boolean" val="False" />
+        <item name="chkAlter" type="System.Boolean" val="False" />
+        <item name="chkGenDoc" type="System.Boolean" val="True" />
+        <item name="cmbDatabase" type="System.String" val="Health_Final" />
+        <item name="dbConnectionString" type="System.Boolean" val="True" />
+        <item name="dbDriver" type="System.String" val="SQL" />
+        <item name="defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|AREA;System.String|H|Born;System.String|H|BornMedicalInfo;System.String|H|CIVIL_OFFICE;System.String|H|Dead;System.String|H|DeadMedicalInfo;System.String|H|GOVERNORATE;System.String|H|health_admins;System.String|H|Health_Office;System.String|H|ICD10CAT;System.String|H|ICD10CODE;System.String|H|ICD10ITEM;System.String|H|ICDCODE9000;System.String|H|Location_types;System.String|H|Machine;System.String|H|ManualRegister;System.String|H|NATIONALITY;System.String|H|Organization;System.String|H|OrganizationMachineIP;System.String|H|OrgUser;System.String|H|POLICE_STATION;" />
+        <item name="txtPath" type="System.String" val="F:\MHO\GeneratedCode\Procedures\tstSQL" />
+      </items>
+    </obj>
+    <obj name="Views" uid="b8311e7d-09d3-4b21-a6a6-4df5549c7c9a" path="C:\Program Files\MyGeneration\Templates\C#\CSharp_SQL_dOOdads_View.vbgen">
+      <items>
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Data Source=192.168.0.4;Initial Catalog=Health_Final;User ID=sa ;pwd=saumisproject" />
+        <item name="__dbDriver" type="System.String" val="SQL" />
+        <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\Languages.xml" />
+        <item name="__dbTarget" type="System.String" val="SqlClient" />
+        <item name="__dbTargetMappingFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\DbTargets.xml" />
+        <item name="__defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="__defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="__domainOverride" type="System.Boolean" val="True" />
+        <item name="__language" type="System.String" val="C#" />
+        <item name="__userMetaDataFileName" type="System.String" val="C:\Program Files\MyGeneration\Settings\UserMetaData.xml" />
+        <item name="__version" type="System.String" val="1.2.0.7" />
+        <item name="abstract" type="System.Boolean" val="False" />
+        <item name="btnPath" type="System.String" val="" />
+        <item name="classPrefix" type="System.Boolean" val="False" />
+        <item name="cmbDatabase" type="System.String" val="Health_Final" />
+        <item name="dbConnectionString" type="System.Boolean" val="True" />
+        <item name="dbDriver" type="System.String" val="SQL" />
+        <item name="defaultOutputPath" type="System.String" val="F:\MHO\GeneratedCode" />
+        <item name="defaultTemplatePath" type="System.String" val="C:\Program Files\MyGeneration\Templates\" />
+        <item name="lstViews" type="System.Collections.ArrayList" val="System.String|H|V_Area_Police_Gov;System.String|H|V_Org;System.String|H|V_Police_Gove;" />
+        <item name="prefix" type="System.Boolean" val="False" />
+        <item name="trimName" type="System.Boolean" val="False" />
+        <item name="txtNamespace" type="System.String" val="MHO.BLL" />
+        <item name="txtPath" type="System.String" val="F:\MHO\GeneratedCode\DAL" />
+      </items>
+    </obj>
+  </objects>
+</project>

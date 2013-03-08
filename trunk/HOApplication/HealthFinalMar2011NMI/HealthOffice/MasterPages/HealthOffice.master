@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HealthOffice.master.cs"
+    Inherits="MasterPages_HealthOffice" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ربط مكاتب الصحة</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" type="text/css" href="../Style/CSSAdapters.css" />
+    <link rel="Stylesheet" type="text/css" href="../Style/MainStyle.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="myScriptManager" runat="server" />
+
+    <div class="wrapper">
+        <div id="header">
+            <table align="center" width="100%" dir="rtl">
+                <tr>
+                    <td style="width: 20%;">
+                        <asp:Image ID="logo" runat="server" ImageUrl="~/Images/logo.jpg" />
+                    </td>
+                    <td align="right">
+                        <asp:Label ID="lblPageHeader" Font-Size="XX-Large" runat="server"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <br />
+        <div id="main">
+            <table width="100%" dir="rtl" style="vertical-align: top;">
+                <tr>
+                    <td width="20%" valign="top">
+                        <asp:Menu ID="Menu1" runat="server">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/RegisterBirthInfo.aspx" Text="تسجيل بيانات حالة الميلاد"
+                                    Value="تسجيل بيانات حالة الميلاد"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterDeathCase.aspx" Text="تسجيل حالة الوفاه" Value="New Item">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterDeathHealthInfo.aspx" 
+                                    Text="تسجيل البيانات الصحية لمتوفي" Value="تسجيل البيانات الصحية لمتوفي">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisterLostBirth.aspx" Text="ساقط قيد ميلاد" Value="New Item">
+                                </asp:MenuItem>
+                                 <asp:MenuItem NavigateUrl="~/Reports.aspx" Text="التقارير" Value="تقارير">
+                                </asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                    <td valign="top">
+                        <div class="AlignCenter">
+                            <asp:Label ID="lblMainheader" Font-Bold="true" Font-Underline="true" runat="server"></asp:Label>
+                        </div>
+                        <br />
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    </form>
+</body>
+</html>
