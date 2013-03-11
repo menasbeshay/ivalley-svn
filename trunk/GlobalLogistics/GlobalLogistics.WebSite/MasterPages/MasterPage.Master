@@ -203,7 +203,7 @@
                     <li class="MenuBorder"></li>
                     <li><a class="hide" href="../en/Pages.aspx?pid=10">Agreements</a></li>
                     <li class="MenuBorder"></li>
-                    <li style="background-color: #000;width:79px"><a style="background-color: #000; font-size: 14px;"
+                    <li style="background-color: #000;width:80px"><a style="background-color: #000; font-size: 14px;"
                         class="hide" href="../en/Vedios.aspx">Video</a></li>
                     
                 </ul>
@@ -288,11 +288,19 @@
                             <img src="../en/images/Icons/Factoryicon.gif" alt="Factories" /><span>Factories</span></a>
                         </li>
                         <li><a href="../en/DirectorySC.aspx?type=o" >
-                            <img src="../en/images/Icons/othersectoricon.gif" alt="Other Sectors" /><span>Other
-                                Sectors</span></a> </li>
+                            <img src="../en/images/Icons/othersectoricon.gif" alt="Other Sectors" /><span>Others
+                                </span></a> </li>
                     </ul>
                    
                 </div>
+            <div class="clear">
+            </div>
+            <div>
+                <iframe src="http://www.egx.com.eg/english/Tiker.aspx" frameborder="0" scrolling="no"
+                    width="100%" height="28"></iframe>
+            </div>
+            <div class="clear">
+            </div>
             
         </div>
         <div class="Content">           

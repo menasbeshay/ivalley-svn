@@ -48,13 +48,14 @@
                 <div id="CompanyTabs_4" runat="server">
                  <asp:Repeater ID="uiRepeaterService" runat="server">
                         <HeaderTemplate>
-                        <ul>
+                            <div class="serviceContent">
+                                <ul>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <li><a href='Service.aspx?T=ser&sid=<%# Eval("ServiceID") %>'><%# Eval("ArName") %></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
-                        </ul>
+                        </ul></div>
                         </FooterTemplate>
                         </asp:Repeater>
                     <asp:Literal ID="uiLiteralServices" runat="server"></asp:Literal>
@@ -62,13 +63,14 @@
                 <div id="CompanyTabs_5" runat="server"> 
                 <asp:Repeater ID="uiRepeaterOffers" runat="server">
                         <HeaderTemplate>
+                            <div class="serviceContent">
                         <ul>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <li><a href='Service.aspx?T=off&sid=<%# Eval("ServiceID") %>'><%# Eval("ArName") %></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
-                        </ul>
+                        </ul></div>
                         </FooterTemplate>
                         </asp:Repeater>
                     <asp:Literal ID="uiLiteralOffers" runat="server"></asp:Literal>
@@ -76,6 +78,7 @@
                 <div id="CompanyTabs_6" runat="server">
                 <asp:Repeater ID="uiRepeaterRequests" runat="server">
                         <HeaderTemplate>
+                            <div class="serviceContent">
                         <ul>
                         </HeaderTemplate>
                         <ItemTemplate>
@@ -83,6 +86,7 @@
                         </ItemTemplate>
                         <FooterTemplate>
                         </ul>
+                        </div>
                         </FooterTemplate>
                         </asp:Repeater>
                     <asp:Literal ID="uiLiteralRequests" runat="server"></asp:Literal>
@@ -90,6 +94,7 @@
                 <div id="CompanyTabs_7" runat="server">
                  <asp:Repeater ID="uiRepeaterJobs" runat="server">
                         <HeaderTemplate>
+                            <div class="serviceContent">
                         <ul>
                         </HeaderTemplate>
                         <ItemTemplate>
@@ -97,6 +102,7 @@
                         </ItemTemplate>
                         <FooterTemplate>
                         </ul>
+                        </div>
                         </FooterTemplate>
                         </asp:Repeater>
                     <asp:Literal ID="uiLiteralJobs" runat="server"></asp:Literal>

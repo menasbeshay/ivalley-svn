@@ -162,6 +162,7 @@
     <Content Include="Directory.aspx" />
     <Content Include="DirectorySC.aspx" />
     <Content Include="en\DirectorySC.aspx" />
+    <Content Include="en\Images.aspx" />
     <Content Include="en\images\Icons\airandshippingicon.gif" />
     <Content Include="en\images\Icons\customclearanceicon.gif" />
     <Content Include="en\images\Icons\export-importicon.gif" />
@@ -246,6 +247,7 @@
     <Content Include="en\images\title675.png" />
     <Content Include="en\images\title728.png" />
     <Content Include="en\images\xChangeBg.png" />
+    <Content Include="Images.aspx" />
     <Content Include="images\Icons\airandshippingicon.gif" />
     <Content Include="images\Icons\customclearanceicon.gif" />
     <Content Include="images\Icons\export-importicon.gif" />
@@ -1160,6 +1162,13 @@
     <Compile Include="en\DirectorySC.aspx.designer.cs">
       <DependentUpon>DirectorySC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="en\Images.aspx.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\Images.aspx.designer.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
+    </Compile>
     <Compile Include="en\Vedios.aspx.cs">
       <DependentUpon>Vedios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1173,6 +1182,13 @@
     </Compile>
     <Compile Include="Exchange.aspx.designer.cs">
       <DependentUpon>Exchange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Images.aspx.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Images.aspx.designer.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
     <Compile Include="IntCodes.aspx.cs">
       <DependentUpon>IntCodes.aspx</DependentUpon>

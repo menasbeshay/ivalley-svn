@@ -14,7 +14,7 @@
                         <div class="IconHost">
                             <a href='Directory.aspx?<%# "scid=" + Eval("SubCategoryID").ToString() + (((Request.QueryString["type"] != null) && (Request.QueryString["type"].ToString() == "sh")) ? "&f=sh" : "") %>'>
                                 <div>
-                                    <img style="width: 130px;" src='<%# string.IsNullOrEmpty(Eval("IconPath").ToString()) ? "images/default_logo.gif" : Eval("IconPath") %>' />
+                                    <img style="width: 130px;" src='Images.aspx?Image=<%# string.IsNullOrEmpty(Eval("IconPath").ToString()) ? "images/default_logo.gif" : Eval("IconPath") %>' />
                                 </div>
                                 <div class="clear">
                                 </div>
