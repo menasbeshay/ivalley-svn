@@ -141,6 +141,7 @@
     <Content Include="images\contact\inputEmail.png" />
     <Content Include="images\contact\inputMessage.png" />
     <Content Include="images\contact\inputName.png" />
+    <Content Include="images\flights.gif" />
     <Content Include="images\health\arrows-gray.png" />
     <Content Include="images\health\caring-staff.jpg" />
     <Content Include="images\health\clinical.jpg" />

@@ -9,16 +9,16 @@
         </div>
         <div class="large-6 columns postContainer">
             <div class="post-num">
-                <img src="images/blog-img1.jpg" alt="Blog Image">
-                <p class="postDate">
-                    I-Flights</p>
+                <img src="images/flights.gif" alt="Blog Image">
+               
             </div>
             <div class="postInfo">
-                <img src="images/user1.png" alt="Posted By">
+                <img src="images/opFlights.gif" alt="Posted By">
                 <p class="posterName">
-                    <a href="single-post.html">I-Flights</a></p>
+                     <p class="postDate">
+                    I-Flights</p>
                 <p class="postInfo">
-                    IValley have very good experience in Airlines companies' software management system, so we offer for you the most stable solution will enable you to handle your commercial department, Operation department, Cabin Crew, Engineering, Station and Training department with ability to extract all needed reports including Ministry of Aviation schedule reports.</p>
+                    We offer for you the most stable Airlines Management System will enable you to handle your commercial department, Operation department, Cabin Crew, Engineering, Station and Training department with ability to extract all needed reports including Ministry of Aviation schedule reports.</p>
             </div>
             <div class="blogHover">
                 <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
@@ -27,16 +27,16 @@
         </div>
         <div class="large-6 columns postContainer">
             <div class="post-num">
-                <img src="images/blog-img2.jpg" alt="Blog Image">
+                <img src="images/finance.gif" alt="Blog Image">
                 <p class="postDate">
                     I-Finance</p>
             </div>
             <div class="postInfo">
-                <img src="images/user2.png" alt="Posted By">
+                <img src="images/opFinance.gif" alt="Posted By">
                 <p class="posterName">
                     <a href="single-post.html">I-Finance</a></p>
                 <p class="postInfo">
-                    IValley provide suitable solution for the small to mid-size companies for their financial department – through our IFinance we provide Full accounting system including stock management and point of sales management as well.</p>
+                    IValley provide suitable solution for the small to mid-size companies for their financial department – through our IFinance we provide Full accounting system including stock management and point of sales management as well, Now you will be able to remove all manual invoices and use the most powerful financial system.</p>
             </div>
             <div class="blogHover">
                 <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
