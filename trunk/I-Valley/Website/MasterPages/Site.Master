@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <!-- Website Title & Description -->
     <title>I-Valley software solutions</title>
-    <meta name="description" content="Hexagonal - Clean Multipurpose Responsive Website">
+    <meta name="description" content="I-Valley software solutions">
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="HandheldFriendly" content="True">
@@ -131,10 +131,14 @@
               <img src="images/blog-img1.jpg" alt="" width="326" height="184">
             </figure>
                     <dl>
-                        <dt><span class="trait-emblem large design"><span>Design</span> </span></dt>
+                        <dt><span class="trait-emblem large design"><span>Web development</span> </span></dt>
                         <dd>
-                            Learn something new, change the way you see life, expand your mind &amp; broaden
-                            your horizons. 
+                            With&nbsp;<div class="CompanyName">
+                                I-Valley</div>
+                            you have multiple options to develop your web solution, our web development
+                            packages not only focus in website development 
+                            <div id="buttons" style="width: 100px; padding-top: 10px;">
+                                <a class="btn5" href="../Services/webdevelopment.aspx">Read more</a></div>
                             
                         </dd>
                     </dl>
@@ -146,7 +150,7 @@
               <img src="../images/1-home/Outsourcing.jpg" width="326" height="184" />
             </figure>
                     <dl>
-                        <dt><span class="trait-emblem large photography"><span>Photography</span> </span>
+                        <dt><span class="trait-emblem large photography"><span>Outsourcing</span> </span>
                         </dt>
                         <dd>
                             try to outsource your software development to Egypt through <div class="CompanyName">I-Valley</div> staff members, we provide two outsourcing models: Staff augmentation & Project
@@ -161,10 +165,15 @@
               <img src="images/blog-img3.jpg" alt="" width="326" height="184">
             </figure>
                     <dl>
-                        <dt><span class="trait-emblem large branding"><span>Branding</span> </span></dt>
+                        <dt><span class="trait-emblem large branding"><span>E-Marketing</span> </span></dt>
                         <dd>
-                            Learn something new, change the way you see life, expand your mind &amp; broaden
-                            your horizons.
+                            With 
+                            <div class="CompanyName">
+                                I-Valley</div> 
+                            you can make your brand reach to customers more than your expectation!
+                            , we have many ways to implement that to help you to get in the market faster                                                         
+                            <div id="buttons" style="width: 100px; padding-top: 10px;">
+                                <a class="btn6" href="../Services/EMarketing.aspx">Read more</a></div>
                         </dd>
                     </dl>
                 </div>
@@ -277,7 +286,7 @@
 			}
 			else {
 				jQuery('#camera_wrap_1').camera({
-					height: '425px',
+					height: '455px',
 					pagination: false,
 					thumbnails: false,
 				});
