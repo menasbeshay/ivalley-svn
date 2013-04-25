@@ -71,7 +71,7 @@ body {
 /*NAVIGATION STYLES*/
 .top-bar {
 	background: rgba(255,255,255,0.8);
-	padding: 25px 35px 25px 35px;
+	padding: 10px 35px 25px 35px;
 }
 
 .top-bar .title-area {
@@ -79,7 +79,7 @@ body {
 }
 
 .logo {
-	margin-top: -18px;
+	margin-top: -5px;
 }
 
 .title-area {
@@ -3279,12 +3279,14 @@ select {
 
 
 /*	6.2 Main Nav Styles ----------------------------------------------------------*/
-	.main-nav {
+	.main-nav 
+	{
+	    margin-top:-25px;
             position: relative;
             min-height: 41px;
             height:auto !important;
             height: 41px;
-            width: 61%;
+            width: 72%;
             float:right;
             padding: 0px 21px 0px 0px;
             background-color:#CCCCCC;

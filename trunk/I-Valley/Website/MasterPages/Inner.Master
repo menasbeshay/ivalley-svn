@@ -86,10 +86,23 @@
                             <li class="active">
                                 <asp:HyperLink NavigateUrl="~/Portfolio.aspx" ID="uiportlink" runat="server">Portfolio</asp:HyperLink></li>
                             <li class="active">
+                                <asp:HyperLink NavigateUrl="#" ID="HyperLink3" runat="server">Products</asp:HyperLink>
+                                <ul style="display: none;">
+                                    <li>
+                                        <asp:HyperLink NavigateUrl="#" ID="HyperLink4" runat="server">I-Flights</asp:HyperLink></li>
+                                    <li>
+                                        <asp:HyperLink NavigateUrl="#" ID="HyperLink5" runat="server">I-Finance</asp:HyperLink></li>
+                                </ul>
+                            </li>
+                            <li class="active">
                                 <asp:HyperLink NavigateUrl="~/services/default.aspx" ID="uiservicelink" runat="server">Services</asp:HyperLink>
                                 <ul style="display: none;">
                                     <li>
+                                        <asp:HyperLink NavigateUrl="~/Services/webdevelopment.aspx" ID="HyperLink1" runat="server">Web development</asp:HyperLink></li>
+                                    <li>
                                         <asp:HyperLink NavigateUrl="~/services/outsourcing.aspx" ID="uioutsourcinglink" runat="server">Outsourcing</asp:HyperLink></li>
+                                    <li>
+                                        <asp:HyperLink NavigateUrl="~/Services/EMarketing.aspx" ID="HyperLink2" runat="server">E-marketing</asp:HyperLink></li>
                                 </ul>
                             </li>
                             <li class="active">
@@ -100,8 +113,13 @@
                             <option value="Default.aspx">Home</option>
                             <option value="About.aspx">About</option>
                             <option value="Portfolio.aspx">Portfolio</option>
+                            <option value="#">Products</option>
+                            <option value="#">- I-Flights</option>
+                            <option value="#">- I-Finance</option>                            
                             <option value="Services.html">Services</option>
+                            <option value="webdevelopment.aspx">- Web development</option>
                             <option value="Outsourcing.aspx">- Outsourcing</option>
+                            <option value="EMarketing.aspx">- E-marketing</option>
                             <option value="contact.aspx">Contact Us</option>
                         </select>
                     </div>

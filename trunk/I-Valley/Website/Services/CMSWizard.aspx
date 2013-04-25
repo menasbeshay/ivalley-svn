@@ -68,11 +68,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div id="banner" style="background:none;height:40px;">
+    <div id="banner" style="background:none;height:30px;padding-top:30px;">
         
         <span style="border-radius: 12px; -moz-border-radius: 12px; -webkit-border-radius: 12px;
-            width: 408px;left:40%;">
-            <p style="border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;width:400px">
+            width: 388px;left:38%;height:68px;bottom:-35px;">
+            <p style="border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;width:380px;height:60px;line-height:60px;">
                 Cms website request</p>
         </span>
     </div>
