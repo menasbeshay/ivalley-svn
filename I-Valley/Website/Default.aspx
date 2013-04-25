@@ -18,8 +18,7 @@
                 <p class="posterName">
                     <a href="single-post.html">I-Flights</a></p>
                 <p class="postInfo">
-                    Adipiscing nisi phasellus auctor et a rhoncus vel ac. Non nunc sit, porta, augue
-                    egestas integer.</p>
+                    IValley have very good experience in Airlines companies' software management system, so we offer for you the most stable solution will enable you to handle your commercial department, Operation department, Cabin Crew, Engineering, Station and Training department with ability to extract all needed reports including Ministry of Aviation schedule reports.</p>
             </div>
             <div class="blogHover">
                 <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
@@ -37,8 +36,7 @@
                 <p class="posterName">
                     <a href="single-post.html">I-Finance</a></p>
                 <p class="postInfo">
-                    Adipiscing nisi phasellus auctor et a rhoncus vel ac. Non nunc sit, porta, augue
-                    egestas integer.</p>
+                    IValley provide suitable solution for the small to mid-size companies for their financial department – through our IFinance we provide Full accounting system including stock management and point of sales management as well.</p>
             </div>
             <div class="blogHover">
                 <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
