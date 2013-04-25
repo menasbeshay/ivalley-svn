@@ -4,12 +4,64 @@
     <link href="../stylesheets/smart_wizard.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
-            // Smart Wizard 	
-            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback });
+            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback });
 
             function onFinishCallback() {
-                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                $('form').submit();
             }
+
+            function leaveAStepCallback(obj) {
+                var step_num = obj.attr('rel');
+                return validateSteps(step_num);
+            }
+        });
+
+        function validateSteps(step) {
+            var isStepValid = true;            
+            if (step == 1) {
+                if ($('#<%= HiddenFieldTemplateID.ClientID %>').val() == '') {
+                    isStepValid = false;
+                    $('#wizard').smartWizard('showMessage', 'Please select template in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('setError', { stepnum: step, iserror: true });
+                } else {
+                    $('#wizard').smartWizard('setError', { stepnum: step, iserror: false });
+                }
+            }
+            
+            if (step == 2) {
+                if ($('#<%= HiddenFieldPricePlanName.ClientID %>').val() == '') {
+                    isStepValid = false;
+                    $('#wizard').smartWizard('showMessage', 'Please price plan in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('setError', { stepnum: step, iserror: true });
+                } else {
+                    $('#wizard').smartWizard('setError', { stepnum: step, iserror: false });
+                }
+            }
+
+            return isStepValid;
+        }
+
+        $(document).ready(function () {
+            $("#portfolio-list2 li .hoverdiv").click(function (event) {
+                $('#portfolio-list2 > li .hoverdiv').removeClass("templateHover");
+                $(this).addClass("templateHover");
+                var template = $(this).attr('id');
+                $('#<%= uiTextBoxTemplateName.ClientID %>').val(template);
+                $('#<%= HiddenFieldTemplateID.ClientID %>').val(template);
+                return false;
+            });
+
+
+            $(".BuyLink").click(function (event) {
+                $('.BuyLink').removeClass("PriceSelected");
+                $(this).addClass("PriceSelected");
+                var price = $(this).attr('id');
+                $('#Price').val(price);
+                $('#<%= uiTextBoxPricePlan.ClientID %>').val(price);
+                $('#<%= HiddenFieldPricePlanName.ClientID %>').val(price);
+                return false;
+            });
+
         });
 </script>
 </asp:Content>
@@ -69,7 +121,7 @@
                                         <img src="../images/portfolio/portfolio-img1.jpg" width="312" height="215" alt="Image Name"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template1">
                                 <div></div>
                                 </div>
                             </div>
@@ -335,8 +387,8 @@
                     
                     <h3>
                         1750 EGP</h3>
-                    <p class="button signup">
-                        <a href="#">Contact</a></p>
+                    <p class="button">
+                        <a href="#" class="BuyLink" id="Bronze">Buy</a></p>
                 </div>
                 <div class="pricing_box large radius-left">
                     <div class="header">
@@ -360,8 +412,9 @@
                     
                     <h3>
                         2750 EGP</h3>
-                    <p class="button signup">
-                        <a href="#">Contact</a></p>
+                    <p class="button">
+                        <a href="#" class="BuyLink" id="Silver">Buy</a></p>
+                   
                 </div>
                 <div class="pricing_box radius-right">
                     <div class="header">
@@ -384,15 +437,16 @@
                    
                     <h3>
                         4750 EGP</h3>
-                    <p class="button signup">
-                        <a href="#">Contact</a></p>
+                    <p class="button">
+                        <a href="#" class="BuyLink" id="Golden"><span>Buy</span></a></p>
+                    
                 </div>
                 <div class="clear-fix" >
                 </div>
             </div>
             <div class="clear-fix" style="height:15px;"></div>
             <div style="padding: 5px; font: normal bold 16px normal 'times new ramon'; color: #ff0000">• You will pay only 500 EGP each year for hosting and maintenance start from the
-            next year of contracting ( first year free )</div>
+            next year of contracting (first year free)</div>
         </div>
         <div id="step-3">
             <h2 class="StepTitle">
@@ -404,33 +458,43 @@
                        Template Name:</p>
                    <label class="forName" for="name">
                    </label>
-                   <input type="text" name="template" id="Template">
+                   <asp:TextBox ID="uiTextBoxTemplateName" runat="server"></asp:TextBox>                   
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
                        Price plan</p>
                    <label class="forName" for="eMail">
                    </label>
-                   <input type="text" name="price" id="Price">
+                   <asp:TextBox ID="uiTextBoxPricePlan" runat="server"></asp:TextBox>
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
                        Name:</p>
                    <label class="forName" for="name">
                    </label>
-                   <input type="text" name="name" id="name">
+                   <asp:TextBox ID="uiTextBoxName" runat="server"></asp:TextBox>
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Telephone:</p>
+                   <label class="forName" for="tele">
+                   </label>
+                   <asp:TextBox ID="uiTextBoxTele" runat="server"></asp:TextBox>
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
                        Email:</p>
                    <label class="forEmail" for="eMail">
                    </label>
-                   <input type="email" name="email" id="eMail">
+                   <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
                </div>
            </div>
         </div>
         
-    </div>
+    </div>        
+        <asp:HiddenField ID="HiddenFieldTemplateID" runat="server" />
+        <asp:HiddenField ID="HiddenFieldPricePlanName" runat="server" />
+        <asp:HiddenField ID="HiddenFieldPricePlanID" runat="server" />
     </div>
 
 </asp:Content>

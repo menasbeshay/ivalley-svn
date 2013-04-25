@@ -1666,7 +1666,7 @@ textarea.error {
 label.error {
   color: #c60f13; }
 
-.error small,
+/*.error small,
 small.error {
   display: block;
   padding: 0.375em 0.25em;
@@ -1676,7 +1676,7 @@ small.error {
   font-weight: bold;
   background: #c60f13;
   color: white; }
-
+*/
 /* Custom Checkbox and Radio Inputs */
 form.custom .custom {
   display: inline-block;
