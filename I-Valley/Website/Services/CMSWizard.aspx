@@ -68,12 +68,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div id="banner">
-        <p>
-            CMS website request</p>
-        <span>
-            <p>
-                C</p>
+    <div id="banner" style="background:none;height:40px;">
+        
+        <span style="border-radius: 12px; -moz-border-radius: 12px; -webkit-border-radius: 12px;
+            width: 408px;left:40%;">
+            <p style="border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;width:400px">
+                Cms website request</p>
         </span>
     </div>
     <div id="InnerContentWrapper" class="row">
@@ -388,7 +388,7 @@
                     <h3>
                         1750 EGP</h3>
                     <p class="button">
-                        <a href="#" class="BuyLink" id="Bronze">Buy</a></p>
+                        <a href="#" class="BuyLink" id="Bronze">Select</a></p>
                 </div>
                 <div class="pricing_box large radius-left">
                     <div class="header">
@@ -413,7 +413,7 @@
                     <h3>
                         2750 EGP</h3>
                     <p class="button">
-                        <a href="#" class="BuyLink" id="Silver">Buy</a></p>
+                        <a href="#" class="BuyLink" id="Silver">Select</a></p>
                    
                 </div>
                 <div class="pricing_box radius-right">
@@ -438,7 +438,7 @@
                     <h3>
                         4750 EGP</h3>
                     <p class="button">
-                        <a href="#" class="BuyLink" id="Golden"><span>Buy</span></a></p>
+                        <a href="#" class="BuyLink" id="Golden">Select</a></p>
                     
                 </div>
                 <div class="clear-fix" >
