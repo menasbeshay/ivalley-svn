@@ -10,13 +10,14 @@
         <div class="large-6 columns postContainer">
             <div class="post-num">
                 <img src="images/flights.gif" alt="Blog Image">
-               
-            </div>
-            <div class="postInfo">
-                <img src="images/opFlights.gif" alt="Posted By">
                 <p class="posterName">
                      <p class="postDate">
                     I-Flights</p>
+            </div>
+            <div class="postInfo">
+                <img src="images/opFlights.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
+                    -webkit-border-radius: 10px;">
+               
                 <p class="postInfo">
                     We offer for you the most stable Airlines Management System will enable you to handle your commercial department, Operation department, Cabin Crew, Engineering, Station and Training department with ability to extract all needed reports including Ministry of Aviation schedule reports.</p>
             </div>
@@ -32,7 +33,8 @@
                     I-Finance</p>
             </div>
             <div class="postInfo">
-                <img src="images/opFinance.gif" alt="Posted By">
+                <img src="images/opFinance.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
+                    -webkit-border-radius: 10px;">
                 <p class="posterName">
                     <a href="single-post.html">I-Finance</a></p>
                 <p class="postInfo">
