@@ -1,0 +1,436 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="CMSWizard.aspx.cs" Inherits="Website.Services.CMSWizard" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../javascripts/jquery.smartWizard-2.0.min.js" type="text/javascript"></script>
+    <link href="../stylesheets/smart_wizard.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Smart Wizard 	
+            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback });
+
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+            }
+        });
+</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+    <div id="banner">
+        <p>
+            CMS website request</p>
+        <span>
+            <p>
+                C</p>
+        </span>
+    </div>
+    <div id="InnerContentWrapper" class="row">
+       
+
+    <div id="wizard" class="swMain">
+        <ul>
+            <li><a href="#step-1">
+                <label class="stepNumber">
+                    1</label>
+                <span class="stepDesc">Step 1<br />
+                    <small>Choose your template design </small> </span></a></li>
+            <li><a href="#step-2">
+                <label class="stepNumber">
+                    2</label>
+                <span class="stepDesc">Step 2<br />
+                    <small>Choose your price package</small> </span></a></li>
+            <li><a href="#step-3">
+                <label class="stepNumber">
+                    3</label>
+                <span class="stepDesc">Step 3<br />
+                    <small>Request Service from I-Valley</small> </span></a></li>
+            
+        </ul>
+        <div id="step-1">
+            <h2 class="StepTitle">
+                Choose your template design</h2>
+            <!-- start templates -->
+            <div id="portfolioWrapp2" class="row">
+                <%--<div id="portfolioNav" class="large-12 columns">
+                    <ul id="portfolio-filter" class="clear-fix">
+                        <li><a href="Portfolio.aspx" class="current">All</a></li>
+                        <li><a rel="design" href="#design" class="">Design</a></li>
+                        <li><a rel="webDesign" href="#webDesign" class="">Web Design</a></li>
+                        <li><a rel="photography" href="#photography" class="">Photography</a></li>
+                    </ul>
+                </div>--%>
+                <div id="portfolioContainer" class="large-12 columns">
+                    <ul id="portfolio-list2" class="clear-fix">
+                        <!-- ITEM 1-->
+                        <li class="design" style="display: list-item;">
+                            <div class="imageSlide" style="overflow: hidden;">
+                                <ul class="imagesContainer clear-fix sliderCont1">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img1.jpg" width="312" height="215" alt="Image Name"></li>
+                                   
+                                </ul>
+                                <div class="hoverdiv">
+                                <div></div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 2-->
+                        <li class="photography" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont2">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img2.jpg" width="312" height="215" alt="Image Name"></li>
+                                    
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Photography</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 3-->
+                        <li class="webDesign" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont3" >
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img3.jpg" width="312" height="215" alt="Image Name"></li>
+                                    
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Web Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 4-->
+                        <li class="photography" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont4">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img4.jpg" width="312" height="215" alt="Image Name"></li>
+                                    
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Photography</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 5-->
+                        <li class="webDesign" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont5">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img5.jpg" width="312" height="215" alt="Image Name"></li>
+                                    
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Web Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 6-->
+                        <li class="design" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont6">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img6.jpg" width="312" height="215" alt="Image Name"></li>
+                                   
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 7-->
+                        <li class="photography" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont7">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img7.jpg" width="312" height="215" alt="Image Name"></li>
+                                    
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Photography</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 8-->
+                        <li class="design" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont8">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img8.jpg" width="312" height="215" alt="Image Name"></li>
+                                   
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 8-->
+                        <li class="webDesign" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont9">
+                                    <li>
+                                        <img src="../images/portfolio/portfolio-img9.jpg" width="312" height="215" alt="Image Name"></li>
+                                   
+                                </ul>
+                                <div class="hoverdiv">
+                                    <div ></div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
+                                        class="portCategorie">Web Design</span></h2>
+                                <p>
+                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
+                                    magna?</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end templates -->
+
+        </div>
+        <div id="step-2">
+            <h2 class="StepTitle">
+                Choose your price package</h2>
+           <div class="clear-fix" style="height:40px;"></div>
+            <div class="cols-4">
+                <div class="pricing_box" style="background:none;border:none;width:40%;">
+                    <div style="height:68px"></div>
+                    <ul class="features">
+                        <li class="even"><strong class="yes">Number of pages </strong></li>
+                        <li class="odd"><strong class="yes">Search Engine Optimization (SEO)</strong></li>
+                        <li class="even"><strong class="yes">Facebook and Twitter Link </strong></li>
+                        <li class="odd"><strong class="yes">Image Gallery</strong></li>
+                        <li class="even"><strong class="yes">Product Gallery </strong></li>
+                        <li class="odd"><strong class="yes">News Letter marketing </strong></li>
+                        <li class="even"><strong class="yes">Design Customization</strong></li>
+                        <li class="odd"><strong class="yes">Website Admin training </strong></li>
+                        <li class="even"><strong class="yes">Careers page </strong></li>
+                        <li class="odd"><strong class="yes">Inquiry page</strong></li>
+                        <li class="even"><strong class="yes">Products promotions & Sale offers </strong></li>
+                        <li class="odd" ><strong class="yes"><div style="line-height:normal;width:80%;display:block;float:right;margin-right:52px;margin-top:15px;">Web hosting <br />(unlimited space – unlimited mail boxes)</div></strong></li>
+                        <li class="even"><strong class="yes">Develop custom section</strong></li>                                             
+                    </ul>                    
+                    
+                </div>
+                <div class="pricing_box radius-right">
+                    <div class="header">
+                        <span>Bronze</span></div>
+                    <ul>
+                        <li class="even"><strong class="yes">10 Pages</strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="no"></strong></li>
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>                        
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="no"></strong></li>
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong>Negotiable</strong></li>
+                    </ul>
+                    
+                    <h3>
+                        1750 EGP</h3>
+                    <p class="button signup">
+                        <a href="#">Contact</a></p>
+                </div>
+                <div class="pricing_box large radius-left">
+                    <div class="header">
+                        <span>Silver</span>
+                    </div>
+                    <ul>
+                        <li class="even"><strong class="yes">15 Pages</strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="no"></strong></li>
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>                        
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="no"></strong></li>
+                        <li class="even"><strong class="no"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong>Negotiable</strong></li>
+                    </ul>
+                    
+                    <h3>
+                        2750 EGP</h3>
+                    <p class="button signup">
+                        <a href="#">Contact</a></p>
+                </div>
+                <div class="pricing_box radius-right">
+                    <div class="header">
+                        <span>Golden</span></div>
+                    <ul>
+                        <li class="even"><strong class="yes">Unlimited pages</strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>
+                        <li class="even"><strong class="yes"></strong></li>
+                        <li class="odd"><strong class="yes"></strong></li>       
+                        <li class="even"><strong>Negotiable</strong></li>                 
+                    </ul>
+                   
+                    <h3>
+                        4750 EGP</h3>
+                    <p class="button signup">
+                        <a href="#">Contact</a></p>
+                </div>
+                <div class="clear-fix" >
+                </div>
+            </div>
+            <div class="clear-fix" style="height:15px;"></div>
+            <div style="padding: 5px; font: normal bold 16px normal 'times new ramon'; color: #ff0000">• You will pay only 500 EGP each year for hosting and maintenance start from the
+            next year of contracting ( first year free )</div>
+        </div>
+        <div id="step-3">
+            <h2 class="StepTitle">
+                Request Service from I-Valley</h2>
+           
+           <div id="contactForm" class="large-6 columns">
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Template Name:</p>
+                   <label class="forName" for="name">
+                   </label>
+                   <input type="text" name="template" id="Template">
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Price plan</p>
+                   <label class="forName" for="eMail">
+                   </label>
+                   <input type="text" name="price" id="Price">
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Name:</p>
+                   <label class="forName" for="name">
+                   </label>
+                   <input type="text" name="name" id="name">
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Email:</p>
+                   <label class="forEmail" for="eMail">
+                   </label>
+                   <input type="email" name="email" id="eMail">
+               </div>
+           </div>
+        </div>
+        
+    </div>
+    </div>
+
+</asp:Content>
