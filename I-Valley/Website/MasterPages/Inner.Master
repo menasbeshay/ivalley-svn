@@ -155,10 +155,10 @@
                             <li><a href="services.aspx">Services</a></li>
                             <li><a href="contact.aspx">Contact Us</a></li>
                         </ul>
-                        <ul id="footer-info" class="footerUl clear-fix">
-                            <li>Some Street. City, 0000.</li>
-                            <li>(328) 357-5478</li>
-                            <li>email@email.com</li>
+                         <ul id="footer-info" class="footerUl clear-fix">
+                            <li>Helioples Cairo, Egypt</li>
+                            <li>(0020) 128 4040 78</li>
+                            <li>sales@i-valley.com</li>
                         </ul>
                     </div>
                 </div>
