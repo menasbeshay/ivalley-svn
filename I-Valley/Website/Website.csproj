@@ -263,6 +263,7 @@
     <Content Include="images\user2.png" />
     <Content Include="images\user3.png" />
     <Content Include="images\user4.png" />
+    <Content Include="images\WebDevelopment.gif" />
     <Content Include="javascripts\camera.js" />
     <Content Include="javascripts\custom.js" />
     <Content Include="javascripts\custom.modernizr.js" />

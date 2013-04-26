@@ -40,6 +40,10 @@
             </div>
             <div data-thumb="images/slides/thumbs/3.jpg" data-src="images/slides/3.jpg">
             </div>
+            <div data-thumb="images/slides/thumbs/4.jpg" data-src="images/slides/4.jpg">
+            </div>
+            <div data-thumb="images/slides/thumbs/5.jpg" data-src="images/slides/5.jpg">
+            </div>
         </div>
     </div>
     <!-- .fluid_container -->
@@ -148,7 +152,7 @@
                     <h4>
                         Web development</h4>
                     <figure>
-              <img src="images/blog-img1.jpg" alt="" width="326" height="184">
+              <img src="images/WebDevelopment.gif" alt="" width="326" height="184">
             </figure>
                     <dl>
                         <dt><span class="trait-emblem large design"><span>Web development</span> </span></dt>
@@ -182,7 +186,7 @@
                     <h4>
                         E-Marketing</h4>
                     <figure>
-              <img src="images/blog-img3.jpg" alt="" width="326" height="184">
+              <img src="images/EMarketing.gif" alt="" width="326" height="184">
             </figure>
                     <dl>
                         <dt><span class="trait-emblem large branding"><span>E-Marketing</span> </span></dt>
