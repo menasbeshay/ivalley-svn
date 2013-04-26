@@ -46,7 +46,9 @@
                 $('#portfolio-list2 > li .hoverdiv').removeClass("templateHover");
                 $(this).addClass("templateHover");
                 var template = $(this).attr('id');
-                $('#<%= uiTextBoxTemplateName.ClientID %>').val(template);
+                $('#templateName').html(template);
+                var imgsrc = $("#imagename_" + template).attr("src");
+                $("#templateimage").attr("src", imgsrc);
                 $('#<%= HiddenFieldTemplateID.ClientID %>').val(template);
                 return false;
             });
@@ -56,8 +58,8 @@
                 $('.BuyLink').removeClass("PriceSelected");
                 $(this).addClass("PriceSelected");
                 var price = $(this).attr('id');
-                $('#Price').val(price);
-                $('#<%= uiTextBoxPricePlan.ClientID %>').val(price);
+                $('#price').addClass(price);
+                /*$('#uiTextBoxPricePlan.ClientID').val(price);*/
                 $('#<%= HiddenFieldPricePlanName.ClientID %>').val(price);
                 return false;
             });
@@ -118,7 +120,7 @@
                             <div class="imageSlide" style="overflow: hidden;">
                                 <ul class="imagesContainer clear-fix sliderCont1">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img1.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img1.jpg" width="312" height="215" alt="Image Name" id="imagename_Template1"></li>
                                    
                                 </ul>
                                 <div class="hoverdiv" id="Template1">
@@ -142,10 +144,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont2">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img2.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img2.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template2"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template2">
                                     <div>
                                     </div>
                                 </div>
@@ -167,10 +170,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont3" >
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img3.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img3.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template3"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template3">
                                     <div>
                                     </div>
                                 </div>
@@ -192,10 +196,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont4">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img4.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img4.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template4"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template4">
                                     <div>
                                     </div>
                                 </div>
@@ -217,10 +222,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont5">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img5.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img5.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template5"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template5">
                                     <div>
                                     </div>
                                 </div>
@@ -242,10 +248,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont6">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img6.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img6.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template6"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template6">
                                     <div>
                                     </div>
                                 </div>
@@ -267,10 +274,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont7">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img7.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img7.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template7"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template7">
                                     <div>
                                     </div>
                                 </div>
@@ -292,10 +300,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont8">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img8.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img8.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template8"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template8">
                                     <div>
                                     </div>
                                 </div>
@@ -317,10 +326,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont9">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img9.jpg" width="312" height="215" alt="Image Name"></li>
+                                        <img src="../images/portfolio/portfolio-img9.jpg" width="312" height="215" alt="Image Name"
+                                            id="imagename_Template9"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv">
+                                <div class="hoverdiv" id="Template9">
                                     <div ></div>
                                 </div>
                             </div>
@@ -452,21 +462,7 @@
             <h2 class="StepTitle">
                 Request Service from I-Valley</h2>
            
-           <div id="contactForm" class="large-6 columns">
-               <div class="large-12 columns inputContainer">
-                   <p>
-                       Template Name:</p>
-                   <label class="forName" for="name">
-                   </label>
-                   <asp:TextBox ID="uiTextBoxTemplateName" runat="server"></asp:TextBox>                   
-               </div>
-               <div class="large-12 columns inputContainer">
-                   <p>
-                       Price plan</p>
-                   <label class="forName" for="eMail">
-                   </label>
-                   <asp:TextBox ID="uiTextBoxPricePlan" runat="server"></asp:TextBox>
-               </div>
+           <div id="contactForm" class="large-6 columns">               
                <div class="large-12 columns inputContainer">
                    <p>
                        Name:</p>
@@ -476,10 +472,24 @@
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
-                       Telephone:</p>
-                   <label class="forName" for="tele">
+                       Land line:</p>
+                   <label class="forName" for="tele1">
+                   </label>
+                   <asp:TextBox ID="uiTextBoxLand" runat="server"></asp:TextBox>
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Mobile:</p>
+                   <label class="forName" for="tele2">
                    </label>
                    <asp:TextBox ID="uiTextBoxTele" runat="server"></asp:TextBox>
+               </div>
+               <div class="large-12 columns inputContainer">
+                   <p>
+                       Company:</p>
+                   <label class="forName" for="company">
+                   </label>
+                   <asp:TextBox ID="uiTextBoxComapny" runat="server"></asp:TextBox>
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
@@ -489,6 +499,17 @@
                    <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
                </div>
            </div>
+            <div class="large-6 columns" style="padding :20px;">
+                <h3>
+                Template : <span id="templateName"></span>
+                </h3>
+                
+                <div>
+                    <img src="" id="templateimage" alt="" style="border-radius: 10px; -moz-border-radius: 10px;
+                        -webkit-border-radius: 10px;" />
+                        <div id="price" style="position:absolute;width:120px;height:200px;top:55%;left:50%;"></div> 
+                </div>
+            </div>
         </div>
         
     </div>        

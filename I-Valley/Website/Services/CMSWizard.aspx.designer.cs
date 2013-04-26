@@ -13,24 +13,6 @@ namespace Website.Services {
     public partial class CMSWizard {
         
         /// <summary>
-        /// uiTextBoxTemplateName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTemplateName;
-        
-        /// <summary>
-        /// uiTextBoxPricePlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPricePlan;
-        
-        /// <summary>
         /// uiTextBoxName control.
         /// </summary>
         /// <remarks>
@@ -40,6 +22,15 @@ namespace Website.Services {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxName;
         
         /// <summary>
+        /// uiTextBoxLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxLand;
+        
+        /// <summary>
         /// uiTextBoxTele control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace Website.Services {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTele;
+        
+        /// <summary>
+        /// uiTextBoxComapny control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxComapny;
         
         /// <summary>
         /// uiTextBoxMail control.
