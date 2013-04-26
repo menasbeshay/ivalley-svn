@@ -284,8 +284,7 @@
                                 <h2>
                                     <a href="http://site7.i-valley.com" target="_blank">Fashion & Learning</a></h2>
                                 <p>
-                                    perfect for schools, educational sites, and universities. The template style is
-                                    on the cutting edge of web 2 trends with CSS3 and Javascript effects.</p>
+                                    perfect for schools, educational sites, and universities. </p>
                             </div>
                             <div class="large-2 columns portLinks">
                                 <a href="../images/portfolio/templates/7.gif" rel="prettyPhoto">Loupe</a> <a href="http://site7.i-valley.com"
@@ -310,8 +309,8 @@
                                 <h2>
                                     <a href="http://site8.i-valley.com" target="_blank">Gallery</a></h2>
                                 <p>
-                                    Perfect for view and higlights your business images for gallery shops, Atelier ,
-                                    Bazaars ,design companies and architecture companies</p>
+                                    Perfect for view & higlights your business images for gallery shops, Atelier &
+                                    Bazaars .</p>
                             </div>
                             <div class="large-2 columns portLinks">
                                 <a href="../images/portfolio/templates/8.gif" rel="prettyPhoto">Loupe</a> <a href="http://site8.i-valley.com"
