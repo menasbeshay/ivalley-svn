@@ -132,12 +132,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site1.i-valley.com">Travel</a></h2>
+                                    <a href="http://site1.i-valley.com" target="_blank">Travel</a></h2>
                                 <p>
                                     Best fit for tourism & travel websites</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/1.png" rel="prettyPhoto">Loupe</a> <a href="http://site1.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/1.gif" rel="prettyPhoto">Loupe</a> <a href="http://site1.i-valley.com" target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 2-->
@@ -156,12 +156,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site2.i-valley.com">Business & shopping</a></h2>
+                                    <a href="http://site2.i-valley.com" target="_blank">Business & shopping</a></h2>
                                 <p>
                                     Best fit for shopping products & e-commerce </p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/2.png" rel="prettyPhoto">Loupe</a> <a href="http://site2.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/2.gif" rel="prettyPhoto">Loupe</a> <a href="http://site2.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 3-->
@@ -180,13 +181,14 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site3.i-valley.com">Business</a></h2>
+                                    <a href="http://site3.i-valley.com" target="_blank">Business</a></h2>
                                 <p>
                                    Standard view for business companies website style
                                 </p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/3.png" rel="prettyPhoto">Loupe</a> <a href="http://site3.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/3.gif" rel="prettyPhoto">Loupe</a> <a href="http://site3.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 4-->
@@ -205,12 +207,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site4.i-valley.com">Business</a></h2>
+                                    <a href="http://site4.i-valley.com" target="_blank">Business</a></h2>
                                 <p>
                                     Standard view for business companies website style</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/4.png" rel="prettyPhoto">Loupe</a> <a href="http://site4.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/4.gif" rel="prettyPhoto">Loupe</a> <a href="http://site4.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 5-->
@@ -229,12 +232,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site5.i-valley.com">Business & shopping</a></h2>
+                                    <a href="http://site5.i-valley.com" target="_blank">Business & shopping</a></h2>
                                 <p>
                                     Best fit for shopping products & e-commerce</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/5.png" rel="prettyPhoto">Loupe</a> <a href="http://site5.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/5.gif" rel="prettyPhoto">Loupe</a> <a href="http://site5.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 6-->
@@ -253,12 +257,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site6.i-valley.com">Online store</a></h2>
+                                    <a href="http://site6.i-valley.com" target="_blank">Online store</a></h2>
                                 <p>
                                     Best fit for shopping products & e-commerce</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/6.png" rel="prettyPhoto">Loupe</a> <a href="http://site6.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/6.gif" rel="prettyPhoto">Loupe</a> <a href="http://site6.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 7-->
@@ -277,13 +282,14 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site7.i-valley.com">Fashion & Learning</a></h2>
+                                    <a href="http://site7.i-valley.com" target="_blank">Fashion & Learning</a></h2>
                                 <p>
                                     perfect for schools, educational sites, and universities. The template style is
                                     on the cutting edge of web 2 trends with CSS3 and Javascript effects.</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/7.png" rel="prettyPhoto">Loupe</a> <a href="http://site7.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/7.gif" rel="prettyPhoto">Loupe</a> <a href="http://site7.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 8-->
@@ -291,7 +297,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont8">
                                     <li>
-                                        <img src="../images/portfolio/templates/thumbs/7.png" width="288" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/8.png" width="288" alt="Image Name"
                                             id="imagename_Template8"></li>
                                    
                                 </ul>
@@ -302,13 +308,14 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site8.i-valley.com">Gallery</a></h2>
+                                    <a href="http://site8.i-valley.com" target="_blank">Gallery</a></h2>
                                 <p>
                                     Perfect for view and higlights your business images for gallery shops, Atelier ,
                                     Bazaars ,design companies and architecture companies</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/8.png" rel="prettyPhoto">Loupe</a> <a href="http://site8.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/8.gif" rel="prettyPhoto">Loupe</a> <a href="http://site8.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 9-->
@@ -326,12 +333,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site9.i-valley.com">Technology</a></h2>
+                                    <a href="http://site9.i-valley.com" target="_blank">Technology</a></h2>
                                 <p>
                                     Perfect for list your technology items in order to make good offers for your customers</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/9.png" rel="prettyPhoto">Loupe</a> <a href="http://site9.i-valley.com">Link</a>
+                                <a href="../images/portfolio/templates/9.gif" rel="prettyPhoto">Loupe</a> <a href="http://site9.i-valley.com"
+                                    target="_blank">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 10-->
@@ -349,12 +357,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="http://site10.i-valley.com">E-commerce </a></h2>
+                                    <a href="http://site10.i-valley.com" target="_blank">E-commerce </a></h2>
                                 <p>
                                     Best fit for shopping products & e-commerce</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="../images/portfolio/templates/10.png" rel="prettyPhoto">Loupe</a> <a href="http://site10.i-valley.com">
+                                <a href="../images/portfolio/templates/10.gif" rel="prettyPhoto">Loupe</a> <a href="http://site10.i-valley.com"
+                                    target="_blank">
                                     Link</a>
                             </div>
                         </li>
