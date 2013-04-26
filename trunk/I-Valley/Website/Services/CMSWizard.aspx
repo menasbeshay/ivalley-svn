@@ -58,6 +58,9 @@
                 $('.BuyLink').removeClass("PriceSelected");
                 $(this).addClass("PriceSelected");
                 var price = $(this).attr('id');
+                $('#price').removeClass("Silver");
+                $('#price').removeClass("Golden");
+                $('#price').removeClass("Bronze");
                 $('#price').addClass(price);
                 /*$('#uiTextBoxPricePlan.ClientID').val(price);*/
                 $('#<%= HiddenFieldPricePlanName.ClientID %>').val(price);
