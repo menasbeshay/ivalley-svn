@@ -123,7 +123,7 @@
                             <div class="imageSlide" style="overflow: hidden;">
                                 <ul class="imagesContainer clear-fix sliderCont1">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img1.jpg" width="312" height="215" alt="Image Name" id="imagename_Template1"></li>
+                                        <img src="../images/portfolio/templates/thumbs/1.png" width="288" alt="Image Name" id="imagename_Template1"></li>
                                    
                                 </ul>
                                 <div class="hoverdiv" id="Template1">
@@ -132,14 +132,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Design</span></h2>
+                                    <a href="http://site1.i-valley.com">Travel</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Best fit for tourism & travel websites</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/1.png" rel="prettyPhoto">Loupe</a> <a href="http://site1.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 2-->
@@ -147,7 +145,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont2">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img2.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/2.png" width="288"  alt="Image Name"
                                             id="imagename_Template2"></li>
                                     
                                 </ul>
@@ -158,14 +156,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Photography</span></h2>
+                                    <a href="http://site2.i-valley.com">Business & shopping</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Best fit for shopping products & e-commerce </p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/2.png" rel="prettyPhoto">Loupe</a> <a href="http://site2.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 3-->
@@ -173,7 +169,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont3" >
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img3.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/3.png" width="288" alt="Image Name"
                                             id="imagename_Template3"></li>
                                     
                                 </ul>
@@ -184,14 +180,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Web Design</span></h2>
+                                    <a href="http://site3.i-valley.com">Business</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                   Standard view for business companies website style
+                                </p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/3.png" rel="prettyPhoto">Loupe</a> <a href="http://site3.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 4-->
@@ -199,7 +194,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont4">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img4.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/4.png" width="288" alt="Image Name"
                                             id="imagename_Template4"></li>
                                     
                                 </ul>
@@ -210,14 +205,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Photography</span></h2>
+                                    <a href="http://site4.i-valley.com">Business</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Standard view for business companies website style</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/4.png" rel="prettyPhoto">Loupe</a> <a href="http://site4.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 5-->
@@ -225,7 +218,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont5">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img5.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/5.png" width="288" alt="Image Name"
                                             id="imagename_Template5"></li>
                                     
                                 </ul>
@@ -236,14 +229,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Web Design</span></h2>
+                                    <a href="http://site5.i-valley.com">Business & shopping</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Best fit for shopping products & e-commerce</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/5.png" rel="prettyPhoto">Loupe</a> <a href="http://site5.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 6-->
@@ -251,7 +242,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont6">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img6.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/6.png" width="288" alt="Image Name"
                                             id="imagename_Template6"></li>
                                    
                                 </ul>
@@ -262,14 +253,12 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Design</span></h2>
+                                    <a href="http://site6.i-valley.com">Online store</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Best fit for shopping products & e-commerce</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/6.png" rel="prettyPhoto">Loupe</a> <a href="http://site6.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 7-->
@@ -277,7 +266,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont7">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img7.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/7.png" width="288" alt="Image Name"
                                             id="imagename_Template7"></li>
                                     
                                 </ul>
@@ -288,14 +277,13 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Photography</span></h2>
+                                    <a href="http://site7.i-valley.com">Fashion & Learning</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    perfect for schools, educational sites, and universities. The template style is
+                                    on the cutting edge of web 2 trends with CSS3 and Javascript effects.</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/7.png" rel="prettyPhoto">Loupe</a> <a href="http://site7.i-valley.com">Link</a>
                             </div>
                         </li>
                         <!-- ITEM 8-->
@@ -303,7 +291,7 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont8">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img8.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/7.png" width="288" alt="Image Name"
                                             id="imagename_Template8"></li>
                                    
                                 </ul>
@@ -314,22 +302,21 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Design</span></h2>
+                                    <a href="http://site8.i-valley.com">Gallery</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Perfect for view and higlights your business images for gallery shops, Atelier ,
+                                    Bazaars ,design companies and architecture companies</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/8.png" rel="prettyPhoto">Loupe</a> <a href="http://site8.i-valley.com">Link</a>
                             </div>
                         </li>
-                        <!-- ITEM 8-->
+                        <!-- ITEM 9-->
                         <li class="webDesign" style="display: list-item;">
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont9">
                                     <li>
-                                        <img src="../images/portfolio/portfolio-img9.jpg" width="312" height="215" alt="Image Name"
+                                        <img src="../images/portfolio/templates/thumbs/9.png" width="288" alt="Image Name"
                                             id="imagename_Template9"></li>
                                    
                                 </ul>
@@ -339,14 +326,36 @@
                             </div>
                             <div class="large-10 columns portContent">
                                 <h2>
-                                    <a href="project.html">Project Title</a><span class="titleDivide">|</span> <span
-                                        class="portCategorie">Web Design</span></h2>
+                                    <a href="http://site9.i-valley.com">Technology</a></h2>
                                 <p>
-                                    Nisi integer tristique placerat sed, velit! Porta odio dolor odio tincidunt. Porta
-                                    magna?</p>
+                                    Perfect for list your technology items in order to make good offers for your customers</p>
                             </div>
                             <div class="large-2 columns portLinks">
-                                <a href="blog-post-img1.jpg" rel="prettyPhoto">Loupe</a> <a href="project.html">Link</a>
+                                <a href="../images/portfolio/templates/9.png" rel="prettyPhoto">Loupe</a> <a href="http://site9.i-valley.com">Link</a>
+                            </div>
+                        </li>
+                        <!-- ITEM 10-->
+                        <li class="webDesign" style="display: list-item;">
+                            <div class="imageSlide">
+                                <ul class="imagesContainer clear-fix sliderCont9">
+                                    <li>
+                                        <img src="../images/portfolio/templates/thumbs/10.png" width="288" alt="Image Name"
+                                            id="imagename_Template10"></li>
+                                </ul>
+                                <div class="hoverdiv" id="Template10">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-10 columns portContent">
+                                <h2>
+                                    <a href="http://site10.i-valley.com">E-commerce </a></h2>
+                                <p>
+                                    Best fit for shopping products & e-commerce</p>
+                            </div>
+                            <div class="large-2 columns portLinks">
+                                <a href="../images/portfolio/templates/10.png" rel="prettyPhoto">Loupe</a> <a href="http://site10.i-valley.com">
+                                    Link</a>
                             </div>
                         </li>
                     </ul>
@@ -354,6 +363,7 @@
             </div>
             <!-- end templates -->
 
+            <div class="clear-fix"></div>
         </div>
         <div id="step-2">
             <h2 class="StepTitle">
@@ -460,6 +470,8 @@
             <div class="clear-fix" style="height:15px;"></div>
             <div style="padding: 5px; font: normal bold 16px normal 'times new ramon'; color: #ff0000">• You will pay only 500 EGP each year for hosting and maintenance start from the
             next year of contracting (first year free)</div>
+            <div class="clear-fix">
+            </div>
         </div>
         <div id="step-3">
             <h2 class="StepTitle">
@@ -512,6 +524,8 @@
                         -webkit-border-radius: 10px;" />
                         <div id="price" style="position:absolute;width:120px;height:200px;top:55%;left:50%;"></div> 
                 </div>
+            </div>
+            <div class="clear-fix">
             </div>
         </div>
         

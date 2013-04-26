@@ -3222,7 +3222,7 @@ select {
 }
 
 .imagesContainer li img {
-	height: auto;
+	height: 225px;
 }
 
 #leftSider h2,#rightSider h2 {
