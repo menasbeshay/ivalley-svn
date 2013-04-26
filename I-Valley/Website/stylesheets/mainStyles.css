@@ -1268,7 +1268,7 @@ line-height:1.5;
 .jobList a {
 	position: relative;
 	display: block;
-	float: left;
+	float: left; 
 	margin-right: 15px;
 	margin-left: 15px;
 }

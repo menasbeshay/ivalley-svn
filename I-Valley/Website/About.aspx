@@ -40,7 +40,7 @@
                 <a class="webdesign" href="#">
                     <img src="images/2-about/webDes.png" alt="Job Thumb">
                     <span class="fadeSpan">Custom Development
-                        <div class="arrow">
+                        <div class="arrow"> 
                         </div>
                     </span></a> 
                 <a class="seo" href="#">
