@@ -35,8 +35,7 @@
                 development services helping you to improve your business, starting from your 
                 office automation, custom software development, your company business website, 
                 E-Commerce and complete E-Marketing solutions.<o:p></o:p></p>
-            <p>
-                &nbsp;</p>
+            
             <div class="jobList">
                 <a class="webdesign" href="#">
                     <img src="images/2-about/webDes.png" alt="Job Thumb">
