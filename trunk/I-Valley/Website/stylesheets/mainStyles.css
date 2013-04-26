@@ -3439,3 +3439,7 @@ select {
 p.button { margin: 0 20px 0 0; padding: 0; display: inline-block; border: none !important;}
 p.button a{ float: left; line-height:32px; *line-height:28px; margin: 0 -20px 0 0!important; padding: 0 20px; height:100%; border: none !important; cursor: pointer; color: #3f4950; font-size: 12px; font-family: "Oswald"; text-shadow: 0 1px 0 #fff; text-decoration:none }
 p.button a:hover{text-decoration: none;}
+
+.Golden{background-image:url(../images/g.png);}
+.Silver{background-image:url(../images/s.png);}
+.Bronze{background-image:url(../images/b.png);}
