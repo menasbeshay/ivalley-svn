@@ -1125,6 +1125,54 @@ select {
 }
 
 
+#Aboutbanner {
+	margin-top: 17px;
+	background-image: url(../images/about.gif);
+	background-repeat: repeat-x;
+
+	-webkit-background-size: auto;
+	-moz-background-size: auto;
+	background-size: auto;
+	position: relative;
+	height: 208px;
+	border-bottom: 3px solid #a82743;
+}
+
+#Aboutbanner p {
+	text-align: center;
+	margin: 0;
+	padding:0px;
+	font-family: 'bebas_neueregular';
+	color: #a82743;
+	font-size: 44px;
+}
+
+#Aboutbanner span {
+	display: block;
+	position: absolute;
+	bottom: -48px;
+	left: 50%;
+	margin-left: -48px;
+	width: 96px;
+	height: 96px;
+	background-color: #deb8bc;
+	border-radius: 48px;
+	padding: 4px;
+}
+
+#Aboutbanner span p {
+	text-align: center;
+	width: 88px;
+	height: 88px;
+	background-color: #a82743;
+	line-height: 88px;
+	border-radius: 44px;
+	font-size: 38px;
+	color: white;
+	font-family: 'bebas_neueregular';
+}
+
+
 #aboutUs {
 	margin-top: 70px;
 }
@@ -1221,7 +1269,8 @@ line-height:1.5;
 	position: relative;
 	display: block;
 	float: left;
-	margin-right: 20px;
+	margin-right: 15px;
+	margin-left: 15px;
 }
 
 .jobList a:last-child {
@@ -1245,12 +1294,13 @@ line-height:1.5;
 	filter: alpha(opacity=0);
 	opacity: 0;
 	line-height: 1em;
-
+    width:80px;
 	-webkit-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	-ms-transition: all 0.4s;
 	transition: all 0.4s;
+	margin-left:-7px;
 }
 
 .fadeSpan .arrow {
@@ -3347,13 +3397,17 @@ select {
 .templateHover {
 	opacity: .75;
 	display:block;
-	width: 100%;
+	width: 96%;
 	height:225px;
 	position: absolute;
 	left: 0;
 	top: 0;
 	background-color: rgba(190,190,190,0.7);
 	-webkit-transition: all 0.4s;
+	border:1px solid #888;
+	border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .templateHover  div {
@@ -3372,7 +3426,7 @@ select {
 {
     opacity: 1;
 	display:block;
-	width: 100%;
+	width: 96%;
 	height:225px;
 	position: absolute;
 	left: 0;
