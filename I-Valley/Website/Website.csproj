@@ -141,6 +141,7 @@
     <Content Include="images\contact\inputEmail.png" />
     <Content Include="images\contact\inputMessage.png" />
     <Content Include="images\contact\inputName.png" />
+    <Content Include="images\finance.gif" />
     <Content Include="images\flights.gif" />
     <Content Include="images\health\arrows-gray.png" />
     <Content Include="images\health\caring-staff.jpg" />
@@ -186,6 +187,8 @@
     <Content Include="images\ico6.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\logoHere.png" />
+    <Content Include="images\opFinance.gif" />
+    <Content Include="images\opFlights.gif" />
     <Content Include="images\outsourcing.gif" />
     <Content Include="images\portfolio\portfolio-img1.jpg" />
     <Content Include="images\portfolio\portfolio-img2.jpg" />
