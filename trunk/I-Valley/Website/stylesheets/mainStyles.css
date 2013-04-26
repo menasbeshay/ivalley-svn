@@ -1645,6 +1645,14 @@ line-height:1.5;
 	float: left;
 }
 
+.imagesContainer li > img {
+	height: 225px;
+	border:1px solid #FF6600 !important;
+	border-radius:5px !important;
+	-moz-border-radius:5px !important;
+	-webkit-border-radius:5px !important;
+}
+
 .slider-nav {
 	position: absolute;
 	bottom: 2px;
@@ -3221,9 +3229,7 @@ select {
 	width: 240px;
 }
 
-.imagesContainer li img {
-	height: 225px;
-}
+
 
 #leftSider h2,#rightSider h2 {
 	text-align: center;
