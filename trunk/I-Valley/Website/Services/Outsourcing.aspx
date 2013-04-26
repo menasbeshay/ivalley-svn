@@ -7,7 +7,7 @@
             Outsoucring</p>
         <span>
             <p>
-                O</p>
+                O</p>   
         </span>
     </div>
     <div id="services" class="row">
