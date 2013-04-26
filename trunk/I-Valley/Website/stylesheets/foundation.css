@@ -946,9 +946,12 @@ p,
 blockquote,
 th,
 td {
-  margin: 0;
   padding: 0;
-  direction: ltr; }
+  direction: ltr;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
 
 /* Default Link Styles */
 a {
