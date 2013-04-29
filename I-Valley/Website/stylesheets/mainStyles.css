@@ -72,6 +72,7 @@ body {
 .top-bar {
 	background: rgba(255,255,255,0.8);
 	padding: 10px 35px 25px 35px;
+	z-index:20;
 }
 
 .top-bar .title-area {
@@ -1031,7 +1032,7 @@ select {
 }
 
 #banner {
-	margin-top: 17px;
+	margin-top: -25px;
 	background-image: url(../images/2-About/head-img.jpg);
 	background-repeat: repeat-x;
 
@@ -1078,7 +1079,7 @@ select {
 }
 
 #OutsourcingBanner {
-	margin-top: 17px;
+	margin-top: -25px;
 	background-image: url(../images/outsourcing.gif);
 	background-repeat: repeat-x;
 
@@ -1089,6 +1090,11 @@ select {
 	height: 208px;
 	border-bottom: 3px solid #a82743;
 }
+
+.contact
+{
+    background-image: url(../images/Contact-Us22.jpg) !important;
+    }
 
 #OutsourcingBanner p {
 	text-align: center;
@@ -1126,7 +1132,7 @@ select {
 
 
 #Aboutbanner {
-	margin-top: 17px;
+	margin-top: -25px;
 	background-image: url(../images/about.gif);
 	background-repeat: repeat-x;
 

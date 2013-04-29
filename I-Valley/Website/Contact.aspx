@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="banner">
-        <p>
+    <div id="banner" class="contact">
+        <p style="color: #a82743">
             Contact Us</p>
         <span>
             <p>
@@ -14,7 +14,9 @@
         <div id="contactInfo" class="large-6 columns">
             <h2>
                 Contact Info</h2>
-            <img src="images/contact/googleMap.png" alt="Google Map">
+            <iframe width="470" height="150" frameborder="0" scrolling="no" marginheight="0"
+                marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Heliopolis,+Cairo+Governorate,+Egypt&amp;aq=0&amp;oq=he&amp;sll=30.059915,31.26202&amp;sspn=0.23742,0.308647&amp;ie=UTF8&amp;hq=&amp;hnear=Heliopolis,+Cairo+Governorate,+Egypt&amp;t=m&amp;ll=30.091227,31.322622&amp;spn=0.00557,0.020127&amp;z=15&amp;output=embed">
+            </iframe>            
             <p>
                 Et dis elementum. Amet velit! Urna tincidunt? Odio aenean eros phasellus, a auctor
                 purus, sit platea, urna dapibus urna dictumst dignissim.</p>
@@ -30,24 +32,24 @@
                     Name:</p>
                 <label class="forName" for="name">
                 </label>
-                <input type="text" name="email" id="name">
+                <asp:TextBox ID="uiTextBoxName" runat="server"></asp:TextBox>
             </div>
             <div class="large-12 columns inputContainer">
                 <p>
                     Email:</p>
                 <label class="forEmail" for="eMail">
                 </label>
-                <input type="email" name="email" id="eMail">
+                <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
             </div>
             <div class="large-12 columns inputContainer">
                 <p>
                     Message:</p>
                 <label class="forMessage" for="message">
                 </label>
-                <input type="text" name="message" id="message">
+                <asp:TextBox ID="uiTextBoxMsg" runat="server"></asp:TextBox>
             </div>
             <div class="large-12 columns submitContainer">
-                <input type="submit" value="Send &gt;">
+                <asp:Button ID="uiButtonsubmit" runat="server" Text="Send &gt;" />                
             </div>
         </div>
     </div>
