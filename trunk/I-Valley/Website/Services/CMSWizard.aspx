@@ -74,7 +74,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div id="banner" style="background:none;height:30px;padding-top:30px;">
+    <div id="banner" style="background:none;height:30px;padding-top:30px;margin-top:20px">
         
         <span style="border-radius: 12px; -moz-border-radius: 12px; -webkit-border-radius: 12px;
             width: 388px;left:38%;height:68px;bottom:-35px;">

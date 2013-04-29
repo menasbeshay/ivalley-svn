@@ -3,19 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div id="banner">
-        <p>
-            Portfolio</p>
-        <span>
-            <p>
-                P</p>
+    <div id="banner" style="background: none; height: 30px; padding-top: 30px; margin-top: 20px">
+        <span style="border-radius: 12px; -moz-border-radius: 12px; -webkit-border-radius: 12px;
+            width: 388px; left: 38%; height: 68px; bottom: -35px;">
+            <p style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+                width: 380px; height: 60px; line-height: 60px;">
+                Portfolio</p>
         </span>
     </div>
 
     <div id="portfolioWrapp" class="row">
         <div id="portfolioNav" class="large-12 columns">
             <ul id="portfolio-filter" class="clear-fix">
-                <li><a href="Portfolio.aspx" class="current">All</a></li>
+                <li><a href="#all" class="current">All</a></li>
                 <li><a rel="businesswebsites" href="#businesswebsites" class="">Business websites</a></li>
                 <li><a rel="systemdevelopment" href="#systemdevelopment" class="">System development</a></li>
                 <li><a  rel="ourtsourcing" href="#Ourtsourcing" class="">Ourtsourcing</a></li>
