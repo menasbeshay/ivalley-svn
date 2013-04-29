@@ -45,11 +45,12 @@
             $("#portfolio-list2 li .hoverdiv").click(function (event) {
                 $('#portfolio-list2 > li .hoverdiv').removeClass("templateHover");
                 $(this).addClass("templateHover");
-                var template = $(this).attr('id');
+                var templateid = $(this).attr('id');
+                var template = $(this).attr('data-id');
                 $('#templateName').html(template);
-                var imgsrc = $("#imagename_" + template).attr("src");
+                var imgsrc = $("#imagename_" + templateid).attr("src");
                 $("#templateimage").attr("src", imgsrc);
-                $('#<%= HiddenFieldTemplateID.ClientID %>').val(template);
+                $('#<%= HiddenFieldTemplateID.ClientID %>').val(templateid);
                 return false;
             });
 
@@ -123,10 +124,10 @@
                             <div class="imageSlide" style="overflow: hidden;">
                                 <ul class="imagesContainer clear-fix sliderCont1">
                                     <li>
-                                        <img src="../images/portfolio/templates/thumbs/1.png" width="288" alt="Image Name" id="imagename_Template1"></li>
+                                        <img src="../images/portfolio/templates/thumbs/1.png" width="288" alt="Image Name" id="imagename_Site1"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv" id="Template1">
+                                <div class="hoverdiv" id="Site1" data-id="Travel">
                                 <div></div>
                                 </div>
                             </div>
@@ -145,11 +146,11 @@
                             <div class="imageSlide">
                                 <ul class="imagesContainer clear-fix sliderCont2">
                                     <li>
-                                        <img src="../images/portfolio/templates/thumbs/2.png" width="288"  alt="Image Name"
-                                            id="imagename_Template2"></li>
+                                        <img src="../images/portfolio/templates/thumbs/2.png" width="288" alt="Image Name"
+                                            id="imagename_Site2"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv" id="Template2">
+                                <div class="hoverdiv" id="Site2" data-id="Business & shopping">
                                     <div>
                                     </div>
                                 </div>
@@ -171,10 +172,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont3" >
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/3.png" width="288" alt="Image Name"
-                                            id="imagename_Template3"></li>
+                                            id="imagename_Site3"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv" id="Template3">
+                                <div class="hoverdiv" id="Site3" data-id="Business">
                                     <div>
                                     </div>
                                 </div>
@@ -197,10 +198,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont4">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/4.png" width="288" alt="Image Name"
-                                            id="imagename_Template4"></li>
+                                            id="imagename_Site4"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv" id="Template4">
+                                <div class="hoverdiv" id="Site4" data-id="Business">
                                     <div>
                                     </div>
                                 </div>
@@ -222,10 +223,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont5">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/5.png" width="288" alt="Image Name"
-                                            id="imagename_Template5"></li>
+                                            id="imagename_Site5"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv" id="Template5">
+                                <div class="hoverdiv" id="Site5" data-id="Business & shopping">
                                     <div>
                                     </div>
                                 </div>
@@ -247,10 +248,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont6">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/6.png" width="288" alt="Image Name"
-                                            id="imagename_Template6"></li>
+                                            id="imagename_Site6"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv" id="Template6">
+                                <div class="hoverdiv" id="Site6" data-id="Online store">
                                     <div>
                                     </div>
                                 </div>
@@ -272,10 +273,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont7">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/7.png" width="288" alt="Image Name"
-                                            id="imagename_Template7"></li>
+                                            id="imagename_Site7"></li>
                                     
                                 </ul>
-                                <div class="hoverdiv" id="Template7">
+                                <div class="hoverdiv" id="Site7" data-id="Fashion & Learning">
                                     <div>
                                     </div>
                                 </div>
@@ -297,10 +298,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont8">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/8.png" width="288" alt="Image Name"
-                                            id="imagename_Template8"></li>
+                                            id="imagename_Site8"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv" id="Template8">
+                                <div class="hoverdiv" id="Site8" data-id="Gallery">
                                     <div>
                                     </div>
                                 </div>
@@ -323,10 +324,10 @@
                                 <ul class="imagesContainer clear-fix sliderCont9">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/9.png" width="288" alt="Image Name"
-                                            id="imagename_Template9"></li>
+                                            id="imagename_Site9"></li>
                                    
                                 </ul>
-                                <div class="hoverdiv" id="Template9">
+                                <div class="hoverdiv" id="Site9" data-id="Technology">
                                     <div ></div>
                                 </div>
                             </div>
@@ -347,9 +348,9 @@
                                 <ul class="imagesContainer clear-fix sliderCont9">
                                     <li>
                                         <img src="../images/portfolio/templates/thumbs/10.png" width="288" alt="Image Name"
-                                            id="imagename_Template10"></li>
+                                            id="imagename_Site10"></li>
                                 </ul>
-                                <div class="hoverdiv" id="Template10">
+                                <div class="hoverdiv" id="Site10" data-id="E-commerce">
                                     <div>
                                     </div>
                                 </div>
@@ -512,7 +513,7 @@
                        Company:</p>
                    <label class="forName" for="company">
                    </label>
-                   <asp:TextBox ID="uiTextBoxComapny" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="uiTextBoxCompany" runat="server"></asp:TextBox>
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
@@ -539,8 +540,7 @@
         
     </div>        
         <asp:HiddenField ID="HiddenFieldTemplateID" runat="server" />
-        <asp:HiddenField ID="HiddenFieldPricePlanName" runat="server" />
-        <asp:HiddenField ID="HiddenFieldPricePlanID" runat="server" />
+        <asp:HiddenField ID="HiddenFieldPricePlanName" runat="server" />        
     </div>
 
 </asp:Content>
