@@ -40,13 +40,13 @@ namespace Website.Services {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTele;
         
         /// <summary>
-        /// uiTextBoxComapny control.
+        /// uiTextBoxCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxComapny;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCompany;
         
         /// <summary>
         /// uiTextBoxMail control.
@@ -74,14 +74,5 @@ namespace Website.Services {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenFieldPricePlanName;
-        
-        /// <summary>
-        /// HiddenFieldPricePlanID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldPricePlanID;
     }
 }

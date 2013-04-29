@@ -1533,7 +1533,7 @@ line-height:1.5;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	width: 10000px;
+	/*width: 10000px;*/
 }
 
 .imagesContainer li {
