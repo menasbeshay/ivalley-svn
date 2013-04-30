@@ -52,9 +52,9 @@
                         be updated in 24 hours.
                     </p>
                     <div id="buttons">
-                        <a class="largeButton" href="../Services/Technologies.aspx">technologies we use ... </a> 
+                        <a class="largeButton" href="../Services/Technologies.aspx" style="line-height: 0px">technologies we use ... </a> 
                         <div class="clear-fix" style="height:5px;"></div>
-                        <a class="largeButton" href="../Services/WhyEgypt.aspx">why outsourcing with us? why choosing Egypt?</a>
+                        <a class="largeButton" href="../Services/WhyEgypt.aspx" style="line-height: 0px">why outsourcing with us? why choosing Egypt?</a>
                     </div>
                 </div>
             </div>
