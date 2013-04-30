@@ -17,13 +17,13 @@
             <img src="images/contact/map.jpg" />
             <p>
                By contacting our sales team … by mail or phone we will be always ready to handle your request.</p>
-            <p>
+            
             <ul>
                 <li>Address: Heliopolis, Cairo Egypt.</li>
                 <li>Phone: 0020 1228404078.</li>
                 <li>Email: sales@i-valley.com.</li>
                 </ul>
-                </p>
+                
         </div>
         <div id="contactForm" class="large-6 columns">
             <h2>
