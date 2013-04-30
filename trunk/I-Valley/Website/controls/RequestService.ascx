@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RequestService.ascx.cs" Inherits="Website.controls.RequestService" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
     <ProgressTemplate>
         <div style="background-color: transparent; z-index: 10000; text-align: center; position: absolute;
@@ -21,7 +22,7 @@
         Service
     </div>
     <div class="pContent">
-    <asp:DropDownList ID="uiDropDownListService" runat="server">
+    <asp:DropDownList ID="uiDropDownListService" runat="server" Width="70%">
         <asp:ListItem>Web development</asp:ListItem>
         <asp:ListItem>Search Engine Optimization</asp:ListItem>
         <asp:ListItem>E-Marketing</asp:ListItem>
@@ -33,7 +34,15 @@
     <div class="pLabel">
         Name</div>
     <div class="pContent">
-    <asp:TextBox ID="uiTextBoxName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="uiTextBoxName" runat="server" ValidationGroup="popup" Width="70%"></asp:TextBox>
+    </div>
+    <div class="pLabel">
+       
+        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="uiTextBoxName"
+            Display="None" ErrorMessage="Required" Font-Bold="True" ForeColor="Red" ValidationGroup="popup"></asp:RequiredFieldValidator>
+        <asp:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender"
+            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator1">
+        </asp:ValidatorCalloutExtender>
     </div>
     <div class="clear">
     </div>
@@ -41,16 +50,37 @@
     <div class="pLabel">
         Email</div>
     <div class="pContent">
-    <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
+    <asp:TextBox ID="uiTextBoxMail" runat="server" ValidationGroup="popup" Width="70%" ></asp:TextBox>
+       
     </div>
-        
+    <div class="pLabel">
+        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="uiTextBoxMail"
+            Display="None" ErrorMessage="Required" Font-Bold="True" ForeColor="Red" ValidationGroup="popup"></asp:RequiredFieldValidator>
+        <asp:ValidatorCalloutExtender ID="RequiredFieldValidator2_ValidatorCalloutExtender"
+            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator2">
+        </asp:ValidatorCalloutExtender>
+        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+            ControlToValidate="uiTextBoxMail" Display="None" ErrorMessage="Invalid email address"
+            Font-Bold="True" ForeColor="Red" ValidationGroup="popup"></asp:RegularExpressionValidator>
+        <asp:ValidatorCalloutExtender ID="RegularExpressionValidator1_ValidatorCalloutExtender"
+            runat="server" Enabled="True" PopupPosition="Right" TargetControlID="RegularExpressionValidator1">
+        </asp:ValidatorCalloutExtender>
+    </div>
     <div class="clear">
     </div>
     
     <div class="pLabel">
         Land line</div>
     <div class="pContent">
-    <asp:TextBox ID="uiTextBoxLand" runat="server"></asp:TextBox>
+    <asp:TextBox ID="uiTextBoxLand" runat="server" ValidationGroup="popup" Width="70%" ></asp:TextBox>
+        
+    </div>
+    <div class="pLabel">
+        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="uiTextBoxLand"
+            Display="None" ErrorMessage="Required" Font-Bold="True" ForeColor="Red" ValidationGroup="popup"></asp:RequiredFieldValidator>
+        <asp:ValidatorCalloutExtender ID="RequiredFieldValidator3_ValidatorCalloutExtender"
+            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator3">
+        </asp:ValidatorCalloutExtender>
     </div>
     <div class="clear">
     </div>
@@ -58,14 +88,17 @@
     <div class="pLabel">
         Company</div>
     <div class="pContent">
-    <asp:TextBox ID="uiTextBoxCompany" runat="server"></asp:TextBox>
+    <asp:TextBox ID="uiTextBoxCompany" runat="server" Width="70%"></asp:TextBox>
     </div>
+    <div class="pLabel">
+        </div>
     <div class="clear">
     </div>
     <div class="pLabel">
         </div>
     <div class="pContent">
-       <asp:Button ID="uiButtonSend" runat="server" Text="Submit" OnClick="uiButtonSend_Click"
+       <asp:Button ID="uiButtonSend" runat="server" Text="Submit" 
+            OnClick="uiButtonSend_Click" ValidationGroup="popup"
         />
     </div>
     <div class="clear">

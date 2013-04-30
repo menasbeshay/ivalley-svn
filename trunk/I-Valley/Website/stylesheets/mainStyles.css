@@ -3522,7 +3522,7 @@ p.button a:hover{text-decoration: none;}
     text-align:left;
     font-size:16px;
     font-weight:bold;
-    width:20%;
+    width:15%;
     padding:2px;
     margin:2px;
     
@@ -3532,7 +3532,7 @@ p.button a:hover{text-decoration: none;}
 {
     float:left;
     text-align:left;    
-    width:70%;
+    width:65%;
     padding:2px;
     margin:2px;
 }
@@ -3541,5 +3541,5 @@ p.button a:hover{text-decoration: none;}
 {
     height:30px !important;
     margin:0 !important;
-    padding: 0 !important;
+    padding: 0 !important;    
     }

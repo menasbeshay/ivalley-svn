@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="webdevelopment.aspx.cs" Inherits="Website.Services.webdevelopment" %>
 <%@ Register src="../controls/RequestService.ascx" tagname="RequestService" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -14,6 +15,7 @@
             </div>
         </ContentTemplate>
         </asp:UpdatePanel>
+
         
     </div>
     <div id="banner">
@@ -162,7 +164,7 @@
             var dlg = $("#requestForm").dialog({
                 autoOpen: false,
                 height:300,
-                width: 500,
+                width: 580,
                 modal: true,
                 close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
 
@@ -174,6 +176,8 @@
       .click(function () {
           $("#requestForm").dialog("open");
       });
+
+      
         });
     </script>
     <style type="text/css">

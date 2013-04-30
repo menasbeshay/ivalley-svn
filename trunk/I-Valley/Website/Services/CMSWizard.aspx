@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../javascripts/jquery.smartWizard-2.0.min.js" type="text/javascript"></script>
     <link href="../stylesheets/smart_wizard.css" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.validationEngine-en.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.validationEngine.js" type="text/javascript"></script>
+    <link href="../stylesheets/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
             $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback });
@@ -14,6 +17,8 @@
                 var step_num = obj.attr('rel');
                 return validateSteps(step_num);
             }
+
+            $("form").validationEngine();
         });
 
         function validateSteps(step) {
@@ -69,6 +74,7 @@
             });
 
         });
+        
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -492,21 +498,23 @@
                        Name:</p>
                    <label class="forName" for="name">
                    </label>
-                   <asp:TextBox ID="uiTextBoxName" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="uiTextBoxName" runat="server" class="validate[required]"></asp:TextBox>
+                   
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
                        Land line:</p>
                    <label class="forName" for="tele1">
                    </label>
-                   <asp:TextBox ID="uiTextBoxLand" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="uiTextBoxLand" runat="server" class="validate[custom[number]]"></asp:TextBox>
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
                        Mobile:</p>
                    <label class="forName" for="tele2">
                    </label>
-                   <asp:TextBox ID="uiTextBoxTele" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="uiTextBoxTele" runat="server" class="validate[required,custom[number]]"></asp:TextBox>
+                   
                </div>
                <div class="large-12 columns inputContainer">
                    <p>
@@ -520,7 +528,7 @@
                        Email:</p>
                    <label class="forEmail" for="eMail">
                    </label>
-                   <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="uiTextBoxMail" runat="server" class="validate[required,custom[email]]"></asp:TextBox>                   
                </div>
            </div>
             <div class="large-6 columns" style="padding :20px;">
@@ -544,3 +552,5 @@
     </div>
 
 </asp:Content>
+
+
