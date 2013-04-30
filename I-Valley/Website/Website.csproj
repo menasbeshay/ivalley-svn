@@ -321,6 +321,7 @@
     <Content Include="js\twitterlib.js" />
     <Content Include="NewDefault.aspx" />
     <Content Include="Portfolio.aspx" />
+    <Content Include="Products\I-Finance.aspx" />
     <Content Include="Services\CMSWizard.aspx" />
     <Content Include="Services\Default.aspx" />
     <Content Include="Services\EmailMarketing.aspx" />
@@ -427,6 +428,13 @@
     </Compile>
     <Compile Include="Portfolio.aspx.designer.cs">
       <DependentUpon>Portfolio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\I-Finance.aspx.cs">
+      <DependentUpon>I-Finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\I-Finance.aspx.designer.cs">
+      <DependentUpon>I-Finance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CMSWizard.aspx.cs">
