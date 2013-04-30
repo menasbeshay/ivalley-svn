@@ -1,7 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="webdevelopment.aspx.cs" Inherits="Website.Services.webdevelopment" %>
+<%@ Register src="../controls/RequestService.ascx" tagname="RequestService" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="requestForm" title="Request service">
+        <uc1:RequestService ID="RequestService1" runat="server" />
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div style="display: none;">
+                <asp:Button ID="uiButtonReset" runat="server" Text="Button" OnClick="uiButtonReset_Click" />
+            </div>
+        </ContentTemplate>
+        </asp:UpdatePanel>
+        
+    </div>
     <div id="banner">
         <p>
             Web Development</p>
@@ -55,7 +69,7 @@
                     your software deploy and delivery. 
                     
                     <div id="buttons">
-                        <a class="largeButton" style="margin-left:120px;width:190px;" href="../Services/Technologies.aspx">Requesting service
+                        <a class="largeButton" id="requestButton" style="margin-left:120px;width:190px;cursor:pointer;line-height:0px">Requesting service
                         </a>
                         <div class="clear-fix" style="height: 15px;">
                         </div>
@@ -64,21 +78,19 @@
                     Also you can know more about what we have by
                     visiting:
                     <div class="clear-fix" style="height: 15px;">
-                    </div>
-                    <br />
-                    <br />
+                    </div>                    
                     <div id="buttons">
                         <div class="clear-fix" style="height: 5px;">
                         </div>
-                        <a class="largeButton" style="margin-left: 70px; width: 320px;" href="../Services/Technologies.aspx">Our Tools and Technologies
+                        <a class="largeButton" style="margin-left: 70px; width: 320px; line-height: 0px"
+                            href="../Services/Technologies.aspx">Our Tools and Technologies
                             we know
                         </a>
                         <div class="clear-fix" style="height: 5px;">
                         </div>
-                        <a class="largeButton" style="margin-left: 100px; width: 230px;" href="../Portfolio.aspx">Enjoy with our portfolio</a>
-                    </div>
-
-                     
+                        <a class="largeButton" style="margin-left: 100px; width: 230px; line-height: 0px"
+                            href="../Portfolio.aspx">Enjoy with our portfolio</a>
+                    </div>                                                                                
                 </p>
             </div>
             <div class="large-6 columns" style="padding: 5px;">
@@ -132,7 +144,7 @@
                 <div id="buttons" style="margin-left:160px;">
                     <div class="clear-fix" style="height: 5px;">
                     </div>
-                    <a class="largeButton" style="width: 250px;" href="CMSWizard.aspx">Start your website now</a>
+                    <a class="largeButton" style="width: 250px; line-height: 0px" href="CMSWizard.aspx">Start your website now</a>
                     
                 </div>
             </div>
@@ -142,5 +154,29 @@
                    
                 
         </div>
+        
     </div>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dlg = $("#requestForm").dialog({
+                autoOpen: false,
+                height:300,
+                width: 500,
+                modal: true,
+                close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
+
+            });
+
+            dlg.parent().appendTo($("form:first"));
+
+            $("#requestButton")
+      .click(function () {
+          $("#requestForm").dialog("open");
+      });
+        });
+    </script>
+    <style type="text/css">
+#requestForm select{display:block !important;}
+</style>
 </asp:Content>

@@ -220,7 +220,7 @@ body {
 }
 
 #titleContainer {
-	margin-top: 89px;
+	margin-top: 70px;
 	margin-bottom: 150px;
 }
 
@@ -3514,3 +3514,32 @@ p.button a:hover{text-decoration: none;}
 .Golden{background-image:url(../images/g.png);background-repeat:no-repeat;}
 .Silver{background-image:url(../images/s.png);background-repeat:no-repeat;}
 .Bronze{background-image:url(../images/b.png);background-repeat:no-repeat;}
+
+/* popup styles */
+.pLabel
+{
+    float:left;
+    text-align:left;
+    font-size:16px;
+    font-weight:bold;
+    width:20%;
+    padding:2px;
+    margin:2px;
+    
+    }
+    
+.pContent
+{
+    float:left;
+    text-align:left;    
+    width:70%;
+    padding:2px;
+    margin:2px;
+}
+
+.pContent input[type="text"]
+{
+    height:30px !important;
+    margin:0 !important;
+    padding: 0 !important;
+    }
