@@ -14,9 +14,7 @@
         <div id="contactInfo" class="large-6 columns">
             <h2>
                 Contact Info</h2>
-            <iframe width="470" height="150" frameborder="0" scrolling="no" marginheight="0"
-                marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Heliopolis,+Cairo+Governorate,+Egypt&amp;aq=0&amp;oq=he&amp;sll=30.059915,31.26202&amp;sspn=0.23742,0.308647&amp;ie=UTF8&amp;hq=&amp;hnear=Heliopolis,+Cairo+Governorate,+Egypt&amp;t=m&amp;ll=30.091227,31.322622&amp;spn=0.00557,0.020127&amp;z=15&amp;output=embed">
-            </iframe>            
+            <img src="images/contact/map.jpg" />
             <p>
                By contacting our sales team … by mail or phone we will be always ready to handle your request.</p>
             <p>
