@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -300,6 +303,8 @@
     <Content Include="javascripts\jquery.mobile.customized.min.js" />
     <Content Include="javascripts\jquery.prettyPhoto.js" />
     <Content Include="javascripts\jquery.smartWizard-2.0.min.js" />
+    <Content Include="javascripts\jquery.validationEngine-en.js" />
+    <Content Include="javascripts\jquery.validationEngine.js" />
     <Content Include="javascripts\novakScript.js" />
     <Content Include="javascripts\vendor\zepto.js" />
     <Content Include="javascripts\zepto.js" />
@@ -323,6 +328,7 @@
     <Content Include="NewDefault.aspx" />
     <Content Include="Portfolio.aspx" />
     <Content Include="Products\I-Finance.aspx" />
+    <Content Include="Products\I-Flights.aspx" />
     <Content Include="Services\CMSWizard.aspx" />
     <Content Include="Services\Default.aspx" />
     <Content Include="Services\EmailMarketing.aspx" />
@@ -336,6 +342,7 @@
     <Content Include="Services\webdevelopment.aspx" />
     <Content Include="Services\WhyEgypt.aspx" />
     <Content Include="stylesheets\camera.css" />
+    <Content Include="stylesheets\customMessages.css" />
     <Content Include="stylesheets\foundation.css" />
     <Content Include="stylesheets\images\animated-overlay.gif" />
     <Content Include="stylesheets\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -358,6 +365,8 @@
     <Content Include="stylesheets\prettyPhoto.css" />
     <Content Include="stylesheets\smart_wizard.css" />
     <Content Include="stylesheets\smart_wizard_vertical.css" />
+    <Content Include="stylesheets\template.css" />
+    <Content Include="stylesheets\validationEngine.jquery.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -436,6 +445,13 @@
     </Compile>
     <Compile Include="Products\I-Finance.aspx.designer.cs">
       <DependentUpon>I-Finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\I-Flights.aspx.cs">
+      <DependentUpon>I-Flights.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\I-Flights.aspx.designer.cs">
+      <DependentUpon>I-Flights.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CMSWizard.aspx.cs">
