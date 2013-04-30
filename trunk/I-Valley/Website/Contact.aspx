@@ -18,11 +18,14 @@
                 marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Heliopolis,+Cairo+Governorate,+Egypt&amp;aq=0&amp;oq=he&amp;sll=30.059915,31.26202&amp;sspn=0.23742,0.308647&amp;ie=UTF8&amp;hq=&amp;hnear=Heliopolis,+Cairo+Governorate,+Egypt&amp;t=m&amp;ll=30.091227,31.322622&amp;spn=0.00557,0.020127&amp;z=15&amp;output=embed">
             </iframe>            
             <p>
-                Et dis elementum. Amet velit! Urna tincidunt? Odio aenean eros phasellus, a auctor
-                purus, sit platea, urna dapibus urna dictumst dignissim.</p>
+               By contacting our sales team … by mail or phone we will be always ready to handle your request.</p>
             <p>
-                Risus velit, in ultrices aenean elementum, augue nunc lundium eu dictumst phasellus
-                a cum integer? Penatibus enim penatibus sed proin.</p>
+            <ul>
+                <li>Address: Heliopolis, Cairo Egypt.</li>
+                <li>Phone: 0020 1228404078.</li>
+                <li>Email: sales@i-valley.com.</li>
+                </ul>
+                </p>
         </div>
         <div id="contactForm" class="large-6 columns">
             <h2>
