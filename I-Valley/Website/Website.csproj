@@ -145,6 +145,7 @@
     <Content Include="images\contact\inputEmail.png" />
     <Content Include="images\contact\inputMessage.png" />
     <Content Include="images\contact\inputName.png" />
+    <Content Include="images\contact\map.jpg" />
     <Content Include="images\EMarketing.gif" />
     <Content Include="images\finance.gif" />
     <Content Include="images\flights.gif" />
@@ -551,7 +552,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2243</DevelopmentServerPort>
+          <DevelopmentServerPort>5681</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

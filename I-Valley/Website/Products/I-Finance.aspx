@@ -12,6 +12,9 @@
     </div>
     <div id="InnerContentWrapper" class="row">
         <div class="citer">
+        <h4>
+        Features of I-Finance Software
+        </h4>
             <p style="font-weight:bold;">
                 Sales And Accounts Receivables
             </p>
@@ -42,31 +45,7 @@
                 <li>Supplier Payments and Allocations</li>
                 <li>Company logos can be attached on documents</li>
                 <li>Option of attaching scanned documents with transactions</li>
-            </ul>
-            <p style="font-weight: bold;">
-                Inventory and Stocks</p>
-            <ul>
-                <li>Record Stock Items</li>
-                <li>Define Item Categories and Item Locations</li>
-                <li>Record location transfers and other adjustments</li>
-                <li>Set re-order levels for Inventory Items</li>
-                <li>Automatic calculation of average material cost (per unit)</li>
-                <li>Application of standard and overhead costs, into material prices</li>
-                <li>Quantity of Items can be measured into standard units</li>
-                <li>Foreign codes registration for barcode scanner entry</li>
-            </ul>
-            <p style="font-weight: bold;">
-                Inventory and Stocks</p>
-            <ul>
-                <li>Record Stock Items</li>
-                <li>Define Item Categories and Item Locations</li>
-                <li>Record location transfers and other adjustments</li>
-                <li>Set re-order levels for Inventory Items</li>
-                <li>Automatic calculation of average material cost (per unit)</li>
-                <li>Application of standard and overhead costs, into material prices</li>
-                <li>Quantity of Items can be measured into standard units</li>
-                <li>Foreign codes registration for barcode scanner entry</li>
-            </ul>
+            </ul>           
             <p style="font-weight: bold;">
                 Inventory and Stocks</p>
             <ul>

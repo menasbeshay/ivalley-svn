@@ -83,13 +83,12 @@
                     <li class="active">
                         <asp:HyperLink NavigateUrl="~/Portfolio.aspx" ID="uiportlink" runat="server">Portfolio</asp:HyperLink></li>
                     <li class="active">
-                        <asp:HyperLink NavigateUrl="#" ID="HyperLink3" runat="server">Products</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink3" runat="server">Products</asp:HyperLink>
                         <ul style="display: none;">
                             <li>
-                                <asp:HyperLink NavigateUrl="#" ID="HyperLink4" runat="server">I-Flights</asp:HyperLink></li>
+                                <asp:HyperLink NavigateUrl="~/Products/I-Flights.aspx" ID="HyperLink4" runat="server">I-Flights</asp:HyperLink></li>
                             <li>
-                                <asp:HyperLink NavigateUrl="#" ID="HyperLink5" runat="server">I-Finance</asp:HyperLink></li>
-                            
+                                <asp:HyperLink NavigateUrl="~/Products/I-Finance.aspx" ID="HyperLink5" runat="server">I-Finance</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li class="active">
