@@ -77,6 +77,7 @@
     <Content Include="images\1-home\quote-arrow-right.png" />
     <Content Include="images\1-home\social-icons-menu.png" />
     <Content Include="images\1-home\social-icons.png" />
+    <Content Include="images\1.jpg" />
     <Content Include="images\2-about\head-img.jpg" />
     <Content Include="images\2-about\john-doe.png" />
     <Content Include="images\2-about\mobileApps.png" />
@@ -102,6 +103,7 @@
     <Content Include="images\2-about\team3.jpg" />
     <Content Include="images\2-about\team4.jpg" />
     <Content Include="images\2-about\webDes.png" />
+    <Content Include="images\2.jpg" />
     <Content Include="images\3-portfolio\portfolio-arrow-left.png" />
     <Content Include="images\3-portfolio\portfolio-arrow-right.png" />
     <Content Include="images\3-portfolio\portfolio-icons.png" />
@@ -539,6 +541,10 @@
   <ItemGroup>
     <None Include="css\css" />
     <None Include="css\css%281%29" />
+    <None Include="fonts\bauserif\bauserif-webfont.eot" />
+    <None Include="fonts\bauserif\bauserif-webfont.svg" />
+    <None Include="fonts\bauserif\bauserif-webfont.ttf" />
+    <None Include="fonts\bauserif\bauserif-webfont.woff" />
     <None Include="fonts\BebasNeu\bebasneue-webfont-webfont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
