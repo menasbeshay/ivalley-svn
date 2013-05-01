@@ -18,8 +18,8 @@
 
         
     </div>
-    <div id="banner">
-        <p>
+    <div id="banner" class="webdevelopmentBanner">
+        <p style="color: #a82743;">
             Web Development</p>
         <span>
             <p>
