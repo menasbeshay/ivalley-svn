@@ -53,7 +53,7 @@
                             <span class="fadeSpan">E-Commerce
                                 <div class="arrow">
                                 </div>
-                            </span></a><a class="photography" href="#">&nbsp;</a><a class="responsive" href="#"><img
+                            </span></a><a class="responsive" href="#"><img
                                 src="images/2-about/Responsive.png" alt="Job Thumb">
                                 <span class="fadeSpan">Office Automation
                                     <div class="arrow">

@@ -22,7 +22,7 @@
                     We offer for you the most stable Airlines Management System will enable you to handle your commercial department, Operation department, Cabin Crew, Engineering, Station and Training department with ability to extract all needed reports including Ministry of Aviation schedule reports.</p>
             </div>
             <div class="blogHover">
-                <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
+               <a href="Products/I-Flights.aspx">
                     Link</a>
             </div>
         </div>
@@ -36,12 +36,12 @@
                 <img src="images/opFinance.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
                     -webkit-border-radius: 10px;">
                 <p class="posterName">
-                    <a href="single-post.html">I-Finance</a></p>
+                    I-Finance</p>
                 <p class="postInfo">
                     IValley provide suitable solution for the small to mid-size companies for their financial department – through our IFinance we provide Full accounting system including stock management and point of sales management as well, Now you will be able to remove all manual invoices and use the most powerful financial system.</p>
             </div>
             <div class="blogHover">
-                <a href="images/blog-img3.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="single-post.html">
+                 <a href="Products/I-Finance.aspx">
                     Link</a>
             </div>
         </div>
