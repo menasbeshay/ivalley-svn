@@ -1266,6 +1266,9 @@ select {
 	font-family: 'Calibri';
 	color: #092947;	
     }
+ .citer h4{
+    font-family: 'bauserifregular';
+ }
     
  #InnerContentWrapper div.citer>p
  {
@@ -2345,7 +2348,8 @@ line-height:1.5;
 .servContainer h3 {
 	font-size: 44px;
 	color: #424964;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 	text-align: center;
 	margin-bottom: 10px;
 	font-weight: normal;
@@ -2461,7 +2465,8 @@ line-height:1.5;
 #contactInfo h2,#contactForm h2 {
 	margin: 0;
 	padding: 0;
-	font-family: 'Calibri';
+	/*font-family: 'Calibri';	 */
+	font-family: 'bauserifregular';
 	color: #092947;
 	font-size: 17px;
 	text-transform: uppercase;
@@ -2475,6 +2480,15 @@ line-height:1.5;
 }
 
 #contactInfo p {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 15px;
+	font-family: 'Calibri';
+	color: #575755;
+	line-height: 19px;
+}
+
+#contactInfo ul li {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 15px;
