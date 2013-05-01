@@ -14,9 +14,10 @@
     <file relUrl="images/loader.gif" publishTime="04/23/2013 11:19:56" />
     <file relUrl="images/about.gif" publishTime="04/26/2013 16:08:40" />
     <file relUrl="images/1-home/back-to-top.png" publishTime="04/18/2013 10:25:12" />
+    <file relUrl="images/ifinance/ArabicBlanceSheet.png" publishTime="05/01/2013 14:18:38" />
     <file relUrl="css/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" publishTime="04/18/2013 10:24:23" />
     <file relUrl="images/8-services/wordpress-icon.png" publishTime="04/22/2013 14:19:27" />
-    <file relUrl="Products/I-Finance.aspx" publishTime="04/30/2013 14:14:15" />
+    <file relUrl="Products/I-Finance.aspx" publishTime="05/01/2013 14:42:33" />
     <file relUrl="images/slides/3.jpg" publishTime="04/29/2013 09:35:53" />
     <file relUrl="images/portfolio/images/12.gif" publishTime="04/29/2013 11:35:54" />
     <file relUrl="images/portfolio/templates/5.gif" publishTime="04/26/2013 15:13:52" />
@@ -66,6 +67,7 @@
     <file relUrl="images/portfolio/images/thumbs/7.gif" publishTime="04/29/2013 11:21:05" />
     <file relUrl="bin/fonts/candara/candara.woff" publishTime="04/18/2013 10:24:57" />
     <file relUrl="javascripts/jquery.prettyPhoto.js" publishTime="04/18/2013 10:24:29" />
+    <file relUrl="images/ifinance/image2.png" publishTime="05/01/2013 14:21:00" />
     <file relUrl="images/portfolio/images/2.gif" publishTime="04/29/2013 11:01:02" />
     <file relUrl="images/health/serv4.png" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/logoHere.png" publishTime="04/18/2013 10:26:50" />
@@ -96,6 +98,7 @@
     <file relUrl="images/8-services/joomla.png" publishTime="04/22/2013 14:19:37" />
     <file relUrl="stylesheets/images/ui-icons_ffffff_256x240.png" publishTime="04/30/2013 10:56:31" />
     <file relUrl="images/ico5.png" publishTime="04/18/2013 10:28:38" />
+    <file relUrl="images/ifinance/GL.png" publishTime="05/01/2013 14:21:08" />
     <file relUrl="Services/Outsourcing.aspx" publishTime="05/01/2013 13:29:24" />
     <file relUrl="javascripts/custom.modernizr.js" publishTime="04/18/2013 10:24:29" />
     <file relUrl="images/health/p3.png" publishTime="04/18/2013 10:26:51" />
@@ -107,6 +110,7 @@
     <file relUrl="images/portfolio/images/8.gif" publishTime="04/29/2013 11:29:29" />
     <file relUrl="stylesheets/normalize.css" publishTime="04/18/2013 10:32:54" />
     <file relUrl="js/jquery.isotope.min.js" publishTime="04/18/2013 10:32:57" />
+    <file relUrl="images/ifinance/Arabic.png" publishTime="05/01/2013 14:20:23" />
     <file relUrl="images/portfolio/portfolio-img8.jpg" publishTime="04/18/2013 10:32:52" />
     <file relUrl="images/8-services/SEM_Small.jpg" publishTime="04/18/2013 15:05:22" />
     <file relUrl="images/health/arrows-gray.png" publishTime="04/18/2013 10:26:51" />
@@ -119,7 +123,7 @@
     <file relUrl="images/2-about/head-img.jpg" publishTime="04/18/2013 10:32:19" />
     <file relUrl="images/health/footer-bullit.png" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/2-about/sponzor3.png" publishTime="04/18/2013 10:32:19" />
-    <file relUrl="bin/Website.dll" publishTime="05/01/2013 13:52:32" />
+    <file relUrl="bin/Website.dll" publishTime="05/01/2013 14:24:07" />
     <file relUrl="images/portfolio/templates/2.gif" publishTime="04/26/2013 15:12:49" />
     <file relUrl="images/health/skype-icon.png" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/health/flickr-icon.png" publishTime="04/18/2013 10:26:51" />
@@ -139,6 +143,7 @@
     <file relUrl="images/portfolio/templates/thumbs/10.png" publishTime="04/26/2013 14:39:20" />
     <file relUrl="images/2-about/sponzor12.png" publishTime="04/18/2013 10:32:19" />
     <file relUrl="stylesheets/images/ui-bg_flat_10_000000_40x100.png" publishTime="04/30/2013 10:56:31" />
+    <file relUrl="images/ifinance/balanceSheet.png" publishTime="05/01/2013 14:18:58" />
     <file relUrl="Portfolio.aspx" publishTime="04/29/2013 14:27:11" />
     <file relUrl="images/2-about/team4.jpg" publishTime="04/18/2013 10:32:19" />
     <file relUrl="stylesheets/images/ui-icons_222222_256x240.png" publishTime="04/30/2013 10:56:31" />
@@ -166,7 +171,7 @@
     <file relUrl="images/typography/button4.png" publishTime="04/18/2013 10:27:59" />
     <file relUrl="images/2-about/mobileApps.png" publishTime="04/18/2013 10:32:19" />
     <file relUrl="images/8-services/slide2.png" publishTime="04/18/2013 10:31:34" />
-    <file relUrl="bin/Website.pdb" publishTime="05/01/2013 13:52:31" />
+    <file relUrl="bin/Website.pdb" publishTime="05/01/2013 14:24:07" />
     <file relUrl="javascripts/jquery.mobile.customized.min.js" publishTime="04/18/2013 10:24:29" />
     <file relUrl="images/contact/inputMessage.png" publishTime="04/18/2013 10:31:46" />
     <file relUrl="Default.aspx" publishTime="05/01/2013 12:07:58" />
@@ -175,6 +180,7 @@
     <file relUrl="images/ico1.png" publishTime="04/18/2013 10:28:38" />
     <file relUrl="images/8-services/slide3.png" publishTime="04/18/2013 10:31:34" />
     <file relUrl="images/ico3.png" publishTime="04/18/2013 10:28:38" />
+    <file relUrl="images/ifinance/CustomerEntries.png" publishTime="05/01/2013 14:21:15" />
     <file relUrl="images/health/p4.png" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/health/ui-bg_inset-hard_100_fcfdfd_1x100.png" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/slides/4.jpg" publishTime="04/29/2013 09:35:53" />
@@ -193,6 +199,7 @@
     <file relUrl="javascripts/vendor/zepto.js" publishTime="04/18/2013 10:24:29" />
     <file relUrl="controls/RequestService.ascx" publishTime="05/01/2013 13:46:22" />
     <file relUrl="images/portfolio/images/thumbs/12.gif" publishTime="04/29/2013 11:36:20" />
+    <file relUrl="images/ifinance/journalEntryView.png" publishTime="05/01/2013 14:17:26" />
     <file relUrl="images/2-about/sponzor5.png" publishTime="04/18/2013 10:32:19" />
     <file relUrl="images/recentpr2.png" publishTime="04/18/2013 10:26:50" />
     <file relUrl="images/prettyphoto/default/sprite_next.png" publishTime="11/09/2011 19:21:38" />
@@ -206,6 +213,7 @@
     <file relUrl="js/jquery.validate.min.js" publishTime="04/18/2013 10:32:57" />
     <file relUrl="js/jquery.ui.datepicker.min.js" publishTime="04/18/2013 10:32:57" />
     <file relUrl="images/portfolio/templates/1.gif" publishTime="04/26/2013 15:12:18" />
+    <file relUrl="images/ifinance/journalEntry.png" publishTime="05/01/2013 14:20:50" />
     <file relUrl="js/flexslider/jquery.flexslider-min.js" publishTime="04/18/2013 10:32:55" />
     <file relUrl="images/2-about/sponzor2.png" publishTime="04/18/2013 10:32:19" />
     <file relUrl="images/WebDevelopment.gif" publishTime="04/29/2013 09:35:53" />
@@ -238,6 +246,7 @@
     <file relUrl="javascripts/foundation.orbit.js" publishTime="04/18/2013 10:24:29" />
     <file relUrl="images/health/caring-staff.jpg" publishTime="04/18/2013 10:26:51" />
     <file relUrl="images/portfolio/templates/thumbs/7.png" publishTime="04/26/2013 14:36:28" />
+    <file relUrl="images/ifinance/TrialBalance.png" publishTime="05/01/2013 14:17:52" />
     <file relUrl="images/2.jpg" publishTime="05/01/2013 10:40:06" />
     <file relUrl="Services/SMO.aspx" publishTime="04/18/2013 11:48:34" />
     <file relUrl="images/tick.png" publishTime="04/23/2013 14:44:40" />
@@ -278,7 +287,7 @@
     <file relUrl="images/1-home/link.png" publishTime="04/18/2013 10:25:12" />
     <file relUrl="images/portfolio/images/thumbs/11.gif" publishTime="04/29/2013 11:32:51" />
     <file relUrl="images/responsive-nav-bg.png" publishTime="04/18/2013 10:26:50" />
-    <file relUrl="stylesheets/mainStyles.css" publishTime="05/01/2013 13:30:31" />
+    <file relUrl="stylesheets/mainStyles.css" publishTime="05/01/2013 14:33:09" />
     <file relUrl="css/media-queries.css" publishTime="04/18/2013 10:24:23" />
     <file relUrl="js/twitterlib.js" publishTime="04/18/2013 10:32:57" />
     <file relUrl="images/price.readmore.png" publishTime="04/23/2013 16:29:41" />

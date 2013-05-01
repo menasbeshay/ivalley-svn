@@ -3387,14 +3387,16 @@ select {
 /*	6.2 Main Nav Styles ----------------------------------------------------------*/
 	.main-nav 
 	{
+	    font-family: 'bauserifregular';
+	    font-weight:bold;	    
 	    margin-top:-25px;
             position: relative;
             min-height: 41px;
             height:auto !important;
             height: 41px;
-            width: 72%;
+            width: 77%;
             float:right;
-            padding: 0px 21px 0px 0px;
+            padding: 0px 20px 0px 0px;
             background-color:#CCCCCC;
             background-clip: padding-box;
             -moz-background-clip: padding-box;
@@ -3420,12 +3422,12 @@ select {
 	.main-nav > div > ul > li { float: left; border-right: 1px solid #666666; position: relative; }
 	.main-nav > div > ul > li:first-child { border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; }
 	.main-nav > div > ul > li:last-child { border: none; }
-	.main-nav > div ul li a { display: inline-block; padding: 0px 20px; font-size: 13px; line-height: 41px; text-align: center; color: #800000; font-weight:bold; }
+	.main-nav > div ul li a { display: inline-block; padding: 0px 20px; font-size: 15px; line-height: 41px; text-align: center; color: #800000; font-weight:bold; }
 	.main-nav > div ul li a:hover{color:#fff}
 	.main-nav > div ul li:hover { background-color: #808080; background-clip: padding-box; -moz-background-clip: padding-box; }
-	.main-nav > div ul li ul {margin-left:0px;; display: none; width: 160px; padding: 5px 0px; background-color: #808080; position: absolute; top: 41px; left: 0px; z-index: 8899; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
+	.main-nav > div ul li ul {margin-left:0px;; display: none; width: 190px; padding: 5px 0px; background-color: #808080; position: absolute; top: 41px; left: 0px; z-index: 8899; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
 	.ie7 .main-nav > div ul li ul{ z-index:9800; }
-	.main-nav > div ul li ul li { width: 160px; height: auto; padding: 0px 12px; position: relative; }
+	.main-nav > div ul li ul li { width: 190px; height: auto; padding: 0px 12px; position: relative; }
 	.main-nav > div ul li ul li a { display: inline-block; line-height: 34px; padding: 0px 9px; text-align: left;  border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
 	.main-nav > div ul li ul li:hover { background-color: #666666; }
 	.main-nav > div ul li ul li ul { top: -12px; left: 220px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
