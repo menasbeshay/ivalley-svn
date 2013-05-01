@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="banner" class="emarketingBanner">
+    <div id="banner" >
         <p>
             E-Marketing</p>
         <span>
@@ -15,7 +15,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
                 <img src="../images/8-services/seo_small.png" alt="Recent Post">
-                <a href="../images/8-services/seo_small.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="SEO.aspx">
+                <a href="SEO.aspx">
                     Link</a> </span>
            
             <h4>
@@ -30,7 +30,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
                 <img src="../images/8-services/sem_small.png" alt="Recent Post">
-                <a href="../images/8-services/sem_small.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="SEM.aspx">
+                <a href="SEM.aspx">
                     Link</a> </span>
            
             <h4>
@@ -44,7 +44,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
                 <img src="../images/8-services/smo_small.png" alt="Recent Post">
-                <a href="../images/8-services/smo_small.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="SMO.aspx">
+                <a href="SMO.aspx">
                     Link</a> </span>
            
             <h4>
@@ -59,7 +59,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
                 <img src="../images/8-services/Email-Marketing.png" alt="Recent Post">
-                <a href="../images/8-services/Email-Marketing.jpg" rel="prettyPhoto" class="firstL">Zoom</a> <a href="EmailMarketing.aspx">
+                 <a href="EmailMarketing.aspx">
                     Link</a> </span>
             
             <h4>

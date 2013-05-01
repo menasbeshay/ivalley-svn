@@ -574,7 +574,7 @@ select {
 	background-image: url(../images/1-Home/link.png);
 	background-position: center center;
 	background-repeat: no-repeat;
-	right: 25px;
+	right: 35%;
 }
 
 .hoverEffect:hover a {
@@ -1051,9 +1051,9 @@ select {
 
 #banner {
 	margin-top: -25px;
-	background-image: url(../images/2-About/head-img.jpg);
-	background-repeat: repeat-x;
-
+	background-image: url(../images/common_banner1.jpg);
+	background-repeat: no-repeat;
+background-position:50% 70%;
 	-webkit-background-size: auto;
 	-moz-background-size: auto;
 	background-size: auto;
@@ -1068,7 +1068,7 @@ select {
 	padding: 0;
 	/*font-family: 'bebas_neueregular';*/
 	font-family: 'bauserifregular';
-	color: white;
+	color: #a82743;
 	font-size: 44px;
 }
 
@@ -1102,7 +1102,7 @@ select {
 	margin-top: -25px;
 	background-image: url(../images/outsourcing.gif);
 	background-repeat: repeat-x;
-
+background-position:0% 0% !important;
 	-webkit-background-size: auto;
 	-moz-background-size: auto;
 	background-size: auto;
@@ -1114,6 +1114,7 @@ select {
 .contact
 {
     background-image: url(../images/Contact-Us22.jpg) !important;
+    background-position:0% 0% !important;
     }
 
 #OutsourcingBanner p {
@@ -1157,7 +1158,7 @@ select {
 	margin-top: -25px;
 	background-image: url(../images/about.gif);
 	background-repeat: repeat-x;
-
+background-position:0% 0% !important;
 	-webkit-background-size: auto;
 	-moz-background-size: auto;
 	background-size: auto;
@@ -2349,7 +2350,7 @@ line-height:1.5;
 }
 
 .servContainer h3 {
-	font-size: 44px;
+	font-size: 30px;
 	color: #424964;
 	/*font-family: 'bebas_neueregular';*/
 	font-family: 'bauserifregular';
@@ -3585,8 +3586,8 @@ p.button a:hover{text-decoration: none;}
     padding: 0 !important;    
     }
 .webdevelopmentBanner
-{background-image: url(../images/1.jpg) !important;background-repeat:no-repeat;background-position:80% 99%;}
+{background-image: url(../images/1.jpg) !important;background-repeat:no-repeat;background-position:80% 99% !important;}
 .emarketingBanner
-{background-image: url(../images/2.jpg) !important;background-repeat:no-repeat;}
+{background-image: url(../images/2.jpg) !important;background-repeat:no-repeat;background-position:0% 0% !important;}
 
 .webDev h4{font-family: 'bauserifregular';font-size: 20px;color:#e15e32;text-align:center;}
