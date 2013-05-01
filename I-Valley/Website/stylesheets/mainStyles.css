@@ -498,7 +498,8 @@ body {
 
 .recPost h4 {
 	/*font-family: 'bebas_neueregular';*/
-	font-family: 'Lato-Regular';
+	/*font-family: 'Lato-Regular';*/
+	font-family: 'bauserifregular';
 	font-size: 16px;
 	padding: 5px 0;
 	border-bottom: 1px solid #969793;
