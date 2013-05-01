@@ -301,9 +301,11 @@ body {
 	bottom: 10px;
 	width: 100%;
 	font-size: 30px;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
 	font-weight: normal;
 	color: #6d6565;
+	font-variant:small-caps;
+	font-family: 'bauserifregular';/*font-size: 20px;color:#e15e32;*/
 }
 
 .trait-box figure {
@@ -462,7 +464,8 @@ body {
 }
 
 .recTitle h4 {
-	font-family: 'Calibri';
+	/*font-family: 'Calibri';*/
+	font-family: 'bauserifregular';
 	font-size: 17px;
 	text-transform: uppercase;
 	color: #092947;
@@ -816,7 +819,8 @@ select {
 	border-radius: 3px;
 	color: white;
 	font-size: 15px;
-	font-family: 'Calibri';
+	/*font-family: 'Calibri';*/
+	font-family: 'bauserifregular';
 }
 
 .post-num p a {
@@ -1061,7 +1065,8 @@ select {
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 	color: white;
 	font-size: 44px;
 }
@@ -1088,7 +1093,8 @@ select {
 	border-radius: 44px;
 	font-size: 38px;
 	color: white;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 }
 
 #OutsourcingBanner {
@@ -1113,7 +1119,8 @@ select {
 	text-align: center;
 	margin: 0;
 	padding:0px;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 	color: #a82743;
 	font-size: 44px;
 }
@@ -1140,7 +1147,8 @@ select {
 	border-radius: 44px;
 	font-size: 38px;
 	color: white;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 }
 
 
@@ -1161,7 +1169,8 @@ select {
 	text-align: center;
 	margin: 0;
 	padding:0px;
-	font-family: 'bebas_neueregular';
+	/*font-family: 'bebas_neueregular';*/
+	font-family: 'bauserifregular';
 	color: #a82743;
 	font-size: 44px;
 }
