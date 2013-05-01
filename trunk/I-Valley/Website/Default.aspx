@@ -34,9 +34,7 @@
             </div>
             <div class="postInfo">
                 <img src="images/opFinance.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
-                    -webkit-border-radius: 10px;">
-                <p class="posterName">
-                    I-Finance</p>
+                    -webkit-border-radius: 10px;">                
                 <p class="postInfo">
                     IValley provide suitable solution for the small to mid-size companies for their financial department – through our IFinance we provide Full accounting system including stock management and point of sales management as well, Now you will be able to remove all manual invoices and use the most powerful financial system.</p>
             </div>
