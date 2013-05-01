@@ -194,6 +194,17 @@
     <Content Include="images\ico4.png" />
     <Content Include="images\ico5.png" />
     <Content Include="images\ico6.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\icon2.ico" />
+    <Content Include="images\ifinance\Arabic.png" />
+    <Content Include="images\ifinance\ArabicBlanceSheet.png" />
+    <Content Include="images\ifinance\balanceSheet.png" />
+    <Content Include="images\ifinance\CustomerEntries.png" />
+    <Content Include="images\ifinance\GL.png" />
+    <Content Include="images\ifinance\image2.png" />
+    <Content Include="images\ifinance\journalEntry.png" />
+    <Content Include="images\ifinance\journalEntryView.png" />
+    <Content Include="images\ifinance\TrialBalance.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\logoHere.png" />
     <Content Include="images\opFinance.gif" />
