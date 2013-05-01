@@ -11,7 +11,7 @@
         </span>
     </div>
     <div id="services" class="row">
-        <h2>
+        <h2 style="font-family: 'bauserifregular';">
             Outsourcing and Offshore software development</h2>
         <div id="OutsourcingWrapper" class="large-12 columns">
             <div style="float: left; width: 57%;">
@@ -64,7 +64,7 @@
             <p style="color: #D55500;font-weight:bold;">             
                  We offer our clients 2 methodologies for offshoring:
             </p>
-                <h3 style="font-family: 'Calibri'; color: #092947; font-size: 15px; padding-bottom: 7px;
+                <h3 style="font-family: 'bauserifregular'; color: #092947; font-size: 15px; padding-bottom: 7px;
                     text-transform: uppercase;">
                     Staff augmentation</h3>
                     <br />
@@ -87,7 +87,8 @@
             
             
 
-            <h3>
+            <h3 style="font-family: 'bauserifregular'; color: #092947; font-size: 15px; padding-bottom: 7px;
+                text-transform: uppercase;">
                 Project Base (software development outsourcing)
             </h3>
             <div class="citer">            

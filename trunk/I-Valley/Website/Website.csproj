@@ -541,10 +541,18 @@
   <ItemGroup>
     <None Include="css\css" />
     <None Include="css\css%281%29" />
-    <None Include="fonts\bauserif\bauserif-webfont.eot" />
-    <None Include="fonts\bauserif\bauserif-webfont.svg" />
-    <None Include="fonts\bauserif\bauserif-webfont.ttf" />
-    <None Include="fonts\bauserif\bauserif-webfont.woff" />
+    <None Include="fonts\bauserif\bauserif-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fonts\bauserif\bauserif-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fonts\bauserif\bauserif-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fonts\bauserif\bauserif-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="fonts\BebasNeu\bebasneue-webfont-webfont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
