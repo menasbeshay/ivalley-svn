@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="webdevelopment.aspx.cs" Inherits="Website.Services.webdevelopment" %>
 <%@ Register src="../controls/RequestService.ascx" tagname="RequestService" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -36,8 +36,8 @@
                 following services:
             </p>
             
-            <div class="large-6 columns" style="padding: 5px; border-right: 2px solid #a82743">
-                1- Custom web development :
+            <div class="large-6 columns webDev" style="padding: 5px; border-right: 2px solid #a82743">
+                <h4>Custom web development</h4>
                 <p>
                     <br />
                     It's many benefits for your business to develop your business needs in such software,
@@ -95,8 +95,9 @@
                     </div>                                                                                
                 </p>
             </div>
-            <div class="large-6 columns" style="padding: 5px;">
-                2- CMS websites customization :
+            <div class="large-6 columns webDev" style="padding: 5px;">
+                <h4>CMS websites customization 
+                </h4>
                 <p>
                     <br />
                     By choosing Content Management System website customization you are putted your
@@ -162,9 +163,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var dlg = $("#requestForm").dialog({
-                autoOpen: false,
-                height:300,
-                width: 580,
+                autoOpen: false,                
+                width: 400,
                 modal: true,
                 close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
 

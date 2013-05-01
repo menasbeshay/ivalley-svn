@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Website.Contact" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="javascripts/jquery.validationEngine-en.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.validationEngine.js" type="text/javascript"></script>
+    <link href="stylesheets/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="banner" class="contact">
@@ -33,21 +36,21 @@
                     Name:</p>
                 <label class="forName" for="name">
                 </label>
-                <asp:TextBox ID="uiTextBoxName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="uiTextBoxName" runat="server" class="validate[required]"></asp:TextBox>
             </div>
             <div class="large-12 columns inputContainer">
                 <p>
                     Email:</p>
                 <label class="forEmail" for="eMail">
                 </label>
-                <asp:TextBox ID="uiTextBoxMail" runat="server"></asp:TextBox>
+                <asp:TextBox ID="uiTextBoxMail" runat="server" class="validate[required,custom[email]]"></asp:TextBox>
             </div>
             <div class="large-12 columns inputContainer">
                 <p>
                     Message:</p>
                 <label class="forMessage" for="message">
                 </label>
-                <asp:TextBox ID="uiTextBoxMsg" runat="server"></asp:TextBox>
+                <asp:TextBox ID="uiTextBoxMsg" runat="server" class="validate[required]"></asp:TextBox>
             </div>
             <div class="large-12 columns submitContainer">
                 <asp:Button ID="uiButtonsubmit" runat="server" Text="Send &gt;" />                
@@ -56,13 +59,8 @@
     </div>
     <!--Project Image Toogle-->
     <script type="text/javascript">
-  	$(document).ready(function(e) {
-        $('.thumbLinks a').click(function(e) {
-			var imgSrc = $(this).attr('href');
-            e.preventDefault();
-			
-			$('#projectInfo img').attr('src', imgSrc);
-        });
+  	$(document).ready(function(e) {        
+        $("form").validationEngine();
     });
   </script>
 </asp:Content>
