@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RequestService.ascx.cs" Inherits="Website.controls.RequestService" %>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
     <ProgressTemplate>
         <div style="background-color: transparent; z-index: 10000; text-align: center; position: absolute;
