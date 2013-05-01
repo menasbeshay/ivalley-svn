@@ -11,7 +11,7 @@
         </span>
     </div>
     <div id="InnerContentWrapper" class="row">
-        <div class="citer">
+        <div class="citer" style="width:60%;float:left;margin-right:10px;">
         <h4>
         Features of I-Finance Software
         </h4>
@@ -94,5 +94,53 @@
             </ul>
             
         </div>
+
+        <div style="float:right;width:38%;">
+            <a style="display:block; margin:5px;" href="../images/ifinance/image2.png" rel="prettyPhoto">
+                <img src="../images/ifinance/image2.png" style="display: block; border: 2px solid #FF6600 !important;
+                    border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px;" href="../images/ifinance/GL.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/GL.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px;" href="../images/ifinance/CustomerEntries.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/CustomerEntries.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/journalEntry.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/journalEntry.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/journalEntryView.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/journalEntryView.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/TrialBalance.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/TrialBalance.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/balanceSheet.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/balanceSheet.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/ArabicBlanceSheet.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/ArabicBlanceSheet.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+            <a style="display: block; margin: 5px; " href="../images/ifinance/Arabic.png"
+                rel="prettyPhoto">
+            <img src="../images/ifinance/Arabic.png" style="display: block; border: 2px solid #FF6600 !important;
+                border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;" />
+            </a>
+        </div>
+        <div class="clear"></div>
     </div>
 </asp:Content>
