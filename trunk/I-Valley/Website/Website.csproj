@@ -143,6 +143,8 @@
     <Content Include="images\blog-img4.jpg" />
     <Content Include="images\camera-loader.gif" />
     <Content Include="images\camera_skins.png" />
+    <Content Include="images\common_banner1.jpg" />
+    <Content Include="images\Contact-Us22.jpg" />
     <Content Include="images\contact\googleMap.png" />
     <Content Include="images\contact\inputEmail.png" />
     <Content Include="images\contact\inputMessage.png" />
@@ -205,6 +207,12 @@
     <Content Include="images\ifinance\journalEntry.png" />
     <Content Include="images\ifinance\journalEntryView.png" />
     <Content Include="images\ifinance\TrialBalance.png" />
+    <Content Include="images\iflights\1.png" />
+    <Content Include="images\iflights\2.png" />
+    <Content Include="images\iflights\3.png" />
+    <Content Include="images\iflights\4.png" />
+    <Content Include="images\iflights\5.png" />
+    <Content Include="images\iflights\6.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\logoHere.png" />
     <Content Include="images\opFinance.gif" />
