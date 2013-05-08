@@ -52,6 +52,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="ar\about.aspx" />
+    <Content Include="ar\contact.aspx" />
+    <Content Include="ar\default.aspx" />
+    <Content Include="ar\portfolio.aspx" />
+    <Content Include="ar\products\I-finance.aspx" />
+    <Content Include="ar\products\I-Flights.aspx" />
+    <Content Include="ar\services\CMSWizard.aspx" />
+    <Content Include="ar\services\default.aspx" />
+    <Content Include="ar\services\emailMarketing.aspx" />
+    <Content Include="ar\services\eMarketing.aspx" />
+    <Content Include="ar\services\Outsourcing.aspx" />
+    <Content Include="ar\services\SEM.aspx" />
+    <Content Include="ar\services\SEO.aspx" />
+    <Content Include="ar\services\SMO.aspx" />
+    <Content Include="ar\services\success.aspx" />
+    <Content Include="ar\services\Technologies.aspx" />
+    <Content Include="ar\services\webdevelopment.aspx" />
+    <Content Include="ar\services\WhyEgypt.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="controls\RequestService.ascx" />
     <Content Include="css\custom.css" />
@@ -401,6 +419,132 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\portfolio.aspx.cs">
+      <DependentUpon>portfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\portfolio.aspx.designer.cs">
+      <DependentUpon>portfolio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\products\I-finance.aspx.cs">
+      <DependentUpon>I-finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\products\I-finance.aspx.designer.cs">
+      <DependentUpon>I-finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\products\I-Flights.aspx.cs">
+      <DependentUpon>I-Flights.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\products\I-Flights.aspx.designer.cs">
+      <DependentUpon>I-Flights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\CMSWizard.aspx.cs">
+      <DependentUpon>CMSWizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\CMSWizard.aspx.designer.cs">
+      <DependentUpon>CMSWizard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\emailMarketing.aspx.cs">
+      <DependentUpon>emailMarketing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\emailMarketing.aspx.designer.cs">
+      <DependentUpon>emailMarketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\eMarketing.aspx.cs">
+      <DependentUpon>eMarketing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\eMarketing.aspx.designer.cs">
+      <DependentUpon>eMarketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\Outsourcing.aspx.cs">
+      <DependentUpon>Outsourcing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\Outsourcing.aspx.designer.cs">
+      <DependentUpon>Outsourcing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\SEM.aspx.cs">
+      <DependentUpon>SEM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\SEM.aspx.designer.cs">
+      <DependentUpon>SEM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\SEO.aspx.cs">
+      <DependentUpon>SEO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\SEO.aspx.designer.cs">
+      <DependentUpon>SEO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\SMO.aspx.cs">
+      <DependentUpon>SMO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\SMO.aspx.designer.cs">
+      <DependentUpon>SMO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\success.aspx.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\success.aspx.designer.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\Technologies.aspx.cs">
+      <DependentUpon>Technologies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\Technologies.aspx.designer.cs">
+      <DependentUpon>Technologies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\webdevelopment.aspx.cs">
+      <DependentUpon>webdevelopment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\webdevelopment.aspx.designer.cs">
+      <DependentUpon>webdevelopment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\services\WhyEgypt.aspx.cs">
+      <DependentUpon>WhyEgypt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\services\WhyEgypt.aspx.designer.cs">
+      <DependentUpon>WhyEgypt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +565,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ArInner.Master.cs">
+      <DependentUpon>ArInner.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ArInner.Master.designer.cs">
+      <DependentUpon>ArInner.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ArSite.Master.cs">
+      <DependentUpon>ArSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ArSite.Master.designer.cs">
+      <DependentUpon>ArSite.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\HealthDesign.Master.cs">
       <DependentUpon>HealthDesign.Master</DependentUpon>
@@ -588,6 +746,8 @@
     <Content Include="MasterPages\Inner.Master" />
     <Content Include="MasterPages\HealthDesign.Master" />
     <None Include="js\user_timeline.json" />
+    <Content Include="MasterPages\ArSite.Master" />
+    <Content Include="MasterPages\ArInner.Master" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
