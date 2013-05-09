@@ -37,7 +37,7 @@
                         <h2>
                             <a target="_blank" href="http://www.obtravel-eg.com/">Obtravel</a><span
                                 class="titleDivide">|</span> <span class="portCategorie">Business websites</span></h2> 
-                               Tourism website for On Board Travel company               
+                               <p>Tourism website for On Board Travel company</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/1.gif" rel="prettyPhoto">
@@ -59,7 +59,8 @@
                         <h2>
                             <a target="_blank" href="http://ifinance.i-valley.com">I-Finance</a><span
                                 class="titleDivide">|</span> <span class="portCategorie">System Development</span></h2>
-                           Web solution software for Financial and stock management 
+                           <p>Web solution software for Financial and stock management 
+                           </p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a  href="images/portfolio/images/12.gif" rel="prettyPhoto">
@@ -80,7 +81,7 @@
                         <h2>
                             <a target="_blank" href="http://www.euroinvestor.dk/">Euroinvestor</a><span
                                 class="titleDivide">|</span> <span class="portCategorie">Outsourcing</span></h2>
-                                Stock market analysis inside the euroinvestors website
+                                <p>Stock market analysis inside the euroinvestors website</p>
                         
                     </div>
                     <div class="large-2 columns portLinks">
@@ -100,7 +101,7 @@
                         <h2>
                             <a target="_blank" href="http://www.glologistics.com/">Global logistics</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Business websites</span></h2>
-                            Online magazine for all logistics work including web advertising
+                            <p>Online magazine for all logistics work including web advertising</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/3.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.glologistics.com">
@@ -119,7 +120,7 @@
                         <h2>
                             <a target="_blank" href="http://midwestapp.i-valley.com">I-Flights</a><span class="titleDivide">|</span>
                             <span class="portCategorie">System Development</span></h2>
-                            Midwest airlines company automation system for aviation services
+                            <p>Midwest airlines company automation system for aviation services</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/11.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://midwestapp.i-valley.com">
@@ -138,7 +139,8 @@
                         <h2>
                             <a target="_blank" href="http://www.zmags.com/">Zmags</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Outsourcing</span></h2>
-                            Online magazine for business use 
+                            <p>Online magazine for business use 
+                            </p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/7.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.zmags.com/">
@@ -159,7 +161,7 @@
                         <h2>
                             <a target="_blank" href="http://www.anbaermia.com/">Anba Ermia</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Business websites</span></h2>
-                            Personal website for bishop Ermia the Deputy for pope Towadrous
+                            <p>Personal website for bishop Ermia the Deputy for pope Towadrous</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/2.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.anbaermia.com/">
@@ -178,7 +180,7 @@
                         <h2>
                             <a target="_blank" href="http://www.airfare.com/">Airfare</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Outsourcing</span></h2>
-                            Online booking agency for Flight tickets and hotel reservation with online payement
+                            <p>Online booking agency for Flight tickets and hotel reservation with online payement</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/5.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.airfare.com/">
@@ -198,7 +200,7 @@
                         <h2>
                             <a target="_blank" href="http://www.ybc-madina.com/">YBC-madina</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Business websites</span></h2>
-                            Center for young men and women entrepreneurs in medina, KSA offcial site
+                           <p> Center for young men and women entrepreneurs in medina, KSA offcial site</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/4.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.ybc-madina.com/">
@@ -218,7 +220,8 @@
                         <h2>
                             <a target="_blank" href="http://www.comoto.com/">Comoto</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Outsourcing</span></h2>
-                            Online Recruitment portal   
+                            <p>Online Recruitment portal   
+                            </p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/9.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.comoto.com/">
@@ -240,7 +243,7 @@
                         <h2>
                             <a target="_blank" href="http://www.comozap.com/">Comozap</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Outsourcing</span></h2>
-                            Online Recruitment portal for SAP professionals
+                            <p>Online Recruitment portal for SAP professionals</p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/6.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.comozap.com/">
@@ -259,7 +262,8 @@
                         <h2>
                             <a target="_blank" href="http://linkedhunters.dk/">Linked hunters</a><span class="titleDivide">|</span>
                             <span class="portCategorie">Outsourcing</span></h2>
-                            Online community for hunters 
+                            <p>Online community for hunters 
+                            </p>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/10.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://http://linkedhunters.dk/.dk/">

@@ -76,7 +76,7 @@
   color:#5A5655;   
   background-color:#E0E0E0;
   clear:both;
-  text-align:left; 
+  text-align:right; 
   z-index:88;
   -webkit-border-radius: 5px;
   -moz-border-radius  : 5px;    
@@ -84,7 +84,7 @@
 .swMain ul.anchor {
   position: relative;
   display:block;
-  float:left;
+  float:right;
   list-style: none;
   padding: 0px;  
   margin: 10px 0;      
@@ -92,6 +92,7 @@
   border: 0px solid #CCCCCC;    
   background: transparent; /*#EEEEEE */
   padding-left:0px !important;
+  padding-right:7px;
 }
 .swMain ul.anchor li{ 
   position: relative; 
@@ -101,13 +102,13 @@
   padding-left:3px;
   padding-right: 3px;
   border: 0px solid #E0E0E0;      
-  float: left;
+  float: right;
 }
 /* Anchor Element Style */
 .swMain ul.anchor li a {
   display:block;
   position:relative;
-  float:left;
+  float:right;
   margin:0;
   padding:3px;
   height:60px;
@@ -120,7 +121,7 @@
 }
 .swMain ul.anchor li a .stepNumber{
   position:relative;
-  float:left;
+  float:right;
   width:30px;
   text-align: center;
   /*padding:5px;*/
@@ -130,8 +131,8 @@
 .swMain ul.anchor li a .stepDesc{
   position:relative;
   display:block;
-  float:left;
-  text-align: left;
+  float:right;
+  text-align: right;
   padding:5px;
 
   font: bold 18px Verdana, Arial, Helvetica, sans-serif;
@@ -187,12 +188,12 @@
 
 .swMain .buttonNext {
   display:block;
-  float:right;
+  float:left;
   margin:5px 3px 0 3px;
   padding:5px;
   text-decoration: none;
   text-align: center;
-  font: bold 13px Verdana, Arial, Helvetica, sans-serif;
+  font: bold 16px Verdana, Arial, Helvetica, sans-serif;
   width:100px;
   color:#FFF;
   outline-style:none;
@@ -209,12 +210,12 @@
 }
 .swMain .buttonPrevious {
   display:block;
-  float:right;
+  float:left;
   margin:5px 3px 0 3px;
   padding:5px;
   text-decoration: none;
   text-align: center;
-  font: bold 13px Verdana, Arial, Helvetica, sans-serif;
+  font: bold 16px Verdana, Arial, Helvetica, sans-serif;
   width:100px;
   color:#FFF;
   outline-style:none;
@@ -225,12 +226,12 @@
 }
 .swMain .buttonFinish {
   display:block;
-  float:right;
+  float:left;
   margin:5px 10px 0 3px;
   padding:5px;
   text-decoration: none;
   text-align: center;
-  font: bold 13px Verdana, Arial, Helvetica, sans-serif;
+  font: bold 16px Verdana, Arial, Helvetica, sans-serif;
   width:100px;
   color:#FFF;
   outline-style:none;
