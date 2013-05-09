@@ -18,7 +18,7 @@
                 <li><a href="#all" class="current">All</a></li>
                 <li><a rel="businesswebsites" href="#businesswebsites" class="">Business websites</a></li>
                 <li><a rel="systemdevelopment" href="#systemdevelopment" class="">System development</a></li>
-                <li><a  rel="ourtsourcing" href="#Ourtsourcing" class="">Ourtsourcing</a></li>
+                <li><a  rel="Outsourcing" href="#Outsourcing" class="">Outsourcing</a></li>
             </ul>
         </div>
         <div id="portfolioContainer" class="large-12 columns">
@@ -65,7 +65,7 @@
                     </div>
                 </li>
                 <!-- ITEM 3-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -77,7 +77,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://www.euroinvestor.dk/">Euroinvestor</a><span
-                                class="titleDivide">|</span> <span class="portCategorie">Ourtsourcing</span></h2>
+                                class="titleDivide">|</span> <span class="portCategorie">Outsourcing</span></h2>
                         
                     </div>
                     <div class="large-2 columns portLinks">
@@ -122,7 +122,7 @@
                     </div>
                 </li>
                 <!-- ITEM 6-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -132,7 +132,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://www.zmags.com/">Zmags</a><span class="titleDivide">|</span>
-                            <span class="portCategorie">Ourtsourcing</span></h2>
+                            <span class="portCategorie">Outsourcing</span></h2>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/7.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.zmags.com/">
@@ -160,7 +160,7 @@
                     </div>
                 </li>                
                 <!-- ITEM 8-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -170,7 +170,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://www.airfare.com/">Airfare</a><span class="titleDivide">|</span>
-                            <span class="portCategorie">Ourtsourcing</span></h2>
+                            <span class="portCategorie">Outsourcing</span></h2>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/5.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.airfare.com/">
@@ -198,7 +198,7 @@
                 </li>
                 
                 <!-- ITEM 10-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -208,7 +208,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://www.comoto.com/">Comoto</a><span class="titleDivide">|</span>
-                            <span class="portCategorie">Ourtsourcing</span></h2>
+                            <span class="portCategorie">Outsourcing</span></h2>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/9.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.comoto.com/">
@@ -219,7 +219,7 @@
             
                
                 <!-- ITEM 11-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -229,7 +229,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://www.comozap.com/">Comozap</a><span class="titleDivide">|</span>
-                            <span class="portCategorie">Ourtsourcing</span></h2>
+                            <span class="portCategorie">Outsourcing</span></h2>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/6.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://www.comozap.com/">
@@ -237,7 +237,7 @@
                     </div>
                 </li>
                 <!-- ITEM 12-->
-                <li class="Ourtsourcing" style="display: list-item;">
+                <li class="Outsourcing" style="display: list-item;">
                     <div class="imageSlide">
                         <ul class="imagesContainer clear-fix sliderCont3" >
                             <li>
@@ -247,7 +247,7 @@
                     <div class="large-10 columns portContent">
                         <h2>
                             <a target="_blank" href="http://linkedhunters.dk/">Linked hunters</a><span class="titleDivide">|</span>
-                            <span class="portCategorie">Ourtsourcing</span></h2>
+                            <span class="portCategorie">Outsourcing</span></h2>
                     </div>
                     <div class="large-2 columns portLinks">
                         <a href="images/portfolio/images/10.gif" rel="prettyPhoto">Loupe</a> <a target="_blank" href="http://http://linkedhunters.dk/.dk/">

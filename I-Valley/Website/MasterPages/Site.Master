@@ -58,7 +58,7 @@
         <!-- Title Area -->
         
         <li class="name">
-          <h1><a class="logo" href="index.html"><img src="images/logoHere.png" alt="I-valley Logo"></a></h1>
+          <h1><a class="logo" href="default.aspx"><img src="../images/logoHere.png" alt="I-valley Logo"></a></h1>
         </li>
         
         </ul>
@@ -149,26 +149,26 @@
             </div>
             <!--Design Photography & Branding Categories-->
             <div class="row traits-wrapper clear-fix">
-                <div href="#" class="trait-box design">
+                <div class="trait-box branding">
                     <h4>
-                       WEB DEVELOPMENT</h4>
+                        E-MARKETING</h4>
                     <figure>
-              <img src="images/WebDevelopment.gif" alt="" width="326" height="184">
-            </figure>
+                        <img src="images/EMarketing.gif" alt="" width="326" height="184">
+                    </figure>
                     <dl>
-                        <dt><span class="trait-emblem large design"><span>Web development</span> </span></dt>
+                        <dt><span class="trait-emblem large branding"><span>E-Marketing</span> </span></dt>
                         <dd>
-                            With&nbsp;<div class="CompanyName">
+                            With
+                            <div class="CompanyName">
                                 I-Valley</div>
-                            you have multiple options to develop your web solution, our web development
-                            packages not only focus in website development 
-                            <div id="buttons" style="width: 100px; padding-top: 10px;">
-                                <a class="btn5" href="../Services/webdevelopment.aspx">Read more</a></div>
-                            
+                            you can make your brand reach to customers more than your expectation! , we have
+                            many ways to implement that to help you to get in the market faster
+                            <div id="Div2" style="width: 100px; padding-top: 10px;">
+                                <a class="btn6" href="../Services/EMarketing.aspx">Read more</a></div>
                         </dd>
                     </dl>
-                    
-                </div><div href="../Services/Outsourcing.aspx" class="trait-box photography">
+                </div>
+               <div class="trait-box photography">
                     <h4>
                         OUTSOURCING</h4>
                     <figure>              
@@ -183,25 +183,28 @@
                             <div id="buttons" style="width: 100px;padding-top:10px;"><a class="btn2" href="../Services/Outsourcing.aspx">Read more</a></div>
                         </dd>
                     </dl>
-                </div><div href="#" class="trait-box branding">
+                </div>
+                <div class="trait-box design">
                     <h4>
-                        E-MARKETING</h4>
+                        WEB DEVELOPMENT</h4>
                     <figure>
-              <img src="images/EMarketing.gif" alt="" width="326" height="184">
-            </figure>
+                        <img src="images/WebDevelopment.gif" alt="" width="326" height="184">
+                    </figure>
                     <dl>
-                        <dt><span class="trait-emblem large branding"><span>E-Marketing</span> </span></dt>
+                        <dt><span class="trait-emblem large design"><span>Web development</span> </span>
+                        </dt>
                         <dd>
-                            With 
-                            <div class="CompanyName">
-                                I-Valley</div> 
-                            you can make your brand reach to customers more than your expectation!
-                            , we have many ways to implement that to help you to get in the market faster                                                         
-                            <div id="buttons" style="width: 100px; padding-top: 10px;">
-                                <a class="btn6" href="../Services/EMarketing.aspx">Read more</a></div>
+                            With&nbsp;<div class="CompanyName">
+                                I-Valley</div>
+                            you have multiple options to develop your web solution, our web development packages
+                            not only focus in website development
+                            <div id="Div1" style="width: 100px; padding-top: 10px;">
+                                <a class="btn5" href="../Services/webdevelopment.aspx">Read more</a></div>
                         </dd>
                     </dl>
                 </div>
+
+               
             </div>
         </div>
     </div>
