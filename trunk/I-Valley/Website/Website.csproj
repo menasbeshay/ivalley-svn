@@ -378,6 +378,9 @@
     <Content Include="Services\webdevelopment.aspx" />
     <Content Include="Services\WhyEgypt.aspx" />
     <Content Include="stylesheets\camera.css" />
+    <Content Include="stylesheets\ar_mainStyles.css" />
+    <Content Include="stylesheets\ar_smart_wizard.css" />
+    <Content Include="stylesheets\ar_foundation.css" />
     <Content Include="stylesheets\customMessages.css" />
     <Content Include="stylesheets\foundation.css" />
     <Content Include="stylesheets\images\animated-overlay.gif" />

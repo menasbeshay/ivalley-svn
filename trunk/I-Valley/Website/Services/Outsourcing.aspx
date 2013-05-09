@@ -1,10 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="Outsourcing.aspx.cs" Inherits="Website.Services.Outsourcing" %>
+﻿<%@ Page Title="Outsourcing and Offshore software development" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
+    AutoEventWireup="true" CodeBehind="Outsourcing.aspx.cs" Inherits="Website.Services.Outsourcing" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="OutsourcingBanner">
         <p style="padding-top:50px;">
-            Outsoucring</p>
+            Outsourcing </p>
         <span>
             <p>
                 O</p>   
