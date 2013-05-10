@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="CMSWizard.aspx.cs" Inherits="Website.Services.CMSWizard" %>
+﻿<%@ Page Title="CMS wizard" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="CMSWizard.aspx.cs" Inherits="Website.Services.CMSWizard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../javascripts/jquery.smartWizard-2.0.min.js" type="text/javascript"></script>
     <link href="../stylesheets/smart_wizard.css" rel="stylesheet" type="text/css" />

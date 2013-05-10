@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="Technologies.aspx.cs" Inherits="Website.Services.Technologies" %>
+﻿<%@ Page Title="Technologies we use" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
+    AutoEventWireup="true" CodeBehind="Technologies.aspx.cs" Inherits="Website.Services.Technologies" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

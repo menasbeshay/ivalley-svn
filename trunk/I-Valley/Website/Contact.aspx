@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Website.Contact" %>
+﻿<%@ Page Title="Contact us" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Website.Contact" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="javascripts/jquery.validationEngine-en.js" type="text/javascript"></script>
     <script src="javascripts/jquery.validationEngine.js" type="text/javascript"></script>

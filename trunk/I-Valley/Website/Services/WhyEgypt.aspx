@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="WhyEgypt.aspx.cs" Inherits="Website.Services.WhyEgypt" %>
+﻿<%@ Page Title="Why Outsourcing to Egypt?" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
+    AutoEventWireup="true" CodeBehind="WhyEgypt.aspx.cs" Inherits="Website.Services.WhyEgypt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
