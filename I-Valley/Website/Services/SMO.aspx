@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="SMO.aspx.cs" Inherits="Website.Services.SMO" %>
+﻿<%@ Page Title="Social Media Optimization (SMO)" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
+    AutoEventWireup="true" CodeBehind="SMO.aspx.cs" Inherits="Website.Services.SMO" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

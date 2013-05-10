@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <!-- Website Title & Description -->
     <title>I-Valley software solutions</title>
-    <meta name="description" content="I-Valley software solutions">
+    <meta name="description" content="The main goal of our software company is to deliver perfect IT solutions and EFFICIENT offshore outsourcing services. Rely on our PROFESSIONAL website software developers. We offer loyal technical support.الهدف الرئيسي للشركة هي تقديم كامل حلول تكنولوجيا المعلومات وكفاءة خدمات التعاقد الخارجي. الاعتماد على مطوري البرمجيات بشركتنا على شبكة الإنترنت. و نقدم الدعم الفني.">
     <link rel="icon" type="image/png" href="../images/favicon.ico">
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="keywords" content="Software company, it Services, software developers, software outsourcing company, website software development, it software development,software, services, solutions, outsourcing , emarketing , email marketing , web services, cms , web development, custome web development , financial software, airline software, search engine optimization, seo , search engine marketing , sem , social media optimization ,smo, outsourcing in egypt, شركة برمجيات، خدمات تكنولوجيا المعلومات، مطوري البرمجيات، الاستعانة بمصادر خارجية على شبكة الإنترنت ،تطوير البرمجيات، البرمجيات، الخدمات البرمجية، الحلول البرمجية، الاستعانة بمصادر خارجية، التسويق الإلكتروني، التسويق عبر البريد الإلكتروني، خدمات الإنترنت، وتصميم مواقع، الحلول البرمجية المالية والمحاسبية ، نظم شركات الطيران ، التسويق عبر محركات البحث ، الاستعانة بمصادر خارجية في مصر " />
     <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
     <script>        (function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
     <!-- Included CSS Files -->

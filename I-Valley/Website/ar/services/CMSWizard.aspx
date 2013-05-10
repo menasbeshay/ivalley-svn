@@ -26,7 +26,7 @@
             if (step == 1) {
                 if ($('#<%= HiddenFieldTemplateID.ClientID %>').val() == '') {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', 'Please select template in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('showMessage', 'من فضلك اختر التصميم فى خطوة رقم ' + step + ' وقم بالضغط على التالى.');
                     $('#wizard').smartWizard('setError', { stepnum: step, iserror: true });
                 } else {
                     $('#wizard').smartWizard('setError', { stepnum: step, iserror: false });
@@ -36,7 +36,7 @@
             if (step == 2) {
                 if ($('#<%= HiddenFieldPricePlanName.ClientID %>').val() == '') {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', 'Please price plan in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('showMessage', 'من فضلك اختر السعر المناسب فى الخطوة رقم ' + step + ' وقم بالضغط على التالى.');
                     $('#wizard').smartWizard('setError', { stepnum: step, iserror: true });
                 } else {
                     $('#wizard').smartWizard('setError', { stepnum: step, iserror: false });
@@ -133,15 +133,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site1.i-valley.com" target="_blank">Travel</a></h2>
-                                    <p>
-                                        Best fit for tourism & travel websites</p>
-                                </div>
+                                
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/1.gif" rel="prettyPhoto">Loupe</a> <a href="http://site1.i-valley.com"
                                         target="_blank">Link</a>
+                                </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site1.i-valley.com" target="_blank">السفر</a></h2>
+                                    <p>
+                                        جيد جداً لمواقع السياحة والسفر</p>
                                 </div>
                             </li>
                             <!-- ITEM 2-->
@@ -157,17 +159,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site2.i-valley.com" target="_blank">Business & shopping</a></h2>
-                                    <p>
-                                        Best fit for shopping products & e-commerce
-                                    </p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/2.gif" rel="prettyPhoto">Loupe</a> <a href="http://site2.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site2.i-valley.com" target="_blank">الأعمال والتسوق</a></h2>
+                                    <p>
+                                        جيد جداً لمواقع للتسوق والتجارة الإلكترونية
+                                    </p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 3-->
                             <li class="webDesign" style="display: list-item;">
@@ -182,17 +186,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site3.i-valley.com" target="_blank">Business</a></h2>
-                                    <p>
-                                        Standard view for business companies website style
-                                    </p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/3.gif" rel="prettyPhoto">Loupe</a> <a href="http://site3.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site3.i-valley.com" target="_blank">الأعمال والتجارة</a></h2>
+                                    <p>
+                                        مناسب لشركات الأعمال والتجارة 
+                                    </p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 4-->
                             <li class="photography" style="display: list-item;">
@@ -207,16 +213,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site4.i-valley.com" target="_blank">Business</a></h2>
-                                    <p>
-                                        Standard view for business companies website style</p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/4.gif" rel="prettyPhoto">Loupe</a> <a href="http://site4.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site4.i-valley.com" target="_blank">الأعمال والتجارة</a></h2>
+                                    <p>
+                                        مناسب لشركات الأعمال والتجارة</p>
+                                </div>
+                               
                             </li>
                             <!-- ITEM 5-->
                             <li class="webDesign" style="display: list-item;">
@@ -231,16 +239,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site5.i-valley.com" target="_blank">Business & shopping</a></h2>
-                                    <p>
-                                        Best fit for shopping products & e-commerce</p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/5.gif" rel="prettyPhoto">Loupe</a> <a href="http://site5.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site5.i-valley.com" target="_blank">الأعمال والتسوق</a></h2>
+                                    <p>
+                                        جيد جداً لمواقع للتسوق والتجارة الإلكترونية</p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 6-->
                             <li class="design" style="display: list-item;">
@@ -255,16 +265,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site6.i-valley.com" target="_blank">Online store</a></h2>
-                                    <p>
-                                        Best fit for shopping products & e-commerce</p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/6.gif" rel="prettyPhoto">Loupe</a> <a href="http://site6.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site6.i-valley.com" target="_blank">متجر إلكترونى</a></h2>
+                                    <p>
+                                        جيد جداً لمواقع للتسوق والتجارة الإلكترونية</p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 7-->
                             <li class="photography" style="display: list-item;">
@@ -279,17 +291,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site7.i-valley.com" target="_blank">Fashion & Learning</a></h2>
-                                    <p>
-                                        perfect for schools, educational sites, and universities.
-                                    </p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/7.gif" rel="prettyPhoto">Loupe</a> <a href="http://site7.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site7.i-valley.com" target="_blank">التعليم</a></h2>
+                                    <p>
+                                        مناسب للمدارس والجامعات والمواقع التعليمية
+                                    </p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 8-->
                             <li class="design" style="display: list-item;">
@@ -304,17 +318,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site8.i-valley.com" target="_blank">Gallery</a></h2>
-                                    <p>
-                                        Perfect for view & higlights your business images for gallery shops, Atelier & Bazaars
-                                        .</p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/8.gif" rel="prettyPhoto">Loupe</a> <a href="http://site8.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site8.i-valley.com" target="_blank">معرض</a></h2>
+                                    <p>
+                                        مناسب لعرض الأعمال الفنية لـمعرض ، أتيليه أو بازارات.</p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 9-->
                             <li class="webDesign" style="display: list-item;">
@@ -329,16 +344,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
-                                    <h2>
-                                        <a href="http://site9.i-valley.com" target="_blank">Technology</a></h2>
-                                    <p>
-                                        Perfect for list your technology items in order to make good offers for your customers</p>
-                                </div>
                                 <div class="large-2 columns portLinks">
                                     <a href="../../images/portfolio/templates/9.gif" rel="prettyPhoto">Loupe</a> <a href="http://site9.i-valley.com"
                                         target="_blank">Link</a>
                                 </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
+                                    <h2>
+                                        <a href="http://site9.i-valley.com" target="_blank">تكنولوجيا</a></h2>
+                                    <p>
+                                        مناسب لعرض المنتجات الإلكترونية وتوفير عروض لعملائك</p>
+                                </div>
+                                
                             </li>
                             <!-- ITEM 10-->
                             <li class="webDesign" style="display: list-item;">
@@ -353,17 +370,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="large-10 columns portContent">
+                                <div class="large-2 columns portLinks">
+                                    <a href="../../images/portfolio/templates/10.gif" rel="prettyPhoto">Loupe</a> <a
+                                        href="http://site10.i-valley.com" target="_blank">Link</a>
+                                </div>
+                                <div class="large-10 columns portContent" style="float: right; text-align: right;
+                                    padding-right: 25px;">
                                     <h2>
-                                        <a href="http://site10.i-valley.com" target="_blank">E-commerce </a>
+                                        <a href="http://site10.i-valley.com" target="_blank">التجارة الإلكترونية </a>
                                     </h2>
                                     <p>
-                                        Best fit for shopping products & e-commerce</p>
+                                        جيد جداً لمواقع للتسوق والتجارة الإلكترونية</p>
                                 </div>
-                                <div class="large-2 columns portLinks">
-                                    <a href="../../images/portfolio/templates/10.gif" rel="prettyPhoto">Loupe</a> <a href="http://site10.i-valley.com"
-                                        target="_blank">Link</a>
-                                </div>
+                                
                             </li>
                         </ul>
                     </div>
@@ -382,33 +401,33 @@
                         <div style="height: 68px">
                         </div>
                         <ul class="features">
-                            <li class="even"><strong class="yes">Number of pages </strong></li>
+                            <li class="even"><strong class="yes">عدد الصفحات </strong></li>
                             <li class="odd"><strong class="yes">Search Engine Optimization (SEO)</strong></li>
-                            <li class="even"><strong class="yes">Facebook and Twitter Link </strong></li>
-                            <li class="odd"><strong class="yes">Image Gallery</strong></li>
-                            <li class="even"><strong class="yes">Product Gallery </strong></li>
-                            <li class="odd"><strong class="yes">News Letter marketing </strong></li>
-                            <li class="even"><strong class="yes">Design Customization</strong></li>
-                            <li class="odd"><strong class="yes">Website Admin training </strong></li>
-                            <li class="even"><strong class="yes">Careers page </strong></li>
-                            <li class="odd"><strong class="yes">Inquiry page</strong></li>
-                            <li class="even"><strong class="yes">Products promotions & Sale offers </strong>
+                            <li class="even"><strong class="yes">فيس بوك و تويتر  </strong></li>
+                            <li class="odd"><strong class="yes">معرض صور </strong></li>
+                            <li class="even"><strong class="yes">معرض منتجات</strong></li>
+                            <li class="odd"><strong class="yes">تسويق بالنشرة الإلكترونية</strong></li>
+                            <li class="even"><strong class="yes">تعديل التصميم الأساسى</strong></li>
+                            <li class="odd"><strong class="yes">تدريب لإدارة الموقع عن طريق لوحة تحكم</strong></li>
+                            <li class="even"><strong class="yes">صفحة وظائف</strong></li>
+                            <li class="odd"><strong class="yes">صفحة طلبات</strong></li>
+                            <li class="even"><strong class="yes">عروض ودعاية داخل الموقع</strong>
                             </li>
                             <li class="odd"><strong class="yes">
-                                <div style="line-height: normal; width: 80%; display: block; float: right; margin-right: 52px;
-                                    margin-top: 15px;">
-                                    Web hosting
+                                <div style="line-height: normal; width: 93%; display: block; float: left; margin-top: 3px;
+                                    ">
+                                   إستضافة الموقع
                                     <br />
-                                    (unlimited space – unlimited mail boxes)</div>
+                                    (مساحة غير محدودة – حسابات بريد إلكترونى غير محدودة)</div>
                             </strong></li>
                             <li class="even"><strong class="yes">Develop custom section</strong></li>
                         </ul>
                     </div>
                     <div class="pricing_box radius-right">
                         <div class="header">
-                            <span>Bronze</span></div>
+                            <span>برونز</span></div>
                         <ul>
-                            <li class="even"><strong class="yes">10 Pages</strong></li>
+                            <li class="even" style="direction:rtl;"><strong class="yes">10 صفحات</strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
                             <li class="even"><strong class="yes"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
@@ -420,19 +439,19 @@
                             <li class="odd"><strong class="no"></strong></li>
                             <li class="even"><strong class="no"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
-                            <li class="even"><strong>Negotiable</strong></li>
+                            <li class="even"><strong>قابل للتفاوض</strong></li>
                         </ul>
                         <h3>
                             1750 EGP</h3>
                         <p class="button">
-                            <a href="#" class="BuyLink" id="Bronze">Select</a></p>
+                            <a href="#" class="BuyLink" id="Bronze">إختر</a></p>
                     </div>
                     <div class="pricing_box large radius-left">
                         <div class="header">
-                            <span>Silver</span>
+                            <span>فضى</span>
                         </div>
                         <ul>
-                            <li class="even"><strong class="yes">15 Pages</strong></li>
+                            <li class="even" style="direction: rtl;"><strong class="yes">15 صفحة</strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
                             <li class="even"><strong class="yes"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
@@ -444,18 +463,18 @@
                             <li class="odd"><strong class="no"></strong></li>
                             <li class="even"><strong class="no"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
-                            <li class="even"><strong>Negotiable</strong></li>
+                            <li class="even"><strong>قابل للتفاوض</strong></li>
                         </ul>
                         <h3>
                             2750 EGP</h3>
                         <p class="button">
-                            <a href="#" class="BuyLink" id="Silver">Select</a></p>
+                            <a href="#" class="BuyLink" id="Silver">إختر</a></p>
                     </div>
                     <div class="pricing_box radius-right">
                         <div class="header">
-                            <span>Golden</span></div>
+                            <span>ذهبى</span></div>
                         <ul>
-                            <li class="even"><strong class="yes">Unlimited pages</strong></li>
+                            <li class="even"><strong class="yes">عدد غير محدود</strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
                             <li class="even"><strong class="yes"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
@@ -467,73 +486,73 @@
                             <li class="odd"><strong class="yes"></strong></li>
                             <li class="even"><strong class="yes"></strong></li>
                             <li class="odd"><strong class="yes"></strong></li>
-                            <li class="even"><strong>Negotiable</strong></li>
+                            <li class="even"><strong>قابل للتفاوض</strong></li>
                         </ul>
                         <h3>
                             4750 EGP</h3>
                         <p class="button">
-                            <a href="#" class="BuyLink" id="Golden">Select</a></p>
+                            <a href="#" class="BuyLink" id="Golden">إختر</a></p>
                     </div>
                     <div class="clear-fix">
                     </div>
                 </div>
                 <div class="clear-fix" style="height: 15px;">
                 </div>
-                <div style="padding: 5px; font: normal bold 16px normal 'times new ramon'; color: #ff0000">
-                    • You will pay only 500 EGP each year for hosting and maintenance start from the
-                    next year of contracting (first year free)</div>
+                <div style="padding: 5px; font: normal bold 16px normal 'times new ramon'; direction:rtl;text-align:right; color: #ff0000">
+                    • سوف تدفع فقط 500 جنيه كل عام على استضافة وصيانة بداية من العام المقبل من التعاقد
+                    (السنة الأولى مجانا)</div>
                 <div class="clear-fix">
                 </div>
             </div>
             <div id="step-3">
                 <h2 class="StepTitle">
                     اطلب الخدمة من I-Valley</h2>
-                <div id="contactForm" class="large-6 columns">
+                <div id="contactForm" class="large-6 columns" style="float:right;">
                     <div class="large-12 columns inputContainer">
                         <p>
-                            Name:</p>
+                            الأسم:</p>
                         <label class="forName" for="name">
                         </label>
                         <asp:TextBox ID="uiTextBoxName" runat="server" class="validate[required]"></asp:TextBox>
                     </div>
                     <div class="large-12 columns inputContainer">
                         <p>
-                            Land line:</p>
+                            الخط الأرضى:</p>
                         <label class="forName" for="tele1">
                         </label>
                         <asp:TextBox ID="uiTextBoxLand" runat="server" class="validate[custom[number]]"></asp:TextBox>
                     </div>
                     <div class="large-12 columns inputContainer">
                         <p>
-                            Mobile:</p>
+                            الموبايل:</p>
                         <label class="forName" for="tele2">
                         </label>
                         <asp:TextBox ID="uiTextBoxTele" runat="server" class="validate[required,custom[number]]"></asp:TextBox>
                     </div>
                     <div class="large-12 columns inputContainer">
                         <p>
-                            Company:</p>
+                            الشركة:</p>
                         <label class="forName" for="company">
                         </label>
                         <asp:TextBox ID="uiTextBoxCompany" runat="server"></asp:TextBox>
                     </div>
                     <div class="large-12 columns inputContainer">
                         <p>
-                            Email:</p>
+                            البريد الإلكترونى:</p>
                         <label class="forEmail" for="eMail">
                         </label>
                         <asp:TextBox ID="uiTextBoxMail" runat="server" class="validate[required,custom[email]]"></asp:TextBox>
                     </div>
                 </div>
-                <div class="large-6 columns" style="padding: 20px;">
-                    <h3>
-                        Template : <span id="templateName"></span>
+                <div class="large-6 columns" style="padding: 20px;float:right;">
+                    <h3 style="direction:rtl;text-align:right;">
+                        التصميم : <span id="templateName"></span>
                     </h3>
-                    <div>
+                    <div style="text-align: right;">
                         <img src="" id="templateimage" alt="" style="border-radius: 10px; -moz-border-radius: 10px;
                             -webkit-border-radius: 10px;" />
                         <div id="price" style="position: absolute; width: 120px; height: 200px; top: 55%;
-                            left: 50%;">
+                            right: 50%;">
                         </div>
                     </div>
                 </div>

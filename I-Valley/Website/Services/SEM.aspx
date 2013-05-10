@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="SEM.aspx.cs" Inherits="Website.Services.SEM" %>
+﻿<%@ Page Title="Search Engine Marketing (SEM)" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
+    AutoEventWireup="true" CodeBehind="SEM.aspx.cs" Inherits="Website.Services.SEM" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

@@ -271,7 +271,7 @@
 .swMain .msgBox {
   position:relative;  
   display:none;
-  float:left;
+  float:right;
   margin: 4px 0 0 5px;
   padding:5px;
   border: 1px solid #FFD700; 
