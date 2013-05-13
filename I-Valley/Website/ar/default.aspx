@@ -18,10 +18,10 @@
                 <img src="../images/opFlights.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
                     -webkit-border-radius: 10px;">
                 <p class="postInfo">
-                    We offer for you the most stable Airlines Management System will enable you to handle
-                    your commercial department, Operation department, Cabin Crew, Engineering, Station
-                    and Training department with ability to extract all needed reports including Ministry
-                    of Aviation schedule reports.</p>
+                    نحن نقدم لك نظام إدارة الخطوط الجوية الأكثر استقرارا يمكنك من التعامل مع&nbsp; 
+                    قسمك التجاري، إدارة العمليات، طاقم الطائرة، والهندسة، والمحطة وقسم التدريب مع 
+                    القدرة على استخراج كافة التقارير اللازمة بما في ذلك جدولة تقارير وزارة&nbsp; 
+                    الطيران&nbsp; </p>
             </div>
             <div class="blogHover">
                 <a href="Products/I-Flights.aspx">Link</a>
@@ -37,10 +37,7 @@
                 <img src="../images/opFinance.gif" alt="Posted By" style="border-radius: 10px; -moz-border-radius: 10px;
                     -webkit-border-radius: 10px;">
                 <p class="postInfo">
-                    IValley provide suitable solution for the small to mid-size companies for their
-                    financial department – through our IFinance we provide Full accounting system including
-                    stock management and point of sales management as well, Now you will be able to
-                    remove all manual invoices and use the most powerful financial system.</p>
+                    IValley توفير حل مناسب للشركات الصغيرة ومتوسطة الحجم للقسم المالى الخاص بهم - من خلال IFinance لدينا نحن نقدم نظام محاسبي كامل بما في ذلك إدارة المخازن و إدارة المبيعات واكثر، الآن سوف تكون قادر على إزالة جميع الفواتير اليدوية واستخدام النظام المالي الاقوى.</p>
             </div>
             <div class="blogHover">
                 <a href="Products/I-Finance.aspx">Link</a>
