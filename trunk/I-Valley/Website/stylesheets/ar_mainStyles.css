@@ -2745,6 +2745,8 @@ line-height:1.5;
 	margin: 0;
 	font-family: 'Calibri';
 	color: #092947;
+	text-align:right;
+	direction:rtl;
 }
 
 .inputContainer label {
@@ -2753,18 +2755,20 @@ line-height:1.5;
 	width: 58px;
 	height: 41px;
 	background-repeat: no-repeat;
+	float:right !important;
+	margin-left:88%;
 }
 
 label.forName {
-	background-image: url(../images/Contact/inputName.png);
+	background-image: url(../images/Contact/arinputName.png);
 }
 
 label.forEmail {
-	background-image: url(../images/Contact/inputEmail.png);
+	background-image: url(../images/Contact/arinputEmail.png);
 }
 
 label.forMessage {
-	background-image: url(../images/Contact/inputMessage.png);
+	background-image: url(../images/Contact/arinputMessage.png);
 }
 
 .submitContainer {
@@ -2772,7 +2776,7 @@ label.forMessage {
 }
 
 .submitContainer input {
-	float: right;
+	float: left;
 	background-color: #f6f7f0;
 	border: 1px solid black;
 	outline: none;
