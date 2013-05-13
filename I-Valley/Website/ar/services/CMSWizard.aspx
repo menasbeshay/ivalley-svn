@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="CMSWizard.aspx.cs" Inherits="Website.ar.services.CMSWizard" %>
+﻿<%@ Page Title="طلب إنشاء موقع" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="CMSWizard.aspx.cs" Inherits="Website.ar.services.CMSWizard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../javascripts/jquery.smartWizard-2.0.min.js" type="text/javascript"></script>
     <link href="../../stylesheets/ar_smart_wizard.css" rel="stylesheet" type="text/css" />
