@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Website.ar.services._default" %>
+﻿<%@ Page Title="خدماتنا" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Website.ar.services._default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -27,7 +27,7 @@
                     </p>
                     <div style="height:20px;">
                     </div>
-                    <a href="../../Services/webdevelopment.aspx">
+                    <a href="webdevelopment.aspx">
                     <div class="ui-datepicker-rtl">
                         &lt; &nbsp; اقراء المزيد
                         &nbsp; &gt;</div>
@@ -40,7 +40,7 @@
                         <span class="CompanyName">I-Valley</span>
                         staff members, we provide two outsourcing models: Staff augmentation & Project Base
                         outsourcing...</p>
-                    <a href="../../Services/Outsourcing.aspx">
+                    <a href="Outsourcing.aspx">
                     <div class="ui-datepicker-rtl">
                         &lt; &nbsp; 
                         اقراء المزيد &nbsp; &gt;</div>
@@ -56,7 +56,7 @@
                             يمكنك جعل العلامة التجارية الخاصة بك تصل إلى المزيد من العملاء من التوقعات 
                             الخاصة بك! ، لدينا العديد من الطرق لتنفيذ ذلك لمساعدتك في الحصول على السوق بشكل 
                             أسرع</p>
-                    <a href="">
+                    <a href="eMarketing.aspx">
                     <div class="ui-datepicker-rtl">
                         &lt; &nbsp; اقراء المزيد &nbsp; &gt;</div>
                     </a>&nbsp;</div>
