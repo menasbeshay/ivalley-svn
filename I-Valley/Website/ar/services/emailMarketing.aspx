@@ -21,6 +21,51 @@
 مع رسائل غير محدودة كل يوم ... يمكنك الاتصال بنا للحصول على مزيد من المعلومات حول كيفية
 استخدام برنامجنا للتسويق عبر البريد الإلكتروني.
             </p>
+            <div style="float: right; width: 50%">
+                <a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/1.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/1.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a><a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/2.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/2.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a><a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/3.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/3.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a><a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/4.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/4.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a><a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/5.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/5.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a><a style="display: block; float: right; margin: 5px;" href="../../images/8-services/mailmarketing/6.jpg"
+                    rel="prettyPhoto">
+                    <img src="../../images/8-services/mailmarketing/6.jpg" style="display: block; border: 2px solid #FF6600 !important;
+                        border-radius: 5px !important; -moz-border-radius: 5px !important; -webkit-border-radius: 5px !important;
+                        width: 120px; height: 120px" />
+                </a>
+            </div>
+            <div style="float: right; width: 49%; border: 3px solid #FF6600 !important; border-radius: 15px !important;
+                -moz-border-radius: 15px !important; -webkit-border-radius: 15px !important;
+                padding: 15px; text-align: center; font-weight: bold; font-size: 18px;">
+                يمكنك الحصول على كل هذه المزايا بالإضافة إلى إرسال 10000 رسالة
+                <br />
+                فقط بـ 1000 جنيه مصرى شهرياً
+                <div class="clear-fix">
+                </div>
+            </div>
+            <div class="clear-fix">
+            </div>
         </div>
+        
     </div>
 </asp:Content>
