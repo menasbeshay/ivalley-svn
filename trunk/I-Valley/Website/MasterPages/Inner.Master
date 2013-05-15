@@ -77,8 +77,10 @@
         <!-- Left Nav Section -->
                 <div class="main-nav ">
                     <ul id="socials">
-                        <li class="active"><a href="https://www.facebook.com/IvalleySoftware">Facebook</a></li>
-                        <li class="active"><a href="#">Twitter</a></li>
+                        <li class="active">
+                            <asp:LinkButton ID="uiLinkButtonArabic" runat="server" OnClick="uiLinkButtonArabic_Click"
+                                ToolTip="العربية">العربية</asp:LinkButton></li>
+                        <li class="active"><a href="#" style="display:none;">Twitter</a></li>
                     </ul>
                     <!-- MAIN NAVIGATION -->
                     <div class="menu-div">

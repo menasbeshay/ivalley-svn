@@ -171,21 +171,21 @@ body {
 	height: 26px;	
 	display:block;
 	text-indent: -99999px;
-	background-image: url(../images/1-Home/social-icons-menu.png);
+	background-image: url(../images/1-Home/social-icons-menu2.png);
 	background-repeat: no-repeat;
 }
 
-#socials li:last-child a {
+#socials li:first-child a {
 	background-position: -31px 0;
 }
 
-#socials li:first-child a:hover {
+/*#socials li:first-child a:hover {
 	background-position: 0 -27px;
 }
 
 #socials li:last-child a:hover {
 	background-position: -31px -27px;
-}
+}*/
 
  select {
    -webkit-appearance: button;

@@ -94,6 +94,7 @@
     <Content Include="images\1-home\quote-arrow-left.png" />
     <Content Include="images\1-home\quote-arrow-right.png" />
     <Content Include="images\1-home\social-icons-menu.png" />
+    <Content Include="images\1-home\social-icons-menu2.png" />
     <Content Include="images\1-home\social-icons.png" />
     <Content Include="images\1.jpg" />
     <Content Include="images\2-about\head-img.jpg" />
@@ -133,6 +134,24 @@
     <Content Include="images\8-services\goLEft.png" />
     <Content Include="images\8-services\goRight.png" />
     <Content Include="images\8-services\joomla.png" />
+    <Content Include="images\8-services\mailmarketing\1.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\8-services\mailmarketing\2.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\8-services\mailmarketing\3.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\8-services\mailmarketing\4.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\8-services\mailmarketing\5.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\8-services\mailmarketing\6.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\8-services\responsive-nav-bg.png" />
     <Content Include="images\8-services\SEM_Small.jpg" />
     <Content Include="images\8-services\SEM_Small.png" />

@@ -14,7 +14,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
             <img src="../../images/8-services/seo_small.png" alt="Recent Post">
-            <a href="../../Services/SEO.aspx">Link</a> </span>
+            <a href="SEO.aspx">Link</a> </span>
             <h4>
                 <a href="../../Services/SEO.aspx">تحسين محركات البحث</a></h4>
             <p class="postContent">
@@ -24,7 +24,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
             <img src="../../images/8-services/sem_small.png" alt="Recent Post">
-            <a href="../../Services/SEM.aspx">Link</a> </span>
+            <a href="SEM.aspx">Link</a> </span>
             <h4>
                 التسويق عبر محركات البحث</h4>
             <p class="postContent">
@@ -36,7 +36,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
             <img src="../../images/8-services/smo_small.png" alt="Recent Post">
-            <a href="../../Services/SMO.aspx">Link</a> </span>
+            <a href="SMO.aspx">Link</a> </span>
             <h4>
                 تحسين وسائل الاعلام الاجتماعية</h4>
             <p class="postContent">
@@ -46,7 +46,7 @@
         <div class="large-3 columns recPost">
             <span class="hoverEffect">
             <img src="../../images/8-services/Email-Marketing.png" alt="Recent Post">
-            <a href="../../Services/EmailMarketing.aspx">Link</a> </span>
+            <a href="EmailMarketing.aspx">Link</a> </span>
             <h4>
             التسويق عبر البريد الإلكتروني</h4>
             <p class="postContent">

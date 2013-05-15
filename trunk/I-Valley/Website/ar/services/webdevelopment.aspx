@@ -77,17 +77,17 @@
                     visiting:
                     <div class="clear-fix" style="height: 15px;">
                 </div>
-                <div id="buttons0">
+                <div id="buttons">
                     <div class="clear-fix" style="height: 5px;">
                     </div>
                     <a class="largeButton" style="margin-left: 70px; width: 320px; line-height: 0px"
-                            href="../../Services/Technologies.aspx">Our Tools and Technologies
+                            href="Technologies.aspx">Our Tools and Technologies
                             we know
                         </a>
                     <div class="clear-fix" style="height: 5px;">
                     </div>
                     <a class="largeButton" style="margin-left: 100px; width: 230px; line-height: 0px"
-                            href="../../Portfolio.aspx">Enjoy with our portfolio</a>
+                            href="../Portfolio.aspx">Enjoy with our portfolio</a>
                 </div>
                 </p>
             </div>
@@ -139,11 +139,11 @@
                     <li>Choose your price package</li>
                     <li>Request Service from <span class="CompanyName">I-Valley</span></li>
                 </ol>
-                <div id="buttons1" style="margin-left:160px;">
+                <div id="buttons" style="margin-left:160px;">
                     <div class="clear-fix" style="height: 5px;">
                     </div>
                     <a class="largeButton" style="width: 250px; line-height: 0px" 
-                        href="../../Services/CMSWizard.aspx">Start your website now</a>
+                        href="CMSWizard.aspx">Start your website now</a>
                 </div>
             </div>
         </div>
