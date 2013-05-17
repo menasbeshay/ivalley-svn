@@ -79,7 +79,7 @@
                     <ul id="socials">
                         <li class="active">
                             <asp:LinkButton ID="uiLinkButtonArabic" runat="server" OnClick="uiLinkButtonArabic_Click"
-                                ToolTip="العربية">العربية</asp:LinkButton></li>
+                                ToolTip="العربية" Style="display: none;">العربية</asp:LinkButton></li>
                         <li class="active"><a href="#" style="display:none;">Twitter</a></li>
                     </ul>
                     <!-- MAIN NAVIGATION -->

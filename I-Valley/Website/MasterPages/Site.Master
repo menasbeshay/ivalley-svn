@@ -72,7 +72,7 @@
                 <ul id="socials">
                     <li class="active">
                         <asp:LinkButton ID="uiLinkButtonArabic" runat="server" OnClick="uiLinkButtonArabic_Click"
-                            ToolTip="العربية">العربية</asp:LinkButton></li>
+                            ToolTip="العربية" Style="display: none;">العربية</asp:LinkButton></li>
                     <li class="active"><a href="#" style="display:none;">Twitter</a></li>
                 </ul>
 
@@ -166,7 +166,7 @@
                                 I-Valley</div>
                             you can make your brand reach to customers more than your expectation! , we have
                             many ways to implement that to help you to get in the market faster
-                            <div id="Div2" style="width: 100px; padding-top: 10px;">
+                            <div id="buttons" style="width: 100px; padding-top: 10px;">
                                 <a class="btn6" href="../Services/EMarketing.aspx">Read more</a></div>
                         </dd>
                     </dl>
@@ -201,7 +201,7 @@
                                 I-Valley</div>
                             you have multiple options to develop your web solution, our web development packages
                             not only focus in website development
-                            <div id="Div1" style="width: 100px; padding-top: 10px;">
+                            <div id="buttons" style="width: 100px; padding-top: 10px;">
                                 <a class="btn5" href="../Services/webdevelopment.aspx">Read more</a></div>
                         </dd>
                     </dl>
