@@ -74,7 +74,7 @@
                         <ul id="socials">
                             <li class="active">
                                 <asp:LinkButton ID="uiLinkButtonEnglish" runat="server" OnClick="uiLinkButtonEnglish_Click"
-                                    ToolTip="English">English</asp:LinkButton></li>
+                                    ToolTip="English" Style="display: none;">English</asp:LinkButton></li>
                             <li class="active"><a href="#" style="display:none;">Twitter</a></li>
                         </ul>
                         <!-- MAIN NAVIGATION -->
