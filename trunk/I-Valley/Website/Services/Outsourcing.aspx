@@ -1,8 +1,22 @@
 ﻿<%@ Page Title="Outsourcing and Offshore software development" Language="C#" MasterPageFile="~/MasterPages/Inner.Master"
     AutoEventWireup="true" CodeBehind="Outsourcing.aspx.cs" Inherits="Website.Services.Outsourcing" %>
+
+<%@ Register Src="../controls/RequestService.ascx" TagName="RequestService" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="requestForm" title="Request service">
+        <uc1:RequestService ID="RequestService1" runat="server" />
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div style="display: none;">
+                    <asp:Button ID="uiButtonReset" runat="server" Text="Button" OnClick="uiButtonReset_Click" />
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
     <div id="OutsourcingBanner">
         <p style="padding-top:50px;">
             Outsourcing </p>
@@ -45,7 +59,7 @@
             </div>
             </div>
             <div style="float: right; width: 42%; margin-top: 5px; border: 2px solid #990033;
-                padding: 5px; height: 160px; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px;">
+                padding: 5px; height: 190px; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px;">
                 <div class="citer" style="margin-top: 5px;">
                     <p>
                         For more Information about our outsourcing service or . requesting this service
@@ -55,7 +69,13 @@
                     <div id="buttons">
                         <a class="largeButton" href="../Services/Technologies.aspx" style="line-height: 0px">technologies we use ... </a> 
                         <div class="clear-fix" style="height:5px;"></div>
-                        <a class="largeButton" href="../Services/WhyEgypt.aspx" style="line-height: 0px">why outsourcing with us? why choosing Egypt?</a>
+                        <a class="largeButton" href="../Services/WhyEgypt.aspx" style="line-height: 0px">why outsourcing with us? why choosing Egypt?</a>                        
+                        <div class="clear-fix" style="height: 5px;">
+                        </div>
+                            <a class="largeButton" id="requestButton" style="line-height: 0px;cursor:pointer;">Requesting service </a>
+                            <div class="clear-fix" style="height: 5px;">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,5 +128,27 @@
             
         </div>
 
-        </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dlg = $("#requestForm").dialog({
+                autoOpen: false,
+                width: 400,
+                modal: true,
+                close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
+
+            });
+
+            dlg.parent().appendTo($("form:first"));
+
+            $("#requestButton")
+      .click(function () {
+          $("#requestForm").dialog("open");
+      });
+
+
+        });
+    </script>
+    <style type="text/css">
+#requestForm select{display:block !important;}
+</style>
 </asp:Content>
