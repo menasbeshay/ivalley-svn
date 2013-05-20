@@ -54,7 +54,7 @@
             you can get all these features and with            
             10000 mails 
             <br />
-            All for 1000 EGP/mo.
+            All for 100 EGP/mo.
             <div class="clear-fix">
             </div>
             </div>

@@ -173,9 +173,8 @@
                         Follow us on :</p>
                     <div class="footSocials">
                         <a class="facebook" href="https://www.facebook.com/IvalleySoftware">Facebook</a>
-                        <a class="twitter" href="#">Twitter</a>
-                        <a class="skype" href="#">Skype</a>
-                        <a class="vimeo" href="#">Vimeo</a>
+                        <a class="twitter" href="https://twitter.com/ivalley1">Twitter</a> <a class="skype"
+                            href="#">Skype</a>                            
                     </div>
                 </div>
             </div>
