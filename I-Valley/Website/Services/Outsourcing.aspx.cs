@@ -13,5 +13,10 @@ namespace Website.Services
         {
 
         }
+
+        protected void uiButtonReset_Click(object sender, EventArgs e)
+        {
+            RequestService1.resetControls();
+        }
     }
 }
