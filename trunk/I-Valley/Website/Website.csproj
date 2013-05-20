@@ -188,6 +188,7 @@
     <Content Include="images\contact\inputName.png" />
     <Content Include="images\contact\map.jpg" />
     <Content Include="images\EMarketing.gif" />
+    <Content Include="images\facebook.png" />
     <Content Include="images\finance.gif" />
     <Content Include="images\flights.gif" />
     <Content Include="images\g.png" />
@@ -330,12 +331,14 @@
     <Content Include="images\responsive-nav-bg.png" />
     <Content Include="images\s.png" />
     <Content Include="images\select.png" />
+    <Content Include="images\skype.png" />
     <Content Include="images\slides\1.jpg" />
     <Content Include="images\slides\2.jpg" />
     <Content Include="images\slides\3.jpg" />
     <Content Include="images\slides\4.jpg" />
     <Content Include="images\slides\5.jpg" />
     <Content Include="images\tick.png" />
+    <Content Include="images\twitter.png" />
     <Content Include="images\typography\button4.png" />
     <Content Include="images\typography\button8.png" />
     <Content Include="images\typography\listStyle.png" />

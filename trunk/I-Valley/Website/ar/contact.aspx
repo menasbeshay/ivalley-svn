@@ -36,7 +36,7 @@
                 <asp:TextBox ID="uiTextBoxMsg" runat="server" class="validate[required]"></asp:TextBox>
             </div>
             <div class="large-12 columns submitContainer">
-                <asp:Button ID="uiButtonsubmit" runat="server" Text="&lt; ارسل" />
+                <asp:Button ID="uiButtonsubmit" runat="server" Text="&lt; ارسل" OnClick="uiButtonsubmit_Click" />
             </div>
         </div>
    
@@ -47,10 +47,28 @@
             <p class="ui-datepicker-rtl">
                 للاتصال بفريق المبيعات لدينا عن طريق البريد أو الهاتف ...وسوف نكون دائما على 
                 استعداد للرد على طلبك.</p>
-            <ul>
+            <ul style="text-align:right;">
                 <li class="ui-datepicker-rtl">العنوان: هيليوبلس (مصر الجديدة), القاهرة , مصر.</li>
                 <li class="ui-datepicker-rtl">التليفون: 0020 1228404078.</li>
                 <li class="ui-datepicker-rtl">البريد الاكترونى: sales@i-valley.com.</li>
+                <li class="ui-datepicker-rtl">Business Development Manager : michael@i-valley.com</li>
+                <li class="ui-datepicker-rtl">Chief Technical Officer : Mena@i-valley.com</li>
+                <li class="ui-datepicker-rtl">Sales Manager : sales@i-valley.com</li>
+                <li class="ui-datepicker-rtl">HR Manager : HR@i-valley.com - jobs@i-valley.com</li>
+            </ul>
+            كما يمكنكم التواصل معنا عبر : 
+            <ul style="list-style: none;direction:rtl;">
+                <li style="float: right; ">
+                    
+                    <a href="http://www.facebook.com/IvalleySoftware">IvalleySoftware</a>
+                    <img src="../images/facebook.png" style="vertical-align: middle;padding:5px;" /></li>
+                <li style="float: right; margin: 5px;">
+                    
+                    <a href="http://twitter.com/ivalley1">Ivalley1</a><img src="../images/twitter.png"
+                        style="vertical-align: middle; padding: 5px;" /></li>
+                <li style="float: right; margin: 5px;">
+                    
+                    I-Valley<img src="../images/skype.png" style="vertical-align: middle; padding: 5px;" /></li>
             </ul>
         </div>
     

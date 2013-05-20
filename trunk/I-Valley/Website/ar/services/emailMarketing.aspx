@@ -59,7 +59,7 @@
                 padding: 15px; text-align: center; font-weight: bold; font-size: 18px;">
                 يمكنك الحصول على كل هذه المزايا بالإضافة إلى إرسال 10000 رسالة
                 <br />
-                فقط بـ 1000 جنيه مصرى شهرياً
+                فقط بـ 100 جنيه مصرى شهرياً
                 <div class="clear-fix">
                 </div>
             </div>

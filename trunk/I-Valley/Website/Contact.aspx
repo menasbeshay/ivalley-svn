@@ -25,8 +25,25 @@
                 <li>Address: Heliopolis, Cairo Egypt.</li>
                 <li>Phone: 0020 1228404078.</li>
                 <li>Email: sales@i-valley.com.</li>
+                <li>Business Development Manager : michael@i-valley.com</li>
+                <li>Chief Technical Officer : Mena@i-valley.com</li>
+                <li>Sales Manager : sales@i-valley.com</li>
+                <li>HR Manager : HR@i-valley.com - jobs@i-valley.com</li>
+
                 </ul>
                 
+                also you can contact us by :
+                <ul style="list-style:none;">
+                    <li style="float:left;margin:5px;">
+                        <img src="images/facebook.png" style="vertical-align:middle" />
+                        <a href="http://www.facebook.com/IvalleySoftware">IvalleySoftware</a></li>
+                    <li style="float: left; margin: 5px;">
+                        <img src="images/twitter.png" style="vertical-align: middle" />
+                        <a href="http://twitter.com/ivalley1">Ivalley1</a></li>
+                    <li style="float: left; margin: 5px;">
+                        <img src="images/skype.png" style="vertical-align: middle" />
+                        I-Valley</li>
+                </ul>
         </div>
         <div id="contactForm" class="large-6 columns">
             <h2>
