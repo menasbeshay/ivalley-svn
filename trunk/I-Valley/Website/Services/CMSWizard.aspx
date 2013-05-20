@@ -7,7 +7,7 @@
     <link href="../stylesheets/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback });
+            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback, onShowStep: scrollUp });
 
             function onFinishCallback() {
                 $('form').submit();
@@ -16,6 +16,12 @@
             function leaveAStepCallback(obj) {
                 var step_num = obj.attr('rel');
                 return validateSteps(step_num);
+            }
+
+            function scrollUp() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
             }
 
             $("form").validationEngine();

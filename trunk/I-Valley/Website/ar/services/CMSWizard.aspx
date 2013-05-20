@@ -7,7 +7,7 @@
     <link href="../../stylesheets/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback, labelNext: 'التالى', labelFinish: 'إنهاء', labelPrevious: 'السابق' });
+            $('#wizard').smartWizard({ transitionEffect: 'slide', onFinish: onFinishCallback, onLeaveStep: leaveAStepCallback, onShowStep: scrollUp, labelNext: 'التالى', labelFinish: 'إنهاء', labelPrevious: 'السابق' });
 
             function onFinishCallback() {
                 $('form').submit();
@@ -16,6 +16,12 @@
             function leaveAStepCallback(obj) {
                 var step_num = obj.attr('rel');
                 return validateSteps(step_num);
+            }
+
+            function scrollUp() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
             }
 
             $("form").validationEngine();
@@ -75,7 +81,7 @@
 
         });
         
-</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="banner" style="background: none; height: 30px; padding-top: 30px; margin-top: 20px">
