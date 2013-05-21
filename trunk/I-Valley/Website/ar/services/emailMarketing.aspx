@@ -1,8 +1,22 @@
 ﻿<%@ Page Title="التسويق عبر البريد الإلكتروني" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master"
     AutoEventWireup="true" CodeBehind="emailMarketing.aspx.cs" Inherits="Website.ar.services.emailMarketing" %>
+
+<%@ Register Src="../../controls/RequestService.ascx" TagName="RequestService" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="requestForm" title="Request service">
+        <uc1:RequestService ID="RequestService1" runat="server" />
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div style="display: none;">
+                    <asp:Button ID="uiButtonReset" runat="server" Text="Button" OnClick="uiButtonReset_Click" />
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
     <div id="banner">
         <p>
             التسويق عبر البريد الإلكتروني</p>
@@ -60,6 +74,12 @@
                 يمكنك الحصول على كل هذه المزايا بالإضافة إلى إرسال 10000 رسالة
                 <br />
                 فقط بـ 100 جنيه مصرى شهرياً
+                <div id="buttons" style="margin: 0 auto; width: 380px;">
+                    <a class="largeButton" id="requestButton" style="font-weight: normal; margin-top: 5px;
+                        cursor: pointer; line-height: 0px">طلب خدمة </a>
+                    <div class="clear-fix" style="height: 5px;">
+                    </div>
+                </div>
                 <div class="clear-fix">
                 </div>
             </div>
@@ -68,4 +88,27 @@
         </div>
         
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dlg = $("#requestForm").dialog({
+                autoOpen: false,
+                width: 400,
+                modal: true,
+                close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
+
+            });
+
+            dlg.parent().appendTo($("form:first"));
+
+            $("#requestButton")
+      .click(function () {
+          $("#requestForm").dialog("open");
+      });
+
+
+        });
+    </script>
+    <style type="text/css">
+#requestForm select{display:block !important;}
+</style>
 </asp:Content>
