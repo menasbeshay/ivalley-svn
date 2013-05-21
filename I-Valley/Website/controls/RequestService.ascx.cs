@@ -88,5 +88,10 @@ namespace Website.controls
             uiTextBoxCompany.Text="";
             uiDropDownListService.SelectedIndex = 0; 
         }
+
+        public void setSelectedIndex(int i)
+        {
+            uiDropDownListService.SelectedIndex = i;            
+        }
     }
 }

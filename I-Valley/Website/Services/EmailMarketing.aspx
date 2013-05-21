@@ -1,7 +1,21 @@
 ﻿<%@ Page Title="E-mail marketing" Language="C#" MasterPageFile="~/MasterPages/Inner.Master" AutoEventWireup="true" CodeBehind="EmailMarketing.aspx.cs" Inherits="Website.Services.EmailMarketing" %>
+
+<%@ Register Src="../controls/RequestService.ascx" TagName="RequestService" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="requestForm" title="Request service">
+        <uc1:requestservice id="RequestService1" runat="server" />
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div style="display: none;">
+                    <asp:Button ID="uiButtonReset" runat="server" Text="Button" OnClick="uiButtonReset_Click" />
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
     <div id="banner">
         <p>
             Email Marketing</p>
@@ -55,6 +69,14 @@
             10000 mails 
             <br />
             All for 100 EGP/mo.
+            
+            <div id="buttons">
+                <a class="largeButton" id="requestButton" style="margin-left: 100px; margin-right: 100px;
+                    margin-top: 5px; font-weight: normal; cursor: pointer; line-height: 0px">Requesting service </a>
+                <div class="clear-fix" style="height: 5px;">
+                </div>
+            </div>
+
             <div class="clear-fix">
             </div>
             </div>
@@ -62,4 +84,27 @@
         <div class="clear-fix"></div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dlg = $("#requestForm").dialog({
+                autoOpen: false,                
+                width: 400,
+                modal: true,
+                close: function (event, ui) { $("#<%= uiButtonReset.ClientID %>").click(); }
+
+            });
+
+            dlg.parent().appendTo($("form:first"));
+
+            $("#requestButton")
+      .click(function () {
+          $("#requestForm").dialog("open");
+      });
+
+      
+        });
+    </script>
+    <style type="text/css">
+#requestForm select{display:block !important;}
+</style>
 </asp:Content>

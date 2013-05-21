@@ -34,8 +34,10 @@
         <div style="float: left;   width: 95%;">
     <asp:DropDownList ID="uiDropDownListService" runat="server">
         <asp:ListItem>Web development</asp:ListItem>
-        <asp:ListItem>Search Engine Optimization</asp:ListItem>
-        <asp:ListItem>E-Marketing</asp:ListItem>
+        <asp:ListItem>Search Engine Optimization (SEO)</asp:ListItem>
+        <asp:ListItem>Search Engine Marketing (SEM) </asp:ListItem>
+        <asp:ListItem>Social Media Optimization (SMO)</asp:ListItem>
+        <asp:ListItem>Email Marketing</asp:ListItem>
         <asp:ListItem>Outsourcing</asp:ListItem>
     </asp:DropDownList>
     </div>

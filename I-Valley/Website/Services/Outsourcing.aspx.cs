@@ -11,12 +11,16 @@ namespace Website.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                RequestService1.setSelectedIndex(5);
+            }
         }
 
         protected void uiButtonReset_Click(object sender, EventArgs e)
         {
             RequestService1.resetControls();
+            RequestService1.setSelectedIndex(5);
         }
     }
 }
