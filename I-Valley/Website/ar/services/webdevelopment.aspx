@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="webdevelopment.aspx.cs" Inherits="Website.ar.services.webdevelopment" %>
+﻿<%@ Page Title="تصميم مواقع" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="webdevelopment.aspx.cs" Inherits="Website.ar.services.webdevelopment" %>
 <%@ Register src="../../controls/RequestService.ascx" tagname="RequestService" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -17,7 +17,7 @@
     </div>
     <div id="banner" class="webdevelopmentBanner">
         <p style="color: #a82743;">
-            Web Development</p>
+            تصميم مواقع </p>
         <span>
         <p>
                 W</p>
@@ -26,13 +26,13 @@
     <div id="InnerContentWrapper" class="row">
         <div class="citer">
             <p>
-                With <span class="CompanyName">I-Valley</span> you have multiple options to develop your web solution, our web development
-                packages not only focus in website development but also we interested in doing system
-                application development via web system such like office automations, Document Archiving,
-                Portals, CRM solutions and more … On I-Valley our web solutions divided into the
-                following services:
+                مع <span class="CompanyName">I-Valley</span> لديك العديد من الإختيارات لعمل موقعك
+                الخاص, معنا لا نركز فقط في تطوير الموقع ولكن أيضا نحن مهتمون في القيام بعمل تطبيق
+                نظام عمل كامل عبر الإنترنت مثل هذه الأعمال المكتبية ، وثيقة الأرشفة، والبوابات الإلكترونية،
+                وحلول إدارة علاقات العملاء وغيرها ... معنا حلول الإنترنت لدينا مقسمة إلى الخدمات
+                التالية:
             </p>
-            <div class="large-6 columns webDev" style="padding: 5px; border-right: 2px solid #a82743">
+            <div class="large-6 columns webDev" style="padding: 5px; border-right: 2px solid #a82743;direction:rtl;">
                 <h4>
                     Custom web development</h4>
                 <p>
@@ -52,7 +52,7 @@
                     In the custom development we can implement any idea you suggest in order to upgrade
                     and enhance your business such like:
                     </p>
-                <ul style="margin-left:10px;list-style-position:inside !important;">
+                <ul style="margin-left: 10px; list-style-position: inside !important; direction: rtl;">
                     <li>Web site development </li>
                     <li>Office automation </li>
                     <li>Business process management </li>
@@ -65,33 +65,31 @@
                     All what you need to do just contacting our sales team by Requesting service then
                     we can handle it with your from the initial phase of requirement engineering till
                     your software deploy and delivery. 
-                    
+                  </p>  
                     <div id="buttons">
-                        <a class="largeButton" id="requestButton" style="margin-left:120px;width:190px;cursor:pointer;line-height:0px">Requesting service
+                        <a class="largeButton" id="requestButton" style="margin-left:120px;width:190px;cursor:pointer;line-height:0px">طلب خدمة
                         </a>
                         <div class="clear-fix" style="height: 15px;">
                         </div>
                 </div>
+                    يمكنك أيضاً معرفة المزيد عنا بزيارة : 
                     
-                    Also you can know more about what we have by
-                    visiting:
                     <div class="clear-fix" style="height: 15px;">
                 </div>
                 <div id="buttons">
                     <div class="clear-fix" style="height: 5px;">
                     </div>
-                    <a class="largeButton" style="margin-left: 70px; width: 320px; line-height: 0px"
-                            href="Technologies.aspx">Our Tools and Technologies
-                            we know
+                    <a class="largeButton" style="margin-left: 50px; width: 360px; line-height: 0px"
+                            href="Technologies.aspx">التقنيات والتكنولوجيا المستخدمة
                         </a>
                     <div class="clear-fix" style="height: 5px;">
                     </div>
                     <a class="largeButton" style="margin-left: 100px; width: 230px; line-height: 0px"
-                            href="../Portfolio.aspx">Enjoy with our portfolio</a>
+                            href="../Portfolio.aspx">تمتع بزيارة أعمالنا</a>
                 </div>
-                </p>
+                
             </div>
-            <div class="large-6 columns webDev" style="padding: 5px;">
+            <div class="large-6 columns webDev" style="padding: 5px; direction: rtl;">
                 <h4>
                     CMS websites customization 
                 </h4>
@@ -100,7 +98,7 @@
                     hand on the faster, easy to use, cheaper and most powerful way to develop your organization
                     website. With CMS websites you can have the following :
                 </p>
-                <ul style="margin-left: 20px;">
+                <ul style="margin-left: 20px; direction: rtl;">
                     <li>Manage your website contents and data including (products – galleries – html contents).</li>
                     <li>Add new website sections without back to the website developer</li>
                     <li>Add new pages with its contents.</li>
@@ -122,28 +120,28 @@
                 </div>
                 <div class="clear-fix" style="height:10px;">
                 </div>
-                <p>
-                    <span class="CompanyName">I-Valley</span> can provide it's CMS websites developing and customization into the following
-                three technologies : 
+                <p style="direction:rtl;">
+                    <span class="CompanyName">I-Valley</span> تقوم بتصميم وتطوير المواقع عن طريق : 
                 </p>
-                <ul style="margin-left: 20px;">
+                <ul style="margin-left: 20px; direction: rtl;">
                     <li>Joomla</li>
                     <li>WordPress</li>
                     <li>DotNetNuke</li>
                 </ul>
-                <p>
-                    In order to start getting this service from <span class="CompanyName">I-Valley</span> you need to go into the following 3 steps:
+                <p style="direction:rtl;"> 
+                يمكنك طلب الخدمة من 
+                    <span class="CompanyName">I-Valley</span> عن طريق الـ 3 خطوات الآتية:
                 </p>
-                <ol style="margin-left: 20px;">
-                    <li>Choose your template design</li>
-                    <li>Choose your price package</li>
-                    <li>Request Service from <span class="CompanyName">I-Valley</span></li>
+                <ol style="margin-left: 20px; direction: rtl;">
+                    <li>إختر التصيم المناسب</li>
+                    <li>إختر السعر المناسب </li>
+                    <li>قم بطلب خدمة من <span class="CompanyName">I-Valley</span></li>
                 </ol>
                 <div id="buttons" style="margin-left:160px;">
                     <div class="clear-fix" style="height: 5px;">
                     </div>
                     <a class="largeButton" style="width: 250px; line-height: 0px" 
-                        href="CMSWizard.aspx">Start your website now</a>
+                        href="CMSWizard.aspx">إبدأ موقعك الأن</a>
                 </div>
             </div>
         </div>
