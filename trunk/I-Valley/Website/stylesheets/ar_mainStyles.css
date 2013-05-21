@@ -1269,6 +1269,12 @@ background-position:0% 0% !important;
 {    
     direction:rtl;
 }
+
+#InnerContentWrapper > div.citer li
+{    
+    direction:rtl;
+}
+
 #InnerContentWrapper div.citer
 {
     text-align: right;
@@ -1283,6 +1289,7 @@ background-position:0% 0% !important;
  #InnerContentWrapper div.citer>p
  {
 line-height:1.5;
+direction:rtl;
      }
 .aboutTitle {
 	margin-bottom: 0;
@@ -3437,7 +3444,7 @@ select {
 	.main-nav > div > ul > li { float: right; border-left: 1px solid #666666; position: relative; }
 	.main-nav > div > ul > li:first-child { border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; }
 	.main-nav > div > ul > li:last-child { border: none; }
-	.main-nav > div ul li a { display: inline-block; padding: 0px 20px; font-size: 15px; line-height: 41px; text-align: center; color: #800000; font-weight:bold; }
+	.main-nav > div ul li a { display: inline-block; padding: 0px 20px; font-size: 16px; line-height: 41px; text-align: center; color: #800000; font-weight:bold; }
 	.main-nav > div ul li a:hover{color:#fff}
 	.main-nav > div ul li:hover { background-color: #808080; background-clip: padding-box; -moz-background-clip: padding-box; }
 	.main-nav > div ul li ul {margin-left:0px;; display: none; width: 190px; padding: 5px 0px; background-color: #808080; position: absolute; top: 41px; right: 0px; z-index: 8899; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }

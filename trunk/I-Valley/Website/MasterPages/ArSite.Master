@@ -147,13 +147,12 @@
                     <dl>
                         <dt><span class="trait-emblem large design"><span>تصميم مواقع</span> </span>
                         </dt>
-                        <dd>
-                            With&nbsp;<div class="CompanyName">
+                        <dd style="direction:rtl;">
+                            مع&nbsp;<div class="CompanyName">
                                 I-Valley</div>
-                            you have multiple options to develop your web solution, our web development packages
-                            not only focus in website development
+                            لديك العديد من الخيارات لعمل موقعك الخاص, معنا لا نركز فقط على تطوير موقعك
                             <div id="buttons" style="width: 100px; padding-top: 10px;">
-                                <a class="btn5" href="../ar/Services/webdevelopment.aspx">Read more</a></div>
+                                <a class="btn5" href="../ar/Services/webdevelopment.aspx">اقرأ المزيد</a></div>
                         </dd>
                     </dl>
                 </div>
@@ -173,7 +172,7 @@
                             staff members, we provide two outsourcing models: Staff augmentation & Project Base
                             outsourcing...
                             <div id="buttons" style="width: 100px; padding-top: 10px;">
-                                <a class="btn2" href="../ar/Services/Outsourcing.aspx">Read more</a></div>
+                                <a class="btn2" href="../ar/Services/Outsourcing.aspx">اقرأ المزيد</a></div>
                         </dd>
                     </dl>
                 </div>
@@ -185,14 +184,14 @@
                     </figure>
                     <dl>
                         <dt><span class="trait-emblem large branding"><span>تسويق إلكترونى</span> </span></dt>
-                        <dd>
-                            With
+                        <dd style="direction:rtl;">
+                            مع
                             <div class="CompanyName">
                                 I-Valley</div>
-                            you can make your brand reach to customers more than your expectation! , we have
-                            many ways to implement that to help you to get in the market faster
+                            يمكنك جعل العلامة التجارية الخاصة بك تصل إلى المزيد من العملاء أكثر مما تتوقع ، لدينا العديد من الطرق لتنفيذ ذلك لمساعدتك في الحصول على تسويق بشكل أسرع
+                            
                             <div id="buttons" style="width: 100px; padding-top: 10px;">
-                                <a class="btn6" href="../ar/Services/EMarketing.aspx">Read more</a></div>
+                                <a class="btn6" href="../ar/Services/EMarketing.aspx">اقرأ المزيد</a></div>
                         </dd>
                     </dl>
                 </div>
