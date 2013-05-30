@@ -1,0 +1,1 @@
+var oo_floating=new OOo.Ocode({floating:{position:"rightOfContent",contentId:"container"},onPageCard:{closeWithOverlay:{}},disableMobile:"true"});
