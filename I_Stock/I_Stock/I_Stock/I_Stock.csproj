@@ -51,6 +51,80 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\style.css" />
+    <Content Include="css\style_default.css" />
+    <Content Include="css\style_gray.css" />
+    <Content Include="css\style_navy-blue.css" />
+    <Content Include="css\style_purple.css" />
+    <Content Include="css\style_responsive.css" />
+    <Content Include="img\404.png" />
+    <Content Include="img\500.png" />
+    <Content Include="img\avatar-mini.png" />
+    <Content Include="img\avatar.png" />
+    <Content Include="img\avatar1.jpg" />
+    <Content Include="img\avatar1_small.jpg" />
+    <Content Include="img\avatar2.jpg" />
+    <Content Include="img\avatar3.jpg" />
+    <Content Include="img\avatar3_small.jpg" />
+    <Content Include="img\bg-default.jpg" />
+    <Content Include="img\bg-denim.png" />
+    <Content Include="img\bg-grey.jpg" />
+    <Content Include="img\bg-navy-blue.jpg" />
+    <Content Include="img\bg-purple.jpg" />
+    <Content Include="img\blog\blog-big-img.jpg" />
+    <Content Include="img\blog\blog-sm-1.jpg" />
+    <Content Include="img\blog\blog-sm-2.jpg" />
+    <Content Include="img\blog\blog-sm-3.jpg" />
+    <Content Include="img\blog\blog-sm-4.jpg" />
+    <Content Include="img\blog\blog-sm-5.jpg" />
+    <Content Include="img\blog\blog-thumb-1.jpg" />
+    <Content Include="img\blog\blog-thumb-2.jpg" />
+    <Content Include="img\blog\blog-thumb-3.jpg" />
+    <Content Include="img\body-bg.png" />
+    <Content Include="img\box-bg.png" />
+    <Content Include="img\bread-crumb-bg.jpg" />
+    <Content Include="img\bread-crumb-divider.jpg" />
+    <Content Include="img\bread-crumb-last.jpg" />
+    <Content Include="img\gallery\photo1.jpg" />
+    <Content Include="img\gallery\photo2.jpg" />
+    <Content Include="img\gallery\photo3.jpg" />
+    <Content Include="img\gallery\photo4.jpg" />
+    <Content Include="img\gallery\photo5.jpg" />
+    <Content Include="img\gallery\photo6.jpg" />
+    <Content Include="img\gallery\photo7.jpg" />
+    <Content Include="img\gallery\photo8.jpg" />
+    <Content Include="img\gallery\photo9.jpg" />
+    <Content Include="img\header_line.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\lock-avatar.jpg" />
+    <Content Include="img\login-btn.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\menu-selected-bg.png" />
+    <Content Include="img\overlay-icon.png" />
+    <Content Include="img\photo.jpg" />
+    <Content Include="img\profile-pic.jpg" />
+    <Content Include="img\side-bar-list-bg.png" />
+    <Content Include="img\submenu_border.png" />
+    <Content Include="img\submenu_hover.png" />
+    <Content Include="img\team\team-1.jpg" />
+    <Content Include="img\team\team-2.jpg" />
+    <Content Include="img\team\team-3.jpg" />
+    <Content Include="img\top-bg.jpg" />
+    <Content Include="img\trns-bg.png" />
+    <Content Include="img\vector-lab.jpg" />
+    <Content Include="js\demo.gmaps.js" />
+    <Content Include="js\excanvas.js" />
+    <Content Include="js\gmaps.js" />
+    <Content Include="js\jquery-1.8.2.min.js" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery.blockui.js" />
+    <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.peity.min.js" />
+    <Content Include="js\jquery.pulsate.min.js" />
+    <Content Include="js\respond.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\ui-nestable.js" />
+    <Content Include="js\ui-tree.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -75,6 +149,30 @@
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
       <Name>MyGeneration.dOOdads</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="css\.DS_Store" />
+    <None Include="font\.DS_Store" />
+    <None Include="font\myriadprobold.eot" />
+    <None Include="font\myriadprobold.svg" />
+    <None Include="font\myriadprobold.ttf" />
+    <None Include="font\myriadprobold.woff" />
+    <None Include="font\myriadproit.eot" />
+    <None Include="font\myriadproit.svg" />
+    <None Include="font\myriadproit.ttf" />
+    <None Include="font\myriadproit.woff" />
+    <None Include="font\myriadprolight.eot" />
+    <None Include="font\myriadprolight.svg" />
+    <None Include="font\myriadprolight.ttf" />
+    <None Include="font\myriadprolight.woff" />
+    <None Include="font\myriadproregular.eot" />
+    <None Include="font\myriadproregular.svg" />
+    <None Include="font\myriadproregular.ttf" />
+    <None Include="font\myriadproregular.woff" />
+    <None Include="img\.DS_Store" />
+    <None Include="img\blog\.DS_Store" />
+    <None Include="img\gallery\.DS_Store" />
+    <None Include="js\.DS_Store" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
