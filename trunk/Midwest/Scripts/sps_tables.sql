@@ -272,17 +272,16 @@ as
 
 
 
-Select R.ReportDate, A.IATACode , A2.IATACode , S.NoOfPax_A , S.NoOfPax_C , S.NoOfPax_I , S.FuleUplifted , S.ActualBurnOff , S.StandardBurnOff , S.FlightNo, AP.Name AirPlane
-from Flight R
-Inner Join Sector S on S.ReportID = R.ReportID
+Select S.SectorDate ReportDate, A.IATACode , A2.IATACode , S.NoOfPax_A , S.NoOfPax_C , S.NoOfPax_I , S.FuleUplifted , S.ActualBurnOff , S.StandardBurnOff , S.FlightNo, AP.Name AirPlane
+from Sector S 
 Inner Join AirPort A on S.From_AirportID = A.AirPortID
 Inner Join AirPort A2 on S.To_AirportID = A2.AirPortID
-inner JOIN AirPlane AP ON R.AirCraft_AirPlaneID = AP.AirPlaneID
-Where R.ReportDate >= ISNULL(@StartDate, '01/01/1900') and 
-	  R.ReportDate <= ISNULL(@EndDate, '01/01/2500') And 
+inner JOIN AirPlane AP ON S.AirCraft_AirPlaneID = AP.AirPlaneID
+Where S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and 
+	  S.SectorDate <= ISNULL(@EndDate, '01/01/2500') And 
 	 (S.IsPAX <> 1 or S.IsPAX is null) and 
-	 (@AirPlaneID = 0 or R.AirCraft_AirPlaneID = @AirPlaneID) 	 
-Order BY R.ReportDate	  
+	 (@AirPlaneID = 0 or S.AirCraft_AirPlaneID = @AirPlaneID) 	 
+Order BY S.SectorDate	  
 GO 
 
 

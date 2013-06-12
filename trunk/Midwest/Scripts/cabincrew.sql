@@ -44,7 +44,10 @@ Inner join Position PP on SP.PositionID = PP.PositionID
 Where C.CrewID = @CrewID and 
 	  S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and 
 	  S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND
-	  (S.IsPAX is null or S.IsPAX <> 1 )
+	  (S.IsPAX is null or S.IsPAX <> 1 ) AND
+	  /* not Dead head or trainee */
+	  (SP.PositionID <> 12 ) AND
+	  (SP.PositionID <> 13)
 group by IsHeavyCrew
 ) as A
 
@@ -75,7 +78,10 @@ Inner join Position PP on SP.PositionID = PP.PositionID
 Where C.CrewID = @CrewID and 
 	  S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and 
 	  S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND	  
-	  (S.IsPAX is null or S.IsPAX <> 1 )
+	  (S.IsPAX is null or S.IsPAX <> 1 ) AND
+	  /* not Dead head or trainee */
+	  (SP.PositionID <> 12 ) AND
+	  (SP.PositionID <> 13)
 order by S.SectorDate
 
 GO
@@ -180,6 +186,10 @@ Left join SectorCrew SC on A.CrewID = SC.CrewID
 Left Join Sector S on Day(S.SectorDate) = A.[Day] AND S.SectorID = SC.SectorID
 
 Where (S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and 
+
+	  /* not Dead head or trainee */
+	  (SC.PositionID <> 12 ) AND
+	  (SC.PositionID <> 13) AND 
 	  S.SectorDate <= ISNULL(@EndDate, '01/01/2500')) OR
 	  S.SectorID IS null	  
 Group by A.CrewID , A.Name , A.Day, A.IDNO , S.IsHeavyCrew
@@ -306,6 +316,22 @@ as
 select * 
 from Crew 
 where UserName = @UserName
+Go
+
+
+ If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchCrew' and
+		        xtype = 'P')
+Drop Procedure SearchCrew
+Go
+Create Procedure SearchCrew @filterText nvarchar(200)
+as
+
+select * 
+from Crew 
+where UserName like N'%' + @filterText + N'%' or 
+	  Name like N'%' + @filterText + N'%' 
 Go
 
 

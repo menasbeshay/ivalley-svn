@@ -14,8 +14,8 @@ namespace Flights_GUI
         {
             if (!IsPostBack)
             {
-                
-                MembershipUser u = Membership.FindUsersByName("crewadmin")["crewadmin"];
+
+                MembershipUser u = Membership.FindUsersByName("dispatch")["dispatch"];
                 Response.Write( u.GetPassword());
                 //ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("StartDate", new DateTime(2012,10,1).ToString()));
                 //ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("EndDate", new DateTime(2012, 10, 15).ToString()));
