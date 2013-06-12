@@ -30,7 +30,7 @@ namespace Flights_GUI.MasterPages
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi3' class='hide' href='../Operation/Reports.aspx'>Reports</a></li>";
                     uiLiteralMenu.Text += "<li class='VMenuBorder'></li><li><a id='mi34' class='hide' href='../ChangePassword.aspx'>Change Password</a></li>";
                 }
-                else if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("SuperAdmin"))
+                else if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("SuperAdmin") || Roles.IsUserInRole("Commercial"))
                 {
                     if (Roles.IsUserInRole("SuperAdmin"))
                     {

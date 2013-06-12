@@ -40,6 +40,16 @@ namespace Flight_BLL
 
         }
 
+        public virtual bool SearchCrew(string filterText)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@filterText", SqlDbType.NVarChar, 200), filterText);
+
+            return LoadFromSql("SearchCrew", parameters);
+
+        }
+
         
 	}
 }
