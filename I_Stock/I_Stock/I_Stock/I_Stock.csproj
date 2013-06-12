@@ -706,6 +706,7 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="default.aspx" />
     <Content Include="img\404.png" />
     <Content Include="img\500.png" />
     <Content Include="img\avatar-mini.png" />
@@ -783,6 +784,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masterpages\IStock.Master.cs">
+      <DependentUpon>IStock.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masterpages\IStock.Master.designer.cs">
+      <DependentUpon>IStock.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1039,6 +1054,7 @@
     <None Include="img\blog\.DS_Store" />
     <None Include="img\gallery\.DS_Store" />
     <None Include="js\.DS_Store" />
+    <Content Include="Masterpages\IStock.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
