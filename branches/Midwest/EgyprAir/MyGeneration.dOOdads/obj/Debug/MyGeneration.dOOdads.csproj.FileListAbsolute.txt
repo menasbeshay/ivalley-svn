@@ -10,3 +10,9 @@ D:\SmartValley\flightReports\FlightReports\new_subversion\MyGeneration.dOOdads\b
 D:\SmartValley\flightReports\FlightReports\new_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
 D:\SmartValley\flightReports\FlightReports\new_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
 D:\SmartValley\flightReports\FlightReports\new_subversion\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\EgyptAir\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
