@@ -1,25 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ArInner.Master" AutoEventWireup="true" CodeBehind="WhyEgypt.aspx.cs" Inherits="Website.ar.services.WhyEgypt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            direction: ltr
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="banner">
-        <p class="ui-datepicker-rtl">
+        <p class="style1">
             لماذا الاستعانة بصادر خارجية مصرية?</p>
         <span>
-        <p class="ui-datepicker-rtl">
+        <p class="style1">
                 W</p>
         </span>
     </div>
     <div id="InnerContentWrapper" class="row">
         <div class="citer">
             <p style="width: 100%; text-align: center; font-weight: bold;" 
-                class="ui-datepicker-rtl">
+                class="style1">
                 <span >"المصادر الخارجية المصرية فى استعداد للازدهار!" </span>
             </p>
-            <h2 class="ui-datepicker-rtl">
+            <h2 class="style1">
                 لماذا الاستعانة بصادر خارجية مصرية?
             </h2>
-            <p class="ui-datepicker-rtl">
+            <p class="style1">
                In the A.T. Kearney
                 Global Services Location Index™, 2011, Egypt was named the fourth most attractive
                 location in the world for offshore services. The country has scored consistently
@@ -30,50 +36,36 @@
                 and attractiveness as an outsourcing destination but show the world what Egypt has
                 to offer local and multinational companies. 
                 </p>
-            <p class="ui-datepicker-rtl">
-                The competitive edge of outsourcing
-                in Egypt is the direct result of many factors: 
+            <p class="style1">
+                القدرة التنافسية للاستعانة بمصادر خارجية في مصر هو نتيجة مباشرة لعوامل كثيرة: 
                 </p>
             <ul>
-                <li class="ui-datepicker-rtl">Plentiful workforce with more than 200,000 university graduates each year growing
-                    at 28% annually.</li>
-                <li class="ui-datepicker-rtl">45% of population is of age 15 – 39.</li>
-                <li class="ui-datepicker-rtl">Egypt ranks among the best in average wages and the lowest
-                in infrastructure cost – A.T.Kearny.</li>
-                <li class="ui-datepicker-rtl">Rich with talented, skilled and multi-lingual
-                labor.</li>
-                <li class="ui-datepicker-rtl">Major foreign universities reside in Egypt such as the American, British,
-                Canadian, German and French universities.</li>
-                <li class="ui-datepicker-rtl">Internationally accredited language
-                institutions exist in Egypt teaching English, German, French, Italian, Spanish and
-                other languages.</li>
-                <li class="ui-datepicker-rtl">Due to its historic, touristic and geographic heritage, Egypt’s
-                culture is open and used to westernized cultures.
+                <li class="style1">القوى العاملة وفيرة مع خريجي الجامعات أكثر من 200،000 كل سنة ينمو بمعدل 28٪ سنويا.</li>
+                <li class="style1">45٪ من السكان في سن 15-39.</li>
+                <li class="style1">الرواتب فى مصر من بين الافضل فى متوسط الاجور وادناها فى تكلفة البنية التحتية - ايه تى كيرنى.</li>
+                <li class="style1">غنية بالعمالة الموهوبة والعمالة الماهرة ومتعددة اللغات.</li>
+                <li class="style1">الجامعات الأجنبية الرئيسية الموجودة في مصر مثل الجامعات الأمريكية والبريطانية والكندية والألمانية والفرنسية.</li>
+                <li class="style1">توجد مؤسسات لغة معتمدة دوليا في مصر تدريس اللغة الإنجليزية والألمانية والفرنسية والإيطالية والإسبانية وغيرها من اللغات.</li>
+                <li class="style1">ونظرا إلى التراث التاريخي والسياحية والجغرافية,ثقافة مصر مفتوحة والمستخدمة في ثقافات غربية.
                 </li>
-                <li class="ui-datepicker-rtl">Egypt is centrally located between
-                US, Europe and Asia with a favorable time zone of GMT +2 allowing it to serve the
-                globe round the clock.</li>
-                <li class="ui-datepicker-rtl">Egypt possesses a healthy commercial atmosphere that is
-                backed up by international country agreements.</li>
+                <li class="style1">مصر هي في موقع مركزي بين الولايات المتحدة وأوروبا وآسيا مع منطقة زمنية مواتية GMT +2 السماح لها لخدمة جولة العالم على مدار الساعة.</li>
+                <li class="style1">مصر تمتلك جو صحي تجاري التي تدعمها اتفاقات الدولية.</li>
             </ul>
-            <h2 class="ui-datepicker-rtl">
-                Why Outsource? 
+            <h2 class="style1">
+                لماذا الاستعانة بمصادر خارجية؟ 
                 </h2>
             <ul>
-                <li class="ui-datepicker-rtl">Get access to skilled
-                expertise</li>
-                <li class="ui-datepicker-rtl">Better risk management </li>
-                <li class="ui-datepicker-rtl">Increasing in-house efficiency</li>
-                <li class="ui-datepicker-rtl">Cut costs
-                and save BIG! </li>
-                <li class="ui-datepicker-rtl">Give your business a competitive edge</li>
-                <li class="ui-datepicker-rtl">Improve service quality</li>
-                <li class="ui-datepicker-rtl">See an overall increase in your business</li>
-                <li class="ui-datepicker-rtl">Focus on core activities</li>
-                <li class="ui-datepicker-rtl">Improve
-                service and delight the customer</li>
-                <li class="ui-datepicker-rtl">Staffing flexibility</li>
-                <li class="ui-datepicker-rtl">Run your business 24X7</li>
+                <li class="style1">الحصول على الخبرات الماهرة</li>
+                <li class="style1">إدارة المخاطر بشكل أفضل </li>
+                <li class="style1">زيادة الكفاءة في المنزل</li>
+                <li class="style1">خفض التكاليف وارتافاع نسبة التوفير! </li>
+                <li class="style1">تعطي عملك ميزة تنافسية</li>
+                <li class="style1">تحسين جودة الخدمة</li>
+                <li class="style1">رؤية زيادة شاملة في أعمالك</li>
+                <li class="style1">التركيز على الأنشطة الأساسية</li>
+                <li class="style1">تحسين الخدمة وإسعاد العملاء</li>
+                <li class="style1">المرونة فى التوظيف</li>
+                <li class="style1">ادارة عملك 24/7</li>
             </ul>
             </p>
         </div>
