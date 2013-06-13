@@ -18,7 +18,7 @@
     </div>
     <div id="banner">
         <p>
-            Search Engine Optimization (SEO)</p>
+            تحسين محركات البحث</p>
         <span>
         <p>
                 S</p>
@@ -27,19 +27,17 @@
     <div id="InnerContentWrapper" class="row">
         <div class="citer">
             <p>
-       Search engine optimization (SEO) is the process of improving the volume and/or
-        quality of traffic to a web site from search engines, via natural search results
-        through increasing the positions of a web site within the search engines, using
-        careful analysis and research techniques. A website needs to be written in a way
-        that is considered to be friendly to Search Engines, if a website makes it easy
-        for a website to be indexed (read) by the search engine spiders it has a greater
-        chance of achieving good results in the Search Engine Result Pages (SERPs). The
-        most critical step of a search engine optimization (SEO) is to understand how
-        a search engine spider works, I-Valley know what the search engines are looking
-        for and what techniques they give greater credibility to. Search engine optimization (SEO) helps companies and Agencies not only increase traffic to their websites,
-        but also increase web generated sales, supported by the traffic quality and relevancy
-        to the prospective buyers communities.
-            </p>
+                تحسين محرك البحث&nbsp; هو عملية لتحسين حجم و / أو نوعية كمية الزوار إلى موقع الويب من 
+                محركات البحث، عن طريق نتائج البحث الطبيعية من خلال زيادة المواقف من موقع على 
+                شبكة الإنترنت في محركات البحث,باستخدام تحليل دقيق وتقنيات البحث.موقع على 
+                الانترنت يحتاج إلى أن تكون مكتوبة بطريقة ويعتبر أن تكون ودية لمحركات البحث,اذا 
+                كان الموقع الاكترونى مفهرسا (مقروء) لدى محركات البحث كان لديه فرصة اكبر ليكون 
+                ضمن نتائج جيدة فى ناتج صفخات محركات البحث . ا ,ان الخطوة الاكثر اهمية من تحسين 
+                محركات البحث فو ان نفهم كيفية عمل الية محركات البحث&nbsp; I-Valley تعرف ما هي 
+                محركات البحث التي تبحث عنها وما التقنيات التي تعطي مصداقية أكبر إلى.تحسين محركات 
+                البحث الشركات والوكالات ليس فقط زيادة حركة المرور إلى مواقعها على شبكة الإنترنت، 
+                ولكن أيضا زيادة المبيعات ولدت شبكة الإنترنت، بدعم من نوعية حركة المرور وأهميتها 
+                للمجتمعات المشترين المحتملين.</p>
             <%--<div style="width: 49%; border: 3px solid #FF6600 !important; border-radius: 15px !important;
             -moz-border-radius: 15px !important; -webkit-border-radius: 15px !important;
             padding: 15px; text-align: center; font-weight: bold; font-size: 18px;">  --%>
