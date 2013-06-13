@@ -1,0 +1,152 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* slider layout */
+.lof-slidecontent { position:relative;	overflow:hidden;	border:#F4F4F4 solid 1px;}
+.lof-slidecontent .preload{	height:100%;	width:100%;	position:absolute;	top:0;	left:0;	z-index:100000;	text-align:center;	background:#FFF}
+.lof-slidecontent .preload div{	height:100%;	width:100%;	background:transparent url(../images/load-indicator.gif) no-repeat scroll 50% 50%;}
+
+.lof-slidecontent  .sliders-wrapper{	position:relative;	height:100%;	width:900px;	z-index:3px;	overflow:hidden; }
+.lof-slidecontent  ul.sliders-wrap-inner{overflow:hidden;	background:transparent url(../images/load-indicator.gif) no-repeat scroll 50% 50%;	padding:0px;	margin:0;	position:absolute;	overflow:hidden;}
+.lof-slidecontent  ul.sliders-wrap-inner li{overflow:hidden;	padding:0px;margin:0px;	float:left;	position:relative;}
+.lof-slidecontent  .lof-opacity  li{position:absolute;	top:0;	left:0;	float:inherit; }
+
+
+.lof-slidecontent  .navigator-content {position:absolute;
+	right:0;
+	top:0px;
+	z-index:9;
+	height:300px;
+	width:315px;
+	overflow:hidden;
+	color:#FFF
+}
+.lof-slidecontent  .navigator-wrapper{	position:relative;	z-index:10;
+	height:180px;
+	width:315px;
+	overflow:hidden;
+	color:#FFF;
+	float:left
+}
+.lof-slidecontent  ul.navigator-wrap-inner{	top:0;	padding:0;	margin:0;	position:absolute;	width:100%; }
+.lof-slidecontent  ul.navigator-wrap-inner li{ cursor:hand; 	cursor:pointer;	list-style:none;	padding:0;	margin-left:0px;	overflow:hidden;	float:right;	display:block;	text-align:center;}
+.lof-slidecontent  ul.navigator-wrap-inner li h3{	font-size:14px !important;font-weight:bold;	}
+/*******************************************************/
+ 
+ul.sliders-wrap-inner li img{	padding:0px;	}
+
+
+.lof-slidecontent .slider-description a.readmore
+{
+    color: #99CCFF;
+    font-size: 95%;
+    float:left;
+    display:block;
+}
+.lof-slidecontent .slider-description a{ color:#FFF; }
+.lof-slidecontent .slider-description
+{
+    z-index: 100;
+    margin-top:150px;
+    position:absolute;
+    bottom: 20px;
+    left: 0px;    
+    width: 600px;
+    background: url(../images/bg_trans.png);
+    height: 80px;
+    padding: 10px;
+    color: #fff;
+    text-align:right;
+    font-size:15px;
+    font-weight:bold;
+}
+.lof-slidecontent .slider-description h4 {    font-size: 14px;    margin: 10px 0;    padding: 0; }
+.lof-slidecontent .slider-description .slider-meta a{	
+	margin:0;	
+	font-size:16px;
+	font-weight:bold;
+	padding:2px 3px;
+	font-family:"Trebuchet MS",Trebuchet,Arial,Verdana,sans-serif;
+	text-transform:uppercase;
+	text-decoration:none
+}
+.lof-slidecontent  .item-meta a:hover{	text-decoration:underline;}
+.lof-slidecontent  .item-meta i {	font-size:70%; }
+
+/* item navigator */
+.lof-slidecontent ul.navigator-wrap-inner  li.active{
+	background:url(../images/arrow-bg2.png) no-repeat scroll left center; 
+	color:#FFF
+}
+.lof-slidecontent ul.navigator-wrap-inner li > div
+{
+    /*background: url(../images/transparent_bg.png);*/
+    color: #666666;
+    height: 75px;
+    position: relative;
+    margin-left: 15px;
+    padding-left: 15px;
+    
+    text-align: right;
+    background-color: #DEDEDE;
+    border: 1px solid #FFFFFF;
+    border-left:0px;
+}
+
+.lof-slidecontent ul.navigator-wrap-inner li.active div
+{
+    background: url(../images/grad-bg2.gif);
+    color: #FFFFFF;
+}
+.lof-slidecontent ul.navigator-wrap-inner li img{
+	height:50px;
+	width:50px;
+	margin:10px 5px 10px 15px;
+	float:right;
+	padding:3px;
+	border:#C5C5C5 solid 1px;
+}
+.lof-slidecontent ul.navigator-wrap-inner li.active img, 
+.lof-slidecontent ul.navigator-wrap-inner li:hover img {
+	border:#6C8E5C  solid 1px;
+}
+.lof-slidecontent  .button-next, 
+.lof-slidecontent .button-previous{
+	display:block;
+	width:40px;
+	color:#FFF;
+	cursor:pointer;
+	position:absolute;
+	height:100%;
+	z-index:40;
+	top:0;
+	text-indent:-999px;
+
+}
+.lof-slidecontent   .button-next {
+	right:0px;
+	background:url(../images/next.png) no-repeat right center;
+}
+.lof-slidecontent  .button-previous {
+	left:0px;
+	background:url(../images/previous.png) no-repeat left center;
+}
+
+
+.lof-slidecontent .button-control {
+   position:absolute;
+   top:10px;
+   right:48%;
+    height: 20px;
+    width: 20px;
+	cursor:hand; cursor:pointer;
+	background:url(../images/transparent_bg.png) repeat;
+}
+
+.lof-slidecontent .button-control span { display:block;  width:100%; height:100%;}
+.lof-slidecontent .action-start span  {
+	background:url(../images/play.png) no-repeat center center;
+}
+.lof-slidecontent .action-stop span {
+	background:url(../images/pause.png) no-repeat center center;
+}
