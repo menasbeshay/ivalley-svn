@@ -85,7 +85,7 @@
                                 <li class="active">
                                     <asp:HyperLink NavigateUrl="~/ar/About.aspx" ID="uiaboutlink" runat="server">عن الشركة</asp:HyperLink></li>
                                 <li class="active">
-                                    <asp:HyperLink NavigateUrl="~/ar/Portfolio.aspx" ID="uiportlink" runat="server">Portfolio</asp:HyperLink></li>
+                                    <asp:HyperLink NavigateUrl="~/ar/Portfolio.aspx" ID="uiportlink" runat="server">اعمالنا السابقه</asp:HyperLink></li>
                                 <li class="active">
                                     <asp:HyperLink ID="HyperLink3" runat="server">منتجات</asp:HyperLink>
                                     <ul style="display: none;">
@@ -101,7 +101,7 @@
                                         <li>
                                             <asp:HyperLink NavigateUrl="~/ar/Services/webdevelopment.aspx" ID="HyperLink1" runat="server">تصميم مواقع</asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink NavigateUrl="~/ar/services/outsourcing.aspx" ID="uioutsourcinglink" runat="server">Outsourcing</asp:HyperLink></li>
+                                            <asp:HyperLink NavigateUrl="~/ar/services/outsourcing.aspx" ID="uioutsourcinglink" runat="server">استعارة مبرمجين</asp:HyperLink></li>
                                         <li>
                                             <asp:HyperLink NavigateUrl="~/ar/Services/EMarketing.aspx" ID="HyperLink2" runat="server">تسويق إلكترونى</asp:HyperLink></li>
                                     </ul>
@@ -152,7 +152,7 @@
                         <ul id="footer-navigation" class="footerUl clear-fix">
                             <li><a href="Default.aspx">الرئيسية</a></li>
                             <li><a href="about.aspx">عن الشركة</a></li>
-                            <li><a href="portfolio.aspx">Portfolio</a></li>
+                            <li><a href="portfolio.aspx">أعمالنا السابقه</a></li>
                             <li><a href="Services.aspx">خدمات</a></li>
                             <li><a href="contact.aspx">اتصل بنا</a></li>
                         </ul>

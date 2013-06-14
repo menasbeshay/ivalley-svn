@@ -41,7 +41,7 @@
             </div>
         </div>
    
-        <div id="contactInfo" class="large-6 columns" style="direction: rtl">
+        <div id="contactInfo" class="large-6 columns" style="direction: ltr">
             <h2 class="ui-datepicker-rtl">
                 معلومات الاتصال</h2>
             <img src="../images/contact/map.jpg" />
@@ -50,12 +50,12 @@
                 استعداد للرد على طلبك.</p>
             <ul style="text-align:right;">
                 <li class="ui-datepicker-rtl">العنوان: هيليوبلس (مصر الجديدة), القاهرة , مصر.</li>
-                <li class="ui-datepicker-rtl">التليفون: 0020 1228404078.</li>
+                <li class="ui-datepicker-rtl"> التليفون : 00201228404078</li>
                 <li class="ui-datepicker-rtl">البريد الاكترونى: sales@i-valley.com.</li>
-                <li class="ui-datepicker-rtl">Business Development Manager : michael@i-valley.com</li>
-                <li class="ui-datepicker-rtl">Chief Technical Officer : Mena@i-valley.com</li>
-                <li class="ui-datepicker-rtl">Sales Manager : sales@i-valley.com</li>
-                <li class="ui-datepicker-rtl">HR Manager : HR@i-valley.com - jobs@i-valley.com</li>
+                <li class="ui-datepicker-rtl">مدير تطوير العمل  : michael@i-valley.com</li>
+                <li class="ui-datepicker-rtl">المدير الفنى : Mena@i-valley.com</li>
+                <li class="ui-datepicker-rtl">مدير المبيعات : sales@i-valley.com</li>
+                <li class="ui-datepicker-rtl">مدير التوظيف : HR@i-valley.com - jobs@i-valley.com</li>
             </ul>
             كما يمكنكم التواصل معنا عبر : 
             <ul style="list-style: none;direction:rtl;">
