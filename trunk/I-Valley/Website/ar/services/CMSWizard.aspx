@@ -89,7 +89,7 @@
             width: 388px; left: 38%; height: 68px; bottom: -35px;">
             <p style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
                 width: 380px; height: 60px; line-height: 60px;">
-                Cms website request</p>
+                طلب تنفيذ موقع </p>
         </span>
     </div>
     <div id="InnerContentWrapper" class="row">

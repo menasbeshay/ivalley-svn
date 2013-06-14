@@ -8,7 +8,7 @@
             width: 388px; left: 38%; height: 68px; bottom: -35px;">
             <p style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
                 width: 380px; height: 60px; line-height: 60px;">
-                Portfolio</p>
+                أعمالنا السابقه</p>
         </span>
     </div>
     <div id="portfolioWrapp" class="row">
@@ -17,7 +17,7 @@
                 <li><a href="#all" class="current">الكل</a></li>
                 <li><a rel="businesswebsites" href="#businesswebsites" class="">مواقع تجارية</a></li>
                 <li><a rel="systemdevelopment" href="#systemdevelopment" class="">أنظمة</a></li>
-                <li><a rel="Outsourcing" href="#Outsourcing" class="">Outsourcing</a></li>
+                <li><a rel="Outsourcing" href="#Outsourcing" class="">برمجه عن بعد</a></li>
             </ul>
         </div>
         <div id="portfolioContainer" class="large-12 columns">
@@ -34,11 +34,13 @@
                     <div class="large-2 columns portLinks">
                         <a href="../images/portfolio/images/1.gif" rel="prettyPhoto">Loupe</a> <a target="_blank"
                             href="http://www.obtravel-eg.com">Link</a>
+                            
                     </div>
                     <div class="large-10 columns portContent" style="float:right;text-align:right;padding-right:25px;">
                         <h2>
                            <span class="portCategorie">مواقع تجارية</span> <span class="titleDivide">|</span><a target="_blank" href="http://www.obtravel-eg.com/">Obtravel</a>
                             </h2>
+                            <p>موقع شركة السياحه و العروض السياحيه اون بورد ترافيل</p>
                     </div>
                 </li>
                 <!-- ITEM 2-->
@@ -59,6 +61,7 @@
                           <span class="portCategorie">System Development</span>  <span class="titleDivide">|</span> 
                             <a target="_blank" href="http://ifinance.i-valley.com">I-Finance</a>
                             </h2>
+                            <p>برنامج ادارة الماليات و المخازن داخل الشركات و المؤسسات المتوسطة الحجم</p>
                     </div>
                     
                 </li>
@@ -80,6 +83,7 @@
                             <span class="portCategorie">Outsourcing</span><span class="titleDivide">|</span>
                             <a target="_blank" href="http://www.euroinvestor.dk/">Euroinvestor</a>
                             </h2>
+                            <p>موقع تحليلات بورصة الاتحاد الاوربى و التجاره الالكترونيه و التبادل التجارى</p>
                     </div>
                     
                 </li>
@@ -100,6 +104,7 @@
                         <h2>
                             <span class="portCategorie">مواقع تجارية</span> <span
                                 class="titleDivide">|</span><a target="_blank" href="http://www.glologistics.com/">Glologistics</a></h2>
+                                <p>موقع شركة جلوبال لوجيستك و هو دليل لكل شركات الشحن و مزود بمحرك بحث مميز</p>
                     </div>
                     
                 </li>
@@ -121,6 +126,7 @@
                          <span class="portCategorie">System Development</span>   <span class="titleDivide">|</span><a
                              target="_blank" href="http://midwestapp.i-valley.com">I-Flights</a>
                             </h2>
+                            <p>برنامج ميكنة خطوط الطيران بكل اقسام الشركه متضمنا جميع التقارير الرسميه المطلوبه من السلطه</p>
                     </div>
                     
                 </li>
@@ -142,6 +148,7 @@
                           <span class="portCategorie">Outsourcing</span>  <span class="titleDivide">|</span><a
                               target="_blank" href="http://www.zmags.com/">Zmags</a>
                             </h2>
+                            <p>موقع التصفح الالكترونى و المجله الشهيره زد ماج ذو التعاملات واسعة النطاق</p>
                     </div>
                     
                 </li>
@@ -163,6 +170,7 @@
                            <span class="portCategorie">مواقع تجارية</span> <span class="titleDivide">|</span><a
                                target="_blank" href="http://www.anbaermia.com/">Anba Ermia</a>
                             </h2>
+                            <p>الموقع الرسمى لنيافة الانبا ارميا الاسقف العام و سكرتير البابا تواضروس بابا الاقباط الارثوذكس</p>
                     </div>
                     
                 </li>
@@ -184,6 +192,7 @@
                            <span class="portCategorie">Outsourcing</span> <span class="titleDivide">|</span><a
                                target="_blank" href="http://www.airfare.com/">Airfare</a>
                             </h2>
+                            <p>موقع اير فير لحجوزات الطيران .. حجز لحظى للرحلات بارخص الاسعار </p>
                     </div>
                     
                 </li>
@@ -205,6 +214,7 @@
                           <span class="portCategorie">مواقع تجارية</span>  <span class="titleDivide">|</span><a
                               target="_blank" href="http://www.ybc-madina.com/">YBC-madina</a>
                             </h2>
+                            <p>لجنة الشباب بالغرفه التجاريه السعوديه </p>
                     </div>
                     
                 </li>
@@ -226,6 +236,7 @@
                             <span class="portCategorie">Outsourcing</span><span class="titleDivide">|</span>
                             <a target="_blank" href="http://www.comoto.com/">Comoto</a>
                             </h2>
+                            <p>موقع التظيف الاكثر شهره فى التعامل مع جميع التخصصات على مستوى العالم</p>
                     </div>
                     
                 </li>
@@ -247,6 +258,7 @@
                             <span class="portCategorie">Outsourcing</span><span class="titleDivide">|</span>
                             <a target="_blank" href="http://www.comozap.com/">Comozap</a>
                             </h2>
+                            <p>موقع التظيف الاكثر شهره فى التعامل مع متخصصى الساب على مستوى العالم</p>
                     </div>
                     
                 </li>
@@ -268,6 +280,7 @@
                            <span class="portCategorie">Outsourcing</span> <span class="titleDivide">|</span><a
                                target="_blank" href="http://linkedhunters.dk/">Linked hunters</a>
                             </h2>
+                            <p>ملتقى الصيادين الدينماركيين  ... من مواقع التواصل الاجتماعى </p>
                     </div>
                     
                 </li>
