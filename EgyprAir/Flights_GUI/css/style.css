@@ -250,8 +250,10 @@ a,a:focus, a:hover, a:active {
     margin-top: 0px !important;
     opacity:0.6;
     filter:alpha(opacity=60);
-    padding: 18px 35.5px;
-    width: 144px;
+    /*padding: 18px 35.5px;
+    width: 144px;*/
+    padding: 8px 27px;
+    width: 160px;
 }
 
 /* header nav bar*/
@@ -1650,7 +1652,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 /* logo page */
 #logo {
-    width: 247px;
+    width: 160px;
     margin: 0 auto;
     padding: 15px;
     text-align: center;

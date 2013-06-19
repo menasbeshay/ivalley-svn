@@ -267,6 +267,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter AirportClass
+			{
+				get
+				{
+					return new SqlParameter("@AirportClass", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -294,6 +302,7 @@ namespace Flight_DAL
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
             public const string UserName = "UserName";
+            public const string AirportClass = "AirportClass";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -322,6 +331,7 @@ namespace Flight_DAL
 					ht[CreatedDate] = _Pilot.PropertyNames.CreatedDate;
 					ht[LastModifiedDate] = _Pilot.PropertyNames.LastModifiedDate;
 					ht[UserName] = _Pilot.PropertyNames.UserName;
+					ht[AirportClass] = _Pilot.PropertyNames.AirportClass;
 
 				}
 				return (string)ht[columnName];
@@ -355,6 +365,7 @@ namespace Flight_DAL
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
             public const string UserName = "UserName";
+            public const string AirportClass = "AirportClass";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -383,6 +394,7 @@ namespace Flight_DAL
 					ht[CreatedDate] = _Pilot.ColumnNames.CreatedDate;
 					ht[LastModifiedDate] = _Pilot.ColumnNames.LastModifiedDate;
 					ht[UserName] = _Pilot.ColumnNames.UserName;
+					ht[AirportClass] = _Pilot.ColumnNames.AirportClass;
 
 				}
 				return (string)ht[propertyName];
@@ -416,6 +428,7 @@ namespace Flight_DAL
             public const string CreatedDate = "s_CreatedDate";
             public const string LastModifiedDate = "s_LastModifiedDate";
             public const string UserName = "s_UserName";
+            public const string AirportClass = "s_AirportClass";
 
 		}
 		#endregion		
@@ -671,6 +684,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setstring(ColumnNames.UserName, value);
+			}
+		}
+
+		public virtual int AirportClass
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.AirportClass);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.AirportClass, value);
 			}
 		}
 
@@ -994,6 +1019,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_AirportClass
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.AirportClass) ? string.Empty : base.GetintAsString(ColumnNames.AirportClass);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.AirportClass);
+				else
+					this.AirportClass = base.SetintAsString(ColumnNames.AirportClass, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1232,6 +1272,16 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.UserName, Parameters.UserName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter AirportClass
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.AirportClass, Parameters.AirportClass);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1494,6 +1544,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter AirportClass
+		    {
+				get
+		        {
+					if(_AirportClass_W == null)
+	        	    {
+						_AirportClass_W = TearOff.AirportClass;
+					}
+					return _AirportClass_W;
+				}
+			}
+
 			private WhereParameter _PilotID_W = null;
 			private WhereParameter _FirstName_W = null;
 			private WhereParameter _SecondName_W = null;
@@ -1515,6 +1577,7 @@ namespace Flight_DAL
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _LastModifiedDate_W = null;
 			private WhereParameter _UserName_W = null;
+			private WhereParameter _AirportClass_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1539,6 +1602,7 @@ namespace Flight_DAL
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
 				_UserName_W = null;
+				_AirportClass_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1805,6 +1869,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter AirportClass
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AirportClass, Parameters.AirportClass);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2062,6 +2136,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter AirportClass
+		    {
+				get
+		        {
+					if(_AirportClass_W == null)
+	        	    {
+						_AirportClass_W = TearOff.AirportClass;
+					}
+					return _AirportClass_W;
+				}
+			}
+
 			private AggregateParameter _PilotID_W = null;
 			private AggregateParameter _FirstName_W = null;
 			private AggregateParameter _SecondName_W = null;
@@ -2083,6 +2169,7 @@ namespace Flight_DAL
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _LastModifiedDate_W = null;
 			private AggregateParameter _UserName_W = null;
+			private AggregateParameter _AirportClass_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2107,6 +2194,7 @@ namespace Flight_DAL
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
 				_UserName_W = null;
+				_AirportClass_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2263,6 +2351,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.UserName);
 			p.SourceColumn = ColumnNames.UserName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.AirportClass);
+			p.SourceColumn = ColumnNames.AirportClass;
 			p.SourceVersion = DataRowVersion.Current;
 
 

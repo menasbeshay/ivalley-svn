@@ -179,6 +179,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter Class
+			{
+				get
+				{
+					return new SqlParameter("@Class", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -195,6 +203,7 @@ namespace Flight_DAL
             public const string ModifiedBy = "ModifiedBy";
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
+            public const string Class = "Class";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -212,6 +221,7 @@ namespace Flight_DAL
 					ht[ModifiedBy] = _AirPort.PropertyNames.ModifiedBy;
 					ht[CreatedDate] = _AirPort.PropertyNames.CreatedDate;
 					ht[LastModifiedDate] = _AirPort.PropertyNames.LastModifiedDate;
+					ht[Class] = _AirPort.PropertyNames.Class;
 
 				}
 				return (string)ht[columnName];
@@ -234,6 +244,7 @@ namespace Flight_DAL
             public const string ModifiedBy = "ModifiedBy";
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
+            public const string Class = "Class";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -251,6 +262,7 @@ namespace Flight_DAL
 					ht[ModifiedBy] = _AirPort.ColumnNames.ModifiedBy;
 					ht[CreatedDate] = _AirPort.ColumnNames.CreatedDate;
 					ht[LastModifiedDate] = _AirPort.ColumnNames.LastModifiedDate;
+					ht[Class] = _AirPort.ColumnNames.Class;
 
 				}
 				return (string)ht[propertyName];
@@ -273,6 +285,7 @@ namespace Flight_DAL
             public const string ModifiedBy = "s_ModifiedBy";
             public const string CreatedDate = "s_CreatedDate";
             public const string LastModifiedDate = "s_LastModifiedDate";
+            public const string Class = "s_Class";
 
 		}
 		#endregion		
@@ -396,6 +409,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.LastModifiedDate, value);
+			}
+		}
+
+		public virtual int Class
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.Class);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.Class, value);
 			}
 		}
 
@@ -554,6 +579,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_Class
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Class) ? string.Empty : base.GetintAsString(ColumnNames.Class);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Class);
+				else
+					this.Class = base.SetintAsString(ColumnNames.Class, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -687,6 +727,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter Class
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Class, Parameters.Class);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -812,6 +862,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter Class
+		    {
+				get
+		        {
+					if(_Class_W == null)
+	        	    {
+						_Class_W = TearOff.Class;
+					}
+					return _Class_W;
+				}
+			}
+
 			private WhereParameter _AirPortID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _IATACode_W = null;
@@ -822,6 +884,7 @@ namespace Flight_DAL
 			private WhereParameter _ModifiedBy_W = null;
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _LastModifiedDate_W = null;
+			private WhereParameter _Class_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -835,6 +898,7 @@ namespace Flight_DAL
 				_ModifiedBy_W = null;
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
+				_Class_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -991,6 +1055,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter Class
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Class, Parameters.Class);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1116,6 +1190,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter Class
+		    {
+				get
+		        {
+					if(_Class_W == null)
+	        	    {
+						_Class_W = TearOff.Class;
+					}
+					return _Class_W;
+				}
+			}
+
 			private AggregateParameter _AirPortID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _IATACode_W = null;
@@ -1126,6 +1212,7 @@ namespace Flight_DAL
 			private AggregateParameter _ModifiedBy_W = null;
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _LastModifiedDate_W = null;
+			private AggregateParameter _Class_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1139,6 +1226,7 @@ namespace Flight_DAL
 				_ModifiedBy_W = null;
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
+				_Class_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1251,6 +1339,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.LastModifiedDate);
 			p.SourceColumn = ColumnNames.LastModifiedDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Class);
+			p.SourceColumn = ColumnNames.Class;
 			p.SourceVersion = DataRowVersion.Current;
 
 
