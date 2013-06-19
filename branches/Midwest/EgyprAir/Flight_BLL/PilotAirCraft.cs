@@ -5,9 +5,9 @@ using System;
 using Flight_DAL;
 namespace Flight_BLL
 {
-	public class AirPort : _AirPort
+	public class PilotAirCraft : _PilotAirCraft
 	{
-		public AirPort()
+		public PilotAirCraft()
 		{
 		
 		}

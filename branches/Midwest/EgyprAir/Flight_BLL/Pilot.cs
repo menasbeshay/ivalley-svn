@@ -4,9 +4,8 @@
 using System;
 using Flight_DAL;
 using System.Collections.Specialized;
+using System.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;// We should use the namespace of Data access layer generated form business entity
-
 namespace Flight_BLL
 {
 	public class Pilot : _Pilot
