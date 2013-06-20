@@ -91,7 +91,8 @@ Website: http://thevectorlab.net/
     <!-- END LOGIN -->
     <!-- BEGIN COPYRIGHT -->
     <div id="login-copyright">
-        2013 &copy; 
+        2013 &copy;
+        <img src="../images/IValley.png" />.
     </div>
     <!-- END COPYRIGHT -->
     <!-- BEGIN JAVASCRIPTS -->

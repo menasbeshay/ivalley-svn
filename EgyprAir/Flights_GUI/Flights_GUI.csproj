@@ -752,6 +752,7 @@
     <Content Include="images\engineering.png" />
     <Content Include="images\GrayBigBtnOver2.png" />
     <Content Include="images\GrayBigBtnUp2.png" />
+    <Content Include="images\IValley.png" />
     <Content Include="images\Operation.png" />
     <Content Include="images\pilot.gif" />
     <Content Include="images\Safety.png" />
@@ -797,6 +798,7 @@
     <Content Include="img\lock-avatar.jpg" />
     <Content Include="img\login-btn.jpg" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo2.png" />
     <Content Include="img\menu-selected-bg.png" />
     <Content Include="img\overlay-icon.png" />
     <Content Include="img\photo.jpg" />
@@ -1100,6 +1102,9 @@
     <Content Include="Test\GOL\styles\VoeGol.css" />
     <Content Include="Operation\ViewSchedule.aspx" />
     <Content Include="Test\testrad.aspx" />
+    <Content Include="Training\Default.aspx" />
+    <Content Include="Training\PilotHome.aspx" />
+    <Content Include="Training\TitleCourses.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1280,6 +1285,13 @@
     </Compile>
     <Compile Include="MasterPages\E_Start.Master.designer.cs">
       <DependentUpon>E_Start.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\E_Training.Master.cs">
+      <DependentUpon>E_Training.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\E_Training.Master.designer.cs">
+      <DependentUpon>E_Training.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Start.Master.cs">
       <DependentUpon>Start.Master</DependentUpon>
@@ -1493,6 +1505,27 @@
     <Compile Include="Test\testrad.aspx.designer.cs">
       <DependentUpon>testrad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Training\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Training\PilotHome.aspx.cs">
+      <DependentUpon>PilotHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\PilotHome.aspx.designer.cs">
+      <DependentUpon>PilotHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Training\TitleCourses.aspx.cs">
+      <DependentUpon>TitleCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\TitleCourses.aspx.designer.cs">
+      <DependentUpon>TitleCourses.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
@@ -1507,9 +1540,9 @@
     <Content Include="MasterPages\Admin.Master" />
     <None Include="assets\.DS_Store" />
     <None Include="assets\bootstrap-colorpicker\.DS_Store" />
-    <None Include="assets\bootstrap-colorpicker\less\colorpicker.less" />
+    <Content Include="assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="assets\bootstrap-datepicker\.DS_Store" />
-    <None Include="assets\bootstrap-datepicker\less\datepicker.less" />
+    <Content Include="assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="assets\bootstrap-daterangepicker\README.md" />
     <None Include="assets\bootstrap-timepicker\.DS_Store" />
     <None Include="assets\bootstrap-timepicker\.gitignore" />
@@ -1685,15 +1718,15 @@
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\variables.less" />
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\wells.less" />
     <None Include="assets\font-awesome\docs\assets\less\variables.less" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.eot" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.ttf" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.woff" />
-    <None Include="assets\font-awesome\font\FontAwesome.otf" />
-    <None Include="assets\font-awesome\less\font-awesome-ie7.less" />
-    <None Include="assets\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\font\FontAwesome.otf" />
+    <Content Include="assets\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="assets\font-awesome\less\font-awesome.less" />
     <None Include="assets\font-awesome\README.md" />
-    <None Include="assets\font-awesome\sass\font-awesome.sass" />
-    <None Include="assets\font-awesome\sass\font-awesome.scss" />
+    <Content Include="assets\font-awesome\sass\font-awesome.sass" />
+    <Content Include="assets\font-awesome\sass\font-awesome.scss" />
     <None Include="assets\fullcalendar\.DS_Store" />
     <None Include="assets\fullcalendar\demos\.DS_Store" />
     <None Include="assets\fullcalendar\demos\cupertino\.DS_Store" />
@@ -1781,6 +1814,7 @@
     <Content Include="MasterPages\E_Admin.Master" />
     <Content Include="MasterPages\E_CabinCrew.Master" />
     <Content Include="MasterPages\E_Common.Master" />
+    <Content Include="MasterPages\E_Training.Master" />
     <None Include="Styles\ui-lightness\images\Thumbs.db" />
     <None Include="images\logo.psd" />
     <None Include="images\Thumbs.db" />
@@ -1856,7 +1890,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4841</DevelopmentServerPort>
+          <DevelopmentServerPort>4871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
