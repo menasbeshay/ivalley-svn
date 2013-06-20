@@ -1460,7 +1460,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     top:40px;
     min-width: 160px !important;
     max-width: 300px !important;
-    width: 233px !important;
+    width: 300px !important;
 }
 
 .dropdown-menu.extended li a{
