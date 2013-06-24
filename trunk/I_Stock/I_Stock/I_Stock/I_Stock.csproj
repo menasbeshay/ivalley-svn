@@ -51,6 +51,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Items.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="assets\bootstrap-colorpicker\img\hue.png" />
@@ -709,6 +711,7 @@
     <Content Include="default.aspx" />
     <Content Include="img\404.png" />
     <Content Include="img\500.png" />
+    <Content Include="img\Ivalley.png" />
     <Content Include="img\avatar-mini.png" />
     <Content Include="img\avatar.png" />
     <Content Include="img\avatar1.jpg" />
@@ -735,6 +738,7 @@
     <Content Include="img\bread-crumb-bg.jpg" />
     <Content Include="img\bread-crumb-divider.jpg" />
     <Content Include="img\bread-crumb-last.jpg" />
+    <Content Include="img\logo2.png" />
     <Content Include="img\gallery\photo1.jpg" />
     <Content Include="img\gallery\photo2.jpg" />
     <Content Include="img\gallery\photo3.jpg" />
@@ -775,6 +779,7 @@
     <Content Include="js\scripts.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -784,12 +789,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Items.aspx.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Items.aspx.designer.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masterpages\IStock.Master.cs">
       <DependentUpon>IStock.Master</DependentUpon>
@@ -1055,6 +1081,12 @@
     <None Include="img\gallery\.DS_Store" />
     <None Include="js\.DS_Store" />
     <Content Include="Masterpages\IStock.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\Items.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\Default.aspx.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
