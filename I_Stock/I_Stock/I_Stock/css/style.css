@@ -253,6 +253,7 @@ a,a:focus, a:hover, a:active {
     filter:alpha(opacity=60);
     padding: 18px 35.5px;
     width: 144px;
+    height:24px;
 }
 
 /* header nav bar*/

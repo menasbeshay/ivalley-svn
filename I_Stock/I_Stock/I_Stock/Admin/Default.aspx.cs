@@ -5,19 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace I_Stock.Masterpages
+namespace I_Stock.Admin
 {
-    public partial class IStock : System.Web.UI.MasterPage
+    public partial class Default : System.Web.UI.Page
     {
-        public string CustomPageTitle
-        {
-            get { return uiLabelTitle.Text; }
-            set { uiLabelTitle.Text = value; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Master.CustomPageTitle = GetLocalResourceObject("Title").ToString();
+            }
         }
     }
 }
