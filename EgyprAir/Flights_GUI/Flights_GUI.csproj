@@ -1102,9 +1102,12 @@
     <Content Include="Test\GOL\styles\VoeGol.css" />
     <Content Include="Operation\ViewSchedule.aspx" />
     <Content Include="Test\testrad.aspx" />
+    <Content Include="Training\Courses.aspx" />
     <Content Include="Training\Default.aspx" />
     <Content Include="Training\PilotHome.aspx" />
+    <Content Include="Training\Pilots.aspx" />
     <Content Include="Training\TitleCourses.aspx" />
+    <Content Include="Training\TrainingOrders.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1505,6 +1508,13 @@
     <Compile Include="Test\testrad.aspx.designer.cs">
       <DependentUpon>testrad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Training\Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Training\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1519,12 +1529,26 @@
     <Compile Include="Training\PilotHome.aspx.designer.cs">
       <DependentUpon>PilotHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Training\Pilots.aspx.cs">
+      <DependentUpon>Pilots.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\Pilots.aspx.designer.cs">
+      <DependentUpon>Pilots.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Training\TitleCourses.aspx.cs">
       <DependentUpon>TitleCourses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Training\TitleCourses.aspx.designer.cs">
       <DependentUpon>TitleCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Training\TrainingOrders.aspx.cs">
+      <DependentUpon>TrainingOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\TrainingOrders.aspx.designer.cs">
+      <DependentUpon>TrainingOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1881,6 +1905,9 @@
     <Content Include="Reports\SectorActualBurnOff.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Training\App_LocalResources\TrainingOrders.aspx.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

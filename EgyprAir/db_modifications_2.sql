@@ -8,19 +8,26 @@ If Exists (select Name
 		   from sysobjects 
 		   where name = '[Training].[Training]' and
 		        xtype = 'U')
-Drop Table [Training].Training
+Drop Table [Training].[Training]
 GO
-Create Table [Training].Training
+Create Table [Training].[Training]
 (
 	TrainingID int not null identity(1,1) primary key,	
 	TrainingCode nvarchar(200),	
-	PilotID int foreign key references dbo.Pilot(PilotID),			
-	PilotTitleID int foreign key references dbo.Title(TitleID),
+	AirPlaneModel nvarchar(200),
+	TrainingPlace nvarchar(200),	
 	AssignedByID int foreign key references dbo.Pilot(PilotID),
-	IsSpecial bit				
+	IsSpecial bit,
+	IsApproved bit,
+	StartDate DateTime,
+	EndDate DateTime,
+	TravelDate DateTime,
+	BackDate DateTime,
+	TrainerID int foreign key references dbo.Pilot(PilotID),			
+	TrainerTitleID int foreign key references dbo.Title(TitleID),
+	CourseID int foreign key references [Training].[Course](CourseID)
 )
 GO
-
 
 If Exists (select Name 
 		   from sysobjects 
@@ -58,7 +65,9 @@ Create Table [Training].[PilotCourse]
 	ExaminerID int foreign key references dbo.Pilot(PilotID),	
 	TrainingID int foreign key references [Training].[Training](TrainingID),				
 	StartDate DateTime,
-	EndDate DateTime,				
+	EndDate DateTime,
+	TravelDate DateTime,
+	BackDate DateTime,				
 	ExpiryDate DateTime,
 	Result bit,
 	Notes nvarchar(1000)

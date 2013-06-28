@@ -47,6 +47,7 @@ namespace Flight_DAL
 		{
 			this.QuerySource = "Course";
 			this.MappingName = "Course";
+            this.SchemaTableView = "Training.";
 
 		}	
 

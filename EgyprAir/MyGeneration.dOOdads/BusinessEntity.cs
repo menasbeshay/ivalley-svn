@@ -1369,7 +1369,7 @@ namespace MyGeneration.dOOdads
 		{
 			if(_dataTable == null)
 			{
-				this.LoadFromSql("SELECT * FROM [" +  QuerySource + "] WHERE 1=0", null, CommandType.Text);
+				this.LoadFromSql("SELECT * FROM " +  QuerySource + " WHERE 1=0", null, CommandType.Text);
 			}
 
 			DataRow newRow = _dataTable.NewRow();

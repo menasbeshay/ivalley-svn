@@ -47,7 +47,7 @@ namespace Flight_DAL
 		{
 			this.QuerySource = "PilotCourse";
 			this.MappingName = "PilotCourse";
-
+            this.SchemaTableView = "Training.";
 		}	
 
 		//=================================================================
@@ -179,6 +179,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter TravelDate
+			{
+				get
+				{
+					return new SqlParameter("@TravelDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter BackDate
+			{
+				get
+				{
+					return new SqlParameter("@BackDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
 			public static SqlParameter ExpiryDate
 			{
 				get
@@ -219,6 +235,8 @@ namespace Flight_DAL
             public const string TrainingID = "TrainingID";
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
+            public const string TravelDate = "TravelDate";
+            public const string BackDate = "BackDate";
             public const string ExpiryDate = "ExpiryDate";
             public const string Result = "Result";
             public const string Notes = "Notes";
@@ -239,6 +257,8 @@ namespace Flight_DAL
 					ht[TrainingID] = _PilotCourse.PropertyNames.TrainingID;
 					ht[StartDate] = _PilotCourse.PropertyNames.StartDate;
 					ht[EndDate] = _PilotCourse.PropertyNames.EndDate;
+					ht[TravelDate] = _PilotCourse.PropertyNames.TravelDate;
+					ht[BackDate] = _PilotCourse.PropertyNames.BackDate;
 					ht[ExpiryDate] = _PilotCourse.PropertyNames.ExpiryDate;
 					ht[Result] = _PilotCourse.PropertyNames.Result;
 					ht[Notes] = _PilotCourse.PropertyNames.Notes;
@@ -264,6 +284,8 @@ namespace Flight_DAL
             public const string TrainingID = "TrainingID";
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
+            public const string TravelDate = "TravelDate";
+            public const string BackDate = "BackDate";
             public const string ExpiryDate = "ExpiryDate";
             public const string Result = "Result";
             public const string Notes = "Notes";
@@ -284,6 +306,8 @@ namespace Flight_DAL
 					ht[TrainingID] = _PilotCourse.ColumnNames.TrainingID;
 					ht[StartDate] = _PilotCourse.ColumnNames.StartDate;
 					ht[EndDate] = _PilotCourse.ColumnNames.EndDate;
+					ht[TravelDate] = _PilotCourse.ColumnNames.TravelDate;
+					ht[BackDate] = _PilotCourse.ColumnNames.BackDate;
 					ht[ExpiryDate] = _PilotCourse.ColumnNames.ExpiryDate;
 					ht[Result] = _PilotCourse.ColumnNames.Result;
 					ht[Notes] = _PilotCourse.ColumnNames.Notes;
@@ -309,6 +333,8 @@ namespace Flight_DAL
             public const string TrainingID = "s_TrainingID";
             public const string StartDate = "s_StartDate";
             public const string EndDate = "s_EndDate";
+            public const string TravelDate = "s_TravelDate";
+            public const string BackDate = "s_BackDate";
             public const string ExpiryDate = "s_ExpiryDate";
             public const string Result = "s_Result";
             public const string Notes = "s_Notes";
@@ -435,6 +461,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.EndDate, value);
+			}
+		}
+
+		public virtual DateTime TravelDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.TravelDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.TravelDate, value);
+			}
+		}
+
+		public virtual DateTime BackDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.BackDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.BackDate, value);
 			}
 		}
 
@@ -629,6 +679,36 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_TravelDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TravelDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.TravelDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TravelDate);
+				else
+					this.TravelDate = base.SetDateTimeAsString(ColumnNames.TravelDate, value);
+			}
+		}
+
+		public virtual string s_BackDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.BackDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.BackDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.BackDate);
+				else
+					this.BackDate = base.SetDateTimeAsString(ColumnNames.BackDate, value);
+			}
+		}
+
 		public virtual string s_ExpiryDate
 	    {
 			get
@@ -807,6 +887,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter TravelDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TravelDate, Parameters.TravelDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter BackDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.BackDate, Parameters.BackDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 				public WhereParameter ExpiryDate
 				{
 					get
@@ -962,6 +1062,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter TravelDate
+		    {
+				get
+		        {
+					if(_TravelDate_W == null)
+	        	    {
+						_TravelDate_W = TearOff.TravelDate;
+					}
+					return _TravelDate_W;
+				}
+			}
+
+			public WhereParameter BackDate
+		    {
+				get
+		        {
+					if(_BackDate_W == null)
+	        	    {
+						_BackDate_W = TearOff.BackDate;
+					}
+					return _BackDate_W;
+				}
+			}
+
 			public WhereParameter ExpiryDate
 		    {
 				get
@@ -1008,6 +1132,8 @@ namespace Flight_DAL
 			private WhereParameter _TrainingID_W = null;
 			private WhereParameter _StartDate_W = null;
 			private WhereParameter _EndDate_W = null;
+			private WhereParameter _TravelDate_W = null;
+			private WhereParameter _BackDate_W = null;
 			private WhereParameter _ExpiryDate_W = null;
 			private WhereParameter _Result_W = null;
 			private WhereParameter _Notes_W = null;
@@ -1024,6 +1150,8 @@ namespace Flight_DAL
 				_TrainingID_W = null;
 				_StartDate_W = null;
 				_EndDate_W = null;
+				_TravelDate_W = null;
+				_BackDate_W = null;
 				_ExpiryDate_W = null;
 				_Result_W = null;
 				_Notes_W = null;
@@ -1178,6 +1306,26 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EndDate, Parameters.EndDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TravelDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TravelDate, Parameters.TravelDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter BackDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BackDate, Parameters.BackDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1338,6 +1486,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter TravelDate
+		    {
+				get
+		        {
+					if(_TravelDate_W == null)
+	        	    {
+						_TravelDate_W = TearOff.TravelDate;
+					}
+					return _TravelDate_W;
+				}
+			}
+
+			public AggregateParameter BackDate
+		    {
+				get
+		        {
+					if(_BackDate_W == null)
+	        	    {
+						_BackDate_W = TearOff.BackDate;
+					}
+					return _BackDate_W;
+				}
+			}
+
 			public AggregateParameter ExpiryDate
 		    {
 				get
@@ -1384,6 +1556,8 @@ namespace Flight_DAL
 			private AggregateParameter _TrainingID_W = null;
 			private AggregateParameter _StartDate_W = null;
 			private AggregateParameter _EndDate_W = null;
+			private AggregateParameter _TravelDate_W = null;
+			private AggregateParameter _BackDate_W = null;
 			private AggregateParameter _ExpiryDate_W = null;
 			private AggregateParameter _Result_W = null;
 			private AggregateParameter _Notes_W = null;
@@ -1400,6 +1574,8 @@ namespace Flight_DAL
 				_TrainingID_W = null;
 				_StartDate_W = null;
 				_EndDate_W = null;
+				_TravelDate_W = null;
+				_BackDate_W = null;
 				_ExpiryDate_W = null;
 				_Result_W = null;
 				_Notes_W = null;
@@ -1515,6 +1691,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.EndDate);
 			p.SourceColumn = ColumnNames.EndDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TravelDate);
+			p.SourceColumn = ColumnNames.TravelDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.BackDate);
+			p.SourceColumn = ColumnNames.BackDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.ExpiryDate);

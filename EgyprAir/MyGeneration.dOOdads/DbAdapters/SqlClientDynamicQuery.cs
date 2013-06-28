@@ -197,7 +197,7 @@ namespace MyGeneration.dOOdads
 				query += "*";
 			}
 
-			query += " FROM [" + this._entity.QuerySource + "]";
+			query += " FROM " + this._entity.QuerySource + "";
 
 			SqlCommand cmd = new SqlCommand();
 

@@ -5,133 +5,133 @@ var App = function () {
     var isIE8 = false;
 
 
-    var handleJQVMAP = function () {
+//    var handleJQVMAP = function () {
 
-        if (!sample_data) {
-            return;
-        }
+//        if (!sample_data) {
+//            return;
+//        }
 
-        var showMap = function (name) {
-            jQuery('.vmaps').hide();
-            jQuery('#vmap_' + name).show();
-        }
+//        var showMap = function (name) {
+//            jQuery('.vmaps').hide();
+//            jQuery('#vmap_' + name).show();
+//        }
 
-        var setMap = function (name) {
-            var data = {
-                map: 'world_en',
-                backgroundColor: null,
-                borderColor: '#333333',
-                borderOpacity: 0.5,
-                borderWidth: 1,
-                color: '#c6c6c6',
-                enableZoom: true,
-                hoverColor: '#3daced',
-                hoverOpacity: null,
-                values: sample_data,
-                normalizeFunction: 'linear',
-                scaleColors: ['#e8e8e8', '#b0b0b0'],
-                selectedColor: '#3daced',
-                selectedRegion: null,
-                showTooltip: true,
-                onLabelShow: function (event, label, code) {
+//        var setMap = function (name) {
+//            var data = {
+//                map: 'world_en',
+//                backgroundColor: null,
+//                borderColor: '#333333',
+//                borderOpacity: 0.5,
+//                borderWidth: 1,
+//                color: '#c6c6c6',
+//                enableZoom: true,
+//                hoverColor: '#3daced',
+//                hoverOpacity: null,
+//                values: sample_data,
+//                normalizeFunction: 'linear',
+//                scaleColors: ['#e8e8e8', '#b0b0b0'],
+//                selectedColor: '#3daced',
+//                selectedRegion: null,
+//                showTooltip: true,
+//                onLabelShow: function (event, label, code) {
 
-                },
-                onRegionOver: function (event, code) {
-                    if (code == 'ca') {
-                        event.preventDefault();
-                    }
-                },
-                onRegionClick: function (element, code, region) {
-                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                    alert(message);
-                }
-            };
+//                },
+//                onRegionOver: function (event, code) {
+//                    if (code == 'ca') {
+//                        event.preventDefault();
+//                    }
+//                },
+//                onRegionClick: function (element, code, region) {
+//                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+//                    alert(message);
+//                }
+//            };
 
-            data.map = name + '_en';
-            var map = jQuery('#vmap_' + name);
-            map.width(map.parent().parent().width());
-            map.show();
-            map.vectorMap(data);
-            map.hide();
-        }
+//            data.map = name + '_en';
+//            var map = jQuery('#vmap_' + name);
+//            map.width(map.parent().parent().width());
+//            map.show();
+//            map.vectorMap(data);
+//            map.hide();
+//        }
 
-        setMap("world");
-        setMap("usa");
-        setMap("europe");
-        setMap("russia");
-        setMap("germany");
+//        setMap("world");
+//        setMap("usa");
+//        setMap("europe");
+//        setMap("russia");
+//        setMap("germany");
 
-        showMap("world");
+//        showMap("world");
 
-        jQuery('#regional_stat_world').click(function () {
-            showMap("world");
-        });
+//        jQuery('#regional_stat_world').click(function () {
+//            showMap("world");
+//        });
 
-        jQuery('#regional_stat_usa').click(function () {
-            showMap("usa");
-        });
+//        jQuery('#regional_stat_usa').click(function () {
+//            showMap("usa");
+//        });
 
-        jQuery('#regional_stat_europe').click(function () {
-            showMap("europe");
-        });
-        jQuery('#regional_stat_russia').click(function () {
-            showMap("russia");
-        });
-        jQuery('#regional_stat_germany').click(function () {
-            showMap("germany");
-        });
+//        jQuery('#regional_stat_europe').click(function () {
+//            showMap("europe");
+//        });
+//        jQuery('#regional_stat_russia').click(function () {
+//            showMap("russia");
+//        });
+//        jQuery('#regional_stat_germany').click(function () {
+//            showMap("germany");
+//        });
 
-        $('#region_statistics_loading').hide();
-        $('#region_statistics_content').show();
-    }
+//        $('#region_statistics_loading').hide();
+//        $('#region_statistics_content').show();
+//    }
 
-    var handleAllJQVMAP = function () {
+//    var handleAllJQVMAP = function () {
 
-        if (!sample_data) {
-            return;
-        }
+//        if (!sample_data) {
+//            return;
+//        }
 
-        var setMap = function (name) {
-            var data = {
-                map: 'world_en',
-                backgroundColor: null,
-                borderColor: '#333333',
-                borderOpacity: 0.5,
-                borderWidth: 1,
-                color: '#c6c6c6',
-                enableZoom: true,
-                hoverColor: '#3daced',
-                hoverOpacity: null,
-                values: sample_data,
-                normalizeFunction: 'linear',
-                scaleColors: ['#e8e8e8', '#b0b0b0'],
-                selectedColor: '#3daced',
-                selectedRegion: null,
-                showTooltip: true,
-                onRegionOver: function (event, code) {
-                    //sample to interact with map
-                    if (code == 'ca') {
-                        event.preventDefault();
-                    }
-                },
-                onRegionClick: function (element, code, region) {
-                    //sample to interact with map
-                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                    alert(message);
-                }
-            };
-            data.map = name + '_en';
-            var map = jQuery('#vmap_' + name);
-            map.width(map.parent().width());
-            map.vectorMap(data);
-        }
+//        var setMap = function (name) {
+//            var data = {
+//                map: 'world_en',
+//                backgroundColor: null,
+//                borderColor: '#333333',
+//                borderOpacity: 0.5,
+//                borderWidth: 1,
+//                color: '#c6c6c6',
+//                enableZoom: true,
+//                hoverColor: '#3daced',
+//                hoverOpacity: null,
+//                values: sample_data,
+//                normalizeFunction: 'linear',
+//                scaleColors: ['#e8e8e8', '#b0b0b0'],
+//                selectedColor: '#3daced',
+//                selectedRegion: null,
+//                showTooltip: true,
+//                onRegionOver: function (event, code) {
+//                    //sample to interact with map
+//                    if (code == 'ca') {
+//                        event.preventDefault();
+//                    }
+//                },
+//                onRegionClick: function (element, code, region) {
+//                    //sample to interact with map
+//                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+//                    alert(message);
+//                }
+//            };
+//            data.map = name + '_en';
+//            var map = jQuery('#vmap_' + name);
+//            map.width(map.parent().width());
+//            map.vectorMap(data);
+//        }
 
-        setMap("world");
-        setMap("usa");
-        setMap("europe");
-        setMap("russia");
-        setMap("germany");
-    }
+//        setMap("world");
+//        setMap("usa");
+//        setMap("europe");
+//        setMap("russia");
+//        setMap("germany");
+//    }
 
 
 
@@ -165,6 +165,7 @@ var App = function () {
         $('#calendar').html("");
         $('#calendar').fullCalendar({
             header: h,
+            height:100, // fix height
             editable: true,
             events: [{
                 title: 'All Day Event',
@@ -210,6 +211,7 @@ var App = function () {
                 className: 'label label-warning',
             }]
         });
+        
 
     }
 
@@ -301,6 +303,7 @@ var App = function () {
 
         $('#calendar').fullCalendar({
             header: h,
+            //height:450, // fix height
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped
@@ -1847,7 +1850,7 @@ var App = function () {
             return;
         }
 
-        $('.date-range').daterangepicker();
+        $('.date-range').daterangepicker({ format: 'dd/MM/yyyy', locale: { fromLabel:"mena",firstDay:1 } });
 
         $('#dashboard-report-range').daterangepicker({
             ranges: {
@@ -2176,7 +2179,7 @@ var App = function () {
 
             if (isMainPage) {
                 handleDashboardCharts(); // handles plot charts for main page
-                handleJQVMAP(); // handles vector maps for home page
+                //handleJQVMAP(); // handles vector maps for home page
                 handleDashboardCalendar(); // handles full calendar for main page
                 handleChat() // handles dashboard chat
             } else {
@@ -2184,9 +2187,9 @@ var App = function () {
                 handlePortletSortable(); // handles portlet draggable sorting
             }
 
-            if (isMapPage) {
+            /*if (isMapPage) {
                 handleAllJQVMAP(); // handles vector maps for interactive map page
-            }
+            }*/
 
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
@@ -2213,9 +2216,9 @@ var App = function () {
             handleFormWizards();
             handleSidebarToggler();
 
-            if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
+            /*if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
                 handleIntro();
-            }
+            }*/
         },
 
         // login page setup
