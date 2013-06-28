@@ -30,7 +30,7 @@
                         </asp:Repeater>
                         <div class="clearfix" style="height:10px;"></div>
                         <asp:HyperLink ID="uiLinkButtonAddTitle" runat="server" CssClass="btn blue" NavigateUrl="#Titlemodal"
-                            data-toggle="modal"><i class='icon-plus'></i> Add title</asp:HyperLink>
+                            data-toggle="modal"><i class='icon-plus'></i> Modify titles</asp:HyperLink>
                         <div id="Titlemodal" class="modal  fade" tabindex="-1"  aria-labelledby="myModalLabel1"
                             aria-hidden="true">
                             <div class="modal-header">
@@ -59,20 +59,9 @@
                                 </div>
                                 <div class="clearfix" style="height: 20px;">
                                 </div>
-                                <asp:GridView ID="uiGridViewTitles" runat="server" AutoGenerateColumns="False"
-                                    CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="uiGridViewTitles_RowCommand"
-                                    Width="90%">
-                                    <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" />
-                                    <EditRowStyle BackColor="#2461BF" />
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
-                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                <asp:GridView ID="uiGridViewTitles" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                    OnRowCommand="uiGridViewTitles_RowCommand" CssClass="table table-striped table-bordered"
+                                    Width="90%">                                    
                                     <Columns>
                                         <asp:BoundField DataField="Name" HeaderText="Course" />
                                         <asp:TemplateField HeaderText="Actions">

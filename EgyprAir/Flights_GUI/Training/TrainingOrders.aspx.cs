@@ -52,6 +52,7 @@ namespace Flights_GUI.Training
                 Master.CustomPageTitle = GetLocalResourceObject("Title").ToString();
                 LoadCourses();
                 LoadPilots();
+                LoadAircrafts();
                 BindData();
                 uiPanelAllTOs.Visible = true;
                 uiPanelEditTO.Visible = false;
@@ -71,8 +72,8 @@ namespace Flights_GUI.Training
                 Flight_BLL.Training objData = new Flight_BLL.Training();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 
-                uiTextBoxCode.Text = objData.TrainingCode;                
-                uiTextBoxAircraft.Text = objData.AirPlaneModel;
+                uiTextBoxCode.Text = objData.TrainingCode;
+                uiDropDownListAircraft.SelectedValue = objData.AirPlaneModel.ToString();
                 uiTextBoxTrainingPlace.Text = objData.TrainingPlace;
                 uiDropDownListCourses.SelectedValue= objData.CourseID.ToString();
                 uiDropDownListTrainer.SelectedValue = objData.TrainerID.ToString();
@@ -91,7 +92,7 @@ namespace Flights_GUI.Training
                 Flight_BLL.Training objData = new Flight_BLL.Training();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 PilotCourse pc = new PilotCourse();
-                pc.Where.TrainingID.Value = Convert.ToInt32(CurrentTraining.TrainingID);
+                pc.Where.TrainingID.Value = objData.TrainingID;
                 pc.Query.Load();
                 pc.MarkAsDeleted();
                 pc.Save();
@@ -109,11 +110,20 @@ namespace Flights_GUI.Training
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                Label courseName = (Label)e.Row.FindControl("uiLabelCourse");
+                Label courseName = (Label)e.Row.FindControl("uiLabelCourse");                
+                
                 Flight_BLL.Course course = new Flight_BLL.Course();
                 DataRowView row = (DataRowView)e.Row.DataItem;
                 course.LoadByPrimaryKey(Convert.ToInt32(row["CourseID"].ToString()));
                 courseName.Text = course.Name;
+
+                Label AirplaneName = (Label)e.Row.FindControl("uiLabelAircraft");
+
+                Flight_BLL.AirPlane Aircraft = new Flight_BLL.AirPlane();
+                DataRowView rowa = (DataRowView)e.Row.DataItem;
+                Aircraft.LoadByPrimaryKey(Convert.ToInt32(rowa["AirPlaneModel"].ToString()));
+                AirplaneName.Text = Aircraft.Name;
+
             }
         }
 
@@ -177,7 +187,7 @@ namespace Flights_GUI.Training
                 objData = CurrentTraining;
 
             objData.TrainingCode = uiTextBoxCode.Text;
-            objData.AirPlaneModel = uiTextBoxAircraft.Text;
+            objData.AirPlaneModel = Convert.ToInt32(uiDropDownListAircraft.SelectedValue);
             objData.TrainingPlace = uiTextBoxTrainingPlace.Text;
             objData.CourseID = Convert.ToInt32(uiDropDownListCourses.SelectedValue);
             objData.TrainerID = Convert.ToInt32(uiDropDownListTrainer.SelectedValue);
@@ -265,18 +275,31 @@ namespace Flights_GUI.Training
             uiGridViewPilots.DataBind();
         }
 
+
+        private void LoadAircrafts()
+        {
+            AirPlane objdata = new AirPlane();
+            objdata.LoadAll();
+            objdata.Sort = "Name ASC";
+            uiDropDownListAircraft.DataSource = objdata.DefaultView;
+            uiDropDownListAircraft.DataTextField = "Name";
+            uiDropDownListAircraft.DataValueField = "AirplaneID";
+            uiDropDownListAircraft.DataBind();
+        }
+
+
         private void LoadPilots()
         {
-            Pilot objdata = new Pilot();            
-            objdata.LoadAll();
-            objdata.Sort = "ShortName ASC";
+            Pilot objdata = new Pilot();
+            objdata.GetAllPilots();
+            objdata.Sort = "DisplayName ASC";
             uiDropDownListTrainer.DataSource = objdata.DefaultView;
-            uiDropDownListTrainer.DataTextField = "ShortName";
+            uiDropDownListTrainer.DataTextField = "DisplayName";
             uiDropDownListTrainer.DataValueField = "PilotID";
             uiDropDownListTrainer.DataBind();
 
             uiDropDownListTrainingPilots.DataSource = objdata.DefaultView;
-            uiDropDownListTrainingPilots.DataTextField = "ShortName";
+            uiDropDownListTrainingPilots.DataTextField = "DisplayName";
             uiDropDownListTrainingPilots.DataValueField = "PilotID";
             uiDropDownListTrainingPilots.DataBind();
         }
@@ -340,7 +363,7 @@ namespace Flights_GUI.Training
         private void ClearFields()
         {
             uiTextBoxCode.Text = "";
-            uiTextBoxAircraft.Text = "";
+            uiDropDownListAircraft.SelectedIndex = 0;
             uiTextBoxSEDate.Text = "";
             uiTextBoxTrainingPlace.Text = "";
             uiDropDownListCourses.SelectedIndex = 0;

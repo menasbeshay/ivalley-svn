@@ -38,7 +38,8 @@
                                     <label class="control-label">
                                         Aircraft Model</label>
                                     <div class="controls">
-                                        <asp:TextBox ID="uiTextBoxAircraft" runat="server" CssClass="input-large"></asp:TextBox>
+                                        <asp:DropDownList ID="uiDropDownListAircraft" runat="server" CssClass="input-large" style="width:223px;">
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="span6">
@@ -74,7 +75,7 @@
                             
                         </div>
                         <div class="clearfix" style="height:20px;"></div>
-                        <asp:Panel ID="uiPanelPilots" runat="server" GroupingText="Pilots">
+                        <asp:Panel ID="uiPanelPilots" runat="server" GroupingText="Add pilots for this training (trainee)">
                         <div class="form-horizontal">
 
                             <div class="control-group">
@@ -86,26 +87,22 @@
                                         </asp:DropDownList> 
                                         &nbsp;
                                         <asp:LinkButton ID="uiLinkButtonAddPilot" runat="server" CssClass="btn blue" 
-                                            onclick="uiLinkButtonAddPilot_Click"><i class='icon-ok'></i> Add pilot</asp:LinkButton>
+                                            onclick="uiLinkButtonAddPilot_Click"><i class='icon-plus'></i> Add pilot</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <asp:GridView ID="uiGridViewPilots" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                                    CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="uiGridViewPilots_PageIndexChanging"
-                                    OnRowCommand="uiGridViewPilots_RowCommand" Width="90%">
-                                    <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" />
-                                    <EditRowStyle BackColor="#2461BF" />
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
-                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                    CellPadding="4" GridLines="None" OnPageIndexChanging="uiGridViewPilots_PageIndexChanging"
+                                    OnRowCommand="uiGridViewPilots_RowCommand" Width="90%" CssClass="table table-striped table-bordered">
+                                    <AlternatingRowStyle HorizontalAlign="Center" />
+                                    
+                                    <FooterStyle Font-Bold="True" />
+                                    <HeaderStyle  Font-Bold="True" HorizontalAlign="Center" />
+                                    <PagerStyle  HorizontalAlign="Center" />
+                                    <RowStyle  HorizontalAlign="Center" />
+                                    
                                     <Columns>
                                         <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                                         <asp:BoundField DataField="SureName" HeaderText="Last Name" />
@@ -123,14 +120,19 @@
                         </div>
                         </asp:Panel>
                         <div class="form-actions">                            
+                            <div style="float:left;margin-left:-180px;">
+                            <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn blue" OnClick="uiLinkButtonBack_Click" ><i class='icon-arrow-left'></i> Back to training orders</asp:LinkButton>
+                            </div>
+                            <div style="float: left; margin-left: 100px;">
                             <asp:LinkButton ID="uiLinkButtonOK" runat="server" CssClass="btn blue" 
                                 onclick="uiLinkButtonOK_Click"><i class='icon-ok'></i> Save and continue</asp:LinkButton>
                             <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" 
                                 onclick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> Cancel</asp:LinkButton>
-                            <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn blue" OnClick="uiLinkButtonBack_Click"><i class='icon-arrow-left'></i> Back to training orders</asp:LinkButton>
-
+                            </div>
+                            <div style="float:right;margin-right:20px;">
                             <asp:LinkButton ID="uiLinkButtonApprove" runat="server" CssClass="btn btn-success"
-                                OnClick="uiLinkButtonApprove_Click"><i class="icon-ok icon-white"></i> Approve</asp:LinkButton>
+                                OnClick="uiLinkButtonApprove_Click"><i class="icon-ok icon-white" ></i> Approve</asp:LinkButton>
+                            </div>
                             
                         </div>
                         
@@ -157,23 +159,23 @@
                         <div class="clearfix" style="height: 20px;">
                         </div>
                         <asp:GridView ID="uiGridViewTO" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                            CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="uiGridViewTO_PageIndexChanging"
-                            OnRowCommand="uiGridViewTO_RowCommand" Width="90%" 
-                            onrowdatabound="uiGridViewTO_RowDataBound">
-                            <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" />
+                            CellPadding="4" GridLines="None" OnPageIndexChanging="uiGridViewTO_PageIndexChanging"
+                            OnRowCommand="uiGridViewTO_RowCommand" Width="90%" OnRowDataBound="uiGridViewTO_RowDataBound"
+                            CssClass="table table-striped table-bordered">
+                            <AlternatingRowStyle HorizontalAlign="Center" />
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                            <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
+                            <PagerStyle  HorizontalAlign="Center" />
+                            <RowStyle  HorizontalAlign="Center" />
+                            
                             <Columns>
                                 <asp:BoundField DataField="TrainingCode" HeaderText="Training Code" />
-                                <asp:BoundField DataField="AirPlaneModel" HeaderText="AirPlane Model" />
+                                <asp:TemplateField HeaderText="AirPlane Model">
+                                <ItemTemplate>
+                                    <asp:Label ID="uiLabelAircraft" runat="server"></asp:Label>
+                                </ItemTemplate>
+                                </asp:TemplateField>                                                          
                                 <asp:BoundField DataField="TrainingPlace" HeaderText="Training Place" />
                                 <asp:TemplateField HeaderText="Course">
                                 <ItemTemplate>
