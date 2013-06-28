@@ -3,6 +3,9 @@
 
 using System;
 using Flight_DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace Flight_BLL
 {
 	public class PilotCourse : _PilotCourse
@@ -11,5 +14,15 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public virtual IDataReader GetPilotCoursesByPilotID(int PilotID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@PilotID", SqlDbType.Int, 0), PilotID);
+
+            return LoadFromSqlReader("GetPilotCoursesByPilotID", parameters);
+
+        }
 	}
 }

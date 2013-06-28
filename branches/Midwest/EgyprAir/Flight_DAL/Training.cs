@@ -45,8 +45,9 @@ namespace Flight_DAL
 	{
 		public _Training()
 		{
-			this.QuerySource = "Training";
-			this.MappingName = "Training";
+            this.QuerySource = "Training";
+            this.MappingName = "Training";
+            this.SchemaTableView = "Training.";
 
 		}	
 
@@ -115,19 +116,19 @@ namespace Flight_DAL
 				}
 			}
 			
-			public static SqlParameter PilotID
+			public static SqlParameter AirPlaneModel
 			{
 				get
 				{
-					return new SqlParameter("@PilotID", SqlDbType.Int, 0);
+					return new SqlParameter("@AirPlaneModel", SqlDbType.NVarChar, 200);
 				}
 			}
 			
-			public static SqlParameter PilotTitleID
+			public static SqlParameter TrainingPlace
 			{
 				get
 				{
-					return new SqlParameter("@PilotTitleID", SqlDbType.Int, 0);
+					return new SqlParameter("@TrainingPlace", SqlDbType.NVarChar, 200);
 				}
 			}
 			
@@ -147,6 +148,70 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter IsApproved
+			{
+				get
+				{
+					return new SqlParameter("@IsApproved", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter StartDate
+			{
+				get
+				{
+					return new SqlParameter("@StartDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter EndDate
+			{
+				get
+				{
+					return new SqlParameter("@EndDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter TravelDate
+			{
+				get
+				{
+					return new SqlParameter("@TravelDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter BackDate
+			{
+				get
+				{
+					return new SqlParameter("@BackDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter TrainerID
+			{
+				get
+				{
+					return new SqlParameter("@TrainerID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter TrainerTitleID
+			{
+				get
+				{
+					return new SqlParameter("@TrainerTitleID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter CourseID
+			{
+				get
+				{
+					return new SqlParameter("@CourseID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -155,10 +220,18 @@ namespace Flight_DAL
 		{  
             public const string TrainingID = "TrainingID";
             public const string TrainingCode = "TrainingCode";
-            public const string PilotID = "PilotID";
-            public const string PilotTitleID = "PilotTitleID";
+            public const string AirPlaneModel = "AirPlaneModel";
+            public const string TrainingPlace = "TrainingPlace";
             public const string AssignedByID = "AssignedByID";
             public const string IsSpecial = "IsSpecial";
+            public const string IsApproved = "IsApproved";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string TravelDate = "TravelDate";
+            public const string BackDate = "BackDate";
+            public const string TrainerID = "TrainerID";
+            public const string TrainerTitleID = "TrainerTitleID";
+            public const string CourseID = "CourseID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -168,10 +241,18 @@ namespace Flight_DAL
 					
 					ht[TrainingID] = _Training.PropertyNames.TrainingID;
 					ht[TrainingCode] = _Training.PropertyNames.TrainingCode;
-					ht[PilotID] = _Training.PropertyNames.PilotID;
-					ht[PilotTitleID] = _Training.PropertyNames.PilotTitleID;
+					ht[AirPlaneModel] = _Training.PropertyNames.AirPlaneModel;
+					ht[TrainingPlace] = _Training.PropertyNames.TrainingPlace;
 					ht[AssignedByID] = _Training.PropertyNames.AssignedByID;
 					ht[IsSpecial] = _Training.PropertyNames.IsSpecial;
+					ht[IsApproved] = _Training.PropertyNames.IsApproved;
+					ht[StartDate] = _Training.PropertyNames.StartDate;
+					ht[EndDate] = _Training.PropertyNames.EndDate;
+					ht[TravelDate] = _Training.PropertyNames.TravelDate;
+					ht[BackDate] = _Training.PropertyNames.BackDate;
+					ht[TrainerID] = _Training.PropertyNames.TrainerID;
+					ht[TrainerTitleID] = _Training.PropertyNames.TrainerTitleID;
+					ht[CourseID] = _Training.PropertyNames.CourseID;
 
 				}
 				return (string)ht[columnName];
@@ -186,10 +267,18 @@ namespace Flight_DAL
 		{  
             public const string TrainingID = "TrainingID";
             public const string TrainingCode = "TrainingCode";
-            public const string PilotID = "PilotID";
-            public const string PilotTitleID = "PilotTitleID";
+            public const string AirPlaneModel = "AirPlaneModel";
+            public const string TrainingPlace = "TrainingPlace";
             public const string AssignedByID = "AssignedByID";
             public const string IsSpecial = "IsSpecial";
+            public const string IsApproved = "IsApproved";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string TravelDate = "TravelDate";
+            public const string BackDate = "BackDate";
+            public const string TrainerID = "TrainerID";
+            public const string TrainerTitleID = "TrainerTitleID";
+            public const string CourseID = "CourseID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -199,10 +288,18 @@ namespace Flight_DAL
 					
 					ht[TrainingID] = _Training.ColumnNames.TrainingID;
 					ht[TrainingCode] = _Training.ColumnNames.TrainingCode;
-					ht[PilotID] = _Training.ColumnNames.PilotID;
-					ht[PilotTitleID] = _Training.ColumnNames.PilotTitleID;
+					ht[AirPlaneModel] = _Training.ColumnNames.AirPlaneModel;
+					ht[TrainingPlace] = _Training.ColumnNames.TrainingPlace;
 					ht[AssignedByID] = _Training.ColumnNames.AssignedByID;
 					ht[IsSpecial] = _Training.ColumnNames.IsSpecial;
+					ht[IsApproved] = _Training.ColumnNames.IsApproved;
+					ht[StartDate] = _Training.ColumnNames.StartDate;
+					ht[EndDate] = _Training.ColumnNames.EndDate;
+					ht[TravelDate] = _Training.ColumnNames.TravelDate;
+					ht[BackDate] = _Training.ColumnNames.BackDate;
+					ht[TrainerID] = _Training.ColumnNames.TrainerID;
+					ht[TrainerTitleID] = _Training.ColumnNames.TrainerTitleID;
+					ht[CourseID] = _Training.ColumnNames.CourseID;
 
 				}
 				return (string)ht[propertyName];
@@ -217,10 +314,18 @@ namespace Flight_DAL
 		{  
             public const string TrainingID = "s_TrainingID";
             public const string TrainingCode = "s_TrainingCode";
-            public const string PilotID = "s_PilotID";
-            public const string PilotTitleID = "s_PilotTitleID";
+            public const string AirPlaneModel = "s_AirPlaneModel";
+            public const string TrainingPlace = "s_TrainingPlace";
             public const string AssignedByID = "s_AssignedByID";
             public const string IsSpecial = "s_IsSpecial";
+            public const string IsApproved = "s_IsApproved";
+            public const string StartDate = "s_StartDate";
+            public const string EndDate = "s_EndDate";
+            public const string TravelDate = "s_TravelDate";
+            public const string BackDate = "s_BackDate";
+            public const string TrainerID = "s_TrainerID";
+            public const string TrainerTitleID = "s_TrainerTitleID";
+            public const string CourseID = "s_CourseID";
 
 		}
 		#endregion		
@@ -251,27 +356,27 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual int PilotID
+		public virtual string AirPlaneModel
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.PilotID);
+				return base.Getstring(ColumnNames.AirPlaneModel);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.PilotID, value);
+				base.Setstring(ColumnNames.AirPlaneModel, value);
 			}
 		}
 
-		public virtual int PilotTitleID
+		public virtual string TrainingPlace
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.PilotTitleID);
+				return base.Getstring(ColumnNames.TrainingPlace);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.PilotTitleID, value);
+				base.Setstring(ColumnNames.TrainingPlace, value);
 			}
 		}
 
@@ -296,6 +401,102 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsSpecial, value);
+			}
+		}
+
+		public virtual bool IsApproved
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsApproved);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsApproved, value);
+			}
+		}
+
+		public virtual DateTime StartDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.StartDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.StartDate, value);
+			}
+		}
+
+		public virtual DateTime EndDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.EndDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.EndDate, value);
+			}
+		}
+
+		public virtual DateTime TravelDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.TravelDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.TravelDate, value);
+			}
+		}
+
+		public virtual DateTime BackDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.BackDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.BackDate, value);
+			}
+		}
+
+		public virtual int TrainerID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TrainerID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TrainerID, value);
+			}
+		}
+
+		public virtual int TrainerTitleID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TrainerTitleID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TrainerTitleID, value);
+			}
+		}
+
+		public virtual int CourseID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.CourseID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.CourseID, value);
 			}
 		}
 
@@ -334,33 +535,33 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string s_PilotID
+		public virtual string s_AirPlaneModel
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.PilotID) ? string.Empty : base.GetintAsString(ColumnNames.PilotID);
+				return this.IsColumnNull(ColumnNames.AirPlaneModel) ? string.Empty : base.GetstringAsString(ColumnNames.AirPlaneModel);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.PilotID);
+					this.SetColumnNull(ColumnNames.AirPlaneModel);
 				else
-					this.PilotID = base.SetintAsString(ColumnNames.PilotID, value);
+					this.AirPlaneModel = base.SetstringAsString(ColumnNames.AirPlaneModel, value);
 			}
 		}
 
-		public virtual string s_PilotTitleID
+		public virtual string s_TrainingPlace
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.PilotTitleID) ? string.Empty : base.GetintAsString(ColumnNames.PilotTitleID);
+				return this.IsColumnNull(ColumnNames.TrainingPlace) ? string.Empty : base.GetstringAsString(ColumnNames.TrainingPlace);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.PilotTitleID);
+					this.SetColumnNull(ColumnNames.TrainingPlace);
 				else
-					this.PilotTitleID = base.SetintAsString(ColumnNames.PilotTitleID, value);
+					this.TrainingPlace = base.SetstringAsString(ColumnNames.TrainingPlace, value);
 			}
 		}
 
@@ -391,6 +592,126 @@ namespace Flight_DAL
 					this.SetColumnNull(ColumnNames.IsSpecial);
 				else
 					this.IsSpecial = base.SetboolAsString(ColumnNames.IsSpecial, value);
+			}
+		}
+
+		public virtual string s_IsApproved
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsApproved) ? string.Empty : base.GetboolAsString(ColumnNames.IsApproved);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsApproved);
+				else
+					this.IsApproved = base.SetboolAsString(ColumnNames.IsApproved, value);
+			}
+		}
+
+		public virtual string s_StartDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StartDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.StartDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StartDate);
+				else
+					this.StartDate = base.SetDateTimeAsString(ColumnNames.StartDate, value);
+			}
+		}
+
+		public virtual string s_EndDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EndDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.EndDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EndDate);
+				else
+					this.EndDate = base.SetDateTimeAsString(ColumnNames.EndDate, value);
+			}
+		}
+
+		public virtual string s_TravelDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TravelDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.TravelDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TravelDate);
+				else
+					this.TravelDate = base.SetDateTimeAsString(ColumnNames.TravelDate, value);
+			}
+		}
+
+		public virtual string s_BackDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.BackDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.BackDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.BackDate);
+				else
+					this.BackDate = base.SetDateTimeAsString(ColumnNames.BackDate, value);
+			}
+		}
+
+		public virtual string s_TrainerID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TrainerID) ? string.Empty : base.GetintAsString(ColumnNames.TrainerID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TrainerID);
+				else
+					this.TrainerID = base.SetintAsString(ColumnNames.TrainerID, value);
+			}
+		}
+
+		public virtual string s_TrainerTitleID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TrainerTitleID) ? string.Empty : base.GetintAsString(ColumnNames.TrainerTitleID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TrainerTitleID);
+				else
+					this.TrainerTitleID = base.SetintAsString(ColumnNames.TrainerTitleID, value);
+			}
+		}
+
+		public virtual string s_CourseID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CourseID) ? string.Empty : base.GetintAsString(ColumnNames.CourseID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CourseID);
+				else
+					this.CourseID = base.SetintAsString(ColumnNames.CourseID, value);
 			}
 		}
 
@@ -447,21 +768,21 @@ namespace Flight_DAL
 					}
 				}
 
-				public WhereParameter PilotID
+				public WhereParameter AirPlaneModel
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.PilotID, Parameters.PilotID);
+							WhereParameter where = new WhereParameter(ColumnNames.AirPlaneModel, Parameters.AirPlaneModel);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter PilotTitleID
+				public WhereParameter TrainingPlace
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.PilotTitleID, Parameters.PilotTitleID);
+							WhereParameter where = new WhereParameter(ColumnNames.TrainingPlace, Parameters.TrainingPlace);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -482,6 +803,86 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.IsSpecial, Parameters.IsSpecial);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsApproved
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsApproved, Parameters.IsApproved);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter StartDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StartDate, Parameters.StartDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EndDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EndDate, Parameters.EndDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TravelDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TravelDate, Parameters.TravelDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter BackDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.BackDate, Parameters.BackDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TrainerID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TrainerID, Parameters.TrainerID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TrainerTitleID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TrainerTitleID, Parameters.TrainerTitleID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CourseID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CourseID, Parameters.CourseID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -516,27 +917,27 @@ namespace Flight_DAL
 				}
 			}
 
-			public WhereParameter PilotID
+			public WhereParameter AirPlaneModel
 		    {
 				get
 		        {
-					if(_PilotID_W == null)
+					if(_AirPlaneModel_W == null)
 	        	    {
-						_PilotID_W = TearOff.PilotID;
+						_AirPlaneModel_W = TearOff.AirPlaneModel;
 					}
-					return _PilotID_W;
+					return _AirPlaneModel_W;
 				}
 			}
 
-			public WhereParameter PilotTitleID
+			public WhereParameter TrainingPlace
 		    {
 				get
 		        {
-					if(_PilotTitleID_W == null)
+					if(_TrainingPlace_W == null)
 	        	    {
-						_PilotTitleID_W = TearOff.PilotTitleID;
+						_TrainingPlace_W = TearOff.TrainingPlace;
 					}
-					return _PilotTitleID_W;
+					return _TrainingPlace_W;
 				}
 			}
 
@@ -564,21 +965,133 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter IsApproved
+		    {
+				get
+		        {
+					if(_IsApproved_W == null)
+	        	    {
+						_IsApproved_W = TearOff.IsApproved;
+					}
+					return _IsApproved_W;
+				}
+			}
+
+			public WhereParameter StartDate
+		    {
+				get
+		        {
+					if(_StartDate_W == null)
+	        	    {
+						_StartDate_W = TearOff.StartDate;
+					}
+					return _StartDate_W;
+				}
+			}
+
+			public WhereParameter EndDate
+		    {
+				get
+		        {
+					if(_EndDate_W == null)
+	        	    {
+						_EndDate_W = TearOff.EndDate;
+					}
+					return _EndDate_W;
+				}
+			}
+
+			public WhereParameter TravelDate
+		    {
+				get
+		        {
+					if(_TravelDate_W == null)
+	        	    {
+						_TravelDate_W = TearOff.TravelDate;
+					}
+					return _TravelDate_W;
+				}
+			}
+
+			public WhereParameter BackDate
+		    {
+				get
+		        {
+					if(_BackDate_W == null)
+	        	    {
+						_BackDate_W = TearOff.BackDate;
+					}
+					return _BackDate_W;
+				}
+			}
+
+			public WhereParameter TrainerID
+		    {
+				get
+		        {
+					if(_TrainerID_W == null)
+	        	    {
+						_TrainerID_W = TearOff.TrainerID;
+					}
+					return _TrainerID_W;
+				}
+			}
+
+			public WhereParameter TrainerTitleID
+		    {
+				get
+		        {
+					if(_TrainerTitleID_W == null)
+	        	    {
+						_TrainerTitleID_W = TearOff.TrainerTitleID;
+					}
+					return _TrainerTitleID_W;
+				}
+			}
+
+			public WhereParameter CourseID
+		    {
+				get
+		        {
+					if(_CourseID_W == null)
+	        	    {
+						_CourseID_W = TearOff.CourseID;
+					}
+					return _CourseID_W;
+				}
+			}
+
 			private WhereParameter _TrainingID_W = null;
 			private WhereParameter _TrainingCode_W = null;
-			private WhereParameter _PilotID_W = null;
-			private WhereParameter _PilotTitleID_W = null;
+			private WhereParameter _AirPlaneModel_W = null;
+			private WhereParameter _TrainingPlace_W = null;
 			private WhereParameter _AssignedByID_W = null;
 			private WhereParameter _IsSpecial_W = null;
+			private WhereParameter _IsApproved_W = null;
+			private WhereParameter _StartDate_W = null;
+			private WhereParameter _EndDate_W = null;
+			private WhereParameter _TravelDate_W = null;
+			private WhereParameter _BackDate_W = null;
+			private WhereParameter _TrainerID_W = null;
+			private WhereParameter _TrainerTitleID_W = null;
+			private WhereParameter _CourseID_W = null;
 
 			public void WhereClauseReset()
 			{
 				_TrainingID_W = null;
 				_TrainingCode_W = null;
-				_PilotID_W = null;
-				_PilotTitleID_W = null;
+				_AirPlaneModel_W = null;
+				_TrainingPlace_W = null;
 				_AssignedByID_W = null;
 				_IsSpecial_W = null;
+				_IsApproved_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_TravelDate_W = null;
+				_BackDate_W = null;
+				_TrainerID_W = null;
+				_TrainerTitleID_W = null;
+				_CourseID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -655,21 +1168,21 @@ namespace Flight_DAL
 					}
 				}
 
-				public AggregateParameter PilotID
+				public AggregateParameter AirPlaneModel
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PilotID, Parameters.PilotID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AirPlaneModel, Parameters.AirPlaneModel);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter PilotTitleID
+				public AggregateParameter TrainingPlace
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PilotTitleID, Parameters.PilotTitleID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TrainingPlace, Parameters.TrainingPlace);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -690,6 +1203,86 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsSpecial, Parameters.IsSpecial);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsApproved
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsApproved, Parameters.IsApproved);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter StartDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StartDate, Parameters.StartDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EndDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EndDate, Parameters.EndDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TravelDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TravelDate, Parameters.TravelDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter BackDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BackDate, Parameters.BackDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TrainerID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TrainerID, Parameters.TrainerID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TrainerTitleID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TrainerTitleID, Parameters.TrainerTitleID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CourseID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CourseID, Parameters.CourseID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -724,27 +1317,27 @@ namespace Flight_DAL
 				}
 			}
 
-			public AggregateParameter PilotID
+			public AggregateParameter AirPlaneModel
 		    {
 				get
 		        {
-					if(_PilotID_W == null)
+					if(_AirPlaneModel_W == null)
 	        	    {
-						_PilotID_W = TearOff.PilotID;
+						_AirPlaneModel_W = TearOff.AirPlaneModel;
 					}
-					return _PilotID_W;
+					return _AirPlaneModel_W;
 				}
 			}
 
-			public AggregateParameter PilotTitleID
+			public AggregateParameter TrainingPlace
 		    {
 				get
 		        {
-					if(_PilotTitleID_W == null)
+					if(_TrainingPlace_W == null)
 	        	    {
-						_PilotTitleID_W = TearOff.PilotTitleID;
+						_TrainingPlace_W = TearOff.TrainingPlace;
 					}
-					return _PilotTitleID_W;
+					return _TrainingPlace_W;
 				}
 			}
 
@@ -772,21 +1365,133 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter IsApproved
+		    {
+				get
+		        {
+					if(_IsApproved_W == null)
+	        	    {
+						_IsApproved_W = TearOff.IsApproved;
+					}
+					return _IsApproved_W;
+				}
+			}
+
+			public AggregateParameter StartDate
+		    {
+				get
+		        {
+					if(_StartDate_W == null)
+	        	    {
+						_StartDate_W = TearOff.StartDate;
+					}
+					return _StartDate_W;
+				}
+			}
+
+			public AggregateParameter EndDate
+		    {
+				get
+		        {
+					if(_EndDate_W == null)
+	        	    {
+						_EndDate_W = TearOff.EndDate;
+					}
+					return _EndDate_W;
+				}
+			}
+
+			public AggregateParameter TravelDate
+		    {
+				get
+		        {
+					if(_TravelDate_W == null)
+	        	    {
+						_TravelDate_W = TearOff.TravelDate;
+					}
+					return _TravelDate_W;
+				}
+			}
+
+			public AggregateParameter BackDate
+		    {
+				get
+		        {
+					if(_BackDate_W == null)
+	        	    {
+						_BackDate_W = TearOff.BackDate;
+					}
+					return _BackDate_W;
+				}
+			}
+
+			public AggregateParameter TrainerID
+		    {
+				get
+		        {
+					if(_TrainerID_W == null)
+	        	    {
+						_TrainerID_W = TearOff.TrainerID;
+					}
+					return _TrainerID_W;
+				}
+			}
+
+			public AggregateParameter TrainerTitleID
+		    {
+				get
+		        {
+					if(_TrainerTitleID_W == null)
+	        	    {
+						_TrainerTitleID_W = TearOff.TrainerTitleID;
+					}
+					return _TrainerTitleID_W;
+				}
+			}
+
+			public AggregateParameter CourseID
+		    {
+				get
+		        {
+					if(_CourseID_W == null)
+	        	    {
+						_CourseID_W = TearOff.CourseID;
+					}
+					return _CourseID_W;
+				}
+			}
+
 			private AggregateParameter _TrainingID_W = null;
 			private AggregateParameter _TrainingCode_W = null;
-			private AggregateParameter _PilotID_W = null;
-			private AggregateParameter _PilotTitleID_W = null;
+			private AggregateParameter _AirPlaneModel_W = null;
+			private AggregateParameter _TrainingPlace_W = null;
 			private AggregateParameter _AssignedByID_W = null;
 			private AggregateParameter _IsSpecial_W = null;
+			private AggregateParameter _IsApproved_W = null;
+			private AggregateParameter _StartDate_W = null;
+			private AggregateParameter _EndDate_W = null;
+			private AggregateParameter _TravelDate_W = null;
+			private AggregateParameter _BackDate_W = null;
+			private AggregateParameter _TrainerID_W = null;
+			private AggregateParameter _TrainerTitleID_W = null;
+			private AggregateParameter _CourseID_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_TrainingID_W = null;
 				_TrainingCode_W = null;
-				_PilotID_W = null;
-				_PilotTitleID_W = null;
+				_AirPlaneModel_W = null;
+				_TrainingPlace_W = null;
 				_AssignedByID_W = null;
 				_IsSpecial_W = null;
+				_IsApproved_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_TravelDate_W = null;
+				_BackDate_W = null;
+				_TrainerID_W = null;
+				_TrainerTitleID_W = null;
+				_CourseID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -869,12 +1574,12 @@ namespace Flight_DAL
 			p.SourceColumn = ColumnNames.TrainingCode;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.PilotID);
-			p.SourceColumn = ColumnNames.PilotID;
+			p = cmd.Parameters.Add(Parameters.AirPlaneModel);
+			p.SourceColumn = ColumnNames.AirPlaneModel;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.PilotTitleID);
-			p.SourceColumn = ColumnNames.PilotTitleID;
+			p = cmd.Parameters.Add(Parameters.TrainingPlace);
+			p.SourceColumn = ColumnNames.TrainingPlace;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.AssignedByID);
@@ -883,6 +1588,38 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.IsSpecial);
 			p.SourceColumn = ColumnNames.IsSpecial;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsApproved);
+			p.SourceColumn = ColumnNames.IsApproved;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StartDate);
+			p.SourceColumn = ColumnNames.StartDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EndDate);
+			p.SourceColumn = ColumnNames.EndDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TravelDate);
+			p.SourceColumn = ColumnNames.TravelDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.BackDate);
+			p.SourceColumn = ColumnNames.BackDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TrainerID);
+			p.SourceColumn = ColumnNames.TrainerID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TrainerTitleID);
+			p.SourceColumn = ColumnNames.TrainerTitleID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CourseID);
+			p.SourceColumn = ColumnNames.CourseID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -55,5 +55,16 @@ namespace Flight_BLL
             return LoadFromSql("GetPilotSchedule", parameters);
 
         }
+
+
+        public virtual bool GetPilotsByTrainingID(int TrainingID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@TrainingID", SqlDbType.Int, 0), TrainingID);
+
+            return LoadFromSql("GetPilotsByTrainingID", parameters);
+
+        }
 	}
 }

@@ -298,15 +298,12 @@ a,a:focus, a:hover, a:active {
     color: white;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #e9ebec;
-    background-image: -moz-linear-gradient(top, #e9ebec, #caced1);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e9ebec), to(#caced1));
-    background-image: -webkit-linear-gradient(top, #e9ebec, #caced1);
-    background-image: -o-linear-gradient(top, #e9ebec, #caced1);
-    background-image: linear-gradient(to bottom, #e9ebec, #caced1);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcaced1', endColorstr='#ffcaced1', GradientType=0);
-    border-color: #caced1 #caced1 black;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    background-image: linear-gradient(to bottom, #e9ebec, #caced1);
+    border-left-color: #caced1;
+    border-right-color: #caced1;
+    border-top-color: #caced1;
+    border-bottom-color: black;
 }
 
 #header.navbar-inverse .btn-navbar:hover {
@@ -830,16 +827,14 @@ form legend {
 }
 
 .widget-title {
-    background: #f2f2f2;
-    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#ffffff), to(#f2f2f2));
-    background-image: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
-    background-image: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
-    background-image: -ms-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
-    background-image: -o-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
-    /*background-image: -linear-gradient(top, #ffffff 0%, #f2f2f2 100%);*/
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 );
+    background-position: 0% 0%;
     height: 36px;
     border-bottom: 1px solid #fff;
+    background-image: -o-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+/*background-image: -linear-gradient(top, #ffffff 0%, #f2f2f2 100%);*/
+    background-color: #f2f2f2;
+    background-repeat: repeat;
+    background-attachment: scroll;
 }
 
 .widget-title > h4 {

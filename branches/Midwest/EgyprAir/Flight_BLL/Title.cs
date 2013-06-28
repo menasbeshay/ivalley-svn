@@ -3,6 +3,9 @@
 
 using System;
 using Flight_DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace Flight_BLL
 {
 	public class Title : _Title
@@ -11,5 +14,16 @@ namespace Flight_BLL
 		{
 		
 		}
+
+
+        public virtual bool GetPilotTitlesByPilotID(int PilotID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@PilotID", SqlDbType.Int, 0), PilotID);
+
+            return LoadFromSql("GetPilotTitlesByPilotID", parameters);
+
+        }
 	}
 }
