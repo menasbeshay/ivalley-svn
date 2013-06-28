@@ -45,10 +45,9 @@ namespace Flight_DAL
 	{
 		public _Training()
 		{
-            this.QuerySource = "Training";
-            this.MappingName = "Training";
+			this.QuerySource = "Training";
+			this.MappingName = "Training";
             this.SchemaTableView = "Training.";
-
 		}	
 
 		//=================================================================
@@ -120,7 +119,7 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@AirPlaneModel", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@AirPlaneModel", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -356,15 +355,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string AirPlaneModel
+		public virtual int AirPlaneModel
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.AirPlaneModel);
+				return base.Getint(ColumnNames.AirPlaneModel);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.AirPlaneModel, value);
+				base.Setint(ColumnNames.AirPlaneModel, value);
 			}
 		}
 
@@ -539,14 +538,14 @@ namespace Flight_DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.AirPlaneModel) ? string.Empty : base.GetstringAsString(ColumnNames.AirPlaneModel);
+				return this.IsColumnNull(ColumnNames.AirPlaneModel) ? string.Empty : base.GetintAsString(ColumnNames.AirPlaneModel);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.AirPlaneModel);
 				else
-					this.AirPlaneModel = base.SetstringAsString(ColumnNames.AirPlaneModel, value);
+					this.AirPlaneModel = base.SetintAsString(ColumnNames.AirPlaneModel, value);
 			}
 		}
 

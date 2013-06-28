@@ -49,6 +49,15 @@ namespace Flights_GUI.Training {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
+        /// uiLabelCourseLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCourseLabel;
+        
+        /// <summary>
         /// uiGridViewTitleCourses control.
         /// </summary>
         /// <remarks>

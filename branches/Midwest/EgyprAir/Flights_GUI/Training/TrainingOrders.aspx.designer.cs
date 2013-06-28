@@ -40,13 +40,13 @@ namespace Flights_GUI.Training {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCourses;
         
         /// <summary>
-        /// uiTextBoxAircraft control.
+        /// uiDropDownListAircraft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAircraft;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListAircraft;
         
         /// <summary>
         /// uiDropDownListTrainer control.
@@ -112,6 +112,15 @@ namespace Flights_GUI.Training {
         protected global::System.Web.UI.WebControls.GridView uiGridViewPilots;
         
         /// <summary>
+        /// uiLinkButtonBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
+        
+        /// <summary>
         /// uiLinkButtonOK control.
         /// </summary>
         /// <remarks>
@@ -128,15 +137,6 @@ namespace Flights_GUI.Training {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancel;
-        
-        /// <summary>
-        /// uiLinkButtonBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
         
         /// <summary>
         /// uiLinkButtonApprove control.

@@ -80,6 +80,7 @@ namespace Flights_GUI.Training
 
         private void BindCourses()
         {
+            uiLabelCourseLabel.Text = GetLocalResourceObject("Title").ToString() + uiDropDownListTitle.SelectedItem.Text;
             Flight_BLL.Course courses = new Course();
             courses.GetTitleCoursesByTitleID(Convert.ToInt32(uiDropDownListTitle.SelectedValue));
             uiGridViewTitleCourses.DataSource = courses.DefaultView;            

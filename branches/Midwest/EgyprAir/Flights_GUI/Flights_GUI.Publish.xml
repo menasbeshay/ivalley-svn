@@ -79,7 +79,7 @@
     <file relUrl="assets/ckeditor/plugins/specialchar/dialogs/lang/lv.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="assets/coming_soon/demo/img/backgrounds/bg-dirty.png" publishTime="06/19/2012 21:16:28" />
-    <file relUrl="bin/Flight_DAL.dll" publishTime="06/25/2013 15:45:35" />
+    <file relUrl="bin/Flight_DAL.dll" publishTime="06/28/2013 16:26:42" />
     <file relUrl="assets/flot/examples/basic.html" publishTime="03/22/2011 03:51:52" />
     <file relUrl="images/Theme/images/travel_ins.gif" publishTime="06/12/2013 15:32:30" />
     <file relUrl="assets/bootstrap-wizard/prettify.js" publishTime="01/15/2013 18:39:30" />
@@ -269,7 +269,7 @@
     <file relUrl="Operation/SectorCabinCrew.aspx" publishTime="06/12/2013 15:31:22" />
     <file relUrl="assets/fullcalendar/demos/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png" publishTime="09/05/2012 14:39:58" />
     <file relUrl="images/Theme/images/arrowright-g.gif" publishTime="06/12/2013 15:32:30" />
-    <file relUrl="bin/Flights_GUI.dll" publishTime="06/28/2013 09:44:08" />
+    <file relUrl="bin/Flights_GUI.dll" publishTime="06/28/2013 16:32:52" />
     <file relUrl="assets/bootstrap-daterangepicker/daterangepicker.js" publishTime="12/08/2012 02:05:14" />
     <file relUrl="assets/jslider/index.html" publishTime="04/23/2013 22:43:06" />
     <file relUrl="assets/bootstrap-tree/bootstrap/css/bootstrap-responsive.min.css" publishTime="11/29/2012 17:03:38" />
@@ -308,6 +308,7 @@
     <file relUrl="images/Theme/images/money.gif" publishTime="06/12/2013 15:32:30" />
     <file relUrl="Styles/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" publishTime="06/12/2013 15:34:43" />
     <file relUrl="assets/ckeditor/lang/th.js" publishTime="01/08/2013 23:59:04" />
+    <file relUrl="Training/App_LocalResources/TitleCourses.aspx.resx" publishTime="06/28/2013 13:35:50" />
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="images/MenuBorder.jpg" publishTime="06/12/2013 15:34:09" />
     <file relUrl="Styles/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="06/12/2013 15:34:14" />
@@ -462,7 +463,7 @@
     <file relUrl="Account/Web.config" publishTime="06/12/2013 15:21:11" />
     <file relUrl="assets/coming_soon/demo/img/2.png" publishTime="12/31/2012 14:41:00" />
     <file relUrl="images/Theme/images/textboxbg.jpg" publishTime="06/12/2013 15:32:30" />
-    <file relUrl="js/scripts.js" publishTime="06/25/2013 14:54:50" />
+    <file relUrl="js/scripts.js" publishTime="06/28/2013 16:44:46" />
     <file relUrl="assets/ckeditor/lang/fa.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="assets/coming_soon/demo/img/social/picasa.png" publishTime="11/27/2012 16:09:00" />
     <file relUrl="assets/font-awesome/font/fontawesome-webfont.woff" publishTime="01/02/2013 11:07:10" />
@@ -504,7 +505,7 @@
     <file relUrl="assets/flot/jquery.flot.selection.js" publishTime="03/22/2011 03:51:52" />
     <file relUrl="Styles/images/toggle_expand.png" publishTime="06/12/2013 15:34:14" />
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" publishTime="01/08/2013 23:59:04" />
-    <file relUrl="Training/Courses.aspx" publishTime="06/20/2013 13:57:00" />
+    <file relUrl="Training/Courses.aspx" publishTime="06/28/2013 15:25:27" />
     <file relUrl="Test/GOL/images/Estrutura/background-select-210.png" publishTime="06/12/2013 15:20:58" />
     <file relUrl="Test/GOL/styles/formasPagamento.css" publishTime="06/12/2013 15:20:14" />
     <file relUrl="img/bg-denim.png" publishTime="06/14/2012 20:19:04" />
@@ -596,7 +597,7 @@
     <file relUrl="images/NewsControlPUp.png" publishTime="06/12/2013 15:32:30" />
     <file relUrl="bin/cs/AjaxControlToolkit.resources.dll" publishTime="06/12/2013 15:31:14" />
     <file relUrl="assets/fullcalendar/demos/selectable.html" publishTime="09/05/2012 14:39:58" />
-    <file relUrl="bin/Flight_BLL.pdb" publishTime="06/27/2013 15:12:49" />
+    <file relUrl="bin/Flight_BLL.pdb" publishTime="06/28/2013 16:26:42" />
     <file relUrl="images/delete.png" publishTime="06/12/2013 15:32:30" />
     <file relUrl="assets/ckeditor/lang/lv.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="bin/Reports/CabinCrewSchedule.rdlc" publishTime="06/12/2013 15:36:32" />
@@ -612,7 +613,7 @@
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="images/h_intro.jpg" publishTime="06/12/2013 15:32:29" />
     <file relUrl="assets/fancybox/demo/2_s.jpg" publishTime="10/23/2012 14:44:46" />
-    <file relUrl="bin/Flight_BLL.dll" publishTime="06/27/2013 15:12:49" />
+    <file relUrl="bin/Flight_BLL.dll" publishTime="06/28/2013 16:26:42" />
     <file relUrl="images/GrayBigBtnUp2.png" publishTime="06/12/2013 15:32:30" />
     <file relUrl="assets/ckeditor/lang/no.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="Test/GOL/scripts/s_code.js" publishTime="06/12/2013 15:21:09" />
@@ -762,7 +763,7 @@
     <file relUrl="Test/generaltest/dbMigration.aspx" publishTime="06/12/2013 15:21:09" />
     <file relUrl="assets/ckeditor/lang/bs.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="img/logo2.png" publishTime="06/19/2013 09:35:31" />
-    <file relUrl="css/style.css" publishTime="06/25/2013 14:44:59" />
+    <file relUrl="css/style.css" publishTime="06/28/2013 14:15:02" />
     <file relUrl="Test/GOL/images/Icones/gplus-32.png" publishTime="06/12/2013 15:20:55" />
     <file relUrl="assets/fullcalendar/demos/cupertino/images/ui-icons_2e83ff_256x240.png" publishTime="09/05/2012 14:39:58" />
     <file relUrl="Account/ChangePassword.aspx" publishTime="06/12/2013 15:21:11" />
@@ -781,7 +782,7 @@
     <file relUrl="Operation/SectorsList.aspx" publishTime="06/12/2013 15:31:22" />
     <file relUrl="Styles/Style.css" publishTime="06/12/2013 15:34:40" />
     <file relUrl="assets/fullcalendar/demos/default.html" publishTime="09/05/2012 14:39:58" />
-    <file relUrl="bin/Flight_DAL.pdb" publishTime="06/25/2013 15:45:34" />
+    <file relUrl="bin/Flight_DAL.pdb" publishTime="06/28/2013 16:26:42" />
     <file relUrl="assets/ckeditor/plugins/specialchar/dialogs/lang/sv.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="bin/nl/AjaxControlToolkit.resources.dll" publishTime="06/12/2013 15:31:15" />
     <file relUrl="Login.aspx" publishTime="06/24/2013 15:58:41" />
@@ -974,13 +975,13 @@
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="images/GrayMedBtnOver.png" publishTime="06/12/2013 15:32:30" />
     <file relUrl="assets/coming_soon/demo/img/backgrounds/bg-mamba.png" publishTime="06/14/2012 20:19:04" />
-    <file relUrl="Training/PilotHome.aspx" publishTime="06/28/2013 09:44:17" />
+    <file relUrl="Training/PilotHome.aspx" publishTime="06/28/2013 14:06:02" />
     <file relUrl="img/gallery/photo5.jpg" publishTime="05/01/2013 22:42:32" />
     <file relUrl="assets/coming_soon/demo/img/social/blogger.png" publishTime="11/27/2012 16:09:00" />
     <file relUrl="assets/pre-loader/Nuclear alert.gif" publishTime="04/23/2013 20:21:48" />
     <file relUrl="assets/flot/jquery.flot.stack.js" publishTime="03/22/2011 03:51:52" />
     <file relUrl="assets/jslider/js/draggable-0.1.js" publishTime="02/02/2013 04:11:56" />
-    <file relUrl="Training/TrainingOrders.aspx" publishTime="06/26/2013 10:41:45" />
+    <file relUrl="Training/TrainingOrders.aspx" publishTime="06/28/2013 16:30:49" />
     <file relUrl="images/title490.png" publishTime="06/12/2013 15:34:09" />
     <file relUrl="img/top-bg.jpg" publishTime="05/09/2013 11:39:24" />
     <file relUrl="Scripts/jquery-1.4.1.js" publishTime="06/12/2013 15:35:12" />
@@ -1073,7 +1074,7 @@
     <file relUrl="assets/flot/examples/realtime.html" publishTime="03/22/2011 03:51:52" />
     <file relUrl="assets/ckeditor/samples/inlinebycode.html" publishTime="01/08/2013 23:59:04" />
     <file relUrl="Operation/Schedule.aspx" publishTime="06/12/2013 15:31:23" />
-    <file relUrl="bin/Flights_GUI.pdb" publishTime="06/28/2013 09:44:08" />
+    <file relUrl="bin/Flights_GUI.pdb" publishTime="06/28/2013 16:32:51" />
     <file relUrl="img/team/team-3.jpg" publishTime="05/30/2013 16:45:32" />
     <file relUrl="assets/ckeditor/plugins/specialchar/dialogs/lang/cy.js" publishTime="01/08/2013 23:59:04" />
     <file relUrl="assets/pre-loader/Sun.gif" publishTime="04/23/2013 20:11:38" />
@@ -1090,7 +1091,7 @@
     <file relUrl="assets/jquery-slimscroll/examples/scrollbar.html" publishTime="01/24/2013 04:55:56" />
     <file relUrl="images/title300.jpg" publishTime="06/12/2013 15:32:30" />
     <file relUrl="assets/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" publishTime="01/08/2013 23:59:04" />
-    <file relUrl="Training/TitleCourses.aspx" publishTime="06/27/2013 15:47:48" />
+    <file relUrl="Training/TitleCourses.aspx" publishTime="06/28/2013 14:09:12" />
     <file relUrl="Operation/AllPilotStatus.aspx" publishTime="06/12/2013 15:31:22" />
     <file relUrl="bin/Styles/fonts/gothic.TTF" publishTime="06/12/2013 15:34:40" />
     <file relUrl="assets/fullcalendar/fullcalendar/fullcalendar.js" publishTime="12/19/2012 22:04:26" />

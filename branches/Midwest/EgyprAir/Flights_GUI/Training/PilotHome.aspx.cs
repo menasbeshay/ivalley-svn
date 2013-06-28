@@ -118,7 +118,7 @@ namespace Flights_GUI.Training
                 status.Text = "<span class='label ";
                 //if (DateTime.Parse(row["ExpiryDate"].ToString()) > DateTime.Now)
                 //{
-                    status.Text += (row["Approved"].ToString() == "1") ? "label-info'> In progress" : (row["Approved"].ToString() == "2") ? "label-warning'> Not started" : "label-danger'> Not assigned";
+                status.Text += (row["Approved"].ToString() == "1") ? "label-warning'> Not Started" : (row["Approved"].ToString() == "2") ? "label-danger'> Not Assigned" : "label-danger'> Not assigned";
                     status.Text += "</span>";
                 //}
                 //else

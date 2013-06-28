@@ -41,7 +41,7 @@
                             <div class="form-actions" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
                                 <div class="control-group">
                                 <div class="span12">
-                                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAdd_Click"><i class='icon-plus'></i> Add Course</asp:LinkButton>
+                                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAdd_Click"><i class='icon-plus'></i> Add Course for current title</asp:LinkButton>
                                 </div>
                             </div>
                             </div>
@@ -49,20 +49,13 @@
                         
                         <div class="clearfix" style="height: 20px;">
                         </div>
+                        <h4>
+                            <asp:Label ID="uiLabelCourseLabel" runat="server"></asp:Label>
+                        </h4>
                         <asp:GridView ID="uiGridViewTitleCourses" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                            CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="uiGridViewTitleCourses_PageIndexChanging"
-                            OnRowCommand="uiGridViewTitleCourses_RowCommand" Width="90%" >
-                            <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" />
-                            <EditRowStyle BackColor="#2461BF" />
-                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                            CellPadding="4" GridLines="None" OnPageIndexChanging="uiGridViewTitleCourses_PageIndexChanging"
+                            OnRowCommand="uiGridViewTitleCourses_RowCommand" Width="90%" CssClass="table table-striped table-bordered">
+                           
                             <Columns>                                
                                <asp:BoundField DataField="Name" HeaderText="Course" />
                                 <asp:TemplateField HeaderText="Actions">

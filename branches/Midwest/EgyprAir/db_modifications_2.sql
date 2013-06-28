@@ -14,7 +14,7 @@ Create Table [Training].[Training]
 (
 	TrainingID int not null identity(1,1) primary key,	
 	TrainingCode nvarchar(200),	
-	AirPlaneModel nvarchar(200),
+	AirPlaneModel int foreign key references dbo.AirPlane(AirPlaneID),
 	TrainingPlace nvarchar(200),	
 	AssignedByID int foreign key references dbo.Pilot(PilotID),
 	IsSpecial bit,

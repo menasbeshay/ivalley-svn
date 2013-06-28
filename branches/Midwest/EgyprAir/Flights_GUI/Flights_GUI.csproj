@@ -1909,6 +1909,9 @@
   <ItemGroup>
     <Content Include="Training\App_LocalResources\TrainingOrders.aspx.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Training\App_LocalResources\TitleCourses.aspx.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

@@ -135,7 +135,7 @@ var App = function () {
 
 
 
-    var handleDashboardCalendar = function () {
+   /* var handleDashboardCalendar = function () {
 
         if (!jQuery().fullCalendar) {
             return;
@@ -213,7 +213,7 @@ var App = function () {
         });
         
 
-    }
+    }*/
 
     var handleCalendar = function () {
 
@@ -303,7 +303,7 @@ var App = function () {
 
         $('#calendar').fullCalendar({
             header: h,
-            //height:450, // fix height
+            height:100, // fix height
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped
@@ -354,13 +354,13 @@ var App = function () {
                 start: new Date(y, m, d, 10, 30),
                 allDay: false,
                 className: 'label label-info',
-            }, {
+            }, /*{
                 title: 'Lunch',
                 start: new Date(y, m, d, 12, 0),
                 end: new Date(y, m, d, 14, 0),
                 allDay: false,
                 className: 'label label-warning',
-            }, {
+            },*/ {
                 title: 'Birthday Party',
                 start: new Date(y, m, d + 1, 19, 0),
                 end: new Date(y, m, d + 1, 22, 30),
@@ -1521,7 +1521,7 @@ var App = function () {
                     // fix calendar width by just reinitializing
                     handleDashboardCalendar();
                     if (isMainPage) {
-                        handleDashboardCalendar(); // handles full calendar for main page
+                        //handleDashboardCalendar(); // handles full calendar for main page
                     } else {
                         handleCalendar(); // handles full calendars
                     }
@@ -2180,7 +2180,7 @@ var App = function () {
             if (isMainPage) {
                 handleDashboardCharts(); // handles plot charts for main page
                 //handleJQVMAP(); // handles vector maps for home page
-                handleDashboardCalendar(); // handles full calendar for main page
+                //handleDashboardCalendar(); // handles full calendar for main page
                 handleChat() // handles dashboard chat
             } else {
                 handleCalendar(); // handles full calendars

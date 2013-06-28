@@ -85,9 +85,7 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>
-                                    #
-                                </th>
+                               
                                 <th>
                                     Course
                                 </th>
@@ -108,9 +106,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    1
-                                </td>
+                                
                                 <td>
                                     Risk Management
                                 </td>
@@ -133,9 +129,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    2
-                                </td>
+                                
                                 <td>
                                     Safty Management System
                                 </td>
@@ -158,9 +152,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    3
-                                </td>
+                                
                                 <td>
                                     Crew Resonse Management
                                 </td>
@@ -183,9 +175,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    4
-                                </td>
+                                
                                 <td>
                                     Area Check - C
                                 </td>

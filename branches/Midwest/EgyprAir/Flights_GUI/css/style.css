@@ -3486,3 +3486,17 @@ ul.amounts li {
     margin-bottom: 15px;
 }
 
+.sorting
+{
+    cursor: hand; cursor: pointer;
+}
+
+.sorting_asc
+{
+    cursor: hand; cursor: pointer;
+}
+
+.sorting_desc
+{
+    cursor: hand; cursor: pointer;
+}
