@@ -82,10 +82,12 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
             <!-- BEGIN SIDEBAR MENU -->
             <ul class="sidebar-menu">
-                <li><a href="../admin/Default.aspx"><span class="icon-box"><i class="icon-home"></i></span>
-                    الرئيسية</a></li>
-                <li class=""><a href="../Admin/Items.aspx" class=""><span class="icon-box"><i class="icon-file-alt">
-                </i></span>الأصناف </a>                
+                <li><a href="../admin/Default.aspx"><span class="icon-box"><i class="icon-home"></i></span>الرئيسية</a></li>
+                <li><a href="../Admin/ItemCats.aspx" class=""><span class="icon-box"><i class="icon-tags"></i></span>تصنيفات الأصناف </a></li>
+                <li><a href="../Admin/ItemGroups.aspx" class=""><span class="icon-box"><i class="icon-tags"></i></span>مجموعات الأصناف </a></li>
+                <li><a href="../Admin/Items.aspx" class=""><span class="icon-box"><i class="icon-file-alt"></i></span>الأصناف </a></li>
+                <li><a href="../Admin/Suppliers.aspx" class=""><span class="icon-box"><i class="icon-truck"></i></span>الموردين </a></li>
+                <li><a href="../Admin/Employees.aspx" class=""><span class="icon-box"><i class="icon-user"></i></span>الموظفين </a></li>
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
