@@ -31,7 +31,7 @@
     
     <div id="login">
         <!-- BEGIN LOGIN FORM -->
-        
+        <div id="loginform" class="form-vertical no-padding no-margin">
         <div class="lock">
             <i class="icon-lock"></i>
         </div>
@@ -44,7 +44,7 @@
                         <div class="controls">
                             <div class="input-prepend">
                                 <span class="add-on"><i class="icon-user"></i></span>
-                                <asp:TextBox ID="UserName" runat="server" placeholder="إسم المستخدم"></asp:TextBox>
+                                <asp:TextBox ID="UserName" runat="server" placeholder="إسم المستخدم" style="padding:20px;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
                                     ErrorMessage="Password is required." ToolTip="أدخل اسم المسنخدم." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                             
                             </div>
@@ -54,7 +54,8 @@
                         <div class="controls">
                             <div class="input-prepend">
                                 <span class="add-on"><i class="icon-key"></i></span>
-                                <asp:TextBox ID="Password" TextMode="Password" runat="server" placeholder="كلمة المرور"></asp:TextBox>
+                                <asp:TextBox ID="Password" TextMode="Password" runat="server" placeholder="كلمة المرور"
+                                    Style="padding: 20px;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password"
                                     ErrorMessage="Password is required." ToolTip="ادخل كلمة المرور." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                             </div>
@@ -80,7 +81,7 @@
                     CssClass="btn btn-block login-btn" />                                                               
             </LayoutTemplate>
         </asp:Login>        
-        
+        </div>
         <!-- END LOGIN FORM -->
         <!-- BEGIN FORGOT PASSWORD FORM 
        

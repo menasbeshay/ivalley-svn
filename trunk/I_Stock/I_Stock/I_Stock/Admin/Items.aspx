@@ -75,35 +75,26 @@
                 </div>
                 <div class="widget-body">
                     <asp:GridView ID="uiGridViewItems" runat="server" AllowPaging="True" 
-                        AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-                        GridLines="None" onpageindexchanging="uiGridViewItems_PageIndexChanging" 
-                        onrowcommand="uiGridViewItems_RowCommand" Width="90%">
-                        <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" 
-                            HorizontalAlign="Center" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
-                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-
+                        AutoGenerateColumns="False" onpageindexchanging="uiGridViewItems_PageIndexChanging" 
+                        onrowcommand="uiGridViewItems_RowCommand" Width="90%" 
+                        CssClass="table table-striped table-bordered">
+                        <AlternatingRowStyle HorizontalAlign="Center" />
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <RowStyle HorizontalAlign="Center" />
                         <Columns>
                             <asp:BoundField DataField="Name"  HeaderText="الإسم"/>
                             <asp:BoundField DataField="ItemCode" HeaderText="كود الصنف" />
                             <asp:TemplateField HeaderText="إجراءات">
                                 <ItemTemplate>
-                                    <asp:Button ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ItemID") %>'
-                                        CssClass="btn blue" CommandName="EditItem" Text="تعديل"></asp:Button>&nbsp;
-                                    <asp:Button ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ItemID") %>'
-                                        CssClass="btn blue" CommandName="DeleteItem" OnClientClick="return confirm('هل تريد حذف هذا السجل?');"
-                                        Text="حذف"></asp:Button>
+                                    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ItemID") %>'
+                                        CssClass="btn blue" CommandName="EditItem" ><i class='icon-edit'></i> تعديل</asp:LinkButton>&nbsp;
+                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ItemID") %>'
+                                        CssClass="btn blue" CommandName="DeleteItem" OnClientClick="return confirm('هل تريد حذف هذا السجل؟');"
+                                        ><i class='icon-remove'></i> حذف</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
                 </div>
             </div>
