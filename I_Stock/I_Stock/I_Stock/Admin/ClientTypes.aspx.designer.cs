@@ -10,16 +10,16 @@
 namespace I_Stock.Admin {
     
     
-    public partial class Companies {
+    public partial class ClientTypes {
         
         /// <summary>
-        /// uiPanelEditCompanies control.
+        /// uiPanelEditTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelEditCompanies;
+        protected global::System.Web.UI.WebControls.Panel uiPanelEditTypes;
         
         /// <summary>
         /// uipanelError control.
@@ -49,15 +49,6 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxDesc;
         
         /// <summary>
-        /// uiTextBoxAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAddress;
-        
-        /// <summary>
         /// uiLinkButtonOK control.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,13 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
         
         /// <summary>
-        /// uiPanelAllCompanies control.
+        /// uiPanelAllTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelAllCompanies;
+        protected global::System.Web.UI.WebControls.Panel uiPanelAllTypes;
         
         /// <summary>
         /// uiLinkButtonAdd control.
@@ -103,13 +94,13 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
-        /// uiGridViewCompanies control.
+        /// uiGridViewTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewCompanies;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewTypes;
         
         /// <summary>
         /// Master property.

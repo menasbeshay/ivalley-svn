@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace IStock.DAL
 {
-	public abstract class _ItemPrices : SqlClientEntity
+	public abstract class _DeliveryOrderDetails : SqlClientEntity
 	{
-		public _ItemPrices()
+		public _DeliveryOrderDetails()
 		{
-			this.QuerySource = "ItemPrices";
-			this.MappingName = "ItemPrices";
+			this.QuerySource = "DeliveryOrderDetails";
+			this.MappingName = "DeliveryOrderDetails";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace IStock.DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ItemPricesLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_DeliveryOrderDetailsLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -86,26 +86,32 @@ namespace IStock.DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int ClientTypeID, int ItemID)
+		public virtual bool LoadByPrimaryKey(int DeliveryOrderDetailID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.ClientTypeID, ClientTypeID);
-
-parameters.Add(Parameters.ItemID, ItemID);
+			parameters.Add(Parameters.DeliveryOrderDetailID, DeliveryOrderDetailID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ItemPricesLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_DeliveryOrderDetailsLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
 		protected class Parameters
 		{
 			
-			public static SqlParameter ClientTypeID
+			public static SqlParameter DeliveryOrderDetailID
 			{
 				get
 				{
-					return new SqlParameter("@ClientTypeID", SqlDbType.Int, 0);
+					return new SqlParameter("@DeliveryOrderDetailID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter DeliveryOrderID
+			{
+				get
+				{
+					return new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -117,11 +123,19 @@ parameters.Add(Parameters.ItemID, ItemID);
 				}
 			}
 			
-			public static SqlParameter Price
+			public static SqlParameter Quantity
 			{
 				get
 				{
-					return new SqlParameter("@Price", SqlDbType.Decimal, 0);
+					return new SqlParameter("@Quantity", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Discount
+			{
+				get
+				{
+					return new SqlParameter("@Discount", SqlDbType.Decimal, 0);
 				}
 			}
 			
@@ -131,9 +145,11 @@ parameters.Add(Parameters.ItemID, ItemID);
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string ClientTypeID = "ClientTypeID";
+            public const string DeliveryOrderDetailID = "DeliveryOrderDetailID";
+            public const string DeliveryOrderID = "DeliveryOrderID";
             public const string ItemID = "ItemID";
-            public const string Price = "Price";
+            public const string Quantity = "Quantity";
+            public const string Discount = "Discount";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -141,9 +157,11 @@ parameters.Add(Parameters.ItemID, ItemID);
 				{
 					ht = new Hashtable();
 					
-					ht[ClientTypeID] = _ItemPrices.PropertyNames.ClientTypeID;
-					ht[ItemID] = _ItemPrices.PropertyNames.ItemID;
-					ht[Price] = _ItemPrices.PropertyNames.Price;
+					ht[DeliveryOrderDetailID] = _DeliveryOrderDetails.PropertyNames.DeliveryOrderDetailID;
+					ht[DeliveryOrderID] = _DeliveryOrderDetails.PropertyNames.DeliveryOrderID;
+					ht[ItemID] = _DeliveryOrderDetails.PropertyNames.ItemID;
+					ht[Quantity] = _DeliveryOrderDetails.PropertyNames.Quantity;
+					ht[Discount] = _DeliveryOrderDetails.PropertyNames.Discount;
 
 				}
 				return (string)ht[columnName];
@@ -156,9 +174,11 @@ parameters.Add(Parameters.ItemID, ItemID);
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string ClientTypeID = "ClientTypeID";
+            public const string DeliveryOrderDetailID = "DeliveryOrderDetailID";
+            public const string DeliveryOrderID = "DeliveryOrderID";
             public const string ItemID = "ItemID";
-            public const string Price = "Price";
+            public const string Quantity = "Quantity";
+            public const string Discount = "Discount";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -166,9 +186,11 @@ parameters.Add(Parameters.ItemID, ItemID);
 				{
 					ht = new Hashtable();
 					
-					ht[ClientTypeID] = _ItemPrices.ColumnNames.ClientTypeID;
-					ht[ItemID] = _ItemPrices.ColumnNames.ItemID;
-					ht[Price] = _ItemPrices.ColumnNames.Price;
+					ht[DeliveryOrderDetailID] = _DeliveryOrderDetails.ColumnNames.DeliveryOrderDetailID;
+					ht[DeliveryOrderID] = _DeliveryOrderDetails.ColumnNames.DeliveryOrderID;
+					ht[ItemID] = _DeliveryOrderDetails.ColumnNames.ItemID;
+					ht[Quantity] = _DeliveryOrderDetails.ColumnNames.Quantity;
+					ht[Discount] = _DeliveryOrderDetails.ColumnNames.Discount;
 
 				}
 				return (string)ht[propertyName];
@@ -181,24 +203,38 @@ parameters.Add(Parameters.ItemID, ItemID);
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string ClientTypeID = "s_ClientTypeID";
+            public const string DeliveryOrderDetailID = "s_DeliveryOrderDetailID";
+            public const string DeliveryOrderID = "s_DeliveryOrderID";
             public const string ItemID = "s_ItemID";
-            public const string Price = "s_Price";
+            public const string Quantity = "s_Quantity";
+            public const string Discount = "s_Discount";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int ClientTypeID
+		public virtual int DeliveryOrderDetailID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ClientTypeID);
+				return base.Getint(ColumnNames.DeliveryOrderDetailID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ClientTypeID, value);
+				base.Setint(ColumnNames.DeliveryOrderDetailID, value);
+			}
+		}
+
+		public virtual int DeliveryOrderID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.DeliveryOrderID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.DeliveryOrderID, value);
 			}
 		}
 
@@ -214,15 +250,27 @@ parameters.Add(Parameters.ItemID, ItemID);
 			}
 		}
 
-		public virtual decimal Price
+		public virtual int Quantity
 	    {
 			get
 	        {
-				return base.Getdecimal(ColumnNames.Price);
+				return base.Getint(ColumnNames.Quantity);
 			}
 			set
 	        {
-				base.Setdecimal(ColumnNames.Price, value);
+				base.Setint(ColumnNames.Quantity, value);
+			}
+		}
+
+		public virtual decimal Discount
+	    {
+			get
+	        {
+				return base.Getdecimal(ColumnNames.Discount);
+			}
+			set
+	        {
+				base.Setdecimal(ColumnNames.Discount, value);
 			}
 		}
 
@@ -231,18 +279,33 @@ parameters.Add(Parameters.ItemID, ItemID);
 		
 		#region String Properties
 	
-		public virtual string s_ClientTypeID
+		public virtual string s_DeliveryOrderDetailID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ClientTypeID) ? string.Empty : base.GetintAsString(ColumnNames.ClientTypeID);
+				return this.IsColumnNull(ColumnNames.DeliveryOrderDetailID) ? string.Empty : base.GetintAsString(ColumnNames.DeliveryOrderDetailID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ClientTypeID);
+					this.SetColumnNull(ColumnNames.DeliveryOrderDetailID);
 				else
-					this.ClientTypeID = base.SetintAsString(ColumnNames.ClientTypeID, value);
+					this.DeliveryOrderDetailID = base.SetintAsString(ColumnNames.DeliveryOrderDetailID, value);
+			}
+		}
+
+		public virtual string s_DeliveryOrderID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeliveryOrderID) ? string.Empty : base.GetintAsString(ColumnNames.DeliveryOrderID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeliveryOrderID);
+				else
+					this.DeliveryOrderID = base.SetintAsString(ColumnNames.DeliveryOrderID, value);
 			}
 		}
 
@@ -261,18 +324,33 @@ parameters.Add(Parameters.ItemID, ItemID);
 			}
 		}
 
-		public virtual string s_Price
+		public virtual string s_Quantity
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price) ? string.Empty : base.GetdecimalAsString(ColumnNames.Price);
+				return this.IsColumnNull(ColumnNames.Quantity) ? string.Empty : base.GetintAsString(ColumnNames.Quantity);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price);
+					this.SetColumnNull(ColumnNames.Quantity);
 				else
-					this.Price = base.SetdecimalAsString(ColumnNames.Price, value);
+					this.Quantity = base.SetintAsString(ColumnNames.Quantity, value);
+			}
+		}
+
+		public virtual string s_Discount
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Discount) ? string.Empty : base.GetdecimalAsString(ColumnNames.Discount);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Discount);
+				else
+					this.Discount = base.SetdecimalAsString(ColumnNames.Discount, value);
 			}
 		}
 
@@ -309,11 +387,21 @@ parameters.Add(Parameters.ItemID, ItemID);
 				}
 				
 				
-				public WhereParameter ClientTypeID
+				public WhereParameter DeliveryOrderDetailID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ClientTypeID, Parameters.ClientTypeID);
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderDetailID, Parameters.DeliveryOrderDetailID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DeliveryOrderID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderID, Parameters.DeliveryOrderID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -329,11 +417,21 @@ parameters.Add(Parameters.ItemID, ItemID);
 					}
 				}
 
-				public WhereParameter Price
+				public WhereParameter Quantity
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price, Parameters.Price);
+							WhereParameter where = new WhereParameter(ColumnNames.Quantity, Parameters.Quantity);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Discount
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Discount, Parameters.Discount);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -344,15 +442,27 @@ parameters.Add(Parameters.ItemID, ItemID);
 			}
 			#endregion
 		
-			public WhereParameter ClientTypeID
+			public WhereParameter DeliveryOrderDetailID
 		    {
 				get
 		        {
-					if(_ClientTypeID_W == null)
+					if(_DeliveryOrderDetailID_W == null)
 	        	    {
-						_ClientTypeID_W = TearOff.ClientTypeID;
+						_DeliveryOrderDetailID_W = TearOff.DeliveryOrderDetailID;
 					}
-					return _ClientTypeID_W;
+					return _DeliveryOrderDetailID_W;
+				}
+			}
+
+			public WhereParameter DeliveryOrderID
+		    {
+				get
+		        {
+					if(_DeliveryOrderID_W == null)
+	        	    {
+						_DeliveryOrderID_W = TearOff.DeliveryOrderID;
+					}
+					return _DeliveryOrderID_W;
 				}
 			}
 
@@ -368,27 +478,43 @@ parameters.Add(Parameters.ItemID, ItemID);
 				}
 			}
 
-			public WhereParameter Price
+			public WhereParameter Quantity
 		    {
 				get
 		        {
-					if(_Price_W == null)
+					if(_Quantity_W == null)
 	        	    {
-						_Price_W = TearOff.Price;
+						_Quantity_W = TearOff.Quantity;
 					}
-					return _Price_W;
+					return _Quantity_W;
 				}
 			}
 
-			private WhereParameter _ClientTypeID_W = null;
+			public WhereParameter Discount
+		    {
+				get
+		        {
+					if(_Discount_W == null)
+	        	    {
+						_Discount_W = TearOff.Discount;
+					}
+					return _Discount_W;
+				}
+			}
+
+			private WhereParameter _DeliveryOrderDetailID_W = null;
+			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _ItemID_W = null;
-			private WhereParameter _Price_W = null;
+			private WhereParameter _Quantity_W = null;
+			private WhereParameter _Discount_W = null;
 
 			public void WhereClauseReset()
 			{
-				_ClientTypeID_W = null;
+				_DeliveryOrderDetailID_W = null;
+				_DeliveryOrderID_W = null;
 				_ItemID_W = null;
-				_Price_W = null;
+				_Quantity_W = null;
+				_Discount_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -445,11 +571,21 @@ parameters.Add(Parameters.ItemID, ItemID);
 				}
 				
 				
-				public AggregateParameter ClientTypeID
+				public AggregateParameter DeliveryOrderDetailID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientTypeID, Parameters.ClientTypeID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderDetailID, Parameters.DeliveryOrderDetailID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DeliveryOrderID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderID, Parameters.DeliveryOrderID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -465,11 +601,21 @@ parameters.Add(Parameters.ItemID, ItemID);
 					}
 				}
 
-				public AggregateParameter Price
+				public AggregateParameter Quantity
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price, Parameters.Price);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Quantity, Parameters.Quantity);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Discount
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Discount, Parameters.Discount);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -480,15 +626,27 @@ parameters.Add(Parameters.ItemID, ItemID);
 			}
 			#endregion
 		
-			public AggregateParameter ClientTypeID
+			public AggregateParameter DeliveryOrderDetailID
 		    {
 				get
 		        {
-					if(_ClientTypeID_W == null)
+					if(_DeliveryOrderDetailID_W == null)
 	        	    {
-						_ClientTypeID_W = TearOff.ClientTypeID;
+						_DeliveryOrderDetailID_W = TearOff.DeliveryOrderDetailID;
 					}
-					return _ClientTypeID_W;
+					return _DeliveryOrderDetailID_W;
+				}
+			}
+
+			public AggregateParameter DeliveryOrderID
+		    {
+				get
+		        {
+					if(_DeliveryOrderID_W == null)
+	        	    {
+						_DeliveryOrderID_W = TearOff.DeliveryOrderID;
+					}
+					return _DeliveryOrderID_W;
 				}
 			}
 
@@ -504,27 +662,43 @@ parameters.Add(Parameters.ItemID, ItemID);
 				}
 			}
 
-			public AggregateParameter Price
+			public AggregateParameter Quantity
 		    {
 				get
 		        {
-					if(_Price_W == null)
+					if(_Quantity_W == null)
 	        	    {
-						_Price_W = TearOff.Price;
+						_Quantity_W = TearOff.Quantity;
 					}
-					return _Price_W;
+					return _Quantity_W;
 				}
 			}
 
-			private AggregateParameter _ClientTypeID_W = null;
+			public AggregateParameter Discount
+		    {
+				get
+		        {
+					if(_Discount_W == null)
+	        	    {
+						_Discount_W = TearOff.Discount;
+					}
+					return _Discount_W;
+				}
+			}
+
+			private AggregateParameter _DeliveryOrderDetailID_W = null;
+			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _ItemID_W = null;
-			private AggregateParameter _Price_W = null;
+			private AggregateParameter _Quantity_W = null;
+			private AggregateParameter _Discount_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_ClientTypeID_W = null;
+				_DeliveryOrderDetailID_W = null;
+				_DeliveryOrderID_W = null;
 				_ItemID_W = null;
-				_Price_W = null;
+				_Quantity_W = null;
+				_Discount_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -556,10 +730,14 @@ parameters.Add(Parameters.ItemID, ItemID);
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ItemPricesInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_DeliveryOrderDetailsInsert]";
 	
 			CreateParameters(cmd);
-			    
+			
+			SqlParameter p;
+			p = cmd.Parameters[Parameters.DeliveryOrderDetailID.ParameterName];
+			p.Direction = ParameterDirection.Output;
+    
 			return cmd;
 		}
 	
@@ -568,7 +746,7 @@ parameters.Add(Parameters.ItemID, ItemID);
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ItemPricesUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_DeliveryOrderDetailsUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -580,15 +758,11 @@ parameters.Add(Parameters.ItemID, ItemID);
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ItemPricesDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_DeliveryOrderDetailsDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.ClientTypeID);
-			p.SourceColumn = ColumnNames.ClientTypeID;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ItemID);
-			p.SourceColumn = ColumnNames.ItemID;
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderDetailID);
+			p.SourceColumn = ColumnNames.DeliveryOrderDetailID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -599,16 +773,24 @@ parameters.Add(Parameters.ItemID, ItemID);
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.ClientTypeID);
-			p.SourceColumn = ColumnNames.ClientTypeID;
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderDetailID);
+			p.SourceColumn = ColumnNames.DeliveryOrderDetailID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderID);
+			p.SourceColumn = ColumnNames.DeliveryOrderID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.ItemID);
 			p.SourceColumn = ColumnNames.ItemID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price);
-			p.SourceColumn = ColumnNames.Price;
+			p = cmd.Parameters.Add(Parameters.Quantity);
+			p.SourceColumn = ColumnNames.Quantity;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Discount);
+			p.SourceColumn = ColumnNames.Discount;
 			p.SourceVersion = DataRowVersion.Current;
 
 

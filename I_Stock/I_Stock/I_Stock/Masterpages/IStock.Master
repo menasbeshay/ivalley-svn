@@ -23,6 +23,8 @@
 </head>
 <body class="fixed-top">
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <!-- BEGIN HEADER -->
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <!-- BEGIN TOP NAVIGATION BAR -->
@@ -87,6 +89,9 @@
                 <li><a href="../Admin/ItemGroups.aspx" class=""><span class="icon-box"><i class="icon-tags"></i></span>مجموعات الأصناف </a></li>
                 <li><a href="../Admin/Items.aspx" class=""><span class="icon-box"><i class="icon-file-alt"></i></span>الأصناف </a></li>
                 <li><a href="../Admin/Suppliers.aspx" class=""><span class="icon-box"><i class="icon-truck"></i></span>الموردين </a></li>
+                <li><a href="../Admin/ClientTypes.aspx" class=""><span class="icon-box"><i class="icon-th-large"></i></span>قطاعات العملاء </a></li>
+                <li><a href="../Admin/Lines.aspx" class=""><span class="icon-box"><i class="icon-road"></i></span>الخطوط </a></li>
+                <li><a href="../Admin/Cities.aspx" class=""><span class="icon-box"><i class="icon-map-marker"></i></span>المدن </a></li>
                 <li><a href="../Admin/Employees.aspx" class=""><span class="icon-box"><i class="icon-user"></i></span>الموظفين </a></li>
             </ul>
             <!-- END SIDEBAR MENU -->

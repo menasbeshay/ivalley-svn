@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class Items : _Items
@@ -11,5 +14,27 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetItemsByItemGroupID(int ItemGroupID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@ItemGroupID", SqlDbType.Int, 0), ItemGroupID);
+
+            return LoadFromSql("GetItemsByItemGroupID", parameters);
+
+        }
+
+        public virtual bool SearchItems(string FilterText, int ItemGroupID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 100), FilterText);
+            parameters.Add(new SqlParameter("@ItemGroupID", SqlDbType.Int, 0), ItemGroupID);
+
+            return LoadFromSql("SearchItems", parameters);
+
+        }
+
 	}
 }
