@@ -51,12 +51,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Cities.aspx" />
+    <Content Include="Admin\ClientTypes.aspx" />
     <Content Include="Admin\Companies.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\DeliveryOrder.aspx" />
     <Content Include="Admin\Employees.aspx" />
     <Content Include="Admin\ItemCats.aspx" />
     <Content Include="Admin\ItemGroups.aspx" />
     <Content Include="Admin\Items.aspx" />
+    <Content Include="Admin\Lines.aspx" />
     <Content Include="Admin\Suppliers.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
@@ -794,6 +798,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Cities.aspx.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Cities.aspx.designer.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ClientTypes.aspx.cs">
+      <DependentUpon>ClientTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ClientTypes.aspx.designer.cs">
+      <DependentUpon>ClientTypes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Companies.aspx.cs">
       <DependentUpon>Companies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -807,6 +825,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeliveryOrder.aspx.cs">
+      <DependentUpon>DeliveryOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DeliveryOrder.aspx.designer.cs">
+      <DependentUpon>DeliveryOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Employees.aspx.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
@@ -835,6 +860,13 @@
     </Compile>
     <Compile Include="Admin\Items.aspx.designer.cs">
       <DependentUpon>Items.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Lines.aspx.cs">
+      <DependentUpon>Lines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Lines.aspx.designer.cs">
+      <DependentUpon>Lines.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Suppliers.aspx.cs">
       <DependentUpon>Suppliers.aspx</DependentUpon>
@@ -1061,10 +1093,10 @@
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\variables.less" />
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\wells.less" />
     <None Include="assets\font-awesome\docs\assets\less\variables.less" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.eot" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.ttf" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.woff" />
-    <None Include="assets\font-awesome\font\FontAwesome.otf" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\font\FontAwesome.otf" />
     <None Include="assets\font-awesome\less\font-awesome-ie7.less" />
     <None Include="assets\font-awesome\less\font-awesome.less" />
     <None Include="assets\font-awesome\README.md" />
@@ -1139,6 +1171,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\App_LocalResources\Suppliers.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\ClientTypes.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\Lines.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\Cities.aspx.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

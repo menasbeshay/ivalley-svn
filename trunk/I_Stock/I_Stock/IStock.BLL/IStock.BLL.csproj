@@ -45,6 +45,8 @@
     <Compile Include="Clients.cs" />
     <Compile Include="ClientTypes.cs" />
     <Compile Include="Companies.cs" />
+    <Compile Include="DeliveryOrder.cs" />
+    <Compile Include="DeliveryOrderDetails.cs" />
     <Compile Include="Employees.cs" />
     <Compile Include="InvoiceDetails.cs" />
     <Compile Include="Invoices.cs" />
@@ -59,6 +61,8 @@
     <Compile Include="PurchaseOrderDetails.cs" />
     <Compile Include="PurchaseOrders.cs" />
     <Compile Include="Suppliers.cs" />
+    <Compile Include="SupplyOrders.cs" />
+    <Compile Include="SupplyOrdersDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\I_Stock.DAL\I_Stock.DAL.csproj">

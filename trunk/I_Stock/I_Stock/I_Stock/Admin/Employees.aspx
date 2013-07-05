@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-actions">
                             <div style="float: right;">
-                                <asp:LinkButton ID="uiLinkButtonOK" runat="server" CssClass="btn blue" OnClick="uiLinkButtonOK_Click"><i class='icon-ok'></i> حفظ</asp:LinkButton>
+                                <asp:LinkButton ID="uiLinkButtonOK" runat="server" CssClass="btn btn-success" OnClick="uiLinkButtonOK_Click"><i class='icon-ok'></i> حفظ</asp:LinkButton>
                                 <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" OnClick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> إلغاء</asp:LinkButton>
                             </div>
                             <div style="float: right; margin-right: -310px;">

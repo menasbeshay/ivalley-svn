@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace IStock.BLL
 {
@@ -12,5 +15,16 @@ namespace IStock.BLL
 		{
 		
 		}
+
+
+        public virtual bool GetCitiesByLineID(int LineID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@LineID", SqlDbType.Int, 0), LineID);
+
+            return LoadFromSql("GetCitiesByLineID", parameters);
+
+        }
 	}
 }
