@@ -1,0 +1,257 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ProductMaster.master.cs" Inherits="website.MasterPages.ProductMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../css/lightbox.css">
+    <link href="../css/Style.css" rel="stylesheet" type="text/css" />
+    <title>Mehrez + Krema Home Luxury Furniture</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div align="center">
+        <table border="0" width="1000" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="29%" bgcolor="#89746B" rowspan="5" valign="top">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table border="0" width="100%" cellspacing="2" cellpadding="2" class="productMenu" >
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                                 <a class="menu-left" href="bedrooms.html">
+                                                                    Bedrooms</a>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>
+                                                            
+                                                                 <a class="menu-left" href="dining-rooms.html">
+                                                                    Dining Rooms</a>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>
+                                                            
+                                                                 <a class="menu-left" href="living-rooms.html">
+                                                                    Living Rooms</a>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>
+                                                            
+                                                                <a class="menu-left" href="salon.html">
+                                                                    Salon</a>
+                                                        </td>
+                                                    </tr>
+                                                   
+                                                    <tr>
+                                                        <td>
+                                                            
+                                                                <a class="menu-left" href="miscellaneous.html">
+                                                                    Miscellaneous</a>
+                                                        </td>
+                                                    </tr>
+                                                   
+                                                    <tr>
+                                                        <td>
+                                                           
+                                                                 <a class="menu-left" href="new-collection.html">
+                                                                    New Collection</a>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="3" bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                            <td>
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="105">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td>
+                                                        <img border="0" src="images/mehrez+krema-logo.jpg" width="295" height="35">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            <table border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="index.html">Home</a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="about.html">About </a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="philosophy.html">Philosophy</a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="designers.html">Designers</a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="Products.html">Products</a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="news.html">News</a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <p align="left">
+                                                            <a class="butt" href="careers.html">Careers</a>
+                                                    </td>
+                                                    <td align="center" width="90">
+                                                        <p align="left">
+                                                            <a class="butt" href="contact.html">Contact</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                        <td bgcolor="#FFFFFF">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                           <td colspan="2" bgcolor="#FFFFFF">
+                               <div>
+                                   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                   </asp:ContentPlaceHolder>
+                               </div>
+                           </td>
+                        </tr>
+                        <tr>
+                            <td width="3" bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                            <td bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="3" bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                            <td bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="3" bgcolor="#FFFFFF">
+                                &nbsp;
+                            </td>
+                            <td bgcolor="#FFFFFF">
+                                &nbsp;
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    </form>
+</body>
+</html>

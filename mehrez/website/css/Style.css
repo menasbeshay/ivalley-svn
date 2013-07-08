@@ -1,0 +1,12 @@
+﻿body 
+{
+    background-color: #5A4B45;
+    margin:0;
+    padding:0;
+}
+
+.productMenu tr td
+{
+    padding:10px;
+    padding-left:30px;
+}
