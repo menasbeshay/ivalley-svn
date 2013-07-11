@@ -92,15 +92,15 @@
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
-                                                            <a class="butt" href="about.html">About </a>
+                                                            <a class="butt" href="../page.aspx?PID=2">About </a>
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
-                                                            <a class="butt" href="philosophy.html">Philosophy</a>
+                                                            <a class="butt" href="../page.aspx?PID=3">Philosophy</a>
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
-                                                            <a class="butt" href="designers.html">Designers</a>
+                                                            <a class="butt" href="../designers.aspx">Designers</a>
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
@@ -108,7 +108,7 @@
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
-                                                            <a class="butt" href="news.html">News</a>
+                                                            <a class="butt" href="../news.aspx">News</a>
                                                     </td>
                                                     <td align="center">
                                                         <p align="left">
@@ -129,7 +129,7 @@
                             <td width="3" bgcolor="#FFFFFF">
                                 &nbsp;
                             </td>
-                            <td bgcolor="#FFFFFF" height="30">
+                            <td bgcolor="#FFFFFF">
                                 &nbsp;
                             </td>
                         </tr>
@@ -140,7 +140,7 @@
                             <td bgcolor="#FFFFFF" valign="top">
                                 <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td width="50" valign="top">
+                                        <td valign="top">
                                             &nbsp;
                                         </td>
                                         <td valign="top">
