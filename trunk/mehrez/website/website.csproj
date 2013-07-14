@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminCP.aspx" />
+    <Content Include="Admin\contactUs.aspx" />
     <Content Include="Admin\EditDesigners.aspx" />
     <Content Include="Admin\EditNews.aspx" />
     <Content Include="Admin\EditPages.aspx" />
@@ -62,11 +63,14 @@
     <Content Include="Admin\login.aspx" />
     <Content Include="App_Data\Database.mdb" />
     <Content Include="Careers.aspx" />
-    <Content Include="Carrers.aspx" />
+    <Content Include="contact.html" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="css\lightbox.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\Style.css" />
     <Content Include="designers.aspx" />
+    <Content Include="factory.html" />
+    <Content Include="head-office.html" />
     <Content Include="Images.aspx" />
     <Content Include="images\about-1.jpg" />
     <Content Include="images\bedrooms-main.jpg" />
@@ -112,7 +116,7 @@
     <Content Include="images\logo-2.jpg" />
     <Content Include="images\logo-3.jpg" />
     <Content Include="images\map.jpg" />
-    <Content Include="images\mehrez+krema-logo.jpg" />
+    <Content Include="images\mehrezkremalogo.jpg" />
     <Content Include="images\mehrez-pic.jpg" />
     <Content Include="images\misc-main.jpg" />
     <Content Include="images\new-main.jpg" />
@@ -160,12 +164,15 @@
     <Content Include="images\pro1.jpg" />
     <Content Include="images\salon-main.jpg" />
     <Content Include="images\view-map-icon.png" />
+    <Content Include="images\website-design.jpg" />
     <Content Include="index.html" />
     <Content Include="js\jquery-1.6.1.min.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\purl.js" />
     <Content Include="News.aspx" />
     <Content Include="page.aspx" />
     <Content Include="products.aspx" />
+    <Content Include="showrooms.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -181,6 +188,13 @@
     </Compile>
     <Compile Include="Admin\AdminCP.aspx.designer.cs">
       <DependentUpon>AdminCP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\contactUs.aspx.cs">
+      <DependentUpon>contactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\contactUs.aspx.designer.cs">
+      <DependentUpon>contactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditDesigners.aspx.cs">
       <DependentUpon>EditDesigners.aspx</DependentUpon>
@@ -224,12 +238,12 @@
     <Compile Include="Careers.aspx.designer.cs">
       <DependentUpon>Careers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Carrers.aspx.cs">
-      <DependentUpon>Carrers.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Carrers.aspx.designer.cs">
-      <DependentUpon>Carrers.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="designers.aspx.cs">
       <DependentUpon>designers.aspx</DependentUpon>

@@ -401,14 +401,18 @@ namespace website
         }
 
 
-        public bool SetProductContent(int ProductID, string name, string mainpic)
+        public bool SetProductContent(int ProductID, string name, string mainpic, string thumbs)
         {
             bool result = false;
-
+            command.CommandText = "Update products Set productName = '" + name + "'";
             if (!string.IsNullOrEmpty(mainpic))
-                command.CommandText = string.Format("Update products Set productName = '{0}', Picpath = '{1}' where ProductID = {2}", name, mainpic, ProductID);
-            else
-                command.CommandText = string.Format("Update products Set productName = '{0}' where ProductID = {1}", name, ProductID);
+                command.CommandText += " , Picpath = '"+ mainpic +"'";
+
+            if (!string.IsNullOrEmpty(thumbs))
+                command.CommandText += " , thumbs = '" + thumbs + "'";
+
+            command.CommandText += " where ProductID =" + ProductID.ToString();
+
             try
             {
                 Connect();
@@ -428,10 +432,10 @@ namespace website
         }
 
 
-        public bool AddProductContent(string name, string mainpic,int catID)
+        public bool AddProductContent(string name, string mainpic,int catID, string thumb)
         {
             bool result = false;
-            command.CommandText = string.Format("insert into products (productname, PicPath, categoryID) values ('{0}', '{1}', {2} )", name, mainpic, catID);
+            command.CommandText = string.Format("insert into products (productname, PicPath, categoryID, thumbs) values ('{0}', '{1}', {2}, '{3}' )", name, mainpic, catID, thumb);
             try
             {
                 Connect();
@@ -627,6 +631,137 @@ namespace website
         {
             ds = new DataSet();
             command.CommandText = string.Format("select * from categories Where ID = {0}", catID);
+            try
+            {
+                Connect();
+                dataAdapter.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return null;
+            }
+            CloseConnection();
+
+
+            return ds;
+        }
+
+
+        /*************************/
+        public DataSet GetContactContent(int ContactID)
+        {
+            ds = new DataSet();
+            command.CommandText = string.Format("select * from Contact Where ID = {0}", ContactID);
+            try
+            {
+                Connect();
+                dataAdapter.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return null;
+            }
+            CloseConnection();
+
+
+            return ds;
+        }
+
+
+        public bool SetContactContent(int ContactID, string content, string title, string lat, string longit)
+        {
+            bool result = false;
+            command.CommandText = string.Format("Update Contact Set Content = '{0}', title= '{1}', latitude = '{2}', longitude = '{3}' where ID = {4}", content, title, lat, longit, ContactID);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
+
+        public bool AddContactContent(string content, string title, string lat, string longit)
+        {
+            bool result = false;
+            command.CommandText = string.Format("insert into Contact (content,title, latitude, longitude, type) values ('{0}', '{1}' , '{2}', '{3}', {4})", content, title, lat, longit, 3);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
+        public bool DeleteContact(int ContactID)
+        {
+            bool result = false;
+            command.CommandText = string.Format("Delete from contact where ID = {0}", ContactID);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
+        public DataSet GetAllContact()
+        {
+            ds = new DataSet();
+            command.CommandText = "select * from Contact ";
+            try
+            {
+                Connect();
+                dataAdapter.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return null;
+            }
+            CloseConnection();
+
+
+            return ds;
+        }
+
+
+        public DataSet GetAllContactByType(int type)
+        {
+            ds = new DataSet();
+            command.CommandText = "select * from Contact where type = " + type.ToString();
             try
             {
                 Connect();

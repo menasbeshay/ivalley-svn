@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Panel ID="uiPanelLogin" runat="server" DefaultButton="uiLinkButtonLogin">
     <table align="center" cellpadding="2" cellspacing="2" style="empty-cells: show;width:80%;"> 
         <tr>
             <td colspan="3">
@@ -51,4 +52,5 @@
             </td>
         </tr>
     </table>
+    </asp:Panel>
 </asp:Content>

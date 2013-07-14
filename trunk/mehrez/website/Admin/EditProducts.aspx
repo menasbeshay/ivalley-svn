@@ -94,6 +94,16 @@
                     <div class="clear5">
                     </div>
                     <div class="AdminRight" style="width: 135px">
+                        <asp:Label ID="Label5" runat="server" Text="Thumbnail picture :" CssClass="Label"></asp:Label>
+                    </div>
+                    <div class="AdminMiddle">
+                        <asp:FileUpload ID="uiFileUploadThumbs" runat="server" />
+                    </div>
+                    <div class="AdminLeft">
+                    </div>
+                    <div class="clear5">
+                    </div>
+                    <div class="AdminRight" style="width: 135px">
                         &nbsp;
                     </div>
                     <div class="AdminMiddle" style="text-align: center">
