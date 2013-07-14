@@ -36,7 +36,7 @@ namespace website
                     uiPanelDetail.Visible = false;
                     uiPanelCats.Visible = false;
 
-                    BindCats();
+                    BindProducts();
                 }
                 else if ((Request.QueryString["pid"] != null && !string.IsNullOrEmpty(Request.QueryString["pid"])))
                 {
@@ -76,10 +76,10 @@ namespace website
         protected void uiLinkButtonPrev_Click(object sender, EventArgs e)
         {
             PageIndex -= 1;
-            BindCats();
+            BindProducts();
         }
 
-        private void BindCats()
+        private void BindProducts()
         {
             DBLayer db = new DBLayer();
             DataSet ds = new DataSet();
@@ -100,7 +100,7 @@ namespace website
         protected void uiLinkButtonNext_Click(object sender, EventArgs e)
         {
             PageIndex += 1;
-            BindCats();
+            BindProducts();
         }
     }
 }

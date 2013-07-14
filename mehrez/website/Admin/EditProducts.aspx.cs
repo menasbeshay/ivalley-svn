@@ -220,7 +220,14 @@ namespace website.Admin
                 uiFileUploadMainPicturePath.SaveAs(Server.MapPath("~/UploadedFiles/products/" + uiFileUploadMainPicturePath.FileName));
                 filepath = "/UploadedFiles/products/" + uiFileUploadMainPicturePath.FileName;
             }
-            db.AddProductContent(uiTextBoxName.Text, filepath, Convert.ToInt32(uiDropDownListCats.SelectedValue));
+
+            string thumbfilepath = "";
+            if (uiFileUploadThumbs.HasFile)
+            {
+                uiFileUploadThumbs.SaveAs(Server.MapPath("~/UploadedFiles/products/" + uiFileUploadThumbs.FileName));
+                thumbfilepath = "/UploadedFiles/products/" + uiFileUploadThumbs.FileName;
+            }
+            db.AddProductContent(uiTextBoxName.Text, filepath, Convert.ToInt32(uiDropDownListCats.SelectedValue), thumbfilepath);
 
         }
 
@@ -235,7 +242,13 @@ namespace website.Admin
                 filepath = "/UploadedFiles/products/" + uiFileUploadMainPicturePath.FileName;
             }
 
-            db.SetProductContent(CurrentProduct, uiTextBoxName.Text,filepath);
+            string thumbfilepath = "";
+            if (uiFileUploadThumbs.HasFile)
+            {
+                uiFileUploadThumbs.SaveAs(Server.MapPath("~/UploadedFiles/products/" + uiFileUploadThumbs.FileName));
+                thumbfilepath = "/UploadedFiles/products/" + uiFileUploadThumbs.FileName;
+            }
+            db.SetProductContent(CurrentProduct, uiTextBoxName.Text, filepath, thumbfilepath);
 
         }
 

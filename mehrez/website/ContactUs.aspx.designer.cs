@@ -7,90 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace website.Admin {
+namespace website {
     
     
-    public partial class login {
+    public partial class ContactUs {
         
         /// <summary>
-        /// uiPanelLogin control.
+        /// uiPanelHO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelLogin;
+        protected global::System.Web.UI.WebControls.Panel uiPanelHO;
         
         /// <summary>
-        /// uiLabelErrorLogin control.
+        /// uiLiteralHOContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelErrorLogin;
+        protected global::System.Web.UI.WebControls.Literal uiLiteralHOContent;
         
         /// <summary>
-        /// uiLabelUserName control.
+        /// uiLiteralHOscript control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelUserName;
+        protected global::System.Web.UI.WebControls.Literal uiLiteralHOscript;
         
         /// <summary>
-        /// uiTextBoxUserName control.
+        /// uiPanelFactory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxUserName;
+        protected global::System.Web.UI.WebControls.Panel uiPanelFactory;
         
         /// <summary>
-        /// uiRequiredFieldValidatorUserName control.
+        /// uiLiteralFactScript control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator uiRequiredFieldValidatorUserName;
+        protected global::System.Web.UI.WebControls.Literal uiLiteralFactScript;
         
         /// <summary>
-        /// uiLabelPassword control.
+        /// uiLiteralFactoryContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelPassword;
+        protected global::System.Web.UI.WebControls.Literal uiLiteralFactoryContent;
         
         /// <summary>
-        /// uiTextBoxPassword control.
+        /// uiPanelShowrooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPassword;
+        protected global::System.Web.UI.WebControls.Panel uiPanelShowrooms;
         
         /// <summary>
-        /// uiRequiredFieldValidatorPassword control.
+        /// uiRepeaterRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator uiRequiredFieldValidatorPassword;
-        
-        /// <summary>
-        /// uiLinkButtonLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonLogin;
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterRooms;
     }
 }
