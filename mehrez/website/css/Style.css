@@ -200,11 +200,11 @@ h3
 
     
 /*.pro_main img { border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; }*/
-.productItems {margin:0 auto;text-align:center;padding:30px;padding-left:25%;}
-.productItems table{border-collapse:collapse;text-align:center !important;}
-.productItems table tr td{padding:5px;border:1px solid black;}
+.productItems {margin:0 auto;text-align:center;padding:30px;padding-left:15%;}
+.productItems table{border-collapse:collapse;text-align:center !important;width:500px;}
+.productItems table tr td{padding:5px;border:1px solid #DFDFDf;}
 .productItems table tr td.content_black{text-align:center !important;}
-.details {background-color:#C1B6B3} 
+.details {background-color:#C1B6B3; } 
 
 a.current
 {
@@ -216,6 +216,7 @@ a.current
 {
     background-color:#E91652;
     }
+.mainpro {color: #E91652 !important;}    
 
 .content_black div
 {

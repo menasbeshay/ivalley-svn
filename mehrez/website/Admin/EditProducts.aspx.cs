@@ -87,7 +87,8 @@ namespace website.Admin
                 CurrentProduct = Convert.ToInt32(e.CommandArgument);
                 DataSet ds = db.GetProductContent(CurrentProduct);
                 uiTextBoxName.Text = ds.Tables[0].Rows[0]["ProductName"].ToString();
-                
+                uiTextBoxDesignerName.Text = ds.Tables[0].Rows[0]["DesignerName"].ToString(); 
+
                 uiPanelViewProducts.Visible = false;
                 uiPanelEdit.Visible = true;
                 uiPanelAllItems.Visible = true;
@@ -119,7 +120,7 @@ namespace website.Admin
             uiPanelEdit.Visible = (CurrentProduct != 0 );
             uiPanelViewProducts.Visible = (CurrentProduct == 0);
             uiPanelAllItems.Visible = (CurrentProduct != 0);
-            Clearfields();
+            //Clearfields();
             BindData();
             
         }
@@ -181,8 +182,7 @@ namespace website.Admin
                 DataSet ds = db.GetItemContent(CurrentItem);
                 uiTextBoxItemName.Text = ds.Tables[0].Rows[0]["itemName"].ToString();
                 uiTextBoxDim.Text = ds.Tables[0].Rows[0]["dimension"].ToString();
-                uiTextBoxCode.Text = ds.Tables[0].Rows[0]["code"].ToString();                                
-                
+                uiTextBoxCode.Text = ds.Tables[0].Rows[0]["code"].ToString();                                               
             }
             else if (e.CommandName == "DeleteItem")
             {
@@ -227,7 +227,7 @@ namespace website.Admin
                 uiFileUploadThumbs.SaveAs(Server.MapPath("~/UploadedFiles/products/" + uiFileUploadThumbs.FileName));
                 thumbfilepath = "/UploadedFiles/products/" + uiFileUploadThumbs.FileName;
             }
-            db.AddProductContent(uiTextBoxName.Text, filepath, Convert.ToInt32(uiDropDownListCats.SelectedValue), thumbfilepath);
+            db.AddProductContent(uiTextBoxName.Text, filepath, Convert.ToInt32(uiDropDownListCats.SelectedValue), thumbfilepath, uiTextBoxDesignerName.Text);
 
         }
 
@@ -248,7 +248,7 @@ namespace website.Admin
                 uiFileUploadThumbs.SaveAs(Server.MapPath("~/UploadedFiles/products/" + uiFileUploadThumbs.FileName));
                 thumbfilepath = "/UploadedFiles/products/" + uiFileUploadThumbs.FileName;
             }
-            db.SetProductContent(CurrentProduct, uiTextBoxName.Text, filepath, thumbfilepath);
+            db.SetProductContent(CurrentProduct, uiTextBoxName.Text, filepath, thumbfilepath, uiTextBoxDesignerName.Text);
 
         }
 
@@ -256,7 +256,8 @@ namespace website.Admin
 
         private void Clearfields()
         {
-            uiTextBoxName.Text = "";            
+            uiTextBoxName.Text = "";
+            uiTextBoxDesignerName.Text = "";
         }
 
         private void LoadDDLs()

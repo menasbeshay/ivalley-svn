@@ -24,7 +24,12 @@
             }
             else if (id == 6) {
                 $("#cat6").addClass("mainCat");
-            }            
+            }
+        });
+
+        $(document).ready(function () {
+            var id = $.url().param('pid');
+            $("#pro" + id).addClass("mainpro");            
         });
     </script>
 </asp:Content>
@@ -67,7 +72,8 @@
         <asp:Repeater ID="uiRepeaterProducts" runat="server">
             <ItemTemplate>
                 <div style="float: left; width: 22%; padding: 5px; margin: 5px;" >
-                    <a href='products.aspx?pid=<%# Eval("ProductID") %>' class="pro_main">
+                    <a href='products.aspx?cid=<%# Eval("CategoryID") %>&pid=<%# Eval("ProductID") %>'
+                        class="pro_main">
                         <img src='Images.aspx?Inner=product&Image=<%# Eval("thumbs") %>' />
                         <br />
                         <%# Eval("ProductName") %></a>
@@ -75,7 +81,7 @@
             </ItemTemplate>
         </asp:Repeater>
 
-        <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center">
+        <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center" CssClass="tittle_kreem">
             
             <div class="clear5" style="height: 10px">
             </div>
@@ -86,7 +92,7 @@
     </asp:Panel>
     <asp:Panel ID="uiPanelDetail" runat="server">
     <div class="details">
-        <div class="path">
+        <div class="path tittle_kreem" style="padding:5px;padding-bottom:0px;margin-bottom:-5px;padding-top:10px;">
             <asp:Label ID="uiLabelPath" runat="server" ></asp:Label>
         </div>
         <div class="clear5"></div>
@@ -94,11 +100,16 @@
         <div>
             <asp:Image ID="uiImagemainPic" runat="server" />
         </div>
-            
+        <div class="path tittle_kreem" style="padding: 5px; padding-bottom: 0px; margin-bottom: -5px;
+            padding-top: 10px;">
+            <asp:Label ID="uiLabelDesigner" runat="server"></asp:Label>
+        </div>
+        <div class="clear5">
+        </div>   
         <div class="productItems">
             <asp:Repeater ID="uiRepeaterItems" runat="server">
             <HeaderTemplate>
-            <table border="1" cellpadding="2" cellspacing="2">
+            <table border="1" cellpadding="2" cellspacing="2" >
             <tr>
             <td class="content_black">No.</td>
                 <td class="content_black">
@@ -115,16 +126,16 @@
             </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                    <td>
+                    <td class="tittle_kreem">
                         <%# Container.ItemIndex + 1 %>
                     </td>
-                        <td>
+                        <td class="tittle_kreem">
                         <%# Eval("ItemName") %>
                         </td>
-                        <td>
+                        <td class="tittle_kreem">
                             <%# Eval("Dimension") %>
                         </td>
-                        <td>
+                        <td class="tittle_kreem">
                             <%# Eval("Code") %>
                         </td>
                     
