@@ -81,7 +81,18 @@
                     </div>
                     <div class="clear">
                     </div>
-                    
+                    <div class="AdminRight" style="width: 135px">
+                        <asp:Label ID="Label6" runat="server" Text="Designer Name  :" CssClass="Label"></asp:Label>
+                    </div>
+                    <div class="AdminMiddle">
+                        <asp:TextBox ID="uiTextBoxDesignerName" runat="server" ValidationGroup="EditPage" Width="400px"></asp:TextBox>
+                    </div>
+                    <div class="AdminLeft">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
+                            ControlToValidate="uiTextBoxDesignerName" Display="Dynamic" ValidationGroup="EditPage"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="clear">
+                    </div>
                     <div class="AdminRight" style="width: 135px">
                         <asp:Label ID="Label8" runat="server" Text="Main picture :" CssClass="Label"></asp:Label>
                     </div>

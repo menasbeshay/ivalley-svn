@@ -38,7 +38,7 @@ namespace website
 
                     BindProducts();
                 }
-                else if ((Request.QueryString["pid"] != null && !string.IsNullOrEmpty(Request.QueryString["pid"])))
+                if ((Request.QueryString["pid"] != null && !string.IsNullOrEmpty(Request.QueryString["pid"])))
                 {
                     uiPanelProducts.Visible = false;
                     uiPanelDetail.Visible = true;
@@ -51,10 +51,11 @@ namespace website
                     items = db.GetAllItemsByProductID(Convert.ToInt32(Request.QueryString["pid"].ToString()));
                     uiLabelPath.Text = db.GetCategoryContent(Convert.ToInt32(ds.Tables[0].Rows[0]["CategoryID"].ToString())).Tables[0].Rows[0]["categoryName"].ToString() + " / " + ds.Tables[0].Rows[0]["ProductName"].ToString();
                     uiImagemainPic.ImageUrl = ds.Tables[0].Rows[0]["PicPath"].ToString();
+                    uiLabelDesigner.Text = "Designer : " + ds.Tables[0].Rows[0]["DesignerName"].ToString();
                     uiRepeaterItems.DataSource = items;
                     uiRepeaterItems.DataBind();
                 }
-                else //if ((Request.QueryString["cid"] == null || string.IsNullOrEmpty(Request.QueryString["cid"])) && (Request.QueryString["pid"] == null || string.IsNullOrEmpty(Request.QueryString["pid"])))
+                else if ((Request.QueryString["cid"] == null || string.IsNullOrEmpty(Request.QueryString["cid"])) && (Request.QueryString["pid"] == null || string.IsNullOrEmpty(Request.QueryString["pid"])))
                 {
                     uiPanelProducts.Visible = false;
                     uiPanelDetail.Visible = false;
@@ -87,7 +88,7 @@ namespace website
             PagedDataSource dt = new PagedDataSource();
             dt.DataSource = ds.Tables[0].DefaultView;
             dt.AllowPaging = true;
-            dt.PageSize = 10;
+            dt.PageSize = 12;
             dt.CurrentPageIndex = PageIndex;
             uiLinkButtonPrev.Enabled = !dt.IsFirstPage;
             uiLinkButtonNext.Enabled = !dt.IsLastPage;

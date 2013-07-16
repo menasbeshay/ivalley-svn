@@ -40,7 +40,7 @@
             </SeparatorTemplate>
             
         </asp:Repeater>
-        <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center">
+        <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center" CssClass="tittle_kreem">
             <div class="clear5" style="height: 10px">
             </div>
             <asp:LinkButton ID="uiLinkButtonPrev" runat="server" OnClick="uiLinkButtonPrev_Click"><< Prev</asp:LinkButton>&nbsp;

@@ -401,10 +401,10 @@ namespace website
         }
 
 
-        public bool SetProductContent(int ProductID, string name, string mainpic, string thumbs)
+        public bool SetProductContent(int ProductID, string name, string mainpic, string thumbs, string designer)
         {
             bool result = false;
-            command.CommandText = "Update products Set productName = '" + name + "'";
+            command.CommandText = "Update products Set productName = '" + name + "', DesignerName = '" + designer + "'";
             if (!string.IsNullOrEmpty(mainpic))
                 command.CommandText += " , Picpath = '"+ mainpic +"'";
 
@@ -432,10 +432,10 @@ namespace website
         }
 
 
-        public bool AddProductContent(string name, string mainpic,int catID, string thumb)
+        public bool AddProductContent(string name, string mainpic, int catID, string thumb, string designer)
         {
             bool result = false;
-            command.CommandText = string.Format("insert into products (productname, PicPath, categoryID, thumbs) values ('{0}', '{1}', {2}, '{3}' )", name, mainpic, catID, thumb);
+            command.CommandText = string.Format("insert into products (productname, PicPath, categoryID, thumbs, DesignerName) values ('{0}', '{1}', {2}, '{3}', '{4}' )", name, mainpic, catID, thumb, designer);
             try
             {
                 Connect();

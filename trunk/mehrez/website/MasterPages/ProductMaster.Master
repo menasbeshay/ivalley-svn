@@ -106,11 +106,32 @@
                                     <tr>
                                         <td>
                                             &nbsp;
+                                            <div class="clear5" style="height:25px"></div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            &nbsp;
+                                        <asp:Repeater ID="uiRepeaterProducts" runat="server">
+                                        <HeaderTemplate>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="productMenu">
+                                                <tbody>
+                                        </HeaderTemplate>
+                                        <FooterTemplate>
+                                            </tbody> </table>
+                                        </FooterTemplate>
+                                        <ItemTemplate>
+                                            <tr>
+                                            <td>
+                                                
+                                                
+                                                    <a class="menu-left" href='products.aspx?cid=<%# Eval("CategoryID") %>&pid=<%# Eval("ProductID") %>'
+                                                        id='pro<%# Eval("ProductID") %>'>
+                                                        <%# Eval("ProductName") %></a>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                        </asp:Repeater>
+                                            
                                         </td>
                                     </tr>
                                 </table>
@@ -153,14 +174,7 @@
                                             </table>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td bgcolor="#FFFFFF">
-                                            &nbsp;
-                                        </td>
-                                        <td bgcolor="#FFFFFF">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
+                                    
                                     <tr>
                                         <td bgcolor="#FFFFFF">
                                             &nbsp;
