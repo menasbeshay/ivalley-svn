@@ -43,6 +43,7 @@
                 </div>
             </ItemTemplate>
             <FooterTemplate>
+            <div class="clear5"></div>
                 <table border="0" width="100%" cellspacing="0" cellpadding="5">
                     <tbody>
                         <tr>

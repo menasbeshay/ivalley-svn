@@ -193,7 +193,7 @@
                                                     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ItemID") %>'
                                                         CommandName="EditItem">Edit</asp:LinkButton>&nbsp;
                                                     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ItemID") %>'
-                                                        CommandName="DeleteDelete" OnClientClick="return confirm('do you want to delete this record ?');">Delete</asp:LinkButton>
+                                                        CommandName="DeleteItem" OnClientClick="return confirm('do you want to delete this record ?');">Delete</asp:LinkButton>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
