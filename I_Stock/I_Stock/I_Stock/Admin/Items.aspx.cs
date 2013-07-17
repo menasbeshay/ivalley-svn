@@ -61,8 +61,10 @@ namespace I_Stock.Admin
                 uiTextBoxName.Text = objData.Name;
                 uiTextBoxCode.Text = objData.ItemCode;
                 uiTextBoxDesc.Text = objData.Description;
-                uiTextBoxQty.Text = objData.Quantity.ToString();
-                uiTextBoxReOrderLevel.Text = objData.ReOrderLevel.ToString();
+                if (!objData.IsColumnNull("Quantity"))
+                    uiTextBoxQty.Text = objData.Quantity.ToString();
+                if(!objData.IsColumnNull("ReOrderLevel"))
+                    uiTextBoxReOrderLevel.Text = objData.ReOrderLevel.ToString();
                 uiPanelAllItems.Visible = false;
                 uiPanelEditItems.Visible = true;
                 CurrentItem = objData;
