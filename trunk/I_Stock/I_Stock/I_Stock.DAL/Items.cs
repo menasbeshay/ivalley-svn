@@ -155,6 +155,14 @@ namespace IStock.DAL
 				}
 			}
 			
+			public static SqlParameter ReOrderLevel
+			{
+				get
+				{
+					return new SqlParameter("@ReOrderLevel", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +176,7 @@ namespace IStock.DAL
             public const string Name = "Name";
             public const string Description = "Description";
             public const string Quantity = "Quantity";
+            public const string ReOrderLevel = "ReOrderLevel";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +191,7 @@ namespace IStock.DAL
 					ht[Name] = _Items.PropertyNames.Name;
 					ht[Description] = _Items.PropertyNames.Description;
 					ht[Quantity] = _Items.PropertyNames.Quantity;
+					ht[ReOrderLevel] = _Items.PropertyNames.ReOrderLevel;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +211,7 @@ namespace IStock.DAL
             public const string Name = "Name";
             public const string Description = "Description";
             public const string Quantity = "Quantity";
+            public const string ReOrderLevel = "ReOrderLevel";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +226,7 @@ namespace IStock.DAL
 					ht[Name] = _Items.ColumnNames.Name;
 					ht[Description] = _Items.ColumnNames.Description;
 					ht[Quantity] = _Items.ColumnNames.Quantity;
+					ht[ReOrderLevel] = _Items.ColumnNames.ReOrderLevel;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +246,7 @@ namespace IStock.DAL
             public const string Name = "s_Name";
             public const string Description = "s_Description";
             public const string Quantity = "s_Quantity";
+            public const string ReOrderLevel = "s_ReOrderLevel";
 
 		}
 		#endregion		
@@ -321,6 +334,18 @@ namespace IStock.DAL
 			set
 	        {
 				base.Setint(ColumnNames.Quantity, value);
+			}
+		}
+
+		public virtual int ReOrderLevel
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ReOrderLevel);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ReOrderLevel, value);
 			}
 		}
 
@@ -434,6 +459,21 @@ namespace IStock.DAL
 			}
 		}
 
+		public virtual string s_ReOrderLevel
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ReOrderLevel) ? string.Empty : base.GetintAsString(ColumnNames.ReOrderLevel);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ReOrderLevel);
+				else
+					this.ReOrderLevel = base.SetintAsString(ColumnNames.ReOrderLevel, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +577,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public WhereParameter ReOrderLevel
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ReOrderLevel, Parameters.ReOrderLevel);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +676,18 @@ namespace IStock.DAL
 				}
 			}
 
+			public WhereParameter ReOrderLevel
+		    {
+				get
+		        {
+					if(_ReOrderLevel_W == null)
+	        	    {
+						_ReOrderLevel_W = TearOff.ReOrderLevel;
+					}
+					return _ReOrderLevel_W;
+				}
+			}
+
 			private WhereParameter _ItemID_W = null;
 			private WhereParameter _ItemCode_W = null;
 			private WhereParameter _CompanyID_W = null;
@@ -633,6 +695,7 @@ namespace IStock.DAL
 			private WhereParameter _Name_W = null;
 			private WhereParameter _Description_W = null;
 			private WhereParameter _Quantity_W = null;
+			private WhereParameter _ReOrderLevel_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +706,7 @@ namespace IStock.DAL
 				_Name_W = null;
 				_Description_W = null;
 				_Quantity_W = null;
+				_ReOrderLevel_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +833,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public AggregateParameter ReOrderLevel
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReOrderLevel, Parameters.ReOrderLevel);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +932,18 @@ namespace IStock.DAL
 				}
 			}
 
+			public AggregateParameter ReOrderLevel
+		    {
+				get
+		        {
+					if(_ReOrderLevel_W == null)
+	        	    {
+						_ReOrderLevel_W = TearOff.ReOrderLevel;
+					}
+					return _ReOrderLevel_W;
+				}
+			}
+
 			private AggregateParameter _ItemID_W = null;
 			private AggregateParameter _ItemCode_W = null;
 			private AggregateParameter _CompanyID_W = null;
@@ -865,6 +951,7 @@ namespace IStock.DAL
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _Description_W = null;
 			private AggregateParameter _Quantity_W = null;
+			private AggregateParameter _ReOrderLevel_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +962,7 @@ namespace IStock.DAL
 				_Name_W = null;
 				_Description_W = null;
 				_Quantity_W = null;
+				_ReOrderLevel_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1063,10 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.Quantity);
 			p.SourceColumn = ColumnNames.Quantity;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ReOrderLevel);
+			p.SourceColumn = ColumnNames.ReOrderLevel;
 			p.SourceVersion = DataRowVersion.Current;
 
 

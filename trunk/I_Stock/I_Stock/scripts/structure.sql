@@ -133,10 +133,12 @@ Create Table Clients
 	Name Nvarchar(200),
 	Description nvarchar(1000),
 	Address nvarchar(1000),
-	Telephone nvarchar(15)	
+	Telephone nvarchar(15),
+	StartCredit	decimal(10,4),
+	CreditLimit decimal(10,4)
+	
 )
 Go
-
 
 
 If Exists (select Name 
@@ -171,7 +173,8 @@ Create Table Items
 	GroupID int Foreign Key References ItemGroups(ItemGroupID),
 	Name Nvarchar(200),
 	Description nvarchar(1000),
-	Quantity int
+	Quantity int,
+	ReOrderLevel int
 )
 Go
 
@@ -280,7 +283,8 @@ Create Table Invoices
 	EmployeeID int Foreign Key References Employees(EmployeeID),
 	ClientReturnID int Foreign Key References ClientReturns(ClientReturnID),
 	ClientID int Foreign Key References Clients(ClientID),
-	InvoiceDate Datetime	
+	InvoiceDate Datetime	,
+	Discount decimal(10,4)
 )
 Go
 
@@ -299,9 +303,11 @@ Create Table InvoiceDetails
 	InvoiceID int Foreign Key References Invoices(InvoiceID),
 	ItemID int Foreign Key References Items(ItemID),
 	Quantity int,
-	Discount decimal(5,3)
+	Discount decimal(5,3),
+	ItemPrice decimal(10,4)
 )
 Go
+
 
 If Exists (select Name 
 		   from sysobjects 
@@ -338,9 +344,12 @@ Create Table DeliveryOrder
 	EmployeeID int Foreign Key References Employees(EmployeeID),
 	ClientReturnID int Foreign Key References ClientReturns(ClientReturnID),
 	ClientID int Foreign Key References Clients(ClientID),
-	DeliveryOrderDate Datetime	
+	DeliveryOrderDate Datetime	,
+	Discount decimal(10,4)
 )
 Go
+
+
 
 
 If Exists (select Name 
@@ -357,6 +366,7 @@ Create Table DeliveryOrderDetails
 	DeliveryOrderID int Foreign Key References DeliveryOrder(DeliveryOrderID),
 	ItemID int Foreign Key References Items(ItemID),
 	Quantity int,
+	ItemPrice decimal(10,4),
 	Discount decimal(5,3)
 )
 Go

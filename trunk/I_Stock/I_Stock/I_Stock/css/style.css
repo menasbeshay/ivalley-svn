@@ -494,8 +494,8 @@ ul.sidebar-menu span.icon-box  {
     -moz-border-radius: 0px !important;
     border-radius: 0px !important;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 #sidebar > ul > li a i {
@@ -562,8 +562,8 @@ ul.sidebar-menu span.icon-box  {
     color: #ccc;
     text-decoration: none;
     text-shadow: 0 1px 1px #000;
-    font-size: 13px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #sidebar > ul > li > ul.sub > li.active > a, #sidebar > ul > li > ul.sub > li > a:hover {

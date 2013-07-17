@@ -147,6 +147,14 @@ namespace IStock.DAL
 				}
 			}
 			
+			public static SqlParameter Discount
+			{
+				get
+				{
+					return new SqlParameter("@Discount", SqlDbType.Decimal, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace IStock.DAL
             public const string ClientReturnID = "ClientReturnID";
             public const string ClientID = "ClientID";
             public const string InvoiceDate = "InvoiceDate";
+            public const string Discount = "Discount";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace IStock.DAL
 					ht[ClientReturnID] = _Invoices.PropertyNames.ClientReturnID;
 					ht[ClientID] = _Invoices.PropertyNames.ClientID;
 					ht[InvoiceDate] = _Invoices.PropertyNames.InvoiceDate;
+					ht[Discount] = _Invoices.PropertyNames.Discount;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace IStock.DAL
             public const string ClientReturnID = "ClientReturnID";
             public const string ClientID = "ClientID";
             public const string InvoiceDate = "InvoiceDate";
+            public const string Discount = "Discount";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace IStock.DAL
 					ht[ClientReturnID] = _Invoices.ColumnNames.ClientReturnID;
 					ht[ClientID] = _Invoices.ColumnNames.ClientID;
 					ht[InvoiceDate] = _Invoices.ColumnNames.InvoiceDate;
+					ht[Discount] = _Invoices.ColumnNames.Discount;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace IStock.DAL
             public const string ClientReturnID = "s_ClientReturnID";
             public const string ClientID = "s_ClientID";
             public const string InvoiceDate = "s_InvoiceDate";
+            public const string Discount = "s_Discount";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace IStock.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.InvoiceDate, value);
+			}
+		}
+
+		public virtual decimal Discount
+	    {
+			get
+	        {
+				return base.Getdecimal(ColumnNames.Discount);
+			}
+			set
+	        {
+				base.Setdecimal(ColumnNames.Discount, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace IStock.DAL
 			}
 		}
 
+		public virtual string s_Discount
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Discount) ? string.Empty : base.GetdecimalAsString(ColumnNames.Discount);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Discount);
+				else
+					this.Discount = base.SetdecimalAsString(ColumnNames.Discount, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public WhereParameter Discount
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Discount, Parameters.Discount);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace IStock.DAL
 				}
 			}
 
+			public WhereParameter Discount
+		    {
+				get
+		        {
+					if(_Discount_W == null)
+	        	    {
+						_Discount_W = TearOff.Discount;
+					}
+					return _Discount_W;
+				}
+			}
+
 			private WhereParameter _InvoiceID_W = null;
 			private WhereParameter _InvoiceNo_W = null;
 			private WhereParameter _EmployeeID_W = null;
 			private WhereParameter _ClientReturnID_W = null;
 			private WhereParameter _ClientID_W = null;
 			private WhereParameter _InvoiceDate_W = null;
+			private WhereParameter _Discount_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace IStock.DAL
 				_ClientReturnID_W = null;
 				_ClientID_W = null;
 				_InvoiceDate_W = null;
+				_Discount_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public AggregateParameter Discount
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Discount, Parameters.Discount);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace IStock.DAL
 				}
 			}
 
+			public AggregateParameter Discount
+		    {
+				get
+		        {
+					if(_Discount_W == null)
+	        	    {
+						_Discount_W = TearOff.Discount;
+					}
+					return _Discount_W;
+				}
+			}
+
 			private AggregateParameter _InvoiceID_W = null;
 			private AggregateParameter _InvoiceNo_W = null;
 			private AggregateParameter _EmployeeID_W = null;
 			private AggregateParameter _ClientReturnID_W = null;
 			private AggregateParameter _ClientID_W = null;
 			private AggregateParameter _InvoiceDate_W = null;
+			private AggregateParameter _Discount_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace IStock.DAL
 				_ClientReturnID_W = null;
 				_ClientID_W = null;
 				_InvoiceDate_W = null;
+				_Discount_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.InvoiceDate);
 			p.SourceColumn = ColumnNames.InvoiceDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Discount);
+			p.SourceColumn = ColumnNames.Discount;
 			p.SourceVersion = DataRowVersion.Current;
 
 

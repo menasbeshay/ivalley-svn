@@ -3,6 +3,7 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
 namespace IStock.BLL
 {
 	public class Clients : _Clients
@@ -11,5 +12,12 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllClients()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllClients", parameters);
+        }
 	}
 }

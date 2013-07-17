@@ -1843,7 +1843,7 @@ var App = function () {
 
     var handleDateTimePickers = function () {
 
-        if (!jQuery().daterangepicker) {
+        /*if (!jQuery().daterangepicker) {
             return;
         }
 
@@ -1952,21 +1952,21 @@ var App = function () {
         $('#form-date-range span').html(Date.today().add({
             days: -29
         }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
+        */
 
-
-        if (!jQuery().datepicker || !jQuery().timepicker) {
-            return;
-        }
+//        if (!jQuery().datepicker || !jQuery().timepicker) {
+//            return;
+//        }
         $('.date-picker').datepicker();
 
-        $('.timepicker-default').timepicker();
+       /* $('.timepicker-default').timepicker();
 
         $('.timepicker-24').timepicker({
             minuteStep: 1,
             showSeconds: true,
             showMeridian: false
         });
-
+        */
     }
 
     var handleColorPicker = function () {
@@ -2308,13 +2308,13 @@ try{
         return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
     }});
 } catch (e){
-    errorMessage(e);
+    //errorMessage(e);
 }
 
 
 //knob
 
-$(".knob").knob();
+//$(".knob").knob();
 
 
 

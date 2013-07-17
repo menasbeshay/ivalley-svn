@@ -58,6 +58,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="control-group">
+                            <div class="span12">
+                                <label class="control-label">
+                                    حد الطلب</label>
+                                <div class="controls">
+                                    <asp:TextBox ID="uiTextBoxReOrderLevel" runat="server" CssClass="input-xxlarge"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="form-actions">
                         <asp:Panel ID="uiPanelActions" runat="server" Visible="false">
@@ -66,9 +75,7 @@
                                 <asp:HyperLink runat="server" CssClass="btn btn-primary" ID="uiHyperLinkPrices" NavigateUrl="#Pricesmodal"
                                     data-toggle="modal">
                                 <i class="icon-tag"></i> أسعار الصنف</asp:HyperLink>
-                                <asp:HyperLink runat="server" CssClass="btn btn-primary" ID="HyperLink1" NavigateUrl="#Suppliers"
-                                    data-toggle="modal">
-                                <i class="icon-truck"></i> الموردين</asp:HyperLink>
+                               
                             </div>
                         </asp:Panel>
                             <div style="float:right;">
@@ -151,62 +158,7 @@
                         </div>
                     </div>
 
-                    <!-- suppliers -->
-                    <div id="Suppliers" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel1"
-                        aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                ×</button>
-                            <h3 id="H1">
-                                إضافة / تعديل موردى الصنف</h3>
-                        </div>
-                        <div class="modal-body">
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <div class="form-horizontal">
-                                        <div class="control-group">
-                                            <label class="control-label">
-                                                المورد</label>
-                                            <div class="controls" style="margin-left: 100px !important;">
-                                                <div class="input-append">
-                                                    <asp:DropDownList ID="uiDropDownListSuppliers" runat="server" AutoPostBack="true" CssClass="input-large">
-                                                    </asp:DropDownList>
-                                                    &nbsp;
-                                                    <asp:LinkButton ID="uiLinkButtonAddSupp" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAddSupp_Click"
-                                                        Style="margin-right: 10px !important;"><i class='icon-plus'></i> إضافة مورد</asp:LinkButton>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="clearfix" style="height: 20px;">
-                                    </div>
-                                    <asp:GridView ID="uiGridViewSuppliers" runat="server" AutoGenerateColumns="False"
-                                        CellPadding="4" OnRowCommand="uiGridViewSuppliers_RowCommand" 
-                                        CssClass="table table-striped table-bordered" Width="90%">
-                                        <Columns>
-                                            <asp:BoundField DataField="SuppName" HeaderText="المورد" ItemStyle-Width="33%" />                                            
-                                            <asp:TemplateField HeaderText="إجراءات" ItemStyle-Width="20%">
-                                                <ItemTemplate>
-                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("SupplierID") %>'
-                                                        CssClass="btn blue" CommandName="DeleteSupp" OnClientClick="return confirm('هل تريد حذف هذا السجل ؟');"><i class='icon-remove'></i> حذف</asp:LinkButton>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                                    إلغاء</button>
-                                <asp:LinkButton ID="uiLinkButtonUpdateSuppliers" runat="server" class="btn btn-primary"
-                                    OnClick="uiLinkButtonUpdateSuppliers_Click">
-                                    إغلاق وتحديث</asp:LinkButton>
-                            </div>
-                        </div>
-                    </div>
-
+                   
                     <!-- end modals -->
                 </div>
             </div>
@@ -246,7 +198,7 @@
                                         OnSelectedIndexChanged="uiDropDownListGroup_SelectedIndexChanged">
                                     </asp:DropDownList>
                                     &nbsp;
-                                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAdd_Click"><i class='icon-plus'></i> إضافة صنف جديد</asp:LinkButton>
+                                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAdd_Click" Enabled="false"><i class='icon-plus'></i> إضافة صنف جديد</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
