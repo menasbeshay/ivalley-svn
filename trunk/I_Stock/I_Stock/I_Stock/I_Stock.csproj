@@ -715,12 +715,15 @@
     <Content Include="assets\uniform\images\sprite.png" />
     <Content Include="assets\uniform\jquery.uniform.js" />
     <Content Include="assets\uniform\jquery.uniform.min.js" />
+    <Content Include="css\customMessages.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style_default.css" />
     <Content Include="css\style_gray.css" />
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="css\validationEngine.jquery.css" />
+    <Content Include="css\validationEngine.jquery11.css" />
     <Content Include="default.aspx" />
     <Content Include="img\404.png" />
     <Content Include="img\500.png" />
@@ -788,6 +791,9 @@
     <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery.peity.min.js" />
     <Content Include="js\jquery.pulsate.min.js" />
+    <Content Include="js\jquery.validationEngine-en.js" />
+    <Content Include="js\jquery.validationEngine.js" />
+    <Content Include="js\jquery.validationEngine123.js" />
     <Content Include="js\respond.js" />
     <Content Include="js\scripts.js" />
     <Content Include="js\ui-nestable.js" />

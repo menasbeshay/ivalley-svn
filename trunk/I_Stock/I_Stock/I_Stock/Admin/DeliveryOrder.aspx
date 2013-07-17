@@ -48,7 +48,7 @@
                                     <label class="control-label">
                                         التاريخ</label>
                                     <div class="controls">
-                                        <asp:TextBox ID="uiTextBoxDate" runat="server" CssClass="input-large"></asp:TextBox>
+                                        <asp:TextBox ID="uiTextBoxDate" runat="server" CssClass="input-large" data-validation-engine="validate[required]"></asp:TextBox>
                                         <asp:CalendarExtender ID="uiTextBoxDate_CalendarExtender" runat="server" 
                                             Enabled="True" TargetControlID="uiTextBoxDate" Format="dd/MM/yyyy">
                                         </asp:CalendarExtender>
@@ -60,7 +60,7 @@
                                     <label class="control-label">
                                         الخصم</label>
                                     <div class="controls">
-                                        <asp:TextBox ID="uiTextBoxDiscount" runat="server" CssClass="input-large"></asp:TextBox>
+                                        <asp:TextBox ID="uiTextBoxDiscount" runat="server" CssClass="input-large" data-validation-engine="validate[custom[number],min[0],max[100]]"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                 <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn blue" OnClick="uiLinkButtonBack_Click"><i class='icon-arrow-left'></i> عودة لأذونات الصرف</asp:LinkButton>
                             </div>
                             <div style="float: right; ">
-                                <asp:LinkButton ID="uiLinkButtonOK" runat="server" CssClass="btn btn-success" OnClick="uiLinkButtonOK_Click"><i class='icon-ok'></i> حفظ</asp:LinkButton>
+                                <asp:Button ID="uiLinkButtonOK" runat="server" CssClass="btn btn-success" OnClick="uiLinkButtonOK_Click" Text="حفظ"></asp:Button>
                                 <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" OnClick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> إلغاء</asp:LinkButton>
                             </div>
                             

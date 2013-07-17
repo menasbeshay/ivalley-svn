@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpages/IStock.Master" AutoEventWireup="true" CodeBehind="Items.aspx.cs" Inherits="I_Stock.Admin.Items" %>
 <%@ MasterType VirtualPath="~/Masterpages/IStock.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="uiPanelEditItems" runat="server">
@@ -23,12 +24,12 @@
                     </asp:Panel>
                     <div class="clearfix">
                     </div>
-                    <div class="form-horizontal">
+                    <div class="form-horizontal" id="form-horizontal">
                         <div class="control-group">
                             <label class="control-label">
                                 الأسم</label>
                             <div class="controls">
-                                <asp:TextBox ID="uiTextBoxName" runat="server" CssClass="input-xxlarge"></asp:TextBox>
+                                <asp:TextBox ID="uiTextBoxName" runat="server" CssClass="input-xxlarge" data-validation-engine="validate[required]"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -54,7 +55,7 @@
                                 <label class="control-label">
                                     الكمية</label>
                                 <div class="controls">
-                                    <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="input-xxlarge"></asp:TextBox>
+                                    <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="input-xxlarge" data-validation-engine="validate[custom[integer]]"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +64,7 @@
                                 <label class="control-label">
                                     حد الطلب</label>
                                 <div class="controls">
-                                    <asp:TextBox ID="uiTextBoxReOrderLevel" runat="server" CssClass="input-xxlarge"></asp:TextBox>
+                                    <asp:TextBox ID="uiTextBoxReOrderLevel" runat="server" CssClass="input-xxlarge" data-validation-engine="validate[custom[integer]]"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -79,9 +80,9 @@
                             </div>
                         </asp:Panel>
                             <div style="float:right;">
-                            <asp:LinkButton runat="server" CssClass="btn btn-success" ID="uiLinkButtonOK" 
+                            <asp:Button runat="server" CssClass="btn btn-success" ID="uiLinkButtonOK" Text="حفظ"
                                 onclick="uiLinkButtonOK_Click">
-                                <i class="icon-ok"></i> حفظ</asp:LinkButton>
+                               </asp:Button>
                             <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" OnClick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> إلغاء</asp:LinkButton>
                             </div>
                             <div style="float: right; margin-right: -300px;">
