@@ -155,6 +155,7 @@ namespace website.Admin
                 uiTextBoxItemName.Text = "";
                 uiTextBoxDim.Text = "";
                 uiTextBoxCode.Text = "";
+                CurrentItem = 0;
             }
             else
             {
