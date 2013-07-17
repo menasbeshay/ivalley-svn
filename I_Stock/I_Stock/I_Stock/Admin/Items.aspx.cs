@@ -35,8 +35,7 @@ namespace I_Stock.Admin
                 Master.CustomPageTitle = GetLocalResourceObject("Title").ToString();
                 LoadCategories();
                 LoadGroups();
-                LoadClientTypes();
-                LoadSuppliers();
+                LoadClientTypes();                
                 BindData();
                 uiPanelAllItems.Visible = true;
                 uiPanelEditItems.Visible = false;
@@ -63,11 +62,11 @@ namespace I_Stock.Admin
                 uiTextBoxCode.Text = objData.ItemCode;
                 uiTextBoxDesc.Text = objData.Description;
                 uiTextBoxQty.Text = objData.Quantity.ToString();
+                uiTextBoxReOrderLevel.Text = objData.ReOrderLevel.ToString();
                 uiPanelAllItems.Visible = false;
                 uiPanelEditItems.Visible = true;
                 CurrentItem = objData;
-                BindPrices();
-                BindSuppliers();
+                BindPrices();                
                 uiPanelActions.Visible = true;
             }
             else if (e.CommandName == "DeleteItem")
@@ -91,9 +90,12 @@ namespace I_Stock.Admin
 
             item.Name = uiTextBoxName.Text;
             item.Description = uiTextBoxDesc.Text;
-            item.Quantity = Convert.ToInt32(uiTextBoxQty.Text);
+            if(!string.IsNullOrEmpty(uiTextBoxQty.Text))
+                item.Quantity = Convert.ToInt32(uiTextBoxQty.Text);
             item.ItemCode = uiTextBoxCode.Text;
             item.GroupID = Convert.ToInt32(uiDropDownListGroup.SelectedValue);
+            if (!string.IsNullOrEmpty(uiTextBoxReOrderLevel.Text))
+                item.ReOrderLevel = Convert.ToInt32(uiTextBoxReOrderLevel.Text);
             item.Save();
             //ClearFields();
             CurrentItem = null;
@@ -116,6 +118,8 @@ namespace I_Stock.Admin
         {
             ClearFields();
             CurrentItem = null;
+            IStock.BLL.Items item = new IStock.BLL.Items();
+            uiTextBoxCode.Text = item.GenerateItemCode(Convert.ToInt32(uiDropDownListGroup.SelectedValue)).ToString();
             uiPanelEditItems.Visible = true;
             uiPanelAllItems.Visible = false;
             uiPanelActions.Visible = false;
@@ -128,6 +132,8 @@ namespace I_Stock.Admin
 
         protected void uiDropDownListGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (uiDropDownListGroup.SelectedValue != "0")
+                uiLinkButtonAdd.Enabled = true;
             BindData();
         }
 
@@ -182,38 +188,7 @@ namespace I_Stock.Admin
 
         #endregion
 
-        #region suppliers
-
-        protected void uiLinkButtonAddSupp_Click(object sender, EventArgs e)
-        {
-            ItemSuppliers p = new ItemSuppliers();
-            p.AddNew();
-
-            p.SupplierID = Convert.ToInt32(uiDropDownListSuppliers.SelectedValue);
-            p.ItemID = CurrentItem.ItemID;
-            p.Save();
-            BindSuppliers();
-            
-        }
-
-        protected void uiLinkButtonUpdateSuppliers_Click(object sender, EventArgs e)
-        {
-            BindSuppliers();
-        }
-
-        protected void uiGridViewSuppliers_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "DeleteSupp")
-            {
-                ItemSuppliers objData = new ItemSuppliers();
-                objData.LoadByPrimaryKey(CurrentItem.ItemID,Convert.ToInt32(e.CommandArgument.ToString()));
-                objData.MarkAsDeleted();
-                objData.Save();
-                BindSuppliers();
-            }
-        }
-
-        #endregion
+        
 
         #endregion
 
@@ -236,13 +211,7 @@ namespace I_Stock.Admin
             uiGridViewPrices.DataBind();
         }
 
-        private void BindSuppliers()
-        {
-            IStock.BLL.ItemSuppliers objData = new IStock.BLL.ItemSuppliers();
-            objData.GetSuppliersByItemID(CurrentItem.ItemID);
-            uiGridViewSuppliers.DataSource = objData.DefaultView;
-            uiGridViewSuppliers.DataBind();
-        }
+        
 
         private void ClearFields()
         {
@@ -250,8 +219,9 @@ namespace I_Stock.Admin
             uiTextBoxDesc.Text = "";
             uiTextBoxQty.Text = "";
             uiTextBoxCode.Text = "";
-            uiDropDownListCats.SelectedIndex = 0;
-            uiDropDownListGroup.SelectedIndex = 0;
+            uiTextBoxReOrderLevel.Text = "";
+           // uiDropDownListCats.SelectedIndex = 0;
+           // uiDropDownListGroup.SelectedIndex = 0;
         }
 
 
@@ -263,19 +233,9 @@ namespace I_Stock.Admin
             uiDropDownListClientTypes.DataTextField = "Name";
             uiDropDownListClientTypes.DataValueField = "ClientTypeID";
             uiDropDownListClientTypes.DataBind();
+            uiDropDownListClientTypes.Items.Insert(0, new ListItem("إختر عميل", "0"));
         }
-
-        private void LoadSuppliers()
-        {
-            IStock.BLL.Suppliers supp = new IStock.BLL.Suppliers();
-            supp.LoadAll();
-            uiDropDownListSuppliers.DataSource = supp.DefaultView;
-            uiDropDownListSuppliers.DataTextField = "Name";
-            uiDropDownListSuppliers.DataValueField = "SupplierID";
-            uiDropDownListSuppliers.DataBind();
-        }
-
-
+        
         private void LoadCategories()
         {
             ItemCategories cats = new ItemCategories();
@@ -284,6 +244,7 @@ namespace I_Stock.Admin
             uiDropDownListCats.DataTextField = "Name";
             uiDropDownListCats.DataValueField = "ItemCategoryID";
             uiDropDownListCats.DataBind();
+            uiDropDownListCats.Items.Insert(0, new ListItem("إختر تصنيف", "0"));
         }
 
         private void LoadGroups()
@@ -295,6 +256,7 @@ namespace I_Stock.Admin
             uiDropDownListGroup.DataTextField = "Name";
             uiDropDownListGroup.DataValueField = "ItemGroupID";
             uiDropDownListGroup.DataBind();
+            uiDropDownListGroup.Items.Insert(0, new ListItem("إختر مجموعة", "0"));
         }
         #endregion
 

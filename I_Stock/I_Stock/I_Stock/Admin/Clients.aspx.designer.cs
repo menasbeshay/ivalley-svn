@@ -10,142 +10,79 @@
 namespace I_Stock.Admin {
     
     
-    public partial class DeliveryOrder {
+    public partial class Clients {
         
         /// <summary>
-        /// uiPanelEditDeliveryOrder control.
+        /// uiPanelEditClients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelEditDeliveryOrder;
+        protected global::System.Web.UI.WebControls.Panel uiPanelEditClients;
         
         /// <summary>
-        /// uiTextBoxCode control.
+        /// uiTextBoxName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCode;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxName;
         
         /// <summary>
-        /// uiDropDownListEmployee control.
+        /// uiDropDownListClientTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListEmployee;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListClientTypes;
         
         /// <summary>
-        /// uiDropDownListClients control.
+        /// uiDropDownListCities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListClients;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCities;
         
         /// <summary>
-        /// uiTextBoxDate control.
+        /// uiTextBoxDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDate;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDesc;
         
         /// <summary>
-        /// uiTextBoxDate_CalendarExtender control.
+        /// uiTextBoxAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender uiTextBoxDate_CalendarExtender;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAddress;
         
         /// <summary>
-        /// uiTextBoxDiscount control.
+        /// uiTextBoxTele control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDiscount;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTele;
         
         /// <summary>
-        /// uiPanelItems control.
+        /// uiTextBoxCredit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelItems;
-        
-        /// <summary>
-        /// uiDropDownListItems control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListItems;
-        
-        /// <summary>
-        /// uiTextBoxPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPrice;
-        
-        /// <summary>
-        /// uiTextBoxQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxQty;
-        
-        /// <summary>
-        /// uiLinkButtonAddItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddItem;
-        
-        /// <summary>
-        /// uiGridViewItems control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewItems;
-        
-        /// <summary>
-        /// uiTextBoxTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTotal;
-        
-        /// <summary>
-        /// uiLinkButtonBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCredit;
         
         /// <summary>
         /// uiLinkButtonOK control.
@@ -166,13 +103,22 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancel;
         
         /// <summary>
-        /// uiPanelAllOrders control.
+        /// uiLinkButtonBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelAllOrders;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
+        
+        /// <summary>
+        /// uiPanelAllClients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAllClients;
         
         /// <summary>
         /// uiLinkButtonAdd control.
@@ -184,13 +130,13 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
-        /// uiGridViewOrders control.
+        /// uiGridViewClients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewOrders;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewClients;
         
         /// <summary>
         /// Master property.

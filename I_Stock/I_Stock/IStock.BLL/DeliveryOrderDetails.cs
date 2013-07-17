@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class DeliveryOrderDetails : _DeliveryOrderDetails
@@ -11,5 +14,12 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetDeliveryOrderDetails(int DeliveryOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0), DeliveryOrderID);
+            return LoadFromSql("GetDeliveryOrderDetails", parameters);
+        }
 	}
 }

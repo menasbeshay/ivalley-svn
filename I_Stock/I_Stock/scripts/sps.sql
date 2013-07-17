@@ -98,3 +98,117 @@ Inner JOIN Items I ON ss.ItemID = I.ItemID
 Inner JOIN Suppliers S ON S.SupplierID = ss.SupplierID
 where I.ItemID = @ItemID
 Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetLastDeliveryOrderNo' and
+		        xtype = 'P')
+Drop Procedure GetLastDeliveryOrderNo
+Go
+Create Procedure GetLastDeliveryOrderNo 
+as
+
+select DeliveryOrderNo
+from DeliveryOrder
+order BY DeliveryOrderNo desc
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllDeliveryOrders' and
+		        xtype = 'P')
+Drop Procedure GetAllDeliveryOrders
+Go
+Create Procedure GetAllDeliveryOrders 
+as
+
+select D.* , C.Name ClientName , E.Name EmployeeName
+from DeliveryOrder D
+Inner JOIN Clients C ON D.ClientID = C.ClientID
+inner JOIN Employees E ON D.EmployeeID = E.EmployeeID
+order BY DeliveryOrderDate desc
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllClients' and
+		        xtype = 'P')
+Drop Procedure GetAllClients
+Go
+Create Procedure GetAllClients 
+as
+
+select C.* , T.Name ClientTypeName
+from Clients C 
+inner JOIN ClientTypes T ON C.ClientTypeID = T.ClientTypeID
+order BY C.Name
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetDeliveryOrderDetails' and
+		        xtype = 'P')
+Drop Procedure GetDeliveryOrderDetails
+Go
+Create Procedure GetDeliveryOrderDetails @DeliveryOrderID int
+as
+
+select de.* , I.Name ItemName , I.ItemCode ItemCode 
+from DeliveryOrder D
+Inner JOIN DeliveryOrderDetails de ON D.DeliveryOrderID = de.DeliveryOrderID
+inner JOIN Items I ON de.ItemID = I.ItemID
+where D.DeliveryOrderID = @DeliveryOrderID
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetDeliveryOrderTotals' and
+		        xtype = 'P')
+Drop Procedure GetDeliveryOrderTotals
+Go
+Create Procedure GetDeliveryOrderTotals @DeliveryOrderID int
+as
+
+SELECT sum(Quantity * itemprice) - sum(Quantity * itemprice) * isnull(D.discount/100, 0 )  total from 
+DeliveryOrderDetails DD
+inner JOIN DeliveryOrder D ON D.DeliveryOrderID = DD.DeliveryOrderID
+where D.DeliveryOrderID = @DeliveryOrderID
+GROUP by D.Discount
+
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GenerateItemCode' and
+		        xtype = 'P')
+Drop Procedure GenerateItemCode
+Go
+Create Procedure GenerateItemCode @ItemGroupID int 
+as
+declare @LastItemID int ,
+		@NewItemCode nvarchar(15)
+
+select @LastItemID = max(ItemID) + 1
+From Items
+
+Select @NewItemCode =  left(convert(varchar(10), @ItemGroupID) + '00000', 3) + 
+					   left(convert(varchar(10), @LastItemID) + '000000', 4)
+
+Select @NewItemCode				   
+					 					    
+--return @NewItemCode
+
+Go
+
+exec GenerateItemCode 2

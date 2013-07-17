@@ -36,5 +36,14 @@ namespace IStock.BLL
 
         }
 
+        public virtual object GenerateItemCode(int ItemGroupID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@ItemGroupID", SqlDbType.Int, 0), ItemGroupID);
+
+            return LoadFromSqlScalar("GenerateItemCode", parameters);
+
+        }
 	}
 }

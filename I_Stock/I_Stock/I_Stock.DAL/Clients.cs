@@ -155,6 +155,22 @@ namespace IStock.DAL
 				}
 			}
 			
+			public static SqlParameter StartCredit
+			{
+				get
+				{
+					return new SqlParameter("@StartCredit", SqlDbType.Decimal, 0);
+				}
+			}
+			
+			public static SqlParameter CreditLimit
+			{
+				get
+				{
+					return new SqlParameter("@CreditLimit", SqlDbType.Decimal, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +184,8 @@ namespace IStock.DAL
             public const string Description = "Description";
             public const string Address = "Address";
             public const string Telephone = "Telephone";
+            public const string StartCredit = "StartCredit";
+            public const string CreditLimit = "CreditLimit";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +200,8 @@ namespace IStock.DAL
 					ht[Description] = _Clients.PropertyNames.Description;
 					ht[Address] = _Clients.PropertyNames.Address;
 					ht[Telephone] = _Clients.PropertyNames.Telephone;
+					ht[StartCredit] = _Clients.PropertyNames.StartCredit;
+					ht[CreditLimit] = _Clients.PropertyNames.CreditLimit;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +221,8 @@ namespace IStock.DAL
             public const string Description = "Description";
             public const string Address = "Address";
             public const string Telephone = "Telephone";
+            public const string StartCredit = "StartCredit";
+            public const string CreditLimit = "CreditLimit";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +237,8 @@ namespace IStock.DAL
 					ht[Description] = _Clients.ColumnNames.Description;
 					ht[Address] = _Clients.ColumnNames.Address;
 					ht[Telephone] = _Clients.ColumnNames.Telephone;
+					ht[StartCredit] = _Clients.ColumnNames.StartCredit;
+					ht[CreditLimit] = _Clients.ColumnNames.CreditLimit;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +258,8 @@ namespace IStock.DAL
             public const string Description = "s_Description";
             public const string Address = "s_Address";
             public const string Telephone = "s_Telephone";
+            public const string StartCredit = "s_StartCredit";
+            public const string CreditLimit = "s_CreditLimit";
 
 		}
 		#endregion		
@@ -321,6 +347,30 @@ namespace IStock.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Telephone, value);
+			}
+		}
+
+		public virtual decimal StartCredit
+	    {
+			get
+	        {
+				return base.Getdecimal(ColumnNames.StartCredit);
+			}
+			set
+	        {
+				base.Setdecimal(ColumnNames.StartCredit, value);
+			}
+		}
+
+		public virtual decimal CreditLimit
+	    {
+			get
+	        {
+				return base.Getdecimal(ColumnNames.CreditLimit);
+			}
+			set
+	        {
+				base.Setdecimal(ColumnNames.CreditLimit, value);
 			}
 		}
 
@@ -434,6 +484,36 @@ namespace IStock.DAL
 			}
 		}
 
+		public virtual string s_StartCredit
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StartCredit) ? string.Empty : base.GetdecimalAsString(ColumnNames.StartCredit);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StartCredit);
+				else
+					this.StartCredit = base.SetdecimalAsString(ColumnNames.StartCredit, value);
+			}
+		}
+
+		public virtual string s_CreditLimit
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CreditLimit) ? string.Empty : base.GetdecimalAsString(ColumnNames.CreditLimit);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CreditLimit);
+				else
+					this.CreditLimit = base.SetdecimalAsString(ColumnNames.CreditLimit, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +617,26 @@ namespace IStock.DAL
 					}
 				}
 
+				public WhereParameter StartCredit
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StartCredit, Parameters.StartCredit);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CreditLimit
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CreditLimit, Parameters.CreditLimit);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +726,30 @@ namespace IStock.DAL
 				}
 			}
 
+			public WhereParameter StartCredit
+		    {
+				get
+		        {
+					if(_StartCredit_W == null)
+	        	    {
+						_StartCredit_W = TearOff.StartCredit;
+					}
+					return _StartCredit_W;
+				}
+			}
+
+			public WhereParameter CreditLimit
+		    {
+				get
+		        {
+					if(_CreditLimit_W == null)
+	        	    {
+						_CreditLimit_W = TearOff.CreditLimit;
+					}
+					return _CreditLimit_W;
+				}
+			}
+
 			private WhereParameter _ClientID_W = null;
 			private WhereParameter _ClientTypeID_W = null;
 			private WhereParameter _CityID_W = null;
@@ -633,6 +757,8 @@ namespace IStock.DAL
 			private WhereParameter _Description_W = null;
 			private WhereParameter _Address_W = null;
 			private WhereParameter _Telephone_W = null;
+			private WhereParameter _StartCredit_W = null;
+			private WhereParameter _CreditLimit_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +769,8 @@ namespace IStock.DAL
 				_Description_W = null;
 				_Address_W = null;
 				_Telephone_W = null;
+				_StartCredit_W = null;
+				_CreditLimit_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +897,26 @@ namespace IStock.DAL
 					}
 				}
 
+				public AggregateParameter StartCredit
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StartCredit, Parameters.StartCredit);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CreditLimit
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CreditLimit, Parameters.CreditLimit);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +1006,30 @@ namespace IStock.DAL
 				}
 			}
 
+			public AggregateParameter StartCredit
+		    {
+				get
+		        {
+					if(_StartCredit_W == null)
+	        	    {
+						_StartCredit_W = TearOff.StartCredit;
+					}
+					return _StartCredit_W;
+				}
+			}
+
+			public AggregateParameter CreditLimit
+		    {
+				get
+		        {
+					if(_CreditLimit_W == null)
+	        	    {
+						_CreditLimit_W = TearOff.CreditLimit;
+					}
+					return _CreditLimit_W;
+				}
+			}
+
 			private AggregateParameter _ClientID_W = null;
 			private AggregateParameter _ClientTypeID_W = null;
 			private AggregateParameter _CityID_W = null;
@@ -865,6 +1037,8 @@ namespace IStock.DAL
 			private AggregateParameter _Description_W = null;
 			private AggregateParameter _Address_W = null;
 			private AggregateParameter _Telephone_W = null;
+			private AggregateParameter _StartCredit_W = null;
+			private AggregateParameter _CreditLimit_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +1049,8 @@ namespace IStock.DAL
 				_Description_W = null;
 				_Address_W = null;
 				_Telephone_W = null;
+				_StartCredit_W = null;
+				_CreditLimit_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1151,14 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.Telephone);
 			p.SourceColumn = ColumnNames.Telephone;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StartCredit);
+			p.SourceColumn = ColumnNames.StartCredit;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CreditLimit);
+			p.SourceColumn = ColumnNames.CreditLimit;
 			p.SourceVersion = DataRowVersion.Current;
 
 

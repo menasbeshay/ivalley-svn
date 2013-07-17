@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class DeliveryOrder : _DeliveryOrder
@@ -11,5 +14,51 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllDeliveryOrders()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllDeliveryOrders", parameters);
+        }
+
+        public virtual string GetLastDeliveryOrderNo()
+        {
+            ListDictionary parameters = new ListDictionary();
+            object number = LoadFromSqlScalar("GetLastDeliveryOrderNo", parameters);
+            if (number != null)
+                return number.ToString();
+            else
+                return "";
+        }
+
+        public string getNewSerial()
+        {
+            string serial = "";
+
+            string temp = GetLastDeliveryOrderNo();
+
+            if (string.IsNullOrEmpty(temp))
+            {
+                temp = "10000";
+            }
+
+            temp = (double.Parse(temp) + 1).ToString();
+            if(!temp.StartsWith("3"))
+                serial = "3" + double.Parse(temp).ToString("000000000");            
+            else
+                serial = double.Parse(temp).ToString("0000000000");            
+            return serial;
+        }
+
+        public decimal GetDeliveryOrderTotals(int DeliveryOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0), DeliveryOrderID);
+            object total = LoadFromSqlScalar("GetDeliveryOrderTotals", parameters);
+            if(total != null)
+                return decimal.Parse(total.ToString());
+            return 0;
+        }
 	}
 }

@@ -18,6 +18,8 @@
     <link href="../css/style_default.css" rel="stylesheet" id="style_color" />
     <link href="../assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/uniform/css/uniform.default.css" />
+    <link href="../assets/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/jquery-tags-input/jquery.tagsinput.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -84,15 +86,27 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
             <!-- BEGIN SIDEBAR MENU -->
             <ul class="sidebar-menu">
+                
                 <li><a href="../admin/Default.aspx"><span class="icon-box"><i class="icon-home"></i></span>الرئيسية</a></li>
-                <li><a href="../Admin/ItemCats.aspx" class=""><span class="icon-box"><i class="icon-tags"></i></span>تصنيفات الأصناف </a></li>
-                <li><a href="../Admin/ItemGroups.aspx" class=""><span class="icon-box"><i class="icon-tags"></i></span>مجموعات الأصناف </a></li>
-                <li><a href="../Admin/Items.aspx" class=""><span class="icon-box"><i class="icon-file-alt"></i></span>الأصناف </a></li>
-                <li><a href="../Admin/Suppliers.aspx" class=""><span class="icon-box"><i class="icon-truck"></i></span>الموردين </a></li>
-                <li><a href="../Admin/ClientTypes.aspx" class=""><span class="icon-box"><i class="icon-th-large"></i></span>قطاعات العملاء </a></li>
-                <li><a href="../Admin/Lines.aspx" class=""><span class="icon-box"><i class="icon-road"></i></span>الخطوط </a></li>
-                <li><a href="../Admin/Cities.aspx" class=""><span class="icon-box"><i class="icon-map-marker"></i></span>المدن </a></li>
-                <li><a href="../Admin/Employees.aspx" class=""><span class="icon-box"><i class="icon-user"></i></span>الموظفين </a></li>
+                <li><a href="../Admin/Items.aspx" class=""><span class="icon-box"><i class="icon-file-alt">
+                </i></span>الأصناف </a></li>
+                <li><a href="../Admin/DeliveryOrder.aspx" class=""><span class="icon-box"><i class="icon-share">
+                </i></span>أذونات الصرف </a></li>
+                <li class="has-sub">
+                    <a href="javascript:;" class="">
+                    <span class="icon-box"><i class="icon-book"></i></span>البيانات الأساسية <span class="arrow"></span></a>
+                    <ul class="sub">
+                        <li><a href="../Admin/ItemCats.aspx" class="">تصنيفات الأصناف </a></li>
+                        <li><a href="../Admin/ItemGroups.aspx" class="">مجموعات الأصناف </a></li>                        
+                        <li><a href="../Admin/Suppliers.aspx" class="">الموردين </a></li>
+                        <li><a href="../Admin/ClientTypes.aspx" class="">قطاعات العملاء </a></li>
+                        <li><a href="../Admin/Clients.aspx" class=""> العملاء </a></li>
+                        <li><a href="../Admin/Lines.aspx" class="">الخطوط </a></li>
+                        <li><a href="../Admin/Cities.aspx" class="">المدن </a></li>
+                        <li><a href="../Admin/Employees.aspx" class="">الموظفين </a></li>        
+                    </ul>
+                </li>
+                
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
@@ -146,6 +160,9 @@
     <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../assets/bootstrap-rtl/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery.blockui.js"></script>
+    <script src="../assets/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
+    <script src="../assets/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="../assets/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
     <!-- ie8 fixes -->
     <!--[if lt IE 9]>
    <script src="js/excanvas.js"></script>
