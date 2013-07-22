@@ -96,7 +96,7 @@
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 12px;
     font-weight: bold;
-    color: #666699;
+    color: #000;
 }
 
 h3
@@ -169,6 +169,10 @@ h3
 .AdminMore a { display:block; float:left; background-image: url(../images/GrayBigBtnUp.png); background-position: center top; background-repeat: no-repeat; width:105px; height:16px; padding:4px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
 .AdminMore a:hover { background-image: url(../images/GrayBigBtnOver.png); background-position: center top; background-repeat: no-repeat; color:#fff; }
 
+.formBtn {width:58px;display:block; float:left; height:18px; margin-top:10px; border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+
+.formBtn a { display:block; float:left; background-color: #ECECEA;width:58px; padding:5px; color:#77767C; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-weight:bold;}
+.formBtn a:hover { color:#E71181 }
 
 .designerHost
 {

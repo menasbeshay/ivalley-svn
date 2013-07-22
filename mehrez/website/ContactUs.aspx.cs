@@ -21,7 +21,7 @@ namespace website
                         DBLayer db = new DBLayer();
                         DataSet ds = new DataSet();
                         ds = db.GetAllContactByType(2);
-                        uiLiteralFactScript.Text = "<script type='text/javascript'>function initializeFact() {var latlng = new google.maps.LatLng(" + ds.Tables[0].Rows[0]["latitude"].ToString() + ", " + ds.Tables[0].Rows[0]["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);}</script>";
+                        uiLiteralFactScript.Text = "<script type='text/javascript'>function initializeFact() {var latlng = new google.maps.LatLng(" + ds.Tables[0].Rows[0]["latitude"].ToString() + ", " + ds.Tables[0].Rows[0]["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions); var marker = new google.maps.Marker({position: latlng,map: map,title:'Factory'});}</script>";
                         uiLiteralFactoryContent.Text = ds.Tables[0].Rows[0]["Content"].ToString();
                         uiPanelFactory.Visible = true;
                         
@@ -31,7 +31,7 @@ namespace website
                         DBLayer db = new DBLayer();
                         DataSet ds = new DataSet();
                         ds = db.GetAllContactByType(1);
-                        uiLiteralHOscript.Text = "<script type='text/javascript'>function initializeHead() {var latlng = new google.maps.LatLng(" + ds.Tables[0].Rows[0]["latitude"].ToString() + ", " + ds.Tables[0].Rows[0]["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);}</script>";
+                        uiLiteralHOscript.Text = "<script type='text/javascript'>function initializeHead() {var latlng = new google.maps.LatLng(" + ds.Tables[0].Rows[0]["latitude"].ToString() + ", " + ds.Tables[0].Rows[0]["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions); var marker = new google.maps.Marker({position: latlng,map: map,title:'Head office'});}</script>";
                         uiLiteralHOContent.Text = ds.Tables[0].Rows[0]["Content"].ToString();
                         uiPanelHO.Visible = true;
 
@@ -45,10 +45,10 @@ namespace website
                         uiRepeaterRooms.DataSource = ds;
                         uiRepeaterRooms.DataBind();
                         uiPanelShowrooms.Visible = true;
-                        
+                        /*
                         uiLiteralHOscript.Text = "<script type='text/javascript'>function initializeHead() {var latlng = new google.maps.LatLng(" + ds.Tables[0].Rows[0]["latitude"].ToString() + ", " + ds.Tables[0].Rows[0]["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);}</script>";
                         uiLiteralHOContent.Text = ds.Tables[0].Rows[0]["Content"].ToString();                        
-
+                        */
                     }
                 }
                 
@@ -67,7 +67,7 @@ namespace website
                 DataRowView row = (DataRowView)e.Item.DataItem;
 
                 link.Text = "<a href='#?custom=true&width=400&height=400' rel='" + row["title"].ToString().Replace(" ", "") + e.Item.ItemIndex.ToString() + "'>View Map</a>";
-                scripts.Text = "<script type='text/javascript'>function initialize" + row["title"].ToString().Replace(" ", "") + e.Item.ItemIndex.ToString() + "() {var latlng = new google.maps.LatLng(" + row["latitude"].ToString() + ", " + row["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);}</script>";
+                scripts.Text = "<script type='text/javascript'>function initialize" + row["title"].ToString().Replace(" ", "") + e.Item.ItemIndex.ToString() + "() {var latlng = new google.maps.LatLng(" + row["latitude"].ToString() + ", " + row["longitude"].ToString() + ");var myOptions = {zoom: 16,center: latlng};var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions); var marker = new google.maps.Marker({position: latlng,map: map,title:'" + row["title"].ToString() + "'});}</script>";
                 scripts.Text += "<script type='text/javascript'>$(document).ready(function () {$(\"a[rel^='" + row["title"].ToString().Replace(" ", "") + e.Item.ItemIndex.ToString() + "']\").prettyPhoto({custom_markup: \"<div id='map_canvas' style='width:400px; height:405px'></div>\",changepicturecallback: function () { initialize" + row["title"].ToString().Replace(" ","") + e.Item.ItemIndex.ToString() + "(); },social_tools: false, description: false});});";
                 scripts.Text += "</script>";
             }
