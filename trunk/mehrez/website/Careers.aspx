@@ -5,6 +5,19 @@
         $(document).ready(function () {
             $("#mi6").addClass("current");
         });
+
+        function clear() {
+
+            document.getElementById('<%=uiTextBoxName.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxSurname.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxDOB.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxEmail.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxCity.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxTele.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxQual.ClientID%>').value = "";
+            document.getElementById('<%=uiTextBoxLang.ClientID%>').value = "";
+            document.getElementById('<%=uiDropDownListDept.ClientID%>').selectedIndex = 0;            
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -156,19 +169,19 @@
             <div class="AdminMiddle">
                 <%--<asp:Button ID="uiButtonUpdate" runat="server" Text="&#1573;&#1590;&#1575;&#1601;&#1577; / &#1578;&#1593;&#1583;&#1610;&#1604;" ValidationGroup="EditPage"
                             OnClick="uiButtonUpdate_Click" />--%>
-                <div class="SearchBtn">
-                    <asp:LinkButton ID="uiLinkButtonUpdate" runat="server" Text="submit" ValidationGroup="EditPage"
+                <div class="formBtn">
+                    <asp:LinkButton ID="uiLinkButtonUpdate" runat="server" Text="Submit" ValidationGroup="EditPage"
                         OnClick="uiButtonUpdate_Click"></asp:LinkButton></div>
-                &nbsp; &nbsp; &nbsp;
+                
+                <div class="formBtn" style="margin-left:20px;">
+                    <a href="javascript:clear();" >Reset</a></div>
                 <%--<asp:Button ID="uiButtonCancel" runat="server" Text="&#1573;&#1604;&#1594;&#1575;&#1569;" OnClick="uiButtonCancel_Click" />--%>
             </div>
             <div class="AdminLeft">
             </div>
             <div class="clear5">
             </div>
-            <hr />
-            <div class="clear10">
-            </div>
+            
         </div>
     </div>
 
