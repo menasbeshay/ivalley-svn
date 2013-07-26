@@ -52,7 +52,7 @@
                                 <asp:Button ID="uiLinkButtonOK" runat="server" CssClass="btn btn-success" OnClick="uiLinkButtonOK_Click" Text="حفظ"> </asp:Button>
                                 <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" OnClick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> إلغاء</asp:LinkButton>
                             </div>
-                            <div style="float: right; margin-right: -310px;">
+                            <div style="float: right; margin-right: -290px;">
                                 <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn blue" OnClick="uiLinkButtonBack_Click"><i class='icon-arrow-left'></i> العودة إلى المجموعات</asp:LinkButton>
                             </div>
                         </div>

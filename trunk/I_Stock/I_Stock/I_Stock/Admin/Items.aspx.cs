@@ -73,12 +73,19 @@ namespace I_Stock.Admin
             }
             else if (e.CommandName == "DeleteItem")
             {
-                IStock.BLL.Items objData = new IStock.BLL.Items();
-                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
-                objData.MarkAsDeleted();
-                objData.Save();
-                CurrentItem = null;
-                BindData();
+                try
+                {
+                    IStock.BLL.Items objData = new IStock.BLL.Items();
+                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                    objData.MarkAsDeleted();
+                    objData.Save();
+                    CurrentItem = null;
+                    BindData();
+                }
+                catch (Exception ex)
+                {
+                    uipanelError.Visible = true;
+                }
             }
         }
 
@@ -100,10 +107,11 @@ namespace I_Stock.Admin
                 item.ReOrderLevel = Convert.ToInt32(uiTextBoxReOrderLevel.Text);
             item.Save();
             //ClearFields();
-            CurrentItem = null;
+            CurrentItem = item;
             uiPanelEditItems.Visible = true;
             uiPanelAllItems.Visible = false;
             BindData();
+            BindPrices();
             uiPanelActions.Visible = true;
         }
 
@@ -111,6 +119,8 @@ namespace I_Stock.Admin
         {
             ClearFields();
             CurrentItem = null;
+            uiGridViewPrices.DataSource = null;
+            uiGridViewPrices.DataBind();
             uiPanelEditItems.Visible = false;
             uiPanelAllItems.Visible = true;
             uiPanelActions.Visible = false;
@@ -120,6 +130,8 @@ namespace I_Stock.Admin
         {
             ClearFields();
             CurrentItem = null;
+            uiGridViewPrices.DataSource = null;
+            uiGridViewPrices.DataBind();
             IStock.BLL.Items item = new IStock.BLL.Items();
             uiTextBoxCode.Text = item.GenerateItemCode(Convert.ToInt32(uiDropDownListGroup.SelectedValue)).ToString();
             uiPanelEditItems.Visible = true;
