@@ -15,6 +15,13 @@
                             class="icon-remove"></a></span>
                     </div>
                     <div class="widget-body form">
+                        <asp:Panel ID="uipanelError" runat="server" Visible="false">
+                            <div class="alert alert-error">
+                                <button class="close" data-dismiss="alert">
+                                    ×</button>
+                                <strong>خطأ!</strong> حدث خطأ. لم يتم الحذف.
+                            </div>
+                        </asp:Panel>
                         <div class="form-horizontal">
                             <div class="control-group">
                                 <div class="span6">

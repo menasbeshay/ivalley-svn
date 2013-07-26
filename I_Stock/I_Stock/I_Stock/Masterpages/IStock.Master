@@ -94,6 +94,8 @@
                 </i></span>الأصناف </a></li>
                 <li><a href="../Admin/DeliveryOrder.aspx" class=""><span class="icon-box"><i class="icon-share">
                 </i></span>أذونات الصرف </a></li>
+                <li><a href="../Admin/Invoice.aspx" class=""><span class="icon-box"><i class="icon-file">
+                </i></span>الفواتير </a></li>
                 <li class="has-sub">
                     <a href="javascript:;" class="">
                     <span class="icon-box"><i class="icon-book"></i></span>البيانات الأساسية <span class="arrow"></span></a>

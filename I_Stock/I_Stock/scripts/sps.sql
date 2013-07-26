@@ -190,6 +190,100 @@ Go
 
 If Exists (select Name 
 		   from sysobjects 
+		   where name = 'GetInvoiceDetails' and
+		        xtype = 'P')
+Drop Procedure GetInvoiceDetails
+Go
+Create Procedure GetInvoiceDetails @InvoiceID int
+as
+
+select de.* , I.Name ItemName , I.ItemCode ItemCode 
+from Invoices D
+Inner JOIN InvoiceDetails de ON D.InvoiceID = de.InvoiceID
+inner JOIN Items I ON de.ItemID = I.ItemID
+where D.InvoiceID = @InvoiceID
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetInvoiceTotals' and
+		        xtype = 'P')
+Drop Procedure GetInvoiceTotals
+Go
+Create Procedure GetInvoiceTotals @InvoiceID int
+as
+
+SELECT sum(Quantity * itemprice) - sum(Quantity * itemprice) * isnull(D.discount/100, 0 )  total from 
+InvoiceDetails DD
+inner JOIN Invoices D ON D.InvoiceID = DD.InvoiceID
+where D.InvoiceID = @InvoiceID
+GROUP by D.Discount
+
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetLastInvoiceNo' and
+		        xtype = 'P')
+Drop Procedure GetLastInvoiceNo
+Go
+Create Procedure GetLastInvoiceNo 
+as
+
+select InvoiceNo
+from Invoices
+order BY InvoiceNo desc
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllInvoices' and
+		        xtype = 'P')
+Drop Procedure GetAllInvoices
+Go
+Create Procedure GetAllInvoices 
+as
+
+select D.* , C.Name ClientName , E.Name EmployeeName
+from Invoices D
+Inner JOIN Clients C ON D.ClientID = C.ClientID
+inner JOIN Employees E ON D.EmployeeID = E.EmployeeID
+order BY InvoiceDate desc
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetDeliveryOrdersDetailsTotals' and
+		        xtype = 'P')
+Drop Procedure GetDeliveryOrdersDetailsTotals
+Go
+Create Procedure GetDeliveryOrdersDetailsTotals		 nvarchar(10),
+												@DeliveryOrderNoTo nvarchar(10)
+as
+
+select /*de.* ,*/ sum(de.Quantity) Number, I.Name ItemName , I.ItemCode ItemCode /*, D.DeliveryOrderNo*/
+from DeliveryOrder D
+Inner JOIN DeliveryOrderDetails de ON D.DeliveryOrderID = de.DeliveryOrderID
+inner JOIN Items I ON de.ItemID = I.ItemID
+
+where D.DeliveryOrderNo >= @DeliveryOrderNoFrom And
+	  D.DeliveryOrderNo <= @DeliveryOrderNoTo
+Group BY I.Name , I.ItemCode 	  
+Go
+
+/*
+exec GetDeliveryOrdersDetailsTotals	'3000010001' , '3000010003'
+*/
+
+If Exists (select Name 
+		   from sysobjects 
 		   where name = 'GenerateItemCode' and
 		        xtype = 'P')
 Drop Procedure GenerateItemCode
@@ -199,7 +293,7 @@ as
 declare @LastItemID int ,
 		@NewItemCode nvarchar(15)
 
-select @LastItemID = max(ItemID) + 1
+select @LastItemID = isnull(max(ItemID),0) + 1
 From Items
 
 Select @NewItemCode =  left(convert(varchar(10), @ItemGroupID) + '00000', 3) + 

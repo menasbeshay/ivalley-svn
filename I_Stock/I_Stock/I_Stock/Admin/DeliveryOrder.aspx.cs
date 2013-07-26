@@ -93,7 +93,7 @@ namespace I_Stock.Admin
                 }
                 catch (Exception ex)
                 {
-                    
+                    uipanelError.Visible = true;
                 }
             }
         }
@@ -103,6 +103,7 @@ namespace I_Stock.Admin
         {
             ClearFields();
             CurrentDeliveryOrder = null;
+            uipanelError.Visible = false;
             uiPanelEditDeliveryOrder.Visible = true;
             IStock.BLL.DeliveryOrder d = new IStock.BLL.DeliveryOrder();
             uiTextBoxCode.Text = d.getNewSerial();
@@ -222,7 +223,8 @@ namespace I_Stock.Admin
             client.LoadByPrimaryKey(CurrentDeliveryOrder.ClientID);
             
             IStock.BLL.ItemPrices price = new IStock.BLL.ItemPrices();
-            price.LoadByPrimaryKey(client.ClientTypeID, Convert.ToInt32(uiDropDownListItems.SelectedValue));
+            if(!string.IsNullOrEmpty(uiDropDownListItems.SelectedValue))
+                price.LoadByPrimaryKey(client.ClientTypeID, Convert.ToInt32(uiDropDownListItems.SelectedValue));
 
             if (price.RowCount > 0)
             {
@@ -263,6 +265,7 @@ namespace I_Stock.Admin
             uiDropDownListItems.DataTextField = "Name";
             uiDropDownListItems.DataValueField = "ItemID";
             uiDropDownListItems.DataBind();
+            uiDropDownListItems.Items.Insert(0, new ListItem("إختر صنف", ""));
         }
 
 

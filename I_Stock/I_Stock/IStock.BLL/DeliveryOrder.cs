@@ -22,6 +22,14 @@ namespace IStock.BLL
             return LoadFromSql("GetAllDeliveryOrders", parameters);
         }
 
+        public virtual IDataReader GetDeliveryOrdersDetailsTotals(string DeliveryOrderNoFrom, string DeliveryOrderNoTo)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderNoFrom", SqlDbType.NVarChar, 10), DeliveryOrderNoFrom);
+            parameters.Add(new SqlParameter("@DeliveryOrderNoTo", SqlDbType.NVarChar, 10), DeliveryOrderNoTo);
+            return LoadFromSqlReader("GetDeliveryOrdersDetailsTotals", parameters);
+        }
+
         public virtual string GetLastDeliveryOrderNo()
         {
             ListDictionary parameters = new ListDictionary();

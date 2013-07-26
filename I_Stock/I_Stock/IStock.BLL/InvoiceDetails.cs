@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class InvoiceDetails : _InvoiceDetails
@@ -11,5 +14,12 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetInvoicerDetails(int InvoiceID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@InvoiceID", SqlDbType.Int, 0), InvoiceID);
+            return LoadFromSql("GetInvoiceDetails", parameters);
+        }
 	}
 }
