@@ -18,7 +18,8 @@
                 <asp:Panel ID="uiPanelHO" runat="server" Visible="false">
                     <p class="content_black">
                         <span style="font-weight: 400">
-                        <asp:Literal ID="uiLiteralHOContent" runat="server"></asp:Literal>
+                        <asp:Literal ID="uiLiteralHOContent" runat="server"></asp:Literal> <br />                       
+                        email : <asp:HyperLink ID="HOMail" runat="server"></asp:HyperLink>
                         </span>
                         </p>
                     <p class="content_black">
@@ -59,6 +60,8 @@
                 <p class="content_black">
                     <span style="font-weight: 400">
                     <asp:Literal ID="uiLiteralFactoryContent" runat="server"></asp:Literal>
+                        <br />
+                        email : <asp:HyperLink ID="FMail" runat="server"></asp:HyperLink>
                     </span>
                     </p>
                 <p class="content_black">
@@ -111,6 +114,8 @@
                         <p class="content_black">
                             <span style="font-weight: 400">
                                 <%# Eval("Content") %>
+                                <br />
+                                email : <asp:HyperLink ID="SMail" runat="server"></asp:HyperLink>
                             </span>
                         </p>
                         <p class="content_black">

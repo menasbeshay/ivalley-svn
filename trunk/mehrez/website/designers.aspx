@@ -16,13 +16,13 @@
         </div>
         
         <div class="designerDetails">
-            <div class="tittle">
+            <div class="tittle" style="color: #5A4B45">
                 <%# Eval("DesignerName") %></div>
-            <div class="clearfix">
+            <div class="clearfix" >
             </div>
-            <div class="tittle">
+            <div class="tittle" style="color: #5A4B45">
                 <%# Eval("Title") %></div>
-            <div class="clearfix">
+            <div class="clearfix" style="height: 7px;">
             </div>
             <div class="content_black">
                 <%# Eval("Brief") %>

@@ -52,27 +52,45 @@
         <div class="designerHost">
             <div class="designerpic">
                 <asp:Image ID="uiImagemain" runat="server" />
+                <div class="clear5">
+                </div>
             </div>
             <div class="designerDetails">
                 
                 <div class="tittle">
                     <asp:Label ID="uiLabelTitle" runat="server"></asp:Label>
+                    <div class="clear5">
+                    </div>
                 </div>
-                <div class="clearfix">
+                <div class="clear5">
                 </div>
                 <div class="content_black">
                     <asp:Literal ID="uiLiteralContent" runat="server"></asp:Literal>
+                    <div class="clear5">
+                    </div>
                 </div>
-                <div class="clearfix">
+                <div class="clear5">
                 </div>
                 <div class="content_black">
                     <a href='news.aspx'><< Back</a>
                 </div>
-                <div class="clearfix">
+                <div class="clear5" style="height: 5px;">
                 </div>
             </div>
-            <div class="clearfix">
+            <div class="clear5" style="height: 5px;">
             </div>
+        </div>
+        <div class="clear5" style="height: 5px;">
+        </div>
+        <div class="designerHost">
+        <asp:Repeater ID="newImages" runat="server">
+        <ItemTemplate>
+        <div style="float:left;width:30%;margin:5px;">
+            <img src="images.aspx?Inner=News&Image=<%# Eval("picpath") %>" style="border: 1px solid black;
+                border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;" />
+        </div>
+        </ItemTemplate>
+        </asp:Repeater>
         </div>
     </asp:Panel>
 </asp:Content>

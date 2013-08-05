@@ -42,6 +42,9 @@ namespace website
 
                     uiImagemain.ImageUrl = ds.Tables[0].Rows[0]["MainPicURL"].ToString();          
                     uiLiteralContent.Text = Server.HtmlDecode( ds.Tables[0].Rows[0]["Content"].ToString());
+
+                    newImages.DataSource = db.GetNewsImages(id);
+                    newImages.DataBind();
                 }
                 else
                 {

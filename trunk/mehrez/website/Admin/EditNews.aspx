@@ -148,6 +148,60 @@
                     </div>
                     <div class="clear">
                     </div>
+                    <asp:Panel ID="uiPanelAllItems" runat="server">
+                        <div class="ContentLeftDiv">
+                            <h4>
+                                News Images
+                            </h4>
+                            <div class="Details675">
+                                <div class="AdminRight">
+                                    <asp:Label ID="Label2" runat="server" Text="images  :" CssClass="Label"></asp:Label>
+                                </div>
+                                <div class="AdminMiddle" style="width: 30%">
+                                    <asp:FileUpload ID="uiFileUploadImage" runat="server" />
+                                </div>
+                                <div class="AdminLeft">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
+                                        ControlToValidate="uiFileUploadImage" Display="Dynamic" ValidationGroup="EditItem"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="clear5">
+                                </div>
+                               
+                                <div class="AdminLeft">
+                                    <div class="AdminMore">
+                                        <asp:LinkButton ID="uiLinkButtonAddItems" runat="server" OnClick="uiLinkButtonAddItems_Click"
+                                            ValidationGroup="EditItem">Add new image</asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="clear5">
+                                </div>
+                                <div class="AdminMiddle" style="width: 100%">
+                                    <asp:GridView ID="uiGridViewImages" runat="server" AutoGenerateColumns="False" OnRowCommand="uiGridViewImages_RowCommand"
+                                        AllowPaging="True" OnPageIndexChanging="uiGridViewImages_PageIndexChanging" EnableModelValidation="True"
+                                        HorizontalAlign="Center" Width="95%">
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Images">
+                                            <ItemTemplate>
+                                                <img src="../images.aspx?Inner=Quote&Image=<%# Eval("picpath") %>" />
+                                            </ItemTemplate>
+                                            </asp:TemplateField>                                            
+                                            <asp:TemplateField HeaderText="Actions">
+                                                <ItemTemplate>                                                    
+                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ID") %>'
+                                                        CommandName="DeleteItem" OnClientClick="return confirm('do you want to delete this record ?');">Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <PagerStyle HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" />
+                                    </asp:GridView>
+                                </div>
+                                <div class="clear">
+                                </div>
+                            </div>
+                        </div>
+                    </asp:Panel>
                 </div>
             </div>
         </asp:Panel>

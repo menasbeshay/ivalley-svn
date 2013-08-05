@@ -61,12 +61,9 @@
                                         <td bgcolor="#FFFFFF">
                                             &nbsp;
                                         </td>
-                                        <td bgcolor="#FFFFFF">
+                                        <td bgcolor="#FFFFFF" style="text-align:center;">
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                                <tr>
-                                                    <td width="95">
-                                                        &nbsp;
-                                                    </td>
+                                                <tr>                                                    
                                                     <td>
                                                         <img border="0" src="images/mehrezkremalogo.jpg" width="295" height="35">
                                                     </td>
@@ -79,8 +76,8 @@
                                         <td bgcolor="#FFFFFF">
                                             &nbsp;
                                         </td>
-                                        <td bgcolor="#FFFFFF">
-                                            <table border="0" cellspacing="0" cellpadding="0">
+                                        <td bgcolor="#FFFFFF" style="text-align: center;padding-left:7%;">
+                                            <table border="0" cellspacing="0" cellpadding="0" style="width:99%">
                                                 <tr>
                                                     <td align="center">
                                                         <p align="left">

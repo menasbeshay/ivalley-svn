@@ -54,7 +54,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td id="cat1">
-                                                                 <a class="menu-left" href="../products.aspx?cid=1">
+                                                                 <a class="menu-left hoverEffect cat_1" href="../products.aspx?cid=1" id="cat_1">
                                                                     Bedrooms</a>
                                                         </td>
                                                     </tr>
@@ -62,7 +62,7 @@
                                                     <tr>
                                                         <td id="cat2">
                                                             
-                                                                 <a class="menu-left" href="../products.aspx?cid=2">
+                                                                 <a class="menu-left hoverEffect cat_2" href="../products.aspx?cid=2" id="cat_2">
                                                                     Dining Rooms</a>
                                                         </td>
                                                     </tr>
@@ -70,7 +70,7 @@
                                                     <tr>
                                                         <td id="cat3">
                                                             
-                                                                 <a class="menu-left" href="../products.aspx?cid=3">
+                                                                 <a class="menu-left hoverEffect cat_3" href="../products.aspx?cid=3" id="cat_3">
                                                                     Living Rooms</a>
                                                         </td>
                                                     </tr>
@@ -78,7 +78,7 @@
                                                     <tr>
                                                         <td id="cat4">
                                                             
-                                                                <a class="menu-left" href="../products.aspx?cid=4">
+                                                                <a class="menu-left hoverEffect cat_4" href="../products.aspx?cid=4" id="cat_4">
                                                                     Salons</a>
                                                         </td>
                                                     </tr>
@@ -86,7 +86,7 @@
                                                     <tr>
                                                         <td id="cat5">
                                                             
-                                                                <a class="menu-left" href="../products.aspx?cid=5">
+                                                                <a class="menu-left hoverEffect cat_5" href="../products.aspx?cid=5" id="cat_5">
                                                                     Miscellaneous</a>
                                                         </td>
                                                     </tr>
@@ -94,7 +94,7 @@
                                                     <tr>
                                                         <td id="cat6">
                                                            
-                                                                 <a class="menu-left" href="../products.aspx?cid=6">
+                                                                 <a class="menu-left hoverEffect cat_6" href="../products.aspx?cid=6" id="cat_6">
                                                                     New Collection</a>
                                                         </td>
                                                     </tr>
@@ -124,7 +124,7 @@
                                             <td>
                                                 
                                                 
-                                                    <a class="menu-left" href='products.aspx?cid=<%# Eval("CategoryID") %>&pid=<%# Eval("ProductID") %>'
+                                                    <a class="menu-left hoverEffect pro<%# Eval("ProductID") %>" href='products.aspx?cid=<%# Eval("CategoryID") %>&pid=<%# Eval("ProductID") %>'
                                                         id='pro<%# Eval("ProductID") %>'>
                                                         <%# Eval("ProductName") %></a>
                                                 </td>
@@ -161,12 +161,10 @@
                                         <td bgcolor="#FFFFFF">
                                             &nbsp;
                                         </td>
-                                        <td bgcolor="#FFFFFF">
+                                        <td bgcolor="#FFFFFF" style="text-align: center;">
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                                 <tr>
-                                                    <td width="95">
-                                                        &nbsp;
-                                                    </td>
+                                                    
                                                     <td>
                                                         <img border="0" src="images/mehrezkremalogo.jpg" width="295" height="35">
                                                     </td>
@@ -179,8 +177,8 @@
                                         <td bgcolor="#FFFFFF">
                                             &nbsp;
                                         </td>
-                                        <td bgcolor="#FFFFFF">
-                                            <table border="0" cellspacing="0" cellpadding="0">
+                                        <td bgcolor="#FFFFFF" style="text-align: center; padding-left: 7%;">
+                                            <table border="0" cellspacing="0" cellpadding="0" style="width: 99%">
                                                 <tr>
                                                     <td align="center">
                                                         <p align="left">

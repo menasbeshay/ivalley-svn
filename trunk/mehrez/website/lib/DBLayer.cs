@@ -172,6 +172,25 @@ namespace website
             return ds;
         }
 
+        public DataSet GetNewsImages(int NewsID)
+        {
+            ds = new DataSet();
+            command.CommandText = string.Format("select * from NewsImages Where NewsID = {0}", NewsID);
+            try
+            {
+                Connect();
+                dataAdapter.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return null;
+            }
+            CloseConnection();
+
+
+            return ds;
+        }
 
         public bool SetNewsContent(int NewsID, string content, string title, string brief, DateTime date, string mainpic)
         {
@@ -222,10 +241,76 @@ namespace website
             return result;
         }
 
+        public bool AddNewsImages(string picpath,int NewsID)
+        {
+            bool result = false;
+            command.CommandText = string.Format("insert into NewsImages (picpath,newsid) values ('{0}', {1})", picpath,NewsID);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
         public bool DeleteNews(int NewsID)
         {
             bool result = false;
             command.CommandText = string.Format("Delete from News where ID = {0}", NewsID);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
+        public bool DeleteNewsImages(int NewsID)
+        {
+            bool result = false;
+            command.CommandText = string.Format("Delete from NewsImages where NewsID = {0}", NewsID);
+            try
+            {
+                Connect();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                return false;
+            }
+            CloseConnection();
+            return result;
+        }
+
+        public bool DeleteNewsImagesByID(int ID)
+        {
+            bool result = false;
+            command.CommandText = string.Format("Delete from NewsImages where ID = {0}", ID);
             try
             {
                 Connect();
@@ -670,10 +755,10 @@ namespace website
         }
 
 
-        public bool SetContactContent(int ContactID, string content, string title, string lat, string longit)
+        public bool SetContactContent(int ContactID, string content, string title, string lat, string longit, string mail)
         {
             bool result = false;
-            command.CommandText = string.Format("Update Contact Set Content = '{0}', title= '{1}', latitude = '{2}', longitude = '{3}' where ID = {4}", content, title, lat, longit, ContactID);
+            command.CommandText = string.Format("Update Contact Set Content = '{0}', title= '{1}', latitude = '{2}', longitude = '{3}', email = '{4}' where ID = {5}", content, title, lat, longit,mail, ContactID);
             try
             {
                 Connect();
@@ -693,10 +778,10 @@ namespace website
         }
 
 
-        public bool AddContactContent(string content, string title, string lat, string longit)
+        public bool AddContactContent(string content, string title, string lat, string longit, string mail)
         {
             bool result = false;
-            command.CommandText = string.Format("insert into Contact (content,title, latitude, longitude, type) values ('{0}', '{1}' , '{2}', '{3}', {4})", content, title, lat, longit, 3);
+            command.CommandText = string.Format("insert into Contact (content,title, latitude, longitude, type, mail) values ('{0}', '{1}' , '{2}', '{3}', {4}, '{5}')", content, title, lat, longit, 3, mail);
             try
             {
                 Connect();
