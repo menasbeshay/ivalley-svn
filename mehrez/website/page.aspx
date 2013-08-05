@@ -13,11 +13,11 @@
  </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div style="text-align:left;margin-left:-8px;">
+<div style="text-align:center;">
     <asp:Image ID="uiImagemain" runat="server" ImageAlign="AbsMiddle" />
     </div>
     <div class="clearfix"></div>
-    <div style="width:85%;padding:5px;">
+    <div style="width:85%;padding:5px;text-align:left;margin-left:6%">
     <asp:Label ID="uiLabelcontent" runat="server" CssClass="content_black"></asp:Label>
     </div>
 </asp:Content>

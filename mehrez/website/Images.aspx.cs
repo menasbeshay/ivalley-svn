@@ -38,6 +38,10 @@ namespace Website
                 {
                     bmp = FixedSize(Path, 80, 80);
                 }
+                else if (Request.QueryString["Inner"] == "News")
+                {
+                    bmp = FixedSize(Path, 200, 200);
+                }
                 else
                 {
                     bmp = FixedSize(Path, 930, 200);

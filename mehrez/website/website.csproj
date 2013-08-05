@@ -96,8 +96,10 @@
     <Content Include="images\diningrooms\Square-b.jpg" />
     <Content Include="images\diningrooms\Square-s.jpg" />
     <Content Include="images\enter-b-o.jpg" />
+    <Content Include="images\enter-b-o2.jpg" />
     <Content Include="images\enter-b.jpg" />
     <Content Include="images\enter-b.png" />
+    <Content Include="images\enter-b2.jpg" />
     <Content Include="images\googleMap.png" />
     <Content Include="images\GrayBigBtnOver.png" />
     <Content Include="images\GrayBigBtnUp.png" />

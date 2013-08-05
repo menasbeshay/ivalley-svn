@@ -52,6 +52,7 @@ namespace website
                     uiLabelPath.Text = db.GetCategoryContent(Convert.ToInt32(ds.Tables[0].Rows[0]["CategoryID"].ToString())).Tables[0].Rows[0]["categoryName"].ToString() + " / " + ds.Tables[0].Rows[0]["ProductName"].ToString();
                     uiImagemainPic.ImageUrl = ds.Tables[0].Rows[0]["PicPath"].ToString();
                     uiLabelDesigner.Text = "Designer : " + ds.Tables[0].Rows[0]["DesignerName"].ToString();
+                    backlink.NavigateUrl = "?cid=" + ds.Tables[0].Rows[0]["CategoryID"].ToString();
                     uiRepeaterItems.DataSource = items;
                     uiRepeaterItems.DataBind();
                 }

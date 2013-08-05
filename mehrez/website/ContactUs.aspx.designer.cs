@@ -31,6 +31,15 @@ namespace website {
         protected global::System.Web.UI.WebControls.Literal uiLiteralHOContent;
         
         /// <summary>
+        /// HOMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HOMail;
+        
+        /// <summary>
         /// uiLiteralHOscript control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal uiLiteralFactoryContent;
+        
+        /// <summary>
+        /// FMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink FMail;
         
         /// <summary>
         /// uiPanelShowrooms control.

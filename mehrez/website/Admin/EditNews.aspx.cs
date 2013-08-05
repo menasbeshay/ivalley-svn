@@ -61,11 +61,13 @@ namespace website.Admin
                 uiTextBoxContent.Text = ds.Tables[0].Rows[0]["Content"].ToString();
                 uiPanelViewNews.Visible = false;
                 uiPanelEdit.Visible = true;
+                BindImages();
 
             }
             else if (e.CommandName == "DeleteNews")
             {
                 DBLayer db = new DBLayer();
+                db.DeleteNewsImages(Convert.ToInt32(e.CommandArgument));
                 db.DeleteNews(Convert.ToInt32(e.CommandArgument));
                 CurrentNews = 0;
                 BindData();
@@ -109,7 +111,36 @@ namespace website.Admin
             CurrentNews = 0;
         }
 
+        protected void uiLinkButtonAddItems_Click(object sender, EventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            string filepath = "";
+            if (uiFileUploadImage.HasFile)
+            {
+                uiFileUploadImage.SaveAs(Server.MapPath("~/UploadedFiles/News/" + uiFileUploadImage.FileName));
+                filepath = "/UploadedFiles/News/" + uiFileUploadImage.FileName;
+            }
+            db.AddNewsImages(filepath, CurrentNews);
+            BindImages();
+        }
 
+
+        protected void uiGridViewImages_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            uiGridViewImages.PageIndex = e.NewPageIndex;
+            BindImages();
+        }
+
+        protected void uiGridViewImages_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteItem")
+            {
+                DBLayer db = new DBLayer();
+                db.DeleteNewsImagesByID(Convert.ToInt32(e.CommandArgument));
+                BindImages();
+
+            }
+        }
 
         #endregion
         #region Methods
@@ -119,6 +150,15 @@ namespace website.Admin
             uiGridViewNews.DataSource = db.GetAllNews();
             uiGridViewNews.DataBind();
         }
+
+
+        private void BindImages()
+        {
+            DBLayer db = new DBLayer();
+            uiGridViewImages.DataSource = db.GetNewsImages(CurrentNews);
+            uiGridViewImages.DataBind();
+        }
+
 
         private void AddNewRecord()
         {
@@ -160,5 +200,8 @@ namespace website.Admin
         }
 
         #endregion
+
+
+        
     }
 }

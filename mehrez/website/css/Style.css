@@ -230,3 +230,5 @@ a.current
 	color: #000000;
 	text-align:justify; 
 }
+
+.hoverClass {color: #E91652 !important;}

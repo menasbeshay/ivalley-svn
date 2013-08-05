@@ -29,7 +29,19 @@
 
         $(document).ready(function () {
             var id = $.url().param('pid');
-            $("#pro" + id).addClass("mainpro");            
+            $("#pro" + id).addClass("mainpro");
+        });
+
+        $(document).ready(function () {
+
+            $(".hoverEffect").hover(function () {
+                $('.' + this.id).addClass("hoverClass");
+            }, function () {
+                $('.' + this.id).removeClass("hoverClass");
+            });
+
+
+
         });
     </script>
 </asp:Content>
@@ -38,7 +50,8 @@
         <asp:Repeater ID="uiRepeaterCats" runat="server">
             <ItemTemplate>
                 <div style="float:left;width:22%;padding:5px;margin:5px;">
-                    <a href='products.aspx?cid=<%# Eval("ID") %>' class="pro_main"> 
+                    <a href='products.aspx?cid=<%# Eval("ID") %>' class="pro_main hoverEffect cat_<%# Eval("ID") %>"
+                        id="cat_<%# Eval("ID") %>"> 
                         <img src='Images.aspx?Inner=product&Image=<%# Eval("MainPic") %>' /> <br /> <%# Eval("CategoryName") %></a>
                 </div>
             </ItemTemplate>
@@ -74,7 +87,7 @@
             <ItemTemplate>
                 <div style="float: left; width: 22%; padding: 5px; margin: 5px;" >
                     <a href='products.aspx?cid=<%# Eval("CategoryID") %>&pid=<%# Eval("ProductID") %>'
-                        class="pro_main">
+                        class="pro_main hoverEffect pro<%# Eval("ProductID") %>" id="pro<%# Eval("ProductID") %>">
                         <img src='Images.aspx?Inner=product&Image=<%# Eval("thumbs") %>' />
                         <br />
                         <%# Eval("ProductName") %></a>
@@ -101,9 +114,13 @@
         <div>
             <asp:Image ID="uiImagemainPic" runat="server" />
         </div>
-        <div class="path tittle_kreem" style="padding: 5px; padding-bottom: 0px; margin-bottom: -5px;
+        <div class="path tittle_kreem" style="padding: 5px; padding-bottom: 0px; margin-bottom: -5px;width:30%;float:left;
             padding-top: 10px;">
             <asp:Label ID="uiLabelDesigner" runat="server"></asp:Label>
+        </div>
+        <div class="content_black" style="padding: 5px; padding-bottom: 0px; margin-bottom: -5px;
+            width: 10%; float: right; padding-top: 10px;">
+            <asp:HyperLink ID="backlink" runat="server" Text="Back"></asp:HyperLink> 
         </div>
         <div class="clear5">
         </div>   
@@ -114,7 +131,7 @@
             <tr>
             <td class="content_black">No.</td>
                 <td class="content_black">
-                    Item Name
+                    Item 
                 </td>
                 <td class="content_black">
                     Dimension
@@ -127,16 +144,16 @@
             </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                    <td class="tittle_kreem">
+                    <td class="tittle_kreem" style="color: #5A4B45">
                         <%# Container.ItemIndex + 1 %>
                     </td>
-                        <td class="tittle_kreem">
+                        <td class="tittle_kreem" style="color: #5A4B45">
                         <%# Eval("ItemName") %>
                         </td>
-                        <td class="tittle_kreem">
+                        <td class="tittle_kreem" style="color: #5A4B45">
                             <%# Eval("Dimension") %>
                         </td>
-                        <td class="tittle_kreem">
+                        <td class="tittle_kreem" style="color: #5A4B45">
                             <%# Eval("Code") %>
                         </td>
                     
