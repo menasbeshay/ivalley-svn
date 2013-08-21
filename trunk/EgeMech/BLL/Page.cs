@@ -3,6 +3,9 @@
 
 using System;
 using EGEMech.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace EGEMech.BLL
 {
 	public class Page : _Page
@@ -11,5 +14,13 @@ namespace EGEMech.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllPagesByParent(int PageID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PageID", SqlDbType.Int, 0), PageID);
+            return LoadFromSql("GetAllPagesByParent", parameters);
+
+        }
 	}
 }

@@ -3,6 +3,9 @@
 
 using System;
 using EGEMech.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace EGEMech.BLL
 {
 	public class OrderStatusHistory : _OrderStatusHistory
@@ -11,5 +14,13 @@ namespace EGEMech.BLL
 		{
 		
 		}
+
+        public virtual bool GetOrderStatusHistory(int OrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@OrderID", SqlDbType.Int, 0), OrderID);
+            return LoadFromSql("GetOrderStatusHistory", parameters);
+
+        }
 	}
 }

@@ -155,6 +155,22 @@ namespace EGEMech.DAL
 				}
 			}
 			
+			public static SqlParameter CategoryID
+			{
+				get
+				{
+					return new SqlParameter("@CategoryID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SubCategoryID
+			{
+				get
+				{
+					return new SqlParameter("@SubCategoryID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +184,8 @@ namespace EGEMech.DAL
             public const string PicPath = "PicPath";
             public const string Notes = "Notes";
             public const string Price = "Price";
+            public const string CategoryID = "CategoryID";
+            public const string SubCategoryID = "SubCategoryID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +200,8 @@ namespace EGEMech.DAL
 					ht[PicPath] = _Product.PropertyNames.PicPath;
 					ht[Notes] = _Product.PropertyNames.Notes;
 					ht[Price] = _Product.PropertyNames.Price;
+					ht[CategoryID] = _Product.PropertyNames.CategoryID;
+					ht[SubCategoryID] = _Product.PropertyNames.SubCategoryID;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +221,8 @@ namespace EGEMech.DAL
             public const string PicPath = "PicPath";
             public const string Notes = "Notes";
             public const string Price = "Price";
+            public const string CategoryID = "CategoryID";
+            public const string SubCategoryID = "SubCategoryID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +237,8 @@ namespace EGEMech.DAL
 					ht[PicPath] = _Product.ColumnNames.PicPath;
 					ht[Notes] = _Product.ColumnNames.Notes;
 					ht[Price] = _Product.ColumnNames.Price;
+					ht[CategoryID] = _Product.ColumnNames.CategoryID;
+					ht[SubCategoryID] = _Product.ColumnNames.SubCategoryID;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +258,8 @@ namespace EGEMech.DAL
             public const string PicPath = "s_PicPath";
             public const string Notes = "s_Notes";
             public const string Price = "s_Price";
+            public const string CategoryID = "s_CategoryID";
+            public const string SubCategoryID = "s_SubCategoryID";
 
 		}
 		#endregion		
@@ -321,6 +347,30 @@ namespace EGEMech.DAL
 			set
 	        {
 				base.Setdecimal(ColumnNames.Price, value);
+			}
+		}
+
+		public virtual int CategoryID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.CategoryID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.CategoryID, value);
+			}
+		}
+
+		public virtual int SubCategoryID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SubCategoryID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SubCategoryID, value);
 			}
 		}
 
@@ -434,6 +484,36 @@ namespace EGEMech.DAL
 			}
 		}
 
+		public virtual string s_CategoryID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CategoryID) ? string.Empty : base.GetintAsString(ColumnNames.CategoryID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CategoryID);
+				else
+					this.CategoryID = base.SetintAsString(ColumnNames.CategoryID, value);
+			}
+		}
+
+		public virtual string s_SubCategoryID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SubCategoryID) ? string.Empty : base.GetintAsString(ColumnNames.SubCategoryID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SubCategoryID);
+				else
+					this.SubCategoryID = base.SetintAsString(ColumnNames.SubCategoryID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +617,26 @@ namespace EGEMech.DAL
 					}
 				}
 
+				public WhereParameter CategoryID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CategoryID, Parameters.CategoryID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SubCategoryID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +726,30 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public WhereParameter CategoryID
+		    {
+				get
+		        {
+					if(_CategoryID_W == null)
+	        	    {
+						_CategoryID_W = TearOff.CategoryID;
+					}
+					return _CategoryID_W;
+				}
+			}
+
+			public WhereParameter SubCategoryID
+		    {
+				get
+		        {
+					if(_SubCategoryID_W == null)
+	        	    {
+						_SubCategoryID_W = TearOff.SubCategoryID;
+					}
+					return _SubCategoryID_W;
+				}
+			}
+
 			private WhereParameter _ProductID_W = null;
 			private WhereParameter _ProductCode_W = null;
 			private WhereParameter _Name_W = null;
@@ -633,6 +757,8 @@ namespace EGEMech.DAL
 			private WhereParameter _PicPath_W = null;
 			private WhereParameter _Notes_W = null;
 			private WhereParameter _Price_W = null;
+			private WhereParameter _CategoryID_W = null;
+			private WhereParameter _SubCategoryID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +769,8 @@ namespace EGEMech.DAL
 				_PicPath_W = null;
 				_Notes_W = null;
 				_Price_W = null;
+				_CategoryID_W = null;
+				_SubCategoryID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +897,26 @@ namespace EGEMech.DAL
 					}
 				}
 
+				public AggregateParameter CategoryID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CategoryID, Parameters.CategoryID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SubCategoryID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +1006,30 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public AggregateParameter CategoryID
+		    {
+				get
+		        {
+					if(_CategoryID_W == null)
+	        	    {
+						_CategoryID_W = TearOff.CategoryID;
+					}
+					return _CategoryID_W;
+				}
+			}
+
+			public AggregateParameter SubCategoryID
+		    {
+				get
+		        {
+					if(_SubCategoryID_W == null)
+	        	    {
+						_SubCategoryID_W = TearOff.SubCategoryID;
+					}
+					return _SubCategoryID_W;
+				}
+			}
+
 			private AggregateParameter _ProductID_W = null;
 			private AggregateParameter _ProductCode_W = null;
 			private AggregateParameter _Name_W = null;
@@ -865,6 +1037,8 @@ namespace EGEMech.DAL
 			private AggregateParameter _PicPath_W = null;
 			private AggregateParameter _Notes_W = null;
 			private AggregateParameter _Price_W = null;
+			private AggregateParameter _CategoryID_W = null;
+			private AggregateParameter _SubCategoryID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +1049,8 @@ namespace EGEMech.DAL
 				_PicPath_W = null;
 				_Notes_W = null;
 				_Price_W = null;
+				_CategoryID_W = null;
+				_SubCategoryID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1151,14 @@ namespace EGEMech.DAL
 
 			p = cmd.Parameters.Add(Parameters.Price);
 			p.SourceColumn = ColumnNames.Price;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CategoryID);
+			p.SourceColumn = ColumnNames.CategoryID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SubCategoryID);
+			p.SourceColumn = ColumnNames.SubCategoryID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

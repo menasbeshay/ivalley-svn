@@ -3,6 +3,9 @@
 
 using System;
 using EGEMech.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace EGEMech.BLL
 {
 	public class Order : _Order
@@ -11,5 +14,47 @@ namespace EGEMech.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllOrders()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllOrders", parameters);
+
+        }
+
+        public virtual string GetLastOrderNo()
+        {
+            ListDictionary parameters = new ListDictionary();
+            object number = LoadFromSqlScalar("GetLastOrderNo", parameters);
+            if (number != null)
+                return number.ToString();
+            else
+                return "";
+        }
+
+        public string getNewSerial()
+        {
+            string serial = "";
+
+            string temp = GetLastOrderNo();
+
+            if (string.IsNullOrEmpty(temp))
+            {
+                temp = "0";
+            }
+
+            temp = (double.Parse(temp) + 1).ToString();
+            serial = double.Parse(temp).ToString("00000000");
+            return serial;
+        }
+
+        public virtual bool GetAllOrdersByUserID(int UserID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@UserID", SqlDbType.Int, 0), UserID);
+            return LoadFromSql("GetAllOrdersByUserID", parameters);
+
+        }
 	}
 }

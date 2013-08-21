@@ -135,7 +135,87 @@ namespace EGEMech.DAL
 			{
 				get
 				{
-					return new SqlParameter("@UserID", SqlDbType.UniqueIdentifier, 0);
+					return new SqlParameter("@UserID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter FirstName
+			{
+				get
+				{
+					return new SqlParameter("@FirstName", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter LastName
+			{
+				get
+				{
+					return new SqlParameter("@LastName", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter Address
+			{
+				get
+				{
+					return new SqlParameter("@Address", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter City
+			{
+				get
+				{
+					return new SqlParameter("@City", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter State
+			{
+				get
+				{
+					return new SqlParameter("@State", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter PostalCode
+			{
+				get
+				{
+					return new SqlParameter("@PostalCode", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter Country
+			{
+				get
+				{
+					return new SqlParameter("@Country", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter Phone
+			{
+				get
+				{
+					return new SqlParameter("@Phone", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter Fax
+			{
+				get
+				{
+					return new SqlParameter("@Fax", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter Mail
+			{
+				get
+				{
+					return new SqlParameter("@Mail", SqlDbType.NVarChar, 200);
 				}
 			}
 			
@@ -144,6 +224,22 @@ namespace EGEMech.DAL
 				get
 				{
 					return new SqlParameter("@OrderStatusID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Orderdate
+			{
+				get
+				{
+					return new SqlParameter("@Orderdate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter OrderNumber
+			{
+				get
+				{
+					return new SqlParameter("@OrderNumber", SqlDbType.NVarChar, 8);
 				}
 			}
 			
@@ -158,7 +254,19 @@ namespace EGEMech.DAL
             public const string Quantity = "Quantity";
             public const string ShippingPrice = "ShippingPrice";
             public const string UserID = "UserID";
+            public const string FirstName = "FirstName";
+            public const string LastName = "LastName";
+            public const string Address = "Address";
+            public const string City = "City";
+            public const string State = "State";
+            public const string PostalCode = "PostalCode";
+            public const string Country = "Country";
+            public const string Phone = "Phone";
+            public const string Fax = "Fax";
+            public const string Mail = "Mail";
             public const string OrderStatusID = "OrderStatusID";
+            public const string Orderdate = "orderdate";
+            public const string OrderNumber = "OrderNumber";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -171,7 +279,19 @@ namespace EGEMech.DAL
 					ht[Quantity] = _Order.PropertyNames.Quantity;
 					ht[ShippingPrice] = _Order.PropertyNames.ShippingPrice;
 					ht[UserID] = _Order.PropertyNames.UserID;
+					ht[FirstName] = _Order.PropertyNames.FirstName;
+					ht[LastName] = _Order.PropertyNames.LastName;
+					ht[Address] = _Order.PropertyNames.Address;
+					ht[City] = _Order.PropertyNames.City;
+					ht[State] = _Order.PropertyNames.State;
+					ht[PostalCode] = _Order.PropertyNames.PostalCode;
+					ht[Country] = _Order.PropertyNames.Country;
+					ht[Phone] = _Order.PropertyNames.Phone;
+					ht[Fax] = _Order.PropertyNames.Fax;
+					ht[Mail] = _Order.PropertyNames.Mail;
 					ht[OrderStatusID] = _Order.PropertyNames.OrderStatusID;
+					ht[Orderdate] = _Order.PropertyNames.Orderdate;
+					ht[OrderNumber] = _Order.PropertyNames.OrderNumber;
 
 				}
 				return (string)ht[columnName];
@@ -189,7 +309,19 @@ namespace EGEMech.DAL
             public const string Quantity = "Quantity";
             public const string ShippingPrice = "ShippingPrice";
             public const string UserID = "UserID";
+            public const string FirstName = "FirstName";
+            public const string LastName = "LastName";
+            public const string Address = "Address";
+            public const string City = "City";
+            public const string State = "State";
+            public const string PostalCode = "PostalCode";
+            public const string Country = "Country";
+            public const string Phone = "Phone";
+            public const string Fax = "Fax";
+            public const string Mail = "Mail";
             public const string OrderStatusID = "OrderStatusID";
+            public const string Orderdate = "Orderdate";
+            public const string OrderNumber = "OrderNumber";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -202,7 +334,19 @@ namespace EGEMech.DAL
 					ht[Quantity] = _Order.ColumnNames.Quantity;
 					ht[ShippingPrice] = _Order.ColumnNames.ShippingPrice;
 					ht[UserID] = _Order.ColumnNames.UserID;
+					ht[FirstName] = _Order.ColumnNames.FirstName;
+					ht[LastName] = _Order.ColumnNames.LastName;
+					ht[Address] = _Order.ColumnNames.Address;
+					ht[City] = _Order.ColumnNames.City;
+					ht[State] = _Order.ColumnNames.State;
+					ht[PostalCode] = _Order.ColumnNames.PostalCode;
+					ht[Country] = _Order.ColumnNames.Country;
+					ht[Phone] = _Order.ColumnNames.Phone;
+					ht[Fax] = _Order.ColumnNames.Fax;
+					ht[Mail] = _Order.ColumnNames.Mail;
 					ht[OrderStatusID] = _Order.ColumnNames.OrderStatusID;
+					ht[Orderdate] = _Order.ColumnNames.Orderdate;
+					ht[OrderNumber] = _Order.ColumnNames.OrderNumber;
 
 				}
 				return (string)ht[propertyName];
@@ -220,7 +364,19 @@ namespace EGEMech.DAL
             public const string Quantity = "s_Quantity";
             public const string ShippingPrice = "s_ShippingPrice";
             public const string UserID = "s_UserID";
+            public const string FirstName = "s_FirstName";
+            public const string LastName = "s_LastName";
+            public const string Address = "s_Address";
+            public const string City = "s_City";
+            public const string State = "s_State";
+            public const string PostalCode = "s_PostalCode";
+            public const string Country = "s_Country";
+            public const string Phone = "s_Phone";
+            public const string Fax = "s_Fax";
+            public const string Mail = "s_Mail";
             public const string OrderStatusID = "s_OrderStatusID";
+            public const string Orderdate = "s_Orderdate";
+            public const string OrderNumber = "s_OrderNumber";
 
 		}
 		#endregion		
@@ -275,15 +431,135 @@ namespace EGEMech.DAL
 			}
 		}
 
-		public virtual Guid UserID
+		public virtual int UserID
 	    {
 			get
 	        {
-				return base.GetGuid(ColumnNames.UserID);
+				return base.Getint(ColumnNames.UserID);
 			}
 			set
 	        {
-				base.SetGuid(ColumnNames.UserID, value);
+				base.Setint(ColumnNames.UserID, value);
+			}
+		}
+
+		public virtual string FirstName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FirstName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FirstName, value);
+			}
+		}
+
+		public virtual string LastName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.LastName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.LastName, value);
+			}
+		}
+
+		public virtual string Address
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Address);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Address, value);
+			}
+		}
+
+		public virtual string City
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.City);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.City, value);
+			}
+		}
+
+		public virtual string State
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.State);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.State, value);
+			}
+		}
+
+		public virtual string PostalCode
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PostalCode);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PostalCode, value);
+			}
+		}
+
+		public virtual string Country
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Country);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Country, value);
+			}
+		}
+
+		public virtual string Phone
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Phone);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Phone, value);
+			}
+		}
+
+		public virtual string Fax
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Fax);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Fax, value);
+			}
+		}
+
+		public virtual string Mail
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Mail);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Mail, value);
 			}
 		}
 
@@ -296,6 +572,30 @@ namespace EGEMech.DAL
 			set
 	        {
 				base.Setint(ColumnNames.OrderStatusID, value);
+			}
+		}
+
+		public virtual DateTime Orderdate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.Orderdate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.Orderdate, value);
+			}
+		}
+
+		public virtual string OrderNumber
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.OrderNumber);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.OrderNumber, value);
 			}
 		}
 
@@ -368,14 +668,164 @@ namespace EGEMech.DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.UserID) ? string.Empty : base.GetGuidAsString(ColumnNames.UserID);
+				return this.IsColumnNull(ColumnNames.UserID) ? string.Empty : base.GetintAsString(ColumnNames.UserID);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.UserID);
 				else
-					this.UserID = base.SetGuidAsString(ColumnNames.UserID, value);
+					this.UserID = base.SetintAsString(ColumnNames.UserID, value);
+			}
+		}
+
+		public virtual string s_FirstName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FirstName) ? string.Empty : base.GetstringAsString(ColumnNames.FirstName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FirstName);
+				else
+					this.FirstName = base.SetstringAsString(ColumnNames.FirstName, value);
+			}
+		}
+
+		public virtual string s_LastName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.LastName) ? string.Empty : base.GetstringAsString(ColumnNames.LastName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.LastName);
+				else
+					this.LastName = base.SetstringAsString(ColumnNames.LastName, value);
+			}
+		}
+
+		public virtual string s_Address
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Address) ? string.Empty : base.GetstringAsString(ColumnNames.Address);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Address);
+				else
+					this.Address = base.SetstringAsString(ColumnNames.Address, value);
+			}
+		}
+
+		public virtual string s_City
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.City) ? string.Empty : base.GetstringAsString(ColumnNames.City);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.City);
+				else
+					this.City = base.SetstringAsString(ColumnNames.City, value);
+			}
+		}
+
+		public virtual string s_State
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.State) ? string.Empty : base.GetstringAsString(ColumnNames.State);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.State);
+				else
+					this.State = base.SetstringAsString(ColumnNames.State, value);
+			}
+		}
+
+		public virtual string s_PostalCode
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PostalCode) ? string.Empty : base.GetstringAsString(ColumnNames.PostalCode);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PostalCode);
+				else
+					this.PostalCode = base.SetstringAsString(ColumnNames.PostalCode, value);
+			}
+		}
+
+		public virtual string s_Country
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Country) ? string.Empty : base.GetstringAsString(ColumnNames.Country);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Country);
+				else
+					this.Country = base.SetstringAsString(ColumnNames.Country, value);
+			}
+		}
+
+		public virtual string s_Phone
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Phone) ? string.Empty : base.GetstringAsString(ColumnNames.Phone);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Phone);
+				else
+					this.Phone = base.SetstringAsString(ColumnNames.Phone, value);
+			}
+		}
+
+		public virtual string s_Fax
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Fax) ? string.Empty : base.GetstringAsString(ColumnNames.Fax);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Fax);
+				else
+					this.Fax = base.SetstringAsString(ColumnNames.Fax, value);
+			}
+		}
+
+		public virtual string s_Mail
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Mail) ? string.Empty : base.GetstringAsString(ColumnNames.Mail);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Mail);
+				else
+					this.Mail = base.SetstringAsString(ColumnNames.Mail, value);
 			}
 		}
 
@@ -391,6 +841,36 @@ namespace EGEMech.DAL
 					this.SetColumnNull(ColumnNames.OrderStatusID);
 				else
 					this.OrderStatusID = base.SetintAsString(ColumnNames.OrderStatusID, value);
+			}
+		}
+
+		public virtual string s_Orderdate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Orderdate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.Orderdate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Orderdate);
+				else
+					this.Orderdate = base.SetDateTimeAsString(ColumnNames.Orderdate, value);
+			}
+		}
+
+		public virtual string s_OrderNumber
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.OrderNumber) ? string.Empty : base.GetstringAsString(ColumnNames.OrderNumber);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.OrderNumber);
+				else
+					this.OrderNumber = base.SetstringAsString(ColumnNames.OrderNumber, value);
 			}
 		}
 
@@ -477,11 +957,131 @@ namespace EGEMech.DAL
 					}
 				}
 
+				public WhereParameter FirstName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FirstName, Parameters.FirstName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter LastName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.LastName, Parameters.LastName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Address
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Address, Parameters.Address);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter City
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.City, Parameters.City);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter State
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.State, Parameters.State);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PostalCode
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PostalCode, Parameters.PostalCode);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Country
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Country, Parameters.Country);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Phone
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Phone, Parameters.Phone);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Fax
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Fax, Parameters.Fax);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Mail
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Mail, Parameters.Mail);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 				public WhereParameter OrderStatusID
 				{
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.OrderStatusID, Parameters.OrderStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Orderdate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Orderdate, Parameters.Orderdate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter OrderNumber
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.OrderNumber, Parameters.OrderNumber);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -552,6 +1152,126 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public WhereParameter FirstName
+		    {
+				get
+		        {
+					if(_FirstName_W == null)
+	        	    {
+						_FirstName_W = TearOff.FirstName;
+					}
+					return _FirstName_W;
+				}
+			}
+
+			public WhereParameter LastName
+		    {
+				get
+		        {
+					if(_LastName_W == null)
+	        	    {
+						_LastName_W = TearOff.LastName;
+					}
+					return _LastName_W;
+				}
+			}
+
+			public WhereParameter Address
+		    {
+				get
+		        {
+					if(_Address_W == null)
+	        	    {
+						_Address_W = TearOff.Address;
+					}
+					return _Address_W;
+				}
+			}
+
+			public WhereParameter City
+		    {
+				get
+		        {
+					if(_City_W == null)
+	        	    {
+						_City_W = TearOff.City;
+					}
+					return _City_W;
+				}
+			}
+
+			public WhereParameter State
+		    {
+				get
+		        {
+					if(_State_W == null)
+	        	    {
+						_State_W = TearOff.State;
+					}
+					return _State_W;
+				}
+			}
+
+			public WhereParameter PostalCode
+		    {
+				get
+		        {
+					if(_PostalCode_W == null)
+	        	    {
+						_PostalCode_W = TearOff.PostalCode;
+					}
+					return _PostalCode_W;
+				}
+			}
+
+			public WhereParameter Country
+		    {
+				get
+		        {
+					if(_Country_W == null)
+	        	    {
+						_Country_W = TearOff.Country;
+					}
+					return _Country_W;
+				}
+			}
+
+			public WhereParameter Phone
+		    {
+				get
+		        {
+					if(_Phone_W == null)
+	        	    {
+						_Phone_W = TearOff.Phone;
+					}
+					return _Phone_W;
+				}
+			}
+
+			public WhereParameter Fax
+		    {
+				get
+		        {
+					if(_Fax_W == null)
+	        	    {
+						_Fax_W = TearOff.Fax;
+					}
+					return _Fax_W;
+				}
+			}
+
+			public WhereParameter Mail
+		    {
+				get
+		        {
+					if(_Mail_W == null)
+	        	    {
+						_Mail_W = TearOff.Mail;
+					}
+					return _Mail_W;
+				}
+			}
+
 			public WhereParameter OrderStatusID
 		    {
 				get
@@ -564,12 +1284,48 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public WhereParameter Orderdate
+		    {
+				get
+		        {
+					if(_Orderdate_W == null)
+	        	    {
+						_Orderdate_W = TearOff.Orderdate;
+					}
+					return _Orderdate_W;
+				}
+			}
+
+			public WhereParameter OrderNumber
+		    {
+				get
+		        {
+					if(_OrderNumber_W == null)
+	        	    {
+						_OrderNumber_W = TearOff.OrderNumber;
+					}
+					return _OrderNumber_W;
+				}
+			}
+
 			private WhereParameter _OrderID_W = null;
 			private WhereParameter _ProductID_W = null;
 			private WhereParameter _Quantity_W = null;
 			private WhereParameter _ShippingPrice_W = null;
 			private WhereParameter _UserID_W = null;
+			private WhereParameter _FirstName_W = null;
+			private WhereParameter _LastName_W = null;
+			private WhereParameter _Address_W = null;
+			private WhereParameter _City_W = null;
+			private WhereParameter _State_W = null;
+			private WhereParameter _PostalCode_W = null;
+			private WhereParameter _Country_W = null;
+			private WhereParameter _Phone_W = null;
+			private WhereParameter _Fax_W = null;
+			private WhereParameter _Mail_W = null;
 			private WhereParameter _OrderStatusID_W = null;
+			private WhereParameter _Orderdate_W = null;
+			private WhereParameter _OrderNumber_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -578,7 +1334,19 @@ namespace EGEMech.DAL
 				_Quantity_W = null;
 				_ShippingPrice_W = null;
 				_UserID_W = null;
+				_FirstName_W = null;
+				_LastName_W = null;
+				_Address_W = null;
+				_City_W = null;
+				_State_W = null;
+				_PostalCode_W = null;
+				_Country_W = null;
+				_Phone_W = null;
+				_Fax_W = null;
+				_Mail_W = null;
 				_OrderStatusID_W = null;
+				_Orderdate_W = null;
+				_OrderNumber_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -685,11 +1453,131 @@ namespace EGEMech.DAL
 					}
 				}
 
+				public AggregateParameter FirstName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FirstName, Parameters.FirstName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter LastName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LastName, Parameters.LastName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Address
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Address, Parameters.Address);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter City
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.City, Parameters.City);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter State
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.State, Parameters.State);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PostalCode
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PostalCode, Parameters.PostalCode);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Country
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Country, Parameters.Country);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Phone
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Phone, Parameters.Phone);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Fax
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Fax, Parameters.Fax);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Mail
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Mail, Parameters.Mail);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 				public AggregateParameter OrderStatusID
 				{
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OrderStatusID, Parameters.OrderStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Orderdate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Orderdate, Parameters.Orderdate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter OrderNumber
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OrderNumber, Parameters.OrderNumber);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -760,6 +1648,126 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public AggregateParameter FirstName
+		    {
+				get
+		        {
+					if(_FirstName_W == null)
+	        	    {
+						_FirstName_W = TearOff.FirstName;
+					}
+					return _FirstName_W;
+				}
+			}
+
+			public AggregateParameter LastName
+		    {
+				get
+		        {
+					if(_LastName_W == null)
+	        	    {
+						_LastName_W = TearOff.LastName;
+					}
+					return _LastName_W;
+				}
+			}
+
+			public AggregateParameter Address
+		    {
+				get
+		        {
+					if(_Address_W == null)
+	        	    {
+						_Address_W = TearOff.Address;
+					}
+					return _Address_W;
+				}
+			}
+
+			public AggregateParameter City
+		    {
+				get
+		        {
+					if(_City_W == null)
+	        	    {
+						_City_W = TearOff.City;
+					}
+					return _City_W;
+				}
+			}
+
+			public AggregateParameter State
+		    {
+				get
+		        {
+					if(_State_W == null)
+	        	    {
+						_State_W = TearOff.State;
+					}
+					return _State_W;
+				}
+			}
+
+			public AggregateParameter PostalCode
+		    {
+				get
+		        {
+					if(_PostalCode_W == null)
+	        	    {
+						_PostalCode_W = TearOff.PostalCode;
+					}
+					return _PostalCode_W;
+				}
+			}
+
+			public AggregateParameter Country
+		    {
+				get
+		        {
+					if(_Country_W == null)
+	        	    {
+						_Country_W = TearOff.Country;
+					}
+					return _Country_W;
+				}
+			}
+
+			public AggregateParameter Phone
+		    {
+				get
+		        {
+					if(_Phone_W == null)
+	        	    {
+						_Phone_W = TearOff.Phone;
+					}
+					return _Phone_W;
+				}
+			}
+
+			public AggregateParameter Fax
+		    {
+				get
+		        {
+					if(_Fax_W == null)
+	        	    {
+						_Fax_W = TearOff.Fax;
+					}
+					return _Fax_W;
+				}
+			}
+
+			public AggregateParameter Mail
+		    {
+				get
+		        {
+					if(_Mail_W == null)
+	        	    {
+						_Mail_W = TearOff.Mail;
+					}
+					return _Mail_W;
+				}
+			}
+
 			public AggregateParameter OrderStatusID
 		    {
 				get
@@ -772,12 +1780,48 @@ namespace EGEMech.DAL
 				}
 			}
 
+			public AggregateParameter Orderdate
+		    {
+				get
+		        {
+					if(_Orderdate_W == null)
+	        	    {
+						_Orderdate_W = TearOff.Orderdate;
+					}
+					return _Orderdate_W;
+				}
+			}
+
+			public AggregateParameter OrderNumber
+		    {
+				get
+		        {
+					if(_OrderNumber_W == null)
+	        	    {
+						_OrderNumber_W = TearOff.OrderNumber;
+					}
+					return _OrderNumber_W;
+				}
+			}
+
 			private AggregateParameter _OrderID_W = null;
 			private AggregateParameter _ProductID_W = null;
 			private AggregateParameter _Quantity_W = null;
 			private AggregateParameter _ShippingPrice_W = null;
 			private AggregateParameter _UserID_W = null;
+			private AggregateParameter _FirstName_W = null;
+			private AggregateParameter _LastName_W = null;
+			private AggregateParameter _Address_W = null;
+			private AggregateParameter _City_W = null;
+			private AggregateParameter _State_W = null;
+			private AggregateParameter _PostalCode_W = null;
+			private AggregateParameter _Country_W = null;
+			private AggregateParameter _Phone_W = null;
+			private AggregateParameter _Fax_W = null;
+			private AggregateParameter _Mail_W = null;
 			private AggregateParameter _OrderStatusID_W = null;
+			private AggregateParameter _Orderdate_W = null;
+			private AggregateParameter _OrderNumber_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -786,7 +1830,19 @@ namespace EGEMech.DAL
 				_Quantity_W = null;
 				_ShippingPrice_W = null;
 				_UserID_W = null;
+				_FirstName_W = null;
+				_LastName_W = null;
+				_Address_W = null;
+				_City_W = null;
+				_State_W = null;
+				_PostalCode_W = null;
+				_Country_W = null;
+				_Phone_W = null;
+				_Fax_W = null;
+				_Mail_W = null;
 				_OrderStatusID_W = null;
+				_Orderdate_W = null;
+				_OrderNumber_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -881,8 +1937,56 @@ namespace EGEMech.DAL
 			p.SourceColumn = ColumnNames.UserID;
 			p.SourceVersion = DataRowVersion.Current;
 
+			p = cmd.Parameters.Add(Parameters.FirstName);
+			p.SourceColumn = ColumnNames.FirstName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.LastName);
+			p.SourceColumn = ColumnNames.LastName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Address);
+			p.SourceColumn = ColumnNames.Address;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.City);
+			p.SourceColumn = ColumnNames.City;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.State);
+			p.SourceColumn = ColumnNames.State;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PostalCode);
+			p.SourceColumn = ColumnNames.PostalCode;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Country);
+			p.SourceColumn = ColumnNames.Country;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Phone);
+			p.SourceColumn = ColumnNames.Phone;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Fax);
+			p.SourceColumn = ColumnNames.Fax;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Mail);
+			p.SourceColumn = ColumnNames.Mail;
+			p.SourceVersion = DataRowVersion.Current;
+
 			p = cmd.Parameters.Add(Parameters.OrderStatusID);
 			p.SourceColumn = ColumnNames.OrderStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Orderdate);
+			p.SourceColumn = ColumnNames.Orderdate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.OrderNumber);
+			p.SourceColumn = ColumnNames.OrderNumber;
 			p.SourceVersion = DataRowVersion.Current;
 
 
