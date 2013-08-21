@@ -3,6 +3,9 @@
 
 using System;
 using EGEMech.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace EGEMech.BLL
 {
 	public class Product : _Product
@@ -11,5 +14,21 @@ namespace EGEMech.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllProducts()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllProducts", parameters);
+
+        }
+
+        public virtual bool GetProductsBySubCatID(int SubCategoryID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@SubCategoryID", SqlDbType.Int, 0), SubCategoryID);
+            return LoadFromSql("GetProductsBySubCatID", parameters);
+
+        }
 	}
 }
