@@ -91,15 +91,18 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
                             ControlToValidate="uiTextBoxDesignerName" Display="Dynamic" ValidationGroup="EditPage"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="clear">
+                    <div class="clear5">
                     </div>
+                   
+
                     <div class="AdminRight" style="width: 135px">
                         <asp:Label ID="Label8" runat="server" Text="Main picture :" CssClass="Label"></asp:Label>
                     </div>
-                    <div class="AdminMiddle">
+                    <div class="AdminMiddle" style="width:200px">
                         <asp:FileUpload ID="uiFileUploadMainPicturePath" runat="server" />
                     </div>
                     <div class="AdminLeft">
+                    Best width : 710px   -   Max height : 410px 
                     </div>
                                         
                     <div class="clear5">
@@ -107,10 +110,11 @@
                     <div class="AdminRight" style="width: 135px">
                         <asp:Label ID="Label5" runat="server" Text="Thumbnail picture :" CssClass="Label"></asp:Label>
                     </div>
-                    <div class="AdminMiddle">
+                    <div class="AdminMiddle" style="width:200px">
                         <asp:FileUpload ID="uiFileUploadThumbs" runat="server" />
                     </div>
                     <div class="AdminLeft">
+                    image size 158px * 158px
                     </div>
                     <div class="clear5">
                     </div>
