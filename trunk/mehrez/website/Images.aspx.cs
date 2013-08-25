@@ -40,7 +40,11 @@ namespace Website
                 }
                 else if (Request.QueryString["Inner"] == "News")
                 {
-                    bmp = FixedSize(Path, 200, 200);
+                    bmp = FixedSize(Path, 200, 140);
+                }
+                else if (Request.QueryString["Inner"] == "NewsMain")
+                {
+                    bmp = FixedSize(Path, 110, 110);
                 }
                 else
                 {
@@ -200,7 +204,7 @@ namespace Website
                                      imgPhoto.VerticalResolution);
 
                     Graphics grPhoto = Graphics.FromImage(bmPhoto);
-                    grPhoto.Clear(Color.White);
+                    grPhoto.Clear(Color.Empty);
                     grPhoto.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
                     grPhoto.DrawImage(imgPhoto,

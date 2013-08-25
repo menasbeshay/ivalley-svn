@@ -12,7 +12,8 @@
             <ItemTemplate>
                 <div class="designerHost" style="width:550px;margin:0 auto;">
                     <div class="designerpic">
-                        <img src='<%# Eval("MainPicURL") %>' style="width:110px;height:110px;"/>
+                        <img src='images.aspx?Inner=NewsMain&Image=<%# Eval("MainPicURL") %>' style="width: 110px;
+                            height: 110px;" />
                     </div>
                     <div class="designerDetails" style="width:410px;">
                         
@@ -86,7 +87,7 @@
         <asp:Repeater ID="newImages" runat="server">
         <ItemTemplate>
         <div style="float:left;width:30%;margin:5px;">
-            <img src="images.aspx?Inner=News&Image=<%# Eval("picpath") %>" style="border: 1px solid black;
+            <img src="images.aspx?Inner=News&Image=<%# Eval("picpath") %>" style="border: 2px solid #663300;
                 border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;" />
         </div>
         </ItemTemplate>
