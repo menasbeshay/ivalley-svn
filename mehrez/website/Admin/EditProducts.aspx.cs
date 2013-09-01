@@ -70,6 +70,8 @@ namespace website.Admin
             uiPanelEdit.Visible = true;
             uiPanelViewProducts.Visible = false;
             uiPanelAllItems.Visible = false;
+            CurrentProduct = 0;
+            CurrentItem = 0;
             Clearfields();
         }
 
@@ -268,6 +270,7 @@ namespace website.Admin
              uiDropDownListCats.DataTextField = "CategoryName";
              uiDropDownListCats.DataValueField = "ID";
              uiDropDownListCats.DataBind();
+             uiDropDownListCats.Items.Insert(0, new ListItem("Choose Category", "0"));
         }
 
         #endregion

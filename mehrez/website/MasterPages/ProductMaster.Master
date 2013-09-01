@@ -13,7 +13,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body oncontextmenu="return false;">
     <form id="form1" runat="server">
     <div align="center">
         <table border="0" width="1000" cellspacing="0" cellpadding="0">

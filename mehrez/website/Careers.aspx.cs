@@ -42,7 +42,7 @@ namespace website
                 if (uiFileUploadCV.HasFile)
                     msg.Attachments.Add(new Attachment(uiFileUploadCV.FileContent, uiFileUploadCV.FileName));
 
-                SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
+                SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 3535);
                 //SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 //client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
@@ -50,7 +50,7 @@ namespace website
                 client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["mailpass"]);
                 client.Send(msg);
                 uiLabelMessage.Visible = true;
-                
+                uiLabelError.Visible = false;
             }
             catch (Exception ex)
             {
