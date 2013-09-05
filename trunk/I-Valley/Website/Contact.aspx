@@ -19,18 +19,31 @@
                 Contact Info</h2>
             <img src="images/contact/map.jpg" />
             <p>
-               By contacting our sales team … by mail or phone we will be always ready to handle your request.</p>
+               By contacting our sales team … by mail or phone we will be always ready to handle your request.<br />
+               Heliopolis, Cairo Egypt. -  0020 1228404078.  sales@i-valley.com.
+               </p>
             
+            <div class="large-6 columns">
             <ul>
-                <li>Address: Heliopolis, Cairo Egypt.</li>
-                <li>Phone: 0020 1228404078.</li>
-                <li>Email: sales@i-valley.com.</li>
-                <li>Business Development Manager : michael@i-valley.com</li>
-                <li>Chief Technical Officer : Mena@i-valley.com</li>
-                <li>Sales Manager : sales@i-valley.com</li>
-                <li>HR Manager : HR@i-valley.com - jobs@i-valley.com</li>
+                
+                <li>Michael H. Youssef <br /> Business Development Manager
+                <br /> michael@i-valley.com <br /> 0020 1228404078</li>
+                <li>Mena S. Beshay <br /> Chief Technical Officer <br />
+
+                mena@i-valley.com <br /> 0020 100356608</li>
+                
+                </ul>
+                </div>
+
+                <div class="large-6 columns">
+            <ul>
+                
+                <li>Wael O. El Badry <br /> Technical Analyst & Engagement Manager <br /> wael@i-valley.com <br /> 0020 1222465656 </li>
+                <li>Ahmed Reda <br /> Sales Manager <br />
+                ahmed@i-valley.com <br /> 0020 1228670277</li>
 
                 </ul>
+                </div>
                 
                 also you can contact us by :
                 <ul style="list-style:none;">
