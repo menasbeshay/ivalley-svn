@@ -61,7 +61,7 @@
                             <Columns>
                                 <asp:BoundField DataField="EnName" HeaderText="الإسم بالإنجليزية" />
                                 <asp:BoundField DataField="ArName" HeaderText="الإسم بالعربية" />
-                                <asp:TemplateField HeaderText="إجراءات">
+                                <asp:TemplateField HeaderText="إجراءات" >
                                     <ItemTemplate>
                                         <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CategoryID") %>'
                                             CommandName="EditCategory">تعديل</asp:LinkButton>&nbsp;
