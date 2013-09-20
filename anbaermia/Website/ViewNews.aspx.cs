@@ -29,6 +29,7 @@ namespace Website
         {
             if (!IsPostBack)
             {
+                Master.PageTitle = "الأخبار";
                 if (Request.QueryString["NID"] != null && !string.IsNullOrEmpty(Request.QueryString["NID"]))
                 {
                     uiPanelAllNews.Visible = false;
@@ -40,9 +41,9 @@ namespace Website
                     uiLabelDate.Text += " " + string.Format("{0:hh:mm}", currentnews.PostedDate);
                     uiLabelTitle.Text = currentnews.ArTitle;
                     if (!string.IsNullOrEmpty(currentnews.MainImagePath))
-                        uiImageNews.ImageUrl = currentnews.MainImagePath;
+                        uiImageNews.ImageUrl = "images.aspx?Inner=news&Image="+currentnews.MainImagePath;
                     else
-                        uiImageNews.ImageUrl = "arabic/images/logo_Big_watermark.jpg";
+                        uiImageNews.ImageUrl = "images.aspx?Inner=news&Image=" + "arabic/images/logo_Big_watermark.jpg";
                     uiLiteralContent.Text = Server.HtmlDecode(currentnews.ArContent);
                 }
                 else

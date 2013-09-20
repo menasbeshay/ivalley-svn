@@ -1,22 +1,40 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inner.Master" AutoEventWireup="true" CodeBehind="ViewNews.aspx.cs" Inherits="Website.ViewNews" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/newTheme.Master" AutoEventWireup="true" CodeBehind="ViewNews.aspx.cs" Inherits="Website.ViewNews" %>
+<%@ MasterType VirtualPath="~/newTheme.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/tabs.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.tinyscrollbar.min.js" type="text/javascript"></script>
+    <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#scrollbar1').tinyscrollbar();
+            $('#scrollbar2').tinyscrollbar();
+        });
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="ContentLeftDiv" style="width:81%;float:right;">
-        <h1 style="font-family: Khalid Art bold;">
+    <div class="ContentLeftDiv" style="width:75%;float:right;" id="tabs">
+        <h1 >
             الأخبـــار
         </h1>
         <div class="Details675">
             <asp:Panel ID="uiPanelAllNews" runat="server">
                 <asp:Repeater ID="uiRepeaterCurrentNews" runat="server">
+                <HeaderTemplate>
+                <div id="scrollbar1"><div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"> <div class="overview">
+                </HeaderTemplate>
+                <FooterTemplate>
+                </div>
+		</div>
+	</div>	
+                </FooterTemplate>
                     <ItemTemplate>
-                        <div class="ItemHeader" style="background-color: #ddd; height: 25px; font-size: 16px;
+                        <div class="ItemHeader" style="background-color: #DDB987; height: 25px; font-size: 16px;
                             border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
                             <a class="title" href='ViewNews.aspx?NID=<%# Eval("NewsID") %>' style="display: block;
-                                background-color: #ddd; float: right; width: 64%;font-weight:bold; color: #E15A00;">
+                                background-color: #DDB987; float: right; width: 64%;font-weight:bold; color: #720000;">
                                 <%# Eval("ArTitle") %>
                             </a>
-                            <div class="Post" style="width: 35%; float: left; background-color: #ddd; padding-right: 5px; color: #990000;font-size:14px;direction:ltr;">
+                            <div class="Post" style="width: 35%; float: left; background-color: #DDB987; padding-right: 5px; color: #990000;font-size:14px;direction:ltr;">
                                 
                                 <%# string.Format("{0:dd-MMM-yyyy}", Eval("PostedDate"))%> &nbsp;
                                  <%# string.Format("{0:hh:mm}", Eval("PostedDate"))%>
@@ -44,18 +62,18 @@
                 </asp:Panel>
             </asp:Panel>
             <asp:Panel ID="uiPanelViewNews" runat="server">
-                <div style="font-weight: bold; color: #0B538E; font-size: 16px; color: #E15A00;">
+                <div style="font-weight: bold; color: #0B538E; font-size: 16px; color: #720000;">
                     <asp:Label ID="uiLabelTitle" runat="server"></asp:Label></div>
                 <div class="clear10">
                 </div>
-                <div class="DateShare" style="background-color: #ddd; height: 30px; margin-bottom: 10px;
+                <div class="DateShare" style="background-color: #DDB987; height: 30px; margin-bottom: 10px;
                     margin-top: 5px; padding: 5px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
-                    <div class="Post" style="width: 30%; background-color: #ddd; float: right; padding-top: 3px;font-size:14px; 
+                    <div class="Post" style="width: 30%; background-color: #DDB987; float: right; padding-top: 3px;font-size:14px; 
                         color: #990000;">
                         
                         <asp:Label ID="uiLabelDate" runat="server"></asp:Label>
                         </div>  
-                    <div class="Share" style="width: 20%; float: right; background-color: #ddd;margin-top:5px;">
+                    <div class="Share" style="width: 20%; float: right; background-color: #DDB987;margin-top:5px;">
                         <!-- AddThis Button BEGIN -->
                         <div class="addthis_toolbox addthis_default_style ">
                             <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
@@ -74,19 +92,22 @@
                 </div>
                 <div class="clear">
                 </div>
-                <div>
-                    <asp:Image ID="uiImageNews" runat="server" Width="350px"  /></div>
-                <div class="clear">
-                </div>
-                <div>
+                <div style="float:right;width:30%;">
+                    <asp:Image ID="uiImageNews" runat="server"  /></div>
+                
+                <div style="float:right;width:50%;">
+                <div id="scrollbar2"><div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"> <div class="overview">
                     <asp:Literal ID="uiLiteralContent" runat="server"></asp:Literal>
+                    </div>
+		</div>
+	</div>	    
                 </div>
                 <div class="clear">
                 </div>
             </asp:Panel>
         </div>
     </div>
-    <div class="ContentLeftDiv NewsImageHolder" style="width: 17%; float: right; padding: 5px;padding-top:77px;">
+    <%--<div class="ContentLeftDiv NewsImageHolder" style="width: 17%; float: right; padding: 5px;padding-top:77px;">
         <img src="images/news_banner.jpg" />
-    </div>
+    </div>--%>
 </asp:Content>

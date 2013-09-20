@@ -1,13 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewsSlider.ascx.cs" Inherits="Website.Controls.NewsSlider" %>
 
-<div id="jslidernews2" class="lof-slidecontent" style="height: 300px;">
+<div id="jslidernews2" class="lof-slidecontent" style="height: 240px;">
     <div class="preload">
         <div>
         </div>
     </div>
     <asp:Repeater ID="uiRepeaterContent" runat="server">
     <HeaderTemplate>
-        <div class="main-slider-content" style="width: 640px; height: 300px;">
+        <div class="main-slider-content" style="width: 640px; height: 240px;">
             <ul class="sliders-wrap-inner">
     </HeaderTemplate>
     <ItemTemplate>

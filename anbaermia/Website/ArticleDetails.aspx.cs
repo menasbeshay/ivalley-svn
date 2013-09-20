@@ -13,6 +13,7 @@ namespace Website
         {
             if (!IsPostBack)
             {
+                Master.PageTitle = "مقالات";
                 int pid = 0;
                 if (Request.QueryString["Aid"] != null)
                 {
