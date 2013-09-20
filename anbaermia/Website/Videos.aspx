@@ -30,11 +30,11 @@
                                 Font-Bold="True" Font-Size="Medium"> &lt;&lt; التالى</asp:LinkButton>
                         </div>
                     </div>
-                    <div style="width: 92%;">
-                        <asp:DataList ID="uiDataListCats" runat="server" HorizontalAlign="Center" RepeatColumns="4"
-                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" >
+                    <div style="width: 92%;padding-right:15%;">
+                        <asp:DataList ID="uiDataListCats" runat="server" HorizontalAlign="Center" RepeatColumns="3"
+                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="90%" >
                             <ItemTemplate>
-                                <div style="margin: 5px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                     <a href='Videos.aspx?catid=<%# Eval("CategoryID") %>' title="" style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />
                                         <br />
@@ -59,11 +59,11 @@
                                 Font-Bold="True" Font-Size="Medium"> &lt;&lt; التالى</asp:LinkButton>
                         </div>
                     </div>
-                    <div style="width: 95%;">
-                        <asp:DataList ID="uiDataListSub" runat="server" HorizontalAlign="Center" RepeatColumns="4"
-                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" >
+                    <div style="width: 95%;padding-right:15%;">
+                        <asp:DataList ID="uiDataListSub" runat="server" HorizontalAlign="Center" RepeatColumns="3"
+                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="90%" >
                             <ItemTemplate>
-                                <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                     <a href='Videos.aspx?scatid=<%# Eval("SubCategoryID") %>' title="" style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />
                                         <br />
@@ -96,9 +96,9 @@
                     RepeatColumns="4" RepeatDirection="Horizontal" RepeatLayout="Flow" 
                     Width="100%" onitemdatabound="uiDataListVideos_ItemDataBound">
                     <ItemTemplate>
-                        <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;">
+                        <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                             <a href='<%# Eval("URL") %>' rel="PageVideos" title="" style="text-decoration:none;">
-                                <asp:Image ID="uiImageThumb" runat="server" Width="200" />
+                                <asp:Image ID="uiImageThumb" runat="server" width="150" />
                                 <br /> 
                                 <%# Eval("ArTitle") %></a>
                         </div>

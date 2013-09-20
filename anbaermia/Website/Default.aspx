@@ -21,9 +21,9 @@
                  auto: true,
                  mainWidth: 520,
                  mainHeight: 240,
-                 navigatorHeight: 60,
+                 navigatorHeight: 78,
                  navigatorWidth: 300,
-                 maxItemDisplay: 4
+                 maxItemDisplay: 3
              });
 
 

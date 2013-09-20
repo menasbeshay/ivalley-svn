@@ -11,7 +11,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             //$('#tabs').tabs();
-            $('#tabs').easytabs();
+            try {
+                $('#tabs').easytabs();
+            } catch (e) {
+
+            } 
             $("a[rel^=PageVideos]").prettyPhoto({ social_tools: false, description: false });
             $("a[rel^=PagePics]").prettyPhoto({ social_tools: false, description: false });
             
@@ -70,7 +74,7 @@
                 RepeatDirection="Horizontal" 
                 onitemdatabound="uiDataListVideos_ItemDataBound">
                 <ItemTemplate>
-                    <a href='<%# Eval("URL") %>' rel="PageVideos" title="" style="text-decoration: none;"><asp:Image ID="uiImageThumb" runat="server" width="200"/> 
+                    <a href='<%# Eval("URL") %>' rel="PageVideos" title="" style="text-decoration: none;display:block;width: 200px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:50px;-moz-border-radius:50px;-webkit-border-radius:50px; "><asp:Image ID="uiImageThumb" runat="server" width="200" /> 
                     <div class="clear"></div> 
                     <div style="text-align:center;font-weight:bold;">
                     <%# Eval("ArTitle") %>
@@ -115,12 +119,12 @@
                                 Font-Bold="True" Font-Size="Medium"> &lt;&lt; التالى</asp:LinkButton>
                         </div>
                     </div>
-                    <div style="width: 95%;">
-                        <asp:DataList ID="uiDataListCats" runat="server" HorizontalAlign="Center" RepeatColumns="4"
-                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" 
+                    <div style="width: 95%;margin:0 auto;padding-right:15%">
+                        <asp:DataList ID="uiDataListCats" runat="server" HorizontalAlign="Center" RepeatColumns="3"
+                            RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%"  
                             onitemcommand="uiDataListCats_ItemCommand">
                             <ItemTemplate>
-                                <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                     <asp:LinkButton runat="server" CommandArgument='<%# Eval("CategoryID") %>' title="" style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />
                                         <br />
@@ -150,12 +154,12 @@
                                 Font-Bold="True" Font-Size="Medium"> &lt;&lt; عودة</asp:LinkButton>
                         </div>
                     </div>
-                    <div style="width: 95%;">
-                        <asp:DataList ID="uiDataListSub" runat="server" HorizontalAlign="Center" RepeatColumns="4"
+                    <div style="width: 95%;padding-right:15%">
+                        <asp:DataList ID="uiDataListSub" runat="server" HorizontalAlign="Center" RepeatColumns="3"
                             RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" 
                             onitemcommand="uiDataListSub_ItemCommand">
                             <ItemTemplate>
-                                <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                     <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("SubCategoryID") %>'
                                         title="" Style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />
@@ -246,11 +250,11 @@
                                         Font-Bold="True" Font-Size="Medium"> &lt;&lt; التالى</asp:LinkButton>
                                 </div>
                             </div>
-                            <div style="width: 95%;">
-                                <asp:DataList ID="uiDataListCMSCats" runat="server" HorizontalAlign="Center" RepeatColumns="4"
+                            <div style="width: 95%;padding-right:15%;">
+                                <asp:DataList ID="uiDataListCMSCats" runat="server" HorizontalAlign="Center" RepeatColumns="3"
                                     RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" OnItemCommand="uiDataListCMSCats_ItemCommand">
                                     <ItemTemplate>
-                                        <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                        <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                             <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("CategoryID") %>'
                                                 title="" Style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />
@@ -281,11 +285,11 @@
                                         Font-Bold="True" Font-Size="Medium"> &lt;&lt; عودة</asp:LinkButton>
                                 </div>
                             </div>
-                            <div style="width: 95%;">
-                                <asp:DataList ID="uiDataListCMSSub" runat="server" HorizontalAlign="Center" RepeatColumns="4"
+                            <div style="width: 95%;padding-right:15%;">
+                                <asp:DataList ID="uiDataListCMSSub" runat="server" HorizontalAlign="Center" RepeatColumns="3"
                                     RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" OnItemCommand="uiDataListCMSSub_ItemCommand">
                                     <ItemTemplate>
-                                        <div style="margin: 3px; border: 2px solid gray; width: 200px; float: right;" class="IconHost">
+                                        <div style="margin: 3px; text-decoration: none;display:block;width: 150px; margin: 10px;height:150px; padding: 0; text-align: center;border:3px solid #4A3F29;border-radius:80px;-moz-border-radius:80px;-webkit-border-radius:80px; float: right;" class="IconHost">
                                             <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("SubCategoryID") %>'
                                                 title="" Style="text-decoration: none;">
                                         <img src="Images.aspx?Inner=photo&Image=<%# Eval("IconPath") %>" />

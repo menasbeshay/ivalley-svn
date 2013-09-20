@@ -32,6 +32,10 @@ namespace Website
             {
                 if (Request.QueryString["Inner"] == "photo")
                 {
+                    bmp = FixedSize(Path, 200, 200);
+                }
+                else if (Request.QueryString["Inner"] == "photo1")
+                {
                     bmp = FixedSize(Path, 200, 150);
                 }
                 else if (Request.QueryString["Inner"] == "Quote")

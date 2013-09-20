@@ -113,7 +113,7 @@ namespace Website
                 pds.AllowPaging = true;
                 pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPage;
-                uiDataListVideos.DataSource = objData.DefaultView;
+                uiDataListVideos.DataSource = pds;
                 uiDataListVideos.DataBind();
                 uiLinkButtonPrev.Enabled = true;
                 uiLinkButtonNext.Enabled = true;

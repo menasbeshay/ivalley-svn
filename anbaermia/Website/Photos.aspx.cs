@@ -55,6 +55,7 @@ namespace Website
             if (!IsPostBack)
             {
                 //LoadDDLs();
+                Master.PageTitle = "صور";
                 BindData();
             }
         }
@@ -71,7 +72,7 @@ namespace Website
                 PagedDataSource pds = new PagedDataSource();
                 pds.DataSource = scat.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
+                pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPageSub;
                 uiDataListSub.DataSource = pds;
                 uiDataListSub.DataBind();
@@ -98,9 +99,9 @@ namespace Website
                 objData.DefaultView.Sort = "ArTitle asc";
                 pds.DataSource = objData.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
+                pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPage;
-                uiDataListPics.DataSource = objData.DefaultView;
+                uiDataListPics.DataSource = pds;
                 uiDataListPics.DataBind();
                 uiLinkButtonPrev.Enabled = true;
                 uiLinkButtonNext.Enabled = true;
@@ -125,7 +126,7 @@ namespace Website
                 PagedDataSource pds = new PagedDataSource();
                 pds.DataSource = scat.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
+                pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPageSub;
                 uiDataListCats.DataSource = pds;
                 uiDataListCats.DataBind();
