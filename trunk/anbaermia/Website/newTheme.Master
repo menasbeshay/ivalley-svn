@@ -120,10 +120,8 @@
             </asp:ContentPlaceHolder>
         </div>
         <div class="clear" ></div>
-        <div class="innerTicker">
-         &nbsp;
-         </div>
-         <div style="direction:ltr;margin-right:200px;font-weight:bold;float:right;width:200px;">
+        
+         <div style="direction:ltr;margin-right:140px;font-weight:bold;float:right;width:200px;margin-top:50px;">
     Powered by &nbsp;
                 <a href="http://I-valley.com">
                 <img src="images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"

@@ -229,7 +229,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = cat.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 12;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentFileCat;
             uiDataListCats.DataSource = pds;
             uiDataListCats.DataBind();
@@ -299,7 +299,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = rcp.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 9;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentPage;
             uiRepeaterFiles.DataSource = pds;
             uiRepeaterFiles.DataBind();
@@ -328,7 +328,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = scat.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 12;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentFileSub;
             uiDataListSub.DataSource = pds;
             uiDataListSub.DataBind();
@@ -421,7 +421,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = cat.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 12;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentCMSCatPage;
             uiDataListCMSCats.DataSource = pds;
             uiDataListCMSCats.DataBind();
@@ -479,7 +479,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = rcp.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 10;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentCMSPage;
             uiRepeaterCMS.DataSource = pds;
             uiRepeaterCMS.DataBind();
@@ -506,7 +506,7 @@ namespace Website
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = scat.DefaultView;
             pds.AllowPaging = true;
-            pds.PageSize = 12;
+            pds.PageSize = 6;
             pds.CurrentPageIndex = currentCMSSubPage;
             uiDataListCMSSub.DataSource = pds;
             uiDataListCMSSub.DataBind();
