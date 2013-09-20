@@ -2,11 +2,11 @@
 /* CSS Document */
 
 /* slider layout */
-.lof-slidecontent { position:relative;	overflow:hidden;	border:#F4F4F4 solid 1px;}
+.lof-slidecontent { position:relative;	overflow:hidden;	/*border:#F4F4F4 solid 1px;*/}
 .lof-slidecontent .preload{	height:100%;	width:100%;	position:absolute;	top:0;	left:0;	z-index:100000;	text-align:center;	background:#FFF}
 .lof-slidecontent .preload div{	height:100%;	width:100%;	background:transparent url(../images/load-indicator.gif) no-repeat scroll 50% 50%;}
 
-.lof-slidecontent  .sliders-wrapper{	position:relative;	height:100%;	width:900px;	z-index:3px;	overflow:hidden; }
+.lof-slidecontent  .sliders-wrapper{	position:relative;	height:100%;	width:700px;	z-index:3px;	overflow:hidden; margin-right:300px;}
 .lof-slidecontent  ul.sliders-wrap-inner{overflow:hidden;	background:transparent url(../images/load-indicator.gif) no-repeat scroll 50% 50%;	padding:0px;	margin:0;	position:absolute;	overflow:hidden;}
 .lof-slidecontent  ul.sliders-wrap-inner li{overflow:hidden;	padding:0px;margin:0px;	float:left;	position:relative;}
 .lof-slidecontent  .lof-opacity  li{position:absolute;	top:0;	left:0;	float:inherit; }
@@ -16,14 +16,14 @@
 	right:0;
 	top:0px;
 	z-index:9;
-	height:300px;
+	height:240px;
 	width:315px;
 	overflow:hidden;
 	color:#FFF
 }
 .lof-slidecontent  .navigator-wrapper{	position:relative;	z-index:10;
 	height:180px;
-	width:315px;
+	width:300px;
 	overflow:hidden;
 	color:#FFF;
 	float:left
@@ -51,9 +51,9 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
     position:absolute;
     bottom: 20px;
     left: 0px;    
-    width: 600px;
+    width: 480px;
     background: url(../images/bg_trans.png);
-    height: 80px;
+    height: 50px;
     padding: 10px;
     color: #fff;
     text-align:right;

@@ -31,15 +31,6 @@ namespace Website {
         protected global::System.Web.UI.WebControls.Image uiImageMain;
         
         /// <summary>
-        /// NewsTicker1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Website.Controls.NewsTicker NewsTicker1;
-        
-        /// <summary>
         /// TabContent control.
         /// </summary>
         /// <remarks>
@@ -488,5 +479,17 @@ namespace Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList uiDataListPics;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Website.newTheme Master {
+            get {
+                return ((Website.newTheme)(base.Master));
+            }
+        }
     }
 }

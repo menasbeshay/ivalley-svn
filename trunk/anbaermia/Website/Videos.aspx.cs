@@ -16,39 +16,39 @@ namespace Website
         {
             get
             {
-                object o = ViewState["_CurrentPage"];
+                object o = Session["_CurrentPagev1"];
                 if (o == null)
                     return 0; // default page index of 0
                 else
                     return (int)o;
             }
-            set { ViewState["_CurrentPage"] = value; }
+            set { Session["_CurrentPagev1"] = value; }
         }
 
         public int currentPageCat
         {
             get
             {
-                object o = ViewState["_currentPageCat"];
+                object o = Session["_currentPageCatv2"];
                 if (o == null)
                     return 0; // default page index of 0
                 else
                     return (int)o;
             }
-            set { ViewState["_currentPageCat"] = value; }
+            set { Session["_currentPageCatv2"] = value; }
         }
 
         public int currentPageSub
         {
             get
             {
-                object o = ViewState["_currentPageSub"];
+                object o = Session["_currentPageSubv3"];
                 if (o == null)
                     return 0; // default page index of 0
                 else
                     return (int)o;
             }
-            set { ViewState["_currentPageSub"] = value; }
+            set { Session["_currentPageSubv3"] = value; }
         }
         
         protected void Page_Load(object sender, EventArgs e)
@@ -57,6 +57,7 @@ namespace Website
             {
                 
                 //LoadDDLs();
+                Master.PageTitle = "ملتيمديا - فيديو";
                 BindData();
             }
         }        
@@ -84,7 +85,7 @@ namespace Website
                 PagedDataSource pds = new PagedDataSource();
                 pds.DataSource = scat.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
+                pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPageSub;
                 uiDataListSub.DataSource = pds;
                 uiDataListSub.DataBind();
@@ -110,7 +111,7 @@ namespace Website
                 PagedDataSource pds = new PagedDataSource();
                 pds.DataSource = objData.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
+                pds.PageSize = 6;
                 pds.CurrentPageIndex = currentPage;
                 uiDataListVideos.DataSource = objData.DefaultView;
                 uiDataListVideos.DataBind();
@@ -137,8 +138,8 @@ namespace Website
                 PagedDataSource pds = new PagedDataSource();
                 pds.DataSource = scat.DefaultView;
                 pds.AllowPaging = true;
-                pds.PageSize = 16;
-                pds.CurrentPageIndex = currentPageSub;
+                pds.PageSize = 6;
+                pds.CurrentPageIndex = currentPageCat;
                 uiDataListCats.DataSource = pds;
                 uiDataListCats.DataBind();
                 uiLinkButtonCatPrev.Enabled = true;
@@ -179,7 +180,7 @@ namespace Website
 
         protected void uiLinkButtonCatNext_Click(object sender, EventArgs e)
         {
-            currentPageCat--;
+            currentPageCat++;
             BindData();
         }
 
@@ -191,7 +192,7 @@ namespace Website
 
         protected void uiLinkButtonSubNext_Click(object sender, EventArgs e)
         {
-            currentPageSub--;
+            currentPageSub++;
             BindData();
         }
 
