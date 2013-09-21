@@ -91,6 +91,23 @@ public partial class UserControls_ucGeneralDeathInfo : System.Web.UI.UserControl
         }
     }
 
+
+    /// <summary>
+    /// Gets or sets value of Dead NID
+    /// </summary>
+    public string EventDeadJobDescription
+    {
+        get
+        {
+            return "";// uiTextBoxJobDesc.Text;           
+        }
+        set
+        {
+            string m = value;
+            //uiTextBoxJobDesc.Text = value;
+        }
+    }
+
     public string EventState
     {
         get

@@ -141,6 +141,18 @@ public partial class UserControls_UcNotifierInfo : System.Web.UI.UserControl
         }
     }
 
+    public string NotifierAddress
+    {
+        get
+        {
+            return txtNotifierAddress.Text;
+        }
+        set
+        {
+            txtNotifierAddress.Text = value;
+        }
+    }
+
     /// <summary>
     /// Gets or sets value of Parent Father Name
     /// </summary>

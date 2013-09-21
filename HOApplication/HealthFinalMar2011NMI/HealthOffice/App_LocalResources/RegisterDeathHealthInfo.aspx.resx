@@ -142,10 +142,10 @@
     <value>جزء خاص بالأورام</value>
   </data>
   <data name="ucItemControlDeathReason" xml:space="preserve">
-    <value>السبب المباشر للوفاة - أ</value>
+    <value>السبب المباشر للوفاة </value>
   </data>
   <data name="ucItemSickReasonC" xml:space="preserve">
-    <value>احوال مرضيه ان وجدت نشأ عنها السبب المباشر -د</value>
+    <value>نتج من :</value>
   </data>
   <data name="UcItemSickReasonCatalist" xml:space="preserve">
     <value>أحوال مرضية ان وجدت ساعدت علي الوفاة ولا صلة لها بالمرض الاصلي</value>
@@ -154,16 +154,16 @@
     <value>أحوال مرضية اخري ان وجدت ساعدت علي الوفاة ولا صلة لها بالمرض الاصلي</value>
   </data>
   <data name="ucSickReasonsBResource.Text" xml:space="preserve">
-    <value>احوال مرضيه ان وجدت نشأ عنها السبب المباشر -ب</value>
+    <value>نتج من :</value>
   </data>
   <data name="ucSickReasonsBResource1.Text" xml:space="preserve">
-    <value>احوال مرضيه ان وجدت نشأ عنها السبب المباشر -ب</value>
+    <value>نتج من :</value>
   </data>
   <data name="ucSickReasonsCResource.Text" xml:space="preserve">
-    <value>احوال مرضيه ان وجدت نشأ عنها السبب المباشر -ج</value>
+    <value>نتج من :</value>
   </data>
   <data name="ucSickReasonsCResource1.Text" xml:space="preserve">
-    <value>احوال مرضيه ان وجدت نشأ عنها السبب المباشر -ج</value>
+    <value>نتج من :</value>
   </data>
   <data name="btnAddResource1.Text" xml:space="preserve">
     <value>اضافة الواقعة</value>

@@ -221,7 +221,9 @@
                                                         meta:resourcekey="lblRegisterNumberResource1"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txtRecordNumber" Text="1" MaxLength="20" TabIndex="100" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRecordNumber" Text="1" MaxLength="20" TabIndex="100" 
+                                                        runat="server" Visible="False"></asp:TextBox>
+                                                    <asp:Label ID="lblRecordNumberValue" Font-Bold="True" runat="server" Text="1"></asp:Label>
                                                     <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                                                         ID="RequiredFieldValidator5" ControlToValidate="txtRecordNumber" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                     <asp:CompareValidator ID="CompareValidator14" Display="Dynamic" ValidationGroup="GenralValidate"
@@ -242,7 +244,7 @@
                                                 </td>
                                                 <td align="right">
                                                     <asp:TextBox ID="txtRegestierNoList" runat="server" ReadOnly="True" 
-                                                        TabIndex="101"></asp:TextBox>
+                                                        TabIndex="101" ></asp:TextBox>
                                                         <asp:HiddenField runat="server" ID="drpRegestierNoList" />
                                                 </td>
                                             </tr>
@@ -571,7 +573,7 @@
                                             TabIndex="16">
                                             <asp:ListItem Text="------" Value="0"></asp:ListItem>
                                             <asp:ListItem Text="ØÈíÈ" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="ÊãÑíÖ" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="ããÑÖÉ" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="ÏÇíÉ" Value="3"></asp:ListItem>
                                             <asp:ListItem Text="ÇÎÑì" Value="4"></asp:ListItem>
                                         </asp:DropDownList>

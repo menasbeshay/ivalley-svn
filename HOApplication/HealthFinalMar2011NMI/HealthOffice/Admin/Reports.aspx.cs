@@ -233,6 +233,9 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilID", civilId);
                             htParameters.Add("GovDescr", drpGov.SelectedItem.Text);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+
+                            htParameters.Add("OfficeID", healthOfficeID);
+
                             Response.Redirect(RSUtility.GenerateURL("Rpt_DeadStatOffices", htParameters));
                         }
                         else if (govId == -1 && civilId == -1)
@@ -272,6 +275,9 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilId", civilId);
                             htParameters.Add("GovDescr", drpGov.SelectedItem.Text);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+
+                            htParameters.Add("OfficeID", healthOfficeID);
+
                             Response.Redirect(RSUtility.GenerateURL("Rpt_DeadStatRangeOffices", htParameters));
                         }
                         else if (govId == -1 && civilId == -1)
@@ -368,6 +374,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilID", civilId);
                             htParameters.Add("GovDescr", drpGov.SelectedItem.Text);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+                            htParameters.Add("HealthID", healthOfficeID);
                             Response.Redirect(RSUtility.GenerateURL("Rpt_DeadCaseSmokerOffices", htParameters));
                                                                      
                         }
@@ -412,6 +419,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilID", civilId);
                             htParameters.Add("GovDescr", drpGov.SelectedItem.Text);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+                            htParameters.Add("HealthID", healthOfficeID);
                             Response.Redirect(RSUtility.GenerateURL("Rpt_DeadCaseAccedentOffices", htParameters));
                         }
                         else if (govId == -1 & civilId == -1)
@@ -455,6 +463,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilId", civilId);
                             htParameters.Add("GovDescr", drpGov.SelectedItem.Text);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+                            htParameters.Add("HealthID", healthOfficeID);
                             Response.Redirect(RSUtility.GenerateURL("Rpt_BornFatherNationalityOffices", htParameters));
                         }
                         else if (govId == -1 && civilId == -1)
@@ -548,6 +557,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                         if (healthOfficeID != -1)
                         {
                             htParameters.Add("HealthId", healthOfficeID);
+                            htParameters.Add("HealthDesc", drpHealthOffice.SelectedItem.Text);
 
                         }
                         if (civilId != -1)
@@ -610,6 +620,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                             htParameters.Add("CivilId", civilId);
                             htParameters.Add("GovId", govId);
                             htParameters.Add("CivilDescr", drpCivil.SelectedItem.Text);
+                            htParameters.Add("HealthID", healthOfficeID);
                             Response.Redirect(RSUtility.GenerateURL("Rpt_DeadLessThan7DayesOffices", htParameters));
                         }
                         else if (govId == -1 & civilId == -1)

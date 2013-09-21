@@ -404,13 +404,21 @@ public partial class PrintMedicalDeathInfo : System.Web.UI.Page
         deadMedical.Where.DeadEventID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
         deadMedical.Query.Load();
 
-        ICDCODE9000 objICD9000 = new ICDCODE9000();
+        //ICDCODE9000 objICD9000 = new ICDCODE9000();
+        ICD10_DirectDeathReason objICD9000 = new ICD10_DirectDeathReason();
         ucItemControlDeathReasonA.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathA);
         //deadMedical.CauseOfDeathA = ucItemControlDeathReasonA.SelectedICD;
         ucItemControlDeathReasonA.Days = deadMedical.CauseOfDeathAPeriod.Substring(0, 2);
         ucItemControlDeathReasonA.Months = deadMedical.CauseOfDeathAPeriod.Substring(2, 2);
         ucItemControlDeathReasonA.Years = deadMedical.CauseOfDeathAPeriod.Substring(4, 2);
 
+
+        //ucItemControlDeathReasonB.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathB);
+        //ucItemControlDeathReasonC.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathC);
+        ucItemControlDeathReasonD.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathD);
+
+        
+        /*
         //deadMedical.CauseOfDeathAPeriod = ucItemControlDeathReasonA.Days + ucItemControlDeathReasonA.Months + ucItemControlDeathReasonA.Years;
         if (deadMedical.CauseOfDeathB != null && deadMedical.CauseOfDeathB != 0)
             lblSelectedItem.Text = new ICD10ITEM().getItemDescription(deadMedical.CauseOfDeathB);
@@ -429,7 +437,7 @@ public partial class PrintMedicalDeathInfo : System.Web.UI.Page
             ucItemControlDeathReasonD.Months = deadMedical.CauseOfDeathDPeriod.Substring(2, 2);
             ucItemControlDeathReasonD.Years = deadMedical.CauseOfDeathDPeriod.Substring(4, 2);
         }
-
+        */
         if (deadMedical.CauseOfDeathNotRelatedA != "")
             ucItemCauseOfDeathNotRelatedA.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathNotRelatedA);
         //deadMedical.CauseOfDeathNotRelatedA = ucItemCauseOfDeathNotRelatedA.SelectedICD;

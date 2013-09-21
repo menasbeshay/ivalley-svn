@@ -5,7 +5,7 @@
     .style1
     {
         width: 145px;
-    }
+    }   
 </style>
 
   <script language="javascript" type="text/javascript">
@@ -417,26 +417,42 @@
 </table>
 <table dir="rtl" width="100%">
     <tr>
-        <td width="75px">
+        <td width="75px" style="vertical-align: top">
             <asp:Label ID="lblLocationOfDeath" runat="server" meta:resourcekey="lblLocationOfDeathResource1"></asp:Label>
         </td>
-        <td width="25%">
+        <td width="25%" style="vertical-align: top">
             <asp:RadioButtonList ID="rdioDeathLocation" runat="server" RepeatDirection="Horizontal"
                 meta:resourcekey="rdioDeathLocationResource1">
                 <asp:ListItem meta:resourcekey="ListItemResource1" Selected="True" Value="1"></asp:ListItem>
                 <asp:ListItem meta:resourcekey="ListItemResource2" Value="2"></asp:ListItem>
+                <asp:ListItem meta:resourcekey="ListItemResource4" Value="4"></asp:ListItem>
                 <asp:ListItem meta:resourcekey="ListItemResource3" Value="3"></asp:ListItem>
             </asp:RadioButtonList>
         </td>
-        <td width="8%">
-            <asp:Label ID="lblDescriptionOfLocation" Width="20px" runat="server" meta:resourcekey="lblDescriptionOfLocationResource1"></asp:Label>
+        <td style="vertical-align: top">
+            <asp:Label ID="lblDescriptionOfLocation" Width="110px" runat="server" 
+                meta:resourcekey="lblDescriptionOfLocationResource1"></asp:Label>
         </td>
-        <td>
-            <asp:TextBox ID="txtDescriptionOfLocation" MaxLength="100" Width="150px" runat="server"
-                meta:resourcekey="txtDescriptionOfLocationResource1"></asp:TextBox>
+        <td style="vertical-align: top">
+            <asp:TextBox ID="txtDescriptionOfLocation" MaxLength="100" Width="427px" runat="server"
+                meta:resourcekey="txtDescriptionOfLocationResource1" Height="80px" 
+                TextMode="MultiLine"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"
                 ValidationGroup="GenralValidate" ID="RequiredFieldValidator2" ControlToValidate="txtDescriptionOfLocation"
                 ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top" width="75px">
+            &nbsp;</td>
+        <td style="vertical-align: top" width="25%">
+            &nbsp;</td>
+        <td style="vertical-align: top">
+            <asp:Label ID="lblDescriptionOfJob" runat="server" 
+                meta:resourcekey="lblDescriptionOfJobResource1" Width="110px"></asp:Label>
+        </td>
+        <td style="vertical-align: top">
+            <asp:TextBox ID="uiTextBoxJobDesc" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>

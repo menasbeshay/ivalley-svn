@@ -353,6 +353,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             UcGeneralDeathInfo1.EventDeadPlaceDescription = objDead.DiePlaceDescription;
             UcGeneralDeathInfo1.EventDeadDieHour = objDead.DeadDieHour;
             UcGeneralDeathInfo1.EventDeadDieMin = objDead.DeadDieMin;
+            //UcGeneralDeathInfo1.EventDeadJobDescription = objDead.DeadJobDesc;
+
             //objDead.DieGovernorate = -- ToDO
             //objDead.DieSection = --ToDo
             //objDead.DieArea = --ToDo
@@ -369,6 +371,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             UcNotifierInfo2.NotifierNID = objDead.InformerNID;
             UcNotifierInfo2.NotifierFName = objDead.InformerFirstName;
             UcNotifierInfo2.NotifierFatherName = objDead.InformerSecondName;
+            UcNotifierInfo2.NotifierAddress = objDead.InformerAddress;
+
             UcMotherInfo2.ParentSureName = objDead.DaadMotherSureName;
             //objDead.InformerAddress = UcNotifierInfo2.
             drpRegestierNoList.Value = objDead.RegisterID.ToString();
@@ -445,6 +449,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
         objDead.DeadPhone = UcAddressInfo1.EventDeadAddressPhone;
 
         objDead.DeadFamilyPhone = UcAddressInfo1.EventDeadAddressFamilyPhone;
+        objDead.DeadJobDesc = UcGeneralDeathInfo1.EventDeadJobDescription;
 
         objDead.DeadJob = UcAddressInfo1.EventDeadAddressJob;
         objDead.DeadBirthDate = DateTime.Parse(UcDeathInfo2.EventDeadBirthDate);
@@ -479,6 +484,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
         objDead.InformerNID = UcNotifierInfo2.NotifierNID;
         objDead.InformerFirstName = UcNotifierInfo2.NotifierFName;
         objDead.InformerSecondName = UcNotifierInfo2.NotifierFatherName;
+        objDead.InformerAddress = UcNotifierInfo2.NotifierAddress;
         //objDead.InformerAddress = UcNotifierInfo2.
         objDead.RegisterID = new Guid(drpRegestierNoList.Value);
         objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);
@@ -523,6 +529,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
                 objDead.DeadFamilyPhone = UcAddressInfo1.EventDeadAddressFamilyPhone;
 
                 objDead.DeadJob = UcAddressInfo1.EventDeadAddressJob;
+                objDead.DeadJobDesc = UcGeneralDeathInfo1.EventDeadJobDescription;
+
                 objDead.DeadBirthDate = DateTime.Parse(UcDeathInfo2.EventDeadBirthDate);
                 objDead.DeadDieDate = DateTime.Parse(UcGeneralDeathInfo1.EventDeadDieDate);
                 objDead.DiePlace = UcGeneralDeathInfo1.EventDeadPlace;
@@ -571,6 +579,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
                 objDead.InformerNID = UcNotifierInfo2.NotifierNID;
                 objDead.InformerFirstName = UcNotifierInfo2.NotifierFName;
                 objDead.InformerSecondName = UcNotifierInfo2.NotifierFatherName;
+                objDead.InformerAddress = UcNotifierInfo2.NotifierAddress;
                 //objDead.InformerAddress = UcNotifierInfo2.
                 objDead.RegisterID = new Guid(drpRegestierNoList.Value);
                 objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);

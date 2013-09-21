@@ -143,11 +143,13 @@ public partial class UserControls_UcAddressInfo : System.Web.UI.UserControl
     {
         get
         {
-            return txtPosition.Text;
+            //return txtPosition.Text;
+            return uiDropDownListJob.Text;
         }
         set
         {
-            txtPosition.Text = value;
+            //txtPosition.Text = value;
+            uiDropDownListJob.Text = value;
         }
     }
 
@@ -196,6 +198,15 @@ public partial class UserControls_UcAddressInfo : System.Web.UI.UserControl
         drpSubSection.Items.Insert(0, item);
         dropSection.Items.Insert(0, item);
         drpState.SelectedIndex = 0;
+
+        Jobs jobs = new Jobs ();
+        jobs.LoadAll();
+
+        uiDropDownListJob.DataSource = jobs.DefaultView;
+        uiDropDownListJob.DataTextField = Jobs.ColumnNames.Name;
+        uiDropDownListJob.DataValueField = Jobs.ColumnNames.Id;
+        uiDropDownListJob.Items.Insert(0, item);
+        uiDropDownListJob.DataBind();
     }
 
     /// <summary>

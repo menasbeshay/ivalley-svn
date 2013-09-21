@@ -589,11 +589,13 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 UcNotifierInfo1.NotifierphoneNo = born.InformerPhone;
                 UcNotifierInfo1.NotifierNID = born.InformerNID;
                 txtRecordNumber.Text = born.RegisterNo.ToString();
+                lblRecordNumberValue.Text = born.RegisterNo.ToString();
                 drpRegestierNoList.Value = born.RegisterID.ToString();
                 // Load Register Name
                 ManualRegister obj = new ManualRegister();
                 obj.LoadByPrimaryKey(new Guid(born.RegisterID.ToString()));
                 txtRegestierNoList.Text = obj.RegisterCode;
+                
 
                 BornUniqueValues objUnique = new BornUniqueValues();
                 objUnique.BirthDateTime = born.BirthDate.ToString();
@@ -686,7 +688,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
         if (objReg.Query.Load())
         {
             drpRegestierNoList.Value = objReg.RegisterID.ToString();
-            txtRegestierNoList.Text = objReg.RegisterCode;
+            txtRegestierNoList.Text = objReg.RegisterCode;            
         }
         else
         {

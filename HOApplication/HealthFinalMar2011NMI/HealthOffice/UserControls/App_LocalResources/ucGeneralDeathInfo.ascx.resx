@@ -240,4 +240,10 @@
   <data name="txtYearResource1.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>عمل</value>
+  </data>
+  <data name="lblDescriptionOfJobResource1.Text" xml:space="preserve">
+    <value>وصف مكان العمل</value>
+  </data>
 </root>

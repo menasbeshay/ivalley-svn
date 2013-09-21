@@ -128,9 +128,11 @@
                         <asp:Label ID="lblPosition" runat="server" meta:resourcekey="lblPositionResource1"></asp:Label>
                     </td>
                     <td  style="padding-right:10px;">
-                        <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1"></asp:TextBox>
+                        <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1" Visible="false"></asp:TextBox>
+                        <asp:DropDownList ID="uiDropDownListJob" runat="server">
+                        </asp:DropDownList>
                         <asp:RequiredFieldValidator runat="server"  SetFocusOnError="true" Display="Dynamic" ValidationGroup="GenralValidate"
-                    ID="RequiredFieldValidator6" ControlToValidate="txtPosition" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    ID="RequiredFieldValidator6" ControlToValidate="txtPosition" ErrorMessage="*" ForeColor="Red" Enabled="false"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </table>
