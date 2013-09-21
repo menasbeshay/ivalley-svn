@@ -611,6 +611,14 @@ namespace MHO.DAL
 				}
 			}
 			
+			public static SqlParameter DeadJobDesc
+			{
+				get
+				{
+					return new SqlParameter("@DeadJobDesc", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -681,6 +689,7 @@ namespace MHO.DAL
             public const string WriterID = "WriterID";
             public const string DoctorID = "DoctorID";
             public const string DeadFamilyPhone = "DeadFamilyPhone";
+            public const string DeadJobDesc = "DeadJobDesc";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -752,6 +761,7 @@ namespace MHO.DAL
 					ht[WriterID] = _Dead.PropertyNames.WriterID;
 					ht[DoctorID] = _Dead.PropertyNames.DoctorID;
 					ht[DeadFamilyPhone] = _Dead.PropertyNames.DeadFamilyPhone;
+					ht[DeadJobDesc] = _Dead.PropertyNames.DeadJobDesc;
 
 				}
 				return (string)ht[columnName];
@@ -828,6 +838,7 @@ namespace MHO.DAL
             public const string WriterID = "WriterID";
             public const string DoctorID = "DoctorID";
             public const string DeadFamilyPhone = "DeadFamilyPhone";
+            public const string DeadJobDesc = "DeadJobDesc";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -899,6 +910,7 @@ namespace MHO.DAL
 					ht[WriterID] = _Dead.ColumnNames.WriterID;
 					ht[DoctorID] = _Dead.ColumnNames.DoctorID;
 					ht[DeadFamilyPhone] = _Dead.ColumnNames.DeadFamilyPhone;
+					ht[DeadJobDesc] = _Dead.ColumnNames.DeadJobDesc;
 
 				}
 				return (string)ht[propertyName];
@@ -975,6 +987,7 @@ namespace MHO.DAL
             public const string WriterID = "s_WriterID";
             public const string DoctorID = "s_DoctorID";
             public const string DeadFamilyPhone = "s_DeadFamilyPhone";
+            public const string DeadJobDesc = "s_DeadJobDesc";
 
 		}
 		#endregion		
@@ -1746,6 +1759,18 @@ namespace MHO.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.DeadFamilyPhone, value);
+			}
+		}
+
+		public virtual string DeadJobDesc
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DeadJobDesc);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DeadJobDesc, value);
 			}
 		}
 
@@ -2714,6 +2739,21 @@ namespace MHO.DAL
 			}
 		}
 
+		public virtual string s_DeadJobDesc
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeadJobDesc) ? string.Empty : base.GetstringAsString(ColumnNames.DeadJobDesc);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeadJobDesc);
+				else
+					this.DeadJobDesc = base.SetstringAsString(ColumnNames.DeadJobDesc, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -3382,6 +3422,16 @@ namespace MHO.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.DeadFamilyPhone, Parameters.DeadFamilyPhone);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DeadJobDesc
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeadJobDesc, Parameters.DeadJobDesc);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -4160,6 +4210,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public WhereParameter DeadJobDesc
+		    {
+				get
+		        {
+					if(_DeadJobDesc_W == null)
+	        	    {
+						_DeadJobDesc_W = TearOff.DeadJobDesc;
+					}
+					return _DeadJobDesc_W;
+				}
+			}
+
 			private WhereParameter _DeadEventID_W = null;
 			private WhereParameter _DeadNID_W = null;
 			private WhereParameter _DeadGender_W = null;
@@ -4224,6 +4286,7 @@ namespace MHO.DAL
 			private WhereParameter _WriterID_W = null;
 			private WhereParameter _DoctorID_W = null;
 			private WhereParameter _DeadFamilyPhone_W = null;
+			private WhereParameter _DeadJobDesc_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -4291,6 +4354,7 @@ namespace MHO.DAL
 				_WriterID_W = null;
 				_DoctorID_W = null;
 				_DeadFamilyPhone_W = null;
+				_DeadJobDesc_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -4982,6 +5046,16 @@ namespace MHO.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeadFamilyPhone, Parameters.DeadFamilyPhone);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DeadJobDesc
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeadJobDesc, Parameters.DeadJobDesc);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -5760,6 +5834,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public AggregateParameter DeadJobDesc
+		    {
+				get
+		        {
+					if(_DeadJobDesc_W == null)
+	        	    {
+						_DeadJobDesc_W = TearOff.DeadJobDesc;
+					}
+					return _DeadJobDesc_W;
+				}
+			}
+
 			private AggregateParameter _DeadEventID_W = null;
 			private AggregateParameter _DeadNID_W = null;
 			private AggregateParameter _DeadGender_W = null;
@@ -5824,6 +5910,7 @@ namespace MHO.DAL
 			private AggregateParameter _WriterID_W = null;
 			private AggregateParameter _DoctorID_W = null;
 			private AggregateParameter _DeadFamilyPhone_W = null;
+			private AggregateParameter _DeadJobDesc_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -5891,6 +5978,7 @@ namespace MHO.DAL
 				_WriterID_W = null;
 				_DoctorID_W = null;
 				_DeadFamilyPhone_W = null;
+				_DeadJobDesc_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -6215,6 +6303,10 @@ namespace MHO.DAL
 
 			p = cmd.Parameters.Add(Parameters.DeadFamilyPhone);
 			p.SourceColumn = ColumnNames.DeadFamilyPhone;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeadJobDesc);
+			p.SourceColumn = ColumnNames.DeadJobDesc;
 			p.SourceVersion = DataRowVersion.Current;
 
 

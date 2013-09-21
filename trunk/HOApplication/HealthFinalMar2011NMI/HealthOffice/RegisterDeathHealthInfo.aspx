@@ -3,6 +3,7 @@
      %>
 
 <%@ Register Src="~/UserControls/UcItemControl.ascx" TagName="UcItemControl" TagPrefix="uc7" %>
+<%@ Register Src="~/UserControls/UcSubItemControl.ascx" TagName="UcItemControl" TagPrefix="uc8" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ MasterType VirtualPath="~/MasterPages/MasterPage.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -18,20 +19,42 @@
                                 <td width="80%">
                                     <asp:Label ID="lblTitle" Font-Bold="True" runat="server" 
                                         meta:resourcekey="lblTitleResource1"></asp:Label>
+
                                 </td>
                                 <td>
                                     <asp:Label ID="lblperiod" Font-Bold="True" runat="server" 
                                         meta:resourcekey="lblperiodResource1"></asp:Label>
+
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <uc7:UcItemControl ID="ucItemControlDeathReasonA" runat="server" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <uc8:UcItemControl ID="ucSubItemControlDeathReasonB" runat="server" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <uc8:UcItemControl ID="ucSubItemControlDeathReasonC" runat="server" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <uc8:UcItemControl ID="ucSubItemControlDeathReasonD" runat="server" />
+
                                 </td>
                             </tr>
                             </table>
-                            <asp:UpdatePanel runat="server" ID="updDeathCause" UpdateMode="Conditional">
-                            <ContentTemplate>  
+                            <asp:UpdatePanel runat="server" ID="updDeathCause" UpdateMode="Conditional" 
+                            Visible="False"><ContentTemplate>
+  
                             <table dir="rtl">
                             <tr>
                                 <td >
@@ -112,32 +135,39 @@
                                 </td>
                             </tr>
                            </table>
-                             </ContentTemplate>
-                            <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="dropICDCat" EventName="SelectedIndexChanged" />
-                            <asp:AsyncPostBackTrigger ControlID="dropICDItem" EventName="SelectedIndexChanged" />
-                            <asp:AsyncPostBackTrigger ControlID="dropICDcode" EventName="SelectedIndexChanged" />
-                            </Triggers>
-                            </asp:UpdatePanel>
-                           <table dir="rtl">
-                            <tr>
+                             
+</ContentTemplate>
+<Triggers>
+<asp:AsyncPostBackTrigger ControlID="dropICDCat" EventName="SelectedIndexChanged" />
+<asp:AsyncPostBackTrigger ControlID="dropICDItem" EventName="SelectedIndexChanged" />
+<asp:AsyncPostBackTrigger ControlID="dropICDcode" EventName="SelectedIndexChanged" />
+</Triggers>
+</asp:UpdatePanel>
+
+                           <table dir="rtl" >
+                            <tr style="display:none;">
                                 <td colspan="2">
-                                    <uc7:UcItemControl ID="ucItemControlDeathReasonD" runat="server" />
+                                    <uc7:UcItemControl ID="ucItemControlDeathReason_D" runat="server" />
+
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <uc7:UcItemControl ID="ucItemCauseOfDeathNotRelatedA" runat="server" />
+                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedA" runat="server" />
+
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <uc7:UcItemControl ID="ucItemCauseOfDeathNotRelatedB" runat="server" />
+                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedB" runat="server" />
+
                                 </td>
                             </tr>
                         </table>
-                    </ContentTemplate>
-                </ajaxToolkit:TabPanel>
+                    
+</ContentTemplate>
+                
+</ajaxToolkit:TabPanel>
                 <ajaxToolkit:TabPanel runat="server" TabIndex="1" ID="TabPanelSmokingData" meta:resourcekey="TabPanelSmokingData">
                     <ContentTemplate>
                     <asp:UpdatePanel runat="server" ID="updSmoking" UpdateMode="Conditional">
@@ -193,8 +223,10 @@
                     <asp:AsyncPostBackTrigger ControlID="radioListISSmoker" EventName="SelectedIndexChanged" />
                     </Triggers>
                     </asp:UpdatePanel>
-                    </ContentTemplate>
-                </ajaxToolkit:TabPanel>
+                    
+</ContentTemplate>
+                
+</ajaxToolkit:TabPanel>
                 <ajaxToolkit:TabPanel runat="server" TabIndex="2" ID="TabPanelAccidentData" meta:resourcekey="TabPanelAccidentData">
                     <ContentTemplate>
                     <asp:UpdatePanel runat="server" ID="updateAccedant" UpdateMode="Conditional">
@@ -287,8 +319,10 @@
                     </Triggers>
                     </asp:UpdatePanel>
                         
-                    </ContentTemplate>
-                </ajaxToolkit:TabPanel>
+                    
+</ContentTemplate>
+                
+</ajaxToolkit:TabPanel>
                 <ajaxToolkit:TabPanel runat="server" TabIndex="3" ID="TabPanelTumorsData" meta:resourcekey="TabPanelTumorsData">
                     <ContentTemplate>
                     
@@ -347,8 +381,10 @@
                     </Triggers>
                     </asp:UpdatePanel>
                         
-                    </ContentTemplate>
-                </ajaxToolkit:TabPanel>
+                    
+</ContentTemplate>
+                
+</ajaxToolkit:TabPanel>
                 <ajaxToolkit:TabPanel runat="server" TabIndex="4" ID="TabPanelGirlsData" meta:resourcekey="TabPanelGirlsData">
                     <ContentTemplate>
                         <table dir="rtl">
@@ -427,7 +463,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
-                                    <ajaxToolkit:CalendarExtender CssClass="custom-calendar" Format="yyyy/MM/dd" 
+                                    <ajaxToolkit:CalendarExtender CssClass="custom-calendar" Format="dd/MM/yyyy" 
                                         TargetControlID="txtDate" ID="calenderDate" runat="server" Enabled="True">
                                     </ajaxToolkit:CalendarExtender>
                                 </td>
@@ -456,9 +492,28 @@
                                     <asp:TextBox ID="txtBirthOperator" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label22" Text="Ýí ÍÇáÉ äÚã : ãÇ åæ ÊÇÑíÎ ÇáÅÌåÇÖ" runat="server"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="uiTextBoxAbortionDate" runat="server"></asp:TextBox>
+                                    <ajaxToolkit:CalendarExtender CssClass="custom-calendar" Format="dd/MM/yyyy" 
+                                        TargetControlID="uiTextBoxAbortionDate" ID="CalendarExtender1" runat="server" Enabled="True">
+                                    </ajaxToolkit:CalendarExtender>
+                                </td>
+                                <td>
+                                    <asp:Label ID="Label23" Text="ãßÇä ÇáÅÌåÇÖ" runat="server"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="uiTextBoxAbortionPlace" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
                         </table>
-                    </ContentTemplate>
-                </ajaxToolkit:TabPanel>
+                    
+</ContentTemplate>
+                
+</ajaxToolkit:TabPanel>
             </ajaxToolkit:TabContainer>
             <table dir="rtl" align="center">
                 <tr>

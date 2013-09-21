@@ -223,7 +223,7 @@
     <value>عدد أبناء الأم السابقين لهذا المولود من ازواج سابقين</value>
   </data>
   <data name="lblRelationResource1.Text" xml:space="preserve">
-    <value>صفة من قام بالتوليد</value>
+    <value>القائم بالولادة </value>
   </data>
   <data name="lblRemainNameResource1.Text" xml:space="preserve">
     <value>باقي الأسم</value>

@@ -116,6 +116,20 @@
                     <asp:HiddenField ID="hdnFatherName" runat="server" />
                 </td>
             </tr>
+            <tr>
+                <td width="60px">
+                    <asp:Label ID="lblNotifierAddress" runat="server" 
+                        meta:resourcekey="lblNotifierAddressResource1"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtNotifierAddress" runat="server" Height="50px" MaxLength="20" 
+                        meta:resourcekey="txtFirstNameResource1" TextMode="MultiLine" Width="250px"></asp:TextBox>
+                </td>
+                <td width="200px">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
         </table>
     </ContentTemplate>
     <Triggers>

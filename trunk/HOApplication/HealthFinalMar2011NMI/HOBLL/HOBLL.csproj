@@ -71,7 +71,10 @@
     <Compile Include="ICD10CAT.cs" />
     <Compile Include="ICD10CODE.cs" />
     <Compile Include="ICD10ITEM.cs" />
+    <Compile Include="ICD10_DirectDeathReason.cs" />
+    <Compile Include="ICD10_MainDeathReason.cs" />
     <Compile Include="ICDCODE9000.cs" />
+    <Compile Include="Jobs.cs" />
     <Compile Include="Location_types.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="ManualRegister.cs" />

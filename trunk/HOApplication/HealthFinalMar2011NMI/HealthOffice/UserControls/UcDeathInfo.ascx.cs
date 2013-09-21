@@ -307,9 +307,13 @@ public partial class UserControls_UcDeathInfo : System.Web.UI.UserControl
         {
             if (Session["NationalID"] != null)
             {
-                txtBirthDate.Text = MHOCommon.GetDateFromNID(Session["NationalID"].ToString()).ToString("yyyy/MM/dd");
-                updateDeathInfo.Update();
+                if (Session["NationalID"].ToString() != "0" && Session["NationalID"].ToString() != "11111111111111")
+                {
+                    txtBirthDate.Text = MHOCommon.GetDateFromNID(Session["NationalID"].ToString()).ToString("yyyy/MM/dd");
+                    updateDeathInfo.Update();
+                }
                 Session.Remove("NationalID");
+
             }
         }
     }

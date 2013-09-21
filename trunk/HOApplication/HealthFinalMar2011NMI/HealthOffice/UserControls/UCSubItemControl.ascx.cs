@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using MHO.BLL;
-
-public partial class UserControls_UcItemControl : System.Web.UI.UserControl
+using System.Data;
+public partial class UserControls_UCSubItemControl : System.Web.UI.UserControl
 {
     #region Properties
     public string LabelText
@@ -85,27 +79,16 @@ public partial class UserControls_UcItemControl : System.Web.UI.UserControl
     }
 
     #endregion
-    #region Events
-    /// <summary>
-    /// Handles the load of the page
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["Print"] != null)
-        {
-            btnSearch.Visible = false;
-            txtSearch.Visible = false;
-            dropItem.Visible = false;
-        }
+
     }
-    #endregion
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         lblSelectedICD.Text = "";
         //ICDCODE9000 objICD = new ICDCODE9000();
-        ICD10_DirectDeathReason objICD = new ICD10_DirectDeathReason();
+        ICD10_MainDeathReason objICD = new ICD10_MainDeathReason();
         if (txtSearch.Text != "")
         {
             DataTable dt = objICD.FilterICDcodes(txtSearch.Text.Trim());
@@ -115,8 +98,8 @@ public partial class UserControls_UcItemControl : System.Web.UI.UserControl
                 dropItem.DataSource = dt.DefaultView;
                 //dropItem.DataTextField = ICDCODE9000.ColumnNames.DESCRENG;
                 //dropItem.DataValueField = ICDCODE9000.ColumnNames.CODE;
-                dropItem.DataTextField = ICD10_DirectDeathReason.ColumnNames.DiagnosisEDesc;
-                dropItem.DataValueField = ICD10_DirectDeathReason.ColumnNames.DiagnosisCode;
+                dropItem.DataTextField = ICD10_MainDeathReason.ColumnNames.Causename;
+                dropItem.DataValueField = ICD10_MainDeathReason.ColumnNames.Code;
                 dropItem.DataBind();
 
                 ListItem item = new ListItem(" ", "0");
