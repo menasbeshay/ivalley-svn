@@ -1,0 +1,353 @@
+#lightbox{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+	}
+
+#lightbox a img{ border: none; }
+
+#outerImageContainer{
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	}
+
+#imageContainer{
+	padding: 10px;
+	}
+
+#loading{
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+	}
+#hoverNav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	}
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{
+	width: 49%;
+	height: 100%;
+	background: transparent url(../images/blank.gif) no-repeat; /* Trick IE into showing hover */
+	display: block;
+	}
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+:hover#prevLink, :visited:hover#prevLink { background: url(../images/prevlabel.gif) left 15% no-repeat; }
+:hover#nextLink, :visited:hover#nextLink { background: url(../images/nextlabel.gif) right 15% no-repeat; }
+
+
+#imageDataContainer{
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	}
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em;	}	
+		
+#overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+	background-color: #000;
+	}
+	
+
+/* Min-Width */
+.lbWidth { /* most browsers */
+	position: absolute;
+	top: 0px; left: 0px;
+	width: 100%;
+	min-width: 790px;
+	}
+
+* html .lbContent { /* IE6 */
+	margin-left: -790px;
+	position:relative;
+	}
+
+* html .lbMinWidth { /* IE6 */
+	padding-left: 790px;
+	}
+	
+	
+/* Clearfix */	
+:after.clearfix {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */ 
+
+
+.clear
+{
+    clear:both;
+    height:1px;
+    }
+
+
+
+
+
+
+
+
+
+
+/* CSS Document */
+
+body
+{
+    margin:0; 
+    background: url(../images/home-bg.jpg) ;
+    }
+
+.Main
+{
+    margin: 0 auto;
+    width:777px;
+    }
+
+img
+{
+border:0;
+}
+
+.sara{
+
+font-family: Thuluth Arabic; color: #FF0000; font-style: oblique; 
+               background-image: url('../images/fotter_b4.jpg')
+               }
+
+
+
+h2
+{
+	font-family: Tahoma;
+	color: #7A6D5D;
+	font-size: 20px;
+}
+
+
+.tittle_kreem
+{
+	font-family: Tahoma;
+	color: #7A6D5D;
+	font-size: 13px;
+}
+
+
+.tittle_wight 
+{
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 13 px; 
+}
+
+.tittle_blue 
+{
+	font-family: Tahoma;
+	color: #25A0D9;
+	font-size: 13 px; font-weight:bold
+}
+
+.tittle_black
+{
+	font-family: Tahoma;
+	color: #002F5E;
+	font-size: 14px; font-weight:bold
+}
+
+
+.tittle_red
+{
+	font-family: Tahoma;
+	color: #CC0000;
+	font-size: 14px; font-weight:bold
+}
+
+
+
+
+.content_wight 
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12;
+}
+
+.content_black 
+{
+	font-family: Tahoma;
+	color: #333333;
+	font-size: 12
+}
+
+
+.content_wight2
+{
+	font-family: Tahoma;
+	color: #C0C0C0;
+	font-size: 12
+}
+
+
+
+
+
+.content_gray
+{
+	font-family: Tahoma;
+	color: #6B6B6B;
+	font-size: 12; background-image:url('../images/B_menu_up.jpg');
+	height:20px; text-align:justify; letter-spacing:1pt
+}
+.content_grayOver
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12; background-image:url('../images/B_menu_over.jpg');
+	height:20px; font-weight:bold
+}
+
+.content_red
+{
+	font-family: Tahoma;
+	color: #BF0000;
+	font-size: 12
+}
+
+
+
+
+.tittle 
+{
+	font-family: Tahoma;
+	font-size: 13; font-weight:bold
+}
+
+
+a:link{
+	font-family: Tahoma;
+	color: #25A0D9;
+	font-size: 11 px; text-decoration:none
+}
+a:visited{
+	font-family: Tahoma;
+	color: #25A0D9;
+	font-size: 11 px; text-decoration:none
+}
+a:hover{
+	font-family: Tahoma;
+	color: #FFE3AA;
+	font-size: 11 px; text-decoration:underline
+}
+
+
+
+
+a:link.butt{
+	font-family: Tahoma;
+	color: #B0C054;
+	font-size: 13px; text-decoration:none; letter-spacing:0; font-weight:bold
+}
+a:visited.butt{
+	font-family: Tahoma;
+	color: #B0C054;
+	font-size: 13px; text-decoration:none; letter-spacing:0; font-weight:bold
+
+
+}
+a:hover.butt{
+	font-family: Tahoma;
+	color: #F6E2A5;
+	font-size: 13px; text-decoration:none; letter-spacing:0; font-weight:bold
+
+	}
+	
+
+.SearchBtn {width:58px;display:block; float:left; height:18px; margin:10px; }
+
+.SearchBtn a { display:block; float:left; background-image: url(../images/GrayMedBtnUp.png); background-position: center top; background-repeat: no-repeat; width:58px; height:18px; padding:3px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SearchBtn a:hover { background-image: url(../images/GrayMedBtnOver.png); background-position: center top; background-repeat: no-repeat; }
+
+.SmallBtn a { display:block; float:left; background-image: url(../images/GrayBtnUp.png); background-position: center top; background-repeat: no-repeat; width:28px; height:12px; padding:6px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SmallBtn a:hover { background-image: url(../images/GrayBtnOver.png); background-position: center top; background-repeat: no-repeat; }
+
+.AdminMore a { display:block; float:left; background-image: url(../images/GrayBigBtnUp.png); background-position: center top; background-repeat: no-repeat; width:105px; height:16px; padding:4px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.AdminMore a:hover { background-image: url(../images/GrayBigBtnOver.png); background-position: center top; background-repeat: no-repeat; color:#fff; }
+
+.formBtn {width:58px;display:block; float:left; height:18px; margin-top:10px; border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+
+.formBtn a { display:block; float:left; background-color: #ECECEA;width:58px; padding:5px; color:#77767C; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-weight:bold;}
+.formBtn a:hover { color:#E71181 }
+
+
+.ContentLeftDiv { margin-bottom:20px; }
+
+
+.AdminLeft
+{
+    float: left;        
+    padding-left: 15px;
+    
+}
+
+.AdminMiddle
+{
+    float: left;    
+    width:510px;
+}
+
+.AdminRight
+{
+    float: left;
+    width: 15%;        
+}
+
+.clear5
+{
+    clear: both;
+    height: 5px;
+}
+
+.Label
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+}
