@@ -2,24 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using JBuddy;
 namespace WhiteChatClient.Logic
 {
-    public class CurrentUser
+    public static class CurrentUser
     {
         #region fields
-        private bool _isOnline;
+        
+        static Client client;
         #endregion
 
         #region properties
-        public bool IsOnLine { get { return _isOnline; } set { _isOnline = value; } }
+        public static Client Client
+        {
+            get 
+            {
+                if (client != null)
+                    return client;
+                else
+                    return null;
+            }
+            set
+            {
+                client = value;
+            }
+            
+        }
         #endregion
 
         #region methods
-        public CurrentUser()
-        {
-            IsOnLine = false;
-        }
+        
+        
         #endregion
     }
 }
