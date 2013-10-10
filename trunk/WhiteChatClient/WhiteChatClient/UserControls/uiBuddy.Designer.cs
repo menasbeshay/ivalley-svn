@@ -43,6 +43,7 @@
             this.uipictureBoxProfile.Size = new System.Drawing.Size(33, 33);
             this.uipictureBoxProfile.TabIndex = 0;
             this.uipictureBoxProfile.TabStop = false;
+            this.uipictureBoxProfile.Click += new System.EventHandler(this.uiBuddy_Enter);
             // 
             // uilabelName
             // 
@@ -52,14 +53,17 @@
             this.uilabelName.Size = new System.Drawing.Size(35, 13);
             this.uilabelName.TabIndex = 1;
             this.uilabelName.Text = "label1";
+            this.uilabelName.Click += new System.EventHandler(this.uiBuddy_Enter);
+            this.uilabelName.Enter += new System.EventHandler(this.uiBuddy_Enter);
             // 
             // uipictureBoxStatus
             // 
             this.uipictureBoxStatus.Location = new System.Drawing.Point(59, 9);
             this.uipictureBoxStatus.Name = "uipictureBoxStatus";
-            this.uipictureBoxStatus.Size = new System.Drawing.Size(24, 24);
+            this.uipictureBoxStatus.Size = new System.Drawing.Size(31, 28);
             this.uipictureBoxStatus.TabIndex = 2;
             this.uipictureBoxStatus.TabStop = false;
+            this.uipictureBoxStatus.Click += new System.EventHandler(this.uiBuddy_Enter);
             // 
             // uiBuddy
             // 
@@ -71,6 +75,8 @@
             this.Controls.Add(this.uipictureBoxProfile);
             this.Name = "uiBuddy";
             this.Size = new System.Drawing.Size(233, 51);
+            this.Enter += new System.EventHandler(this.uiBuddy_Enter);
+            this.Leave += new System.EventHandler(this.uiBuddy_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.uipictureBoxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uipictureBoxStatus)).EndInit();
             this.ResumeLayout(false);
