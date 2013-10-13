@@ -34,11 +34,16 @@ namespace WhiteChatClient.Logic
 
         public static void LoadEmotions()
         {
+            Emotions.Add(":((", "Images.20.gif");
+            Emotions.Add(":))", "Images.21.gif");
+            Emotions.Add(":|", "Images.22.gif");
+            Emotions.Add("/:)", "Images.23.gif");
+            Emotions.Add(">:)", "Images.19.gif");
+            Emotions.Add(";;)", "Images.5.gif");
             Emotions.Add(":)", "Images.1.gif");
             Emotions.Add(":(", "Images.2.gif");
             Emotions.Add(";)", "Images.3.gif");
-            Emotions.Add(":D", "Images.4.gif");
-            Emotions.Add(";;)", "Images.5.gif");
+            Emotions.Add(":D", "Images.4.gif");          
             Emotions.Add(">:D<", "Images.6.gif");
             Emotions.Add(":-/", "Images.7.gif");
             Emotions.Add(":x", "Images.8.gif");
@@ -52,11 +57,6 @@ namespace WhiteChatClient.Logic
             Emotions.Add("B-)", "Images.16.gif");
             Emotions.Add(":-S", "Images.17.gif");
             Emotions.Add("#:-S", "Images.18.gif");
-            Emotions.Add(">:)", "Images.19.gif");
-            Emotions.Add(":((", "Images.20.gif");
-            Emotions.Add(":))", "Images.21.gif");
-            Emotions.Add(":|", "Images.22.gif");
-            Emotions.Add("/:)", "Images.23.gif");
             Emotions.Add("=))", "Images.24.gif");
             Emotions.Add("O:-)", "Images.25.gif");
             Emotions.Add(":-B", "Images.26.gif");
