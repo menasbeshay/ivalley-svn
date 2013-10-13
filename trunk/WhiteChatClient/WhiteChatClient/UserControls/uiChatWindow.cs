@@ -389,7 +389,7 @@ namespace WhiteChatClient.UserControls
             InitializeComponent();
             LoadBuddies();
             CurrentUser.LoadEmotions();
-
+            uilabelDisplayName.Text = CurrentUser.Client.Name;
             // Initialize the dictionary mapping color codes to definitions
             rtfColor = new HybridDictionary();
             rtfColor.Add(RtfColor.Aqua, RtfColorDef.Aqua);
@@ -475,7 +475,15 @@ namespace WhiteChatClient.UserControls
 
         private void OnIncomingBuddy(IBuddy oBuddy)
         {
-           // listBox1.Items.Add(oBuddy.NickName);
+            foreach (Control item in uiflowLayoutPanelBuddies.Controls)
+            {
+                uiBuddy buddy = (uiBuddy)item;
+                if (buddy.BuddyName == oBuddy.Name)
+                {
+                    buddy.Status = oBuddy.Status;
+                    break;
+                }
+            }
         }
 
         private void OnConnectionLost(string sMsg)
@@ -526,6 +534,40 @@ namespace WhiteChatClient.UserControls
             }
             uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
             temp.Dispose();
+        }
+
+        private void uibuttonChangeStatus_Click(object sender, EventArgs e)
+        {            
+            Button btnSender = (Button)sender;
+            Point ptLowerLeft = new Point(0, btnSender.Height);
+            ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+            uicontextMenuStripStatus.Show(ptLowerLeft);
+        }
+
+       
+
+        private void uicontextMenuStripStatus_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Text)
+	        {
+		        case "Online":
+                    CurrentUser.Client.SetStatus(StatusType.STATUS_ONLINE,"");
+                    uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.online_arrow;
+                    break;
+                case "Away":
+                    CurrentUser.Client.SetStatus(StatusType.STATUS_AWAY, "");
+                    uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.away_arrow;
+                    break;
+                case "Busy" :
+                    CurrentUser.Client.SetStatus(StatusType.STATUS_BUSY, "");
+                    uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.busy_arrow;
+                    break;
+                case "Offline" :
+                    CurrentUser.Client.SetStatus(StatusType.STATUS_INVISIBLE, "");
+                    uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.offline_arrow;
+                    break;
+
+	        }   
         }
 
     }

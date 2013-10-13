@@ -105,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -437,6 +438,21 @@
     <EmbeddedResource Include="Images\online.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arrowdown.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\online_arrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\away_arrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\busy_arrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\offline_arrow.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
