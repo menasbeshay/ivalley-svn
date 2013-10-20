@@ -154,9 +154,21 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{497FB11C-E96E-43DB-B114-8277201DD744}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{BE8A4F41-B042-438D-AF13-9883988A6AFA}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExRichTextBox\ExRichTextBox.csproj">
       <Project>{1A63B1D0-D2F0-4F8C-B242-863E83E1419C}</Project>
       <Name>ExRichTextBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
+      <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
+      <Name>MyGeneration.dOOdads</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
