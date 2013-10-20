@@ -500,7 +500,7 @@ namespace WhiteChatClient.UserControls
                     uiRichTextBoxMsg.Text += Environment.NewLine;
                 }
                 else
-                {
+                {                    
                     CurrentUser.Client.SendIM(currentChatUser, uiRichTextBoxMsg.Text);
                     foreach (var item in CurrentUser.Emotions)
                     {
@@ -512,63 +512,90 @@ namespace WhiteChatClient.UserControls
                         }
                     }
                     uiRichTextBoxHistory.SelectedRtf = uiRichTextBoxMsg.Rtf;
-                    uiRichTextBoxMsg.Text = string.Empty;
+                    uiRichTextBoxMsg.Clear();
                 }
             }
         }
 
-
-
-        private void HandleMsg(IMessage oMessage)
-        {
-            RichTextBox temp = new RichTextBox();
-            temp.Text = oMessage.Message;
-            foreach (var item in CurrentUser.Emotions)
-            {
-                int _index;
-                if ((_index = temp.Find(item.Key)) > -1)
-                {
-                    temp.Select(_index, item.Key.Length);
-                    InsertImage(new Bitmap(this.Parent.Parent.GetType(), item.Value), temp);
-                }
-            }
-            uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
-            temp.Dispose();
-        }
 
         private void uibuttonChangeStatus_Click(object sender, EventArgs e)
-        {            
+        {
             Button btnSender = (Button)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
             ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
             uicontextMenuStripStatus.Show(ptLowerLeft);
         }
 
-       
+
 
         private void uicontextMenuStripStatus_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             switch (e.ClickedItem.Text)
-	        {
-		        case "Online":
-                    CurrentUser.Client.SetStatus(StatusType.STATUS_ONLINE,"");
+            {
+                case "Online":
+                    CurrentUser.Client.SetStatus(StatusType.STATUS_ONLINE, "");
                     uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.online_arrow;
                     break;
                 case "Away":
                     CurrentUser.Client.SetStatus(StatusType.STATUS_AWAY, "");
                     uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.away_arrow;
                     break;
-                case "Busy" :
+                case "Busy":
                     CurrentUser.Client.SetStatus(StatusType.STATUS_BUSY, "");
                     uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.busy_arrow;
                     break;
-                case "Offline" :
+                case "Offline":
                     CurrentUser.Client.SetStatus(StatusType.STATUS_INVISIBLE, "");
                     uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.offline_arrow;
                     break;
 
-	        }   
+            }
         }
+
+        private void HandleMsg(IMessage oMessage)
+        {
+            switch (oMessage.Type)
+            {
+                case MessageType.MESSAGE_AUTH_ACCEPT:
+                    break;
+                case MessageType.MESSAGE_AUTH_DECLINE:
+                    break;
+                case MessageType.MESSAGE_AUTH_REQUEST:
+                    break;
+                case MessageType.MESSAGE_AUTO_RESPONSE:
+                    break;
+                case MessageType.MESSAGE_CUSTOM_AWAY:
+                    break;
+                case MessageType.MESSAGE_ERROR:
+                    break;
+                case MessageType.MESSAGE_IM:                    
+                case MessageType.MESSAGE_IM_OFFLINE:                   
+                    RichTextBox temp = new RichTextBox();
+                    temp.Text = oMessage.Message;
+                    foreach (var item in CurrentUser.Emotions)
+                    {
+                        int _index;
+                        if ((_index = temp.Find(item.Key)) > -1)
+                        {
+                            temp.Select(_index, item.Key.Length);
+                            InsertImage(new Bitmap(this.Parent.Parent.GetType(), item.Value), temp);
+                        }
+                    }
+                    uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                    temp.Dispose();
+                    break;
+                case MessageType.MESSAGE_TYPING:
+                    break;
+                case MessageType.MESSAGE_TYPING_OFF:
+                    break;
+                case MessageType.MESSAGE_WARNING:
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
 
     }
 }
