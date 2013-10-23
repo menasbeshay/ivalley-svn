@@ -127,7 +127,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathAPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathAPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -135,7 +135,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathBPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathBPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -151,7 +151,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathCPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathCPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -167,7 +167,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathDPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathDPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -183,7 +183,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathNotRelatedAPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathNotRelatedAPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -199,7 +199,7 @@ namespace MHO.DAL
 			{
 				get
 				{
-					return new SqlParameter("@CauseOfDeathNotRelatedBPeriod", SqlDbType.Char, 6);
+					return new SqlParameter("@CauseOfDeathNotRelatedBPeriod", SqlDbType.Char, 10);
 				}
 			}
 			
@@ -403,6 +403,14 @@ namespace MHO.DAL
 				}
 			}
 			
+			public static SqlParameter LocationOfTumor
+			{
+				get
+				{
+					return new SqlParameter("@LocationOfTumor", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -447,6 +455,7 @@ namespace MHO.DAL
             public const string AbortionDate = "AbortionDate";
             public const string CauseOfDeathB = "CauseOfDeathB";
             public const string AbortionPlace = "AbortionPlace";
+            public const string LocationOfTumor = "LocationOfTumor";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -492,6 +501,7 @@ namespace MHO.DAL
 					ht[AbortionDate] = _DeadMedicalInfo.PropertyNames.AbortionDate;
 					ht[CauseOfDeathB] = _DeadMedicalInfo.PropertyNames.CauseOfDeathB;
 					ht[AbortionPlace] = _DeadMedicalInfo.PropertyNames.AbortionPlace;
+					ht[LocationOfTumor] = _DeadMedicalInfo.PropertyNames.LocationOfTumor;
 
 				}
 				return (string)ht[columnName];
@@ -542,6 +552,7 @@ namespace MHO.DAL
             public const string AbortionDate = "AbortionDate";
             public const string CauseOfDeathB = "CauseOfDeathB";
             public const string AbortionPlace = "AbortionPlace";
+            public const string LocationOfTumor = "LocationOfTumor";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -587,6 +598,7 @@ namespace MHO.DAL
 					ht[AbortionDate] = _DeadMedicalInfo.ColumnNames.AbortionDate;
 					ht[CauseOfDeathB] = _DeadMedicalInfo.ColumnNames.CauseOfDeathB;
 					ht[AbortionPlace] = _DeadMedicalInfo.ColumnNames.AbortionPlace;
+					ht[LocationOfTumor] = _DeadMedicalInfo.ColumnNames.LocationOfTumor;
 
 				}
 				return (string)ht[propertyName];
@@ -637,6 +649,7 @@ namespace MHO.DAL
             public const string AbortionDate = "s_AbortionDate";
             public const string CauseOfDeathB = "s_CauseOfDeathB";
             public const string AbortionPlace = "s_AbortionPlace";
+            public const string LocationOfTumor = "s_LocationOfTumor";
 
 		}
 		#endregion		
@@ -1096,6 +1109,18 @@ namespace MHO.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.AbortionPlace, value);
+			}
+		}
+
+		public virtual int LocationOfTumor
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.LocationOfTumor);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.LocationOfTumor, value);
 			}
 		}
 
@@ -1674,6 +1699,21 @@ namespace MHO.DAL
 			}
 		}
 
+		public virtual string s_LocationOfTumor
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.LocationOfTumor) ? string.Empty : base.GetintAsString(ColumnNames.LocationOfTumor);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.LocationOfTumor);
+				else
+					this.LocationOfTumor = base.SetintAsString(ColumnNames.LocationOfTumor, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2082,6 +2122,16 @@ namespace MHO.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.AbortionPlace, Parameters.AbortionPlace);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter LocationOfTumor
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.LocationOfTumor, Parameters.LocationOfTumor);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2548,6 +2598,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public WhereParameter LocationOfTumor
+		    {
+				get
+		        {
+					if(_LocationOfTumor_W == null)
+	        	    {
+						_LocationOfTumor_W = TearOff.LocationOfTumor;
+					}
+					return _LocationOfTumor_W;
+				}
+			}
+
 			private WhereParameter _DeadMedicalInfoID_W = null;
 			private WhereParameter _DeadEventID_W = null;
 			private WhereParameter _CauseOfDeathA_W = null;
@@ -2586,6 +2648,7 @@ namespace MHO.DAL
 			private WhereParameter _AbortionDate_W = null;
 			private WhereParameter _CauseOfDeathB_W = null;
 			private WhereParameter _AbortionPlace_W = null;
+			private WhereParameter _LocationOfTumor_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2627,6 +2690,7 @@ namespace MHO.DAL
 				_AbortionDate_W = null;
 				_CauseOfDeathB_W = null;
 				_AbortionPlace_W = null;
+				_LocationOfTumor_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -3058,6 +3122,16 @@ namespace MHO.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AbortionPlace, Parameters.AbortionPlace);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter LocationOfTumor
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LocationOfTumor, Parameters.LocationOfTumor);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -3524,6 +3598,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public AggregateParameter LocationOfTumor
+		    {
+				get
+		        {
+					if(_LocationOfTumor_W == null)
+	        	    {
+						_LocationOfTumor_W = TearOff.LocationOfTumor;
+					}
+					return _LocationOfTumor_W;
+				}
+			}
+
 			private AggregateParameter _DeadMedicalInfoID_W = null;
 			private AggregateParameter _DeadEventID_W = null;
 			private AggregateParameter _CauseOfDeathA_W = null;
@@ -3562,6 +3648,7 @@ namespace MHO.DAL
 			private AggregateParameter _AbortionDate_W = null;
 			private AggregateParameter _CauseOfDeathB_W = null;
 			private AggregateParameter _AbortionPlace_W = null;
+			private AggregateParameter _LocationOfTumor_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -3603,6 +3690,7 @@ namespace MHO.DAL
 				_AbortionDate_W = null;
 				_CauseOfDeathB_W = null;
 				_AbortionPlace_W = null;
+				_LocationOfTumor_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -3823,6 +3911,10 @@ namespace MHO.DAL
 
 			p = cmd.Parameters.Add(Parameters.AbortionPlace);
 			p.SourceColumn = ColumnNames.AbortionPlace;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.LocationOfTumor);
+			p.SourceColumn = ColumnNames.LocationOfTumor;
 			p.SourceVersion = DataRowVersion.Current;
 
 
