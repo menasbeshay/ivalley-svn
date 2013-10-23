@@ -87,6 +87,7 @@
     <Compile Include="OrgUser.cs" />
     <Compile Include="POLICE_STATION.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TumorLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
