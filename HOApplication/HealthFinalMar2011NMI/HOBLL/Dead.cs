@@ -71,7 +71,87 @@ namespace MHO.BLL
                 ListDictionary parm = new ListDictionary();
                 parm.Add("@StartDate", DateTime.Parse(_dateFrom).ToString("MM/yyyy/dd"));
                 parm.Add("@EndDate", DateTime.Parse(_dateTo).ToString("MM/yyyy/dd"));
+                /*parm.Add("@GovID", GovID);
+                parm.Add("@CivilID", CivilID);
+                parm.Add("@HealthOfficeID", HealthOfficeID);*/
                 searchResult = LoadFromSqlReader("Rpt_ListDeadAprrovedCount", parm) as SqlDataReader;
+                DataTable ResultTable = new DataTable();
+                newAdapter da = new newAdapter();
+                if (searchResult != null && searchResult.HasRows)
+                {
+                    da.FillFromReader(ResultTable, searchResult);
+                }
+                return ResultTable;
+            }
+            catch
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable ListDeadAprrovedCountGov(string _dateFrom, string _dateTo, int GovID)
+        {
+            try
+            {
+                SqlDataReader searchResult = null;
+                ListDictionary parm = new ListDictionary();
+                parm.Add("@StartDate", DateTime.Parse(_dateFrom).ToString("MM/yyyy/dd"));
+                parm.Add("@EndDate", DateTime.Parse(_dateTo).ToString("MM/yyyy/dd"));
+                parm.Add("@GovID", GovID);                
+
+                searchResult = LoadFromSqlReader("Rpt_ListDeadAprrovedCountGov", parm) as SqlDataReader;
+                DataTable ResultTable = new DataTable();
+                newAdapter da = new newAdapter();
+                if (searchResult != null && searchResult.HasRows)
+                {
+                    da.FillFromReader(ResultTable, searchResult);
+                }
+                return ResultTable;
+            }
+            catch
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable ListDeadAprrovedCountCivil(string _dateFrom, string _dateTo, int GovID, int CivilID)
+        {
+            try
+            {
+                SqlDataReader searchResult = null;
+                ListDictionary parm = new ListDictionary();
+                parm.Add("@StartDate", DateTime.Parse(_dateFrom).ToString("MM/yyyy/dd"));
+                parm.Add("@EndDate", DateTime.Parse(_dateTo).ToString("MM/yyyy/dd"));
+                parm.Add("@GovID", GovID);
+                parm.Add("@CivilID", CivilID);
+                
+                searchResult = LoadFromSqlReader("Rpt_ListDeadAprrovedCountCivil", parm) as SqlDataReader;
+                DataTable ResultTable = new DataTable();
+                newAdapter da = new newAdapter();
+                if (searchResult != null && searchResult.HasRows)
+                {
+                    da.FillFromReader(ResultTable, searchResult);
+                }
+                return ResultTable;
+            }
+            catch
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable ListDeadAprrovedCountHealthOffice(string _dateFrom, string _dateTo, int GovID, int CivilID, int HealthOfficeID)
+        {
+            try
+            {
+                SqlDataReader searchResult = null;
+                ListDictionary parm = new ListDictionary();
+                parm.Add("@StartDate", DateTime.Parse(_dateFrom).ToString("MM/yyyy/dd"));
+                parm.Add("@EndDate", DateTime.Parse(_dateTo).ToString("MM/yyyy/dd"));
+                parm.Add("@GovID", GovID);
+                parm.Add("@CivilID", CivilID);
+                parm.Add("@HealthOfficeID", HealthOfficeID);
+                searchResult = LoadFromSqlReader("Rpt_ListDeadAprrovedCountHealthOffice", parm) as SqlDataReader;
                 DataTable ResultTable = new DataTable();
                 newAdapter da = new newAdapter();
                 if (searchResult != null && searchResult.HasRows)

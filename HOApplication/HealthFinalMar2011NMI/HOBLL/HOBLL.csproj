@@ -90,6 +90,7 @@
     <Compile Include="OrgUser.cs" />
     <Compile Include="POLICE_STATION.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TumorLocation.cs" />
     <Compile Include="V_Area_Police_Gov.cs" />
     <Compile Include="V_Org.cs" />
     <Compile Include="V_Police_Gove.cs" />
