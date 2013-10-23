@@ -54,6 +54,5 @@ D:\SmartValley\Health\HOApp_Src_backup_serviceOff_30-11-2011_Support\HealthFinal
 D:\SmartValley\Health\HOApp_Src_backup_serviceOff_30-11-2011_Support\HealthFinalMar2011NMI\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
 D:\SmartValley\Health\SVN\HealthFinalMar2011NMI\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
 D:\SmartValley\Health\SVN\HealthFinalMar2011NMI\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
-D:\SmartValley\Health\SVN\HealthFinalMar2011NMI\MyGeneration.dOOdads\obj\Debug\ResolveAssemblyReference.cache
 D:\SmartValley\Health\SVN\HealthFinalMar2011NMI\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
 D:\SmartValley\Health\SVN\HealthFinalMar2011NMI\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
