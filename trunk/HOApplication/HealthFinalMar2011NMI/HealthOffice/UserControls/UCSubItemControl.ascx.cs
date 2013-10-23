@@ -77,7 +77,51 @@ public partial class UserControls_UCSubItemControl : System.Web.UI.UserControl
             txtYear.Text = value;
         }
     }
+    public string Hours
+    {
+        get
+        {
+            if (txtHour.Text.Length == 1)
+                return "0" + txtHour.Text;
+            else
+                return txtHour.Text;
+        }
+        set
+        {
+            txtHour.Text = value;
+        }
+    }
+    public string Mins
+    {
+        get
+        {
+            if (txtMin.Text.Length == 1)
+                return "0" + txtMin.Text;
+            else
+                return txtMin.Text;
+        }
+        set
+        {
+            txtMin.Text = value;
+        }
+    }
 
+
+    public bool ViewTimes
+    {
+        get
+        {
+            return TimesTable.Visible;
+        }
+        set
+        {
+            TimesTable.Visible = value;
+            RegularExpressionValidator3.Enabled = value;
+            lbl.Enabled = value;
+            RegularExpressionValidator1.Enabled = value;
+            RegularExpressionValidator2.Enabled = value;
+        }
+    }
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {

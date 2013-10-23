@@ -47,8 +47,11 @@
                     </table>
                 </td>
                 <td width="10%" align="left">
-                    <table width="100%" style="display:none;">
+                    <table width="100%" id="TimesTable" runat="server">
                         <tr>
+                         <td align="center">
+                                <asp:Label ID="lblHour" runat="server" meta:resourcekey="lblHourResource1"></asp:Label>
+                            </td>
                             <td align="center">
                                 <asp:Label ID="lblDay" runat="server" meta:resourcekey="lblDayResource1"></asp:Label>
                             </td>
@@ -58,8 +61,19 @@
                             <td align="center">
                                 <asp:Label ID="lblYear" runat="server" meta:resourcekey="lblYearResource1"></asp:Label>
                             </td>
+                           
+                            <td align="center" style="display:none;">
+                                <asp:Label ID="lblmin" runat="server" meta:resourcekey="lblMinResource1"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
+                         <td align="center">
+                                <asp:TextBox ID="txtHour" Text="00" Width="30px" runat="server" meta:resourcekey="txtMonthResource1"
+                                    MaxLength="2"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" SetFocusOnError="true"
+                                    ValidationExpression="\b0*([0-9]|1[0-9]|2[0-3])\b" ControlToValidate="txtHour" runat="server"
+                                    ErrorMessage="الساعة غير صحيحة"></asp:RegularExpressionValidator>
+                            </td>
                             <td align="center">
                                 <asp:TextBox ID="txtDay" Text="00" Width="30px" runat="server" meta:resourcekey="txtDayResource1"
                                     MaxLength="2"></asp:TextBox>
@@ -79,6 +93,14 @@
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" SetFocusOnError="true"
                                     ValidationExpression="^([0]?[0-9]|[1][0-9]|[2][0-9]|[3][0-9]|[4][0-9]|[5][0-9]|[6][0-9]|[7][0-9]|[8][0-9])$"
                                     ControlToValidate="txtYear" runat="server" ErrorMessage="السنة غير صحيح"></asp:RegularExpressionValidator>
+                            </td>
+                            
+                            <td align="center" style="display:none">
+                                <asp:TextBox ID="txtMin" Text="00" Width="30px" runat="server" meta:resourcekey="txtYearResource1"
+                                    MaxLength="2"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" SetFocusOnError="true"
+                                    ValidationExpression="\b0*([0-9]|[1-5][0-9])\b"
+                                    ControlToValidate="txtMin" runat="server" ErrorMessage="الدقيقة غير صحيحة" Enabled="false"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
                     </table>

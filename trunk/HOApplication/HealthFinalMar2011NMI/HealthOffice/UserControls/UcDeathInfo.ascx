@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UcDeathInfo.ascx.cs" Inherits="UserControls_UcDeathInfo" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <script language="javascript">
     function EnableTextBoxesForDeath(firstname, fatherName, familyName, nationalId) {
         //debugger;
-        var txtFirstName = document.getElementById(firstname);
+       /* var txtFirstName = document.getElementById(firstname);
 
         var txtFatherName = document.getElementById(fatherName);
 
@@ -34,7 +34,7 @@
             txtFatherName.value = '';
             txtFamilyName.value = '';
 
-        }
+        }*/
     }
 
 </script>
@@ -97,7 +97,7 @@
                                             </td>
                                             <td>
                                                 <asp:Button ID="btnSearch" runat="server" Text="بحث" OnClick="btnSearch_Click" 
-                                                    Width="35px" Enabled="False" />
+                                                    Width="35px" />
                                             </td>
                                         </tr>
                                     </table>
@@ -221,7 +221,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <table cellspacing="0" width="100%">
                             <tr>
                                 <td width="80px" align="left">
@@ -229,18 +229,24 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtBirthDate" MaxLength="20" runat="server"></asp:TextBox>
+                                    <ajaxtoolkit:calendarextender CssClass="custom-calendar" Format="yyyy/MM/dd" TargetControlID="txtBirthDate"
+                        ID="calenderStartDate" runat="server">
+                    </ajaxtoolkit:calendarextender>
                                     <%-- <a onclick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcGeneralDeathInfo1_txtBirthDate'))" href="#">
             <img src="Images/calendar.gif" style="width: 20px; height: 20px" border="0" id="imgCalender" > </img> </a>--%>
                                     <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"
                                         ValidationGroup="GenralValidate" ID="RequiredFieldValidator7" ControlToValidate="txtBirthDate"
                                         ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                        ErrorMessage="*"  ValidationGroup="GenralValidate" ControlToValidate="txtBirthDate" Display="Dynamic" 
+                                        ValidationExpression="(19[0-9]{2}|[2][0-9][0-9]{2})[/](0?[1-9]|1[12])[/](0?[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
                                     <asp:ImageButton runat="server" ID="btnCalender" ImageUrl="~/Images/calendar.gif"
-                                        Height="20px" Width="20px" OnClientClick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcGeneralDeathInfo1_txtBirthDate'));return false;" />
-                                </td>
+                                        Height="20px" Width="20px" 
+                                        OnClientClick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcDeathInfo2_txtBirthDate'));return false;" 
+                                        Visible="False" />
+                                </td>                                                                                          
                             </tr>
                         </table>
-                    </td>
-                    <td>
                     </td>
                     <td>
                     </td>

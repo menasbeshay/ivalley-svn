@@ -1,6 +1,7 @@
 ﻿<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Control Language="C#"  AutoEventWireup="true" CodeFile="ucGeneralDeathInfo.ascx.cs"
     Inherits="UserControls_ucGeneralDeathInfo" %>
+    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <style type="text/css">
     .style1
     {
@@ -356,14 +357,19 @@
                     </td>
                     <td align="right">
                         <asp:TextBox ID="txtDeathDate" MaxLength="20" Width="150px" runat="server"></asp:TextBox>
+                         <ajaxtoolkit:calendarextender CssClass="custom-calendar" Format="yyyy/MM/dd" TargetControlID="txtDeathDate" ID="calenderStartDate" runat="server">
+                         </ajaxtoolkit:calendarextender>
                            <%--<a onclick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcGeneralDeathInfo1_txtDeathDate'))" href="#">
             <img src="Images/calendar.gif" style="width: 20px; height: 20px" border="0" id="img1" > </img> </a>--%>
                         <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"
                             ValidationGroup="GenralValidate" ID="RequiredFieldValidator1" ControlToValidate="txtDeathDate"
                             ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                             
-                            <asp:ImageButton runat="server" ID="ImageButton1" ImageUrl="~/Images/calendar.gif" Height="20px" Width="20px"
-        OnClientClick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcGeneralDeathInfo1_txtDeathDate'));return false;" />
+                            <asp:ImageButton runat="server" ID="ImageButton1" 
+                            ImageUrl="~/Images/calendar.gif" Height="20px" Width="20px"
+        
+                            OnClientClick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcGeneralDeathInfo1_txtDeathDate'));return false;" 
+                            Visible="False" />
                     </td>
                 </tr>
             </table>
@@ -434,7 +440,7 @@
                 meta:resourcekey="lblDescriptionOfLocationResource1"></asp:Label>
         </td>
         <td style="vertical-align: top">
-            <asp:TextBox ID="txtDescriptionOfLocation" MaxLength="100" Width="427px" runat="server"
+            <asp:TextBox ID="txtDescriptionOfLocation" MaxLength="100" Width="350px" runat="server"
                 meta:resourcekey="txtDescriptionOfLocationResource1" Height="80px" 
                 TextMode="MultiLine"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"

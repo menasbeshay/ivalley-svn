@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ppt="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:g2gerr="http://www.g2g.msad.gov.eg/G2GModel/V1/CommonError" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Definitions" xmlns:g2gh="http://www.g2g.msad.gov.eg/G2GModel/V1/G2GHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PersonalProfileServiceDef" targetNamespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Definitions">
+      <xsd:import schemaLocation="PersonalProfileServiceTypes.xsd" namespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Types" />
+      <xsd:import schemaLocation="CommonError.xsd" namespace="http://www.g2g.msad.gov.eg/G2GModel/V1/CommonError" />
+      <xsd:import schemaLocation="G2GHeader.xsd" namespace="http://www.g2g.msad.gov.eg/G2GModel/V1/G2GHeader" />
+      <xsd:element name="getPersonProfileByName" type="ppt:PersonProfileName" />
+      <xsd:element name="getPersonProfileByNameResponse" type="ppt:PersonProfile" />
+      <xsd:element name="getPersonProfileById" type="ppt:PersonProfileId" />
+      <xsd:element name="getPersonProfileByIdResponse" type="ppt:PersonProfile" />
+      <xsd:element name="getPersonProfileByFcn" type="ppt:PersonProfileFcn" />
+      <xsd:element name="getPersonProfileByFcnResponse" type="ppt:PersonProfile" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPersonProfileByNameRequestMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileByName" element="tns:getPersonProfileByName" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByNameResponseMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileByNameResponse" element="tns:getPersonProfileByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByIdRequestMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileById" element="tns:getPersonProfileById" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByIdResponseMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileByIdResponse" element="tns:getPersonProfileByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByFcnRequestMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileByFcn" element="tns:getPersonProfileByFcn" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByFcnResponseMsg">
+    <wsdl:part name="G2GHeader" element="g2gh:G2GHeader" />
+    <wsdl:part name="getPersonProfileByFcnResponse" element="tns:getPersonProfileByFcnResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByNameFaultMsg">
+    <wsdl:part name="commonError" element="g2gerr:CommonError" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByIdFaultMsg">
+    <wsdl:part name="commonError" element="g2gerr:CommonError" />
+  </wsdl:message>
+  <wsdl:message name="getPersonProfileByFcnFaultMsg">
+    <wsdl:part name="commonError" element="g2gerr:CommonError" />
+  </wsdl:message>
+  <wsdl:portType name="PersonalProfilePortType">
+    <wsdl:operation name="getPersonProfileByName">
+      <wsdl:input name="getPersonProfileByNameRequest" message="tns:getPersonProfileByNameRequestMsg" />
+      <wsdl:output name="getPersonProfileByNameResponse" message="tns:getPersonProfileByNameResponseMsg" />
+      <wsdl:fault name="commonError" message="tns:getPersonProfileByNameFaultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="getPersonProfileById">
+      <wsdl:input name="getPersonProfileByIdRequest" message="tns:getPersonProfileByIdRequestMsg" />
+      <wsdl:output name="getPersonProfileByIdResponse" message="tns:getPersonProfileByIdResponseMsg" />
+      <wsdl:fault name="commonError" message="tns:getPersonProfileByIdFaultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="getPersonProfileByFcn">
+      <wsdl:input name="getPersonProfileByFcnRequest" message="tns:getPersonProfileByFcnRequestMsg" />
+      <wsdl:output name="getPersonProfileByFcnResponse" message="tns:getPersonProfileByFcnResponseMsg" />
+      <wsdl:fault name="commonError" message="tns:getPersonProfileByFcnFaultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonalProfileBinding" type="tns:PersonalProfilePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsaw:UsingAddressing wsdl:required="true" />
+    <wsdl:operation name="getPersonProfileByName">
+      <soap:operation soapAction="http://www.cso.gov.eg/Services/PersonalProfileService/V1/getPersonProfileByName" />
+      <wsdl:input name="getPersonProfileByNameRequest">
+        <soap:header message="tns:getPersonProfileByNameRequestMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileByName" />
+      </wsdl:input>
+      <wsdl:output name="getPersonProfileByNameResponse">
+        <soap:header message="tns:getPersonProfileByNameResponseMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileByNameResponse" />
+      </wsdl:output>
+      <wsdl:fault name="commonError">
+        <soap:fault use="literal" name="commonError" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonProfileById">
+      <soap:operation soapAction="http://www.cso.gov.eg/Services/PersonalProfileService/V1/getPersonProfileById" />
+      <wsdl:input name="getPersonProfileByIdRequest">
+        <soap:header message="tns:getPersonProfileByIdRequestMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileById" />
+      </wsdl:input>
+      <wsdl:output name="getPersonProfileByIdResponse">
+        <soap:header message="tns:getPersonProfileByIdResponseMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileByIdResponse" />
+      </wsdl:output>
+      <wsdl:fault name="commonError">
+        <soap:fault use="literal" name="commonError" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonProfileByFcn">
+      <soap:operation soapAction="http://www.cso.gov.eg/Services/PersonalProfileService/V1/getPersonProfileByFcn" />
+      <wsdl:input name="getPersonProfileByFcnRequest">
+        <soap:header message="tns:getPersonProfileByFcnRequestMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileByFcn" />
+      </wsdl:input>
+      <wsdl:output name="getPersonProfileByFcnResponse">
+        <soap:header message="tns:getPersonProfileByFcnResponseMsg" part="G2GHeader" use="literal" />
+        <soap:body use="literal" parts="getPersonProfileByFcnResponse" />
+      </wsdl:output>
+      <wsdl:fault name="commonError">
+        <soap:fault use="literal" name="commonError" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

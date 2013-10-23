@@ -3,7 +3,7 @@
 
 <script language="javascript">
     function EnableTextBoxes(firstname, fatherName, familyName, nationalId, surName) {
-        /*var txtFirstName = document.getElementById(firstname);
+      /*  var txtFirstName = document.getElementById(firstname);
 
         var txtFatherName = document.getElementById(fatherName);
 
@@ -39,7 +39,17 @@
         if (event.keyCode == 13)
         document.getElementById("<%= btnSearch.ClientID %>").click();
         //    alert("<%= btnSearch.ClientID %>");
-            
+
+    }
+
+    function lettersOnly(evt) {
+        evt = (evt) ? evt : event;
+        var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+          ((evt.which) ? evt.which : 0));
+        if (charCode > 31 && (charCode >= 48 && charCode < 58) ) {            
+            return false;
+        }
+        return true;
     }
 
 </script>
@@ -92,7 +102,7 @@
                                 <td>
                                     <asp:Button ID="btnSearch" name="btnSearchParent" ValidationGroup="nationalId" 
                                         runat="server" Text="بحث"
-                                        OnClick="btnSearch_Click" Width="35px" Enabled="False" />
+                                        OnClick="btnSearch_Click" Width="35px" />
                                 </td>
                                 <td>
                                 <asp:UpdateProgress runat="server" AssociatedUpdatePanelID="updatePnlParents" DisplayAfter="1" ID="progParents">
@@ -151,10 +161,11 @@
             </table>
         </td>
         <td>
-            <asp:TextBox ID="txtFirstName" MaxLength="20" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" MaxLength="20" runat="server"  OnKeyPress="return lettersOnly(event);"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                 SetFocusOnError="true" ID="RequiredFieldValidator1" ControlToValidate="txtFirstName"
                 ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            
         </td>
         <td>
             <table>
@@ -164,10 +175,11 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtFatherName" MaxLength="20" runat="server" 
-                            meta:resourcekey="txtFatherNameResource1"></asp:TextBox>
+                            meta:resourcekey="txtFatherNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                             ID="RequiredFieldValidator3" ControlToValidate="txtFatherName" ErrorMessage="*"
                             SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
+                            
                     </td>
                 </tr>
             </table>
@@ -180,10 +192,11 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtFamilyName" MaxLength="20" runat="server" 
-                            meta:resourcekey="txtFamilyNameResource1"></asp:TextBox>
+                            meta:resourcekey="txtFamilyNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                             ID="RequiredFieldValidator4" ControlToValidate="txtFamilyName" ErrorMessage="*"
                             SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
+                             
                     </td>
                 </tr>
             </table>
@@ -194,10 +207,11 @@
             <asp:Label ID="lblSureName" runat="server">اللقب</asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txtSureName" runat="server" MaxLength="20" meta:resourcekey="txtFamilyNameResource1"></asp:TextBox>
+            <asp:TextBox ID="txtSureName" runat="server" MaxLength="20" meta:resourcekey="txtFamilyNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                 ID="RequiredFieldValidator2" ControlToValidate="txtSureName" ErrorMessage="*"
                 SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
+                 
         </td>
         <td>
             <table>

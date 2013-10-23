@@ -84,6 +84,35 @@ public partial class UserControls_UcItemControl : System.Web.UI.UserControl
         }
     }
 
+    public string Hours
+    {
+        get
+        {
+            if (txtHour.Text.Length == 1)
+                return "0" + txtHour.Text;
+            else
+                return txtHour.Text;
+        }
+        set
+        {
+            txtHour.Text = value;
+        }
+    }
+    public string Mins
+    {
+        get
+        {
+            if (txtMin.Text.Length == 1)
+                return "0" + txtMin.Text;
+            else
+                return txtMin.Text;
+        }
+        set
+        {
+            txtMin.Text = value;
+        }
+    }
+
     #endregion
     #region Events
     /// <summary>

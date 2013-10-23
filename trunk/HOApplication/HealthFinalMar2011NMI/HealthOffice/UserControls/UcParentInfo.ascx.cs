@@ -253,12 +253,12 @@ public partial class UserControls_UcFatherInfo : System.Web.UI.UserControl
 
     protected void Page_prerender(object sender, EventArgs e)
     {
-        if (txtNationalId.Text.Trim() == "0" && ForApprove == null)
+       /* if (txtNationalId.Text.Trim() == "0" && ForApprove == null)
         {
             txtFirstName.Enabled = true;
             txtFatherName.Enabled = true;
             txtFamilyName.Enabled = true;
-        }
+        }*/
     }
 
     /// <summary>
@@ -342,9 +342,9 @@ public partial class UserControls_UcFatherInfo : System.Web.UI.UserControl
             else
             {
                 lblError.Text = "خطا فى خدمة استرجاع بيانات الرقم القومى";
-                txtFirstName.Enabled = false;
-                txtFatherName.Enabled = false;
-                txtFamilyName.Enabled = false;
+               // txtFirstName.Enabled = false;
+               // txtFatherName.Enabled = false;
+               // txtFamilyName.Enabled = false;
                 clearNationalNumberTextBoxs();
             }
         }
@@ -388,9 +388,9 @@ public partial class UserControls_UcFatherInfo : System.Web.UI.UserControl
         {
             NIDArea.Style.Add("display", "block");
             proveArea.Style.Add("display", "none");
-            txtFirstName.Enabled = false;
+           /* txtFirstName.Enabled = false;
             txtFatherName.Enabled = false;
-            txtFamilyName.Enabled = false;
+            txtFamilyName.Enabled = false;*/
         }
         else
         {

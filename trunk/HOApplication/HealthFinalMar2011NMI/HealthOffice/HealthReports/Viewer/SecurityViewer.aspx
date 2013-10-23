@@ -75,8 +75,7 @@
                     OnInit="UmisReportViewer_Init" OnReportRefresh="UmisReportViewer_Load"
                      OnLoad="UmisReportViewer_Load" PromptAreaCollapsed="true" 
                     ShowCredentialPrompts="False" SizeToReportContent="true" BackColor="LightGray" 
-                        ShowRefreshButton="False">
-                       
+                        ShowRefreshButton="False" >                       
                     </rsweb:ReportViewer>
                     </div>           
                 </td>

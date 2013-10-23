@@ -143,13 +143,13 @@ public partial class UserControls_UcAddressInfo : System.Web.UI.UserControl
     {
         get
         {
-            //return txtPosition.Text;
-            return uiDropDownListJob.Text;
+            return txtPosition.Text;
+            //return uiDropDownListJob.Text;
         }
         set
         {
-            //txtPosition.Text = value;
-            uiDropDownListJob.Text = value;
+            txtPosition.Text = value;
+            //uiDropDownListJob.Text = value;
         }
     }
 

@@ -114,13 +114,13 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <asp:Label ID="lblPhone" runat="server" meta:resourcekey="lblPhoneResource1"></asp:Label>
-            
-        </td>
-        <td>
-        <asp:TextBox ID="txtPhone" runat="server" MaxLength="11" meta:resourcekey="txtPhoneResource1"></asp:TextBox>
-        </td>
+     <td  align="right" >
+                        <asp:Label ID="lblFamilyPhoneNo" runat="server" meta:resourcekey="lblFamilyPhoneNoResource1"></asp:Label>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFamilyPhoneNo" MaxLength="50" runat="server" meta:resourcekey="txtFamilyPhoneNoResource1"></asp:TextBox>                       
+                    </td>
+       
         <td>
             <table width="100%" cellspacing="0">
                 <tr>
@@ -128,8 +128,8 @@
                         <asp:Label ID="lblPosition" runat="server" meta:resourcekey="lblPositionResource1"></asp:Label>
                     </td>
                     <td  style="padding-right:10px;">
-                        <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1" Visible="false"></asp:TextBox>
-                        <asp:DropDownList ID="uiDropDownListJob" runat="server">
+                        <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1" ></asp:TextBox>
+                        <asp:DropDownList ID="uiDropDownListJob" runat="server" Visible="false">
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator runat="server"  SetFocusOnError="true" Display="Dynamic" ValidationGroup="GenralValidate"
                     ID="RequiredFieldValidator6" ControlToValidate="txtPosition" ErrorMessage="*" ForeColor="Red" Enabled="false"></asp:RequiredFieldValidator>
@@ -138,14 +138,15 @@
             </table>
         </td>
         <td>
-            <table width="100%" cellspacing="0">
+            <table width="100%" cellspacing="0" style="display:none;">
                 <tr>
-                    <td width="40%" align="right" >
-                        <asp:Label ID="lblFamilyPhoneNo" runat="server" meta:resourcekey="lblFamilyPhoneNoResource1"></asp:Label>
-                    </td>
-                    <td align="center">
-                        <asp:TextBox ID="txtFamilyPhoneNo" MaxLength="50" runat="server" meta:resourcekey="txtFamilyPhoneNoResource1"></asp:TextBox>                       
-                    </td>
+                    <td >
+            <asp:Label ID="lblPhone" runat="server" meta:resourcekey="lblPhoneResource1"></asp:Label>
+            
+        </td>
+        <td >
+        <asp:TextBox ID="txtPhone" runat="server" MaxLength="11" meta:resourcekey="txtPhoneResource1"></asp:TextBox>
+        </td>
                 </tr>
             </table>
         </td>
@@ -158,6 +159,7 @@
                  </ProgressTemplate>
              </asp:UpdateProgress>
         </td>
+       
     </tr>
 </table>
 </ContentTemplate>

@@ -474,6 +474,7 @@ public partial class UserControls_UcDeathInfo : System.Web.UI.UserControl
         if (!string.IsNullOrEmpty(txtNationalId.Text) && txtNationalId.Text != "0")
         {
             Session["NationalID"] = txtNationalId.Text;
+            txtBirthDate.Text = MHOCommon.GetDateFromNID(txtNationalId.Text).ToString("yyyy/MM/dd");
         }
     }
 }

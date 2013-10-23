@@ -131,7 +131,7 @@
                                                             </td>
                                                             <td>
                                                                 <asp:ImageButton ID="btnSearch" runat="server" ImageUrl="~/Images/Search Magnifier.png"
-                                                                    OnClick="btnSearch_Click" Width="25px" Enabled="False" />
+                                                                    OnClick="btnSearch_Click" Width="25px" />
                                                             </td>
                                                         </tr>
                                                     </table>

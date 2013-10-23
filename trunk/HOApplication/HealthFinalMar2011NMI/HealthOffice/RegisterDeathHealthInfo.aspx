@@ -9,17 +9,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
-<div id="DeathHealthContents" runat="server">
+    <div id="DeathHealthContents" runat="server">
             <ajaxToolkit:TabContainer ID="TabContainerDeathInfo" ActiveTabIndex="0" runat="server"
                 meta:resourcekey="TabContainerDeathInfoResource1">
                 <ajaxToolkit:TabPanel runat="server" TabIndex="0" ID="TabPanelDeathHealthData" meta:resourcekey="TabPanelDeathHealthData">
                     <ContentTemplate>
                         <table dir="rtl">
                             <tr>
-                                <td width="80%">
-                                    <asp:Label ID="lblTitle" Font-Bold="True" runat="server" 
-                                        meta:resourcekey="lblTitleResource1"></asp:Label>
-
+                                <td width="10%" rowspan="5" style="vertical-align: top; padding-top: 40px;">
+                                <div style="border-left-style: solid; border-left-width: 2px; border-left-color: #000000;min-height:400px;padding:5px;">
+                                     <asp:Label ID="Label21" runat="server" 
+                                Text=" ‰»ÌÂ Â«„ :<br /> «ﬂ » «·«„—«÷ Ê«·«’«»«  Ê«·„÷«⁄›«  «· Ì  ”»» «·Ê›«… Ê·«  ﬂ » Ê’› «·Ê›«… <br />(  Êﬁ› ﬁ·» ñ  Êﬁ› «· ‰›” ñ Â»Êÿ Õ«œ ›Ì «·œÊ—… «·œ„ÊÌ… Ê«· ‰›”Ì… )<br /> «ﬂ » ”»» Ê«Õœ." 
+                                Font-Bold="True" ></asp:Label>
+                                </div>
+                                    </td>
+                                <td width="75%">
+                                    <asp:Label ID="lblTitle" runat="server" Font-Bold="True" 
+                                        meta:resourceKey="lblTitleResource1"></asp:Label>
                                 </td>
                                 <td>
                                     <asp:Label ID="lblperiod" Font-Bold="True" runat="server" 
@@ -30,25 +36,21 @@
                             <tr>
                                 <td colspan="2">
                                     <uc7:UcItemControl ID="ucItemControlDeathReasonA" runat="server" />
-
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <uc8:UcItemControl ID="ucSubItemControlDeathReasonB" runat="server" />
-
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <uc8:UcItemControl ID="ucSubItemControlDeathReasonC" runat="server" />
-
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <uc8:UcItemControl ID="ucSubItemControlDeathReasonD" runat="server" />
-
                                 </td>
                             </tr>
                             </table>
@@ -153,13 +155,13 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedA" runat="server" />
+                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedA" runat="server" ViewTimes="false"/>
 
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedB" runat="server" />
+                                    <uc8:UcItemControl ID="ucItemCauseOfDeathNotRelatedB" runat="server" ViewTimes="false" />
 
                                 </td>
                             </tr>
@@ -300,13 +302,13 @@
                                     <asp:TextBox ID="txtCarType" runat="server" Enabled="False"></asp:TextBox>
                                 </td>
                                 <td align="center">
-                                    <asp:Label ID="Label9" Text="’›… «·„ Ê›Ì" runat="server"></asp:Label>
+                                    <asp:Label ID="Label9" Text="Õœœ «·„’«»" runat="server"></asp:Label>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList Width="250px" ID="RdDeadPersonType" RepeatDirection="Horizontal"
                                         runat="server" Enabled="False">
-                                        <asp:ListItem Selected="True" Text="€Ì— „⁄·Ê„" Value="1"></asp:ListItem>
-                                        <asp:ListItem Text="”«∆ﬁ" Value="2"></asp:ListItem>
+                                        <%--<asp:ListItem  Text="€Ì— „⁄·Ê„" Value="1"></asp:ListItem>--%>
+                                        <asp:ListItem Selected="True" Text="”«∆ﬁ" Value="2"></asp:ListItem>
                                         <asp:ListItem Text="—«ﬂ»" Value="3"></asp:ListItem>
                                         <asp:ListItem Text="„«— »«·ÿ—Ìﬁ" Value="4"></asp:ListItem>
                                     </asp:RadioButtonList>
@@ -346,7 +348,9 @@
                                     <asp:Label ID="lblLocation" Text="„Êﬁ⁄ «·Ê—„ »«·Ã”„" runat="server"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtTumorLocation" Width="200px" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtTumorLocation" Width="200px" runat="server" Visible="false"></asp:TextBox>
+                                    <asp:DropDownList ID="uiDropDownListTumorLocation" runat="server" Width="200px">
+                                    </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -367,7 +371,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="dropTumorPhases" Width="207px" runat="server">
-                                        <asp:ListItem Text="€Ì— „⁄·Ê„ " Value="1"></asp:ListItem>
+                                        <%--<asp:ListItem Text="€Ì— „⁄·Ê„ " Value="1"></asp:ListItem>--%>
                                         <asp:ListItem Text="Ê—„ „Ê÷⁄Ï" Value="2"></asp:ListItem>
                                         <asp:ListItem Text="„‰ ‘— »«·ÃÂ«“ «··Ì„›«ÊÏ" Value="3"></asp:ListItem>
                                         <asp:ListItem Text="„‰ ‘— »«⁄÷«¡ «Œ—Ï »«·Ã”„" Value="4"></asp:ListItem>
@@ -388,13 +392,7 @@
                 <ajaxToolkit:TabPanel runat="server" TabIndex="4" ID="TabPanelGirlsData" meta:resourcekey="TabPanelGirlsData">
                     <ContentTemplate>
                         <table dir="rtl">
-                        <tr>
-                        <td colspan="4">
-                            <asp:Label ID="Label21" runat="server" 
-                                Text=" ‰»ÌÂ Â«„ : «Œ — «·«„—«÷ Ê«·«’«»«  Ê«·„÷«⁄›«  «· Ì  ”»» «·Ê›«… Ê·«  ﬂ » Ê’› «·Ê›«… (  Êﬁ› ﬁ·» ñ  Êﬁ› «· ‰›” ñ Â»Êÿ Õ«œ ›Ì «·œÊ—… «·œ„ÊÌ… Ê«· ‰›”Ì… )" 
-                                Font-Bold="True"></asp:Label>
-                        </td>
-                        </tr>
+                       
                             <tr>
                                 <td>
                                     <asp:Label ID="Label13" Text="Â· ﬂ«‰  «·„ Ê›«… Õ«„·ø" runat="server"></asp:Label>
@@ -429,26 +427,12 @@
                             
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label14" Text="Â· ÕœÀ  Ê·«œ… Œ·«· 6 «”«»Ì⁄ ”«»ﬁ… ··Ê›«…" runat="server"></asp:Label>
+                                    („‰ »œ«Ì… «·Ê·«œ… Õ Ï 24 ”«⁄… »⁄œ ‰Â«Ì… «·Ê·«œ…)<br />
+                                    <asp:Label ID="Label14" Text="Â· ÕœÀ  «·Ê›«… Œ·«· 42 ÌÊ„ »⁄œ «·Ê·«œ… ø" runat="server"></asp:Label>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rdBirthPast6Weeks" RepeatDirection="Horizontal" runat="server">
                                        <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
-                                        <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label15" Text="Â· ÕœÀ «ÃÂ«÷ Œ·«· 6 «”«»Ì⁄ ”«»ﬁ… ··Ê›«…" runat="server"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:RadioButtonList ID="rdAbortionPast6Weeks" RepeatDirection="Horizontal" runat="server">
-                                        <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
                                         <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
@@ -494,6 +478,21 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <asp:Label ID="Label15" Text="Â· ÕœÀ  «·Ê›«… √À‰«¡ √Ê Œ·«· 42 ÌÊ„ »⁄œ «·≈ÃÂ«÷ ø" runat="server"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:RadioButtonList ID="rdAbortionPast6Weeks" RepeatDirection="Horizontal" runat="server">
+                                        <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
+                                        <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <asp:Label ID="Label22" Text="›Ì Õ«·… ‰⁄„ : „« ÂÊ  «—ÌŒ «·≈ÃÂ«÷" runat="server"></asp:Label>
                                 </td>
                                 <td>
@@ -509,6 +508,8 @@
                                     <asp:TextBox ID="uiTextBoxAbortionPlace" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
+                            
+                            
                         </table>
                     
 </ContentTemplate>
