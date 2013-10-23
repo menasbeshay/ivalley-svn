@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:defs="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Definitions" xmlns:tns="http://www.cso.gov.eg/Services/PersonalProfileService/V1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="PersonalProfileService" targetNamespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Definitions" location="PersonalProfileServiceDef.wsdl" />
+  <wsdl:types />
+  <wsdl:service name="PersonalProfileService">
+    <wsdl:port name="PersonalProfileServicePort" binding="defs:PersonalProfileBinding">
+      <soap:address location="http://192.168.33.103:80/G2G/services/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

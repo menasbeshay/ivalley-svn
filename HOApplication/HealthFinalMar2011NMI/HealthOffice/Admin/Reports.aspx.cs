@@ -85,6 +85,7 @@ public partial class Admin_Reports : System.Web.UI.Page
         lblFrom.BackColor = System.Drawing.Color.FromName("#efefef");
         lblTo.BackColor = System.Drawing.Color.FromName("#efefef");
         lblError.Text = "";
+
     }
     protected void Page_PreRender(object sender, EventArgs e)
     {
@@ -505,7 +506,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                         if (healthOfficeID != -1)
                         {
                             htParameters.Add("HealthId", healthOfficeID);
-                            htParameters.Add("HealthDesc", drpHealthOffice.SelectedItem.Text);
+                            //htParameters.Add("HealthDesc", drpHealthOffice.SelectedItem.Text);
                         }
                         htParameters.Add("StartDate", startDate.Month.ToString().PadLeft(2, '0') + "/" + startDate.Day.ToString().PadLeft(2, '0') + "/" + startDate.Year);
                         htParameters.Add("EndDate", endDate.Month.ToString().PadLeft(2, '0') + "/" + endDate.Day.ToString().PadLeft(2, '0') + "/" + endDate.Year);
@@ -941,7 +942,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                     if (txtStartDate.Text != string.Empty && txtEndDate.Text != string.Empty)
                     {
 
-                        Response.Redirect("~/HealthReports/Rpt_ListDeadAprrovedCount.aspx?startdate=" + startDate.ToShortDateString() + "&enddate=" + endDate.ToShortDateString());
+                        Response.Redirect("~/HealthReports/Rpt_ListDeadAprrovedCount.aspx?startdate=" + startDate.ToShortDateString() + "&enddate=" + endDate.ToShortDateString() + "&GovID=" + govId.ToString() + "&CivilID=" + civilId.ToString() + "&HealthOfficeID="  + healthOfficeID.ToString());
                     }
                     else
                     {

@@ -30,6 +30,45 @@
                     </Columns>
                     <SelectedRowStyle CssClass="AspNet-GridView-Selected" />
                 </asp:GridView>
+
+                
+                <asp:GridView runat="server" EmptyDataText="لا توجد بيانات" ID="grdListDeadAprrovedCountGov"
+                    AutoGenerateColumns="False" 
+                    SelectedRowStyle-CssClass="AspNet-GridView-Selected">
+                    <Columns>
+                        <asp:BoundField DataField="GovName" HeaderText="المديرية الصحية" />
+                        <asp:BoundField DataField="CivilName" HeaderText="الإدارة الصحية" />                                              
+                        <asp:BoundField DataField="DeadCount" HeaderText="إدخالات وفيات" />
+                        <asp:BoundField DataField="ApprovedDead" HeaderText="وفيات موثقة" />
+                    </Columns>
+                    <SelectedRowStyle CssClass="AspNet-GridView-Selected" />
+                </asp:GridView>
+
+                <asp:GridView runat="server" EmptyDataText="لا توجد بيانات" ID="grdListDeadAprrovedCountCivil"
+                    AutoGenerateColumns="False" 
+                    SelectedRowStyle-CssClass="AspNet-GridView-Selected">
+                    <Columns>
+                        <asp:BoundField DataField="GovName" HeaderText="المديرية الصحية" />
+                        <asp:BoundField DataField="CivilName" HeaderText="الإدارة الصحية" />   
+                        <asp:BoundField DataField="HealthOfficeName" HeaderText="مكتب الصحة" />                    
+                        <asp:BoundField DataField="DeadCount" HeaderText="إدخالات وفيات" />
+                        <asp:BoundField DataField="ApprovedDead" HeaderText="وفيات موثقة" />
+                    </Columns>
+                    <SelectedRowStyle CssClass="AspNet-GridView-Selected" />
+                </asp:GridView>
+
+                <asp:GridView runat="server" EmptyDataText="لا توجد بيانات" ID="grdListDeadAprrovedCountHealthOffice"
+                    AutoGenerateColumns="False" 
+                    SelectedRowStyle-CssClass="AspNet-GridView-Selected">
+                    <Columns>
+                        <asp:BoundField DataField="GovName" HeaderText="المديرية الصحية" />
+                        <asp:BoundField DataField="CivilName" HeaderText="الإدارة الصحية" />  
+                        <asp:BoundField DataField="HealthOfficeName" HeaderText="مكتب الصحة" />  
+                        <asp:BoundField DataField="DeadCount" HeaderText="إدخالات وفيات" />
+                        <asp:BoundField DataField="ApprovedDead" HeaderText="وفيات موثقة" />
+                    </Columns>
+                    <SelectedRowStyle CssClass="AspNet-GridView-Selected" />
+                </asp:GridView>
             </td>
             <td>
                 &nbsp;</td>

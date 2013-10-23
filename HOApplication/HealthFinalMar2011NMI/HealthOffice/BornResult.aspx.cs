@@ -47,10 +47,12 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["Birth"] != null)
             {
                 Button1.Attributes.Add("onclick", string.Format("javascript:window.open('Print.aspx?Born=1&Dead=0&BornEventID={0}')", Request.QueryString["BornEventIdParameter"]));
+               // Button1.Attributes.Add("onclick", string.Format("javascript:window.location.href = '{0}/Print.aspx?Born=1&Dead=0&BornEventID={1}'", Request.ApplicationPath, Request.QueryString["BornEventIdParameter"]));
             }
             else
             {
                 Button1.Attributes.Add("onclick", string.Format("javascript:window.open('Print.aspx?Born=0&Dead=1&DeadEventID={0}')", Request.QueryString["DeadEventID"]));
+                //Button1.Attributes.Add("onclick", string.Format("javascript:window.location.href='{0}/Print.aspx?Born=0&Dead=1&DeadEventID={1}'",Request.ApplicationPath, Request.QueryString["DeadEventID"]));
             }
             
           

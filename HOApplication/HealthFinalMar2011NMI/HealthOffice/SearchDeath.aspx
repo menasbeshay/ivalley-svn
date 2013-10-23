@@ -98,6 +98,11 @@
                                 <asp:Label ID="lblApproved" runat="server"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="ØÈÇÚÉ">
+                        <ItemTemplate>
+                            <input id="Button1" type="button" value="ØÈÇÚÉ" onclick="javascript:window.open('Print.aspx?Born=0&Dead=1&DeadEventID=<%#Eval("DeadEventID") %>')" />
+                        </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </td>

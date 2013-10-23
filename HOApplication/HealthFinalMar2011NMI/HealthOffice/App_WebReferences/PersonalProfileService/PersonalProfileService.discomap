@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///D:/SmartValley/Health/HealthFinalMar2011/HealthOffice/App_WebReferences/PersonalProfileService/CommonError.xsd" filename="CommonError.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///D:/SmartValley/Health/HealthFinalMar2011/HealthOffice/App_WebReferences/PersonalProfileService/PersonalProfileService.wsdl" filename="PersonalProfileService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///D:/SmartValley/Health/HealthFinalMar2011/HealthOffice/App_WebReferences/PersonalProfileService/PersonalProfileServiceTypes.xsd" filename="PersonalProfileServiceTypes.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///D:/SmartValley/Health/HealthFinalMar2011/HealthOffice/App_WebReferences/PersonalProfileService/PersonalProfileServiceDef.wsdl" filename="PersonalProfileServiceDef.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///D:/SmartValley/Health/HealthFinalMar2011/HealthOffice/App_WebReferences/PersonalProfileService/G2GHeader.xsd" filename="G2GHeader.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

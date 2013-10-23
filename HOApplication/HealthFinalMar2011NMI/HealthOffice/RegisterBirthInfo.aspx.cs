@@ -704,12 +704,35 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
 
     private bool logicValidation()
     {
+        if (UcFatherInfo2.ParentNID == "0")
+        {
+            MHOCommon.ShowMessage("الرقم القومى للأب غير صحيح", this.Page);
+            return false;
+        }
+
+        if (!MHOCommon.ValidateNationalIDInput(UcFatherInfo2.ParentNID, false))
+        {
+            MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
+            return false;
+        }
+
+        if (!MHOCommon.ValidateNationalIDInput(UcMotherInfo2.ParentNID, true))
+        {
+            MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
+            return false;
+        }
+
+        if (UcMotherInfo2.ParentNID == "0")
+        {
+            MHOCommon.ShowMessage("الرقم القومى للأب غير صحيح", this.Page);
+            return false;
+        }   
 
         if (UcBornInfo1.EventBirthDate == null)
         {
             MHOCommon.ShowMessage("خطأ فى تاريخ او وقت الميلاد", this.Page);
             return false;
-        }
+        }        
 
         if ((UcFatherInfo2.ParentNID == UcNotifierInfo1.NotifierNID) && UcNotifierInfo1.NotifierRelation != 1)
         {
@@ -758,11 +781,11 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 return false;
             }
 
-            //if (DateTime.Today.AddDays(-15) >= UcBornInfo1.EventBirthDate)
-            //{
-            //    MHOCommon.ShowMessage("تاريخ تسجيل الميلاد يجب ان لا يزيد عن 15 يوم من تاريخ الميلاد", this.Page);
-            //    return false;
-            //}
+            if (DateTime.Today.AddDays(-15) >= UcBornInfo1.EventBirthDate)
+            {
+                MHOCommon.ShowMessage("تاريخ تسجيل الميلاد يجب ان لا يزيد عن 15 يوم من تاريخ الميلاد", this.Page);
+                return false;
+            }
         }
         if (IsLostCase)
         {

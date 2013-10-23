@@ -97,6 +97,11 @@
                                 <asp:Label ID="lblApproved" runat="server"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="ØÈÇÚÉ">
+                        <ItemTemplate>
+                            <input id="Button1" type="button" value="ØÈÇÚÉ" onclick='javascript:window.open("Print.aspx?Born=1&Dead=0&BornEventID=<%#Eval("BornEventID") %>")' />
+                        </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="White" ForeColor="#000066" />
                     <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />

@@ -35,6 +35,77 @@
                txtFatherName.value = '';
            }
        }
+
+       function FillNotifierInfo(obj) {
+           // debugger
+           // Mother Oiginal Data
+           var MotherNID = document.getElementById('ctl00_ContentPlaceHolderMain_UcMotherInfo2_txtNationalId');
+           var MotherFName = document.getElementById('ctl00_ContentPlaceHolderMain_UcMotherInfo2_txtFirstName');
+           var MotherSName = document.getElementById('ctl00_ContentPlaceHolderMain_UcMotherInfo2_txtFatherName');
+           var Mother3Name = document.getElementById('ctl00_ContentPlaceHolderMain_UcMotherInfo2_txtFamilyName');
+           var MotherNationality = document.getElementById('ctl00_ContentPlaceHolderMain_UcMotherInfo2_dropNationality')
+
+           //Notifier Data
+           var NotifierNID = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtNationalId');
+           var NotifierFName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtFirstName');
+           var NotifierSName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtFatherName');
+
+           var selectedValue = obj.options[obj.selectedIndex].value;
+
+           if (selectedValue == '2') {
+               if (MotherNationality.value == '13818') {
+                   // Mother Selected
+                   if (MotherNID.value != 0) {
+                       NotifierNID.value = MotherNID.value;
+                       NotifierFName.value = MotherFName.value;
+                       NotifierSName.value = MotherSName.value + ' ' + Mother3Name.value;
+                   }
+               }
+           }
+           else {
+               NotifierNID.value = '';
+               NotifierFName.value = '';
+               NotifierSName.value = '';
+           }
+
+       }
+
+       function ClearNotifierData(objNat) {
+           //debugger
+           //Notifier Data
+           var NotifierType = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_drpNotiferRelation');
+           var NotifierNID = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtNationalId');
+           var NotifierFName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtFirstName');
+           var NotifierSName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtFatherName');
+           var NotifierHdnFName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_hdnFirstName');
+           var NotifierHdnSName = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_hdnFatherName');
+           var NotifierPhone = document.getElementById('ctl00_ContentPlaceHolderMain_UcNotifierInfo2_txtPhoneNumber');
+           var notifierNationlityId = objNat.id;
+           if (notifierNationlityId.indexOf('UcFatherInfo2') != -1) {
+               // Father case.
+               if (NotifierType.options[NotifierType.selectedIndex].value == 1) {
+                   NotifierType.selectedIndex = 0;
+                   NotifierNID.value = '';
+                   NotifierFName.value = '';
+                   NotifierSName.value = '';
+                   NotifierHdnFName.value = '';
+                   NotifierHdnSName.value = '';
+                   NotifierPhone.value = '';
+               }
+           }
+           else {
+               // Mother Case
+               if (NotifierType.options[NotifierType.selectedIndex].value == 2) {
+                   NotifierType.selectedIndex = 0;
+                   NotifierNID.value = '';
+                   NotifierFName.value = '';
+                   NotifierSName.value = '';
+                   NotifierHdnFName.value = '';
+                   NotifierHdnSName.value = '';
+                   NotifierPhone.value = '';
+               }
+           }
+       }
    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
@@ -43,7 +114,7 @@
         function FillNotifierInfo(obj) {
             // debugger
             // Father Oiginal Data
-            var FatherNID = document.getElementById('ctl00_ContentPlaceHolderMain_TabContainerBirthInfo_TabPanelBasicData_UcFatherInfo2_txtNationalId');
+            var FatherNID = document.getElementById('ctl00_ContentPlaceHolderMain_TabContainerBirthInfo_TabPanelBasicData_UcFatherInfo2_txtNationalId');                                                     
             var FatherFName = document.getElementById('ctl00_ContentPlaceHolderMain_TabContainerBirthInfo_TabPanelBasicData_UcFatherInfo2_txtFirstName');
             var FatherSName = document.getElementById('ctl00_ContentPlaceHolderMain_TabContainerBirthInfo_TabPanelBasicData_UcFatherInfo2_txtFatherName');
             var Father3Name = document.getElementById('ctl00_ContentPlaceHolderMain_TabContainerBirthInfo_TabPanelBasicData_UcFatherInfo2_txtFamilyName');

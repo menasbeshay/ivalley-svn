@@ -4,13 +4,13 @@
     <ContentTemplate>
         <table width="100%" dir="rtl">
             <tr>
-                <td>
+                <td style="width:9%;">
                     <asp:Label ID="lblRelation" runat="server" meta:resourcekey="lblRelationResource1"></asp:Label>
                     <asp:RequiredFieldValidator runat="server" InitialValue="0" SetFocusOnError="true"
                         Display="Dynamic" ValidationGroup="GenralValidate" ID="reqName" ControlToValidate="drpNotiferRelation"
                         ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
-                <td>
+                <td style="text-align:right;">
                     <asp:DropDownList runat="server" ID="drpNotiferRelation" Width="155px" onChange="FillNotifierInfo(this);">
                         <asp:ListItem Value="0">--------</asp:ListItem>
                         <asp:ListItem Value="1">الاب</asp:ListItem>
@@ -30,16 +30,20 @@
                 <td>
                 </td>
             </tr>
+            </table>
+            <table width="40%" dir="rtl">
             <tr>
-                <td>
+                <td style="width:55px;">
                     <asp:Label ID="lblNationalId" runat="server" meta:resourcekey="lblNationalIdResource1"></asp:Label>
                 </td>
-                <td width="155px">
-                    <asp:TextBox ID="txtNationalId" runat="server" meta:resourcekey="txtNationalIdResource1"
-                        AutoPostBack="True" MaxLength="14" OnTextChanged="txtNationalId_TextChanged" OnKeyUp="ClearFields();"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" 
-                        ControlToValidate="txtNationalId" ErrorMessage="أدخل رقم قومى صحيح" 
-                        ValidationExpression="^([0])|(\d{14})$"></asp:RegularExpressionValidator>
+                <td style="text-align:right;">
+                    <%--<asp:TextBox ID="txtNationalId" runat="server" meta:resourcekey="txtNationalIdResource1"
+                        AutoPostBack="True" MaxLength="14" OnTextChanged="txtNationalId_TextChanged" OnKeyUp="ClearFields();"></asp:TextBox>--%>
+                        <asp:TextBox ID="txtNationalId" runat="server" meta:resourcekey="txtNationalIdResource1"
+                         MaxLength="14"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ValidationGroup="GenralValidate"
+                        ControlToValidate="txtNationalId" ErrorMessage="أدخل رقم قومى صحيح" Display="Dynamic"
+                        ValidationExpression="^(\d{14})$"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"
                         ValidationGroup="GenralValidate" ID="RequiredFieldValidator1" ControlToValidate="txtNationalId"
                         ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -47,9 +51,9 @@
                                         runat="server" ControlToValidate="txtNationalId" ErrorMessage="ارقام فقط"
                                          Operator="DataTypeCheck" Type="Integer" ></asp:CompareValidator>--%>
                 </td>
-                <td>
+                <td style="text-align:right;">
                     <asp:Button ID="btnSearch" runat="server" Text="بحث" OnClick="btnSearch_Click" 
-                        Width="35px" Enabled="False" />
+                        Width="35px" />
                     <asp:UpdateProgress runat="server" AssociatedUpdatePanelID="updatePnlParents" DisplayAfter="1"
                         ID="progParents">
                         <ProgressTemplate>
@@ -62,6 +66,8 @@
                     <asp:Label runat="server" ID="lblError" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
+            </table>
+            <table width="100%" dir="rtl">
             <tr>
                 <td width="60px">
                     <table width="100%">
@@ -134,6 +140,6 @@
     </ContentTemplate>
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="btnSearch" EventName="Click" />
-        <asp:AsyncPostBackTrigger ControlID="txtNationalId" EventName="TextChanged" />
+       <%-- <asp:AsyncPostBackTrigger ControlID="txtNationalId" EventName="TextChanged" />--%>
     </Triggers>
 </asp:UpdatePanel>

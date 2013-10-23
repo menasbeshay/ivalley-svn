@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://www.cso.gov.eg/Services/PersonalProfileService/V1/Types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="PersonProfile">
+    <xsd:sequence>
+      <xsd:element name="dateOfBirth" nillable="true" type="xsd:string" />
+      <xsd:element name="fcn" nillable="true" type="xsd:string" />
+      <xsd:element name="firstName" nillable="true" type="xsd:string" />
+      <xsd:element name="gender" nillable="true" type="xsd:string" />
+      <xsd:element name="governOfBirth" nillable="true" type="xsd:string" />
+      <xsd:element name="lastNames" nillable="true" type="xsd:string" />
+      <xsd:element name="nationalNumber" nillable="true" type="xsd:string" />
+      <xsd:element name="pdd" nillable="true" type="xsd:string" />
+      <xsd:element name="policeStatinofBirth" nillable="true" type="xsd:string" />
+      <xsd:element name="stat" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PersonProfileName">
+    <xsd:sequence>
+      <xsd:element name="fname" type="xsd:string" />
+      <xsd:element name="lname" type="xsd:string" />
+      <xsd:element name="birthDate" type="xsd:string" />
+      <xsd:element name="govOfBirth" type="xsd:string" />
+      <xsd:element name="organizationID" nillable="true" type="xsd:string" />
+      <xsd:element name="orgIpAddres" nillable="true" type="xsd:string" />
+      <xsd:element name="prkey" nillable="true" type="xsd:string" />
+      <xsd:element name="stype" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PersonProfileId">
+    <xsd:sequence>
+      <xsd:element name="idNum" nillable="true" type="xsd:string" />
+      <xsd:element name="organizationID" nillable="true" type="xsd:string" />
+      <xsd:element name="orgIpAddres" nillable="true" type="xsd:string" />
+      <xsd:element name="prkey" nillable="true" type="xsd:string" />
+      <xsd:element name="stype" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PersonProfileFcn">
+    <xsd:sequence>
+      <xsd:element name="fcn" nillable="true" type="xsd:string" />
+      <xsd:element name="organizationID" nillable="true" type="xsd:string" />
+      <xsd:element name="orgIpAddres" nillable="true" type="xsd:string" />
+      <xsd:element name="prkey" nillable="true" type="xsd:string" />
+      <xsd:element name="stype" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -12,6 +12,9 @@
             <td width="60px">
                 <asp:Label ID="lblName" runat="server" meta:resourcekey="lblNameResource1"></asp:Label>
                 <asp:RequiredFieldValidator runat="server"  SetFocusOnError="true" Display="Dynamic" ValidationGroup="GenralValidate" ID="reqName" ControlToValidate="txtName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" SetFocusOnError="true" Display="Dynamic"
+                    runat="server" ControlToValidate="txtName"  ValidationGroup="GenralValidate"
+                    ErrorMessage="حروف فقط" ValidationExpression="^[^0-9()]+$"></asp:RegularExpressionValidator>
             </td>
             <td style="padding-right: 5px;" class="style1">
                 <asp:TextBox ID="txtName" MaxLength="20" runat="server" meta:resourcekey="txtNameResource1"></asp:TextBox>

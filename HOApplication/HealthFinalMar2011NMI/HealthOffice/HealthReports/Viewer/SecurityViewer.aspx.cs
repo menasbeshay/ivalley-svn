@@ -36,7 +36,7 @@ public partial class SecurityViewer : System.Web.UI.Page
             {
                                
                 UmisReportViewer.ServerReport.ReportServerUrl = new Uri(ConfigurationManager.AppSettings["ReportServer"]);
-                UmisReportViewer.ServerReport.ReportPath = "/" + ConfigurationManager.AppSettings["ReportFolder"] + "/" + Request.QueryString["rptRDL"];
+                UmisReportViewer.ServerReport.ReportPath = "/" + ConfigurationManager.AppSettings["ReportFolder"] + "/" + Request.QueryString["rptRDL"];                
                 // use network credentials 
                 if (ConfigurationManager.AppSettings["UseReportServerCredentials"] == "True")
                 {
