@@ -8,20 +8,20 @@ using System.Data.SqlClient;
 using System.Data;
 namespace WhiteChat.BLL
 {
-	public class Member : _Member
+	public class SubCategory : _SubCategory
 	{
-		public Member()
+		public SubCategory()
 		{
 		
 		}
 
-        public virtual bool GetMembersByChatRoomID(int ChatRoomID)
+        public virtual bool GetSubCategoryByCategoryID(int CategoryID)
         {
             ListDictionary parameters = new ListDictionary();
 
-            parameters.Add(new SqlParameter("@ChatRoomID", SqlDbType.Int, 0), ChatRoomID);
+            parameters.Add(new SqlParameter("@CategoryID", SqlDbType.Int, 0), CategoryID);
 
-            return LoadFromSql("GetMembersByChatRoomID", parameters);
+            return LoadFromSql("GetSubCategoryByCategoryID", parameters);
 
         }
 	}

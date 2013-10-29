@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace WhiteChat.DAL
 {
-	public abstract class _ChatRoom : SqlClientEntity
+	public abstract class _SubCategory : SqlClientEntity
 	{
-		public _ChatRoom()
+		public _SubCategory()
 		{
-			this.QuerySource = "ChatRoom";
-			this.MappingName = "ChatRoom";
+			this.QuerySource = "SubCategory";
+			this.MappingName = "SubCategory";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace WhiteChat.DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ChatRoomLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_SubCategoryLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -86,32 +86,24 @@ namespace WhiteChat.DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int ChatRoomID)
+		public virtual bool LoadByPrimaryKey(int SubCategoryID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.ChatRoomID, ChatRoomID);
+			parameters.Add(Parameters.SubCategoryID, SubCategoryID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ChatRoomLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_SubCategoryLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
 		protected class Parameters
 		{
 			
-			public static SqlParameter ChatRoomID
+			public static SqlParameter SubCategoryID
 			{
 				get
 				{
-					return new SqlParameter("@ChatRoomID", SqlDbType.Int, 0);
-				}
-			}
-			
-			public static SqlParameter Name
-			{
-				get
-				{
-					return new SqlParameter("@Name", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@SubCategoryID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -123,11 +115,11 @@ namespace WhiteChat.DAL
 				}
 			}
 			
-			public static SqlParameter SubCategoryID
+			public static SqlParameter Name
 			{
 				get
 				{
-					return new SqlParameter("@SubCategoryID", SqlDbType.Int, 0);
+					return new SqlParameter("@Name", SqlDbType.NVarChar, 200);
 				}
 			}
 			
@@ -137,10 +129,9 @@ namespace WhiteChat.DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string ChatRoomID = "ChatRoomID";
-            public const string Name = "Name";
-            public const string CategoryID = "CategoryID";
             public const string SubCategoryID = "SubCategoryID";
+            public const string CategoryID = "CategoryID";
+            public const string Name = "Name";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -148,10 +139,9 @@ namespace WhiteChat.DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ChatRoomID] = _ChatRoom.PropertyNames.ChatRoomID;
-					ht[Name] = _ChatRoom.PropertyNames.Name;
-					ht[CategoryID] = _ChatRoom.PropertyNames.CategoryID;
-					ht[SubCategoryID] = _ChatRoom.PropertyNames.SubCategoryID;
+					ht[SubCategoryID] = _SubCategory.PropertyNames.SubCategoryID;
+					ht[CategoryID] = _SubCategory.PropertyNames.CategoryID;
+					ht[Name] = _SubCategory.PropertyNames.Name;
 
 				}
 				return (string)ht[columnName];
@@ -164,10 +154,9 @@ namespace WhiteChat.DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string ChatRoomID = "ChatRoomID";
-            public const string Name = "Name";
-            public const string CategoryID = "CategoryID";
             public const string SubCategoryID = "SubCategoryID";
+            public const string CategoryID = "CategoryID";
+            public const string Name = "Name";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -175,10 +164,9 @@ namespace WhiteChat.DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ChatRoomID] = _ChatRoom.ColumnNames.ChatRoomID;
-					ht[Name] = _ChatRoom.ColumnNames.Name;
-					ht[CategoryID] = _ChatRoom.ColumnNames.CategoryID;
-					ht[SubCategoryID] = _ChatRoom.ColumnNames.SubCategoryID;
+					ht[SubCategoryID] = _SubCategory.ColumnNames.SubCategoryID;
+					ht[CategoryID] = _SubCategory.ColumnNames.CategoryID;
+					ht[Name] = _SubCategory.ColumnNames.Name;
 
 				}
 				return (string)ht[propertyName];
@@ -191,37 +179,24 @@ namespace WhiteChat.DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string ChatRoomID = "s_ChatRoomID";
-            public const string Name = "s_Name";
-            public const string CategoryID = "s_CategoryID";
             public const string SubCategoryID = "s_SubCategoryID";
+            public const string CategoryID = "s_CategoryID";
+            public const string Name = "s_Name";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int ChatRoomID
+		public virtual int SubCategoryID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ChatRoomID);
+				return base.Getint(ColumnNames.SubCategoryID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ChatRoomID, value);
-			}
-		}
-
-		public virtual string Name
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.Name);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.Name, value);
+				base.Setint(ColumnNames.SubCategoryID, value);
 			}
 		}
 
@@ -237,15 +212,15 @@ namespace WhiteChat.DAL
 			}
 		}
 
-		public virtual int SubCategoryID
+		public virtual string Name
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.SubCategoryID);
+				return base.Getstring(ColumnNames.Name);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.SubCategoryID, value);
+				base.Setstring(ColumnNames.Name, value);
 			}
 		}
 
@@ -254,33 +229,18 @@ namespace WhiteChat.DAL
 		
 		#region String Properties
 	
-		public virtual string s_ChatRoomID
+		public virtual string s_SubCategoryID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ChatRoomID) ? string.Empty : base.GetintAsString(ColumnNames.ChatRoomID);
+				return this.IsColumnNull(ColumnNames.SubCategoryID) ? string.Empty : base.GetintAsString(ColumnNames.SubCategoryID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ChatRoomID);
+					this.SetColumnNull(ColumnNames.SubCategoryID);
 				else
-					this.ChatRoomID = base.SetintAsString(ColumnNames.ChatRoomID, value);
-			}
-		}
-
-		public virtual string s_Name
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.Name) ? string.Empty : base.GetstringAsString(ColumnNames.Name);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Name);
-				else
-					this.Name = base.SetstringAsString(ColumnNames.Name, value);
+					this.SubCategoryID = base.SetintAsString(ColumnNames.SubCategoryID, value);
 			}
 		}
 
@@ -299,18 +259,18 @@ namespace WhiteChat.DAL
 			}
 		}
 
-		public virtual string s_SubCategoryID
+		public virtual string s_Name
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.SubCategoryID) ? string.Empty : base.GetintAsString(ColumnNames.SubCategoryID);
+				return this.IsColumnNull(ColumnNames.Name) ? string.Empty : base.GetstringAsString(ColumnNames.Name);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.SubCategoryID);
+					this.SetColumnNull(ColumnNames.Name);
 				else
-					this.SubCategoryID = base.SetintAsString(ColumnNames.SubCategoryID, value);
+					this.Name = base.SetstringAsString(ColumnNames.Name, value);
 			}
 		}
 
@@ -347,21 +307,11 @@ namespace WhiteChat.DAL
 				}
 				
 				
-				public WhereParameter ChatRoomID
+				public WhereParameter SubCategoryID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ChatRoomID, Parameters.ChatRoomID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter Name
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.Name, Parameters.Name);
+							WhereParameter where = new WhereParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -377,11 +327,11 @@ namespace WhiteChat.DAL
 					}
 				}
 
-				public WhereParameter SubCategoryID
+				public WhereParameter Name
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
+							WhereParameter where = new WhereParameter(ColumnNames.Name, Parameters.Name);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -392,27 +342,15 @@ namespace WhiteChat.DAL
 			}
 			#endregion
 		
-			public WhereParameter ChatRoomID
+			public WhereParameter SubCategoryID
 		    {
 				get
 		        {
-					if(_ChatRoomID_W == null)
+					if(_SubCategoryID_W == null)
 	        	    {
-						_ChatRoomID_W = TearOff.ChatRoomID;
+						_SubCategoryID_W = TearOff.SubCategoryID;
 					}
-					return _ChatRoomID_W;
-				}
-			}
-
-			public WhereParameter Name
-		    {
-				get
-		        {
-					if(_Name_W == null)
-	        	    {
-						_Name_W = TearOff.Name;
-					}
-					return _Name_W;
+					return _SubCategoryID_W;
 				}
 			}
 
@@ -428,29 +366,27 @@ namespace WhiteChat.DAL
 				}
 			}
 
-			public WhereParameter SubCategoryID
+			public WhereParameter Name
 		    {
 				get
 		        {
-					if(_SubCategoryID_W == null)
+					if(_Name_W == null)
 	        	    {
-						_SubCategoryID_W = TearOff.SubCategoryID;
+						_Name_W = TearOff.Name;
 					}
-					return _SubCategoryID_W;
+					return _Name_W;
 				}
 			}
 
-			private WhereParameter _ChatRoomID_W = null;
-			private WhereParameter _Name_W = null;
-			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _SubCategoryID_W = null;
+			private WhereParameter _CategoryID_W = null;
+			private WhereParameter _Name_W = null;
 
 			public void WhereClauseReset()
 			{
-				_ChatRoomID_W = null;
-				_Name_W = null;
-				_CategoryID_W = null;
 				_SubCategoryID_W = null;
+				_CategoryID_W = null;
+				_Name_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -507,21 +443,11 @@ namespace WhiteChat.DAL
 				}
 				
 				
-				public AggregateParameter ChatRoomID
+				public AggregateParameter SubCategoryID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ChatRoomID, Parameters.ChatRoomID);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter Name
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Name, Parameters.Name);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -537,11 +463,11 @@ namespace WhiteChat.DAL
 					}
 				}
 
-				public AggregateParameter SubCategoryID
+				public AggregateParameter Name
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SubCategoryID, Parameters.SubCategoryID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Name, Parameters.Name);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -552,27 +478,15 @@ namespace WhiteChat.DAL
 			}
 			#endregion
 		
-			public AggregateParameter ChatRoomID
+			public AggregateParameter SubCategoryID
 		    {
 				get
 		        {
-					if(_ChatRoomID_W == null)
+					if(_SubCategoryID_W == null)
 	        	    {
-						_ChatRoomID_W = TearOff.ChatRoomID;
+						_SubCategoryID_W = TearOff.SubCategoryID;
 					}
-					return _ChatRoomID_W;
-				}
-			}
-
-			public AggregateParameter Name
-		    {
-				get
-		        {
-					if(_Name_W == null)
-	        	    {
-						_Name_W = TearOff.Name;
-					}
-					return _Name_W;
+					return _SubCategoryID_W;
 				}
 			}
 
@@ -588,29 +502,27 @@ namespace WhiteChat.DAL
 				}
 			}
 
-			public AggregateParameter SubCategoryID
+			public AggregateParameter Name
 		    {
 				get
 		        {
-					if(_SubCategoryID_W == null)
+					if(_Name_W == null)
 	        	    {
-						_SubCategoryID_W = TearOff.SubCategoryID;
+						_Name_W = TearOff.Name;
 					}
-					return _SubCategoryID_W;
+					return _Name_W;
 				}
 			}
 
-			private AggregateParameter _ChatRoomID_W = null;
-			private AggregateParameter _Name_W = null;
-			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _SubCategoryID_W = null;
+			private AggregateParameter _CategoryID_W = null;
+			private AggregateParameter _Name_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_ChatRoomID_W = null;
-				_Name_W = null;
-				_CategoryID_W = null;
 				_SubCategoryID_W = null;
+				_CategoryID_W = null;
+				_Name_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -642,12 +554,12 @@ namespace WhiteChat.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ChatRoomInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_SubCategoryInsert]";
 	
 			CreateParameters(cmd);
 			
 			SqlParameter p;
-			p = cmd.Parameters[Parameters.ChatRoomID.ParameterName];
+			p = cmd.Parameters[Parameters.SubCategoryID.ParameterName];
 			p.Direction = ParameterDirection.Output;
     
 			return cmd;
@@ -658,7 +570,7 @@ namespace WhiteChat.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ChatRoomUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_SubCategoryUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -670,11 +582,11 @@ namespace WhiteChat.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ChatRoomDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_SubCategoryDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.ChatRoomID);
-			p.SourceColumn = ColumnNames.ChatRoomID;
+			p = cmd.Parameters.Add(Parameters.SubCategoryID);
+			p.SourceColumn = ColumnNames.SubCategoryID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -685,20 +597,16 @@ namespace WhiteChat.DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.ChatRoomID);
-			p.SourceColumn = ColumnNames.ChatRoomID;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.Name);
-			p.SourceColumn = ColumnNames.Name;
+			p = cmd.Parameters.Add(Parameters.SubCategoryID);
+			p.SourceColumn = ColumnNames.SubCategoryID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.CategoryID);
 			p.SourceColumn = ColumnNames.CategoryID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.SubCategoryID);
-			p.SourceColumn = ColumnNames.SubCategoryID;
+			p = cmd.Parameters.Add(Parameters.Name);
+			p.SourceColumn = ColumnNames.Name;
 			p.SourceVersion = DataRowVersion.Current;
 
 

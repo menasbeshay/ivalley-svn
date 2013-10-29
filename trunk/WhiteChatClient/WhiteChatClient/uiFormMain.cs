@@ -55,6 +55,7 @@ namespace WhiteChatClient
         private void AddControlsToMainForm(Control control, Button DefaultButton)
         {
             uiPanelMain.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
             this.AcceptButton = DefaultButton;
         }
 
@@ -67,6 +68,11 @@ namespace WhiteChatClient
         }
         #endregion
 
-       
+        private void chatRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uiFormChatRooms chatroom = new uiFormChatRooms();
+            chatroom.ShowDialog();
+        }
+
     }
 }

@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Succeede
 ELSE PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadAll];
 GO
@@ -69,7 +69,7 @@ GO
 -------------------------------------------
 
 
-/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberInsert];
 GO
@@ -110,7 +110,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberDelete];
 GO
