@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\CurrentUser.cs" />
+    <Compile Include="uiFormBrowseChatRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiFormBrowseChatRooms.Designer.cs">
+      <DependentUpon>uiFormBrowseChatRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiFormChatRooms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="UserControls\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="uiFormBrowseChatRooms.resx">
+      <DependentUpon>uiFormBrowseChatRooms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiFormChatRooms.resx">
       <DependentUpon>uiFormChatRooms.cs</DependentUpon>
     </EmbeddedResource>
