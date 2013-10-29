@@ -717,169 +717,9 @@
             This represents the number of Aggregates contained within the Query.
             </summary>
         </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter">
+        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
             <summary>
-            This class is dynamcially created when you add a WhereParameter to your BusiinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
-            </summary>
-            <remarks>
-            This will be the extent of your use of the WhereParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
-            <code>
-            emps.Where.LastName.Value = "%A%";
-            emps.Where.LastName.Operator = WhereParameter.Operand.Like;
-            </code>
-            </remarks>
-        </member>
-        <member name="M:MyGeneration.dOOdads.WhereParameter.#ctor(System.String,System.Data.IDataParameter)">
-            <summary>
-            This is only called by dOOdads architecture.
-            </summary>
-            <param name="column"></param>
-            <param name="param"></param>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.IsDirty">
-            <summary>
-            Used to determine if the WhereParameters has a value
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Column">
-            <summary>
-            The column in the BusinessEntity that this WhereParameter is going to query against. 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Param">
-            <summary>
-            The actual database Parameter 
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Value">
-            <summary>
-            The value that will be placed into the Parameter
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Operator">
-            <summary>
-            The type of comparison desired
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.Conjuction">
-            <summary>
-            The type of conjuction to use, "AND" or "OR"
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue">
-            <summary>
-            Used when use the Operand.Between comparison
-            </summary>
-        </member>
-        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue">
-            <summary>
-            Used when use the Operand.Between comparison
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Operand">
-            <summary>
-            The type of comparison this parameter shoud use
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Equal">
-            <summary>
-            Equal Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotEqual">
-            <summary>
-            Not Equal Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThan">
-            <summary>
-            Greater Than Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual">
-            <summary>
-            Greater Than or Equal Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThan">
-            <summary>
-            Less Than Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual">
-            <summary>
-            Less Than or Equal Comparison
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Like">
-            <summary>
-            Like Comparison, "%s%" does it have an 's' in it? "s%" does it begin with 's'?
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNull">
-            <summary>
-            Is the value null in the database
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull">
-            <summary>
-            Is the value non-null in the database
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Between">
-            <summary>
-            Is the value between two parameters? see <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue"/> and <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue"/>. 
-            Note that Between can be for other data types than just dates.
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.In">
-            <summary>
-            Is the value in a list, ie, "4,5,6,7,8"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotIn">
-            <summary>
-            NOT in a list, ie not in, "4,5,6,7,8"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotLike">
-            <summary>
-            Not Like Comparison, "%s%", anything that does not it have an 's' in it.
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Dir">
-            <summary>
-            The direction used by DynamicQuery.AddOrderBy
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.ASC">
-            <summary>
-            Ascending
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.DESC">
-            <summary>
-            Descending
-            </summary>
-        </member>
-        <member name="T:MyGeneration.dOOdads.WhereParameter.Conj">
-            <summary>
-            The conjuction used between WhereParameters
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.And">
-            <summary>
-            WhereParameters are joined via "And"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.Or">
-            <summary>
-            WhereParameters are joined via "Or"
-            </summary>
-        </member>
-        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.UseDefault">
-            <summary>
-            WhereParameters are used via the default passed into DynamicQuery.Load.
+            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
             </summary>
         </member>
         <member name="T:MyGeneration.dOOdads.BusinessEntity">
@@ -2405,14 +2245,174 @@
             This property returns the DynamicQuery object which will allow you to build complex queries using your BusinessEntity.
             </summary>
         </member>
-        <member name="T:MyGeneration.dOOdads.SqlClientEntity">
-            <summary>
-            SqlClientEntity is the Microsoft SQL implementation of BusinessEntity
-            </summary>
-        </member>
         <member name="T:MyGeneration.dOOdads.SqlClientDynamicQuery">
             <summary>
             SqlClientDynamicQuery is the Microsoft SQL implementation of DynamicQuery
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter">
+            <summary>
+            This class is dynamcially created when you add a WhereParameter to your BusiinessEntity's DynamicQuery (See the BusinessEntity.Query Property).
+            </summary>
+            <remarks>
+            This will be the extent of your use of the WhereParameter class, this class is mostly used by the dOOdad architecture, not the programmer.
+            <code>
+            emps.Where.LastName.Value = "%A%";
+            emps.Where.LastName.Operator = WhereParameter.Operand.Like;
+            </code>
+            </remarks>
+        </member>
+        <member name="M:MyGeneration.dOOdads.WhereParameter.#ctor(System.String,System.Data.IDataParameter)">
+            <summary>
+            This is only called by dOOdads architecture.
+            </summary>
+            <param name="column"></param>
+            <param name="param"></param>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.IsDirty">
+            <summary>
+            Used to determine if the WhereParameters has a value
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Column">
+            <summary>
+            The column in the BusinessEntity that this WhereParameter is going to query against. 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Param">
+            <summary>
+            The actual database Parameter 
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Value">
+            <summary>
+            The value that will be placed into the Parameter
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Operator">
+            <summary>
+            The type of comparison desired
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.Conjuction">
+            <summary>
+            The type of conjuction to use, "AND" or "OR"
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue">
+            <summary>
+            Used when use the Operand.Between comparison
+            </summary>
+        </member>
+        <member name="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue">
+            <summary>
+            Used when use the Operand.Between comparison
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Operand">
+            <summary>
+            The type of comparison this parameter shoud use
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Equal">
+            <summary>
+            Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotEqual">
+            <summary>
+            Not Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThan">
+            <summary>
+            Greater Than Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual">
+            <summary>
+            Greater Than or Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThan">
+            <summary>
+            Less Than Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual">
+            <summary>
+            Less Than or Equal Comparison
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Like">
+            <summary>
+            Like Comparison, "%s%" does it have an 's' in it? "s%" does it begin with 's'?
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNull">
+            <summary>
+            Is the value null in the database
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull">
+            <summary>
+            Is the value non-null in the database
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.Between">
+            <summary>
+            Is the value between two parameters? see <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenBeginValue"/> and <see cref="P:MyGeneration.dOOdads.WhereParameter.BetweenEndValue"/>. 
+            Note that Between can be for other data types than just dates.
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.In">
+            <summary>
+            Is the value in a list, ie, "4,5,6,7,8"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotIn">
+            <summary>
+            NOT in a list, ie not in, "4,5,6,7,8"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Operand.NotLike">
+            <summary>
+            Not Like Comparison, "%s%", anything that does not it have an 's' in it.
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Dir">
+            <summary>
+            The direction used by DynamicQuery.AddOrderBy
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.ASC">
+            <summary>
+            Ascending
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Dir.DESC">
+            <summary>
+            Descending
+            </summary>
+        </member>
+        <member name="T:MyGeneration.dOOdads.WhereParameter.Conj">
+            <summary>
+            The conjuction used between WhereParameters
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.And">
+            <summary>
+            WhereParameters are joined via "And"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.Or">
+            <summary>
+            WhereParameters are joined via "Or"
+            </summary>
+        </member>
+        <member name="F:MyGeneration.dOOdads.WhereParameter.Conj.UseDefault">
+            <summary>
+            WhereParameters are used via the default passed into DynamicQuery.Load.
             </summary>
         </member>
     </members>

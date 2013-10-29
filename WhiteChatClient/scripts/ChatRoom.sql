@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_ChatRoomLoadByPrimaryKey]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_ChatRoomLoadByPrimaryKey]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ChatRoomLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ChatRoomLoadByPrimaryKey];
 GO
@@ -16,7 +16,8 @@ BEGIN
 	SELECT
 		[ChatRoomID],
 		[Name],
-		[CategoryID]
+		[CategoryID],
+		[SubCategoryID]
 	FROM [ChatRoom]
 	WHERE
 		([ChatRoomID] = @ChatRoomID)
@@ -33,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ChatRoomLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_ChatRoomLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ChatRoomLoadAll]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_ChatRoomLoadAll]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ChatRoomLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ChatRoomLoadAll];
 GO
@@ -48,7 +49,8 @@ BEGIN
 	SELECT
 		[ChatRoomID],
 		[Name],
-		[CategoryID]
+		[CategoryID],
+		[SubCategoryID]
 	FROM [ChatRoom]
 
 	SET @Err = @@Error
@@ -63,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ChatRoomLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ChatRoomLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ChatRoomUpdate]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_ChatRoomUpdate]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ChatRoomUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ChatRoomUpdate];
 GO
@@ -72,7 +74,8 @@ CREATE PROCEDURE [proc_ChatRoomUpdate]
 (
 	@ChatRoomID int,
 	@Name nvarchar(200) = NULL,
-	@CategoryID int
+	@CategoryID int = NULL,
+	@SubCategoryID int = NULL
 )
 AS
 BEGIN
@@ -83,7 +86,8 @@ BEGIN
 	UPDATE [ChatRoom]
 	SET
 		[Name] = @Name,
-		[CategoryID] = @CategoryID
+		[CategoryID] = @CategoryID,
+		[SubCategoryID] = @SubCategoryID
 	WHERE
 		[ChatRoomID] = @ChatRoomID
 
@@ -104,7 +108,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_ChatRoomInsert]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_ChatRoomInsert]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ChatRoomInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ChatRoomInsert];
 GO
@@ -113,7 +117,8 @@ CREATE PROCEDURE [proc_ChatRoomInsert]
 (
 	@ChatRoomID int = NULL output,
 	@Name nvarchar(200) = NULL,
-	@CategoryID int
+	@CategoryID int = NULL,
+	@SubCategoryID int = NULL
 )
 AS
 BEGIN
@@ -125,12 +130,14 @@ BEGIN
 	INTO [ChatRoom]
 	(
 		[Name],
-		[CategoryID]
+		[CategoryID],
+		[SubCategoryID]
 	)
 	VALUES
 	(
 		@Name,
-		@CategoryID
+		@CategoryID,
+		@SubCategoryID
 	)
 
 	SET @Err = @@Error
@@ -147,7 +154,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ChatRoomInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ChatRoomInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ChatRoomDelete]    Script Date: 10/20/2013 11:38:43 AM ******/
+/****** Object:  StoredProcedure [proc_ChatRoomDelete]    Script Date: 10/29/2013 4:47:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ChatRoomDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ChatRoomDelete];
 GO
