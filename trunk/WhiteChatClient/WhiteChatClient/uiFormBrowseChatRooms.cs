@@ -26,7 +26,8 @@ namespace WhiteChatClient
             for (int i = 0; i < cats.RowCount; i++)
             {
                 TreeNode node = new TreeNode();
-                node.Text = cats.Name;                
+                node.Text = cats.Name;
+                node.Tag = cats.CategoryID;
                 SubCategory subs = new SubCategory();
                 subs.GetSubCategoryByCategoryID(cats.CategoryID);
 
@@ -41,9 +42,23 @@ namespace WhiteChatClient
                         subs.MoveNext();
                     }
                 }
-                /*
-                ChatRoom rooms = new ChatRoom();
-                rooms.GetChatRoomsByCategoryID(cats.CategoryID);
+                
+
+                uitreeViewCats.Nodes.Add(node);
+                cats.MoveNext();
+            }
+
+
+        }
+
+        private void uitreeViewCats_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
+            ChatRoom rooms = new ChatRoom();
+            uitreeViewRooms.Nodes.Clear();    
+            if (e.Node.Level == 0)
+            {
+                rooms.GetChatRoomsByCategoryID(Convert.ToInt32(e.Node.Tag));
                 if (rooms.RowCount > 0)
                 {
                     for (int j = 0; j < rooms.RowCount; j++)
@@ -51,17 +66,60 @@ namespace WhiteChatClient
                         TreeNode subnode = new TreeNode();
                         subnode.Text = rooms.Name;
                         subnode.Tag = rooms.ChatRoomID;
-                        node.Nodes.Add(subnode);
+                        uitreeViewRooms.Nodes.Add(subnode);
                         rooms.MoveNext();
                     }
                 }
-                */
-
-                uitreeViewCats.Nodes.Add(node);
-                cats.MoveNext();
             }
+            else if (e.Node.Level == 1)
+            {
+                rooms.GetChatRoomsBySubCategoryID(Convert.ToInt32(e.Node.Tag));
+                if (rooms.RowCount > 0)
+                {
+                    for (int j = 0; j < rooms.RowCount; j++)
+                    {
+                        TreeNode subnode = new TreeNode();
+                        subnode.Text = rooms.Name;
+                        subnode.Tag = rooms.ChatRoomID;
+                        uitreeViewRooms.Nodes.Add(subnode);
+                        rooms.MoveNext();
+                    }
+                }
+            }
+        }
 
+        private void uibuttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void uibuttonJoin_Click(object sender, EventArgs e)
+        {
+            if (uitreeViewRooms.SelectedNode == null)
+            {
+                MessageBox.Show(this, "Please , select a room to join.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int cat = 0,subcat = 0,chatroom = 0 ;
+                chatroom = (int)uitreeViewRooms.SelectedNode.Tag;
+                if(uitreeViewCats.SelectedNode.Level == 0)
+                    cat = (int)uitreeViewCats.SelectedNode.Tag;
+
+                if(uitreeViewCats.SelectedNode.Level == 1)
+                {
+                    subcat = (int)uitreeViewCats.SelectedNode.Tag;
+                    cat = (int)uitreeViewCats.SelectedNode.Parent.Tag;
+                }
+                
+                uiFormChatRooms chatRooms = new uiFormChatRooms(cat,subcat,chatroom);
+                System.Threading.Thread.Sleep(3000);
+                chatRooms.init();
+                chatRooms.Show();
+                chatRooms.BringToFront();
+                chatRooms.Focus();
+                this.Close();
+            }
         }
 
     }

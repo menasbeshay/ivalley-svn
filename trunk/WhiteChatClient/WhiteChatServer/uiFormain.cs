@@ -14,21 +14,33 @@ namespace WhiteChatServer
 {
     public partial class uiFormMain : Form
     {
-        
+        delegate void HandleAddLogCallback(string text);
 
         public uiFormMain()
         {
-            InitializeComponent();
+            InitializeComponent();            
             string text = SocketCoderTextServer.Start_Text_Server(8888);
+            SocketCoderTextServer.OnLogText += new SocketCoderTextServer.LogText(LogText);
             addlog(text);
         }
 
         private void addlog(string text)
         {
-            uiTextBoxLog.Text += text + Environment.NewLine;
+            if (!uiTextBoxLog.InvokeRequired)
+            {
+                uiTextBoxLog.Text += text + Environment.NewLine;
+            }
+            else
+            {
+                HandleAddLogCallback b = new HandleAddLogCallback(addlog);
+                this.Invoke(b, new object[] {text});
+            }
         }
 
-
+        private void LogText(object sender, EventArgs e,string msg)
+        {                        
+            addlog(msg);
+        }
 
 
         #region Commented

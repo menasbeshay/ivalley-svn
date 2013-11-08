@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using JBuddy;
+using WhiteChatClient.Logic;
+using System.Threading;
 namespace WhiteChatClient.UserControls
 {
     public partial class Login : UserControl
@@ -47,20 +49,47 @@ namespace WhiteChatClient.UserControls
         {
             if (IsValidate())
             {
-                JBuddyClass Jbuddy = new JBuddyClass();
-                Client client = (Client)Jbuddy.ClientFactory(ProtocolType.PROTOCOL_YIM, uitextBoxUsername.Text, uitextBoxPassword.Text);                
-                client.ConnectionLost += new _IClientEvents_ConnectionLostEventHandler(this.OnConnectionLost);
-                client.Connect();
-                while (!client.IsOnline())
+                try
                 {
-                    continue;
+                    JBuddyClass Jbuddy = new JBuddyClass();
+                    Client client = (Client)Jbuddy.ClientFactory(ProtocolType.PROTOCOL_YIM, uitextBoxUsername.Text, uitextBoxPassword.Text);
+                    client.ConnectionLost += new _IClientEvents_ConnectionLostEventHandler(this.OnConnectionLost);                                        
+                    client.Connect();
+                    // wait until connect user to server then IsOnline() returns true 
+                    //int count = 0;
+                    while (!client.IsOnline())
+                    {
+                       /* Thread.Sleep(3000);
+                        count++;
+                        if (count > 4)
+                        {
+                            MessageBox.Show("Server connection timeout. please try again later.");
+                            client.Disconnect();
+                            return;
+                        }
+                        else*/
+                            continue;
+                    }
+                    /* while (!client.IsOnline())
+                     {                        
+                         continue;
+                     }*/
+                    SignInEventArgs args = new SignInEventArgs(client, "");
+                    OnSignIn(this, args);
                 }
-                SignInEventArgs args = new SignInEventArgs (client,"");
-                OnSignIn(this, args);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
+
         private void OnConnectionLost(string sMsg)
+        {
+            MessageBox.Show(sMsg);
+        }
+        private void client_IncomingMessage(IMessage oMessage)
         {
             
         }

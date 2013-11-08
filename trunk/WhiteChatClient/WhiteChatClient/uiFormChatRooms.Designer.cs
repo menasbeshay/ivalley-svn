@@ -33,17 +33,18 @@
             // 
             // uiChatRoomWindow1
             // 
+            this.uiChatRoomWindow1.CategoryID = 0;
+            this.uiChatRoomWindow1.ChatRoomID = 0;
             this.uiChatRoomWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiChatRoomWindow1.Location = new System.Drawing.Point(0, 0);
             this.uiChatRoomWindow1.MinimumSize = new System.Drawing.Size(806, 555);
             this.uiChatRoomWindow1.Name = "uiChatRoomWindow1";
             this.uiChatRoomWindow1.Size = new System.Drawing.Size(806, 555);
+            this.uiChatRoomWindow1.SubCategoryID = 0;
             this.uiChatRoomWindow1.TabIndex = 0;
             // 
             // uiFormChatRooms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 555);
             this.Controls.Add(this.uiChatRoomWindow1);
             this.MinimumSize = new System.Drawing.Size(822, 593);
@@ -57,6 +58,12 @@
         #endregion      
 
         private UserControls.uiChatRoomWindow uiChatRoomWindow1;
+
+
+      
+
+
+        
 
     }
 }

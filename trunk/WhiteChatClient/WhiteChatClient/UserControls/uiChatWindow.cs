@@ -386,48 +386,7 @@ namespace WhiteChatClient.UserControls
         #endregion 
         public uiChatWindow()
         {
-            InitializeComponent();
-            LoadBuddies();
-            CurrentUser.LoadEmotions();
-            uilabelDisplayName.Text = CurrentUser.Client.Name;
-            // Initialize the dictionary mapping color codes to definitions
-            rtfColor = new HybridDictionary();
-            rtfColor.Add(RtfColor.Aqua, RtfColorDef.Aqua);
-            rtfColor.Add(RtfColor.Black, RtfColorDef.Black);
-            rtfColor.Add(RtfColor.Blue, RtfColorDef.Blue);
-            rtfColor.Add(RtfColor.Fuchsia, RtfColorDef.Fuchsia);
-            rtfColor.Add(RtfColor.Gray, RtfColorDef.Gray);
-            rtfColor.Add(RtfColor.Green, RtfColorDef.Green);
-            rtfColor.Add(RtfColor.Lime, RtfColorDef.Lime);
-            rtfColor.Add(RtfColor.Maroon, RtfColorDef.Maroon);
-            rtfColor.Add(RtfColor.Navy, RtfColorDef.Navy);
-            rtfColor.Add(RtfColor.Olive, RtfColorDef.Olive);
-            rtfColor.Add(RtfColor.Purple, RtfColorDef.Purple);
-            rtfColor.Add(RtfColor.Red, RtfColorDef.Red);
-            rtfColor.Add(RtfColor.Silver, RtfColorDef.Silver);
-            rtfColor.Add(RtfColor.Teal, RtfColorDef.Teal);
-            rtfColor.Add(RtfColor.White, RtfColorDef.White);
-            rtfColor.Add(RtfColor.Yellow, RtfColorDef.Yellow);
-
-            // Initialize the dictionary mapping default Framework font families to
-            // RTF font families
-            rtfFontFamily = new HybridDictionary();
-            rtfFontFamily.Add(FontFamily.GenericMonospace.Name, RtfFontFamilyDef.Modern);
-            rtfFontFamily.Add(FontFamily.GenericSansSerif, RtfFontFamilyDef.Swiss);
-            rtfFontFamily.Add(FontFamily.GenericSerif, RtfFontFamilyDef.Roman);
-            rtfFontFamily.Add(FF_UNKNOWN, RtfFontFamilyDef.Unknown);
-
-            using (Graphics _graphics = this.CreateGraphics())
-            {
-                xDpi = _graphics.DpiX;
-                yDpi = _graphics.DpiY;
-
-            }
-
-            CurrentUser.Client.AdminMessage += new _IClientEvents_AdminMessageEventHandler(this.OnAdminMessage);
-            CurrentUser.Client.IncomingMessage += new _IClientEvents_IncomingMessageEventHandler(this.OnIncomingMessage);
-            CurrentUser.Client.IncomingBuddy += new _IClientEvents_IncomingBuddyEventHandler(this.OnIncomingBuddy);
-            CurrentUser.Client.ConnectionLost += new _IClientEvents_ConnectionLostEventHandler(this.OnConnectionLost);
+            InitializeComponent();            
         }
 
         public void LoadBuddies()
@@ -501,16 +460,20 @@ namespace WhiteChatClient.UserControls
                 }
                 else
                 {                    
-                    CurrentUser.Client.SendIM(currentChatUser, uiRichTextBoxMsg.Text);
+                    CurrentUser.Client.SendIM(currentChatUser, uiRichTextBoxMsg.Text);                    
+                    uiRichTextBoxMsg.Text = CurrentUser.Client.Name + " says :\n\r " + uiRichTextBoxMsg.Text;
+                    uiRichTextBoxMsg.Select(0, uiRichTextBoxMsg.Text.IndexOf(" says :") + 7);
+                    uiRichTextBoxMsg.SelectionFont = new System.Drawing.Font(uiRichTextBoxMsg.SelectionFont.FontFamily,uiRichTextBoxMsg.Font.Size,FontStyle.Bold);
                     foreach (var item in CurrentUser.Emotions)
                     {
                         int _index;
                         if ((_index = uiRichTextBoxMsg.Find(item.Key)) > -1)
                         {
                             uiRichTextBoxMsg.Select(_index, item.Key.Length);
-                            InsertImage(new Bitmap(this.Parent.Parent.GetType(), item.Value), uiRichTextBoxMsg);
+                            InsertImage(new Bitmap(typeof(uiFormMain), item.Value), uiRichTextBoxMsg);
                         }
                     }
+                   
                     uiRichTextBoxHistory.SelectedRtf = uiRichTextBoxMsg.Rtf;
                     uiRichTextBoxMsg.Clear();
                 }
@@ -571,16 +534,19 @@ namespace WhiteChatClient.UserControls
                 case MessageType.MESSAGE_IM:                    
                 case MessageType.MESSAGE_IM_OFFLINE:                   
                     RichTextBox temp = new RichTextBox();
-                    temp.Text = oMessage.Message;
+                    temp.Text = oMessage.Sender + " says :\n\r " + oMessage.Message;
+                    temp.Select(0, temp.Text.IndexOf(" says :") + 7);
+                    temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
                     foreach (var item in CurrentUser.Emotions)
                     {
                         int _index;
                         if ((_index = temp.Find(item.Key)) > -1)
                         {
                             temp.Select(_index, item.Key.Length);
-                            InsertImage(new Bitmap(this.Parent.Parent.GetType(), item.Value), temp);
+                            InsertImage(new Bitmap(typeof(uiFormMain), item.Value), temp);
                         }
                     }
+                   // temp.Text = oMessage.Sender + " says :\n\r " + temp.Text;
                     uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
                     temp.Dispose();
                     break;
@@ -598,6 +564,53 @@ namespace WhiteChatClient.UserControls
 
         }
 
+        public void init()
+        {
+            if (!DesignMode)
+            {
+                LoadBuddies();
+                CurrentUser.LoadEmotions();
+                uilabelDisplayName.Text = CurrentUser.Client.Name;
+                // Initialize the dictionary mapping color codes to definitions
+                rtfColor = new HybridDictionary();
+                rtfColor.Add(RtfColor.Aqua, RtfColorDef.Aqua);
+                rtfColor.Add(RtfColor.Black, RtfColorDef.Black);
+                rtfColor.Add(RtfColor.Blue, RtfColorDef.Blue);
+                rtfColor.Add(RtfColor.Fuchsia, RtfColorDef.Fuchsia);
+                rtfColor.Add(RtfColor.Gray, RtfColorDef.Gray);
+                rtfColor.Add(RtfColor.Green, RtfColorDef.Green);
+                rtfColor.Add(RtfColor.Lime, RtfColorDef.Lime);
+                rtfColor.Add(RtfColor.Maroon, RtfColorDef.Maroon);
+                rtfColor.Add(RtfColor.Navy, RtfColorDef.Navy);
+                rtfColor.Add(RtfColor.Olive, RtfColorDef.Olive);
+                rtfColor.Add(RtfColor.Purple, RtfColorDef.Purple);
+                rtfColor.Add(RtfColor.Red, RtfColorDef.Red);
+                rtfColor.Add(RtfColor.Silver, RtfColorDef.Silver);
+                rtfColor.Add(RtfColor.Teal, RtfColorDef.Teal);
+                rtfColor.Add(RtfColor.White, RtfColorDef.White);
+                rtfColor.Add(RtfColor.Yellow, RtfColorDef.Yellow);
+
+                // Initialize the dictionary mapping default Framework font families to
+                // RTF font families
+                rtfFontFamily = new HybridDictionary();
+                rtfFontFamily.Add(FontFamily.GenericMonospace.Name, RtfFontFamilyDef.Modern);
+                rtfFontFamily.Add(FontFamily.GenericSansSerif, RtfFontFamilyDef.Swiss);
+                rtfFontFamily.Add(FontFamily.GenericSerif, RtfFontFamilyDef.Roman);
+                rtfFontFamily.Add(FF_UNKNOWN, RtfFontFamilyDef.Unknown);
+
+                using (Graphics _graphics = this.CreateGraphics())
+                {
+                    xDpi = _graphics.DpiX;
+                    yDpi = _graphics.DpiY;
+
+                }
+
+                CurrentUser.Client.AdminMessage += new _IClientEvents_AdminMessageEventHandler(this.OnAdminMessage);
+                CurrentUser.Client.IncomingMessage += new _IClientEvents_IncomingMessageEventHandler(this.OnIncomingMessage);
+                CurrentUser.Client.IncomingBuddy += new _IClientEvents_IncomingBuddyEventHandler(this.OnIncomingBuddy);
+                CurrentUser.Client.ConnectionLost += new _IClientEvents_ConnectionLostEventHandler(this.OnConnectionLost);
+            }
+        }
 
     }
 }
