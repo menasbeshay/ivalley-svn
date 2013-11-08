@@ -53,6 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminCP.aspx" />
+    <Content Include="Admin\Controls\ucAttendanceReport.ascx" />
+    <Content Include="Admin\Controls\ucFees.ascx" />
+    <Content Include="Admin\Controls\ucInstallment.ascx" />
+    <Content Include="Admin\Controls\ucMonthlyReport.ascx" />
+    <Content Include="Admin\EditCategory.aspx" />
     <Content Include="Admin\EditClassType.aspx" />
     <Content Include="Admin\EditAttendanceReport.aspx" />
     <Content Include="Admin\EditClass.aspx" />
@@ -117,6 +122,21 @@
     <Content Include="Controls\TeamWork.ascx" />
     <Content Include="Controls\Vision.ascx" />
     <Content Include="css\camera.css" />
+    <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui-1.8.20.custom.css" />
     <Content Include="css\lightbox.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="Default.aspx" />
@@ -191,6 +211,10 @@
     <Content Include="images\icon1.jpg" />
     <Content Include="images\icon2.jpg" />
     <Content Include="images\icon3.jpg" />
+    <Content Include="images\icons\delete.gif" />
+    <Content Include="images\icons\edit.gif" />
+    <Content Include="images\icons\fees.gif" />
+    <Content Include="images\icons\reports.gif" />
     <Content Include="images\image1.jpg" />
     <Content Include="images\image2.jpg" />
     <Content Include="images\index-bg.jpg" />
@@ -296,8 +320,11 @@
     <Content Include="js\camera.js" />
     <Content Include="js\camera.min.js" />
     <Content Include="js\effects.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery-ui-1.8.20.custom.min.js" />
     <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\JScript.js" />
     <Content Include="js\lightbox.js" />
     <Content Include="js\modernizr.custom.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -844,6 +871,41 @@
     </Compile>
     <Compile Include="Admin\AdminCP.aspx.designer.cs">
       <DependentUpon>AdminCP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucAttendanceReport.ascx.cs">
+      <DependentUpon>ucAttendanceReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucAttendanceReport.ascx.designer.cs">
+      <DependentUpon>ucAttendanceReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucFees.ascx.cs">
+      <DependentUpon>ucFees.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucFees.ascx.designer.cs">
+      <DependentUpon>ucFees.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucInstallment.ascx.cs">
+      <DependentUpon>ucInstallment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucInstallment.ascx.designer.cs">
+      <DependentUpon>ucInstallment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucMonthlyReport.ascx.cs">
+      <DependentUpon>ucMonthlyReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucMonthlyReport.ascx.designer.cs">
+      <DependentUpon>ucMonthlyReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditCategory.aspx.cs">
+      <DependentUpon>EditCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCategory.aspx.designer.cs">
+      <DependentUpon>EditCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditClassType.aspx.cs">
       <DependentUpon>EditClassType.aspx</DependentUpon>

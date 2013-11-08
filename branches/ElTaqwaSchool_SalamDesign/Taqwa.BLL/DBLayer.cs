@@ -1254,12 +1254,12 @@ namespace Taqwa.BLL
         #endregion
 
         #region  GalleryPhoto Methods
-        public bool AddGalleryPhoto(string EnTitle, string ArTitle, string PicturePath)
+        public bool AddGalleryPhoto(string EnTitle, string ArTitle, string PicturePath, int CategoryID)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddGalleryPhoto", EnTitle, ArTitle, PicturePath);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddGalleryPhoto", EnTitle, ArTitle, PicturePath, CategoryID);
                 return (rows > 0);
             }
             catch (Exception)
@@ -1268,12 +1268,12 @@ namespace Taqwa.BLL
             }
         }
 
-        public bool UpdateGalleryPhoto(int GalleryPhotoID, string EnTitle, string ArTitle, string PicturePath)
+        public bool UpdateGalleryPhoto(int GalleryPhotoID, string EnTitle, string ArTitle, string PicturePath, int CategoryID)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateGalleryPhoto", GalleryPhotoID, EnTitle, ArTitle, PicturePath);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateGalleryPhoto", GalleryPhotoID, EnTitle, ArTitle, PicturePath, CategoryID);
                 return (rows > 0);
             }
             catch (Exception)
@@ -1285,6 +1285,11 @@ namespace Taqwa.BLL
         public DataSet GetGalleryPhoto(int GalleryPhotoID)
         {
             return SqlHelper.ExecuteDataset(ConnectionString, "GetGalleryPhoto", GalleryPhotoID);
+        }
+
+        public DataSet GetGalleryPhotoByCategoryID(int CategoryID)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetGalleryPhotoByCategoryID", CategoryID);
         }
 
         public DataSet GetAllGalleryPhoto()
@@ -1299,6 +1304,60 @@ namespace Taqwa.BLL
             try
             {
                 rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeleteGalleryPhoto", GalleryPhotoID);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region  Category Methods
+        public bool AddCategory(string ENName, string ARName)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddCategory", ENName, ARName);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateCategory(int CategoryID, string ENName, string ARName)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateCategory", CategoryID, ENName, ARName);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public DataSet GetCategory(int CategoryID)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetCategory", CategoryID);
+        }
+
+        public DataSet GetAllCategory()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetAllCategory");
+        }
+
+        public bool DeleteCategory(int CategoryID)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeleteCategory", CategoryID);
                 return (rows > 0);
             }
             catch (Exception)
