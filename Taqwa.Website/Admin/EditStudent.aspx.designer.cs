@@ -722,5 +722,77 @@ namespace Taqwa.Website.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button uiButtonCancelPrint;
+        
+        /// <summary>
+        /// uiPanelMonthlyReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelMonthlyReport;
+        
+        /// <summary>
+        /// ucMonthlyReport1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Admin.Controls.ucMonthlyReport ucMonthlyReport1;
+        
+        /// <summary>
+        /// uiPanelAttendanceReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAttendanceReport;
+        
+        /// <summary>
+        /// ucAttendanceReport1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Admin.Controls.ucAttendanceReport ucAttendanceReport1;
+        
+        /// <summary>
+        /// uiPanelFees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelFees;
+        
+        /// <summary>
+        /// ucFees1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Admin.Controls.ucFees ucFees1;
+        
+        /// <summary>
+        /// uiPanelInstallments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelInstallments;
+        
+        /// <summary>
+        /// ucInstallment1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Admin.Controls.ucInstallment ucInstallment1;
     }
 }

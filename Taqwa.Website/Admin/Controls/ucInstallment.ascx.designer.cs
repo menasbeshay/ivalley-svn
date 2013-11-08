@@ -7,46 +7,73 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Taqwa.Website.Admin {
+namespace Taqwa.Website.Admin.Controls {
     
     
-    public partial class EditGallery {
+    public partial class ucInstallment {
         
         /// <summary>
-        /// lnkBackToAdminCP control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBackToAdminCP;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// uiPanel control.
+        /// uiPanelCurrent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanel;
+        protected global::System.Web.UI.WebControls.Panel uiPanelCurrent;
         
         /// <summary>
-        /// Label2 control.
+        /// uiLabelStudentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label uiLabelStudentName;
         
         /// <summary>
-        /// uiDropDownListCat control.
+        /// uiLabelClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCat;
+        protected global::System.Web.UI.WebControls.Label uiLabelClass;
+        
+        /// <summary>
+        /// uiLabelMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelMessage;
+        
+        /// <summary>
+        /// Label14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label14;
+        
+        /// <summary>
+        /// uiDropDownListSchoolYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListSchoolYear;
         
         /// <summary>
         /// uiLabelEnglishTitle control.
@@ -58,49 +85,49 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Label uiLabelEnglishTitle;
         
         /// <summary>
-        /// uiTextBoxEnNewsTitle control.
+        /// uiTextBoxQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEnNewsTitle;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxQty;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// RegularExpressionValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
-        /// uiLabelArabicTitle control.
+        /// Label16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelArabicTitle;
+        protected global::System.Web.UI.WebControls.Label Label16;
         
         /// <summary>
-        /// uiTextBoxArNewsTitle control.
+        /// uiTextBoxDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxArNewsTitle;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDate;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// uiTextBoxDate_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::AjaxControlToolkit.CalendarExtender uiTextBoxDate_CalendarExtender;
         
         /// <summary>
         /// Label1 control.
@@ -112,39 +139,39 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// uiFileUploadPhoto control.
+        /// uiTextBoxPayOrderNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadPhoto;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPayOrderNo;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// uiButtonUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Button uiButtonUpdate;
         
         /// <summary>
-        /// uiButtonUpload control.
+        /// uiButtonCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uiButtonUpload;
+        protected global::System.Web.UI.WebControls.Button uiButtonCancel;
         
         /// <summary>
-        /// uiDataListPhotos control.
+        /// uiGridViewStudentsInstallments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList uiDataListPhotos;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewStudentsInstallments;
     }
 }

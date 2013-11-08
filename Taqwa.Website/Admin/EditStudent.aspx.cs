@@ -74,7 +74,7 @@ namespace Taqwa.Website.Admin
                 //    uiPanelPrint.Visible = false;
                 //}
                 //else
-                //{
+                //{                    
                     uiPanelCurrentStudents.Visible = true;
                     uiPanelCurrent.Visible = false;
                     uiPanelPrint.Visible = false;
@@ -213,6 +213,11 @@ namespace Taqwa.Website.Admin
                 }
                 uiPanelCurrentStudents.Visible = false;
                 uiPanelCurrent.Visible = true;
+
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false; 
             }
             else if (e.CommandName == "DeleteStudent")
             {
@@ -223,8 +228,57 @@ namespace Taqwa.Website.Admin
                 uiPanelCurrentStudents.Visible = true;
                 uiPanelCurrent.Visible = false;
                 uiPanelPrint.Visible = false;
+
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false; 
                 BindData();
             }
+            else if (e.CommandName == "EditMonthlyReport")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentCheckedStudent"] = id;
+                ucMonthlyReport1.BindData();
+                uiPanelMonthlyReport.Visible = true;
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false; 
+            }
+
+            else if (e.CommandName == "EditAttedanceReport")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentCheckedStudentForAtt"] = id;
+                ucAttendanceReport1.BindData();
+                uiPanelAttendanceReport.Visible = true;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false; 
+            }
+
+            else if (e.CommandName == "EditFees")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentStudentActive"] = id;
+                ucFees1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = true;
+                uiPanelInstallments.Visible = false; 
+            }
+
+            else if (e.CommandName == "EditInstallments")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentStudentToPay"] = id;
+                ucInstallment1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = true;
+            }
+
         }
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
