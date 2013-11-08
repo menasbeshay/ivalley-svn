@@ -339,7 +339,7 @@ namespace WhiteChatClient.UserControls
                     serializer.Serialize(msgStream, msgCommand);
                     msgStream.Seek(0, SeekOrigin.Begin);
                     ClientSocket.Send(msgStream.ToArray());                    
-                    ClientSocket.Close();
+                    //ClientSocket.Close();
                     
                 }
             }
