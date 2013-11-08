@@ -7,73 +7,55 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Taqwa.Website.Admin {
+namespace Taqwa.Website.Admin.Controls {
     
     
-    public partial class EditGallery {
+    public partial class ucAttendanceReport {
         
         /// <summary>
-        /// lnkBackToAdminCP control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBackToAdminCP;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// uiPanel control.
+        /// uiPanelCurrent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanel;
+        protected global::System.Web.UI.WebControls.Panel uiPanelCurrent;
         
         /// <summary>
-        /// Label2 control.
+        /// uiLabelStudentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label uiLabelStudentName;
         
         /// <summary>
-        /// uiDropDownListCat control.
+        /// uiLabelClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCat;
+        protected global::System.Web.UI.WebControls.Label uiLabelClass;
         
         /// <summary>
-        /// uiLabelEnglishTitle control.
+        /// uiLabelMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelEnglishTitle;
-        
-        /// <summary>
-        /// uiTextBoxEnNewsTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEnNewsTitle;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label uiLabelMessage;
         
         /// <summary>
         /// uiLabelArabicTitle control.
@@ -85,66 +67,48 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Label uiLabelArabicTitle;
         
         /// <summary>
-        /// uiTextBoxArNewsTitle control.
+        /// uiTextBoxDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxArNewsTitle;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDay;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// uiTextBoxDay_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::AjaxControlToolkit.CalendarExtender uiTextBoxDay_CalendarExtender;
         
         /// <summary>
-        /// Label1 control.
+        /// uiButtonUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button uiButtonUpdate;
         
         /// <summary>
-        /// uiFileUploadPhoto control.
+        /// uiButtonCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadPhoto;
+        protected global::System.Web.UI.WebControls.Button uiButtonCancel;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// uiGridViewStudentsAbsence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// uiButtonUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uiButtonUpload;
-        
-        /// <summary>
-        /// uiDataListPhotos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList uiDataListPhotos;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewStudentsAbsence;
     }
 }

@@ -10,7 +10,7 @@
 namespace Taqwa.Website.Admin {
     
     
-    public partial class EditGallery {
+    public partial class EditCategory {
         
         /// <summary>
         /// lnkBackToAdminCP control.
@@ -22,31 +22,49 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.LinkButton lnkBackToAdminCP;
         
         /// <summary>
-        /// uiPanel control.
+        /// uiPanelCurrentClassType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanel;
+        protected global::System.Web.UI.WebControls.Panel uiPanelCurrentClassType;
         
         /// <summary>
-        /// Label2 control.
+        /// uiLinkButtonAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
-        /// uiDropDownListCat control.
+        /// uiGridViewCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCat;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewCategory;
+        
+        /// <summary>
+        /// uiPanelCurrent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelCurrent;
+        
+        /// <summary>
+        /// uiLabelMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelMessage;
         
         /// <summary>
         /// uiLabelEnglishTitle control.
@@ -58,13 +76,13 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Label uiLabelEnglishTitle;
         
         /// <summary>
-        /// uiTextBoxEnNewsTitle control.
+        /// uiTextBoxEnName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEnNewsTitle;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEnName;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -85,13 +103,13 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Label uiLabelArabicTitle;
         
         /// <summary>
-        /// uiTextBoxArNewsTitle control.
+        /// uiTextBoxArName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxArNewsTitle;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxArName;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -103,48 +121,21 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// Label1 control.
+        /// uiButtonUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button uiButtonUpdate;
         
         /// <summary>
-        /// uiFileUploadPhoto control.
+        /// uiButtonCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadPhoto;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// uiButtonUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uiButtonUpload;
-        
-        /// <summary>
-        /// uiDataListPhotos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList uiDataListPhotos;
+        protected global::System.Web.UI.WebControls.Button uiButtonCancel;
     }
 }

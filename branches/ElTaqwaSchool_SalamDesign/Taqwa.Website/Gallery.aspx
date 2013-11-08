@@ -157,6 +157,24 @@
         <h3>
             معرض الصور
         </h3>
+
+        <div class="AdminLeft">
+            <asp:Label ID="Label2" runat="server" CssClass="Label" 
+                Text="إختر القسم  :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:DropDownList ID="uiDropDownListCat" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="uiDropDownListCat_SelectedIndexChanged" Width="400px">
+            </asp:DropDownList>
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
+
+    
+
+
         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
             <HeaderTemplate>
             <ul id="container" class="clickable cs-style-5 grid clearfix">
