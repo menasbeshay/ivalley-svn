@@ -34,11 +34,11 @@
             this.uiflowLayoutPanelBuddies = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.uilabelDisplayName = new System.Windows.Forms.Label();
+            this.uibuttonChangeStatus = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uiRichTextBoxHistory = new System.Windows.Forms.RichTextBox();
             this.uiRichTextBoxMsg = new System.Windows.Forms.RichTextBox();
             this.uicontextMenuStripStatus = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uibuttonChangeStatus = new System.Windows.Forms.Button();
             this.onlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BusyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.awayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,6 +124,19 @@
             this.uilabelDisplayName.TabIndex = 1;
             this.uilabelDisplayName.Text = "label1";
             // 
+            // uibuttonChangeStatus
+            // 
+            this.uibuttonChangeStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonChangeStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonChangeStatus.ForeColor = System.Drawing.Color.White;
+            this.uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.online_arrow;
+            this.uibuttonChangeStatus.Location = new System.Drawing.Point(3, 3);
+            this.uibuttonChangeStatus.Name = "uibuttonChangeStatus";
+            this.uibuttonChangeStatus.Size = new System.Drawing.Size(58, 43);
+            this.uibuttonChangeStatus.TabIndex = 0;
+            this.uibuttonChangeStatus.UseVisualStyleBackColor = false;
+            this.uibuttonChangeStatus.Click += new System.EventHandler(this.uibuttonChangeStatus_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -174,21 +187,8 @@
             this.awayToolStripMenuItem,
             this.offlineToolStripMenuItem});
             this.uicontextMenuStripStatus.Name = "uicontextMenuStripStatus";
-            this.uicontextMenuStripStatus.Size = new System.Drawing.Size(153, 114);
+            this.uicontextMenuStripStatus.Size = new System.Drawing.Size(111, 92);
             this.uicontextMenuStripStatus.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.uicontextMenuStripStatus_ItemClicked);
-            // 
-            // uibuttonChangeStatus
-            // 
-            this.uibuttonChangeStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.uibuttonChangeStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uibuttonChangeStatus.ForeColor = System.Drawing.Color.White;
-            this.uibuttonChangeStatus.Image = global::WhiteChatClient.Properties.Resources.online_arrow;
-            this.uibuttonChangeStatus.Location = new System.Drawing.Point(3, 3);
-            this.uibuttonChangeStatus.Name = "uibuttonChangeStatus";
-            this.uibuttonChangeStatus.Size = new System.Drawing.Size(58, 43);
-            this.uibuttonChangeStatus.TabIndex = 0;
-            this.uibuttonChangeStatus.UseVisualStyleBackColor = false;
-            this.uibuttonChangeStatus.Click += new System.EventHandler(this.uibuttonChangeStatus_Click);
             // 
             // onlineToolStripMenuItem
             // 
@@ -201,7 +201,7 @@
             // 
             this.BusyToolStripMenuItem.Image = global::WhiteChatClient.Properties.Resources.busy;
             this.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem";
-            this.BusyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.BusyToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.BusyToolStripMenuItem.Text = "Busy";
             // 
             // awayToolStripMenuItem
@@ -225,7 +225,7 @@
             this.Controls.Add(this.uisplitContainerMain);
             this.MinimumSize = new System.Drawing.Size(806, 555);
             this.Name = "uiChatWindow";
-            this.Size = new System.Drawing.Size(806, 555);
+            this.Size = new System.Drawing.Size(806, 555);            
             this.uisplitContainerMain.Panel1.ResumeLayout(false);
             this.uisplitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uisplitContainerMain)).EndInit();

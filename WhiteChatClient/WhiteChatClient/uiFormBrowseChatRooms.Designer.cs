@@ -30,11 +30,11 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uibuttonCancel = new System.Windows.Forms.Button();
+            this.uibuttonJoin = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uitreeViewCats = new System.Windows.Forms.TreeView();
             this.uitreeViewRooms = new System.Windows.Forms.TreeView();
-            this.uibuttonJoin = new System.Windows.Forms.Button();
-            this.uibuttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -67,7 +67,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 37);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // uibuttonCancel
+            // 
+            this.uibuttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.uibuttonCancel.Location = new System.Drawing.Point(257, 5);
+            this.uibuttonCancel.Name = "uibuttonCancel";
+            this.uibuttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonCancel.TabIndex = 1;
+            this.uibuttonCancel.Text = "Cancel";
+            this.uibuttonCancel.UseVisualStyleBackColor = true;
+            this.uibuttonCancel.Click += new System.EventHandler(this.uibuttonCancel_Click);
+            // 
+            // uibuttonJoin
+            // 
+            this.uibuttonJoin.Location = new System.Drawing.Point(363, 5);
+            this.uibuttonJoin.Name = "uibuttonJoin";
+            this.uibuttonJoin.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonJoin.TabIndex = 0;
+            this.uibuttonJoin.Text = "Join room";
+            this.uibuttonJoin.UseVisualStyleBackColor = true;
+            this.uibuttonJoin.Click += new System.EventHandler(this.uibuttonJoin_Click);
             // 
             // splitContainer1
             // 
@@ -94,6 +114,7 @@
             this.uitreeViewCats.Name = "uitreeViewCats";
             this.uitreeViewCats.Size = new System.Drawing.Size(209, 358);
             this.uitreeViewCats.TabIndex = 1;
+            this.uitreeViewCats.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.uitreeViewCats_AfterSelect);
             // 
             // uitreeViewRooms
             // 
@@ -102,24 +123,6 @@
             this.uitreeViewRooms.Name = "uitreeViewRooms";
             this.uitreeViewRooms.Size = new System.Drawing.Size(255, 358);
             this.uitreeViewRooms.TabIndex = 2;
-            // 
-            // uibuttonJoin
-            // 
-            this.uibuttonJoin.Location = new System.Drawing.Point(363, 5);
-            this.uibuttonJoin.Name = "uibuttonJoin";
-            this.uibuttonJoin.Size = new System.Drawing.Size(75, 23);
-            this.uibuttonJoin.TabIndex = 0;
-            this.uibuttonJoin.Text = "Join room";
-            this.uibuttonJoin.UseVisualStyleBackColor = true;
-            // 
-            // uibuttonCancel
-            // 
-            this.uibuttonCancel.Location = new System.Drawing.Point(257, 5);
-            this.uibuttonCancel.Name = "uibuttonCancel";
-            this.uibuttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.uibuttonCancel.TabIndex = 1;
-            this.uibuttonCancel.Text = "Cancel";
-            this.uibuttonCancel.UseVisualStyleBackColor = true;
             // 
             // uiFormBrowseChatRooms
             // 

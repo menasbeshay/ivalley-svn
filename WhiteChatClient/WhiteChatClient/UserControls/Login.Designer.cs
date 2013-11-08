@@ -80,6 +80,7 @@
             this.uitextBoxUsername.Name = "uitextBoxUsername";
             this.uitextBoxUsername.Size = new System.Drawing.Size(274, 37);
             this.uitextBoxUsername.TabIndex = 1;
+            this.uitextBoxUsername.Text = "c_cuser";
             // 
             // uitextBoxPassword
             // 
@@ -90,6 +91,7 @@
             this.uitextBoxPassword.PasswordChar = '*';
             this.uitextBoxPassword.Size = new System.Drawing.Size(274, 37);
             this.uitextBoxPassword.TabIndex = 3;
+            this.uitextBoxPassword.Text = "A12345678";
             // 
             // uicheckBoxRemember
             // 

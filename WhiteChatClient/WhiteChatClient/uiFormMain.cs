@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using WhiteChatClient.Logic;
 using WhiteChatClient.UserControls;
+using System.Threading;
 namespace WhiteChatClient
 {
     public partial class uiFormMain : Form
@@ -32,9 +33,15 @@ namespace WhiteChatClient
         void login_OnSignIn(object sender, UserControls.Login.SignInEventArgs e)
         {
             CurrentUser.Client = e.Client;
-            RemoveControlsToMainForm(uiPanelMain.Controls.Find("login", false)[0]);
-            uiChatWindow chatwindow = new uiChatWindow();
-            AddControlsToMainForm(chatwindow, null);
+           
+            
+            if (CurrentUser.Client.IsOnline())
+            {
+                RemoveControlsToMainForm(uiPanelMain.Controls.Find("login", false)[0]);
+                uiChatWindow chatwindow = new uiChatWindow();
+                chatwindow.init();
+                AddControlsToMainForm(chatwindow, null);
+            }
         }
 
         #endregion
@@ -70,7 +77,7 @@ namespace WhiteChatClient
 
         private void chatRoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uiFormChatRooms chatroom = new uiFormChatRooms();
+            uiFormBrowseChatRooms chatroom = new uiFormBrowseChatRooms();
             chatroom.ShowDialog();
         }
 

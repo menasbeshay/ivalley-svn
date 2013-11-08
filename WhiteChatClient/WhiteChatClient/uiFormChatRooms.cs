@@ -13,13 +13,21 @@ namespace WhiteChatClient
 {
     public partial class uiFormChatRooms : Form
     {
-        
-        public uiFormChatRooms()
+        public int Category { get; set; }
+        public int SubCat { get; set; }
+        public int Room { get; set; }
+        public uiFormChatRooms(int cat, int subcat, int room)
         {
             InitializeComponent();
-            
+            Category = cat;
+            subcat = SubCat;
+            Room = room;
         }
-      
+
+        public void init()
+        {
+            uiChatRoomWindow1.Init(Category,SubCat,Room);
+        }
         private void uiFormChatRooms_FormClosed(object sender, FormClosedEventArgs e)
         {
             uiChatRoomWindow1.CloseSocketConnection();

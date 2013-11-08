@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BLL
 {
+    [Serializable()]
     public class ClientCommand
     {
         public ClientCommand()
@@ -12,9 +13,18 @@ namespace BLL
 
         }
 
+        public enum msgType 
+        {
+            JoinRoom ,
+            LeaveRoom,
+            Message  
+        }
+
+        public msgType MessageType { get; set; }
         public string Sender { get; set; }
-        public string ChatRoomName { get; set; }
+        public int ChatRoomID { get; set; }
         public int CategoryId { get; set; }
         public int SubCategoryId { get; set; }
+        public string Message { get; set; }
     }
 }
