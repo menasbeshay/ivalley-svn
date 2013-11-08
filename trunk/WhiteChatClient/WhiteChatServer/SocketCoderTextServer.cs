@@ -169,7 +169,10 @@ namespace WhiteChatServer
                             else
                             {
                                 MemberToRemove.Remove(Current);
-                                break;
+                                Current.ReadOnlySocket.Shutdown(SocketShutdown.Both);
+                                // prevent setup recieve call back for removed client 
+                                return;
+                               // break;
                             }
                         }
                         break;
