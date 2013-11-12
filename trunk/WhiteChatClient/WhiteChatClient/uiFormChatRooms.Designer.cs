@@ -39,15 +39,15 @@
             this.uiChatRoomWindow1.Location = new System.Drawing.Point(0, 0);
             this.uiChatRoomWindow1.MinimumSize = new System.Drawing.Size(806, 555);
             this.uiChatRoomWindow1.Name = "uiChatRoomWindow1";
-            this.uiChatRoomWindow1.Size = new System.Drawing.Size(806, 555);
+            this.uiChatRoomWindow1.Size = new System.Drawing.Size(806, 577);
             this.uiChatRoomWindow1.SubCategoryID = 0;
             this.uiChatRoomWindow1.TabIndex = 0;
             // 
             // uiFormChatRooms
             // 
-            this.ClientSize = new System.Drawing.Size(806, 555);
+            this.ClientSize = new System.Drawing.Size(806, 577);
             this.Controls.Add(this.uiChatRoomWindow1);
-            this.MinimumSize = new System.Drawing.Size(822, 593);
+            this.MinimumSize = new System.Drawing.Size(822, 615);
             this.Name = "uiFormChatRooms";
             this.Text = "Chat Rooms";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiFormChatRooms_FormClosed);

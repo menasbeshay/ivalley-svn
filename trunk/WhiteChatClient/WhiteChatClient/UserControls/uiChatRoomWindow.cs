@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Collections.Specialized;
 using BLL;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Configuration;
 
 namespace WhiteChatClient.UserControls
 {
@@ -346,6 +347,28 @@ namespace WhiteChatClient.UserControls
             catch (Exception) { }
 
         }
+
+
+        private void uibuttonCall_Click(object sender, EventArgs e)
+        {
+            WaveIn.addConsumer2(ClientX1.asConsumer());
+            ClientX1.addConsumer2(WaveOut.asConsumer());
+            ClientX1.setSrvMasterKey("123456");
+
+            ClientX1.setStreamEnabled(true, true);
+            ClientX1.setVolumeModify(false, 50);
+            ClientX1.setVolumeModify(true, 50);
+            ClientX1.setEncoding(15, 32000);
+            ClientX1.URI = "rtp://" + CurrentUser.Client.Name + "@" + ConfigurationManager.AppSettings["ServerIp"].ToString() + ":" + ConfigurationManager.AppSettings["ServerPort"].ToString() + "/" + ChatRoomID.ToString();            
+
+            WaveIn.Active = true;
+        }
+
+        private void uitrackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            ClientX1.setVolumeModify(false, uitrackBarVolume.Value);
+        }
+
 
         #region Commented
         Socket sToRemoteServer;
@@ -794,6 +817,8 @@ namespace WhiteChatClient.UserControls
         }
 
         #endregion
+
+       
         #endregion
 
     }
