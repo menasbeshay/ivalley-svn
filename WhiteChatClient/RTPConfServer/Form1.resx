@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -112,50 +112,49 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="WaveIn.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="server.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAbQEAAAIB
-        AAAAAQAAAAABAAAAMAAAAABXAQAAVFBGMBJUVkNQcm9XYXZlSW5EZXZpY2UABExlZnQDjQADVG9wAgMF
-        V2lkdGgCKgZIZWlnaHQCFwpTeW5jRXZlbnRzCAZBY3RpdmUIDEF1dG9BY3RpdmF0ZQkQSXNGb3JtYXRQ
-        cm92aWRlcgkURW5hYmxlRGF0YVByb2Nlc3NpbmcJCkNhbGNWb2x1bWUJB092ZXJOdW0CBBBQY21CaXRz
-        UGVyU2FtcGxlAhAOUGNtTnVtQ2hhbm5lbHMCARBQY21TYW1wbGVzUGVyU2VjAwB9CERldmljZUlkAv8G
-        RGlyZWN0CAZNYXBwZWQIFFNpbGVuY2VEZXRlY3Rpb25Nb2RlAgAOQ2hhbm5lbE1peE1hc2sC/xJDaGFu
-        bmVsQ29uc3VtZU1hc2sC/wpXYXZlRW5naW5lAgENTWluQWN0aXZlVGltZQIADk1pblZvbHVtZUxldmVs
-        AgAAAAs=
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAtwAAAAIB
+        AAAAAQAAAAABAAAAMAAAAAChAAAAVFBGMBNUdmNwcm9SVFBDb25mU2VydmVyAARMZWZ0AgwDVG9wA6UA
+        BVdpZHRoA2oBBkhlaWdodAJeClN5bmNFdmVudHMIBkFjdGl2ZQgMQXV0b0FjdGl2YXRlCRBJc0Zvcm1h
+        dFByb3ZpZGVyCBRFbmFibGVEYXRhUHJvY2Vzc2luZwkHYmluZDJpcAYHMC4wLjAuMARwb3J0BgQ1MDA0
+        AAAL
 </value>
   </data>
-  <data name="WaveOut.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAWQEAAAIB
-        AAAAAQAAAAABAAAAMAAAAABDAQAAVFBGMBNUVkNQcm9XYXZlT3V0RGV2aWNlAARMZWZ0A70AA1RvcAID
-        BVdpZHRoAicGSGVpZ2h0AhcKU3luY0V2ZW50cwgGQWN0aXZlCAxBdXRvQWN0aXZhdGUJEElzRm9ybWF0
-        UHJvdmlkZXIIFEVuYWJsZURhdGFQcm9jZXNzaW5nCQpDYWxjVm9sdW1lCAdPdmVyTnVtAgYQUGNtQml0
-        c1BlclNhbXBsZQIQDlBjbU51bUNoYW5uZWxzAgEQUGNtU2FtcGxlc1BlclNlYwMAfQhEZXZpY2VJZAL/
-        BkRpcmVjdAgGTWFwcGVkCBRTaWxlbmNlRGV0ZWN0aW9uTW9kZQIADkNoYW5uZWxNaXhNYXNrAv8SQ2hh
-        bm5lbENvbnN1bWVNYXNrAv8KV2F2ZUVuZ2luZQIBCklucHV0SXNQY20IAAAL
-</value>
-  </data>
-  <data name="ClientX1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA3wAAAAIB
-        AAAAAQAAAAABAAAAMAAAAADJAAAAVFBGMBNUdmNwcm9SVFBDb25mQ2xpZW50AARMZWZ0AgMDVG9wAgMF
-        V2lkdGgCSwZIZWlnaHQCFwpTeW5jRXZlbnRzCAZhY3RpdmUIDEF1dG9BY3RpdmF0ZQkQSXNGb3JtYXRQ
-        cm92aWRlcggURW5hYmxlRGF0YVByb2Nlc3NpbmcJBmRzcF9OUwkHZHNwX0FHQwkHZHNwX1ZBRAgHZHNw
-        X0FFQwkQcmVjb3JkaW5nRW5hYmxlZAkPcGxheWJhY2tFbmFibGVkCQAACw==
-</value>
-  </data>
-  <metadata name="uicontextMenuStripStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="c_timer_update.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>127, 17</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>46</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAAAC
+        AAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
+        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB3d3d3AAAAAAAAAAAAAAAAAAAABwAAAA
+        AAAAAAAAAAAA8ADwcAAAAAAAAAAAAAAADw8PAHAAAAAAAAdwAAAAAA8PDwBwAAAAAAAABwAAAAAPDwDw
+        cAAAAAAAAHBwAAAAAAAAAAAAAAAAAACHBwAAAAAAAAAAAAAAAAAAeHB3d3dwAAAAAAAAAAAAAIeHAAAA
+        cAAAAAAAAAAAB3CIeHA3MHAAAAAAAAAAAHeAiIdwc3BwAAAAAAAAAAB4gIiIcDcwcAAAAAAAAAAAf4CI
+        iHCDgHAAAAAAAAAAAH/w+PhwODBwAAAAAAAAAAB4gI94cHNwcAAAAAAAAAAAB4D3h3A3MHAAAAAAAAAA
+        AABweHcAAAAAAAAAAAAAAAAAAIdwAAAAAAAAAAAAAAAAAAB3AAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
+        ////////////////+Af///AH///wB///8Af/n/AH/4/wB/+H8A//g////4AH//8AB//+AAf//AAH//wA
+        B//8AAf//AAH//wAB//+AAf//wAP//+D////h////4////+f////////////////////////////////
+        //8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAd3
+        d3cAdwAAAAAABwAAcAAA8A8HAAcHAA8P8AcHCHB3Dw8PB3AHhwAAAAAAeAiHBzBwAACICIgDcHAAAPgI
+        iAgwcAAAiA94BzBwAAB4B4cDcHAAAAcIcAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP+A
+        AADPAAAAxwAAAMMAAACAAAAAAAEAAAAfAAAAHwAAAB8AAAAfAAAAHwAAgD8AAMf/AADP/wAA3/8AAA==
+</value>
+  </data>
 </root>

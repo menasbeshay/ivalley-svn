@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiChatWindow));
             this.uisplitContainerMain = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.uiflowLayoutPanelBuddies = new System.Windows.Forms.FlowLayoutPanel();
@@ -37,12 +38,19 @@
             this.uibuttonChangeStatus = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uiRichTextBoxHistory = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.uiRichTextBoxMsg = new System.Windows.Forms.RichTextBox();
+            this.WaveIn = new AxVCProX.AxvcproWaveInDeviceX();
+            this.WaveOut = new AxVCProX.AxvcproWaveOutDeviceX();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.uitrackBarVolume = new System.Windows.Forms.TrackBar();
+            this.uibuttonCall = new System.Windows.Forms.Button();
             this.uicontextMenuStripStatus = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.onlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BusyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.awayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
             ((System.ComponentModel.ISupportInitialize)(this.uisplitContainerMain)).BeginInit();
             this.uisplitContainerMain.Panel1.SuspendLayout();
             this.uisplitContainerMain.Panel2.SuspendLayout();
@@ -53,7 +61,13 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).BeginInit();
             this.uicontextMenuStripStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).BeginInit();
             this.SuspendLayout();
             // 
             // uisplitContainerMain
@@ -153,9 +167,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Panel2.Controls.Add(this.uiRichTextBoxMsg);
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(534, 555);
-            this.splitContainer1.SplitterDistance = 466;
+            this.splitContainer1.SplitterDistance = 425;
             this.splitContainer1.TabIndex = 0;
             // 
             // uiRichTextBoxHistory
@@ -165,19 +179,92 @@
             this.uiRichTextBoxHistory.Location = new System.Drawing.Point(0, 0);
             this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
             this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(534, 466);
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(534, 425);
             this.uiRichTextBoxHistory.TabIndex = 0;
             this.uiRichTextBoxHistory.Text = "";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.tableLayoutPanel2.Controls.Add(this.uiRichTextBoxMsg, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.WaveIn, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.WaveOut, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ClientX1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(534, 126);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
             // uiRichTextBoxMsg
             // 
+            this.tableLayoutPanel2.SetColumnSpan(this.uiRichTextBoxMsg, 5);
             this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(0, 0);
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 41);
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(534, 85);
-            this.uiRichTextBoxMsg.TabIndex = 0;
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(528, 82);
+            this.uiRichTextBoxMsg.TabIndex = 5;
             this.uiRichTextBoxMsg.Text = "";
-            this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
+            // 
+            // WaveIn
+            // 
+            this.WaveIn.Enabled = true;
+            this.WaveIn.Location = new System.Drawing.Point(141, 3);
+            this.WaveIn.Name = "WaveIn";
+            this.WaveIn.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveIn.OcxState")));
+            this.WaveIn.Size = new System.Drawing.Size(42, 23);
+            this.WaveIn.TabIndex = 8;
+            this.WaveIn.Visible = false;
+            // 
+            // WaveOut
+            // 
+            this.WaveOut.Enabled = true;
+            this.WaveOut.Location = new System.Drawing.Point(189, 3);
+            this.WaveOut.Name = "WaveOut";
+            this.WaveOut.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveOut.OcxState")));
+            this.WaveOut.Size = new System.Drawing.Size(39, 23);
+            this.WaveOut.TabIndex = 9;
+            this.WaveOut.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.uitrackBarVolume);
+            this.panel2.Controls.Add(this.uibuttonCall);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(234, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(297, 32);
+            this.panel2.TabIndex = 10;
+            // 
+            // uitrackBarVolume
+            // 
+            this.uitrackBarVolume.Location = new System.Drawing.Point(93, 3);
+            this.uitrackBarVolume.Maximum = 100;
+            this.uitrackBarVolume.Name = "uitrackBarVolume";
+            this.uitrackBarVolume.Size = new System.Drawing.Size(120, 45);
+            this.uitrackBarVolume.TabIndex = 1;
+            this.uitrackBarVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.uitrackBarVolume.Value = 50;
+            this.uitrackBarVolume.Scroll += new System.EventHandler(this.uitrackBarVolume_Scroll);
+            // 
+            // uibuttonCall
+            // 
+            this.uibuttonCall.Location = new System.Drawing.Point(228, 3);
+            this.uibuttonCall.Name = "uibuttonCall";
+            this.uibuttonCall.Size = new System.Drawing.Size(53, 24);
+            this.uibuttonCall.TabIndex = 0;
+            this.uibuttonCall.Text = "Call";
+            this.uibuttonCall.UseVisualStyleBackColor = true;
+            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
             // uicontextMenuStripStatus
             // 
@@ -218,6 +305,16 @@
             this.offlineToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.offlineToolStripMenuItem.Text = "Offline";
             // 
+            // ClientX1
+            // 
+            this.ClientX1.Enabled = true;
+            this.ClientX1.Location = new System.Drawing.Point(3, 3);
+            this.ClientX1.Name = "ClientX1";
+            this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
+            this.ClientX1.Size = new System.Drawing.Size(75, 23);
+            this.ClientX1.TabIndex = 11;
+            this.ClientX1.Visible = false;
+            // 
             // uiChatWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +322,7 @@
             this.Controls.Add(this.uisplitContainerMain);
             this.MinimumSize = new System.Drawing.Size(806, 555);
             this.Name = "uiChatWindow";
-            this.Size = new System.Drawing.Size(806, 555);            
+            this.Size = new System.Drawing.Size(806, 555);
             this.uisplitContainerMain.Panel1.ResumeLayout(false);
             this.uisplitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uisplitContainerMain)).EndInit();
@@ -237,7 +334,14 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).EndInit();
             this.uicontextMenuStripStatus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,7 +351,6 @@
         private System.Windows.Forms.SplitContainer uisplitContainerMain;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.RichTextBox uiRichTextBoxHistory;
-        private System.Windows.Forms.RichTextBox uiRichTextBoxMsg;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel uiflowLayoutPanelBuddies;
         private System.Windows.Forms.Panel panel1;
@@ -258,5 +361,13 @@
         private System.Windows.Forms.ToolStripMenuItem BusyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem awayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offlineToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.RichTextBox uiRichTextBoxMsg;
+        private AxVCProX.AxvcproWaveInDeviceX WaveIn;
+        private AxVCProX.AxvcproWaveOutDeviceX WaveOut;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button uibuttonCall;
+        private System.Windows.Forms.TrackBar uitrackBarVolume;
+        private AxVCProX.AxvcproRTPConfClientX ClientX1;
     }
 }

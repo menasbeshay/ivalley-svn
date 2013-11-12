@@ -13,6 +13,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Specialized;
+using System.Configuration;
 
 namespace WhiteChatClient.UserControls
 {
@@ -383,10 +384,12 @@ namespace WhiteChatClient.UserControls
 
         #region properties
         public string currentChatUser { get { return _buddy; } set { _buddy = value; } }
+        public bool InCall { get; set; }
         #endregion 
         public uiChatWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            InCall = false;
         }
 
         public void LoadBuddies()
@@ -532,23 +535,31 @@ namespace WhiteChatClient.UserControls
                 case MessageType.MESSAGE_ERROR:
                     break;
                 case MessageType.MESSAGE_IM:                    
-                case MessageType.MESSAGE_IM_OFFLINE:                   
-                    RichTextBox temp = new RichTextBox();
-                    temp.Text = oMessage.Sender + " says :\n\r " + oMessage.Message;
-                    temp.Select(0, temp.Text.IndexOf(" says :") + 7);
-                    temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
-                    foreach (var item in CurrentUser.Emotions)
+                case MessageType.MESSAGE_IM_OFFLINE:
+                    if (!oMessage.Message.StartsWith("##ConfCall##"))
                     {
-                        int _index;
-                        if ((_index = temp.Find(item.Key)) > -1)
+                        RichTextBox temp = new RichTextBox();
+                        temp.Text = oMessage.Sender + " says :\n\r " + oMessage.Message;
+                        temp.Select(0, temp.Text.IndexOf(" says :") + 7);
+                        temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
+                        foreach (var item in CurrentUser.Emotions)
                         {
-                            temp.Select(_index, item.Key.Length);
-                            InsertImage(new Bitmap(typeof(uiFormMain), item.Value), temp);
+                            int _index;
+                            if ((_index = temp.Find(item.Key)) > -1)
+                            {
+                                temp.Select(_index, item.Key.Length);
+                                InsertImage(new Bitmap(typeof(uiFormMain), item.Value), temp);
+                            }
                         }
+                        // temp.Text = oMessage.Sender + " says :\n\r " + temp.Text;
+                        uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                        temp.Dispose();
                     }
-                   // temp.Text = oMessage.Sender + " says :\n\r " + temp.Text;
-                    uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
-                    temp.Dispose();
+                    else
+                    {
+                        Calluser(oMessage.Message.Substring(oMessage.Message.LastIndexOf("##") + 2));
+                        InCall = true;
+                    }
                     break;
                 case MessageType.MESSAGE_TYPING:
                     break;
@@ -611,6 +622,35 @@ namespace WhiteChatClient.UserControls
                 CurrentUser.Client.ConnectionLost += new _IClientEvents_ConnectionLostEventHandler(this.OnConnectionLost);
             }
         }
+
+        private void uibuttonCall_Click(object sender, EventArgs e)
+        {
+            Calluser(currentChatUser + "_" + CurrentUser.Client.Name);
+            InCall = true;
+        }
+
+        private void Calluser(string roomname)
+        {
+            WaveIn.addConsumer2(ClientX1.asConsumer());
+            ClientX1.addConsumer2(WaveOut.asConsumer());
+            ClientX1.setSrvMasterKey("123456");
+
+            ClientX1.setStreamEnabled(true, true);
+            ClientX1.setVolumeModify(false, 50);
+            ClientX1.setVolumeModify(true, 50);
+            ClientX1.setEncoding(15, 32000);
+            ClientX1.URI = "rtp://" + CurrentUser.Client.Name + "@" + ConfigurationManager.AppSettings["ServerIp"].ToString() + ":" + ConfigurationManager.AppSettings["ServerPort"].ToString() + "/" + roomname;
+            if(!InCall)
+                CurrentUser.Client.SendIM(currentChatUser, "##ConfCall##" + currentChatUser + "_" + CurrentUser.Client.Name);
+
+            WaveIn.Active = true;
+        }
+
+        private void uitrackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            ClientX1.setVolumeModify(false, uitrackBarVolume.Value);
+        }
+
 
     }
 }

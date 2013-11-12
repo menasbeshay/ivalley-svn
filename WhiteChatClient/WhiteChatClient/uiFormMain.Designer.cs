@@ -43,7 +43,7 @@
             this.uiPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanelMain.Location = new System.Drawing.Point(0, 0);
             this.uiPanelMain.Name = "uiPanelMain";
-            this.uiPanelMain.Size = new System.Drawing.Size(806, 531);
+            this.uiPanelMain.Size = new System.Drawing.Size(806, 553);
             this.uiPanelMain.TabIndex = 0;
             // 
             // toolStripContainer1
@@ -53,13 +53,13 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.uiPanelMain);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(806, 531);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(806, 553);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(806, 555);
+            this.toolStripContainer1.Size = new System.Drawing.Size(806, 577);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -89,10 +89,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 555);
+            this.ClientSize = new System.Drawing.Size(806, 577);
             this.Controls.Add(this.toolStripContainer1);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(822, 593);
+            this.MinimumSize = new System.Drawing.Size(822, 615);
             this.Name = "uiFormMain";
             this.Text = "White Chat";
             this.Load += new System.EventHandler(this.uiFormMain_Load);
