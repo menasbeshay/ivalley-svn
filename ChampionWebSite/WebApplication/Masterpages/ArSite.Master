@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ArSite.master.cs" Inherits="WebApplication.Masterpages.ArSite" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Champion Breeds - فندق للحيوانات الأليفة - 5 نجوم</title>
+    <link href="../css/arcss.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+    <div class="HeaderWrapper">
+        
+        <div class="LangSelector"><a href="#">English</a></div>
+        <div class="Clear"></div>
+        <div class="Headerspacer"></div>
+        <div class="NavigationWrapper">
+            <ul>
+                <li><a href="#">زواج</a></li>
+                <li><a href="#">تدريب</a></li>
+                <li><a href="#">بيع وشراء</a></li>
+                <li><a href="#">إستضافة فندقية</a></li>
+                <li><a href="#">إستضافة علاجية</a></li>
+                <li><a href="#">إنتاج</a></li>
+                <li><a href="#">ألبوم الصور</a></li>
+                <li><a href="#">إتصل بنا</a></li>
+                <li><a href="#">عن المزرعة</a></li>                
+            </ul>
+        </div>
+        
+    </div>
+
+
+
+    <div class="ContentWrapper">
+        <div class="MainContent">
+           <div class="slider">
+                <!-- replace this div with slide -->
+                <div style="border:1px solid black;height:500px;">
+                 slider will be here
+                </div>
+            </div>              
+            
+             <div class="Buttons">
+                <a href="#"><img src="../images/button1_ar.png" /></a>
+                <a href="#"><img src="../images/button2_ar.png" /></a>
+                <a href="#"><img src="../images/button3_ar.png" /></a>
+                <a href="#"><img src="../images/button4_ar.png" /></a>
+                <a href="#"><img src="../images/button5_ar.png" /></a>
+                <a href="#"><img src="../images/button6_ar.png" /></a>
+                <ul class="socials">
+                    <li class="youtube"><a href="#">youtube</a></li>
+                    <li class="facebook"><a href="#">facebook</a></li>
+                </ul>
+            </div> 
+            <div class="Content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+            </div>          
+        </div>
+    </div>
+
+
+    <div class="FooterWrapper">
+        <div class="NavigationWrapper">
+             <ul>
+                <li><a href="#">زواج</a></li>
+                <li><a href="#">تدريب</a></li>
+                <li><a href="#">بيع وشراء</a></li>
+                <li><a href="#">إستضافة فندقية</a></li>
+                <li><a href="#">إستضافة علاجية</a></li>
+                <li><a href="#">إنتاج</a></li>
+                <li><a href="#">ألبوم الصور</a></li>
+                <li><a href="#">إتصل بنا</a></li>
+                <li><a href="#">عن المزرعة</a></li>                
+            </ul>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
