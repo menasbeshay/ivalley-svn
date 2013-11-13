@@ -6,6 +6,7 @@
 <%@ Register src="Controls/ucAttendanceReport.ascx" tagname="ucAttendanceReport" tagprefix="uc2" %>
 <%@ Register src="Controls/ucFees.ascx" tagname="ucFees" tagprefix="uc3" %>
 <%@ Register src="Controls/ucInstallment.ascx" tagname="ucInstallment" tagprefix="uc4" %>
+<%@ Register src="Controls/ucresults.ascx" tagname="ucresults" tagprefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
     <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
@@ -86,6 +87,10 @@
     <asp:LinkButton ID="uiLinkButtonAttendanceReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditAttedanceReport" ToolTip="تقرير الغياب الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
     <asp:LinkButton ID="uiLinkButtonFees" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditFees" ToolTip="المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
     <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img src="../images/icons/fees.gif" /></asp:LinkButton>
     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
 
     </ItemTemplate>
@@ -536,6 +541,13 @@
             <uc4:ucInstallment ID="ucInstallment1" runat="server" />            
         </div>
         </asp:Panel>
+
+        <asp:Panel ID="uiPanelResults" runat='server' Visible="false"  >
+        
+        <div class="dialog-modal" id="resultsdiag" title="تعديل النتائج ">                                    
+            <uc5:ucresults ID="ucresults1" runat="server" />
+        </div>
+        </asp:Panel>
     
 
      <script type="text/javascript">
@@ -547,7 +559,7 @@
              $("#monthlyreportdiag").dialog({             
                  modal: true,
                  width: 650,
-                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
                  /*close: function (event, ui) {
                      //this.html('');
                      $(this).dialog('close');
@@ -558,7 +570,7 @@
              $("#AttendanceReportdiag").dialog({
                  modal: true,
                  width: 650,
-                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
                 /* close: function (event, ui) {
                      //this.html('');
                       $(this).dialog('close');
@@ -569,7 +581,7 @@
               $("#Feesdiag").dialog({
                  modal: true,
                  width: 650,
-                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
                 /* close: function (event, ui) {
                      //this.html('');
                       $(this).dialog('close');
@@ -580,11 +592,22 @@
               $("#installmentdiag").dialog({
                  modal: true,
                  width: 650,
-                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
                 /* close: function (event, ui) {
                      //this.html('');
                       $(this).dialog('close');
                      $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+             $("#resultsdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                 /* close: function (event, ui) {
+                 //this.html('');
+                 $(this).dialog('close');
+                 $('.ui-widget-overlay').remove();
                  }*/
              });
          

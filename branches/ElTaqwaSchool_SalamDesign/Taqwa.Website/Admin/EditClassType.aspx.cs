@@ -33,7 +33,7 @@ namespace Taqwa.Website.Admin
         {
             if (!IsPostBack)
             {                
-                if (CurrentClassType != 0)
+              /*  if (CurrentClassType != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -48,11 +48,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentClassType.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+              //  }
             }
         }
 
@@ -61,8 +61,12 @@ namespace Taqwa.Website.Admin
             DBLayer db = new DBLayer();
             DataSet ds = new DataSet();
             ds = db.GetAllClassType();
-            uiGridViewClassType.DataSource = ds;
-            uiGridViewClassType.DataBind();
+           /* uiGridViewClassType.DataSource = ds;
+            uiGridViewClassType.DataBind();*/
+
+
+            uiDataListClasses.DataSource = ds;
+            uiDataListClasses.DataBind();
         }
 
         protected void uiLinkButtonAdd_Click(object sender, EventArgs e)
@@ -137,5 +141,38 @@ namespace Taqwa.Website.Admin
             uiTextBoxArName.Text = "";
             uiTextBoxEnName.Text = "";
         }
+
+
+        protected void uiDataListClasses_EditCommand(object source, DataListCommandEventArgs e)
+        {
+            uiDataListClasses.EditItemIndex = e.Item.ItemIndex;
+            BindData();
+        }
+
+        protected void uiDataListClasses_CancelCommand(object source, DataListCommandEventArgs e)
+        {
+            uiDataListClasses.EditItemIndex = -1;
+            BindData();
+        }
+
+        protected void uiDataListClasses_DeleteCommand(object source, DataListCommandEventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            int id = (int)uiDataListClasses.DataKeys[e.Item.ItemIndex];
+            db.DeleteClassType(id);
+            uiDataListClasses.EditItemIndex = -1;
+            BindData();
+        }
+
+        protected void uiDataListClasses_UpdateCommand(object source, DataListCommandEventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            int id = (int)uiDataListClasses.DataKeys[e.Item.ItemIndex];
+            TextBox t = (TextBox)e.Item.FindControl("uiTextBoxArName");
+            db.UpdateClassType(id, "", t.Text);
+            uiDataListClasses.EditItemIndex = -1;
+            BindData();
+        }
+
     }
 }

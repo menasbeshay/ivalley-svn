@@ -65,6 +65,7 @@ namespace Taqwa.Website.Admin.Controls
                 db.AddMonthlyReport(CurrentCheckedStudent, uiTextBoxDetails.Text, "", new DateTime(Convert.ToInt32(uiDropDownListYear.SelectedValue), Convert.ToInt32(uiDropDownListMonth.SelectedValue), 1));
             }            
             CurrentReport = 0;
+            ClearFields();
             BindData();
         }
 

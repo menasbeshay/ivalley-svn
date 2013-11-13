@@ -54,9 +54,12 @@
   <ItemGroup>
     <Content Include="Admin\AdminCP.aspx" />
     <Content Include="Admin\Controls\ucAttendanceReport.ascx" />
+    <Content Include="Admin\Controls\ucClassRooms.ascx" />
+    <Content Include="Admin\Controls\ucCourses.ascx" />
     <Content Include="Admin\Controls\ucFees.ascx" />
     <Content Include="Admin\Controls\ucInstallment.ascx" />
     <Content Include="Admin\Controls\ucMonthlyReport.ascx" />
+    <Content Include="Admin\Controls\ucresults.ascx" />
     <Content Include="Admin\EditCategory.aspx" />
     <Content Include="Admin\EditClassType.aspx" />
     <Content Include="Admin\EditAttendanceReport.aspx" />
@@ -212,9 +215,12 @@
     <Content Include="images\icon2.jpg" />
     <Content Include="images\icon3.jpg" />
     <Content Include="images\icons\delete.gif" />
+    <Content Include="images\icons\Delete.png" />
     <Content Include="images\icons\edit.gif" />
     <Content Include="images\icons\fees.gif" />
+    <Content Include="images\icons\Pencil.png" />
     <Content Include="images\icons\reports.gif" />
+    <Content Include="images\icons\Save.png" />
     <Content Include="images\image1.jpg" />
     <Content Include="images\image2.jpg" />
     <Content Include="images\index-bg.jpg" />
@@ -879,6 +885,20 @@
     <Compile Include="Admin\Controls\ucAttendanceReport.ascx.designer.cs">
       <DependentUpon>ucAttendanceReport.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Controls\ucClassRooms.ascx.cs">
+      <DependentUpon>ucClassRooms.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucClassRooms.ascx.designer.cs">
+      <DependentUpon>ucClassRooms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucCourses.ascx.cs">
+      <DependentUpon>ucCourses.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucCourses.ascx.designer.cs">
+      <DependentUpon>ucCourses.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Controls\ucFees.ascx.cs">
       <DependentUpon>ucFees.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -899,6 +919,13 @@
     </Compile>
     <Compile Include="Admin\Controls\ucMonthlyReport.ascx.designer.cs">
       <DependentUpon>ucMonthlyReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ucresults.ascx.cs">
+      <DependentUpon>ucresults.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ucresults.ascx.designer.cs">
+      <DependentUpon>ucresults.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditCategory.aspx.cs">
       <DependentUpon>EditCategory.aspx</DependentUpon>

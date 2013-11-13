@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditClass.aspx.cs" Inherits="Taqwa.Website.Admin.EditClass" %>
+<%@ Register src="Controls/ucClassRooms.ascx" tagname="ucClassRooms" tagprefix="uc1" %>
+<%@ Register src="Controls/ucCourses.ascx" tagname="ucCourses" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script src="../js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
+    <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<div class="AdminMain">
+<div class="AdminMain" id="Main">
 <div class="BackDiv">
 <asp:LinkButton runat="server" ID="lnkBackToAdminCP" PostBackUrl="AdminCP.aspx" 
         Font-Underline="true" Text="عودة إلى لوحة التحكم &gt;&gt;"></asp:LinkButton>
@@ -23,15 +27,17 @@
         <AlternatingRowStyle HorizontalAlign="Center" />     
     <Columns>
     
-    <asp:BoundField  HeaderText="الإسم الإنجليزى" DataField="EnName" />
-    <asp:BoundField  HeaderText="الإسم العربى" DataField="ArName" />
+    
+    <asp:BoundField  HeaderText="الإسم " DataField="ArName" />
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     &nbsp;
     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClass" >تعديل</asp:LinkButton>
     &nbsp;
     <asp:LinkButton ID="uiLinkButtonEditClassRooms" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClassRoom" >تعديل الفصول</asp:LinkButton>
-    &nbsp;&nbsp;
+    &nbsp;
+    <asp:LinkButton ID="uiLinkButtonEditCourses" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditCourses" >تعديل المواد</asp:LinkButton>
+    &nbsp;
     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="DeleteClass"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
     &nbsp;
     </ItemTemplate>
@@ -42,6 +48,7 @@
     </EmptyDataTemplate>
         <RowStyle HorizontalAlign="Center" />
     </asp:GridView>
+    
     <div class="clear"></div>
     </div>
     </asp:Panel>
@@ -69,6 +76,7 @@
             &nbsp;</div>
         <div class="clear"></div>
 
+        <div style="display:none;">
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="الإسم بالإنجليزية :"></asp:Label>
@@ -80,13 +88,13 @@
         <div class="AdminRight">
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="uiTextBoxEnName" ErrorMessage="*" 
-                ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+                ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
-
+        </div>
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="الإسم بالعربية :"></asp:Label>
+                Text="الإسم  :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArName" runat="server" ValidationGroup="UpdatePage" 
@@ -114,4 +122,52 @@
         </asp:Panel>
     </div>
 
+
+    <asp:Panel ID="uiPanelClassRooms" runat="server" Visible="false">
+        <div class="dialog-modal" id="classroomsdiag" title="تعديل الفصول">                        
+            <uc1:ucClassRooms ID="ucClassRooms1" runat="server" />
+        </div>
+
+        </asp:Panel>
+
+
+        <asp:Panel ID="uiPanelCourses" runat='server' Visible="false" >
+        
+        <div class="dialog-modal" id="Coursesdiag" title="تعديل المواد الدراسية ">                                    
+            <uc2:ucCourses ID="ucCourses1" runat="server" />
+        </div>
+        </asp:Panel>
+
+        <script type="text/javascript">
+
+        // Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+         
+             $('.ui-widget-overlay').remove();
+
+             $("#classroomsdiag").dialog({             
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 /*close: function (event, ui) {
+                     //this.html('');
+                     $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+             $("#Coursesdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                /* close: function (event, ui) {
+                     //this.html('');
+                      $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+         
+        // });
+
+    </script>
 </asp:Content>

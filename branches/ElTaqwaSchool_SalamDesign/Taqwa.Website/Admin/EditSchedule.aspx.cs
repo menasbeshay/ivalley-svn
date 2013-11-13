@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taqwa.BLL;
 using System.Data;
+using System.Collections;
 
 namespace Taqwa.Website.Admin
 {
@@ -28,6 +29,8 @@ namespace Taqwa.Website.Admin
                 Session["CurrentSchedule"] = value;
             }
         }
+
+        public int DayCode { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -62,9 +65,49 @@ namespace Taqwa.Website.Admin
         {
             DBLayer db = new DBLayer();
             DataSet ds = new DataSet();
+            DataSet dsSections = new DataSet();
             ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(uiDropDownListDay.SelectedValue));
+            dsSections = db.GetAllSections();
             uiGridViewSchedule.DataSource = ds;
-            uiGridViewSchedule.DataBind();      
+            uiGridViewSchedule.DataBind();
+
+            ArrayList days = new ArrayList();
+            days.Add("الأحد#0");
+            days.Add("الأثنين#1");
+            days.Add("الثلاثاء#2");
+            days.Add("الأربعاء#3");
+            days.Add("الخميس#4");
+            days.Add("الجمعة#5");
+            days.Add("السبت#6");
+
+            /*uiRepeaterDays.DataSource = days;
+            uiRepeaterDays.DataBind();
+            */
+
+
+            /**/
+            DataTable dt = new DataTable();
+            dt.Columns.Add("اليوم/ الحصة",typeof(string));
+            foreach (DataRow item in dsSections.Tables[0].Rows)
+            {
+                dt.Columns.Add(item["ArName"].ToString());
+            }
+
+            foreach (string item in days)
+            {
+                DataRow row = dt.NewRow();
+                row[0] = item;
+                foreach (DataRow section in dsSections.Tables[0].Rows)
+                {
+                    row[section["ArName"].ToString()] = section["SectionID"].ToString();
+                }
+                dt.Rows.Add(row);
+            }
+
+
+            uiGridViewScheduleFinal.DataSource = dt;
+            uiGridViewScheduleFinal.DataBind();
+            /**/
         }
 
         private void LoadDDLs()
@@ -95,6 +138,7 @@ namespace Taqwa.Website.Admin
             uiDropDownListClassRooms.DataTextField = "ArName";
             uiDropDownListClassRooms.DataValueField = "ClassRoomID";
             uiDropDownListClassRooms.DataBind();
+            BindData(); 
         }
 
         protected void uiButtonSearch_Click(object sender, EventArgs e)
@@ -175,5 +219,139 @@ namespace Taqwa.Website.Admin
             uiTextBoxArDetails.Text = "";
             uiTextBoxEnDetails.Text = "";
         }
+
+       
+
+        protected void uiGridViewScheduleFinal_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+             
+            if (e.Row.RowType == DataControlRowType.DataRow )
+            {
+                DBLayer db = new DBLayer();
+                DataSet ds = new DataSet();
+                int Currentday = 0; 
+
+                int count = 0;
+                foreach (TableCell item in e.Row.Cells)
+	            {
+                    if (count == 0)
+                    {
+                        Currentday = Convert.ToInt32(item.Text.Substring(item.Text.LastIndexOf("#") + 1));
+                        item.Text = item.Text.Substring(0, item.Text.LastIndexOf("#"));
+                        count++;
+                        continue;
+                    }
+                    HiddenField sectionid = new HiddenField();
+                    HiddenField dayid = new HiddenField();
+                    HiddenField Scheduleid = new HiddenField();
+                    Scheduleid.ID = "uiHiddenFieldScheduleID";
+                    Scheduleid.Value = "0";
+                    dayid.Value = Currentday.ToString();
+                    dayid.ID = "uiHiddenFieldDayID";
+                    sectionid.ID = "uiHiddenFieldSectionID";
+                    sectionid.Value = item.Text;
+		            TextBox tb = new TextBox ();
+                    tb.ID = "uiTextBoxArDetails";
+                    tb.Width = 70;
+                    item.Controls.Clear();
+                    ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Currentday); 
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        if (row["SectionID"].ToString() == sectionid.Value)
+                        {
+                            tb.Text = row["ArDetails"].ToString();
+                            Scheduleid.Value = row["ScheduleID"].ToString();
+                        }
+                    }
+                    item.Controls.Clear();
+                    item.Controls.Add(tb);
+                    item.Controls.Add(sectionid);
+                    item.Controls.Add(dayid);
+                    item.Controls.Add(Scheduleid);
+	            }
+                
+                    
+            }
+        }
+
+        protected void uiDropDownListClassRooms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        protected void uiButtonUpdateFinal_Click(object sender, EventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            foreach (GridViewRow item in uiGridViewScheduleFinal.Rows)
+            {
+               
+                int count = 0;
+                foreach (TableCell cell in item.Cells)
+                {
+                    if (count != 0)
+                    {
+                        HiddenField sectionid = (HiddenField)cell.FindControl("uiHiddenFieldSectionID");
+                        HiddenField dayid = (HiddenField)cell.FindControl("uiHiddenFieldDayID");
+                        HiddenField Scheduleid = (HiddenField)cell.FindControl("uiHiddenFieldScheduleID");
+                        TextBox tb = (TextBox)cell.FindControl("uiTextBoxArDetails");
+                        if (Scheduleid.Value != "0")
+                        {
+                            db.UpdateSchedule(Convert.ToInt32(Scheduleid.Value), Convert.ToInt32(dayid.Value), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(sectionid.Value), tb.Text, "");
+                        }
+                        else
+                        {
+
+                            db.AddSchedule(Convert.ToInt32(dayid.Value), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(sectionid.Value), tb.Text, "");
+                        }
+                    }
+                    else
+                    {
+                        count++;
+                    }
+                }
+                
+            }
+        }
+
+
+        /*****************************************************************/
+        /*
+          protected void uiRepeaterDays_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DBLayer db = new DBLayer();                
+                HiddenField code = (HiddenField)e.Item.FindControl("uiHiddenFieldDayCode");                
+                Repeater r = (Repeater)e.Item.FindControl("uiRepeaterSections2");
+                DayCode = Convert.ToInt32(code.Value);
+                r.DataSource = db.GetAllSections();
+                r.DataBind();
+            }
+            
+        }
+
+        protected void uiRepeaterSections2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DBLayer db = new DBLayer();
+                DataSet ds = new DataSet();
+                Label course = (Label)e.Item.FindControl("uiLabelCourse");
+                ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), DayCode);
+                DataRowView row = (DataRowView)e.Item.DataItem;
+
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    if (item["SectionID"].ToString() == row["SectionID"].ToString())
+                    {
+                        course.Text = item["ArDetails"].ToString();
+                        break;
+                    }
+                }
+            }
+
+        }
+         */
+        /*********************************************************************/
     }
 }

@@ -31,7 +31,8 @@
         </div>
         <div class="AdminMiddle">
             &nbsp;<asp:DropDownList ID="uiDropDownListClassRooms" runat="server" 
-                Width="200px">
+                Width="200px" AutoPostBack="True" 
+                onselectedindexchanged="uiDropDownListClassRooms_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
         <div class="AdminRight">
@@ -159,5 +160,43 @@
         </div>
         <div class="clear"></div>
         </asp:Panel>
+
+
+    <%--<asp:Repeater ID="uiRepeaterDays" runat="server" 
+        onitemdatabound="uiRepeaterDays_ItemDataBound">
+    <HeaderTemplate>
+    <table border="1" style="border-collapse:collapse;direction:rtl;width:80%;">
+    
+    </HeaderTemplate>
+    <ItemTemplate>
+    <tr>
+    <td>
+    <%# Container.DataItem.ToString().Substring(0,Container.DataItem.ToString().LastIndexOf("#")) %>
+        <asp:HiddenField ID="uiHiddenFieldDayCode" runat="server" Value='<%# Container.DataItem.ToString().Substring(Container.DataItem.ToString().LastIndexOf("#")+1) %>' />
+    </td>
+    
+        <asp:Repeater ID="uiRepeaterSections2" runat="server" onitemdatabound="uiRepeaterSections2_ItemDataBound">
+        <ItemTemplate>
+        <td>
+            <asp:Label ID="uiLabelCourse" runat="server" ></asp:Label>
+        </td>
+        </ItemTemplate>
+        </asp:Repeater>
+
+    
+    </tr>
+    </ItemTemplate>
+    <FooterTemplate>
+    </table>
+    </FooterTemplate>
+    </asp:Repeater>--%>
+
+    <div style="direction:rtl;margin-right:20px;">
+    <asp:GridView ID="uiGridViewScheduleFinal" runat="server" 
+            onrowdatabound="uiGridViewScheduleFinal_RowDataBound">
+    </asp:GridView>
+        <asp:Button ID="uiButtonUpdateFinal" runat="server" Text="تعديل / إضافة" 
+            onclick="uiButtonUpdateFinal_Click" />
+    </div>
     </div>
 </asp:Content>

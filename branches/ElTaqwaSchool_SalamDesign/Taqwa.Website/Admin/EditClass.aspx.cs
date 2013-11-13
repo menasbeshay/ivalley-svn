@@ -52,11 +52,15 @@ namespace Taqwa.Website.Admin
                     }
                     uiPanelCurrentClasses.Visible = false;
                     uiPanelCurrent.Visible = true;
+                    uiPanelClassRooms.Visible = false;
+                    uiPanelCourses.Visible = false;
                 }
                 else
                 {
                     uiPanelCurrentClasses.Visible = true;
                     uiPanelCurrent.Visible = false;
+                    uiPanelClassRooms.Visible = false;
+                    uiPanelCourses.Visible = false;
                     BindData();
                 }
             }
@@ -79,6 +83,7 @@ namespace Taqwa.Website.Admin
             ds = db.GetAllClass();
             uiGridViewClasses.DataSource = ds;
             uiGridViewClasses.DataBind();
+
         }
 
         protected void uiGridViewClasses_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -107,12 +112,27 @@ namespace Taqwa.Website.Admin
                 }
                 uiPanelCurrentClasses.Visible = false;
                 uiPanelCurrent.Visible = true;
+                uiPanelClassRooms.Visible = false;
+                uiPanelCourses.Visible = false;
             }
             else if (e.CommandName == "EditClassRoom")
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
-                Session["CurrentClassForclassRoom"] = id;
-                Response.Redirect("EditClassRoom.aspx");
+                //Session["CurrentClassForclassRoom"] = id;
+                //Response.Redirect("EditClassRoom.aspx");
+                Session["CurrentClassForRoom"] = id;
+                ucClassRooms1.BindData();
+                uiPanelClassRooms.Visible = true;
+                uiPanelCourses.Visible = false;
+                
+            }
+            else if (e.CommandName == "EditCourses")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentClassForCourse"] = id;
+                ucCourses1.BindData();
+                uiPanelClassRooms.Visible = false;
+                uiPanelCourses.Visible = true;
             }
             else if (e.CommandName == "DeleteClass")
             {
@@ -122,6 +142,8 @@ namespace Taqwa.Website.Admin
                 db.DeleteClass(id);
                 uiPanelCurrentClasses.Visible = true;
                 uiPanelCurrent.Visible = false;
+                uiPanelClassRooms.Visible = false;
+                uiPanelCourses.Visible = false;
                 BindData();
             }
         }
@@ -148,6 +170,8 @@ namespace Taqwa.Website.Admin
             ClearFields();
             uiPanelCurrentClasses.Visible = true;
             uiPanelCurrent.Visible = false;
+            uiPanelClassRooms.Visible = false;
+            uiPanelCourses.Visible = false;
         }
 
         protected void uiLinkButtonAdd_Click(object sender, EventArgs e)
@@ -155,6 +179,8 @@ namespace Taqwa.Website.Admin
             ClearFields();
             uiPanelCurrentClasses.Visible = false;
             uiPanelCurrent.Visible = true;
+            uiPanelClassRooms.Visible = false;
+            uiPanelCourses.Visible = false;
         }
 
         private void ClearFields()
@@ -163,5 +189,6 @@ namespace Taqwa.Website.Admin
             uiTextBoxArName.Text = "";
             uiTextBoxEnName.Text = "";
         }
+
     }
 }
