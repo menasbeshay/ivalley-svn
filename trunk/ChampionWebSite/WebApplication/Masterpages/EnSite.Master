@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EnSite.master.cs" Inherits="WebApplication.Masterpages.EnSite" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Champion Breeds - pets hotel - 5 starts</title>
+    <link href="../css/encss.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <div class="HeaderWrapper">
+        
+        <div class="LangSelector"><a href="#">عربى</a></div>
+        <div class="Clear"></div>
+        <div class="Headerspacer"></div>
+        <div class="NavigationWrapper">
+            <ul>
+                <li><a href="#">Mating</a></li>
+                <li><a href="#">Training</a></li>
+                <li><a href="#">Buy & Sell</a></li>
+                <li><a href="#">Lodging hosting</a></li>
+                <li><a href="#">Therapeutic hosting</a></li>
+                <li><a href="#">Output</a></li>
+                <li><a href="#">Photo Album</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>                
+            </ul>
+        </div>
+        
+    </div>
+
+
+
+    <div class="ContentWrapper">
+        <div class="MainContent">
+            <div class="Buttons">
+                <a href="#"><img src="../images/button1_en.png" /></a>
+                <a href="#"><img src="../images/button2_en.png" /></a>
+                <a href="#"><img src="../images/button3_en.png" /></a>
+                <a href="#"><img src="../images/button4_en.png" /></a>
+                <a href="#"><img src="../images/button5_en.png" /></a>
+                <a href="#"><img src="../images/button6_en.png" /></a>
+                <ul class="socials">
+                    <li class="youtube"><a href="#">youtube</a></li>
+                    <li class="facebook"><a href="#">facebook</a></li>
+                </ul>
+            </div> 
+            <div class="Content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+            </div>
+            <div class="slider">
+                <!-- replace this div with slide -->
+                <div style="border:1px solid black;height:500px;">
+                 slider will be here
+                </div>
+            </div>                        
+        </div>
+    </div>
+
+
+    <div class="FooterWrapper">
+        <div class="NavigationWrapper">
+            <ul>
+                <li><a href="#">Mating</a></li>
+                <li><a href="#">Training</a></li>
+                <li><a href="#">Buy & Sell</a></li>
+                <li><a href="#">Lodging hosting</a></li>
+                <li><a href="#">Therapeutic hosting</a></li>
+                <li><a href="#">Output</a></li>
+                <li><a href="#">Photo Album</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>                
+            </ul>
+        </div>
+    </div>
+
+    </form>
+</body>
+</html>

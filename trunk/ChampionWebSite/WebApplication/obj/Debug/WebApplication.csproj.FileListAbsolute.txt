@@ -1,0 +1,10 @@
+D:\SmartValley\champion\WebApplication\WebApplication\bin\WebApplication.dll
+D:\SmartValley\champion\WebApplication\WebApplication\bin\WebApplication.pdb
+D:\SmartValley\champion\WebApplication\WebApplication\obj\Debug\WebApplication.dll
+D:\SmartValley\champion\WebApplication\WebApplication\obj\Debug\WebApplication.pdb
+D:\SmartValley\champion\WebApplication\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
+D:\MyWork\champion\WebApplication\WebApplication\WebApplication\bin\WebApplication.dll
+D:\MyWork\champion\WebApplication\WebApplication\WebApplication\bin\WebApplication.pdb
+D:\MyWork\champion\WebApplication\WebApplication\WebApplication\obj\Debug\ResolveAssemblyReference.cache
+D:\MyWork\champion\WebApplication\WebApplication\WebApplication\obj\Debug\WebApplication.dll
+D:\MyWork\champion\WebApplication\WebApplication\WebApplication\obj\Debug\WebApplication.pdb
