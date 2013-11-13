@@ -217,7 +217,8 @@ namespace Taqwa.Website.Admin
                 uiPanelMonthlyReport.Visible = false;
                 uiPanelAttendanceReport.Visible = false;
                 uiPanelFees.Visible = false;
-                uiPanelInstallments.Visible = false; 
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
             }
             else if (e.CommandName == "DeleteStudent")
             {
@@ -232,7 +233,8 @@ namespace Taqwa.Website.Admin
                 uiPanelMonthlyReport.Visible = false;
                 uiPanelAttendanceReport.Visible = false;
                 uiPanelFees.Visible = false;
-                uiPanelInstallments.Visible = false; 
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
                 BindData();
             }
             else if (e.CommandName == "EditMonthlyReport")
@@ -243,7 +245,8 @@ namespace Taqwa.Website.Admin
                 uiPanelMonthlyReport.Visible = true;
                 uiPanelAttendanceReport.Visible = false;
                 uiPanelFees.Visible = false;
-                uiPanelInstallments.Visible = false; 
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
             }
 
             else if (e.CommandName == "EditAttedanceReport")
@@ -254,7 +257,8 @@ namespace Taqwa.Website.Admin
                 uiPanelAttendanceReport.Visible = true;
                 uiPanelMonthlyReport.Visible = false;
                 uiPanelFees.Visible = false;
-                uiPanelInstallments.Visible = false; 
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
             }
 
             else if (e.CommandName == "EditFees")
@@ -265,7 +269,8 @@ namespace Taqwa.Website.Admin
                 uiPanelAttendanceReport.Visible = false;
                 uiPanelMonthlyReport.Visible = false;
                 uiPanelFees.Visible = true;
-                uiPanelInstallments.Visible = false; 
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
             }
 
             else if (e.CommandName == "EditInstallments")
@@ -277,8 +282,56 @@ namespace Taqwa.Website.Admin
                 uiPanelMonthlyReport.Visible = false;
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = true;
+                uiPanelResults.Visible = false;
             }
-
+            else if (e.CommandName == "EditResultsFHMT")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentActiveStudent"] = id;
+                Session["CurrentResultType"] = 1;
+                ucresults1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = true;
+            }
+            else if (e.CommandName == "EditResultsFHF")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentActiveStudent"] = id;
+                Session["CurrentResultType"] = 2;
+                ucresults1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = true;
+            }
+            else if (e.CommandName == "EditResultsSHMT")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentActiveStudent"] = id;
+                Session["CurrentResultType"] = 3;
+                ucresults1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = true;
+            }
+            else if (e.CommandName == "EditResultsSHF")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentActiveStudent"] = id;
+                Session["CurrentResultType"] = 4;
+                ucresults1.BindData();
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = true;
+            }
         }
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
@@ -355,6 +408,11 @@ namespace Taqwa.Website.Admin
             uiPanelCurrentStudents.Visible = true;
             uiPanelCurrent.Visible = false;
             uiPanelPrint.Visible = false;
+            uiPanelMonthlyReport.Visible = false;
+            uiPanelAttendanceReport.Visible = false;
+            uiPanelFees.Visible = false;
+            uiPanelInstallments.Visible = false;
+            uiPanelResults.Visible = false;
             BindData();
         }
 
@@ -363,7 +421,12 @@ namespace Taqwa.Website.Admin
             ClearFields();
             uiPanelCurrentStudents.Visible = false;
             uiPanelCurrent.Visible = true;
+            uiPanelMonthlyReport.Visible = false;
+            uiPanelAttendanceReport.Visible = false;
+            uiPanelFees.Visible = false;
+            uiPanelInstallments.Visible = false; 
             uiPanelPrint.Visible = false;
+            uiPanelResults.Visible = false;
         }
 
         private void ClearFields()

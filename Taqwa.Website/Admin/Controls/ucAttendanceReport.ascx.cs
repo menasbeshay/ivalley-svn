@@ -116,6 +116,7 @@ namespace Taqwa.Website.Admin.Controls
             }            
             uiPanelCurrent.Visible = true;
             CurrentAttendanceReport = 0;
+            ClearFields();
             BindData();
         }
 

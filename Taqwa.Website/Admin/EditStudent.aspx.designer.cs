@@ -794,5 +794,23 @@ namespace Taqwa.Website.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Taqwa.Website.Admin.Controls.ucInstallment ucInstallment1;
+        
+        /// <summary>
+        /// uiPanelResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelResults;
+        
+        /// <summary>
+        /// ucresults1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Admin.Controls.ucresults ucresults1;
     }
 }

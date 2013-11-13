@@ -15,3 +15,9 @@ D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\Taqwa.BLL\bin\Debug\Micr
 D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\Taqwa.BLL\obj\Debug\Taqwa.BLL.csprojResolveAssemblyReference.cache
 D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\Taqwa.BLL\obj\Debug\Taqwa.BLL.dll
 D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\Taqwa.BLL\obj\Debug\Taqwa.BLL.pdb
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\bin\Debug\Taqwa.BLL.dll.config
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\bin\Debug\Taqwa.BLL.dll
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\bin\Debug\Taqwa.BLL.pdb
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.xml
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\obj\Debug\Taqwa.BLL.dll
+D:\SmartValley\El-Taqwa School\ElTaqwaSchools_NewDesign\svn_final\Taqwa.BLL\obj\Debug\Taqwa.BLL.pdb
