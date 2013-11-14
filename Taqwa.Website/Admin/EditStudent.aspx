@@ -86,11 +86,11 @@
     <asp:LinkButton ID="uiLinkButtonMonthlyReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditMonthlyReport" ToolTip="التقرير الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
     <asp:LinkButton ID="uiLinkButtonAttendanceReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditAttedanceReport" ToolTip="تقرير الغياب الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
     <asp:LinkButton ID="uiLinkButtonFees" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditFees" ToolTip="المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img src="../images/icons/installment.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
 
     </ItemTemplate>

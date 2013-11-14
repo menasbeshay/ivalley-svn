@@ -18,9 +18,13 @@ namespace Taqwa.Website
                 {
                     DBLayer db = new DBLayer();
                     int id = Convert.ToInt32(Session["CurrentLoggedInStudent"]);
-                    DataSet ds = new DataSet ();
-                    ds =  db.GetStudent(id);
+                    DataSet ds = new DataSet();
+                    ds = db.GetStudent(id);
                     uiLabelAccount.Text = " مرحباً  " + ds.Tables[0].Rows[0]["ArStudentName"].ToString() + " " + ds.Tables[0].Rows[0]["ArFatherName"].ToString();
+                }
+                else
+                {
+                  //  Page.RegisterClientScriptBlock("abc", "<script type='text/javascript'>$('#Right').css('display','none');</script>");
                 }
             }
         }

@@ -67,7 +67,7 @@
     </div>
 
     <asp:GridView ID="uiGridViewStudentResults" runat="server" AutoGenerateColumns="False" 
-        CellPadding="1" CellSpacing="3" AllowPaging="True" Visible="true" >
+        CellPadding="1" CellSpacing="3" AllowPaging="True" Visible="false" >
                     <AlternatingRowStyle HorizontalAlign="Center" />
                     <Columns>
                         <asp:BoundField  HeaderText="المادة" DataField="ArCourseName" />

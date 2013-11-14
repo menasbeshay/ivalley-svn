@@ -1,13 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="AdminCP.aspx.cs" Inherits="Taqwa.Website.Admin.AdminCP" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<style type="text/css">
+.MainLink
+{
+    display:block;width:150px;height:120px;margin:10px;padding:20px;text-align:center;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;float:right;
+    font-weight:bold;
+    }
+    .MainLink img{ width:120; }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="AdminMain">
 <h3 style="direction:rtl;padding-right:20px;">
     لوحة التحكم الرئيسية&nbsp;</h3>
     
-    <div style="direction:rtl;padding-right:20px;">
+    <div style="direction:rtl;padding-right:20px;display:none;">
     
         <asp:HyperLink ID="HyperLink1" runat="server" 
             NavigateUrl="~/Admin/EditClassType.aspx">تعديل المراحل التعليمية</asp:HyperLink>
@@ -71,6 +79,78 @@
         <asp:HyperLink ID="HyperLink20" runat="server" 
             NavigateUrl="~/Admin/EditInstallments.aspx">تعديل الأقساط</asp:HyperLink>
     
+    </div>
+
+    <div style="direction:rtl;padding-right:20px;margin:0 auto;width:900px;">
+    
+        <a href="EditClassType.aspx" class="MainLink" >
+            <img src="../images/icons/main1.jpg" />
+            <br />
+             المراحل التعليمية
+        </a>
+        <a href="EditClass.aspx" class="MainLink" >
+            <img src="../images/icons/main1_1.jpg" />
+            <br />
+             الصفوف الدراسية
+        </a>
+        <a href="EditSchoolYear.aspx" class="MainLink" >
+            <img src="../images/icons/main2_2.jpg" />
+            <br />
+             السنوات الدراسية
+        </a>
+        <a href="EditSections.aspx" class="MainLink" >
+            <img src="../images/icons/main2_1.jpg" />
+            <br />
+             الحصص "أنواعها ومدتها"
+        </a>
+        <a href="EditSchoolBus.aspx" class="MainLink" >
+            <img src="../images/icons/main2_3.jpg" />
+            <br />
+            خطوط سيارات المدرسة
+        </a>
+        <a href="EditCategory.aspx" class="MainLink" >
+            <img src="../images/icons/main2_4.jpg" />
+            <br />
+            أقسام معرض الصور
+        </a>
+
+        <a href="EditGallery.aspx" class="MainLink" >
+            <img src="../images/icons/main2_4.jpg" />
+            <br />
+            معرض الصور
+        </a>
+        <a href="EditOutStanding.aspx" class="MainLink" >
+            <img src="../images/icons/main3_2.jpg" />
+            <br />
+            تعديل المتفوقين
+        </a>
+
+
+        <a href="EditHonorPanal.aspx" class="MainLink" >
+            <img src="../images/icons/main3_3.jpg" />
+            <br />
+             لوحة الشرف
+        </a>
+        <a href="EditStudent.aspx" class="MainLink" >
+            <img src="../images/icons/main3.jpg" />
+            <br />
+             بيانات الطلاب
+        </a>
+        <a href="EditHomePageBlocks.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             أقسام الصفحة الرئيسية
+        </a>
+        <a href="EditPageContent.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             الصفحات
+        </a>
+        <a href="EditNews.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             الأخبار
+        </a>
     </div>
 </div>
 </asp:Content>

@@ -112,8 +112,8 @@ namespace Taqwa.Website.Admin.Controls
             ds = db.GetStudent(CurrentActiveStudent);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                uiGridViewStudentResults.DataSource = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-                uiGridViewStudentResults.DataBind();
+               /* uiGridViewStudentResults.DataSource = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                uiGridViewStudentResults.DataBind();*/
                 uiLabelStudentName.Text = ds.Tables[0].Rows[0]["ArStudentName"].ToString() + ds.Tables[0].Rows[0]["ArFatherName"].ToString();
                 DataSet StudentClassRoom = new DataSet();
                 StudentClassRoom = db.GetClassRoom(Convert.ToInt32(ds.Tables[0].Rows[0]["ClassRoomID"].ToString()));

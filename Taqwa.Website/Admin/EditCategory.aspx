@@ -22,14 +22,13 @@
         <AlternatingRowStyle HorizontalAlign="Center" />     
     <Columns>
     
-    <asp:BoundField  HeaderText="الإسم بالإنجليزية" DataField="EnTitle" />
-    <asp:BoundField  HeaderText="الإسم بالعربية" DataField="Artitle" />
+    <asp:BoundField  HeaderText="الإسم " DataField="Artitle" />
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CategoryID") %>' CommandName="EditCategory" >تعديل</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CategoryID") %>' CommandName="EditCategory" ToolTip="تعديل" ><img src="../images/icons/edit.gif" /></asp:LinkButton>
     &nbsp;&nbsp;
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CategoryID") %>' CommandName="DeleteCategory"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CategoryID") %>' CommandName="DeleteCategory"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف" ><img src="../images/icons/delete.gif" /></asp:LinkButton>
     &nbsp;
     </ItemTemplate>
     </asp:TemplateField>
@@ -54,7 +53,7 @@
         </div>
         <div class="clear"></div>
 
-        
+        <div style="display:none">
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="الإسم بالإنجليزية :"></asp:Label>
@@ -66,13 +65,13 @@
         <div class="AdminRight">
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="uiTextBoxEnName" ErrorMessage="*" 
-                ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+                ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
-
+        </div>
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="الإسم بالعربية :"></asp:Label>
+                Text="الإسم  :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArName" runat="server" ValidationGroup="UpdatePage" 
