@@ -364,18 +364,20 @@ background: url(../images/Button.gif) no-repeat center;
 }
 
 #options li {
-  float: left;
+  float: right;
 }
 
 #options li a {
   display: block;
-  color: #fff;
+  color: #000;
   padding:10px 15px;
   border-radius:25px;
   -moz-border-radius:25px;
   -webkit-border-radius:25px;
   border:3px solid transparent;
   outline:none;
+  font-size:14px;
+  text-decoration:none;
 }
 
 #options li a:hover {

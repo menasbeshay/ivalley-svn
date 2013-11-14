@@ -157,7 +157,7 @@
         <h3>
             معرض الصور
         </h3>
-
+        <div style="display:none;">
         <div class="AdminLeft">
             <asp:Label ID="Label2" runat="server" CssClass="Label" 
                 Text="إختر القسم  :"></asp:Label>
@@ -171,9 +171,24 @@
             &nbsp;
         </div>
         <div class="clear"></div>
-
+        </div>
     
-
+        
+        <asp:Repeater ID="uiRepeaterCats" runat="server">
+        <HeaderTemplate>
+        <div id="options" class="clearfix">
+                        <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                            <li><a href="#filter" data-option-value="*" class="selected" >جميع الأقسام</a></li>
+        </HeaderTemplate>
+        <ItemTemplate>        
+                            <li><a href="#filter" data-option-value='.<%# Eval("displayname").ToString().Trim() %>'><%# Eval("ArTitle")%></a></li>                            
+        </ItemTemplate>
+        <FooterTemplate>
+         </ul><!--end:filters-->
+                    </div>
+        </FooterTemplate>
+        </asp:Repeater>
+        <hr  style="width:50%"/>
 
         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
             <HeaderTemplate>
@@ -183,7 +198,7 @@
                 <ul id="thumbs_1" class="thumbs">--%>
             </HeaderTemplate>
             <ItemTemplate>
-            <li class="element ">
+            <li class='element <%# Eval("displayname") %>'>
                       <figure>
                           <img src='<%# Eval("PhotoPath") %>' alt='<%# Eval("ArTitle") %>' />
                           <figcaption>

@@ -116,6 +116,7 @@
     <Content Include="Admin\images\twe.png" />
     <Content Include="Admin\images\up.png" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\WebForm1.aspx" />
     <Content Include="Careers.aspx" />
     <Content Include="Controls\HomeFooter.ascx" />
     <Content Include="Controls\HomeMain.ascx" />
@@ -146,6 +147,7 @@
     <Content Include="Fees.aspx" />
     <Content Include="flash\banner.swf" />
     <Content Include="Gallery.aspx" />
+    <Content Include="GSB.aspx" />
     <Content Include="home.aspx" />
     <Content Include="HonorPanel.aspx" />
     <Content Include="images\1.jpg" />
@@ -214,13 +216,31 @@
     <Content Include="images\icon1.jpg" />
     <Content Include="images\icon2.jpg" />
     <Content Include="images\icon3.jpg" />
+    <Content Include="images\icons\classes.gif" />
+    <Content Include="images\icons\delete-file-icon.png" />
     <Content Include="images\icons\delete.gif" />
     <Content Include="images\icons\Delete.png" />
     <Content Include="images\icons\edit.gif" />
     <Content Include="images\icons\fees.gif" />
+    <Content Include="images\icons\gallery_li.jpg" />
+    <Content Include="images\icons\installment.gif" />
+    <Content Include="images\icons\main1.jpg" />
+    <Content Include="images\icons\main1_1.jpg" />
+    <Content Include="images\icons\main2_1.jpg" />
+    <Content Include="images\icons\main2_2.jpg" />
+    <Content Include="images\icons\main2_3.jpg" />
+    <Content Include="images\icons\main2_4.jpg" />
+    <Content Include="images\icons\main3.jpg" />
+    <Content Include="images\icons\main3_2.jpg" />
+    <Content Include="images\icons\main3_3.jpg" />
+    <Content Include="images\icons\manaheg.gif" />
+    <Content Include="images\icons\natiga.gif" />
     <Content Include="images\icons\Pencil.png" />
     <Content Include="images\icons\reports.gif" />
     <Content Include="images\icons\Save.png" />
+    <Content Include="images\icons\schoolbus_li.jpg" />
+    <Content Include="images\icons\schoolyear_li.jpg" />
+    <Content Include="images\icons\student_Li.jpg" />
     <Content Include="images\image1.jpg" />
     <Content Include="images\image2.jpg" />
     <Content Include="images\index-bg.jpg" />
@@ -1081,6 +1101,13 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Careers.aspx.cs">
       <DependentUpon>Careers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1157,6 +1184,13 @@
     </Compile>
     <Compile Include="Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GSB.aspx.cs">
+      <DependentUpon>GSB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GSB.aspx.designer.cs">
+      <DependentUpon>GSB.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

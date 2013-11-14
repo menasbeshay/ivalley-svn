@@ -32,13 +32,13 @@
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClass" >تعديل</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClass" ToolTip="تعديل"><img src="../images/icons/edit.gif" /></asp:LinkButton>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonEditClassRooms" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClassRoom" >تعديل الفصول</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEditClassRooms" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditClassRoom" ToolTip="تعديل الفصول"><img src="../images/icons/classes.gif" /></asp:LinkButton>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonEditCourses" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditCourses" >تعديل المواد</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEditCourses" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="EditCourses" ToolTip="تعديل المواد الدراسية"><img src="../images/icons/manaheg.gif" /></asp:LinkButton>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="DeleteClass"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ClassID") %>' CommandName="DeleteClass"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
     &nbsp;
     </ItemTemplate>
     </asp:TemplateField>

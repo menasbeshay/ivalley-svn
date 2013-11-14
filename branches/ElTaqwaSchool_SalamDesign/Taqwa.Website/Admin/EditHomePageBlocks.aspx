@@ -21,7 +21,7 @@
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("HomePageBlockID") %>' CommandName="EditHomePageBlock" >تعديل</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("HomePageBlockID") %>' CommandName="EditHomePageBlock" ToolTip="تعديل" ><img src="../images/icons/edit.gif" /></asp:LinkButton>
 
     </ItemTemplate>
     </asp:TemplateField>
