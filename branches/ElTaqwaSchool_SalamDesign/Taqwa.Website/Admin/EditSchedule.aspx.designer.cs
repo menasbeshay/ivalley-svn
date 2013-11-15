@@ -67,6 +67,15 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListClassRooms;
         
         /// <summary>
+        /// uiButtonSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uiButtonSearch;
+        
+        /// <summary>
         /// Label11 control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace Taqwa.Website.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListDay;
-        
-        /// <summary>
-        /// uiButtonSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uiButtonSearch;
         
         /// <summary>
         /// uiLinkButtonAdd control.
@@ -211,13 +211,13 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Button uiButtonCancel;
         
         /// <summary>
-        /// uiGridViewScheduleFinal control.
+        /// uiRepeaterDays control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewScheduleFinal;
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterDays;
         
         /// <summary>
         /// uiButtonUpdateFinal control.

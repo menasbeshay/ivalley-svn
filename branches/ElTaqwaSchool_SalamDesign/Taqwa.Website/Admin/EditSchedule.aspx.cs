@@ -56,22 +56,19 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrentSchedule.Visible = true;
                     uiPanelCurrent.Visible = false;
                     LoadDDLs();
+                  //  DrawGrid();
                     BindData();
                 }
             }
         }
 
-        private void BindData()
+        private void DrawGrid()
         {
-            DBLayer db = new DBLayer();
-            DataSet ds = new DataSet();
+            DBLayer db = new DBLayer();            
             DataSet dsSections = new DataSet();
-            ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(uiDropDownListDay.SelectedValue));
             dsSections = db.GetAllSections();
-            uiGridViewSchedule.DataSource = ds;
-            uiGridViewSchedule.DataBind();
-
             ArrayList days = new ArrayList();
+            
             days.Add("الأحد#0");
             days.Add("الأثنين#1");
             days.Add("الثلاثاء#2");
@@ -80,14 +77,14 @@ namespace Taqwa.Website.Admin
             days.Add("الجمعة#5");
             days.Add("السبت#6");
 
-            /*uiRepeaterDays.DataSource = days;
+            uiRepeaterDays.DataSource = days;
             uiRepeaterDays.DataBind();
-            */
+            
 
 
             /**/
-            DataTable dt = new DataTable();
-            dt.Columns.Add("اليوم/ الحصة",typeof(string));
+           /* DataTable dt = new DataTable();
+            dt.Columns.Add("اليوم/ الحصة", typeof(string));
             foreach (DataRow item in dsSections.Tables[0].Rows)
             {
                 dt.Columns.Add(item["ArName"].ToString());
@@ -102,12 +99,37 @@ namespace Taqwa.Website.Admin
                     row[section["ArName"].ToString()] = section["SectionID"].ToString();
                 }
                 dt.Rows.Add(row);
-            }
+            }*/
 
 
-            uiGridViewScheduleFinal.DataSource = dt;
-            uiGridViewScheduleFinal.DataBind();
+           // uiGridViewScheduleFinal.DataSource = dt;
+           // uiGridViewScheduleFinal.DataBind();
+        }
+
+        private void BindData()
+        {
+            DBLayer db = new DBLayer();
+            DataSet ds = new DataSet();
+            DataSet dsSections = new DataSet();
+            //ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(uiDropDownListDay.SelectedValue));
+            dsSections = db.GetAllSections();
+            /*uiGridViewSchedule.DataSource = ds;
+            uiGridViewSchedule.DataBind();*/
+
             /**/
+           
+            ArrayList days = new ArrayList();
+          //  days.Add("اليوم / الحصة");
+            days.Add("الأحد#0");
+            days.Add("الأثنين#1");
+            days.Add("الثلاثاء#2");
+            days.Add("الأربعاء#3");
+            days.Add("الخميس#4");
+            days.Add("الجمعة#5");
+            days.Add("السبت#6");
+
+            uiRepeaterDays.DataSource = days;
+            uiRepeaterDays.DataBind();
         }
 
         private void LoadDDLs()
@@ -220,8 +242,42 @@ namespace Taqwa.Website.Admin
             uiTextBoxEnDetails.Text = "";
         }
 
-       
-
+        /*
+        protected void uiGridViewScheduleFinal_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int count = 0;
+                foreach (TableCell item in e.Row.Cells)
+                {
+                    if (count == 0)
+                    {
+                        count++;
+                        continue;
+                    }
+                    else
+                    {
+                        HiddenField sectionid = new HiddenField();
+                        HiddenField dayid = new HiddenField();
+                        HiddenField Scheduleid = new HiddenField();
+                        Scheduleid.ID = "uiHiddenFieldScheduleID";
+                        Scheduleid.Value = "0";
+                        dayid.Value = "0";
+                        dayid.ID = "uiHiddenFieldDayID";
+                        sectionid.ID = "uiHiddenFieldSectionID";
+                        sectionid.Value = item.Text;
+                        TextBox tb = new TextBox();
+                        tb.ID = "uiTextBoxArDetails";
+                        tb.Width = 70;
+                        item.Controls.Clear();
+                        item.Controls.Add(tb);
+                        item.Controls.Add(sectionid);
+                        item.Controls.Add(dayid);
+                        item.Controls.Add(Scheduleid);
+                    }
+                }
+            }
+        }
         protected void uiGridViewScheduleFinal_RowDataBound(object sender, GridViewRowEventArgs e)
         {
              
@@ -244,6 +300,10 @@ namespace Taqwa.Website.Admin
                     HiddenField sectionid = new HiddenField();
                     HiddenField dayid = new HiddenField();
                     HiddenField Scheduleid = new HiddenField();
+                    //HiddenField sectionid = (HiddenField)item.FindControl("uiHiddenFieldSectionID");
+                    //HiddenField dayid = (HiddenField)item.FindControl("uiHiddenFieldDayID");
+                    //HiddenField Scheduleid = (HiddenField)item.FindControl("uiHiddenFieldScheduleID");
+                    //TextBox tb = (TextBox)item.FindControl("uiTextBoxArDetails");
                     Scheduleid.ID = "uiHiddenFieldScheduleID";
                     Scheduleid.Value = "0";
                     dayid.Value = Currentday.ToString();
@@ -273,7 +333,7 @@ namespace Taqwa.Website.Admin
                     
             }
         }
-
+        */
         protected void uiDropDownListClassRooms_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindData();
@@ -282,7 +342,7 @@ namespace Taqwa.Website.Admin
         protected void uiButtonUpdateFinal_Click(object sender, EventArgs e)
         {
             DBLayer db = new DBLayer();
-            foreach (GridViewRow item in uiGridViewScheduleFinal.Rows)
+            /*foreach (GridViewRow item in uiGridViewScheduleFinal.Rows)
             {
                
                 int count = 0;
@@ -310,12 +370,37 @@ namespace Taqwa.Website.Admin
                     }
                 }
                 
+            }*/
+
+            foreach (RepeaterItem item in uiRepeaterDays.Items)
+            {
+              //  if (item.ItemIndex != 0)
+             //   {
+                    Repeater sections = (Repeater)item.FindControl("uiRepeaterSections2");
+                    foreach (RepeaterItem section in sections.Items)
+                    {
+                        TextBox course = (TextBox)section.FindControl("uiTextBoxCourse");
+                        HiddenField currentsection = (HiddenField)section.FindControl("uiHiddenFieldSectionID");
+                        HiddenField day = (HiddenField)section.FindControl("uiHiddenFieldDayCode");
+                        HiddenField schedule = (HiddenField)section.FindControl("uiHiddenFieldScheduleID");
+
+                        if (schedule.Value != "0")
+                        {
+                            db.UpdateSchedule(Convert.ToInt32(schedule.Value), Convert.ToInt32(day.Value), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(currentsection.Value), course.Text, "");
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(course.Text))
+                                db.AddSchedule(Convert.ToInt32(day.Value), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(currentsection.Value), course.Text, "");
+                        }
+                    }
+              //  }
             }
         }
 
 
         /*****************************************************************/
-        /*
+        
           protected void uiRepeaterDays_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -327,6 +412,14 @@ namespace Taqwa.Website.Admin
                 r.DataSource = db.GetAllSections();
                 r.DataBind();
             }
+
+            if (e.Item.ItemType == ListItemType.Header)
+            {
+                DBLayer db = new DBLayer();
+                Repeater r = (Repeater)e.Item.FindControl("uiRepeaterSectionNames");                
+                r.DataSource = db.GetAllSections();
+                r.DataBind();
+            }
             
         }
 
@@ -334,24 +427,32 @@ namespace Taqwa.Website.Admin
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
+                
                 DBLayer db = new DBLayer();
                 DataSet ds = new DataSet();
-                Label course = (Label)e.Item.FindControl("uiLabelCourse");
+                TextBox course = (TextBox)e.Item.FindControl("uiTextBoxCourse");
+                HiddenField section = (HiddenField)e.Item.FindControl("uiHiddenFieldSectionID");
+                HiddenField day = (HiddenField)e.Item.FindControl("uiHiddenFieldDayCode");
+                HiddenField schedule = (HiddenField)e.Item.FindControl("uiHiddenFieldScheduleID");
                 ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), DayCode);
+                
                 DataRowView row = (DataRowView)e.Item.DataItem;
-
+                
+                section.Value = row["SectionID"].ToString();
+                day.Value = DayCode.ToString();
                 foreach (DataRow item in ds.Tables[0].Rows)
                 {
                     if (item["SectionID"].ToString() == row["SectionID"].ToString())
                     {
                         course.Text = item["ArDetails"].ToString();
+                        schedule.Value = item["ScheduleID"].ToString();        
                         break;
                     }
                 }
             }
 
         }
-         */
+         
         /*********************************************************************/
     }
 }

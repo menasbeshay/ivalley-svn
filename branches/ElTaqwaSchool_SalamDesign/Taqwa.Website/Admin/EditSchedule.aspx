@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="BackDiv">
+    <div class="BackDiv">
 <asp:LinkButton runat="server" ID="lnkBackToAdminCP" PostBackUrl="AdminCP.aspx" 
         Font-Underline="true" Text="عودة إلى لوحة التحكم &gt;&gt;"></asp:LinkButton>
 </div>
@@ -36,8 +36,12 @@
             </asp:DropDownList>
         </div>
         <div class="AdminRight">
-            &nbsp;</div>
+            &nbsp;
+            <asp:Button ID="uiButtonSearch" runat="server" Text="بحث" 
+                onclick="uiButtonSearch_Click" />
+            </div>
         <div class="clear"></div>
+        <div style="display:none">
         <div class="AdminLeft">
         <asp:Label ID="Label11" runat="server" CssClass="Label">اليوم :</asp:Label>
         </div>
@@ -53,10 +57,10 @@
             </asp:DropDownList>
         </div>
         <div class="AdminRight">
-            &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="بحث" 
-                onclick="uiButtonSearch_Click" />
+            &nbsp;
     </div>
         <div class="clear"></div>
+       
         <div class="AdminLeft">
         &nbsp;
         </div>
@@ -93,7 +97,7 @@
     عفواً ، لا توجد بيانات.
     </EmptyDataTemplate>
     </asp:GridView>
-    <div class="clear"></div>
+    <div class="clear"></div> </div>
     </div>
     </asp:Panel>
 
@@ -161,12 +165,24 @@
         <div class="clear"></div>
         </asp:Panel>
 
-
-    <%--<asp:Repeater ID="uiRepeaterDays" runat="server" 
+        <div style="direction:rtl;margin-right:20px;">
+    <asp:Repeater ID="uiRepeaterDays" runat="server" 
         onitemdatabound="uiRepeaterDays_ItemDataBound">
     <HeaderTemplate>
-    <table border="1" style="border-collapse:collapse;direction:rtl;width:80%;">
-    
+    <table border="1" style="border-collapse:collapse;direction:rtl;width:80%;text-align:center;white-space:nowrap;">
+    <tr>
+    <td>
+    اليوم / الحصة
+    </td>
+        <asp:Repeater ID="uiRepeaterSectionNames" runat="server">
+        <ItemTemplate>
+            <td>
+            <%# Eval("ArName") %>
+            </td>
+        </ItemTemplate>
+        </asp:Repeater>
+
+    </tr>
     </HeaderTemplate>
     <ItemTemplate>
     <tr>
@@ -178,7 +194,10 @@
         <asp:Repeater ID="uiRepeaterSections2" runat="server" onitemdatabound="uiRepeaterSections2_ItemDataBound">
         <ItemTemplate>
         <td>
-            <asp:Label ID="uiLabelCourse" runat="server" ></asp:Label>
+            <asp:HiddenField ID="uiHiddenFieldSectionID" runat="server" />
+            <asp:HiddenField ID="uiHiddenFieldDayCode" runat="server" />
+            <asp:HiddenField ID="uiHiddenFieldScheduleID" runat="server" Value="0"/>
+            <asp:TextBox ID="uiTextBoxCourse" runat="server" Width="80" style="text-align:center;"></asp:TextBox>            
         </td>
         </ItemTemplate>
         </asp:Repeater>
@@ -189,12 +208,8 @@
     <FooterTemplate>
     </table>
     </FooterTemplate>
-    </asp:Repeater>--%>
-
-    <div style="direction:rtl;margin-right:20px;">
-    <asp:GridView ID="uiGridViewScheduleFinal" runat="server" 
-            onrowdatabound="uiGridViewScheduleFinal_RowDataBound">
-    </asp:GridView>
+    </asp:Repeater>
+   
         <asp:Button ID="uiButtonUpdateFinal" runat="server" Text="تعديل / إضافة" 
             onclick="uiButtonUpdateFinal_Click" />
     </div>
