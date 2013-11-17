@@ -28,7 +28,7 @@ table {	border-collapse: collapse; border-spacing: 0; }
 .MainContent {margin:0 auto;width:980px;}
 .LangSelector {background-color:#fff;border-bottom-left-radius:5px;-moz-border-bottom-left-radius:5px;-webkit-border-bottom-left-radius:5px;border-bottom-right-radius:5px;-moz-border-bottom-right-radius:5px;-webkit-border-bottom-right-radius:5px;width:60px;height:15px;color:#000;float:right;margin-right:230px;padding:5px;}
 .LangSelector a{display:block;width:60px; background:#fff url('../images/egy.png') no-repeat right center;text-decoration:none;font-family: Gstwomedium;color:#000;}
-
+  
 .Headerspacer {height:240px;clear:both;}
 
 .NavigationWrapper {width:1280px;margin:0 auto;margin-top:5px;}
