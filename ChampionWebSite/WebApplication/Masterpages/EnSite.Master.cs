@@ -13,5 +13,10 @@ namespace WebApplication.Masterpages
         {
 
         }
+
+        protected void uiLinkButtonAr_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl.Replace("/en", "")); 
+        }
     }
 }
