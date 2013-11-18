@@ -4,6 +4,7 @@
         src: url('fonts/ge_ss_two_medium-webfont?#iefix') format('embedded-opentype'),
         url('fonts/ge_ss_two_medium-webfont.svg#Gstwomedium') format('svg'),
         url('fonts/ge_ss_two_medium-webfont.woff') format('woff'),
+        url('fonts/ge_ss_two_medium-webfont.otf') format('opentype'),
         url('fonts/ge_ss_two_medium-webfont.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
@@ -17,29 +18,35 @@ label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, 
 embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, 
 time, mark, audio, video {	margin: 0; 	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1;}
+
 ol, ul { list-style: none;}
 blockquote, q {	quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 table {	border-collapse: collapse; border-spacing: 0; }
 
 
-.HeaderWrapper {width:1280px;background-image:url('../images/banner_en.jpg');min-height:300px;margin:0 auto;}
-.MainContent {margin:0 auto;width:980px;}
-.LangSelector {background-color:#fff;border-bottom-left-radius:5px;-moz-border-bottom-left-radius:5px;-webkit-border-bottom-left-radius:5px;border-bottom-right-radius:5px;-moz-border-bottom-right-radius:5px;-webkit-border-bottom-right-radius:5px;width:60px;height:15px;color:#000;float:right;margin-right:230px;padding:5px;}
-.LangSelector a{display:block;width:60px; background:#fff url('../images/egy.png') no-repeat right center;text-decoration:none;font-family: Gstwomedium;color:#000;}
-  
-.Headerspacer {height:240px;clear:both;}
+.HeaderWrapper {width:1280px;background-image:url('../images/banner_en.jpg');min-height:300px;margin:0 auto;border-left:5px solid #F7F5F5;border-right:5px solid #F7F5F5;}
+.MainContent {margin:0 auto;width:980px;min-height:270px;}
+.LangSelector {background-color:#fff;border-bottom-left-radius:5px;-moz-border-bottom-left-radius:5px;-webkit-border-bottom-left-radius:5px;border-bottom-right-radius:5px;-moz-border-bottom-right-radius:5px;-webkit-border-bottom-right-radius:5px;width:60px;height:20px;color:#000;float:right;margin-right:230px;padding:3px;}
+.LangSelector a{display:block;width:60px; background:#fff url('../images/egy.png') no-repeat center center;text-decoration:none;color:#000;font-family: Gstwomedium;line-height:1;}
 
+.Headerspacer {height:240px;clear:both;}
+/*
 .NavigationWrapper {width:1280px;margin:0 auto;margin-top:5px;}
+.NavigationWrapper ul{width:920px;margin:0 auto;list-style:none;height:25px;line-height:1;}
+.NavigationWrapper ul li {float:left;margin:5px 13px;}
+.NavigationWrapper ul li a{color:#000; text-decoration:none;font-weight:bold;font-size:14px;line-height:1;}
+.NavigationWrapper ul li a:hover{color:#598503;}
+*/
+.NavigationWrapper {width:1280px;margin:0 auto;}
 .NavigationWrapper ul{width:920px;margin:0 auto;list-style:none;height:25px;}
 .NavigationWrapper ul li {float:left;margin:5px 13px;}
 .NavigationWrapper ul li a{color:#093014; text-decoration:none;font-weight:bold;font-size:13px;font-family:Trebuchet MS}
 .NavigationWrapper ul li a:hover{color:#38A557;}
 
-.ContentWrapper {width:1280px;min-height:100px;margin:0 auto;}
-.MainContent {width:920px;margin:10px auto;}
-.Buttons {float:left;width:20%;margin:5px;}
+.ContentWrapper {width:1280px;min-height:100px;margin:0 auto;border-left:5px solid #F7F5F5;border-right:5px solid #F7F5F5;}
+.MainContent {width:920px;margin:0px auto;padding-top:10px;}
+.Buttons {float:left;width:17%;margin:5px;}
 .Buttons a {display:block;margin-bottom:5px;clear:both;}
 ul.socials {list-style:none;height:35px;}
 ul.socials li{float:left;height:35px;margin:5px;}
@@ -48,9 +55,65 @@ ul.socials li.facebook{background:url('../images/facebook.png') no-repeat center
 ul.socials li a{display:block;text-indent:-9999px;width:35px;height:35px;}
 
 .slider {float:right;width:30%;margin:5px;}
-.Content {float:left;padding:5px;}
+.Content {float:left;padding:5px;width:48%}
 
-.FooterWrapper {width:1280px;margin:0 auto;background-color:#C8CF6F;clear:both;height:50px;padding-top:5px;}
+.FooterWrapper {width:1280px;margin:0 auto;background-color:#C8CF6F;clear:both;height:50px;padding-top:5px;border-left:5px solid #F7F5F5;border-right:5px solid #F7F5F5;}
 
 a.dogHand {display:block;padding-left:18px;background: url('../images/doghand.png') no-repeat left center;}
 .Clear {clear:both;height:1px;}
+
+h4 {margin:5px ;padding :5px; font-weight:bold; font-size:20px;}
+
+.ContentLeftDiv { margin-bottom:20px; }
+
+
+.AdminDiv
+{
+    width:100%;
+}
+
+
+.AdminLeft
+{
+    float: left;        
+    padding-left: 15px;
+    width:12%;
+    font-weight:bold;
+}
+
+.AdminMiddle
+{
+    float: left;    
+    width:510px;
+}
+
+.AdminRight
+{
+    float: left;
+    width: 15%;        
+}
+
+.clear5
+{
+    clear: both;
+    height: 5px;
+}
+
+.grid {width:80% !important; font-family:Tahoma;font-size:15px;border:1px solid black;margin:0 auto;}
+.grid th { padding:5px;color:#fff;font-size:15px;font-family:Tahoma;font-weight:bold; background-color: #FF6600; border:1px solid black;}
+.grid td { border:1px solid black;}
+.grid a.actions {display:inline-block;margin:5px;font-size:12px;font-weight:bold;}
+
+
+
+.SearchBtn a {padding:5px; padding-top:8px; border:1px solid #FF6600;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;  display:block; float:left; width:58px; height:18px; background-color:#FF6600; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SearchBtn a:hover { color: #FF6600; background-color:#fff;}
+
+.SmallBtn a {padding:5px;padding-top:8px; border:1px solid #FF6600;display:block; float:left;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; background-color:#FF6600; color:#FFF; width:28px; height:12px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SmallBtn a:hover { color: #FF6600; background-color:#fff; }
+
+.AdminMore a { padding:5px; padding-top:8px; border:1px solid #FF6600;display:block; float:left;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; width:105px; height:16px; background-color:#FF6600; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.AdminMore a:hover { color: #FF6600; background-color:#fff; }
+
+
+h3 {font-size:18px;font-family:Tahoma;font-weight:bold;}
