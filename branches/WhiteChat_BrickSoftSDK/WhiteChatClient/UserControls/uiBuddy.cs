@@ -13,61 +13,56 @@ namespace WhiteChatClient.UserControls
     public partial class uiBuddy : UserControl
     {
         public event EventHandler Selected;
-        public event EventHandler UnSelected;        
+        public event EventHandler UnSelected;
+        public event EventHandler DeleteBuddy;
+        private int _status;
+
         public uiBuddy()
         {
             InitializeComponent();              
         }
 
-        /*public StatusType Status
+        public int Status
         {
-            set 
+            set
             {
+                _status = value;
                 switch (value)
                 {
-                    case StatusType.STATUS_ATLUNCH:
+
+                    // away 
+                    
+                    case YahooStatus.YAHOO_STATUS_BRB:
+                    case YahooStatus.YAHOO_STATUS_IDLE:
+                    case YahooStatus.YAHOO_STATUS_STEPPEDOUT:
+                    case YahooStatus.YAHOO_STATUS_OUTTOLUNCH:
+                    case YahooStatus.YAHOO_STATUS_ONVACATION:                    
+                    case YahooStatus.YAHOO_STATUS_NOTATHOME:
+                    case YahooStatus.YAHOO_STATUS_NOTATDESK:
+                    case YahooStatus.YAHOO_STATUS_NOTINOFFICE:
+                        uipictureBoxStatus.ImageLocation = "Images/away.gif";
                         break;
-                    case StatusType.STATUS_AWAY:
+
+                    //busy 
+                    case YahooStatus.YAHOO_STATUS_BUSY:
+                    case YahooStatus.YAHOO_STATUS_ONPHONE:
+                    case YahooStatus.YAHOO_STATUS_CUSTOM:                    
+                        uipictureBoxStatus.ImageLocation = "Images/busy.gif";
                         break;
-                    case StatusType.STATUS_BRB:
+                    
+                    // offline                    
+                    case YahooStatus.YAHOO_STATUS_OFFLINE:
+                    case YahooStatus.YAHOO_STATUS_INVISIBLE:
+                        uipictureBoxStatus.ImageLocation = "Images/offline.gif";
                         break;
-                    case StatusType.STATUS_BUSY:
-                        break;
-                    case StatusType.STATUS_CUSTOM_AWAY:
-                        break;
-                    case StatusType.STATUS_DND:
-                        break;
-                    case StatusType.STATUS_FREE_TO_CHAT:
-                        break;
-                    case StatusType.STATUS_IDLE:
-                        break;
-                    case StatusType.STATUS_INVISIBLE:
-                        break;
-                    case StatusType.STATUS_NA:
-                        break;
-                    case StatusType.STATUS_NOT_AT_DESK:
-                        break;
-                    case StatusType.STATUS_NOT_AT_HOME:
-                        break;
-                    case StatusType.STATUS_NOT_IN_OFFICE:
-                        break;
-                    case StatusType.STATUS_OCCUPIED:
-                        break;
-                    case StatusType.STATUS_OFFLINE:
-                        break;
-                    case StatusType.STATUS_ONLINE:
-                        break;
-                    case StatusType.STATUS_ONPHONE:
-                        break;
-                    case StatusType.STATUS_ON_VACATION:
-                        break;
-                    case StatusType.STATUS_STEPPED_OUT:
-                        break;
+                    
                     default:
+                        uipictureBoxStatus.ImageLocation = "Images/online.gif";
                         break;
                 }
             }
-        }*/
+            get { return _status; }
+        }
 
         public string BuddyName { set { uilabelName.Text = value; } get { return uilabelName.Text; } }
 
@@ -93,6 +88,15 @@ namespace WhiteChatClient.UserControls
         private void Control_DoubleClick(object sender, EventArgs e)
         {
             this.OnDoubleClick(e);                        
+        }
+
+        private void uicontextMenuStripRightClick_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Text == "Delete")
+            {
+                if(MessageBox.Show("Are you sure to delete this account from your buddy list?","Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+                    DeleteBuddy(this, e);
+            }
         }
 
     }

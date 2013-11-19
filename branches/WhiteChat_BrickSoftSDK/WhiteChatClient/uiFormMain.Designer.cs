@@ -35,6 +35,12 @@
             this.addNewContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uipanelinfo = new System.Windows.Forms.Panel();
+            this.uilabelBuddyName = new System.Windows.Forms.Label();
+            this.uicomboBoxStatus = new System.Windows.Forms.ComboBox();
+            this.uipanelSearch = new System.Windows.Forms.Panel();
+            this.uibuttonAdd = new System.Windows.Forms.Button();
+            this.uitextBoxSearch = new System.Windows.Forms.TextBox();
             this.uipanelLogin = new System.Windows.Forms.Panel();
             this.uicheckBoxInvisible = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,24 +50,32 @@
             this.uitextBoxPassword = new System.Windows.Forms.TextBox();
             this.uitextBoxUsername = new System.Windows.Forms.TextBox();
             this.uipanelLoading = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.uiflowLayoutPanelBuddies = new System.Windows.Forms.FlowLayoutPanel();
+            this.uipictureBoxBuddyProfile = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.uilabelLogging = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.uimenuStripMain.SuspendLayout();
+            this.uipanelinfo.SuspendLayout();
+            this.uipanelSearch.SuspendLayout();
             this.uipanelLogin.SuspendLayout();
             this.uipanelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uipictureBoxBuddyProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.uimenuStripMain);
+            this.flowLayoutPanel1.Controls.Add(this.uipanelinfo);
+            this.flowLayoutPanel1.Controls.Add(this.uipanelSearch);
             this.flowLayoutPanel1.Controls.Add(this.uipanelLogin);
             this.flowLayoutPanel1.Controls.Add(this.uipanelLoading);
             this.flowLayoutPanel1.Controls.Add(this.uiflowLayoutPanelBuddies);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 742);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 562);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // uimenuStripMain
@@ -114,6 +128,72 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // uipanelinfo
+            // 
+            this.uipanelinfo.Controls.Add(this.uilabelBuddyName);
+            this.uipanelinfo.Controls.Add(this.uicomboBoxStatus);
+            this.uipanelinfo.Controls.Add(this.uipictureBoxBuddyProfile);
+            this.uipanelinfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uipanelinfo.Location = new System.Drawing.Point(0, 24);
+            this.uipanelinfo.Margin = new System.Windows.Forms.Padding(0);
+            this.uipanelinfo.Name = "uipanelinfo";
+            this.uipanelinfo.Size = new System.Drawing.Size(281, 40);
+            this.uipanelinfo.TabIndex = 9;
+            // 
+            // uilabelBuddyName
+            // 
+            this.uilabelBuddyName.AutoSize = true;
+            this.uilabelBuddyName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.uilabelBuddyName.Location = new System.Drawing.Point(159, 14);
+            this.uilabelBuddyName.Name = "uilabelBuddyName";
+            this.uilabelBuddyName.Size = new System.Drawing.Size(0, 13);
+            this.uilabelBuddyName.TabIndex = 2;
+            this.uilabelBuddyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uicomboBoxStatus
+            // 
+            this.uicomboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uicomboBoxStatus.FormattingEnabled = true;
+            this.uicomboBoxStatus.Items.AddRange(new object[] {
+            "Online",
+            "Away",
+            "Busy",
+            "Offline"});
+            this.uicomboBoxStatus.Location = new System.Drawing.Point(65, 11);
+            this.uicomboBoxStatus.Name = "uicomboBoxStatus";
+            this.uicomboBoxStatus.Size = new System.Drawing.Size(87, 21);
+            this.uicomboBoxStatus.TabIndex = 1;
+            this.uicomboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxStatus_SelectedIndexChanged);
+            // 
+            // uipanelSearch
+            // 
+            this.uipanelSearch.Controls.Add(this.uibuttonAdd);
+            this.uipanelSearch.Controls.Add(this.uitextBoxSearch);
+            this.uipanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uipanelSearch.Location = new System.Drawing.Point(0, 64);
+            this.uipanelSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.uipanelSearch.Name = "uipanelSearch";
+            this.uipanelSearch.Size = new System.Drawing.Size(281, 30);
+            this.uipanelSearch.TabIndex = 8;
+            // 
+            // uibuttonAdd
+            // 
+            this.uibuttonAdd.Location = new System.Drawing.Point(16, 3);
+            this.uibuttonAdd.Name = "uibuttonAdd";
+            this.uibuttonAdd.Size = new System.Drawing.Size(35, 23);
+            this.uibuttonAdd.TabIndex = 1;
+            this.uibuttonAdd.Text = "Add";
+            this.uibuttonAdd.UseVisualStyleBackColor = true;
+            this.uibuttonAdd.Click += new System.EventHandler(this.uibuttonAdd_Click);
+            // 
+            // uitextBoxSearch
+            // 
+            this.uitextBoxSearch.Location = new System.Drawing.Point(56, 4);
+            this.uitextBoxSearch.Name = "uitextBoxSearch";
+            this.uitextBoxSearch.Size = new System.Drawing.Size(213, 20);
+            this.uitextBoxSearch.TabIndex = 0;
+            this.uitextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uitextBoxSearch_KeyDown);
+            // 
             // uipanelLogin
             // 
             this.uipanelLogin.Controls.Add(this.uicheckBoxInvisible);
@@ -123,10 +203,11 @@
             this.uipanelLogin.Controls.Add(this.uicheckBoxRemember);
             this.uipanelLogin.Controls.Add(this.uitextBoxPassword);
             this.uipanelLogin.Controls.Add(this.uitextBoxUsername);
-            this.uipanelLogin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uipanelLogin.Location = new System.Drawing.Point(3, 27);
+            this.uipanelLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uipanelLogin.Location = new System.Drawing.Point(0, 94);
+            this.uipanelLogin.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelLogin.Name = "uipanelLogin";
-            this.uipanelLogin.Size = new System.Drawing.Size(281, 600);
+            this.uipanelLogin.Size = new System.Drawing.Size(281, 580);
             this.uipanelLogin.TabIndex = 0;
             // 
             // uicheckBoxInvisible
@@ -184,6 +265,7 @@
             this.uitextBoxPassword.PasswordChar = '*';
             this.uitextBoxPassword.Size = new System.Drawing.Size(160, 20);
             this.uitextBoxPassword.TabIndex = 1;
+            this.uitextBoxPassword.Text = "A12345678";
             // 
             // uitextBoxUsername
             // 
@@ -191,38 +273,61 @@
             this.uitextBoxUsername.Name = "uitextBoxUsername";
             this.uitextBoxUsername.Size = new System.Drawing.Size(160, 20);
             this.uitextBoxUsername.TabIndex = 0;
+            this.uitextBoxUsername.Text = "c_cuser";
             // 
             // uipanelLoading
             // 
-            this.uipanelLoading.Controls.Add(this.label3);
-            this.uipanelLoading.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uipanelLoading.Location = new System.Drawing.Point(3, 633);
+            this.uipanelLoading.Controls.Add(this.uilabelLogging);
+            this.uipanelLoading.Controls.Add(this.pictureBox1);
+            this.uipanelLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uipanelLoading.Location = new System.Drawing.Point(3, 677);
             this.uipanelLoading.Name = "uipanelLoading";
             this.uipanelLoading.Size = new System.Drawing.Size(281, 600);
             this.uipanelLoading.TabIndex = 1;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Loading ...........";
-            // 
             // uiflowLayoutPanelBuddies
             // 
-            this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(3, 1239);
+            this.uiflowLayoutPanelBuddies.AutoScroll = true;
+            this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1280);
+            this.uiflowLayoutPanelBuddies.Margin = new System.Windows.Forms.Padding(0);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
-            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(281, 600);
+            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(281, 485);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
+            // 
+            // uipictureBoxBuddyProfile
+            // 
+            this.uipictureBoxBuddyProfile.Location = new System.Drawing.Point(16, 3);
+            this.uipictureBoxBuddyProfile.Name = "uipictureBoxBuddyProfile";
+            this.uipictureBoxBuddyProfile.Size = new System.Drawing.Size(35, 35);
+            this.uipictureBoxBuddyProfile.TabIndex = 0;
+            this.uipictureBoxBuddyProfile.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.ImageLocation = "Images/ajax-loader.gif";
+            this.pictureBox1.Location = new System.Drawing.Point(62, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // uilabelLogging
+            // 
+            this.uilabelLogging.AutoSize = true;
+            this.uilabelLogging.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.uilabelLogging.Location = new System.Drawing.Point(62, 242);
+            this.uilabelLogging.Name = "uilabelLogging";
+            this.uilabelLogging.Size = new System.Drawing.Size(0, 13);
+            this.uilabelLogging.TabIndex = 3;
             // 
             // uiFormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 742);
+            this.ClientSize = new System.Drawing.Size(284, 562);
             this.Controls.Add(this.flowLayoutPanel1);
             this.MainMenuStrip = this.uimenuStripMain;
             this.MaximizeBox = false;
@@ -233,10 +338,16 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.uimenuStripMain.ResumeLayout(false);
             this.uimenuStripMain.PerformLayout();
+            this.uipanelinfo.ResumeLayout(false);
+            this.uipanelinfo.PerformLayout();
+            this.uipanelSearch.ResumeLayout(false);
+            this.uipanelSearch.PerformLayout();
             this.uipanelLogin.ResumeLayout(false);
             this.uipanelLogin.PerformLayout();
             this.uipanelLoading.ResumeLayout(false);
             this.uipanelLoading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uipictureBoxBuddyProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +364,6 @@
         private System.Windows.Forms.TextBox uitextBoxPassword;
         private System.Windows.Forms.TextBox uitextBoxUsername;
         private System.Windows.Forms.CheckBox uicheckBoxInvisible;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel uiflowLayoutPanelBuddies;
         private System.Windows.Forms.MenuStrip uimenuStripMain;
         private System.Windows.Forms.ToolStripMenuItem messengerToolStripMenuItem;
@@ -261,6 +371,15 @@
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatRoomsToolStripMenuItem;
+        private System.Windows.Forms.Panel uipanelSearch;
+        private System.Windows.Forms.Panel uipanelinfo;
+        private System.Windows.Forms.PictureBox uipictureBoxBuddyProfile;
+        private System.Windows.Forms.TextBox uitextBoxSearch;
+        private System.Windows.Forms.Button uibuttonAdd;
+        private System.Windows.Forms.ComboBox uicomboBoxStatus;
+        private System.Windows.Forms.Label uilabelBuddyName;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label uilabelLogging;
 
 
     }
