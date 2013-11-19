@@ -21,10 +21,7 @@
                 <a href="Node.aspx?PID=12"><img src="../images/button4_ar.png" /></a>
                 <a href="Node.aspx?PID=13"><img src="../images/button5_ar.png" /></a>
                 <a href="#"><img src="../images/button6_ar.png" /></a>
-                <ul class="socials">
-                    <li class="youtube"><a href="#">youtube</a></li>
-                    <li class="facebook"><a href="#">facebook</a></li>
-                </ul>
+                
             </div>   
 
 </asp:Content>
