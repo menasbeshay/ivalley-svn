@@ -9,7 +9,9 @@
         $('.bxslider').bxSlider({
             mode: 'fade',
             captions: true,
-            pager: false
+            pager: false,
+            auto: true,		
+		    autoStart: true
         });
     });
     </script>

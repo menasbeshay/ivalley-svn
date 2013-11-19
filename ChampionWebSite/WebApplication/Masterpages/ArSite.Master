@@ -57,17 +57,24 @@
 
     <div class="FooterWrapper">
         <div class="NavigationWrapper">
-             <ul>
-                <li><a href="Node.aspx?PID=8">زواج</a></li>
-                <li><a href="Node.aspx?PID=9">تدريب</a></li>
-                <li><a href="Node.aspx?PID=10">بيع وشراء</a></li>
-                <li><a href="Node.aspx?PID=11">إستضافة فندقية</a></li>
-                <li><a href="Node.aspx?PID=12">إستضافة علاجية</a></li>
-                <li><a href="Node.aspx?PID=13">إنتاج</a></li>
-                <li><a href="Gallery.aspx">ألبوم الصور</a></li>
-                <li><a href="Node.aspx?PID=14">إتصل بنا</a></li>
-                <li><a href="Node.aspx?PID=7">عن المزرعة</a></li>                
-            </ul>
+            <div style="margin:0 auto;width:980px;">
+             <div style="direction:ltr;float:left;font-size:12px;font-weight:bold;">
+             Powered by &nbsp; <a href="http://I-valley.com">
+                    <img src="images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
+                        alt="I-VALLEY software solutions" /></a>
+             </div>
+             <div style="direction:ltr;float:right;font-size:12px;font-weight:bold;">
+               <a href="#">
+                   <img src="../images/social/facebook-icon.png" /></a>
+               <a href="#">
+                   <img src="../images/social/twitter-icon.png" /></a>
+               <a href="#">
+                   <img src="../images/social/youtube-icon.png" /></a>
+               <a href="#">
+                   <img src="../images/social/google-plus-icon.png" /></a>
+             </div>
+        </div>
+        
         </div>
         <div class="Clear"></div>
     </div>

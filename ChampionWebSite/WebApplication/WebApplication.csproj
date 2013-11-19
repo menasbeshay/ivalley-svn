@@ -104,6 +104,9 @@
     <Content Include="images\egy1.png" />
     <Content Include="images\EnglandFlag1.jpg" />
     <Content Include="images\facebook.png" />
+    <Content Include="images\IValley.png" />
+    <Content Include="images\lang_ar.png" />
+    <Content Include="images\lang_en.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\next.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
@@ -146,6 +149,10 @@
     <Content Include="images\prettyPhoto\light_square\sprite.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\slider.jpg" />
+    <Content Include="images\social\facebook-icon.png" />
+    <Content Include="images\social\google-plus-icon.png" />
+    <Content Include="images\social\twitter-icon.png" />
+    <Content Include="images\social\youtube-icon.png" />
     <Content Include="images\uk.png" />
     <Content Include="images\uk1.gif" />
     <Content Include="images\uk1.jpg" />
