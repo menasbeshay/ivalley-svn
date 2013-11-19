@@ -1,0 +1,4 @@
+D:\SmartValley\chat_application\WhiteChat\Svn - Copy\ExRichTextBox\bin\Debug\Khendys.Controls.ExRichTextBox.dll
+D:\SmartValley\chat_application\WhiteChat\Svn - Copy\ExRichTextBox\bin\Debug\Khendys.Controls.ExRichTextBox.pdb
+D:\SmartValley\chat_application\WhiteChat\Svn - Copy\ExRichTextBox\obj\Debug\Khendys.Controls.ExRichTextBox.dll
+D:\SmartValley\chat_application\WhiteChat\Svn - Copy\ExRichTextBox\obj\Debug\Khendys.Controls.ExRichTextBox.pdb
