@@ -10,3 +10,15 @@ D:\SmartValley\champion\WebApplication\WebApplication\bin\css\fonts\ge_ss_two_me
 D:\SmartValley\champion\WebApplication\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.woff
 D:\SmartValley\champion\WebApplication\WebApplication\bin\FredCK.FCKeditorV2.dll
 D:\SmartValley\champion\WebApplication\WebApplication\bin\js\jquery-1.10.2.min.map
+D:\SmartValley\champion\SVN\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.eot
+D:\SmartValley\champion\SVN\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.otf
+D:\SmartValley\champion\SVN\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.svg
+D:\SmartValley\champion\SVN\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.ttf
+D:\SmartValley\champion\SVN\WebApplication\bin\css\fonts\ge_ss_two_medium-webfont.woff
+D:\SmartValley\champion\SVN\WebApplication\bin\js\jquery-1.10.2.min.map
+D:\SmartValley\champion\SVN\WebApplication\bin\WebApplication.dll
+D:\SmartValley\champion\SVN\WebApplication\bin\WebApplication.pdb
+D:\SmartValley\champion\SVN\WebApplication\bin\FredCK.FCKeditorV2.dll
+D:\SmartValley\champion\SVN\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
+D:\SmartValley\champion\SVN\WebApplication\obj\Debug\WebApplication.dll
+D:\SmartValley\champion\SVN\WebApplication\obj\Debug\WebApplication.pdb
