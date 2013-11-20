@@ -30,10 +30,10 @@
                 <li><a href="Node.aspx?PID=8">Mating</a></li>
                 <li><a href="Node.aspx?PID=9">Training</a></li>
                 <li><a href="Node.aspx?PID=10">Buy & Sell</a></li>
-                <li><a href="Node.aspx?PID=11">Lodging hosting</a></li>
-                <li><a href="Node.aspx?PID=12">Therapeutic hosting</a></li>
+                <li><a href="Node.aspx?PID=11">Lodging </a></li>
+                <li><a href="Node.aspx?PID=12">Therapeutic </a></li>
                 <li><a href="Node.aspx?PID=13">Output</a></li>
-                <li><a href="Gallery.aspx">Photo Album</a></li>
+                <li><a href="Gallery.aspx">Gallery</a></li>
                 <li><a href="Node.aspx?PID=14">Contact Us</a></li>
                 <li><a href="Node.aspx?PID=7">About Us</a></li>                
             </ul>
