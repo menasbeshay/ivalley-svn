@@ -41,7 +41,7 @@ table {	border-collapse: collapse; border-spacing: 0; }
 */
 .NavigationWrapper {width:1280px;margin:0 auto;}
 .NavigationWrapper ul{width:980px;margin:0 auto;list-style:none;height:25px;}
-.NavigationWrapper ul li {float:left;margin:5px 5px;background: url(../images/paw.gif) no-repeat left center;padding-left: 20px;text-align:right;}
+.NavigationWrapper ul li {float:left;margin:5px 12px;background: url(../images/paw.gif) no-repeat left center;padding-left: 20px;text-align:right;}
 .NavigationWrapper ul li a{color:#093014; text-decoration:none;font-weight:bold;font-size:13px;font-family:Trebuchet MS;}
 .NavigationWrapper ul li a:hover{color:#38A557;}
 
