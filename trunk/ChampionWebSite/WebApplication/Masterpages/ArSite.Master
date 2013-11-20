@@ -45,11 +45,22 @@
 
     <div class="ContentWrapper">
         <div class="MainContent">
-          
+           <div class="Buttons">
+                <a href="Node.aspx?PID=9"><img src="../images/button1_ar.png" /></a>
+                <a href="Node.aspx?PID=10"><img src="../images/button2_ar.png" /></a>
+                <a href="Node.aspx?PID=11"><img src="../images/button3_ar.png" /></a>
+                <a href="Node.aspx?PID=12"><img src="../images/button4_ar.png" /></a>
+                <a href="Node.aspx?PID=13"><img src="../images/button5_ar.png" /></a>
+                <a href="#"><img src="../images/button6_ar.png" /></a>
+                
+            </div>   
+          <div class="Content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
             </asp:ContentPlaceHolder>
-               
+            </div>
+           
+   
         </div>
         <div class="Clear"></div>
     </div>
@@ -58,8 +69,8 @@
     <div class="FooterWrapper">
         <div class="NavigationWrapper">
             <div style="margin:0 auto;width:980px;">
-             <div style="direction:ltr;float:left;font-size:12px;font-weight:bold;">
-             Powered by &nbsp; <a href="http://I-valley.com">
+             <div style="float:left;font-size:12px;font-weight:bold;">
+             تم تطويره بواسطة &nbsp; <a href="http://I-valley.com">
                     <img src="images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
                         alt="I-VALLEY software solutions" /></a>
              </div>

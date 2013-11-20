@@ -109,6 +109,7 @@
     <Content Include="images\lang_en.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\next.png" />
+    <Content Include="images\paw.gif" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
     <Content Include="images\prettyPhoto\dark_rounded\contentPattern.png" />
