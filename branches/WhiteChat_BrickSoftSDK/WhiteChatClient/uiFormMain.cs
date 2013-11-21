@@ -23,7 +23,8 @@ namespace WhiteChatClient
         delegate void EnableDisableControlCallback(Control control, bool Enable);
         
         #region fields
-        
+        ArrayList CurrentChatUsers;
+        ArrayList CurrentChatRooms;
         #endregion
         public uiFormMain()
         {
@@ -31,10 +32,10 @@ namespace WhiteChatClient
         }
 
         private void uiFormMain_Load(object sender, EventArgs e)
-        {
-            
+        {            
             InitializeMainForm();
-           
+            CurrentChatUsers = new ArrayList();
+            CurrentChatRooms = new ArrayList();
         }
 
 
@@ -43,7 +44,7 @@ namespace WhiteChatClient
         private void InitializeMainForm()
         {
 
-            if (CurrentUser.Client== null || !CurrentUser.Client.Logined)
+            if (CurrentUser.Client == null || !CurrentUser.Client.Logined)
             {
                 CurrentUser.Client.OnLogin += delegate(object sender, EventArgs e) { this.Invoke(new EventHandler(login_OnSignIn)); };
                 CurrentUser.Client.OnLogout += delegate(object sender, EventArgs e) { this.Invoke(new EventHandler(Client_OnLogout)); };
@@ -53,6 +54,10 @@ namespace WhiteChatClient
                 CurrentUser.Client.OnDeleteBuddy += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnDeleteBuddy), new object[] { sender, buddy }); };
                 CurrentUser.Client.OnStatusChanged += delegate(object sender, EventArgs e) { this.Invoke(new EventHandler(Client_OnStatusChanged), new object[] { sender, e }); };
                 CurrentUser.Client.OnBuddyStatusChanged += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnBuddyStatusChanged), new object[] { sender, buddy }); };
+                CurrentUser.Client.OnBuddyAddYouRequest += delegate(object sender, string buddy, string requestMessage, ref bool bAccept) { this.Invoke(new OnBuddyAddYouRequestYahooEventHandler(Client_OnBuddyAddYouRequest), new object[] { sender, buddy, requestMessage, bAccept }); };
+                CurrentUser.Client.OnMessage += delegate(object sender, string buddy, string message) { this.Invoke(new OnMessageEventHandler(Client_OnMessage), new object[] { sender, buddy, message }); };
+                CurrentUser.Client.OnBuddyTyping += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnBuddyTyping), new object[] { sender, buddy }); };
+                
                 VisibleInvisibleControl(uipanelLogin, true);
                 VisibleInvisibleControl(uiflowLayoutPanelBuddies, false);
                 VisibleInvisibleControl(uipanelLoading, false);
@@ -165,6 +170,7 @@ namespace WhiteChatClient
                 ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
                 ucBuddy.DoubleClick += new EventHandler(ucBuddy_DoubleClick);
                 ucBuddy.DeleteBuddy += new EventHandler(ucBuddy_DeleteBuddy);
+                ucBuddy.Status = yb.Status;
                 ucBuddy.BuddyProfilePath = yb.DisplayImageUrl;
                 AddControlsToAControl(uiflowLayoutPanelBuddies, ucBuddy);
             }
@@ -189,7 +195,8 @@ namespace WhiteChatClient
 
         private void chatRoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            uiFormBrowseChatRooms browse = new uiFormBrowseChatRooms();
+            browse.ShowDialog();
         }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,6 +266,7 @@ namespace WhiteChatClient
             signOutToolStripMenuItem.Enabled = true;
             addNewContactToolStripMenuItem.Enabled = true;
             LoadBuddies();
+            CurrentUser.LoadEmotions();
         }
 
         private void Client_OnLogout(object sender, EventArgs e)
@@ -281,7 +289,6 @@ namespace WhiteChatClient
             MessageBox.Show("Error in either in Yahoo ID and/or password.", "Sign-In Problem");
         }
         
-        
         #endregion
 
         #region BuddyList        
@@ -289,8 +296,13 @@ namespace WhiteChatClient
         void ucBuddy_DoubleClick(object sender, EventArgs e)
         {
             uiBuddy b = (uiBuddy)sender;
-            MessageBox.Show(b.BuddyName);
-        }        
+            uiFormChat chatwindow = new uiFormChat();
+            chatwindow.Text = b.BuddyName;
+            chatwindow.AdjustGraphicsImp();
+            chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);  
+            CurrentChatUsers.Add(chatwindow);            
+            chatwindow.Show();
+        }
 
         private void ucBuddy_UnSelected(object sender, EventArgs e)
         {
@@ -335,6 +347,16 @@ namespace WhiteChatClient
             ucBuddy.DeleteBuddy += new EventHandler(ucBuddy_DeleteBuddy);
             ucBuddy.BuddyProfilePath = yb.DisplayImageUrl;
             AddControlsToAControl(uiflowLayoutPanelBuddies, ucBuddy);
+        }
+
+        private void Client_OnBuddyAddYouRequest(object sender, string buddy, string requestMessage, ref bool accept)
+        {
+            if (MessageBox.Show("\"" + buddy + "\" added you. Do you want to \"" + buddy + "\" to see you?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                accept = true;
+            }
+            else
+                accept = false;
         }
 
         private void Client_OnDeleteBuddy(object sender, string buddy)
@@ -409,7 +431,45 @@ namespace WhiteChatClient
         }
         #endregion
 
-        #region Actions 
+        #region HandleMessage
+        private void Client_OnMessage(object sender, string buddy, string Message)
+        {
+            int count = 0;
+            foreach (uiFormChat item in CurrentChatUsers)
+            {
+                if (item.Text == buddy)
+                {
+                    item.GetMessage(Message);
+                    break;
+                }
+                count++;
+            }
+            if(count == CurrentChatUsers.Count || CurrentChatUsers.Count == 0)
+            {
+                uiFormChat chatwindow = new uiFormChat();
+                chatwindow.Text = buddy;
+                chatwindow.AdjustGraphicsImp();
+                chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);
+                CurrentChatUsers.Add(chatwindow);
+                chatwindow.Show();
+                chatwindow.GetMessage(Message);
+            }
+        }
+
+        private void Client_OnBuddyTyping(object sender, string buddy)
+        {
+            foreach (uiFormChat item in CurrentChatUsers)
+            {
+                if (item.Text == buddy)
+                {
+                    item.GetMessage("");
+                    break;
+                }
+            }
+        }
+        #endregion 
+
+        #region Actions
         private void uicomboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
@@ -437,6 +497,11 @@ namespace WhiteChatClient
                     CurrentUser.Client.ChangeStatus(YahooStatus.YAHOO_STATUS_BRB, "");
                     break;
             }
+        }
+
+        void chatwindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CurrentChatUsers.Remove(sender);
         }
         #endregion 
 

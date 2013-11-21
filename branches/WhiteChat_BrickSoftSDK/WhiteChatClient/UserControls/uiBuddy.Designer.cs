@@ -96,6 +96,7 @@
             this.Controls.Add(this.uipictureBoxStatus);
             this.Controls.Add(this.uilabelName);
             this.Controls.Add(this.uipictureBoxProfile);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uiBuddy";
             this.Size = new System.Drawing.Size(270, 22);
             this.Enter += new System.EventHandler(this.uiBuddy_Enter);

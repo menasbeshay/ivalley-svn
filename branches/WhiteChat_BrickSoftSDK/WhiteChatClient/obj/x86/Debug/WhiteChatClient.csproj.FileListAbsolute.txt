@@ -234,3 +234,13 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\online.gif
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\online_arrow.gif
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\ajax-loader.gif
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.uiFormChat.resources
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\482.GIF
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.uiFormBrowseChatRooms.resources
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\BLL.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\DAL.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\BLL.pdb
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\DAL.pdb
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.uiFormChatRoom.resources
