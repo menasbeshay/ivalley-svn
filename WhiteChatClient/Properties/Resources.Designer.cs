@@ -63,16 +63,6 @@ namespace WhiteChatClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _482__2_ {
-            get {
-                object obj = ResourceManager.GetObject("482 (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap away {
             get {
                 object obj = ResourceManager.GetObject("away", resourceCulture);

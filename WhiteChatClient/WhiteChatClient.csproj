@@ -54,6 +54,7 @@
       <HintPath>..\..\..\imnettrial\imnettrial\IM\Bricksoft.IM.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -68,6 +69,24 @@
       <DependentUpon>AddContact.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\CurrentUser.cs" />
+    <Compile Include="uiFormBrowseChatRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiFormBrowseChatRooms.Designer.cs">
+      <DependentUpon>uiFormBrowseChatRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uiFormChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiFormChat.Designer.cs">
+      <DependentUpon>uiFormChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uiFormChatRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiFormChatRoom.Designer.cs">
+      <DependentUpon>uiFormChatRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\uiBuddy.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +115,15 @@
     </Compile>
     <EmbeddedResource Include="AddContact.resx">
       <DependentUpon>AddContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uiFormBrowseChatRooms.resx">
+      <DependentUpon>uiFormBrowseChatRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uiFormChat.resx">
+      <DependentUpon>uiFormChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uiFormChatRoom.resx">
+      <DependentUpon>uiFormChatRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uiBuddy.resx">
       <DependentUpon>uiBuddy.cs</DependentUpon>
@@ -153,269 +181,269 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Images\1.gif">
+    <None Include="Images\1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\10.gif">
+    </None>
+    <None Include="Images\10.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\11.gif">
+    </None>
+    <None Include="Images\11.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\12.gif">
+    </None>
+    <None Include="Images\12.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\13.gif">
+    </None>
+    <None Include="Images\13.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\14.gif">
+    </None>
+    <None Include="Images\14.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\15.gif">
+    </None>
+    <None Include="Images\15.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\16.gif">
+    </None>
+    <None Include="Images\16.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\17.gif">
+    </None>
+    <None Include="Images\17.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\18.gif">
+    </None>
+    <None Include="Images\18.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\19.gif">
+    </None>
+    <None Include="Images\19.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\2.gif">
+    </None>
+    <None Include="Images\2.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\20.gif">
+    </None>
+    <None Include="Images\20.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\21.gif">
+    </None>
+    <None Include="Images\21.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\22.gif">
+    </None>
+    <None Include="Images\22.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\23.gif">
+    </None>
+    <None Include="Images\23.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\24.gif">
+    </None>
+    <None Include="Images\24.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\25.gif">
+    </None>
+    <None Include="Images\25.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\26.gif">
+    </None>
+    <None Include="Images\26.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\27.gif">
+    </None>
+    <None Include="Images\27.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\28.gif">
+    </None>
+    <None Include="Images\28.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\29.gif">
+    </None>
+    <None Include="Images\29.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\3.gif">
+    </None>
+    <None Include="Images\3.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\30.gif">
+    </None>
+    <None Include="Images\30.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\31.gif">
+    </None>
+    <None Include="Images\31.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\32.gif">
+    </None>
+    <None Include="Images\32.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\33.gif">
+    </None>
+    <None Include="Images\33.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\34.gif">
+    </None>
+    <None Include="Images\34.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\35.gif">
+    </None>
+    <None Include="Images\35.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\36.gif">
+    </None>
+    <None Include="Images\36.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\37.gif">
+    </None>
+    <None Include="Images\37.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\38.gif">
+    </None>
+    <None Include="Images\38.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\39.gif">
+    </None>
+    <None Include="Images\39.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\4.gif">
+    </None>
+    <None Include="Images\4.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\40.gif">
+    </None>
+    <None Include="Images\40.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\41.gif">
+    </None>
+    <None Include="Images\41.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\42.gif">
+    </None>
+    <None Include="Images\42.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\43.gif">
+    </None>
+    <None Include="Images\43.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\44.gif">
+    </None>
+    <None Include="Images\44.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\45.gif">
+    </None>
+    <None Include="Images\45.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\46.gif">
+    </None>
+    <None Include="Images\46.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\47.gif">
+    </None>
+    <None Include="Images\47.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\48.gif">
+    </None>
+    <None Include="Images\48.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\49.gif">
+    </None>
+    <None Include="Images\49.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\5.gif">
+    </None>
+    <None Include="Images\5.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\50.gif">
+    </None>
+    <None Include="Images\50.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\51.gif">
+    </None>
+    <None Include="Images\51.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\52.gif">
+    </None>
+    <None Include="Images\52.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\53.gif">
+    </None>
+    <None Include="Images\53.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\54.gif">
+    </None>
+    <None Include="Images\54.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\55.gif">
+    </None>
+    <None Include="Images\55.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\56.gif">
+    </None>
+    <None Include="Images\56.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\57.gif">
+    </None>
+    <None Include="Images\57.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\58.gif">
+    </None>
+    <None Include="Images\58.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\59.gif">
+    </None>
+    <None Include="Images\59.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\6.gif">
+    </None>
+    <None Include="Images\6.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\60.gif">
+    </None>
+    <None Include="Images\60.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\61.gif">
+    </None>
+    <None Include="Images\61.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\62.gif">
+    </None>
+    <None Include="Images\62.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\63.gif">
+    </None>
+    <None Include="Images\63.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\64.gif">
+    </None>
+    <None Include="Images\64.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\65.gif">
+    </None>
+    <None Include="Images\65.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\66.gif">
+    </None>
+    <None Include="Images\66.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\67.gif">
+    </None>
+    <None Include="Images\67.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\68.gif">
+    </None>
+    <None Include="Images\68.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\69.gif">
+    </None>
+    <None Include="Images\69.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\7.gif">
+    </None>
+    <None Include="Images\7.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\70.gif">
+    </None>
+    <None Include="Images\70.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\71.gif">
+    </None>
+    <None Include="Images\71.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\72.gif">
+    </None>
+    <None Include="Images\72.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\73.gif">
+    </None>
+    <None Include="Images\73.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\74.gif">
+    </None>
+    <None Include="Images\74.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\75.gif">
+    </None>
+    <None Include="Images\75.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\8.gif">
+    </None>
+    <None Include="Images\8.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\9.gif">
+    </None>
+    <None Include="Images\9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Images\100.gif">
+    <None Include="Images\100.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\101.gif">
+    </None>
+    <None Include="Images\101.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\102.gif">
+    </None>
+    <None Include="Images\102.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\103.gif">
+    </None>
+    <None Include="Images\103.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\104.gif">
+    </None>
+    <None Include="Images\104.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\105.gif">
+    </None>
+    <None Include="Images\105.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\109.gif">
+    </None>
+    <None Include="Images\109.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\110.gif">
+    </None>
+    <None Include="Images\110.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\111.gif">
+    </None>
+    <None Include="Images\111.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\112.gif">
+    </None>
+    <None Include="Images\112.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\113.gif">
+    </None>
+    <None Include="Images\113.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\114.gif">
+    </None>
+    <None Include="Images\114.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
     <Content Include="Images\ajax-loader.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -424,16 +452,30 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{497FB11C-E96E-43DB-B114-8277201DD744}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{BE8A4F41-B042-438D-AF13-9883988A6AFA}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExRichTextBox\ExRichTextBox.csproj">
       <Project>{1A63B1D0-D2F0-4F8C-B242-863E83E1419C}</Project>
       <Name>ExRichTextBox</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
+      <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
+      <Name>MyGeneration.dOOdads</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\482 %282%29.GIF">
+    <None Include="Images\482 %282%29.GIF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\482.GIF" />
+    </None>
+    <None Include="Images\482.GIF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Images\away.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
