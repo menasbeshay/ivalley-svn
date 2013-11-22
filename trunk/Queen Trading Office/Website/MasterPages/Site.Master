@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/media-queries.css">
     <link rel="stylesheet" href="../css/custom.css">
+    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
                     <script src="js/html5.js"></script>
@@ -39,21 +40,22 @@
                                 <!-- Website Logo Place -->
                                 <div id="logo-container">
                                     <a href="Default.aspx" class="logo" title="Site Logo">
-                                        <img src="../images/logo.jpg" alt="" style="height:64px;border:0px;">
+                                        <img src="../images/logo.jpg" alt="" style="height:80px;border:0px;">
+                                    </a>
+                                    <a href="Default.aspx" class="logo" title="Site Logo">
+                                        <img src="../images/logo2.gif" alt="" style="height:43px;border:0px;margin-top:30px;">
                                     </a>
                                 </div>
+                                <div style="width:30%;float:left;padding:20px;padding-left:100px;">
+                                    <img src="../images/trans.gif" />
+                                </div>              
                                                              
-                                <ul class="social-nav">                                        
-                                    <li class="facebook"><a target="_blank" href="#"></a></li>
-                                    <li class="twitter"><a target="_blank" href="#"></a></li>
-                                    <li class="skype"><a target="_blank" href="#"></a></li>																	
-                                    <li class="flickr"><a target="_blank" href="#"></a></li>																	
-                                    <li class="google"><a target="_blank" href="#"></a></li>																
-                                    <li class="linkedin"><a target="_blank" href="#"></a></li>															
-                                    <li class="rss"><a target="_blank" href="#"></a></li>
-                                    <li class="logo2"><img src="../images/logo2.gif" alt=""></li>
+                                <ul class="social-nav">                                                                           
+                                    <li class="egypt"><a target="_blank" href="#"></a></li>																	
+                                    <li><a href="#" title="contact us" style="padding:5px;padding-top:9px;"><i class="icon-phone icon-2x"></i></a></li>
                                 </ul>
 								
+                                <div class="clearfix"></div>
                                 
                                 <nav class="main-nav clearfix">
 
@@ -61,59 +63,34 @@
                                         <div class="menu-div">
                                         	<ul>
                                             	<li>
-                                                	<a href="default.aspx">Home</a>
-                                                    <ul style="display: none;">
-                                                    	<li><a href="default.aspx">Default Home</a></li>
-                                                        <li><a href="#">Home With Blog Posts</a></li>                                                    
-                                                    </ul>
+                                                	<a href="default.aspx">Home</a>                                                    
                                                 </li>
                                                 <li>
-                                                	<a href="#">Blog</a>
+                                                    <a href="#">About us</a>
+                                                    <ul style="display: none;">
+                                                    <li><a href="#">Company Mission</a></li>
+                                                    <li><a href="#">Brief History</a></li>
+                                                    <li>
+                                                	    <a href="#">Activities</a>
+                                                    
+                                                    </li>
+                                                 
+                                                    </ul>
+                                                	
+                                                </li>
+                                               <li>
+                                                	<a href="#">Sales Capabilities</a>
+                                                    
                                                 </li>
                                                 <li>
-                                                	<a href="#">Doctors</a>
-                                                    <ul style="display: none;">
-                                                        <li><a href="#">2 Columns Doctors</a></li>
-                                                        <li><a href="#">4 Columns Doctors</a></li>                                                        
-                                                        <li><a href="#">Doctors Single</a></li>
-                                                    </ul>
+                                                	<a href="#">Market Profile</a>
                                                 </li>
                                                 <li>
-                                                	<a href="#">Services</a>
-                                                    <ul style="display: none;">
-                                                        <li><a href="#">1 Column Services</a></li>
-                                                        <li><a href="#">3 Columns Services</a></li>
-                                                        <li><a href="#">4 Columns Services</a></li>                                                        
-                                                        <li><a href="#">Services Single</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                	<a href="#">Gallery</a>
-                                                    <ul style="display: none;">
-                                                        <li><a href="#">2 Columns Gallery</a></li>
-                                                        <li><a href="#">3 Columns Gallery</a></li>
-                                                        <li><a href="#">4 Columns Gallery</a></li> 
-                                                        <li><a href="#">Gallery Single</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                	<a href="#">FAQs</a>
-                                                    <ul style="display: none;">
-                                                        <li><a href="#">FAQs With Sidebar</a></li>
-                                                        <li><a href="#">FAQs Fullwidth Template</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                	<a href="#">Features</a>
-                                                    <ul style="display: none;">
-                                                        <li><a href="#">Testimonials</a></li>
-                                                        <li><a href="#">Elements</a></li>
-                                                        <li><a href="#">Full Width</a></li>
-                                                        <li><a href="#">Blog Single</a></li>
-                                                        <li><a href="#">Archive</a></li>
-                                                    </ul>
+                                                	<a href="#">Contact Countries</a>
                                                </li>
-                                               <li><a href="#">Contact Us</a></li>
+                                                
+                                               <li><a href="#">Events</a></li>
+                                              
                                             </ul><select class="responsive-nav"><option value="" selected="">Go to...</option><option value="index.html"> Home</option><option value="index.html"> -  Default Home</option><option value="home-with-blog-posts.html"> -  Home With Blog Posts</option><option value="blog.html"> Blog</option><option value="doctors-four-columns.html"> Doctors</option><option value="doctors-two-columns.html"> -  2 Columns Doctors</option><option value="doctors-four-columns.html"> -  4 Columns Doctors</option><option value="single-doctor.html"> -  Doctors Single</option><option value="services-four-columns.html"> Services</option><option value="services-one-columns.html"> -  1 Column Services</option><option value="services-three-columns.html"> -  3 Columns Services</option><option value="services-four-columns.html"> -  4 Columns Services</option><option value="single-service.html"> -  Services Single</option><option value="four-columns-gallery.html"> Gallery</option><option value="two-columns-gallery.html"> -  2 Columns Gallery</option><option value="three-columns-gallery.html"> -  3 Columns Gallery</option><option value="four-columns-gallery.html"> -  4 Columns Gallery</option><option value="single-gallery.html"> -  Gallery Single</option><option value="faq-with-sidebar.html"> FAQs</option><option value="faq-with-sidebar.html"> -  FAQs With Sidebar</option><option value="faq-fullwidth.html"> -  FAQs Fullwidth Template</option><option value="#"> Features</option><option value="testimonials.html"> -  Testimonials</option><option value="elements.html"> -  Elements</option><option value="full-width.html"> -  Full Width</option><option value="single-blog.html"> -  Blog Single</option><option value="archive.html"> -  Archive</option><option value="contact.html"> Contact Us</option></select>
                                         </div>
                                         
@@ -129,73 +106,20 @@
         <!-- ending of header of the website -->
 
         <!-- main content -->
-        <div>
+        <div style="margin-top:-10px;">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
         </div>
         <!-- end main content -->
 
-        <div id="footer-wrap">
-            <footer class="clearfix">
-                                
-										<section class="footer-widget">
-                                            <section class="widget">			    
-                                                <h3>
-                                                    <a href=""><img src="../images/health/footer-logo.png" alt="HealthPress"></a>
-                                                </h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis adipiscing id nulla vel lorem dapibus fringilla eget non felis, porttitor lectus.</p>
-                                                <a href="#" class="readmore">Read more</a>
-                                            </section>													
-										</section>
-										
-										<section class="footer-widget">
-                                            <section class="widget">
-                                                <h3 class="title">Quick Links</h3>
-                                                <div>
-                                                    <ul>
-                                                        <li><a href="#">Home</a></li>
-                                                        <li><a href="#">Blog</a></li>
-                                                        <li><a href="#">Services</a></li>
-                                                        <li><a href="#">Doctors</a></li>
-                                                        <li><a href="#">Contact Us</a></li>                                               
-                                                   </ul>
-                                               </div>
-                                           </section>                                      
-										</section>
-										
-                                        <section class="footer-widget">
-                                            <section class="widget">
-                                                    <h3 class="title">Recent Posts</h3>
-                                                    <div>
-                                                        <ul>
-                                                            <li><a href="#">Latest Health Lessons</a></li>
-                                                            <li><a href="#">The Benefits of Middle-Age Fitness</a></li>
-                                                            <li><a href="#">For Young Athletes, Good Reasons to Break the Fast-Food Habit</a></li>
-                                                            <li><a href="#">For Weight Loss, Less Exercise May Be More</a></li>
-                                                            <li><a href="#">Really?: Adding Milk to Tea Destroys its Antioxidants</a></li>                                               
-                                                       </ul>
-                                                   </div>
-                                               </section>
-										</section>
-																				
-										<section class="footer-widget" >
-                                            <section class="widget">
-                                            	<h3 class="title">Location</h3>   
-                                                <p>Address will be appear here, some details here City Name, Stat &amp; Country.</p>
-                                                <p><span>Ph:</span> +800 123 4567</p>
-                                                <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>               
-                                            </section>                                     
-										</section>
-									
-                                </footer>
-            <!-- end of #bottom -->
-        </div>
+        
         <!-- footer-wrap -->
         <div id="footer-bottom-wrapper">
             <div id="footer-bottom">
                 <p class="copyrights">
-                    © Copyright 2012. All Rights Reserved by HealthPress.</p>
+                    © Copyright 2013. Powered by 
+                    <a href="http://i-valley.com"> <img src="../images/IValley.png" style="vertical-align:middle;" alt="I-Valley software solutions" title="I-Valley software solutions"/></a></p>
             </div>
             <!-- footer-bottom -->
         </div>
@@ -211,7 +135,9 @@
     <script type="text/javascript"  src="../js/jquery.easing.1.3.js"></script>
     <script type="text/javascript"  src="../js/flexslider/jquery.flexslider-min.js"></script>
     <script type="text/javascript"  src="../js/jquery.isotope.min.js"></script>
+    <script src="../js/camera.js" type="text/javascript"></script>
     <script type="text/javascript"  src="../js/custom.js"></script>
+
     <a href="#top" id="scroll-top"
         style="display: none;"></a>
     <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
