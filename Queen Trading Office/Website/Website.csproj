@@ -51,7 +51,41 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="css\font-awesome\css\font-awesome.css" />
+    <Content Include="css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome\docs\assets\css\font-awesome-ie7.min.css" />
+    <Content Include="css\font-awesome\docs\assets\css\font-awesome.css" />
+    <Content Include="css\font-awesome\docs\assets\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome\docs\assets\css\prettify.css" />
+    <Content Include="css\font-awesome\docs\assets\css\site.css" />
+    <Content Include="css\font-awesome\docs\assets\ico\favicon.ico" />
+    <Content Include="css\font-awesome\docs\assets\img\contribution-sample.png" />
+    <Content Include="css\font-awesome\docs\assets\img\fort_awesome.jpg" />
+    <Content Include="css\font-awesome\docs\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="css\font-awesome\docs\assets\img\glyphicons-halflings.png" />
+    <Content Include="css\font-awesome\docs\assets\js\backbone.min.js" />
+    <Content Include="css\font-awesome\docs\assets\js\bootstrap-222.min.js" />
+    <Content Include="css\font-awesome\docs\assets\js\index\index.js" />
+    <Content Include="css\font-awesome\docs\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="css\font-awesome\docs\assets\js\prettify.min.js" />
+    <Content Include="css\font-awesome\docs\assets\js\underscore.min.js" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\buttons.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\css-tests.css" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\css-tests.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\forms-responsive.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\forms.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\navbar-fixed-top.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\navbar-static-top.html" />
+    <Content Include="css\font-awesome\docs\assets\less\twbs-222\tests\navbar.html" />
+    <Content Include="css\font-awesome\docs\design.html" />
+    <Content Include="css\font-awesome\docs\index.html" />
+    <Content Include="css\font-awesome\docs\test.html" />
     <Content Include="Default.aspx" />
+    <Content Include="images\Dr.-F.7.gif" />
+    <Content Include="images\egyptian-flag.gif" />
+    <Content Include="images\egyptian-flag.jpg" />
+    <Content Include="images\IValley.png" />
     <Content Include="images\logo2.gif" />
     <Content Include="images\Logo2.JPG" />
     <Content Include="css\custom.css" />
@@ -100,6 +134,8 @@
     <Content Include="images\health\tweety-bird.png" />
     <Content Include="images\health\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\trans.gif" />
+    <Content Include="js\camera.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\flexslider\flexslider.css" />
     <Content Include="js\flexslider\jquery.flexslider-min.js" />
@@ -144,8 +180,96 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="css\css" />
-    <None Include="css\css%281%29" />
+    <None Include="css\css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\css%281%29">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\font-awesome\.DS_Store" />
+    <None Include="css\font-awesome\.gitignore" />
+    <None Include="css\font-awesome\docs\.DS_Store" />
+    <None Include="css\font-awesome\docs\assets\.DS_Store" />
+    <None Include="css\font-awesome\docs\assets\font\fontawesome-webfont.eot" />
+    <None Include="css\font-awesome\docs\assets\font\fontawesome-webfont.ttf" />
+    <None Include="css\font-awesome\docs\assets\font\fontawesome-webfont.woff" />
+    <None Include="css\font-awesome\docs\assets\font\FontAwesome.otf" />
+    <None Include="css\font-awesome\docs\assets\font\museo_slab_300-webfont.eot" />
+    <None Include="css\font-awesome\docs\assets\font\museo_slab_300-webfont.ttf" />
+    <None Include="css\font-awesome\docs\assets\font\museo_slab_500-webfont.eot" />
+    <None Include="css\font-awesome\docs\assets\font\museo_slab_500-webfont.ttf" />
+    <None Include="css\font-awesome\docs\assets\font\proximanova-sbold-webfont.eot" />
+    <None Include="css\font-awesome\docs\assets\font\proximanova-sbold-webfont.ttf" />
+    <None Include="css\font-awesome\docs\assets\font\proximanova-webfont.eot" />
+    <None Include="css\font-awesome\docs\assets\font\proximanova-webfont.ttf" />
+    <None Include="css\font-awesome\docs\assets\img\icon-flag.pdf" />
+    <None Include="css\font-awesome\docs\assets\js\.DS_Store" />
+    <None Include="css\font-awesome\docs\assets\less\.DS_Store" />
+    <None Include="css\font-awesome\docs\assets\less\font-awesome-ie7.less" />
+    <None Include="css\font-awesome\docs\assets\less\font-awesome.less" />
+    <None Include="css\font-awesome\docs\assets\less\font-site.less" />
+    <None Include="css\font-awesome\docs\assets\less\mixins.less" />
+    <None Include="css\font-awesome\docs\assets\less\site.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\.DS_Store" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\accordion.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\alerts.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\bootstrap.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\breadcrumbs.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\button-groups.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\buttons.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\carousel.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\close.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\code.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\component-animations.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\dropdowns.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\forms.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\grid.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\hero-unit.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\labels-badges.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\layouts.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\media.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\mixins.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\modals.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\navbar.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\navs.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\pager.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\pagination.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\popovers.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\progress-bars.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\reset.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive-1200px-min.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive-767px-max.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive-768px-979px.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive-navbar.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive-utilities.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\responsive.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\scaffolding.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\sprites.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\tables.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\thumbnails.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\tooltip.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\type.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\utilities.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\variables.less" />
+    <None Include="css\font-awesome\docs\assets\less\twbs-222\wells.less" />
+    <None Include="css\font-awesome\docs\assets\less\variables.less" />
+    <None Include="css\font-awesome\font\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\font-awesome\font\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\font-awesome\font\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\font-awesome\font\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="css\font-awesome\less\font-awesome-ie7.less" />
+    <None Include="css\font-awesome\less\font-awesome.less" />
+    <None Include="css\font-awesome\README.md" />
+    <None Include="css\font-awesome\sass\font-awesome.sass" />
+    <None Include="css\font-awesome\sass\font-awesome.scss" />
     <None Include="js\user_timeline.json" />
     <Content Include="MasterPages\Site.Master" />
   </ItemGroup>
