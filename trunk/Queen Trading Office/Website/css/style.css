@@ -84,6 +84,8 @@ code { font-family:"Courier New", Courier, monospace; }
 .ie7 .display-ie8,
 .ie9 .display-ie8,
 .ie8 .display-ie8{ display:block;}
+.ContentWrapper {width:1280px;min-height:300px;margin:0 auto;}
+.MainContent {width:920px;margin:0px auto;padding-top:10px;}
 
 
 /*-----------------------------------------------------------------------------------*/
