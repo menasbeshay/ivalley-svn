@@ -75,7 +75,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 562);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 568);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // uimenuStripMain
@@ -85,7 +85,7 @@
             this.messengerToolStripMenuItem});
             this.uimenuStripMain.Location = new System.Drawing.Point(0, 0);
             this.uimenuStripMain.Name = "uimenuStripMain";
-            this.uimenuStripMain.Size = new System.Drawing.Size(281, 24);
+            this.uimenuStripMain.Size = new System.Drawing.Size(290, 24);
             this.uimenuStripMain.TabIndex = 7;
             this.uimenuStripMain.Text = "menuStrip1";
             // 
@@ -138,7 +138,7 @@
             this.uipanelinfo.Location = new System.Drawing.Point(0, 24);
             this.uipanelinfo.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelinfo.Name = "uipanelinfo";
-            this.uipanelinfo.Size = new System.Drawing.Size(281, 40);
+            this.uipanelinfo.Size = new System.Drawing.Size(290, 40);
             this.uipanelinfo.TabIndex = 9;
             // 
             // uilabelBuddyName
@@ -183,7 +183,7 @@
             this.uipanelSearch.Location = new System.Drawing.Point(0, 64);
             this.uipanelSearch.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelSearch.Name = "uipanelSearch";
-            this.uipanelSearch.Size = new System.Drawing.Size(281, 30);
+            this.uipanelSearch.Size = new System.Drawing.Size(290, 30);
             this.uipanelSearch.TabIndex = 8;
             // 
             // uibuttonAdd
@@ -217,13 +217,13 @@
             this.uipanelLogin.Location = new System.Drawing.Point(0, 94);
             this.uipanelLogin.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelLogin.Name = "uipanelLogin";
-            this.uipanelLogin.Size = new System.Drawing.Size(281, 580);
+            this.uipanelLogin.Size = new System.Drawing.Size(290, 680);
             this.uipanelLogin.TabIndex = 0;
             // 
             // uicheckBoxInvisible
             // 
             this.uicheckBoxInvisible.AutoSize = true;
-            this.uicheckBoxInvisible.Location = new System.Drawing.Point(56, 311);
+            this.uicheckBoxInvisible.Location = new System.Drawing.Point(63, 311);
             this.uicheckBoxInvisible.Name = "uicheckBoxInvisible";
             this.uicheckBoxInvisible.Size = new System.Drawing.Size(173, 17);
             this.uicheckBoxInvisible.TabIndex = 6;
@@ -233,7 +233,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 222);
+            this.label2.Location = new System.Drawing.Point(60, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 5;
@@ -242,7 +242,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 166);
+            this.label1.Location = new System.Drawing.Point(60, 166);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 4;
@@ -250,7 +250,7 @@
             // 
             // uibuttonSignin
             // 
-            this.uibuttonSignin.Location = new System.Drawing.Point(86, 358);
+            this.uibuttonSignin.Location = new System.Drawing.Point(93, 358);
             this.uibuttonSignin.Name = "uibuttonSignin";
             this.uibuttonSignin.Size = new System.Drawing.Size(97, 29);
             this.uibuttonSignin.TabIndex = 3;
@@ -261,7 +261,7 @@
             // uicheckBoxRemember
             // 
             this.uicheckBoxRemember.AutoSize = true;
-            this.uicheckBoxRemember.Location = new System.Drawing.Point(56, 288);
+            this.uicheckBoxRemember.Location = new System.Drawing.Point(63, 288);
             this.uicheckBoxRemember.Name = "uicheckBoxRemember";
             this.uicheckBoxRemember.Size = new System.Drawing.Size(167, 17);
             this.uicheckBoxRemember.TabIndex = 2;
@@ -270,7 +270,7 @@
             // 
             // uitextBoxPassword
             // 
-            this.uitextBoxPassword.Location = new System.Drawing.Point(56, 244);
+            this.uitextBoxPassword.Location = new System.Drawing.Point(63, 244);
             this.uitextBoxPassword.Name = "uitextBoxPassword";
             this.uitextBoxPassword.PasswordChar = '*';
             this.uitextBoxPassword.Size = new System.Drawing.Size(160, 20);
@@ -279,7 +279,7 @@
             // 
             // uitextBoxUsername
             // 
-            this.uitextBoxUsername.Location = new System.Drawing.Point(56, 192);
+            this.uitextBoxUsername.Location = new System.Drawing.Point(63, 192);
             this.uitextBoxUsername.Name = "uitextBoxUsername";
             this.uitextBoxUsername.Size = new System.Drawing.Size(160, 20);
             this.uitextBoxUsername.TabIndex = 0;
@@ -290,16 +290,16 @@
             this.uipanelLoading.Controls.Add(this.uilabelLogging);
             this.uipanelLoading.Controls.Add(this.pictureBox1);
             this.uipanelLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uipanelLoading.Location = new System.Drawing.Point(3, 677);
+            this.uipanelLoading.Location = new System.Drawing.Point(3, 777);
             this.uipanelLoading.Name = "uipanelLoading";
-            this.uipanelLoading.Size = new System.Drawing.Size(281, 600);
+            this.uipanelLoading.Size = new System.Drawing.Size(290, 600);
             this.uipanelLoading.TabIndex = 1;
             // 
             // uilabelLogging
             // 
             this.uilabelLogging.AutoSize = true;
             this.uilabelLogging.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.uilabelLogging.Location = new System.Drawing.Point(62, 242);
+            this.uilabelLogging.Location = new System.Drawing.Point(82, 242);
             this.uilabelLogging.Name = "uilabelLogging";
             this.uilabelLogging.Size = new System.Drawing.Size(0, 13);
             this.uilabelLogging.TabIndex = 3;
@@ -308,7 +308,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.ImageLocation = "Images/ajax-loader.gif";
-            this.pictureBox1.Location = new System.Drawing.Point(62, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 105);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -321,18 +321,19 @@
             this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.White;
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1280);
+            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1380);
             this.uiflowLayoutPanelBuddies.Margin = new System.Windows.Forms.Padding(0);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
-            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(281, 485);
+            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(290, 485);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
             // 
             // uiFormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 562);
+            this.ClientSize = new System.Drawing.Size(290, 568);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.uimenuStripMain;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 600);

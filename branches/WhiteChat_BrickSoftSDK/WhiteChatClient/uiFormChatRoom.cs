@@ -29,6 +29,8 @@ namespace WhiteChatClient
         public int ChatRoomID { get; set; }
         public int CategoryID { get; set; }
         public int SubCategoryID { get; set; }
+        public bool InCall { get; set; }
+
         delegate void HandleOnRecievedDataCallBack(IAsyncResult ar);
 
         public uiFormChatRoom()
@@ -84,6 +86,17 @@ namespace WhiteChatClient
                 }
                 uicomboBoxFont.DataSource = fonts;
                 uicomboBoxFont.SelectedItem = "Arial";
+
+                RichTextBox temp = new RichTextBox();
+                temp.Text = "You are in \"" + this.Text + "\"";
+                temp.Select(0, temp.Text.LastIndexOf("\""));
+                temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
+                temp.SelectionColor = Color.Green;
+                uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                temp.Dispose();
+
+                uiRichTextBoxMsg.Focus();
+                InCall = false;
             }
         }
 
@@ -99,6 +112,7 @@ namespace WhiteChatClient
                 ucBuddy.Selected += new EventHandler(ucBuddy_Selected);
                 ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
                 ucBuddy.Status = YahooStatus.YAHOO_STATUS_AVAILABLE;
+                ucBuddy.Width = uiflowLayoutPanelBuddies.Width;
                 uiflowLayoutPanelBuddies.Controls.Add(ucBuddy);
                 members.MoveNext();
             }
@@ -166,6 +180,7 @@ namespace WhiteChatClient
                     InsertImage(new Bitmap(item.Value), uiRichTextBoxMsg);
                 }
             }
+            uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
             uiRichTextBoxHistory.SelectedRtf = uiRichTextBoxMsg.Rtf;
             uiRichTextBoxHistory.ScrollToCaret();
             uiRichTextBoxMsg.Clear();
@@ -186,17 +201,37 @@ namespace WhiteChatClient
 
         private void uicheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxBold.Checked) ? FontStyle.Bold | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxBold.Checked) ? FontStyle.Bold | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void uicheckBoxItalic_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxItalic.Checked) ? FontStyle.Italic | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxItalic.Checked) ? FontStyle.Italic | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void uicheckBoxUnderline_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxUnderline.Checked) ? FontStyle.Underline | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxUnderline.Checked) ? FontStyle.Underline | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
         
         private void uibuttonColor_Click(object sender, EventArgs e)
@@ -210,12 +245,26 @@ namespace WhiteChatClient
 
         private void uicomboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void uicomboBoxFontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            }
+            catch (Exception)
+            {
+                                
+            }
         }
 
         private void uiFormChatRoom_FormClosed(object sender, FormClosedEventArgs e)
@@ -237,7 +286,7 @@ namespace WhiteChatClient
                 if (ClientSocket != null && ClientSocket.Connected)
                 {
                     ClientSocket.Shutdown(SocketShutdown.Both);
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(5);
                     ClientSocket.Close();
                 }
 
@@ -325,6 +374,7 @@ namespace WhiteChatClient
                                     InsertImage(new Bitmap(item.Value), temp);
                                 }
                             }
+                            uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
                             uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
                             temp.Dispose();
                         }
@@ -384,6 +434,70 @@ namespace WhiteChatClient
             }
             catch (Exception) { }
 
+        }
+
+        #endregion
+
+        #region Call
+
+
+        private void uibuttonCall_Click(object sender, EventArgs e)
+        {
+            if (!InCall)
+            {
+                WaveIn.addConsumer2(ClientX1.asConsumer());
+                ClientX1.addConsumer2(WaveOut.asConsumer());
+                ClientX1.setSrvMasterKey("123456");
+
+                ClientX1.setStreamEnabled(true, true);
+                ClientX1.setVolumeModify(false, 50);
+                ClientX1.setVolumeModify(true, 100);
+                ClientX1.setEncoding(15, 32000);
+                ClientX1.URI = "rtp://" + CurrentUser.Client.Account + "@" + ConfigurationManager.AppSettings["ServerIp"].ToString() + ":" + ConfigurationManager.AppSettings["ServerPort"].ToString() + "/" + ChatRoomID.ToString();
+
+                WaveIn.Active = true;
+                uibuttonCall.Text = "Close Voice";
+            }
+            else
+            {
+                ClientX1.disconnect_client();
+                uibuttonCall.Text = "Call";
+            }
+
+        }
+
+
+        private void uicheckBoxMute_CheckedChanged(object sender, EventArgs e)
+        {
+            if (uicheckBoxMute.Checked)
+            {
+                ClientX1.setVolumeModify(false, 0);
+            }
+            else
+            {
+                ClientX1.setVolumeModify(false, uitrackBarVolume.Value);
+            }
+        }
+
+        private void uitrackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            ClientX1.setVolumeModify(false, uitrackBarVolume.Value);
+        }
+
+        private void uicheckBoxHandfree_CheckedChanged(object sender, EventArgs e)
+        {
+            WaveIn.Active = uicheckBoxHandfree.Checked;
+            uibuttonTalk.Enabled = !uicheckBoxHandfree.Checked;
+        }
+
+        private void uibuttonTalk_MouseDown(object sender, MouseEventArgs e)
+        {
+            WaveIn.Active = true;
+        }
+
+        private void uibuttonTalk_MouseUp(object sender, MouseEventArgs e)
+        {
+            WaveIn.Active = false;
         }
 
         #endregion
@@ -753,7 +867,10 @@ namespace WhiteChatClient
 
         #endregion
 
+
         #endregion
+
+
 
     }
 }

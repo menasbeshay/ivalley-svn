@@ -33,7 +33,7 @@ namespace WhiteChatClient
 
         private void uiFormMain_Load(object sender, EventArgs e)
         {            
-            InitializeMainForm();
+            InitializeMainForm();            
             CurrentChatUsers = new ArrayList();
             CurrentChatRooms = new ArrayList();
         }
@@ -46,6 +46,7 @@ namespace WhiteChatClient
 
             if (CurrentUser.Client == null || !CurrentUser.Client.Logined)
             {
+                CurrentUser.Client.LicenseKey = "CE6HAYLtIetGXv/cdg==#####BSGag+aaJcphtSVv1A==#####A05ohMc7tUfrcX4DOA==#####AaWvI5QMNm3nLG3MWg==#####u/nBDjregpC7rnH7#####BOiUIl93XMdjepvl0g==#####";
                 CurrentUser.Client.OnLogin += delegate(object sender, EventArgs e) { this.Invoke(new EventHandler(login_OnSignIn)); };
                 CurrentUser.Client.OnLogout += delegate(object sender, EventArgs e) { this.Invoke(new EventHandler(Client_OnLogout)); };
                 CurrentUser.Client.OnError += delegate(object sender, string log) { this.Invoke(new OnErrorEventHandler(Client_OnError), new object[] { sender, log }); };
@@ -165,6 +166,8 @@ namespace WhiteChatClient
             {
                 YahooBuddy yb = (YahooBuddy)item.Value;
                 uiBuddy ucBuddy = new uiBuddy();
+                ucBuddy.Width = uiflowLayoutPanelBuddies.Width;
+                ucBuddy.Padding = new Padding(20, 0, 0, 0);
                 ucBuddy.BuddyName = yb.Account;
                 ucBuddy.Selected += new EventHandler(ucBuddy_Selected);
                 ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
@@ -351,12 +354,15 @@ namespace WhiteChatClient
 
         private void Client_OnBuddyAddYouRequest(object sender, string buddy, string requestMessage, ref bool accept)
         {
-            if (MessageBox.Show("\"" + buddy + "\" added you. Do you want to \"" + buddy + "\" to see you?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (CurrentUser.Client.BuddyList[buddy] == null)
             {
-                accept = true;
+                if (MessageBox.Show("\"" + buddy + "\" added you. Do you want to \"" + buddy + "\" to see you?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    accept = true;
+                }
+                else
+                    accept = false;
             }
-            else
-                accept = false;
         }
 
         private void Client_OnDeleteBuddy(object sender, string buddy)

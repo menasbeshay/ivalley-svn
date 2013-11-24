@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiFormChat));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.uiRichTextBoxHistory = new Khendys.Controls.ExRichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.uiRichTextBoxMsg = new Khendys.Controls.ExRichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.uibuttonSend = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,6 +44,15 @@
             this.uicheckBoxItalic = new System.Windows.Forms.CheckBox();
             this.uicheckBoxUnderline = new System.Windows.Forms.CheckBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.uitrackBarVolume = new System.Windows.Forms.TrackBar();
+            this.uibuttonCall = new System.Windows.Forms.Button();
+            this.uiRichTextBoxHistory = new Khendys.Controls.ExRichTextBox();
+            this.uiRichTextBoxMsg = new Khendys.Controls.ExRichTextBox();
+            this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
+            this.WaveOut = new AxVCProX.AxvcproWaveOutDeviceX();
+            this.WaveIn = new AxVCProX.AxvcproWaveInDeviceX();
             this.tableLayoutPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -53,6 +61,12 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -60,6 +74,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -88,21 +103,6 @@
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
-            // uiRichTextBoxHistory
-            // 
-            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
-            this.uiRichTextBoxHistory.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxHistory.Location = new System.Drawing.Point(0, 0);
-            this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
-            this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 186);
-            this.uiRichTextBoxHistory.TabIndex = 0;
-            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.username;
-            this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -122,18 +122,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.10448F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 158);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // uiRichTextBoxMsg
-            // 
-            this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 51);
-            this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 104);
-            this.uiRichTextBoxMsg.TabIndex = 0;
-            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.username;
-            this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
-            this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
             // 
             // tableLayoutPanel3
             // 
@@ -187,16 +175,17 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
             this.tableLayoutPanel4.Controls.Add(this.uicomboBoxFont, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicomboBoxFontSize, 6, 0);
             this.tableLayoutPanel4.Controls.Add(this.uibuttonColor, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxBold, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxItalic, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxUnderline, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel3, 7, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 20);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -209,7 +198,7 @@
             // uicomboBoxFont
             // 
             this.uicomboBoxFont.FormattingEnabled = true;
-            this.uicomboBoxFont.Location = new System.Drawing.Point(219, 3);
+            this.uicomboBoxFont.Location = new System.Drawing.Point(195, 3);
             this.uicomboBoxFont.Name = "uicomboBoxFont";
             this.uicomboBoxFont.Size = new System.Drawing.Size(124, 21);
             this.uicomboBoxFont.TabIndex = 4;
@@ -246,7 +235,7 @@
             "30",
             "31",
             "32"});
-            this.uicomboBoxFontSize.Location = new System.Drawing.Point(357, 3);
+            this.uicomboBoxFontSize.Location = new System.Drawing.Point(327, 3);
             this.uicomboBoxFontSize.Name = "uicomboBoxFontSize";
             this.uicomboBoxFontSize.Size = new System.Drawing.Size(38, 21);
             this.uicomboBoxFontSize.TabIndex = 5;
@@ -308,6 +297,107 @@
             this.uicheckBoxUnderline.UseVisualStyleBackColor = true;
             this.uicheckBoxUnderline.CheckedChanged += new System.EventHandler(this.uicheckBoxUnderline_CheckedChanged);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.WaveOut);
+            this.panel2.Controls.Add(this.WaveIn);
+            this.panel2.Controls.Add(this.ClientX1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(669, 16);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.uitrackBarVolume);
+            this.panel3.Controls.Add(this.uibuttonCall);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(371, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(218, 28);
+            this.panel3.TabIndex = 10;
+            // 
+            // uitrackBarVolume
+            // 
+            this.uitrackBarVolume.Location = new System.Drawing.Point(9, 3);
+            this.uitrackBarVolume.Maximum = 100;
+            this.uitrackBarVolume.Name = "uitrackBarVolume";
+            this.uitrackBarVolume.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.uitrackBarVolume.Size = new System.Drawing.Size(126, 45);
+            this.uitrackBarVolume.TabIndex = 3;
+            this.uitrackBarVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.uitrackBarVolume.Value = 50;
+            this.uitrackBarVolume.Scroll += new System.EventHandler(this.uitrackBarVolume_Scroll);
+            // 
+            // uibuttonCall
+            // 
+            this.uibuttonCall.Location = new System.Drawing.Point(141, 3);
+            this.uibuttonCall.Name = "uibuttonCall";
+            this.uibuttonCall.Size = new System.Drawing.Size(74, 20);
+            this.uibuttonCall.TabIndex = 2;
+            this.uibuttonCall.Text = "Call";
+            this.uibuttonCall.UseVisualStyleBackColor = true;
+            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
+            // 
+            // uiRichTextBoxHistory
+            // 
+            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
+            this.uiRichTextBoxHistory.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.uiRichTextBoxHistory.Location = new System.Drawing.Point(0, 0);
+            this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
+            this.uiRichTextBoxHistory.ReadOnly = true;
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 186);
+            this.uiRichTextBoxHistory.TabIndex = 0;
+            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
+            // 
+            // uiRichTextBoxMsg
+            // 
+            this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 51);
+            this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 104);
+            this.uiRichTextBoxMsg.TabIndex = 0;
+            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
+            this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
+            // 
+            // ClientX1
+            // 
+            this.ClientX1.Enabled = true;
+            this.ClientX1.Location = new System.Drawing.Point(3, -3);
+            this.ClientX1.Name = "ClientX1";
+            this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
+            this.ClientX1.Size = new System.Drawing.Size(75, 23);
+            this.ClientX1.TabIndex = 0;
+            this.ClientX1.Visible = false;
+            // 
+            // WaveOut
+            // 
+            this.WaveOut.Enabled = true;
+            this.WaveOut.Location = new System.Drawing.Point(195, -8);
+            this.WaveOut.Name = "WaveOut";
+            this.WaveOut.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveOut.OcxState")));
+            this.WaveOut.Size = new System.Drawing.Size(75, 23);
+            this.WaveOut.TabIndex = 2;
+            this.WaveOut.Visible = false;
+            // 
+            // WaveIn
+            // 
+            this.WaveIn.Enabled = true;
+            this.WaveIn.Location = new System.Drawing.Point(100, -7);
+            this.WaveIn.Name = "WaveIn";
+            this.WaveIn.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveIn.OcxState")));
+            this.WaveIn.Size = new System.Drawing.Size(75, 23);
+            this.WaveIn.TabIndex = 1;
+            this.WaveIn.Visible = false;
+            // 
             // uiFormChat
             // 
             this.AcceptButton = this.uibuttonSend;
@@ -327,6 +417,13 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,5 +447,12 @@
         private System.Windows.Forms.CheckBox uicheckBoxBold;
         private System.Windows.Forms.CheckBox uicheckBoxItalic;
         private System.Windows.Forms.CheckBox uicheckBoxUnderline;
+        private System.Windows.Forms.Panel panel2;
+        private AxVCProX.AxvcproWaveOutDeviceX WaveOut;
+        private AxVCProX.AxvcproWaveInDeviceX WaveIn;
+        private AxVCProX.AxvcproRTPConfClientX ClientX1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TrackBar uitrackBarVolume;
+        private System.Windows.Forms.Button uibuttonCall;
     }
 }
