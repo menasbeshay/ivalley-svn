@@ -215,7 +215,6 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Bricksoft.IM.DLL
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Khendys.Controls.ExRichTextBox.dll
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\BSIMNetLicense.dll
-D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Newtonsoft.Json.dll
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Khendys.Controls.ExRichTextBox.pdb
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.csprojResolveAssemblyReference.cache
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.UserControls.uiBuddy.resources
@@ -244,3 +243,18 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\DAL.pdb
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\MyGeneration.dOOdads.pdb
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.uiFormChatRoom.resources
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Interop.VCProX.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\AxInterop.VCProX.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\Interop.VCProX.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\AxInterop.VCProX.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\obj\x86\Debug\WhiteChatClient.csproj.ResolveComReference.cache
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\lame-license.txt
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\lame_enc.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\libcelt.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\libmpg123-0.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\libmpg123-license.txt
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\libspeex.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\libspeexdsp.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\speex-license.txt
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\VCProWebX.ocx
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\VCProX.ocx

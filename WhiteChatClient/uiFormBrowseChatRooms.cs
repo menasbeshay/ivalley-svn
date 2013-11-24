@@ -61,7 +61,7 @@ namespace WhiteChatClient
                     for (int j = 0; j < rooms.RowCount; j++)
                     {
                         TreeNode subnode = new TreeNode();
-                        subnode.Text = rooms.Name;
+                        subnode.Text = rooms.Name + " (" + rooms.GetColumn("MemberCount").ToString() + ")";
                         subnode.Tag = rooms.ChatRoomID;
                         uitreeViewRooms.Nodes.Add(subnode);
                         rooms.MoveNext();
@@ -76,7 +76,7 @@ namespace WhiteChatClient
                     for (int j = 0; j < rooms.RowCount; j++)
                     {
                         TreeNode subnode = new TreeNode();
-                        subnode.Text = rooms.Name;
+                        subnode.Text = rooms.Name + " (" + rooms.GetColumn("MemberCount").ToString() + ")";
                         subnode.Tag = rooms.ChatRoomID;
                         uitreeViewRooms.Nodes.Add(subnode);
                         rooms.MoveNext();
@@ -109,13 +109,21 @@ namespace WhiteChatClient
                     cat = (int)uitreeViewCats.SelectedNode.Parent.Tag;
                 }
 
-                uiFormChatRoom chatRooms = new uiFormChatRoom();
-                System.Threading.Thread.Sleep(3000);
-                chatRooms.Init(cat, subcat, chatroom);
-                chatRooms.Show();
-                chatRooms.BringToFront();
-                chatRooms.Focus();
-                this.Close();
+                if (Convert.ToInt32(uitreeViewRooms.SelectedNode.Text.Substring(uitreeViewRooms.SelectedNode.Text.IndexOf("(") + 1, uitreeViewRooms.SelectedNode.Text.IndexOf(")") - (uitreeViewRooms.SelectedNode.Text.IndexOf("(") + 1)).Trim()) < 50)
+                {
+                    uiFormChatRoom chatRooms = new uiFormChatRoom();
+                    System.Threading.Thread.Sleep(3000);
+                    chatRooms.Text = uitreeViewRooms.SelectedNode.Text.Substring(0, uitreeViewRooms.SelectedNode.Text.IndexOf("("));
+                    chatRooms.Init(cat, subcat, chatroom);
+                    chatRooms.Show();
+                    chatRooms.BringToFront();
+                    chatRooms.Focus();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(this, "Sorry , Maximum room members is 50 members. Please choose another room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -117,6 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="WaveOut.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAWQEAAAIB
+        AAAAAQAAAAABAAAAMAAAAABDAQAAVFBGMBNUVkNQcm9XYXZlT3V0RGV2aWNlAARMZWZ0A8wAA1RvcAL7
+        BVdpZHRoAksGSGVpZ2h0AhcKU3luY0V2ZW50cwgGQWN0aXZlCAxBdXRvQWN0aXZhdGUJEElzRm9ybWF0
+        UHJvdmlkZXIIFEVuYWJsZURhdGFQcm9jZXNzaW5nCQpDYWxjVm9sdW1lCAdPdmVyTnVtAgYQUGNtQml0
+        c1BlclNhbXBsZQIQDlBjbU51bUNoYW5uZWxzAgEQUGNtU2FtcGxlc1BlclNlYwMAfQhEZXZpY2VJZAL/
+        BkRpcmVjdAgGTWFwcGVkCBRTaWxlbmNlRGV0ZWN0aW9uTW9kZQIADkNoYW5uZWxNaXhNYXNrAv8SQ2hh
+        bm5lbENvbnN1bWVNYXNrAv8KV2F2ZUVuZ2luZQIBCklucHV0SXNQY20IAAAL
+</value>
+  </data>
+  <data name="WaveIn.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAbAEAAAIB
+        AAAAAQAAAAABAAAAMAAAAABWAQAAVFBGMBJUVkNQcm9XYXZlSW5EZXZpY2UABExlZnQCbgNUb3AC/gVX
+        aWR0aAJLBkhlaWdodAIXClN5bmNFdmVudHMIBkFjdGl2ZQgMQXV0b0FjdGl2YXRlCRBJc0Zvcm1hdFBy
+        b3ZpZGVyCRRFbmFibGVEYXRhUHJvY2Vzc2luZwkKQ2FsY1ZvbHVtZQgHT3Zlck51bQIGEFBjbUJpdHNQ
+        ZXJTYW1wbGUCEA5QY21OdW1DaGFubmVscwIBEFBjbVNhbXBsZXNQZXJTZWMDAH0IRGV2aWNlSWQC/wZE
+        aXJlY3QIBk1hcHBlZAgUU2lsZW5jZURldGVjdGlvbk1vZGUCAA5DaGFubmVsTWl4TWFzawL/EkNoYW5u
+        ZWxDb25zdW1lTWFzawL/CldhdmVFbmdpbmUCAQ1NaW5BY3RpdmVUaW1lAgAOTWluVm9sdW1lTGV2ZWwC
+        AAAACw==
+</value>
+  </data>
+  <data name="ClientX1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA3wAAAAIB
+        AAAAAQAAAAABAAAAMAAAAADJAAAAVFBGMBNUdmNwcm9SVFBDb25mQ2xpZW50AARMZWZ0AgoDVG9wAvsF
+        V2lkdGgCSwZIZWlnaHQCFwpTeW5jRXZlbnRzCAZhY3RpdmUIDEF1dG9BY3RpdmF0ZQkQSXNGb3JtYXRQ
+        cm92aWRlcggURW5hYmxlRGF0YVByb2Nlc3NpbmcJBmRzcF9OUwkHZHNwX0FHQwkHZHNwX1ZBRAgHZHNw
+        X0FFQwkQcmVjb3JkaW5nRW5hYmxlZAkPcGxheWJhY2tFbmFibGVkCQAACw==
+</value>
+  </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

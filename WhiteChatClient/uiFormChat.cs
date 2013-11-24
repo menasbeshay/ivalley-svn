@@ -11,11 +11,14 @@ using System.Runtime.InteropServices;
 using Khendys.Controls;
 using System.Collections.Specialized;
 using WhiteChatClient.Logic;
+using System.Configuration;
 
 namespace WhiteChatClient
 {
     public partial class uiFormChat : Form
     {
+        public bool InCall { get; set; }
+        public string room { get; set; }
         public uiFormChat()
         {
             InitializeComponent();
@@ -59,6 +62,9 @@ namespace WhiteChatClient
             }
             uicomboBoxFont.DataSource = fonts;
             uicomboBoxFont.SelectedItem = "Arial";
+
+            uiRichTextBoxMsg.Focus();
+            InCall = false;
             
         }
 
@@ -103,6 +109,7 @@ namespace WhiteChatClient
                     InsertImage(new Bitmap(item.Value), uiRichTextBoxMsg);
                 }
             }
+            uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
             uiRichTextBoxHistory.SelectedRtf = uiRichTextBoxMsg.Rtf;
             uiRichTextBoxHistory.ScrollToCaret();
             uiRichTextBoxMsg.Clear();
@@ -112,30 +119,100 @@ namespace WhiteChatClient
         {
             if (!string.IsNullOrEmpty(message))
             {
-                RichTextBox temp = new RichTextBox();
-                temp.Text = this.Text + " says : " + message;
-                temp.Select(0, temp.Text.IndexOf(" says :") + 7);
-                temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
-                temp.SelectionColor = Color.Black;
-                foreach (var item in CurrentUser.Emotions)
+                if (!message.StartsWith("#!#Call#!#") || !message.StartsWith("#!#EndCall#!#"))
                 {
-                    int _index;
-                    if ((_index = temp.Find(item.Key)) > -1)
+                    RichTextBox temp = new RichTextBox();
+                    temp.Text = this.Text + " says : " + message;
+                    temp.Select(0, temp.Text.IndexOf(" says :") + 7);
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
+                    temp.SelectionColor = Color.Black;
+                    foreach (var item in CurrentUser.Emotions)
                     {
-                        temp.Select(_index, item.Key.Length);
-                        InsertImage(new Bitmap(item.Value), temp);
+                        int _index;
+                        if ((_index = temp.Find(item.Key)) > -1)
+                        {
+                            temp.Select(_index, item.Key.Length);
+                            InsertImage(new Bitmap(item.Value), temp);
+                        }
                     }
-                }                
-                uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
-                uiRichTextBoxHistory.ScrollToCaret();
-                temp.Dispose();
-                uilabelTyping.Visible = false;
+                    uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
+                    uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                    uiRichTextBoxHistory.ScrollToCaret();
+                    temp.Dispose();
+                    uilabelTyping.Visible = false;
+                }
+                else if (message.StartsWith("#!#Call#!#"))
+                {
+                    Calluser(message.Substring(message.LastIndexOf("#!#") + 3));
+                    uibuttonCall.Text = "Close";
+                    InCall = true;
+                }
+                else if (message.StartsWith("#!#EndCall#!#"))
+                {
+                    CloseCall();
+                    InCall = false;
+                    uibuttonCall.Text = "Call";
+                }
+                
             }
             else
             {
                 uilabelTyping.Visible = true;
             }
         }
+
+
+        private void uibuttonCall_Click(object sender, EventArgs e)
+        {
+            if (!InCall)
+            {
+                Calluser(this.Text + "_" + CurrentUser.Client.Account);
+                InCall = true;
+                uibuttonCall.Text = "Close";
+            }
+            else
+            {
+                CloseCall();
+                InCall = false;                
+                uibuttonCall.Text = "Call";
+            }
+            
+        }
+
+        private void CloseCall()
+        {
+            ClientX1.disconnect_client();
+            if(InCall)
+                CurrentUser.Client.SendMessage(this.Text, "#!#EndCall#!#" + room);
+            WaveIn.Active = false;            
+        }
+
+        private void Calluser(string roomname)
+        {
+            if (!InCall)
+            {
+                WaveIn.addConsumer2(ClientX1.asConsumer());
+                ClientX1.addConsumer2(WaveOut.asConsumer());
+                ClientX1.setSrvMasterKey("123456");
+
+                ClientX1.setStreamEnabled(true, true);
+                ClientX1.setVolumeModify(false, 50);
+                ClientX1.setVolumeModify(true, 50);
+                ClientX1.setEncoding(15, 32000);
+                ClientX1.URI = "rtp://" + CurrentUser.Client.Account + "@" + ConfigurationManager.AppSettings["ServerIp"].ToString() + ":" + ConfigurationManager.AppSettings["ServerPort"].ToString() + "/" + roomname;
+                if (!InCall)
+                    CurrentUser.Client.SendMessage(this.Text, "#!#Call#!#" + roomname);
+                room = roomname;
+                WaveIn.Active = true;
+            }
+            
+        }
+
+        private void uitrackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            ClientX1.setVolumeModify(false, uitrackBarVolume.Value);
+        }
+        
 
         public void AdjustGraphicsImp()
         {
@@ -151,17 +228,38 @@ namespace WhiteChatClient
 
         private void uicheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxBold.Checked) ? FontStyle.Bold | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);            
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxBold.Checked) ? FontStyle.Bold | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void uicheckBoxItalic_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxItalic.Checked) ? FontStyle.Italic | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxItalic.Checked) ? FontStyle.Italic | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void uicheckBoxUnderline_CheckedChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxUnderline.Checked) ? FontStyle.Underline | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uiRichTextBoxMsg.SelectionFont.FontFamily, float.Parse(uicomboBoxFontSize.Text), (uicheckBoxUnderline.Checked) ? FontStyle.Underline | uiRichTextBoxMsg.SelectionFont.Style : FontStyle.Regular | uiRichTextBoxMsg.SelectionFont.Style);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
         
         private void uibuttonColor_Click(object sender, EventArgs e)
@@ -175,12 +273,26 @@ namespace WhiteChatClient
 
         private void uicomboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void uicomboBoxFontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            try
+            {
+                uiRichTextBoxMsg.SelectionFont = new Font(uicomboBoxFont.Text, float.Parse(uicomboBoxFontSize.Text));
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         #region Image Insertion in RTB
@@ -549,8 +661,8 @@ namespace WhiteChatClient
         {
             HideCaret(uiRichTextBoxHistory.Handle);
         }
-        
 
         
+
     }
 }

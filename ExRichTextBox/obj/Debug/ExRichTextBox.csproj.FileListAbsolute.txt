@@ -6,4 +6,3 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\ExRichTextBox\bin\
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\ExRichTextBox\bin\Debug\Khendys.Controls.ExRichTextBox.pdb
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\ExRichTextBox\obj\Debug\Khendys.Controls.ExRichTextBox.dll
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\ExRichTextBox\obj\Debug\Khendys.Controls.ExRichTextBox.pdb
-D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\ExRichTextBox\obj\Debug\ExRichTextBox.csprojResolveAssemblyReference.cache
