@@ -14,7 +14,7 @@ namespace WhiteChatClient
         static void Main()
         {
 
-            try
+          /*  try
             {
                 //'/s' : Specifies regsvr32 to run silently and to not display any message boxes.
                 string arg_fileinfo = "/s" + " " + "\"common/VCProX.ocx\"";
@@ -33,11 +33,19 @@ namespace WhiteChatClient
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new uiFormMain());
+            if (DateTime.Now > DateTime.ParseExact("05/12/2013", "dd/MM/yyyy", null))
+            {
+                MessageBox.Show("Tryial version expired.");
+                Application.ExitThread();
+            }
+            else
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new uiFormMain());
+            }
         }
     }
 }

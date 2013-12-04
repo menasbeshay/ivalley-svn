@@ -118,6 +118,7 @@ namespace WhiteChatClient
                     chatRooms.Show();
                     chatRooms.BringToFront();
                     chatRooms.Focus();
+                    chatRooms.Main = (uiFormMain)this.Owner;
                     this.Close();
                 }
                 else

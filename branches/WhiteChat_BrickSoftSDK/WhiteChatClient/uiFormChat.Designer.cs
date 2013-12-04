@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiFormChat));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.uiRichTextBoxHistory = new Khendys.Controls.ExRichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.uiRichTextBoxMsg = new Khendys.Controls.ExRichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.uibuttonSend = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,16 +45,46 @@
             this.uicheckBoxBold = new System.Windows.Forms.CheckBox();
             this.uicheckBoxItalic = new System.Windows.Forms.CheckBox();
             this.uicheckBoxUnderline = new System.Windows.Forms.CheckBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.uitrackBarVolume = new System.Windows.Forms.TrackBar();
             this.uibuttonCall = new System.Windows.Forms.Button();
-            this.uiRichTextBoxHistory = new Khendys.Controls.ExRichTextBox();
-            this.uiRichTextBoxMsg = new Khendys.Controls.ExRichTextBox();
-            this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
+            this.uibuttonBuzz = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton18 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton19 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton20 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton21 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton22 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton23 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton24 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton25 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton26 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton27 = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.uipanelAddIgnore = new System.Windows.Forms.Panel();
+            this.uibuttonIgnore = new System.Windows.Forms.Button();
+            this.uibuttonAddBuddy = new System.Windows.Forms.Button();
             this.WaveOut = new AxVCProX.AxvcproWaveOutDeviceX();
             this.WaveIn = new AxVCProX.AxvcproWaveInDeviceX();
+            this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,12 +93,15 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.uipanelAddIgnore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,15 +114,15 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.111111F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88889F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.02139F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.97861F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 374);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 25);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 32);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -98,10 +133,25 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(669, 346);
-            this.splitContainer1.SplitterDistance = 186;
+            this.splitContainer1.Size = new System.Drawing.Size(669, 339);
+            this.splitContainer1.SplitterDistance = 182;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // uiRichTextBoxHistory
+            // 
+            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
+            this.uiRichTextBoxHistory.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.uiRichTextBoxHistory.Location = new System.Drawing.Point(0, 0);
+            this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
+            this.uiRichTextBoxHistory.ReadOnly = true;
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 182);
+            this.uiRichTextBoxHistory.TabIndex = 0;
+            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
             // 
             // tableLayoutPanel2
             // 
@@ -120,8 +170,20 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.89552F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.10448F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 158);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 155);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // uiRichTextBoxMsg
+            // 
+            this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 51);
+            this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 101);
+            this.uiRichTextBoxMsg.TabIndex = 0;
+            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
+            this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
             // 
             // tableLayoutPanel3
             // 
@@ -135,7 +197,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 104);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 101);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // uibuttonSend
@@ -170,22 +232,25 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 8;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel4.ColumnCount = 9;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
             this.tableLayoutPanel4.Controls.Add(this.uicomboBoxFont, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicomboBoxFontSize, 6, 0);
             this.tableLayoutPanel4.Controls.Add(this.uibuttonColor, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxBold, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxItalic, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxUnderline, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel3, 7, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel3, 8, 0);
+            this.tableLayoutPanel4.Controls.Add(this.uibuttonBuzz, 7, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 20);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -198,9 +263,9 @@
             // uicomboBoxFont
             // 
             this.uicomboBoxFont.FormattingEnabled = true;
-            this.uicomboBoxFont.Location = new System.Drawing.Point(195, 3);
+            this.uicomboBoxFont.Location = new System.Drawing.Point(187, 3);
             this.uicomboBoxFont.Name = "uicomboBoxFont";
-            this.uicomboBoxFont.Size = new System.Drawing.Size(124, 21);
+            this.uicomboBoxFont.Size = new System.Drawing.Size(101, 21);
             this.uicomboBoxFont.TabIndex = 4;
             this.uicomboBoxFont.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxFont_SelectedIndexChanged);
             // 
@@ -235,17 +300,17 @@
             "30",
             "31",
             "32"});
-            this.uicomboBoxFontSize.Location = new System.Drawing.Point(327, 3);
+            this.uicomboBoxFontSize.Location = new System.Drawing.Point(294, 3);
             this.uicomboBoxFontSize.Name = "uicomboBoxFontSize";
-            this.uicomboBoxFontSize.Size = new System.Drawing.Size(38, 21);
+            this.uicomboBoxFontSize.Size = new System.Drawing.Size(35, 21);
             this.uicomboBoxFontSize.TabIndex = 5;
             this.uicomboBoxFontSize.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxFontSize_SelectedIndexChanged);
             // 
             // uibuttonColor
             // 
-            this.uibuttonColor.Location = new System.Drawing.Point(140, 3);
+            this.uibuttonColor.Location = new System.Drawing.Point(137, 3);
             this.uibuttonColor.Name = "uibuttonColor";
-            this.uibuttonColor.Size = new System.Drawing.Size(45, 22);
+            this.uibuttonColor.Size = new System.Drawing.Size(44, 22);
             this.uibuttonColor.TabIndex = 6;
             this.uibuttonColor.Text = "Color";
             this.uibuttonColor.UseVisualStyleBackColor = true;
@@ -254,13 +319,12 @@
             // uicheckBoxBold
             // 
             this.uicheckBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
-            this.uicheckBoxBold.AutoSize = true;
             this.uicheckBoxBold.FlatAppearance.BorderSize = 0;
             this.uicheckBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.uicheckBoxBold.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.uicheckBoxBold.Location = new System.Drawing.Point(20, 3);
+            this.uicheckBoxBold.Location = new System.Drawing.Point(49, 3);
             this.uicheckBoxBold.Name = "uicheckBoxBold";
-            this.uicheckBoxBold.Size = new System.Drawing.Size(24, 22);
+            this.uicheckBoxBold.Size = new System.Drawing.Size(20, 22);
             this.uicheckBoxBold.TabIndex = 7;
             this.uicheckBoxBold.Text = "B";
             this.uicheckBoxBold.UseVisualStyleBackColor = true;
@@ -269,13 +333,12 @@
             // uicheckBoxItalic
             // 
             this.uicheckBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
-            this.uicheckBoxItalic.AutoSize = true;
             this.uicheckBoxItalic.FlatAppearance.BorderSize = 0;
             this.uicheckBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.uicheckBoxItalic.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.uicheckBoxItalic.Location = new System.Drawing.Point(59, 3);
+            this.uicheckBoxItalic.Location = new System.Drawing.Point(78, 3);
             this.uicheckBoxItalic.Name = "uicheckBoxItalic";
-            this.uicheckBoxItalic.Size = new System.Drawing.Size(22, 22);
+            this.uicheckBoxItalic.Size = new System.Drawing.Size(20, 22);
             this.uicheckBoxItalic.TabIndex = 8;
             this.uicheckBoxItalic.Text = "I";
             this.uicheckBoxItalic.UseVisualStyleBackColor = true;
@@ -284,48 +347,36 @@
             // uicheckBoxUnderline
             // 
             this.uicheckBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
-            this.uicheckBoxUnderline.AutoSize = true;
             this.uicheckBoxUnderline.FlatAppearance.BorderSize = 0;
             this.uicheckBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ScrollBar;
             this.uicheckBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.uicheckBoxUnderline.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.uicheckBoxUnderline.Location = new System.Drawing.Point(100, 3);
+            this.uicheckBoxUnderline.Location = new System.Drawing.Point(109, 3);
             this.uicheckBoxUnderline.Name = "uicheckBoxUnderline";
-            this.uicheckBoxUnderline.Size = new System.Drawing.Size(25, 22);
+            this.uicheckBoxUnderline.Size = new System.Drawing.Size(20, 22);
             this.uicheckBoxUnderline.TabIndex = 9;
             this.uicheckBoxUnderline.Text = "U";
             this.uicheckBoxUnderline.UseVisualStyleBackColor = true;
             this.uicheckBoxUnderline.CheckedChanged += new System.EventHandler(this.uicheckBoxUnderline_CheckedChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.WaveOut);
-            this.panel2.Controls.Add(this.WaveIn);
-            this.panel2.Controls.Add(this.ClientX1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(669, 16);
-            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.uitrackBarVolume);
             this.panel3.Controls.Add(this.uibuttonCall);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(371, 0);
+            this.panel3.Location = new System.Drawing.Point(377, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(218, 28);
+            this.panel3.Size = new System.Drawing.Size(212, 28);
             this.panel3.TabIndex = 10;
             // 
             // uitrackBarVolume
             // 
-            this.uitrackBarVolume.Location = new System.Drawing.Point(9, 3);
+            this.uitrackBarVolume.Location = new System.Drawing.Point(6, 3);
             this.uitrackBarVolume.Maximum = 100;
             this.uitrackBarVolume.Name = "uitrackBarVolume";
             this.uitrackBarVolume.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.uitrackBarVolume.Size = new System.Drawing.Size(126, 45);
+            this.uitrackBarVolume.Size = new System.Drawing.Size(117, 45);
             this.uitrackBarVolume.TabIndex = 3;
             this.uitrackBarVolume.TickStyle = System.Windows.Forms.TickStyle.None;
             this.uitrackBarVolume.Value = 50;
@@ -333,70 +384,379 @@
             // 
             // uibuttonCall
             // 
-            this.uibuttonCall.Location = new System.Drawing.Point(141, 3);
+            this.uibuttonCall.Location = new System.Drawing.Point(129, 3);
             this.uibuttonCall.Name = "uibuttonCall";
-            this.uibuttonCall.Size = new System.Drawing.Size(74, 20);
+            this.uibuttonCall.Size = new System.Drawing.Size(78, 20);
             this.uibuttonCall.TabIndex = 2;
             this.uibuttonCall.Text = "Call";
             this.uibuttonCall.UseVisualStyleBackColor = true;
             this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
-            // uiRichTextBoxHistory
+            // uibuttonBuzz
             // 
-            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
-            this.uiRichTextBoxHistory.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxHistory.Location = new System.Drawing.Point(0, 0);
-            this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
-            this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 186);
-            this.uiRichTextBoxHistory.TabIndex = 0;
-            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
-            this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
+            this.uibuttonBuzz.Location = new System.Drawing.Point(335, 3);
+            this.uibuttonBuzz.Name = "uibuttonBuzz";
+            this.uibuttonBuzz.Size = new System.Drawing.Size(38, 22);
+            this.uibuttonBuzz.TabIndex = 11;
+            this.uibuttonBuzz.Text = "Buzz";
+            this.uibuttonBuzz.UseVisualStyleBackColor = true;
+            this.uibuttonBuzz.Click += new System.EventHandler(this.uibuttonBuzz_Click);
             // 
-            // uiRichTextBoxMsg
+            // panel4
             // 
-            this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 51);
-            this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 104);
-            this.uiRichTextBoxMsg.TabIndex = 0;
-            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
-            this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
-            this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
+            this.panel4.Controls.Add(this.toolStrip1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(46, 28);
+            this.panel4.TabIndex = 12;
             // 
-            // ClientX1
+            // toolStrip1
             // 
-            this.ClientX1.Enabled = true;
-            this.ClientX1.Location = new System.Drawing.Point(3, -3);
-            this.ClientX1.Name = "ClientX1";
-            this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
-            this.ClientX1.Size = new System.Drawing.Size(75, 23);
-            this.ClientX1.TabIndex = 0;
-            this.ClientX1.Visible = false;
+            this.toolStrip1.BackgroundImage = global::WhiteChatClient.Properties.Resources._1;
+            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripButton6,
+            this.toolStripButton7,
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripButton13,
+            this.toolStripButton14,
+            this.toolStripButton15,
+            this.toolStripButton16,
+            this.toolStripButton17,
+            this.toolStripButton18,
+            this.toolStripButton19,
+            this.toolStripButton20,
+            this.toolStripButton21,
+            this.toolStripButton22,
+            this.toolStripButton23,
+            this.toolStripButton24,
+            this.toolStripButton25,
+            this.toolStripButton26,
+            this.toolStripButton27});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(46, 28);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::WhiteChatClient.Properties.Resources._1;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::WhiteChatClient.Properties.Resources._2;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::WhiteChatClient.Properties.Resources._3;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = global::WhiteChatClient.Properties.Resources._4;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::WhiteChatClient.Properties.Resources._6;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton6.Text = "toolStripButton6";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = global::WhiteChatClient.Properties.Resources._7;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton7.Text = "toolStripButton7";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = global::WhiteChatClient.Properties.Resources._8;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton8.Text = "toolStripButton8";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = global::WhiteChatClient.Properties.Resources._9;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton9.Text = "toolStripButton9";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = global::WhiteChatClient.Properties.Resources._10;
+            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton10.Text = "toolStripButton10";
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = global::WhiteChatClient.Properties.Resources._11;
+            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton11.Text = "toolStripButton11";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = global::WhiteChatClient.Properties.Resources._12;
+            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton12.Text = "toolStripButton12";
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton13.Image = global::WhiteChatClient.Properties.Resources._13;
+            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton13.Text = "toolStripButton13";
+            // 
+            // toolStripButton14
+            // 
+            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton14.Image = global::WhiteChatClient.Properties.Resources._14;
+            this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton14.Name = "toolStripButton14";
+            this.toolStripButton14.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton14.Text = "toolStripButton14";
+            // 
+            // toolStripButton15
+            // 
+            this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton15.Image = global::WhiteChatClient.Properties.Resources._15;
+            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton15.Name = "toolStripButton15";
+            this.toolStripButton15.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton15.Text = "toolStripButton15";
+            // 
+            // toolStripButton16
+            // 
+            this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton16.Image = global::WhiteChatClient.Properties.Resources._16;
+            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton16.Name = "toolStripButton16";
+            this.toolStripButton16.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton16.Text = "toolStripButton16";
+            // 
+            // toolStripButton17
+            // 
+            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton17.Image = global::WhiteChatClient.Properties.Resources._17;
+            this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton17.Name = "toolStripButton17";
+            this.toolStripButton17.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton17.Text = "toolStripButton17";
+            // 
+            // toolStripButton18
+            // 
+            this.toolStripButton18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton18.Image = global::WhiteChatClient.Properties.Resources._18;
+            this.toolStripButton18.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton18.Name = "toolStripButton18";
+            this.toolStripButton18.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton18.Text = "toolStripButton18";
+            // 
+            // toolStripButton19
+            // 
+            this.toolStripButton19.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton19.Image = global::WhiteChatClient.Properties.Resources._19;
+            this.toolStripButton19.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton19.Name = "toolStripButton19";
+            this.toolStripButton19.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton19.Text = "toolStripButton19";
+            // 
+            // toolStripButton20
+            // 
+            this.toolStripButton20.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton20.Image = global::WhiteChatClient.Properties.Resources._20;
+            this.toolStripButton20.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton20.Name = "toolStripButton20";
+            this.toolStripButton20.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton20.Text = "toolStripButton20";
+            // 
+            // toolStripButton21
+            // 
+            this.toolStripButton21.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton21.Image = global::WhiteChatClient.Properties.Resources._21;
+            this.toolStripButton21.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton21.Name = "toolStripButton21";
+            this.toolStripButton21.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton21.Text = "toolStripButton21";
+            // 
+            // toolStripButton22
+            // 
+            this.toolStripButton22.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton22.Image = global::WhiteChatClient.Properties.Resources._22;
+            this.toolStripButton22.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton22.Name = "toolStripButton22";
+            this.toolStripButton22.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton22.Text = "toolStripButton22";
+            // 
+            // toolStripButton23
+            // 
+            this.toolStripButton23.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton23.Image = global::WhiteChatClient.Properties.Resources._23;
+            this.toolStripButton23.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton23.Name = "toolStripButton23";
+            this.toolStripButton23.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton23.Text = "toolStripButton23";
+            // 
+            // toolStripButton24
+            // 
+            this.toolStripButton24.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton24.Image = global::WhiteChatClient.Properties.Resources._24;
+            this.toolStripButton24.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton24.Name = "toolStripButton24";
+            this.toolStripButton24.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton24.Text = "toolStripButton24";
+            // 
+            // toolStripButton25
+            // 
+            this.toolStripButton25.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton25.Image = global::WhiteChatClient.Properties.Resources._25;
+            this.toolStripButton25.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton25.Name = "toolStripButton25";
+            this.toolStripButton25.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton25.Text = "toolStripButton25";
+            // 
+            // toolStripButton26
+            // 
+            this.toolStripButton26.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton26.Image = global::WhiteChatClient.Properties.Resources._26;
+            this.toolStripButton26.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton26.Name = "toolStripButton26";
+            this.toolStripButton26.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton26.Text = "toolStripButton26";
+            // 
+            // toolStripButton27
+            // 
+            this.toolStripButton27.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton27.Image = global::WhiteChatClient.Properties.Resources._27;
+            this.toolStripButton27.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton27.Name = "toolStripButton27";
+            this.toolStripButton27.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton27.Text = "toolStripButton27";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.uipanelAddIgnore);
+            this.panel2.Controls.Add(this.WaveOut);
+            this.panel2.Controls.Add(this.WaveIn);
+            this.panel2.Controls.Add(this.ClientX1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(675, 29);
+            this.panel2.TabIndex = 1;
+            // 
+            // uipanelAddIgnore
+            // 
+            this.uipanelAddIgnore.Controls.Add(this.uibuttonIgnore);
+            this.uipanelAddIgnore.Controls.Add(this.uibuttonAddBuddy);
+            this.uipanelAddIgnore.Location = new System.Drawing.Point(487, 0);
+            this.uipanelAddIgnore.Margin = new System.Windows.Forms.Padding(0);
+            this.uipanelAddIgnore.Name = "uipanelAddIgnore";
+            this.uipanelAddIgnore.Size = new System.Drawing.Size(184, 29);
+            this.uipanelAddIgnore.TabIndex = 3;
+            // 
+            // uibuttonIgnore
+            // 
+            this.uibuttonIgnore.Location = new System.Drawing.Point(101, 3);
+            this.uibuttonIgnore.Name = "uibuttonIgnore";
+            this.uibuttonIgnore.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonIgnore.TabIndex = 0;
+            this.uibuttonIgnore.Text = "Ignore";
+            this.uibuttonIgnore.UseVisualStyleBackColor = true;
+            this.uibuttonIgnore.Click += new System.EventHandler(this.uibuttonIgnore_Click);
+            // 
+            // uibuttonAddBuddy
+            // 
+            this.uibuttonAddBuddy.Location = new System.Drawing.Point(11, 3);
+            this.uibuttonAddBuddy.Name = "uibuttonAddBuddy";
+            this.uibuttonAddBuddy.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonAddBuddy.TabIndex = 0;
+            this.uibuttonAddBuddy.Text = "Add";
+            this.uibuttonAddBuddy.UseVisualStyleBackColor = true;
+            this.uibuttonAddBuddy.Click += new System.EventHandler(this.uibuttonAddBuddy_Click);
             // 
             // WaveOut
             // 
             this.WaveOut.Enabled = true;
-            this.WaveOut.Location = new System.Drawing.Point(195, -8);
+            this.WaveOut.Location = new System.Drawing.Point(385, 1);
             this.WaveOut.Name = "WaveOut";
             this.WaveOut.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveOut.OcxState")));
-            this.WaveOut.Size = new System.Drawing.Size(75, 23);
+            this.WaveOut.Size = new System.Drawing.Size(97, 24);
             this.WaveOut.TabIndex = 2;
             this.WaveOut.Visible = false;
             // 
             // WaveIn
             // 
             this.WaveIn.Enabled = true;
-            this.WaveIn.Location = new System.Drawing.Point(100, -7);
+            this.WaveIn.Location = new System.Drawing.Point(295, 2);
             this.WaveIn.Name = "WaveIn";
             this.WaveIn.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveIn.OcxState")));
-            this.WaveIn.Size = new System.Drawing.Size(75, 23);
+            this.WaveIn.Size = new System.Drawing.Size(84, 24);
             this.WaveIn.TabIndex = 1;
             this.WaveIn.Visible = false;
+            // 
+            // ClientX1
+            // 
+            this.ClientX1.Enabled = true;
+            this.ClientX1.Location = new System.Drawing.Point(9, 0);
+            this.ClientX1.Name = "ClientX1";
+            this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
+            this.ClientX1.Size = new System.Drawing.Size(216, 24);
+            this.ClientX1.TabIndex = 0;
+            this.ClientX1.Visible = false;
             // 
             // uiFormChat
             // 
@@ -405,8 +765,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 374);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "uiFormChat";
             this.Text = "uiFormChat";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiFormChat_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -416,14 +778,18 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.uipanelAddIgnore.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,5 +820,37 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TrackBar uitrackBarVolume;
         private System.Windows.Forms.Button uibuttonCall;
+        private System.Windows.Forms.Panel uipanelAddIgnore;
+        private System.Windows.Forms.Button uibuttonAddBuddy;
+        private System.Windows.Forms.Button uibuttonIgnore;
+        private System.Windows.Forms.Button uibuttonBuzz;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripButton toolStripButton13;
+        private System.Windows.Forms.ToolStripButton toolStripButton14;
+        private System.Windows.Forms.ToolStripButton toolStripButton15;
+        private System.Windows.Forms.ToolStripButton toolStripButton16;
+        private System.Windows.Forms.ToolStripButton toolStripButton17;
+        private System.Windows.Forms.ToolStripButton toolStripButton18;
+        private System.Windows.Forms.ToolStripButton toolStripButton19;
+        private System.Windows.Forms.ToolStripButton toolStripButton20;
+        private System.Windows.Forms.ToolStripButton toolStripButton21;
+        private System.Windows.Forms.ToolStripButton toolStripButton22;
+        private System.Windows.Forms.ToolStripButton toolStripButton23;
+        private System.Windows.Forms.ToolStripButton toolStripButton24;
+        private System.Windows.Forms.ToolStripButton toolStripButton25;
+        private System.Windows.Forms.ToolStripButton toolStripButton26;
+        private System.Windows.Forms.ToolStripButton toolStripButton27;
     }
 }

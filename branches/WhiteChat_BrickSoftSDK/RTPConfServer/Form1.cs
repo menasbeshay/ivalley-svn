@@ -44,6 +44,7 @@ namespace RTPConfServer
             server.bind2ip = c_edit_b2ip.Text;
             //
             server.Active = true;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
