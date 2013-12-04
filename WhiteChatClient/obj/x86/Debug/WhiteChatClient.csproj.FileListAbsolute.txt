@@ -258,3 +258,15 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\speex-license.txt
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\VCProWebX.ocx
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\common\VCProX.ocx
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Application_Icon_5.ico
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Application_Icon_5.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Chatnall_Icons_7.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Status_Small_Busy.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Status_Small_Invisible.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Status_Small_Offline.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Status_Small_Online.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\buzz.wav
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\bin\Debug\libspeex.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\bin\Debug\libspeexdsp.dll
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\default_ring.wav
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\disconnect.wav

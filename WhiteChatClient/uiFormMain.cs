@@ -57,7 +57,7 @@ namespace WhiteChatClient
                 CurrentUser.Client.OnBuddyStatusChanged += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnBuddyStatusChanged), new object[] { sender, buddy }); };
                 CurrentUser.Client.OnBuddyAddYouRequest += delegate(object sender, string buddy, string requestMessage, ref bool bAccept) { this.Invoke(new OnBuddyAddYouRequestYahooEventHandler(Client_OnBuddyAddYouRequest), new object[] { sender, buddy, requestMessage, bAccept }); };
                 CurrentUser.Client.OnMessage += delegate(object sender, string buddy, string message) { this.Invoke(new OnMessageEventHandler(Client_OnMessage), new object[] { sender, buddy, message }); };
-                CurrentUser.Client.OnBuddyTyping += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnBuddyTyping), new object[] { sender, buddy }); };
+                CurrentUser.Client.OnBuddyTyping += delegate(object sender, string buddy) { this.Invoke(new OnBuddyEventHandle(Client_OnBuddyTyping), new object[] { sender, buddy }); };                
                 
                 VisibleInvisibleControl(uipanelLogin, true);
                 VisibleInvisibleControl(uiflowLayoutPanelBuddies, false);
@@ -173,6 +173,7 @@ namespace WhiteChatClient
                 ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
                 ucBuddy.DoubleClick += new EventHandler(ucBuddy_DoubleClick);
                 ucBuddy.DeleteBuddy += new EventHandler(ucBuddy_DeleteBuddy);
+                ucBuddy.setContextMenu();
                 ucBuddy.Status = yb.Status;
                 ucBuddy.BuddyProfilePath = yb.DisplayImageUrl;
                 AddControlsToAControl(uiflowLayoutPanelBuddies, ucBuddy);
@@ -199,7 +200,7 @@ namespace WhiteChatClient
         private void chatRoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uiFormBrowseChatRooms browse = new uiFormBrowseChatRooms();
-            browse.ShowDialog();
+            browse.ShowDialog(this);
         }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -289,22 +290,41 @@ namespace WhiteChatClient
             VisibleInvisibleControl(uipanelLoading, false);
             VisibleInvisibleControl(uipanelinfo, false);
             VisibleInvisibleControl(uipanelSearch, false);
-            MessageBox.Show("Error in either in Yahoo ID and/or password.", "Sign-In Problem");
+            //MessageBox.Show("Error in either in Yahoo ID and/or password.", "Sign-In Problem");
+            MessageBox.Show(message, "Sign-In Problem");
         }
         
         #endregion
 
         #region BuddyList        
 
+        public void OpenChatWindow(string buddy)
+        {
+            foreach (uiFormChat item in CurrentChatUsers)
+            {
+                if (item.Text == buddy)
+                {
+                    item.Focus();
+                    return;
+                }
+            }
+            uiFormChat chatwindow = new uiFormChat();
+            chatwindow.Text = buddy;
+            chatwindow.showHideAddPanel(false);
+            chatwindow.AdjustGraphicsImp();
+            chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);
+            if (CurrentUser.Client.BuddyList[buddy] != null)
+                chatwindow.showHideAddPanel(false);
+            else
+                chatwindow.showHideAddPanel(true);
+            CurrentChatUsers.Add(chatwindow);
+            chatwindow.Show();
+        }
+
         void ucBuddy_DoubleClick(object sender, EventArgs e)
         {
             uiBuddy b = (uiBuddy)sender;
-            uiFormChat chatwindow = new uiFormChat();
-            chatwindow.Text = b.BuddyName;
-            chatwindow.AdjustGraphicsImp();
-            chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);  
-            CurrentChatUsers.Add(chatwindow);            
-            chatwindow.Show();
+            OpenChatWindow(b.BuddyName);
         }
 
         private void ucBuddy_UnSelected(object sender, EventArgs e)
@@ -344,10 +364,13 @@ namespace WhiteChatClient
             YahooBuddy yb = (YahooBuddy)CurrentUser.Client.BuddyList[buddy];
             uiBuddy ucBuddy = new uiBuddy();
             ucBuddy.BuddyName = yb.Account;
+            ucBuddy.Width = uiflowLayoutPanelBuddies.Width;
+            ucBuddy.Padding = new Padding(20, 0, 0, 0);
             ucBuddy.Selected += new EventHandler(ucBuddy_Selected);
             ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
             ucBuddy.DoubleClick += new EventHandler(ucBuddy_DoubleClick);
             ucBuddy.DeleteBuddy += new EventHandler(ucBuddy_DeleteBuddy);
+            ucBuddy.setContextMenu();
             ucBuddy.BuddyProfilePath = yb.DisplayImageUrl;
             AddControlsToAControl(uiflowLayoutPanelBuddies, ucBuddy);
         }
@@ -384,7 +407,7 @@ namespace WhiteChatClient
             {
                 uiBuddy b = (uiBuddy)item;
                 if (b.BuddyName == buddy)
-                {
+                {                    
                     b.Status = yb.Status;
                     break;
                 }
@@ -395,7 +418,18 @@ namespace WhiteChatClient
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(uitextBoxSearch.Text))
             {
-                MessageBox.Show("Open Chat window - " + uitextBoxSearch.Text);
+                //MessageBox.Show("Open Chat window - " + uitextBoxSearch.Text);              
+                
+                uiFormChat chatwindow = new uiFormChat();
+                chatwindow.Text = uitextBoxSearch.Text;
+                if (CurrentUser.Client.BuddyList[uitextBoxSearch.Text] != null)
+                    chatwindow.showHideAddPanel(false);
+                else
+                    chatwindow.showHideAddPanel(true);
+                chatwindow.AdjustGraphicsImp();
+                chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);
+                CurrentChatUsers.Add(chatwindow);
+                chatwindow.Show();
             }
         }
 
@@ -457,6 +491,10 @@ namespace WhiteChatClient
                 chatwindow.AdjustGraphicsImp();
                 chatwindow.FormClosed += new FormClosedEventHandler(chatwindow_FormClosed);
                 CurrentChatUsers.Add(chatwindow);
+                if (CurrentUser.Client.BuddyList[buddy] != null)
+                    chatwindow.showHideAddPanel(false);
+                else
+                    chatwindow.showHideAddPanel(true);
                 chatwindow.Show();
                 chatwindow.GetMessage(Message);
             }
@@ -487,6 +525,13 @@ namespace WhiteChatClient
             switch (uicomboBoxStatus.SelectedIndex)
             {
                 case 0:
+                    if (CurrentUser.Client.Status == YahooStatus.YAHOO_STATUS_OFFLINE || CurrentUser.Client.Status == YahooStatus.YAHOO_STATUS_INVISIBLE)
+                    {
+                        CurrentUser.Client.Status = YahooStatus.YAHOO_STATUS_AVAILABLE;
+                        CurrentUser.Client.ChangeStatus(YahooStatus.YAHOO_STATUS_AVAILABLE, "");
+                        CurrentUser.Client.Login();
+                        break;
+                    }
                     CurrentUser.Client.ChangeStatus(YahooStatus.YAHOO_STATUS_AVAILABLE, "");
                     break;
                 case 1:

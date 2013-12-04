@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using WhiteChat.BLL;
+using System.Configuration;
 
 namespace WhiteChatServer
 {
@@ -24,7 +25,7 @@ namespace WhiteChatServer
         {
             try
             {
-                IPAddress[] AddressAr = null;
+                /*IPAddress[] AddressAr = null;
                 String ServerHostName = "";
                 try
                 {
@@ -37,11 +38,12 @@ namespace WhiteChatServer
                 if (AddressAr == null || AddressAr.Length < 1)
                 {
                     return "Unable to get local address ... Error";
-                }
+                }*/
 
                 Listener_Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-                Listener_Socket.Bind(new IPEndPoint(AddressAr[2], Port));
+                IPAddress ip;
+                IPAddress.TryParse(ConfigurationManager.AppSettings["ServerIp"].ToString(), out ip);
+                Listener_Socket.Bind(new IPEndPoint(ip, Port));
                 Listener_Socket.Listen(10);
 
                 Listener_Socket.BeginAccept(new AsyncCallback(EndAccept), Listener_Socket);
@@ -103,6 +105,7 @@ namespace WhiteChatServer
                 switch (msgCommand.MessageType)
                 {
                     case ClientCommand.msgType.JoinRoom:
+                        //OnLogText(null, new EventArgs(), "new join - " + msgCommand.Sender);    
                         ArrayList RoomMembers;
                         if (Clients.ContainsKey(msgCommand.ChatRoomID))
                         {
@@ -134,8 +137,19 @@ namespace WhiteChatServer
                         ArrayList Members1 = Clients[msgCommand.ChatRoomID];
                         for (int i = 0; i < Members1.Count; i++)
                         {
-                            SocketCoderClient Current = (SocketCoderClient)Members1[i];                            
-                            Current.ReadOnlySocket.Send(aryRet);
+                            string name = "";
+                            try
+                            {
+
+                                SocketCoderClient Current = (SocketCoderClient)Members1[i];
+                                name = Current.username;
+                                Current.ReadOnlySocket.Send(aryRet);
+                                
+                            }
+                            catch (Exception ex)
+                            {
+                                OnLogText(null, new EventArgs(), "Members1_user : " + name + " has some errors on access socket." + msgCommand.ChatRoomID.ToString());
+                            }
                         }
                         //OnLogText(null, new EventArgs(), "user : " + msgCommand.Sender + " has joined room : " + msgCommand.ChatRoomID.ToString());
                         break;
@@ -156,7 +170,17 @@ namespace WhiteChatServer
                         {
                             SocketCoderClient Current = (SocketCoderClient)Members2[i];
                             if (Current.username != msgCommand.Sender)
-                                Current.ReadOnlySocket.Send(aryRet);                            
+                            {
+                                
+                                try
+                                {
+                                    Current.ReadOnlySocket.Send(aryRet);
+                                }
+                                catch (Exception ex)
+                                {
+                                    OnLogText(null, new EventArgs(), "Members2_user : " + Current.username + " has some errors on access socket." + msgCommand.ChatRoomID.ToString());
+                                }
+                            }
                         }
 
                         ArrayList MemberToRemove = Clients[msgCommand.ChatRoomID];
@@ -168,7 +192,7 @@ namespace WhiteChatServer
                             else
                             {
                                 MemberToRemove.Remove(Current);
-                                Current.ReadOnlySocket.Shutdown(SocketShutdown.Both);
+                               // Current.ReadOnlySocket.Shutdown(SocketShutdown.Both);
                                 // prevent setup recieve call back for removed client 
                                 return;
                                // break;
@@ -179,8 +203,17 @@ namespace WhiteChatServer
                         ArrayList Members = Clients[msgCommand.ChatRoomID];
                         for (int i = 0; i < Members.Count; i++)
                         {
-                            SocketCoderClient Current = (SocketCoderClient)Members[i];                            
-                            Current.ReadOnlySocket.Send(aryRet);
+                            string name = "";
+                            try
+                            {
+                                SocketCoderClient Current = (SocketCoderClient)Members[i];
+                                name = Current.username;
+                                Current.ReadOnlySocket.Send(aryRet);
+                            }
+                            catch (Exception ex)
+                            {
+                                OnLogText(null, new EventArgs(), "Members_User : " + name + " has some errors on access socket." + msgCommand.ChatRoomID.ToString());
+                            }
                         }
                         break;
                     default:
@@ -189,7 +222,8 @@ namespace WhiteChatServer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("OnRecievedData - " + ex.Message);
+               // MessageBox.Show("OnRecievedData - " + ex.Message);
+                OnLogText(null, new EventArgs(), "OnRecievedData - " + ex.Message);                
             }
             //client.Send(msgStream.ToArray());
 
@@ -254,7 +288,7 @@ namespace WhiteChatServer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("SetupRecieveCallback - " + ex.Message);
+                    //MessageBox.Show("SetupRecieveCallback - " + ex.Message);
                 }
             }
             public byte[] GetRecievedData(IAsyncResult ar)

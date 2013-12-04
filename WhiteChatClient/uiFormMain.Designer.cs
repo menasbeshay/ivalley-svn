@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiFormMain));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.uimenuStripMain = new System.Windows.Forms.MenuStrip();
             this.messengerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.uibuttonAdd = new System.Windows.Forms.Button();
             this.uitextBoxSearch = new System.Windows.Forms.TextBox();
             this.uipanelLogin = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uicheckBoxInvisible = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +53,7 @@
             this.uitextBoxPassword = new System.Windows.Forms.TextBox();
             this.uitextBoxUsername = new System.Windows.Forms.TextBox();
             this.uipanelLoading = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.uilabelLogging = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiflowLayoutPanelBuddies = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,7 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uipictureBoxBuddyProfile)).BeginInit();
             this.uipanelSearch.SuspendLayout();
             this.uipanelLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.uipanelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,6 +211,7 @@
             // 
             // uipanelLogin
             // 
+            this.uipanelLogin.Controls.Add(this.pictureBox2);
             this.uipanelLogin.Controls.Add(this.uicheckBoxInvisible);
             this.uipanelLogin.Controls.Add(this.label2);
             this.uipanelLogin.Controls.Add(this.label1);
@@ -217,8 +223,17 @@
             this.uipanelLogin.Location = new System.Drawing.Point(0, 94);
             this.uipanelLogin.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelLogin.Name = "uipanelLogin";
-            this.uipanelLogin.Size = new System.Drawing.Size(290, 680);
+            this.uipanelLogin.Size = new System.Drawing.Size(290, 600);
             this.uipanelLogin.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ImageLocation = "images/Chatnall_Icons_7.png";
+            this.pictureBox2.Location = new System.Drawing.Point(63, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(160, 126);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // uicheckBoxInvisible
             // 
@@ -287,19 +302,29 @@
             // 
             // uipanelLoading
             // 
+            this.uipanelLoading.Controls.Add(this.pictureBox3);
             this.uipanelLoading.Controls.Add(this.uilabelLogging);
             this.uipanelLoading.Controls.Add(this.pictureBox1);
             this.uipanelLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uipanelLoading.Location = new System.Drawing.Point(3, 777);
+            this.uipanelLoading.Location = new System.Drawing.Point(3, 697);
             this.uipanelLoading.Name = "uipanelLoading";
             this.uipanelLoading.Size = new System.Drawing.Size(290, 600);
             this.uipanelLoading.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ImageLocation = "images/Chatnall_Icons_7.png";
+            this.pictureBox3.Location = new System.Drawing.Point(67, 76);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(160, 126);
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
             // 
             // uilabelLogging
             // 
             this.uilabelLogging.AutoSize = true;
             this.uilabelLogging.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.uilabelLogging.Location = new System.Drawing.Point(82, 242);
+            this.uilabelLogging.Location = new System.Drawing.Point(82, 349);
             this.uilabelLogging.Name = "uilabelLogging";
             this.uilabelLogging.Size = new System.Drawing.Size(0, 13);
             this.uilabelLogging.TabIndex = 3;
@@ -308,7 +333,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.ImageLocation = "Images/ajax-loader.gif";
-            this.pictureBox1.Location = new System.Drawing.Point(81, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 212);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -321,11 +346,12 @@
             this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.White;
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1380);
+            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1300);
             this.uiflowLayoutPanelBuddies.Margin = new System.Windows.Forms.Padding(0);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
             this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(290, 485);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
+            this.uiflowLayoutPanelBuddies.WrapContents = false;
             // 
             // uiFormMain
             // 
@@ -334,11 +360,12 @@
             this.ClientSize = new System.Drawing.Size(290, 568);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.uimenuStripMain;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 600);
             this.Name = "uiFormMain";
-            this.Text = "White Chat";
+            this.Text = "ChatNAll";
             this.Load += new System.EventHandler(this.uiFormMain_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.uimenuStripMain.ResumeLayout(false);
@@ -350,8 +377,10 @@
             this.uipanelSearch.PerformLayout();
             this.uipanelLogin.ResumeLayout(false);
             this.uipanelLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.uipanelLoading.ResumeLayout(false);
             this.uipanelLoading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -385,6 +414,8 @@
         private System.Windows.Forms.Label uilabelBuddyName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label uilabelLogging;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
 
 
     }

@@ -40,24 +40,24 @@ namespace WhiteChatClient.UserControls
                     case YahooStatus.YAHOO_STATUS_NOTATHOME:
                     case YahooStatus.YAHOO_STATUS_NOTATDESK:
                     case YahooStatus.YAHOO_STATUS_NOTINOFFICE:
-                        uipictureBoxStatus.ImageLocation = "Images/away.gif";
+                        uipictureBoxStatus.ImageLocation = "Images/Status_Small_Busy.png";
                         break;
 
                     //busy 
                     case YahooStatus.YAHOO_STATUS_BUSY:
                     case YahooStatus.YAHOO_STATUS_ONPHONE:
-                    case YahooStatus.YAHOO_STATUS_CUSTOM:                    
-                        uipictureBoxStatus.ImageLocation = "Images/busy.gif";
+                    case YahooStatus.YAHOO_STATUS_CUSTOM:
+                        uipictureBoxStatus.ImageLocation = "Images/Status_Small_Busy.png";
                         break;
                     
                     // offline                    
                     case YahooStatus.YAHOO_STATUS_OFFLINE:
                     case YahooStatus.YAHOO_STATUS_INVISIBLE:
-                        uipictureBoxStatus.ImageLocation = "Images/offline.gif";
+                        uipictureBoxStatus.ImageLocation = "Images/Status_Small_Offline.png";
                         break;
                     
                     default:
-                        uipictureBoxStatus.ImageLocation = "Images/online.gif";
+                        uipictureBoxStatus.ImageLocation = "Images/Status_Small_Online.png";
                         break;
                 }
             }
@@ -72,6 +72,11 @@ namespace WhiteChatClient.UserControls
         {
             BackColor = selected ? Color.FromArgb(0, 149, 204) : Color.White;
             uilabelName.ForeColor = selected ? Color.White : Color.Black;
+        }
+
+        public void setContextMenu()
+        {
+            this.ContextMenuStrip = uicontextMenuStripRightClick;
         }
 
         private void uiBuddy_Enter(object sender, EventArgs e)

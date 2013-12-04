@@ -70,6 +70,7 @@
             this.uipictureBoxStatus.Location = new System.Drawing.Point(51, 4);
             this.uipictureBoxStatus.Name = "uipictureBoxStatus";
             this.uipictureBoxStatus.Size = new System.Drawing.Size(16, 16);
+            this.uipictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.uipictureBoxStatus.TabIndex = 2;
             this.uipictureBoxStatus.TabStop = false;
             this.uipictureBoxStatus.Click += new System.EventHandler(this.uiBuddy_Enter);
@@ -92,7 +93,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ContextMenuStrip = this.uicontextMenuStripRightClick;
             this.Controls.Add(this.uipictureBoxStatus);
             this.Controls.Add(this.uilabelName);
             this.Controls.Add(this.uipictureBoxProfile);
