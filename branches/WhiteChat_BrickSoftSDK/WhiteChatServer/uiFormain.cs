@@ -11,16 +11,16 @@ using System.Threading;
 
 namespace WhiteChatServer
 {
-    public partial class uiFormMain : Form
+    public partial class uiFormMain : Form 
     {
-        delegate void HandleAddLogCallback(string text);
-
+        delegate void HandleAddLogCallback(string text);       
         public uiFormMain()
         {
             InitializeComponent();            
             string text = SocketCoderTextServer.Start_Text_Server(8888);
             SocketCoderTextServer.OnLogText += new SocketCoderTextServer.LogText(LogText);
             addlog(text);
+            
         }
 
         private void addlog(string text)
@@ -138,7 +138,6 @@ namespace WhiteChatServer
             string text = SocketCoderTextServer.ShutDown();
             addlog(text);
         }
-
 
     }
 }
