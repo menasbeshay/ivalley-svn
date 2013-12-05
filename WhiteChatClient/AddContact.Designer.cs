@@ -74,6 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(324, 89);
             this.Controls.Add(this.uibuttonCancel);
             this.Controls.Add(this.uitextBoxBuddyName);

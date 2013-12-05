@@ -37,14 +37,14 @@
             this.uibuttonJoin = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uitreeViewCats = new System.Windows.Forms.TreeView();
-            this.uipanelLoaddingCats = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.uitreeViewRooms = new System.Windows.Forms.TreeView();
             this.uipanelLoadingRooms = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.uipanelLoaddingCats = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uibackgroundWorkerLoadRooms = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -52,11 +52,11 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.uipanelLoaddingCats.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.uipanelLoadingRooms.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.uipanelLoaddingCats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // uibackgroundWorkerLoadCats
@@ -66,6 +66,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.uipanelLoaddingCats);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -76,6 +77,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
@@ -86,7 +88,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.68059F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.31941F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(478, 424);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(478, 426);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -94,7 +96,7 @@
             this.panel1.Controls.Add(this.uibuttonCancel);
             this.panel1.Controls.Add(this.uibuttonJoin);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 383);
+            this.panel1.Location = new System.Drawing.Point(3, 385);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(472, 38);
             this.panel1.TabIndex = 3;
@@ -134,7 +136,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(472, 374);
+            this.splitContainer1.Size = new System.Drawing.Size(472, 376);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -143,19 +145,9 @@
             this.uitreeViewCats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uitreeViewCats.Location = new System.Drawing.Point(0, 0);
             this.uitreeViewCats.Name = "uitreeViewCats";
-            this.uitreeViewCats.Size = new System.Drawing.Size(210, 374);
+            this.uitreeViewCats.Size = new System.Drawing.Size(210, 376);
             this.uitreeViewCats.TabIndex = 1;
             this.uitreeViewCats.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.uitreeViewCats_AfterSelect);
-            // 
-            // uipanelLoaddingCats
-            // 
-            this.uipanelLoaddingCats.Controls.Add(this.label2);
-            this.uipanelLoaddingCats.Controls.Add(this.pictureBox1);
-            this.uipanelLoaddingCats.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uipanelLoaddingCats.Location = new System.Drawing.Point(3, 433);
-            this.uipanelLoaddingCats.Name = "uipanelLoaddingCats";
-            this.uipanelLoaddingCats.Size = new System.Drawing.Size(475, 323);
-            this.uipanelLoaddingCats.TabIndex = 3;
             // 
             // flowLayoutPanel2
             // 
@@ -165,7 +157,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(258, 374);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(258, 376);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // uitreeViewRooms
@@ -185,28 +177,8 @@
             this.uipanelLoadingRooms.Dock = System.Windows.Forms.DockStyle.Top;
             this.uipanelLoadingRooms.Location = new System.Drawing.Point(3, 377);
             this.uipanelLoadingRooms.Name = "uipanelLoadingRooms";
-            this.uipanelLoadingRooms.Size = new System.Drawing.Size(252, 202);
+            this.uipanelLoadingRooms.Size = new System.Drawing.Size(252, 500);
             this.uipanelLoadingRooms.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ImageLocation = "images/ajax-loader.gif";
-            this.pictureBox1.Location = new System.Drawing.Point(163, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.ImageLocation = "images/ajax-loader.gif";
-            this.pictureBox2.Location = new System.Drawing.Point(63, 20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -218,6 +190,27 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Loading rooms...";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ImageLocation = "images/ajax-loader.gif";
+            this.pictureBox2.Location = new System.Drawing.Point(63, 20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // uipanelLoaddingCats
+            // 
+            this.uipanelLoaddingCats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelLoaddingCats.Controls.Add(this.label2);
+            this.uipanelLoaddingCats.Controls.Add(this.pictureBox1);
+            this.uipanelLoaddingCats.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uipanelLoaddingCats.Location = new System.Drawing.Point(3, 435);
+            this.uipanelLoaddingCats.Name = "uipanelLoaddingCats";
+            this.uipanelLoaddingCats.Size = new System.Drawing.Size(475, 500);
+            this.uipanelLoaddingCats.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -227,6 +220,16 @@
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Loading rooms...";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ImageLocation = "images/ajax-loader.gif";
+            this.pictureBox1.Location = new System.Drawing.Point(163, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // uibackgroundWorkerLoadRooms
             // 
@@ -250,13 +253,13 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            this.uipanelLoaddingCats.ResumeLayout(false);
-            this.uipanelLoaddingCats.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.uipanelLoadingRooms.ResumeLayout(false);
             this.uipanelLoadingRooms.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.uipanelLoaddingCats.ResumeLayout(false);
+            this.uipanelLoaddingCats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

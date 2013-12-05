@@ -184,231 +184,231 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\1.gif">
+    <Content Include="Images\1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\10.gif">
+    </Content>
+    <Content Include="Images\10.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\11.gif">
+    </Content>
+    <Content Include="Images\11.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\12.gif">
+    </Content>
+    <Content Include="Images\12.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\13.gif">
+    </Content>
+    <Content Include="Images\13.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\14.gif">
+    </Content>
+    <Content Include="Images\14.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\15.gif">
+    </Content>
+    <Content Include="Images\15.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\16.gif">
+    </Content>
+    <Content Include="Images\16.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\17.gif">
+    </Content>
+    <Content Include="Images\17.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\18.gif">
+    </Content>
+    <Content Include="Images\18.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\19.gif">
+    </Content>
+    <Content Include="Images\19.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\2.gif">
+    </Content>
+    <Content Include="Images\2.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\20.gif">
+    </Content>
+    <Content Include="Images\20.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\21.gif">
+    </Content>
+    <Content Include="Images\21.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\22.gif">
+    </Content>
+    <Content Include="Images\22.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\23.gif">
+    </Content>
+    <Content Include="Images\23.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\24.gif">
+    </Content>
+    <Content Include="Images\24.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\25.gif">
+    </Content>
+    <Content Include="Images\25.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\26.gif">
+    </Content>
+    <Content Include="Images\26.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\27.gif">
+    </Content>
+    <Content Include="Images\27.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\28.gif">
+    </Content>
+    <Content Include="Images\28.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\29.gif">
+    </Content>
+    <Content Include="Images\29.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\3.gif">
+    </Content>
+    <Content Include="Images\3.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\30.gif">
+    </Content>
+    <Content Include="Images\30.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\31.gif">
+    </Content>
+    <Content Include="Images\31.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\32.gif">
+    </Content>
+    <Content Include="Images\32.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\33.gif">
+    </Content>
+    <Content Include="Images\33.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\34.gif">
+    </Content>
+    <Content Include="Images\34.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\35.gif">
+    </Content>
+    <Content Include="Images\35.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\36.gif">
+    </Content>
+    <Content Include="Images\36.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\37.gif">
+    </Content>
+    <Content Include="Images\37.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\38.gif">
+    </Content>
+    <Content Include="Images\38.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\39.gif">
+    </Content>
+    <Content Include="Images\39.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\4.gif">
+    </Content>
+    <Content Include="Images\4.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\40.gif">
+    </Content>
+    <Content Include="Images\40.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\41.gif">
+    </Content>
+    <Content Include="Images\41.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\42.gif">
+    </Content>
+    <Content Include="Images\42.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\43.gif">
+    </Content>
+    <Content Include="Images\43.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\44.gif">
+    </Content>
+    <Content Include="Images\44.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\45.gif">
+    </Content>
+    <Content Include="Images\45.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\46.gif">
+    </Content>
+    <Content Include="Images\46.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\47.gif">
+    </Content>
+    <Content Include="Images\47.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\48.gif">
+    </Content>
+    <Content Include="Images\48.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\49.gif">
+    </Content>
+    <Content Include="Images\49.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\5.gif">
+    </Content>
+    <Content Include="Images\5.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\50.gif">
+    </Content>
+    <Content Include="Images\50.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\51.gif">
+    </Content>
+    <Content Include="Images\51.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\52.gif">
+    </Content>
+    <Content Include="Images\52.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\53.gif">
+    </Content>
+    <Content Include="Images\53.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\54.gif">
+    </Content>
+    <Content Include="Images\54.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\55.gif">
+    </Content>
+    <Content Include="Images\55.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\56.gif">
+    </Content>
+    <Content Include="Images\56.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\57.gif">
+    </Content>
+    <Content Include="Images\57.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\58.gif">
+    </Content>
+    <Content Include="Images\58.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\59.gif">
+    </Content>
+    <Content Include="Images\59.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\6.gif">
+    </Content>
+    <Content Include="Images\6.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\60.gif">
+    </Content>
+    <Content Include="Images\60.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\61.gif">
+    </Content>
+    <Content Include="Images\61.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\62.gif">
+    </Content>
+    <Content Include="Images\62.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\63.gif">
+    </Content>
+    <Content Include="Images\63.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\64.gif">
+    </Content>
+    <Content Include="Images\64.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\65.gif">
+    </Content>
+    <Content Include="Images\65.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\66.gif">
+    </Content>
+    <Content Include="Images\66.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\67.gif">
+    </Content>
+    <Content Include="Images\67.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\68.gif">
+    </Content>
+    <Content Include="Images\68.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\69.gif">
+    </Content>
+    <Content Include="Images\69.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\7.gif">
+    </Content>
+    <Content Include="Images\7.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\70.gif">
+    </Content>
+    <Content Include="Images\70.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\71.gif">
+    </Content>
+    <Content Include="Images\71.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\72.gif">
+    </Content>
+    <Content Include="Images\72.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\73.gif">
+    </Content>
+    <Content Include="Images\73.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\74.gif">
+    </Content>
+    <Content Include="Images\74.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\75.gif">
+    </Content>
+    <Content Include="Images\75.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\8.gif">
+    </Content>
+    <Content Include="Images\8.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\9.gif">
+    </Content>
+    <Content Include="Images\9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\libspeex.dll">
@@ -457,7 +457,9 @@
     <Content Include="Images\Application_Icon_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Images\btn.png" />
+    <Content Include="Images\btn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Buzz.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -479,6 +481,9 @@
     <Content Include="Images\mic.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\rooms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Status_Small_Busy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -494,42 +499,42 @@
     <Content Include="ref\Bricksoft.IM.DLL" />
     <Content Include="ref\BSIMNetLicense.dll" />
     <None Include="Resources\Chatnall_Icons_7.png" />
-    <None Include="Images\100.gif">
+    <Content Include="Images\100.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\101.gif">
+    </Content>
+    <Content Include="Images\101.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\102.gif">
+    </Content>
+    <Content Include="Images\102.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\103.gif">
+    </Content>
+    <Content Include="Images\103.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\104.gif">
+    </Content>
+    <Content Include="Images\104.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\105.gif">
+    </Content>
+    <Content Include="Images\105.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\109.gif">
+    </Content>
+    <Content Include="Images\109.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\110.gif">
+    </Content>
+    <Content Include="Images\110.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\111.gif">
+    </Content>
+    <Content Include="Images\111.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\112.gif">
+    </Content>
+    <Content Include="Images\112.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\113.gif">
+    </Content>
+    <Content Include="Images\113.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\114.gif">
+    </Content>
+    <Content Include="Images\114.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Images\ajax-loader.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -556,12 +561,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\482 %282%29.GIF">
+    <Content Include="Images\482 %282%29.GIF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\482.GIF">
+    </Content>
+    <Content Include="Images\482.GIF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Images\away.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

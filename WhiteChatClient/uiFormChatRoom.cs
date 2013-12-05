@@ -21,6 +21,7 @@ using System.Net;
 using System.Configuration;
 using System.Threading;
 using System.Drawing.Printing;
+using System.Diagnostics;
 
 namespace WhiteChatClient
 {
@@ -108,6 +109,8 @@ namespace WhiteChatClient
 
                 uiRichTextBoxMsg.Focus();
                 InCall = false;
+                uipanelVoice.Visible = false;
+                uitableLayoutPanelVoice.Size = new System.Drawing.Size(uitableLayoutPanelVoice.Size.Width, 1);                
             }
         }
 
@@ -123,7 +126,9 @@ namespace WhiteChatClient
                 ucBuddy.Selected += new EventHandler(ucBuddy_Selected);
                 ucBuddy.UnSelected += new EventHandler(ucBuddy_UnSelected);
                 ucBuddy.DoubleClick += new EventHandler(ucBuddy_DoubleClick);
+                ucBuddy.BackColor = Color.FromArgb(255, 255, 255);
                 ucBuddy.Status = YahooStatus.YAHOO_STATUS_AVAILABLE;
+                ucBuddy.InRoom = true;
                 ucBuddy.Width = uiflowLayoutPanelBuddies.Width;                                
                 uiflowLayoutPanelBuddies.Controls.Add(ucBuddy);
                 ucBuddy.ContextMenu = null;
@@ -625,11 +630,17 @@ namespace WhiteChatClient
                 WaveIn.Active = true;
                 WaveOut.Active = true;
                 uibuttonCall.Text = "Close Voice";
+                InCall = true;
+                uipanelVoice.Visible = true;
+                uitableLayoutPanelVoice.Size = new System.Drawing.Size(uitableLayoutPanelVoice.Size.Width, 33);
             }
             else
             {
                 ClientX1.disconnect_client();
                 uibuttonCall.Text = "Call";
+                InCall = false;
+                uipanelVoice.Visible = false;
+                uitableLayoutPanelVoice.Size = new System.Drawing.Size(uitableLayoutPanelVoice.Size.Width, 1);
             }
 
         }
@@ -1132,6 +1143,23 @@ namespace WhiteChatClient
             this.Close();
         }
         #endregion
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            uiprogressBarMic.Value = ClientX1.GetVolume(true);
+            uiprogressBarSpeaker.Value = ClientX1.GetVolume(false);
+        }
+
+        private void uibuttonOpenSite_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.chatnall.com");
+        }
+
+        private void uibuttonOpenChatRooms_Click(object sender, EventArgs e)
+        {
+            uiFormBrowseChatRooms browse = new uiFormBrowseChatRooms();
+            browse.ShowDialog(Main);
+        }
 
 
 

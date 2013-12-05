@@ -16,10 +16,12 @@ namespace WhiteChatClient.UserControls
         public event EventHandler UnSelected;
         public event EventHandler DeleteBuddy;
         private int _status;
+        private bool _inRoom;
 
         public uiBuddy()
         {
-            InitializeComponent();              
+            InitializeComponent();
+            InRoom = false;
         }
 
         public int Status
@@ -64,13 +66,18 @@ namespace WhiteChatClient.UserControls
             get { return _status; }
         }
 
+        public bool InRoom { get { return _inRoom; } set { _inRoom = value; } }
+
         public string BuddyName { set { uilabelName.Text = value; } get { return uilabelName.Text; } }
 
         public string BuddyProfilePath { set { uipictureBoxProfile.ImageLocation = value; } }
 
         public void SetSelected(bool selected)
         {
-            BackColor = selected ? Color.FromArgb(0, 149, 204) : Color.White;
+            if(!InRoom)
+                BackColor = selected ? Color.FromArgb(0, 149, 204) : Color.FromArgb(216, 235, 253);
+            else
+                BackColor = selected ? Color.FromArgb(0, 149, 204) : Color.White;
             uilabelName.ForeColor = selected ? Color.White : Color.Black;
         }
 
