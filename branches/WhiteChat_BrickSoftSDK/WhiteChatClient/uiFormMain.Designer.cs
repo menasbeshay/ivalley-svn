@@ -143,14 +143,14 @@
             this.uipanelinfo.Location = new System.Drawing.Point(0, 24);
             this.uipanelinfo.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelinfo.Name = "uipanelinfo";
-            this.uipanelinfo.Size = new System.Drawing.Size(290, 40);
+            this.uipanelinfo.Size = new System.Drawing.Size(290, 49);
             this.uipanelinfo.TabIndex = 9;
             // 
             // uilabelBuddyName
             // 
             this.uilabelBuddyName.AutoSize = true;
             this.uilabelBuddyName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.uilabelBuddyName.Location = new System.Drawing.Point(159, 14);
+            this.uilabelBuddyName.Location = new System.Drawing.Point(68, 3);
             this.uilabelBuddyName.Name = "uilabelBuddyName";
             this.uilabelBuddyName.Size = new System.Drawing.Size(0, 13);
             this.uilabelBuddyName.TabIndex = 2;
@@ -165,7 +165,7 @@
             "Away",
             "Busy",
             "Offline"});
-            this.uicomboBoxStatus.Location = new System.Drawing.Point(65, 11);
+            this.uicomboBoxStatus.Location = new System.Drawing.Point(65, 20);
             this.uicomboBoxStatus.Name = "uicomboBoxStatus";
             this.uicomboBoxStatus.Size = new System.Drawing.Size(87, 21);
             this.uicomboBoxStatus.TabIndex = 1;
@@ -173,7 +173,7 @@
             // 
             // uipictureBoxBuddyProfile
             // 
-            this.uipictureBoxBuddyProfile.Location = new System.Drawing.Point(16, 3);
+            this.uipictureBoxBuddyProfile.Location = new System.Drawing.Point(16, 7);
             this.uipictureBoxBuddyProfile.Name = "uipictureBoxBuddyProfile";
             this.uipictureBoxBuddyProfile.Size = new System.Drawing.Size(35, 35);
             this.uipictureBoxBuddyProfile.TabIndex = 0;
@@ -185,7 +185,7 @@
             this.uipanelSearch.Controls.Add(this.uibuttonAdd);
             this.uipanelSearch.Controls.Add(this.uitextBoxSearch);
             this.uipanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uipanelSearch.Location = new System.Drawing.Point(0, 64);
+            this.uipanelSearch.Location = new System.Drawing.Point(0, 73);
             this.uipanelSearch.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelSearch.Name = "uipanelSearch";
             this.uipanelSearch.Size = new System.Drawing.Size(290, 30);
@@ -220,7 +220,7 @@
             this.uipanelLogin.Controls.Add(this.uitextBoxPassword);
             this.uipanelLogin.Controls.Add(this.uitextBoxUsername);
             this.uipanelLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uipanelLogin.Location = new System.Drawing.Point(0, 94);
+            this.uipanelLogin.Location = new System.Drawing.Point(0, 103);
             this.uipanelLogin.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelLogin.Name = "uipanelLogin";
             this.uipanelLogin.Size = new System.Drawing.Size(290, 600);
@@ -306,7 +306,7 @@
             this.uipanelLoading.Controls.Add(this.uilabelLogging);
             this.uipanelLoading.Controls.Add(this.pictureBox1);
             this.uipanelLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uipanelLoading.Location = new System.Drawing.Point(3, 697);
+            this.uipanelLoading.Location = new System.Drawing.Point(3, 706);
             this.uipanelLoading.Name = "uipanelLoading";
             this.uipanelLoading.Size = new System.Drawing.Size(290, 600);
             this.uipanelLoading.TabIndex = 1;
@@ -346,7 +346,7 @@
             this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.White;
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1300);
+            this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1309);
             this.uiflowLayoutPanelBuddies.Margin = new System.Windows.Forms.Padding(0);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
             this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(290, 485);

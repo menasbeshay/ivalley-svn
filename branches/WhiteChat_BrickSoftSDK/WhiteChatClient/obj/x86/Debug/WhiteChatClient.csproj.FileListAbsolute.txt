@@ -270,3 +270,7 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\bin\Debug\libspeexdsp.dll
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\default_ring.wav
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\disconnect.wav
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\add.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\Buzz.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\ignore.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\mic.png

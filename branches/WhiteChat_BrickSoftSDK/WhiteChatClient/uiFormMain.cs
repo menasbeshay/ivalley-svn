@@ -280,6 +280,12 @@ namespace WhiteChatClient
             VisibleInvisibleControl(uipanelLoading, false);
             VisibleInvisibleControl(uipanelinfo, false);
             VisibleInvisibleControl(uipanelSearch, false);
+            chatRoomsToolStripMenuItem.Enabled = false;
+            signOutToolStripMenuItem.Enabled = false;
+            addNewContactToolStripMenuItem.Enabled = false;
+            CurrentUser.ClearEmtions();
+            this.AcceptButton = uibuttonSignin;
+
         }
 
         void Client_OnError(object sender, string message)
@@ -292,6 +298,7 @@ namespace WhiteChatClient
             VisibleInvisibleControl(uipanelSearch, false);
             //MessageBox.Show("Error in either in Yahoo ID and/or password.", "Sign-In Problem");
             MessageBox.Show(message, "Sign-In Problem");
+            this.AcceptButton = uibuttonSignin;
         }
         
         #endregion

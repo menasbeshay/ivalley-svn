@@ -81,12 +81,26 @@
             this.uicheckBoxItalic = new System.Windows.Forms.CheckBox();
             this.uicheckBoxUnderline = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.uibuttonCall = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uibuttonOpenSite = new System.Windows.Forms.Button();
+            this.uibuttonOpenChatRooms = new System.Windows.Forms.Button();
+            this.uibuttonCall = new System.Windows.Forms.Button();
             this.WaveOut = new AxVCProX.AxvcproWaveOutDeviceX();
             this.WaveIn = new AxVCProX.AxvcproWaveInDeviceX();
             this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -100,32 +114,35 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.111111F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88889F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.91011F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.08989F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(756, 445);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 30);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 78);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -136,8 +153,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(750, 412);
-            this.splitContainer1.SplitterDistance = 221;
+            this.splitContainer1.Size = new System.Drawing.Size(750, 364);
+            this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -153,7 +170,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(750, 221);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(750, 207);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // uiRichTextBoxHistory
@@ -164,9 +181,9 @@
             this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
             this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(554, 218);
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(554, 204);
             this.uiRichTextBoxHistory.TabIndex = 1;
-            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.username;
             this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
             // 
             // uiflowLayoutPanelBuddies
@@ -177,7 +194,7 @@
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(563, 3);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
-            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(184, 215);
+            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(184, 201);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -194,21 +211,22 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.14907F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.85093F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(750, 189);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.14286F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.85714F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(750, 155);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // uiRichTextBoxMsg
             // 
             this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 57);
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 63);
+            this.uiRichTextBoxMsg.MaxLength = 300;
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(664, 129);
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(664, 89);
             this.uiRichTextBoxMsg.TabIndex = 0;
-            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.username;
             this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
             this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
             // 
@@ -218,18 +236,18 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel3.Controls.Add(this.uibuttonSend, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(673, 57);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(673, 63);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 129);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 89);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // uibuttonSend
             // 
-            this.uibuttonSend.Location = new System.Drawing.Point(3, 28);
+            this.uibuttonSend.Location = new System.Drawing.Point(3, 20);
             this.uibuttonSend.Name = "uibuttonSend";
             this.uibuttonSend.Size = new System.Drawing.Size(65, 47);
             this.uibuttonSend.TabIndex = 2;
@@ -246,7 +264,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 28);
+            this.panel1.Size = new System.Drawing.Size(750, 33);
             this.panel1.TabIndex = 2;
             // 
             // panel4
@@ -258,17 +276,19 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(750, 28);
+            this.panel4.Size = new System.Drawing.Size(750, 33);
             this.panel4.TabIndex = 1;
             // 
             // uibuttonTalk
             // 
-            this.uibuttonTalk.Location = new System.Drawing.Point(89, 4);
+            this.uibuttonTalk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.uibuttonTalk.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.uibuttonTalk.Location = new System.Drawing.Point(88, 2);
             this.uibuttonTalk.Name = "uibuttonTalk";
-            this.uibuttonTalk.Size = new System.Drawing.Size(55, 20);
+            this.uibuttonTalk.Size = new System.Drawing.Size(55, 25);
             this.uibuttonTalk.TabIndex = 9;
             this.uibuttonTalk.Text = "Talk";
-            this.uibuttonTalk.UseVisualStyleBackColor = true;
+            this.uibuttonTalk.UseVisualStyleBackColor = false;
             this.uibuttonTalk.MouseDown += new System.Windows.Forms.MouseEventHandler(this.uibuttonTalk_MouseDown);
             this.uibuttonTalk.MouseUp += new System.Windows.Forms.MouseEventHandler(this.uibuttonTalk_MouseUp);
             // 
@@ -336,12 +356,12 @@
             this.tableLayoutPanel4.Controls.Add(this.uicheckBoxUnderline, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel3, 7, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 33);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(670, 26);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(670, 27);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // panel5
@@ -351,7 +371,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(44, 26);
+            this.panel5.Size = new System.Drawing.Size(44, 27);
             this.panel5.TabIndex = 13;
             // 
             // toolStrip1
@@ -389,8 +409,8 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(44, 26);
-            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Size = new System.Drawing.Size(44, 27);
+            this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
@@ -692,7 +712,7 @@
             this.uicheckBoxBold.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.uicheckBoxBold.Location = new System.Drawing.Point(47, 3);
             this.uicheckBoxBold.Name = "uicheckBoxBold";
-            this.uicheckBoxBold.Size = new System.Drawing.Size(24, 20);
+            this.uicheckBoxBold.Size = new System.Drawing.Size(24, 21);
             this.uicheckBoxBold.TabIndex = 7;
             this.uicheckBoxBold.Text = "B";
             this.uicheckBoxBold.UseVisualStyleBackColor = true;
@@ -707,7 +727,7 @@
             this.uicheckBoxItalic.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.uicheckBoxItalic.Location = new System.Drawing.Point(79, 3);
             this.uicheckBoxItalic.Name = "uicheckBoxItalic";
-            this.uicheckBoxItalic.Size = new System.Drawing.Size(22, 20);
+            this.uicheckBoxItalic.Size = new System.Drawing.Size(22, 21);
             this.uicheckBoxItalic.TabIndex = 8;
             this.uicheckBoxItalic.Text = "I";
             this.uicheckBoxItalic.UseVisualStyleBackColor = true;
@@ -723,7 +743,7 @@
             this.uicheckBoxUnderline.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.uicheckBoxUnderline.Location = new System.Drawing.Point(116, 3);
             this.uicheckBoxUnderline.Name = "uicheckBoxUnderline";
-            this.uicheckBoxUnderline.Size = new System.Drawing.Size(25, 20);
+            this.uicheckBoxUnderline.Size = new System.Drawing.Size(25, 21);
             this.uicheckBoxUnderline.TabIndex = 9;
             this.uicheckBoxUnderline.Text = "U";
             this.uicheckBoxUnderline.UseVisualStyleBackColor = true;
@@ -731,39 +751,69 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.uibuttonCall);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(405, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(265, 26);
+            this.panel3.Size = new System.Drawing.Size(265, 27);
             this.panel3.TabIndex = 10;
-            // 
-            // uibuttonCall
-            // 
-            this.uibuttonCall.Location = new System.Drawing.Point(177, 4);
-            this.uibuttonCall.Name = "uibuttonCall";
-            this.uibuttonCall.Size = new System.Drawing.Size(85, 20);
-            this.uibuttonCall.TabIndex = 4;
-            this.uibuttonCall.Text = "Call";
-            this.uibuttonCall.UseVisualStyleBackColor = true;
-            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.uibuttonOpenSite);
+            this.panel2.Controls.Add(this.uibuttonOpenChatRooms);
+            this.panel2.Controls.Add(this.uibuttonCall);
             this.panel2.Controls.Add(this.WaveOut);
             this.panel2.Controls.Add(this.WaveIn);
             this.panel2.Controls.Add(this.ClientX1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 21);
+            this.panel2.Size = new System.Drawing.Size(756, 50);
             this.panel2.TabIndex = 1;
+            // 
+            // uibuttonOpenSite
+            // 
+            this.uibuttonOpenSite.Image = global::WhiteChatClient.Properties.Resources.btn;
+            this.uibuttonOpenSite.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.uibuttonOpenSite.Location = new System.Drawing.Point(7, 3);
+            this.uibuttonOpenSite.Name = "uibuttonOpenSite";
+            this.uibuttonOpenSite.Size = new System.Drawing.Size(96, 45);
+            this.uibuttonOpenSite.TabIndex = 4;
+            this.uibuttonOpenSite.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.uibuttonOpenSite.UseVisualStyleBackColor = true;
+            this.uibuttonOpenSite.Click += new System.EventHandler(this.uibuttonCall_Click);
+            // 
+            // uibuttonOpenChatRooms
+            // 
+            this.uibuttonOpenChatRooms.Image = global::WhiteChatClient.Properties.Resources.mic1;
+            this.uibuttonOpenChatRooms.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.uibuttonOpenChatRooms.Location = new System.Drawing.Point(169, 3);
+            this.uibuttonOpenChatRooms.Name = "uibuttonOpenChatRooms";
+            this.uibuttonOpenChatRooms.Size = new System.Drawing.Size(76, 45);
+            this.uibuttonOpenChatRooms.TabIndex = 4;
+            this.uibuttonOpenChatRooms.Text = "Chat Rooms";
+            this.uibuttonOpenChatRooms.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.uibuttonOpenChatRooms.UseVisualStyleBackColor = true;
+            // 
+            // uibuttonCall
+            // 
+            this.uibuttonCall.Image = global::WhiteChatClient.Properties.Resources.mic1;
+            this.uibuttonCall.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.uibuttonCall.Location = new System.Drawing.Point(108, 3);
+            this.uibuttonCall.Name = "uibuttonCall";
+            this.uibuttonCall.Size = new System.Drawing.Size(55, 45);
+            this.uibuttonCall.TabIndex = 4;
+            this.uibuttonCall.Text = "Call";
+            this.uibuttonCall.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.uibuttonCall.UseVisualStyleBackColor = true;
+            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
             // WaveOut
             // 
             this.WaveOut.Enabled = true;
-            this.WaveOut.Location = new System.Drawing.Point(204, -5);
+            this.WaveOut.Location = new System.Drawing.Point(556, 10);
             this.WaveOut.Name = "WaveOut";
             this.WaveOut.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveOut.OcxState")));
             this.WaveOut.Size = new System.Drawing.Size(75, 23);
@@ -773,7 +823,7 @@
             // WaveIn
             // 
             this.WaveIn.Enabled = true;
-            this.WaveIn.Location = new System.Drawing.Point(110, -2);
+            this.WaveIn.Location = new System.Drawing.Point(462, 13);
             this.WaveIn.Name = "WaveIn";
             this.WaveIn.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WaveIn.OcxState")));
             this.WaveIn.Size = new System.Drawing.Size(75, 23);
@@ -783,12 +833,103 @@
             // ClientX1
             // 
             this.ClientX1.Enabled = true;
-            this.ClientX1.Location = new System.Drawing.Point(10, -5);
+            this.ClientX1.Location = new System.Drawing.Point(362, 10);
             this.ClientX1.Name = "ClientX1";
             this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
             this.ClientX1.Size = new System.Drawing.Size(75, 23);
             this.ClientX1.TabIndex = 0;
             this.ClientX1.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.menuStrip1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(756, 25);
+            this.panel6.TabIndex = 2;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.optionsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(756, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.printToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.selectAllToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Text = "Select All";
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearTextToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.optionsToolStripMenuItem.Text = "Actions";
+            // 
+            // clearTextToolStripMenuItem
+            // 
+            this.clearTextToolStripMenuItem.Name = "clearTextToolStripMenuItem";
+            this.clearTextToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.clearTextToolStripMenuItem.Text = "Clear text";
+            this.clearTextToolStripMenuItem.Click += new System.EventHandler(this.clearTextToolStripMenuItem_Click);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // uiFormChatRoom
             // 
@@ -797,6 +938,7 @@
             this.ClientSize = new System.Drawing.Size(756, 445);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "uiFormChatRoom";
             this.Text = "uiFormChatRoom";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiFormChatRoom_FormClosed);
@@ -818,11 +960,14 @@
             this.panel5.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WaveOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaveIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientX1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -859,6 +1004,7 @@
         private System.Windows.Forms.CheckBox uicheckBoxHandfree;
         private System.Windows.Forms.Button uibuttonTalk;
         private System.Windows.Forms.Panel panel5;
+        private Khendys.Controls.ExRichTextBox uiRichTextBoxMsg;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -886,6 +1032,19 @@
         private System.Windows.Forms.ToolStripButton toolStripButton25;
         private System.Windows.Forms.ToolStripButton toolStripButton26;
         private System.Windows.Forms.ToolStripButton toolStripButton27;
-        private Khendys.Controls.ExRichTextBox uiRichTextBoxMsg;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearTextToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Button uibuttonOpenSite;
+        private System.Windows.Forms.Button uibuttonOpenChatRooms;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiFormChat));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -47,7 +48,6 @@
             this.uicheckBoxUnderline = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.uitrackBarVolume = new System.Windows.Forms.TrackBar();
-            this.uibuttonCall = new System.Windows.Forms.Button();
             this.uibuttonBuzz = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -81,10 +81,12 @@
             this.uipanelAddIgnore = new System.Windows.Forms.Panel();
             this.uibuttonIgnore = new System.Windows.Forms.Button();
             this.uibuttonAddBuddy = new System.Windows.Forms.Button();
+            this.uibuttonCall = new System.Windows.Forms.Button();
             this.WaveOut = new AxVCProX.AxvcproWaveOutDeviceX();
             this.WaveIn = new AxVCProX.AxvcproWaveInDeviceX();
             this.ClientX1 = new AxVCProX.AxvcproRTPConfClientX();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -114,15 +116,15 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.02139F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.97861F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.69519F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.30481F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 374);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 32);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 43);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -133,8 +135,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(669, 339);
-            this.splitContainer1.SplitterDistance = 182;
+            this.splitContainer1.Size = new System.Drawing.Size(669, 328);
+            this.splitContainer1.SplitterDistance = 176;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -148,7 +150,7 @@
             this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
             this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 182);
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 176);
             this.uiRichTextBoxHistory.TabIndex = 0;
             this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
@@ -168,18 +170,19 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.89552F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.10448F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 155);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.33334F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 150);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // uiRichTextBoxMsg
             // 
             this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 51);
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 57);
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 101);
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 90);
             this.uiRichTextBoxMsg.TabIndex = 0;
             this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
@@ -191,18 +194,18 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel3.Controls.Add(this.uibuttonSend, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(592, 51);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(592, 57);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 101);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 90);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // uibuttonSend
             // 
-            this.uibuttonSend.Location = new System.Drawing.Point(3, 23);
+            this.uibuttonSend.Location = new System.Drawing.Point(3, 21);
             this.uibuttonSend.Name = "uibuttonSend";
             this.uibuttonSend.Size = new System.Drawing.Size(65, 47);
             this.uibuttonSend.TabIndex = 2;
@@ -257,7 +260,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(589, 28);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(589, 34);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // uicomboBoxFont
@@ -362,17 +365,16 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.uitrackBarVolume);
-            this.panel3.Controls.Add(this.uibuttonCall);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(377, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(212, 28);
+            this.panel3.Size = new System.Drawing.Size(212, 34);
             this.panel3.TabIndex = 10;
             // 
             // uitrackBarVolume
             // 
-            this.uitrackBarVolume.Location = new System.Drawing.Point(6, 3);
+            this.uitrackBarVolume.Location = new System.Drawing.Point(92, 0);
             this.uitrackBarVolume.Maximum = 100;
             this.uitrackBarVolume.Name = "uitrackBarVolume";
             this.uitrackBarVolume.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -382,23 +384,13 @@
             this.uitrackBarVolume.Value = 50;
             this.uitrackBarVolume.Scroll += new System.EventHandler(this.uitrackBarVolume_Scroll);
             // 
-            // uibuttonCall
-            // 
-            this.uibuttonCall.Location = new System.Drawing.Point(129, 3);
-            this.uibuttonCall.Name = "uibuttonCall";
-            this.uibuttonCall.Size = new System.Drawing.Size(78, 20);
-            this.uibuttonCall.TabIndex = 2;
-            this.uibuttonCall.Text = "Call";
-            this.uibuttonCall.UseVisualStyleBackColor = true;
-            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
-            // 
             // uibuttonBuzz
             // 
+            this.uibuttonBuzz.Image = global::WhiteChatClient.Properties.Resources.Buzz;
             this.uibuttonBuzz.Location = new System.Drawing.Point(335, 3);
             this.uibuttonBuzz.Name = "uibuttonBuzz";
-            this.uibuttonBuzz.Size = new System.Drawing.Size(38, 22);
+            this.uibuttonBuzz.Size = new System.Drawing.Size(38, 28);
             this.uibuttonBuzz.TabIndex = 11;
-            this.uibuttonBuzz.Text = "Buzz";
             this.uibuttonBuzz.UseVisualStyleBackColor = true;
             this.uibuttonBuzz.Click += new System.EventHandler(this.uibuttonBuzz_Click);
             // 
@@ -409,7 +401,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(46, 28);
+            this.panel4.Size = new System.Drawing.Size(46, 34);
             this.panel4.TabIndex = 12;
             // 
             // toolStrip1
@@ -447,7 +439,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(46, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(46, 34);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -688,6 +680,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.uipanelAddIgnore);
+            this.panel2.Controls.Add(this.uibuttonCall);
             this.panel2.Controls.Add(this.WaveOut);
             this.panel2.Controls.Add(this.WaveIn);
             this.panel2.Controls.Add(this.ClientX1);
@@ -695,7 +688,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(675, 29);
+            this.panel2.Size = new System.Drawing.Size(675, 40);
             this.panel2.TabIndex = 1;
             // 
             // uipanelAddIgnore
@@ -705,28 +698,47 @@
             this.uipanelAddIgnore.Location = new System.Drawing.Point(487, 0);
             this.uipanelAddIgnore.Margin = new System.Windows.Forms.Padding(0);
             this.uipanelAddIgnore.Name = "uipanelAddIgnore";
-            this.uipanelAddIgnore.Size = new System.Drawing.Size(184, 29);
+            this.uipanelAddIgnore.Size = new System.Drawing.Size(184, 40);
             this.uipanelAddIgnore.TabIndex = 3;
             // 
             // uibuttonIgnore
             // 
+            this.uibuttonIgnore.Image = ((System.Drawing.Image)(resources.GetObject("uibuttonIgnore.Image")));
+            this.uibuttonIgnore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uibuttonIgnore.Location = new System.Drawing.Point(101, 3);
             this.uibuttonIgnore.Name = "uibuttonIgnore";
-            this.uibuttonIgnore.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonIgnore.Size = new System.Drawing.Size(75, 30);
             this.uibuttonIgnore.TabIndex = 0;
             this.uibuttonIgnore.Text = "Ignore";
+            this.uibuttonIgnore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.uibuttonIgnore.UseVisualStyleBackColor = true;
             this.uibuttonIgnore.Click += new System.EventHandler(this.uibuttonIgnore_Click);
             // 
             // uibuttonAddBuddy
             // 
+            this.uibuttonAddBuddy.Image = global::WhiteChatClient.Properties.Resources.add;
+            this.uibuttonAddBuddy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uibuttonAddBuddy.Location = new System.Drawing.Point(11, 3);
             this.uibuttonAddBuddy.Name = "uibuttonAddBuddy";
-            this.uibuttonAddBuddy.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonAddBuddy.Size = new System.Drawing.Size(75, 30);
             this.uibuttonAddBuddy.TabIndex = 0;
             this.uibuttonAddBuddy.Text = "Add";
+            this.uibuttonAddBuddy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.uibuttonAddBuddy.UseVisualStyleBackColor = true;
             this.uibuttonAddBuddy.Click += new System.EventHandler(this.uibuttonAddBuddy_Click);
+            // 
+            // uibuttonCall
+            // 
+            this.uibuttonCall.Image = global::WhiteChatClient.Properties.Resources.mic1;
+            this.uibuttonCall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uibuttonCall.Location = new System.Drawing.Point(12, 3);
+            this.uibuttonCall.Name = "uibuttonCall";
+            this.uibuttonCall.Size = new System.Drawing.Size(60, 34);
+            this.uibuttonCall.TabIndex = 2;
+            this.uibuttonCall.Text = "Call ";
+            this.uibuttonCall.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uibuttonCall.UseVisualStyleBackColor = true;
+            this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
             // WaveOut
             // 
@@ -751,10 +763,10 @@
             // ClientX1
             // 
             this.ClientX1.Enabled = true;
-            this.ClientX1.Location = new System.Drawing.Point(9, 0);
+            this.ClientX1.Location = new System.Drawing.Point(199, 3);
             this.ClientX1.Name = "ClientX1";
             this.ClientX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClientX1.OcxState")));
-            this.ClientX1.Size = new System.Drawing.Size(216, 24);
+            this.ClientX1.Size = new System.Drawing.Size(92, 24);
             this.ClientX1.TabIndex = 0;
             this.ClientX1.Visible = false;
             // 
@@ -803,8 +815,6 @@
         private Khendys.Controls.ExRichTextBox uiRichTextBoxMsg;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button uibuttonSend;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label uilabelTyping;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.ComboBox uicomboBoxFont;
         private System.Windows.Forms.ComboBox uicomboBoxFontSize;
@@ -852,5 +862,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton25;
         private System.Windows.Forms.ToolStripButton toolStripButton26;
         private System.Windows.Forms.ToolStripButton toolStripButton27;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label uilabelTyping;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

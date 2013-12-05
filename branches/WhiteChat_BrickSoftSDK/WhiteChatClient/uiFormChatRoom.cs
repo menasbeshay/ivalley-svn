@@ -20,6 +20,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Net;
 using System.Configuration;
 using System.Threading;
+using System.Drawing.Printing;
 
 namespace WhiteChatClient
 {
@@ -35,9 +36,17 @@ namespace WhiteChatClient
 
         delegate void HandleOnRecievedDataCallBack(IAsyncResult ar);
 
+        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+        private PrintDocument printDocument1 = new PrintDocument();
+
+        private string documentContents;
+        
+        private string stringToPrint;
+
         public uiFormChatRoom()
         {
             InitializeComponent();
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
         }
 
         public void Init(int category, int subcategory, int chatroom)
@@ -179,7 +188,8 @@ namespace WhiteChatClient
             msgCommand.CategoryId = CategoryID;
             msgCommand.SubCategoryId = SubCategoryID;
             msgCommand.Sender = CurrentUser.Client.Account;
-            msgCommand.Message = uiRichTextBoxMsg.Text;
+            //msgCommand.Message = uiRichTextBoxMsg.Text;
+            msgCommand.Message = uiRichTextBoxMsg.Rtf;
             msgCommand.MessageType = ClientCommand.msgType.Message;
             BinaryFormatter serializer = new BinaryFormatter();
             serializer.Serialize(msgStream, msgCommand);
@@ -187,7 +197,7 @@ namespace WhiteChatClient
 
             uiRichTextBoxMsg.Text = CurrentUser.Client.Account + " : " + uiRichTextBoxMsg.Text;
             uiRichTextBoxMsg.Select(0, uiRichTextBoxMsg.Text.IndexOf(" : ") + 3);
-            uiRichTextBoxMsg.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
+            uiRichTextBoxMsg.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
             uiRichTextBoxMsg.SelectionColor = Color.Black;
             foreach (var item in CurrentUser.Emotions)
             {
@@ -498,9 +508,11 @@ namespace WhiteChatClient
                                     temp.SelectionColor = Color.Purple;
                                 }
                                 temp.Select(0, temp.Text.LastIndexOf("\""));
-                                temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
-
+                                temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, 10, FontStyle.Bold);
+                                temp.SelectionAlignment = HorizontalAlignment.Center;
                                 uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                                uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
+                                uiRichTextBoxHistory.ScrollToCaret();
                                 temp.Dispose();
                             }
                         }
@@ -508,9 +520,11 @@ namespace WhiteChatClient
                         else if (msgCommand.Sender != CurrentUser.Client.Account)
                         {
                             RichTextBox temp = new RichTextBox();
-                            temp.Text = msgCommand.Sender + " : " + msgCommand.Message;
+                            temp.Rtf = msgCommand.Message;
+                            temp.Text = msgCommand.Sender + " : " + temp.Text;
                             temp.Select(0, temp.Text.IndexOf(" : ") + 3);
-                            temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, temp.Font.Size, FontStyle.Bold);
+                            temp.SelectionFont = new System.Drawing.Font(temp.SelectionFont.FontFamily, 10, FontStyle.Bold);
+                            temp.SelectionColor = Color.Black;
                             foreach (var item in CurrentUser.Emotions)
                             {
                                 int _index;
@@ -522,6 +536,8 @@ namespace WhiteChatClient
                             }
                             uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
                             uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
+                            uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
+                            uiRichTextBoxHistory.ScrollToCaret();
                             temp.Dispose();
                         }
                         SetupRecieveCallback(sock);
@@ -602,7 +618,7 @@ namespace WhiteChatClient
 
                 ClientX1.setStreamEnabled(true, true);
                 ClientX1.setVolumeModify(false, 50);
-                ClientX1.setVolumeModify(true, 100);
+                ClientX1.setVolumeModify(true, 0);
                 ClientX1.setEncoding(106, 32000);
                 ClientX1.URI = "rtp://" + CurrentUser.Client.Account + "@" + ConfigurationManager.AppSettings["ServerIp"].ToString() + ":" + ConfigurationManager.AppSettings["ServerPort"].ToString() + "/" + ChatRoomID.ToString();
 
@@ -1027,7 +1043,94 @@ namespace WhiteChatClient
 
         
 
+        #endregion
 
+
+        #region menu
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.OpenOrCreate))
+                using (StreamWriter sw = new StreamWriter(s))
+                {
+                    sw.Write(uiRichTextBoxHistory.Text);
+                }
+            }
+            
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ReadDocument();
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(uiRichTextBoxHistory.SelectedText))
+                System.Windows.Forms.Clipboard.SetText(uiRichTextBoxHistory.SelectedText);
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uiRichTextBoxHistory.SelectAll();
+        }
+
+        private void clearTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uiRichTextBoxHistory.Clear();
+        }
+
+
+        private void ReadDocument()
+        {
+            //string docName = "print.txt";
+            //string docPath = @"";
+            //printDocument1.DocumentName = docName;
+            //using (FileStream stream = new FileStream(docPath + docName, FileMode.OpenOrCreate))
+            //using (StreamReader reader = new StreamReader(stream))
+            //{
+                //documentContents = reader.ReadToEnd();
+            //}
+            documentContents = uiRichTextBoxHistory.Text;
+            stringToPrint = documentContents;
+        }
+
+        void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+
+            // Sets the value of charactersOnPage to the number of characters  
+            // of stringToPrint that will fit within the bounds of the page.
+            e.Graphics.MeasureString(stringToPrint, this.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+
+            // Draws the string within the bounds of the page.
+            e.Graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
+            e.MarginBounds, StringFormat.GenericTypographic);
+
+            // Remove the portion of the string that has been printed.
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+
+            // Check to see if more pages are to be printed.
+            e.HasMorePages = (stringToPrint.Length > 0);
+
+            // If there are no more pages, reset the string to be printed. 
+            if (!e.HasMorePages)
+                stringToPrint = documentContents;
+        }
+
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
 
 
