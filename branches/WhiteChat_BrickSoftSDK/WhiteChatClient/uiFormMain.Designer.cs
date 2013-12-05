@@ -108,34 +108,34 @@
             // chatRoomsToolStripMenuItem
             // 
             this.chatRoomsToolStripMenuItem.Name = "chatRoomsToolStripMenuItem";
-            this.chatRoomsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.chatRoomsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.chatRoomsToolStripMenuItem.Text = "Chat rooms";
             this.chatRoomsToolStripMenuItem.Click += new System.EventHandler(this.chatRoomsToolStripMenuItem_Click);
             // 
             // addNewContactToolStripMenuItem
             // 
             this.addNewContactToolStripMenuItem.Name = "addNewContactToolStripMenuItem";
-            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addNewContactToolStripMenuItem.Text = "Add a contact";
             this.addNewContactToolStripMenuItem.Click += new System.EventHandler(this.addNewContactToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // uipanelinfo
             // 
-            this.uipanelinfo.BackColor = System.Drawing.Color.White;
+            this.uipanelinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.uipanelinfo.Controls.Add(this.uilabelBuddyName);
             this.uipanelinfo.Controls.Add(this.uicomboBoxStatus);
             this.uipanelinfo.Controls.Add(this.uipictureBoxBuddyProfile);
@@ -181,7 +181,7 @@
             // 
             // uipanelSearch
             // 
-            this.uipanelSearch.BackColor = System.Drawing.Color.White;
+            this.uipanelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.uipanelSearch.Controls.Add(this.uibuttonAdd);
             this.uipanelSearch.Controls.Add(this.uitextBoxSearch);
             this.uipanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
@@ -211,6 +211,7 @@
             // 
             // uipanelLogin
             // 
+            this.uipanelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.uipanelLogin.Controls.Add(this.pictureBox2);
             this.uipanelLogin.Controls.Add(this.uicheckBoxInvisible);
             this.uipanelLogin.Controls.Add(this.label2);
@@ -302,6 +303,7 @@
             // 
             // uipanelLoading
             // 
+            this.uipanelLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.uipanelLoading.Controls.Add(this.pictureBox3);
             this.uipanelLoading.Controls.Add(this.uilabelLogging);
             this.uipanelLoading.Controls.Add(this.pictureBox1);
@@ -343,7 +345,7 @@
             // uiflowLayoutPanelBuddies
             // 
             this.uiflowLayoutPanelBuddies.AutoScroll = true;
-            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.White;
+            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1309);

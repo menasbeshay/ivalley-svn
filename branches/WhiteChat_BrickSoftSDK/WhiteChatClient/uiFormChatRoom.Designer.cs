@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uiFormChatRoom));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.uiRichTextBoxHistory = new Khendys.Controls.ExRichTextBox();
             this.uiflowLayoutPanelBuddies = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.uitableLayoutPanelVoice = new System.Windows.Forms.TableLayoutPanel();
             this.uiRichTextBoxMsg = new Khendys.Controls.ExRichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.uibuttonSend = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.uipanelVoice = new System.Windows.Forms.Panel();
+            this.uiprogressBarSpeaker = new System.Windows.Forms.ProgressBar();
+            this.uiprogressBarMic = new System.Windows.Forms.ProgressBar();
             this.uibuttonTalk = new System.Windows.Forms.Button();
             this.uicheckBoxHandfree = new System.Windows.Forms.CheckBox();
             this.uicheckBoxMute = new System.Windows.Forms.CheckBox();
@@ -101,15 +104,16 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.uitableLayoutPanelVoice.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.uipanelVoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -152,7 +156,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainer1.Panel2.Controls.Add(this.uitableLayoutPanelVoice);
             this.splitContainer1.Size = new System.Drawing.Size(750, 364);
             this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.SplitterWidth = 2;
@@ -160,6 +164,7 @@
             // 
             // tableLayoutPanel5
             // 
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(254)))));
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.66666F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.33333F));
@@ -175,6 +180,7 @@
             // 
             // uiRichTextBoxHistory
             // 
+            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
             this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
             this.uiRichTextBoxHistory.Location = new System.Drawing.Point(3, 3);
@@ -183,7 +189,7 @@
             this.uiRichTextBoxHistory.ReadOnly = true;
             this.uiRichTextBoxHistory.Size = new System.Drawing.Size(554, 204);
             this.uiRichTextBoxHistory.TabIndex = 1;
-            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.username;
+            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
             // 
             // uiflowLayoutPanelBuddies
@@ -197,25 +203,26 @@
             this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(184, 201);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
             // 
-            // tableLayoutPanel2
+            // uitableLayoutPanelVoice
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.Controls.Add(this.uiRichTextBoxMsg, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.14286F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.85714F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(750, 155);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.uitableLayoutPanelVoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(254)))));
+            this.uitableLayoutPanelVoice.ColumnCount = 2;
+            this.uitableLayoutPanelVoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.uitableLayoutPanelVoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.uitableLayoutPanelVoice.Controls.Add(this.uiRichTextBoxMsg, 0, 2);
+            this.uitableLayoutPanelVoice.Controls.Add(this.tableLayoutPanel3, 1, 2);
+            this.uitableLayoutPanelVoice.Controls.Add(this.panel1, 0, 0);
+            this.uitableLayoutPanelVoice.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.uitableLayoutPanelVoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uitableLayoutPanelVoice.Location = new System.Drawing.Point(0, 0);
+            this.uitableLayoutPanelVoice.Margin = new System.Windows.Forms.Padding(0);
+            this.uitableLayoutPanelVoice.Name = "uitableLayoutPanelVoice";
+            this.uitableLayoutPanelVoice.RowCount = 3;
+            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.14286F));
+            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.85714F));
+            this.uitableLayoutPanelVoice.Size = new System.Drawing.Size(750, 155);
+            this.uitableLayoutPanelVoice.TabIndex = 0;
             // 
             // uiRichTextBoxMsg
             // 
@@ -226,7 +233,7 @@
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
             this.uiRichTextBoxMsg.Size = new System.Drawing.Size(664, 89);
             this.uiRichTextBoxMsg.TabIndex = 0;
-            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.username;
+            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
             this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
             // 
@@ -257,8 +264,8 @@
             // 
             // panel1
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.panel1, 2);
-            this.panel1.Controls.Add(this.panel4);
+            this.uitableLayoutPanelVoice.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.uipanelVoice);
             this.panel1.Controls.Add(this.uilabelTyping);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -267,17 +274,35 @@
             this.panel1.Size = new System.Drawing.Size(750, 33);
             this.panel1.TabIndex = 2;
             // 
-            // panel4
+            // uipanelVoice
             // 
-            this.panel4.Controls.Add(this.uibuttonTalk);
-            this.panel4.Controls.Add(this.uicheckBoxHandfree);
-            this.panel4.Controls.Add(this.uicheckBoxMute);
-            this.panel4.Controls.Add(this.uitrackBarVolume);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(750, 33);
-            this.panel4.TabIndex = 1;
+            this.uipanelVoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(254)))));
+            this.uipanelVoice.Controls.Add(this.uiprogressBarSpeaker);
+            this.uipanelVoice.Controls.Add(this.uiprogressBarMic);
+            this.uipanelVoice.Controls.Add(this.uibuttonTalk);
+            this.uipanelVoice.Controls.Add(this.uicheckBoxHandfree);
+            this.uipanelVoice.Controls.Add(this.uicheckBoxMute);
+            this.uipanelVoice.Controls.Add(this.uitrackBarVolume);
+            this.uipanelVoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uipanelVoice.Location = new System.Drawing.Point(0, 0);
+            this.uipanelVoice.Name = "uipanelVoice";
+            this.uipanelVoice.Size = new System.Drawing.Size(750, 33);
+            this.uipanelVoice.TabIndex = 1;
+            // 
+            // uiprogressBarSpeaker
+            // 
+            this.uiprogressBarSpeaker.Location = new System.Drawing.Point(286, 5);
+            this.uiprogressBarSpeaker.Name = "uiprogressBarSpeaker";
+            this.uiprogressBarSpeaker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uiprogressBarSpeaker.Size = new System.Drawing.Size(69, 23);
+            this.uiprogressBarSpeaker.TabIndex = 10;
+            // 
+            // uiprogressBarMic
+            // 
+            this.uiprogressBarMic.Location = new System.Drawing.Point(214, 5);
+            this.uiprogressBarMic.Name = "uiprogressBarMic";
+            this.uiprogressBarMic.Size = new System.Drawing.Size(66, 23);
+            this.uiprogressBarMic.TabIndex = 10;
             // 
             // uibuttonTalk
             // 
@@ -760,6 +785,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.panel2.Controls.Add(this.uibuttonOpenSite);
             this.panel2.Controls.Add(this.uibuttonOpenChatRooms);
             this.panel2.Controls.Add(this.uibuttonCall);
@@ -783,19 +809,20 @@
             this.uibuttonOpenSite.TabIndex = 4;
             this.uibuttonOpenSite.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.uibuttonOpenSite.UseVisualStyleBackColor = true;
-            this.uibuttonOpenSite.Click += new System.EventHandler(this.uibuttonCall_Click);
+            this.uibuttonOpenSite.Click += new System.EventHandler(this.uibuttonOpenSite_Click);
             // 
             // uibuttonOpenChatRooms
             // 
-            this.uibuttonOpenChatRooms.Image = global::WhiteChatClient.Properties.Resources.mic1;
+            this.uibuttonOpenChatRooms.Image = global::WhiteChatClient.Properties.Resources.rooms;
             this.uibuttonOpenChatRooms.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.uibuttonOpenChatRooms.Location = new System.Drawing.Point(169, 3);
+            this.uibuttonOpenChatRooms.Location = new System.Drawing.Point(190, 3);
             this.uibuttonOpenChatRooms.Name = "uibuttonOpenChatRooms";
             this.uibuttonOpenChatRooms.Size = new System.Drawing.Size(76, 45);
             this.uibuttonOpenChatRooms.TabIndex = 4;
             this.uibuttonOpenChatRooms.Text = "Chat Rooms";
             this.uibuttonOpenChatRooms.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.uibuttonOpenChatRooms.UseVisualStyleBackColor = true;
+            this.uibuttonOpenChatRooms.Click += new System.EventHandler(this.uibuttonOpenChatRooms_Click);
             // 
             // uibuttonCall
             // 
@@ -803,7 +830,7 @@
             this.uibuttonCall.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.uibuttonCall.Location = new System.Drawing.Point(108, 3);
             this.uibuttonCall.Name = "uibuttonCall";
-            this.uibuttonCall.Size = new System.Drawing.Size(55, 45);
+            this.uibuttonCall.Size = new System.Drawing.Size(76, 45);
             this.uibuttonCall.TabIndex = 4;
             this.uibuttonCall.Text = "Call";
             this.uibuttonCall.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -931,6 +958,11 @@
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // uiFormChatRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,12 +979,12 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.uitableLayoutPanelVoice.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.uipanelVoice.ResumeLayout(false);
+            this.uipanelVoice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uitrackBarVolume)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
@@ -976,7 +1008,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel uitableLayoutPanelVoice;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button uibuttonSend;
         private System.Windows.Forms.Panel panel1;
@@ -998,7 +1030,7 @@
         private AxVCProX.AxvcproRTPConfClientX ClientX1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button uibuttonCall;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel uipanelVoice;
         private System.Windows.Forms.TrackBar uitrackBarVolume;
         private System.Windows.Forms.CheckBox uicheckBoxMute;
         private System.Windows.Forms.CheckBox uicheckBoxHandfree;
@@ -1046,5 +1078,8 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.Button uibuttonOpenSite;
         private System.Windows.Forms.Button uibuttonOpenChatRooms;
+        private System.Windows.Forms.ProgressBar uiprogressBarSpeaker;
+        private System.Windows.Forms.ProgressBar uiprogressBarMic;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -130,6 +130,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.splitContainer1.Panel1.Controls.Add(this.uiRichTextBoxHistory);
             // 
             // splitContainer1.Panel2
@@ -152,11 +153,12 @@
             this.uiRichTextBoxHistory.ReadOnly = true;
             this.uiRichTextBoxHistory.Size = new System.Drawing.Size(669, 176);
             this.uiRichTextBoxHistory.TabIndex = 0;
-            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.username;
             this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -184,7 +186,7 @@
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
             this.uiRichTextBoxMsg.Size = new System.Drawing.Size(583, 90);
             this.uiRichTextBoxMsg.TabIndex = 0;
-            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
+            this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.username;
             this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
             this.uiRichTextBoxMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiRichTextBoxMsg_KeyDown);
             // 
@@ -679,6 +681,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
             this.panel2.Controls.Add(this.uipanelAddIgnore);
             this.panel2.Controls.Add(this.uibuttonCall);
             this.panel2.Controls.Add(this.WaveOut);
