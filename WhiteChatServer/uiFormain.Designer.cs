@@ -37,18 +37,18 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(538, 171);
+            this.panel1.Size = new System.Drawing.Size(522, 171);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.uiTextBoxLog);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 171);
+            this.panel2.Location = new System.Drawing.Point(8, 179);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(538, 229);
+            this.panel2.Size = new System.Drawing.Size(522, 213);
             this.panel2.TabIndex = 1;
             // 
             // uiTextBoxLog
@@ -57,7 +57,7 @@
             this.uiTextBoxLog.Location = new System.Drawing.Point(0, 0);
             this.uiTextBoxLog.Multiline = true;
             this.uiTextBoxLog.Name = "uiTextBoxLog";
-            this.uiTextBoxLog.Size = new System.Drawing.Size(538, 229);
+            this.uiTextBoxLog.Size = new System.Drawing.Size(522, 213);
             this.uiTextBoxLog.TabIndex = 0;
             // 
             // uiFormMain
@@ -69,7 +69,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "uiFormMain";
             this.Text = "White Chat Server";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiFormMain_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiFormMain_FormClosed);            
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

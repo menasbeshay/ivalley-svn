@@ -537,7 +537,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Khendys.Controls.ExRichTextBox, Version=1.0.5087.28689, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Khendys.Controls.ExRichTextBox, Version=1.0.5087.28819, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_86C48D281DB4803F0B1CB266350E4BF5"
@@ -683,7 +683,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ChatNAllSetup"
         "ProductCode" = "8:{39879339-802A-4647-8EB6-2E27D33394EC}"
-        "PackageCode" = "8:{34479DA2-BB23-4EAC-83CB-C9E4BEDC2F36}"
+        "PackageCode" = "8:{7B08E908-F8DA-4D0F-9DBC-06E0CBDB7A2E}"
         "UpgradeCode" = "8:{02A8A186-D8BF-4568-9AF2-56AABD062A1C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
