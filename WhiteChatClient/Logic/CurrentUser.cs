@@ -110,6 +110,11 @@ namespace WhiteChatClient.Logic
             Emotions.Add(":)", "Images.75.gif");*/
             
         }
+
+        public static void ClearEmtions()
+        {
+            Emotions.Clear();
+        }
         
         #endregion
     }

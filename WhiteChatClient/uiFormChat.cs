@@ -66,6 +66,7 @@ namespace WhiteChatClient
 
             uiRichTextBoxMsg.Focus();
             InCall = false;
+            toolTip1.SetToolTip(uibuttonBuzz, "Buzz");
             
         }
 
@@ -100,7 +101,7 @@ namespace WhiteChatClient
             CurrentUser.Client.sendMessageInline(this.Text, uiRichTextBoxMsg.Text);
             uiRichTextBoxMsg.Text = CurrentUser.Client.Account + " : " + uiRichTextBoxMsg.Text;
             uiRichTextBoxMsg.Select(0, uiRichTextBoxMsg.Text.IndexOf(" : ") + 3);
-            uiRichTextBoxMsg.SelectionFont = new System.Drawing.Font(new FontFamily ("Arial"), 8, FontStyle.Bold);
+            uiRichTextBoxMsg.SelectionFont = new System.Drawing.Font(new FontFamily ("Arial"), 10, FontStyle.Bold);
             uiRichTextBoxMsg.SelectionColor = Color.Black; 
             foreach (var item in CurrentUser.Emotions)
             {
@@ -129,7 +130,7 @@ namespace WhiteChatClient
                     RichTextBox temp = new RichTextBox();
                     temp.Text = this.Text + " : " + message;
                     temp.Select(0, temp.Text.IndexOf(" : ") + 3);
-                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
                     temp.SelectionColor = Color.Black;
                     foreach (var item in CurrentUser.Emotions)
                     {
@@ -171,6 +172,7 @@ namespace WhiteChatClient
                     temp.Text = this.Text + " refused your call";
                     temp.Select(0, temp.Text.Length);                    
                     temp.SelectionColor = Color.Red;
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
                     uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
                     uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
                     uiRichTextBoxHistory.ScrollToCaret();
@@ -198,6 +200,7 @@ namespace WhiteChatClient
                     temp.Text = "your call with " + this.Text + " has been ended";
                     temp.Select(0, temp.Text.Length);
                     temp.SelectionColor = Color.Red;
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
                     uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
                     uiRichTextBoxHistory.SelectedRtf = temp.Rtf;
                     uiRichTextBoxHistory.ScrollToCaret();
@@ -210,10 +213,10 @@ namespace WhiteChatClient
                     RichTextBox temp = new RichTextBox();
                     temp.Text = this.Text + " : " + message;
                     temp.Select(0, temp.Text.IndexOf(" : ") + 3);
-                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
                     temp.SelectionColor = Color.Black;
                     temp.Select(temp.Text.IndexOf("*BUZZ*"), temp.Text.IndexOf("*BUZZ*") + 6);
-                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 8, FontStyle.Bold);
+                    temp.SelectionFont = new System.Drawing.Font(new FontFamily("Arial"), 10, FontStyle.Bold);
                     temp.SelectionColor = Color.Red;
                     uiRichTextBoxHistory.SelectionStart = uiRichTextBoxHistory.TextLength;
                     uiRichTextBoxHistory.SelectedRtf = temp.Rtf;

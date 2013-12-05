@@ -35,7 +35,7 @@ namespace WhiteChatClient
                 MessageBox.Show(ex.Message);
             }*/
 
-            if (DateTime.Now > DateTime.ParseExact("05/12/2013", "dd/MM/yyyy", null))
+            if (DateTime.Now > DateTime.ParseExact("08/12/2013", "dd/MM/yyyy", null))
             {
                 MessageBox.Show("Tryial version expired.");
                 Application.ExitThread();

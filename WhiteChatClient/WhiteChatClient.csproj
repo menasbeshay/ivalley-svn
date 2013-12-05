@@ -448,10 +448,17 @@
     <Content Include="common\VCProX.ocx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Application_Icon_5.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Application_Icon_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Images\btn.png" />
+    <Content Include="Images\Buzz.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\buzz.wav">
@@ -464,6 +471,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\disconnect.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ignore.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mic.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Status_Small_Busy.png">
@@ -480,6 +493,7 @@
     </Content>
     <Content Include="ref\Bricksoft.IM.DLL" />
     <Content Include="ref\BSIMNetLicense.dll" />
+    <None Include="Resources\Chatnall_Icons_7.png" />
     <None Include="Images\100.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
