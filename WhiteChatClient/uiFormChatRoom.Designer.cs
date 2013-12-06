@@ -128,6 +128,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 2);
@@ -138,15 +139,15 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.91011F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.08989F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.85714F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.14286F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(756, 445);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 78);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 81);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -157,8 +158,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.uitableLayoutPanelVoice);
-            this.splitContainer1.Size = new System.Drawing.Size(750, 364);
-            this.splitContainer1.SplitterDistance = 207;
+            this.splitContainer1.Size = new System.Drawing.Size(750, 361);
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -175,19 +176,19 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(750, 207);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(750, 205);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // uiRichTextBoxHistory
             // 
-            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.White;
+            this.uiRichTextBoxHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
             this.uiRichTextBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiRichTextBoxHistory.HiglightColor = Khendys.Controls.RtfColor.White;
             this.uiRichTextBoxHistory.Location = new System.Drawing.Point(3, 3);
             this.uiRichTextBoxHistory.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.uiRichTextBoxHistory.Name = "uiRichTextBoxHistory";
             this.uiRichTextBoxHistory.ReadOnly = true;
-            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(554, 204);
+            this.uiRichTextBoxHistory.Size = new System.Drawing.Size(554, 202);
             this.uiRichTextBoxHistory.TabIndex = 1;
             this.uiRichTextBoxHistory.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxHistory.TextColor = Khendys.Controls.RtfColor.Black;
@@ -195,17 +196,17 @@
             // uiflowLayoutPanelBuddies
             // 
             this.uiflowLayoutPanelBuddies.AutoScroll = true;
-            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.White;
+            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(563, 3);
             this.uiflowLayoutPanelBuddies.Name = "uiflowLayoutPanelBuddies";
-            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(184, 201);
+            this.uiflowLayoutPanelBuddies.Size = new System.Drawing.Size(184, 199);
             this.uiflowLayoutPanelBuddies.TabIndex = 2;
             // 
             // uitableLayoutPanelVoice
             // 
-            this.uitableLayoutPanelVoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(254)))));
+            this.uitableLayoutPanelVoice.BackColor = System.Drawing.Color.Transparent;
             this.uitableLayoutPanelVoice.ColumnCount = 2;
             this.uitableLayoutPanelVoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.uitableLayoutPanelVoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -219,19 +220,20 @@
             this.uitableLayoutPanelVoice.Name = "uitableLayoutPanelVoice";
             this.uitableLayoutPanelVoice.RowCount = 3;
             this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.14286F));
-            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.85714F));
-            this.uitableLayoutPanelVoice.Size = new System.Drawing.Size(750, 155);
+            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.61983F));
+            this.uitableLayoutPanelVoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.38017F));
+            this.uitableLayoutPanelVoice.Size = new System.Drawing.Size(750, 154);
             this.uitableLayoutPanelVoice.TabIndex = 0;
             // 
             // uiRichTextBoxMsg
             // 
+            this.uiRichTextBoxMsg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
             this.uiRichTextBoxMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiRichTextBoxMsg.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 63);
+            this.uiRichTextBoxMsg.Location = new System.Drawing.Point(3, 67);
             this.uiRichTextBoxMsg.MaxLength = 300;
             this.uiRichTextBoxMsg.Name = "uiRichTextBoxMsg";
-            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(664, 89);
+            this.uiRichTextBoxMsg.Size = new System.Drawing.Size(664, 84);
             this.uiRichTextBoxMsg.TabIndex = 0;
             this.uiRichTextBoxMsg.Text = global::WhiteChatClient.Properties.Resources.password;
             this.uiRichTextBoxMsg.TextColor = Khendys.Controls.RtfColor.Black;
@@ -243,23 +245,32 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel3.Controls.Add(this.uibuttonSend, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(673, 63);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(673, 67);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 89);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(74, 84);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // uibuttonSend
             // 
-            this.uibuttonSend.Location = new System.Drawing.Point(3, 20);
+            this.uibuttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonSend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonSend.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uibuttonSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonSend.Location = new System.Drawing.Point(3, 19);
             this.uibuttonSend.Name = "uibuttonSend";
-            this.uibuttonSend.Size = new System.Drawing.Size(65, 47);
+            this.uibuttonSend.Size = new System.Drawing.Size(65, 44);
             this.uibuttonSend.TabIndex = 2;
             this.uibuttonSend.Text = "Send";
-            this.uibuttonSend.UseVisualStyleBackColor = true;
+            this.uibuttonSend.UseVisualStyleBackColor = false;
             this.uibuttonSend.Click += new System.EventHandler(this.uibuttonSend_Click);
             // 
             // panel1
@@ -276,7 +287,7 @@
             // 
             // uipanelVoice
             // 
-            this.uipanelVoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(254)))));
+            this.uipanelVoice.BackColor = System.Drawing.Color.Transparent;
             this.uipanelVoice.Controls.Add(this.uiprogressBarSpeaker);
             this.uipanelVoice.Controls.Add(this.uiprogressBarMic);
             this.uipanelVoice.Controls.Add(this.uibuttonTalk);
@@ -341,6 +352,7 @@
             // 
             // uitrackBarVolume
             // 
+            this.uitrackBarVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(209)))), ((int)(((byte)(237)))));
             this.uitrackBarVolume.Location = new System.Drawing.Point(627, 1);
             this.uitrackBarVolume.Maximum = 100;
             this.uitrackBarVolume.Name = "uitrackBarVolume";
@@ -366,11 +378,11 @@
             this.tableLayoutPanel4.ColumnCount = 8;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 265F));
             this.tableLayoutPanel4.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.uicomboBoxFont, 5, 0);
@@ -386,7 +398,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(670, 27);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(670, 31);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // panel5
@@ -396,7 +408,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(44, 27);
+            this.panel5.Size = new System.Drawing.Size(44, 31);
             this.panel5.TabIndex = 13;
             // 
             // toolStrip1
@@ -434,7 +446,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(44, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(44, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -674,15 +686,25 @@
             // 
             // uicomboBoxFont
             // 
+            this.uicomboBoxFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.uicomboBoxFont.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uicomboBoxFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicomboBoxFont.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.uicomboBoxFont.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.uicomboBoxFont.FormattingEnabled = true;
-            this.uicomboBoxFont.Location = new System.Drawing.Point(210, 3);
+            this.uicomboBoxFont.Location = new System.Drawing.Point(197, 3);
             this.uicomboBoxFont.Name = "uicomboBoxFont";
-            this.uicomboBoxFont.Size = new System.Drawing.Size(124, 21);
+            this.uicomboBoxFont.Size = new System.Drawing.Size(158, 26);
             this.uicomboBoxFont.TabIndex = 4;
             this.uicomboBoxFont.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxFont_SelectedIndexChanged);
             // 
             // uicomboBoxFontSize
             // 
+            this.uicomboBoxFontSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.uicomboBoxFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uicomboBoxFontSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicomboBoxFontSize.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.uicomboBoxFontSize.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.uicomboBoxFontSize.FormattingEnabled = true;
             this.uicomboBoxFontSize.Items.AddRange(new object[] {
             "6",
@@ -712,80 +734,108 @@
             "30",
             "31",
             "32"});
-            this.uicomboBoxFontSize.Location = new System.Drawing.Point(347, 3);
+            this.uicomboBoxFontSize.Location = new System.Drawing.Point(366, 3);
             this.uicomboBoxFontSize.Name = "uicomboBoxFontSize";
-            this.uicomboBoxFontSize.Size = new System.Drawing.Size(38, 21);
+            this.uicomboBoxFontSize.Size = new System.Drawing.Size(36, 26);
             this.uicomboBoxFontSize.TabIndex = 5;
             this.uicomboBoxFontSize.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxFontSize_SelectedIndexChanged);
             // 
             // uibuttonColor
             // 
-            this.uibuttonColor.Location = new System.Drawing.Point(152, 3);
+            this.uibuttonColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonColor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonColor.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold);
+            this.uibuttonColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonColor.Location = new System.Drawing.Point(141, 3);
             this.uibuttonColor.Name = "uibuttonColor";
-            this.uibuttonColor.Size = new System.Drawing.Size(45, 20);
+            this.uibuttonColor.Size = new System.Drawing.Size(45, 24);
             this.uibuttonColor.TabIndex = 6;
             this.uibuttonColor.Text = "Color";
-            this.uibuttonColor.UseVisualStyleBackColor = true;
+            this.uibuttonColor.UseVisualStyleBackColor = false;
             this.uibuttonColor.Click += new System.EventHandler(this.uibuttonColor_Click);
             // 
             // uicheckBoxBold
             // 
             this.uicheckBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
             this.uicheckBoxBold.AutoSize = true;
-            this.uicheckBoxBold.FlatAppearance.BorderSize = 0;
-            this.uicheckBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.uicheckBoxBold.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.uicheckBoxBold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uicheckBoxBold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uicheckBoxBold.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uicheckBoxBold.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uicheckBoxBold.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uicheckBoxBold.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uicheckBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicheckBoxBold.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
+            this.uicheckBoxBold.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uicheckBoxBold.Location = new System.Drawing.Point(47, 3);
             this.uicheckBoxBold.Name = "uicheckBoxBold";
-            this.uicheckBoxBold.Size = new System.Drawing.Size(24, 21);
+            this.uicheckBoxBold.Size = new System.Drawing.Size(24, 24);
             this.uicheckBoxBold.TabIndex = 7;
             this.uicheckBoxBold.Text = "B";
-            this.uicheckBoxBold.UseVisualStyleBackColor = true;
+            this.uicheckBoxBold.UseVisualStyleBackColor = false;
             this.uicheckBoxBold.CheckedChanged += new System.EventHandler(this.uicheckBoxBold_CheckedChanged);
             // 
             // uicheckBoxItalic
             // 
             this.uicheckBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
             this.uicheckBoxItalic.AutoSize = true;
-            this.uicheckBoxItalic.FlatAppearance.BorderSize = 0;
-            this.uicheckBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.uicheckBoxItalic.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.uicheckBoxItalic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uicheckBoxItalic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uicheckBoxItalic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uicheckBoxItalic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uicheckBoxItalic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uicheckBoxItalic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uicheckBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicheckBoxItalic.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.uicheckBoxItalic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uicheckBoxItalic.Location = new System.Drawing.Point(79, 3);
             this.uicheckBoxItalic.Name = "uicheckBoxItalic";
-            this.uicheckBoxItalic.Size = new System.Drawing.Size(22, 21);
+            this.uicheckBoxItalic.Size = new System.Drawing.Size(20, 24);
             this.uicheckBoxItalic.TabIndex = 8;
             this.uicheckBoxItalic.Text = "I";
-            this.uicheckBoxItalic.UseVisualStyleBackColor = true;
+            this.uicheckBoxItalic.UseVisualStyleBackColor = false;
             this.uicheckBoxItalic.CheckedChanged += new System.EventHandler(this.uicheckBoxItalic_CheckedChanged);
             // 
             // uicheckBoxUnderline
             // 
             this.uicheckBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
             this.uicheckBoxUnderline.AutoSize = true;
-            this.uicheckBoxUnderline.FlatAppearance.BorderSize = 0;
+            this.uicheckBoxUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uicheckBoxUnderline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uicheckBoxUnderline.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uicheckBoxUnderline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uicheckBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ScrollBar;
-            this.uicheckBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.uicheckBoxUnderline.Font = new System.Drawing.Font("Tahoma", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.uicheckBoxUnderline.Location = new System.Drawing.Point(116, 3);
+            this.uicheckBoxUnderline.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uicheckBoxUnderline.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uicheckBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicheckBoxUnderline.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.uicheckBoxUnderline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uicheckBoxUnderline.Location = new System.Drawing.Point(107, 3);
             this.uicheckBoxUnderline.Name = "uicheckBoxUnderline";
-            this.uicheckBoxUnderline.Size = new System.Drawing.Size(25, 21);
+            this.uicheckBoxUnderline.Size = new System.Drawing.Size(25, 24);
             this.uicheckBoxUnderline.TabIndex = 9;
             this.uicheckBoxUnderline.Text = "U";
-            this.uicheckBoxUnderline.UseVisualStyleBackColor = true;
+            this.uicheckBoxUnderline.UseVisualStyleBackColor = false;
             this.uicheckBoxUnderline.CheckedChanged += new System.EventHandler(this.uicheckBoxUnderline_CheckedChanged);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(405, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(265, 27);
+            this.panel3.Size = new System.Drawing.Size(265, 31);
             this.panel3.TabIndex = 10;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.uibuttonOpenSite);
             this.panel2.Controls.Add(this.uibuttonOpenChatRooms);
             this.panel2.Controls.Add(this.uibuttonCall);
@@ -796,45 +846,72 @@
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 50);
+            this.panel2.Size = new System.Drawing.Size(756, 53);
             this.panel2.TabIndex = 1;
             // 
             // uibuttonOpenSite
             // 
+            this.uibuttonOpenSite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonOpenSite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonOpenSite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonOpenSite.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonOpenSite.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonOpenSite.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonOpenSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonOpenSite.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uibuttonOpenSite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uibuttonOpenSite.Image = global::WhiteChatClient.Properties.Resources.btn;
             this.uibuttonOpenSite.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.uibuttonOpenSite.Location = new System.Drawing.Point(7, 3);
             this.uibuttonOpenSite.Name = "uibuttonOpenSite";
-            this.uibuttonOpenSite.Size = new System.Drawing.Size(96, 45);
+            this.uibuttonOpenSite.Size = new System.Drawing.Size(96, 50);
             this.uibuttonOpenSite.TabIndex = 4;
             this.uibuttonOpenSite.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.uibuttonOpenSite.UseVisualStyleBackColor = true;
+            this.uibuttonOpenSite.UseVisualStyleBackColor = false;
             this.uibuttonOpenSite.Click += new System.EventHandler(this.uibuttonOpenSite_Click);
             // 
             // uibuttonOpenChatRooms
             // 
+            this.uibuttonOpenChatRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonOpenChatRooms.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonOpenChatRooms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonOpenChatRooms.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonOpenChatRooms.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonOpenChatRooms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonOpenChatRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonOpenChatRooms.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uibuttonOpenChatRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uibuttonOpenChatRooms.Image = global::WhiteChatClient.Properties.Resources.rooms;
             this.uibuttonOpenChatRooms.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.uibuttonOpenChatRooms.Location = new System.Drawing.Point(190, 3);
+            this.uibuttonOpenChatRooms.Location = new System.Drawing.Point(206, 3);
             this.uibuttonOpenChatRooms.Name = "uibuttonOpenChatRooms";
-            this.uibuttonOpenChatRooms.Size = new System.Drawing.Size(76, 45);
+            this.uibuttonOpenChatRooms.Size = new System.Drawing.Size(93, 50);
             this.uibuttonOpenChatRooms.TabIndex = 4;
             this.uibuttonOpenChatRooms.Text = "Chat Rooms";
             this.uibuttonOpenChatRooms.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.uibuttonOpenChatRooms.UseVisualStyleBackColor = true;
+            this.uibuttonOpenChatRooms.UseVisualStyleBackColor = false;
             this.uibuttonOpenChatRooms.Click += new System.EventHandler(this.uibuttonOpenChatRooms_Click);
             // 
             // uibuttonCall
             // 
+            this.uibuttonCall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonCall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonCall.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonCall.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonCall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonCall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonCall.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uibuttonCall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uibuttonCall.Image = global::WhiteChatClient.Properties.Resources.mic1;
             this.uibuttonCall.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.uibuttonCall.Location = new System.Drawing.Point(108, 3);
             this.uibuttonCall.Name = "uibuttonCall";
-            this.uibuttonCall.Size = new System.Drawing.Size(76, 45);
+            this.uibuttonCall.Size = new System.Drawing.Size(93, 50);
             this.uibuttonCall.TabIndex = 4;
             this.uibuttonCall.Text = "Call";
             this.uibuttonCall.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.uibuttonCall.UseVisualStyleBackColor = true;
+            this.uibuttonCall.UseVisualStyleBackColor = false;
             this.uibuttonCall.Click += new System.EventHandler(this.uibuttonCall_Click);
             // 
             // WaveOut
@@ -879,13 +956,16 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.SandyBrown;
+            this.menuStrip1.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(756, 24);
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(756, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -895,20 +975,20 @@
             this.saveToolStripMenuItem,
             this.printToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
@@ -918,20 +998,20 @@
             this.copyToolStripMenuItem,
             this.selectAllToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -941,20 +1021,20 @@
             this.clearTextToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             this.optionsToolStripMenuItem.Text = "Actions";
             // 
             // clearTextToolStripMenuItem
             // 
             this.clearTextToolStripMenuItem.Name = "clearTextToolStripMenuItem";
-            this.clearTextToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.clearTextToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.clearTextToolStripMenuItem.Text = "Clear text";
             this.clearTextToolStripMenuItem.Click += new System.EventHandler(this.clearTextToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -967,6 +1047,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WhiteChatClient.Properties.Resources.sky_blue_background_hd_desktop_wallpaper1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(756, 445);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

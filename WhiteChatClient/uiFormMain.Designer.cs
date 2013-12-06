@@ -71,6 +71,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.uimenuStripMain);
             this.flowLayoutPanel1.Controls.Add(this.uipanelinfo);
             this.flowLayoutPanel1.Controls.Add(this.uipanelSearch);
@@ -80,16 +81,19 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 568);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(294, 572);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // uimenuStripMain
             // 
             this.uimenuStripMain.AutoSize = false;
+            this.uimenuStripMain.BackColor = System.Drawing.Color.SandyBrown;
+            this.uimenuStripMain.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.uimenuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.messengerToolStripMenuItem});
             this.uimenuStripMain.Location = new System.Drawing.Point(0, 0);
             this.uimenuStripMain.Name = "uimenuStripMain";
+            this.uimenuStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.uimenuStripMain.Size = new System.Drawing.Size(290, 24);
             this.uimenuStripMain.TabIndex = 7;
             this.uimenuStripMain.Text = "menuStrip1";
@@ -102,40 +106,40 @@
             this.signOutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.messengerToolStripMenuItem.Name = "messengerToolStripMenuItem";
-            this.messengerToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.messengerToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.messengerToolStripMenuItem.Text = "Messenger";
             // 
             // chatRoomsToolStripMenuItem
             // 
             this.chatRoomsToolStripMenuItem.Name = "chatRoomsToolStripMenuItem";
-            this.chatRoomsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chatRoomsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.chatRoomsToolStripMenuItem.Text = "Chat rooms";
             this.chatRoomsToolStripMenuItem.Click += new System.EventHandler(this.chatRoomsToolStripMenuItem_Click);
             // 
             // addNewContactToolStripMenuItem
             // 
             this.addNewContactToolStripMenuItem.Name = "addNewContactToolStripMenuItem";
-            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addNewContactToolStripMenuItem.Text = "Add a contact";
             this.addNewContactToolStripMenuItem.Click += new System.EventHandler(this.addNewContactToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // uipanelinfo
             // 
-            this.uipanelinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelinfo.BackColor = System.Drawing.Color.Transparent;
             this.uipanelinfo.Controls.Add(this.uilabelBuddyName);
             this.uipanelinfo.Controls.Add(this.uicomboBoxStatus);
             this.uipanelinfo.Controls.Add(this.uipictureBoxBuddyProfile);
@@ -149,25 +153,32 @@
             // uilabelBuddyName
             // 
             this.uilabelBuddyName.AutoSize = true;
-            this.uilabelBuddyName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.uilabelBuddyName.BackColor = System.Drawing.Color.Transparent;
+            this.uilabelBuddyName.Font = new System.Drawing.Font("Corbel", 11F, System.Drawing.FontStyle.Bold);
             this.uilabelBuddyName.Location = new System.Drawing.Point(68, 3);
             this.uilabelBuddyName.Name = "uilabelBuddyName";
-            this.uilabelBuddyName.Size = new System.Drawing.Size(0, 13);
+            this.uilabelBuddyName.Size = new System.Drawing.Size(79, 18);
             this.uilabelBuddyName.TabIndex = 2;
+            this.uilabelBuddyName.Text = "wezamena";
             this.uilabelBuddyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uicomboBoxStatus
             // 
+            this.uicomboBoxStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.uicomboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uicomboBoxStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uicomboBoxStatus.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.uicomboBoxStatus.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.uicomboBoxStatus.FormattingEnabled = true;
             this.uicomboBoxStatus.Items.AddRange(new object[] {
             "Online",
             "Away",
             "Busy",
             "Offline"});
-            this.uicomboBoxStatus.Location = new System.Drawing.Point(65, 20);
+            this.uicomboBoxStatus.Location = new System.Drawing.Point(65, 23);
+            this.uicomboBoxStatus.Margin = new System.Windows.Forms.Padding(0);
             this.uicomboBoxStatus.Name = "uicomboBoxStatus";
-            this.uicomboBoxStatus.Size = new System.Drawing.Size(87, 21);
+            this.uicomboBoxStatus.Size = new System.Drawing.Size(106, 26);
             this.uicomboBoxStatus.TabIndex = 1;
             this.uicomboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.uicomboBoxStatus_SelectedIndexChanged);
             // 
@@ -181,7 +192,7 @@
             // 
             // uipanelSearch
             // 
-            this.uipanelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelSearch.BackColor = System.Drawing.Color.Transparent;
             this.uipanelSearch.Controls.Add(this.uibuttonAdd);
             this.uipanelSearch.Controls.Add(this.uitextBoxSearch);
             this.uipanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
@@ -193,25 +204,35 @@
             // 
             // uibuttonAdd
             // 
-            this.uibuttonAdd.Location = new System.Drawing.Point(16, 3);
+            this.uibuttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonAdd.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uibuttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonAdd.Location = new System.Drawing.Point(10, 3);
             this.uibuttonAdd.Name = "uibuttonAdd";
-            this.uibuttonAdd.Size = new System.Drawing.Size(35, 23);
+            this.uibuttonAdd.Size = new System.Drawing.Size(49, 23);
             this.uibuttonAdd.TabIndex = 1;
             this.uibuttonAdd.Text = "Add";
-            this.uibuttonAdd.UseVisualStyleBackColor = true;
+            this.uibuttonAdd.UseVisualStyleBackColor = false;
             this.uibuttonAdd.Click += new System.EventHandler(this.uibuttonAdd_Click);
             // 
             // uitextBoxSearch
             // 
-            this.uitextBoxSearch.Location = new System.Drawing.Point(56, 4);
+            this.uitextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
+            this.uitextBoxSearch.Location = new System.Drawing.Point(65, 4);
             this.uitextBoxSearch.Name = "uitextBoxSearch";
-            this.uitextBoxSearch.Size = new System.Drawing.Size(213, 20);
+            this.uitextBoxSearch.Size = new System.Drawing.Size(204, 20);
             this.uitextBoxSearch.TabIndex = 0;
             this.uitextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uitextBoxSearch_KeyDown);
             // 
             // uipanelLogin
             // 
-            this.uipanelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelLogin.BackColor = System.Drawing.Color.Transparent;
             this.uipanelLogin.Controls.Add(this.pictureBox2);
             this.uipanelLogin.Controls.Add(this.uicheckBoxInvisible);
             this.uipanelLogin.Controls.Add(this.label2);
@@ -230,7 +251,7 @@
             // pictureBox2
             // 
             this.pictureBox2.ImageLocation = "images/Chatnall_Icons_7.png";
-            this.pictureBox2.Location = new System.Drawing.Point(63, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(62, 28);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(160, 126);
             this.pictureBox2.TabIndex = 7;
@@ -239,71 +260,92 @@
             // uicheckBoxInvisible
             // 
             this.uicheckBoxInvisible.AutoSize = true;
-            this.uicheckBoxInvisible.Location = new System.Drawing.Point(63, 311);
+            this.uicheckBoxInvisible.BackColor = System.Drawing.Color.Transparent;
+            this.uicheckBoxInvisible.Font = new System.Drawing.Font("Corbel", 12.25F, System.Drawing.FontStyle.Bold);
+            this.uicheckBoxInvisible.Location = new System.Drawing.Point(29, 311);
             this.uicheckBoxInvisible.Name = "uicheckBoxInvisible";
-            this.uicheckBoxInvisible.Size = new System.Drawing.Size(173, 17);
+            this.uicheckBoxInvisible.Size = new System.Drawing.Size(251, 25);
             this.uicheckBoxInvisible.TabIndex = 6;
             this.uicheckBoxInvisible.Text = "Sign in as invisible to everyone";
-            this.uicheckBoxInvisible.UseVisualStyleBackColor = true;
+            this.uicheckBoxInvisible.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 222);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Corbel", 12.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(26, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(85, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 166);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Corbel", 12.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(26, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "Yahoo ID:";
             // 
             // uibuttonSignin
             // 
-            this.uibuttonSignin.Location = new System.Drawing.Point(93, 358);
+            this.uibuttonSignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonSignin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonSignin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonSignin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonSignin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonSignin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonSignin.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Bold);
+            this.uibuttonSignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonSignin.Location = new System.Drawing.Point(101, 355);
             this.uibuttonSignin.Name = "uibuttonSignin";
-            this.uibuttonSignin.Size = new System.Drawing.Size(97, 29);
+            this.uibuttonSignin.Size = new System.Drawing.Size(97, 37);
             this.uibuttonSignin.TabIndex = 3;
             this.uibuttonSignin.Text = "Sign in";
-            this.uibuttonSignin.UseVisualStyleBackColor = true;
+            this.uibuttonSignin.UseVisualStyleBackColor = false;
             this.uibuttonSignin.Click += new System.EventHandler(this.uibuttonSignin_Click);
             // 
             // uicheckBoxRemember
             // 
             this.uicheckBoxRemember.AutoSize = true;
-            this.uicheckBoxRemember.Location = new System.Drawing.Point(63, 288);
+            this.uicheckBoxRemember.BackColor = System.Drawing.Color.Transparent;
+            this.uicheckBoxRemember.Font = new System.Drawing.Font("Corbel", 12.25F, System.Drawing.FontStyle.Bold);
+            this.uicheckBoxRemember.Location = new System.Drawing.Point(29, 288);
             this.uicheckBoxRemember.Name = "uicheckBoxRemember";
-            this.uicheckBoxRemember.Size = new System.Drawing.Size(167, 17);
+            this.uicheckBoxRemember.Size = new System.Drawing.Size(247, 25);
             this.uicheckBoxRemember.TabIndex = 2;
             this.uicheckBoxRemember.Text = "Remember my ID && password";
-            this.uicheckBoxRemember.UseVisualStyleBackColor = true;
+            this.uicheckBoxRemember.UseVisualStyleBackColor = false;
             // 
             // uitextBoxPassword
             // 
-            this.uitextBoxPassword.Location = new System.Drawing.Point(63, 244);
+            this.uitextBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
+            this.uitextBoxPassword.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uitextBoxPassword.Location = new System.Drawing.Point(29, 244);
             this.uitextBoxPassword.Name = "uitextBoxPassword";
             this.uitextBoxPassword.PasswordChar = '*';
-            this.uitextBoxPassword.Size = new System.Drawing.Size(160, 20);
+            this.uitextBoxPassword.Size = new System.Drawing.Size(160, 24);
             this.uitextBoxPassword.TabIndex = 1;
             this.uitextBoxPassword.Text = "A12345678";
             // 
             // uitextBoxUsername
             // 
-            this.uitextBoxUsername.Location = new System.Drawing.Point(63, 192);
+            this.uitextBoxUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
+            this.uitextBoxUsername.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Bold);
+            this.uitextBoxUsername.Location = new System.Drawing.Point(29, 192);
             this.uitextBoxUsername.Name = "uitextBoxUsername";
-            this.uitextBoxUsername.Size = new System.Drawing.Size(160, 20);
+            this.uitextBoxUsername.Size = new System.Drawing.Size(160, 24);
             this.uitextBoxUsername.TabIndex = 0;
             this.uitextBoxUsername.Text = "c_cuser";
             // 
             // uipanelLoading
             // 
-            this.uipanelLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelLoading.BackColor = System.Drawing.Color.Transparent;
             this.uipanelLoading.Controls.Add(this.pictureBox3);
             this.uipanelLoading.Controls.Add(this.uilabelLogging);
             this.uipanelLoading.Controls.Add(this.pictureBox1);
@@ -316,7 +358,7 @@
             // pictureBox3
             // 
             this.pictureBox3.ImageLocation = "images/Chatnall_Icons_7.png";
-            this.pictureBox3.Location = new System.Drawing.Point(67, 76);
+            this.pictureBox3.Location = new System.Drawing.Point(67, 71);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(160, 126);
             this.pictureBox3.TabIndex = 8;
@@ -325,17 +367,17 @@
             // uilabelLogging
             // 
             this.uilabelLogging.AutoSize = true;
-            this.uilabelLogging.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.uilabelLogging.Location = new System.Drawing.Point(82, 349);
+            this.uilabelLogging.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
+            this.uilabelLogging.Location = new System.Drawing.Point(82, 344);
             this.uilabelLogging.Name = "uilabelLogging";
-            this.uilabelLogging.Size = new System.Drawing.Size(0, 13);
+            this.uilabelLogging.Size = new System.Drawing.Size(0, 19);
             this.uilabelLogging.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.ImageLocation = "Images/ajax-loader.gif";
-            this.pictureBox1.Location = new System.Drawing.Point(81, 212);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 207);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -345,7 +387,7 @@
             // uiflowLayoutPanelBuddies
             // 
             this.uiflowLayoutPanelBuddies.AutoScroll = true;
-            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uiflowLayoutPanelBuddies.BackColor = System.Drawing.Color.Transparent;
             this.uiflowLayoutPanelBuddies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiflowLayoutPanelBuddies.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.uiflowLayoutPanelBuddies.Location = new System.Drawing.Point(0, 1309);
@@ -359,9 +401,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WhiteChatClient.Properties.Resources.sky_blue_background_hd_desktop_wallpaper1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(290, 568);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.uimenuStripMain;
             this.MaximizeBox = false;

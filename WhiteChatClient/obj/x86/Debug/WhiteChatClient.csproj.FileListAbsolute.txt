@@ -276,3 +276,4 @@ D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bi
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\mic.png
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\btn.png
 D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\rooms.png
+D:\SmartValley\chat_application\WhiteChat\whitechat_bricksoft\WhiteChatClient\bin\Debug\Images\sky-blue-background-hd-desktop-wallpaper.jpg
