@@ -484,6 +484,9 @@
     <Content Include="Images\rooms.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\sky-blue-background-hd-desktop-wallpaper.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Status_Small_Busy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

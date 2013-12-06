@@ -42,9 +42,10 @@
             // uilabelName
             // 
             this.uilabelName.AutoSize = true;
-            this.uilabelName.Location = new System.Drawing.Point(75, 5);
+            this.uilabelName.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
+            this.uilabelName.Location = new System.Drawing.Point(52, 2);
             this.uilabelName.Name = "uilabelName";
-            this.uilabelName.Size = new System.Drawing.Size(35, 13);
+            this.uilabelName.Size = new System.Drawing.Size(50, 19);
             this.uilabelName.TabIndex = 1;
             this.uilabelName.Text = "label1";
             this.uilabelName.Click += new System.EventHandler(this.uiBuddy_Enter);
@@ -67,7 +68,7 @@
             // uipictureBoxStatus
             // 
             this.uipictureBoxStatus.BackColor = System.Drawing.Color.Transparent;
-            this.uipictureBoxStatus.Location = new System.Drawing.Point(51, 4);
+            this.uipictureBoxStatus.Location = new System.Drawing.Point(16, 5);
             this.uipictureBoxStatus.Name = "uipictureBoxStatus";
             this.uipictureBoxStatus.Size = new System.Drawing.Size(16, 16);
             this.uipictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,12 +80,13 @@
             // uipictureBoxProfile
             // 
             this.uipictureBoxProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uipictureBoxProfile.Location = new System.Drawing.Point(20, 3);
+            this.uipictureBoxProfile.Location = new System.Drawing.Point(169, 5);
             this.uipictureBoxProfile.Name = "uipictureBoxProfile";
             this.uipictureBoxProfile.Size = new System.Drawing.Size(18, 18);
             this.uipictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.uipictureBoxProfile.TabIndex = 0;
             this.uipictureBoxProfile.TabStop = false;
+            this.uipictureBoxProfile.Visible = false;
             this.uipictureBoxProfile.Click += new System.EventHandler(this.uiBuddy_Enter);
             this.uipictureBoxProfile.DoubleClick += new System.EventHandler(this.Control_DoubleClick);
             // 
@@ -98,7 +100,7 @@
             this.Controls.Add(this.uipictureBoxProfile);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uiBuddy";
-            this.Size = new System.Drawing.Size(166, 22);
+            this.Size = new System.Drawing.Size(166, 25);
             this.Enter += new System.EventHandler(this.uiBuddy_Enter);
             this.Leave += new System.EventHandler(this.uiBuddy_Leave);
             this.uicontextMenuStripRightClick.ResumeLayout(false);

@@ -66,18 +66,18 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.uipanelLoaddingCats);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 429);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 431);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
@@ -103,23 +103,41 @@
             // 
             // uibuttonCancel
             // 
+            this.uibuttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uibuttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.uibuttonCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonCancel.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
+            this.uibuttonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uibuttonCancel.Location = new System.Drawing.Point(257, 5);
             this.uibuttonCancel.Name = "uibuttonCancel";
-            this.uibuttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonCancel.Size = new System.Drawing.Size(75, 28);
             this.uibuttonCancel.TabIndex = 1;
             this.uibuttonCancel.Text = "Cancel";
-            this.uibuttonCancel.UseVisualStyleBackColor = true;
+            this.uibuttonCancel.UseVisualStyleBackColor = false;
             this.uibuttonCancel.Click += new System.EventHandler(this.uibuttonCancel_Click);
             // 
             // uibuttonJoin
             // 
+            this.uibuttonJoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(100)))));
+            this.uibuttonJoin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.uibuttonJoin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uibuttonJoin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
+            this.uibuttonJoin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(18)))));
+            this.uibuttonJoin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(149)))));
+            this.uibuttonJoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uibuttonJoin.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
+            this.uibuttonJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(147)))), ((int)(((byte)(32)))));
             this.uibuttonJoin.Location = new System.Drawing.Point(363, 5);
             this.uibuttonJoin.Name = "uibuttonJoin";
-            this.uibuttonJoin.Size = new System.Drawing.Size(75, 23);
+            this.uibuttonJoin.Size = new System.Drawing.Size(75, 28);
             this.uibuttonJoin.TabIndex = 0;
             this.uibuttonJoin.Text = "Join room";
-            this.uibuttonJoin.UseVisualStyleBackColor = true;
+            this.uibuttonJoin.UseVisualStyleBackColor = false;
             this.uibuttonJoin.Click += new System.EventHandler(this.uibuttonJoin_Click);
             // 
             // splitContainer1
@@ -142,6 +160,7 @@
             // 
             // uitreeViewCats
             // 
+            this.uitreeViewCats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
             this.uitreeViewCats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uitreeViewCats.Location = new System.Drawing.Point(0, 0);
             this.uitreeViewCats.Name = "uitreeViewCats";
@@ -162,11 +181,12 @@
             // 
             // uitreeViewRooms
             // 
+            this.uitreeViewRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(221)))));
             this.uitreeViewRooms.Dock = System.Windows.Forms.DockStyle.Top;
             this.uitreeViewRooms.Location = new System.Drawing.Point(0, 0);
             this.uitreeViewRooms.Margin = new System.Windows.Forms.Padding(0);
             this.uitreeViewRooms.Name = "uitreeViewRooms";
-            this.uitreeViewRooms.Size = new System.Drawing.Size(258, 374);
+            this.uitreeViewRooms.Size = new System.Drawing.Size(258, 376);
             this.uitreeViewRooms.TabIndex = 3;
             this.uitreeViewRooms.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.uitreeViewRooms_NodeMouseDoubleClick);
             // 
@@ -175,7 +195,7 @@
             this.uipanelLoadingRooms.Controls.Add(this.label1);
             this.uipanelLoadingRooms.Controls.Add(this.pictureBox2);
             this.uipanelLoadingRooms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uipanelLoadingRooms.Location = new System.Drawing.Point(3, 377);
+            this.uipanelLoadingRooms.Location = new System.Drawing.Point(3, 379);
             this.uipanelLoadingRooms.Name = "uipanelLoadingRooms";
             this.uipanelLoadingRooms.Size = new System.Drawing.Size(252, 500);
             this.uipanelLoadingRooms.TabIndex = 4;
@@ -202,7 +222,7 @@
             // 
             // uipanelLoaddingCats
             // 
-            this.uipanelLoaddingCats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(235)))), ((int)(((byte)(253)))));
+            this.uipanelLoaddingCats.BackColor = System.Drawing.Color.Transparent;
             this.uipanelLoaddingCats.Controls.Add(this.label2);
             this.uipanelLoaddingCats.Controls.Add(this.pictureBox1);
             this.uipanelLoaddingCats.Dock = System.Windows.Forms.DockStyle.Top;
@@ -240,7 +260,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 429);
+            this.BackgroundImage = global::WhiteChatClient.Properties.Resources.sky_blue_background_hd_desktop_wallpaper1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(486, 431);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
