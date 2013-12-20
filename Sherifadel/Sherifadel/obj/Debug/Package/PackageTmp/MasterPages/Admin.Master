@@ -1,0 +1,114 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Sherifadel.MasterPages.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+<title>Engineering Group:hotels,commarcial,interior,office 
+buliding,resedential,villa</title>
+<meta name="keywords" content="Engineering group,hotels,commarcial,inerior,office buliding,resedential,villa,3aqarat, عقارات ,التشييد, البناء"/>
+<meta name="description" content="Engineering Group Consultant Architect Eng/Sherif Adel tel. 24140762 "/>
+<link rel="stylesheet" type="text/css" href="../css/lightbox.css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/stmenu.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+        <div style="width:920px;margin:0 auto;">
+        <table border="0" width="910" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="11" rowspan="3" height="83">
+							&nbsp;</td>
+							<td width="259" rowspan="3" height="83" style="padding-top:15px;">							
+							<img border="0" src="../images/logo-gray-dark.jpg" width="205" height="80" align="left"></td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="bottom">
+							
+		<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">Javascript DHTML Drop Down Menu Powered by dhtml-menu-builder.com</a>
+<script type="text/javascript">
+<!--
+    stm_bm(["menu1c53", 950, "", "../images/blank.gif", 0, "", "", 0, 0, 250, 0, 1000, 1, 0, 0, "", "", 0, 0, 1, 2, "default", "hand", "", 1, 25], this);
+    stm_bp("p0", [0, 4, 0, 0, 0, 0, 0, 16, 100, "", -2, "", -2, 50, 0, 0, "#999999", "transparent", "", 3, 0, 0, "#000000", "", -1, -1, 0, "#FFFFF7", "", 3, "../images/right1.gif", -1, -1, 0, "transparent", "../images/right1.gif", 3, "", -1, -1, 0, "#FFFFF7", "", 3, "../images/left1.gif", -1, -1, 0, "transparent", "../images/left1.gif", 3, "", "", "", "", 20, 20, 20, 20, 20, 20, 20, 20]);
+    stm_ai("p0i0", [0, "Home", "", "", -1, -1, 0, "Admincp.aspx", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 1, 1, "#E6EFF9", 1, "#E6EFF9", 1, "../images/line1.gif", "../images/line3.gif", 3, 3, 0, 0, "#E6EFF9", "#000000", "#b9b9b9", "#50C23C", "bold 9pt tahoma", "bold 9pt tahoma", 0, 0, "", "", "", "", 0, 0, 0], 120, 37);
+    stm_aix("p0i1", "p0i0", [0, "Pages", "", "", -1, -1, 0, "Editpages.aspx"], 120, 37);
+    stm_aix("p0i2", "p0i0", [0, "Projects", "", "", -1, -1, 0, "Editprojects.aspx"], 120, 37);    
+//    stm_aix("p0i3", "p0i0", [0, "News", "", "", -1, -1, 0, "page.aspx?PID=8"], 120, 37);
+//    stm_aix("p0i4", "p0i0", [0, "Contact Us", "", "", -1, -1, 0, "contactus.aspx"], 120, 37);
+    stm_ep();
+    stm_em();
+//-->
+</script>
+
+	
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="tittle_black">
+                        <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label>
+                    </td>
+				</tr>
+				<tr>
+					<td bgcolor="#737373">
+					<div align="center">
+                     
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+						
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td height="7px">
+						</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="center">
+							<table border="0" width="360" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+									
+									<font face="Tahoma" style="font-size: 8pt; letter-spacing:1px" color="#EB974E">
+									Copyright © 2011 Engineering Group, Powerd By</font></td>
+									<td>
+									<img border="0" src="../images/mtg-logo-darkgray.jpg" width="70" height="31" /></td>
+								</tr>
+							</table>
+						</div>
+						</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+        
+       
+    </div>
+    </form>
+</body>
+</html>
