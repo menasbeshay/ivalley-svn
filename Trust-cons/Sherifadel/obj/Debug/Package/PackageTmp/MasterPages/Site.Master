@@ -1,0 +1,441 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Sherifadel.MasterPages.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+<title>Trust construction:hotels,commarcial,interior,office 
+buliding,resedential,villa</title>
+<meta name="keywords" content="Engineering group,hotels,commarcial,inerior,office buliding,resedential,villa,3aqarat, عقارات ,التشييد, البناء"/>
+<meta name="description" content="Engineering Group Consultant Architect Eng/Sherif Adel tel. 24140762 "/>
+<link rel="stylesheet" type="text/css" href="../css/lightbox.css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/stmenu.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width:920px;margin:0 auto;">
+        <%--<table border="0" width="910" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="11" rowspan="3" height="83">
+							&nbsp;</td>
+							<td width="259" rowspan="3" height="83" style="padding-top:15px;">
+							
+							<img border="0" src="../images/logo-gray-dark.jpg" width="205" height="80" align="left"></td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="bottom">
+							
+		<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">Javascript DHTML Drop Down Menu Powered by dhtml-menu-builder.com</a>
+<script type="text/javascript">
+<!--
+    stm_bm(["menu1c53", 950, "", "images/blank.gif", 0, "", "", 0, 0, 250, 0, 1000, 1, 0, 0, "", "", 0, 0, 1, 2, "default", "hand", "", 1, 25], this);
+    stm_bp("p0", [0, 4, 0, 0, 0, 0, 0, 16, 100, "", -2, "", -2, 50, 0, 0, "#999999", "transparent", "", 3, 0, 0, "#000000", "", -1, -1, 0, "#FFFFF7", "", 3, "images/right1.gif", -1, -1, 0, "transparent", "images/right1.gif", 3, "", -1, -1, 0, "#FFFFF7", "", 3, "images/left1.gif", -1, -1, 0, "transparent", "images/left1.gif", 3, "", "", "", "", 20, 20, 20, 20, 20, 20, 20, 20]);
+    stm_ai("p0i0", [0, "Home", "", "", -1, -1, 0, "default.aspx", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 1, 1, "#E6EFF9", 1, "#E6EFF9", 1, "images/line1.gif", "images/line3.gif", 3, 3, 0, 0, "#E6EFF9", "#000000", "#b9b9b9", "#50C23C", "bold 9pt tahoma", "bold 9pt tahoma", 0, 0, "", "", "", "", 0, 0, 0], 100, 37);
+    stm_aix("p0i1", "p0i0", [0, "About Us", "", "", -1, -1, 0, "page.aspx?PID=2"], 100, 37);
+    stm_aix("p0i2", "p0i0", [0, "Projects", "", "", -1, -1, 0, "projects.aspx", "_self", "", "", "", "", 0, 0, 0, "images/arrow1.gif", "images/arrow2.gif", 16, 4], 95, 37);
+    stm_bp("p1", [0, 4, -210, 1, 0, 0, 0, 0, 100, "", 12, "", -2, 80, 0, 0, "#999999", "transparent", "images/line2.gif", 3, 0, 0, "#CCCCCC", "", -1, -1, 0, "transparent", "", 3, "images/right2.gif", 37, 11, 0, "transparent", "images/right2.gif", 3, "", -1, -1, 0, "transparent", "", 3, "images/left2.gif", 37, 11, 0, "transparent", "images/left2.gif", 3, "", "", "", "", 1, 1, 1, 1, 1, 1, 1, 1]);
+    stm_aix("p1i0", "p0i0", [0, "Offices & Commercial ", "", "", -1, -1, 0, "projects.aspx?cid=1", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 1, 1, "#E6EFF9", 1, "#edf9e1", 0, "", "images/line4.gif", 3, 3, 0, 0, "#E6EFF9", "#000000", "#3B3B3B", "#50C23C", "bold 8pt tahoma", "bold 8pt tahoma"], 80, 20);
+    stm_aix("p1i1", "p1i0", [0, "Hotels", "", "", -1, -1, 0, "projects.aspx?cid=2"], 80, 20);
+    stm_aix("p1i2", "p1i0", [0, "Residential", "", "", -1, -1, 0, "projects.aspx?cid=3"], 80, 20);
+    stm_aix("p1i3", "p1i0", [0, "Villa", "", "", -1, -1, 0, "projects.aspx?cid=4"], 80, 20);
+    stm_aix("p1i4", "p1i0", [0, "Interrior", "", "", -1, -1, 0, "projects.aspx?cid=5"], 80, 20);
+    stm_aix("p1i5", "p1i0", [0, "Urban Design", "", "", -1, -1, 0, "projects.aspx?cid=6"], 80, 20);
+    stm_ep();
+    stm_aix("p0i3", "p0i0", [0, "News", "", "", -1, -1, 0, "page.aspx?PID=8"], 100, 37);
+    stm_aix("p0i4", "p0i0", [0, "Careers", "", "", -1, -1, 0, "careers.aspx"], 100, 37);
+    stm_aix("p0i5", "p0i0", [0, "Contact Us", "", "", -1, -1, 0, "contactus.aspx"], 100, 37);
+    stm_ep();
+    stm_em();
+//-->
+</script>
+
+	
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj2" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="910" height="315">
+						<param name="movie" value="../images/sherif-pic-banner.swf" />
+						<param name="quality" value="High" />
+						<param name="bgcolor" value="#013764" />
+						<param name="wmode" value="transparent" />
+						<embed src="../images/sherif-pic-banner.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj2" width="910" height="315" quality="High" wmode="transparent" bgcolor="#013764"></object>
+					</td>
+				</tr>
+				<tr>
+					<td class="tittle_black">
+                        <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label>
+                    </td>
+				</tr>
+				<tr>
+					<td bgcolor="#737373">
+					<div align="center">
+                     
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+						
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="910" height="125">
+						<param name="movie" value="../images/sherif-6buttones.swf" />
+						<param name="quality" value="High" />
+						<param name="bgcolor" value="#737373" />
+						<embed src="../images/sherif-6buttones.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" width="910" height="125" quality="High" bgcolor="#737373"></object>
+                        
+					</td>
+				</tr>
+				<tr>
+					<td height="7px">
+						</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="center">
+							<table border="0" width="360" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+									
+									<font face="Tahoma" style="font-size: 8pt; letter-spacing:1px" color="#EB974E">
+									Copyright © 2011 Engineering Group, Powerd By</font></td>
+									<td>
+									<img border="0" src="../images/mtg-logo-darkgray.jpg" width="70" height="31" /></td>
+								</tr>
+							</table>
+						</div>
+						</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>--%>
+        
+
+        <table border="0" width="956" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+
+<div align="center">
+	<table border="0" width="924" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td background="images/bg-top-01.jpg" valign="top">
+							<table border="0" width="100%" cellspacing="0" cellpadding="0">
+								<tr>
+									<td height="65" valign="top">
+											<div align="right">
+												<table border="0" width="200" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="67">
+														</td>
+														<td width="3"></td>
+														<td width="67">
+                                                        <a href="contactus.aspx">
+														<img border="0" src="images/contacts-top.jpg" width="67" height="31"></a>
+														</td>
+														<td width="3"></td>
+														<td  width="67">
+														<a href="Page.aspx?PID=13">
+														<img border="0" src="images/owner-top.jpg" width="67" height="31"></a>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+														<td width="3"></td>
+														<td>&nbsp;</td>
+														<td width="3"></td>
+														<td>
+														</td>
+													</tr>
+												</table>
+											</div>
+									</td>
+								</tr>
+								<tr>
+									<td height="35" valign="top">
+									<table border="0" width="100%" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><!-- Sothink Widgets Begin, Do not edit it -->
+<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">
+											Javascript DHTML Drop Down Menu 
+											Powered by dhtml-menu-builder.com</a>
+<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">
+											Javascript DHTML Drop Down Menu 
+											Powered by dhtml-menu-builder.com</a>
+<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">
+											Javascript DHTML Drop Down Menu 
+											Powered by dhtml-menu-builder.com</a>
+<a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">Drop Down Menu</a>
+<script id="sothink_widgets:_pgtres-40859.8021527778_PageletServer.DynamicMenu.pgt" type="text/javascript">
+<!--
+    stm_bm(["menu4448", 970, "", "_pgtres/blank.gif", 0, "", "", 0, 0, 500, 0, 1000, 1, 0, 0, "", "", 0, 0, 1, 2, "default", "hand", "", 1, 25], this);
+    stm_bp("p0", [0, 4, 0, 0, 4, 0, 0, 0, 100, "", -2, "", -2, 50, 0, 0, "#999999", "transparent", "", 3, 0, 0, "#000000"]);
+    stm_ai("p0i0", [0, "Home", "", "", -1, -1, 0, "Page.aspx?PID=10", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 1, 1, "#E6EFF9", 1, "#E6EFF9", 1, "", "", 3, 3, 0, 0, "#E6EFF9", "#000000", "#FFFFFF", "#000000", "bold 14px Verdana", "bold 14px Verdana", 0, 0, "", "", "", "", 0, 0, 0], 70, 0);
+    stm_aix("p0i1", "p0i0", [0, "About Us", "", "", -1, -1, 0, "Page.aspx?PID=2"], 90, 0);
+    stm_bp("p1", [1, 4, 0, 6, 0, 0, 16, 0, 100, "progid:DXImageTransform.Microsoft.Wipe(GradientSize=1.0,wipeStyle=1,motion=forward,enabled=0,Duration=0.30)", 5, "", -2, 80, 0, 0, "#CCCCCC", "#333333", "", 3, 0, 0, "#CCCCCC"]);
+    stm_aix("p1i0", "p0i0", [0, "", "", "", -1, -1, 0, "", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 0, 1, "#0a9fef", 1, "#0a9fef", 1, "_pgtres/up1.gif", "_pgtres/up1.gif", 0, 0, 0, 0, "#E6EFF9", "#000000", "#FFFFFF", "#000000", "8pt tahoma", "8pt tahoma"], 220, 11);
+    stm_aix("p1i1", "p0i0", [0, "Introduction", "", "", -1, -1, 0, "Page.aspx?PID=11", "_self", "", "", "", "", 16, 1, 0, "", "", 0, 0, 0, 0, 1, "#137cb5", 0, "#137cb5", 0, "", "", 3, 3, 0, 0, "#E6EFF9", "#000000", "#AEEEFF", "#000000", "bold 12px Verdana", "bold 12px tahoma"], 220, 20);
+    stm_aix("p1i2", "p1i1", [0, "Vision & Mission", "", "", -1, -1, 0, "Page.aspx?PID=12"], 220, 20);
+    stm_aix("p1i3", "p1i0", [0, "", "", "", -1, -1, 0, "", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 0, 1, "#0a9fef", 1, "#0a9fef", 1, "_pgtres/down1.gif", "_pgtres/down1.gif"], 220, 14);
+    stm_ep();
+    stm_aix("p0i2", "p0i1", [0, "Projects", "","",-1,-1,0,"projects.aspx"], 90, 0);
+    stm_bpx("p2", "p1", []);
+    stm_aix("p2i0", "p1i0", [], 220, 11);
+    stm_aix("p2i1", "p1i1", [0, "offices & Commercial", "", "", -1, -1, 0, "projects.aspx?cid=1"], 220, 20);
+    stm_aix("p2i2", "p1i1", [0, "Hotels", "", "", -1, -1, 0, "projects.aspx?cid=2"], 220, 20);
+    stm_aix("p2i3", "p1i1", [0, "Residential", "", "", -1, -1, 0, "projects.aspx?cid=3"], 220, 20);
+    stm_aix("p2i4", "p1i0", [0, "", "", "", -1, -1, 0, "", "_self", "", "", "", "", 0, 0, 0, "", "", 0, 0, 0, 0, 1, "#0a9fef", 1, "#0a9fef", 1, "_pgtres/up2.gif", "_pgtres/up2.gif", 0, 0, 0, 0, "#E6EFF9", "#000000", "#AEEEFF"], 220, 27);
+    stm_aix("p2i5", "p1i1", [0, "Villa", "", "", -1, -1, 0, "projects.aspx?cid=4"], 220, 20);
+    stm_aix("p2i6", "p1i1", [0, "Interrior", "", "", -1, -1, 0, "projects.aspx?cid=5"], 220, 20);
+    stm_aix("p2i7", "p1i1", [0, "Urban Design", "", "", -1, -1, 0, "projects.aspx?cid=6"], 220, 20);
+    stm_aix("p2i8", "p1i3", [], 220, 14);
+    stm_ep();
+    stm_aix("p0i3", "p0i1", [0, "News", "", "", -1, -1, 0, "page.aspx?PID=8"], 90, 0);
+    stm_aix("p0i4", "p0i0", [0, "Career", "", "", -1, -1, 0, "careers.aspx"], 90, 0);
+    stm_aix("p0i5", "p0i1", [0, "Contacts","" , "", -1,-1,0, "contactus.aspx"], 90, 0);
+    stm_ep();
+    stm_cf([0, 0, 0, "Main_frame", "Navigation_frame", 1]);
+    stm_em();
+//-->
+</script>
+<!-- Sothink Widgets End, Do not edit it -->
+											</td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="924" height="214">
+						<param name="movie" value="flash/smart-banner.swf">
+						<param name="quality" value="High">
+						<param name="wmode" value="transparent">
+						<embed src="flash/smart-banner.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj1" width="924" height="214" quality="High" wmode="transparent"></object>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFFFF">
+                    <p class="tittle_bluelight">
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="53">
+							<img border="0" src="images/tittle-pic.jpg" width="53" height="39"></td>
+							<td>
+							<table border="0" width="210" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="10">
+									&nbsp;</td>
+									<td width="17">
+									<img border="0" src="images/trust-logo.jpg" width="53" height="58" align="right"></td>
+									<td>&nbsp;</td>
+									<td width="150">
+									<p class="tittle_bluelight">
+                                    <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label>
+                                    </p>
+                                    </td>
+								</tr>
+							</table>
+                            
+							</td>
+						</tr>
+					</table>
+                    </p>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFFFF">&nbsp;</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="16">&nbsp;</td>
+					<td width="924" bgcolor="#FFFFFF">
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td valign="top">
+							<table border="0" width="100%" cellspacing="0" cellpadding="0">
+                           
+								<tr>
+									<td height="718" valign="top">
+                                             
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+									<div align="center">
+										<table border="0" width="87%" cellspacing="0" cellpadding="0">
+											
+											<tr>
+												<td>
+												<p align="center">
+															<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="Object1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="552" height="290" align="left">
+																<param name="movie" value="flash/mechanical-intro.swf">
+																<param name="quality" value="High">
+																<param name="wmode" value="transparent">
+																<embed src="flash/mechanical-intro.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj2" width="552" height="290" quality="High" wmode="transparent"></object>
+															</td>
+											</tr>
+										</table>
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<td height="18">
+									<table border="0" width="100%" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="23" height="18">
+											<img border="0" src="images/web3.jpg" width="23" height="18"></td>
+											<td height="18"></td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+							</table>
+							</td>
+							<td width="134" height="736" valign="bottom">
+							<img border="0" src="images/web1.jpg" width="134" height="736"></td>
+						</tr>
+						</table>
+					</td>
+					<td valign="bottom">
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td height="123" background="images/web2.jpg" width="16">&nbsp;</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td height="7 px">
+			</td>
+		</tr>
+		<tr>
+			<td>
+									<div align="center">
+									<table border="0" width="730" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+											<table border="0" width="100%" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>
+													<img border="0" src="images/button-arrow.jpg" width="14" height="12"></td>
+													<td>
+													<a href="page.aspx?PID=2">About 
+													Us</a></td>
+												</tr>
+											</table>
+											</td>
+											<td>
+											<table border="0" width="100%" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>
+													<img border="0" src="images/button-arrow.jpg" width="14" height="12"></td>
+													<td>
+													<a href="contactus.aspx">
+													Feedback</a></td>
+												</tr>
+											</table>
+											</td>
+											<td>
+											&nbsp;</td>
+											<td>
+											<table border="0" width="100%" cellspacing="0" cellpadding="0">
+												<tr>
+													<td>
+													<img border="0" src="images/button-arrow.jpg" width="14" height="12"></td>
+													<td>
+													<a href="careers.aspx">
+													Careers</a></td>
+												</tr>
+											</table>
+											</td>
+											<td>
+											<p align="center">
+													<a target="_blank" href="http://www.facebook.com/group.php?gid=142850692415637">
+													<img border="0" src="images/findus-facebook.jpg"></a></td>
+											<td width="310">
+											<div align="right">
+									<div align="center">
+						
+								<table border="0" width="370" cellspacing="0" cellpadding="0" dir="rtl" height="26">
+									<tr>
+										<td width="69">
+										<p align="center">
+										<a target="_blank" href="http://www.mtg-eg.com/">
+										<img border="0" src="../images/mtg-logo.jpg" align="left" width="69" height="28"></a></td>
+										<td>
+							<p class="content_red" align="right">
+							<font face="Tahoma" color="#FFFFFF" style="font-size: 9pt">
+							Copyright 2013© Trust Construction&nbsp; ,Powered By </font>
+										</td>
+									</tr>
+								</table>
+							
+									</div>
+											</div>
+											</td>
+										</tr>
+									</table>
+									</div>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+       
+    </div>
+    </form>
+</body>
+</html>
