@@ -1,0 +1,172 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Chat2Connect.MasterPages.Main" %>
+
+<!DOCTYPE html>
+
+<html lang="en" class="tr-coretext tr-aa-subpixel">
+<head runat="server">
+    <title>
+        <asp:Literal ID="uiLiteralMainTtile" runat="server"></asp:Literal>
+        </title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="I-VALLEY" name="author" />
+   
+    <%--<link href="../css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/base.css" rel="stylesheet" />    
+    <link href="../css/skeleton_subject.css" rel="stylesheet" />
+    <%--<link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <link href="../js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/validationEngine.jquery.css" rel="stylesheet" />
+    
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <!-- end stylesheets -->
+     
+    <script src="../js/html5shiv-printshiv.js"></script>
+    
+    <!-- stylesheets -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+    <form id="form1" runat="server">
+     <header class="row">
+            <div class="user">
+                <ul class="nav pull-right top-menu login-menu">
+                     <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <div class="arrow_menu"><i class="icon  icon-chevron-down"></i></div>
+                                <div class="vl"></div>
+                                <div class="user_img">
+                                    <asp:Image ID="uiImageUser" runat="server" ImageUrl="~/images/defaultavatar.png" />
+                                </div>
+                                <p>
+                                    <span class="name">                                        
+                                        <asp:Label ID="uiLabelName" runat="server" ></asp:Label>
+                                    </span>                    
+                                </p>
+                           </a>
+                            <ul class="dropdown-menu extended logout">
+                               <li><asp:HyperLink runat="server" NavigateUrl="~/Account.aspx"><i class="icon-user"></i>  حسابى</asp:HyperLink></li>                               
+                               <li>
+                                   <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج"/>
+                                   </li>
+                           </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+
+                </ul>
+                
+            </div>         
+            <div id="help" class="help">
+                <a href="#"><img src="../images/logo.png" ></a>
+                <div style="width:1px;background-color:#D2D2D2;float:left;height:50px;margin:0px;margin-top:15px;margin-right:30px;padding:0px;cursor:auto;"></div>
+                <div>
+                    <i class="icon icon-cog" style="font-size:25px;"></i>
+                    <a href="#">ضبط</a>
+                </div>
+                <div>
+                    <i class="entypoicon iconentypo-phone " style="font-size:50px;"></i>
+                    <a href="#">بريد صوتى</a>
+                </div>
+                <div>
+                    <i class="icon icon-envelope-alt" style="font-size:25px;"></i>
+                    <a href="#"><span class="badge">3</span>رسائلى</a>
+                </div>
+                
+            </div>
+
+         <div class="help" style="float:right;">               
+                <div>
+                    <i class="entypoicon iconentypo-bell" style="font-size:50px;"></i>
+                    <a href="#"><span class="badge">5</span>إخطارات</a>
+                </div>
+                <div>
+                    <i class="icon icon-home" style="font-size:25px;"></i>
+                    <a href="#">صفحتى</a>
+                </div>
+                
+            </div>
+            
+        </header>
+        <section class="MainContent row " >
+            <div style="margin:0 auto;width:90%;">
+            <nav class="main_menu" style="width: 52px;">
+                    <ul>
+                        <li id="cpmain">
+                            <i class="iconentypo-cp entypoicon" style="font-size:72px;"></i>
+                            <a href="#" style="opacity: 0;">لوحة التحكم</a>
+                        </li>
+                        <li id="profilemain">
+                            <i class="entypoicon iconentypo-profile" style="font-size:72px;"></i>
+                            <a href="../Account.aspx" style="opacity: 0;">بروفايلى</a>
+                        </li>
+                        <li id="chatmain">
+                            <i class="entypoicon iconentypo-chats" style="font-size:72px;"></i>
+                            <a href="#" style="opacity: 0;">محادثاتى</a>
+                        </li>
+                        <li id="myroomsmain">
+                            <i class="modernicon iconmodern-createroom" style="font-size:36px;"></i>
+                            <a href="../createRoom.aspx" style="opacity: 0;">إنشاء غرفة</a>
+                        </li>
+                        <li id="balancemain">
+                            <i class="modernicon iconmodern-credit" style="font-size:52px;"></i>
+                            <a href="#" style="opacity: 0;">رصيدى</a>
+                        </li>
+                        <li id="helpmain">
+                            <i class="entypoicon iconentypo-help" style="font-size:72px;"></i>
+                            <a href="#" style="opacity: 0;">مساعدة</a>
+                        </li>
+                    </ul>
+                </nav>
+            <div class="paper">
+                <div class="inner_main">
+                    
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+    
+                </div>
+                </div>     
+                <div class="clearfix" style="height:1px;"></div>
+                </div>
+        </section>
+        <footer class="row" >
+            &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Dardashet Tawasol. All rights reserved.
+            <div style="float:right;padding-right:10px;width:15%;padding:0px;margin-top:-5px;">
+                Powered by &nbsp; <a href="http://I-valley.com">
+                    <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
+                        alt="I-VALLEY software solutions" /></a>
+
+            </div>
+        </footer>
+        <div id="pGeneral" style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom;
+                        display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999;
+                        background: url(images/loading.GIF) no-repeat center center rgba(254,194,0,0.65);
+                        position: fixed; top: 0; left: 0;display:none;">
+         <div style="margin: auto; width: 75px; height: 60px; position: absolute; left: 0;
+                            right: 0; top: 0; bottom: 0;font-size:20px;font-weight:bold;">
+                            Loading
+                        </div>
+
+    </div>        
+
+    <!-- All js -->
+    <script src="../js/trmix.js"></script>
+    <script src="../js/jquery.slimscroll.min.js"></script>
+    <script src="../js/jquery.nicescroll.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="../js/Mainjs.js" type="text/javascript"></script>
+    <script src="../js/jquery.validationEngine-en.js"></script>
+    <script src="../js/jquery.validationEngine.js"></script>
+    <script src="../js/group_validation.js"></script>
+    <!-- End js -->
+    </form>
+</body>
+</html>

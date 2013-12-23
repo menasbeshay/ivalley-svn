@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="createMaster.master.cs" Inherits="Chat2Connect.MasterPages.createMaster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myroomsmain').addClass('selected');
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderhead" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="padding:10px;">
+    <div class="col-lg-3 pull-right">
+        <div class="center-block" style="width:100%;">
+                   <a href="#accountsettings" id="createRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة</a>                
+        </div>
+        <div class="clearfix" style="height:5px;"></div>
+        <div class="center-block" style="width:100%;">
+                <a href="#accountmail" id="createTempRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة مؤقتة</a>
+        </div>
+        <div class="clearfix" style="height:5px;"></div>
+        <div class="center-block" style="width:100%;">
+                <a href="#accountPass" id="createFriendGroup" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء مجموعة فى قائمة الأصدقاء</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-lg-9 pull-right ">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+        </div>
+</asp:Content>
