@@ -155,14 +155,21 @@ public partial class AdminArea : System.Web.UI.Page
 
     private void LoadPolice()
     {
+        drpPoliceStation.Items.Clear();
         POLICE_STATION pol = new POLICE_STATION();
         pol.Where.FK_GOVCD.Value = short.Parse(drpGove.SelectedValue);
         pol.Where.FK_GOVCD.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
         pol.Query.AddOrderBy(POLICE_STATION.ColumnNames.DESCR, MyGeneration.dOOdads.WhereParameter.Dir.ASC);
         pol.Query.Load();
-        drpPoliceStation.DataSource = pol.DefaultView;
-        drpPoliceStation.DataTextField = POLICE_STATION.ColumnNames.DESCR;
-        drpPoliceStation.DataValueField = POLICE_STATION.ColumnNames.CD;
+        if (pol.RowCount > 0)
+        {
+            drpPoliceStation.DataSource = pol.DefaultView;
+            drpPoliceStation.DataTextField = POLICE_STATION.ColumnNames.DESCR;
+            drpPoliceStation.DataValueField = POLICE_STATION.ColumnNames.CD;
+        }
+        else
+            drpPoliceStation.DataSource = null;
+        
         drpPoliceStation.DataBind();
     }
 

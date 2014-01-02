@@ -43,6 +43,10 @@
                     <td>
                         <asp:RequiredFieldValidator runat="server" ID="req1" ErrorMessage="*" ControlToValidate="txtAreaCode"
                             ValidationGroup="InsUpd" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                            ControlToValidate="txtAreaCode" Display="Dynamic" 
+                            ErrorMessage="ßæÏ ÇáÔíÇÎÉ íÌÈ Çä íßæä ãä 1 - 3000" MaximumValue="3000" 
+                            MinimumValue="1" ValidationGroup="InsUpd" Type="Integer"></asp:RangeValidator>
                     </td>
                 </tr>
                 <tr>

@@ -28,7 +28,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
     <div id="content_login">
-        <table width="100%">
+        <table width="100%" >
             <tr>
                 <td style="padding-top: 50px;" align="center" class="style1">
                     <asp:Login ID="Login1" align="center" runat="server" meta:resourcekey="Login1Resource1"

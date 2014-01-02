@@ -52,6 +52,9 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtDecisionDirectionValue" runat="server" meta:resourcekey="txtDecisionDirectionValueResource1"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="xxxxx"
+                        ControlToValidate="txtDecisionDirectionValue" ErrorMessage="أقصى عدد حروف (10)" Display="Dynamic"
+                        ValidationExpression="^.{0,10}$"></asp:RegularExpressionValidator>
                         </td>
                     </tr>
                 </table>

@@ -28,11 +28,21 @@ public partial class UserControls_uiBornInfo : System.Web.UI.UserControl
         get
         {
             DateTime dt;
-            if (DateTime.TryParse(txtYear.Text + "-" + txtMonth.Text + "-" + txtDay.Text + " " + txtHour.Text + ":" + txtMin.Text, out dt))
+            if(DateTime.TryParseExact(uiTextBoxBirthDate.Text + " " + uiTextBoxBirthTime.Text, "yyyy/MM/dd HH:mm", null,System.Globalization.DateTimeStyles.None, out dt))
             {
                 return dt;
             }
+            /*if (DateTime.TryParse(txtYear.Text + "-" + txtMonth.Text + "-" + txtDay.Text + " " + txtHour.Text + ":" + txtMin.Text, out dt))
+            {
+                return dt;
+            }*/
             return null;
+        }
+
+        set 
+        {
+            uiTextBoxBirthDate.Text = value.Value.ToString("yyyy/MM/dd");
+            uiTextBoxBirthTime.Text = value.Value.ToString("HH:mm");
         }
     }
 
@@ -240,6 +250,10 @@ public partial class UserControls_uiBornInfo : System.Web.UI.UserControl
         txtMin.Text = DateTime.Now.Minute.ToString();
         txtMonth.Text = DateTime.Now.Month.ToString();
         txtYear.Text = DateTime.Now.Year.ToString();
+
+
+        uiTextBoxBirthDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+        uiTextBoxBirthTime.Text = DateTime.Now.ToString("HH:mm");
     }
 
     /// <summary>

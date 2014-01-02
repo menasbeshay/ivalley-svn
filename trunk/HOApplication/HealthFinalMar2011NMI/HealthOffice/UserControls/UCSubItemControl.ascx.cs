@@ -131,11 +131,19 @@ public partial class UserControls_UCSubItemControl : System.Web.UI.UserControl
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         lblSelectedICD.Text = "";
+        int gender = 0;
+        Guid eventid = new Guid(Request.QueryString["DeadEventID"].ToString());
+        Dead dead = new Dead();
+        dead.LoadByPrimaryKey(eventid);
+        if (dead.DeadGender == 1)
+            gender = 2;
+        else
+            gender = 1;
         //ICDCODE9000 objICD = new ICDCODE9000();
         ICD10_MainDeathReason objICD = new ICD10_MainDeathReason();
         if (txtSearch.Text != "")
         {
-            DataTable dt = objICD.FilterICDcodes(txtSearch.Text.Trim());
+            DataTable dt = objICD.FilterICDcodes(txtSearch.Text.Trim(), gender);
 
             if (dt.Rows.Count > 0)
             {

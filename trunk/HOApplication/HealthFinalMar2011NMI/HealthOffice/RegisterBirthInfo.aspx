@@ -10,7 +10,7 @@
 <%@ Register Src="~/UserControls/DecisionControl.ascx" TagName="DecisionControl"
     TagPrefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-   <script language="javascript">
+   <script type="text/javascript">
        function EnableTextBoxesHealth(firstname, fatherName, nationalId) {
         
            var txtFirstName = document.getElementById(firstname);
@@ -314,8 +314,10 @@
                                                         meta:resourcekey="lblRecordNumberResource1"></asp:Label>
                                                 </td>
                                                 <td align="right">
+                                                    <asp:Label ID="uiLabelRecordNo" Font-Bold="True" runat="server" 
+                                                        meta:resourcekey="lblRecordNumberResource1"></asp:Label>
                                                     <asp:TextBox ID="txtRegestierNoList" runat="server" ReadOnly="True" 
-                                                        TabIndex="101" ></asp:TextBox>
+                                                        TabIndex="101" Visible="False"></asp:TextBox>
                                                         <asp:HiddenField runat="server" ID="drpRegestierNoList" />
                                                 </td>
                                             </tr>
@@ -357,10 +359,16 @@
                                         <asp:Label ID="lblBirthLocation" runat="server" Font-Underline="True" meta:resourcekey="lblBirthLocationResource1"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtBirthLocation" TabIndex="1" MaxLength="30" runat="server" meta:resourcekey="txtBirthLocationResource1"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txtBirthLocation" TabIndex="1" MaxLength="30" runat="server" meta:resourcekey="txtBirthLocationResource1"></asp:TextBox>--%>
+                                         <asp:DropDownList ID="txtBirthLocation" runat="server" Width="157px" meta:resourcekey="drpRelationResource1"
+                                            TabIndex="16">                                            
+                                            <asp:ListItem Text="ãäÒá" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="ãÓÊÔÝì" Value="2"></asp:ListItem>                                            
+                                            <asp:ListItem Text="ÇÎÑì" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
                                         <asp:RequiredFieldValidator SetFocusOnError="True" runat="server" Display="Dynamic"
                                             ValidationGroup="MedicalInfoValidate" ID="RequiredFieldValidator6" ControlToValidate="txtBirthLocation"
-                                            ErrorMessage="*"></asp:RequiredFieldValidator>
+                                            ErrorMessage="*" Enabled="false"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
                                     </td>
@@ -387,7 +395,7 @@
                                         </table>
                                     </td>
                                     <td>
-                                        <asp:Label ID="lblKilo" runat="server" meta:resourcekey="lblKiloResource1"></asp:Label>
+                                        <asp:Label ID="lblKilo" runat="server" meta:resourcekey="lblKiloResource1" Visible="false"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>

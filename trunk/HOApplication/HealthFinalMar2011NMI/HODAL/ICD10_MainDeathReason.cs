@@ -123,6 +123,14 @@ namespace MHO.DAL
 				}
 			}
 			
+			public static SqlParameter Gender
+			{
+				get
+				{
+					return new SqlParameter("@Gender", SqlDbType.SmallInt, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -132,6 +140,7 @@ namespace MHO.DAL
             public const string Code = "code";
             public const string Causename = "causename";
             public const string ID = "ID";
+            public const string Gender = "Gender";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -142,6 +151,7 @@ namespace MHO.DAL
 					ht[Code] = _ICD10_MainDeathReason.PropertyNames.Code;
 					ht[Causename] = _ICD10_MainDeathReason.PropertyNames.Causename;
 					ht[ID] = _ICD10_MainDeathReason.PropertyNames.ID;
+					ht[Gender] = _ICD10_MainDeathReason.PropertyNames.Gender;
 
 				}
 				return (string)ht[columnName];
@@ -157,6 +167,7 @@ namespace MHO.DAL
             public const string Code = "Code";
             public const string Causename = "Causename";
             public const string ID = "ID";
+            public const string Gender = "Gender";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -167,6 +178,7 @@ namespace MHO.DAL
 					ht[Code] = _ICD10_MainDeathReason.ColumnNames.Code;
 					ht[Causename] = _ICD10_MainDeathReason.ColumnNames.Causename;
 					ht[ID] = _ICD10_MainDeathReason.ColumnNames.ID;
+					ht[Gender] = _ICD10_MainDeathReason.ColumnNames.Gender;
 
 				}
 				return (string)ht[propertyName];
@@ -182,6 +194,7 @@ namespace MHO.DAL
             public const string Code = "s_Code";
             public const string Causename = "s_Causename";
             public const string ID = "s_ID";
+            public const string Gender = "s_Gender";
 
 		}
 		#endregion		
@@ -221,6 +234,18 @@ namespace MHO.DAL
 			set
 	        {
 				base.Setint(ColumnNames.ID, value);
+			}
+		}
+
+		public virtual short Gender
+	    {
+			get
+	        {
+				return base.Getshort(ColumnNames.Gender);
+			}
+			set
+	        {
+				base.Setshort(ColumnNames.Gender, value);
 			}
 		}
 
@@ -271,6 +296,21 @@ namespace MHO.DAL
 					this.SetColumnNull(ColumnNames.ID);
 				else
 					this.ID = base.SetintAsString(ColumnNames.ID, value);
+			}
+		}
+
+		public virtual string s_Gender
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Gender) ? string.Empty : base.GetshortAsString(ColumnNames.Gender);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Gender);
+				else
+					this.Gender = base.SetshortAsString(ColumnNames.Gender, value);
 			}
 		}
 
@@ -337,6 +377,16 @@ namespace MHO.DAL
 					}
 				}
 
+				public WhereParameter Gender
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Gender, Parameters.Gender);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -378,15 +428,29 @@ namespace MHO.DAL
 				}
 			}
 
+			public WhereParameter Gender
+		    {
+				get
+		        {
+					if(_Gender_W == null)
+	        	    {
+						_Gender_W = TearOff.Gender;
+					}
+					return _Gender_W;
+				}
+			}
+
 			private WhereParameter _Code_W = null;
 			private WhereParameter _Causename_W = null;
 			private WhereParameter _ID_W = null;
+			private WhereParameter _Gender_W = null;
 
 			public void WhereClauseReset()
 			{
 				_Code_W = null;
 				_Causename_W = null;
 				_ID_W = null;
+				_Gender_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -473,6 +537,16 @@ namespace MHO.DAL
 					}
 				}
 
+				public AggregateParameter Gender
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Gender, Parameters.Gender);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -514,15 +588,29 @@ namespace MHO.DAL
 				}
 			}
 
+			public AggregateParameter Gender
+		    {
+				get
+		        {
+					if(_Gender_W == null)
+	        	    {
+						_Gender_W = TearOff.Gender;
+					}
+					return _Gender_W;
+				}
+			}
+
 			private AggregateParameter _Code_W = null;
 			private AggregateParameter _Causename_W = null;
 			private AggregateParameter _ID_W = null;
+			private AggregateParameter _Gender_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_Code_W = null;
 				_Causename_W = null;
 				_ID_W = null;
+				_Gender_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -607,6 +695,10 @@ namespace MHO.DAL
 
 			p = cmd.Parameters.Add(Parameters.ID);
 			p.SourceColumn = ColumnNames.ID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Gender);
+			p.SourceColumn = ColumnNames.Gender;
 			p.SourceVersion = DataRowVersion.Current;
 
 

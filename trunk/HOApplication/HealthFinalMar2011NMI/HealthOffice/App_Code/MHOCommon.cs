@@ -282,13 +282,14 @@ public class MHOCommon
     {
         get
         {
-            if (HttpContext.Current.Application["tblGovernate"] == null)
-            {
+            //if (HttpContext.Current.Application["tblGovernate"] == null)
+            //{
                 GOVERNORATE gov = new GOVERNORATE();
                 gov.LoadAll();
-                HttpContext.Current.Application["tblGovernate"] = gov.DefaultView.Table;
-            }
-            return (DataTable)HttpContext.Current.Application["tblGovernate"];
+            //    HttpContext.Current.Application["tblGovernate"] = gov.DefaultView.Table;
+            //}
+            //return (DataTable)HttpContext.Current.Application["tblGovernate"];
+                return gov.DefaultView.Table;
         }
     }
 
@@ -300,13 +301,14 @@ public class MHOCommon
     {
         get
         {
-            if (HttpContext.Current.Application["tblPoliceStation"] == null)
-            {
+            //if (HttpContext.Current.Application["tblPoliceStation"] == null)
+            //{
                 POLICE_STATION pol = new POLICE_STATION();
                 pol.LoadAll();
-                HttpContext.Current.Application["tblPoliceStation"] = pol.DefaultView.Table;
-            }
-            return (DataTable)HttpContext.Current.Application["tblPoliceStation"];
+                //HttpContext.Current.Application["tblPoliceStation"] = pol.DefaultView.Table;
+            //}
+          //  return (DataTable)HttpContext.Current.Application["tblPoliceStation"];
+                return pol.DefaultView.Table;
         }
     }
 
@@ -318,13 +320,14 @@ public class MHOCommon
     {
         get
         {
-            if (HttpContext.Current.Application["tblAreas"] == null)
-            {
+            //if (HttpContext.Current.Application["tblAreas"] == null)
+            //{
                 AREA ar = new AREA();
                 ar.LoadAll();
-                HttpContext.Current.Application["tblAreas"] = ar.DefaultView.Table;
-            }
-            return (DataTable)HttpContext.Current.Application["tblAreas"];
+            //    HttpContext.Current.Application["tblAreas"] = ar.DefaultView.Table;
+            //}
+            //return (DataTable)HttpContext.Current.Application["tblAreas"];
+                return ar.DefaultView.Table;
         }
     }
 
@@ -688,7 +691,7 @@ public class MHOCommon
     /// </summary>
     /// <param name="NID">Reference for NationalID</param>
     /// <returns>Date Of Birth</returns>
-    public static DateTime GetDateFromNID(string nid)
+    public static DateTime? GetDateFromNID(string nid)
     {
         int century = Convert.ToInt32(nid.Substring(0, 1));
         int year = Convert.ToInt32(nid.Substring(1, 2));
@@ -701,7 +704,14 @@ public class MHOCommon
         else if(century == 3)
             yearValue = "20" + year.ToString();
 
-        return DateTime.Parse(yearValue + "-" + month.ToString() + "-" + day.ToString());
+        try
+        {
+            return DateTime.Parse(yearValue + "-" + month.ToString() + "-" + day.ToString());
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
     }
 
     public static void ClearCurrentSession()

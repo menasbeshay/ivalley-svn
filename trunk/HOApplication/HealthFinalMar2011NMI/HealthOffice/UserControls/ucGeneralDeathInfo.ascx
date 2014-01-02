@@ -446,9 +446,12 @@
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" SetFocusOnError="true"
                 ValidationGroup="GenralValidate" ID="RequiredFieldValidator2" ControlToValidate="txtDescriptionOfLocation"
                 ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="GenralValidate"
+                        ControlToValidate="txtDescriptionOfLocation" ErrorMessage="أقصى عدد حروف (50)" Display="Dynamic"
+                        ValidationExpression="^.{0,50}$"></asp:RegularExpressionValidator>
             &nbsp;</td>
     </tr>
-    <tr>
+    <tr style="display:none;">
         <td style="vertical-align: top" width="75px">
             &nbsp;</td>
         <td style="vertical-align: top" width="25%">

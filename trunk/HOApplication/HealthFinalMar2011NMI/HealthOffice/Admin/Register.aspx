@@ -24,7 +24,9 @@
                                                     <h3>
                                                    <center><b>«÷«›… „” Œœ„ ÃœÌœ</b><h3>
                                                        </h3>
-                                                    </h3></center>     
+                                                       <h3>
+                                                       </h3>
+                                                    </h3>     
                                                 </td>
                                             </tr>
                                             <tr>
@@ -52,7 +54,8 @@
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtqulification"
-                                                                    ErrorMessage="„ÿ·Ê»." ValidationGroup="CreateUserWizard1" meta:resourcekey="ConfirmPasswordRequiredResource1">*</asp:RequiredFieldValidator>
+                                                                    ErrorMessage="„ÿ·Ê»." ValidationGroup="CreateUserWizard1" 
+                                                                    meta:resourcekey="ConfirmPasswordRequiredResource1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -68,9 +71,11 @@
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPhoneNo"
-                                                                    ErrorMessage="„ÿ·Ê»." ValidationGroup="CreateUserWizard1" meta:resourcekey="ConfirmPasswordRequiredResource1">*</asp:RequiredFieldValidator>
+                                                                    ErrorMessage="„ÿ·Ê»." ValidationGroup="CreateUserWizard1" 
+                                                                    meta:resourcekey="ConfirmPasswordRequiredResource1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                 <asp:RegularExpressionValidator ID="exp" ValidationGroup="CreateUserWizard1" runat="server"
-                                                                    ControlToValidate="txtPhoneNo" ErrorMessage="«—ﬁ«„ ›ﬁÿ" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                                                                    ControlToValidate="txtPhoneNo" ErrorMessage="«—ﬁ«„ ›ﬁÿ" 
+                                                                    ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -148,7 +153,7 @@
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtFirstName"
                                                                     ErrorMessage="„ÿ·Ê»." meta:resourcekey="EmailRequiredResource1" ToolTip="Name is required."
-                                                                    ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                                                    ValidationGroup="CreateUserWizard1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -182,6 +187,10 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:TextBox ID="Email" runat="server" Width="140px" meta:resourcekey="EmailResource1"></asp:TextBox>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                                                    ControlToValidate="Email" ValidationGroup="CreateUserWizard1" 
+                                                                    ErrorMessage="«·»—Ìœ «·≈·ﬂ —Ê‰Ï €Ì— ’ÕÌÕ" Display="Dynamic" 
+                                                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                                             </td>
                                                             <td>
                                                             </td>
@@ -206,7 +215,7 @@
                                                     <asp:TextBox ID="UserName" Width="140px" runat="server" meta:resourcekey="UserNameResource1"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
                                                         ErrorMessage="„ÿ·Ê»." ToolTip="User Name is required." ValidationGroup="CreateUserWizard1"
-                                                        meta:resourcekey="UserNameRequiredResource1">*</asp:RequiredFieldValidator>
+                                                        meta:resourcekey="UserNameRequiredResource1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 </td>
                                                 <td align="right">
                                                     <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">«·—„“ «·”—Ì:</asp:Label>
@@ -220,7 +229,7 @@
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
                                                                     ErrorMessage="„ÿ·Ê»." ToolTip="Password is required." ValidationGroup="CreateUserWizard1"
-                                                                    meta:resourcekey="PasswordRequiredResource1">*</asp:RequiredFieldValidator>
+                                                                    meta:resourcekey="PasswordRequiredResource1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -238,7 +247,7 @@
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword"
                                                                     ErrorMessage="„ÿ·Ê»." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1"
-                                                                    meta:resourcekey="ConfirmPasswordRequiredResource1">*</asp:RequiredFieldValidator>
+                                                                    meta:resourcekey="ConfirmPasswordRequiredResource1" Display="Dynamic"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                     </table>

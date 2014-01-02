@@ -34,6 +34,10 @@
                         <asp:CompareValidator ID="CompareValidator1" Display="Dynamic"
                                         runat="server" ControlToValidate="txtPoliceCode" ErrorMessage="ÇÑÞÇã ÝÞØ"
                                          Operator="DataTypeCheck" Type="Integer" ></asp:CompareValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                            ControlToValidate="txtPoliceCode" Display="Dynamic" 
+                            ErrorMessage="ßæÏ ÇáÞÓã íÌÈ Çä íßæä ãä 1 - 3000" MaximumValue="3000" 
+                            MinimumValue="1" ValidationGroup="InsUpd" Type="Integer"></asp:RangeValidator>
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +61,7 @@
             </table>
             <div dir="rtl">
                 <asp:GridView runat="server" ID="grdGovernate" AutoGenerateColumns="false" AllowPaging="true"
-                    OnPageIndexChanging="grdGovernate_PageIndexChanging">
+                    OnPageIndexChanging="grdGovernate_PageIndexChanging" EmptyDataText="ÚÝæÇð áÇ ÊæÌÏ ÈíÇäÇÊ">
                     <Columns>
                         <asp:TemplateField HeaderText="ßæÏ ÇáÞÓã">
                             <ItemTemplate>

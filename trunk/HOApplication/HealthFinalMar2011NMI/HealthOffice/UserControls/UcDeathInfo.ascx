@@ -238,8 +238,11 @@
                                         ValidationGroup="GenralValidate" ID="RequiredFieldValidator7" ControlToValidate="txtBirthDate"
                                         ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                        ErrorMessage="*"  ValidationGroup="GenralValidate" ControlToValidate="txtBirthDate" Display="Dynamic" 
-                                        ValidationExpression="(19[0-9]{2}|[2][0-9][0-9]{2})[/](0?[1-9]|1[12])[/](0?[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
+                                        ErrorMessage="*"  ValidationGroup="GenralValidate" 
+                                        ControlToValidate="txtBirthDate" Display="Dynamic" 
+                                        
+                                        ValidationExpression="(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[12])[/](19[0-9]{2}|[2][0-9][0-9]{2})$" 
+                                        Enabled="False"></asp:RegularExpressionValidator>
                                     <asp:ImageButton runat="server" ID="btnCalender" ImageUrl="~/Images/calendar.gif"
                                         Height="20px" Width="20px" 
                                         OnClientClick="showCalendarControl(document.getElementById('ctl00_ContentPlaceHolderMain_UcDeathInfo2_txtBirthDate'));return false;" 
@@ -360,7 +363,7 @@
                                 <td>
                                     <asp:DropDownList ID="drpCardType" Width="155px" runat="server">
                                         <asp:ListItem Text="شخصية " Value="1"></asp:ListItem>
-                                        <asp:ListItem Text="عائلية" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="عائلية" Value="2"></asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>

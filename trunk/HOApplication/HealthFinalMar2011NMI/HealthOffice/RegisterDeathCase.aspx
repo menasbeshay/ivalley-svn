@@ -154,7 +154,10 @@
                                             meta:resourcekey="lblRegisterNumberResource1" Font-Bold="True"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtRecordNumber" Text="1" MaxLength="20" runat="server" ReadOnly="True"></asp:TextBox>
+                                        <asp:TextBox ID="txtRecordNumber" Text="1" MaxLength="20" runat="server" 
+                                            ReadOnly="True" Visible="False"></asp:TextBox>
+                                        <asp:Label ID="uiLabelRecordNo" runat="server" 
+                                            meta:resourcekey="lblRegisterNumberResource1" Font-Bold="True">1</asp:Label>
                                         <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate" ID="RequiredFieldValidator5" 
             ControlToValidate="txtRecordNumber" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
            <%-- <asp:CompareValidator ID="CompareValidator14" Display="Dynamic" ValidationGroup="GenralValidate"
@@ -174,7 +177,9 @@
                                             meta:resourcekey="lblRecordNumberResource1" Font-Bold="True"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtRegestierNoList" runat="server" ReadOnly="True"></asp:TextBox>
+                                        <asp:TextBox ID="txtRegestierNoList" runat="server" ReadOnly="True" Visible="false"></asp:TextBox>
+                                        <asp:Label ID="uiLabelRegisterNo" runat="server" 
+                                            meta:resourcekey="lblRecordNumberResource1" Font-Bold="True"></asp:Label>
                                         <asp:HiddenField ID="drpRegestierNoList" runat="server" />
                                     </td>
                                 </tr>

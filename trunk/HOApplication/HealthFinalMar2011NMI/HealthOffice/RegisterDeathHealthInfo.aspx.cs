@@ -199,8 +199,8 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         Dead dead = new Dead();
         if (dead.ApproveDeadInfo(ParmDeadEventID))
         {
-            Dead objDead = new Dead();
-            objDead.UpdateDeadDoctor(MHOCommon.CurrentLoggedUserID, ParmDeadEventID);
+           // Dead objDead = new Dead();
+            dead.UpdateDeadDoctor(MHOCommon.CurrentLoggedUserID, ParmDeadEventID);
             Response.Redirect("BornResult.aspx?ApproveDead=1&Medical=1&DeadEventID=" + ParmDeadEventID);
         }
         else

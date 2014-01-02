@@ -31,8 +31,7 @@
                         <tr>
                             <td>
                                 <div dir="ltr" align="right">
-                                    <asp:DropDownList ID="dropItem" AutoPostBack="true" Width="310px" runat="server"
-                                        OnSelectedIndexChanged="dropItem_SelectedIndexChanged">
+                                    <asp:DropDownList ID="dropItem" AutoPostBack="true" Width="310px" runat="server" CssClass="maxOption" onchange='ResetWidth(this)' onblur='ResetWidth(this)' onmousedown='SetWidthToAuto(this)' OnSelectedIndexChanged="dropItem_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                             </td>

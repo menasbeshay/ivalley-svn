@@ -309,7 +309,11 @@ public partial class UserControls_UcDeathInfo : System.Web.UI.UserControl
             {
                 if (Session["NationalID"].ToString() != "0" && Session["NationalID"].ToString() != "11111111111111")
                 {
-                    txtBirthDate.Text = MHOCommon.GetDateFromNID(Session["NationalID"].ToString()).ToString("yyyy/MM/dd");
+                    if (MHOCommon.GetDateFromNID(Session["NationalID"].ToString()) != null)
+                    {
+                        DateTime? date = MHOCommon.GetDateFromNID(Session["NationalID"].ToString());
+                        txtBirthDate.Text = date.Value.ToString("yyyy/MM/dd");
+                    }
                     updateDeathInfo.Update();
                 }
                 Session.Remove("NationalID");
@@ -474,7 +478,8 @@ public partial class UserControls_UcDeathInfo : System.Web.UI.UserControl
         if (!string.IsNullOrEmpty(txtNationalId.Text) && txtNationalId.Text != "0")
         {
             Session["NationalID"] = txtNationalId.Text;
-            txtBirthDate.Text = MHOCommon.GetDateFromNID(txtNationalId.Text).ToString("yyyy/MM/dd");
+            if(MHOCommon.GetDateFromNID(txtNationalId.Text) !=null)
+                txtBirthDate.Text = MHOCommon.GetDateFromNID(txtNationalId.Text).Value.ToString("yyyy/MM/dd");
         }
     }
 }
