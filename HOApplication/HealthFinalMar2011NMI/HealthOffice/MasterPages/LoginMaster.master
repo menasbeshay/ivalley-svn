@@ -52,7 +52,7 @@ window.onmouseup=right;
                    
                     <!-- content_right --->
                     <div id="content_middleLogin">
-                        <table dir="rtl" align="center">
+                        <table dir="rtl" align="center" style="padding-top:120px;">
                             <tr>
                                 <td align="center">
                                     <asp:Label ID="lblPageHeader" Font-Size="XX-Large" runat="server"></asp:Label>

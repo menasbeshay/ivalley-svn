@@ -326,7 +326,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                                                           UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                                                           UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName, DecisionControl1.DecisionNumber
                                                           , DecisionControl1.DecisionDirectionValue, DecisionControl1.DecisionDate.Value.ToShortDateString(), DecisionControl1.NotesValue,
-            rdTypeList.SelectedValue=="1"?true:false);
+            rdTypeList.SelectedValue == "1" ? true : false, UcNotifierInfo1.NotifierAddress);
         }
         else
         {
@@ -343,7 +343,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                                                           UcFatherInfo2.ProveNo, UcFatherInfo2.ProveType,
                                                           UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                                                           UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName, string.Empty
-                                                          , string.Empty, string.Empty, string.Empty,false);
+                                                          , string.Empty, string.Empty, string.Empty, false, UcNotifierInfo1.NotifierAddress);
         }
         
         UcNotifierInfo1.NotifierFName = UcNotifierInfo1.NotifierFName;
@@ -394,7 +394,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                       UcFatherInfo2.ProveType, UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                       UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName,
                       DecisionControl1.DecisionNumber, DecisionControl1.DecisionDirectionValue, DecisionControl1.DecisionDate.Value.ToShortDateString(), DecisionControl1.NotesValue
-                      , rdTypeList.SelectedValue == "1" ? true : false);
+                      , rdTypeList.SelectedValue == "1" ? true : false, UcNotifierInfo1.NotifierAddress);
             }
             else
             {
@@ -410,7 +410,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                       int.Parse(txtRecordNumber.Text), UcFatherInfo2.ProveNo,
                       UcFatherInfo2.ProveType, UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                       UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName,
-                     string.Empty, string.Empty, string.Empty, string.Empty,false);
+                     string.Empty, string.Empty, string.Empty, string.Empty, false, UcNotifierInfo1.NotifierAddress);
             }
 
         }
@@ -503,6 +503,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 UcNotifierInfo1.NotifierFatherName = born.InformerSecondName;
                 UcNotifierInfo1.NotifierphoneNo = born.InformerPhone;
                 UcNotifierInfo1.NotifierNID = born.InformerNID;
+                UcNotifierInfo1.NotifierAddress = born.InformerAddress;
                 txtRecordNumber.Text = born.RegisterNo.ToString();
                 drpRegestierNoList.Value = born.RegisterID.ToString();
                 // Load Register Name

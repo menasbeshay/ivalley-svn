@@ -281,6 +281,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
         {
             drpRegestierNoList.Value = objReg.RegisterID.ToString();
             txtRegestierNoList.Text = objReg.RegisterCode;
+            uiLabelRegisterNo.Text = objReg.RegisterCode;
         }
         else
         {
@@ -379,8 +380,9 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             ManualRegister obj = new ManualRegister();
             obj.LoadByPrimaryKey(new Guid(objDead.RegisterID.ToString()));
             txtRegestierNoList.Text = obj.RegisterCode;
-            
+            uiLabelRegisterNo.Text = obj.RegisterCode;
             txtRecordNumber.Text = objDead.RegisterNo.ToString();
+            uiLabelRecordNo.Text = objDead.RegisterNo.ToString();
             if (IsLostCase)
             {
               
@@ -487,7 +489,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
         objDead.InformerAddress = UcNotifierInfo2.NotifierAddress;
         //objDead.InformerAddress = UcNotifierInfo2.
         objDead.RegisterID = new Guid(drpRegestierNoList.Value);
-        objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);
+        //objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);
+        objDead.RegisterNo = Convert.ToInt32(uiLabelRecordNo.Text);
         objDead.RegisterDate = DateTime.Now.Date;
         objDead.Save();
        // Response.Redirect("ProcessResult.aspx");
@@ -582,7 +585,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
                 objDead.InformerAddress = UcNotifierInfo2.NotifierAddress;
                 //objDead.InformerAddress = UcNotifierInfo2.
                 objDead.RegisterID = new Guid(drpRegestierNoList.Value);
-                objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);
+                //objDead.RegisterNo = Convert.ToInt32(txtRecordNumber.Text);
+                objDead.RegisterNo = Convert.ToInt32(uiLabelRecordNo.Text);
                 objDead.Save();
             }
 
@@ -664,6 +668,28 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             }
         }
 
+
+        try
+        {
+            DateTime.Parse(UcDeathInfo2.EventDeadBirthDate.Trim());
+        }
+        catch (Exception ex)
+        {
+            MHOCommon.ShowMessage("خطأ فى تاريخ ميلاد المتوفى", this.Page);
+            return false;
+        }
+
+        try
+        {
+            DateTime.Parse(UcGeneralDeathInfo1.EventDeadDieDate);
+        }
+        catch (Exception ex)
+        {
+            MHOCommon.ShowMessage("خطأ فى تاريخ الوفاة", this.Page);
+            return false;
+        }
+
+
         #endregion
 
         if (!IsLostCase && DeadEventIDParameter == null)
@@ -706,6 +732,19 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             MHOCommon.ShowMessage("لقد قمت بادخال الرقم القومى للام فى بيانات المبلغ فى حين ان المبلغ هو الاخت", this.Page);
             return false;
         }
+        if ((UcMotherInfo2.ParentNID == UcNotifierInfo2.NotifierNID) && UcNotifierInfo2.NotifierRelation != 2)
+        {
+            MHOCommon.ShowMessage("لقد قمت بادخال الرقم القومى للام فى بيانات المبلغ فى حين ان المبلغ ليس الأم", this.Page);
+            return false;
+        }
+
+        
+        if ((DateTime.Now.Year - DateTime.Parse(UcDeathInfo2.EventDeadBirthDate).Year < 18 ) && UcDeathInfo2.EventDeadCardType == 2)
+        {
+            MHOCommon.ShowMessage("نوع البطاقة غير متوافق مع سن المتوفى", this.Page);
+            return false;
+        }
+        
         if (IsLostCase)
         {
             health_office objHealthOffice = new health_office();
@@ -754,6 +793,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
                     MHOCommon.ShowMessage("تاريخ ميلاد المتوفى غير صحيح", this.Page);
                     return false;
                 }
+               
 
                 if (DateTime.Today.AddDays(-1).Date <= DateTime.Parse(UcGeneralDeathInfo1.EventDeadDieDate))
                 {

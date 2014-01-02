@@ -117,7 +117,7 @@
      <td  align="right" >
                         <asp:Label ID="lblFamilyPhoneNo" runat="server" meta:resourcekey="lblFamilyPhoneNoResource1"></asp:Label>
                     </td>
-                    <td align="center">
+                    <td align="right">
                         <asp:TextBox ID="txtFamilyPhoneNo" MaxLength="50" runat="server" meta:resourcekey="txtFamilyPhoneNoResource1"></asp:TextBox>                       
                     </td>
        

@@ -493,7 +493,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                     break;
                 case 8://تقرير بعدد المواليد ذكور و إناث خلال فترة
 
-                    if ((govId != -1 || civilId != -1 || healthOfficeID != -1) && txtStartDate.Text != string.Empty && txtEndDate.Text != string.Empty)
+                    if (/*(govId != -1 || civilId != -1 || healthOfficeID != -1) &&*/ txtStartDate.Text != string.Empty && txtEndDate.Text != string.Empty)
                     {
                         if (govId != -1)
                         {
@@ -517,7 +517,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                     else
                     {
                         string message = "يجب ادخال " + "<br>";
-                        if (govId == -1)
+                       /* if (govId == -1)
                         {
                             lblGoves.BackColor = System.Drawing.Color.Red;
                             message += "المديرية الصحية" + "<br>";
@@ -531,7 +531,7 @@ public partial class Admin_Reports : System.Web.UI.Page
                         {
                             lblHealthOffice.BackColor = System.Drawing.Color.Red;
                             message += "مكتب الصحة" + "<br>";
-                        }
+                        }*/
                         if (txtStartDate.Text == string.Empty)
                         {
                             lblFrom.BackColor = System.Drawing.Color.Red;
@@ -1209,7 +1209,7 @@ public partial class Admin_Reports : System.Web.UI.Page
     }
     private bool LogicValidation()
     {
-        if (!string.IsNullOrEmpty(txtStartDate.Text) && string.IsNullOrEmpty(txtStartDate.Text))
+        if (!string.IsNullOrEmpty(txtStartDate.Text) && !string.IsNullOrEmpty(txtEndDate.Text))
         {
             DateTime startDate = Convert.ToDateTime(txtStartDate.Text);
             DateTime endDate = Convert.ToDateTime(txtEndDate.Text);

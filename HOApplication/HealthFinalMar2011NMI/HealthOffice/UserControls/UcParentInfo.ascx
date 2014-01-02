@@ -86,23 +86,24 @@
         </td>
     </tr>
 </table>
-<table dir="rtl" width="100%">
+<table dir="rtl" style="width:100%">
                 <tr>
-                    <td runat="server" id="NIDArea" style="display: block">
-                        <table>
+                    <td runat="server" id="NIDArea" style="display: block;width:100%;">
+                        <table style="width:100%">
                             <tr>
-                                <td style="padding-left:9px">
-                                    <asp:Label ID="lblNationalId" runat="server" meta:resourcekey="lblNationalIdResource1"></asp:Label>
-                                    <asp:TextBox ID="txtNationalId" MaxLength="14" runat="server" Width="150px" 
-                                        meta:resourcekey="txtNationalIdResource1"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtNationalId" 
-                                        ErrorMessage="أدخل رقم قومى صحيح" ValidationExpression="^([0])|(\d{14})$"></asp:RegularExpressionValidator>
+                                <td style="width:9%;">
+                                    <asp:Label ID="lblNationalId" runat="server" meta:resourcekey="lblNationalIdResource1"></asp:Label>                                    
                                 </td>
                                 
                                 <td>
+                                <asp:TextBox ID="txtNationalId" MaxLength="14" runat="server" Width="150px" 
+                                        meta:resourcekey="txtNationalIdResource1"></asp:TextBox>
+                                    
                                     <asp:Button ID="btnSearch" name="btnSearchParent" ValidationGroup="nationalId" 
                                         runat="server" Text="بحث"
                                         OnClick="btnSearch_Click" Width="35px" />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtNationalId" 
+                                        ErrorMessage="أدخل رقم قومى صحيح" ValidationExpression="^([0])|(\d{14})$" Display="Dynamic"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>
                                 <asp:UpdateProgress runat="server" AssociatedUpdatePanelID="updatePnlParents" DisplayAfter="1" ID="progParents">
@@ -118,135 +119,97 @@
                     <td runat="server" id="proveArea" style="display: none">
                         <table width="100%">
                             <tr>
-                                <td width="36%">
-                                    <table>
-                                        <tr>
-                                            <td style="padding-left:13px"> 
+                                <td style="width:9%">
+                                   
                                                 <asp:Label runat="server" ID="lblProveNo" Text="رقم الاثبات"></asp:Label>
-                                                <asp:TextBox runat="server" ID="txtProveNo" MaxLength="20"></asp:TextBox>
-                                            </td>
-                                            
-                                        </tr>
-                                    </table>
+                                                                                   
                                 </td>
-                                <td align="right">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <asp:Label runat="server" ID="Label1" Width="30px" Text="نوع الاثبات"></asp:Label>
+                                <td align="right" style="width:25%">
+                                <asp:TextBox runat="server" ID="txtProveNo" MaxLength="20"></asp:TextBox>
+                                </td>
+                                <td style="width:9%">
+                                    
+                                                <asp:Label runat="server" ID="Label1" Text="نوع الاثبات"></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:TextBox runat="server" ID="txtProveType" MaxLength="20"></asp:TextBox>
                                             </td>
-                                        </tr>
-                                    </table>
-                                </td>
+                                    
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>
-<table dir="rtl" width="100%">
+<table dir="rtl" style="width:100%">
     <tr>
-        <td width="62px">
-            <table width="12%">
-                <tr>
-                    <td>
-                        <asp:Label ID="lblParentName" Text="الاسم" runat="server"></asp:Label>
-                    </td>
-                    <td align="left">
-                        <asp:Label ID="lblFirstName" runat="server"  Text="الاول" meta:resourcekey="lblFirstNameResource1"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td>
+        <td style="width:6%;">            
+            <asp:Label ID="lblParentName" Text="الاسم" runat="server"></asp:Label>                                            
+            <asp:Label ID="lblFirstName" runat="server"  Text="الاول" meta:resourcekey="lblFirstNameResource1"></asp:Label>                   
+        </td>        
+        <td style="width:15%;text-align:right;">
             <asp:TextBox ID="txtFirstName" MaxLength="20" runat="server"  OnKeyPress="return lettersOnly(event);"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                 SetFocusOnError="true" ID="RequiredFieldValidator1" ControlToValidate="txtFirstName"
                 ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             
         </td>
-        <td>
-            <table>
-                <tr>
-                    <td width="18%">
-                        <asp:Label ID="lblFatherName" Text="الثاني" runat="server"> </asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtFatherName" MaxLength="20" runat="server" 
-                            meta:resourcekey="txtFatherNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
-                            ID="RequiredFieldValidator3" ControlToValidate="txtFatherName" ErrorMessage="*"
-                            SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
-                            
-                    </td>
-                </tr>
-            </table>
+        <td style="width:6%;">            
+            <asp:Label ID="lblFatherName" Text="الثاني" runat="server"> </asp:Label>
+       </td>
+      <td style="width:15%;text-align:right;">
+            <asp:TextBox ID="txtFatherName" MaxLength="20" runat="server" 
+                meta:resourcekey="txtFatherNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
+                ID="RequiredFieldValidator3" ControlToValidate="txtFatherName" ErrorMessage="*"
+                SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>                    
         </td>
-        <td>
-            <table>
-                <tr>
-                    <td width="18%">
-                        <asp:Label ID="lblFamilyName" Text="الثالث" runat="server"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtFamilyName" MaxLength="20" runat="server" 
-                            meta:resourcekey="txtFamilyNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
-                            ID="RequiredFieldValidator4" ControlToValidate="txtFamilyName" ErrorMessage="*"
-                            SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
-                             
-                    </td>
-                </tr>
-            </table>
+        <td style="width:6%;">
+            <asp:Label ID="lblFamilyName" Text="الثالث" runat="server"></asp:Label>            
+            </td>
+        <td style="width:15%;text-align:right;">
+            <asp:TextBox ID="txtFamilyName" MaxLength="20" runat="server" 
+                meta:resourcekey="txtFamilyNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
+                ID="RequiredFieldValidator4" ControlToValidate="txtFamilyName" ErrorMessage="*"
+                SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>                             
         </td>
     </tr>
     <tr>
-        <td align="left">
+        <td style="width:6%;">
             <asp:Label ID="lblSureName" runat="server">اللقب</asp:Label>
         </td>
-        <td>
+        <td style="width:15%;text-align:right;">
             <asp:TextBox ID="txtSureName" runat="server" MaxLength="20" meta:resourcekey="txtFamilyNameResource1" OnKeyPress="return lettersOnly(event);"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                 ID="RequiredFieldValidator2" ControlToValidate="txtSureName" ErrorMessage="*"
                 SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
                  
         </td>
-        <td>
-            <table>
-                <tr>
-                    <td width="18%">
+        <td style="width:6%;">
                         <asp:Label ID="lblReligion" runat="server" meta:resourcekey="lblReligionResource1"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="dropReligion" Width="155px" runat="server" meta:resourcekey="txtReligionResource1">
-                            <asp:ListItem Selected="True" Value="0">اختر الديانة</asp:ListItem>
-                            <asp:ListItem Value="1">مسلم</asp:ListItem>
-                            <asp:ListItem Value="2">مسيحى</asp:ListItem>
-                            <asp:ListItem Value="3">يهودى</asp:ListItem>
-                        </asp:DropDownList>
-                        <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
-                            SetFocusOnError="true" ControlToValidate="dropReligion" ID="RequiredFieldValidator5"
-                            InitialValue="0" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-            </table>
         </td>
-        <td>
-            <table>
-                <tr>
-                    <td width="18%">
-                        <asp:Label ID="lblPosition" runat="server" meta:resourcekey="lblPositionResource1"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
-                            SetFocusOnError="true" ID="RequiredFieldValidator6" ControlToValidate="txtPosition"
-                            ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-            </table>
+        <td style="width:15%;text-align:right;">
+            <asp:DropDownList ID="dropReligion" Width="155px" runat="server" meta:resourcekey="txtReligionResource1">
+                <asp:ListItem Selected="True" Value="0">اختر الديانة</asp:ListItem>
+                <asp:ListItem Value="1">مسلم</asp:ListItem>
+                <asp:ListItem Value="2">مسيحى</asp:ListItem>
+                <asp:ListItem Value="3">يهودى</asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
+                SetFocusOnError="true" ControlToValidate="dropReligion" ID="RequiredFieldValidator5"
+                InitialValue="0" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+        </td>
+        
+        <td style="width:6%;">           
+            <asp:Label ID="lblPosition" runat="server" meta:resourcekey="lblPositionResource1"></asp:Label>
+        </td>
+        
+        <td style="width:15%;text-align:right;">
+            <asp:TextBox ID="txtPosition" MaxLength="50" runat="server" meta:resourcekey="txtPositionResource1"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
+                SetFocusOnError="true" ID="RequiredFieldValidator6" ControlToValidate="txtPosition"
+                ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    
         </td>
     </tr>
 </table>

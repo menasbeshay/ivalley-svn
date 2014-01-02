@@ -7,6 +7,162 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ MasterType VirtualPath="~/MasterPages/MasterPage.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+        $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio][value=2]').attr('checked', true);
+        $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+        $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+
+        $("#<%= dropBirthOuput.ClientID %>").val('0');
+        $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "disabled");
+        $("#<%= txtBirthLocation.ClientID %>").val('0');
+        $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "disabled");
+        $("#<%= txtBirthOperator.ClientID %>").val('0');
+        $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "disabled");
+        $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+        $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
+
+        $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
+        $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+
+    });
+    
+    function SetWidthToAuto(drpLst) {
+        drpLst.style.width = 'auto';
+    }
+    
+    function ResetWidth(drpLst) {
+        drpLst.style.width = '310px';
+    }
+
+    $(document).ready(function () {
+        $(".RDL").change(function () { ValidateRB(this); });
+    });  
+
+    function ValidateRB(RBL) {
+        switch (RBL.id) {
+            case '<%= rdDeathThroughCarry.ClientID %>':
+                var selected = $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio]:checked').val();
+                if (selected == 1) {
+                    $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio][value=2]').attr('checked', true);
+                    $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+                    $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
+
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").val("");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").val("");
+                }
+                break;
+            case '<%= rdDeadThroughBirth.ClientID %>':
+                var selected = $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio]:checked').val();
+                if (selected == 1) {
+                    $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value=2]').attr('checked', true);
+                    $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+                    $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "");
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
+
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").val("");
+                }
+                else {
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").val("");
+                }
+                break;
+            case '<%= rdBirthPast6Weeks.ClientID %>':
+                var selected = $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio]:checked').val();
+                if (selected == 1) {
+                    $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio][value=2]').attr('checked', true);
+                    $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+                    $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "");
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
+
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").val("");
+                }
+                else {
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").val("");
+                }
+                break;
+            case '<%= rdAbortionPast6Weeks.ClientID %>':
+                var selected = $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio]:checked').val();
+                if (selected == 1) {
+                    $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio][value=2]').attr('checked', true);
+                    $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+                    $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+
+                    $("#<%= dropBirthOuput.ClientID %>").val('0');
+                    $("#<%= dropBirthOuput.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthLocation.ClientID %>").val('0');
+                    $("#<%= txtBirthLocation.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtBirthOperator.ClientID %>").val('0');
+                    $("#<%= txtBirthOperator.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "");
+
+                    $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= txtDate.ClientID %>").val("");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "");
+                }
+                else {
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").val('0');
+                    $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+                    $("#<%= uiTextBoxAbortionDate.ClientID %>").val("");
+                }
+                break;
+            default:
+                break;
+
+        }
+    }
+
+</script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
     <div id="DeathHealthContents" runat="server">
@@ -19,7 +175,7 @@
                                 <td width="10%" rowspan="5" style="vertical-align: top; padding-top: 40px;">
                                 <div style="border-left-style: solid; border-left-width: 2px; border-left-color: #000000;min-height:400px;padding:5px;">
                                      <asp:Label ID="Label21" runat="server" 
-                                Text=" ‰»ÌÂ Â«„ :<br /> «ﬂ » «·«„—«÷ Ê«·«’«»«  Ê«·„÷«⁄›«  «· Ì  ”»» «·Ê›«… Ê·«  ﬂ » Ê’› «·Ê›«… <br />(  Êﬁ› ﬁ·» ñ  Êﬁ› «· ‰›” ñ Â»Êÿ Õ«œ ›Ì «·œÊ—… «·œ„ÊÌ… Ê«· ‰›”Ì… )<br /> «ﬂ » ”»» Ê«Õœ." 
+                                Text=" ‰»ÌÂ Â«„ :<br /> ”Ã· «·«„—«÷ Ê«·«’«»«  Ê«·„÷«⁄›«  «· Ì  ”»» «·Ê›«… Ê·«  ”Ã· Ê’› «·Ê›«… <br />(  Êﬁ› ﬁ·» ñ  Êﬁ› «· ‰›” ñ Â»Êÿ Õ«œ ›Ì «·œÊ—… «·œ„ÊÌ… Ê«· ‰›”Ì… )." 
                                 Font-Bold="True" ></asp:Label>
                                 </div>
                                     </td>
@@ -395,10 +551,11 @@
                        
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label13" Text="Â· ﬂ«‰  «·„ Ê›«… Õ«„·ø" runat="server"></asp:Label>
+                                    <asp:Label ID="Label13" Text="Â· ﬂ«‰  «·„ Ê›«… Õ«„·ø" runat="server" 
+                                        Font-Bold="True"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList ID="rdDeathThroughCarry" RepeatDirection="Horizontal" runat="server">
+                                    <asp:RadioButtonList ID="rdDeathThroughCarry" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                         <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
                                         <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
@@ -411,10 +568,12 @@
                             
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label16" Text="Â· ÕœÀ  «·Ê›«… «À‰«¡ «·Ê·«œ…" runat="server"></asp:Label>
+                                    <asp:Label ID="Label16" Text="Â· ÕœÀ  «·Ê›«… «À‰«¡ «·Ê·«œ…" runat="server" 
+                                        Font-Bold="True"></asp:Label>
+                                    <br />(„‰ »œ«Ì… «·Ê·«œ… Õ Ï 24 ”«⁄… »⁄œ ‰Â«Ì… «·Ê·«œ…)
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList ID="rdDeadThroughBirth" RepeatDirection="Horizontal" runat="server">
+                                    <asp:RadioButtonList ID="rdDeadThroughBirth" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                        <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
                                         <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
@@ -427,11 +586,12 @@
                             
                             <tr>
                                 <td>
-                                    („‰ »œ«Ì… «·Ê·«œ… Õ Ï 24 ”«⁄… »⁄œ ‰Â«Ì… «·Ê·«œ…)<br />
-                                    <asp:Label ID="Label14" Text="Â· ÕœÀ  «·Ê›«… Œ·«· 42 ÌÊ„ »⁄œ «·Ê·«œ… ø" runat="server"></asp:Label>
+                                    
+                                    <asp:Label ID="Label14" Text="Â· ÕœÀ  «·Ê›«… Œ·«· 42 ÌÊ„ »⁄œ «·Ê·«œ… ø" 
+                                        runat="server" Font-Bold="True"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList ID="rdBirthPast6Weeks" RepeatDirection="Horizontal" runat="server">
+                                    <asp:RadioButtonList ID="rdBirthPast6Weeks" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                        <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
                                         <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
@@ -456,7 +616,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="dropBirthOuput" Width="155px" runat="server">
-                                        <asp:ListItem Text="«Œ —" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="«Œ —" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="„Ê·Êœ ÕÏ" Value="2"></asp:ListItem>
                                         <asp:ListItem Text="„Ê·Êœ „Ì " Value="3"></asp:ListItem>
                                     </asp:DropDownList>
@@ -467,21 +627,36 @@
                                     <asp:Label ID="Label18" Text="›Ì Õ«·… ‰⁄„ : „« ÂÊ „ﬂ«‰ «·Ê·«œÂ" runat="server"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtBirthLocation" runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="txtBirthLocation" runat="server" Width="157px" meta:resourcekey="drpRelationResource1"
+                                            TabIndex="16">
+                                            <asp:ListItem Text="------" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="„‰“·" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="„” ‘›Ï" Value="2"></asp:ListItem>                                            
+                                            <asp:ListItem Text="«Œ—Ï" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:Label ID="Label20" Text="«·ﬁ«∆„ »«·Ê·«œ…" runat="server"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtBirthOperator" runat="server"></asp:TextBox>
+                                     <asp:DropDownList ID="txtBirthOperator" runat="server" Width="157px" meta:resourcekey="drpRelationResource1"
+                                            TabIndex="16">
+                                            <asp:ListItem Text="------" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="ÿ»Ì»" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="„„—÷…" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="œ«Ì…" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="«Œ—Ï" Value="4"></asp:ListItem>
+                                        </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label15" Text="Â· ÕœÀ  «·Ê›«… √À‰«¡ √Ê Œ·«· 42 ÌÊ„ »⁄œ «·≈ÃÂ«÷ ø" runat="server"></asp:Label>
+                                    <asp:Label ID="Label15" 
+                                        Text="Â· ÕœÀ  «·Ê›«… √À‰«¡ √Ê Œ·«· 42 ÌÊ„ »⁄œ «·≈ÃÂ«÷ ø" runat="server" 
+                                        Font-Bold="True"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList ID="rdAbortionPast6Weeks" RepeatDirection="Horizontal" runat="server">
+                                    <asp:RadioButtonList ID="rdAbortionPast6Weeks" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                         <asp:ListItem Text="‰⁄„" Value="1"></asp:ListItem>
                                         <asp:ListItem Selected="True" Text="·«" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
@@ -505,7 +680,13 @@
                                     <asp:Label ID="Label23" Text="„ﬂ«‰ «·≈ÃÂ«÷" runat="server"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="uiTextBoxAbortionPlace" runat="server"></asp:TextBox>
+                                    <asp:DropDownList ID="uiTextBoxAbortionPlace" runat="server" Width="157px" meta:resourcekey="drpRelationResource1"
+                                            TabIndex="16">
+                                            <asp:ListItem Text="------" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="„‰“·" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="„” ‘›Ï" Value="2"></asp:ListItem>                                            
+                                            <asp:ListItem Text="«Œ—Ï" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
                                 </td>
                             </tr>
                             

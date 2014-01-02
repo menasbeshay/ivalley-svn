@@ -130,7 +130,7 @@
     <value />
   </data>
   <data name="lblDescriptionOfLocationResource1.Text" xml:space="preserve">
-    <value>وصف مكان الوفاة</value>
+    <value>عنوان مكان الوفاة</value>
   </data>
   <data name="lblDescriptionOfLocationResource1.ToolTip" xml:space="preserve">
     <value />

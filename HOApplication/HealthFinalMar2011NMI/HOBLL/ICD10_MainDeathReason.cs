@@ -15,7 +15,7 @@ namespace MHO.BLL
 		
 		}
 
-        public DataTable FilterICDcodes(string initText)
+        public DataTable FilterICDcodes(string initText, int gender)
         {
             try
             {
@@ -33,6 +33,7 @@ namespace MHO.BLL
                 SqlDataReader searchResult = null;
                 ListDictionary parm = new ListDictionary();
                 parm.Add("@initText", initText);
+                parm.Add("@gender", gender);
                 searchResult = LoadFromSqlReader("Mho_Gui_GetICDSubcode", parm) as SqlDataReader;
                 DataTable ResultTable = new DataTable();
                 newAdapter da = new newAdapter();

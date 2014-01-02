@@ -6,8 +6,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
-    <asp:UpdatePanel runat="server" ID="updPanelGov">
-        <ContentTemplate>
+    <%--<asp:UpdatePanel runat="server" ID="updPanelGov">
+        <ContentTemplate>--%>
             <table dir="rtl" cellpadding="5">
                 <tr>
                     <td>
@@ -54,7 +54,7 @@
             </table>
             <div dir="rtl">
                 <asp:GridView runat="server" ID="grdGovernate" AutoGenerateColumns="false" AllowPaging="true"
-                    OnPageIndexChanging="grdGovernate_PageIndexChanging">
+                    OnPageIndexChanging="grdGovernate_PageIndexChanging" EmptyDataText="ÚÝæÇð áÇ íæÌÏ ÈíÇäÇÊ" EnableViewState="false">
                     <Columns>
                         <asp:TemplateField HeaderText="ßæÏ ÇáÞÓã">
                             <ItemTemplate>
@@ -73,6 +73,6 @@
                     </Columns>
                 </asp:GridView>
             </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+     <%--   </ContentTemplate>
+    </asp:UpdatePanel>--%>
 </asp:Content>

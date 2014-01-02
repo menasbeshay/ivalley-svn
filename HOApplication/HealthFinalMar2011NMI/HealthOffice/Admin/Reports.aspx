@@ -59,6 +59,10 @@ CodeFile="Reports.aspx.cs" Inherits="Admin_Reports" %>
                     <ajaxtoolkit:calendarextender CssClass="custom-calendar" Format="yyyy/MM/dd" TargetControlID="txtStartDate"
                         ID="calenderStartDate" runat="server">
                     </ajaxtoolkit:calendarextender>
+                    <asp:RegularExpressionValidator ID="regexpName" runat="server"     
+                                ErrorMessage="ÇáÊÇÑíÎ ÛíÑ ÕÍíÍ." 
+                                ControlToValidate="txtStartDate"     
+                                ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" />
                 </td>
             </tr>
             <tr runat="server" id="guiToArea" style="display:none">
@@ -70,6 +74,10 @@ CodeFile="Reports.aspx.cs" Inherits="Admin_Reports" %>
                     <ajaxtoolkit:calendarextender CssClass="custom-calendar" Format="yyyy/MM/dd" TargetControlID="txtEndDate"
                         ID="calenderEndDate" runat="server">
                     </ajaxtoolkit:calendarextender>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"     
+                                ErrorMessage="ÇáÊÇÑíÎ ÛíÑ ÕÍíÍ." 
+                                ControlToValidate="txtEndDate"     
+                                ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" />
                 </td>
             </tr>
             <tr runat="server" id="guiYearArea" style="display:block">

@@ -10,6 +10,7 @@ using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Render;
 using MHO.BLL;
 using System.IO;
+using System.Threading;
 using System.Text;
 
 public partial class HealthReports_Viewer_Images : System.Web.UI.Page
@@ -18,6 +19,8 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
     {
         bool dead = false;
         bool born = false;
+        ReaderWriterLockSlim cacheLock = new ReaderWriterLockSlim();
+        string generatedpath = "";
         string Image = Request.QueryString["Image"];
         if (Image == null)
         {
@@ -143,10 +146,16 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
                 MemoryStream ms = new MemoryStream();
                 gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Bmp, ms);
 
-                FileStream file = new FileStream(MapPath("~/qrs/" + Image+ Session.SessionID + ".bmp"), FileMode.Create, FileAccess.Write, FileShare.None);
+                //FileStream file = new FileStream(MapPath("~/qrs/" + Image+ Session.SessionID + ".bmp"), FileMode.Create, FileAccess.Write, FileShare.None);
+                generatedpath = "D:\\qrs\\" + Image + Guid.NewGuid().ToString() + ".bmp";
+                FileStream file = new FileStream(generatedpath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
                 ms.WriteTo(file);
                 file.Flush();
                 file.Close();
+                ms.Close();
+                file.Dispose();
+                ms.Dispose();
+                Thread.Sleep(3000);
             }
 
         }
@@ -274,10 +283,16 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
                 MemoryStream ms = new MemoryStream();
                 gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Bmp, ms);
 
-                FileStream file = new FileStream(MapPath("~/qrs/" + Image + Session.SessionID + ".bmp"), FileMode.Create, FileAccess.Write, FileShare.None);
+                //FileStream file = new FileStream(MapPath("~/qrs/" + Image + Session.SessionID + ".bmp"), FileMode.Create, FileAccess.Write, FileShare.None);
+                generatedpath = "D:\\qrs\\" + Image + Guid.NewGuid().ToString() + ".bmp";
+                FileStream file = new FileStream(generatedpath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
                 ms.WriteTo(file);
                 file.Flush();
                 file.Close();
+                ms.Close();
+                file.Dispose();
+                ms.Dispose();
+                Thread.Sleep(3000);    
             }
         }
 
@@ -288,7 +303,8 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
         if (sSize != null)
             Size = Int32.Parse(sSize);
 
-        string Path = Server.MapPath(Request.ApplicationPath) + "\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
+        //string Path = Server.MapPath(Request.ApplicationPath) + "\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
+        string Path = generatedpath; //"D:\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
         //Bitmap bmp = CreateThumbnail(Path, 130, 127);
         System.Drawing.Image bmp;
         if (Request.QueryString["Inner"] != null)
@@ -351,7 +367,7 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
         Response.ClearContent();
         Response.ClearHeaders();
         Response.Charset = string.Empty;
-         Response.ContentType = "image/bmp";
+        Response.ContentType = "image/bmp";
 
         bmp.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Bmp);
         bmp.Dispose();
@@ -484,7 +500,8 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
+                //return null;
             }
         }
         return null;

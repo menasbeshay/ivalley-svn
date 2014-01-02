@@ -1,7 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="MasterPages_Admin" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
+<!DOCTYPE html >
+<html>
 <head runat="server">
     <title>ربط مكاتب الصحة</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -9,7 +10,7 @@
     <link rel="Stylesheet" type="text/css" href="../Style/CSSAdapters.css" />
     <link rel="Stylesheet" type="text/css" href="../Style/MainStyle.css" />
 
-    <script language="JavaScript1.1">
+    <!--script language="JavaScript1.1">
 function right(e) {
 if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2))
 return false;
@@ -27,8 +28,8 @@ if (document.layers) window.captureEvents(Event.MOUSEDOWN);
 if (document.layers) window.captureEvents(Event.MOUSEUP);
 window.onmousedown=right;
 window.onmouseup=right;
-//  End -->
-    </script>
+//  End >
+    </script-->
 
 </head>
 <body>
@@ -110,8 +111,8 @@ window.onmouseup=right;
             </div>
             <!-- container --->
         </div>
-        <!-- wrapper  
- --->
+        </div>
+        <!-- wrapper --->
     </form>
 </body>
 </html>

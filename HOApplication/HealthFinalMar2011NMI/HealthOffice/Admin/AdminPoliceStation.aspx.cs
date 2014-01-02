@@ -86,7 +86,10 @@ public partial class AdminPoliceStation : System.Web.UI.Page
         obj.Where.GoveID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
         obj.Query.AddOrderBy(V_Police_Gove.ColumnNames.PoliceName, MyGeneration.dOOdads.WhereParameter.Dir.ASC);
         obj.Query.Load();
-        grdGovernate.DataSource = obj.DefaultView;
+        if (obj.RowCount > 0)
+            grdGovernate.DataSource = obj.DefaultView;
+        else
+            grdGovernate.DataSource = null;
         grdGovernate.DataBind();
     }
 

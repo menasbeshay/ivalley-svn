@@ -406,7 +406,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                                                           UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                                                           UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName, DecisionControl1.DecisionNumber
                                                           , DecisionControl1.DecisionDirectionValue, DecisionControl1.DecisionDate.Value.ToShortDateString(), DecisionControl1.NotesValue,
-            rdTypeList.SelectedValue=="1"?true:false);
+            rdTypeList.SelectedValue=="1"?true:false,UcNotifierInfo1.NotifierAddress);
         }
         else
         {
@@ -423,7 +423,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                                                           UcFatherInfo2.ProveNo, UcFatherInfo2.ProveType,
                                                           UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                                                           UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName, string.Empty
-                                                          , string.Empty, string.Empty, string.Empty,false);
+                                                          , string.Empty, string.Empty, string.Empty, false, UcNotifierInfo1.NotifierAddress);
         }
         btnSaveBornInfo.Text = "تعديل بيانات الميلاد";
         TabPanelHealthData.Enabled = true;
@@ -477,7 +477,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                       UcFatherInfo2.ProveType, UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                       UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName,
                       DecisionControl1.DecisionNumber, DecisionControl1.DecisionDirectionValue, DecisionControl1.DecisionDate.Value.ToShortDateString(), DecisionControl1.NotesValue
-                      , rdTypeList.SelectedValue == "1" ? true : false);
+                      , rdTypeList.SelectedValue == "1" ? true : false, UcNotifierInfo1.NotifierAddress);
             }
             else
             {
@@ -493,7 +493,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                       int.Parse(txtRecordNumber.Text), UcFatherInfo2.ProveNo,
                       UcFatherInfo2.ProveType, UcMotherInfo2.ProveNo, UcMotherInfo2.ProveType,
                       UcMotherInfo2.ParentSureName, UcFatherInfo2.ParentSureName,
-                     string.Empty, string.Empty, string.Empty, string.Empty,false);
+                     string.Empty, string.Empty, string.Empty, string.Empty, false, UcNotifierInfo1.NotifierAddress);
             }
 
         }
@@ -544,6 +544,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 // load Born Basic Data
                 UcBornInfo1.EventChildName = born.BornName;
                 UcBornInfo1.EventChildGender = born.BornGender;
+                UcBornInfo1.EventBirthDate = born.BirthDate;
                 UcBornInfo1.Month = born.BirthDate.Month.ToString();
                 UcBornInfo1.Year = born.BirthDate.Year.ToString();
                 UcBornInfo1.Day = born.BirthDate.Day.ToString();
@@ -587,6 +588,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 UcNotifierInfo1.NotifierFName = born.InformerFirstName;
                 UcNotifierInfo1.NotifierFatherName = born.InformerSecondName;
                 UcNotifierInfo1.NotifierphoneNo = born.InformerPhone;
+                UcNotifierInfo1.NotifierAddress = born.InformerAddress;
                 UcNotifierInfo1.NotifierNID = born.InformerNID;
                 txtRecordNumber.Text = born.RegisterNo.ToString();
                 lblRecordNumberValue.Text = born.RegisterNo.ToString();
@@ -595,7 +597,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
                 ManualRegister obj = new ManualRegister();
                 obj.LoadByPrimaryKey(new Guid(born.RegisterID.ToString()));
                 txtRegestierNoList.Text = obj.RegisterCode;
-                
+                uiLabelRecordNo.Text = obj.RegisterCode;
 
                 BornUniqueValues objUnique = new BornUniqueValues();
                 objUnique.BirthDateTime = born.BirthDate.ToString();
@@ -688,7 +690,8 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
         if (objReg.Query.Load())
         {
             drpRegestierNoList.Value = objReg.RegisterID.ToString();
-            txtRegestierNoList.Text = objReg.RegisterCode;            
+            txtRegestierNoList.Text = objReg.RegisterCode;
+            uiLabelRecordNo.Text = objReg.RegisterCode;
         }
         else
         {
@@ -710,7 +713,13 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
             return false;
         }
 
-        if (!MHOCommon.ValidateNationalIDInput(UcFatherInfo2.ParentNID, false))
+        if (UcNotifierInfo1.NotifierNID == "0")
+        {
+            MHOCommon.ShowMessage("الرقم القومى للمبلغ غير صحيح", this.Page);
+            return false;
+        }
+
+     /*   if (!MHOCommon.ValidateNationalIDInput(UcFatherInfo2.ParentNID, false))
         {
             MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
             return false;
@@ -720,11 +729,11 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
         {
             MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
             return false;
-        }
+        }*/
 
         if (UcMotherInfo2.ParentNID == "0")
         {
-            MHOCommon.ShowMessage("الرقم القومى للأب غير صحيح", this.Page);
+            MHOCommon.ShowMessage("الرقم القومى للأم غير صحيح", this.Page);
             return false;
         }   
 

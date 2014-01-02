@@ -26,7 +26,7 @@ namespace MHO.BLL
             string infPhone, string infNID,Guid registerId, int registerNo,
             string _fatherProveNo,string _fatherProveType,
             string _motherProveNo, string _motherProveType, string _mothSureName, string _fathSureName
-            , string bornDecisionNo, string bornDecisionDirection, string bornDecisionDate, string bornDecisionNotes,bool isFound)
+            , string bornDecisionNo, string bornDecisionDirection, string bornDecisionDate, string bornDecisionNotes,bool isFound, string infAddress)
         {
             
             this.LoadByPrimaryKey(bornEventIdParameter);
@@ -62,6 +62,7 @@ namespace MHO.BLL
             this.InformerFirstName = infFirstName;
             this.InformerSecondName = infSecondName;
             this.InformerPhone = infPhone;
+            this.InformerAddress = infAddress;
             this.RegisterID = registerId;
             IsFound = isFound;
             if (bornDecisionNo != string.Empty)
@@ -94,7 +95,7 @@ namespace MHO.BLL
             string infSecondName, string infPhone, string infNID, 
             Guid registerId, int registerNo,string _fatherProveNo,
             string _fatherProveType,string _motherProveNo, string _motherProveType,string _mothSureName,string _fathSureName
-            ,string bornDecisionNo,string bornDecisionDirection,string bornDecisionDate,string bornDecisionNotes,bool isFound)
+            ,string bornDecisionNo,string bornDecisionDirection,string bornDecisionDate,string bornDecisionNotes,bool isFound,string infAddress)
         {
             AddNew();
             BornEventID = Guid.NewGuid();
@@ -129,6 +130,7 @@ namespace MHO.BLL
             InformerRelation = infRelation;
             InformerFirstName = infFirstName;
             InformerSecondName = infSecondName;
+            InformerAddress = infAddress;
             InformerPhone = infPhone;
             RegisterID = registerId;
             RegisterNo = 0;
