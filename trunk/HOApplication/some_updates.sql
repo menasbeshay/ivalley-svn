@@ -68,3 +68,8 @@ GO
 ALTER TABLE dbo.DeadMedicalInfo
 Alter column CauseOfDeathNotRelatedBPeriod char(10) NULL  
 GO
+
+
+ALTER TABLE dbo.Born
+ADD InformerAddress nvarchar(400) NULL  
+GO
