@@ -19,6 +19,14 @@ using Microsoft.Web.Services3;
 using Microsoft.Web.Services3.Design;
 using Microsoft.Web.Services3.Security.Tokens;
 using System.ServiceModel;
+using Gma.QrCodeNet.Encoding.Windows.Render;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
+using Gma.QrCodeNet.Encoding;
+using System.Text;
+using System.Data.SqlClient;
+
 
 
 /// <summary>
@@ -725,6 +733,291 @@ public class MHOCommon
         HttpContext.Current.Session["CurrentOrgPoliceStationName"] = null;
         HttpContext.Current.Session["CurrentOrgAreaID"] = null;
 
+    }
+
+
+    public static void WriteQrsDead(Guid DeadEventID)
+    {
+        Dead deadCase = new Dead();
+        deadCase.LoadByPrimaryKey(DeadEventID);
+        MHO.BLL.AREA area = new AREA();
+        area.LoadByPrimaryKey(deadCase.DeadArea);
+        MHO.BLL.POLICE_STATION ps = new POLICE_STATION();
+        ps.LoadByPrimaryKey(deadCase.DeadSection);
+        MHO.BLL.health_office ho = new health_office();
+        ho.LoadByPrimaryKey(deadCase.OrgID);
+
+        NATIONALITY MotherNath = new NATIONALITY();
+        MotherNath.LoadByPrimaryKey(deadCase.DeadMotherNationality);
+        string gender = (deadCase.DeadGender == 1) ? "ذكر " : "أنثى";
+        string deadMartialStatus = "اعزب", deadReligion = "مسلم", motherReligion = "مسلم", InformRelation = "الأب";
+
+        switch (deadCase.DeadMartialStatus)
+        {
+            case 1:
+                deadMartialStatus = "اعزب";
+                break;
+            case 2:
+                deadMartialStatus = "متزوج";
+                break;
+            case 3:
+                deadMartialStatus = "مطلق";
+                break;
+            case 4:
+                deadMartialStatus = "أرمل";
+                break;
+        }
+        switch (deadCase.DeadMotherReligion)
+        {
+            case 1:
+                motherReligion = "مسلم";
+                break;
+            case 2:
+                motherReligion = "مسيحى";
+                break;
+            case 3:
+                motherReligion = "يهودى";
+                break;
+        }
+
+        switch (deadCase.DeadReligion)
+        {
+            case 1:
+                deadReligion = "مسلم";
+                break;
+            case 2:
+                deadReligion = "مسيحى";
+                break;
+            case 3:
+                deadReligion = "يهودى";
+                break;
+        }
+
+        switch (deadCase.InformerRelation)
+        {
+            case 1:
+                InformRelation = "الاب";
+                break;
+            case 2:
+                InformRelation = "الام";
+                break;
+            case 3:
+                InformRelation = "الاخ";
+                break;
+            case 4:
+                InformRelation = "الاخت";
+                break;
+            case 5:
+                InformRelation = "العم";
+                break;
+            case 6:
+                InformRelation = "الخال";
+                break;
+            case 7:
+                InformRelation = "الجد";
+                break;
+            case 8:
+                InformRelation = "اخري";
+                break;
+            case 9:
+                InformRelation = "الابن";
+                break;
+            case 10:
+                InformRelation = "الابنة";
+                break;
+        }
+        if (deadCase.RowCount > 0)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);
+            QrCode qrCode;
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(deadCase.DeadNID);
+            builder.AppendLine("," + deadCase.DeadFirstName + " " + deadCase.DeadFatherName + " " + deadCase.DeadGrandName + " " + deadCase.DeadFamilyName);
+            builder.AppendLine("," + deadCase.DeadBirthDate.ToShortDateString());
+            builder.AppendLine("," + deadReligion);
+            builder.AppendLine("," + deadMartialStatus);
+            builder.AppendLine("," + gender);
+            builder.AppendLine("," + deadCase.AddressNo + "," + deadCase.AddressStreet + "," + deadCase.AddressFeatured);
+            builder.AppendLine("," + ps.DESCR);
+            builder.AppendLine("," + area.DESCR);
+            builder.AppendLine("," + deadCase.DeadDieDate.ToShortDateString() + " - " + deadCase.DeadDieHour + ":" + deadCase.DeadDieMin);
+            builder.AppendLine("," + deadCase.DiePlace + "," + deadCase.DiePlaceDescription);
+            builder.AppendLine("," + deadCase.DeadMotherFirstName + " " + deadCase.DeadMotherSecondName + " " + deadCase.DeadMotherFamilyName + " " + deadCase.DaadMotherSureName);
+            builder.AppendLine("," + MotherNath.DESCR);
+            builder.AppendLine("," + motherReligion);
+            builder.AppendLine("," + deadCase.DeadMotherJob);
+            builder.AppendLine("," + deadCase.DeadMotherNID);
+            builder.AppendLine("," + deadCase.InformerFirstName + " " + deadCase.InformerSecondName);
+            builder.AppendLine("," + InformRelation);
+            builder.AppendLine("," + deadCase.InformerNID);
+            builder.AppendLine("," + deadCase.InformerPhone);
+            encoder.TryEncode(builder.ToString(), out qrCode);
+
+            GraphicsRenderer gRenderer = new GraphicsRenderer(
+            new FixedModuleSize(2, QuietZoneModules.Zero),
+            Brushes.Black, Brushes.White);
+
+            MemoryStream ms = new MemoryStream();
+            gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Bmp, ms);
+
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["dbConnection"].ToString());
+                cmd.CommandText = "insert into QRSDead (ID,QrCode) values  (@ID,@Picture)";
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.UniqueIdentifier);
+                cmd.Parameters.Add("@Picture", System.Data.SqlDbType.VarBinary);
+                cmd.Connection = conn;
+                cmd.Parameters["@ID"].Value = DeadEventID;
+                cmd.Parameters["@Picture"].Value = ms.ToArray();
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+    }
+
+    public static void WriteQrsBorn(Guid BornEventID)
+    {
+        Born bornCase = new Born();
+        bornCase.LoadByPrimaryKey(BornEventID);
+        MHO.BLL.AREA area = new AREA();
+        area.LoadByPrimaryKey(bornCase.BornArea);
+        MHO.BLL.POLICE_STATION ps = new POLICE_STATION();
+        ps.LoadByPrimaryKey(bornCase.BornSection);
+        MHO.BLL.health_office ho = new health_office();
+        ho.LoadByPrimaryKey(bornCase.OrgID);
+        NATIONALITY FatherNath = new NATIONALITY();
+        FatherNath.LoadByPrimaryKey(bornCase.FatherNationality);
+        NATIONALITY MotherNath = new NATIONALITY();
+        MotherNath.LoadByPrimaryKey(bornCase.MotherNationality);
+        string gender = (bornCase.BornGender == 1) ? "ذكر " : "أنثى";
+        string fatherReligion = "مسلم", motherReligion = "مسلم", InformRelation = "الأب";
+        switch (bornCase.FatherReligion)
+        {
+            case 1:
+                fatherReligion = "مسلم";
+                break;
+            case 2:
+                fatherReligion = "مسيحى";
+                break;
+            case 3:
+                fatherReligion = "يهودى";
+                break;
+
+        }
+
+        switch (bornCase.MotherReligion)
+        {
+            case 1:
+                motherReligion = "مسلم";
+                break;
+            case 2:
+                motherReligion = "مسيحى";
+                break;
+            case 3:
+                motherReligion = "يهودى";
+                break;
+        }
+
+        switch (bornCase.InformerRelation)
+        {
+            case 1:
+                InformRelation = "الاب";
+                break;
+            case 2:
+                InformRelation = "الام";
+                break;
+            case 3:
+                InformRelation = "الاخ";
+                break;
+            case 4:
+                InformRelation = "الاخت";
+                break;
+            case 5:
+                InformRelation = "العم";
+                break;
+            case 6:
+                InformRelation = "الخال";
+                break;
+            case 7:
+                InformRelation = "الجد";
+                break;
+            case 8:
+                InformRelation = "اخري";
+                break;
+            case 9:
+                InformRelation = "الابن";
+                break;
+            case 10:
+                InformRelation = "الابنة";
+                break;
+        }
+        if (bornCase.RowCount > 0)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);
+            QrCode qrCode;
+            StringBuilder builder = new StringBuilder();
+
+            builder.AppendLine(bornCase.BornName + " " + bornCase.FirstFatherName + " " + bornCase.SecondFatherName + " " + bornCase.FatherSureName);
+            builder.AppendLine("," + ps.DESCR);
+            builder.AppendLine("," + area.DESCR);
+            builder.AppendLine("," + gender);
+            builder.AppendLine("," + bornCase.BirthDate.ToShortDateString() + " " + bornCase.BirthDate.Minute.ToString() + ":" + bornCase.BirthDate.Hour.ToString());
+            builder.AppendLine("," + bornCase.FirstFatherName + " " + bornCase.SecondFatherName + " " + bornCase.FamilyFatherName + " " + bornCase.FatherSureName);
+            builder.AppendLine("," + FatherNath.DESCR);
+            builder.AppendLine("," + fatherReligion);
+            builder.AppendLine(",");
+            builder.AppendLine("," + bornCase.FatherJob);
+            builder.AppendLine("," + bornCase.FatherNID);
+            builder.AppendLine("," + bornCase.FirstMotherName + " " + bornCase.SecondMotherName + " " + bornCase.FamilyMotherName + " " + bornCase.MotherSureName);
+            builder.AppendLine("," + MotherNath.DESCR);
+            builder.AppendLine("," + motherReligion);
+            builder.AppendLine(",");
+            builder.AppendLine("," + bornCase.MotherJob);
+            builder.AppendLine("," + bornCase.MotherNID);
+            builder.AppendLine("," + bornCase.InformerFirstName + " " + bornCase.InformerSecondName);
+            builder.AppendLine("," + InformRelation);
+            builder.AppendLine("," + bornCase.InformerNID);
+            builder.AppendLine("," + bornCase.InformerPhone);
+            encoder.TryEncode(builder.ToString(), out qrCode);
+
+            GraphicsRenderer gRenderer = new GraphicsRenderer(
+             new FixedModuleSize(2, QuietZoneModules.Zero),
+             Brushes.Black, Brushes.White);
+
+            MemoryStream ms = new MemoryStream();
+            gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Bmp, ms);
+
+
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["dbConnection"].ToString());
+                cmd.CommandText = "insert into QRSBorn (ID,QrCode) values  (@ID,@Picture)";
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.UniqueIdentifier);
+                cmd.Parameters.Add("@Picture", System.Data.SqlDbType.VarBinary);
+                cmd.Connection = conn;
+                cmd.Parameters["@ID"].Value = BornEventID;
+                cmd.Parameters["@Picture"].Value = ms.ToArray();
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+              
+            }
+
+        }
     }
 
     #endregion
