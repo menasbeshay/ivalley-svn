@@ -17,6 +17,8 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string Image = Request.QueryString["Image"];
+        /*
         bool dead = false;
         bool born = false;
         ReaderWriterLockSlim cacheLock = new ReaderWriterLockSlim();
@@ -296,15 +298,15 @@ public partial class HealthReports_Viewer_Images : System.Web.UI.Page
             }
         }
 
-        
+        */
 
         string sSize = Request["Size"];
         int Size = 120;
         if (sSize != null)
             Size = Int32.Parse(sSize);
 
-        //string Path = Server.MapPath(Request.ApplicationPath) + "\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
-        string Path = generatedpath; //"D:\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
+        string Path = Server.MapPath(Request.ApplicationPath) + "\\" + "qrs\\" + Image + ".bmp";
+        //string Path = generatedpath; //"D:\\" + "qrs\\" + Image + Session.SessionID + ".bmp";
         //Bitmap bmp = CreateThumbnail(Path, 130, 127);
         System.Drawing.Image bmp;
         if (Request.QueryString["Inner"] != null)

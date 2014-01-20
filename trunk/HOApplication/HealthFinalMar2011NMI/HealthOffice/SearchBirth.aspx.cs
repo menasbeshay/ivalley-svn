@@ -114,6 +114,14 @@ public partial class SearchBirth : System.Web.UI.Page
         Filter();
     }
 
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Button btn = (Button)sender;
+        MHOCommon.WriteQrsBorn(new Guid(btn.CommandArgument.ToString()));        
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "openPrint", string.Format("window.open('Print.aspx?Born=1&Dead=0&BornEventID={0}');", btn.CommandArgument.ToString()), true);
+
+    }
+
     #endregion
 
     #region "Methods"

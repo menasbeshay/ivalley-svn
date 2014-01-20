@@ -100,7 +100,8 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="ØÈÇÚÉ">
                         <ItemTemplate>
-                            <input id="Button1" type="button" value="ØÈÇÚÉ" onclick="javascript:window.open('Print.aspx?Born=0&Dead=1&DeadEventID=<%#Eval("DeadEventID") %>')" />
+                            <asp:Button ID="Button2" runat="server" Text="ØÈÇÚÉ" OnClick="Button2_Click" CommandArgument='<%#Eval("DeadEventID") %>'/>
+                            <%--<input id="Button1" type="button" value="ØÈÇÚÉ" onclick="javascript:window.open('Print.aspx?Born=0&Dead=1&DeadEventID=<%#Eval("DeadEventID") %>')" />--%>
                         </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

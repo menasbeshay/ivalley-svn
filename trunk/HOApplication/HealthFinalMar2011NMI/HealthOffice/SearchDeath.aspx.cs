@@ -110,6 +110,15 @@ public partial class SearchDeath : System.Web.UI.Page
         grdDead.PageIndex = e.NewPageIndex;
         Filter();
     }
+
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Button btn = (Button)sender;
+        MHOCommon.WriteQrsDead(new Guid(btn.CommandArgument.ToString()));
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "openPrint", string.Format("window.open('Print.aspx?Born=0&Dead=1&DeadEventID={0}');", btn.CommandArgument.ToString()), true);
+        
+    }
     #endregion
 
     #region "Methods"

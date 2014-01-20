@@ -10,7 +10,7 @@
             <tr>
                 <td>
                  <asp:Button runat="server" ID="Button1"  Width="200" Font-Bold="True" 
-                        Text="طباعة "  />
+                        Text="طباعة " onclick="Button1_Click"  />
                     
                         <br />
                 </td>
