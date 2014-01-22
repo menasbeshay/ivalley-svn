@@ -217,26 +217,26 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             // UcDeathInfo2.EventDeadMartialStatus = 1;
             //UcDeathInfo2.EventDeadGender = 1;
 
-            UcAddressInfo1.EventDeadAddressPhone = "-";
+           /* UcAddressInfo1.EventDeadAddressPhone = "-";
             UcAddressInfo1.EventDeadAddressStreet = "-";
             UcAddressInfo1.EventDeadAddressNo = "-";
             UcAddressInfo1.EventDeadAddressJob = "-";
-            UcAddressInfo1.EventDeadAddressFamilyPhone = "-";
+            UcAddressInfo1.EventDeadAddressFamilyPhone = "-";*/
 
             //UcAddressInfo1.DropState.ValidationGroup = "remove";
             //UcAddressInfo1.DropSubSection.ValidationGroup = "remove";
-            UcAddressInfo1.EventDeadAddressSign = "-";
+            /*UcAddressInfo1.EventDeadAddressSign = "-";
 
             UcMotherInfo2.ParentFamilyName = "-";
             UcMotherInfo2.ParentFatherName = "-";
             UcMotherInfo2.ParentFirstName = "-";
-            UcMotherInfo2.ParentSureName = "-";
+            UcMotherInfo2.ParentSureName = "-";*/
             UcMotherInfo2.ParentRelegion = 1;
-            UcMotherInfo2.ParentJob = "-";
+            /*UcMotherInfo2.ParentJob = "-";
 
             UcNotifierInfo2.NotifierNID = "-";
             UcNotifierInfo2.NotifierFatherName = "-";
-            UcNotifierInfo2.NotifierFName = "-";
+            UcNotifierInfo2.NotifierFName = "-";*/
             UcNotifierInfo2.NotifierphoneNo = "1";
             UcNotifierInfo2.NotifierRelation = 8;
         }
