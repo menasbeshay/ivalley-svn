@@ -209,6 +209,9 @@
             <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
                 SetFocusOnError="true" ID="RequiredFieldValidator6" ControlToValidate="txtPosition"
                 ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationGroup="GenralValidate"
+                SetFocusOnError="true" ID="RequiredFieldValidator7" ControlToValidate="txtPosition"
+                ErrorMessage="لا يسمح بالأرقام" ForeColor="Red" ValidationExpression="^[^0-9]+$"></asp:RegularExpressionValidator>
                                     
         </td>
     </tr>

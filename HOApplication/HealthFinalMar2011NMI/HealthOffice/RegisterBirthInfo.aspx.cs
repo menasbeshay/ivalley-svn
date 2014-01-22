@@ -363,7 +363,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
             DecisionControl1.lblDecisionDirector = "نيابة";
 
             // Set Default Values for Health Data
-            txtBirthLocation.Text = "-";
+            //txtBirthLocation.Text = "-";
             //txtWeight3.Text = "2";
             txtCurrentInterval2.Text = "0";
             txtNationalNumber.Text = "0";
@@ -374,7 +374,7 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
         else
         {
             // Set Default Values for Health Data
-            txtBirthLocation.Text = "";
+            //txtBirthLocation.Text = "";
             //txtWeight3.Text = "";
             txtCurrentInterval2.Text = "";
             txtNationalNumber.Text = "";

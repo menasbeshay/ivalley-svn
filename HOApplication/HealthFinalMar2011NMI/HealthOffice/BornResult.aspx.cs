@@ -19,7 +19,14 @@ public partial class _Default : System.Web.UI.Page
         {
             Page.Form.DefaultFocus = "Button1";
             if (Request.QueryString["Birth"] != null && Request.QueryString["Birth"].ToString() == "1")
-                btnAddNewBirth.Text = "اضافة حالة ميلاد جديدة";
+            {
+                if (Roles.IsUserInRole(Membership.GetUser().UserName, "Doctor"))
+                {
+                    btnAddNewBirth.Text = "توثيق حالة ميلاد أخرى";
+                }
+                else
+                    btnAddNewBirth.Text = "اضافة حالة ميلاد جديدة";
+            }
             if (Request.QueryString["Dead"] != null && Request.QueryString["Dead"].ToString() == "1")
                 btnAddNewBirth.Text = "اضافة حالة وفاة جديدة";
             if (Request.QueryString["ApproveDead"] != null && Request.QueryString["ApproveDead"].ToString() == "1")
@@ -61,7 +68,14 @@ public partial class _Default : System.Web.UI.Page
     protected void btnAddNewBirth_Click(object sender, EventArgs e)
     {
         if (Request.QueryString["Birth"] != null && Request.QueryString["Birth"].ToString() == "1")
-            Response.Redirect("RegisterBirthInfo.aspx");
+        {
+            if (Roles.IsUserInRole(Membership.GetUser().UserName, "Doctor"))
+            {
+                Response.Redirect("ApproveBirth.aspx");
+            }
+            else
+                Response.Redirect("RegisterBirthInfo.aspx");
+        }
         if (Request.QueryString["Dead"] != null && Request.QueryString["Dead"].ToString() == "1")
             Response.Redirect("RegisterDeathCase.aspx");
         if (Request.QueryString["ApproveDead"] != null && Request.QueryString["ApproveDead"].ToString() == "1")
