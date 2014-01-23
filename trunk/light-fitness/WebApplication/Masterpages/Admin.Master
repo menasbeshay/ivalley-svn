@@ -73,7 +73,7 @@
 						<a href="editpages.aspx">Pages</a></td>
 						<td>|</td>
 						<td style="text-align:center;">
-						<a href="services.htm">Products</a></td>						
+						<a href="editproducts.aspx">Products</a></td>						
 						<td>&nbsp;</td>
 					</tr>
 				</table>
