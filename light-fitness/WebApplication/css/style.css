@@ -1,0 +1,99 @@
+/* CSS Document */
+img
+{
+border:0;
+}
+
+.sara{
+
+font-family: Thuluth Arabic; color: #FF0000; font-style: oblique; 
+               background-image: url('../images/fotter_b4.jpg')
+               }
+
+
+
+.tittle_wight 
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 9 pt; font-weight:bold 
+}
+
+.tittle_blue 
+{
+	font-family: Tahoma;
+	color: #0372B8;
+	font-size: 13 px; font-weight:bold
+}
+
+.tittle_black
+{
+	font-family: Tahoma;
+	color: #002F5E;
+	font-size: 14px; font-weight:bold
+}
+
+
+
+
+.content_wight 
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12;
+}
+
+.content_black 
+{
+	font-family: Tahoma;
+	color: #333333;
+	font-size: 12
+}
+
+.content_gray
+{
+	font-family: Tahoma;
+	color: #666666;
+	font-size: 12; background-image:url('../images/B_menu_up.jpg');
+	height:20px; font-weight:bold
+}
+.content_grayOver
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12; background-image:url('../images/B_menu_over.jpg');
+	height:20px; font-weight:bold
+}
+
+.content_red
+{
+	font-family: Tahoma;
+	color: #BF0000;
+	font-size: 12
+}
+
+
+
+
+.tittle 
+{
+	font-family: Tahoma;
+	font-size: 13; font-weight:bold
+}
+
+
+a:link{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 11 px;font-weight:bold
+}
+a:visited{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 11 px;font-weight:bold
+}
+a:hover{
+	font-family: Tahoma;
+	color: #FF8B3E;
+	font-size: 11 px
+}

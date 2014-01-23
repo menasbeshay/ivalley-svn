@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication.Masterpages.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>light fitness</title>
+
+
+<script type="text/javascript" src="../js/stmenu.js"></script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="../css/lightbox.css">
+
+
+
+
+
+<style type="text/css">
+<!--
+.style1 {
+	color: #CC0000;
+	font-weight: bold;
+}
+.style2 {
+	font-family: Tahoma;
+	font-size: 13px;
+}
+.style4 {
+	color: #CC0000;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 14px;
+}
+-->
+</style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" background="images/bg.jpg">
+    <form id="form1" runat="server">
+    <div align="center">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+          <td ></td>
+		  <td valign="bottom" style="text-align:center;">
+              <object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="242" height="188">
+                <param name="movie" value="flash/logo.swf">
+                <param name="quality" value="High">
+                <embed src="flash/logo.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj1" width="242" height="188" quality="High">        
+            </object>
+                  </td>
+		  <td align="left"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="780" height="200" id="banner-light" align="right">
+              <param name="allowScriptAccess" value="sameDomain" />
+              <param name="movie" value="flash/banner-light.swf" />
+              <param name="quality" value="High" />
+		    <param name="bgcolor" value="#ffffff" />
+              <embed src="flash/banner-light.swf" quality="High" bgcolor="#ffffff" width="780" height="200" name="banner-light" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />        
+		    </object>
+          </td>
+		  <td>&nbsp;</td>
+	  </tr>
+		<tr>
+			<td height="34" colspan="4" background="images/titlebar.png">
+			<div align="center">
+				<table border="0" width="40%" cellspacing="0" cellpadding="0">
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td style="text-align:center;">
+						<a href="index.htm">Home</a></td>
+						<td>|</td>
+						<td style="text-align:center;">
+						<a href="page.aspx?PID=2">About Us</a></td>
+						<td>|</td>
+						<td style="text-align:center;">
+						<a href="page.aspx?PID=7">Services</a></td>
+						<td>|</td>
+						<td style="text-align:center;">
+						<a href="page.aspx?PID=8">Contacts</a></td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</div>			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="30" valign="top">&nbsp;					</td>
+					<td width="180" valign="top">
+					<table border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td height="25" bgcolor="#000000" class="tittle_orange" style="text-align:center;">
+							
+							&nbsp;OUR 
+							PRODUCTS</td>
+						</tr>
+						<tr>
+							<td bgcolor="#000000">
+							
+							
+							<script type="text/javascript">
+<!--
+							    stm_bm(["menu61ba", 850, "", "images/blank.gif", 0, "", "", 0, 0, 250, 0, 500, 1, 0, 0, "", "", 0, 0, 1, 2, "default", "hand", ""], this);
+							    stm_bp("p0", [1, 4, 0, 0, 0, 2, 19, 0, 100, "", -2, "", -2, 90, 0, 0, "#000000", "transparent", "", 3, 0, 0, "#000000"]);
+							    stm_ai("p0i0", [0, "Sports Art ", "", "", -1, -1, 0, "products.aspx?cid=1", "_self", "", "", "images/borderarrow.gif", "images/borderarrow.gif", 19, 14, 0, "", "", 0, 0, 0, 0, 1, "#FF9900", 0, "#000000", 0, "", "", 0, 0, 1, 2, "#F4A838", "#666666", "#000000", "#FFFFFF", "bold 10pt tahoma", "bold 10pt tahoma", 0, 0], 180, 30);
+							    stm_aix("p0i1", "p0i0", [0, "Body Strong ", "", "", -1, -1, 0, "products.aspx?cid=2"], 180, 30);
+							    stm_aix("p0i2", "p0i0", [0, "Spa\\ Paolo Rossini ", "", "", -1, -1, 0, "products.aspx?cid=3"], 180, 30);
+							    stm_aix("p0i3", "p0i0", [0, "Sauna", "", "", -1, -1, 0, "products.aspx?cid=4"], 180, 30);
+							    stm_aix("p0i4", "p0i0", [0, "Domestic Treadmills", "", "", -1, -1, 0, "products.aspx?cid=5"], 180, 30);
+							    stm_aix("p0i5", "p0i0", [0, "Free Weights", "", "", -1, -1, 0, "products.aspx?cid=6"], 180, 30);
+							    stm_aix("p0i6", "p0i0", [0, "Vibrate & Massage", "", "", -1, -1, 0, "products.aspx?cid=7"], 180, 30);
+							    stm_aix("p0i7", "p0i0", [0, "Other Products", "", "", -1, -1, 0, "products.aspx?cid=8"], 180, 30);
+							    stm_ep();
+							    stm_em();
+//-->
+</script></td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">
+							
+							
+						<p align="center">
+						<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="160" height="160">
+							<param name="movie" value="flash/clock.swf">
+							<param name="quality" value="High">
+							<param name="wmode" value="transparent">
+							<embed src="flash/clock.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" width="160" height="160" quality="High" wmode="transparent"></object>
+							</td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">&nbsp;						</td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">
+							
+							
+						<p align="center" class="tittle_black">Call Us : 02 /2 
+						402 15 04</td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">&nbsp;						</td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">
+							
+							
+						<p align="center">
+														<a target="_blank" href="http://www.facebook.com/profile.php?id=1390947582">
+														<img border="0" src="images/Facebook_Badge.jpg" width="171" height="41"></a></td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#FF9900">
+							
+							
+						<p align="center"></td>
+						</tr>
+						<tr>
+							<td height="5 px" bgcolor="#000000">						</td>
+						</tr>
+					</table>					</td>
+				  <td align="center" valign="top"><table width="90%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="30" align="center" class="tittle_black">
+                          <asp:Label ID="uiLabelTitle" runat="server" Text="Label"></asp:Label>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <td align="center" valign="top"><table width="95%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="left" valign="top">
+                                                  <div>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td align="left" valign="top">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table></td>
+				</tr>
+			</table>			</td>
+		</tr>
+		<tr>
+			<td colspan="4" bgcolor="#FFFFFF" height="30">
+							<div align="center">
+								<table border="0" width="37%" cellspacing="0" cellpadding="0" dir="rtl">
+									<tr>
+										<td width="84">
+										<a target="_blank" href="http://www.mtg-eg.com/">
+										<img border="0" src="images/mtg-logo.jpg" width="84" height="37"></a></td>
+										<td>
+							<p class="content_orange_copy"><b>
+							<font color="#F69301" face="Tahoma">Copyright 2008 © 
+							LIGHT FITNESS, Powered By </font></b>										</td>
+									</tr>
+								</table>
+							</div>							</td>
+		</tr>
+		<tr>
+			<td colspan="4" height="5" bgcolor="#000000"></td>
+		</tr>
+		<tr>
+			<td colspan="4" height="10"></td>
+		</tr>
+	</table>
+</div>
+    
+    </form>
+</body>
+</html>
