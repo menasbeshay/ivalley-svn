@@ -24,5 +24,34 @@ namespace BLL
             return LoadFromSql("GetMemberByUserId", parameters);
 
         }
+
+        public virtual bool GetMemberFriendsByStatus(int MemberID,bool Status)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
+            parameters.Add(new SqlParameter("@Status", SqlDbType.Bit, 0), Status);
+            return LoadFromSql("GetMemberFriendsByStatus", parameters);
+
+        }
+
+        public virtual bool SearchMembers(string query)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@query", SqlDbType.NVarChar, 50), query);
+
+            return LoadFromSql("SearchMembers", parameters);
+
+        }
+
+        public virtual bool SearchMembersExceptFriends(string query, int MemberID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
+            parameters.Add(new SqlParameter("@query", SqlDbType.NVarChar, 50), query);
+
+            return LoadFromSql("SearchMembersExceptFriends", parameters);
+
+        }
 	}
 }

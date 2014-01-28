@@ -40,6 +40,15 @@ namespace Chat2Connect.MasterPages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// LoginStatus1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        
+        /// <summary>
         /// uiImageUser control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,42 @@ namespace Chat2Connect.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image uiImageUser;
+        
+        /// <summary>
+        /// uiImageUser1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image uiImageUser1;
+        
+        /// <summary>
+        /// uiImageUser2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image uiImageUser2;
+        
+        /// <summary>
+        /// uiImageUser3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image uiImageUser3;
+        
+        /// <summary>
+        /// uiImageUser4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image uiImageUser4;
         
         /// <summary>
         /// uiLabelName control.
@@ -58,13 +103,13 @@ namespace Chat2Connect.MasterPages {
         protected global::System.Web.UI.WebControls.Label uiLabelName;
         
         /// <summary>
-        /// LoginStatus1 control.
+        /// uiTextBoxStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxStatus;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

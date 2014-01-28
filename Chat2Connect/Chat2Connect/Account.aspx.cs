@@ -19,6 +19,7 @@ namespace Chat2Connect
             {
                 LoadDDls();
                 LoadProfile();
+                LoadRooms();
             }
         }
 
@@ -37,6 +38,7 @@ namespace Chat2Connect
             uiDropDownListCountry.DataTextField = "Name";
             uiDropDownListCountry.DataValueField = "CountryID";
             uiDropDownListCountry.DataBind();
+            uiDropDownListCountry.Items.Insert(0, new ListItem("إختر البلد", "0"));
         }
 
         private void LoadProfile()
@@ -62,7 +64,8 @@ namespace Chat2Connect
                 if (!member.IsColumnNull("CountryID"))
                 {
                     Country country = new Country();
-                    uiDropDownListCountry.SelectedValue = member.CountryID.ToString();
+                    if (member.CountryID != 0)
+                        uiDropDownListCountry.SelectedValue = member.CountryID.ToString();
                     country.LoadByPrimaryKey(member.CountryID);
                     uiLabelCountry.Text = country.Name;
                 }
@@ -70,6 +73,10 @@ namespace Chat2Connect
                 uiLabelBestCar.Text = uiTextBoxBestCar.Text = member.BestCar;
                 uiLabelBestTeam.Text = uiTextBoxBestTeam.Text = member.BestTeam;
                 uiLabelBestCountry.Text = uiTextBoxBestCountry.Text = member.BestCounrty;
+                uiLabelMail.Text = Membership.GetUser().Email;
+                uiHyperLinkFb.NavigateUrl = uiTextBoxfb.Text = member.FbURL;
+                uiHyperLinktwitter.NavigateUrl = uiTextBoxTwitter.Text = member.TURL;
+                uiHyperLinkyt.NavigateUrl = uiTextBoxyt.Text = member.YtURL;
 
                 uiLabelCreatedDate.Text = Membership.GetUser().CreationDate.ToString("yyyy/MM/dd");
                 if (!member.IsColumnNull("MemberTypeID"))
@@ -81,7 +88,7 @@ namespace Chat2Connect
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
-                    uiImageMain.ImageUrl = uiImageProfile.ImageUrl = member.ProfilePic;                    
+                    uiImageMain.ImageUrl = member.ProfilePic;                    
                 }
                 ///////////////////////////////
                 uiLabelInterests.Text = uiTextBoxInterests.Text = member.Interests;
@@ -135,27 +142,37 @@ namespace Chat2Connect
             member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
 
             member.Name = uiTextBoxName.Text;
-            member.BirthDate = DateTime.ParseExact(uiTextBoxDOP.Text, "yyyy/MM/dd", null);
-            if(!string.IsNullOrEmpty( uiDropDownListReligion.SelectedValue))
-                member.ReligionID = Convert.ToInt32(uiDropDownListReligion.SelectedValue);
-            if(!string.IsNullOrEmpty( uiDropDownListCountry.SelectedValue))
+            try
+            {
+                if (!string.IsNullOrEmpty(uiTextBoxDOP.Text))
+                    member.BirthDate = DateTime.ParseExact(uiTextBoxDOP.Text, "yyyy/MM/dd", null);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            /*if(!string.IsNullOrEmpty( uiDropDownListReligion.SelectedValue))
+                member.ReligionID = Convert.ToInt32(uiDropDownListReligion.SelectedValue);*/
+            if (!string.IsNullOrEmpty(uiTextBoxReligion.Text))
+                member.Religion = uiTextBoxReligion.Text;
+            if(!string.IsNullOrEmpty( uiDropDownListCountry.SelectedValue) && uiDropDownListCountry.SelectedValue != "0")
                 member.CountryID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);
             member.JobTitle = uiTextBoxJob.Text;
             member.BestTeam = uiTextBoxBestTeam.Text;
             member.BestFood = uiTextBoxBestFood.Text;
             member.BestCar = uiTextBoxBestCar.Text;
             member.BestCounrty = uiTextBoxBestCountry.Text;
+
+            member.FbURL = uiTextBoxfb.Text;
+            member.TURL = uiTextBoxTwitter.Text;
+            member.YtURL = uiTextBoxyt.Text;
+
             string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path+"/" + Membership.GetUser().ProviderUserKey.ToString()));
             if(!dir.Exists)
                 dir.Create();
             path += "/" + Membership.GetUser().ProviderUserKey.ToString();
-            if (uiFileUploadImage.HasFile)
-            {
-                path = path + "/"+ DateTime.Now.ToString("ddMMyyyy_hhmmss_") + uiFileUploadImage.FileName;
-                uiFileUploadImage.SaveAs(Server.MapPath(path));
-                member.ProfilePic = path.Substring(1);
-            }
+            
             member.Save();
             LoadProfile();
         }
@@ -235,10 +252,10 @@ namespace Chat2Connect
             Member member = new Member();
             member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
             path += "/" + Membership.GetUser().ProviderUserKey.ToString();
-            if (uiFileUploadImage.HasFile)
+            if (uiFileUploadAddImage.HasFile)
             {
-                path = path + "/" + DateTime.Now.ToString("ddMMyyyy_hhmmss_") + uiFileUploadImage.FileName;
-                uiFileUploadImage.SaveAs(Server.MapPath(path));
+                path = path + "/" + DateTime.Now.ToString("ddMMyyyy_hhmmss_") + uiFileUploadAddImage.FileName;
+                uiFileUploadAddImage.SaveAs(Server.MapPath(path));
                 MemberPic pic = new MemberPic();
                 pic.AddNew();
                 pic.Description = path.Substring(1);
@@ -251,6 +268,17 @@ namespace Chat2Connect
         private void LoadPics()
         {
             
+        }
+
+        private void LoadRooms()
+        {
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            Room myrooms = new Room();
+            myrooms.GetRoomsByCreatorID(member.MemberID);
+
+            uiRepeaterMyRooms.DataSource = myrooms.DefaultView;
+            uiRepeaterMyRooms.DataBind();
         }
     }
 }

@@ -8,7 +8,7 @@
         $(document).ready(function () {
             $('.iconentypo-menu').tooltip()
             $('.icon-plus').tooltip();
-            $('#profilemain').addClass('selected');
+
         });
 
         blueimp.Gallery(document.getElementById('links'),
@@ -78,7 +78,7 @@
                     url: "../Services/Services.asmx/changePass",
                     dataType: "json",
                     type: "post",
-                    data: "{'question':'" + $('#<%= PassQuestion.ClientID %>').val() + "', 'answer':'" + $('#<%= PassAnswer.ClientID %>').val() + "', 'pass' : '" + $('#<%= Password.ClientID %>').val() + "'}",
+                    data: "{'oldpass':'" + $('#<%= uiTextBoxOldPass.ClientID %>').val() + "', 'question':'" + $('#<%= PassQuestion.ClientID %>').val() + "', 'answer':'" + $('#<%= PassAnswer.ClientID %>').val() + "', 'pass' : '" + $('#<%= Password.ClientID %>').val() + "'}",
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         if (data.d == false) {
@@ -115,6 +115,7 @@
             $('#passSuccess').css('display', 'none');
             $('#<%= PassAnswer.ClientID %>').val("");
             $('#<%= Password.ClientID %>').val("");
+            $('#<%= uiTextBoxOldPass.ClientID %>').val("");
             $("#<%= PassQuestion.ClientID %>").attr('selectedIndex', 0);
         }
 
@@ -129,10 +130,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-        <div class="blockBoxshadow pull-right margin20" style="width:73%;padding:13px;"> 
-            <div style="width:16%;float:right;">
-                <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="width:100px;" CssClass="img-thumbnail"/>
-                
+        <div class="blockBoxshadow pull-right margin20" style="width:66.5%;padding:13px;"> 
+            <div style="width:16%;float:right;position:relative;">
+                <div class="profileImageEdit">
+                <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="width:130px;" CssClass="img-thumbnail"/>
+                <div class="btn-group" id="EditProfilePic">                    
+                  <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="font-size:12px;">
+                    تعديل الصورة  <span class="caret"></span> 
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><i class="icon-picture"></i>&nbsp;إختر من صورك الخاصة</a></li>
+                    <li><a href="#"><i class="icon-plus"></i>&nbsp;تحميل صورة جديدة</a></li>
+                    <li><a href="#"><i class="icon-remove"></i>&nbsp;حذف الصورة الحالية</a></li>                    
+                  </ul>
+                    
+                </div>
+                </div>
+                <div class="clearfix" style="height:15px;"></div>
+                <div style="width:80%;" class="center-block">
+                    <i class="icon icon-thumbs-up" style="border:1px solid #808080;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;padding:5px;"></i>
+                    &nbsp;<span style="color:#ffd800">112</span>&nbsp;
+                    أعجبنى
+                </div>
+                <div class="clearfix"  style="height:15px;"></div>
+                <div style="width:80%;" class="center-block Profilesocials">
+                    <asp:HyperLink ID="uiHyperLinkFb" runat="server" Target="_blank"><img src="images/facebook.png" /></asp:HyperLink>
+                    &nbsp;&nbsp;
+                    <asp:HyperLink ID="uiHyperLinktwitter" runat="server" Target="_blank"><img src="images/twitter.png" /></asp:HyperLink>
+                        &nbsp;&nbsp;
+                    <asp:HyperLink ID="uiHyperLinkyt" runat="server" Target="_blank"><img src="images/youtube.png" /></asp:HyperLink>
+                </div>
             </div>
             <div style="width:81%;float:right;">
                 <div>
@@ -191,48 +218,77 @@
                 </div>
         </div>
             
-        <div class="blockBoxshadow pull-left margin20" style="width:22.5%;">
+        <div class="blockBoxshadow pull-left margin20" style="width:30%;">
              <asp:Label ID="Label10" runat="server" Text="معلومات عن الحساب"></asp:Label>
             <hr style="background:#ffd800;width:100%;margin:5px auto;"/>
             <div class="clearfix"></div>
-            <div class="col-lg-12" style="margin:5px 0px;padding-right:0px;">
+            <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
                     <asp:Label ID="Label11" runat="server" Text="تاريخ الإنشاء :"></asp:Label>
                         <asp:Label ID="uiLabelCreatedDate" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>
-            <div class="col-lg-12" style="margin:5px 0px;padding-right:0px;">
+            <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
                     <asp:Label ID="Label13" runat="server" Text="لون الصبغة :"></asp:Label>
                         <asp:Label ID="uiLabelAccountType" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>
-            <div class="col-lg-12" style="margin:5px 0px;padding-right:0px;">
+            <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
                     <asp:Label ID="Label15" runat="server" Text="تاريخ إنتهاء الصبغة :"></asp:Label>
                         <asp:Label ID="uiLabelTypeExpiry" runat="server" ></asp:Label>                 
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12" style="width:100%;margin:8px 0px;padding-right:0px;">
+                <div class="pull-right" style="width:87%">
+                    البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" ></asp:Label>
+                </div>
+                <div class="pull-left" style="width:10%">
+                   <a href="#accountmail" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;">تعديل</a>
+                    </div>
+                <div class="clearfix" style="height:2px;"></div>
+            </div>
+            
+            <div class="col-lg-12" style="width:100%;margin:7px 0px;padding-right:0px;">
+                <div class="pull-right" style="width:87%">
+                    كلمة المرور : ************
+                    </div>
+                <div class="pull-left" style="width:10%">
+                   <a href="#accountPass" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;">تعديل</a>
+                    </div>
             </div>
             <div class="clearfix"></div>
             <div class="center-block" style="width:63%;">
                    <a href="#accountsettings" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;width:130px;">إعدادت حسابى</a>                
             </div>
-            <div class="clearfix" style="height:2px;"></div>
-            <div class="center-block" style="width:63%;">
-                   <a href="#accountmail" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;width:130px;">تغيير البريد الإلكترونى</a>
-            </div>
-            <div class="clearfix" style="height:2px;"></div>
-            <div class="center-block" style="width:63%;">
-                   <a href="#accountPass" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;width:130px;">تغيير كلمة المرور</a>
+            <div class="clearfix"></div>
+            
+        </div>
+        
+        <div class="clearfix"></div>
+        <div class="blockBoxshadow pull-right col-lg-3 margin20 ">
+            <div style="padding:5px 0px;">
+                <div class="pull-right">الغرف</div>
+                <div class="pull-left"></div>
+                <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="blockBoxshadow pull-right col-lg-4 margin20 ">
             <div>
-                <div class="pull-right">غرفى</div>
-                <div class="pull-left"></div>
+                <asp:Repeater ID="uiRepeaterMyRooms" runat="server">
+                    <ItemTemplate>
+                        <div class="Altodd">
+                            <%# Eval("Name") %>
+                        </div>
+                    </ItemTemplate>
+                    <AlternatingItemTemplate>
+                        <div class="Alteven">
+                            <%# Eval("Name") %>
+                        </div>
+                    </AlternatingItemTemplate>
+                </asp:Repeater>
             </div>
             <div class="clearfix"></div>
 
         </div>
-        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:34%;">
+        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;">
             <div>
                 <div class="pull-right">صورى</div>
                 <div class="pull-left">
@@ -256,9 +312,9 @@
 
             </div>
         </div>
-        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:27%;">
+        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;">
             <div>
-                <div class="pull-right">إهتماماتى</div>
+                <div class="pull-right">حائط البروفايل</div>
                 <div class="pull-left">
                     <a href="#interest" data-toggle="modal" style="text-decoration:none;">
                         <i class="icon-3x entypoicon iconentypo-menu"  data-toggle="tooltip" title="تعديل"></i>
@@ -281,20 +337,12 @@
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
                             ×</a>
                         <i class="icon-2x icon-edit" style="float:left;margin-left:10px;"></i>
-                        <h3 id="myModalLabel1">
+                        <h3 >
                             تعديل بياناتى</h3>
                     </div>
                     <div class="modal-body">
                             <div class="form-horizontal blockBox">
-                                <div class="form-group">
                                     
-                                    <div class="col-sm-4 pull-right">                                        
-                                          <asp:Image runat="server" ImageUrl="~/images/defaultavatar.png" style="width:100px;" CssClass="img-thumbnail" ID="uiImageProfile"/>
-                                    </div>
-                                    <div class="col-sm-8 pull-right" style="padding-top:70px;">
-                                        <asp:FileUpload ID="uiFileUploadImage" runat="server" />
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
                                         <label>الإسم </label>
@@ -318,8 +366,8 @@
                                         <label>الديانة </label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:DropDownList ID="uiDropDownListReligion" runat="server" CssClass="form-control" style="width:210px;"></asp:DropDownList>
-                                        
+                                        <asp:DropDownList ID="uiDropDownListReligion" runat="server" CssClass="form-control" style="width:210px;" Visible="false"></asp:DropDownList>
+                                        <asp:TextBox ID="uiTextBoxReligion" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -336,7 +384,7 @@
                                         <label>البلد </label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:DropDownList ID="uiDropDownListCountry" runat="server" CssClass="form-control" style="width:210px;"></asp:DropDownList>
+                                        <asp:DropDownList ID="uiDropDownListCountry" runat="server" CssClass="form-control" ></asp:DropDownList>
                                         
                                     </div>
                                 </div>
@@ -376,7 +424,34 @@
                                         
                                     </div>
                                 </div>
-                                
+                                <hr style="width:90%;"/>
+                                <div class="form-group">
+                                    <div class="col-sm-1 control-label pull-right">
+                                        <img src="images/facebook.png" />
+                                    </div>
+                                    <div class="col-sm-11 pull-right">
+                                        <asp:TextBox ID="uiTextBoxfb" runat="server" CssClass="form-control" placeholder="انسخ رابط حسابك أو صفحتك أو جروبك وضعها هنا"></asp:TextBox>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-1 control-label pull-right">
+                                        <img src="images/twitter.png" />
+                                    </div>
+                                    <div class="col-sm-11 pull-right">
+                                        <asp:TextBox ID="uiTextBoxTwitter" runat="server" CssClass="form-control" placeholder="انسخ رابط صفحتك وضعها هنا"></asp:TextBox>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-1 control-label pull-right">
+                                        <img src="images/youtube.png" />
+                                    </div>
+                                    <div class="col-sm-11 pull-right">
+                                        <asp:TextBox ID="uiTextBoxyt" runat="server" CssClass="form-control" placeholder="انسخ رابط صفحتك أو قناتك وضعها هنا"></asp:TextBox>
+                                        
+                                    </div>
+                                </div>
                             </div>
 
                    </div>
@@ -395,15 +470,15 @@
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
                             ×</a>
                         <i class="icon-2x icon-edit" style="float:left;margin-left:10px;"></i>
-                        <h3 id="myModalLabel1">
-                            تعديل بياناتى</h3>
+                        <h3 >
+                            تعديل حائط البروفايل</h3>
                     </div>
                     <div class="modal-body">
                             <div class="form-horizontal blockBox">
                                 
                                 <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
-                                        <label>إهتمامتى</label>
+                                        <label>حائط البروفايل</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
@@ -427,7 +502,7 @@
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
                             ×</a>
                         <i class="icon-2x icon-cogs" style="float:left;margin-left:10px;"></i>
-                        <h3 id="myModalLabel1">
+                        <h3 >
                             إعدادات حسابى</h3>
                     </div>
                     <div class="modal-body">
@@ -473,6 +548,7 @@
                                             <asp:ListItem Value="1" class="radio-inlineMain">الجميع</asp:ListItem>                                            
                                         </asp:RadioButtonList>
                                     </div>
+                                    <div style="display:none">
                                      <div class="col-sm-4 control-label pull-right">
                                         <asp:Label runat="server" Text="قبول sms من" style="font-weight:normal;font-size:13px;"></asp:Label>
                                          </div>
@@ -481,7 +557,8 @@
                                             <asp:ListItem Value="0" class="radio-inlineMain">الأصدقاء</asp:ListItem>
                                             <asp:ListItem Value="1" class="radio-inlineMain">الجميع</asp:ListItem>                                            
                                         </asp:RadioButtonList>
-                                    </div>   
+                                    </div>
+                                        </div>   
                                      <div class="col-sm-4 control-label pull-right">
                                         <asp:Label runat="server" Text="قبول رسالة بريد من" style="font-weight:normal;font-size:13px;"></asp:Label>
                                          </div>
@@ -542,7 +619,7 @@
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
                             ×</a>
                         <i class="icon-2x icon-envelope" style="float:left;margin-left:10px;"></i>
-                        <h3 id="myModalLabel1">
+                        <h3 >
                             تغيير البريد الإلكترونى</h3>
                     </div>
                     <div class="modal-body">
@@ -616,9 +693,18 @@
                                         <strong>تم تغيير كلمة المرور بنجاح.</strong>
                                     </div>
                                     <div id="passFail" style="display:none;">
-                                        <strong>حدث خطأ. تأكد من السؤال والإجابة.</strong>
+                                        <strong>حدث خطأ. تأكد من السؤال والإجابة أو كلمة المرور الحالية.</strong>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>كلمة المرور القديمة</label>
+                                    </div>
+                                    <div class="col-sm-8 pull-right">
+                                        <asp:TextBox ID="uiTextBoxOldPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="uiTextBoxOldPass" ErrorMessage="من فضلك أدخل كلمة المرور." ToolTip="من فضلك أدخل كلمة المرور." ValidationGroup="CreateUserWizard2" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div> 
                                  <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
                                         <label>السؤال السرى</label>
@@ -645,7 +731,7 @@
                                 </div> 
                                 <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
-                                        <label>كلمة المرور</label>
+                                        <label>كلمة المرور الجديدة</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
@@ -670,7 +756,7 @@
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
                             ×</a>
                         <i class="icon-2x icon-camera" style="float:left;margin-left:10px;"></i>
-                        <h3 id="myModalLabel1">
+                        <h3 >
                             إضافة صورة</h3>
                     </div>
                     <div class="modal-body">

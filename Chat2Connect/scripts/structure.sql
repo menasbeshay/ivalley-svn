@@ -207,7 +207,12 @@ Create Table Member
 	ProfilePic nvarchar(200),
 	likeCount int,
 	StatusMsg nvarchar(100),
-	Answer nvarchar(100)
+	Answer nvarchar(100),
+	Religion nvarchar(50),
+	fbURL nvarchar(400),
+	tURL nvarchar(400),
+	ytURL nvarchar(400),
+	[Status] int
 )
 Go
 
@@ -256,9 +261,9 @@ Create Table Room
 	RoomID int not null
 			identity(1,1)
 			Primary Key,
-	CategoryID int not null
+	CategoryID int null
 			foreign Key references Category(CategoryID),
-	SubCategoryID int not null
+	SubCategoryID int null
 			foreign Key references SubCategory(SubCategoryID),	
 	Name Nvarchar(200),
 	IconPath nvarchar(200),
@@ -269,6 +274,10 @@ Create Table Room
 	RoomPasswordenabled bit,
 	EnableCam bit,
 	EnableMic bit,
+	EnableOneMic bit,
+	EnableTwoMic bit,
+	EnableThreeMic bit,
+	RoomAdminPassword nvarchar(50)
 	EnableMicForAdminsOnly bit,
 	MarkOnLoginWithWrite bit,
 	MarkOnLoginWithoutWrite bit,	
@@ -465,11 +474,11 @@ as
 select R.* , count(RM.MemberID) MemberCount
 from Room R
 Inner JOIN Category C ON R.CategoryID = C.CategoryID
-Inner Join RoomMember RM on RM.RoomID = R.RoomID
-Inner join Member M on M.MemberID = RM.MemberID
-where C.CategoryID = @CategoryID and 
-	  M.IsOnline = 1
-Group By R.RoomID, R.CategoryID, R.SubCategoryID, R.Name, R.IconPath, R.RoomTypeID, R.CreatedDate, R.WelcomeText, R.RoomPassword, R.RoomPasswordenabled, R.EnableCam, R.EnableMic, R.EnableMicForAdminsOnly, R.MarkOnLoginWithWrite, R.MarkOnLoginWithoutWrite, R.CreatedBy
+Left Join RoomMember RM on RM.RoomID = R.RoomID
+Left join Member M on M.MemberID = RM.MemberID
+where R.CategoryID = @CategoryID /*and 
+	  M.IsOnline = 1*/
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
 Go
 
 
@@ -504,11 +513,28 @@ select R.* , count(RM.MemberID) MemberCount
 from Room R
 Inner JOIN Category C ON R.CategoryID = C.CategoryID
 Inner Join SubCategory SC on C.CategoryID = SC.CategoryID
-Inner Join RoomMember RM on RM.RoomID = R.RoomID
-Inner join Member M on M.MemberID = RM.MemberID
-where SC.SubCategoryID = @SubCategoryID and 
-	  M.IsOnline = 1
-Group By R.RoomID, R.CategoryID, R.SubCategoryID, R.Name, R.IconPath, R.RoomTypeID, R.CreatedDate, R.WelcomeText, R.RoomPassword, R.RoomPasswordenabled, R.EnableCam, R.EnableMic, R.EnableMicForAdminsOnly, R.MarkOnLoginWithWrite, R.MarkOnLoginWithoutWrite, R.CreatedBy
+Left Join RoomMember RM on RM.RoomID = R.RoomID
+Left join Member M on M.MemberID = RM.MemberID
+where R.SubCategoryID = @SubCategoryID /*and 
+	  M.IsOnline = 1*/
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetChatRoomsByCreatorID' and
+		        xtype = 'P')
+Drop Procedure GetChatRoomsByCreatorID
+Go
+Create Procedure GetChatRoomsByCreatorID @CreatedBy int
+as
+
+select R.* , C.Name CategoryName , SC.Name SubCategoryName
+from Room R
+Left JOIN Category C ON R.CategoryID = C.CategoryID
+Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
+where R.CreatedBy = @CreatedBy 
 Go
 
 If Exists (select Name 
@@ -555,13 +581,24 @@ Go
 Create Procedure GetMemberFriendsByStatus @MemberID int ,
 										  @Status bit
 as
-
+If (@Status = 1)
+begin
 select F.*
 from MemberFriend MF
 Inner Join Member M on MF.MemberID = M.MemberID 
 Inner Join Member F on MF.FriendID = F.MemberID 
 where M.MemberID = @MemberID and 
-	  (@Status is null Or F.IsOnline = @Status)
+	  F.IsOnline = @Status
+End
+else 
+begin 
+select F.*
+from MemberFriend MF
+Inner Join Member M on MF.MemberID = M.MemberID 
+Inner Join Member F on MF.FriendID = F.MemberID 
+where M.MemberID = @MemberID and 
+	  (F.IsOnline = @Status or F.Isonline is null or F.Isonline = 0 )
+end 
 Go
 
 
@@ -592,4 +629,73 @@ select MS.* , M.*
 from MemberSetting MS
 Inner Join Member M on MS.MemberId = M.MemberID
 where M.MemberID = @MemberID 
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchMembers' and
+		        xtype = 'P')
+Drop Procedure SearchMembers
+Go
+Create Procedure SearchMembers @query nvarchar(50)
+as
+
+select * 
+from Member M 
+where M.Name like N'%' + @query + N'%'
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchMembersExceptFriends' and
+		        xtype = 'P')
+Drop Procedure SearchMembersExceptFriends
+Go
+Create Procedure SearchMembersExceptFriends @query nvarchar(50),
+											@MemberID int
+as
+
+select * 
+from Member M 
+where M.Name like N'%' + @query + N'%'
+	  and MemberID <> @MemberID
+	  and M.MemberID not in (Select FriendID
+							 from MemberFriend where MemberID = @MemberID)
+							 
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllAdminMembersByRoomID' and
+		        xtype = 'P')
+Drop Procedure GetAllAdminMembersByRoomID
+Go
+Create Procedure GetAllAdminMembersByRoomID @RoomID int
+as
+
+select RM.* , M.*
+from RoomMember RM
+Inner Join Member M on RM.MemberId = M.MemberID
+where RM.RoomID = @RoomID and 
+	  RM.IsAdmin = 1
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllMemberFriends' and
+		        xtype = 'P')
+Drop Procedure GetAllMemberFriends
+Go
+Create Procedure GetAllMemberFriends @MemberID int 
+as
+select MF.*
+from MemberFriend MF
+Inner Join Member M on MF.MemberID = M.MemberID 
+where M.MemberID = @MemberID 
+
 Go

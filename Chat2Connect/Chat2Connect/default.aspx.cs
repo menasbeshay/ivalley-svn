@@ -17,8 +17,19 @@ namespace Chat2Connect
         }
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
-        {           
-            Response.Redirect("Account.aspx");
+        {
+            MembershipUser user = Membership.GetUser(Login1.UserName);
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            member.IsOnLine = true;
+            CheckBox cb = (CheckBox)Login1.FindControl("uiCheckBoxInvisible");
+            if (cb.Checked)
+                member.Status = 4;
+            else
+                member.Status = 1;
+            member.Save();
+            Response.Redirect("home.aspx");
         }
 
         protected void uiButtonRegister_Click(object sender, EventArgs e)
@@ -62,9 +73,11 @@ namespace Chat2Connect
                 member.Answer = Answer.Text;
                 member.UserID = new Guid(objUser.ProviderUserKey.ToString());
                 member.Name = objUser.UserName;
+                member.IsOnLine = true;
+                member.Status = 1;
                 member.Save();
                 FormsAuthentication.SetAuthCookie(objUser.UserName, false);
-                Response.Redirect("Account.aspx");
+                Response.Redirect("home.aspx");
             }
         }
     }

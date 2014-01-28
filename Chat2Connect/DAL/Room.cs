@@ -227,6 +227,38 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter EnableOneMic
+			{
+				get
+				{
+					return new SqlParameter("@EnableOneMic", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter EnableTwoMic
+			{
+				get
+				{
+					return new SqlParameter("@EnableTwoMic", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter EnableThreeMic
+			{
+				get
+				{
+					return new SqlParameter("@EnableThreeMic", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter RoomAdminPassword
+			{
+				get
+				{
+					return new SqlParameter("@RoomAdminPassword", SqlDbType.NVarChar, 50);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -249,6 +281,10 @@ namespace DAL
             public const string MarkOnLoginWithWrite = "MarkOnLoginWithWrite";
             public const string MarkOnLoginWithoutWrite = "MarkOnLoginWithoutWrite";
             public const string CreatedBy = "CreatedBy";
+            public const string EnableOneMic = "EnableOneMic";
+            public const string EnableTwoMic = "EnableTwoMic";
+            public const string EnableThreeMic = "EnableThreeMic";
+            public const string RoomAdminPassword = "RoomAdminPassword";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -272,6 +308,10 @@ namespace DAL
 					ht[MarkOnLoginWithWrite] = _Room.PropertyNames.MarkOnLoginWithWrite;
 					ht[MarkOnLoginWithoutWrite] = _Room.PropertyNames.MarkOnLoginWithoutWrite;
 					ht[CreatedBy] = _Room.PropertyNames.CreatedBy;
+					ht[EnableOneMic] = _Room.PropertyNames.EnableOneMic;
+					ht[EnableTwoMic] = _Room.PropertyNames.EnableTwoMic;
+					ht[EnableThreeMic] = _Room.PropertyNames.EnableThreeMic;
+					ht[RoomAdminPassword] = _Room.PropertyNames.RoomAdminPassword;
 
 				}
 				return (string)ht[columnName];
@@ -300,6 +340,10 @@ namespace DAL
             public const string MarkOnLoginWithWrite = "MarkOnLoginWithWrite";
             public const string MarkOnLoginWithoutWrite = "MarkOnLoginWithoutWrite";
             public const string CreatedBy = "CreatedBy";
+            public const string EnableOneMic = "EnableOneMic";
+            public const string EnableTwoMic = "EnableTwoMic";
+            public const string EnableThreeMic = "EnableThreeMic";
+            public const string RoomAdminPassword = "RoomAdminPassword";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -323,6 +367,10 @@ namespace DAL
 					ht[MarkOnLoginWithWrite] = _Room.ColumnNames.MarkOnLoginWithWrite;
 					ht[MarkOnLoginWithoutWrite] = _Room.ColumnNames.MarkOnLoginWithoutWrite;
 					ht[CreatedBy] = _Room.ColumnNames.CreatedBy;
+					ht[EnableOneMic] = _Room.ColumnNames.EnableOneMic;
+					ht[EnableTwoMic] = _Room.ColumnNames.EnableTwoMic;
+					ht[EnableThreeMic] = _Room.ColumnNames.EnableThreeMic;
+					ht[RoomAdminPassword] = _Room.ColumnNames.RoomAdminPassword;
 
 				}
 				return (string)ht[propertyName];
@@ -351,6 +399,10 @@ namespace DAL
             public const string MarkOnLoginWithWrite = "s_MarkOnLoginWithWrite";
             public const string MarkOnLoginWithoutWrite = "s_MarkOnLoginWithoutWrite";
             public const string CreatedBy = "s_CreatedBy";
+            public const string EnableOneMic = "s_EnableOneMic";
+            public const string EnableTwoMic = "s_EnableTwoMic";
+            public const string EnableThreeMic = "s_EnableThreeMic";
+            public const string RoomAdminPassword = "s_RoomAdminPassword";
 
 		}
 		#endregion		
@@ -546,6 +598,54 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.CreatedBy, value);
+			}
+		}
+
+		public virtual bool EnableOneMic
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.EnableOneMic);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.EnableOneMic, value);
+			}
+		}
+
+		public virtual bool EnableTwoMic
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.EnableTwoMic);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.EnableTwoMic, value);
+			}
+		}
+
+		public virtual bool EnableThreeMic
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.EnableThreeMic);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.EnableThreeMic, value);
+			}
+		}
+
+		public virtual string RoomAdminPassword
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.RoomAdminPassword);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.RoomAdminPassword, value);
 			}
 		}
 
@@ -794,6 +894,66 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_EnableOneMic
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EnableOneMic) ? string.Empty : base.GetboolAsString(ColumnNames.EnableOneMic);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EnableOneMic);
+				else
+					this.EnableOneMic = base.SetboolAsString(ColumnNames.EnableOneMic, value);
+			}
+		}
+
+		public virtual string s_EnableTwoMic
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EnableTwoMic) ? string.Empty : base.GetboolAsString(ColumnNames.EnableTwoMic);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EnableTwoMic);
+				else
+					this.EnableTwoMic = base.SetboolAsString(ColumnNames.EnableTwoMic, value);
+			}
+		}
+
+		public virtual string s_EnableThreeMic
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EnableThreeMic) ? string.Empty : base.GetboolAsString(ColumnNames.EnableThreeMic);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EnableThreeMic);
+				else
+					this.EnableThreeMic = base.SetboolAsString(ColumnNames.EnableThreeMic, value);
+			}
+		}
+
+		public virtual string s_RoomAdminPassword
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RoomAdminPassword) ? string.Empty : base.GetstringAsString(ColumnNames.RoomAdminPassword);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RoomAdminPassword);
+				else
+					this.RoomAdminPassword = base.SetstringAsString(ColumnNames.RoomAdminPassword, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -982,6 +1142,46 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.CreatedBy, Parameters.CreatedBy);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EnableOneMic
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EnableOneMic, Parameters.EnableOneMic);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EnableTwoMic
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EnableTwoMic, Parameters.EnableTwoMic);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EnableThreeMic
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EnableThreeMic, Parameters.EnableThreeMic);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RoomAdminPassword
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RoomAdminPassword, Parameters.RoomAdminPassword);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1184,6 +1384,54 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter EnableOneMic
+		    {
+				get
+		        {
+					if(_EnableOneMic_W == null)
+	        	    {
+						_EnableOneMic_W = TearOff.EnableOneMic;
+					}
+					return _EnableOneMic_W;
+				}
+			}
+
+			public WhereParameter EnableTwoMic
+		    {
+				get
+		        {
+					if(_EnableTwoMic_W == null)
+	        	    {
+						_EnableTwoMic_W = TearOff.EnableTwoMic;
+					}
+					return _EnableTwoMic_W;
+				}
+			}
+
+			public WhereParameter EnableThreeMic
+		    {
+				get
+		        {
+					if(_EnableThreeMic_W == null)
+	        	    {
+						_EnableThreeMic_W = TearOff.EnableThreeMic;
+					}
+					return _EnableThreeMic_W;
+				}
+			}
+
+			public WhereParameter RoomAdminPassword
+		    {
+				get
+		        {
+					if(_RoomAdminPassword_W == null)
+	        	    {
+						_RoomAdminPassword_W = TearOff.RoomAdminPassword;
+					}
+					return _RoomAdminPassword_W;
+				}
+			}
+
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _SubCategoryID_W = null;
@@ -1200,6 +1448,10 @@ namespace DAL
 			private WhereParameter _MarkOnLoginWithWrite_W = null;
 			private WhereParameter _MarkOnLoginWithoutWrite_W = null;
 			private WhereParameter _CreatedBy_W = null;
+			private WhereParameter _EnableOneMic_W = null;
+			private WhereParameter _EnableTwoMic_W = null;
+			private WhereParameter _EnableThreeMic_W = null;
+			private WhereParameter _RoomAdminPassword_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1219,6 +1471,10 @@ namespace DAL
 				_MarkOnLoginWithWrite_W = null;
 				_MarkOnLoginWithoutWrite_W = null;
 				_CreatedBy_W = null;
+				_EnableOneMic_W = null;
+				_EnableTwoMic_W = null;
+				_EnableThreeMic_W = null;
+				_RoomAdminPassword_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1435,6 +1691,46 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter EnableOneMic
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EnableOneMic, Parameters.EnableOneMic);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EnableTwoMic
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EnableTwoMic, Parameters.EnableTwoMic);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EnableThreeMic
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EnableThreeMic, Parameters.EnableThreeMic);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter RoomAdminPassword
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomAdminPassword, Parameters.RoomAdminPassword);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1632,6 +1928,54 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter EnableOneMic
+		    {
+				get
+		        {
+					if(_EnableOneMic_W == null)
+	        	    {
+						_EnableOneMic_W = TearOff.EnableOneMic;
+					}
+					return _EnableOneMic_W;
+				}
+			}
+
+			public AggregateParameter EnableTwoMic
+		    {
+				get
+		        {
+					if(_EnableTwoMic_W == null)
+	        	    {
+						_EnableTwoMic_W = TearOff.EnableTwoMic;
+					}
+					return _EnableTwoMic_W;
+				}
+			}
+
+			public AggregateParameter EnableThreeMic
+		    {
+				get
+		        {
+					if(_EnableThreeMic_W == null)
+	        	    {
+						_EnableThreeMic_W = TearOff.EnableThreeMic;
+					}
+					return _EnableThreeMic_W;
+				}
+			}
+
+			public AggregateParameter RoomAdminPassword
+		    {
+				get
+		        {
+					if(_RoomAdminPassword_W == null)
+	        	    {
+						_RoomAdminPassword_W = TearOff.RoomAdminPassword;
+					}
+					return _RoomAdminPassword_W;
+				}
+			}
+
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _SubCategoryID_W = null;
@@ -1648,6 +1992,10 @@ namespace DAL
 			private AggregateParameter _MarkOnLoginWithWrite_W = null;
 			private AggregateParameter _MarkOnLoginWithoutWrite_W = null;
 			private AggregateParameter _CreatedBy_W = null;
+			private AggregateParameter _EnableOneMic_W = null;
+			private AggregateParameter _EnableTwoMic_W = null;
+			private AggregateParameter _EnableThreeMic_W = null;
+			private AggregateParameter _RoomAdminPassword_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1667,6 +2015,10 @@ namespace DAL
 				_MarkOnLoginWithWrite_W = null;
 				_MarkOnLoginWithoutWrite_W = null;
 				_CreatedBy_W = null;
+				_EnableOneMic_W = null;
+				_EnableTwoMic_W = null;
+				_EnableThreeMic_W = null;
+				_RoomAdminPassword_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1803,6 +2155,22 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.CreatedBy);
 			p.SourceColumn = ColumnNames.CreatedBy;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EnableOneMic);
+			p.SourceColumn = ColumnNames.EnableOneMic;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EnableTwoMic);
+			p.SourceColumn = ColumnNames.EnableTwoMic;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EnableThreeMic);
+			p.SourceColumn = ColumnNames.EnableThreeMic;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RoomAdminPassword);
+			p.SourceColumn = ColumnNames.RoomAdminPassword;
 			p.SourceVersion = DataRowVersion.Current;
 
 

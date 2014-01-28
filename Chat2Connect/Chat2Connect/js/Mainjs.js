@@ -1,11 +1,11 @@
 ﻿
 $('.main_menu ul').hover(function () {
-    $('.main_menu').addClass("open").animate({ width: '142' }, 400);
+    /*$('.main_menu').addClass("open").animate({ width: '142' }, 400);*/
     $(".main_menu.open ul li a").animate({ 'opacity': '1' }, 150);
 },
 function () {
     $(".main_menu ul li a").animate({ 'opacity': '0' }, 150);
-    $('.main_menu').removeClass("open").animate({ width: '52' }, 400);
+    /*$('.main_menu').removeClass("open").animate({ width: '52' }, 400);*/
 }
 );
 /*
@@ -14,7 +14,6 @@ $('.inner_main').hover(function () {
     $('.main_menu').removeClass("open").animate({width: '52'}, 400);
 });
 */
-
 
 /* validate registeration form */
 function validChars(evt) {
@@ -58,5 +57,7 @@ $(document).ready(function () {
             position: 'left'
         });
     });
+
     
+
 });

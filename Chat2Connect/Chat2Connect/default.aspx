@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en" class="tr-coretext tr-aa-subpixel">
+<html lang="ar" class="tr-coretext tr-aa-subpixel">
 <head runat="server">
     <title></title>
     <meta name="keywords" content="" />
@@ -71,8 +71,8 @@
             </div>
         </div>
     </section>
-    <section class="content row ">
-        <div class="columns" style="padding:20px;">
+    <section class="row ">
+        <div style="padding:20px;">
             <div class="col-lg-5" style="margin-top:5px;">
                 <a href="#registerModal" data-toggle="modal">
                 <img src="images/home/join.png" />
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="col-lg-7">
-                <img src="images/home/imaciphone.png" style="margin-top:-200px;" />
+                <img src="images/home/imaciphone.png" style="margin-top:-150px;" />
             </div>
             <div class="clearfix"></div>
         </div>
