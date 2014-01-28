@@ -27,7 +27,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-     <header class="row">                                
+     <header class="row" style="display:none;">                                
             <div id="help" class="help">
                 <a href="#"><img src="../images/logo.png" ></a>
                 <div style="width:1px;background-color:#D2D2D2;float:left;height:50px;margin:0px;margin-top:15px;margin-right:20px;padding:0px;cursor:auto;"></div>
@@ -42,19 +42,20 @@
             <!-- login here -->
         </header>
         <section class="MainContent row">
-            <div style="margin:0 auto;width:90%;">
+            <div style="margin:0 auto;width:99.5%;">
            
-            <div class="paper">
-                <div class="HomeInner">
+            
+                <div class="HomeInner" >
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
-                    </div>
-            </div>     
+                </asp:ContentPlaceHolder>
+                </div>
+                <div class="clearfix" style="height:1px;"></div>
+            
             <div class="clearfix" style="height:1px;"></div>
             </div>
         </section>
-        <footer class="row" >
+        <footer class="row" style="display:none;">
             &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Dardashet Tawasol. All rights reserved.
             <div style="float:right;padding-right:10px;width:15%;padding:0px;margin-top:-5px;">
                 Powered by &nbsp; <a href="http://I-valley.com">
@@ -70,6 +71,7 @@
     <script src="../js/trmix.js"></script>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="../js/Mainjs.js" type="text/javascript"></script>
     <script src="../js/jquery.ketchup.js"></script>
     <script src="../js/jquery.ketchup.validations.js"></script>

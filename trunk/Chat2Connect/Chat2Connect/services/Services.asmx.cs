@@ -55,7 +55,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool changePass(string question, string answer, string pass)
+        public bool changePass(string oldpass ,string question, string answer, string pass)
         {
             bool update = false;
             MembershipUser user = Membership.GetUser();
@@ -64,15 +64,88 @@ namespace Chat2Connect.services
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
             if (user.PasswordQuestion == question && member.Answer == answer)
             {
-                string Oldpass = user.GetPassword(answer);
+                string Oldpass = oldpass;
                 update = user.ChangePassword(Oldpass, pass);
-                Membership.UpdateUser(user);                
+                if(update)
+                    Membership.UpdateUser(user);                
             }
             else
             {
                 return update;
             }
             return update;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool changeStatus(string status)
+        {
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            member.StatusMsg = status;
+            member.Save();
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool changeStatus(int status)
+        {
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            member.Status = status;            
+            member.Save();
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string[] SearchMembers(string query)
+        {
+            List<string> listString = new List<string>();
+            Member member = new Member();
+            member.SearchMembers(query);
+
+
+            if (member.RowCount > 0)
+            {
+                for (int i = 0; i < member.RowCount; i++)
+                {
+                    listString.Add(member.MemberID + "##" + member.Name);
+                    //ItemsJSON += "{'Name': '" + items.ItemCode + " - " + items.Name + "' , 'ItemID': '" + items.ItemID + "'}";
+                    member.MoveNext();
+                }
+            }
+
+            string[] str = listString.ToArray();
+            return str;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string[] SearchMembersExceptFriends(string query, string MemberID)
+        {
+            List<string> listString = new List<string>();
+            Member member = new Member();
+            member.SearchMembersExceptFriends(query, Convert.ToInt32(MemberID));
+
+
+            if (member.RowCount > 0)
+            {
+                for (int i = 0; i < member.RowCount; i++)
+                {
+                    listString.Add(member.MemberID + "##" + member.Name);
+                    //ItemsJSON += "{'Name': '" + items.ItemCode + " - " + items.Name + "' , 'ItemID': '" + items.ItemID + "'}";
+                    member.MoveNext();
+                }
+            }
+
+            string[] str = listString.ToArray();
+            return str;
         }
     }
 }

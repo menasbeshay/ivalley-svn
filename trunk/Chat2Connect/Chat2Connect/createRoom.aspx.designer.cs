@@ -22,6 +22,24 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
+        /// uiLabelCreator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCreator;
+        
+        /// <summary>
+        /// uiLabelCreatedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCreatedDate;
+        
+        /// <summary>
         /// uiTextBoxName control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCategory;
+        
+        /// <summary>
+        /// uiDropDownListSubCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListSubCategory;
         
         /// <summary>
         /// uiTextBoxWelcome control.
@@ -65,6 +92,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxAdminName;
+        
+        /// <summary>
+        /// uiHiddenFieldAdminID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldAdminID;
         
         /// <summary>
         /// uiDropDownListAdminType control.
@@ -103,58 +139,58 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxAdminPass;
         
         /// <summary>
-        /// uiCheckBoxChangeMyStatus control.
+        /// uiCheckBoxPasswordEnable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxChangeMyStatus;
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxPasswordEnable;
         
         /// <summary>
-        /// uiTextBoxChangeMyStatusMin control.
+        /// uiTextBoxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxChangeMyStatusMin;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPassword;
         
         /// <summary>
-        /// uiCheckBoxHideRoomPics control.
+        /// uiCheckBoxEnableCam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxHideRoomPics;
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxEnableCam;
         
         /// <summary>
-        /// uiCheckBoxHideProfile control.
+        /// uiCheckBoxEnableOneMic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxHideProfile;
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxEnableOneMic;
         
         /// <summary>
-        /// uiCheckBoxNotifyOnPrivateChat control.
+        /// uiCheckBoxEnableTwoMic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxNotifyOnPrivateChat;
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxEnableTwoMic;
         
         /// <summary>
-        /// uiCheckBoxNotifyOnFriendsOnOff control.
+        /// uiCheckBoxEnableThreeMic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxNotifyOnFriendsOnOff;
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxEnableThreeMic;
         
         /// <summary>
         /// uiLinkButtonSaveRoom control.

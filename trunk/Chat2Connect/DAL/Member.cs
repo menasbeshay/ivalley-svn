@@ -291,6 +291,46 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter Religion
+			{
+				get
+				{
+					return new SqlParameter("@Religion", SqlDbType.NVarChar, 50);
+				}
+			}
+			
+			public static SqlParameter FbURL
+			{
+				get
+				{
+					return new SqlParameter("@FbURL", SqlDbType.NVarChar, 400);
+				}
+			}
+			
+			public static SqlParameter TURL
+			{
+				get
+				{
+					return new SqlParameter("@TURL", SqlDbType.NVarChar, 400);
+				}
+			}
+			
+			public static SqlParameter YtURL
+			{
+				get
+				{
+					return new SqlParameter("@YtURL", SqlDbType.NVarChar, 400);
+				}
+			}
+			
+			public static SqlParameter Status
+			{
+				get
+				{
+					return new SqlParameter("@Status", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -321,6 +361,11 @@ namespace DAL
             public const string LikeCount = "likeCount";
             public const string StatusMsg = "StatusMsg";
             public const string Answer = "Answer";
+            public const string Religion = "Religion";
+            public const string FbURL = "fbURL";
+            public const string TURL = "tURL";
+            public const string YtURL = "ytURL";
+            public const string Status = "Status";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -352,6 +397,11 @@ namespace DAL
 					ht[LikeCount] = _Member.PropertyNames.LikeCount;
 					ht[StatusMsg] = _Member.PropertyNames.StatusMsg;
 					ht[Answer] = _Member.PropertyNames.Answer;
+					ht[Religion] = _Member.PropertyNames.Religion;
+					ht[FbURL] = _Member.PropertyNames.FbURL;
+					ht[TURL] = _Member.PropertyNames.TURL;
+					ht[YtURL] = _Member.PropertyNames.YtURL;
+					ht[Status] = _Member.PropertyNames.Status;
 
 				}
 				return (string)ht[columnName];
@@ -388,6 +438,11 @@ namespace DAL
             public const string LikeCount = "LikeCount";
             public const string StatusMsg = "StatusMsg";
             public const string Answer = "Answer";
+            public const string Religion = "Religion";
+            public const string FbURL = "FbURL";
+            public const string TURL = "TURL";
+            public const string YtURL = "YtURL";
+            public const string Status = "Status";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -419,6 +474,11 @@ namespace DAL
 					ht[LikeCount] = _Member.ColumnNames.LikeCount;
 					ht[StatusMsg] = _Member.ColumnNames.StatusMsg;
 					ht[Answer] = _Member.ColumnNames.Answer;
+					ht[Religion] = _Member.ColumnNames.Religion;
+					ht[FbURL] = _Member.ColumnNames.FbURL;
+					ht[TURL] = _Member.ColumnNames.TURL;
+					ht[YtURL] = _Member.ColumnNames.YtURL;
+					ht[Status] = _Member.ColumnNames.Status;
 
 				}
 				return (string)ht[propertyName];
@@ -455,6 +515,11 @@ namespace DAL
             public const string LikeCount = "s_LikeCount";
             public const string StatusMsg = "s_StatusMsg";
             public const string Answer = "s_Answer";
+            public const string Religion = "s_Religion";
+            public const string FbURL = "s_FbURL";
+            public const string TURL = "s_TURL";
+            public const string YtURL = "s_YtURL";
+            public const string Status = "s_Status";
 
 		}
 		#endregion		
@@ -746,6 +811,66 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Answer, value);
+			}
+		}
+
+		public virtual string Religion
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Religion);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Religion, value);
+			}
+		}
+
+		public virtual string FbURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FbURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FbURL, value);
+			}
+		}
+
+		public virtual string TURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TURL, value);
+			}
+		}
+
+		public virtual string YtURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.YtURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.YtURL, value);
+			}
+		}
+
+		public virtual int Status
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.Status);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.Status, value);
 			}
 		}
 
@@ -1114,6 +1239,81 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_Religion
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Religion) ? string.Empty : base.GetstringAsString(ColumnNames.Religion);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Religion);
+				else
+					this.Religion = base.SetstringAsString(ColumnNames.Religion, value);
+			}
+		}
+
+		public virtual string s_FbURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FbURL) ? string.Empty : base.GetstringAsString(ColumnNames.FbURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FbURL);
+				else
+					this.FbURL = base.SetstringAsString(ColumnNames.FbURL, value);
+			}
+		}
+
+		public virtual string s_TURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TURL) ? string.Empty : base.GetstringAsString(ColumnNames.TURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TURL);
+				else
+					this.TURL = base.SetstringAsString(ColumnNames.TURL, value);
+			}
+		}
+
+		public virtual string s_YtURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.YtURL) ? string.Empty : base.GetstringAsString(ColumnNames.YtURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.YtURL);
+				else
+					this.YtURL = base.SetstringAsString(ColumnNames.YtURL, value);
+			}
+		}
+
+		public virtual string s_Status
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Status) ? string.Empty : base.GetintAsString(ColumnNames.Status);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Status);
+				else
+					this.Status = base.SetintAsString(ColumnNames.Status, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1382,6 +1582,56 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Answer, Parameters.Answer);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Religion
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Religion, Parameters.Religion);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FbURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FbURL, Parameters.FbURL);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TURL, Parameters.TURL);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter YtURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.YtURL, Parameters.YtURL);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Status
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Status, Parameters.Status);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1680,6 +1930,66 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter Religion
+		    {
+				get
+		        {
+					if(_Religion_W == null)
+	        	    {
+						_Religion_W = TearOff.Religion;
+					}
+					return _Religion_W;
+				}
+			}
+
+			public WhereParameter FbURL
+		    {
+				get
+		        {
+					if(_FbURL_W == null)
+	        	    {
+						_FbURL_W = TearOff.FbURL;
+					}
+					return _FbURL_W;
+				}
+			}
+
+			public WhereParameter TURL
+		    {
+				get
+		        {
+					if(_TURL_W == null)
+	        	    {
+						_TURL_W = TearOff.TURL;
+					}
+					return _TURL_W;
+				}
+			}
+
+			public WhereParameter YtURL
+		    {
+				get
+		        {
+					if(_YtURL_W == null)
+	        	    {
+						_YtURL_W = TearOff.YtURL;
+					}
+					return _YtURL_W;
+				}
+			}
+
+			public WhereParameter Status
+		    {
+				get
+		        {
+					if(_Status_W == null)
+	        	    {
+						_Status_W = TearOff.Status;
+					}
+					return _Status_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _IsOnLine_W = null;
@@ -1704,6 +2014,11 @@ namespace DAL
 			private WhereParameter _LikeCount_W = null;
 			private WhereParameter _StatusMsg_W = null;
 			private WhereParameter _Answer_W = null;
+			private WhereParameter _Religion_W = null;
+			private WhereParameter _FbURL_W = null;
+			private WhereParameter _TURL_W = null;
+			private WhereParameter _YtURL_W = null;
+			private WhereParameter _Status_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1731,6 +2046,11 @@ namespace DAL
 				_LikeCount_W = null;
 				_StatusMsg_W = null;
 				_Answer_W = null;
+				_Religion_W = null;
+				_FbURL_W = null;
+				_TURL_W = null;
+				_YtURL_W = null;
+				_Status_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2022,6 +2342,56 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Answer, Parameters.Answer);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Religion
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Religion, Parameters.Religion);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FbURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FbURL, Parameters.FbURL);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TURL, Parameters.TURL);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter YtURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.YtURL, Parameters.YtURL);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Status
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Status, Parameters.Status);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2320,6 +2690,66 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter Religion
+		    {
+				get
+		        {
+					if(_Religion_W == null)
+	        	    {
+						_Religion_W = TearOff.Religion;
+					}
+					return _Religion_W;
+				}
+			}
+
+			public AggregateParameter FbURL
+		    {
+				get
+		        {
+					if(_FbURL_W == null)
+	        	    {
+						_FbURL_W = TearOff.FbURL;
+					}
+					return _FbURL_W;
+				}
+			}
+
+			public AggregateParameter TURL
+		    {
+				get
+		        {
+					if(_TURL_W == null)
+	        	    {
+						_TURL_W = TearOff.TURL;
+					}
+					return _TURL_W;
+				}
+			}
+
+			public AggregateParameter YtURL
+		    {
+				get
+		        {
+					if(_YtURL_W == null)
+	        	    {
+						_YtURL_W = TearOff.YtURL;
+					}
+					return _YtURL_W;
+				}
+			}
+
+			public AggregateParameter Status
+		    {
+				get
+		        {
+					if(_Status_W == null)
+	        	    {
+						_Status_W = TearOff.Status;
+					}
+					return _Status_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _IsOnLine_W = null;
@@ -2344,6 +2774,11 @@ namespace DAL
 			private AggregateParameter _LikeCount_W = null;
 			private AggregateParameter _StatusMsg_W = null;
 			private AggregateParameter _Answer_W = null;
+			private AggregateParameter _Religion_W = null;
+			private AggregateParameter _FbURL_W = null;
+			private AggregateParameter _TURL_W = null;
+			private AggregateParameter _YtURL_W = null;
+			private AggregateParameter _Status_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2371,6 +2806,11 @@ namespace DAL
 				_LikeCount_W = null;
 				_StatusMsg_W = null;
 				_Answer_W = null;
+				_Religion_W = null;
+				_FbURL_W = null;
+				_TURL_W = null;
+				_YtURL_W = null;
+				_Status_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2539,6 +2979,26 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.Answer);
 			p.SourceColumn = ColumnNames.Answer;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Religion);
+			p.SourceColumn = ColumnNames.Religion;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FbURL);
+			p.SourceColumn = ColumnNames.FbURL;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TURL);
+			p.SourceColumn = ColumnNames.TURL;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.YtURL);
+			p.SourceColumn = ColumnNames.YtURL;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Status);
+			p.SourceColumn = ColumnNames.Status;
 			p.SourceVersion = DataRowVersion.Current;
 
 

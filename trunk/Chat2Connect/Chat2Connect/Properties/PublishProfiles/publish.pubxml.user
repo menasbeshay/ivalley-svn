@@ -10,19 +10,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account.aspx">
-      <publishTime>12/23/2013 17:04:52</publishTime>
+      <publishTime>01/15/2014 15:29:41</publishTime>
+    </File>
+    <File Include="actions.aspx">
+      <publishTime>01/02/2014 16:03:51</publishTime>
     </File>
     <File Include="AddPhoto.aspx">
       <publishTime>12/22/2013 15:56:42</publishTime>
+    </File>
+    <File Include="App_LocalResources/createRoom.aspx.resx">
+      <publishTime>12/25/2013 11:34:48</publishTime>
     </File>
     <File Include="App_LocalResources/Register.aspx.resx">
       <publishTime>12/16/2013 13:20:40</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/23/2013 17:07:34</publishTime>
+      <publishTime>01/28/2014 16:10:44</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/23/2013 17:07:35</publishTime>
+      <publishTime>01/28/2014 16:10:45</publishTime>
     </File>
     <File Include="bin/css/font-awesome/font/fontawesome-webfont.eot">
       <publishTime>12/11/2013 14:18:35</publishTime>
@@ -37,7 +43,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>12/23/2013 17:07:34</publishTime>
+      <publishTime>01/16/2014 16:02:57</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -129,17 +135,50 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/fonts/modernpics.woff">
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/19/2014 13:56:35</publishTime>
+    </File>
     <File Include="bin/MyGeneration.dOOdads.dll">
-      <publishTime>12/12/2013 13:25:22</publishTime>
+      <publishTime>12/24/2013 17:30:08</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>01/19/2014 13:36:26</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.signalR-2.0.1.js">
+      <publishTime>01/19/2014 13:36:29</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.signalR-2.0.1.min.js">
+      <publishTime>01/19/2014 13:36:29</publishTime>
+    </File>
+    <File Include="coming_soon.html">
+      <publishTime>12/30/2013 17:01:57</publishTime>
     </File>
     <File Include="createRoom.aspx">
-      <publishTime>12/23/2013 17:01:57</publishTime>
+      <publishTime>01/02/2014 14:36:24</publishTime>
     </File>
     <File Include="css/base - Copy.css">
       <publishTime>12/19/2013 11:35:08</publishTime>
     </File>
     <File Include="css/base.css">
-      <publishTime>12/19/2013 15:56:18</publishTime>
+      <publishTime>01/13/2014 17:07:12</publishTime>
     </File>
     <File Include="css/blueimp-gallery.min.css">
       <publishTime>12/23/2013 11:14:16</publishTime>
@@ -235,13 +274,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 16:51:38</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>12/23/2013 17:18:15</publishTime>
+      <publishTime>01/28/2014 16:10:08</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
     </File>
     <File Include="css/skeleton_subject.css">
       <publishTime>12/11/2013 15:59:31</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>12/30/2013 17:01:17</publishTime>
+    </File>
+    <File Include="css/style_1.css">
+      <publishTime>12/30/2013 17:06:00</publishTime>
+    </File>
+    <File Include="css/style_default.css">
+      <publishTime>12/30/2013 16:42:47</publishTime>
+    </File>
+    <File Include="css/style_responsive.css">
+      <publishTime>12/30/2013 16:43:09</publishTime>
     </File>
     <File Include="css/validationEngine.jquery.css">
       <publishTime>12/18/2013 18:06:40</publishTime>
@@ -250,7 +301,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:07:34</publishTime>
     </File>
     <File Include="default.aspx">
-      <publishTime>12/23/2013 16:42:00</publishTime>
+      <publishTime>01/15/2014 16:08:54</publishTime>
     </File>
     <File Include="fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -342,8 +393,173 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="fonts/modernpics.woff">
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
+    <File Include="getRooms.aspx">
+      <publishTime>01/28/2014 14:37:59</publishTime>
+    </File>
+    <File Include="home.aspx">
+      <publishTime>01/28/2014 16:01:43</publishTime>
+    </File>
+    <File Include="images/0.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/1.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/2.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/3.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/4.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/5.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/6.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/7.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/8.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/9.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/.DS_Store">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-asfalt.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-brick.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-burried.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-carbon.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-cloth.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-darkdenim3.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-denim.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-dirty.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-dotted.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-dvsup.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-fabric.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-hexabunp.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-icongrpip.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-illusion.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-linen.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-mamba.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-matter.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-metal.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-nami.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-navy.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-noisy.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-office.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-outlets.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-rebel.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-skewed.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-suit.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-tasky.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-tile.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-tire.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-tr24.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-twill.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-txture.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/backgrounds/bg-wall.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/bg-denim.png">
+      <publishTime>12/30/2013 16:49:01</publishTime>
+    </File>
+    <File Include="images/circle-blue.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/circle-green.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/circle-orange.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/circle-red.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/circle.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/days.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
     <File Include="images/defaultavatar.png">
       <publishTime>12/12/2013 11:26:32</publishTime>
+    </File>
+    <File Include="images/facebook.png">
+      <publishTime>12/24/2013 17:29:09</publishTime>
+    </File>
+    <File Include="images/follow-me.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
     </File>
     <File Include="images/home/appstore.png">
       <publishTime>12/16/2013 13:38:41</publishTime>
@@ -369,6 +585,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/home/txt.png">
       <publishTime>12/18/2013 09:28:05</publishTime>
     </File>
+    <File Include="images/hours.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
     <File Include="images/IValley.png">
       <publishTime>12/12/2013 11:34:42</publishTime>
     </File>
@@ -377,6 +596,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/logo.png">
       <publishTime>12/16/2013 10:55:04</publishTime>
+    </File>
+    <File Include="images/minutes.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/noimage.jpg">
+      <publishTime>12/22/2013 14:52:54</publishTime>
     </File>
     <File Include="images/prettyPhoto/dark_rounded/btnNext.png">
       <publishTime>12/22/2013 13:43:24</publishTime>
@@ -495,6 +720,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/reg.png">
       <publishTime>12/16/2013 11:32:24</publishTime>
     </File>
+    <File Include="images/seconds.png">
+      <publishTime>12/30/2013 16:50:21</publishTime>
+    </File>
+    <File Include="images/twitter.png">
+      <publishTime>12/24/2013 17:29:09</publishTime>
+    </File>
+    <File Include="images/youtube.png">
+      <publishTime>12/24/2013 17:29:09</publishTime>
+    </File>
     <File Include="js/bootstrap-datepicker/css/datepicker.css">
       <publishTime>12/18/2013 15:08:14</publishTime>
     </File>
@@ -511,7 +745,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:53:32</publishTime>
     </File>
     <File Include="js/bootstrap.min.js">
-      <publishTime>12/11/2013 14:53:32</publishTime>
+      <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
     <File Include="js/group_validation.js">
       <publishTime>12/18/2013 17:16:56</publishTime>
@@ -522,8 +756,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/html5shiv.js">
       <publishTime>12/17/2013 17:23:52</publishTime>
     </File>
+    <File Include="js/jquery-1.10.2.js">
+      <publishTime>01/27/2014 15:43:40</publishTime>
+    </File>
     <File Include="js/jquery-1.10.2.min.js">
       <publishTime>12/11/2013 14:56:31</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.10.3.custom.min.js">
+      <publishTime>12/25/2013 12:53:58</publishTime>
     </File>
     <File Include="js/jquery.blueimp-gallery.min.js">
       <publishTime>12/23/2013 10:40:33</publishTime>
@@ -550,28 +790,61 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>12/23/2013 16:37:41</publishTime>
+      <publishTime>01/28/2014 14:38:12</publishTime>
+    </File>
+    <File Include="js/style.js">
+      <publishTime>12/30/2013 17:00:49</publishTime>
     </File>
     <File Include="js/trmix.js">
       <publishTime>12/12/2013 12:11:44</publishTime>
     </File>
+    <File Include="loadrooms.aspx">
+      <publishTime>01/21/2014 12:06:03</publishTime>
+    </File>
+    <File Include="lock.aspx">
+      <publishTime>01/15/2014 12:11:32</publishTime>
+    </File>
     <File Include="MasterPages/createMaster.master">
-      <publishTime>12/23/2013 15:46:22</publishTime>
+      <publishTime>01/02/2014 23:39:31</publishTime>
     </File>
     <File Include="MasterPages/Home.Master">
-      <publishTime>12/18/2013 16:52:27</publishTime>
+      <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>12/23/2013 16:51:05</publishTime>
+      <publishTime>01/28/2014 14:35:15</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/19/2014 13:56:35</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>12/16/2013 13:37:41</publishTime>
     </File>
+    <File Include="Scripts/jquery.signalR-2.0.1.js">
+      <publishTime>01/19/2014 13:36:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.0.1.min.js">
+      <publishTime>01/19/2014 13:36:29</publishTime>
+    </File>
+    <File Include="services/ChatRoomService.asmx">
+      <publishTime>01/19/2014 13:54:37</publishTime>
+    </File>
+    <File Include="services/NotificationService.asmx">
+      <publishTime>01/19/2014 13:55:23</publishTime>
+    </File>
+    <File Include="services/PMService.asmx">
+      <publishTime>01/19/2014 13:55:04</publishTime>
+    </File>
     <File Include="services/Services.asmx">
       <publishTime>12/17/2013 11:27:48</publishTime>
     </File>
+    <File Include="usercontrols/ucFriends.ascx">
+      <publishTime>01/26/2014 13:02:47</publishTime>
+    </File>
+    <File Include="usercontrols/ucRooms.ascx">
+      <publishTime>01/28/2014 14:35:48</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>12/23/2013 17:07:36</publishTime>
+      <publishTime>01/28/2014 16:28:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

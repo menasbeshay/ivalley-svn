@@ -14,11 +14,19 @@ namespace Chat2Connect.MasterPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Request.IsAuthenticated)
             {
-                loadUserInfo();
+                if (!IsPostBack)
+                {
+                    loadUserInfo();
+                }
+            }
+            else
+            {
+                Response.Redirect("default.aspx");
             }
         }
+
 
         private void loadUserInfo()
         {
@@ -27,6 +35,7 @@ namespace Chat2Connect.MasterPages
             if (!user.IsColumnNull("ProfilePic"))
                 uiImageUser.ImageUrl = user.ProfilePic;
             uiLabelName.Text = user.Name;
+            uiTextBoxStatus.Text = user.StatusMsg;
         }
     }
 }
