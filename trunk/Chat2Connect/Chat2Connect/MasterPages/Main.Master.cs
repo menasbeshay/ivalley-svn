@@ -36,6 +36,7 @@ namespace Chat2Connect.MasterPages
                 uiImageUser.ImageUrl = user.ProfilePic;
             uiLabelName.Text = user.Name;
             uiTextBoxStatus.Text = user.StatusMsg;
+            uiHiddenFieldClientID.Value = user.MemberID.ToString();
         }
     }
 }

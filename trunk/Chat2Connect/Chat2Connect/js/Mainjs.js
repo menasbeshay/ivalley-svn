@@ -61,3 +61,67 @@ $(document).ready(function () {
     
 
 });
+
+
+/************ signalr ********************/
+$(document).ready(function () {
+    
+    sHub = $.connection.notificationHub;
+    rHub = $.connection.chatRoomHub;
+
+    /* notifications hub */
+    sHub.client.friendStatusChanged = function (id, msg, status) {
+        $("#user-status-" + id).text(msg);
+        $("#user-" + id).removeClass("online busy away offline");
+        $("#user-" + id).addClass(status);
+        if ($("#usernode-" + id).parent("#onlinepeople") && status == "offline") {
+            var node = $("#usernode-" + id);
+            $("#usernode-" + id).remove();
+            node.appendTo("#offlinepeople");
+        }
+        else if ($("#usernode-" + id).parent("#offlinepeople") && status != "offline") {
+            var node = $("#usernode-" + id);
+            $("#usernode-" + id).remove();
+            node.appendTo("#onlinepeople");
+        }
+
+    };
+
+
+    /* rooms hub */
+    rHub.client.getMessage = function (rid, sname, msg) {        
+        $(".MsgHistroy", "#room_" + rid).append("<b>" + sname + "</b>: " + msg + "<div style='clear:both;height:1px;'></div>");
+        $(".MsgHistroy").slimScroll({
+            railVisible: true,
+            height: '400px',
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left',
+            scrollTo: $(".MsgHistroy", "#room_" + rid).height()
+        });
+        
+    };
+
+    rHub.client.addNewMember = function (mid, name, rid) {
+        var c = $("#room_" + rid + " #roomMembersDiv div.rm:last-child").attr('class');
+        if (c == "Alteven rm") {
+            c = "Altodd rm";
+        } else {
+            c = "Alteven rm";
+        }
+        if (document.getElementById("m_" + mid)) {
+            return;
+        }
+        $("#room_" + rid + " #roomMembersDiv").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><img src='images/video_camera.png' style='width:16px;' /><img src='images/hand.png' style='width:16px;'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;'></div></div>");
+    };
+
+    rHub.client.removeMember = function (mid) {
+        $("#m_" + mid).remove();        
+    };
+
+
+    $.connection.hub.start().done(function () {
+    });
+
+});
+/*****************************************/

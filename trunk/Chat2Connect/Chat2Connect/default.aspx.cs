@@ -21,7 +21,7 @@ namespace Chat2Connect
             MembershipUser user = Membership.GetUser(Login1.UserName);
             Member member = new Member();
 
-            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));            
             member.IsOnLine = true;
             CheckBox cb = (CheckBox)Login1.FindControl("uiCheckBoxInvisible");
             if (cb.Checked)

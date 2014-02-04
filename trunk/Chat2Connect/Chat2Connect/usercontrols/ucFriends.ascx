@@ -41,16 +41,18 @@
                     <asp:Repeater ID="uiRepeaterOnline" runat="server">
                         <HeaderTemplate><div id="onlinepeople" class="panel-collapse collapse in " ></HeaderTemplate>
                         <FooterTemplate></div></FooterTemplate>
-                        <ItemTemplate> <div class="Altodd" >
-                                    <img src="images/defaultavatar.png" class="friendpic online"/>
+                        <ItemTemplate> <div class="Altodd" id='usernode-<%# Eval("MemberID") %>'>
+                                    <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic online"/>
                                     <a href="#"><%# Eval("Name") %>
                                     </a>
                             <div class="clearfix" style="height: 1px;"></div>
+                            <span id='user-status-<%# Eval("MemberID") %>'>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                                </span>
                             <div class="clearfix" style="height: 1px;"></div>
                                 
                                 </div></ItemTemplate>
-                        <AlternatingItemTemplate> <div class="Alteven" >
+                        <AlternatingItemTemplate> <div class="Alteven" id='usernode-<%# Eval("MemberID") %>'>
                                     <img src="images/defaultavatar.png" class="friendpic online"/>
                                     <a href="#"><%# Eval("Name") %>
                                     </a>

@@ -78,7 +78,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool changeStatus(string status)
+        public bool changeStatusMsg(string status)
         {
             MembershipUser user = Membership.GetUser();
             Member member = new Member();

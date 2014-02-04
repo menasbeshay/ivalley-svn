@@ -63,7 +63,7 @@
             $(tabContentId).remove(); 
         }
 
-        function addTab(sel, id, label, content, show) {
+        function addTab(sel, id, label, show, r) {
             var tabs = $(sel);
             if (document.getElementById(id)) {
                 $('#MainTabs a[href="#'+id+'"]').tab('show');
@@ -71,11 +71,15 @@
             }
             
             $('div.active', tabs).removeClass('in').add($('li.active', tabs)).removeClass('active');
-            $('.tab-content', tabs).append('<div class="tab-pane fade in active" id="' + id + '">' + content + '</div>');
-            $('.nav-tabs', tabs).append('<li class="pull-right"><a href="#' + id + '" data-toggle="tab">' + label + '<button class="close closeTab" type="button" >×</button></a></li>');
+            $('.tab-content', tabs).append('<div class="tab-pane fade in active" id="' + id + '"></div>');
+            $('.nav-tabs', tabs).append('<li class="pull-right"><a href="#' + id + '" data-toggle="tab" data-r="' + r + '">' + label + '<button class="close closeTab" type="button" >×</button></a></li>');
             if (show == true) $('.nav-tabs a:last').tab('show');
+            setTimeout(function () { rHub.server.addToRoom(r); }, 2000);
+            
+
             $(".closeTab").click(function () {
                 var tabContentId = $(this).parent().attr("href");
+                rHub.server.removeFromRoom($(this).parent().attr("data-r"));
                 $(this).parent().parent().remove();
                 if ($(this).parent().parent().hasClass('active')) {
                     $('#MainTabs a[href="#home"]').tab('show');
@@ -176,4 +180,5 @@
     </div>
     <asp:HiddenField ID="uiHiddenFieldFriendID" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrent" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldCurrentName" ClientIDMode="Static" runat="server" />
 </asp:Content>
