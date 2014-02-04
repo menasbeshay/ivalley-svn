@@ -38,7 +38,21 @@
                 $(".OpenRoom").click(function () {
                     r = $(this).attr("data-related");
                     n = $(this).attr("data-name");
-                    addTab('#MainTabs', "room_" + r, n, "new room - " + n, true);
+                    addTab('#MainTabs', "room_" + r, n, true, r);
+                    $("#pGeneral").css("display", "block");
+                    //setTimeout(function () {
+                    $("#room_" + r).load("LoadRoom.aspx",
+                        { data_related: "" + r + "" },
+                        function (content) {
+                            $(this).hide().fadeIn("slow");
+                            $(this).removeAttr('style');
+                            $("#pGeneral").css("display", "none");
+                            return false;
+                        });
+                    //}, 2000);
+                    
+
+                    
                 });
             });
         </script>

@@ -20,6 +20,7 @@ namespace Chat2Connect
                     Member member = new Member();
                     member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                     uiHiddenFieldCurrent.Value = member.MemberID.ToString();
+                    uiHiddenFieldCurrentName.Value = member.Name;
                 }
             }
             else

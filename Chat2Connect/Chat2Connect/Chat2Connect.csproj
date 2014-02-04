@@ -122,6 +122,7 @@
     <Content Include="css\jquery-ui-1.10.3.custom.css" />
     <Content Include="css\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="css\jquery.ketchup.css" />
+    <Content Include="css\jquery.pnotify.default.css" />
     <Content Include="css\main.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\skeleton_subject.css" />
@@ -199,6 +200,7 @@
     <Content Include="images\home\txt.png" />
     <Content Include="images\IValley.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\microphone_1.png" />
     <Content Include="images\minutes.png" />
     <Content Include="images\noimage.jpg" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
@@ -242,6 +244,8 @@
     <Content Include="images\reg.png" />
     <Content Include="images\seconds.png" />
     <Content Include="images\twitter.png" />
+    <Content Include="images\hand.png" />
+    <Content Include="images\video_camera.png" />
     <Content Include="images\youtube.png" />
     <Content Include="js\bootstrap-datepicker\css\datepicker.css" />
     <Content Include="js\bootstrap-datepicker\js\bootstrap-datepicker.js" />
@@ -261,6 +265,8 @@
     <Content Include="js\jquery.ketchup.js" />
     <Content Include="js\jquery.ketchup.validations.js" />
     <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.pnotify.js" />
+    <Content Include="js\jquery.pnotify.min.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
     <Content Include="js\jquery.slimscroll.min.js" />
     <Content Include="js\jquery.validationEngine-en.js" />
@@ -268,6 +274,7 @@
     <Content Include="js\Mainjs.js" />
     <Content Include="js\style.js" />
     <Content Include="js\trmix.js" />
+    <Content Include="LoadRoom.aspx" />
     <Content Include="loadrooms.aspx" />
     <Content Include="lock.aspx" />
     <Content Include="Register.aspx" />
@@ -343,6 +350,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadRoom.aspx.cs">
+      <DependentUpon>LoadRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadRoom.aspx.designer.cs">
+      <DependentUpon>LoadRoom.aspx</DependentUpon>
     </Compile>
     <Compile Include="loadrooms.aspx.cs">
       <DependentUpon>loadrooms.aspx</DependentUpon>
@@ -558,6 +572,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\createRoom.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\LoadRoom.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
