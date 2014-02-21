@@ -673,6 +673,14 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
             TabContainerDeathInfo.ActiveTabIndex = TabPanelDeathHealthData.TabIndex;
             return false;
         }
+
+        if (!ForUpdate && ucSubItemControlDeathReasonB.SelectedICD == "" || ucSubItemControlDeathReasonB.SelectedICD == "0")
+        {
+            MHOCommon.ShowMessage("برجاء ادخال سبب للوفاة - النتيجة الأولى", this.Page);
+            TabContainerDeathInfo.ActiveTabIndex = TabPanelDeathHealthData.TabIndex;
+            return false;
+        }
+
         if (radioListISSmoker.SelectedValue == "1")
         {
             if (string.IsNullOrEmpty(radioListSmokingType.SelectedValue))
