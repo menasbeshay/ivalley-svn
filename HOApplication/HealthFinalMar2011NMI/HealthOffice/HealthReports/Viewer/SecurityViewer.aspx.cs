@@ -83,4 +83,38 @@ public partial class SecurityViewer : System.Web.UI.Page
         Response.Redirect(Request.QueryString["rqpage"]);
 
     }
+    protected void uiLinkButtonExportExcel_Click(object sender, EventArgs e)
+    {
+        Warning[] warnings;
+        string[] streamids;
+        string mimeType;
+        string encoding;
+        string extension;
+        string deviceInfo;
+
+        byte[] bytes = UmisReportViewer.ServerReport.Render("Excel", null, out mimeType, out encoding, out extension,out streamids, out warnings);
+
+        Response.ContentType = "application/Excel";
+        Response.AppendHeader("Content-Disposition", "attachment; filename=\"report1.xls\"");
+        Response.OutputStream.Write(bytes, 0, bytes.Length);
+        Response.Flush();
+        Response.End();
+    }
+    protected void uiLinkButtonExportPDF_Click(object sender, EventArgs e)
+    {
+        Warning[] warnings;
+        string[] streamids;
+        string mimeType;
+        string encoding;
+        string extension;
+        string deviceInfo;
+
+        byte[] bytes = UmisReportViewer.ServerReport.Render("pdf", null, out mimeType, out encoding, out extension, out streamids, out warnings);
+
+        Response.ContentType = "application/pdf";
+        Response.AppendHeader("Content-Disposition", "attachment; filename=\"report1.pdf\"");
+        Response.OutputStream.Write(bytes, 0, bytes.Length);
+        Response.Flush();
+        Response.End();
+    }
 }
