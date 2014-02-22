@@ -60,5 +60,10 @@ namespace Chat2Connect.SRCustomHubs
         {
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
         }
+
+        public void userStartMic(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(),Context.ConnectionId).ListenMic("startMic" + rid.ToString() , memberid);
+        }
     }
 }

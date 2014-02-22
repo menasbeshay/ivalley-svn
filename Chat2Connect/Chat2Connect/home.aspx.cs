@@ -21,6 +21,31 @@ namespace Chat2Connect
                     member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                     uiHiddenFieldCurrent.Value = member.MemberID.ToString();
                     uiHiddenFieldCurrentName.Value = member.Name;
+                    uiHiddenFieldOpenedCams.Value = 0.ToString();
+                    uiHiddenFieldOpenedRooms.Value = 0.ToString();
+                    switch (member.MemberTypeID)
+                    {
+                        case 1: // black
+                            uiHiddenFieldMaxCams.Value = 1.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 2.ToString();
+                            break;
+                        case 2: // zety 
+                            uiHiddenFieldMaxCams.Value = 4.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 4.ToString();
+                            break;
+                        case 3: // purple
+                            uiHiddenFieldMaxCams.Value = 9000.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 6.ToString();
+                            break;
+                        case 4: // premium 
+                            uiHiddenFieldMaxCams.Value = 9000.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 8.ToString();
+                            break;
+                        default:
+                            uiHiddenFieldMaxCams.Value = 0.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 0.ToString();
+                            break;
+                    }
                 }
             }
             else

@@ -86,11 +86,11 @@ $(document).ready(function () {
         }
 
     };
-
+    
 
     /* rooms hub */
     rHub.client.getMessage = function (rid, sname, msg) {        
-        $(".MsgHistroy", "#room_" + rid).append("<b>" + sname + "</b>: " + msg + "<div style='clear:both;height:1px;'></div>");
+        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-right' style='width:auto;margin-left:5px;'><b>" + sname + "</b>:</div><div class='pull-right' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
         $(".MsgHistroy").slimScroll({
             railVisible: true,
             height: '400px',
@@ -99,7 +99,7 @@ $(document).ready(function () {
             position: 'left',
             scrollTo: $(".MsgHistroy", "#room_" + rid).height()
         });
-        
+
     };
 
     rHub.client.addNewMember = function (mid, name, rid) {
@@ -119,6 +119,13 @@ $(document).ready(function () {
         $("#m_" + mid).remove();        
     };
 
+    rHub.client.ListenMic = function (listenmic, memberid) {
+        var fn = window[listenmic];
+        var fnparams = [memberid];
+        if (typeof fn === 'function') {
+           fn.apply(null,fnparams);
+        }
+    };
 
     $.connection.hub.start().done(function () {
     });

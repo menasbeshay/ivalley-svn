@@ -221,6 +221,14 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
+			public static SqlParameter QueueOrder
+			{
+				get
+				{
+					return new SqlParameter("@QueueOrder", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -242,6 +250,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsBannedForMonth = "IsBannedForMonth";
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
+            public const string QueueOrder = "QueueOrder";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -264,6 +273,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[IsBannedForMonth] = _RoomMember.PropertyNames.IsBannedForMonth;
 					ht[IsMarked] = _RoomMember.PropertyNames.IsMarked;
 					ht[AskForMic] = _RoomMember.PropertyNames.AskForMic;
+					ht[QueueOrder] = _RoomMember.PropertyNames.QueueOrder;
 
 				}
 				return (string)ht[columnName];
@@ -291,6 +301,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsBannedForMonth = "IsBannedForMonth";
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
+            public const string QueueOrder = "QueueOrder";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -313,6 +324,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[IsBannedForMonth] = _RoomMember.ColumnNames.IsBannedForMonth;
 					ht[IsMarked] = _RoomMember.ColumnNames.IsMarked;
 					ht[AskForMic] = _RoomMember.ColumnNames.AskForMic;
+					ht[QueueOrder] = _RoomMember.ColumnNames.QueueOrder;
 
 				}
 				return (string)ht[propertyName];
@@ -340,6 +352,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsBannedForMonth = "s_IsBannedForMonth";
             public const string IsMarked = "s_IsMarked";
             public const string AskForMic = "s_AskForMic";
+            public const string QueueOrder = "s_QueueOrder";
 
 		}
 		#endregion		
@@ -523,6 +536,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 			set
 	        {
 				base.Setbool(ColumnNames.AskForMic, value);
+			}
+		}
+
+		public virtual int QueueOrder
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.QueueOrder);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.QueueOrder, value);
 			}
 		}
 
@@ -756,6 +781,21 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual string s_QueueOrder
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.QueueOrder) ? string.Empty : base.GetintAsString(ColumnNames.QueueOrder);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.QueueOrder);
+				else
+					this.QueueOrder = base.SetintAsString(ColumnNames.QueueOrder, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -934,6 +974,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.AskForMic, Parameters.AskForMic);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter QueueOrder
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.QueueOrder, Parameters.QueueOrder);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1124,6 +1174,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public WhereParameter QueueOrder
+		    {
+				get
+		        {
+					if(_QueueOrder_W == null)
+	        	    {
+						_QueueOrder_W = TearOff.QueueOrder;
+					}
+					return _QueueOrder_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _IsAdmin_W = null;
@@ -1139,6 +1201,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private WhereParameter _IsBannedForMonth_W = null;
 			private WhereParameter _IsMarked_W = null;
 			private WhereParameter _AskForMic_W = null;
+			private WhereParameter _QueueOrder_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1157,6 +1220,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_IsBannedForMonth_W = null;
 				_IsMarked_W = null;
 				_AskForMic_W = null;
+				_QueueOrder_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1363,6 +1427,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public AggregateParameter QueueOrder
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.QueueOrder, Parameters.QueueOrder);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1548,6 +1622,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public AggregateParameter QueueOrder
+		    {
+				get
+		        {
+					if(_QueueOrder_W == null)
+	        	    {
+						_QueueOrder_W = TearOff.QueueOrder;
+					}
+					return _QueueOrder_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _IsAdmin_W = null;
@@ -1563,6 +1649,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private AggregateParameter _IsBannedForMonth_W = null;
 			private AggregateParameter _IsMarked_W = null;
 			private AggregateParameter _AskForMic_W = null;
+			private AggregateParameter _QueueOrder_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1581,6 +1668,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_IsBannedForMonth_W = null;
 				_IsMarked_W = null;
 				_AskForMic_W = null;
+				_QueueOrder_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1713,6 +1801,10 @@ parameters.Add(Parameters.RoomID, RoomID);
 
 			p = cmd.Parameters.Add(Parameters.AskForMic);
 			p.SourceColumn = ColumnNames.AskForMic;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.QueueOrder);
+			p.SourceColumn = ColumnNames.QueueOrder;
 			p.SourceVersion = DataRowVersion.Current;
 
 

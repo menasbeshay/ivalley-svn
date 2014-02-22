@@ -2,7 +2,10 @@
 <%@ Register src="usercontrols/ucRooms.ascx" tagname="ucRooms" tagprefix="uc1" %>
 <%@ Register src="usercontrols/ucFriends.ascx" tagname="ucFriends" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <%--<script src="js/wysihtml5-0.3.0.min.js"></script>--%>
+    <script src="js/advanced.js"></script>
+    <%--<script src="js/wysihtml5-0.4.0pre.js"></script>--%>
+    <script src="js/wysihtml5-0.3.0.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.iconentypo-addfriend').tooltip();
@@ -69,22 +72,41 @@
                 $('#MainTabs a[href="#'+id+'"]').tab('show');
                 return;
             }
+
+            if (eval($("#<%=uiHiddenFieldOpenedRooms.ClientID %>").val()) == eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val()))
+            {
+                $.pnotify({
+                    text: 'عفواً ، لقد قمت بدخول العدد الأقصى من الغرف فى نفس الوقت.',
+                    type: 'error',
+                    history: false,
+                    closer_hover: false,
+                    delay: 5000,
+                    sticker: false
+                });
+                return;
+            }
             
             $('div.active', tabs).removeClass('in').add($('li.active', tabs)).removeClass('active');
             $('.tab-content', tabs).append('<div class="tab-pane fade in active" id="' + id + '"></div>');
-            $('.nav-tabs', tabs).append('<li class="pull-right"><a href="#' + id + '" data-toggle="tab" data-r="' + r + '">' + label + '<button class="close closeTab" type="button" >×</button></a></li>');
+            $('.nav-tabs', tabs).append('<li class="pull-right"><a href="#' + id + '" data-toggle="tab" data-r="' + r + '">' + label + '<button class="close closeTabButton_' + id + '" type="button" >×</button></a></li>');
             if (show == true) $('.nav-tabs a:last').tab('show');
             setTimeout(function () { rHub.server.addToRoom(r); }, 2000);
             
+            $("#<%=uiHiddenFieldOpenedRooms.ClientID %>").val(eval($("#<%=uiHiddenFieldOpenedRooms.ClientID %>").val()) + 1);
 
-            $(".closeTab").click(function () {
+            $(".closeTabButton_" + id).click(function () {                
                 var tabContentId = $(this).parent().attr("href");
                 rHub.server.removeFromRoom($(this).parent().attr("data-r"));
-                $(this).parent().parent().remove();
+                           
                 if ($(this).parent().parent().hasClass('active')) {
                     $('#MainTabs a[href="#home"]').tab('show');
                     $('#MainTabs #home').addClass('active in');
                 }
+
+                open = eval($("#<%=uiHiddenFieldOpenedRooms.ClientID %>").val());                    
+                $("#<%=uiHiddenFieldOpenedRooms.ClientID %>").val(open - 1);
+                
+                $(this).parent().parent().remove();
                 $(tabContentId).remove(); 
             });
         }
@@ -181,4 +203,8 @@
     <asp:HiddenField ID="uiHiddenFieldFriendID" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrent" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrentName" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldMaxNoOfRooms" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldOpenedRooms" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldMaxCams" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldOpenedCams" ClientIDMode="Static" runat="server" />
 </asp:Content>

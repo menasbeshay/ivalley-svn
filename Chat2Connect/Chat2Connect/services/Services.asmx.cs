@@ -147,5 +147,19 @@ namespace Chat2Connect.services
             string[] str = listString.ToArray();
             return str;
         }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool GetQueueOrder(int memberID, int roomID)
+        {
+            RoomMember member = new RoomMember();
+            member.LoadByPrimaryKey(memberID,roomID);
+            RoomMember order = new RoomMember();
+            order.GetMaxQueueOrderByRoomID(roomID);
+            member.QueueOrder = Convert.ToInt32(order.GetColumn("MaxQueueOrder")) + 1;
+            member.Save();
+            return true;
+        }
     }
 }

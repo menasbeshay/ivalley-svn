@@ -331,8 +331,26 @@ Create Table RoomMember
 	IsBannedFor7Days bit,
 	IsBannedForMonth bit,
 	IsMarked bit,
-	AskForMic bit
+	AskForMic bit,
+	QueueOrder int
 	
+)
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'FavRoom' and
+		        xtype = 'U')
+Drop Table FavRoom
+Go
+Create Table FavRoom
+(
+	MemberID int not null
+			foreign Key references Member(MemberID),
+	RoomID int not null
+			foreign Key references Room(RoomID),	
+	primary key(MemberID,RoomID)
 )
 Go
 
@@ -405,7 +423,8 @@ Create Table MemberMessage
 	SenderID int foreign key references Member(MemberID),
 	SendDate DateTime,
 	MessageSubject nvarchar(3000),
-	MessageContent nvarchar(max)
+	MessageContent nvarchar(max),
+	IsDeleted bit
 )
 
 
@@ -698,4 +717,105 @@ from MemberFriend MF
 Inner Join Member M on MF.MemberID = M.MemberID 
 where M.MemberID = @MemberID 
 
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetFavRoomsByMemberID' and
+		        xtype = 'P')
+Drop Procedure GetFavRoomsByMemberID
+Go
+Create Procedure GetFavRoomsByMemberID @MemberID int 
+as
+select R.*
+from Room R 
+Inner Join FavRoom F on R.RoomID = F.RoomID 
+Inner Join Member M on F.MemberID = M.MemberID 
+where M.MemberID = @MemberID 
+
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllRoomsByMemberID' and
+		        xtype = 'P')
+Drop Procedure GetAllRoomsByMemberID
+Go
+Create Procedure GetAllRoomsByMemberID @MemberID int
+as
+
+select RM.* , M.*
+from RoomMember RM
+Inner Join Member M on RM.MemberId = M.MemberID
+where RM.MemberID = @MemberID
+Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetMaxQueueOrderByRoomID' and
+		        xtype = 'P')
+Drop Procedure GetMaxQueueOrderByRoomID
+Go
+Create Procedure GetMaxQueueOrderByRoomID @RoomID int
+as
+
+select IsNull(max(RM.QueueOrder),0) MaxQueueOrder
+from RoomMember RM
+where RM.RoomID = @RoomID 
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetMessagesBySenderID_Sent' and
+		        xtype = 'P')
+Drop Procedure GetMessagesBySenderID_Sent
+Go
+Create Procedure GetMessagesBySenderID_Sent @MemberID int
+as
+
+Select * 
+from MemberMessage
+where SenderID = @MemberID And 
+	  (IsDeleted is null Or IsDeleted <> 1)
+Order by SendDate desc
+
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetMessagesByMemberID_Received' and
+		        xtype = 'P')
+Drop Procedure GetMessagesByMemberID_Received
+Go
+Create Procedure GetMessagesByMemberID_Received @MemberID int
+as
+
+Select * 
+from MemberMessage
+where MemberID = @MemberID And 
+	  (IsDeleted is null Or IsDeleted <> 1)
+Order by SendDate desc
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetMessagesByMemberID_Deleted' and
+		        xtype = 'P')
+Drop Procedure GetMessagesByMemberID_Deleted
+Go
+Create Procedure GetMessagesByMemberID_Deleted @MemberID int
+as
+
+Select * 
+from MemberMessage
+where MemberID = @MemberID And 
+	  IsDeleted = 1
+Order by SendDate desc
 Go

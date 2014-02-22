@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="js/advanced.js"></script>
+    <script src="js/wysihtml5-0.4.0pre.js"></script>
+</head>
+<body>
+    <div id='toolbar' style='display: none;'>
+        <a data-wysihtml5-command='bold' title='CTRL+B'>B</a> | 
+        <a data-wysihtml5-command='italic' title='CTRL+I'>I</a> | 
+        <a data-wysihtml5-command='underline' title='CTRL+U'>U</a>
+    </div>
+    <textarea id='uiTextMsg_1' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;'></textarea>
+    <script type='text/javascript'>
+        var editor = new wysihtml5.Editor('uiTextMsg_1', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false });
+        </script>
+</body>
+</html>

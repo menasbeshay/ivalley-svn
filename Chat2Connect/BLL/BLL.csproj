@@ -44,6 +44,7 @@
     <Compile Include="Bot.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="FavRoom.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
     <Compile Include="Member.cs" />
