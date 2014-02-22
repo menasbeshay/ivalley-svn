@@ -6,6 +6,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using Chat2Connect.SRCustomHubs;
+using Microsoft.AspNet.SignalR;
 
 namespace Chat2Connect
 {
@@ -18,6 +20,8 @@ namespace Chat2Connect
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
+            IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+
             MembershipUser user = Membership.GetUser(Login1.UserName);
             Member member = new Member();
 
@@ -29,6 +33,39 @@ namespace Chat2Connect
             else
                 member.Status = 1;
             member.Save();
+
+            string status = "";
+            switch (member.Status)
+            {
+                case 1:
+                    status = "online";
+                    break;
+                case 2:
+                    status = "busy";
+                    break;
+                case 3:
+                    status = "away";
+                    break;
+                case 4:
+                    status = "offline";
+                    break;
+
+                default:
+                    status = "offline";
+                    break;
+            }
+
+            // notify friends 
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(member.MemberID);
+            for (int i = 0; i < friends.RowCount; i++)
+            {
+                Member temp = new Member();
+                temp.LoadByPrimaryKey(friends.FriendID);
+                MembershipUser u = Membership.GetUser(temp.UserID);
+                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(member.MemberID, member.StatusMsg, status);
+            }
+
             Response.Redirect("home.aspx");
         }
 

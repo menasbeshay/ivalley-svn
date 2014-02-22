@@ -212,7 +212,7 @@
         &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Dardashet Tawasol. All rights reserved.
         <div style="float:right;padding-right:10px;width:15%;padding:0px;margin-top:-5px;">
             Powered by &nbsp; <a href="http://I-valley.com">
-                <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
+                <img src="images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
                     alt="I-VALLEY software solutions" /></a>
 
         </div>

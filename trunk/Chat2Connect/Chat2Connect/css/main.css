@@ -908,3 +908,73 @@ fieldset[disabled] .btn-main.active {
 .ui-autocomplete {
     z-index:2000;
 }
+
+/* wysiwyg */
+.wysiwyg-font-size-large {
+  font-size: large;
+}
+.wysiwyg-font-size-small {
+  font-size: small;
+}
+.wysiwyg-font-size-xlarge {
+  font-size: x-large;
+}
+.wysiwyg-font-size-xsmall {
+  font-size: x-small;
+}
+.wysiwyg-font-size-medium {
+  font-size: medium;
+}
+
+
+.wysiwyg-color-red {
+  color: red;
+}
+.wysiwyg-color-green {
+  color: green;
+}
+.wysiwyg-color-blue {
+  color: blue;
+}
+
+.colorDiv {
+    height:15px;
+    width:20px;
+    padding:0px;margin:3px;
+}
+#colorsMenu  > li > a {
+    padding:2px !important;
+}
+
+#colorsMenu > li.divider {
+    background-color:transparent !important;
+}
+#colorsMenu > li > a:hover {
+    background-color:transparent !important;
+}
+
+.itemColor {
+    float:right;
+    height:15px;
+    width:20px;
+    padding:0px;margin:3px;
+}
+#smilesMenu > li > a {
+    padding:2px !important;
+}
+
+#smilesMenu > li.divider {
+    background-color:transparent !important;
+}
+#smilesMenu > li > a:hover {
+    background-color:transparent !important;
+}
+.itemImage {
+    width:auto;
+    height:22px;
+    float:right;
+}
+
+.MsgHeader th {
+    text-align:center !important;
+}

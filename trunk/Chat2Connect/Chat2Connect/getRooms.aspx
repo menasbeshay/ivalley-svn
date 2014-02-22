@@ -46,12 +46,12 @@
                         function (content) {
                             $(this).hide().fadeIn("slow");
                             $(this).removeAttr('style');
-                            $("#pGeneral").css("display", "none");
+                            
                             return false;
                         });
                     //}, 2000);
                     
-
+                    $("#pGeneral").css("display", "none");
                     
                 });
             });

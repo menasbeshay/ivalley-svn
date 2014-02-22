@@ -155,6 +155,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter IsDeleted
+			{
+				get
+				{
+					return new SqlParameter("@IsDeleted", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +176,7 @@ namespace DAL
             public const string SendDate = "SendDate";
             public const string MessageSubject = "MessageSubject";
             public const string MessageContent = "MessageContent";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +191,7 @@ namespace DAL
 					ht[SendDate] = _MemberMessage.PropertyNames.SendDate;
 					ht[MessageSubject] = _MemberMessage.PropertyNames.MessageSubject;
 					ht[MessageContent] = _MemberMessage.PropertyNames.MessageContent;
+					ht[IsDeleted] = _MemberMessage.PropertyNames.IsDeleted;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +211,7 @@ namespace DAL
             public const string SendDate = "SendDate";
             public const string MessageSubject = "MessageSubject";
             public const string MessageContent = "MessageContent";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +226,7 @@ namespace DAL
 					ht[SendDate] = _MemberMessage.ColumnNames.SendDate;
 					ht[MessageSubject] = _MemberMessage.ColumnNames.MessageSubject;
 					ht[MessageContent] = _MemberMessage.ColumnNames.MessageContent;
+					ht[IsDeleted] = _MemberMessage.ColumnNames.IsDeleted;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +246,7 @@ namespace DAL
             public const string SendDate = "s_SendDate";
             public const string MessageSubject = "s_MessageSubject";
             public const string MessageContent = "s_MessageContent";
+            public const string IsDeleted = "s_IsDeleted";
 
 		}
 		#endregion		
@@ -321,6 +334,18 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.MessageContent, value);
+			}
+		}
+
+		public virtual bool IsDeleted
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsDeleted, value);
 			}
 		}
 
@@ -434,6 +459,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_IsDeleted
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsDeleted) ? string.Empty : base.GetboolAsString(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsDeleted);
+				else
+					this.IsDeleted = base.SetboolAsString(ColumnNames.IsDeleted, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +577,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter IsDeleted
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +676,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private WhereParameter _MemberMessageID_W = null;
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _MessageFolderID_W = null;
@@ -633,6 +695,7 @@ namespace DAL
 			private WhereParameter _SendDate_W = null;
 			private WhereParameter _MessageSubject_W = null;
 			private WhereParameter _MessageContent_W = null;
+			private WhereParameter _IsDeleted_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +706,7 @@ namespace DAL
 				_SendDate_W = null;
 				_MessageSubject_W = null;
 				_MessageContent_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +833,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter IsDeleted
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +932,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private AggregateParameter _MemberMessageID_W = null;
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _MessageFolderID_W = null;
@@ -865,6 +951,7 @@ namespace DAL
 			private AggregateParameter _SendDate_W = null;
 			private AggregateParameter _MessageSubject_W = null;
 			private AggregateParameter _MessageContent_W = null;
+			private AggregateParameter _IsDeleted_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +962,7 @@ namespace DAL
 				_SendDate_W = null;
 				_MessageSubject_W = null;
 				_MessageContent_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1063,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.MessageContent);
 			p.SourceColumn = ColumnNames.MessageContent;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsDeleted);
+			p.SourceColumn = ColumnNames.IsDeleted;
 			p.SourceVersion = DataRowVersion.Current;
 
 

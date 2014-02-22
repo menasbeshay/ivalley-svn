@@ -18,7 +18,7 @@
     <link href="../css/base.css" rel="stylesheet" />    
     <link href="../css/skeleton_subject.css" rel="stylesheet" />
     <%--<link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
-    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />  
     <link href="../js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="../css/main.css" rel="stylesheet" />
     <link href="../css/validationEngine.jquery.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
                         if (data.d == false) {
                             
                             $.pnotify({
-                                text: 'حذث خطأ . من فضلك أعد المحاولة.',
+                                text: 'حدث خطأ . من فضلك أعد المحاولة.',
                                 type: 'error',
                                 history: false,
                                 closer_hover: false,
@@ -76,7 +76,7 @@
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         
                         $.pnotify({
-                            text: 'حذث خطأ . من فضلك أعد المحاولة.',
+                            text: 'حدث خطأ . من فضلك أعد المحاولة.',
                             type: 'error',
                             history: false,
                             closer_hover: false,
@@ -103,7 +103,7 @@
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {                        
                         $.pnotify({
-                            text: 'حذث خطأ . من فضلك أعد المحاولة.',
+                            text: 'حدث خطأ . من فضلك أعد المحاولة.',
                             type: 'error',
                             history: false,
                             closer_hover: false,
@@ -127,7 +127,7 @@
                         if (data.d == false) {
                             $('#pGeneral').css('display', 'none');
                             $.pnotify({
-                                text: 'حذث خطأ . من فضلك أعد المحاولة.',
+                                text: 'حدث خطأ . من فضلك أعد المحاولة.',
                                 type: 'error',
                                 history: false,
                                 closer_hover: false,
@@ -152,7 +152,7 @@
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         $('#pGeneral').css('display', 'none');
                         $.pnotify({
-                            text: 'حذث خطأ . من فضلك أعد المحاولة.',
+                            text: 'حدث خطأ . من فضلك أعد المحاولة.',
                             type: 'error',
                             history: false,
                             closer_hover: false,
@@ -182,7 +182,7 @@
                                <li><asp:HyperLink runat="server" NavigateUrl="~/Account.aspx"><i class="icon-user"></i>  حسابى</asp:HyperLink></li>                               
                                 <li><asp:HyperLink runat="server" NavigateUrl="#"><i class="entypoicon iconentypo-help" style="font-size:25px;"></i> مساعدة</asp:HyperLink></li>                               
                                <li>
-                                   <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج"/>
+                                   <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج" OnLoggingOut="LoginStatus1_LoggingOut"/>
                                    </li>
                            </ul>
                         </li>
@@ -255,7 +255,7 @@
                         </li>
                         <li id="msgmain" class="MenuItem" title="رسائلى" data-placement="left">
                             <i class="icon icon-envelope-alt" style="font-size:25px;"></i>
-                            <a href="#" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
+                            <a href="../Messages.aspx" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
                         </li>
                          <li id="actionsmain" class="MenuItem" title="إجراءات" data-placement="left">
                             <i class="icon icon-cogs" style="font-size:36px;"></i>

@@ -52,6 +52,8 @@ namespace Chat2Connect.SRCustomHubs
             //Clients.All.friendStatusChanged(member.MemberID, member.StatusMsg, status);
         }
 
+       
+
         public override Task OnConnected()
         {
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
