@@ -91,7 +91,9 @@
     <Content Include="Account.aspx" />
     <Content Include="actions.aspx" />
     <Content Include="AddPhoto.aspx" />
-    <Content Include="coming_soon.html" />
+    <Content Include="coming_soon.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="createRoom.aspx" />
     <Content Include="css\base - Copy.css" />
     <Content Include="css\base.css" />
@@ -360,7 +362,9 @@
     <Content Include="lock.aspx" />
     <Content Include="Messages.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\jquery.signalR-2.0.1.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -524,7 +528,9 @@
     <Compile Include="SRCustomHubs\ChatRoomHub.cs" />
     <Compile Include="SRCustomHubs\NotificationHub.cs" />
     <Compile Include="SRCustomHubs\PMHub.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Startup.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="usercontrols\ucFriends.ascx.cs">
       <DependentUpon>ucFriends.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

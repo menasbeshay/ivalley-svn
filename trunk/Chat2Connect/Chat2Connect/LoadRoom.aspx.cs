@@ -80,6 +80,7 @@ namespace Chat2Connect
 
                 uiLiteralLink.Text = "<a id='a_Send_" + rid.ToString() + "' class='btn btn-main' style='width:8%;height:70px;padding-top:25px;'>إرسال</a>" + "<input id='uiHidden_" + rid.ToString() + "' type='hidden' value='" + rid.ToString() + "'/>";
                 uiLiteralCamMicLink.Text = "<a href='#' id='initCam_" + rid.ToString() + "' class='btn btn-default' ><i class='icon-camera'></i>&nbsp;تفعيل الكاميرا</a>&nbsp;";
+                uiLiteralCamMicLink.Text += "<a href='#' id='closeCam_" + rid.ToString() + "' class='btn btn-default' style='display:none;'><i class='icon-camera'></i>&nbsp;إغلاق الكاميرا</a>&nbsp;";
                 uiLiteralCamMicLink.Text += "<a href='#' id='requestMic_" + rid.ToString() + "' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;طلب مايك</a>";
                 uiLiteralCamMicLink.Text += "<a href='#' id='talk_" + rid.ToString() + "' style='display:none;' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;تحدث</a>";
                 uiLiteralCamMicLink.Text += "<a href='#' id='closemic_" + rid.ToString() + "' style='display:none;' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;إغلاق المايك</a>&nbsp;";
@@ -88,6 +89,7 @@ namespace Chat2Connect
                 uiLiteralToolbar.Text = "<div id='toolbar" + rid.ToString() + "'>";
                 uiLiteralScript.Text = "<script type='text/javascript'>" +
                     "$('#initCam_" + rid.ToString() + "').click(function () { " + "startCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
+                    "$('#closeCam_" + rid.ToString() + "').click(function () { " + "stopCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
                     "var editor_" + rid.ToString() + " = new wysihtml5.Editor('uiTextMsg_" + rid.ToString() + "',{toolbar: 'toolbar" + rid.ToString() + "', parserRules: wysihtml5ParserRules, useLineBreaks:  false, stylesheets: 'css/main.css'});" +
                     @"editor_" + rid.ToString() + @".observe('load', function() {
                                                 editor_" + rid.ToString() + @".composer.element.addEventListener('keyup', function(e) {                                                        
@@ -109,6 +111,8 @@ namespace Chat2Connect
                                             $('#requestMic_" + rid.ToString() + @"').css('display','none');
                                             $('#talk_" + rid.ToString() + @"').css('display','inline-block');
                                             $('#closemic_" + rid.ToString() + @"').css('display','none');
+                                            $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .hand').css('display', 'inline-block');
+                                            rHub.server.userRaisHand(" + rid.ToString() + @"," + CurrentMember.MemberID.ToString() + @");
                                       //  }
                                     }
                                 },
@@ -127,15 +131,22 @@ namespace Chat2Connect
                     "$('#talk_" + rid.ToString() + "').click(function () { startMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() + 1); 
                         $('#requestMic_" + rid.ToString() + @"').css('display','none'); 
                         $('#talk_" + rid.ToString() + @"').css('display','none'); 
-                        $('#closemic_" + rid.ToString() + @"').css('display','inline-block');  }); " +
+                        $('#closemic_" + rid.ToString() + @"').css('display','inline-block');                          
+                    }); " +
                     "$('#closemic_" + rid.ToString() + "').click(function () { stopMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() - 1); 
                         $('#requestMic_" + rid.ToString() + @"').css('display','inline-block'); 
                         $('#talk_" + rid.ToString() + @"').css('display','none'); 
-                        $('#closemic_" + rid.ToString() + @"').css('display','none');  }); " +
+                        $('#closemic_" + rid.ToString() + @"').css('display','none');                        
+                    }); " +
 
                     @"function startCam" + rid.ToString() + @"(userId)
 			        {
 				        getFlashMovie" + rid.ToString() + @"('chat2connect_" + rid.ToString() + @"').startCam(userId);
+                        if(" + CurrentMember.MemberID.ToString() + @"==userId)
+                        {
+                            rHub.server.userStartCam(" + rid.ToString() + @", " + CurrentMember.MemberID.ToString() + @");
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .camera').css('display', 'inline-block');                            
+                        }                        
 			        }
 			
 			        function stopCam" + rid.ToString() + @"(userId)
@@ -147,12 +158,25 @@ namespace Chat2Connect
 			        {
 				        getFlashMovie" + rid.ToString() + @"('chat2connect_" + rid.ToString() + @"').startMic(userId);
                         if("+CurrentMember.MemberID.ToString()+ @"==userId)
+                        {
                             rHub.server.userStartMic(" + rid.ToString() + @", " + CurrentMember.MemberID.ToString() + @");
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .hand').css('display', 'none');
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .mic').css('display', 'inline-block');
+                        }
+                        else
+                        {
+                            $('#room_" + rid.ToString() + @" #roomMembersDiv #m_' + userId + ' .controls .hand').css('display', 'none');
+                            $('#room_" + rid.ToString() + @" #roomMembersDiv #m_' + userId + ' .controls .mic').css('display', 'inline-block');
+                        }
+
 			        }
 			
 			        function stopMic" + rid.ToString() + @"(userId)
 			        {
 				        getFlashMovie" + rid.ToString() + @"('chat2connect_" + rid.ToString() + @"').stopMic(userId);
+                        if(" + CurrentMember.MemberID.ToString() + @"==userId)
+                            rHub.server.userStopMic(" + rid.ToString() + @", " + CurrentMember.MemberID.ToString() + @");                        
+                        $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .mic').css('display', 'none');
 			        }
 			
 			        function getFlashMovie" + rid.ToString() + @"(movieName)

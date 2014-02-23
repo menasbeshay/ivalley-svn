@@ -63,7 +63,22 @@ namespace Chat2Connect.SRCustomHubs
 
         public void userStartMic(int rid, int memberid)
         {
-            Clients.Group(rid.ToString(),Context.ConnectionId).ListenMic("startMic" + rid.ToString() , memberid);
+            Clients.Group(rid.ToString(),Context.ConnectionId).ListenMic("startMic" + rid.ToString() , memberid, rid);
+        }
+
+        public void userStopMic(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic("stopMic" + rid.ToString(), memberid, rid);
+        }
+
+        public void userStartCam(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).ShowCamLink(memberid, rid);
+        }
+
+        public void userRaisHand(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid);
         }
     }
 }
