@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -210,6 +211,19 @@ namespace Chat2Connect
             }
 
             
+        }
+
+        protected void uiRepeaterRoomMembers_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                int rid = Convert.ToInt32(localParams);
+
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                
+                Literal camlink = (Literal)e.Item.FindControl("uiLiteralCamLink");
+                camlink.Text = "<a href='#' class='camera' data-related='" + rid.ToString() + "$" + row["MemberID"].ToString() + "'><img src='images/video_camera.png' style='width:16px;'/></a>";
+            }
         }
     }
 }
