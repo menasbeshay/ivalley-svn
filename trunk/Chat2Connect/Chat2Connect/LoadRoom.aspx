@@ -55,18 +55,22 @@
         <div class="col-lg-12" style="padding: 5px;">
             <div class="col-lg-3 pull-right" style="padding: 5px; margin-top: 2px;">
                 <div class="SScroll" data-height="400px" id="roomMembersDiv">
-                    <asp:Repeater ID="uiRepeaterRoomMembers" runat="server">
+                    <asp:Repeater ID="uiRepeaterRoomMembers" runat="server" OnItemDataBound="uiRepeaterRoomMembers_ItemDataBound">
                         <ItemTemplate> <div class="Altodd rm" id="m_<%# Eval("MemberID") %>">
                                         <a href="#"><%# Eval("Name") %>
                                     </a>
-                                    <div class="pull-left controls"><a href="#" class="camera"><img src="images/video_camera.png" style="width:16px;"  /></a><img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
+                                    <div class="pull-left controls">
+                                        <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
+                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
                                     <div class="clearfix" style="height: 1px;"></div>                               
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
                             <div class="Alteven rm" id="m_<%# Eval("MemberID") %>">
                                     <a href="#"><%# Eval("Name") %>
                                     </a>
-                                    <div class="pull-left controls"><a href="#" class="camera"><img src="images/video_camera.png" style="width:16px;"/></a><img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
+                                    <div class="pull-left controls">
+                                        <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
+                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
                                     <div class="clearfix" style="height: 1px;"></div>                               
                                 </div>
                         </AlternatingItemTemplate>
@@ -201,9 +205,21 @@
             position: 'left'
             
     });
+    
 
+    $(".camera").click(function () {
+        var datarelated = $(this).attr('data-related');
+        var arr = datarelated.split('$');
+        var name = "startCam" + arr[0];
+        var fn = window[name];
+        var fnparams = [arr[1]];
+        if (typeof fn === 'function') {
+            fn.apply(null, fnparams);
+        }
+    });
 </script>
      <asp:Literal ID="uiLiteralScript" runat="server"></asp:Literal>
+
         <asp:Literal ID="uiLiteralNoOfMics" runat="server"></asp:Literal>        
         <!-- a literal for toolbar div has a start for a div , this is the end of roomcontents div -->
     </div>
