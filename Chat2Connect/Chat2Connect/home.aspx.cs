@@ -23,7 +23,10 @@ namespace Chat2Connect
                     uiHiddenFieldCurrentName.Value = member.Name;
                     uiHiddenFieldOpenedCams.Value = 0.ToString();
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
-                    switch (member.MemberTypeID)
+                    int membertype = 0;
+                    if (!member.IsColumnNull("MemberTypeID"))
+                        membertype = member.MemberTypeID;
+                    switch (membertype)
                     {
                         case 1: // black
                             uiHiddenFieldMaxCams.Value = 1.ToString();
@@ -42,8 +45,8 @@ namespace Chat2Connect
                             uiHiddenFieldMaxNoOfRooms.Value = 8.ToString();
                             break;
                         default:
-                            uiHiddenFieldMaxCams.Value = 0.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 0.ToString();
+                            uiHiddenFieldMaxCams.Value = 1.ToString();
+                            uiHiddenFieldMaxNoOfRooms.Value = 2.ToString();
                             break;
                     }
                 }

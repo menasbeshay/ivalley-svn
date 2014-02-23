@@ -56,9 +56,7 @@ $(document).ready(function () {
             railColor: '#C7C5C0',
             position: 'left'
         });
-    });
-
-    
+    });    
 
 });
 
@@ -112,19 +110,42 @@ $(document).ready(function () {
         if (document.getElementById("m_" + mid)) {
             return;
         }
-        $("#room_" + rid + " #roomMembersDiv").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><img src='images/video_camera.png' style='width:16px;' /><img src='images/hand.png' style='width:16px;'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;'></div></div>");
+        $("#room_" + rid + " #roomMembersDiv").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><a href='#' class='camera'><img src='images/video_camera.png' style='width:16px;' /></a><img src='images/hand.png' style='width:16px;' class='hand'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;' class='mic'></div></div>");
     };
 
     rHub.client.removeMember = function (mid) {
         $("#m_" + mid).remove();        
     };
 
-    rHub.client.ListenMic = function (listenmic, memberid) {
+    rHub.client.ListenMic = function (listenmic, memberid, rid) {
         var fn = window[listenmic];
         var fnparams = [memberid];
         if (typeof fn === 'function') {
            fn.apply(null,fnparams);
         }
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
+    };
+
+    rHub.client.StopListenMic = function (listenmic, memberid, rid) {
+        var fn = window[listenmic];
+        var fnparams = [memberid];
+        if (typeof fn === 'function') {
+            fn.apply(null, fnparams);
+        }        
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
+    };
+
+    rHub.client.UserRaisHand = function (rid,memberid) {        
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'inline-block');        
+    };
+
+    rHub.client.ShowCamLink = function (mid, rid) {
+        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
+    };
+
+    rHub.client.HideCamLink = function (mid, rid) {
+        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
 
     $.connection.hub.start().done(function () {

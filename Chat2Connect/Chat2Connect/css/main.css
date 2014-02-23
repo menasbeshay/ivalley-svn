@@ -904,6 +904,10 @@ fieldset[disabled] .btn-main.active {
     color:#000;
 }
 
+.camera, .hand, .mic {
+    display:none;
+}
+
 /* auto complete */
 .ui-autocomplete {
     z-index:2000;

@@ -59,14 +59,14 @@
                         <ItemTemplate> <div class="Altodd rm" id="m_<%# Eval("MemberID") %>">
                                         <a href="#"><%# Eval("Name") %>
                                     </a>
-                                    <div class="pull-left controls"><img src="images/video_camera.png" style="width:16px;" /><img src="images/hand.png" style="width:16px;"/><img src="images/microphone_1.png" style="width:16px;"/></div>
+                                    <div class="pull-left controls"><a href="#" class="camera"><img src="images/video_camera.png" style="width:16px;"  /></a><img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
                                     <div class="clearfix" style="height: 1px;"></div>                               
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
                             <div class="Alteven rm" id="m_<%# Eval("MemberID") %>">
                                     <a href="#"><%# Eval("Name") %>
                                     </a>
-                                    <div class="pull-left controls"><img src="images/video_camera.png" style="width:16px;" /><img src="images/hand.png" style="width:16px;"/><img src="images/microphone_1.png" style="width:16px;"/></div>
+                                    <div class="pull-left controls"><a href="#" class="camera"><img src="images/video_camera.png" style="width:16px;"/></a><img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
                                     <div class="clearfix" style="height: 1px;"></div>                               
                                 </div>
                         </AlternatingItemTemplate>
