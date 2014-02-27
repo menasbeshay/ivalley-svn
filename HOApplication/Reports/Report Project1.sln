@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "RPT_Health", "Report Project1\RPT_Health.rptproj", "{811EA8D2-30E4-4CF4-96FA-43640578D56B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Debug|Default.ActiveCfg = Debug
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Debug|Default.Build.0 = DebugLocal
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Debug|Default.Deploy.0 = DebugLocal
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.DebugLocal|Default.Build.0 = DebugLocal
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Release|Default.ActiveCfg = Release
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Release|Default.Build.0 = Release
+		{811EA8D2-30E4-4CF4-96FA-43640578D56B}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
