@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class PurchaseOrderDetails : _PurchaseOrderDetails
@@ -11,5 +14,12 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetPurchaseOrderDetails(int PurchaseOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PurchaseOrderID", SqlDbType.Int, 0), PurchaseOrderID);
+            return LoadFromSql("GetPurchaseOrderDetails", parameters);
+        }
 	}
 }

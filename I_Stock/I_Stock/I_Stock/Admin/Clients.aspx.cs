@@ -63,7 +63,8 @@ namespace I_Stock.Admin
             clients.Telephone = uiTextBoxTele.Text;
             clients.CityID = Convert.ToInt32(uiDropDownListCities.SelectedValue);
             clients.ClientTypeID = Convert.ToInt32(uiDropDownListClientTypes.SelectedValue);
-            clients.StartCredit = decimal.Parse(uiTextBoxCredit.Text);
+            if(!string.IsNullOrEmpty(uiTextBoxCredit.Text))
+                clients.StartCredit = decimal.Parse(uiTextBoxCredit.Text);
             clients.Save();
             ClearFields();
             CurrentClient = null;
@@ -132,6 +133,20 @@ namespace I_Stock.Admin
                     
                 }
             }
+
+            else if (e.CommandName == "GetClientCredit")
+            {
+                Session["Report_ClientIDForCredit"] = e.CommandArgument.ToString();
+                Session["CurrentReport"] = "Report_GetClientCredit";
+                Response.Redirect("Reports.aspx");
+            }
+        }
+
+        protected void uiLinkButtonAllClientsCredits_Click(object sender, EventArgs e)
+        {
+            Session["Report_ClientIDForCredit"] = "0";
+            Session["CurrentReport"] = "Report_GetClientCredit";
+            Response.Redirect("Reports.aspx");
         }
         #endregion
 
@@ -156,6 +171,7 @@ namespace I_Stock.Admin
             uiDropDownListClientTypes.DataTextField = "Name";
             uiDropDownListClientTypes.DataValueField = "ClientTypeID";
             uiDropDownListClientTypes.DataBind();
+            uiDropDownListClientTypes.Items.Insert(0, new ListItem("إختر التصنيف",""));
 
             IStock.BLL.Cities cities = new IStock.BLL.Cities();
             cities.LoadAll();
@@ -164,6 +180,7 @@ namespace I_Stock.Admin
             uiDropDownListCities.DataTextField = "Name";
             uiDropDownListCities.DataValueField = "CityID";
             uiDropDownListCities.DataBind();
+            uiDropDownListCities.Items.Insert(0, new ListItem("إختر المدينة",""));
         }
 
         private void ClearFields()
@@ -173,11 +190,13 @@ namespace I_Stock.Admin
             uiTextBoxAddress.Text = "";
             uiTextBoxTele.Text = "";
             uiTextBoxCredit.Text = "";
-            uiDropDownListCities.SelectedIndex = 0;
-            uiDropDownListClientTypes.SelectedIndex = 0;
+            //uiDropDownListCities.SelectedIndex = 0;
+            //uiDropDownListClientTypes.SelectedIndex = 0;
         }
 
 
         #endregion
+
+        
     }
 }

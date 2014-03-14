@@ -4,6 +4,8 @@
 using System;
 using IStock.DAL;
 using System.Collections.Specialized;
+using System.Data;
+using System.Data.SqlClient;
 namespace IStock.BLL
 {
 	public class Clients : _Clients
@@ -18,6 +20,31 @@ namespace IStock.BLL
             ListDictionary parameters = new ListDictionary();
 
             return LoadFromSql("GetAllClients", parameters);
+        }
+
+        public virtual bool GetAllClientsByClientTypeID( int ClientTypeID)
+        { 
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ClientTypeID", SqlDbType.Int, 0), ClientTypeID);
+            return LoadFromSql("GetAllClientsByClientTypeID", parameters);
+        }
+
+        public virtual bool Report_GetClientCredit(int ClientID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ClientID", SqlDbType.Int, 0), ClientID);
+            return LoadFromSql("Report_GetClientCredit", parameters);         
+        }
+
+
+        public virtual bool Report_GetOrdersHistoryByClientID(int ClientID,DateTime? From, DateTime? To, int ItemID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ClientID", SqlDbType.Int, 0), ClientID);
+            parameters.Add(new SqlParameter("@ItemID", SqlDbType.Int, 0), ItemID);
+            parameters.Add(new SqlParameter("@From", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@To", SqlDbType.DateTime, 0), To);
+            return LoadFromSql("Report_GetOrdersHistoryByClientID", parameters);
         }
 	}
 }

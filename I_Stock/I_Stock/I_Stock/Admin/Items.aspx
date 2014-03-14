@@ -4,7 +4,7 @@
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="uiPanelEditItems" runat="server">
+    <asp:Panel ID="uiPanelEditItems" runat="server" DefaultButton="uiLinkButtonOK">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget">
@@ -25,6 +25,20 @@
                     <div class="clearfix">
                     </div>
                     <div class="form-horizontal" id="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">
+                                التصنيف</label>
+                            <div class="controls">
+                                <asp:Label ID="uiLabelCat" runat="server" ></asp:Label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                المجموعة</label>
+                            <div class="controls">
+                                <asp:Label ID="uiLabelGroup" runat="server"></asp:Label>
+                            </div>
+                        </div>
                         <div class="control-group">
                             <label class="control-label">
                                 الأسم</label>
@@ -217,6 +231,14 @@
                             </div>
                         </asp:Panel>
                         </div>
+                        <div class="control-group">                            
+                                <div class="span12">                                    
+                                    <div class="controls">                                        
+                                        <asp:LinkButton ID="uiLinkButtonAllItemsBalances" runat="server" CssClass="btn blue"
+                                            OnClick="uiLinkButtonAllItemsBalances_Click"><i class='icon-bar-chart'></i> أرصدة جميع الأصناف</asp:LinkButton>
+                                    </div>
+                                </div>                            
+                        </div>
                     </div>
 
                     <asp:GridView ID="uiGridViewItems" runat="server" AllowPaging="True" 
@@ -229,8 +251,10 @@
                         <Columns>
                             <asp:BoundField DataField="Name"  HeaderText="الإسم" ItemStyle-Width="33%"/>
                             <asp:BoundField DataField="ItemCode" HeaderText="كود الصنف" ItemStyle-Width="20%" />
-                            <asp:TemplateField HeaderText="إجراءات" ItemStyle-Width="20%">
+                            <asp:TemplateField HeaderText="إجراءات" ItemStyle-Width="40%">
                                 <ItemTemplate>
+                                    <asp:LinkButton ID="uiLinkButtonGetBalance" runat="server" CommandArgument='<%# Eval("ItemID") %>'
+                                        CssClass="btn blue" CommandName="GetItemBalance"><i class='icon-bar-chart'></i> مراجعة الأرصدة</asp:LinkButton>&nbsp;
                                     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ItemID") %>'
                                         CssClass="btn blue" CommandName="EditItem" ><i class='icon-edit'></i> تعديل</asp:LinkButton>&nbsp;
                                     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ItemID") %>'

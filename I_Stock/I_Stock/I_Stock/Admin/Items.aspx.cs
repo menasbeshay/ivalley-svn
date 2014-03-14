@@ -65,6 +65,21 @@ namespace I_Stock.Admin
                     uiTextBoxQty.Text = objData.Quantity.ToString();
                 if(!objData.IsColumnNull("ReOrderLevel"))
                     uiTextBoxReOrderLevel.Text = objData.ReOrderLevel.ToString();
+                
+                IStock.BLL.ItemGroups group = new IStock.BLL.ItemGroups();
+                group.LoadByPrimaryKey(Convert.ToInt32(objData.GroupID));
+                uiLabelGroup.Text = group.Name;
+
+
+                IStock.BLL.ItemCategories cat = new ItemCategories();
+                if (!string.IsNullOrEmpty(uiDropDownListCats.SelectedValue))
+                {
+                    cat.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+                }
+                else
+                    cat.LoadByPrimaryKey(group.ItemCategoryID);
+                uiLabelCat.Text = cat.Name;
+
                 uiPanelAllItems.Visible = false;
                 uiPanelEditItems.Visible = true;
                 CurrentItem = objData;
@@ -87,7 +102,22 @@ namespace I_Stock.Admin
                     uipanelError.Visible = true;
                 }
             }
+            else if (e.CommandName == "GetItemBalance")
+            {
+                Session["Report_ItemIDForBalance"] = e.CommandArgument.ToString();
+                Session["CurrentReport"] = "Report_GetItemsBalances";
+                Response.Redirect("Reports.aspx");
+            }
         }
+
+
+        protected void uiLinkButtonAllItemsBalances_Click(object sender, EventArgs e)
+        {
+            Session["Report_ItemIDForBalance"] = "0";
+            Session["CurrentReport"] = "Report_GetItemsBalances";
+            Response.Redirect("Reports.aspx");
+        }
+
 
         protected void uiLinkButtonOK_Click(object sender, EventArgs e)
         {
@@ -137,6 +167,16 @@ namespace I_Stock.Admin
             uiPanelEditItems.Visible = true;
             uiPanelAllItems.Visible = false;
             uiPanelActions.Visible = false;
+
+
+            IStock.BLL.ItemCategories cat = new ItemCategories();
+            cat.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+            uiLabelCat.Text = cat.Name;
+
+            IStock.BLL.ItemGroups group = new IStock.BLL.ItemGroups();
+            group.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListGroup.SelectedValue));
+            uiLabelGroup.Text = group.Name;
+
         }
 
         protected void uiDropDownListCats_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,6 +188,8 @@ namespace I_Stock.Admin
         {
             if (uiDropDownListGroup.SelectedValue != "0")
                 uiLinkButtonAdd.Enabled = true;
+            else
+                uiLinkButtonAdd.Enabled = false;
             BindData();
         }
 
@@ -213,6 +255,8 @@ namespace I_Stock.Admin
             IStock.BLL.Items objData = new IStock.BLL.Items();
             if (!string.IsNullOrEmpty(uiDropDownListGroup.SelectedValue))
                 objData.SearchItems(uiTextBoxSearch.Text, Convert.ToInt32(uiDropDownListGroup.SelectedValue));
+            else
+                objData.SearchItems(uiTextBoxSearch.Text);
             uiGridViewItems.DataSource = objData.DefaultView;
             uiGridViewItems.DataBind();
         }
@@ -247,7 +291,7 @@ namespace I_Stock.Admin
             uiDropDownListClientTypes.DataTextField = "Name";
             uiDropDownListClientTypes.DataValueField = "ClientTypeID";
             uiDropDownListClientTypes.DataBind();
-            uiDropDownListClientTypes.Items.Insert(0, new ListItem("إختر عميل", "0"));
+            uiDropDownListClientTypes.Items.Insert(0, new ListItem("إختر عميل", ""));
         }
         
         private void LoadCategories()
@@ -258,7 +302,7 @@ namespace I_Stock.Admin
             uiDropDownListCats.DataTextField = "Name";
             uiDropDownListCats.DataValueField = "ItemCategoryID";
             uiDropDownListCats.DataBind();
-            uiDropDownListCats.Items.Insert(0, new ListItem("إختر تصنيف", "0"));
+            uiDropDownListCats.Items.Insert(0, new ListItem("إختر تصنيف", ""));
         }
 
         private void LoadGroups()
@@ -270,7 +314,7 @@ namespace I_Stock.Admin
             uiDropDownListGroup.DataTextField = "Name";
             uiDropDownListGroup.DataValueField = "ItemGroupID";
             uiDropDownListGroup.DataBind();
-            uiDropDownListGroup.Items.Insert(0, new ListItem("إختر مجموعة", "0"));
+            uiDropDownListGroup.Items.Insert(0, new ListItem("إختر مجموعة", ""));
         }
         #endregion
 

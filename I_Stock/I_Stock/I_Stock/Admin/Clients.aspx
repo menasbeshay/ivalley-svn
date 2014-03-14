@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="uiPanelEditClients" runat="server">
+    <asp:Panel ID="uiPanelEditClients" runat="server" DefaultButton="uiLinkButtonOK">
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget">
@@ -117,7 +117,10 @@
                     </div>
                     <div class="widget-body">
                         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAdd_Click"><i class='icon-plus'></i> إضافة عميل جديد</asp:LinkButton>
-                        <div class="clearfix" style="height: 20px;">
+                           &nbsp;&nbsp;&nbsp;
+                                        <asp:LinkButton ID="uiLinkButtonAllClientsCredits" runat="server" CssClass="btn blue"
+                                            OnClick="uiLinkButtonAllClientsCredits_Click"><i class='icon-bar-chart'></i> مديونيات جميع العملاء</asp:LinkButton>
+                              <div class="clearfix" style="height: 20px;">
                         </div>
                         <asp:GridView ID="uiGridViewClients" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                             CellPadding="4" GridLines="None" OnPageIndexChanging="uiGridViewClients_PageIndexChanging"
@@ -129,16 +132,19 @@
                             <PagerStyle HorizontalAlign="Center" />
                             <RowStyle HorizontalAlign="Center" />
                             <Columns>
-                                <asp:BoundField DataField="Name" HeaderText="الأسم" />
-                                <asp:BoundField DataField="ClientTypeName" HeaderText="قطاع العميل" />
+                                <asp:BoundField DataField="Name" HeaderText="الأسم" ControlStyle-Width="30%" />
+                                <asp:BoundField DataField="ClientTypeName" HeaderText="قطاع العميل" ControlStyle-Width="30%"/>
                                 <asp:TemplateField HeaderText="إجراءات">
+                                <ItemStyle Width="30%" />
                                     <ItemTemplate>
+                                    <asp:LinkButton ID="uiLinkButtonGetCredit" runat="server" CommandArgument='<%# Eval("ClientID") %>'
+                                        CssClass="btn blue" style="width:113px;" CommandName="GetClientCredit"><i class='icon-bar-chart'></i> مراجعة المديونيات</asp:LinkButton>
+                                        <div class="clearfix" style="height:3px"></div>
                                         <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ClientID") %>'
                                             CssClass="btn blue" CommandName="EditClient"><i class='icon-edit'></i> تعديل</asp:LinkButton>&nbsp;
                                         <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ClientID") %>'
                                             CssClass="btn blue" CommandName="DeleteClient" OnClientClick="return confirm('هل تريد حذف هذا السجل؟');"><i class='icon-remove'></i> حذف</asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle Width="20%" />
+                                    </ItemTemplate>                                    
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>

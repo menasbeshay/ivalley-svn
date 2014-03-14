@@ -47,6 +47,7 @@ namespace I_Stock.Admin
         protected void uiDropDownListCats_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindGroups();
+            uiLinkButtonAdd.Enabled = (!string.IsNullOrEmpty(uiDropDownListCats.SelectedValue));
         }
 
         protected void uiGridViewGroups_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -65,6 +66,9 @@ namespace I_Stock.Admin
                 uiTextBoxName.Text = objData.Name;
                 uiTextBoxDesc.Text = objData.Description;
                 uiDropDownListCats.SelectedValue = objData.ItemCategoryID.ToString();
+                IStock.BLL.ItemCategories cat = new ItemCategories();
+                cat.LoadByPrimaryKey(objData.ItemCategoryID);
+                uiLabelCat.Text = cat.Name;
 
                 uiPanelAllGroups.Visible = false;
                 uiPanelEditGroup.Visible = true;
@@ -108,6 +112,9 @@ namespace I_Stock.Admin
         {
             ClearFields();
             CurrentGroup = null;
+            IStock.BLL.ItemCategories cat = new ItemCategories();
+            cat.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+            uiLabelCat.Text = cat.Name;
             uiPanelEditGroup.Visible = true;
             uiPanelAllGroups.Visible = false;  
         }
@@ -161,13 +168,16 @@ namespace I_Stock.Admin
             uiDropDownListCats.DataTextField = "Name";
             uiDropDownListCats.DataValueField = "ItemCategoryID";
             uiDropDownListCats.DataBind();
+            uiDropDownListCats.Items.Insert(0, new ListItem("إختر التصنيف", ""));
+            uiLinkButtonAdd.Enabled = (!string.IsNullOrEmpty(uiDropDownListCats.SelectedValue));
         }
 
 
         private void BindGroups()
         {
             IStock.BLL.ItemGroups groups = new IStock.BLL.ItemGroups();
-            groups.GetItemGroupsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+            if(!string.IsNullOrEmpty(uiDropDownListCats.SelectedValue))
+                groups.GetItemGroupsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue));
             groups.Sort = "Name";
             uiGridViewGroups.DataSource = groups.DefaultView;
             uiGridViewGroups.DataBind();
@@ -177,7 +187,7 @@ namespace I_Stock.Admin
         {
             uiTextBoxName.Text = "";
             uiTextBoxDesc.Text = "";
-            uiDropDownListCats.SelectedIndex = 0;
+            uiLabelCat.Text = "";
         }
 
 

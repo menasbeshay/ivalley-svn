@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace IStock.BLL
 {
 	public class PurchaseOrders : _PurchaseOrders
@@ -11,5 +14,71 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllPurchaseOrders()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllPurchaseOrders", parameters);
+        }
+
+        public virtual string GetLastPurchaseOrderNo()
+        {
+            ListDictionary parameters = new ListDictionary();
+            object number = LoadFromSqlScalar("GetLastPurchaseOrderNo", parameters);
+            if (number != null)
+                return number.ToString();
+            else
+                return "";
+        }
+
+        public string getNewSerial()
+        {
+            string serial = "";
+
+            string temp = GetLastPurchaseOrderNo();
+
+            if (string.IsNullOrEmpty(temp))
+            {
+                temp = "10000";
+            }
+
+            temp = (double.Parse(temp) + 1).ToString();
+            if (!temp.StartsWith("6"))
+                serial = "6" + double.Parse(temp).ToString("000000000");
+            else
+                serial = double.Parse(temp).ToString("0000000000");
+            return serial;
+        }
+
+        public decimal GetPurchaseOrderTotals(int PurchaseOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PurchaseOrderID", SqlDbType.Int, 0), PurchaseOrderID);
+            object total = LoadFromSqlScalar("GetPurchaseOrderTotals", parameters);
+            if (total != null && !string.IsNullOrEmpty(total.ToString()))
+                return decimal.Parse(total.ToString());
+            return 0;
+        }
+
+        public virtual bool Report_PurchaseOrder(int PurchaseOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PurchaseOrderID", SqlDbType.Int, 0), PurchaseOrderID);
+            return LoadFromSql("Report_PurchaseOrder", parameters);
+
+        }
+
+
+        public virtual bool Report_PurchaseOrders(int ItemID, int SupplierID, DateTime? From, DateTime? To)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ItemID", SqlDbType.Int, 0), ItemID);
+            parameters.Add(new SqlParameter("@SupplierID", SqlDbType.Int, 0), SupplierID);
+            parameters.Add(new SqlParameter("@From", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@To", SqlDbType.DateTime, 0), To);
+            return LoadFromSql("Report_GetPurchaseOrders", parameters);
+
+        }
 	}
 }

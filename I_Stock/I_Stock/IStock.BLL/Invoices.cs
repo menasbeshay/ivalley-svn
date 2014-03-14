@@ -61,5 +61,12 @@ namespace IStock.BLL
                 return decimal.Parse(total.ToString());
             return 0;
         }
+
+        public virtual bool GetDeliveryOrderInvoice(int DeliveryOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0), DeliveryOrderID);
+            return LoadFromSql("GetDeliveryOrderInvoice", parameters);            
+        }
 	}
 }

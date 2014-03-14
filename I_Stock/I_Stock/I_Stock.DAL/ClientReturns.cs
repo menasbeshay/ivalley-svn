@@ -115,11 +115,19 @@ namespace IStock.DAL
 				}
 			}
 			
-			public static SqlParameter ItemID
+			public static SqlParameter InvoiceID
 			{
 				get
 				{
-					return new SqlParameter("@ItemID", SqlDbType.Int, 0);
+					return new SqlParameter("@InvoiceID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter EmployeeID
+			{
+				get
+				{
+					return new SqlParameter("@EmployeeID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -131,19 +139,27 @@ namespace IStock.DAL
 				}
 			}
 			
-			public static SqlParameter Quantity
+			public static SqlParameter ReturnDate
 			{
 				get
 				{
-					return new SqlParameter("@Quantity", SqlDbType.Int, 0);
+					return new SqlParameter("@ReturnDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
-			public static SqlParameter Valid
+			public static SqlParameter Discount
 			{
 				get
 				{
-					return new SqlParameter("@Valid", SqlDbType.Int, 0);
+					return new SqlParameter("@Discount", SqlDbType.Decimal, 0);
+				}
+			}
+			
+			public static SqlParameter DeliveryOrderID
+			{
+				get
+				{
+					return new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -155,10 +171,12 @@ namespace IStock.DAL
 		{  
             public const string ClientReturnID = "ClientReturnID";
             public const string ReturnNo = "ReturnNo";
-            public const string ItemID = "ItemID";
+            public const string InvoiceID = "InvoiceID";
+            public const string EmployeeID = "EmployeeID";
             public const string ClientID = "ClientID";
-            public const string Quantity = "Quantity";
-            public const string Valid = "Valid";
+            public const string ReturnDate = "ReturnDate";
+            public const string Discount = "Discount";
+            public const string DeliveryOrderID = "DeliveryOrderID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -168,10 +186,12 @@ namespace IStock.DAL
 					
 					ht[ClientReturnID] = _ClientReturns.PropertyNames.ClientReturnID;
 					ht[ReturnNo] = _ClientReturns.PropertyNames.ReturnNo;
-					ht[ItemID] = _ClientReturns.PropertyNames.ItemID;
+					ht[InvoiceID] = _ClientReturns.PropertyNames.InvoiceID;
+					ht[EmployeeID] = _ClientReturns.PropertyNames.EmployeeID;
 					ht[ClientID] = _ClientReturns.PropertyNames.ClientID;
-					ht[Quantity] = _ClientReturns.PropertyNames.Quantity;
-					ht[Valid] = _ClientReturns.PropertyNames.Valid;
+					ht[ReturnDate] = _ClientReturns.PropertyNames.ReturnDate;
+					ht[Discount] = _ClientReturns.PropertyNames.Discount;
+					ht[DeliveryOrderID] = _ClientReturns.PropertyNames.DeliveryOrderID;
 
 				}
 				return (string)ht[columnName];
@@ -186,10 +206,12 @@ namespace IStock.DAL
 		{  
             public const string ClientReturnID = "ClientReturnID";
             public const string ReturnNo = "ReturnNo";
-            public const string ItemID = "ItemID";
+            public const string InvoiceID = "InvoiceID";
+            public const string EmployeeID = "EmployeeID";
             public const string ClientID = "ClientID";
-            public const string Quantity = "Quantity";
-            public const string Valid = "Valid";
+            public const string ReturnDate = "ReturnDate";
+            public const string Discount = "Discount";
+            public const string DeliveryOrderID = "DeliveryOrderID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -199,10 +221,12 @@ namespace IStock.DAL
 					
 					ht[ClientReturnID] = _ClientReturns.ColumnNames.ClientReturnID;
 					ht[ReturnNo] = _ClientReturns.ColumnNames.ReturnNo;
-					ht[ItemID] = _ClientReturns.ColumnNames.ItemID;
+					ht[InvoiceID] = _ClientReturns.ColumnNames.InvoiceID;
+					ht[EmployeeID] = _ClientReturns.ColumnNames.EmployeeID;
 					ht[ClientID] = _ClientReturns.ColumnNames.ClientID;
-					ht[Quantity] = _ClientReturns.ColumnNames.Quantity;
-					ht[Valid] = _ClientReturns.ColumnNames.Valid;
+					ht[ReturnDate] = _ClientReturns.ColumnNames.ReturnDate;
+					ht[Discount] = _ClientReturns.ColumnNames.Discount;
+					ht[DeliveryOrderID] = _ClientReturns.ColumnNames.DeliveryOrderID;
 
 				}
 				return (string)ht[propertyName];
@@ -217,10 +241,12 @@ namespace IStock.DAL
 		{  
             public const string ClientReturnID = "s_ClientReturnID";
             public const string ReturnNo = "s_ReturnNo";
-            public const string ItemID = "s_ItemID";
+            public const string InvoiceID = "s_InvoiceID";
+            public const string EmployeeID = "s_EmployeeID";
             public const string ClientID = "s_ClientID";
-            public const string Quantity = "s_Quantity";
-            public const string Valid = "s_Valid";
+            public const string ReturnDate = "s_ReturnDate";
+            public const string Discount = "s_Discount";
+            public const string DeliveryOrderID = "s_DeliveryOrderID";
 
 		}
 		#endregion		
@@ -251,15 +277,27 @@ namespace IStock.DAL
 			}
 		}
 
-		public virtual int ItemID
+		public virtual int InvoiceID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ItemID);
+				return base.Getint(ColumnNames.InvoiceID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ItemID, value);
+				base.Setint(ColumnNames.InvoiceID, value);
+			}
+		}
+
+		public virtual int EmployeeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.EmployeeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.EmployeeID, value);
 			}
 		}
 
@@ -275,27 +313,39 @@ namespace IStock.DAL
 			}
 		}
 
-		public virtual int Quantity
+		public virtual DateTime ReturnDate
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Quantity);
+				return base.GetDateTime(ColumnNames.ReturnDate);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Quantity, value);
+				base.SetDateTime(ColumnNames.ReturnDate, value);
 			}
 		}
 
-		public virtual int Valid
+		public virtual decimal Discount
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Valid);
+				return base.Getdecimal(ColumnNames.Discount);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Valid, value);
+				base.Setdecimal(ColumnNames.Discount, value);
+			}
+		}
+
+		public virtual int DeliveryOrderID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.DeliveryOrderID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.DeliveryOrderID, value);
 			}
 		}
 
@@ -334,18 +384,33 @@ namespace IStock.DAL
 			}
 		}
 
-		public virtual string s_ItemID
+		public virtual string s_InvoiceID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ItemID) ? string.Empty : base.GetintAsString(ColumnNames.ItemID);
+				return this.IsColumnNull(ColumnNames.InvoiceID) ? string.Empty : base.GetintAsString(ColumnNames.InvoiceID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ItemID);
+					this.SetColumnNull(ColumnNames.InvoiceID);
 				else
-					this.ItemID = base.SetintAsString(ColumnNames.ItemID, value);
+					this.InvoiceID = base.SetintAsString(ColumnNames.InvoiceID, value);
+			}
+		}
+
+		public virtual string s_EmployeeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EmployeeID) ? string.Empty : base.GetintAsString(ColumnNames.EmployeeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EmployeeID);
+				else
+					this.EmployeeID = base.SetintAsString(ColumnNames.EmployeeID, value);
 			}
 		}
 
@@ -364,33 +429,48 @@ namespace IStock.DAL
 			}
 		}
 
-		public virtual string s_Quantity
+		public virtual string s_ReturnDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Quantity) ? string.Empty : base.GetintAsString(ColumnNames.Quantity);
+				return this.IsColumnNull(ColumnNames.ReturnDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.ReturnDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Quantity);
+					this.SetColumnNull(ColumnNames.ReturnDate);
 				else
-					this.Quantity = base.SetintAsString(ColumnNames.Quantity, value);
+					this.ReturnDate = base.SetDateTimeAsString(ColumnNames.ReturnDate, value);
 			}
 		}
 
-		public virtual string s_Valid
+		public virtual string s_Discount
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Valid) ? string.Empty : base.GetintAsString(ColumnNames.Valid);
+				return this.IsColumnNull(ColumnNames.Discount) ? string.Empty : base.GetdecimalAsString(ColumnNames.Discount);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Valid);
+					this.SetColumnNull(ColumnNames.Discount);
 				else
-					this.Valid = base.SetintAsString(ColumnNames.Valid, value);
+					this.Discount = base.SetdecimalAsString(ColumnNames.Discount, value);
+			}
+		}
+
+		public virtual string s_DeliveryOrderID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeliveryOrderID) ? string.Empty : base.GetintAsString(ColumnNames.DeliveryOrderID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeliveryOrderID);
+				else
+					this.DeliveryOrderID = base.SetintAsString(ColumnNames.DeliveryOrderID, value);
 			}
 		}
 
@@ -447,11 +527,21 @@ namespace IStock.DAL
 					}
 				}
 
-				public WhereParameter ItemID
+				public WhereParameter InvoiceID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ItemID, Parameters.ItemID);
+							WhereParameter where = new WhereParameter(ColumnNames.InvoiceID, Parameters.InvoiceID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EmployeeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EmployeeID, Parameters.EmployeeID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -467,21 +557,31 @@ namespace IStock.DAL
 					}
 				}
 
-				public WhereParameter Quantity
+				public WhereParameter ReturnDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Quantity, Parameters.Quantity);
+							WhereParameter where = new WhereParameter(ColumnNames.ReturnDate, Parameters.ReturnDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Valid
+				public WhereParameter Discount
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Valid, Parameters.Valid);
+							WhereParameter where = new WhereParameter(ColumnNames.Discount, Parameters.Discount);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DeliveryOrderID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderID, Parameters.DeliveryOrderID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -516,15 +616,27 @@ namespace IStock.DAL
 				}
 			}
 
-			public WhereParameter ItemID
+			public WhereParameter InvoiceID
 		    {
 				get
 		        {
-					if(_ItemID_W == null)
+					if(_InvoiceID_W == null)
 	        	    {
-						_ItemID_W = TearOff.ItemID;
+						_InvoiceID_W = TearOff.InvoiceID;
 					}
-					return _ItemID_W;
+					return _InvoiceID_W;
+				}
+			}
+
+			public WhereParameter EmployeeID
+		    {
+				get
+		        {
+					if(_EmployeeID_W == null)
+	        	    {
+						_EmployeeID_W = TearOff.EmployeeID;
+					}
+					return _EmployeeID_W;
 				}
 			}
 
@@ -540,45 +652,61 @@ namespace IStock.DAL
 				}
 			}
 
-			public WhereParameter Quantity
+			public WhereParameter ReturnDate
 		    {
 				get
 		        {
-					if(_Quantity_W == null)
+					if(_ReturnDate_W == null)
 	        	    {
-						_Quantity_W = TearOff.Quantity;
+						_ReturnDate_W = TearOff.ReturnDate;
 					}
-					return _Quantity_W;
+					return _ReturnDate_W;
 				}
 			}
 
-			public WhereParameter Valid
+			public WhereParameter Discount
 		    {
 				get
 		        {
-					if(_Valid_W == null)
+					if(_Discount_W == null)
 	        	    {
-						_Valid_W = TearOff.Valid;
+						_Discount_W = TearOff.Discount;
 					}
-					return _Valid_W;
+					return _Discount_W;
+				}
+			}
+
+			public WhereParameter DeliveryOrderID
+		    {
+				get
+		        {
+					if(_DeliveryOrderID_W == null)
+	        	    {
+						_DeliveryOrderID_W = TearOff.DeliveryOrderID;
+					}
+					return _DeliveryOrderID_W;
 				}
 			}
 
 			private WhereParameter _ClientReturnID_W = null;
 			private WhereParameter _ReturnNo_W = null;
-			private WhereParameter _ItemID_W = null;
+			private WhereParameter _InvoiceID_W = null;
+			private WhereParameter _EmployeeID_W = null;
 			private WhereParameter _ClientID_W = null;
-			private WhereParameter _Quantity_W = null;
-			private WhereParameter _Valid_W = null;
+			private WhereParameter _ReturnDate_W = null;
+			private WhereParameter _Discount_W = null;
+			private WhereParameter _DeliveryOrderID_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ClientReturnID_W = null;
 				_ReturnNo_W = null;
-				_ItemID_W = null;
+				_InvoiceID_W = null;
+				_EmployeeID_W = null;
 				_ClientID_W = null;
-				_Quantity_W = null;
-				_Valid_W = null;
+				_ReturnDate_W = null;
+				_Discount_W = null;
+				_DeliveryOrderID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -655,11 +783,21 @@ namespace IStock.DAL
 					}
 				}
 
-				public AggregateParameter ItemID
+				public AggregateParameter InvoiceID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ItemID, Parameters.ItemID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.InvoiceID, Parameters.InvoiceID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EmployeeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EmployeeID, Parameters.EmployeeID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -675,21 +813,31 @@ namespace IStock.DAL
 					}
 				}
 
-				public AggregateParameter Quantity
+				public AggregateParameter ReturnDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Quantity, Parameters.Quantity);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReturnDate, Parameters.ReturnDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Valid
+				public AggregateParameter Discount
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Valid, Parameters.Valid);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Discount, Parameters.Discount);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DeliveryOrderID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderID, Parameters.DeliveryOrderID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -724,15 +872,27 @@ namespace IStock.DAL
 				}
 			}
 
-			public AggregateParameter ItemID
+			public AggregateParameter InvoiceID
 		    {
 				get
 		        {
-					if(_ItemID_W == null)
+					if(_InvoiceID_W == null)
 	        	    {
-						_ItemID_W = TearOff.ItemID;
+						_InvoiceID_W = TearOff.InvoiceID;
 					}
-					return _ItemID_W;
+					return _InvoiceID_W;
+				}
+			}
+
+			public AggregateParameter EmployeeID
+		    {
+				get
+		        {
+					if(_EmployeeID_W == null)
+	        	    {
+						_EmployeeID_W = TearOff.EmployeeID;
+					}
+					return _EmployeeID_W;
 				}
 			}
 
@@ -748,45 +908,61 @@ namespace IStock.DAL
 				}
 			}
 
-			public AggregateParameter Quantity
+			public AggregateParameter ReturnDate
 		    {
 				get
 		        {
-					if(_Quantity_W == null)
+					if(_ReturnDate_W == null)
 	        	    {
-						_Quantity_W = TearOff.Quantity;
+						_ReturnDate_W = TearOff.ReturnDate;
 					}
-					return _Quantity_W;
+					return _ReturnDate_W;
 				}
 			}
 
-			public AggregateParameter Valid
+			public AggregateParameter Discount
 		    {
 				get
 		        {
-					if(_Valid_W == null)
+					if(_Discount_W == null)
 	        	    {
-						_Valid_W = TearOff.Valid;
+						_Discount_W = TearOff.Discount;
 					}
-					return _Valid_W;
+					return _Discount_W;
+				}
+			}
+
+			public AggregateParameter DeliveryOrderID
+		    {
+				get
+		        {
+					if(_DeliveryOrderID_W == null)
+	        	    {
+						_DeliveryOrderID_W = TearOff.DeliveryOrderID;
+					}
+					return _DeliveryOrderID_W;
 				}
 			}
 
 			private AggregateParameter _ClientReturnID_W = null;
 			private AggregateParameter _ReturnNo_W = null;
-			private AggregateParameter _ItemID_W = null;
+			private AggregateParameter _InvoiceID_W = null;
+			private AggregateParameter _EmployeeID_W = null;
 			private AggregateParameter _ClientID_W = null;
-			private AggregateParameter _Quantity_W = null;
-			private AggregateParameter _Valid_W = null;
+			private AggregateParameter _ReturnDate_W = null;
+			private AggregateParameter _Discount_W = null;
+			private AggregateParameter _DeliveryOrderID_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ClientReturnID_W = null;
 				_ReturnNo_W = null;
-				_ItemID_W = null;
+				_InvoiceID_W = null;
+				_EmployeeID_W = null;
 				_ClientID_W = null;
-				_Quantity_W = null;
-				_Valid_W = null;
+				_ReturnDate_W = null;
+				_Discount_W = null;
+				_DeliveryOrderID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -869,20 +1045,28 @@ namespace IStock.DAL
 			p.SourceColumn = ColumnNames.ReturnNo;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ItemID);
-			p.SourceColumn = ColumnNames.ItemID;
+			p = cmd.Parameters.Add(Parameters.InvoiceID);
+			p.SourceColumn = ColumnNames.InvoiceID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EmployeeID);
+			p.SourceColumn = ColumnNames.EmployeeID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.ClientID);
 			p.SourceColumn = ColumnNames.ClientID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Quantity);
-			p.SourceColumn = ColumnNames.Quantity;
+			p = cmd.Parameters.Add(Parameters.ReturnDate);
+			p.SourceColumn = ColumnNames.ReturnDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Valid);
-			p.SourceColumn = ColumnNames.Valid;
+			p = cmd.Parameters.Add(Parameters.Discount);
+			p.SourceColumn = ColumnNames.Discount;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderID);
+			p.SourceColumn = ColumnNames.DeliveryOrderID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

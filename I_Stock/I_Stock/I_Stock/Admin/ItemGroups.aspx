@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="uiPanelEditGroup" runat="server">
+    <asp:Panel ID="uiPanelEditGroup" runat="server" DefaultButton="uiLinkButtonOK">
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget">
@@ -26,7 +26,15 @@
                         <div class="clearfix">
                         </div>
                         <div class="form-horizontal">
-                            
+                            <div class="control-group">
+                                <div class="span12">
+                                    <label class="control-label">
+                                        التصنيف</label>
+                                    <div class="controls">
+                                        <asp:Label ID="uiLabelCat" runat="server" ></asp:Label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="control-group">
                                 <div class="span12">
                                     <label class="control-label">

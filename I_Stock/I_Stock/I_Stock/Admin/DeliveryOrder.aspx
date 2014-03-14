@@ -1,7 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpages/IStock.Master" AutoEventWireup="true" CodeBehind="DeliveryOrder.aspx.cs" Inherits="I_Stock.Admin.DeliveryOrder" %>
 <%@ MasterType VirtualPath="~/Masterpages/IStock.Master" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#<%= uiTextBoxItems.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "../modules/stockservice.asmx/GetItems",
+                        dataType: "json",
+                        type: "post",
+                        data: "{'query':'" + request.term.toString() + "','ClientId':'" + $("#<%= uiDropDownListClients.ClientID %> option:selected").val() + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response(jQuery.map(data.d, function (item) {
+                                return {
+                                    val: item.split('##')[0],
+                                    label: item.split('##')[1],
+                                    price: item.split('##')[2]
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert(XMLHttpRequest);
+                        }
+                    });
+
+                },
+                select: function (e, i) {
+                    $("#<%=uiHiddenFieldCurrentItem.ClientID %>").val(i.item.val);
+                    $("#<%=uiTextBoxPrice.ClientID %>").val(i.item.price);
+                },
+                minLength: 1
+            });
+
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="uiPanelEditDeliveryOrder" runat="server">
@@ -75,15 +110,21 @@
                         <div class="clearfix" style="height: 20px;">
                         </div>
                         <asp:Panel ID="uiPanelItems" runat="server" GroupingText="الأصناف">
+                        <div class="alert alert-error" runat="server" visible="false" id="ErrorDiv">
+										<button class="close" data-dismiss="alert">×</button>
+                                        <asp:Label ID="uiLabelError" runat="server" Font-Bold="true"></asp:Label>
+									</div>
                             <div class="form-horizontal">
                                 <div class="control-group">
                                     <div class="span12">
                                         <label class="control-label">
                                             الصنف</label>
                                         <div class="controls">
+                                            <asp:TextBox ID="uiTextBoxItems" runat="server" data-validation-engine="validate[required]"></asp:TextBox>
+                                            
                                             <asp:DropDownList ID="uiDropDownListItems" runat="server" CssClass="input-large"
                                                 Width="225px" AutoPostBack="True" 
-                                                onselectedindexchanged="uiDropDownListItems_SelectedIndexChanged">
+                                                onselectedindexchanged="uiDropDownListItems_SelectedIndexChanged" style="display:none;">
                                             </asp:DropDownList>                                            
                                         </div>
                                     </div>
@@ -95,7 +136,7 @@
                                         <label class="control-label">
                                             السعر</label>
                                         <div class="controls">
-                                            <asp:TextBox ID="uiTextBoxPrice" runat="server" CssClass="input-large"></asp:TextBox>
+                                            <asp:TextBox ID="uiTextBoxPrice" runat="server" CssClass="input-large" data-validation-engine="validate[required]"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -104,9 +145,9 @@
                                         <label class="control-label">
                                             الكمية</label>
                                         <div class="controls">
-                                            <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="input-large"></asp:TextBox>
+                                            <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="input-large" data-validation-engine="validate[required]"></asp:TextBox>
                                             &nbsp;
-                                            <asp:LinkButton ID="uiLinkButtonAddItem" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAddItem_Click"><i class='icon-plus'></i> إضافة صنف</asp:LinkButton>
+                                            <asp:Button ID="uiLinkButtonAddItem" runat="server" CssClass="btn blue" OnClick="uiLinkButtonAddItem_Click" Text="إضافة صنف"></asp:Button>
                                         </div>
                                     </div>
                                 </div>
@@ -133,8 +174,19 @@
                                     </asp:GridView>
                                 </div>
                                 <div class="control-group">
+                                    <div class="span20">
+                                        <label class="control-label" style="width: 230px">
+                                            مردودات مبيعات بالإذن رقم (
+                                            <asp:Label ID="uiLabelClientReturn" runat="server"></asp:Label>
+                                            )</label>
+                                        <div class="controls">
+                                            <asp:TextBox ID="uiTextBoxTotalReturn" runat="server" CssClass="input-large" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
                                     <div class="span12">
-                                        <label class="control-label">
+                                        <label class="control-label" style="width: 230px">
                                             الإجمالى</label>
                                         <div class="controls">
                                             <asp:TextBox ID="uiTextBoxTotal" runat="server" CssClass="input-large" ReadOnly="true"></asp:TextBox>                                            
@@ -144,6 +196,13 @@
                             </div>
                         </asp:Panel>
                         <div class="form-actions">
+                            <asp:Panel ID="uiPanelActions" runat="server" Visible="false">
+                                <div style="float: left; width: 55%">
+                                    <asp:LinkButton runat="server" CssClass="btn btn-primary" 
+                                        ID="uiLinkButtonCreateInvoice" onclick="uiLinkButtonCreateInvoice_Click">
+                                <i class="icon-file"></i>  إنشاء فاتورة  </asp:LinkButton>
+                                </div>
+                            </asp:Panel>
                             <div style="float: right; margin-right: -180px;">
                                 <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn blue" OnClick="uiLinkButtonBack_Click"><i class='icon-arrow-left'></i> عودة لأذونات الصرف</asp:LinkButton>
                             </div>
@@ -151,12 +210,16 @@
                                 <asp:Button ID="uiLinkButtonOK" runat="server" CssClass="btn btn-success" OnClick="uiLinkButtonOK_Click" Text="حفظ"></asp:Button>
                                 <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn blue" OnClick="uiLinkButtonCancel_Click"><i class='icon-remove'></i> إلغاء</asp:LinkButton>
                             </div>
+                            <div style="float: right;margin-right:100px; ">
+                                <asp:LinkButton ID="uiLinkButtonPrint" runat="server" CssClass="btn blue" OnClick="uiLinkButtonPrint_Click"><i class='icon-print'></i> طباعة فاتورة</asp:LinkButton>
+                            </div>
                             
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <asp:HiddenField ID="uiHiddenFieldCurrentItem" runat="server" />
     </asp:Panel>
     <asp:Panel ID="uiPanelAllOrders" runat="server">
         <div class="row-fluid">
@@ -188,7 +251,7 @@
                                 <asp:BoundField DataField="DeliveryOrderDate" HeaderText="التاريخ"  DataFormatString="{0:dd/MM/yyyy}"/>                                
                                 <asp:BoundField DataField="ClientName" HeaderText="العميل" />
                                 
-                                <asp:TemplateField HeaderText="Actions">
+                                <asp:TemplateField HeaderText="إجراءات">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("DeliveryOrderID") %>'
                                             CssClass="btn blue" CommandName="EditOrder"><i class='icon-edit'></i> تعديل</asp:LinkButton>&nbsp;

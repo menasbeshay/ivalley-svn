@@ -139,6 +139,30 @@ namespace IStock.DAL
 				}
 			}
 			
+			public static SqlParameter EmployeeID
+			{
+				get
+				{
+					return new SqlParameter("@EmployeeID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter PaymentTypeID
+			{
+				get
+				{
+					return new SqlParameter("@PaymentTypeID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Confirmed
+			{
+				get
+				{
+					return new SqlParameter("@Confirmed", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +174,9 @@ namespace IStock.DAL
             public const string ClientID = "ClientID";
             public const string PaymentDate = "PaymentDate";
             public const string Amount = "Amount";
+            public const string EmployeeID = "EmployeeID";
+            public const string PaymentTypeID = "PaymentTypeID";
+            public const string Confirmed = "Confirmed";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +189,9 @@ namespace IStock.DAL
 					ht[ClientID] = _Payments.PropertyNames.ClientID;
 					ht[PaymentDate] = _Payments.PropertyNames.PaymentDate;
 					ht[Amount] = _Payments.PropertyNames.Amount;
+					ht[EmployeeID] = _Payments.PropertyNames.EmployeeID;
+					ht[PaymentTypeID] = _Payments.PropertyNames.PaymentTypeID;
+					ht[Confirmed] = _Payments.PropertyNames.Confirmed;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +209,9 @@ namespace IStock.DAL
             public const string ClientID = "ClientID";
             public const string PaymentDate = "PaymentDate";
             public const string Amount = "Amount";
+            public const string EmployeeID = "EmployeeID";
+            public const string PaymentTypeID = "PaymentTypeID";
+            public const string Confirmed = "Confirmed";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +224,9 @@ namespace IStock.DAL
 					ht[ClientID] = _Payments.ColumnNames.ClientID;
 					ht[PaymentDate] = _Payments.ColumnNames.PaymentDate;
 					ht[Amount] = _Payments.ColumnNames.Amount;
+					ht[EmployeeID] = _Payments.ColumnNames.EmployeeID;
+					ht[PaymentTypeID] = _Payments.ColumnNames.PaymentTypeID;
+					ht[Confirmed] = _Payments.ColumnNames.Confirmed;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +244,9 @@ namespace IStock.DAL
             public const string ClientID = "s_ClientID";
             public const string PaymentDate = "s_PaymentDate";
             public const string Amount = "s_Amount";
+            public const string EmployeeID = "s_EmployeeID";
+            public const string PaymentTypeID = "s_PaymentTypeID";
+            public const string Confirmed = "s_Confirmed";
 
 		}
 		#endregion		
@@ -271,6 +310,42 @@ namespace IStock.DAL
 			set
 	        {
 				base.Setdecimal(ColumnNames.Amount, value);
+			}
+		}
+
+		public virtual int EmployeeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.EmployeeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.EmployeeID, value);
+			}
+		}
+
+		public virtual int PaymentTypeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PaymentTypeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PaymentTypeID, value);
+			}
+		}
+
+		public virtual bool Confirmed
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.Confirmed);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.Confirmed, value);
 			}
 		}
 
@@ -351,6 +426,51 @@ namespace IStock.DAL
 					this.SetColumnNull(ColumnNames.Amount);
 				else
 					this.Amount = base.SetdecimalAsString(ColumnNames.Amount, value);
+			}
+		}
+
+		public virtual string s_EmployeeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EmployeeID) ? string.Empty : base.GetintAsString(ColumnNames.EmployeeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EmployeeID);
+				else
+					this.EmployeeID = base.SetintAsString(ColumnNames.EmployeeID, value);
+			}
+		}
+
+		public virtual string s_PaymentTypeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PaymentTypeID) ? string.Empty : base.GetintAsString(ColumnNames.PaymentTypeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PaymentTypeID);
+				else
+					this.PaymentTypeID = base.SetintAsString(ColumnNames.PaymentTypeID, value);
+			}
+		}
+
+		public virtual string s_Confirmed
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Confirmed) ? string.Empty : base.GetboolAsString(ColumnNames.Confirmed);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Confirmed);
+				else
+					this.Confirmed = base.SetboolAsString(ColumnNames.Confirmed, value);
 			}
 		}
 
@@ -437,6 +557,36 @@ namespace IStock.DAL
 					}
 				}
 
+				public WhereParameter EmployeeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EmployeeID, Parameters.EmployeeID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PaymentTypeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PaymentTypeID, Parameters.PaymentTypeID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Confirmed
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Confirmed, Parameters.Confirmed);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +652,50 @@ namespace IStock.DAL
 				}
 			}
 
+			public WhereParameter EmployeeID
+		    {
+				get
+		        {
+					if(_EmployeeID_W == null)
+	        	    {
+						_EmployeeID_W = TearOff.EmployeeID;
+					}
+					return _EmployeeID_W;
+				}
+			}
+
+			public WhereParameter PaymentTypeID
+		    {
+				get
+		        {
+					if(_PaymentTypeID_W == null)
+	        	    {
+						_PaymentTypeID_W = TearOff.PaymentTypeID;
+					}
+					return _PaymentTypeID_W;
+				}
+			}
+
+			public WhereParameter Confirmed
+		    {
+				get
+		        {
+					if(_Confirmed_W == null)
+	        	    {
+						_Confirmed_W = TearOff.Confirmed;
+					}
+					return _Confirmed_W;
+				}
+			}
+
 			private WhereParameter _PaymentID_W = null;
 			private WhereParameter _PaymentNo_W = null;
 			private WhereParameter _ClientID_W = null;
 			private WhereParameter _PaymentDate_W = null;
 			private WhereParameter _Amount_W = null;
+			private WhereParameter _EmployeeID_W = null;
+			private WhereParameter _PaymentTypeID_W = null;
+			private WhereParameter _Confirmed_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +704,9 @@ namespace IStock.DAL
 				_ClientID_W = null;
 				_PaymentDate_W = null;
 				_Amount_W = null;
+				_EmployeeID_W = null;
+				_PaymentTypeID_W = null;
+				_Confirmed_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +813,36 @@ namespace IStock.DAL
 					}
 				}
 
+				public AggregateParameter EmployeeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EmployeeID, Parameters.EmployeeID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PaymentTypeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PaymentTypeID, Parameters.PaymentTypeID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Confirmed
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Confirmed, Parameters.Confirmed);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +908,50 @@ namespace IStock.DAL
 				}
 			}
 
+			public AggregateParameter EmployeeID
+		    {
+				get
+		        {
+					if(_EmployeeID_W == null)
+	        	    {
+						_EmployeeID_W = TearOff.EmployeeID;
+					}
+					return _EmployeeID_W;
+				}
+			}
+
+			public AggregateParameter PaymentTypeID
+		    {
+				get
+		        {
+					if(_PaymentTypeID_W == null)
+	        	    {
+						_PaymentTypeID_W = TearOff.PaymentTypeID;
+					}
+					return _PaymentTypeID_W;
+				}
+			}
+
+			public AggregateParameter Confirmed
+		    {
+				get
+		        {
+					if(_Confirmed_W == null)
+	        	    {
+						_Confirmed_W = TearOff.Confirmed;
+					}
+					return _Confirmed_W;
+				}
+			}
+
 			private AggregateParameter _PaymentID_W = null;
 			private AggregateParameter _PaymentNo_W = null;
 			private AggregateParameter _ClientID_W = null;
 			private AggregateParameter _PaymentDate_W = null;
 			private AggregateParameter _Amount_W = null;
+			private AggregateParameter _EmployeeID_W = null;
+			private AggregateParameter _PaymentTypeID_W = null;
+			private AggregateParameter _Confirmed_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +960,9 @@ namespace IStock.DAL
 				_ClientID_W = null;
 				_PaymentDate_W = null;
 				_Amount_W = null;
+				_EmployeeID_W = null;
+				_PaymentTypeID_W = null;
+				_Confirmed_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +1055,18 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.Amount);
 			p.SourceColumn = ColumnNames.Amount;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EmployeeID);
+			p.SourceColumn = ColumnNames.EmployeeID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PaymentTypeID);
+			p.SourceColumn = ColumnNames.PaymentTypeID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Confirmed);
+			p.SourceColumn = ColumnNames.Confirmed;
 			p.SourceVersion = DataRowVersion.Current;
 
 

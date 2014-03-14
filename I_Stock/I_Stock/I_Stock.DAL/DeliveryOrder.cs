@@ -123,14 +123,6 @@ namespace IStock.DAL
 				}
 			}
 			
-			public static SqlParameter ClientReturnID
-			{
-				get
-				{
-					return new SqlParameter("@ClientReturnID", SqlDbType.Int, 0);
-				}
-			}
-			
 			public static SqlParameter ClientID
 			{
 				get
@@ -164,7 +156,6 @@ namespace IStock.DAL
             public const string DeliveryOrderID = "DeliveryOrderID";
             public const string DeliveryOrderNo = "DeliveryOrderNo";
             public const string EmployeeID = "EmployeeID";
-            public const string ClientReturnID = "ClientReturnID";
             public const string ClientID = "ClientID";
             public const string DeliveryOrderDate = "DeliveryOrderDate";
             public const string Discount = "Discount";
@@ -178,7 +169,6 @@ namespace IStock.DAL
 					ht[DeliveryOrderID] = _DeliveryOrder.PropertyNames.DeliveryOrderID;
 					ht[DeliveryOrderNo] = _DeliveryOrder.PropertyNames.DeliveryOrderNo;
 					ht[EmployeeID] = _DeliveryOrder.PropertyNames.EmployeeID;
-					ht[ClientReturnID] = _DeliveryOrder.PropertyNames.ClientReturnID;
 					ht[ClientID] = _DeliveryOrder.PropertyNames.ClientID;
 					ht[DeliveryOrderDate] = _DeliveryOrder.PropertyNames.DeliveryOrderDate;
 					ht[Discount] = _DeliveryOrder.PropertyNames.Discount;
@@ -197,7 +187,6 @@ namespace IStock.DAL
             public const string DeliveryOrderID = "DeliveryOrderID";
             public const string DeliveryOrderNo = "DeliveryOrderNo";
             public const string EmployeeID = "EmployeeID";
-            public const string ClientReturnID = "ClientReturnID";
             public const string ClientID = "ClientID";
             public const string DeliveryOrderDate = "DeliveryOrderDate";
             public const string Discount = "Discount";
@@ -211,7 +200,6 @@ namespace IStock.DAL
 					ht[DeliveryOrderID] = _DeliveryOrder.ColumnNames.DeliveryOrderID;
 					ht[DeliveryOrderNo] = _DeliveryOrder.ColumnNames.DeliveryOrderNo;
 					ht[EmployeeID] = _DeliveryOrder.ColumnNames.EmployeeID;
-					ht[ClientReturnID] = _DeliveryOrder.ColumnNames.ClientReturnID;
 					ht[ClientID] = _DeliveryOrder.ColumnNames.ClientID;
 					ht[DeliveryOrderDate] = _DeliveryOrder.ColumnNames.DeliveryOrderDate;
 					ht[Discount] = _DeliveryOrder.ColumnNames.Discount;
@@ -230,7 +218,6 @@ namespace IStock.DAL
             public const string DeliveryOrderID = "s_DeliveryOrderID";
             public const string DeliveryOrderNo = "s_DeliveryOrderNo";
             public const string EmployeeID = "s_EmployeeID";
-            public const string ClientReturnID = "s_ClientReturnID";
             public const string ClientID = "s_ClientID";
             public const string DeliveryOrderDate = "s_DeliveryOrderDate";
             public const string Discount = "s_Discount";
@@ -273,18 +260,6 @@ namespace IStock.DAL
 			set
 	        {
 				base.Setint(ColumnNames.EmployeeID, value);
-			}
-		}
-
-		public virtual int ClientReturnID
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.ClientReturnID);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.ClientReturnID, value);
 			}
 		}
 
@@ -371,21 +346,6 @@ namespace IStock.DAL
 					this.SetColumnNull(ColumnNames.EmployeeID);
 				else
 					this.EmployeeID = base.SetintAsString(ColumnNames.EmployeeID, value);
-			}
-		}
-
-		public virtual string s_ClientReturnID
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ClientReturnID) ? string.Empty : base.GetintAsString(ColumnNames.ClientReturnID);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ClientReturnID);
-				else
-					this.ClientReturnID = base.SetintAsString(ColumnNames.ClientReturnID, value);
 			}
 		}
 
@@ -497,16 +457,6 @@ namespace IStock.DAL
 					}
 				}
 
-				public WhereParameter ClientReturnID
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ClientReturnID, Parameters.ClientReturnID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 				public WhereParameter ClientID
 				{
 					get
@@ -578,18 +528,6 @@ namespace IStock.DAL
 				}
 			}
 
-			public WhereParameter ClientReturnID
-		    {
-				get
-		        {
-					if(_ClientReturnID_W == null)
-	        	    {
-						_ClientReturnID_W = TearOff.ClientReturnID;
-					}
-					return _ClientReturnID_W;
-				}
-			}
-
 			public WhereParameter ClientID
 		    {
 				get
@@ -629,7 +567,6 @@ namespace IStock.DAL
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _DeliveryOrderNo_W = null;
 			private WhereParameter _EmployeeID_W = null;
-			private WhereParameter _ClientReturnID_W = null;
 			private WhereParameter _ClientID_W = null;
 			private WhereParameter _DeliveryOrderDate_W = null;
 			private WhereParameter _Discount_W = null;
@@ -639,7 +576,6 @@ namespace IStock.DAL
 				_DeliveryOrderID_W = null;
 				_DeliveryOrderNo_W = null;
 				_EmployeeID_W = null;
-				_ClientReturnID_W = null;
 				_ClientID_W = null;
 				_DeliveryOrderDate_W = null;
 				_Discount_W = null;
@@ -729,16 +665,6 @@ namespace IStock.DAL
 					}
 				}
 
-				public AggregateParameter ClientReturnID
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientReturnID, Parameters.ClientReturnID);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
 				public AggregateParameter ClientID
 				{
 					get
@@ -810,18 +736,6 @@ namespace IStock.DAL
 				}
 			}
 
-			public AggregateParameter ClientReturnID
-		    {
-				get
-		        {
-					if(_ClientReturnID_W == null)
-	        	    {
-						_ClientReturnID_W = TearOff.ClientReturnID;
-					}
-					return _ClientReturnID_W;
-				}
-			}
-
 			public AggregateParameter ClientID
 		    {
 				get
@@ -861,7 +775,6 @@ namespace IStock.DAL
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _DeliveryOrderNo_W = null;
 			private AggregateParameter _EmployeeID_W = null;
-			private AggregateParameter _ClientReturnID_W = null;
 			private AggregateParameter _ClientID_W = null;
 			private AggregateParameter _DeliveryOrderDate_W = null;
 			private AggregateParameter _Discount_W = null;
@@ -871,7 +784,6 @@ namespace IStock.DAL
 				_DeliveryOrderID_W = null;
 				_DeliveryOrderNo_W = null;
 				_EmployeeID_W = null;
-				_ClientReturnID_W = null;
 				_ClientID_W = null;
 				_DeliveryOrderDate_W = null;
 				_Discount_W = null;
@@ -959,10 +871,6 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.EmployeeID);
 			p.SourceColumn = ColumnNames.EmployeeID;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ClientReturnID);
-			p.SourceColumn = ColumnNames.ClientReturnID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.ClientID);

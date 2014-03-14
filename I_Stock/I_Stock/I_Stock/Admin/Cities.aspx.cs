@@ -36,6 +36,7 @@ namespace I_Stock.Admin
                 Master.CustomPageTitle = GetLocalResourceObject("Title").ToString();
                 loadDDLs();
                 BindCities();
+                uiLinkButtonAdd.Enabled = !string.IsNullOrEmpty(uiDropDownListLines.SelectedValue);
                 uipanelError.Visible = false;
                 uiPanelEditCities.Visible = false;
                 uiPanelAllCities.Visible = true;
@@ -46,6 +47,7 @@ namespace I_Stock.Admin
         protected void uiDropDownListLines_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindCities();
+            uiLinkButtonAdd.Enabled = !string.IsNullOrEmpty(uiDropDownListLines.SelectedValue);
         }
 
         protected void uiGridViewCities_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -122,21 +124,29 @@ namespace I_Stock.Admin
 
         protected void uiLinkButtonOK_Click(object sender, EventArgs e)
         {
-            IStock.BLL.Cities City = new IStock.BLL.Cities();
-            if (CurrentCity == null)
-                City.AddNew();
-            else
-                City = CurrentCity;
+            if (!string.IsNullOrEmpty(uiDropDownListLines.SelectedValue))
+            {
+                IStock.BLL.Cities City = new IStock.BLL.Cities();
+                if (CurrentCity == null)
+                    City.AddNew();
+                else
+                    City = CurrentCity;
 
-            City.Name = uiTextBoxName.Text;
-            City.Description = uiTextBoxDesc.Text;
-            City.LineID = Convert.ToInt32(uiDropDownListLines.SelectedValue);
-            City.Save();
-            ClearFields();
-            CurrentCity = null;
-            uiPanelEditCities.Visible = false;
-            uiPanelAllCities.Visible = true;
-            BindCities();
+                City.Name = uiTextBoxName.Text;
+                City.Description = uiTextBoxDesc.Text;
+                City.LineID = Convert.ToInt32(uiDropDownListLines.SelectedValue);
+                City.Save();
+                ClearFields();
+                CurrentCity = null;
+                uiPanelEditCities.Visible = false;
+                uiPanelAllCities.Visible = true;
+                uipanelError.Visible = false;
+                BindCities();
+            }
+            else
+            {
+                uipanelError.Visible = true;
+            }
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -160,13 +170,15 @@ namespace I_Stock.Admin
             uiDropDownListLines.DataTextField = "Name";
             uiDropDownListLines.DataValueField = "LineID";
             uiDropDownListLines.DataBind();
+            uiDropDownListLines.Items.Insert(0, new ListItem("إختر الخط",""));
         }
 
 
         private void BindCities()
         {
             IStock.BLL.Cities Cities = new IStock.BLL.Cities();
-            Cities.GetCitiesByLineID(Convert.ToInt32(uiDropDownListLines.SelectedValue));
+            if(!string.IsNullOrEmpty(uiDropDownListLines.SelectedValue))
+                Cities.GetCitiesByLineID(Convert.ToInt32(uiDropDownListLines.SelectedValue));
             Cities.Sort = "Name";
             uiGridViewCities.DataSource = Cities.DefaultView;
             uiGridViewCities.DataBind();
@@ -175,8 +187,7 @@ namespace I_Stock.Admin
         private void ClearFields()
         {
             uiTextBoxName.Text = "";
-            uiTextBoxDesc.Text = "";
-            uiDropDownListLines.SelectedIndex = 0;
+            uiTextBoxDesc.Text = "";            
         }
 
 
