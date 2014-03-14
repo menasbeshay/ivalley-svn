@@ -3,6 +3,9 @@
 
 using System;
 using IStock.DAL;
+using System.Collections.Specialized;
+using System.Data;
+using System.Data.SqlClient;
 namespace IStock.BLL
 {
 	public class Payments : _Payments
@@ -11,5 +14,57 @@ namespace IStock.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllPayments()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            return LoadFromSql("GetAllPayments", parameters);
+        }
+
+        public virtual string GetLastPaymentNo()
+        {
+            ListDictionary parameters = new ListDictionary();
+            object number = LoadFromSqlScalar("GetLastPaymentNo", parameters);
+            if (number != null)
+                return number.ToString();
+            else
+                return "";
+        }
+
+        public string getNewSerial()
+        {
+            string serial = "";
+
+            string temp = GetLastPaymentNo();
+
+            if (string.IsNullOrEmpty(temp))
+            {
+                temp = "10000";
+            }
+
+            temp = (double.Parse(temp) + 1).ToString();
+            if (!temp.StartsWith("5"))
+                serial = "5" + double.Parse(temp).ToString("000000000");
+            else
+                serial = double.Parse(temp).ToString("0000000000");
+            return serial;
+        }
+
+        public virtual bool Report_Payments(int PaymentID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PaymentID", SqlDbType.Int, 0), PaymentID);
+            return LoadFromSql("Report_Payments", parameters);
+        }
+
+        public virtual bool Report_PaymentsWithinPeriod(DateTime? From, DateTime? To)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@From", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@To", SqlDbType.DateTime, 0), To);
+            return LoadFromSql("Report_PaymentsWithinPeriod", parameters);
+        }
+
 	}
 }

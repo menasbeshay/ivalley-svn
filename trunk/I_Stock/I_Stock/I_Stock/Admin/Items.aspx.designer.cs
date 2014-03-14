@@ -31,6 +31,24 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.Panel uipanelError;
         
         /// <summary>
+        /// uiLabelCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCat;
+        
+        /// <summary>
+        /// uiLabelGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelGroup;
+        
+        /// <summary>
         /// uiTextBoxName control.
         /// </summary>
         /// <remarks>
@@ -236,6 +254,15 @@ namespace I_Stock.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSearch;
+        
+        /// <summary>
+        /// uiLinkButtonAllItemsBalances control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAllItemsBalances;
         
         /// <summary>
         /// uiGridViewItems control.

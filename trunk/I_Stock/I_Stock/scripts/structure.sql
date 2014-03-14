@@ -223,7 +223,8 @@ Create Table PurchaseOrders
 			primary key,
 	PurchaseOrderNo nvarchar(10),
 	SupplierID int Foreign Key References Suppliers(SupplierID),
-	PurchaseOrderDate Datetime	
+	PurchaseOrderDate Datetime	,
+	Confirmed bit 
 )
 Go
 
@@ -261,10 +262,33 @@ Create Table ClientReturns
 			identity(1,1)
 			primary key,
 	ReturnNo nvarchar(10),
-	ItemID int Foreign Key References Items(ItemID),	
+	InvoiceID int Foreign Key References Invoices(InvoiceID),	
+	EmployeeID int Foreign Key References Employees(EmployeeID),	
 	ClientID int Foreign Key References Clients(ClientID),
+	ReturnDate Datetime	,
+	Discount decimal(10,4),
+	DeliveryOrderID int Foreign Key References DeliveryOrder(DeliveryOrderID)
+)
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ClientReturnDetails' and
+		        xtype = 'U')
+Drop Table ClientReturnDetails
+Go
+Create Table ClientReturnDetails
+(			
+	ReturnDetailID int not null 
+						  identity(1,1)
+						  primary key,
+	ClientReturnID int Foreign Key References ClientReturns(ClientReturnID),
+	ItemID int Foreign Key References Items(ItemID),
 	Quantity int,
-	Valid int	
+	Discount decimal(5,3),
+	ItemPrice decimal(10,4),
+	Valid int
 )
 Go
 
@@ -280,14 +304,13 @@ Create Table Invoices
 			identity(1,1)
 			primary key,
 	InvoiceNo nvarchar(10),
-	EmployeeID int Foreign Key References Employees(EmployeeID),
-	ClientReturnID int Foreign Key References ClientReturns(ClientReturnID),
+	EmployeeID int Foreign Key References Employees(EmployeeID),	
 	ClientID int Foreign Key References Clients(ClientID),
 	InvoiceDate Datetime	,
-	Discount decimal(10,4)
+	Discount decimal(10,4),
+	DeliveryOrderID int Foreign Key References DeliveryOrder(DeliveryOrderID)
 )
 Go
-
 
 If Exists (select Name 
 		   from sysobjects 
@@ -323,10 +346,12 @@ Create Table Payments
 	PaymentNo nvarchar(10),	
 	ClientID int Foreign Key References Clients(ClientID),
 	PaymentDate Datetime	,
-	Amount decimal(10,2)
+	Amount decimal(10,2),	
+	EmployeeID int Foreign Key References Employees(EmployeeID),
+	PaymentTypeID int ,
+	Confirmed bit
 )
 Go
-
 
 
 If Exists (select Name 
@@ -342,12 +367,12 @@ Create Table DeliveryOrder
 			primary key,
 	DeliveryOrderNo nvarchar(10),
 	EmployeeID int Foreign Key References Employees(EmployeeID),
-	ClientReturnID int Foreign Key References ClientReturns(ClientReturnID),
 	ClientID int Foreign Key References Clients(ClientID),
 	DeliveryOrderDate Datetime	,
 	Discount decimal(10,4)
 )
 Go
+
 
 
 

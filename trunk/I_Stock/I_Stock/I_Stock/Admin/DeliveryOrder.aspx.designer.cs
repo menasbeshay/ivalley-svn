@@ -94,6 +94,33 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.Panel uiPanelItems;
         
         /// <summary>
+        /// ErrorDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrorDiv;
+        
+        /// <summary>
+        /// uiLabelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelError;
+        
+        /// <summary>
+        /// uiTextBoxItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxItems;
+        
+        /// <summary>
         /// uiDropDownListItems control.
         /// </summary>
         /// <remarks>
@@ -127,7 +154,7 @@ namespace I_Stock.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddItem;
+        protected global::System.Web.UI.WebControls.Button uiLinkButtonAddItem;
         
         /// <summary>
         /// uiGridViewItems control.
@@ -139,6 +166,24 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.GridView uiGridViewItems;
         
         /// <summary>
+        /// uiLabelClientReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelClientReturn;
+        
+        /// <summary>
+        /// uiTextBoxTotalReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTotalReturn;
+        
+        /// <summary>
         /// uiTextBoxTotal control.
         /// </summary>
         /// <remarks>
@@ -146,6 +191,24 @@ namespace I_Stock.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTotal;
+        
+        /// <summary>
+        /// uiPanelActions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelActions;
+        
+        /// <summary>
+        /// uiLinkButtonCreateInvoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCreateInvoice;
         
         /// <summary>
         /// uiLinkButtonBack control.
@@ -173,6 +236,24 @@ namespace I_Stock.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancel;
+        
+        /// <summary>
+        /// uiLinkButtonPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonPrint;
+        
+        /// <summary>
+        /// uiHiddenFieldCurrentItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldCurrentItem;
         
         /// <summary>
         /// uiPanelAllOrders control.

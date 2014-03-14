@@ -131,6 +131,14 @@ namespace IStock.DAL
 				}
 			}
 			
+			public static SqlParameter Confirmed
+			{
+				get
+				{
+					return new SqlParameter("@Confirmed", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +149,7 @@ namespace IStock.DAL
             public const string PurchaseOrderNo = "PurchaseOrderNo";
             public const string SupplierID = "SupplierID";
             public const string PurchaseOrderDate = "PurchaseOrderDate";
+            public const string Confirmed = "Confirmed";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +161,7 @@ namespace IStock.DAL
 					ht[PurchaseOrderNo] = _PurchaseOrders.PropertyNames.PurchaseOrderNo;
 					ht[SupplierID] = _PurchaseOrders.PropertyNames.SupplierID;
 					ht[PurchaseOrderDate] = _PurchaseOrders.PropertyNames.PurchaseOrderDate;
+					ht[Confirmed] = _PurchaseOrders.PropertyNames.Confirmed;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +178,7 @@ namespace IStock.DAL
             public const string PurchaseOrderNo = "PurchaseOrderNo";
             public const string SupplierID = "SupplierID";
             public const string PurchaseOrderDate = "PurchaseOrderDate";
+            public const string Confirmed = "Confirmed";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +190,7 @@ namespace IStock.DAL
 					ht[PurchaseOrderNo] = _PurchaseOrders.ColumnNames.PurchaseOrderNo;
 					ht[SupplierID] = _PurchaseOrders.ColumnNames.SupplierID;
 					ht[PurchaseOrderDate] = _PurchaseOrders.ColumnNames.PurchaseOrderDate;
+					ht[Confirmed] = _PurchaseOrders.ColumnNames.Confirmed;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +207,7 @@ namespace IStock.DAL
             public const string PurchaseOrderNo = "s_PurchaseOrderNo";
             public const string SupplierID = "s_SupplierID";
             public const string PurchaseOrderDate = "s_PurchaseOrderDate";
+            public const string Confirmed = "s_Confirmed";
 
 		}
 		#endregion		
@@ -246,6 +259,18 @@ namespace IStock.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.PurchaseOrderDate, value);
+			}
+		}
+
+		public virtual bool Confirmed
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.Confirmed);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.Confirmed, value);
 			}
 		}
 
@@ -311,6 +336,21 @@ namespace IStock.DAL
 					this.SetColumnNull(ColumnNames.PurchaseOrderDate);
 				else
 					this.PurchaseOrderDate = base.SetDateTimeAsString(ColumnNames.PurchaseOrderDate, value);
+			}
+		}
+
+		public virtual string s_Confirmed
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Confirmed) ? string.Empty : base.GetboolAsString(ColumnNames.Confirmed);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Confirmed);
+				else
+					this.Confirmed = base.SetboolAsString(ColumnNames.Confirmed, value);
 			}
 		}
 
@@ -387,6 +427,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public WhereParameter Confirmed
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Confirmed, Parameters.Confirmed);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +490,23 @@ namespace IStock.DAL
 				}
 			}
 
+			public WhereParameter Confirmed
+		    {
+				get
+		        {
+					if(_Confirmed_W == null)
+	        	    {
+						_Confirmed_W = TearOff.Confirmed;
+					}
+					return _Confirmed_W;
+				}
+			}
+
 			private WhereParameter _PurchaseOrderID_W = null;
 			private WhereParameter _PurchaseOrderNo_W = null;
 			private WhereParameter _SupplierID_W = null;
 			private WhereParameter _PurchaseOrderDate_W = null;
+			private WhereParameter _Confirmed_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +514,7 @@ namespace IStock.DAL
 				_PurchaseOrderNo_W = null;
 				_SupplierID_W = null;
 				_PurchaseOrderDate_W = null;
+				_Confirmed_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +611,16 @@ namespace IStock.DAL
 					}
 				}
 
+				public AggregateParameter Confirmed
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Confirmed, Parameters.Confirmed);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +674,23 @@ namespace IStock.DAL
 				}
 			}
 
+			public AggregateParameter Confirmed
+		    {
+				get
+		        {
+					if(_Confirmed_W == null)
+	        	    {
+						_Confirmed_W = TearOff.Confirmed;
+					}
+					return _Confirmed_W;
+				}
+			}
+
 			private AggregateParameter _PurchaseOrderID_W = null;
 			private AggregateParameter _PurchaseOrderNo_W = null;
 			private AggregateParameter _SupplierID_W = null;
 			private AggregateParameter _PurchaseOrderDate_W = null;
+			private AggregateParameter _Confirmed_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +698,7 @@ namespace IStock.DAL
 				_PurchaseOrderNo_W = null;
 				_SupplierID_W = null;
 				_PurchaseOrderDate_W = null;
+				_Confirmed_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +787,10 @@ namespace IStock.DAL
 
 			p = cmd.Parameters.Add(Parameters.PurchaseOrderDate);
 			p.SourceColumn = ColumnNames.PurchaseOrderDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Confirmed);
+			p.SourceColumn = ColumnNames.Confirmed;
 			p.SourceVersion = DataRowVersion.Current;
 
 

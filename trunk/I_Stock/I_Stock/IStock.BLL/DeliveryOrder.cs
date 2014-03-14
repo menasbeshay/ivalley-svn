@@ -68,5 +68,38 @@ namespace IStock.BLL
                 return decimal.Parse(total.ToString());
             return 0;
         }
+
+        public virtual bool GetDeliveryOrderTotalsForReport(int DeliveryOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0), DeliveryOrderID);
+            return LoadFromSql("GetDeliveryOrderTotals", parameters);
+            
+        }
+
+
+        public virtual bool Report_DeliveryOrder(int DeliveryOrderID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderID", SqlDbType.Int, 0), DeliveryOrderID);
+            return LoadFromSql("Report_DeliveryOrder", parameters);
+            
+        }
+
+        public virtual bool Report_GetDeliveryOrdersDetailsTotals(string DeliveryOrderNoFrom, string DeliveryOrderNoTo)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@DeliveryOrderNoFrom", SqlDbType.NVarChar, 10), DeliveryOrderNoFrom);
+            parameters.Add(new SqlParameter("@DeliveryOrderNoTo", SqlDbType.NVarChar, 10), DeliveryOrderNoTo);
+            return LoadFromSql("Report_GetDeliveryOrdersDetailsTotals", parameters);
+        }
+
+        public virtual bool Report_GetDeliveryOrdersDetailsTotalsWithinPeriod(DateTime? From, DateTime? To)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@From", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@To", SqlDbType.DateTime, 0), To);
+            return LoadFromSql("Report_GetDeliveryOrdersDetailsTotalsWithinPeriod", parameters);
+        }
 	}
 }
