@@ -535,6 +535,32 @@ margin-left: 6%;
     padding:3px 10px !important;
 }
 
+
+
+.customtxtarea {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+ 
+}
+
+.customtxtarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+
 .blockBoxBlack .form-group input[type="text"],.blockBoxBlack .form-group input[type="password"]{
     margin-bottom:5px !important;   
     border:1px solid #666666; 
@@ -665,6 +691,20 @@ img.offline {
     border:3px solid #404040 !important;
 }
 
+.type_1 {
+    color:#000 !important;
+}
+.type_2 {
+    color:#808040 !important;
+}
+.type_3 {
+    color:#FF00FE !important;
+}
+.type_4 {
+    color:#CCCC00 !important;
+}
+
+
 
 /**** entypo icons ******/
 .entypoicon {
@@ -711,13 +751,24 @@ img.offline {
 .iconentypo-menu:before { content :'\0069';}
 .iconentypo-phone:before { content :'\0021';}
 .iconentypo-bell:before { content :'\003d';}
-.iconentypo-addfriend:before { content: '\002d';}
+.iconentypo-addfriend:before { content :'\002d';}
+
+.iconentypo-inbox:before { content: '\002a';}
+.iconentypo-sent:before { content: '\0029';}
+.iconentypo-deleted:before { content: '\0075';}
+.iconentypo-newmsg:before { content: '\0033';}
+.iconentypo-newfolder:before { content: '\006a';}
 
 .iconmodern-createroom:before { content :'\0070';}
 .iconmodern-credit:before { content :'\0024';}
 .iconmodern-friends:before { content: '\0067';}
 .iconmodern-mainlist:before { content: '\0035';}
 
+.iconmodern-balance:before { content :'\0023';}
+.iconmodern-statement:before { content :'\0034';}
+.iconmodern-acctype:before { content: '\0072';}
+.iconmodern-roomtype:before { content: '\0065';}
+.iconmodern-premium:before { content: '\004a';}
 
 .btn-main {
   color: #000;
@@ -904,7 +955,7 @@ fieldset[disabled] .btn-main.active {
     color:#000;
 }
 
-.camera, .hand, .mic {
+.camera, .hand, .mic , .mark{
     display:none;
 }
 
@@ -981,4 +1032,36 @@ fieldset[disabled] .btn-main.active {
 
 .MsgHeader th {
     text-align:center !important;
+}
+
+.awesome {
+	font-family: 'FontAwesome';
+	vertical-align: middle;
+}
+
+.friend-link {
+    position:relative;
+}
+
+.friend-link .popup-menu {
+	position: absolute;	
+	left: 0;
+	display: none;
+	z-index: 1;
+}
+
+.friend-link .popup-menu a {
+	display: block;
+	line-height: 20px;
+	background-color: #000000;
+	color: #DDDDDD;
+	padding: 0 10px;
+}
+
+.friend-link .popup-menu a:hover {
+	background-color: #999999;
+}
+
+.friend-link:hover .popup-menu {
+	display: block;
 }

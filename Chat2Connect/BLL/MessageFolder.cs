@@ -11,5 +11,13 @@ namespace BLL
 		{
 		
 		}
+
+        public virtual bool GetFolderByMemberID(int MemberID)
+        {
+            this.Where.MemberID.Value = MemberID;
+            this.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+
+            return this.Query.Load();
+        }
 	}
 }

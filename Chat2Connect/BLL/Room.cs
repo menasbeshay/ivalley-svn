@@ -25,6 +25,16 @@ namespace BLL
 
         }
 
+        public virtual bool GetPremiumRooms()
+        {
+            this.Where.RoomTypeID.Value = 4; // premium
+            this.Where.RoomTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
+            this.Query.AddOrderBy("CategoryID", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
+            this.Query.AddOrderBy("SubCategoryID", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
+            this.Query.AddOrderBy("Name", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
+            return this.Query.Load();
+        }
+
         public virtual bool GetRoomsByCategoryID(int CategoryID)
         {
             ListDictionary parameters = new ListDictionary();
@@ -42,6 +52,16 @@ namespace BLL
             parameters.Add(new SqlParameter("@SubCategoryID", SqlDbType.Int, 0), SubCategoryID);
 
             return LoadFromSql("GetChatRoomsBySubCategoryID", parameters);
+
+        }
+
+        public virtual bool GetFavRoomsByCreatorID(int CreatedBy)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@CreatedBy", SqlDbType.Int, 0), CreatedBy);
+
+            return LoadFromSql("GetFavRoomsByCreatorID", parameters);
 
         }
 	}

@@ -6,6 +6,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using Chat2Connect.SRCustomHubs;
+using Microsoft.AspNet.SignalR;
 
 namespace Chat2Connect
 {
@@ -37,11 +39,11 @@ namespace Chat2Connect
                             uiHiddenFieldMaxNoOfRooms.Value = 4.ToString();
                             break;
                         case 3: // purple
-                            uiHiddenFieldMaxCams.Value = 9000.ToString();
+                            uiHiddenFieldMaxCams.Value = 100.ToString();
                             uiHiddenFieldMaxNoOfRooms.Value = 6.ToString();
                             break;
                         case 4: // premium 
-                            uiHiddenFieldMaxCams.Value = 9000.ToString();
+                            uiHiddenFieldMaxCams.Value = 100.ToString();
                             uiHiddenFieldMaxNoOfRooms.Value = 8.ToString();
                             break;
                         default:
@@ -49,6 +51,28 @@ namespace Chat2Connect
                             uiHiddenFieldMaxNoOfRooms.Value = 2.ToString();
                             break;
                     }
+
+                    if (Session["TempRoomCreate"] != null)
+                    {
+                        Room room = new Room ();
+                        room.LoadByPrimaryKey(Convert.ToInt32(Session["TempRoomCreate"].ToString()));
+                        ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ addTempTab('#MainTabs', 'room_" + room.RoomID.ToString() + "', " + room.Name + ", true," + room.RoomID.ToString() + @");});", true);
+                        Session["TempRoomCreate"] = null;
+
+                    }
+                    else if (Request.QueryString["t"] != null)
+                    {
+                        try
+                        {
+                            Room room = new Room();
+                            room.LoadByPrimaryKey(Convert.ToInt32(Request.QueryString["t"].ToString()));
+                            ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ addTempTab('#MainTabs', 'room_" + room.RoomID.ToString() + "', " + room.Name + ", true," + room.RoomID.ToString() + @");});", true);
+                        }
+                        catch (Exception ex)
+                        {                            
+                        }
+                    }
+
                 }
             }
             else

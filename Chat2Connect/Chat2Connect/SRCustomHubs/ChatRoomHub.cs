@@ -80,5 +80,6 @@ namespace Chat2Connect.SRCustomHubs
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid);
         }
+        
     }
 }

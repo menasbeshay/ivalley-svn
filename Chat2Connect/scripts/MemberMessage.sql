@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberMessageLoadByPrimaryKey]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageLoadByPrimaryKey];
 GO
@@ -20,7 +20,8 @@ BEGIN
 		[SenderID],
 		[SendDate],
 		[MessageSubject],
-		[MessageContent]
+		[MessageContent],
+		[IsDeleted]
 	FROM [MemberMessage]
 	WHERE
 		([MemberMessageID] = @MemberMessageID)
@@ -37,7 +38,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_MemberMessageLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageLoadAll]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageLoadAll];
 GO
@@ -56,7 +57,8 @@ BEGIN
 		[SenderID],
 		[SendDate],
 		[MessageSubject],
-		[MessageContent]
+		[MessageContent],
+		[IsDeleted]
 	FROM [MemberMessage]
 
 	SET @Err = @@Error
@@ -71,7 +73,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberMessageLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageUpdate]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageUpdate];
 GO
@@ -84,7 +86,8 @@ CREATE PROCEDURE [proc_MemberMessageUpdate]
 	@SenderID int = NULL,
 	@SendDate datetime = NULL,
 	@MessageSubject nvarchar(3000) = NULL,
-	@MessageContent nvarchar(MAX) = NULL
+	@MessageContent nvarchar(MAX) = NULL,
+	@IsDeleted bit = NULL
 )
 AS
 BEGIN
@@ -99,7 +102,8 @@ BEGIN
 		[SenderID] = @SenderID,
 		[SendDate] = @SendDate,
 		[MessageSubject] = @MessageSubject,
-		[MessageContent] = @MessageContent
+		[MessageContent] = @MessageContent,
+		[IsDeleted] = @IsDeleted
 	WHERE
 		[MemberMessageID] = @MemberMessageID
 
@@ -120,7 +124,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberMessageInsert]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageInsert];
 GO
@@ -133,7 +137,8 @@ CREATE PROCEDURE [proc_MemberMessageInsert]
 	@SenderID int = NULL,
 	@SendDate datetime = NULL,
 	@MessageSubject nvarchar(3000) = NULL,
-	@MessageContent nvarchar(MAX) = NULL
+	@MessageContent nvarchar(MAX) = NULL,
+	@IsDeleted bit = NULL
 )
 AS
 BEGIN
@@ -149,7 +154,8 @@ BEGIN
 		[SenderID],
 		[SendDate],
 		[MessageSubject],
-		[MessageContent]
+		[MessageContent],
+		[IsDeleted]
 	)
 	VALUES
 	(
@@ -158,7 +164,8 @@ BEGIN
 		@SenderID,
 		@SendDate,
 		@MessageSubject,
-		@MessageContent
+		@MessageContent,
+		@IsDeleted
 	)
 
 	SET @Err = @@Error
@@ -175,7 +182,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberMessageInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageDelete]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageDelete];
 GO

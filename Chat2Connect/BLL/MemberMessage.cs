@@ -38,5 +38,15 @@ namespace BLL
             return LoadFromSql("GetMessagesByMemberID_Deleted", parameters);
 
         }
+
+
+        public virtual bool GetMessagesByFolderID(int FolderID)
+        {
+            this.Where.MessageFolderID.Value = FolderID;
+            this.Where.MessageFolderID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+
+            return this.Query.Load();
+
+        }
 	}
 }

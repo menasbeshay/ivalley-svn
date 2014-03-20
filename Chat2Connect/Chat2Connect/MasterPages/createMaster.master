@@ -17,7 +17,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="#" id="createTempRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة مؤقتة</a>
+                <a href="../createTempRoom.aspx" id="createTempRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة مؤقتة</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">

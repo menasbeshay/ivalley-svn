@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberFriendLoadByPrimaryKey]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberFriendLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberFriendLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberFriendLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberFriendLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_MemberFriendLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberFriendLoadAll]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberFriendLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberFriendLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberFriendLoadAll];
 GO
@@ -65,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberFriendLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberFriendLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberFriendUpdate]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberFriendUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberFriendUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberFriendUpdate];
 GO
@@ -108,7 +108,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberFriendInsert]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberFriendInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberFriendInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberFriendInsert];
 GO
@@ -154,7 +154,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberFriendInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberFriendInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberFriendDelete]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberFriendDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberFriendDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberFriendDelete];
 GO

@@ -2,19 +2,19 @@
 <div class="SScroll" data-height="500px">
     <div class="panel-group rooms" id="accordion">
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">غرفى الخاصة
+            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="cb=1">غرفى الخاصة
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 
         </div>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">غرفى المفضلة
+            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="fav=1">غرفى المفضلة
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 
         </div>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">الغرف المميزة VIP
+            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"  data-related="vip=1">الغرف المميزة VIP
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 

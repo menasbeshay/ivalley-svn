@@ -40,6 +40,33 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Panel uiPanelCreateFolder;
         
         /// <summary>
+        /// uiTextBoxFolderName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxFolderName;
+        
+        /// <summary>
+        /// uiLinkButtonSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSave;
+        
+        /// <summary>
+        /// uiGridViewFolders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView uiGridViewFolders;
+        
+        /// <summary>
         /// uiPanelCreateMsg control.
         /// </summary>
         /// <remarks>
@@ -47,5 +74,59 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel uiPanelCreateMsg;
+        
+        /// <summary>
+        /// uiDropDownListFriends control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFriends;
+        
+        /// <summary>
+        /// uiTextBoxTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTo;
+        
+        /// <summary>
+        /// uiTextboxvalue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextboxvalue;
+        
+        /// <summary>
+        /// uiTextBoxSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxSubject;
+        
+        /// <summary>
+        /// uiHiddenFieldCurrentMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldCurrentMember;
+        
+        /// <summary>
+        /// uiHiddenFieldTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldTo;
     }
 }
