@@ -58,7 +58,107 @@ $(document).ready(function () {
         });
     });    
 
+
+    
 });
+
+
+function notify(type, msg)
+{
+    $.pnotify({
+        text: msg,
+        type: type,
+        history: false,
+        closer_hover: false,
+        delay: 5000,
+        sticker: false
+    });
+}
+
+/* room functions */
+
+function addtoFav(rid) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/AddRoomToFav",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                $("#favlink_" + rid).css('display', 'block');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                $("#favlink_" + rid).css('display', 'none');
+                notify('success', 'تم إضافة الغرفة إلى المفضلة بنجاح.');                
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            $("#favlink_" + rid).css('display', 'block');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
+function ClearQueue(rid) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/ClearQueue",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');                
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');                
+                notify('success', 'تم إزالة الأيدى بنجاح.');
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');            
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
+function MarkMember(rid, enableWrite) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/MarkMembers",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "', 'CanWrite' : '"+ enableWrite +"'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                if(enableWrite)
+                    notify('success', 'تم تنقيط الأعضاء بنجاح.');
+                else
+                    notify('success', 'تم تنقيط الأعضاء وإيقاف الكتابة بنجاح.');
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
 
 
 /************ signalr ********************/
@@ -84,6 +184,13 @@ $(document).ready(function () {
         }
 
     };
+
+
+    sHub.client.inviteToTempRoom = function (rid, fname) {
+        notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a href="home.aspx?t=' + rid + '" target="_blank" class="btn btn-main">إضغط هنا للدخول</a>');
+
+    };
+
     
 
     /* rooms hub */
@@ -101,7 +208,7 @@ $(document).ready(function () {
     };
 
     rHub.client.addNewMember = function (mid, name, rid) {
-        var c = $("#room_" + rid + " #roomMembersDiv div.rm:last-child").attr('class');
+        var c = $("#room_" + rid + " #roomMembersDiv #regular div.rm:last-child").attr('class');
         if (c == "Alteven rm") {
             c = "Altodd rm";
         } else {
@@ -110,7 +217,7 @@ $(document).ready(function () {
         if (document.getElementById("m_" + mid)) {
             return;
         }
-        $("#room_" + rid + " #roomMembersDiv").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><a href='#' class='camera'><img src='images/video_camera.png' style='width:16px;' /></a><img src='images/hand.png' style='width:16px;' class='hand'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;' class='mic'></div></div>");
+        $("#room_" + rid + " #roomMembersDiv #regular").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><a href='#' class='camera'><img src='images/video_camera.png' style='width:16px;' /></a><img src='images/hand.png' style='width:16px;' class='hand'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;' class='mic'></div></div>");
     };
 
     rHub.client.removeMember = function (mid) {
@@ -125,6 +232,7 @@ $(document).ready(function () {
         }
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
+        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #MicDiv");
     };
 
     rHub.client.StopListenMic = function (listenmic, memberid, rid) {
@@ -134,11 +242,25 @@ $(document).ready(function () {
             fn.apply(null, fnparams);
         }        
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
+        $("#room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
     };
 
     rHub.client.UserRaisHand = function (rid,memberid) {        
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'inline-block');        
+        $("#room_" + rid + " #roomMembersDiv #regular #m_" + memberid + " .controls .hand").css('display', 'inline-block');
+    
+        $("#room_" + rid + " #roomMembersDiv #regular #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #queueDiv");
     };
+
+    rHub.client.UserDownHand = function (rid, memberid) {
+        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid + " .controls .hand").css('display', 'none');
+        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
+
+    };
+
+    rHub.client.UserMarked = function (rid, memberid) {
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');        
+    };
+    
 
     rHub.client.ShowCamLink = function (mid, rid) {
         $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');

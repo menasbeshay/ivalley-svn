@@ -111,6 +111,50 @@
             });
         }
 
+
+        function addTempTab(sel, id, label, show, r) {
+            var tabs = $(sel);
+            if (document.getElementById(id)) {
+                $('#MainTabs a[href="#' + id + '"]').tab('show');
+                return;
+            }
+
+
+            $('div.active', tabs).removeClass('in').add($('li.active', tabs)).removeClass('active');
+            $('.tab-content', tabs).append('<div class="tab-pane fade in active" id="' + id + '"></div>');
+            $('.nav-tabs', tabs).append('<li class="pull-right"><a href="#' + id + '" data-toggle="tab" data-r="' + r + '">' + label + '<button class="close closeTabButton_' + id + '" type="button" >×</button></a></li>');
+            if (show == true) $('.nav-tabs a:last').tab('show');
+            setTimeout(function () { rHub.server.addToRoom(r); }, 2000);
+
+            $("#pGeneral").css("display", "block");
+            
+            $("#room_" + r).load("LoadRoom.aspx",
+                { data_related: "" + r + "" },
+                function (content) {
+                    $(this).hide().fadeIn("slow");
+                    $(this).removeAttr('style');
+
+                    return false;
+                });
+            
+
+            $("#pGeneral").css("display", "none");
+
+            $(".closeTabButton_" + id).click(function () {
+                var tabContentId = $(this).parent().attr("href");
+                rHub.server.removeFromRoom($(this).parent().attr("data-r"));
+
+                if ($(this).parent().parent().hasClass('active')) {
+                    $('#MainTabs a[href="#home"]').tab('show');
+                    $('#MainTabs #home').addClass('active in');
+                }
+
+                $(this).parent().parent().remove();
+                $(tabContentId).remove();
+            });
+
+            
+        }
         
         </script>
 </asp:Content>
@@ -121,7 +165,7 @@
                     <i class="icon-2x modernicon iconmodern-friends"></i>
                     أصدقائى</div>
                 <div class="pull-left">
-                    <a href="#addfriends" data-toggle="modal" style="text-decoration:none;"><i class="icon-3x entypoicon iconentypo-addfriend" data-toggle="tooltip" title="إضافة صديق"></i></a>
+                    <a href="#addfriends" data-toggle="modal" style="text-decoration:none;"><i class="icon-3x entypoicon iconentypo-addfriend" data-toggle="tooltip" title="إضافة صديق" style="width:10px !important;height:10px !important;"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>

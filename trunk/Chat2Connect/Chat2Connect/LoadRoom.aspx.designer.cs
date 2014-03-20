@@ -31,6 +31,96 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label uiLabelRoomName;
         
         /// <summary>
+        /// uiLiteralAdminMenuHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralAdminMenuHeader;
+        
+        /// <summary>
+        /// uiLiteralClearQueue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralClearQueue;
+        
+        /// <summary>
+        /// uiLiteralMarkWithWrite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralMarkWithWrite;
+        
+        /// <summary>
+        /// uiLiteralMarkWithoutWrite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralMarkWithoutWrite;
+        
+        /// <summary>
+        /// uiLiteralMarkWithWriteLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralMarkWithWriteLogin;
+        
+        /// <summary>
+        /// uiLiteralMarkWithoutWriteLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralMarkWithoutWriteLogin;
+        
+        /// <summary>
+        /// uiLiteralDisableCam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralDisableCam;
+        
+        /// <summary>
+        /// uiLiteralDisableMic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralDisableMic;
+        
+        /// <summary>
+        /// uiLiteralEnableMicAdminOnly control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralEnableMicAdminOnly;
+        
+        /// <summary>
+        /// uiLiteralCpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralCpanel;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -85,13 +175,13 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label uiLabelMemberCount;
         
         /// <summary>
-        /// uiLinkButtonAddToFav control.
+        /// uiLiteralAddToFav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddToFav;
+        protected global::System.Web.UI.WebControls.Literal uiLiteralAddToFav;
         
         /// <summary>
         /// uiHyperLinkFb control.
@@ -128,6 +218,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal uiLiteralFO;
+        
+        /// <summary>
+        /// uiRepeaterQueue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterQueue;
         
         /// <summary>
         /// uiRepeaterRoomMembers control.

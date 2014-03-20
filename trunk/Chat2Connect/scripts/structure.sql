@@ -473,6 +473,28 @@ Create Table MemberPic
 )
 
 
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'UserTransLog' and
+		        xtype = 'U')
+Drop Table UserTransLog
+Go
+Create Table UserTransLog
+(
+	UserTransLogID int not null
+			identity(1,1)
+			Primary Key,	
+	MemberID int foreign key references Member(MemberID),
+	TransDate DateTime,
+	TransType smallint , -- 1 add / 2 minus 
+	AddedBy nvarchar(100),
+	PaymentMethod nvarchar(100),
+	Value decimal(10,4),
+	Notes nvarchar(1000),
+	AddedFrom int foreign key references Member(MemberID),
+	AddedTo int foreign key references Member(MemberID)
+)
+Go
 
 
 /*
@@ -498,6 +520,7 @@ Left join Member M on M.MemberID = RM.MemberID
 where R.CategoryID = @CategoryID /*and 
 	  M.IsOnline = 1*/
 Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
+order by R.RoomTypeID Desc , R.Name Asc
 Go
 
 
@@ -537,6 +560,7 @@ Left join Member M on M.MemberID = RM.MemberID
 where R.SubCategoryID = @SubCategoryID /*and 
 	  M.IsOnline = 1*/
 Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
+order by R.RoomTypeID Desc , R.Name Asc
 Go
 
 
@@ -554,6 +578,7 @@ from Room R
 Left JOIN Category C ON R.CategoryID = C.CategoryID
 Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
 where R.CreatedBy = @CreatedBy 
+order by R.RoomTypeID Desc , R.Name Asc
 Go
 
 If Exists (select Name 
@@ -589,6 +614,40 @@ Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID 
 Go
 
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllMembersByRoomIDNoQueue' and
+		        xtype = 'P')
+Drop Procedure GetAllMembersByRoomIDNoQueue
+Go
+Create Procedure GetAllMembersByRoomIDNoQueue @RoomID int
+as
+
+select RM.* , M.*
+from RoomMember RM
+Inner Join Member M on RM.MemberId = M.MemberID
+where RM.RoomID = @RoomID And 
+	  RM.QueueOrder is null
+Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllMembersByRoomIDQueue' and
+		        xtype = 'P')
+Drop Procedure GetAllMembersByRoomIDQueue
+Go
+Create Procedure GetAllMembersByRoomIDQueue @RoomID int
+as
+
+select RM.* , M.*
+from RoomMember RM
+Inner Join Member M on RM.MemberId = M.MemberID
+where RM.RoomID = @RoomID And 
+	  RM.QueueOrder is not null
+order by RM.QueueOrder	  
+Go
 
 
 If Exists (select Name 
@@ -712,9 +771,35 @@ Drop Procedure GetAllMemberFriends
 Go
 Create Procedure GetAllMemberFriends @MemberID int 
 as
-select MF.*
+select MF.*, I.Name MemberName
 from MemberFriend MF
 Inner Join Member M on MF.MemberID = M.MemberID 
+Inner Join Member I on MF.FriendID = I.MemberID 
+where M.MemberID = @MemberID 
+
+Go
+
+exec GetAllMemberFriends 5
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllMemberFriendsAndMember' and
+		        xtype = 'P')
+Drop Procedure GetAllMemberFriendsAndMember
+Go
+Create Procedure GetAllMemberFriendsAndMember @MemberID int 
+as
+
+Select 0 MemberFriendID, M.MemberID , M.MemberID FriendID, 0 FriendGroupID, M.Name MemberName
+From Member M
+Where M.MemberId = @MemberID
+
+Union 
+
+select MF.*, I.Name MemberName
+from MemberFriend MF
+Inner Join Member M on MF.MemberID = M.MemberID 
+Inner Join Member I on MF.FriendID = I.MemberID 
 where M.MemberID = @MemberID 
 
 Go
@@ -819,3 +904,26 @@ where MemberID = @MemberID And
 	  IsDeleted = 1
 Order by SendDate desc
 Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetFavRoomsByCreatorID' and
+		        xtype = 'P')
+Drop Procedure GetFavRoomsByCreatorID
+Go
+Create Procedure GetFavRoomsByCreatorID @CreatedBy int
+as
+
+select R.* , C.Name CategoryName , SC.Name SubCategoryName
+from Room R
+Left JOIN Category C ON R.CategoryID = C.CategoryID
+Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
+Inner Join FavRoom F on F.RoomID = R.RoomID 
+where F.MemberID = @CreatedBy
+order by R.RoomTypeID Desc , R.Name Asc
+Go
+
+
+exec GetFavRoomsByCreatorID 5

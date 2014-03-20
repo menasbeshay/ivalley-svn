@@ -15,7 +15,7 @@
     <Source id="2">
       <SourceType>Db</SourceType>
       <ServerName>chat2connect.com</ServerName>
-      <Database>Chat2Connect_db</Database>
+      <Database>chat2connect_local</Database>
       <WinAuth>False</WinAuth>
       <Login>Chat2Connect_dbLogin</Login>
       <Password>!Chat2Connect_dbLogin!123</Password>

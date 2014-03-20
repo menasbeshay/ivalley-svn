@@ -6,6 +6,8 @@ using System.Web.Script.Services;
 using System.Web.Security;
 using System.Web.Services;
 using BLL;
+using Chat2Connect.SRCustomHubs;
+using Microsoft.AspNet.SignalR;
 
 namespace Chat2Connect.services
 {
@@ -102,6 +104,32 @@ namespace Chat2Connect.services
             return true;
         }
 
+         [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool SendMsg(string ToMember, string subject, string content)
+        {
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            string[] ToMembers = ToMember.Split(',');
+            MemberMessage message = new MemberMessage();
+            foreach (string item in ToMembers)
+            {
+                if (!string.IsNullOrEmpty(item))
+                {
+                    message.AddNew();
+                    message.SendDate = DateTime.Now;
+                    message.SenderID = member.MemberID;
+                    message.MemberID = Convert.ToInt32(item);
+                    message.MessageSubject = subject;
+                    message.MessageContent = content;
+                }
+            }
+            
+            message.Save();
+            return true;
+        }
+
+        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string[] SearchMembers(string query)
@@ -148,7 +176,7 @@ namespace Chat2Connect.services
             return str;
         }
 
-
+       
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool GetQueueOrder(int memberID, int roomID)
@@ -161,5 +189,105 @@ namespace Chat2Connect.services
             member.Save();
             return true;
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool AddRoomToFav(string rid)
+        {
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            try
+            {
+                FavRoom favroom = new FavRoom();
+                favroom.LoadByPrimaryKey(member.MemberID, Convert.ToInt32(rid));
+                if (favroom.RowCount > 0)
+                    return true;
+                else
+                {
+                    favroom.AddNew();
+                    favroom.MemberID = member.MemberID;
+                    favroom.RoomID = Convert.ToInt32(rid);
+                    favroom.Save();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;                
+            }
+            
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool ClearQueue(string rid)
+        {
+            
+            Room room = new Room();
+            room.LoadByPrimaryKey(Convert.ToInt32(rid));
+
+            RoomMember members = new RoomMember();
+            members.GetAllMembersByRoomIDInQueue(room.RoomID);
+
+            try
+            {
+                for (int i = 0; i < members.RowCount; i++)
+                {
+                    members.SetColumnNull("QueueOrder");
+                    members.Save();
+
+                    Member m = new Member();
+                    m.LoadByPrimaryKey(members.MemberID);
+                    MembershipUser u = Membership.GetUser(m.UserID);
+
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(room.RoomID.ToString()).UserDownHand(room.RoomID, members.MemberID);
+                    members.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool MarkMembers(string rid, bool CanWrite)
+        {
+
+            Room room = new Room();
+            room.LoadByPrimaryKey(Convert.ToInt32(rid));
+
+            RoomMember members = new RoomMember();
+            members.GetAllMembersByRoomID(room.RoomID);
+
+            try
+            {
+                for (int i = 0; i < members.RowCount; i++)
+                {
+                    members.IsMarked = true;
+                    members.CanWrite = CanWrite;
+                    members.Save();
+
+                    Member m = new Member();
+                    m.LoadByPrimaryKey(members.MemberID);
+                    MembershipUser u = Membership.GetUser(m.UserID);
+
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(room.RoomID.ToString()).UserMarked(room.RoomID, members.MemberID, CanWrite);
+                    members.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

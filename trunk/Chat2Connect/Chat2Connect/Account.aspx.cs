@@ -84,7 +84,8 @@ namespace Chat2Connect
                     MemberType type = new MemberType ();
                     type.LoadByPrimaryKey(member.MemberTypeID);
                     uiLabelAccountType.Text = type.Name;
-                    uiLabelTypeExpiry.Text = member.MemberTypeExpiryDate.ToString("yyyy/MM/dd");
+                    if (!member.IsColumnNull("MemberTypeExpiryDate"))
+                        uiLabelTypeExpiry.Text = member.MemberTypeExpiryDate.ToString("yyyy/MM/dd");
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {

@@ -35,6 +35,26 @@ namespace BLL
 
         }
 
+        public virtual bool GetAllMembersByRoomIDNoQueue(int RoomID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
+
+            return LoadFromSql("GetAllMembersByRoomIDNoQueue", parameters);
+
+        }
+
+        public virtual bool GetAllMembersByRoomIDInQueue(int RoomID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
+
+            return LoadFromSql("GetAllMembersByRoomIDQueue", parameters);
+
+        }
+
         public virtual bool GetMaxQueueOrderByRoomID(int RoomID)
         {
             ListDictionary parameters = new ListDictionary();

@@ -89,12 +89,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account.aspx" />
+    <Content Include="AccountLog.aspx" />
+    <Content Include="AccTypes.aspx" />
     <Content Include="actions.aspx" />
     <Content Include="AddPhoto.aspx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="createRoom.aspx" />
+    <Content Include="createTempRoom.aspx" />
     <Content Include="css\base - Copy.css" />
     <Content Include="css\base.css" />
     <Content Include="css\blueimp-gallery.min.css" />
@@ -103,6 +106,7 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\dreamcodes.css" />
     <Content Include="css\font-awesome\css\font-awesome-ie7.min.css" />
     <Content Include="css\font-awesome\css\font-awesome.css" />
     <Content Include="css\font-awesome\css\font-awesome1.css" />
@@ -136,6 +140,18 @@
     <Content Include="css\style_1.css" />
     <Content Include="css\style_default.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="css\Tags\arrow.png" />
+    <Content Include="css\Tags\close.png" />
+    <Content Include="css\Tags\jquery.tagit.css" />
+    <Content Include="css\Tags\tagit.ui-zendesk.css" />
+    <Content Include="css\Tags\textext.core.css" />
+    <Content Include="css\Tags\textext.plugin.arrow.css" />
+    <Content Include="css\Tags\textext.plugin.autocomplete.css" />
+    <Content Include="css\Tags\textext.plugin.clear.css" />
+    <Content Include="css\Tags\textext.plugin.focus.css" />
+    <Content Include="css\Tags\textext.plugin.prompt.css" />
+    <Content Include="css\Tags\textext.plugin.tags.css" />
+    <Content Include="css\tsc_pricingtables.css" />
     <Content Include="css\validationEngine.jquery.css" />
     <Content Include="css\validationEngine1.jquery.css" />
     <Content Include="default.aspx" />
@@ -331,10 +347,30 @@
     <Content Include="js\bootstrap-datepicker\js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap-datepicker\js\bootstrap-datetimepicker.js" />
     <Content Include="js\bootstrap-image-gallery.js" />
+    <Content Include="css\bootstrap-tagsinput.css" />
+    <Content Include="js\bootstrap-tagsinput.min.js" />
+    <Content Include="js\bootstrap-typeahead.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="images\backgrounds\.DS_Store" />
+    <Content Include="js\bootstrap-tagsinput.min.js.map" />
+    <Content Include="js\tags\tag-it.js" />
+    <Content Include="js\tags\textext.core.js" />
+    <Content Include="js\tags\textext.plugin.ajax.js" />
+    <Content Include="js\tags\textext.plugin.arrow.js" />
+    <Content Include="js\tags\textext.plugin.autocomplete.js" />
+    <Content Include="js\tags\textext.plugin.clear.js" />
+    <Content Include="js\tags\textext.plugin.filter.js" />
+    <Content Include="js\tags\textext.plugin.focus.js" />
+    <Content Include="js\tags\textext.plugin.prompt.js" />
+    <Content Include="js\tags\textext.plugin.suggestions.js" />
+    <Content Include="js\tags\textext.plugin.tags.js" />
+    <Content Include="MyBalance.aspx" />
+    <Content Include="testswf\chat2connect.swf" />
+    <Content Include="VIPPrices.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="js\bootstrap.min.js_back" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\dreamcodes.js" />
     <Content Include="js\group_validation.js" />
     <Content Include="js\html5shiv-printshiv.js" />
     <Content Include="js\html5shiv.js" />
@@ -354,6 +390,8 @@
     <Content Include="js\Mainjs.js" />
     <Content Include="js\style.js" />
     <Content Include="js\trmix.js" />
+    <Content Include="js\tsc_pricingtables.js" />
+    <Content Include="js\typeahead.bundle.js" />
     <Content Include="js\wysihtml5-0.3.0.js" />
     <Content Include="js\wysihtml5-0.3.0.min.js" />
     <Content Include="js\wysihtml5-0.4.0pre.js" />
@@ -365,6 +403,7 @@
     <Content Include="packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="roomtypes.aspx" />
     <Content Include="Scripts\jquery.signalR-2.0.1.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -378,7 +417,7 @@
     <Content Include="testswf\c2c_3.html" />
     <Content Include="testswf\c2c_2.html" />
     <Content Include="testswf\c2c.html" />
-    <Content Include="testswf\chat2connect.swf" />
+    <Content Include="testswf\chat2connect2.swf" />
     <Content Include="testswf\chat2connect1.swf" />
     <Content Include="usercontrols\ucFriends.ascx" />
     <Content Include="usercontrols\ucRooms.ascx" />
@@ -400,6 +439,20 @@
     <Compile Include="Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AccountLog.aspx.cs">
+      <DependentUpon>AccountLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountLog.aspx.designer.cs">
+      <DependentUpon>AccountLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccTypes.aspx.cs">
+      <DependentUpon>AccTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccTypes.aspx.designer.cs">
+      <DependentUpon>AccTypes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="actions.aspx.cs">
       <DependentUpon>actions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +473,13 @@
     </Compile>
     <Compile Include="createRoom.aspx.designer.cs">
       <DependentUpon>createRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="createTempRoom.aspx.cs">
+      <DependentUpon>createTempRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createTempRoom.aspx.designer.cs">
+      <DependentUpon>createTempRoom.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -466,6 +526,14 @@
     <Compile Include="lock.aspx.designer.cs">
       <DependentUpon>lock.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Common.cs" />
+    <Compile Include="MasterPages\Balance.master.cs">
+      <DependentUpon>Balance.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Balance.master.designer.cs">
+      <DependentUpon>Balance.master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\createMaster.master.cs">
       <DependentUpon>createMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,6 +569,13 @@
     <Compile Include="Messages.aspx.designer.cs">
       <DependentUpon>Messages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyBalance.aspx.cs">
+      <DependentUpon>MyBalance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyBalance.aspx.designer.cs">
+      <DependentUpon>MyBalance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -508,6 +583,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="roomtypes.aspx.cs">
+      <DependentUpon>roomtypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="roomtypes.aspx.designer.cs">
+      <DependentUpon>roomtypes.aspx</DependentUpon>
     </Compile>
     <Compile Include="services\ChatRoomService.asmx.cs">
       <DependentUpon>ChatRoomService.asmx</DependentUpon>
@@ -544,6 +626,20 @@
     </Compile>
     <Compile Include="usercontrols\ucRooms.ascx.designer.cs">
       <DependentUpon>ucRooms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VIPPrices.aspx.cs">
+      <DependentUpon>VIPPrices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIPPrices.aspx.designer.cs">
+      <DependentUpon>VIPPrices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -675,6 +771,7 @@
     <Content Include="MasterPages\Home.Master" />
     <Content Include="MasterPages\createMaster.master" />
     <Content Include="MasterPages\MessageMaster.master" />
+    <Content Include="MasterPages\Balance.master" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>

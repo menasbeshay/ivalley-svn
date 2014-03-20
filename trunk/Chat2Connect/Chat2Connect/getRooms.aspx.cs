@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
@@ -50,6 +51,34 @@ namespace Chat2Connect
                     uiRepeaterRooms.DataSource = rooms.DefaultView;
                     uiRepeaterRooms.DataBind();
                 }
+                else if (myparams[0] == "vip=1")
+                {                    
+                    Room rooms = new Room();
+                    rooms.GetPremiumRooms();
+                    uiRepeaterRooms.DataSource = rooms.DefaultView;
+                    uiRepeaterRooms.DataBind();
+                }
+                else if (myparams[0] == "cb=1")
+                {
+                    Member member = new Member();
+                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+
+                    Room rooms = new Room();
+                    rooms.GetRoomsByCreatorID(member.MemberID);
+                    uiRepeaterRooms.DataSource = rooms.DefaultView;
+                    uiRepeaterRooms.DataBind();
+                }
+                else if (myparams[0] == "fav=1")
+                {
+                    Member member = new Member();
+                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+
+                    Room rooms = new Room();
+                    rooms.GetFavRoomsByCreatorID(member.MemberID);
+                    uiRepeaterRooms.DataSource = rooms.DefaultView;
+                    uiRepeaterRooms.DataBind();
+                } 
+
             }
         }
     }

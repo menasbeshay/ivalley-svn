@@ -7,7 +7,7 @@
 // The counter values (days, minutes etc.) are calculated based on that target date, and the current date.
 // The value should be in the format m d Y, H:i:s (see http://www.w3schools.com/js/js_obj_date.asp)
 // For example, 21st of January 2013 at 15:04:59 would be: "January 21 2013, 15:04:59"
-var stop = "February 28 2014, 00:00:00";
+var stop = "March 19 2014, 00:00:00";
 
 // The date at which the counter began, same format as $stop
 var start = "January 1 2014, 00:00:00";

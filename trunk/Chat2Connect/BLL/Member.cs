@@ -34,6 +34,9 @@ namespace BLL
 
         }
 
+
+        
+
         public virtual bool SearchMembers(string query)
         {
             ListDictionary parameters = new ListDictionary();

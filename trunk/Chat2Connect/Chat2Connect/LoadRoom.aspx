@@ -17,8 +17,61 @@
                 <div class="pull-left">
                     
                     <div class="form-group">
-                        <a href="#" class="btn btn-main">المشرف</a>
-                        <a href="#" class="btn btn-main">إعدادت</a>
+                        <asp:Literal ID="uiLiteralAdminMenuHeader" runat="server"></asp:Literal>
+                         <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="position:relative;">
+                            المشرف  <span class="caret"></span> 
+                          </button>
+                          <ul class="dropdown-menu" role="menu" >                                            
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralClearQueue" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralMarkWithWrite" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralMarkWithoutWrite" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralMarkWithWriteLogin" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralMarkWithoutWriteLogin" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralDisableCam" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralDisableMic" runat="server"></asp:Literal>
+		                    	</li>
+		                    	<li>
+                                    <asp:Literal ID="uiLiteralEnableMicAdminOnly" runat="server"></asp:Literal>
+		                    	</li>
+                                <li>
+                                    <asp:Literal ID="uiLiteralCpanel" runat="server"></asp:Literal>
+                                </li>		                    	
+							</ul>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="position:relative;">
+                            إعدادت  <span class="caret"></span> 
+                          </button>
+                          <ul class="dropdown-menu" role="menu" >                           
+		                    	<li><a href="#"><i class="icon-time"></i>&nbsp;طابع زمنى&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-reply"></i>&nbsp;تنبيه عند دخول أشخاص&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-share-alt"></i>&nbsp;تنبيه عند خروح أشخاص&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-eye-open"></i>&nbsp;تنبيه عند فتح كمراء&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-eye-close"></i>&nbsp;تنبيه عند قفل كمراء&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-microphone"></i>&nbsp;تنبيه عند أخذ المكرفون&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-microphone-off"></i>&nbsp;تنبيه عند ترك المكروفن&nbsp;</a></li>
+		                    	<li><a href="#"><i class="icon-save"></i>&nbsp;حفظ الإعدادات&nbsp;</a></li>
+                              <li><a href="#"><i class=" icon-remove"></i>&nbsp;حذف </a></li>
+		                    	<li><a href="#"><i class="icon-power-off"></i>&nbsp;خروج&nbsp;</a></li>
+							</ul>
+
+                           </div>
+                    
+                        
+                        
                         <a href="#" class="btn btn-main">حفظ النقاش</a>
                         <a href="#" class="btn btn-main">خروج</a>
                     </div>
@@ -36,7 +89,7 @@
                 <div class="clearfix" style="height:1px;"></div>
                 <label><asp:Label ID="Label3" runat="server" Text="متواجدين:"></asp:Label></label> <asp:Label ID="uiLabelMemberCount" runat="server" ></asp:Label>
                 <div class="clearfix" style="height:10px;"></div>
-                <asp:LinkButton ID="uiLinkButtonAddToFav" runat="server"><i class="icon-star" style="color:#FEC200;"></i>&nbsp; أضف إلى المفضلة</asp:LinkButton>
+                <asp:Literal ID="uiLiteralAddToFav" runat="server"></asp:Literal>
                 <div class="clearfix" style="height:10px;"></div>
                 <div >
                     <asp:HyperLink ID="uiHyperLinkFb" runat="server" Target="_blank"><img src="images/facebook.png" /></asp:HyperLink>
@@ -55,27 +108,97 @@
         <div class="col-lg-12" style="padding: 5px;">
             <div class="col-lg-3 pull-right" style="padding: 5px; margin-top: 2px;">
                 <div class="SScroll" data-height="400px" id="roomMembersDiv">
-                    <asp:Repeater ID="uiRepeaterRoomMembers" runat="server" OnItemDataBound="uiRepeaterRoomMembers_ItemDataBound">
-                        <ItemTemplate> <div class="Altodd rm" id="m_<%# Eval("MemberID") %>">
-                                        <a href="#"><%# Eval("Name") %>
+                    <div id="MicDiv">
+
+                    </div>
+                    <div id="queueDiv">
+                        <asp:Repeater ID="uiRepeaterQueue" runat="server" OnItemDataBound="uiRepeaterQueue_ItemDataBound">
+                        <ItemTemplate> <div class="Altodd friend-link rm" id="m_<%# Eval("MemberID") %>">
+                                        <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
                                     </a>
                                     <div class="pull-left controls">
                                         <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
-                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
-                                    <div class="clearfix" style="height: 1px;"></div>                               
+                                        <img src="images/hand.png" style="width:16px;display:block;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
+                                    <div class="clearfix" style="height: 1px;"></div> 
+                                     <div class="popup-menu">
+						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+					            </div>                              
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
-                            <div class="Alteven rm" id="m_<%# Eval("MemberID") %>">
-                                    <a href="#"><%# Eval("Name") %>
+                            <div class="Alteven friend-link rm" id="m_<%# Eval("MemberID") %>">
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
                                     </a>
                                     <div class="pull-left controls">
                                         <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
-                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/></div>
-                                    <div class="clearfix" style="height: 1px;"></div>                               
+                                        <img src="images/hand.png" style="width:16px;display:block;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
+                                    <div class="clearfix" style="height: 1px;"></div>         
+                                 <div class="popup-menu">
+						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+					            </div>                      
                                 </div>
                         </AlternatingItemTemplate>
                     </asp:Repeater>
-                   
+                    </div>
+                    <div id="regular">
+                      <asp:Repeater ID="uiRepeaterRoomMembers" runat="server" OnItemDataBound="uiRepeaterRoomMembers_ItemDataBound">
+                        <ItemTemplate> <div class="Altodd friend-link rm" id="m_<%# Eval("MemberID") %>">
+                                        <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
+                                    </a>
+                                    <div class="pull-left controls">
+                                        <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
+                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
+                                    <div class="clearfix" style="height: 1px;"></div> 
+                                     <div class="popup-menu">
+						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+					            </div>                              
+                                </div></ItemTemplate>
+                        <AlternatingItemTemplate> 
+                            <div class="Alteven friend-link rm" id="m_<%# Eval("MemberID") %>">
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
+                                    </a>
+                                    <div class="pull-left controls">
+                                        <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
+                                        <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
+                                    <div class="clearfix" style="height: 1px;"></div>         
+                                 <div class="popup-menu">
+						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+					            </div>                      
+                                </div>
+                        </AlternatingItemTemplate>
+                    </asp:Repeater>
+                   </div>
                 </div>
             </div>
             <div class="col-lg-9 pull-left" style="padding: 5px;border-right: 2px solid #FEC200; " id="roomTextDiv">

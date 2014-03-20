@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberTypeLoadByPrimaryKey]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberTypeLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberTypeLoadByPrimaryKey];
 GO
@@ -36,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberTypeLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_MemberTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberTypeLoadAll]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberTypeLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberTypeLoadAll];
 GO
@@ -69,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberTypeUpdate]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberTypeUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberTypeUpdate];
 GO
@@ -116,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberTypeInsert]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberTypeInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberTypeInsert];
 GO
@@ -168,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberTypeDelete]    Script Date: 12/9/2013 11:26:17 AM ******/
+/****** Object:  StoredProcedure [proc_MemberTypeDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberTypeDelete];
 GO

@@ -32,6 +32,22 @@ namespace Chat2Connect
             }
         }
 
+        public MessageFolder CurrentFolder 
+        { 
+            get 
+            {
+                if (Session["CurrentFolder"] != null)
+                {
+                    return (MessageFolder)Session["CurrentFolder"];
+                }
+                return null;
+            }
+            set
+            {
+                Session["CurrentFolder"] = value;
+            }
+        }
+
         #endregion
 
         #region Events
@@ -75,6 +91,10 @@ namespace Chat2Connect
                             uiPanelMsgList.Visible = false;
                             uiPanelCreateMsg.Visible = true;
                             uiPanelCreateFolder.Visible = false;
+                            //BindFriends();
+                            Member member = new Member();
+                            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+                            uiHiddenFieldCurrentMember.Value = member.MemberID.ToString();
                             break;
                         case "createfolder":
                             uiPanelMsgList.Visible = false;
@@ -146,6 +166,99 @@ namespace Chat2Connect
 
         }
 
+        private void BindFolders()
+        {
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            MessageFolder folders = new MessageFolder();
+            folders.GetFolderByMemberID(member.MemberID);
+
+            uiGridViewFolders.DataSource = folders.DefaultView;
+            uiGridViewFolders.DataBind();
+
+        }
+
+
+        private void BindFriends()
+        {
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(member.MemberID);
+
+            uiDropDownListFriends.DataSource = friends.DefaultView;
+            uiDropDownListFriends.DataTextField = "MemberName";
+            uiDropDownListFriends.DataValueField = "FriendID";
+            uiDropDownListFriends.DataBind();
+
+        }
+
         #endregion
+
+        protected void uiGridViewFolders_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            uiGridViewFolders.PageIndex = e.NewPageIndex;
+            BindFolders();
+        }
+
+        protected void uiGridViewFolders_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditFolder")
+            {
+                MessageFolder folders = new MessageFolder();
+                folders.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                uiTextBoxFolderName.Text = folders.Name;
+                CurrentFolder = folders;                
+            }
+            else if (e.CommandName == "DeleteFolder")
+            {
+                MessageFolder folders = new MessageFolder();
+                folders.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                MemberMessage msg = new MemberMessage();
+                msg.GetMessagesByFolderID(folders.MessageFolderID);
+
+                if (!(msg.RowCount > 0))
+                {
+                    folders.MarkAsDeleted();
+                    folders.Save();
+                    BindFolders();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Notify_error_del_folder", @"$.pnotify({
+                                                                                                        text: 'حذث خطأ .يوجد رسائل تحت هذا التصميف.',
+                                                                                                        type: 'error',
+                                                                                                        history: false,
+                                                                                                        closer_hover: false,
+                                                                                                        delay: 5000,
+                                                                                                        sticker: false
+                                                                                                    });", true);
+                }
+            }
+        }
+
+        protected void uiLinkButtonSave_Click(object sender, EventArgs e)
+        {
+            if (CurrentFolder == null)
+            {
+                CurrentFolder = new MessageFolder();
+                CurrentFolder.AddNew();
+            }
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+
+            CurrentFolder.Name = uiTextBoxFolderName.Text;
+            CurrentFolder.MemberID = member.MemberID;
+            CurrentFolder.Save();
+
+            BindFolders();
+            uiTextBoxFolderName.Text = "";
+            CurrentFolder = null;
+        }
+
+        protected void uiLinkButtonSend_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

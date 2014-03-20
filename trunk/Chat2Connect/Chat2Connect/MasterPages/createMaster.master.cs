@@ -11,7 +11,14 @@ namespace Chat2Connect.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.IsAuthenticated)
+            {
+               
+            }
+            else
+            {
+                Response.Redirect("default.aspx");
+            }
         }
     }
 }

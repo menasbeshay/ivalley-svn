@@ -12,6 +12,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Account.aspx">
       <publishTime>01/15/2014 15:29:41</publishTime>
     </File>
+    <File Include="AccountLog.aspx">
+      <publishTime>03/09/2014 11:52:50</publishTime>
+    </File>
+    <File Include="AccTypes.aspx">
+      <publishTime>03/12/2014 11:30:07</publishTime>
+    </File>
     <File Include="actions.aspx">
       <publishTime>01/02/2014 16:03:51</publishTime>
     </File>
@@ -28,13 +34,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/16/2013 13:20:40</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>02/22/2014 15:15:32</publishTime>
+      <publishTime>03/19/2014 17:22:18</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>02/22/2014 18:12:36</publishTime>
+      <publishTime>03/20/2014 17:10:37</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
-      <publishTime>12/30/2013 17:01:57</publishTime>
+      <publishTime>03/18/2014 10:44:29</publishTime>
     </File>
     <File Include="bin/css/font-awesome/font/fontawesome-webfont.eot">
       <publishTime>02/10/2014 10:56:52</publishTime>
@@ -52,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>02/22/2014 15:15:32</publishTime>
+      <publishTime>03/09/2014 22:46:15</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -184,10 +190,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2014 16:13:56</publishTime>
     </File>
     <File Include="coming_soon.html">
-      <publishTime>12/30/2013 17:01:57</publishTime>
+      <publishTime>03/18/2014 10:44:29</publishTime>
     </File>
     <File Include="createRoom.aspx">
       <publishTime>01/02/2014 14:36:24</publishTime>
+    </File>
+    <File Include="createTempRoom.aspx">
+      <publishTime>03/11/2014 12:50:12</publishTime>
     </File>
     <File Include="css/base - Copy.css">
       <publishTime>12/19/2013 11:35:08</publishTime>
@@ -201,6 +210,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="css/bootstrap-image-gallery.css">
       <publishTime>12/23/2013 11:14:03</publishTime>
     </File>
+    <File Include="css/bootstrap-tagsinput.css">
+      <publishTime>03/05/2014 14:43:56</publishTime>
+    </File>
     <File Include="css/bootstrap-theme.css">
       <publishTime>12/11/2013 14:52:14</publishTime>
     </File>
@@ -212,6 +224,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="css/bootstrap.min.css">
       <publishTime>02/02/2014 14:27:01</publishTime>
+    </File>
+    <File Include="css/dreamcodes.css">
+      <publishTime>03/06/2014 16:08:35</publishTime>
     </File>
     <File Include="css/font-awesome/css/font-awesome-ie7.min.css">
       <publishTime>12/11/2013 14:18:34</publishTime>
@@ -298,7 +313,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2014 14:12:26</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>02/20/2014 15:01:55</publishTime>
+      <publishTime>03/20/2014 15:17:20</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
@@ -317,6 +332,42 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="css/style_responsive.css">
       <publishTime>12/30/2013 16:43:09</publishTime>
+    </File>
+    <File Include="css/Tags/arrow.png">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/close.png">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/jquery.tagit.css">
+      <publishTime>03/12/2014 15:30:20</publishTime>
+    </File>
+    <File Include="css/Tags/tagit.ui-zendesk.css">
+      <publishTime>03/12/2014 15:28:56</publishTime>
+    </File>
+    <File Include="css/Tags/textext.core.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.arrow.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.autocomplete.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.clear.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.focus.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.prompt.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/Tags/textext.plugin.tags.css">
+      <publishTime>03/12/2014 12:27:55</publishTime>
+    </File>
+    <File Include="css/tsc_pricingtables.css">
+      <publishTime>03/12/2014 11:27:45</publishTime>
     </File>
     <File Include="css/validationEngine.jquery.css">
       <publishTime>12/18/2013 18:06:40</publishTime>
@@ -418,13 +469,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="getRooms.aspx">
-      <publishTime>02/17/2014 11:55:07</publishTime>
+      <publishTime>03/18/2014 13:40:16</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>02/05/2014 13:17:18</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>02/17/2014 13:41:16</publishTime>
+      <publishTime>03/18/2014 15:29:16</publishTime>
     </File>
     <File Include="HtmlPage1.html">
       <publishTime>02/09/2014 10:41:56</publishTime>
@@ -996,11 +1047,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/bootstrap-image-gallery.js">
       <publishTime>12/23/2013 10:20:28</publishTime>
     </File>
+    <File Include="js/bootstrap-tagsinput.min.js">
+      <publishTime>03/05/2014 14:30:55</publishTime>
+    </File>
+    <File Include="js/bootstrap-tagsinput.min.js.map">
+      <publishTime>03/05/2014 14:30:55</publishTime>
+    </File>
+    <File Include="js/bootstrap-typeahead.js">
+      <publishTime>03/05/2014 14:28:31</publishTime>
+    </File>
     <File Include="js/bootstrap.js">
       <publishTime>12/11/2013 14:53:32</publishTime>
     </File>
     <File Include="js/bootstrap.min.js">
       <publishTime>12/29/2013 15:42:03</publishTime>
+    </File>
+    <File Include="js/dreamcodes.js">
+      <publishTime>03/06/2014 16:07:05</publishTime>
     </File>
     <File Include="js/group_validation.js">
       <publishTime>12/18/2013 17:16:56</publishTime>
@@ -1051,13 +1114,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>02/22/2014 13:42:21</publishTime>
+      <publishTime>03/20/2014 15:20:46</publishTime>
     </File>
     <File Include="js/style.js">
-      <publishTime>12/30/2013 17:00:49</publishTime>
+      <publishTime>03/10/2014 14:06:24</publishTime>
+    </File>
+    <File Include="js/tags/tag-it.js">
+      <publishTime>03/12/2014 14:06:36</publishTime>
+    </File>
+    <File Include="js/tags/textext.core.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.ajax.js">
+      <publishTime>03/12/2014 13:48:11</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.arrow.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.autocomplete.js">
+      <publishTime>03/12/2014 13:04:07</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.clear.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.filter.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.focus.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.prompt.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.suggestions.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
+    </File>
+    <File Include="js/tags/textext.plugin.tags.js">
+      <publishTime>03/12/2014 12:28:20</publishTime>
     </File>
     <File Include="js/trmix.js">
       <publishTime>12/12/2013 12:11:44</publishTime>
+    </File>
+    <File Include="js/tsc_pricingtables.js">
+      <publishTime>03/06/2014 16:18:24</publishTime>
+    </File>
+    <File Include="js/typeahead.bundle.js">
+      <publishTime>03/05/2014 14:23:43</publishTime>
     </File>
     <File Include="js/wysihtml5-0.3.0.js">
       <publishTime>02/09/2014 10:34:19</publishTime>
@@ -1069,7 +1171,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/06/2014 14:02:36</publishTime>
     </File>
     <File Include="LoadRoom.aspx">
-      <publishTime>02/21/2014 15:15:19</publishTime>
+      <publishTime>03/20/2014 15:22:23</publishTime>
     </File>
     <File Include="loadrooms.aspx">
       <publishTime>01/21/2014 12:06:03</publishTime>
@@ -1077,26 +1179,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="lock.aspx">
       <publishTime>01/15/2014 12:11:32</publishTime>
     </File>
+    <File Include="MasterPages/Balance.master">
+      <publishTime>03/13/2014 16:36:41</publishTime>
+    </File>
     <File Include="MasterPages/createMaster.master">
-      <publishTime>01/02/2014 23:39:31</publishTime>
+      <publishTime>03/11/2014 10:23:40</publishTime>
     </File>
     <File Include="MasterPages/Home.Master">
       <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>02/21/2014 09:56:09</publishTime>
+      <publishTime>03/09/2014 07:49:49</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
-      <publishTime>02/19/2014 16:06:32</publishTime>
+      <publishTime>03/13/2014 16:36:48</publishTime>
     </File>
     <File Include="Messages.aspx">
-      <publishTime>02/20/2014 15:49:25</publishTime>
+      <publishTime>03/12/2014 17:02:22</publishTime>
+    </File>
+    <File Include="MyBalance.aspx">
+      <publishTime>03/09/2014 11:02:33</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>01/19/2014 13:56:35</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>12/16/2013 13:37:41</publishTime>
+    </File>
+    <File Include="roomtypes.aspx">
+      <publishTime>03/12/2014 12:03:34</publishTime>
     </File>
     <File Include="Scripts/jquery.signalR-2.0.1.js">
       <publishTime>01/19/2014 13:36:29</publishTime>
@@ -1126,19 +1237,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2014 10:35:40</publishTime>
     </File>
     <File Include="testswf/chat2connect.swf">
-      <publishTime>02/22/2014 10:31:23</publishTime>
+      <publishTime>03/09/2014 21:44:41</publishTime>
     </File>
     <File Include="testswf/chat2connect1.swf">
       <publishTime>02/14/2014 18:56:49</publishTime>
     </File>
+    <File Include="testswf/chat2connect2.swf">
+      <publishTime>02/22/2014 10:31:23</publishTime>
+    </File>
     <File Include="usercontrols/ucFriends.ascx">
-      <publishTime>02/02/2014 17:06:17</publishTime>
+      <publishTime>03/16/2014 15:47:11</publishTime>
     </File>
     <File Include="usercontrols/ucRooms.ascx">
-      <publishTime>01/28/2014 14:35:48</publishTime>
+      <publishTime>03/18/2014 14:31:49</publishTime>
+    </File>
+    <File Include="VIPPrices.aspx">
+      <publishTime>03/11/2014 16:39:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/22/2014 22:24:10</publishTime>
+      <publishTime>03/12/2014 17:03:14</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>03/12/2014 14:15:22</publishTime>
     </File>
   </ItemGroup>
 </Project>
