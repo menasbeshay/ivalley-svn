@@ -1,8 +1,0 @@
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\pages\txt.txt
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\products\txt.txt
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\projects\txt.txt
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\Sherifadel.dll
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\Sherifadel.pdb
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.csprojResolveAssemblyReference.cache
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.dll
-D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.pdb
