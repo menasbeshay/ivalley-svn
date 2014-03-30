@@ -12,7 +12,7 @@
     <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="BackDiv">
+    <div class="BackDiv">
 <asp:LinkButton runat="server" ID="lnkBackToAdminCP" PostBackUrl="AdminCP.aspx" 
         Font-Underline="true" Text="عودة إلى لوحة التحكم &gt;&gt;"></asp:LinkButton>
 </div>
@@ -46,13 +46,14 @@
             &nbsp;</div>
         <div class="clear"></div>
         <div class="AdminLeft">
-        <asp:Label ID="Label11" runat="server" CssClass="Label">Search text :</asp:Label>
+        <asp:Label ID="Label11" runat="server" CssClass="Label">بحث :</asp:Label>
         </div>
         <div class="AdminMiddle">
-            &nbsp;<asp:TextBox ID="uiTextBoxSearchText" runat="server" Width="400px"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="uiTextBoxSearchText" runat="server" Width="120px" placeholder="إسم الطالب"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="uiTextBoxFatherName" runat="server" Width="120px" placeholder="إسم الأب"></asp:TextBox>                       
         </div>
         <div class="AdminRight">
-            &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="Search" 
+            &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="بحث" 
                 onclick="uiButtonSearch_Click" />
     </div>
         <div class="clear"></div>
@@ -625,4 +626,16 @@
             });
         });*/
     </script>
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+    <ProgressTemplate>
+    <div style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom;
+                        display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999;
+                        background: url(images/loading.GIF) no-repeat center center rgba(256,256,256,0.65);
+                        position: absolute; top: 0; left: 0;">
+         <div style="margin: auto; width: 200px; height: 120px; position: absolute; left: 0;
+                            right: 0; top: 0; bottom: 0;font-size:30px; font-weight:bold;color:#006600">
+                            جارى التحميل
+                        </div>
+    </ProgressTemplate>
+    </asp:UpdateProgress>
 </asp:Content>

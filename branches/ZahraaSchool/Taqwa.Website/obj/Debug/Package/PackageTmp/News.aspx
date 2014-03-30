@@ -1,11 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="Taqwa.Website.News" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="Taqwa.Website.News" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#menuItemNews").addClass("current");
+        });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent" style="background-color:#fff;width:980px;">
-<div class="style24">
-    أخر الأخبار 
-</div>
+<div style="clear:both; height:10px;"></div>
+<div class="mainContent col-lg-12 row" >
+<h2 >
+   أخر الأخبار 
+</h2>
 <div style="clear:both; height:10px;"></div>
 <div class="Content">
     <asp:Panel ID="uiPanelAllNews" runat="server" Width="95%">

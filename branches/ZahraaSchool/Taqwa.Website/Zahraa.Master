@@ -6,27 +6,27 @@
 <!--[if (gte IE 10)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><!--<![endif]-->
 
 <head runat="server">
-    <title>inCreate Responsive Multipurpose HTML5</title>
+    <title>Al Zahraa School </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Seo Meta -->
-		<meta name="description" content="inCreate Responsive Multipurpose HTML5">
-		<meta name="keywords" content="inCreate, corporate, light, dark, themeforest, multi purpose, premium, unlimited, ultimate">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
 
 	<!-- Styles -->
-		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../styles/style.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../styles/shop.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../styles/icons.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../styles/animate.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../styles/responsive.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="../js/layerslider/css/layerslider.css">
-		<link rel="stylesheet" type="text/css" href="../js/layerslider/css/custom.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="styles/style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="styles/shop.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="styles/icons.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="styles/animate.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="styles/responsive.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="js/layerslider/css/layerslider.css">
+		<link rel="stylesheet" type="text/css" href="js/layerslider/css/custom.css">
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 	<!-- Favicon -->
-		<link rel="shortcut icon" href="../images/favicon.ico">
-		<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
@@ -48,7 +48,7 @@
 		/* <![CDATA[ */
 			$(document).ready(function(){
 				$('#layerslider').layerSlider({
-					skinsPath : '../js/layerslider/skins/',
+					skinsPath : 'js/layerslider/skins/',
 					skin : 'fullwidth',
 					thumbnailNavigation : 'hover',
 					hoverPrevNext : false,
@@ -75,44 +75,16 @@
 				<div class="head_up">
 					<div class="row clearfix">
 						<div class="l_ht">
-							<span><i class="icon_mobile"></i>(001) 85 74 855</span>
-							<span><i class="icon_pin_alt"></i>Elizabeth St, Melbourne VIC 2222, USA ‎</span>
+							<a href="../Login.aspx">Student login</a>
 						</div><!-- end text left -->
 
 						<div class="r_ht">
-							<div class="shopping_bag">
-								<div class="header_bag">
-									<a href="shop-shopping-bag.html"><i class="icon_bag_alt"></i><span>2 item(s) / $110.00</span></a>
-								</div>
 							
-								<div class="view_cart_mini">
-									<div class="view_cart">
-										<ul class="cart_list">
-											<li class="clearfix">
-												<a href="shop-single-product.html"><img class="fll" width="50" src="images/shop/bag1.jpg" alt="#"></a>
-												<div class="cart_list_product_title">
-													<a href="shop-single-product.html">SOLID WOMEN'S TOP 2013</a>
-													<div class="cart_list_product_quantity">Quantity: 2 / <a href="#" class="toptip" title="Remove this item">Remove</a></div>
-												</div>
-											</li>
-								                        </ul>
-							
-										<span class="total_checkout fll">Cart subtotal</span>
-										<span class="amount_total flr">$275.00</span>
-										<div class="tac">
-											<a href="#" class="tbutton mt small"><span>View Shopping Bag</span></a>   
-											<a href="#" class="tbutton mt small"><span><i class="icon_cart_alt mi"></i>Checkout</span></a>
-										</div>
-									</div>
-								</div>
-							</div><!-- end Shopping Cart -->
-
 							<div class="languages">
 								<a href="#"><span>EN</span></a>
 								<div class="other_languages">
-									<a href="#"><span>PE</span></a>
-									<a href="#"><span>DU</span></a>
-									<a href="#"><span>FR</span></a>
+                                    <asp:LinkButton ID="uiLinkButtonArabic" runat="server" 
+                                        onclick="uiLinkButtonArabic_Click"><span>Ar</span></asp:LinkButton>                                    
 								</div><!-- end other -->
 							</div><!-- end languages -->
 
@@ -130,398 +102,36 @@
 					</div><!-- row -->
 				</div><!-- head -->
 	
-				<div class="headdown">
+                <div class="Corpse_Sticky"></div><div class="headdown my_sticky">
 					<div class="row clearfix">
 						<div class="logo">
-							<a href="index.html" title="inCreate Responsive Multipurpose HTML5 Template"><img src="images/logo.png" alt="inCreate Responsive Multipurpose HTML5"></a>
-						</div>
-
-						<div class="search">
-							<div class="search_icon"><i class="icon_search icon_close"></i></div>
-							<div class="s_form">
-								<form action="search_result.html" id="search" method="get">
-									<input id="inputhead" name="search" type="text" onfocus="if (this.value=='Start Searching...') this.value = '';" onblur="if (this.value=='') this.value = 'Start Searching...';" value="Start Searching..." placeholder="Start Searching ...">
-									<button type="submit"><i class="icon_search"></i></button>
-								</form><!-- end form -->
-							</div>
+							<a href="index.aspx" title="Al Zahraa School"><img src="../images/logo.png" alt="Al Zahraa School"></a>
 						</div>
 
 						<nav>
 							<ul class="sf-menu">
-								<li class="current"><a href="index.html">Home</a>
-									<ul>
-										<li><a href="index_2.html">Home 2 LayerSlider</a></li>
-										<li><a href="index_3.html">Home 3 FlexSlider</a></li>
-										<li><a href="index_4.html">Home 4 NivoSlider</a></li>
-										<li><a href="index_5.html">Home 5 ModernSlider</a></li>
-										<li><a href="index_6.html">Home 6 iViewSlider</a></li>
-										<li><a href="intro_preview.html">... More Versions</a></li>
-									</ul>
-								</li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="col3 mega">
-										<li class="col1">
-											<ol>
-												<li><a href="shop.html">Shop</a></li>
-												<li><a href="shop_sidebar_right.html">Right Sidebar</a></li>
-												<li><a href="shop_sidebar_left.html">Left Sidebar</a></li>
-												<li><a href="shop_sidebar_both.html">Both Sidebar</a></li>
-												<li><a href="shop_sidebar_both_left.html">Both Side Left</a></li>
-												<li><a href="shop_sidebar_both_right.html">Both Side Right</a></li>
-												<li><a href="shop_masonry.html">Shop Masonry</a></li>
-											</ol>
-										</li>
-										<li class="col1">
-											<ol>
-												<li><a href="shop_product.html">Shop Product</a></li>
-												<li><a href="shop_bag.html">Shopping Bag</a></li>
-												<li><a href="shop_track_your_order.html">Track Your Order</a></li>
-												<li><a href="shop_checkout.html">Checkout → Pay</a></li>
-												<li><a href="shop_login_register.html">Login / Register</a></li>
-												<li><a href="shop_account.html">My Account</a></li>
-											</ol>
-										</li>
-										<li class="col1 featured_Img">
-											<a href="shop.html"><img src="images/shop/megamenu.png" alt="#" title="New Year Sales"></a>
-										</li>
-									</ul>
-								</li>
-								<li><a href="#">Pages</a>
-									<ul>
-										<li><a href="icons.html">700 Retina Icons</a></li>
-										<li><a href="#">Shortcodes</a>
-											<ul>
-												<li><a href="shortcodes_accordion.html">Accordion</a></li>
-												<li><a href="shortcodes_buttons.html">Buttons</a></li>
-												<li><a href="shortcodes_typography.html">Typography</a></li>
-												<li><a href="shortcodes_pricing_tables.html">Pricing Tables</a></li>
-												<li><a href="shortcodes_tables.html">Tables</a></li>
-												<li><a href="shortcodes_testimonials.html">Tetimonials</a></li>
-												<li><a href="shortcodes_lightbox.html">Lightbox</a></li>
-												<li><a href="shortcodes_video.html">Video</a></li>
-												<li><a href="shortcodes_google-map.html">Google Map</a></li>
-												<li><a href="shortcodes_social-icons.html">Retina Social Icons</a></li>
-												<li><a href="shortcodes_tab.html">Tab</a></li>
-												<li><a href="shortcodes_toggle.html">Toggle</a></li>
-												<li><a href="shortcodes_message-box.html">Message Box</a></li>
-												<li><a href="shortcodes_action-box.html">Action Box</a></li>
-												<li><a href="shortcodes_progress-bars.html">Progress Bars</a></li>
-											</ul>
-										</li>
-										<li><a href="rtl.html">RTL Support</a></li>
-										<li><a href="about_us.html">About Our Team</a></li>
-										<li><a href="#">Services</a>
-											<ul>
-												<li><a href="services_1.html">Services Set 1</a></li>
-												<li><a href="services_2.html">Services Set 2</a></li>
-												<li><a href="services_3.html">Services Set 3</a></li>
-											</ul>
-										</li>
-										<li><a href="testimonials.html">Testimonials</a></li>
-										<li><a href="404.html">Custom 404</a></li>
-										<li><a href="faq.html">F.A.Q's</a></li>
-										<li><a href="support_forum.html">Support Forum</a></li>
-										<li><a href="titles.html">Heading Title Types</a></li>
-										<li><a href="search_result.html">Search Result</a></li>
-										<li><a href="under_construction.html">Under Construction</a></li>
-										<li><a href="#">Third Level</a>
-											<ul>
-												<li><a href="#">Sub Menu 1</a></li>
-												<li><a href="#">Sub Menu 2</a>
-													<ul>
-														<li><a href="#">Sub Menu 1</a></li>
-														<li><a href="#">Sub Menu 2</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li><a href="portfolio4.html">Portfolio</a>
-									<ul>
-										<li><a href="portfolio4.html">Portfolio 4 Columns</a></li>
-										<li><a href="portfolio3.html">Portfolio 3 Columns</a></li>
-										<li><a href="portfolio2.html">Portfolio 2 Columns</a></li>
-										<li><a href="portfolio_masonry.html">Portfolio Masonry</a></li>
-										<li><a href="portfolio3_sidebar.html">Portfolio 3col+Sidebar</a></li>
-										<li><a href="portfolio2_sidebar.html">Portfolio 2col+Sidebar</a></li>
-										<li><a href="portfolio_single_image.html">Project Image</a></li>
-										<li><a href="portfolio_single_slider.html">Project Slider</a></li>
-										<li><a href="portfolio_single_video.html">Project Video</a></li>
-										<li><a href="portfolio_single_sidebar.html">Project with Sidebar</a></li>
-									</ul>
-								</li>
-								<li><a href="blog.html">Blog</a>
-									<ul>
-										<li><a href="blog.html">Large Thumbnail</a></li>
-										<li><a href="blog_medium.html">Medium Thumbnail</a></li>
-										<li><a href="blog_small.html">Small Thumbnail</a></li>
-										<li><a href="blog_left_sidebar.html">Blog Left Sidebar</a></li>
-										<li><a href="blog_both_sidebar.html">Blog Both Sidebar</a></li>
-										<li><a href="blog_both_sidebar_left.html">Both Sidebar Left</a></li>
-										<li><a href="blog_both_sidebar_right.html">Both Sidebar Right</a></li>
-										<li><a href="#">Blog Single Post</a>
-											<ul>
-												<li><a href="blog_single_image.html">Single Post Image</a></li>
-												<li><a href="blog_single_slider.html">Single Post Slider</a></li>
-												<li><a href="blog_single_video.html">Single Post Video</a></li>
-												<li><a href="blog_single_sound.html">Single Post Sound</a></li>
-												<li><a href="blog_single_facebook_comments.html">Facebook Comments</a></li>
-												<li><a href="blog_single_default_comments.html">Default Comments</a></li>
-											</ul>
-										</li>
-										<li><a href="blog_two_columns.html">Blog Two Columns</a></li>
-										<li><a href="blog_three_columns.html">Blog Three Columns</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
+								<li id="menuItemHome"><a href="index.aspx">Home</a></li>
+                                <li id="menuItemAbout"><a href="Pages.aspx?PID=5">About us</a></li>
+                                <li id="menuItemAct"><a href="Pages.aspx?PID=2">Activities</a></li>
+                                <li id="menuItemNews"><a href="News.aspx">News</a></li>
+                                <li id="menuItemGallery"><a href="Gallery.aspx">Gallery</a></li>
+                                <li id="menuItemTW"><a href="Pages.aspx?PID=3">Team work</a></li>	
+                                <li id="menuItemSugg"><a href="Suggestions.aspx">Suggestions</a></li>								
+								<li id="menuItemContact"><a href="Pages.aspx?PID=7">Contact us</a></li>
 							</ul><!-- end menu -->
 						</nav><!-- end nav -->
 					</div><!-- row -->
 				</div><!-- headdown -->
 			</header><!-- end header -->
 
-		<!-- Start Layer Slider -->
-			<div class="sliderr">
-				<div id="layerslider-container-fw-second">
-					<div id="layerslider" style="width: 100%; height: 700px; margin: 0px auto">
-
-			<div class="ls-layer" style="slidedirection: top; transition2d: all; slidedelay: 5000; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
-				<img class="ls-bg" src="images/slides/1.jpg" alt="">
-				<img class="ls-s2"  src="images/slides/ip2.png" alt="" style="position: absolute; top: 100px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a1.png" alt="" style="position: absolute; top: 160px; left: 600px; slidedirection : top; slideoutdirection : top;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a2.png" alt="" style="position: absolute; top: 290px; left: 600px; slidedirection : right; slideoutdirection : right;  durationin : 2500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a3.png" alt="" style="position: absolute; top: 410px; left: 600px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 3000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a3.png" alt="" style="position: absolute; top: 410px; left: 750px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 3500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-			</div>
-
-			<div class="ls-layer" style="slidedirection: bottom; transition2d: all; slidedelay: 5500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
-				<img class="ls-bg" src="images/slides/2.jpg" alt="">
-				<img class="ls-s2"  src="images/slides/cap_b1.png" alt="" style="position: absolute; top: 200px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b2.png" alt="" style="position: absolute; top: 270px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b5.png" alt="" style="position: absolute; top: 336px; left: 481px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 4500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 100; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b3.png" alt="" style="position: absolute; top: 340px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 3400; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b4.png" alt="" style="position: absolute; top: 410px; left: 525px; slidedirection : right; slideoutdirection : right;  durationin : 4100; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/ip1.png" alt="" style="position: absolute; top: 82px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-			</div>
-
-			<div class="ls-layer" style="slidedirection: right; transition2d: all; slidedelay: 4500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
-				<img class="ls-bg" src="images/slides/3.jpg" alt="">
-				<img class="ls-s2"  src="images/slides/ip3.png" alt="" style="position: absolute; top: 53px; left: 500px; slidedirection : right; slideoutdirection : right;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_c1.png" alt="" style="position: absolute; top: 380px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-			</div>
-					</div>		
-				</div>
-			</div>
-		<!-- End Layer Slider -->
-
-			<div class="intro_p tac">
-				<div class="row inner clearfix">
-					<h2>Clean, Unique, Modern & Responsive HTML5 Template, Inspired iOS7 <small>Connect with us</small></h2>
-					<a href="#" class="tbutton large"><i class="icon_comment_alt"></i><span>Match Me To Advisors</span></a>
-					<a href="#" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>Do Your One Search</span></a>
-				</div><!-- End row -->
-			</div><!-- End intro p -->
-
-			<div class="page-content">
-				
-				<div class="row mbs clearfix">
-					<div class="f_portfolio">
-						<div class="intro_content">
-							<div class="inner">
-								<h3> SCHOOL IMAGES GALLERY </h3>
-								<p> Print this page to PDF for the complete set of vectors. Or to use on the desktop, install FontAwesome.otf and copy and paste .. <a href="portfolio4.html">View All</a></p>
-							</div>
-						</div>
-						<div class="f_items">
-							<div class="portfolio_carousel">
-								<div class="anyClass">
-									<ul>
-										<li>
-											<img src="images/assets/portfolio1.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio2.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio3.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio4.jpg" alt="#">
-											<div class="f_hover">
-												<h5> <a href="#">Sed ut perspiciatis unde</a> </h5>
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio5.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio6.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-												</div>
-												<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-											</div>
-										</li><!-- portfolio item -->
-									</ul>
-								</div>
-								<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
-								<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->
-							</div><!-- portfolio carousel -->
-						</div>
-					</div><!-- end f portfolio -->
-				</div><!-- end row -->
-
-				<div class="grey-line mbs">
-					<div class="row clearfix">
-						<div class="grid_6 custom_block1_img" data-gen="bigEntrance">
-							<div class="h_slider"><img class="custom_1" src="images/assets/t1.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_2" src="images/assets/t2.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_3" src="images/assets/t3.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_4" src="images/assets/t4.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_5" src="images/assets/t5.png" alt="tablet"></div>
-						</div><!-- end grid6 -->
-
-						<div class="grid_6 custom_block1" data-gen="bigEntrance">
-							<div class="inner_list">
-								<h3>- Enjoy Al Zahraa school website services</h3>
-								<ul>
-									<li><a href="#custom_1"><i class="icon_box-checked"></i> School Timetable</a></li>
-									<li><a href="#custom_2"><i class="icon_box-checked"></i> Dates of School</a></li>
-									<li><a href="#custom_3"><i class="icon_box-checked"></i> Al Zahraa School Bus</a></li>
-									<li><a href="#custom_4"><i class="icon_box-checked"></i> Results </a></li>
-									<li><a href="#custom_5"><i class="icon_box-checked"></i> Top students</a></li>
-								</ul>
-							</div><!-- end inner -->
-						</div><!-- end grid6 -->
-					</div><!-- end row -->
-				</div><!-- end grey line -->
-
-				<div class="row mbs clearfix">
-					<div class="tac"><h3 class="block_title">School Activities</h3><span class="after_line"></span></div>
-
-					<div class="grid_4 f_blog">
-						<div class="f_thumb">
-							<img src="images/assets/post_1.jpg" alt="#">
-							<div class="f_hover"><a href="blog_single.html"><i class="icon_link_alt"></i></a></div>
-						</div>
-						<h4> <a href="blog_single.html">Honor board</a> </h4>
-						<div class="f_meta"><span><i class="icon_profile mi"></i> Admin</span><span><i class="icon_clock_alt mi"></i> 27 October 2013</span></div>
-					</div><!-- end grid3 -->
-
-					<div class="grid_4 f_blog">
-						<div class="f_thumb">
-							<img src="images/assets/post_2.jpg" alt="#">
-							<div class="f_hover"><a href="blog_single.html"><i class="icon_link_alt"></i></a></div>
-						</div>
-						<h4> <a href="blog_single.html">Art Work Activity</a> </h4>
-						<div class="f_meta"><span><i class="icon_profile mi"></i> Nicolas</span><span><i class="icon_clock_alt mi"></i> 21 November 2013</span></div>
-					</div><!-- end grid3 -->
-
-					<div class="grid_4 f_blog">
-						<div class="f_thumb">
-							<img src="images/assets/post_2.jpg" alt="#">
-                            <div class="f_hover"><a href="blog_single.html"><i class="icon_link_alt"></i></a></div>
-						</div>
-						<h4> <a href="blog_single.html">Visits and Trips</a> </h4>
-						<div class="f_meta"><span><i class="icon_profile mi"></i> Admin</span><span><i class="icon_clock_alt mi"></i> 30 November 2013</span></div>
-					</div><!-- end grid3 -->
-
-					
-				</div><!-- end row -->
-                
-				<div class="row clearfix mbs">
-					<div class="grid_6">
-						<ul class="tabs">
-							<li><a href="#A_1" class="active">Smart Options</a></li>
-							<li><a href="#A_2">RTL Support</a></li>
-							<li><a href="#A_3">Tons of Shortcodes</a></li>
-						</ul><!-- tabs -->
-
-						<ul class="tabs-content">
-							<li id="A_1" class="active"><img src="images/assets/character.jpg" alt="" class="fll">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat, quam id ultricies mollis, quam odio viverra nisi, vulputate fringilla risus leo ac ante. In eleifend sem eu turpis viverra quis interdum dolor tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat, quam id ultricies mollis, quam odio viverra nisi, vulputate fringilla risus leo ac ante. In eleifend sem eu turpis viverra quis interdum dolor tempor. </li><!-- tab content -->
-
-							<li id="A_2"><p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget...</p><p>"Nulla sagittis porttitor varius. Vestibulum eleifend, lorem sit amet gravida accumsan, nisi est tempor risus, non suscipit lectus nunc sit amet nunc. Pellentesque iaculis sapien at lacus vulputate sodales et eget quam. Etiam tristique bibendum leo, quis sagittis urna tempus non. Aliquam aliquet, nibh nec placerat tempus, tellus neque accumsan justo,consectetur lorem fringilla vel. Nulla facilisi."</p></li><!-- tab content -->
-
-							<li id="A_3">Nulla sagittis porttitor varius. Vestibulum eleifend, lorem sit amet gravida accumsan, nisi est tempor risus, non suscipit lectus nunc sit amet nunc. Pellentesque iaculis sapien at lacus vulputate sodales et eget quam. Etiam tristique bibendum leo, quis sagittis urna tempus non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat, quam id ultricies mollis, quam odio viverra nisi, vulputate fringilla risus leo ac ante. In eleifend sem eu turpis viverra quis interdum dolor tempor.</li><!-- tab content -->
-						</ul><!-- end tabs -->
-					</div><!-- end grid6 -->
-
-					<div class="grid_6">
-							<ul class="tt-accordion">
-								<li class="sub-accordion">
-									<div class="accordion-head">
-										<div class="accordion-head-sign"></div>
-										<p>LEARN MORE ABOUT inCREATE</p>
-									</div>
-									<div class="accordion-content">
-										Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat, quam id ultricies mollis, quam odio viverra nisi, vulputate fringilla risus leo ac ante. In eleifend sem eu turpis viverra quis interdum dolor tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris.
-									</div>
-								</li>
-								<li class="sub-accordion">
-									<div class="accordion-head">
-										<div class="accordion-head-sign"></div>
-										<p>ULTIMATE VERSION VERY FLEXIBLE</p>
-									</div>
-									<div class="accordion-content">Nulla id ligula arcu. Integer et tincidunt lectus. Duis id ligula diam, quis dapibus erat. Curabitur nec libero et est vulputate sollicitudin. Fusce sit amet turpis sed mauris volutpat posuere. Morbi vulputate, odio eget adipiscing faucibus, lorem ipsum facilisis justo, gravida tempus orci nisi ac eros. Pellentesque metus dolor, imperdiet sed ornare vel, tempus eu ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec malesuada, massa ut lacinia congue, eros felis aliquam arcu, non euismod ligula sapien in est. Etiam vitae congue orci.
-									</div>
-								</li>
-								<li class="sub-accordion">
-									<div class="accordion-head">
-										<div class="accordion-head-sign"></div>
-										<p>EASY CUSTOMIZATION AND CHANGE COLORS</p>
-									</div>
-									<div class="accordion-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat, quam id ultricies mollis, quam odio viverra nisi, vulputate fringilla risus leo ac ante. In eleifend sem eu turpis viverra quis interdum dolor tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sem dui, molestie vitae ornare tincidunt, semper non metus. Ut id arcu leo, id feugiat mauris.
-									</div>
-								</li>
-							</ul><!-- end accordion -->
-					</div><!-- end grid6 -->
-				</div><!-- clearfix -->
-
-				
-			</div><!-- end page content -->
+		<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
 
 			<footer id="footer">
 				<div class="row pad_foot clearfix">
 					<div class="grid_4">
-						<img src="images/logo.png" alt="logo title" class="mb">
+						<img src="../images/logo.png" alt="logo title" class="mb">
 	
 						<div class="widget-content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -539,30 +149,39 @@
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 	
-					<div class="grid_4">
+					<div class="grid_4 ">
 						<h3 class="col-title">Our Location</h3>
 	
 						<div class="widget-content">
-							<iframe height="160" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=New+York,+NY,+United+States&amp;aq=0&amp;oq=New+yok&amp;sll=37.0625,-95.677068&amp;sspn=41.224889,86.044922&amp;ie=UTF8&amp;hq=&amp;hnear=New+York&amp;t=m&amp;z=10&amp;ll=40.714353,-74.005973&amp;output=embed"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d452069.7769902424!2d30.847549!3d27.723611!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1395950280844"  height="160" frameborder="0" style="border:0"></iframe>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 		
+        <div class="grid_4">
+						<h3 class="col-title">PhotoStream <small>- Instagram</small></h3>
+	
+						<div class="widget-content">
+							<iframe src="http://snapwidget.com/in/?u=bW92ZW1iZXJ8aW58NzB8NHwyfHxub3wxOHxmYWRlT3V0fG9uU3RhcnR8bm8=&amp;v=171113" width="352" height="176"></iframe>
+						</div><!-- widget content -->
+					</div><!-- grid 4 -->
 				</div><!-- row -->
 	
 				<div class="footer-last">
 					<div class="row clearfix">
-						<span class="copyright">© 2013 <a href="http://theme20.com/" class="toptip" title="Design and Development">Theme20</a>. All Rights Reserved. Powered by <a href="http://themeforest.net/user/T20?ref=T20" class="toptip" title="Wordpress Themes and Site Templates">Themeforest</a>.</span>
+						
 		
 						<div id="toTop" class="toptip" title="Back to Top"><i class="fa-angle-up"></i></div><!-- Back to top -->
 
 						<div class="foot-menu">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="#">Services</a></li>
-								<li><a href="#">F.A.Q</a></li>
-								<li><a href="portfolio4.html">Portfolio</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="index.aspx">Home</a></li>
+								<li><a href="Pages.aspx?PID=5">About us</a></li>
+								<li><a href="Pages.aspx?PID=2">Activities</a></li>
+                                <li><a href="News.aspx">News</a></li>
+                                <li><a href="Gallery.aspx">Gallery</a></li>
+                                <li><a href="Pages.aspx?PID=3">Team work</a></li>	
+                                <li><a href="Suggestions.aspx">Suggestions</a></li>								
+								<li><a href="Pages.aspx?PID=7">Contact us</a></li>
 							</ul><!-- end links -->
 						</div><!-- end foot menu -->
 					</div><!-- end row -->
@@ -573,12 +192,6 @@
 	</div>
     <!-- end frame -->
 
-
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
     </form>
 </body>
 </html>

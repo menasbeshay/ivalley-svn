@@ -104,7 +104,7 @@
             <asp:Button ID="uiButtonUpdate" runat="server" onclick="uiButtonUpdate_Click" 
                 Text="إضافة / تعديل" ValidationGroup="UpdatePage" />
             &nbsp;<asp:Button ID="uiButtonCancel" runat="server" onclick="uiButtonCancel_Click" 
-                Text="Cancel" />
+                Text="إلغاء" />
         </div>
         <div class="AdminRight">
         </div>

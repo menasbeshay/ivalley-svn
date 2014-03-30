@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>مدرسـة السلام الخـاصـة</title>
-    <link href="styles/Style.css" rel="stylesheet" type="text/css" />
+    <title>مدرسـة الزهراء الخـاصـة</title>
+    <link href="styles/Style1.css" rel="stylesheet" type="text/css" />
    
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -103,14 +103,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td background="images/top-banner.jpg" width="980" height="322" valign="top">
+					<td background="images/banner.jpg" width="980" height="161" valign="top">
 					<table border="0" width="100%" cellspacing="0" cellpadding="0">
 						<tr>
-							<td height="272">&nbsp;</td>
+							<td height="136">&nbsp;</td>
 						</tr>
 						<tr>
 							<td>
-							<table border="0" width="100%" cellspacing="0" cellpadding="0">
+							<table border="0" width="100%" cellspacing="0" cellpadding="0" style="display:none;">
 								<tr>
 									<td>
 									<p align="center"><span lang="ar-eg">
@@ -165,14 +165,9 @@
 			<table border="0" width="362" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="341">
-							<p class="content_wight" align="center"><b>
-							<font color="#F2BF64" face="Tahoma" style="font-size: 8pt">
-							Copyright 2<span lang="en-us">013</span> © A<span lang="en-us">l 
-							Salam School</span> , Powered By </font>
-							</b></td>
+							</td>
 					<td width="79">
-					<a target="_blank" href="http://www.mtg-eg.com/">
-					<img border="0" src="images/mtg-logo-intro.jpg" align="left" width="79" height="37"></a></td>
+					</td>
 				</tr>
 			</table>
 		</div>

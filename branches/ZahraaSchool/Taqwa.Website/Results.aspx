@@ -26,13 +26,13 @@
 					<tr>
 						<td>
 						<div align="center">
-							<table width="620" height="213" border="1" cellpadding="0" cellspacing="0">
+							<table width="700" height="471" border="1" cellpadding="0" cellspacing="0">
                 <tr>
                   <td height="211">
 					<div align="center">
-						<table border="0" width="620" cellspacing="0" cellpadding="0" height="457">
+						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/1.jpg">
+								<td background="images/shahada2.jpg">
 								<table border="0" width="100%" cellspacing="0" cellpadding="0">
 									<tr>
 										<td>&nbsp;</td>
@@ -175,13 +175,13 @@
 					<tr>
 						<td>
 						<div align="center">
-							<table width="620" height="213" border="1" cellpadding="0" cellspacing="0">
+							<table width="700" height="471" border="1" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td height="211">
+                  <td >
 					<div align="center">
-						<table border="0" width="640" cellspacing="0" cellpadding="0" height="425">
+						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/2.jpg">
+								<td background="images/shahada2.jpg">
 								<table border="0" width="100%" cellspacing="0" cellpadding="0">
 									<tr>
 										<td>
@@ -209,7 +209,7 @@
 									</tr>
 									<tr>
 										<td>
-										<div align="right">
+										<div align="right" style="padding-right:30px;">
 											<table border="0" width="100%" cellspacing="0" cellpadding="0">
 												<tr>
 													<td style="text-align:right;">
@@ -263,7 +263,7 @@
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                  <div style="border: 1px solid #AC5155;float:right;">
-                                                 <div style="position:relative; height:120px;padding-top:10px;vertical-align:middle;">
+                                                 <div style="position:relative; height:130px;padding-top:10px;vertical-align:middle;">
                                                 <div style=" direction:rtl; display:block; font-weight:bold;-ms-writing-mode: bt-rl;width:35px; overflow:visible;white-space:nowrap;
 		-webkit-transform: rotate(270deg);	
 		-moz-transform: rotate(270deg);
@@ -334,13 +334,13 @@
 					<tr>
 						<td>
 						<div align="center">
-							<table width="620" height="213" border="1" cellpadding="0" cellspacing="0">
+							<table width="700" height="471" border="1" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td height="211">
+                  <td >
 					<div align="center">
-						<table border="0" width="640" cellspacing="0" cellpadding="0" height="425">
+						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/3.jpg">
+								<td background="images/shahada2.jpg">
                                  <br />
                                             <br />
                                             <br /> 
@@ -363,7 +363,7 @@
 									</tr>
 									<tr>
 										<td>
-										<div align="right">
+										<div align="right"  style="padding-right:30px;">
                                        
 
 											<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="ltr">
@@ -420,7 +420,7 @@
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                  <div style="border: 1px solid #AC5155;float:right;">
-                                                 <div style="position:relative; height:120px;padding-top:10px;vertical-align:middle;">
+                                                 <div style="position:relative; height:130px;padding-top:10px;vertical-align:middle;">
                                                 <div style=" direction:rtl; display:block; font-weight:bold;-ms-writing-mode: bt-rl;width:35px; overflow:visible;white-space:nowrap;
 		-webkit-transform: rotate(270deg);	
 		-moz-transform: rotate(270deg);

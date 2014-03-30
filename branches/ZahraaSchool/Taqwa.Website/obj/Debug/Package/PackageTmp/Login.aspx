@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Taqwa.Website.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Taqwa.Website.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -43,9 +43,6 @@
                                 <br />
                             </td>
                             <td width="66">
-                                <asp:ImageButton ID="uiImageButtonLogin" runat="server" 
-                                    ImageUrl="~/images/login.gif" 
-                                    ValidationGroup="Login" onclick="uiImageButtonLogin_Click"/>
                                 <%--<img src="images/login.png" width="64" height="21" />--%>
                             </td>
                             <td width="163">
@@ -56,12 +53,14 @@
                             <td>
                                 &nbsp;
                             </td>
-                            <td>
-                                &nbsp;
-                            </td>
-                            <td colspan="3">
-                                <div align="center">
+                            <td colspan="4">
+                                &nbsp;  
+                                
+                                <div align="center"><asp:ImageButton ID="uiImageButtonLogin" runat="server" 
+                                    ImageUrl="~/images/login.gif" 
+                                    ValidationGroup="Login" onclick="uiImageButtonLogin_Click"/>
                                 </div>
+                                
                             </td>
                             <td>
                                 &nbsp;

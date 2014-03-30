@@ -28,9 +28,9 @@
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     &nbsp;
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("SchoolYearID") %>' CommandName="EditSchoolYear" >تعديل</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("SchoolYearID") %>' CommandName="EditSchoolYear" ToolTip="تعديل" ><img src="../images/icons/edit.gif" /></asp:LinkButton>
     &nbsp;&nbsp;
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("SchoolYearID") %>' CommandName="DeleteSchoolYear"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("SchoolYearID") %>' CommandName="DeleteSchoolYear"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
     &nbsp;
     </ItemTemplate>
     </asp:TemplateField>
@@ -104,7 +104,7 @@
             <asp:Button ID="uiButtonUpdate" runat="server" onclick="uiButtonUpdate_Click" 
                 Text="إضافة / تعديل" ValidationGroup="UpdatePage" />
             &nbsp;<asp:Button ID="uiButtonCancel" runat="server" onclick="uiButtonCancel_Click" 
-                Text="Cancel" />
+                Text="إلغاء" />
         </div>
         <div class="AdminRight">
         </div>

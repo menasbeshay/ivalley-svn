@@ -81,12 +81,15 @@ namespace Taqwa.Website.Admin
                 CurrentSchoolYear = id;
                 DBLayer db = new DBLayer();
                 DataSet ds = new DataSet();
-                ds = db.GetClass(id);
+                ds = db.GetSchoolYear(id);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     uiTextBoxEnName.Text = ds.Tables[0].Rows[0]["EnName"].ToString();
                     uiTextBoxArName.Text = ds.Tables[0].Rows[0]["ArName"].ToString();
-                    uiCheckBoxCurrentYear.Checked = (bool)ds.Tables[0].Rows[0]["CurrentYear"]; 
+                    if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["CurrentYear"].ToString()))
+                        uiCheckBoxCurrentYear.Checked = (bool)ds.Tables[0].Rows[0]["CurrentYear"];
+                    else
+                        uiCheckBoxCurrentYear.Checked = false;
                 }
                 uiPanelCurrentSchoolYear.Visible = false;
                 uiPanelCurrent.Visible = true;

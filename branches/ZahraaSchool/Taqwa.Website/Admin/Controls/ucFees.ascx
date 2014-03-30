@@ -146,7 +146,7 @@
             <asp:Button ID="uiButtonUpdate" runat="server" onclick="uiButtonUpdate_Click" 
                 Text="إضافة / تعديل " ValidationGroup="UpdatePage" />
             &nbsp;<asp:Button ID="uiButtonCancel" runat="server" onclick="uiButtonCancel_Click" 
-                Text="إلغاء" />
+                Text="إلغاء" Visible="false" />
         </div>
         <div class="AdminRight">
             &nbsp;
@@ -155,7 +155,7 @@
         <br />
 
         <div>
-            <asp:GridView ID="uiGridViewStudentsFees" runat="server" AllowPaging="True" 
+            <asp:GridView ID="uiGridViewStudentsFees" runat="server" AllowPaging="True" Visible="false" 
                 AutoGenerateColumns="False" CellPadding="1" CellSpacing="3" 
                 onpageindexchanging="uiGridViewStudentsFees_PageIndexChanging" 
                 onrowcommand="uiGridViewStudentsFees_RowCommand">

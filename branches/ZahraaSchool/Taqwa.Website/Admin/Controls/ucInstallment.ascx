@@ -96,7 +96,7 @@
             <asp:GridView ID="uiGridViewStudentsInstallments" runat="server" AllowPaging="True" 
                 AutoGenerateColumns="False" CellPadding="1" CellSpacing="3" 
                 onpageindexchanging="uiGridViewStudentsInstallments_PageIndexChanging" 
-                onrowcommand="uiGridViewStudentsInstallments_RowCommand">
+                onrowcommand="uiGridViewStudentsInstallments_RowCommand" Visible="false">
                 <AlternatingRowStyle HorizontalAlign="Center" />
                 <Columns>
                     
