@@ -12,5 +12,10 @@ namespace Taqwa.Website
         {
 
         }
+
+        protected void uiLinkButtonArabic_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl.Replace("/en", ""));
+        }
     }
 }

@@ -1,11 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="Suggestions.aspx.cs" Inherits="Taqwa.Website.Suggestions" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="Suggestions.aspx.cs" Inherits="Taqwa.Website.Suggestions" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#menuItemSug").addClass("current");
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent" style="background:#fff;width:980px;">
-<div class="style24">
+<div style="clear:both; height:10px;"></div>
+<div class="mainContent col-lg-12 row" >
+<h2>
     <asp:Literal ID="uiLiteralTitle" runat="server"></asp:Literal>
-</div>
+</h2>
 <div style="clear:both; height:10px;"></div>
 <div class="Content">
     <div class="Right" style="width: 200px">
@@ -17,48 +23,50 @@
     <div class="Left">
     </div>
     <div class="clear"></div>
-    <div class="Right" style="width: 200px">
-        <asp:Label ID="Label1" runat="server" Text="الإسم :" CssClass="Label"></asp:Label>
+    <div class="pull-right" style="width: 200px">
+        <asp:Label ID="Label1" runat="server" Text="الإسم :" CssClass="Label control-label"></asp:Label>
     </div>
-    <div class="Middle">
-        <asp:TextBox ID="uiTextBoxName" runat="server" Width="200px" 
+    <div class="pull-right">
+        <asp:TextBox ID="uiTextBoxName" runat="server" Width="400px" CssClass="form-control"
             ValidationGroup="Suggest"></asp:TextBox>
     </div>
-    <div class="Left">&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
+    <div class="pull-right">&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
             runat="server" ControlToValidate="uiTextBoxName" Display="Dynamic" 
             ErrorMessage="*" ValidationGroup="Suggest"></asp:RequiredFieldValidator>
     </div>
-    <div class="clear"></div>
-    <div class="Right" style="width: 200px">
+    <div style="clear:both; height:5px;"></div>
+    <div class="pull-right" style="width: 200px">
         <asp:Label ID="Label2" runat="server" Text="البريد الإلكترونى :" 
-            CssClass="Label"></asp:Label>
+            CssClass="Label control-label"></asp:Label>
     </div>
-    <div class="Middle">
-        <asp:TextBox ID="uiTextBoxEmail" runat="server" Width="200px" 
+    <div class="pull-right">
+        <asp:TextBox ID="uiTextBoxEmail" runat="server" Width="400px"  CssClass="form-control"
             ValidationGroup="Suggest"></asp:TextBox>
     </div>
-    <div class="Left">&nbsp;<asp:RegularExpressionValidator 
+    <div class="pull-right">&nbsp;<asp:RegularExpressionValidator 
             ID="RegularExpressionValidator1" runat="server" 
             ControlToValidate="uiTextBoxEmail" Display="Dynamic" ErrorMessage="*" 
             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
             ValidationGroup="Suggest"></asp:RegularExpressionValidator>
     </div>
-    <div class="clear"></div>
-    <div class="Right" style="width: 200px">
-        <asp:Label ID="Label3" runat="server" Text="المقترح :" CssClass="Label"></asp:Label>
+    <div style="clear:both; height:5px;"></div>
+    <div class="pull-right" style="width: 200px">
+        <asp:Label ID="Label3" runat="server" Text="الإقتراح :" CssClass="Label control-label"></asp:Label>
     </div>
-    <div class="Middle">
-        <asp:TextBox ID="uiTextBoxSugg" runat="server" Width="400px" Rows="10" 
+    <div class="pull-right">
+        <asp:TextBox ID="uiTextBoxSugg" runat="server" Width="400px" Rows="10"  CssClass="form-control"
             TextMode="MultiLine" ValidationGroup="Suggest"></asp:TextBox>
     </div>
-    <div class="Left">&nbsp;</div>
-    <div class="clear"></div>
-    <div class="Right" style="width: 200px">
+    <div class="pull-right">&nbsp;</div>
+    <div style="clear:both; height:5px;"></div>
+    <div class="pull-right" style="width: 185px">
+    &nbsp;
     </div>
-    <div class="Middle">
+    <div class="pull-right">
+    &nbsp;
     </div>
-    <div class="Left">&nbsp;<asp:Button ID="uiButtonSubmit" runat="server" 
-            onclick="uiButtonUpload_Click" Text="أرسل" ValidationGroup="Suggest" />
+    <div class="pull-right">&nbsp;<asp:Button ID="uiButtonSubmit" runat="server" CssClass="btn btn-default"
+            onclick="uiButtonUpload_Click" Text="إرسال" ValidationGroup="Suggest" />
     </div>
     <div class="clear"></div>
 </div>

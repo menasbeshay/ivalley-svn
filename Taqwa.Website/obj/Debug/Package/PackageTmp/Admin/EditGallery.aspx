@@ -9,8 +9,21 @@
 <asp:Panel ID="uiPanel" runat="server" style="padding-right:5px;direction:rtl;">
     <div class="AdminMain" style="direction:rtl;">
     <div><h3>الصور الحالية</h3></div>
+    <div class="AdminLeft">
+            <asp:Label ID="Label2" runat="server" CssClass="Label" 
+                Text="القسم الحالى :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:DropDownList ID="uiDropDownListCat" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="uiDropDownListCat_SelectedIndexChanged" Width="400px">
+            </asp:DropDownList>
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
 
-    
+    <div style="display:none;">
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="العنوان بالإنجليزية :"></asp:Label>
@@ -22,13 +35,13 @@
         <div class="AdminRight">
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="uiTextBoxEnNewsTitle" ErrorMessage="*" 
-                ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+                ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
-
+        </div>
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="العنوان بالعربية :"></asp:Label>
+                Text="العنوان  :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArNewsTitle" runat="server" ValidationGroup="UpdatePage" 

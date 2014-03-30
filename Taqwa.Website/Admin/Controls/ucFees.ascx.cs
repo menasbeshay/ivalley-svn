@@ -74,11 +74,17 @@ namespace Taqwa.Website.Admin.Controls
             dsClassRoom = db.GetClassRoom(Convert.ToInt32(dsStudent.Tables[0].Rows[0]["ClassRoomID"].ToString()));
             dsClass = db.GetClass(Convert.ToInt32(dsClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
             uiLabelClass.Text = dsClass.Tables[0].Rows[0]["ArName"].ToString();
-            ds = db.GetFeesByClassAndClassRoomAndSchoolYear(Convert.ToInt32(dsClassRoom.Tables[0].Rows[0]["ClassID"].ToString()),
-                                                            Convert.ToInt32(dsStudent.Tables[0].Rows[0]["ClassRoomID"].ToString()),
-                                                            Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-            uiGridViewStudentsFees.DataSource = ds;
-            uiGridViewStudentsFees.DataBind();
+            ds = db.GetFeesByStudentIDAndSchoolYear(Convert.ToInt32(Session["CurrentStudentActive"]), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            
+            /*uiGridViewStudentsFees.DataSource = ds;
+            uiGridViewStudentsFees.DataBind();*/
+
+            uiTextBoxRemainingFees.Text = ds.Tables[0].Rows[0]["RemainingFeesLastYear"].ToString();
+            uiTextBoxBooksFees.Text = ds.Tables[0].Rows[0]["BooksFees"].ToString();
+            uiTextBoxBusFees.Text = ds.Tables[0].Rows[0]["BusFees"].ToString();
+            uiTextBoxUniformFees.Text = ds.Tables[0].Rows[0]["UniformFees"].ToString();
+            uiTextBoxActFees.Text = ds.Tables[0].Rows[0]["ActivitiesFees"].ToString();
+            uiTextBoxOtherFees.Text = ds.Tables[0].Rows[0]["OtherFees"].ToString();
         }
 
         protected void uiGridViewStudentsFees_PageIndexChanging(object sender, GridViewPageEventArgs e)

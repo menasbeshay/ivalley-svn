@@ -34,8 +34,8 @@
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("SectionID") %>' CommandName="EditSection" >تعديل</asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("SectionID") %>' CommandName="DeleteSection"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("SectionID") %>' CommandName="EditSection" ToolTip="تعديل" ><img src="../images/icons/edit.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("SectionID") %>' CommandName="DeleteSection"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
 
     </ItemTemplate>
     </asp:TemplateField>

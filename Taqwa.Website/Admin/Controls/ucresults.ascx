@@ -20,7 +20,7 @@
             <div class="AdminRight" style="width: 30%">
             &nbsp;</div>
             <div class="clear">
-            </div>
+            </div>    
     <asp:Repeater ID="uiRepeaterResults" runat="server" 
         onitemdatabound="uiRepeaterResults_ItemDataBound">
         <HeaderTemplate>

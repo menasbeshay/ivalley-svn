@@ -90,7 +90,8 @@ namespace Taqwa.Website.Admin
             DataSet ds = new DataSet();
             if (!string.IsNullOrEmpty(uiDropDownListClasses.SelectedValue) && !string.IsNullOrEmpty(uiDropDownListClassRooms.SelectedValue))
             {
-                ds = db.SearchStudents(Convert.ToInt32(uiDropDownListClasses.SelectedValue), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), uiTextBoxSearchText.Text);
+                //ds = db.SearchStudents(Convert.ToInt32(uiDropDownListClasses.SelectedValue), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), uiTextBoxSearchText.Text);
+                ds = db.SearchStudentsByStudentAndFather(Convert.ToInt32(uiDropDownListClasses.SelectedValue), Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), uiTextBoxSearchText.Text, uiTextBoxFatherName.Text);
             }
             if (ds.Tables.Count > 0)
             {

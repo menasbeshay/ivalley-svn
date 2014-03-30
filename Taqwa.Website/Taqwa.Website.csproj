@@ -60,6 +60,7 @@
     <Content Include="Admin\Controls\ucInstallment.ascx" />
     <Content Include="Admin\Controls\ucMonthlyReport.ascx" />
     <Content Include="Admin\Controls\ucresults.ascx" />
+    <Content Include="Admin\UpdateFees.aspx" />
     <Content Include="Admin\EditCategory.aspx" />
     <Content Include="Admin\EditClassType.aspx" />
     <Content Include="Admin\EditAttendanceReport.aspx" />
@@ -103,6 +104,7 @@
     <Content Include="Admin\images\index_03.jpg" />
     <Content Include="Admin\images\index_05.jpg" />
     <Content Include="Admin\images\line.jpg" />
+    <Content Include="Admin\images\loading.gif" />
     <Content Include="Admin\images\login.png" />
     <Content Include="Admin\images\login_icon.png" />
     <Content Include="Admin\images\more_b.jpg" />
@@ -164,6 +166,72 @@
     <Content Include="css\lightbox.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="Default.aspx" />
+    <Content Include="en\gallery.aspx" />
+    <Content Include="en\index.aspx" />
+    <Content Include="en\js\layerslider\skins\borderlessdark3d\loading.gif" />
+    <Content Include="en\js\layerslider\skins\borderlessdark3d\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\borderlessdark3d\shadow.png" />
+    <Content Include="en\js\layerslider\skins\borderlessdark3d\skin.css" />
+    <Content Include="en\js\layerslider\skins\borderlessdark3d\skin.png" />
+    <Content Include="en\js\layerslider\skins\borderlessdark\loading.gif" />
+    <Content Include="en\js\layerslider\skins\borderlessdark\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\borderlessdark\shadow.png" />
+    <Content Include="en\js\layerslider\skins\borderlessdark\skin.css" />
+    <Content Include="en\js\layerslider\skins\borderlessdark\skin.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight3d\loading.gif" />
+    <Content Include="en\js\layerslider\skins\borderlesslight3d\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight3d\shadow.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight3d\skin.css" />
+    <Content Include="en\js\layerslider\skins\borderlesslight3d\skin.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight\loading.gif" />
+    <Content Include="en\js\layerslider\skins\borderlesslight\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight\shadow.png" />
+    <Content Include="en\js\layerslider\skins\borderlesslight\skin.css" />
+    <Content Include="en\js\layerslider\skins\borderlesslight\skin.png" />
+    <Content Include="en\js\layerslider\skins\carousel\loading.gif" />
+    <Content Include="en\js\layerslider\skins\carousel\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\carousel\skin.css" />
+    <Content Include="en\js\layerslider\skins\carousel\skin.png" />
+    <Content Include="en\js\layerslider\skins\darkskin\loading.gif" />
+    <Content Include="en\js\layerslider\skins\darkskin\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\darkskin\skin.css" />
+    <Content Include="en\js\layerslider\skins\darkskin\skin.png" />
+    <Content Include="en\js\layerslider\skins\defaultskin\loading.gif" />
+    <Content Include="en\js\layerslider\skins\defaultskin\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\defaultskin\skin.css" />
+    <Content Include="en\js\layerslider\skins\defaultskin\skin.png" />
+    <Content Include="en\js\layerslider\skins\default\loading.gif" />
+    <Content Include="en\js\layerslider\skins\default\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\default\skin.css" />
+    <Content Include="en\js\layerslider\skins\default\skin.png" />
+    <Content Include="en\js\layerslider\skins\fullwidthdark\loading.gif" />
+    <Content Include="en\js\layerslider\skins\fullwidthdark\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\fullwidthdark\skin.css" />
+    <Content Include="en\js\layerslider\skins\fullwidthdark\skin.png" />
+    <Content Include="en\js\layerslider\skins\fullwidth\loading.gif" />
+    <Content Include="en\js\layerslider\skins\fullwidth\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\fullwidth\skin.css" />
+    <Content Include="en\js\layerslider\skins\fullwidth\skin.png" />
+    <Content Include="en\js\layerslider\skins\glass\loading.gif" />
+    <Content Include="en\js\layerslider\skins\glass\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\glass\shadow.png" />
+    <Content Include="en\js\layerslider\skins\glass\skin.css" />
+    <Content Include="en\js\layerslider\skins\glass\skin.png" />
+    <Content Include="en\js\layerslider\skins\lightskin\loading.gif" />
+    <Content Include="en\js\layerslider\skins\lightskin\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\lightskin\skin.css" />
+    <Content Include="en\js\layerslider\skins\lightskin\skin.png" />
+    <Content Include="en\js\layerslider\skins\minimal\loading.gif" />
+    <Content Include="en\js\layerslider\skins\minimal\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\minimal\skin.css" />
+    <Content Include="en\js\layerslider\skins\minimal\skin.png" />
+    <Content Include="en\js\layerslider\skins\noskin\loading.gif" />
+    <Content Include="en\js\layerslider\skins\noskin\nothumb.png" />
+    <Content Include="en\js\layerslider\skins\noskin\skin.css" />
+    <Content Include="en\js\layerslider\skins\noskin\skin.png" />
+    <Content Include="en\news.aspx" />
+    <Content Include="en\pages.aspx" />
+    <Content Include="en\suggestions.aspx" />
     <Content Include="Fees.aspx" />
     <Content Include="flash\banner.swf" />
     <Content Include="Gallery.aspx" />
@@ -404,6 +472,7 @@
     <Content Include="images\icons\schoolbus_li.jpg" />
     <Content Include="images\icons\schoolyear_li.jpg" />
     <Content Include="images\icons\student_Li.jpg" />
+    <Content Include="images\icons\t1.jpg" />
     <Content Include="images\image1.jpg" />
     <Content Include="images\image2.jpg" />
     <Content Include="images\index-bg.jpg" />
@@ -514,6 +583,8 @@
     <Content Include="images\productbrowser_scroller_small.png" />
     <Content Include="images\resul-icon.jpg" />
     <Content Include="images\salon-main.jpg" />
+    <Content Include="images\shahada.jpg" />
+    <Content Include="images\shahada2.jpg" />
     <Content Include="images\shop\ads1.jpg" />
     <Content Include="images\shop\ads2.jpg" />
     <Content Include="images\shop\bag1.jpg" />
@@ -692,6 +763,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="js\prototype.js" />
+    <Content Include="js\purl.js" />
     <Content Include="js\raphael-min.js" />
     <Content Include="js\scriptaculous.js" />
     <Content Include="js\theme20.js" />
@@ -1313,6 +1385,13 @@
     <Compile Include="Admin\Controls\ucresults.ascx.designer.cs">
       <DependentUpon>ucresults.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UpdateFees.aspx.cs">
+      <DependentUpon>UpdateFees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateFees.aspx.designer.cs">
+      <DependentUpon>UpdateFees.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditCategory.aspx.cs">
       <DependentUpon>EditCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1537,6 +1616,41 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="en\gallery.aspx.cs">
+      <DependentUpon>gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\gallery.aspx.designer.cs">
+      <DependentUpon>gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\news.aspx.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\news.aspx.designer.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\pages.aspx.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\pages.aspx.designer.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\suggestions.aspx.cs">
+      <DependentUpon>suggestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\suggestions.aspx.designer.cs">
+      <DependentUpon>suggestions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fees.aspx.cs">
       <DependentUpon>Fees.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1692,6 +1806,13 @@
     <Compile Include="Zahraa.Master.designer.cs">
       <DependentUpon>Zahraa.Master</DependentUpon>
     </Compile>
+    <Compile Include="ZahraaAr.Master.cs">
+      <DependentUpon>ZahraaAr.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZahraaAr.Master.designer.cs">
+      <DependentUpon>ZahraaAr.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1718,6 +1839,7 @@
     <None Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <None Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="en\js\layerslider\skins\.DS_Store" />
     <None Include="images\background\.DS_Store" />
     <None Include="images\Thumbs.db" />
     <None Include="js\layerslider\css\.DS_Store" />
@@ -1860,6 +1982,7 @@
     <None Include="styles\scss\_stacked.scss" />
     <None Include="styles\scss\_variables.scss" />
     <Content Include="Zahraa.Master" />
+    <Content Include="ZahraaAr.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

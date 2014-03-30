@@ -25,7 +25,7 @@ namespace Taqwa.Website
                 }
                 else 
                 {
-                    Response.Redirect("~/home.aspx");
+                    Response.Redirect("~/index.aspx");
                 }
             }
         }

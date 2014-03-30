@@ -53,7 +53,7 @@
         </div>
         <div class="clear"></div>
 
-        <div style="display:none">
+        
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="الإسم بالإنجليزية :"></asp:Label>
@@ -68,10 +68,10 @@
                 ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
-        </div>
+        
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="الإسم  :"></asp:Label>
+                Text="الإسم بالعربية  :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArName" runat="server" ValidationGroup="UpdatePage" 

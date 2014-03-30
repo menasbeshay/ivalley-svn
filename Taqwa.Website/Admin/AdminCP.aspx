@@ -4,7 +4,7 @@
 <style type="text/css">
 .MainLink
 {
-    display:block;width:150px;height:120px;margin:10px;padding:20px;text-align:center;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;float:right;
+    display:block;width:195px;height:160px;margin:10px;padding:20px;text-align:center;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;float:right;
     font-weight:bold;
     }
     .MainLink img{ width:120; }
@@ -102,6 +102,17 @@
             <img src="../images/icons/main2_1.jpg" />
             <br />
              الحصص "أنواعها ومدتها"
+        </a>
+        <a href="EditSchedule.aspx" class="MainLink" >
+            <img src="../images/icons/t1.jpg" />
+            <br />
+             جدول الحصص
+        </a>
+
+         <a href="UpdateFees.aspx" class="MainLink" >
+            <img src="../images/icons/fees.gif" style="width:100px !important;" />
+            <br />
+             تحميل المصروفات
         </a>
         <a href="EditSchoolBus.aspx" class="MainLink" >
             <img src="../images/icons/main2_3.jpg" />

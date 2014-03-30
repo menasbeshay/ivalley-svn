@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditClassType.aspx.cs" Inherits="Taqwa.Website.Admin.Edit_ClassType" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <script src="../js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
+    <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="AdminMain">
@@ -18,7 +20,7 @@
 <div>
     <asp:GridView ID="uiGridViewClassType" runat="server" AutoGenerateColumns="False" 
         CellPadding="1" CellSpacing="3" onrowcommand="uiGridViewClassType_RowCommand" 
-        AllowPaging="true" onpageindexchanging="uiGridViewClassType_PageIndexChanging" >   
+        AllowPaging="true" onpageindexchanging="uiGridViewClassType_PageIndexChanging" Visible="false">   
         <AlternatingRowStyle HorizontalAlign="Center" />     
     <Columns>
     
@@ -39,7 +41,65 @@
     </EmptyDataTemplate>
         <RowStyle HorizontalAlign="Center" />
     </asp:GridView>
+
+    <asp:DataList ID="uiDataListClasses" runat="server" HorizontalAlign="Center" DataKeyField="ClassTypeID"
+        oncancelcommand="uiDataListClasses_CancelCommand" 
+        oneditcommand="uiDataListClasses_EditCommand" RepeatColumns="5" 
+        RepeatDirection="Horizontal" RepeatLayout="Flow" Width="100%" 
+        ondeletecommand="uiDataListClasses_DeleteCommand" 
+        onupdatecommand="uiDataListClasses_UpdateCommand" >
+    <ItemTemplate>
+    <div style="width:18%;margin:5px;padding:15px;float:right;text-align:center;background-color:#cfcfcf;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
+   
+
+    <div style="float:right;top:0px;right:0px;width:20px;">
+      <asp:LinkButton id="EditButton"
+                 CommandName="Edit"
+                 runat="server">
+<img src="../images/icons/Pencil.png" title="تعديل"/>
+      </asp:LinkButton>
+    </div>
+
+    <div style="float:right;top:0px;right:55px;width:20px;">
+      <asp:LinkButton id="uiLinkButtonDelete" 
+                 CommandName="Delete"
+                 runat="server" OnClientClick="return confirm('Are you want to delete this record?');">
+<img src="../images/icons/Delete.png" title="حذف"/>
+      </asp:LinkButton>
+    </div>
+
     <div class="clear"></div>
+     <%# Eval("ArName")%>
+    </div>
+    </ItemTemplate>
+    <EditItemTemplate>
+    <div style="width:18%;margin:5px;padding:15px;float:right;text-align:center;background-color:#cfcfcf;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
+       
+    
+
+    <div style="float:right;top:0px;right:0px;width:20px;">
+      <asp:LinkButton id="updateButton"                  
+                 CommandName="Update"
+                 runat="server">
+                 <img src="../images/icons/Save.png" title="حفظ"/>
+      </asp:LinkButton>
+    </div>
+
+    <div style="float:right;top:0px;right:55px;width:20px;">
+      <asp:LinkButton id="uiLinkButtonCancel"
+                 CommandName="Cancel"
+                 runat="server">
+<img src="../images/icons/Delete.png" title="إلغاء"/>
+      </asp:LinkButton>
+    </div>
+    <div class="clear"></div>
+     <asp:TextBox ID="uiTextBoxArName" runat="server" Text='<%# Eval("ArName")%>'></asp:TextBox>
+    </div>
+    </EditItemTemplate>
+    </asp:DataList>
+    <div class="clear"></div>
+
+    
     </div>
     </asp:Panel>
 
@@ -54,7 +114,7 @@
         </div>
         <div class="clear"></div>
 
-        
+        <div style="display:none;">
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="الإسم بالإنجليزية :"></asp:Label>
@@ -66,13 +126,13 @@
         <div class="AdminRight">
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="uiTextBoxEnName" ErrorMessage="*" 
-                ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+                ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
-
+        </div>
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="الإسم بالعربية :"></asp:Label>
+                Text="الإسم  :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArName" runat="server" ValidationGroup="UpdatePage" 

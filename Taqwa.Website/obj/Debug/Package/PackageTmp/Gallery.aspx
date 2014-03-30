@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="Taqwa.Website.Gallery" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="Taqwa.Website.Gallery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    <%-- <link href="styles/flickrGallery-large.css" rel="stylesheet" type="text/css" />
     <script src="Scripts/jquery-ui-personalized-1.6rc2.min.js" type="text/javascript"></script>
@@ -13,17 +13,19 @@
     <%--<script src="js/camera.js" type="text/javascript"></script>--%>
     <script type="text/javascript">
         $().ready(function () {
+
+            $("#menuItemGallery").addClass("current");
             /* $('#Gallery').flickrGallery({
             galleryHeight: 450
             });*/
-           /* $('#camera_wrap_4').camera({
-                height: 'auto',
-                loader: 'bar',
-                pagination: false,
-                thumbnails: false,
-                hover: false,
-                opacityOnGrid: false,
-                imagePath: 'placeholders/'
+            /* $('#camera_wrap_4').camera({
+            height: 'auto',
+            loader: 'bar',
+            pagination: false,
+            thumbnails: false,
+            hover: false,
+            opacityOnGrid: false,
+            imagePath: 'placeholders/'
             
             });*/
 
@@ -153,19 +155,53 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="mainContent" style="background-color:#fff;width:980px;">
+    <div class="col-lg-12 row">
+        <div class="clearfix" style="height:10px;"></div>
         <h3>
             معرض الصور
         </h3>
+        <div style="display:none;">
+        <div class="AdminLeft">
+            <asp:Label ID="Label2" runat="server" CssClass="Label" 
+                Text="إختر القسم  :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:DropDownList ID="uiDropDownListCat" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="uiDropDownListCat_SelectedIndexChanged" Width="400px">
+            </asp:DropDownList>
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
+        </div>
+    
+        
+        <asp:Repeater ID="uiRepeaterCats" runat="server">
+        <HeaderTemplate>
+        <div id="options" class="clearfix col-lg-12">
+                        <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                            <li><a href="#filter" data-option-value="*" class="selected" >جميع الأقسام</a></li>
+        </HeaderTemplate>
+        <ItemTemplate>        
+                            <li><a href="#filter" data-option-value='.<%# Eval("displayname").ToString().Trim() %>'><%# Eval("ArTitle")%></a></li>                            
+        </ItemTemplate>
+        <FooterTemplate>
+         </ul><!--end:filters-->
+                    </div>
+        </FooterTemplate>
+        </asp:Repeater>
+        <hr  style="width:50%" class="centered"/>
+
         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
             <HeaderTemplate>
-            <ul id="container" class="clickable cs-style-5 grid clearfix">
+            <ul id="container" class="clickable cs-style-5 grid clearfix col-12">
     
            <%-- <div id="Gallery">
                 <ul id="thumbs_1" class="thumbs">--%>
             </HeaderTemplate>
             <ItemTemplate>
-            <li class="element ">
+            <li class='element <%# Eval("displayname") %>'>
                       <figure>
                           <img src='<%# Eval("PhotoPath") %>' alt='<%# Eval("ArTitle") %>' />
                           <figcaption>

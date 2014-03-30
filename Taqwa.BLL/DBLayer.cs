@@ -477,7 +477,7 @@ namespace Taqwa.BLL
             int rows = 0;
             try
             {
-                rows = Convert.ToInt32(SqlHelper.ExecuteScalar(ConnectionString, "AddStudent", ARFatherName,ENFatherName,FatherNationalNumber , FatherJobDesc , ARStudentName , ENStudentName , Tele , Mobile , Email , StudentAddress , IsActive , ClassRoomID, UserName));
+                rows = Convert.ToInt32(SqlHelper.ExecuteScalar(ConnectionString, "AddStudent", ARFatherName,ENFatherName,FatherNationalNumber , FatherJobDesc , ARStudentName , ENStudentName , Tele , Mobile , Email , StudentAddress , IsActive , ClassRoomID, UserName,""));
                 return rows;//(rows > 0);
             }
             catch (Exception)
@@ -491,7 +491,7 @@ namespace Taqwa.BLL
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateStudent", StudentID, ARFatherName, ENFatherName, FatherNationalNumber, FatherJobDesc, ARStudentName, ENStudentName, Tele, Mobile, Email, StudentAddress, IsActive, ClassRoomID, UserName);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateStudent", StudentID, ARFatherName, ENFatherName, FatherNationalNumber, FatherJobDesc, ARStudentName, ENStudentName, Tele, Mobile, Email, StudentAddress, IsActive, ClassRoomID, UserName,"");
                 return (rows > 0);
             }
             catch (Exception)
@@ -518,6 +518,11 @@ namespace Taqwa.BLL
         public DataSet SearchStudents(int ClassID,int ClassRoomID, string FilterText)
         {
             return SqlHelper.ExecuteDataset(ConnectionString, "SearchStudents", ClassID, ClassRoomID, FilterText);
+        }
+
+        public DataSet SearchStudentsByStudentAndFather(int ClassID, int ClassRoomID, string studentName,string FatherName )
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "SearchStudentsBystudentAndFather", ClassID, ClassRoomID, studentName, FatherName);
         }
 
         public DataSet GetAllStudentsByClass(int ClassID)

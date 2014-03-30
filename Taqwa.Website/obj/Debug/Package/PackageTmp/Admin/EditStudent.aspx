@@ -1,14 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditStudent.aspx.cs" Inherits="Taqwa.Website.Admin.EditStudent" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+<%@ Register src="Controls/ucMonthlyReport.ascx" tagname="ucMonthlyReport" tagprefix="uc1" %>
+<%@ Register src="Controls/ucAttendanceReport.ascx" tagname="ucAttendanceReport" tagprefix="uc2" %>
+<%@ Register src="Controls/ucFees.ascx" tagname="ucFees" tagprefix="uc3" %>
+<%@ Register src="Controls/ucInstallment.ascx" tagname="ucInstallment" tagprefix="uc4" %>
+<%@ Register src="Controls/ucresults.ascx" tagname="ucresults" tagprefix="uc5" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
+    <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="BackDiv">
+    <div class="BackDiv">
 <asp:LinkButton runat="server" ID="lnkBackToAdminCP" PostBackUrl="AdminCP.aspx" 
         Font-Underline="true" Text="عودة إلى لوحة التحكم &gt;&gt;"></asp:LinkButton>
 </div>
 <div class="clear"></div>
-<div class="AdminMain">
+    
+<div class="AdminMain" id="Main">
 <asp:Panel ID="uiPanelCurrentStudents" runat="server" Visible= "true"  style="direction:rtl;padding-right:20px;">
 <div><h3>الطلاب الحاليين</h3></div>
 
@@ -36,13 +46,14 @@
             &nbsp;</div>
         <div class="clear"></div>
         <div class="AdminLeft">
-        <asp:Label ID="Label11" runat="server" CssClass="Label">Search text :</asp:Label>
+        <asp:Label ID="Label11" runat="server" CssClass="Label">بحث :</asp:Label>
         </div>
         <div class="AdminMiddle">
-            &nbsp;<asp:TextBox ID="uiTextBoxSearchText" runat="server" Width="400px"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="uiTextBoxSearchText" runat="server" Width="120px" placeholder="إسم الطالب"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="uiTextBoxFatherName" runat="server" Width="120px" placeholder="إسم الأب"></asp:TextBox>                       
         </div>
         <div class="AdminRight">
-            &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="Search" 
+            &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="بحث" 
                 onclick="uiButtonSearch_Click" />
     </div>
         <div class="clear"></div>
@@ -64,16 +75,24 @@
         onpageindexchanging="uiGridViewStudents_PageIndexChanging" >
         <AlternatingRowStyle HorizontalAlign="Center" />
     <Columns>
-    <asp:BoundField  HeaderText="إسم الطالب بالإنجليزية" DataField="ENStudentName" />
-    <asp:BoundField  HeaderText="إسم الطالب بالعربية" DataField="ArStudentName" />
-    <asp:BoundField  HeaderText="إسم الأب بالإنجليزية" DataField="ENFatherName" />
-    <asp:BoundField  HeaderText="إسم الأب بالعربية" DataField="ArFatherName" />
+    
+    <asp:BoundField  HeaderText="إسم الطالب " DataField="ArStudentName" />
+    
+    <asp:BoundField  HeaderText="إسم الأب " DataField="ArFatherName" />
     <asp:CheckBoxField HeaderText="نشط" DataField="IsActive" />
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditStudent" >تعديل</asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');">حذف</asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditStudent" ToolTip="تعديل"><img src="../images/icons/edit.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonMonthlyReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditMonthlyReport" ToolTip="التقرير الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonAttendanceReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditAttedanceReport" ToolTip="تقرير الغياب الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonFees" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditFees" ToolTip="المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img src="../images/icons/installment.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
 
     </ItemTemplate>
     </asp:TemplateField>
@@ -492,5 +511,131 @@
         <div class="clear"></div>
         </asp:Panel>
     </div>
+   
+    
+        <asp:Panel ID="uiPanelMonthlyReport" runat="server" Visible="false">
+        <div class="dialog-modal" id="monthlyreportdiag" title="تعديل التقرير الشهرى للطالب">            
+            <uc1:ucMonthlyReport ID="ucMonthlyReport1" runat="server" />
+        </div>
 
+        </asp:Panel>
+
+
+        <asp:Panel ID="uiPanelAttendanceReport" runat='server' Visible="false" >
+        
+        <div class="dialog-modal" id="AttendanceReportdiag" title="تعديل أيام الغياب الخاصة بالطالب ">                        
+            <uc2:ucAttendanceReport ID="ucAttendanceReport1" runat="server" />
+        </div>
+        </asp:Panel>
+
+
+        <asp:Panel ID="uiPanelFees" runat='server' Visible="false"  >
+        
+        <div class="dialog-modal" id="Feesdiag" title="تعديل مصروفات الطالب ">                        
+            <uc3:ucFees ID="ucFees1" runat="server" />
+        </div>
+        </asp:Panel>
+
+         <asp:Panel ID="uiPanelInstallments" runat='server' Visible="false"  >
+        
+        <div class="dialog-modal" id="installmentdiag" title="تعديل أقساط المصروفات الدراسية للطالب ">                        
+            <uc4:ucInstallment ID="ucInstallment1" runat="server" />            
+        </div>
+        </asp:Panel>
+
+        <asp:Panel ID="uiPanelResults" runat='server' Visible="false"  >
+        
+        <div class="dialog-modal" id="resultsdiag" title="تعديل النتائج ">                                    
+            <uc5:ucresults ID="ucresults1" runat="server" />
+        </div>
+        </asp:Panel>
+    
+
+     <script type="text/javascript">
+
+        // Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+         
+             $('.ui-widget-overlay').remove();
+
+             $("#monthlyreportdiag").dialog({             
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                 /*close: function (event, ui) {
+                     //this.html('');
+                     $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+             $("#AttendanceReportdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                /* close: function (event, ui) {
+                     //this.html('');
+                      $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+              $("#Feesdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                /* close: function (event, ui) {
+                     //this.html('');
+                      $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+              $("#installmentdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                /* close: function (event, ui) {
+                     //this.html('');
+                      $(this).dialog('close');
+                     $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+             $("#resultsdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                 /* close: function (event, ui) {
+                 //this.html('');
+                 $(this).dialog('close');
+                 $('.ui-widget-overlay').remove();
+                 }*/
+             });
+         
+        // });
+
+    </script>
+
+    <script type="text/javascript">
+
+      /*  $(document).ready(function () {
+            $(".dialog-modal").dialog({
+                autoOpen: false,
+                modal: true,
+                open: function (type, data) { $(this).parent().appendTo("form"); }
+            });
+        });*/
+    </script>
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+    <ProgressTemplate>
+    <div style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom;
+                        display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999;
+                        background: url(images/loading.GIF) no-repeat center center rgba(256,256,256,0.65);
+                        position: absolute; top: 0; left: 0;">
+         <div style="margin: auto; width: 200px; height: 120px; position: absolute; left: 0;
+                            right: 0; top: 0; bottom: 0;font-size:30px; font-weight:bold;color:#006600">
+                            جارى التحميل
+                        </div>
+    </ProgressTemplate>
+    </asp:UpdateProgress>
 </asp:Content>

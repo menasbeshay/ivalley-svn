@@ -130,6 +130,7 @@ namespace Taqwa.Website.Admin.Controls
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
         {
+            System.Threading.Thread.Sleep(3000);
             DBLayer db = new DBLayer();
             foreach (RepeaterItem item in uiRepeaterResults.Items)
             {
