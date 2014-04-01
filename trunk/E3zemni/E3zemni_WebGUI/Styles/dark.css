@@ -1,0 +1,31 @@
+#layout, .col-ten span, .col-eleven span {background: #161616}
+body {background: #272727;color: #A2A2A2}
+.head_up {background: #171717;border-color: #222}
+.other_languages {background: #171717}
+.grey-line {background: #0E0E0E;border-color: #222}
+#footer, .table tr {background: #0f0f0f;border-color: #222}
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td, .meta_box h3, .post, .widget .list li a, .liner, .tab-content-items li, .post_share {border-color: #222}
+.footer-last {background: #161616;border-color: #222}
+.services .s_icon span {border-color: #161616}
+.services [class^="grid_"]:before, .after_line {background: #313131}
+.headdown {border-color: #1F1F1F;border-color: rgba(31, 31, 31, 0.4);background: url(../images/header_dark.png) repeat-x top}
+a, .sf-menu a, .search_icon, .header_bag a:hover, .shopping_bag:hover .header_bag a, h1, h2, h3, h4, h5, h6, .services .s_icon, .services .tbutton, .rev_testimonials, .pricing-table, .widget .col-title, 
+.item_price .amount, table.shop_attributes td, table.shop_table .product-name a, .woocommerce table.shop_table .product-name a,
+.total_w_table td, table.shop_table th, .woocommerce table.shop_table th, table.shop_table td.product-subtotal, .woocommerce table.shop_table td.product-subtotal, .dropcap-txt, .dropcap-border,
+.testimonial-s strong, .col-eleven {color: #FFF}
+.l_ht span {color: #B4B4B4}
+.view_cart_mini, .s_form, .intro_p {background: url(../images/transparent_dark.png) repeat;background: rgba(0, 0, 0, 0.3)}
+.social a:hover i {border-color: transparent}
+.social a i, .languages a, #toTop {border-color: #646464}
+.social a, .languages span, #toTop {color: #747474}
+.f_blog h4 {border-bottom: 1px solid #313131}
+.progress-bar {background: #212121}
+.custom_block1 a {color: #969696}
+.set_two [class^="grid_"]:before, .pricing-table .price-content, .product_meta a:hover {background: none}
+.view_cart {border: 1px solid #2B2B2B;background: #222}
+.pricing-table, .package-content li, .shop .product, .shop .product_meta {border-color: #7E7E7E}
+.widget #searchwidget input, #newsletters input, .coupon_input, #login_form_increate #login_input, #register_form_increate #register_input, #track_input, #contactForm #senderName, #contactForm #senderEmail,
+#contactForm #message, #commentform input, #commentform textarea {border: 1px solid #444040;background: #2C2C2C}
+table.shop_table th, .woocommerce table.shop_table th, table.gbtr_order_details tr:last-child td, .woocommerce table.gbtr_order_details tr:last-child td, .dropcap-border {border-bottom-color: #FFF}
+.circular a, .circular a i, .circular a:hover, .circular a:hover i {border: 1px solid rgba(0, 0, 0, 0)}
+.text_block {background: #0F0F0F}
