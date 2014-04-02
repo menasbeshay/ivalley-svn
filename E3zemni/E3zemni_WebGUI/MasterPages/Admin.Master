@@ -149,6 +149,7 @@
 								</li>
 								
 								<li id="cardItem"><a href="../Admin/EditCards.aspx">Cards</a></li>
+                                <li id="orderItem"><a href="../Admin/UserOrders.aspx">Orders</a></li>
 							</ul><!-- end menu -->
 						</nav><!-- end nav -->
 					</div><!-- row -->

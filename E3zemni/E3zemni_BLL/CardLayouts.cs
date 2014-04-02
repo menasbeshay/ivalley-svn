@@ -12,5 +12,13 @@ namespace E3zmni.BLL
 		{
 		
 		}
+
+        public virtual bool GetCardLayoutByCardID(int CardID)
+        {
+            this.Where.CardID.Value = CardID;
+            this.Where.CardID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+
+        }
 	}
 }

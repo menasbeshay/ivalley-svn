@@ -26,7 +26,38 @@ namespace E3zemni_WebGUI.Admin
             }
         }
 
+        public CardText CurrentTxt
+        {
+            get
+            {
+                if (Session["CurrentTxt"] != null)
+                    return (CardText)Session["CurrentTxt"];
+                else
+                    return null;
+            }
+            set
+            {
+                Session["CurrentTxt"] = value;
+            }
+        }
+
+        public CardLayouts CurrentLayout
+        {
+            get
+            {
+                if (Session["CurrentLayout"] != null)
+                    return (CardLayouts)Session["CurrentLayout"];
+                else
+                    return null;
+            }
+            set
+            {
+                Session["CurrentLayout"] = value;
+            }
+        }
+
         #endregion
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) 
@@ -39,41 +70,6 @@ namespace E3zemni_WebGUI.Admin
 
         }
 
-        private void BindData()
-        {
-            Cards cards = new Cards();
-            if(uiDropDownListCats.SelectedIndex != -1)
-                cards.GetCardsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue));
-            uiGridViewCards.DataSource = cards.DefaultView;
-            uiGridViewCards.DataBind();
-        }
-
-        private void LoadDDLs()
-        {
-            /*
-            Color colors = new Color();
-            colors.LoadAll();
-            uiDropDownListColor.DataSource = colors.DefaultView;
-            uiDropDownListColor.DataTextField = "ColorNameEng";
-            uiDropDownListColor.DataValueField = "ColorID";
-            uiDropDownListColor.DataBind();
- */
-            Dimension dims = new Dimension();
-            dims.GetAllDims();
-            uiDropDownListDim.DataSource = dims.DefaultView;
-            uiDropDownListDim.DataTextField = "DisplayName";
-            uiDropDownListDim.DataValueField = "DimensionID";
-            uiDropDownListDim.DataBind();
-            
-            Categories cats = new Categories();
-            cats.LoadAll();
-            uiDropDownListCats.DataSource = cats.DefaultView;
-            uiDropDownListCats.DataTextField = "CatNameEng";
-            uiDropDownListCats.DataValueField = "CategoryID";
-            uiDropDownListCats.DataBind();
-
-
-        }
 
         protected void uiGridViewCards_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -101,9 +97,13 @@ namespace E3zemni_WebGUI.Admin
                 
                 uiPanelAllCards.Visible = false;
                 uiPanelEdit.Visible = true;
+                tabs.Visible = true;
+                tabscontent.Visible = true;
                 CurrentCard = objData;
 
                 BindData();
+                BindCardTxt();
+                BindCardLayout();
             }
             else if (e.CommandName == "DeleteCard")
             {
@@ -127,20 +127,12 @@ namespace E3zemni_WebGUI.Admin
         {
             uiPanelAllCards.Visible = false;
             uiPanelEdit.Visible = true;
+            tabs.Visible = false;
+            tabscontent.Visible = false;
             CurrentCard = null;
             ClearFields();
         }
 
-        private void ClearFields()
-        {
-            uiTextBoxCardNameEn.Text = "";
-            uiTextBoxCardNameAr.Text = "";
-            uiTextBoxDescEn.Text = "";
-            uiTextBoxDescAr.Text = "";
-            uiDropDownListDim.SelectedIndex = 0;
-            uiTextBoxPriceAfter.Text = "";
-            uiTextBoxPriceBefore.Text = "";                
-        }
 
         protected void uiLinkButtonOK_Click(object sender, EventArgs e)
         {
@@ -149,6 +141,7 @@ namespace E3zemni_WebGUI.Admin
             {
                 card.AddNew();
                 card.UploadDate = DateTime.Now;
+                card.CategoryID = Convert.ToInt32(uiDropDownListCats.SelectedValue);
             }
             else
                 card = CurrentCard;
@@ -180,6 +173,8 @@ namespace E3zemni_WebGUI.Admin
             }
 
             card.Save();
+            tabs.Visible = true;
+            tabscontent.Visible = true;
 
         }
 
@@ -198,5 +193,254 @@ namespace E3zemni_WebGUI.Admin
             CurrentCard = null;
             ClearFields();
         }
+
+        protected void uiDropDownListCats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+
+
+        protected void uiGridViewCardText_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            uiGridViewCardText.PageIndex = e.NewPageIndex;
+            BindCardTxt();
+        }
+
+        protected void uiGridViewCardText_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditTxt")
+            {
+                CardText objData = new CardText();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+
+                uiTextBoxTxtLabel.Text = objData.TextLabel;
+                uiTextBoxWidth.Text = objData.Width.ToString();
+                uiTextBoxHeight.Text = objData.Height.ToString();
+                uiTextBoxX.Text = objData.PosX.ToString();
+                uiTextBoxY.Text = objData.PosY.ToString();
+                uiCheckBoxIsMultiLine.Checked = objData.IsMultiLine;
+
+                CurrentTxt = objData;
+                ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-2\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-2\"]').addClass('active'); });", true);
+            }
+            else if (e.CommandName == "DeleteTxt")
+            {
+                try
+                {
+                    CardText objData = new CardText();
+                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                    objData.MarkAsDeleted();
+                    objData.Save();
+                    CurrentTxt = null;
+                    BindCardTxt();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+
+        protected void uiButtonSaveText_Click(object sender, EventArgs e)
+        {
+            CardText txt = new CardText();
+            if (CurrentTxt == null)
+            {
+                txt.AddNew();
+                txt.CardID = CurrentCard.CardID;
+            }
+            else
+                txt = CurrentTxt;
+
+            txt.TextLabel = uiTextBoxTxtLabel.Text;
+            int width, height, x, y;
+            int.TryParse(uiTextBoxWidth.Text, out width);
+            int.TryParse(uiTextBoxWidth.Text, out height);
+            int.TryParse(uiTextBoxWidth.Text, out y);
+            int.TryParse(uiTextBoxWidth.Text, out x);
+            txt.Width = width;
+            txt.Height = height;
+            txt.PosX = x;
+            txt.PosY = y;
+            txt.IsMultiLine = uiCheckBoxIsMultiLine.Checked;
+            txt.Save();
+            BindCardTxt();
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-2\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-2\"]').addClass('active'); });", true);
+            CleartextFields();
+            CurrentTxt = null;
+        }
+        protected void uiLinkButtonCancelText_Click(object sender, EventArgs e)
+        {
+            CleartextFields();
+            CurrentTxt = null;
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-2\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-2\"]').addClass('active'); });", true);
+        }
+
+
+
+        protected void uiGridViewLayout_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            uiGridViewLayout.PageIndex = e.NewPageIndex;
+            BindCardTxt();
+        }
+
+        protected void uiGridViewLayout_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteLayout")
+            {
+                try
+                {
+                    CardLayouts objData = new CardLayouts();
+                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                    objData.MarkAsDeleted();
+                    objData.Save();
+                    CurrentTxt = null;
+                    BindCardTxt();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        protected void uiGridViewLayout_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                System.Web.UI.HtmlControls.HtmlGenericControl div = e.Row.FindControl("ColorDiv") as System.Web.UI.HtmlControls.HtmlGenericControl;
+
+                int Colid = (int)DataBinder.Eval(e.Row.DataItem, "ColorID");
+                Color col = new Color();
+                col.LoadByPrimaryKey(Colid);
+
+                string color = "#" + col.ColorCode;
+                div.Attributes.CssStyle.Add("background-color", color);
+
+            }
+        }
+
+
+        protected void uiButtonSaveLayout_Click(object sender, EventArgs e)
+        {
+            CardLayouts layout = new CardLayouts();
+            if (CurrentLayout == null)
+            {
+                layout.AddNew();
+                layout.CardID = CurrentCard.CardID;
+            }
+            else
+                layout = CurrentLayout;
+
+            if (uiFileUploadLayoutFront.HasFile)
+            {
+                string filepath = "/images/Layout/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadLayoutFront.FileName;
+                uiFileUploadLayoutFront.SaveAs(Server.MapPath("~" + filepath));
+                layout.LayoutImage = filepath;
+            }
+
+            if (uiFileUploadLayoutBack.HasFile)
+            {
+                string filepath = "/images/Layout/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadLayoutBack.FileName;
+                uiFileUploadLayoutBack.SaveAs(Server.MapPath("~" + filepath));
+                layout.LayeoutBackImage = filepath;
+            }
+
+            layout.ColorID = Convert.ToInt32(uiDropDownListColor.SelectedValue);
+
+            layout.Save();
+
+            BindCardLayout();
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-3\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-3\"]').addClass('active'); });", true);
+            uiDropDownListColor.SelectedIndex = 0;
+            CurrentLayout = null;
+        }
+
+        protected void uiLinkButtonCancelLayout_Click(object sender, EventArgs e)
+        {
+            uiDropDownListColor.SelectedIndex = 0;
+            CurrentLayout = null;
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-3\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-3\"]').addClass('active'); });", true);
+        }
+        #endregion
+
+        #region Methods
+        private void ClearFields()
+        {
+            uiTextBoxCardNameEn.Text = "";
+            uiTextBoxCardNameAr.Text = "";
+            uiTextBoxDescEn.Text = "";
+            uiTextBoxDescAr.Text = "";
+            uiDropDownListDim.SelectedIndex = 0;
+            uiTextBoxPriceAfter.Text = "";
+            uiTextBoxPriceBefore.Text = "";
+        }
+
+
+        private void CleartextFields()
+        {
+            uiTextBoxTxtLabel.Text = "";
+            uiTextBoxX.Text = "";
+            uiTextBoxY.Text = "";
+            uiTextBoxWidth.Text = "";
+            uiTextBoxHeight.Text = "";
+            uiCheckBoxIsMultiLine.Checked = false;
+        }
+
+
+        private void BindData()
+        {
+            Cards cards = new Cards();
+            if (uiDropDownListCats.SelectedIndex != -1)
+                cards.GetCardsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+            uiGridViewCards.DataSource = cards.DefaultView;
+            uiGridViewCards.DataBind();
+        }
+
+        private void BindCardTxt()
+        {
+            CardText txt = new CardText();
+            txt.GetCardTxtByCardID(CurrentCard.CardID);
+            uiGridViewCardText.DataSource = txt.DefaultView;
+            uiGridViewCardText.DataBind();
+        }
+
+        private void BindCardLayout()
+        {
+            CardLayouts layout = new CardLayouts();
+            layout.GetCardLayoutByCardID(CurrentCard.CardID);
+            uiGridViewLayout.DataSource = layout.DefaultView;
+            uiGridViewLayout.DataBind();
+        }
+
+        private void LoadDDLs()
+        {
+            
+            Color colors = new Color();
+            colors.LoadAll();
+            uiDropDownListColor.DataSource = colors.DefaultView;
+            uiDropDownListColor.DataTextField = "ColorNameEng";
+            uiDropDownListColor.DataValueField = "ColorID";
+            uiDropDownListColor.DataBind();
+ 
+            Dimension dims = new Dimension();
+            dims.GetAllDims();
+            uiDropDownListDim.DataSource = dims.DefaultView;
+            uiDropDownListDim.DataTextField = "DisplayName";
+            uiDropDownListDim.DataValueField = "DimensionID";
+            uiDropDownListDim.DataBind();
+
+            Categories cats = new Categories();
+            cats.LoadAll();
+            uiDropDownListCats.DataSource = cats.DefaultView;
+            uiDropDownListCats.DataTextField = "CatNameEng";
+            uiDropDownListCats.DataValueField = "CategoryID";
+            uiDropDownListCats.DataBind();
+
+
+        }
+        #endregion
     }
 }
