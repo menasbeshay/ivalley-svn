@@ -105,12 +105,24 @@ namespace Chat2Connect
 
                 // send link
                 uiLiteralLink.Text = "<a id='a_Send_" + rid.ToString() + "' class='btn btn-main' style='width:8%;height:70px;padding-top:25px;'>إرسال</a>" + "<input id='uiHidden_" + rid.ToString() + "' type='hidden' value='" + rid.ToString() + "'/>";
-                // cam /mic links
+                
+                // cam /mic / hand links
+                /*
                 uiLiteralCamMicLink.Text = "<a href='#' id='initCam_" + rid.ToString() + "' class='btn btn-default' ><i class='icon-camera'></i>&nbsp;تفعيل الكاميرا</a>&nbsp;";
                 uiLiteralCamMicLink.Text += "<a href='#' id='closeCam_" + rid.ToString() + "' class='btn btn-default' style='display:none;'><i class='icon-camera'></i>&nbsp;إغلاق الكاميرا</a>&nbsp;";
                 uiLiteralCamMicLink.Text += "<a href='#' id='requestMic_" + rid.ToString() + "' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;طلب مايك</a>";
                 uiLiteralCamMicLink.Text += "<a href='#' id='talk_" + rid.ToString() + "' style='display:none;' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;تحدث</a>";
                 uiLiteralCamMicLink.Text += "<a href='#' id='closemic_" + rid.ToString() + "' style='display:none;' class='btn btn-default' ><i class='icon-microphone'></i>&nbsp;إغلاق المايك</a>&nbsp;";
+                */
+                uiLiteralCamMicHand.Text = "<a id='requestMic_"+ rid.ToString() + "' class='btn btn-default roomMenuItem' title='طلب/إلغاء مايك' data-placement='top'><img src='images/hand.png' style='width:14px;' /></a>";
+                uiLiteralCamMicHand.Text += "<a id='Mic_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='تحدث' data-placement='top'><i class='icon-microphone'></i></a>";
+                uiLiteralCamMicHand.Text += "<a id='Cam_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='تشغيل/ إيقاف الكاميرا' data-placement='top'><i class='icon-camera'></i></a>";
+
+
+                // attache
+                uiLiteralAttach.Text = "<a id='gift_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='إرسال هدايا' data-placement='top'><i class='icon-gift'></i></a>";
+                uiLiteralAttach.Text += "<a id='invite_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='دعوة أصدقاء' data-placement='top'><i class='icon-group'></i></a>";
+                uiLiteralAttach.Text += "<a id='file_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='تحميل ملفات' data-placement='top'><i class='icon-paper-clip'></i></a>";
 
                 // msg history panel 
                 uiLiteralMsg.Text = "<textarea id='uiTextMsg_" + rid.ToString() + "' type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>";
@@ -120,8 +132,8 @@ namespace Chat2Connect
 
                 // javascript functions 
                 uiLiteralScript.Text = "<script type='text/javascript'>" +
-                    "$('#initCam_" + rid.ToString() + "').click(function () { " + "startCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
-                    "$('#closeCam_" + rid.ToString() + "').click(function () { " + "stopCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
+                   // "$('#initCam_" + rid.ToString() + "').click(function () { " + "startCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
+                   // "$('#closeCam_" + rid.ToString() + "').click(function () { " + "stopCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
                     "var editor_" + rid.ToString() + " = new wysihtml5.Editor('uiTextMsg_" + rid.ToString() + "',{toolbar: 'toolbar" + rid.ToString() + "', parserRules: wysihtml5ParserRules, useLineBreaks:  false, stylesheets: 'css/main.css'});" +
                     @"editor_" + rid.ToString() + @".observe('load', function() {
                                                 editor_" + rid.ToString() + @".composer.element.addEventListener('keyup', function(e) {                                                        
@@ -129,26 +141,32 @@ namespace Chat2Connect
                                                 });" +
                     "$('#a_Send_" + rid.ToString() + "').click(function () { rHub.server.sendToRoom($('#uiHidden_" + rid.ToString() + "').val(), $('#uiHiddenFieldCurrentName').val(), editor_" + rid.ToString() + ".getValue()); editor_" + rid.ToString() + ".setValue(''); $('#toolbar" + rid.ToString() + "').find('button').each(function(){ $(this).removeClass('active wysihtml5-command-active'); });});" +
                     "$('#uiTextMsg_" + rid.ToString() + "').keypress(function (e) { if (e.which == 13) { $('#a_Send_" + rid.ToString() + "').trigger('click'); e.preventDefault(); } });" +
-                    "$('#requestMic_" + rid.ToString() + "').click(function () { " +
-                    @"$.ajax({
+                    "$('#requestMic_" + rid.ToString() + "').click(function () { " +                    
+                    @"                        
+                        $.ajax({
                             url: '../Services/Services.asmx/GetQueueOrder',
                             dataType: 'json',
                             type: 'post',
                             data: ""{'memberID':'" + CurrentMember.MemberID.ToString() + "', 'roomID' : '" + rid.ToString() + @"' }"",
                                 contentType: 'application/json; charset=utf-8',
-                                success: function (data) {
-                                    if (data.d == true) {                            
+                                success: function (data) {                                    
+                                    if (data.d > 0) {                            
                                       //  if($('#NoOfMics_room_" + rid.ToString() + @"').val() < $('#MaxNoOfMic_room_'" + rid.ToString() + @"').val())
                                       //  {
-                                            $('#requestMic_" + rid.ToString() + @"').css('display','none');
-                                            $('#talk_" + rid.ToString() + @"').css('display','inline-block');
-                                            $('#closemic_" + rid.ToString() + @"').css('display','none');
+                                          //  $('#requestMic_" + rid.ToString() + @"').css('display','none');
+                                          //  $('#talk_" + rid.ToString() + @"').css('display','inline-block');
+                                          //   $('#closemic_" + rid.ToString() + @"').css('display','none');
                                             $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .hand').css('display', 'inline-block');                                                                                                
 
                                             $('#room_" + rid.ToString() + " #roomMembersDiv #regular #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #queueDiv');
 
                                             rHub.server.userRaisHand(" + rid.ToString() + @"," + CurrentMember.MemberID.ToString() + @");
                                       //  }
+                                    }
+                                    else {                                        
+                                        $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .hand').css('display', 'none');                                                                                                
+                                        $('#room_" + rid.ToString() + " #roomMembersDiv #queueDiv #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #regular');
+                                        rHub.server.userDownHand(" + rid.ToString() + @"," + CurrentMember.MemberID.ToString() + @");
                                     }
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {                        
@@ -163,19 +181,50 @@ namespace Chat2Connect
                                 }
                             });"
                     + " });" +
+                    /*
                     "$('#talk_" + rid.ToString() + "').click(function () { startMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() + 1); 
                         $('#requestMic_" + rid.ToString() + @"').css('display','none'); 
                         $('#talk_" + rid.ToString() + @"').css('display','none'); 
                         $('#closemic_" + rid.ToString() + @"').css('display','inline-block');  
                         $('#room_" + rid.ToString() + " #roomMembersDiv #queueDiv #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #MicDiv');                        
                     }); " +
+
                     "$('#closemic_" + rid.ToString() + "').click(function () { stopMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() - 1); 
                         $('#requestMic_" + rid.ToString() + @"').css('display','inline-block'); 
                         $('#talk_" + rid.ToString() + @"').css('display','none'); 
                         $('#closemic_" + rid.ToString() + @"').css('display','none');    
                         $('#room_" + rid.ToString() + " #roomMembersDiv #MicDiv #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #regular');                                            
+                    }); " */
+
+                    "$('#Mic_" + rid.ToString() + @"').click(function () { 
+                        if ($('#IsMicOpened_"+rid.ToString()+@"').val() == 0)
+                        { 
+                            startMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + 
+                            @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() + 1); 
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #queueDiv #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #MicDiv'); 
+                            $('#IsMicOpened_" + rid.ToString() + @"').val('1');
+                        }
+                        else
+                        {
+                            stopMic" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); " + @"$('NoOfMics_room_" + rid.ToString() + "').val($('NoOfMics_room_" + rid.ToString() + @"').val() - 1);         
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #MicDiv #m_" + CurrentMember.MemberID.ToString() + "').appendTo('#room_" + rid.ToString() + @" #roomMembersDiv #regular');                                            
+                            $('#IsMicOpened_" + rid.ToString() + @"').val('0');
+                        }                       
                     }); " +
 
+                    "$('#Cam_" + rid.ToString() + @"').click(function () { 
+                        if ($('#IsCamOpened_" + rid.ToString() + @"').val() == 0)
+                        { 
+                            startCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + @");                            
+                            $('#IsCamOpened_" + rid.ToString() + @"').val('1');
+                        }
+                        else
+                        {
+                            stopCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + @");                            
+                            $('#IsCamOpened_" + rid.ToString() + @"').val('0');
+                        }
+                    }); " +
+                    
                     @"function startCam" + rid.ToString() + @"(userId)
 			        {
 				        getFlashMovie" + rid.ToString() + @"('chat2connect_" + rid.ToString() + @"').startCam(userId);
@@ -230,8 +279,8 @@ namespace Chat2Connect
                 uiLiteralMarkWithWriteLogin.Text = "<a onclick='MarkMemberOnLogin(" + rid.ToString() + ", true);' style='cursor:pointer;'><i class='icon-edit'></i>&nbsp;تنقيط عند الدخول ومسموح الكتابة&nbsp;</a>";
                 uiLiteralMarkWithoutWriteLogin.Text = "<a onclick='MarkMemberOnLogin(" + rid.ToString() + ", false);' style='cursor:pointer;'><i class='icon-ban-circle'></i>&nbsp;تنقيط عند الدخول وبدون كتابة&nbsp;</a>";
                 uiLiteralDisableCam.Text = "<a onclick='DisableCams(" + rid.ToString() + ")' style='cursor:pointer;'><i class='icon-eye-close'></i>&nbsp;ممنوع الكمراء&nbsp;</a>";
-                uiLiteralDisableMic.Text = "<a onclick='DisableMic(" + rid.ToString() + ")' style='cursor:pointer;'><i class='icon-microphone'></i>&nbsp;مسموح المكرفون للجميع&nbsp;</a>";
-                uiLiteralEnableMicAdminOnly.Text = "<a onclick='EnableMicAdmin(" + rid.ToString() + ")' style='cursor:pointer;'><i class='icon-key'></i>&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;</a>";
+                uiLiteralDisableMic.Text = "<a onclick='EnableMic(" + rid.ToString() + ", false)' style='cursor:pointer;'><i class='icon-microphone'></i>&nbsp;مسموح المكرفون للجميع&nbsp;</a>";
+                uiLiteralEnableMicAdminOnly.Text = "<a onclick='EnableMic(" + rid.ToString() + ", true)' style='cursor:pointer;'><i class='icon-key'></i>&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;</a>";
                 uiLiteralCpanel.Text = "<a href='#' style='cursor:pointer;'><i class=' icon-dashboard'></i>&nbsp;لوحة تحكم المشرف </a>";
                 
 
@@ -279,6 +328,8 @@ namespace Chat2Connect
                 // hidden vars 
                 uiLiteralNoOfMics.Text = "<input type='hidden' id='MaxNoOfMics_room_" + rid.ToString() + "' value='" + maxmic.ToString() + "' />";
                 uiLiteralNoOfMics.Text += "<input type='hidden' id='NoOfMics_room_" + rid.ToString() + "' value='0' />";
+                uiLiteralNoOfMics.Text += "<input type='hidden' id='IsCamOpened_" + rid.ToString() + "' value='0' />";
+                uiLiteralNoOfMics.Text += "<input type='hidden' id='IsMicOpened_" + rid.ToString() + "' value='0' />";
             }
 
             

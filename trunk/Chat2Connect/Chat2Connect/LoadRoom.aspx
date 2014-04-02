@@ -114,22 +114,22 @@
                     <div id="queueDiv">
                         <asp:Repeater ID="uiRepeaterQueue" runat="server" OnItemDataBound="uiRepeaterQueue_ItemDataBound">
                         <ItemTemplate> <div class="Altodd friend-link rm" id="m_<%# Eval("MemberID") %>">
-                                        <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
+                                        <a class='jslink type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
                                     </a>
                                     <div class="pull-left controls">
                                         <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
                                         <img src="images/hand.png" style="width:16px;display:block;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
                                     <div class="clearfix" style="height: 1px;"></div> 
                                      <div class="popup-menu">
-						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
 						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
 					            </div>                              
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
@@ -141,15 +141,15 @@
                                         <img src="images/hand.png" style="width:16px;display:block;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
                                     <div class="clearfix" style="height: 1px;"></div>         
                                  <div class="popup-menu">
-						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
 						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
 					            </div>                      
                                 </div>
                         </AlternatingItemTemplate>
@@ -165,15 +165,15 @@
                                         <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
                                     <div class="clearfix" style="height: 1px;"></div> 
                                      <div class="popup-menu">
-						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						           <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
 						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
 					            </div>                              
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
@@ -185,15 +185,15 @@
                                         <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
                                     <div class="clearfix" style="height: 1px;"></div>         
                                  <div class="popup-menu">
-						            <a href="#" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a href="#" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a href="#" ><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a href="#" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a href="#" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
+						            <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
+						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
+						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
+						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
+						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
 						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a href="#" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a href="#" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a href="#" ><span class="awesome">&#xf05e;</span> حجب</a>
+						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
+						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
+						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
 					            </div>                      
                                 </div>
                         </AlternatingItemTemplate>
@@ -212,6 +212,7 @@
                 <div class="col-lg-12">
                     <div class="pull-right">
                         <asp:Literal ID="uiLiteralCamMicLink" runat="server"></asp:Literal>                        
+                        <asp:Literal ID="uiLiteralCamMicHand" runat="server"></asp:Literal>                        
                     </div>
                     <div class="pull-right">    
                         <!-- literal here to just start div for toolbar -->                     
@@ -224,7 +225,7 @@
                               
                             </div>
                             
-                            <div class="btn-group">
+                         <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 <span class="icon-text-height"></span>
                                 </button>
@@ -243,14 +244,13 @@
                                 </button>
                                 <ul class="dropdown-menu" role="menu" id="colorsMenu">
                                    
-                                <li class='itemColor'><a data-wysihtml5-command='foreColor' data-wysihtml5-command-value='red'><div class="colorDiv" style="background-color:#f00;"></div></a></li>
+                                <li class='itemColor'><a data-wysihtml5-command='foreColor' data-wysihtml5-command-value='yellow'><div class="colorDiv" style="background-color:#fff200;"></div></a></li>
                                 <li class='itemColor'><a data-wysihtml5-command='foreColor' data-wysihtml5-command-value='green'><div class="colorDiv" style="background-color:#0f0;"></div></a></li>
                                 <li class='itemColor'><a data-wysihtml5-command='foreColor' data-wysihtml5-command-value='blue'><div class="colorDiv" style="background-color:#00f;"></div></a></li>                                
                                 </ul>
-                            </div>                                                                    
+                            </div>                                                                                            
                         
-                        
-                        <div class="btn-group">
+                         <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 <span class="icon-smile"></span>
                                 </button> 
@@ -308,11 +308,13 @@
                                 <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/36.gif'><img src="images/emotions/36.gif" /></a></li>
                                 <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/6.gif'><img src="images/emotions/6.gif" /></a></li>  
                                 </ul>
-                            </div> 
-                         
+                            </div>                          
                     </div>
-
+                     
                 </div>
+                <div class="pull-right">
+                        <asp:Literal ID="uiLiteralAttach" runat="server"></asp:Literal>                        
+                    </div>
                 </div>
             </div>
 
@@ -340,6 +342,8 @@
             fn.apply(null, fnparams);
         }
     });
+
+    $(".roomMenuItem").tooltip();
 </script>
      <asp:Literal ID="uiLiteralScript" runat="server"></asp:Literal>
 
