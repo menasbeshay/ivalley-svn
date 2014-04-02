@@ -58,6 +58,15 @@ namespace E3zemni_WebGUI.Admin {
         protected global::System.Web.UI.WebControls.Panel uiPanelEdit;
         
         /// <summary>
+        /// tabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder tabs;
+        
+        /// <summary>
         /// uiTextBoxCardNameEn control.
         /// </summary>
         /// <remarks>
@@ -164,5 +173,158 @@ namespace E3zemni_WebGUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonBack;
+        
+        /// <summary>
+        /// tabscontent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder tabscontent;
+        
+        /// <summary>
+        /// uiTextBoxTxtLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxTxtLabel;
+        
+        /// <summary>
+        /// uiCheckBoxIsMultiLine control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxIsMultiLine;
+        
+        /// <summary>
+        /// uiTextBoxX control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxX;
+        
+        /// <summary>
+        /// uiTextBoxY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxY;
+        
+        /// <summary>
+        /// uiTextBoxWidth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxWidth;
+        
+        /// <summary>
+        /// uiTextBoxHeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxHeight;
+        
+        /// <summary>
+        /// uiButtonSaveText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uiButtonSaveText;
+        
+        /// <summary>
+        /// uiLinkButtonCancelText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancelText;
+        
+        /// <summary>
+        /// uiGridViewCardText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView uiGridViewCardText;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// uiFileUploadLayoutFront control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadLayoutFront;
+        
+        /// <summary>
+        /// uiFileUploadLayoutBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadLayoutBack;
+        
+        /// <summary>
+        /// uiDropDownListColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListColor;
+        
+        /// <summary>
+        /// uiButtonSaveLayout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uiButtonSaveLayout;
+        
+        /// <summary>
+        /// uiLinkButtonCancelLayout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancelLayout;
+        
+        /// <summary>
+        /// uiGridViewLayout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView uiGridViewLayout;
     }
 }

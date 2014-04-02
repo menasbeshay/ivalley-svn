@@ -17,7 +17,9 @@
                         
                          <div class="col-lg-6">                                
                                 Card Category
-                                <asp:DropDownList ID="uiDropDownListCats" runat="server" CssClass="form-control">
+                                <asp:DropDownList ID="uiDropDownListCats" runat="server" 
+                                    CssClass="form-control" 
+                                    onselectedindexchanged="uiDropDownListCats_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>                            
                         <div class="clear" style="height:10px;"></div>
@@ -42,9 +44,9 @@
                                 <asp:TemplateField HeaderText="Actions">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CardID") %>'
-                                            CssClass="btn btn-default" CommandName="EditCat"> Edit</asp:LinkButton>&nbsp;
+                                            CssClass="btn btn-default" CommandName="EditCard"> Edit</asp:LinkButton>&nbsp;
                                         <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CardID") %>'
-                                            CssClass="btn btn-default" CommandName="DeleteCat" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
+                                            CssClass="btn btn-default" CommandName="DeleteCard" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
                                     </ItemTemplate>
                                     <ItemStyle Width="20%" />
                                 </asp:TemplateField>
@@ -64,10 +66,12 @@
                 <div class="clearfix"></div>
 
 
-                <ul class="tabs">
+                <ul class="tabs" id="myTab">
 					<li><a href="#t-1" class="active">Main Info</a></li>
-					<li><a href="#t-2">Card layouts</a></li>
-					<li><a href="#t-3">Card text</a></li>					
+                    <asp:PlaceHolder ID="tabs" runat="server">
+					<li><a href="#t-2">Card text</a></li>
+					<li><a href="#t-3">Card layout</a></li>		
+                    </asp:PlaceHolder>			
 				</ul><!-- tabs -->
 
                 <ul class="tabs-content">
@@ -139,10 +143,133 @@
                                         </div>
                                     </div>
                                 </li>
+                                <asp:PlaceHolder ID="tabscontent" runat="server">
                                 <li id="t-2">
+                                    <asp:Panel runat="server" DefaultButton="uiButtonSaveText">
+                                        <div class="col-lg-12">
+                                        <div class="col-lg-3">
+                                            Text label
+                                            <asp:TextBox ID="uiTextBoxTxtLabel" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-3">
+                                        <div style="height:30px;"></div>
+                                            <asp:CheckBox ID="uiCheckBoxIsMultiLine" runat="server" Text=" Is multiline" CssClass="checkbox-inline"/>
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="col-lg-3">
+                                            X position
+                                            <asp:TextBox ID="uiTextBoxX" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            Y position
+                                            <asp:TextBox ID="uiTextBoxY" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div><div class="col-lg-3">
+                                            Width
+                                            <asp:TextBox ID="uiTextBoxWidth" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            Height
+                                            <asp:TextBox ID="uiTextBoxHeight" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="form-actions">
+                            
+                                            <div class="col-lg-4">
+                                                <asp:Button ID="uiButtonSaveText" runat="server" CssClass="btn btn-success" 
+                                                    Text="Save " onclick="uiButtonSaveText_Click"> </asp:Button>
+                                                <asp:LinkButton ID="uiLinkButtonCancelText" runat="server" 
+                                                    CssClass="btn btn-default" onclick="uiLinkButtonCancelText_Click" > Cancel</asp:LinkButton>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    </asp:Panel>
+                                    
+                                    <div class="clear" style="height:10px;"></div>
+                                    <asp:GridView ID="uiGridViewCardText" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                                        CellPadding="4" GridLines="None" EmptyDataText="No records found."
+                                         Width="90%" 
+                                        CssClass="table" 
+                                        onpageindexchanging="uiGridViewCardText_PageIndexChanging" 
+                                        onrowcommand="uiGridViewCardText_RowCommand">                            
+                                        <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        <PagerStyle HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" />
+                                        <Columns>
+                                            <asp:BoundField DataField="TextLabel" HeaderText="Text Label" />
+                                            <asp:CheckBoxField DataField="IsMultiLine" HeaderText="Is multiline" />
+                                            <asp:TemplateField HeaderText="Actions">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CardTextID") %>'
+                                                        CssClass="btn btn-default" CommandName="EditTxt"> Edit</asp:LinkButton>&nbsp;
+                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CardTextID") %>'
+                                                        CssClass="btn btn-default" CommandName="DeleteTxt" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="20%" />
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
                                 </li>
                                 <li id="t-3">
+                                       <asp:Panel ID="Panel1" runat="server" DefaultButton="uiButtonSaveLayout">
+                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
+                                            Front Image
+                                            <asp:FileUpload ID="uiFileUploadLayoutFront" runat="server" />
+                                        </div>
+                                        
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="col-lg-6">
+                                            Back Image
+                                            <asp:FileUpload ID="uiFileUploadLayoutBack" runat="server" />
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="col-lg-3">
+                                            Color
+                                             <asp:DropDownList ID="uiDropDownListColor" runat="server" CssClass="form-control">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="form-actions">
+                            
+                                            <div class="col-lg-4">
+                                                <asp:Button ID="uiButtonSaveLayout" runat="server" CssClass="btn btn-success" 
+                                                    Text="Save " onclick="uiButtonSaveLayout_Click"> </asp:Button>
+                                                <asp:LinkButton ID="uiLinkButtonCancelLayout" runat="server" 
+                                                    CssClass="btn btn-default" onclick="uiLinkButtonCancelLayout_Click" > Cancel</asp:LinkButton>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    </asp:Panel>
+                                    
+                                    <div class="clear" style="height:10px;"></div>
+                                    <asp:GridView ID="uiGridViewLayout" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                                        CellPadding="4" GridLines="None" EmptyDataText="No records found."
+                                         Width="90%" 
+                                        CssClass="table" 
+                                        onpageindexchanging="uiGridViewLayout_PageIndexChanging" 
+                                        onrowcommand="uiGridViewLayout_RowCommand"
+                                        onrowdatabound="uiGridViewLayout_RowDataBound">                            
+                                        <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        <PagerStyle HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" />
+                                        <Columns>
+                                            <asp:ImageField DataImageUrlField="LayoutImage" HeaderText="Front Image" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="30"/>
+                                           <asp:TemplateField HeaderText="Color">
+                                            <ItemTemplate>
+                                                <div id="ColorDiv" runat="server" style="width:20px;height:20px;margin:0 auto;"></div>
+                                            </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Actions">
+                                                <ItemTemplate>                                                    
+                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CardLayoutID") %>'
+                                                        CssClass="btn btn-default" CommandName="DeleteLayout" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="20%" />
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
                                 </li>
+                                </asp:PlaceHolder>
                                 </ul>
 
                 

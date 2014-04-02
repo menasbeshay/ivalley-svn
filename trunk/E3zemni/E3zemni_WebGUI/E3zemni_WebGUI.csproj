@@ -66,6 +66,7 @@
     <Content Include="Admin\EditEnvelops.aspx" />
     <Content Include="Admin\EditPages.aspx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\UserOrders.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -75,6 +76,8 @@
     </Content>
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Browse.aspx" />
+    <Content Include="checkout.aspx" />
     <Content Include="colors\alizarin.css" />
     <Content Include="colors\asphalt.css" />
     <Content Include="colors\brown.css" />
@@ -89,6 +92,8 @@
     <Content Include="colors\pumpkin.css" />
     <Content Include="colors\silver.css" />
     <Content Include="colors\wisteria.css" />
+    <Content Include="controls\ucSearch.ascx" />
+    <Content Include="customize.aspx" />
     <Content Include="default.aspx" />
     <Content Include="images\0162b879-6151-431c-886c-d3b4523a1eaf_1.jpeg" />
     <Content Include="images\2c651a0b-87e9-4219-a5b0-f1e075a50487_1.jpeg" />
@@ -948,6 +953,7 @@
     <Content Include="Modules\fckeditor\_upgrade.html" />
     <Content Include="Modules\fckeditor\_whatsnew.html" />
     <Content Include="Modules\fckeditor\_whatsnew_history.html" />
+    <Content Include="page.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\dark.css" />
     <Content Include="Styles\font\ElegantIcons.svg">
@@ -984,6 +990,8 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\style.css" />
+    <Content Include="viewCard.aspx" />
+    <Content Include="ViewEnvelops.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1077,6 +1085,41 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UserOrders.aspx.cs">
+      <DependentUpon>UserOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserOrders.aspx.designer.cs">
+      <DependentUpon>UserOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Browse.aspx.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Browse.aspx.designer.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\ucSearch.ascx.cs">
+      <DependentUpon>ucSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\ucSearch.ascx.designer.cs">
+      <DependentUpon>ucSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="customize.aspx.cs">
+      <DependentUpon>customize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customize.aspx.designer.cs">
+      <DependentUpon>customize.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1101,13 +1144,35 @@
     <Compile Include="MasterPages\All.Master.designer.cs">
       <DependentUpon>All.Master</DependentUpon>
     </Compile>
+    <Compile Include="page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page.aspx.designer.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="viewCard.aspx.cs">
+      <DependentUpon>viewCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewCard.aspx.designer.cs">
+      <DependentUpon>viewCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEnvelops.aspx.cs">
+      <DependentUpon>ViewEnvelops.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewEnvelops.aspx.designer.cs">
+      <DependentUpon>ViewEnvelops.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\Card\" />
     <Folder Include="images\Category\" />
     <Folder Include="images\Envelop\" />
+    <Folder Include="images\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

@@ -196,7 +196,7 @@ namespace E3zemni_WebGUI.Admin
                 int dimid = (int)DataBinder.Eval(e.Row.DataItem, "DimensionID");
                 Dimension obj = new Dimension();
                 obj.LoadByPrimaryKey(dimid);
-                dim.Text = obj.Width.ToString() + " × " + obj.Height.ToString(); ;
+                dim.Text = obj.Width.ToString() + " × " + obj.Height.ToString();
             }
         }
     }
