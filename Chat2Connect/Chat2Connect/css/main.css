@@ -843,7 +843,7 @@ fieldset[disabled] .btn-main.active {
   cursor: pointer;
 }
 
-.singleuser {
+.singleuser, .jslink {
     cursor:pointer;
 }
 
@@ -982,8 +982,8 @@ fieldset[disabled] .btn-main.active {
 }
 
 
-.wysiwyg-color-red {
-  color: red;
+.wysiwyg-color-yellow {
+  color: yellow ;
 }
 .wysiwyg-color-green {
   color: green;
@@ -1041,6 +1041,7 @@ fieldset[disabled] .btn-main.active {
 
 .friend-link {
     position:relative;
+    cursor:pointer;
 }
 
 .friend-link .popup-menu {

@@ -80,6 +80,11 @@ namespace Chat2Connect.SRCustomHubs
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid);
         }
+
+        public void userDownHand(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).UserDownHand(rid, memberid);
+        }
         
     }
 }

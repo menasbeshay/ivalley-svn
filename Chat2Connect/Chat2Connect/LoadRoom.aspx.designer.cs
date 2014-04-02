@@ -265,6 +265,15 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Literal uiLiteralCamMicLink;
         
         /// <summary>
+        /// uiLiteralCamMicHand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralCamMicHand;
+        
+        /// <summary>
         /// uiLiteralToolbar control.
         /// </summary>
         /// <remarks>
@@ -272,6 +281,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal uiLiteralToolbar;
+        
+        /// <summary>
+        /// uiLiteralAttach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralAttach;
         
         /// <summary>
         /// uiLiteralScript control.

@@ -161,6 +161,63 @@ function MarkMember(rid, enableWrite) {
 }
 
 
+
+function MarkMemberOnLogin(rid, enableWrite) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/MarkMemberOnLogin",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                if (enableWrite)
+                    notify('success', 'تم تنقيط الأعضاء بنجاح.');
+                else
+                    notify('success', 'تم تنقيط الأعضاء وإيقاف الكتابة بنجاح.');
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
+
+function DisableCams(rid) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/DisableCams",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                notify('success', 'تم إيقاف الكمراء بنجاح.');
+                
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
 /************ signalr ********************/
 $(document).ready(function () {
     
@@ -195,7 +252,7 @@ $(document).ready(function () {
 
     /* rooms hub */
     rHub.client.getMessage = function (rid, sname, msg) {        
-        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-right' style='width:auto;margin-left:5px;'><b>" + sname + "</b>:</div><div class='pull-right' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
+        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b>:</div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
         $(".MsgHistroy").slimScroll({
             railVisible: true,
             height: '400px',

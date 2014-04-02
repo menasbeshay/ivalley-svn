@@ -179,15 +179,24 @@ namespace Chat2Connect.services
        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool GetQueueOrder(int memberID, int roomID)
+        public int GetQueueOrder(int memberID, int roomID)
         {
+            int value = 0;
             RoomMember member = new RoomMember();
             member.LoadByPrimaryKey(memberID,roomID);
             RoomMember order = new RoomMember();
             order.GetMaxQueueOrderByRoomID(roomID);
-            member.QueueOrder = Convert.ToInt32(order.GetColumn("MaxQueueOrder")) + 1;
+            if (member.IsColumnNull("QueueOrder"))
+            {
+                member.QueueOrder = Convert.ToInt32(order.GetColumn("MaxQueueOrder")) + 1;
+                value = member.QueueOrder;
+            }
+            else
+                member.SetColumnNull("QueueOrder");
+            
             member.Save();
-            return true;
+            
+            return value;
         }
 
         [WebMethod]
@@ -281,6 +290,75 @@ namespace Chat2Connect.services
                     _Rcontext.Clients.Group(room.RoomID.ToString()).UserMarked(room.RoomID, members.MemberID, CanWrite);
                     members.MoveNext();
                 }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool MarkMemberOnLogin(string rid, bool CanWrite)
+        {
+            Room room = new Room();
+            room.LoadByPrimaryKey(Convert.ToInt32(rid));
+
+            try
+            {
+                if(CanWrite)
+                    room.MarkOnLoginWithWrite = CanWrite;
+                else
+                    room.MarkOnLoginWithoutWrite = !CanWrite;
+                room.Save();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool DisableCams(string rid)
+        {
+            Room room = new Room();
+            room.LoadByPrimaryKey(Convert.ToInt32(rid));
+
+            try
+            {
+                room.EnableCam = false;
+                room.Save();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool EnableMic(string rid, bool adminsonly)
+        {
+            Room room = new Room();
+            room.LoadByPrimaryKey(Convert.ToInt32(rid));
+
+            try
+            {
+                if (adminsonly)
+                {
+                    room.EnableMicForAdminsOnly = true;
+                    room.EnableMic = false;
+                }
+                else
+                {
+                    room.EnableMic = true;
+                    room.EnableMicForAdminsOnly = false;
+                }
+                room.Save();
             }
             catch (Exception ex)
             {
