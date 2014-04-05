@@ -35,7 +35,7 @@ namespace Chat2Connect
             {
                 IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
                 Member member = new Member();
-                member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+                member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));                
                 Room room = new Room();
                 room.AddNew();
                 
