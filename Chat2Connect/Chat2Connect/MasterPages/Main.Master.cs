@@ -25,7 +25,7 @@ namespace Chat2Connect.MasterPages
             }
             else
             {
-                Response.Redirect("default.aspx");
+                Response.Redirect("~/default.aspx");
             }
         }
 
