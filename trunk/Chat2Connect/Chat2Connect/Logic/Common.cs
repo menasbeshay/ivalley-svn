@@ -28,6 +28,40 @@ namespace Chat2Connect.Logic
         UpgradeRoom
 	}
 
+    public enum MemberRoles
+    {
+        [StringValue("المحادثة الخاصة")]
+        SpecialChat,
+        [StringValue("غرفة مؤقتة")]
+        TempRoom,
+        [StringValue("صندوق البريد")]
+        Mailinbox,
+        [StringValue("البريد الصوتى")]
+        VoiceMail,
+        [StringValue("إرسال رسالة بريد")]
+        SendEmail,
+        [StringValue("إرسال SMS")]
+        SendSMS
+
+    }
+
+    public enum AdminRoles
+    {
+        [StringValue("معلومات الحساب")]
+        Admin_Accounts,
+        [StringValue("حسابات البريد الإلكترونى")]
+        Admin_MailsAccounts,
+        [StringValue("حسابات ال IP")]
+        Admin_IPAccounts,
+        [StringValue("التحكم فى الحسابات")]
+        Admin_MemberRole,
+        [StringValue("التحكم فى خصائص الحسابات")]
+        Admin_AdminRoles,
+        [StringValue("تعطيل غرفة")]
+        Admin_RoomStatus
+
+    }
+
     public class StringValue : System.Attribute
     {
 
@@ -68,6 +102,14 @@ namespace Chat2Connect.Logic
             }
 
             return output;
+        }
+    }
+
+    public static class EnumUtil
+    {
+        public static IEnumerable<T> GetValues<T>()
+        {
+            return Enum.GetValues(typeof(T)).Cast<T>();
         }
     }
 }

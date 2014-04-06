@@ -93,6 +93,11 @@
     <Content Include="AccTypes.aspx" />
     <Content Include="actions.aspx" />
     <Content Include="AddPhoto.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\ManageAccount.aspx" />
+    <Content Include="Admin\UserControls\AccountInfo.ascx" />
+    <Content Include="Admin\UserControls\AccountRoles.ascx" />
+    <Content Include="Admin\UserControls\AdminRoles.ascx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -102,6 +107,7 @@
     <Content Include="css\base.css" />
     <Content Include="css\blueimp-gallery.min.css" />
     <Content Include="css\bootstrap-image-gallery.css" />
+    <Content Include="css\bootstrap-switch.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -348,6 +354,7 @@
     <Content Include="js\bootstrap-datepicker\js\bootstrap-datetimepicker.js" />
     <Content Include="js\bootstrap-image-gallery.js" />
     <Content Include="css\bootstrap-tagsinput.css" />
+    <Content Include="js\bootstrap-switch.js" />
     <Content Include="js\bootstrap-tagsinput.min.js" />
     <Content Include="js\bootstrap-typeahead.js" />
     <Content Include="js\bootstrap.js" />
@@ -366,9 +373,9 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="MyBalance.aspx" />
     <Content Include="testswf\chat2connect.swf" />
-    <Content Include="UserProfile.aspx" />
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Admin\Admin.master" />
     <None Include="js\bootstrap.min.js_back" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\dreamcodes.js" />
@@ -468,6 +475,48 @@
     <Compile Include="AddPhoto.aspx.designer.cs">
       <DependentUpon>AddPhoto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin.master.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.master.designer.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageAccount.aspx.cs">
+      <DependentUpon>ManageAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageAccount.aspx.designer.cs">
+      <DependentUpon>ManageAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountInfo.ascx.cs">
+      <DependentUpon>AccountInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountInfo.ascx.designer.cs">
+      <DependentUpon>AccountInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountRoles.ascx.cs">
+      <DependentUpon>AccountRoles.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountRoles.ascx.designer.cs">
+      <DependentUpon>AccountRoles.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\AdminRoles.ascx.cs">
+      <DependentUpon>AdminRoles.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\AdminRoles.ascx.designer.cs">
+      <DependentUpon>AdminRoles.ascx</DependentUpon>
+    </Compile>
     <Compile Include="createRoom.aspx.cs">
       <DependentUpon>createRoom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -527,6 +576,7 @@
     <Compile Include="lock.aspx.designer.cs">
       <DependentUpon>lock.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Admin.cs" />
     <Compile Include="Logic\Common.cs" />
     <Compile Include="MasterPages\Balance.master.cs">
       <DependentUpon>Balance.master</DependentUpon>
@@ -627,13 +677,6 @@
     </Compile>
     <Compile Include="usercontrols\ucRooms.ascx.designer.cs">
       <DependentUpon>ucRooms.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserProfile.aspx.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserProfile.aspx.designer.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="VIPPrices.aspx.cs">
       <DependentUpon>VIPPrices.aspx</DependentUpon>

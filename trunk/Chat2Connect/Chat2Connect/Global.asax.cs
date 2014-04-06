@@ -14,7 +14,7 @@ namespace Chat2Connect
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            Logic.Admin.CheckDefaultAdminUser();
         }
 
         protected void Session_Start(object sender, EventArgs e)
