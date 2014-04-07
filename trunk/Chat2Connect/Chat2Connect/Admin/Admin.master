@@ -19,6 +19,12 @@
                     <i class="entypoicon iconentypo-profile pull-left" style="font-size: 40px;"></i>
                 </a>
             </div>
+            <div class="clearfix" style="height: 5px;"></div>
+            <div class="center-block" style="width: 100%;">
+                <a href="ManageRoom.aspx" class="btn btn-main" role="button" style="font-size: 18px; padding: 3px; width: 100%;">إدارة الغرف
+                    <i class="entypoicon iconentypo-profile pull-left" style="font-size: 40px;"></i>
+                </a>
+            </div>
         </div>
         <div class="col-lg-10 pull-right ">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
