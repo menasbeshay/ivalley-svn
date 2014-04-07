@@ -17,15 +17,27 @@ namespace Chat2Connect.Admin
                 ctrlAccountInfo.Visible = false;
                 ctrlAccountRoles.Visible = false;
                 ctrlAdminRoles.Visible = false;
+
+                if (!String.IsNullOrEmpty(Request.QueryString["search"]))
+                {
+                    txtMemberSearch.Text = Request.QueryString["search"];
+                    BindSelectedUser();
+                }
             }
         }
 
         protected void lnkMemberSearch_Click(object sender, EventArgs e)
         {
+            BindSelectedUser();
+            
+        }
+
+        private void BindSelectedUser()
+        {
             MembershipUser user = Membership.GetUser(txtMemberSearch.Text);
             if (user != null)
             {
-                if(Logic.Admin.HasRole(Logic.AdminRoles.Admin_Accounts.ToString()))
+                if (Logic.Admin.HasRole(Logic.AdminRoles.Admin_AccountInfo.ToString()) || Logic.Admin.HasRole(Logic.AdminRoles.Admin_ChangeUsername.ToString()))
                 {
                     ctrlAccountInfo.Visible = true;
                     ctrlAccountInfo.MemberUserName = user.UserName;
@@ -41,7 +53,6 @@ namespace Chat2Connect.Admin
                     ctrlAccountRoles.MemberUserName = user.UserName;
                 }
             }
-            
         }
     }
 }

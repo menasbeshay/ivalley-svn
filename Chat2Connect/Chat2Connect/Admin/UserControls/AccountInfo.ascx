@@ -4,6 +4,9 @@
 </div>
 <hr />
 <div class="form-group">
+    <div class="form-group has-error">
+        <asp:Label ID="lblErrorMessage" runat="server" EnableViewState="false" CssClass="control-label"></asp:Label>
+    </div>
     <asp:DetailsView ID="dtlAccountInfo" runat="server" AutoGenerateRows="false" CssClass="table table-condensed" Width="400px">
         <AlternatingRowStyle CssClass="Alteven" />
         <RowStyle CssClass="Altodd" />
@@ -11,33 +14,43 @@
             <asp:TemplateField>
                 <HeaderTemplate>النكنيم</HeaderTemplate>
                 <ItemTemplate>
+                    <% if (Chat2Connect.Logic.Admin.HasRole(Chat2Connect.Logic.AdminRoles.Admin_ChangeUsername.ToString()))
+                       { %>
+                    <asp:TextBox ID="txtUsername" runat="server" Text='<%# Eval("UserName") %>'></asp:TextBox>
+                    <asp:Button ID="btnUpdateUserName" runat="server" Text="تعديل" CssClass="pull-left btn btn-warning " Style="width: 100px;" OnClick="btnUpdateUserName_Click" />
+                    <%}
+                       else
+                       { %>
                     <%# Eval("UserName") %>
+                    <%} %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField>
+            <asp:TemplateField Visible="false">
                 <HeaderTemplate>الإيميل</HeaderTemplate>
                 <ItemTemplate>
                     <%# Eval("Email") %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField>
+            <asp:TemplateField Visible="false">
                 <HeaderTemplate>كلمة السر</HeaderTemplate>
                 <ItemTemplate>
+                    <%# Eval("Password") %>
                     <a href="#passwordModal" data-toggle="modal" class="pull-left btn btn-warning">
                         <i class="icon-pencil"></i>
                         تعديل
                     </a>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField>
+            <asp:TemplateField Visible="false">
                 <HeaderTemplate>السؤال السرى</HeaderTemplate>
                 <ItemTemplate>
                     <%# Eval("PasswordQuestion") %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField>
-                <HeaderTemplate></HeaderTemplate>
+            <asp:TemplateField Visible="false">
+                <HeaderTemplate>الجواب</HeaderTemplate>
                 <ItemTemplate>
+                    <%# Eval("QuestionAnswer") %>
                     <a href="#questionModal" data-toggle="modal" class="pull-left btn btn-warning">
                         <i class="icon-pencil"></i>
                         تعديل
