@@ -13,15 +13,6 @@ namespace Chat2Connect.Admin {
     public partial class ManageAccount {
         
         /// <summary>
-        /// ErrorMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorMessage;
-        
-        /// <summary>
         /// txtMemberSearch control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,24 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.LinkButton lnkMemberSearch;
         
         /// <summary>
+        /// ctrlAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Chat2Connect.Admin.UserControls.AccountType ctrlAccountType;
+        
+        /// <summary>
+        /// ctrlAccountStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Chat2Connect.Admin.UserControls.AccountStatus ctrlAccountStatus;
+        
+        /// <summary>
         /// ctrlAccountInfo control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace Chat2Connect.Admin {
         protected global::Chat2Connect.Admin.UserControls.AccountInfo ctrlAccountInfo;
         
         /// <summary>
-        /// ctrlAccountRoles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Chat2Connect.Admin.UserControls.AccountRoles ctrlAccountRoles;
-        
-        /// <summary>
         /// ctrlAdminRoles control.
         /// </summary>
         /// <remarks>
@@ -65,5 +65,14 @@ namespace Chat2Connect.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Chat2Connect.Admin.UserControls.AdminRoles ctrlAdminRoles;
+        
+        /// <summary>
+        /// ctrlAccountRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Chat2Connect.Admin.UserControls.AccountRoles ctrlAccountRoles;
     }
 }

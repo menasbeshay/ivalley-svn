@@ -93,10 +93,13 @@
     <Content Include="AccTypes.aspx" />
     <Content Include="actions.aspx" />
     <Content Include="AddPhoto.aspx" />
+    <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
     <Content Include="Admin\UserControls\AccountInfo.ascx" />
     <Content Include="Admin\UserControls\AccountRoles.ascx" />
+    <Content Include="Admin\UserControls\AccountStatus.ascx" />
+    <Content Include="Admin\UserControls\AccountType.ascx" />
     <Content Include="Admin\UserControls\AdminRoles.ascx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -475,6 +478,13 @@
     <Compile Include="AddPhoto.aspx.designer.cs">
       <DependentUpon>AddPhoto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.master.cs">
       <DependentUpon>Admin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -509,6 +519,20 @@
     </Compile>
     <Compile Include="Admin\UserControls\AccountRoles.ascx.designer.cs">
       <DependentUpon>AccountRoles.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountStatus.ascx.cs">
+      <DependentUpon>AccountStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountStatus.ascx.designer.cs">
+      <DependentUpon>AccountStatus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountType.ascx.cs">
+      <DependentUpon>AccountType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\AccountType.ascx.designer.cs">
+      <DependentUpon>AccountType.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserControls\AdminRoles.ascx.cs">
       <DependentUpon>AdminRoles.ascx</DependentUpon>
@@ -576,7 +600,6 @@
     <Compile Include="lock.aspx.designer.cs">
       <DependentUpon>lock.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logic\Admin.cs" />
     <Compile Include="Logic\Common.cs" />
     <Compile Include="MasterPages\Balance.master.cs">
       <DependentUpon>Balance.master</DependentUpon>
@@ -701,6 +724,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{D68A4FB6-100A-4446-81B3-1201A6AD072C}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{6b88438e-3e36-4d16-824c-4fb7fb8460e2}</Project>
+      <Name>Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>

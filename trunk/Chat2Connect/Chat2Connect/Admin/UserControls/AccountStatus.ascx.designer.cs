@@ -10,24 +10,24 @@
 namespace Chat2Connect.Admin.UserControls {
     
     
-    public partial class AdminRoles {
+    public partial class AccountStatus {
         
         /// <summary>
-        /// grdAdminRoles control.
+        /// drpAccountStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdAdminRoles;
+        protected global::System.Web.UI.WebControls.DropDownList drpAccountStatus;
         
         /// <summary>
-        /// btnUpdateRoles control.
+        /// btnUpdateAccountStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateRoles;
+        protected global::System.Web.UI.WebControls.Button btnUpdateAccountStatus;
     }
 }

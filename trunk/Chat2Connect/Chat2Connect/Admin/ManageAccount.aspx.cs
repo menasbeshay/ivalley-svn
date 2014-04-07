@@ -12,12 +12,9 @@ namespace Chat2Connect.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                ctrlAccountInfo.Visible = false;
-                ctrlAccountRoles.Visible = false;
-                ctrlAdminRoles.Visible = false;
-
+                HideControls();
                 if (!String.IsNullOrEmpty(Request.QueryString["search"]))
                 {
                     txtMemberSearch.Text = Request.QueryString["search"];
@@ -26,10 +23,19 @@ namespace Chat2Connect.Admin
             }
         }
 
+        private void HideControls()
+        {
+            ctrlAccountInfo.Visible = false;
+            ctrlAccountRoles.Visible = false;
+            ctrlAdminRoles.Visible = false;
+            ctrlAccountType.Visible = false;
+            ctrlAccountStatus.Visible = false;
+        }
+
         protected void lnkMemberSearch_Click(object sender, EventArgs e)
         {
             BindSelectedUser();
-            
+
         }
 
         private void BindSelectedUser()
@@ -37,21 +43,35 @@ namespace Chat2Connect.Admin
             MembershipUser user = Membership.GetUser(txtMemberSearch.Text);
             if (user != null)
             {
-                if (Logic.Admin.HasRole(Logic.AdminRoles.Admin_AccountInfo.ToString()) || Logic.Admin.HasRole(Logic.AdminRoles.Admin_ChangeUsername.ToString()))
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AccountInfo.ToString()) || Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_ChangeUsername.ToString()))
                 {
                     ctrlAccountInfo.Visible = true;
                     ctrlAccountInfo.MemberUserName = user.UserName;
                 }
-                if (Logic.Admin.HasRole(Logic.AdminRoles.Admin_AdminRoles.ToString()))
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AdminRoles.ToString()))
                 {
                     ctrlAdminRoles.Visible = true;
                     ctrlAdminRoles.MemberUserName = user.UserName;
                 }
-                if (Logic.Admin.HasRole(Logic.AdminRoles.Admin_MemberRole.ToString()))
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_MemberRole.ToString()))
                 {
                     ctrlAccountRoles.Visible = true;
                     ctrlAccountRoles.MemberUserName = user.UserName;
                 }
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_UpdateAccountType.ToString()))
+                {
+                    ctrlAccountType.Visible = true;
+                    ctrlAccountType.MemberUserName = user.UserName;
+                }
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_UpdateAccountStatus.ToString()))
+                {
+                    ctrlAccountStatus.Visible = true;
+                    ctrlAccountStatus.MemberUserName = user.UserName;
+                }
+            }
+            else
+            {
+                HideControls();
             }
         }
     }

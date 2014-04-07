@@ -11,9 +11,9 @@ namespace Chat2Connect.Logic
     }
 
     public enum PaymentMethod
-	{
+    {
         [StringValue("تحويل من صديق")]
-	    FriendTransefer,
+        FriendTransefer,
         [StringValue("تحويل ينكى")]
         BankTransefer,
         [StringValue("دفع أونلاين")]
@@ -26,7 +26,7 @@ namespace Chat2Connect.Logic
         UpgradeAccount,
         [StringValue("صبغ غرفة")]
         UpgradeRoom
-	}
+    }
 
     public enum MemberRoles
     {
@@ -51,6 +51,8 @@ namespace Chat2Connect.Logic
         Admin_AccountInfo,
         [StringValue("تعديل حساب من/إلى")]
         Admin_ChangeUsername,
+        [StringValue("ترقية حساب")]
+        Admin_UpdateAccountType,
         [StringValue("حسابات البريد الإلكترونى")]
         Admin_MailsAccounts,
         [StringValue("حسابات ال IP")]
@@ -60,8 +62,20 @@ namespace Chat2Connect.Logic
         [StringValue("التحكم فى خصائص الحسابات")]
         Admin_AdminRoles,
         [StringValue("تعطيل غرفة")]
-        Admin_RoomStatus
+        Admin_RoomStatus,
+        [StringValue("تعطيل/تشغيل حساب")]
+        Admin_UpdateAccountStatus
 
+    }
+
+    public enum RowStatus
+    {
+        [StringValue("فعال")]
+        Enabled = 1,
+        [StringValue("معطل مؤقتا")]
+        TemporaryDisabled = 2,
+        [StringValue("معطل نهائيا")]
+        PermanentlyDisabled = 3,
     }
 
     public class StringValue : System.Attribute

@@ -14,7 +14,7 @@ namespace Chat2Connect.Admin
         {
             if (!IsPostBack)
             {
-                if(!Logic.Admin.IsAdmin())
+                if(!Helper.Admin.IsAdmin())
                 {
                     Response.Redirect("~/default.aspx");
                 }

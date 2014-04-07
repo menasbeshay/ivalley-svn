@@ -1,64 +1,67 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AccountInfo.ascx.cs" Inherits="Chat2Connect.Admin.UserControls.AccountInfo" %>
-<div class="pull-right ">
-    معلومات الحساب
-</div>
-<hr />
-<div class="form-group">
-    <div class="form-group has-error">
-        <asp:Label ID="lblErrorMessage" runat="server" EnableViewState="false" CssClass="control-label"></asp:Label>
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 id="myModalLabel1">معلومات الحساب</h3>
     </div>
-    <asp:DetailsView ID="dtlAccountInfo" runat="server" AutoGenerateRows="false" CssClass="table table-condensed" Width="400px">
-        <AlternatingRowStyle CssClass="Alteven" />
-        <RowStyle CssClass="Altodd" />
-        <Fields>
-            <asp:TemplateField>
-                <HeaderTemplate>النكنيم</HeaderTemplate>
-                <ItemTemplate>
-                    <% if (Chat2Connect.Logic.Admin.HasRole(Chat2Connect.Logic.AdminRoles.Admin_ChangeUsername.ToString()))
-                       { %>
-                    <asp:TextBox ID="txtUsername" runat="server" Text='<%# Eval("UserName") %>'></asp:TextBox>
-                    <asp:Button ID="btnUpdateUserName" runat="server" Text="تعديل" CssClass="pull-left btn btn-warning " Style="width: 100px;" OnClick="btnUpdateUserName_Click" />
-                    <%}
-                       else
-                       { %>
-                    <%# Eval("UserName") %>
-                    <%} %>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField Visible="false">
-                <HeaderTemplate>الإيميل</HeaderTemplate>
-                <ItemTemplate>
-                    <%# Eval("Email") %>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField Visible="false">
-                <HeaderTemplate>كلمة السر</HeaderTemplate>
-                <ItemTemplate>
-                    <%# Eval("Password") %>
-                    <a href="#passwordModal" data-toggle="modal" class="pull-left btn btn-warning">
-                        <i class="icon-pencil"></i>
-                        تعديل
-                    </a>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField Visible="false">
-                <HeaderTemplate>السؤال السرى</HeaderTemplate>
-                <ItemTemplate>
-                    <%# Eval("PasswordQuestion") %>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField Visible="false">
-                <HeaderTemplate>الجواب</HeaderTemplate>
-                <ItemTemplate>
-                    <%# Eval("QuestionAnswer") %>
-                    <a href="#questionModal" data-toggle="modal" class="pull-left btn btn-warning">
-                        <i class="icon-pencil"></i>
-                        تعديل
-                    </a>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Fields>
-    </asp:DetailsView>
+    <div class="modal-body">
+        <div class="form-horizontal blockBox validationGroup">
+            <div class="form-group">
+                <div class="form-group has-error">
+                    <asp:Label ID="lblErrorMessage" runat="server" EnableViewState="false" CssClass="control-label"></asp:Label>
+                </div>
+                <asp:DetailsView ID="dtlAccountInfo" runat="server" AutoGenerateRows="false" GridLines="None" CssClass="table table-condensed" Width="100%">
+                    <Fields>
+                        <asp:TemplateField>
+                            <HeaderTemplate>النكنيم</HeaderTemplate>
+                            <ItemTemplate>
+                                <% if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_ChangeUsername.ToString()))
+                                   { %>
+                                <asp:TextBox ID="txtUsername" runat="server" Text='<%# Eval("UserName") %>'></asp:TextBox>
+                                <asp:Button ID="btnUpdateUserName" runat="server" Text="تعديل" CssClass="pull-left btn btn-warning " Style="width: 100px;" OnClick="btnUpdateUserName_Click" />
+                                <%}
+                                   else
+                                   { %>
+                                <%# Eval("UserName") %>
+                                <%} %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField Visible="false">
+                            <HeaderTemplate>الإيميل</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Email") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField Visible="false">
+                            <HeaderTemplate>كلمة السر</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Password") %>
+                                <a href="#passwordModal" data-toggle="modal" class="pull-left btn btn-warning">
+                                    <i class="icon-pencil"></i>
+                                    تعديل
+                                </a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField Visible="false">
+                            <HeaderTemplate>السؤال السرى</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("PasswordQuestion") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField Visible="false">
+                            <HeaderTemplate>الجواب</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("QuestionAnswer") %>
+                                <a href="#questionModal" data-toggle="modal" class="pull-left btn btn-warning">
+                                    <i class="icon-pencil"></i>
+                                    تعديل
+                                </a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Fields>
+                </asp:DetailsView>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="passwordModal" class="modal fade" role="modal" aria-hidden="true">
     <div class="modal-dialog">
