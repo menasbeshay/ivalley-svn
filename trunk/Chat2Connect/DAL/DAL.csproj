@@ -64,6 +64,7 @@
     <Compile Include="RoomType.cs" />
     <Compile Include="SubCategory.cs" />
     <Compile Include="UserTransLog.cs" />
+    <Compile Include="Membership.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">

@@ -53,6 +53,7 @@
     <Compile Include="MemberMessage.cs" />
     <Compile Include="MemberPic.cs" />
     <Compile Include="MemberSetting.cs" />
+    <Compile Include="MembershipBLL.cs" />
     <Compile Include="MemberType.cs" />
     <Compile Include="MessageFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

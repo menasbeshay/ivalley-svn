@@ -48,7 +48,9 @@ namespace Chat2Connect.Logic
     public enum AdminRoles
     {
         [StringValue("معلومات الحساب")]
-        Admin_Accounts,
+        Admin_AccountInfo,
+        [StringValue("تعديل حساب من/إلى")]
+        Admin_ChangeUsername,
         [StringValue("حسابات البريد الإلكترونى")]
         Admin_MailsAccounts,
         [StringValue("حسابات ال IP")]

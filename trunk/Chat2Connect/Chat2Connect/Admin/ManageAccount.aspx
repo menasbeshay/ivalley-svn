@@ -21,7 +21,6 @@
     <div class="form-group">
         <asp:TextBox ID="txtMemberSearch" runat="server" placeholder="النكنيم" Style="padding: 5px; padding-top: 7px;"></asp:TextBox>
         <asp:LinkButton ID="lnkMemberSearch" runat="server" CssClass="icon icon-search" OnClick="lnkMemberSearch_Click"></asp:LinkButton>
-        <asp:TextBox ID="txtSelectedMember" runat="server" Visible="false" />
     </div>
     <uc1:AccountInfo runat="server" id="ctrlAccountInfo" />
     <uc1:AccountRoles runat="server" id="ctrlAccountRoles" />
