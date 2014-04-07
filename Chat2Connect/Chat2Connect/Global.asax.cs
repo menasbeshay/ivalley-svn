@@ -14,7 +14,12 @@ namespace Chat2Connect
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Logic.Admin.CheckDefaultAdminUser();
+            if (Membership.GetUser(Helper.Admin.Defaults.UserName) == null)
+            {
+                MembershipBLL memberShip = new MembershipBLL();
+                MembershipCreateStatus objStatus;
+                memberShip.RegisterMember(Helper.Admin.Defaults.UserName, Helper.Admin.Defaults.Password, Helper.Admin.Defaults.Email, Helper.Admin.Defaults.Question, Helper.Admin.Defaults.Answer, out objStatus);
+            }
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -60,7 +65,7 @@ namespace Chat2Connect
                     {
                         _Rcontext.Clients.Group(rooms.RoomID.ToString()).removeMember(user.MemberID);
                         rooms.MarkAsDeleted();
-                        rooms.MoveNext();                        
+                        rooms.MoveNext();
                     }
                     rooms.Save();
                 }

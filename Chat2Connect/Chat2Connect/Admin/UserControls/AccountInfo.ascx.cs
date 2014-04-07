@@ -14,7 +14,7 @@ namespace Chat2Connect.Admin.UserControls
         {
             if (!IsPostBack)
             {
-                if (Chat2Connect.Logic.Admin.HasRole(Chat2Connect.Logic.AdminRoles.Admin_AccountInfo.ToString()))
+                if (Helper.Admin.HasRole(Chat2Connect.Logic.AdminRoles.Admin_AccountInfo.ToString()))
                 {
                     dtlAccountInfo.Fields[1].Visible = true;
                     dtlAccountInfo.Fields[2].Visible = true;
