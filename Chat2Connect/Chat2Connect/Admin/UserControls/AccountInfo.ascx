@@ -34,7 +34,6 @@
                         <asp:TemplateField Visible="false">
                             <HeaderTemplate>كلمة السر</HeaderTemplate>
                             <ItemTemplate>
-                                <%# Eval("Password") %>
                                 <a href="#passwordModal" data-toggle="modal" class="pull-left btn btn-warning">
                                     <i class="icon-pencil"></i>
                                     تعديل
@@ -48,9 +47,8 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField Visible="false">
-                            <HeaderTemplate>الجواب</HeaderTemplate>
+                            <HeaderTemplate></HeaderTemplate>
                             <ItemTemplate>
-                                <%# Eval("QuestionAnswer") %>
                                 <a href="#questionModal" data-toggle="modal" class="pull-left btn btn-warning">
                                     <i class="icon-pencil"></i>
                                     تعديل
