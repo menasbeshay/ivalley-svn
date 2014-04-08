@@ -96,11 +96,14 @@
     <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
+    <Content Include="Admin\ManageRoom.aspx" />
     <Content Include="Admin\UserControls\AccountInfo.ascx" />
     <Content Include="Admin\UserControls\AccountRoles.ascx" />
     <Content Include="Admin\UserControls\AccountStatus.ascx" />
     <Content Include="Admin\UserControls\AccountType.ascx" />
     <Content Include="Admin\UserControls\AdminRoles.ascx" />
+    <Content Include="Admin\UserControls\Room\RoomStatus.ascx" />
+    <Content Include="Admin\UserControls\Room\RoomType.ascx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -506,6 +509,13 @@
     <Compile Include="Admin\ManageAccount.aspx.designer.cs">
       <DependentUpon>ManageAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManageRoom.aspx.cs">
+      <DependentUpon>ManageRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageRoom.aspx.designer.cs">
+      <DependentUpon>ManageRoom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UserControls\AccountInfo.ascx.cs">
       <DependentUpon>AccountInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -540,6 +550,20 @@
     </Compile>
     <Compile Include="Admin\UserControls\AdminRoles.ascx.designer.cs">
       <DependentUpon>AdminRoles.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\Room\RoomStatus.ascx.cs">
+      <DependentUpon>RoomStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\Room\RoomStatus.ascx.designer.cs">
+      <DependentUpon>RoomStatus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\Room\RoomType.ascx.cs">
+      <DependentUpon>RoomType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
+      <DependentUpon>RoomType.ascx</DependentUpon>
     </Compile>
     <Compile Include="createRoom.aspx.cs">
       <DependentUpon>createRoom.aspx</DependentUpon>
