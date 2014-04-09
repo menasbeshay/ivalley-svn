@@ -640,7 +640,6 @@
     <Compile Include="lock.aspx.designer.cs">
       <DependentUpon>lock.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logic\Common.cs" />
     <Compile Include="MasterPages\Balance.master.cs">
       <DependentUpon>Balance.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
