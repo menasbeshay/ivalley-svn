@@ -1,5 +1,0 @@
-H:\Makarios\Workspace\chat2connect\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
-H:\Makarios\Workspace\chat2connect\Helper\bin\Debug\Helper.dll
-H:\Makarios\Workspace\chat2connect\Helper\bin\Debug\Helper.pdb
-H:\Makarios\Workspace\chat2connect\Helper\obj\Debug\Helper.dll
-H:\Makarios\Workspace\chat2connect\Helper\obj\Debug\Helper.pdb
