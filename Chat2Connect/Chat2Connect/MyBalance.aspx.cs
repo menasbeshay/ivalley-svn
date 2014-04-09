@@ -6,7 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
-using Chat2Connect.Logic;
+using Helper;
 
 namespace Chat2Connect
 {
@@ -107,7 +107,7 @@ namespace Chat2Connect
                         log.Value = Convert.ToDecimal(uiTextBoxAmount.Text);
                         log.TransType = 1;
                         log.TransDate = DateTime.Now;
-                        log.PaymentMethod = StringEnum.GetStringValue(PaymentMethod.FriendTransefer);
+                        log.PaymentMethod = StringEnum.GetStringValue(Enums.PaymentMethod.FriendTransefer);
                         log.Save();
 
                         UserTransLog log2 = new UserTransLog();
@@ -117,7 +117,7 @@ namespace Chat2Connect
                         log2.Value = Convert.ToDecimal(uiTextBoxAmount.Text);
                         log2.TransType = 2;
                         log2.TransDate = DateTime.Now;
-                        log2.PaymentMethod = StringEnum.GetStringValue(PaymentMethod.TranseferToFriend);
+                        log2.PaymentMethod = StringEnum.GetStringValue(Enums.PaymentMethod.TranseferToFriend);
                         log2.Save();
                         LoadBalance();
                         uiTextBoxAmount.Text = "";

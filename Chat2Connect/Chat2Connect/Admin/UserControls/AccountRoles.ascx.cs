@@ -60,7 +60,7 @@ namespace Chat2Connect.Admin.UserControls
                 var roles = Helper.EnumUtil.GetValues<Helper.Enums.MemberRoles>().Select(r => new
                 {
                     RoleName = r.ToString(),
-                    RoleDisplayName = Logic.StringEnum.GetStringValue(r),
+                    RoleDisplayName = Helper.StringEnum.GetStringValue(r),
                     InUserRoles = Roles.IsUserInRole(user.UserName, r.ToString())
                 }).ToList();
 
