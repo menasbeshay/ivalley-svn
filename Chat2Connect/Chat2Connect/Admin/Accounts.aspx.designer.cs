@@ -10,42 +10,51 @@
 namespace Chat2Connect.Admin {
     
     
-    public partial class ManageRoom {
+    public partial class Accounts {
         
         /// <summary>
-        /// drpRooms control.
+        /// txtMemberMailSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpRooms;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberMailSearch;
         
         /// <summary>
-        /// lnkLoadRoom control.
+        /// lnkMemberMailSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLoadRoom;
+        protected global::System.Web.UI.WebControls.LinkButton lnkMemberMailSearch;
         
         /// <summary>
-        /// ctrlRoomStatus control.
+        /// txtMemberIPSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Chat2Connect.Admin.UserControls.Room.RoomStatus ctrlRoomStatus;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberIPSearch;
         
         /// <summary>
-        /// ctrlRoomType control.
+        /// lnkmemberIPSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Chat2Connect.Admin.UserControls.Room.RoomType ctrlRoomType;
+        protected global::System.Web.UI.WebControls.LinkButton lnkmemberIPSearch;
+        
+        /// <summary>
+        /// grdMemberResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMemberResult;
     }
 }

@@ -93,6 +93,8 @@
     <Content Include="AccTypes.aspx" />
     <Content Include="actions.aspx" />
     <Content Include="AddPhoto.aspx" />
+    <Content Include="Admin\AccountHistory.aspx" />
+    <Content Include="Admin\Accounts.aspx" />
     <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
@@ -480,6 +482,20 @@
     </Compile>
     <Compile Include="AddPhoto.aspx.designer.cs">
       <DependentUpon>AddPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AccountHistory.aspx.cs">
+      <DependentUpon>AccountHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountHistory.aspx.designer.cs">
+      <DependentUpon>AccountHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Accounts.aspx.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Accounts.aspx.designer.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>

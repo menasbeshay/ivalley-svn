@@ -10,6 +10,20 @@ namespace Chat2Connect.Admin
 {
     public partial class ManageAccount : System.Web.UI.Page
     {
+        public static List<string> PageRoles
+        {
+            get
+            {
+                List<string> lstRoles = new List<string>();
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_AccountInfo.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_AdminRoles.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_ChangeUsername.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_MemberRole.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_UpdateAccountStatus.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_UpdateAccountType.ToString());
+                return lstRoles;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

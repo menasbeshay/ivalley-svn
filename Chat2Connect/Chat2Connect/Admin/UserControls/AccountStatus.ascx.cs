@@ -37,10 +37,10 @@ namespace Chat2Connect.Admin.UserControls
         {
             if (!IsPostBack)
             {
-                var lstStatus = Logic.EnumUtil.GetValues<Logic.RowStatus>().Select(r => new
+                var lstStatus = Helper.EnumUtil.GetValues<Helper.Enums.RowStatus>().Select(r => new
                 {
                     ID = (int)r,
-                    Name = Logic.StringEnum.GetStringValue(r)
+                    Name = Helper.StringEnum.GetStringValue(r)
                 }).ToList();
                 drpAccountStatus.DataSource = lstStatus;
                 drpAccountStatus.DataValueField = "ID";
