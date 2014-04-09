@@ -100,5 +100,24 @@ namespace Helper
 
             return Roles.IsUserInRole(userName, roleName);
         }
+
+        public static bool HasAnyOfRoles(List<string> roles,string userName)
+        {
+            for(int i=0;i<roles.Count;i++)
+            {
+                if (HasRole(roles[i], userName))
+                    return true;
+            }
+            return false;
+        }
+
+        public static bool HasAnyOfRoles(List<string> roles)
+        {
+            MembershipUser user = Membership.GetUser();
+            if (user != null)
+                return HasAnyOfRoles(roles,user.UserName);
+
+            return false;
+        }
     }
 }

@@ -61,8 +61,14 @@ namespace Helper
             Admin_AdminRoles,
             [StringValue("تعطيل غرفة")]
             Admin_RoomStatus,
-            [StringValue("تعطيل/تشغيل حساب")]
-            Admin_UpdateAccountStatus
+            [StringValue("تعطيل حساب")]
+            Admin_UpdateAccountStatus,
+            [StringValue("حركة حساب")]
+            Admin_AccountHistory,
+            [StringValue("إصدار حساب مميز")]
+            Admin_AddVIPAccount,
+            [StringValue("صبغ غرفة")]
+            Admin_RoomType
 
         }
 

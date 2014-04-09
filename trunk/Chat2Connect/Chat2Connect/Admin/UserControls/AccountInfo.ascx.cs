@@ -14,7 +14,7 @@ namespace Chat2Connect.Admin.UserControls
         {
             if (!IsPostBack)
             {
-                if (Helper.Admin.HasRole(Chat2Connect.Logic.AdminRoles.Admin_AccountInfo.ToString()))
+                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AccountInfo.ToString()))
                 {
                     dtlAccountInfo.Fields[1].Visible = true;
                     dtlAccountInfo.Fields[2].Visible = true;
@@ -41,19 +41,25 @@ namespace Chat2Connect.Admin.UserControls
             List<dynamic> dataSource = null;
             if (user != null)
             {
-                BLL.Member member = new BLL.Member();
-                if (member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString())))
+                try
                 {
-                    dataSource = new List<dynamic>()
-                {
-                    new {
-                        UserName=user.UserName,
-                        Email=user.Email,
-                        Password=user.GetPassword(member.Answer),
-                        PasswordQuestion=user.PasswordQuestion,
-                        QuestionAnswer=member.Answer
+                    BLL.Member member = new BLL.Member();
+                    if (member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString())))
+                    {
+                        dataSource = new List<dynamic>()
+                        {
+                            new {
+                                UserName=user.UserName,
+                                Email=user.Email,
+                                Password=user.GetPassword(member.Answer),
+                                PasswordQuestion=user.PasswordQuestion,
+                                QuestionAnswer=member.Answer
+                            }
+                        };
                     }
-                };
+                }
+                catch
+                {
                 }
 
             }

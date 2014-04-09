@@ -57,7 +57,7 @@ namespace Chat2Connect.Admin.UserControls
             MembershipUser user = Membership.GetUser(MemberUserName);
             if (user != null)
             {
-                var roles = Logic.EnumUtil.GetValues<Logic.MemberRoles>().Select(r => new
+                var roles = Helper.EnumUtil.GetValues<Helper.Enums.MemberRoles>().Select(r => new
                 {
                     RoleName = r.ToString(),
                     RoleDisplayName = Logic.StringEnum.GetStringValue(r),
