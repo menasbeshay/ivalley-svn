@@ -68,8 +68,30 @@ namespace Helper
             [StringValue("إصدار حساب مميز")]
             Admin_AddVIPAccount,
             [StringValue("صبغ غرفة")]
-            Admin_RoomType
+            Admin_RoomType,
+            [StringValue("بريد الموقع")]
+            Admin_SiteMails
 
+        }
+
+        public enum SiteMembers
+        {
+            [StringValue("المساعدة")]
+            Help,
+            [StringValue("البرمجة")]
+            Programming,
+            [StringValue("الشكاوى")]
+            Problems,
+            [StringValue("الإقتراحات والإستفسارات")]
+            Inquiries,
+            [StringValue("الوظائف")]
+            Jobs,
+            [StringValue("الدعم الفنى")]
+            Support,
+            [StringValue("التسويق والإعلان")]
+            Marketing,
+            [StringValue("الإدارة")]
+            Admin,
         }
 
         public enum RowStatus

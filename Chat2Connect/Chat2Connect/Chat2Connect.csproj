@@ -99,6 +99,7 @@
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
     <Content Include="Admin\ManageRoom.aspx" />
+    <Content Include="Admin\SiteMails.aspx" />
     <Content Include="Admin\UserControls\AccountInfo.ascx" />
     <Content Include="Admin\UserControls\AccountRoles.ascx" />
     <Content Include="Admin\UserControls\AccountStatus.ascx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="Admin\ManageRoom.aspx.designer.cs">
       <DependentUpon>ManageRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SiteMails.aspx.cs">
+      <DependentUpon>SiteMails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SiteMails.aspx.designer.cs">
+      <DependentUpon>SiteMails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserControls\AccountInfo.ascx.cs">
       <DependentUpon>AccountInfo.ascx</DependentUpon>

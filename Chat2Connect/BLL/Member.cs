@@ -6,14 +6,17 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 using DAL;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace BLL
 {
-	public class Member : _Member
-	{
-		public Member()
-		{
-		
-		}
+    public class Member : _Member
+    {
+        public Member()
+        {
+
+        }
 
         public virtual bool GetMemberByUserId(Guid UserId)
         {
@@ -25,7 +28,7 @@ namespace BLL
 
         }
 
-        public virtual bool GetMemberFriendsByStatus(int MemberID,bool Status)
+        public virtual bool GetMemberFriendsByStatus(int MemberID, bool Status)
         {
             ListDictionary parameters = new ListDictionary();
             parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
@@ -35,7 +38,7 @@ namespace BLL
         }
 
 
-        
+
 
         public virtual bool SearchMembers(string query)
         {
@@ -56,5 +59,37 @@ namespace BLL
             return LoadFromSql("SearchMembersExceptFriends", parameters);
 
         }
-	}
+
+        public bool GetByName(string name)
+        {
+            Where.Name.Value = name;
+            return Query.Load();
+
+        }
+
+        private static List<Member> lstSiteMembers;
+        public static List<Member> SiteMembers
+        {
+            get
+            {
+                if (lstSiteMembers == null)
+                {
+                    lstSiteMembers = Helper.EnumUtil.GetValues<Helper.Enums.SiteMembers>().Select(m => GetSiteMember(Helper.StringEnum.GetStringValue(m))
+                        ).ToList();
+                }
+                return lstSiteMembers;
+            }
+        }
+        private static Member GetSiteMember(string name)
+        {
+            Member member = new Member();
+            if (!member.GetByName(name))
+            {
+                member.AddNew();
+                member.Name = name;
+                member.Save();
+            }
+            return member;
+        }
+    }
 }

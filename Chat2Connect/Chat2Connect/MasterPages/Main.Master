@@ -291,6 +291,10 @@
                         </ul>
                     </li>
                     <%} %>
+                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SiteMails.PageRoles))
+                      {%>
+                    <li><a href='<%=ResolveUrl("~/Admin/SiteMails.aspx") %>'>بريد الموقع</a></li>
+                    <%} %>
                 </ul>
             </div>
         </nav>

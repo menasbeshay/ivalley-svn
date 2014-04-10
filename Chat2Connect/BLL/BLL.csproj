@@ -73,6 +73,10 @@
       <Project>{D68A4FB6-100A-4446-81B3-1201A6AD072C}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{6b88438e-3e36-4d16-824c-4fb7fb8460e2}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
       <Name>MyGeneration.dOOdads</Name>
