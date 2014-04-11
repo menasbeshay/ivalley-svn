@@ -7,36 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Chat2Connect.Admin {
+namespace Chat2Connect.usercontrols {
     
     
-    public partial class SiteMails {
+    public partial class Mail {
         
         /// <summary>
-        /// drpSiteMembers control.
+        /// lnkInboxLoad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpSiteMembers;
+        protected global::System.Web.UI.WebControls.LinkButton lnkInboxLoad;
         
         /// <summary>
-        /// lnkLoadMail control.
+        /// lnkSentLoad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLoadMail;
+        protected global::System.Web.UI.WebControls.LinkButton lnkSentLoad;
         
         /// <summary>
-        /// ctrlMail control.
+        /// lnkDeletedLoad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Chat2Connect.usercontrols.Mail ctrlMail;
+        protected global::System.Web.UI.WebControls.LinkButton lnkDeletedLoad;
+        
+        /// <summary>
+        /// grdMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMessages;
     }
 }

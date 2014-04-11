@@ -382,6 +382,7 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="MyBalance.aspx" />
     <Content Include="testswf\chat2connect.swf" />
+    <Content Include="usercontrols\Mail.ascx" />
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Admin.master" />
@@ -733,6 +734,13 @@
     <Compile Include="SRCustomHubs\PMHub.cs" />
     <Compile Include="Startup.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="usercontrols\Mail.ascx.cs">
+      <DependentUpon>Mail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\Mail.ascx.designer.cs">
+      <DependentUpon>Mail.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\ucFriends.ascx.cs">
       <DependentUpon>ucFriends.ascx</DependentUpon>
