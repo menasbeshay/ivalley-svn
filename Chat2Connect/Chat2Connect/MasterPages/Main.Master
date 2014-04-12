@@ -261,12 +261,15 @@
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
-                    <%--<li><a href="#">الحسابات</a></li>--%>
+                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
+                      {%>
+                    <li><a href='<%=ResolveUrl("~/Admin/StatsReport.aspx") %>'>إحصائيات</a></li>
+                    <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageRoom.PageRoles))
                       {%>
                     <li><a href='<%=ResolveUrl("~/Admin/ManageRoom.aspx") %>'>إدارة غرفة</a></li>
                     <%} %>
-                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AccountHistory.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.Accounts.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AddAccount.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageAccount.PageRoles))
+                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AccountHistory.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.Accounts.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AddAccount.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageAccount.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SendMessage.PageRoles))
                       {%>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">الحسابات <b class="caret"></b></a>
@@ -287,6 +290,11 @@
                               {%>
                             <li class="divider"></li>
                             <li><a href='<%=ResolveUrl("~/Admin/AddAccount.aspx") %>'>إصدار حساب مميز</a></li>
+                            <%} %>
+                            <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SendMessage.PageRoles))
+                              {%>
+                            <li class="divider"></li>
+                            <li><a href='<%=ResolveUrl("~/Admin/SendMessage.aspx") %>'>إرسال رسالة</a></li>
                             <%} %>
                         </ul>
                     </li>
