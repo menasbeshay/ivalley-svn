@@ -70,7 +70,11 @@ namespace Helper
             [StringValue("صبغ غرفة")]
             Admin_RoomType,
             [StringValue("بريد الموقع")]
-            Admin_SiteMails
+            Admin_SiteMails,
+            [StringValue("إرسال رسائل للحسابات")]
+            Admin_SendMessgae,
+            [StringValue("إحصائيات")]
+            Admin_StatsReport
 
         }
 

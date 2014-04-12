@@ -62,6 +62,7 @@
     <Compile Include="RoomMember.cs" />
     <Compile Include="RoomMemberSetting.cs" />
     <Compile Include="RoomType.cs" />
+    <Compile Include="StatsReport.cs" />
     <Compile Include="SubCategory.cs" />
     <Compile Include="UserTransLog.cs" />
     <Compile Include="Membership.cs" />
