@@ -13,5 +13,10 @@ namespace E3zemni_WebGUI.MasterPages
         {
 
         }
+
+        protected void uiLinkButtonAr_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ar/" + Request.RawUrl);
+        }
     }
 }

@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CategoriesLoadByPrimaryKey]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesLoadByPrimaryKey]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesLoadByPrimaryKey];
 GO
@@ -17,7 +17,9 @@ BEGIN
 		[CategoryID],
 		[CatNameAr],
 		[CatNameEng],
-		[CatImage]
+		[CatImage],
+		[MainCatId],
+		[HoverImage]
 	FROM [Categories]
 	WHERE
 		([CategoryID] = @CategoryID)
@@ -34,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_CategoriesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesLoadAll]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesLoadAll]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesLoadAll];
 GO
@@ -50,7 +52,9 @@ BEGIN
 		[CategoryID],
 		[CatNameAr],
 		[CatNameEng],
-		[CatImage]
+		[CatImage],
+		[MainCatId],
+		[HoverImage]
 	FROM [Categories]
 
 	SET @Err = @@Error
@@ -65,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoriesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesUpdate]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesUpdate]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesUpdate];
 GO
@@ -75,7 +79,9 @@ CREATE PROCEDURE [proc_CategoriesUpdate]
 	@CategoryID int,
 	@CatNameAr nvarchar(250) = NULL,
 	@CatNameEng nvarchar(250) = NULL,
-	@CatImage nvarchar(500) = NULL
+	@CatImage nvarchar(500) = NULL,
+	@MainCatId int = NULL,
+	@HoverImage nvarchar(200) = NULL
 )
 AS
 BEGIN
@@ -87,7 +93,9 @@ BEGIN
 	SET
 		[CatNameAr] = @CatNameAr,
 		[CatNameEng] = @CatNameEng,
-		[CatImage] = @CatImage
+		[CatImage] = @CatImage,
+		[MainCatId] = @MainCatId,
+		[HoverImage] = @HoverImage
 	WHERE
 		[CategoryID] = @CategoryID
 
@@ -108,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CategoriesInsert]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesInsert]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesInsert];
 GO
@@ -118,7 +126,9 @@ CREATE PROCEDURE [proc_CategoriesInsert]
 	@CategoryID int = NULL output,
 	@CatNameAr nvarchar(250) = NULL,
 	@CatNameEng nvarchar(250) = NULL,
-	@CatImage nvarchar(500) = NULL
+	@CatImage nvarchar(500) = NULL,
+	@MainCatId int = NULL,
+	@HoverImage nvarchar(200) = NULL
 )
 AS
 BEGIN
@@ -131,13 +141,17 @@ BEGIN
 	(
 		[CatNameAr],
 		[CatNameEng],
-		[CatImage]
+		[CatImage],
+		[MainCatId],
+		[HoverImage]
 	)
 	VALUES
 	(
 		@CatNameAr,
 		@CatNameEng,
-		@CatImage
+		@CatImage,
+		@MainCatId,
+		@HoverImage
 	)
 
 	SET @Err = @@Error
@@ -154,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoriesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesDelete]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesDelete]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesDelete];
 GO

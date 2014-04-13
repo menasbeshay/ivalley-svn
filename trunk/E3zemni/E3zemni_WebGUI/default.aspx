@@ -32,7 +32,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" runat="server">
     
-				<div class="row clearfix mbs">
+			<%--	<div class="row clearfix mbs">
 					<div class="services">
 						<div class="grid_3">
 							<div class="s_icon"><i class="icon_wallet"></i><span class="fa-check"></span></div>
@@ -147,79 +147,33 @@
 							</div>
 						</div><!-- end f portfolio -->
 					</div><!-- end row -->
-				</div><!-- end parallax -->
+				</div>--%><!-- end parallax -->
 
 				<div class="row clearfix mbs">
-					<h3 class="col-title mb">Latest Products</h3>
-
-						<div class="products shop clearfix">
-							<div class="product grid_3">
-								<img class="product_img" src="images/shop/product1.jpg" alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src="images/shop/product1_2.jpg" alt=""><!-- featured thumbnail hover -->
-								<div class="sale">Sale</div>
+					<h3 class="col-title mb">Card Categories</h3>
+                    <asp:Repeater ID="uiRepeaterCats" runat="server">
+                    <HeaderTemplate>
+                    <div class="products shop clearfix">
+                    </HeaderTemplate>
+                    <FooterTemplate>
+                    </div>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <div class="product grid_3">
+								<img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
+								<img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->								
 								<div class="product_inner">
-									<h3> <a href="shop_product.html"> Product Title Here </a> </h3>
-									<div class="clearfix">
-										<p class="price"> $789 </p>
-										<p class="rating"> <i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star_alt"></i> </p>
+									<h3> <a href='Browse.aspx?cid=<%# Eval("CategoryID") %>'> <%# Eval("CatNameEng")%> </a> </h3>
+									<div class="clearfix">																				
 									</div>
-								</div>
-								<div class="product_meta clearfix">
-									<a href="shop_product.html" class="f_btn add_c"><span><i class="icon_cart_alt"></i> Add to Cart</span></a>
-									<a href="shop_product.html" class="f_btn"><span><i class="icon_menu"></i> Details</span></a>
-								</div>
+								</div>								
 							</div><!-- product -->
-	
-							<div class="product grid_3">
-								<img class="product_img" src="images/shop/product2.jpg" alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src="images/shop/product2_2.jpg" alt=""><!-- featured thumbnail hover -->
-								<div class="product_inner">
-									<h3> <a href="shop_product.html"> Product Title Here </a> </h3>
-									<div class="clearfix">
-										<p class="price"> $668 </p>
-										<p class="rating"> <i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i> </p>
-									</div>
-								</div>
-								<div class="product_meta clearfix">
-									<a href="shop_product.html" class="f_btn add_c"><span><i class="icon_cart_alt"></i> Add to Cart</span></a>
-									<a href="shop_product.html" class="f_btn"><span><i class="icon_menu"></i> Details</span></a>
-								</div>
-							</div><!-- product -->
-	
-							<div class="product grid_3">
-								<img class="product_img" src="images/shop/product3.jpg" alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src="images/shop/product3_2.jpg" alt=""><!-- featured thumbnail hover -->
-								<div class="product_inner">
-									<h3> <a href="shop_product.html"> Product Title Here </a> </h3>
-									<div class="clearfix">
-										<p class="price"> $557 </p>
-										<p class="rating"> <i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star_alt"></i><i class="icon_star_alt"></i> </p>
-									</div>
-								</div>
-								<div class="product_meta clearfix">
-									<a href="shop_product.html" class="f_btn add_c"><span><i class="icon_cart_alt"></i> Add to Cart</span></a>
-									<a href="shop_product.html" class="f_btn"><span><i class="icon_menu"></i> Details</span></a>
-								</div>
-							</div><!-- product -->	
-							<div class="product grid_3">
-								<img class="product_img" src="images/shop/product4.jpg" alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src="images/shop/product4_2.jpg" alt=""><!-- featured thumbnail hover -->
-								<div class="product_inner">
-									<h3> <a href="shop_product.html"> Product Title Here </a> </h3>
-									<div class="clearfix">
-										<p class="price"> $458 </p>
-										<p class="rating"> <i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star_alt"></i> </p>
-									</div>
-								</div>
-								<div class="product_meta clearfix">
-									<a href="shop_product.html" class="f_btn add_c"><span><i class="icon_cart_alt"></i> Add to Cart</span></a>
-									<a href="shop_product.html" class="f_btn"><span><i class="icon_menu"></i> Details</span></a>
-								</div>
-							</div><!-- product -->
-					</div><!-- products -->
+                    </ItemTemplate>
+                    </asp:Repeater>
+						<!-- products -->
 				</div><!-- row -->
 
-				<div class="grey-line mbs">
+				<%--<div class="grey-line mbs">
 					<div class="row clearfix">
 						<div class="grid_6 custom_block1_img" data-gen="bigEntrance">
 							<div class="h_slider"><img class="custom_1" src="images/assets/t5.png" alt="tablet"></div>
@@ -242,9 +196,9 @@
 							</div><!-- end inner -->
 						</div><!-- end grid6 -->
 					</div><!-- end row -->
-				</div><!-- end grey line -->
+				</div>--%><!-- end grey line -->
 
-				<div class="row clearfix mbs">
+				<%--<div class="row clearfix mbs">
 						<div class="custom_block2" data-gen="bigEntrance">
 							<div class="inner_list">
 								<ul>
@@ -268,10 +222,10 @@
 							<div class="h_slider"><span class="t_6"><i class="icon_quotations"></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden. <i class="icon_quotations"></i> <small> - Annie Maria </small></span></div>
 							<div class="h_slider"><span class="t_7"><i class="icon_quotations"></i> Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable. <i class="icon_quotations"></i> <small> - Victor Zack </small></span></div>
 						</div><!-- end -->
-				</div><!-- clearfix -->
+				</div>--%><!-- clearfix -->
 
 				<div class="row clearfix mbs" data-gen="bigEntrance">
-					<div class="tac"><h3 class="block_title">Clients We’ve Worked With So Far</h3><span class="after_line"></span></div>
+					<div class="tac"><h3 class="block_title">Best Seller</h3><span class="after_line"></span></div>
 					<ul>
 						<li class="grid_2"><a href="#"><img src="images/assets/logo1.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
 						<li class="grid_2"><a href="#"><img src="images/assets/logo2.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->

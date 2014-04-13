@@ -12,5 +12,25 @@ namespace E3zmni.BLL
 		{
 		
 		}
+
+        public virtual bool GetUserByUserNameAndPassword(string username, string password)
+        {
+            this.Where.UserName.Value = username;
+            this.Where.UserName.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+
+            this.Where.UserPassword.Value = password;
+            this.Where.UserPassword.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+
+            return this.Query.Load();
+        }
+
+
+        public virtual bool GetUserByEmail(string email)
+        {
+            this.Where.Email.Value = email;
+            this.Where.Email.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+
+            return this.Query.Load();
+        }
 	}
 }

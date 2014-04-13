@@ -32,13 +32,15 @@ namespace E3zemni_WebGUI.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {                
+            {
+                LoadDDLs();
                 BindCats();
                 uipanelError.Visible = false;
                 uiPanelEditCat.Visible = false;
                 uiPanelAllCats.Visible = true;
             }
         }
+
 
         protected void uiLinkButtonBack_Click(object sender, EventArgs e)
         {
@@ -65,7 +67,14 @@ namespace E3zemni_WebGUI.Admin
                 string filepath = "/images/Category/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadImage.FileName;
                 uiFileUploadImage.SaveAs(Server.MapPath("~" + filepath));
                 cat.CatImage = filepath;
-            }            
+            }
+            if (uiFileUploadHover.HasFile)
+            {
+                string filepath = "/images/Category/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadHover.FileName;
+                uiFileUploadHover.SaveAs(Server.MapPath("~" + filepath));
+                cat.HoverImage = filepath;
+            }
+            cat.MainCatId = Convert.ToInt32(uiDropDownListMainCats.SelectedValue);
             cat.Save();
             ClearFields();
             CurrentCat = null;
@@ -129,14 +138,49 @@ namespace E3zemni_WebGUI.Admin
                 }
             }
         }
+
+        protected void uiDropDownListTC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadMainCat();
+        }
+
+        protected void uiDropDownListMainCats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindCats();
+        }
         #endregion
 
         #region methods
 
+        private void LoadDDLs()
+        {
+            TopLevelCat Tcats = new TopLevelCat();
+            Tcats.LoadAll();
+            uiDropDownListTC.DataSource = Tcats.DefaultView;
+            uiDropDownListTC.DataTextField = "NameEng";
+            uiDropDownListTC.DataValueField = "TopLevelCatID";
+            uiDropDownListTC.DataBind();
+            LoadMainCat();
+            
+        }
+
+        private void LoadMainCat()
+        {
+            MainCat Tcats = new MainCat();
+            if(uiDropDownListTC.SelectedIndex != -1)
+                Tcats.GetMaincatByTopLevelCatId(Convert.ToInt32(uiDropDownListTC.SelectedValue));
+            uiDropDownListMainCats.DataSource = Tcats.DefaultView;
+            uiDropDownListMainCats.DataTextField = "NameEng";
+            uiDropDownListMainCats.DataValueField = "MainCatID";
+            uiDropDownListMainCats.DataBind();
+            BindCats();
+        }
+
         private void BindCats()
         {
             Categories cats = new Categories();
-            cats.LoadAll();
+            if (uiDropDownListMainCats.SelectedIndex != -1)
+                cats.GetCatsByMainCatID(Convert.ToInt32(uiDropDownListMainCats.SelectedValue));            
             cats.Sort = "CatNameEng";
             uiGridViewCats.DataSource = cats.DefaultView;
             uiGridViewCats.DataBind();
@@ -150,6 +194,9 @@ namespace E3zemni_WebGUI.Admin
 
 
         #endregion
+
+
+        
 
     }
 }

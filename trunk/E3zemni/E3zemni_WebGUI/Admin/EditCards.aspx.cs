@@ -104,6 +104,7 @@ namespace E3zemni_WebGUI.Admin
                 BindData();
                 BindCardTxt();
                 BindCardLayout();
+                BindCardColors();
             }
             else if (e.CommandName == "DeleteCard")
             {
@@ -173,9 +174,12 @@ namespace E3zemni_WebGUI.Admin
             }
 
             card.Save();
+            uiLabelMsg.Text = "Card saved successfully. Now you can add card text, card layouts and card default colors.";
+            uiLabelMsg.ForeColor = System.Drawing.Color.Green;
+            uiLabelMsg.Visible = true;
             tabs.Visible = true;
             tabscontent.Visible = true;
-
+            CurrentCard = card;
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -194,12 +198,22 @@ namespace E3zemni_WebGUI.Admin
             ClearFields();
         }
 
+
+
+        protected void uiDropDownListTC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadMainCat();
+        }
+
+        protected void uiDropDownListMainCats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCats();
+        }
+
         protected void uiDropDownListCats_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindData();
         }
-
-
 
         protected void uiGridViewCardText_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -364,6 +378,77 @@ namespace E3zemni_WebGUI.Admin
             CurrentLayout = null;
             ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-3\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-3\"]').addClass('active'); });", true);
         }
+
+
+        protected void uiGridViewColors_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            uiGridViewColors.PageIndex = e.NewPageIndex;
+            BindCardColors();
+        }
+
+
+        protected void uiGridViewColors_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteColor")
+            {
+                try
+                {
+                    CardColor objData = new CardColor();
+                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()), CurrentCard.CardID);
+                    objData.MarkAsDeleted();
+                    objData.Save();                    
+                    BindCardColors();
+                    ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-4\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-4\"]').addClass('active'); });", true);
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        protected void uiGridViewColors_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                System.Web.UI.HtmlControls.HtmlGenericControl div = e.Row.FindControl("ColorDiv") as System.Web.UI.HtmlControls.HtmlGenericControl;
+
+                int Colid = (int)DataBinder.Eval(e.Row.DataItem, "ColorID");
+                Color col = new Color();
+                col.LoadByPrimaryKey(Colid);
+
+                string color = "#" + col.ColorCode;
+                div.Attributes.CssStyle.Add("background-color", color);
+
+            }
+        }
+
+
+        protected void uiButtonSaveColor_Click(object sender, EventArgs e)
+        {
+            CardColor color = new CardColor();
+            CardColor temp = new CardColor();
+            temp.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListBackColor.SelectedValue), CurrentCard.CardID);
+            if (!(temp.RowCount > 0))
+            {
+                color.AddNew();
+                color.CardID = CurrentCard.CardID;
+                color.ColorID = Convert.ToInt32(uiDropDownListBackColor.SelectedValue);
+                color.Save();
+
+                BindCardColors();
+                ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-4\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-4\"]').addClass('active'); });", true);
+                uiDropDownListBackColor.SelectedIndex = 0;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-4\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-4\"]').addClass('active'); });", true);
+                return;
+            }
+
+        }
+
+        
         #endregion
 
         #region Methods
@@ -415,6 +500,15 @@ namespace E3zemni_WebGUI.Admin
             uiGridViewLayout.DataBind();
         }
 
+
+        private void BindCardColors()
+        {
+            CardColor colors = new CardColor();
+            colors.GetCardColorsByCardID(CurrentCard.CardID);
+            uiGridViewColors.DataSource = colors.DefaultView;
+            uiGridViewColors.DataBind();
+        }
+
         private void LoadDDLs()
         {
             
@@ -424,7 +518,12 @@ namespace E3zemni_WebGUI.Admin
             uiDropDownListColor.DataTextField = "ColorNameEng";
             uiDropDownListColor.DataValueField = "ColorID";
             uiDropDownListColor.DataBind();
- 
+
+            uiDropDownListBackColor.DataSource = colors.DefaultView;
+            uiDropDownListBackColor.DataTextField = "ColorNameEng";
+            uiDropDownListBackColor.DataValueField = "ColorID";
+            uiDropDownListBackColor.DataBind();
+
             Dimension dims = new Dimension();
             dims.GetAllDims();
             uiDropDownListDim.DataSource = dims.DefaultView;
@@ -432,15 +531,42 @@ namespace E3zemni_WebGUI.Admin
             uiDropDownListDim.DataValueField = "DimensionID";
             uiDropDownListDim.DataBind();
 
+
+            TopLevelCat Tcats = new TopLevelCat();
+            Tcats.LoadAll();
+            uiDropDownListTC.DataSource = Tcats.DefaultView;
+            uiDropDownListTC.DataTextField = "NameEng";
+            uiDropDownListTC.DataValueField = "TopLevelCatID";
+            uiDropDownListTC.DataBind();
+            LoadMainCat();
+           
+
+        }
+
+        private void LoadMainCat()
+        {
+            MainCat Tcats = new MainCat();
+            if (uiDropDownListTC.SelectedIndex != -1)
+                Tcats.GetMaincatByTopLevelCatId(Convert.ToInt32(uiDropDownListTC.SelectedValue));
+            uiDropDownListMainCats.DataSource = Tcats.DefaultView;
+            uiDropDownListMainCats.DataTextField = "NameEng";
+            uiDropDownListMainCats.DataValueField = "MainCatID";
+            uiDropDownListMainCats.DataBind();
+            LoadCats();
+        }
+
+        private void LoadCats()
+        {
             Categories cats = new Categories();
-            cats.LoadAll();
+            if (uiDropDownListMainCats.SelectedIndex != -1)
+                cats.GetCatsByMainCatID(Convert.ToInt32(uiDropDownListMainCats.SelectedValue));     
             uiDropDownListCats.DataSource = cats.DefaultView;
             uiDropDownListCats.DataTextField = "CatNameEng";
             uiDropDownListCats.DataValueField = "CategoryID";
             uiDropDownListCats.DataBind();
-
-
+            BindData();
         }
         #endregion
+
     }
 }

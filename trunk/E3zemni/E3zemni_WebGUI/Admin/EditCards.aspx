@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="EditCards.aspx.cs" Inherits="E3zemni_WebGUI.Admin.EditCards" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function () {
         $("#cardItem").addClass("current")
     });
@@ -14,11 +14,28 @@
                 
                         <h4>
                             Cards</h4>
-                        
+                           <div class="col-lg-6"> 
+                               Top Categories
+                        <asp:DropDownList ID="uiDropDownListTC" runat="server" 
+                                    CssClass="form-control" 
+                                       OnSelectedIndexChanged="uiDropDownListTC_SelectedIndexChanged" 
+                                       AutoPostBack="True">
+                                </asp:DropDownList>
+                </div>
+                <div class="clear" style="height:10px;"></div>
+                             <div class="col-lg-6"> 
+                             Main Categories
+                        <asp:DropDownList ID="uiDropDownListMainCats" runat="server" 
+                                    CssClass="form-control" 
+                                     OnSelectedIndexChanged="uiDropDownListMainCats_SelectedIndexChanged" 
+                                     AutoPostBack="True">
+                                </asp:DropDownList>
+                </div>
+                <div class="clear" style="height:10px;"></div>
                          <div class="col-lg-6">                                
                                 Card Category
                                 <asp:DropDownList ID="uiDropDownListCats" runat="server" 
-                                    CssClass="form-control" 
+                                    CssClass="form-control" AutoPostBack="true"
                                     onselectedindexchanged="uiDropDownListCats_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>                            
@@ -71,12 +88,17 @@
                     <asp:PlaceHolder ID="tabs" runat="server">
 					<li><a href="#t-2">Card text</a></li>
 					<li><a href="#t-3">Card layout</a></li>		
+                    <li><a href="#t-4">Card default background colors </a></li>
                     </asp:PlaceHolder>			
 				</ul><!-- tabs -->
 
                 <ul class="tabs-content">
 								<li id="t-1" class="active">
                                     <div>
+                                        <div class="col-lg-6">
+                                            <asp:Label ID="uiLabelMsg" runat="server" Visible="false"></asp:Label>
+                                        </div>
+                                        <div class="clear" style="height: 10px;"></div>
                                         <div class="col-lg-6">
                                             <asp:TextBox ID="uiTextBoxCardNameEn" runat="server" CssClass="form-control" placeholder="English name"></asp:TextBox>
                                         </div>
@@ -176,7 +198,7 @@
                             
                                             <div class="col-lg-4">
                                                 <asp:Button ID="uiButtonSaveText" runat="server" CssClass="btn btn-success" 
-                                                    Text="Save " onclick="uiButtonSaveText_Click"> </asp:Button>
+                                                    Text="Add Text " onclick="uiButtonSaveText_Click"> </asp:Button>
                                                 <asp:LinkButton ID="uiLinkButtonCancelText" runat="server" 
                                                     CssClass="btn btn-default" onclick="uiLinkButtonCancelText_Click" > Cancel</asp:LinkButton>
                                             </div>                                            
@@ -233,7 +255,7 @@
                             
                                             <div class="col-lg-4">
                                                 <asp:Button ID="uiButtonSaveLayout" runat="server" CssClass="btn btn-success" 
-                                                    Text="Save " onclick="uiButtonSaveLayout_Click"> </asp:Button>
+                                                    Text="Add Layout " onclick="uiButtonSaveLayout_Click"> </asp:Button>
                                                 <asp:LinkButton ID="uiLinkButtonCancelLayout" runat="server" 
                                                     CssClass="btn btn-default" onclick="uiLinkButtonCancelLayout_Click" > Cancel</asp:LinkButton>
                                             </div>                                            
@@ -263,6 +285,54 @@
                                                 <ItemTemplate>                                                    
                                                     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CardLayoutID") %>'
                                                         CssClass="btn btn-default" CommandName="DeleteLayout" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="20%" />
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </li>
+
+                                 <li id="t-4">
+                                       <asp:Panel ID="Panel2" runat="server" DefaultButton="uiButtonSaveColor">
+                                        <div class="col-lg-12">
+                                       
+                                        <div class="col-lg-3">
+                                            Color
+                                             <asp:DropDownList ID="uiDropDownListBackColor" runat="server" CssClass="form-control">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="form-actions">
+                            
+                                            <div class="col-lg-4">
+                                                <asp:Button ID="uiButtonSaveColor" runat="server" CssClass="btn btn-success" 
+                                                    Text="Add Color " onclick="uiButtonSaveColor_Click"> </asp:Button>                                                
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    </asp:Panel>
+                                    
+                                    <div class="clear" style="height:10px;"></div>
+                                    <asp:GridView ID="uiGridViewColors" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                                        CellPadding="4" GridLines="None" EmptyDataText="No records found."
+                                         Width="90%" 
+                                        CssClass="table" 
+                                        onpageindexchanging="uiGridViewColors_PageIndexChanging" 
+                                        onrowcommand="uiGridViewColors_RowCommand"
+                                        onrowdatabound="uiGridViewColors_RowDataBound">                            
+                                        <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        <PagerStyle HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" />
+                                        <Columns>                                            
+                                           <asp:TemplateField HeaderText="Color">
+                                            <ItemTemplate>
+                                                <div id="ColorDiv" runat="server" style="width:20px;height:20px;margin:0 auto;"></div>
+                                            </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Actions">
+                                                <ItemTemplate>                                                    
+                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ColorID") %>'
+                                                        CssClass="btn btn-default" CommandName="DeleteColor" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="20%" />
                                             </asp:TemplateField>
