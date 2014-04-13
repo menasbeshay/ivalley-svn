@@ -22,8 +22,8 @@ namespace Chat2Connect.Admin
         {
             if (!IsPostBack)
             {
-                txtStartDate.Text = DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd");
-                txtEndDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                txtStartDate.Text = Helper.Date.ToString(DateTime.Now.AddDays(-30));
+                txtEndDate.Text = Helper.Date.ToString(DateTime.Now);
 
                 BindStats();
             }
