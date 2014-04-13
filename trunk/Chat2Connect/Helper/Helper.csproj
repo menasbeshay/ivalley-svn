@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="EnumUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
