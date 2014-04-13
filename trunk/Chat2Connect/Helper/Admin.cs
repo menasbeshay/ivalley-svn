@@ -69,7 +69,7 @@ namespace Helper
 
         public static bool IsAdmin(string userName)
         {
-            bool isAdmin = String.Equals(userName, Defaults.UserName); //default admin user is super admin assumed to be has all roles
+            bool isAdmin = String.Equals(userName, Defaults.UserName,StringComparison.CurrentCultureIgnoreCase); //default admin user is super admin assumed to be has all roles
             if (!isAdmin)
             {
                 foreach (var adminRole in EnumUtil.GetValues<Enums.AdminRoles>())
@@ -95,7 +95,7 @@ namespace Helper
 
         public static bool HasRole(string roleName, string userName)
         {
-            if (String.Equals(userName, Defaults.UserName))
+            if (String.Equals(userName, Defaults.UserName,StringComparison.CurrentCultureIgnoreCase))
                 return true;
 
             return Roles.IsUserInRole(userName, roleName);
