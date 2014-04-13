@@ -55,12 +55,12 @@
 				<div class="head_up">
 					<div class="row clearfix">
 						<div class="l_ht">
-							<span><i class="icon_mobile"></i>(001) 85 74 855</span>
-							<span><i class="icon_pin_alt"></i>Elizabeth St, Melbourne VIC 2222, USA ‎</span>
+							<%--<span><i class="icon_mobile"></i>(001) 85 74 855</span>
+							<span><i class="icon_pin_alt"></i>Elizabeth St, Melbourne VIC 2222, USA ‎</span>--%>
 						</div><!-- end text left -->
 
 						<div class="r_ht">
-							<div class="shopping_bag">
+							<%--<div class="shopping_bag">
 								<div class="header_bag">
 									<a href="shop-shopping-bag.html"><i class="icon_bag_alt"></i><span>2 item(s) / $110.00</span></a>
 								</div>
@@ -87,7 +87,7 @@
 								</div>
 							</div><!-- end Shopping Cart -->
 
-							<%--
+						
                             <div class="languages">
 								<a href="#"><span>EN</span></a>
 								<div class="other_languages">
@@ -96,7 +96,7 @@
 									<a href="#"><span>FR</span></a>
 								</div><!-- end other -->
 							</div><!-- end languages -->
-                            --%>
+                        
 							<div class="social social_head">
 								<a href="#" class="bottomtip" title="Twitter"><i class="fa-twitter"></i></a>
 								<a href="#" class="bottomtip" title="Facebook"><i class="fa-facebook"></i></a>
@@ -106,7 +106,7 @@
 								<a href="#" class="bottomtip" title="Youtube"><i class="fa-youtube"></i></a>
 								<a href="#" class="bottomtip" title="SoundCloud"><i class="fa-cloud"></i></a>
 								<a href="#" class="bottomtip" title="Flickr"><i class="fa-flickr"></i></a>
-							</div><!-- end social -->
+							</div>--%><!-- end social -->
 						</div><!-- end social and bag -->
 					</div><!-- row -->
 				</div><!-- head -->
@@ -131,10 +131,21 @@
 							<ul class="sf-menu">
 								<li id="homeItem"><a href="../Admin/AdminCP.aspx">Home</a>
 									
-								</li>
+                                </li>
+                                <li id="cat" ><a href="#">Categories</a>
+                                <ul>
+                                <li id="TopcatsItem"><a href="../Admin/EditTopLevelCat.aspx">Top Categories</a>
+									
+								</li>								
+                                <li id="MaincatsItem"><a href="../Admin/MainCat.aspx">Main Categories</a>
+									
+								</li>								
 								<li id="catsItem"><a href="../Admin/EditCategories.aspx">Categories</a>
 									
 								</li>
+                                </ul>
+                                </li>
+								
                                 <li id="colorsItem"><a href="../Admin/EditColors.aspx">Colors</a>
 									
 								</li>

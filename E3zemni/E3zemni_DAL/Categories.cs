@@ -131,6 +131,22 @@ namespace E3zmni.DAL
 				}
 			}
 			
+			public static SqlParameter MainCatId
+			{
+				get
+				{
+					return new SqlParameter("@MainCatId", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter HoverImage
+			{
+				get
+				{
+					return new SqlParameter("@HoverImage", SqlDbType.NVarChar, 200);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +157,8 @@ namespace E3zmni.DAL
             public const string CatNameAr = "CatNameAr";
             public const string CatNameEng = "CatNameEng";
             public const string CatImage = "CatImage";
+            public const string MainCatId = "MainCatId";
+            public const string HoverImage = "HoverImage";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +170,8 @@ namespace E3zmni.DAL
 					ht[CatNameAr] = _Categories.PropertyNames.CatNameAr;
 					ht[CatNameEng] = _Categories.PropertyNames.CatNameEng;
 					ht[CatImage] = _Categories.PropertyNames.CatImage;
+					ht[MainCatId] = _Categories.PropertyNames.MainCatId;
+					ht[HoverImage] = _Categories.PropertyNames.HoverImage;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +188,8 @@ namespace E3zmni.DAL
             public const string CatNameAr = "CatNameAr";
             public const string CatNameEng = "CatNameEng";
             public const string CatImage = "CatImage";
+            public const string MainCatId = "MainCatId";
+            public const string HoverImage = "HoverImage";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +201,8 @@ namespace E3zmni.DAL
 					ht[CatNameAr] = _Categories.ColumnNames.CatNameAr;
 					ht[CatNameEng] = _Categories.ColumnNames.CatNameEng;
 					ht[CatImage] = _Categories.ColumnNames.CatImage;
+					ht[MainCatId] = _Categories.ColumnNames.MainCatId;
+					ht[HoverImage] = _Categories.ColumnNames.HoverImage;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +219,8 @@ namespace E3zmni.DAL
             public const string CatNameAr = "s_CatNameAr";
             public const string CatNameEng = "s_CatNameEng";
             public const string CatImage = "s_CatImage";
+            public const string MainCatId = "s_MainCatId";
+            public const string HoverImage = "s_HoverImage";
 
 		}
 		#endregion		
@@ -246,6 +272,30 @@ namespace E3zmni.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.CatImage, value);
+			}
+		}
+
+		public virtual int MainCatId
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.MainCatId);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.MainCatId, value);
+			}
+		}
+
+		public virtual string HoverImage
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.HoverImage);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.HoverImage, value);
 			}
 		}
 
@@ -311,6 +361,36 @@ namespace E3zmni.DAL
 					this.SetColumnNull(ColumnNames.CatImage);
 				else
 					this.CatImage = base.SetstringAsString(ColumnNames.CatImage, value);
+			}
+		}
+
+		public virtual string s_MainCatId
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MainCatId) ? string.Empty : base.GetintAsString(ColumnNames.MainCatId);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MainCatId);
+				else
+					this.MainCatId = base.SetintAsString(ColumnNames.MainCatId, value);
+			}
+		}
+
+		public virtual string s_HoverImage
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.HoverImage) ? string.Empty : base.GetstringAsString(ColumnNames.HoverImage);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.HoverImage);
+				else
+					this.HoverImage = base.SetstringAsString(ColumnNames.HoverImage, value);
 			}
 		}
 
@@ -387,6 +467,26 @@ namespace E3zmni.DAL
 					}
 				}
 
+				public WhereParameter MainCatId
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MainCatId, Parameters.MainCatId);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter HoverImage
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.HoverImage, Parameters.HoverImage);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +540,36 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public WhereParameter MainCatId
+		    {
+				get
+		        {
+					if(_MainCatId_W == null)
+	        	    {
+						_MainCatId_W = TearOff.MainCatId;
+					}
+					return _MainCatId_W;
+				}
+			}
+
+			public WhereParameter HoverImage
+		    {
+				get
+		        {
+					if(_HoverImage_W == null)
+	        	    {
+						_HoverImage_W = TearOff.HoverImage;
+					}
+					return _HoverImage_W;
+				}
+			}
+
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _CatNameAr_W = null;
 			private WhereParameter _CatNameEng_W = null;
 			private WhereParameter _CatImage_W = null;
+			private WhereParameter _MainCatId_W = null;
+			private WhereParameter _HoverImage_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +577,8 @@ namespace E3zmni.DAL
 				_CatNameAr_W = null;
 				_CatNameEng_W = null;
 				_CatImage_W = null;
+				_MainCatId_W = null;
+				_HoverImage_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +675,26 @@ namespace E3zmni.DAL
 					}
 				}
 
+				public AggregateParameter MainCatId
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MainCatId, Parameters.MainCatId);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter HoverImage
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.HoverImage, Parameters.HoverImage);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +748,36 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public AggregateParameter MainCatId
+		    {
+				get
+		        {
+					if(_MainCatId_W == null)
+	        	    {
+						_MainCatId_W = TearOff.MainCatId;
+					}
+					return _MainCatId_W;
+				}
+			}
+
+			public AggregateParameter HoverImage
+		    {
+				get
+		        {
+					if(_HoverImage_W == null)
+	        	    {
+						_HoverImage_W = TearOff.HoverImage;
+					}
+					return _HoverImage_W;
+				}
+			}
+
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _CatNameAr_W = null;
 			private AggregateParameter _CatNameEng_W = null;
 			private AggregateParameter _CatImage_W = null;
+			private AggregateParameter _MainCatId_W = null;
+			private AggregateParameter _HoverImage_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +785,8 @@ namespace E3zmni.DAL
 				_CatNameAr_W = null;
 				_CatNameEng_W = null;
 				_CatImage_W = null;
+				_MainCatId_W = null;
+				_HoverImage_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +875,14 @@ namespace E3zmni.DAL
 
 			p = cmd.Parameters.Add(Parameters.CatImage);
 			p.SourceColumn = ColumnNames.CatImage;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MainCatId);
+			p.SourceColumn = ColumnNames.MainCatId;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.HoverImage);
+			p.SourceColumn = ColumnNames.HoverImage;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -4,6 +4,8 @@
 using System;
 using E3zmni.DAL;
 using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace E3zmni.BLL
 {
@@ -20,6 +22,20 @@ namespace E3zmni.BLL
             this.Where.CategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             this.Query.AddOrderBy("CardNameEng", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
             return this.Query.Load();
+
+        }
+
+        public virtual bool SearchCards(string filterText, int CatID, double PriceFrom, double PriceTo, string DimensionIds, string ColorIDs)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 100), filterText);
+            parameters.Add(new SqlParameter("@CategoryID", SqlDbType.Int, 0), CatID);
+            parameters.Add(new SqlParameter("@PriceFrom", SqlDbType.Float, 0), PriceFrom);
+            parameters.Add(new SqlParameter("@PriceTo", SqlDbType.Float, 0), PriceTo);
+            parameters.Add(new SqlParameter("@DimensionIDs", SqlDbType.NVarChar, 100), DimensionIds);
+            parameters.Add(new SqlParameter("@ColorIDs", SqlDbType.NVarChar, 100), ColorIDs);
+
+            return LoadFromSql("SearchCards", parameters);
 
         }
 	}

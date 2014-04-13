@@ -65,8 +65,21 @@
     <Content Include="Admin\EditDimension.aspx" />
     <Content Include="Admin\EditEnvelops.aspx" />
     <Content Include="Admin\EditPages.aspx" />
+    <Content Include="Admin\EditTopLevelCat.aspx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\MainCat.aspx" />
     <Content Include="Admin\UserOrders.aspx" />
+    <Content Include="ar\browse.aspx" />
+    <Content Include="ar\checkout.aspx" />
+    <Content Include="ar\controls\ucMenu.ascx" />
+    <Content Include="ar\controls\ucsearch.ascx" />
+    <Content Include="ar\customize.aspx" />
+    <Content Include="ar\default.aspx" />
+    <Content Include="ar\login.aspx" />
+    <Content Include="ar\page.aspx" />
+    <Content Include="ar\register.aspx" />
+    <Content Include="ar\viewcard.aspx" />
+    <Content Include="ar\viewenvelops.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -92,6 +105,7 @@
     <Content Include="colors\pumpkin.css" />
     <Content Include="colors\silver.css" />
     <Content Include="colors\wisteria.css" />
+    <Content Include="controls\ucMenu.ascx" />
     <Content Include="controls\ucSearch.ascx" />
     <Content Include="customize.aspx" />
     <Content Include="default.aspx" />
@@ -239,6 +253,7 @@
     <Content Include="images\backgrounds\9.jpg" />
     <Content Include="images\backgrounds\9.png" />
     <Content Include="images\backgrounds\s2.png" />
+    <Content Include="images\bg.png" />
     <Content Include="images\cf33d2de-3c26-451b-bf55-aeaccea4fd6b_2.jpeg" />
     <Content Include="images\d6da563d-01ac-4bc0-985f-baaece898ac5_1.jpeg" />
     <Content Include="images\demo1.png" />
@@ -473,11 +488,13 @@
     <Content Include="js\layerslider\skins\noskin\nothumb.png" />
     <Content Include="js\layerslider\skins\noskin\skin.css" />
     <Content Include="js\layerslider\skins\noskin\skin.png" />
+    <Content Include="js\purl.js" />
     <Content Include="js\raphael-min.js" />
     <Content Include="js\spectrum.css" />
     <Content Include="js\spectrum.js" />
     <Content Include="js\theme20.js" />
     <Content Include="js\twitter\jquery.tweet.js" />
+    <Content Include="login.aspx" />
     <Content Include="Modules\fckeditor\editor\css\behaviors\disablehandles.htc" />
     <Content Include="Modules\fckeditor\editor\css\behaviors\showtableborders.htc" />
     <Content Include="Modules\fckeditor\editor\css\fck_editorarea.css" />
@@ -954,6 +971,7 @@
     <Content Include="Modules\fckeditor\_whatsnew.html" />
     <Content Include="Modules\fckeditor\_whatsnew_history.html" />
     <Content Include="page.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\dark.css" />
     <Content Include="Styles\font\ElegantIcons.svg">
@@ -992,7 +1010,9 @@
     <Content Include="Styles\style.css" />
     <Content Include="viewCard.aspx" />
     <Content Include="ViewEnvelops.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1078,6 +1098,13 @@
     <Compile Include="Admin\EditPages.aspx.designer.cs">
       <DependentUpon>EditPages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditTopLevelCat.aspx.cs">
+      <DependentUpon>EditTopLevelCat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTopLevelCat.aspx.designer.cs">
+      <DependentUpon>EditTopLevelCat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1085,12 +1112,96 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MainCat.aspx.cs">
+      <DependentUpon>MainCat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MainCat.aspx.designer.cs">
+      <DependentUpon>MainCat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UserOrders.aspx.cs">
       <DependentUpon>UserOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\UserOrders.aspx.designer.cs">
       <DependentUpon>UserOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\browse.aspx.cs">
+      <DependentUpon>browse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\browse.aspx.designer.cs">
+      <DependentUpon>browse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\controls\ucMenu.ascx.cs">
+      <DependentUpon>ucMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\controls\ucMenu.ascx.designer.cs">
+      <DependentUpon>ucMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\controls\ucsearch.ascx.cs">
+      <DependentUpon>ucsearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\controls\ucsearch.ascx.designer.cs">
+      <DependentUpon>ucsearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\customize.aspx.cs">
+      <DependentUpon>customize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\customize.aspx.designer.cs">
+      <DependentUpon>customize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\page.aspx.designer.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\viewcard.aspx.cs">
+      <DependentUpon>viewcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\viewcard.aspx.designer.cs">
+      <DependentUpon>viewcard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\viewenvelops.aspx.cs">
+      <DependentUpon>viewenvelops.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\viewenvelops.aspx.designer.cs">
+      <DependentUpon>viewenvelops.aspx</DependentUpon>
     </Compile>
     <Compile Include="Browse.aspx.cs">
       <DependentUpon>Browse.aspx</DependentUpon>
@@ -1105,6 +1216,13 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\ucMenu.ascx.cs">
+      <DependentUpon>ucMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\ucMenu.ascx.designer.cs">
+      <DependentUpon>ucMenu.ascx</DependentUpon>
     </Compile>
     <Compile Include="controls\ucSearch.ascx.cs">
       <DependentUpon>ucSearch.ascx</DependentUpon>
@@ -1130,6 +1248,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1137,12 +1262,26 @@
     <Compile Include="MasterPages\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\AdminLogin.Master.cs">
+      <DependentUpon>AdminLogin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\AdminLogin.Master.designer.cs">
+      <DependentUpon>AdminLogin.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\All.Master.cs">
       <DependentUpon>All.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPages\All.Master.designer.cs">
       <DependentUpon>All.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Ar.Master.cs">
+      <DependentUpon>Ar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Ar.Master.designer.cs">
+      <DependentUpon>Ar.Master</DependentUpon>
     </Compile>
     <Compile Include="page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>
@@ -1152,6 +1291,14 @@
       <DependentUpon>page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsersInfo.cs" />
     <Compile Include="viewCard.aspx.cs">
       <DependentUpon>viewCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1173,6 +1320,7 @@
     <Folder Include="images\Category\" />
     <Folder Include="images\Envelop\" />
     <Folder Include="images\Layout\" />
+    <Folder Include="images\UserOrders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -1212,6 +1360,8 @@
     <None Include="js\twitter\lib\tmhUtilities.php" />
     <Content Include="MasterPages\All.Master" />
     <Content Include="MasterPages\Admin.Master" />
+    <Content Include="MasterPages\Ar.Master" />
+    <Content Include="MasterPages\AdminLogin.Master" />
     <None Include="Modules\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="Modules\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="Modules\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />

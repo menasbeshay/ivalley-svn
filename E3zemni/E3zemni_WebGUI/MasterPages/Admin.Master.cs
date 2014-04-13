@@ -11,7 +11,13 @@ namespace E3zemni_WebGUI.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["CurrentAdmin"] == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+            }
         }
     }
 }

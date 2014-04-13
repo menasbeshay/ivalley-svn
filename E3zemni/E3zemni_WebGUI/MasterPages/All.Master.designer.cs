@@ -13,6 +13,24 @@ namespace E3zemni_WebGUI.MasterPages {
     public partial class All {
         
         /// <summary>
+        /// gFontName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink gFontName;
+        
+        /// <summary>
+        /// pFontName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink pFontName;
+        
+        /// <summary>
         /// head control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,24 @@ namespace E3zemni_WebGUI.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// uiLinkButtonAr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAr;
+        
+        /// <summary>
+        /// ucMenu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E3zemni_WebGUI.controls.ucMenu ucMenu1;
         
         /// <summary>
         /// ContentPlaceHolderSlider control.

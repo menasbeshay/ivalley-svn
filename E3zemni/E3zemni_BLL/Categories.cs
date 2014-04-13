@@ -12,5 +12,12 @@ namespace E3zmni.BLL
 		{
 		
 		}
+
+        public virtual bool GetCatsByMainCatID(int MainCatId)
+        {
+            this.Where.MainCatId.Value = MainCatId;
+            this.Where.MainCatId.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
 }

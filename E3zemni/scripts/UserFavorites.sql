@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_UserFavoritesLoadByPrimaryKey]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserFavoritesLoadByPrimaryKey]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserFavoritesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserFavoritesLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserFavoritesLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_UserFavoritesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserFavoritesLoadAll]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserFavoritesLoadAll]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserFavoritesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserFavoritesLoadAll];
 GO
@@ -65,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserFavoritesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserFavoritesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserFavoritesUpdate]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserFavoritesUpdate]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserFavoritesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserFavoritesUpdate];
 GO
@@ -108,7 +108,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UserFavoritesInsert]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserFavoritesInsert]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserFavoritesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserFavoritesInsert];
 GO
@@ -154,7 +154,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserFavoritesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserFavoritesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserFavoritesDelete]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserFavoritesDelete]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserFavoritesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserFavoritesDelete];
 GO

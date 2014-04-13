@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CardsLoadByPrimaryKey]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CardsLoadByPrimaryKey]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsLoadByPrimaryKey];
 GO
@@ -42,7 +42,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsLoadByPrimaryKey Succeeded
 ELSE PRINT 'Procedure Creation: proc_CardsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsLoadAll]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CardsLoadAll]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsLoadAll];
 GO
@@ -81,7 +81,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsUpdate]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CardsUpdate]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsUpdate];
 GO
@@ -140,7 +140,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CardsInsert]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CardsInsert]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsInsert];
 GO
@@ -210,7 +210,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsDelete]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_CardsDelete]    Script Date: 4/13/2014 3:19:42 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsDelete];
 GO

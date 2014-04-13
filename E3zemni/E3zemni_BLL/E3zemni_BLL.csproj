@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardColor.cs" />
     <Compile Include="CardImages.cs" />
     <Compile Include="CardLayouts.cs" />
     <Compile Include="Cards.cs" />
@@ -48,8 +49,10 @@
     <Compile Include="Color.cs" />
     <Compile Include="Dimension.cs" />
     <Compile Include="Envelops.cs" />
+    <Compile Include="MainCat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitePages.cs" />
+    <Compile Include="TopLevelCat.cs" />
     <Compile Include="UserFavorites.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserPayement.cs" />

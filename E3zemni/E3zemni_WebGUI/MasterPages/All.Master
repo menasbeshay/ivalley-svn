@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="All.master.cs" Inherits="E3zemni_WebGUI.MasterPages.All" %>
+<%@ Register src="../controls/ucMenu.ascx" tagname="ucMenu" tagprefix="uc1" %>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
@@ -9,8 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Seo Meta -->
-		<meta name="description" content="inCreate Responsive Multipurpose HTML5">
-		<meta name="keywords" content="inCreate, corporate, light, dark, themeforest, multi purpose, premium, unlimited, ultimate">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
 
 	<!-- Styles -->
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" media="screen" />
@@ -21,10 +22,14 @@
 		<link rel="stylesheet" type="text/css" href="../styles/iview.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="../styles/responsive.css" media="screen" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <link id="gFontName" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=The Girl Next Door">
+        <link id="pFontName" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
         <link href="../colors/E3zemni.css" rel="stylesheet" type="text/css" />
 
 	<!-- CustomStyles -->
-		<style>body{background: url(images/backgrounds/25.jpg) fixed}</style>
+		<style>body{background: url(images/bg.png) fixed}</style>
+        <style id="gFontStyles" type="text/css">h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h5 a, h6 a, .sf-menu a, .tbutton, .foot-menu, .event-timer  { font-family:"The Girl Next Door", sans-serif !important; }</style>
+        <style id="pFontStyles" type="text/css">body, p, .sf-menu li a span, small { font-family:"Oswald", sans-serif !important; }</style>
 	<!-- Favicon -->
 		<%--<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">--%>
@@ -45,6 +50,7 @@
 		<script type="text/javascript" src="../js/custom.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,48 +61,21 @@
 				<div class="head_up">
 					<div class="row clearfix">
 						<div class="l_ht">
-							<span><i class="icon_mobile"></i>(001) 85 74 855</span>
-							<span><i class="icon_pin_alt"></i>Elizabeth St, Melbourne VIC 2222, USA ‎</span>
+							<a href="../login.aspx">Login</a>
 						</div><!-- end text left -->
 
 						<div class="r_ht">
-							<div class="shopping_bag">
-								<div class="header_bag">
-									<a href="shop-shopping-bag.html"><i class="icon_bag_alt"></i><span>2 item(s) / $110.00</span></a>
-								</div>
 							
-								<div class="view_cart_mini">
-									<div class="view_cart">
-										<ul class="cart_list">
-											<li class="clearfix">
-												<a href="shop-single-product.html"><img class="fll" width="50" src="images/shop/bag1.jpg" alt="#"></a>
-												<div class="cart_list_product_title">
-													<a href="shop-single-product.html">SOLID WOMEN'S TOP 2013</a>
-													<div class="cart_list_product_quantity">Quantity: 2 / <a href="#" class="toptip" title="Remove this item">Remove</a></div>
-												</div>
-											</li>
-								                        </ul>
-							
-										<span class="total_checkout fll">Cart subtotal</span>
-										<span class="amount_total flr">$275.00</span>
-										<div class="tac">
-											<a href="#" class="tbutton mt small"><span>View Shopping Bag</span></a>   
-											<a href="#" class="tbutton mt small"><span><i class="icon_cart_alt mi"></i>Checkout</span></a>
-										</div>
-									</div>
-								</div>
-							</div><!-- end Shopping Cart -->
 
-							<%--
+							
                             <div class="languages">
 								<a href="#"><span>EN</span></a>
-								<div class="other_languages">
-									<a href="#"><span>PE</span></a>
-									<a href="#"><span>DU</span></a>
-									<a href="#"><span>FR</span></a>
+								<div class="other_languages">									
+                                    <asp:LinkButton ID="uiLinkButtonAr" runat="server" 
+                                        onclick="uiLinkButtonAr_Click"><span>AR</span></asp:LinkButton>									
 								</div><!-- end other -->
 							</div><!-- end languages -->
-                            --%>
+                            
 							<div class="social social_head">
 								<a href="#" class="bottomtip" title="Twitter"><i class="fa-twitter"></i></a>
 								<a href="#" class="bottomtip" title="Facebook"><i class="fa-facebook"></i></a>
@@ -126,19 +105,10 @@
 								</div><!-- end form -->
 							</div>
 						</div>
-
-						<nav>
-							<ul class="sf-menu">
-								<li id="homeItem"><a href="../default.aspx">Home</a>
-									
-								</li>
-								<li id="cardsItem"><a href="../Search.aspx">Wedding invetations</a>
-									
-								</li>
-								
-								<li id="contactItem"><a href="#">Contact</a></li>
-							</ul><!-- end menu -->
-						</nav><!-- end nav -->
+                        <uc1:ucMenu ID="ucMenu1" runat="server" />
+                        
+						<!-- end nav -->
+					    
 					</div><!-- row -->
 				</div><!-- headdown -->
 			</header><!-- end header -->
@@ -195,7 +165,7 @@
 	
 				<div class="footer-last">
 					<div class="row clearfix">
-						<span class="copyright">© 2014 <a href="http://e3zemni.com/" class="toptip" title="E3ZEMNI">E3ZEMNI</a>. All Rights Reserved. Powered by <a href="http://i-valley.com" class="toptip" title="I-Valley">I-Valley</a>.</span>
+						<span class="copyright">© 2014 <a href="http://e3zemni.com/" class="toptip" title="E3ZEMNI">E3ZEMNI</a>. All Rights Reserved. Powered by <a href="http://mtg-eg.com" class="toptip" title="MTG">MTG</a>.</span>
 		
 						<div id="toTop" class="toptip" title="Back to Top"><i class="fa-angle-up"></i></div><!-- Back to top -->
 

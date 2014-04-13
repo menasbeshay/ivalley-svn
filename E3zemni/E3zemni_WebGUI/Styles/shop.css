@@ -899,6 +899,8 @@ table.shop_table td, .woocommerce table.shop_table td {
 	cursor: pointer;
 	padding: 0
 }
+
+
 .shop_filter input[type=checkbox] + label:hover {
 	border-color: #777
 }
@@ -924,3 +926,104 @@ table.shop_table td, .woocommerce table.shop_table td {
 .shop_filter SELECT {
 	width: 100%
 }
+
+.checkbox_sizes input[type=checkbox] + label, .checkbox_sizes input[type=checkbox]:checked + label
+{
+    width: 60px;
+}
+
+
+.checkbox_sizes input[type=radio] {
+	display:none;
+}
+.checkbox_sizes input[type=radio] + label {
+	background: none;
+	text-align: center;
+	border: 2px solid #E6E6E6;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	padding: 0
+}
+
+
+.checkbox_sizes input[type=radio] + label:hover {
+	border-color: #777
+}
+.checkbox_sizes input[type=radio]:checked + label {
+	border-color: #000;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	position: relative;
+	padding: 0;
+}
+.checkbox_sizes input[type=radio]:checked + label:after {
+	content: 'x';
+	position: absolute;
+	top: -2%;
+	left: 33%;
+	color: #000;
+	font-size: 20px;
+}
+.checkbox_sizes input[type=radio]:checked + label:after {
+	content: ''
+}
+    
+.checkbox_sizes input[type=radio] + label, .checkbox_sizes input[type=radio]:checked + label
+{
+    width: 60px;
+}   
+    
+    
+ .colors input[type=radio] {
+	display:none;
+}
+.colors input[type=radio] + label {
+	background: none;
+	text-align: center;
+	border: 2px solid #E6E6E6;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	padding: 0
+}
+
+
+.colors input[type=radio] + label:hover {
+	border-color: #777
+}
+.colors input[type=radio]:checked + label {
+	border-color: #000;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	position: relative;
+	padding: 0;
+}
+.colors input[type=radio]:checked + label:after {
+	content: 'x';
+	position: absolute;
+	top: -2%;
+	left: 33%;
+	color: #000;
+	font-size: 20px;
+}
+.colors input[type=radio]:checked + label:after {
+	content: ''
+}
+ 
+.colors input[type=radio]:checked + label:after {
+	content: 'x';
+	position: absolute;
+	top: -2%;
+	left: 33%;
+	color: #000;
+	font-size: 20px;
+}     

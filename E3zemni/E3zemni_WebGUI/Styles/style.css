@@ -51,11 +51,12 @@ table {
 ----------------------------------------------------------------------*/
 body {
 	margin: 0 auto;
-	background: #ccc url(../images/backgrounds/1.jpg) fixed;
+	/*background: #ccc url(../images/backgrounds/1.jpg) fixed;*/
+	background: #ccc url(../images/bg.png) fixed;
 	color: #7A7A7A;
 	line-height: 24px;
 	font-family: "Helvetica", Tahoma, Arial;
-	font-size: 13px
+	font-size: 15px
 }
 ::selection{
 	color:#fff;
@@ -906,7 +907,7 @@ textarea {
 	position: relative;
 	color: #000;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: 400;
 	padding: 10px 16px;
 	margin: 0;
@@ -1779,6 +1780,22 @@ li li a .sf-sub-indicator {
 	transition: all 0.2s ease;
 }
 .widget #searchwidget button:hover {
+	color: #5486da;
+}
+
+.widget #searchwidget a.searchbtn {
+	position: absolute;
+	top: 4px;
+	right: 14px;
+	background: none;
+	border: 0;
+	color: #DDD;
+	font-size: 11px;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+.widget #searchwidget a.searchbtn:hover {
 	color: #5486da;
 }
 .widget.ads img {

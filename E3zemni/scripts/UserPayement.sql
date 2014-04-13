@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_UserPayementLoadByPrimaryKey]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementLoadByPrimaryKey]    Script Date: 4/13/2014 3:19:43 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementLoadByPrimaryKey];
 GO
@@ -22,7 +22,8 @@ BEGIN
 		[EnvelopID],
 		[EnvelopCount],
 		[TotalPrice],
-		[PayementDate]
+		[PayementDate],
+		[OrderStatus]
 	FROM [UserPayement]
 	WHERE
 		([PayementID] = @PayementID)
@@ -39,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_UserPayementLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementLoadAll]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementLoadAll]    Script Date: 4/13/2014 3:19:43 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementLoadAll];
 GO
@@ -60,7 +61,8 @@ BEGIN
 		[EnvelopID],
 		[EnvelopCount],
 		[TotalPrice],
-		[PayementDate]
+		[PayementDate],
+		[OrderStatus]
 	FROM [UserPayement]
 
 	SET @Err = @@Error
@@ -75,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserPayementLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementUpdate]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementUpdate]    Script Date: 4/13/2014 3:19:43 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementUpdate];
 GO
@@ -90,7 +92,8 @@ CREATE PROCEDURE [proc_UserPayementUpdate]
 	@EnvelopID int = NULL,
 	@EnvelopCount int = NULL,
 	@TotalPrice float = NULL,
-	@PayementDate datetime = NULL
+	@PayementDate datetime = NULL,
+	@OrderStatus int = NULL
 )
 AS
 BEGIN
@@ -107,7 +110,8 @@ BEGIN
 		[EnvelopID] = @EnvelopID,
 		[EnvelopCount] = @EnvelopCount,
 		[TotalPrice] = @TotalPrice,
-		[PayementDate] = @PayementDate
+		[PayementDate] = @PayementDate,
+		[OrderStatus] = @OrderStatus
 	WHERE
 		[PayementID] = @PayementID
 
@@ -128,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UserPayementInsert]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementInsert]    Script Date: 4/13/2014 3:19:43 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementInsert];
 GO
@@ -143,7 +147,8 @@ CREATE PROCEDURE [proc_UserPayementInsert]
 	@EnvelopID int = NULL,
 	@EnvelopCount int = NULL,
 	@TotalPrice float = NULL,
-	@PayementDate datetime = NULL
+	@PayementDate datetime = NULL,
+	@OrderStatus int = NULL
 )
 AS
 BEGIN
@@ -161,7 +166,8 @@ BEGIN
 		[EnvelopID],
 		[EnvelopCount],
 		[TotalPrice],
-		[PayementDate]
+		[PayementDate],
+		[OrderStatus]
 	)
 	VALUES
 	(
@@ -172,7 +178,8 @@ BEGIN
 		@EnvelopID,
 		@EnvelopCount,
 		@TotalPrice,
-		@PayementDate
+		@PayementDate,
+		@OrderStatus
 	)
 
 	SET @Err = @@Error
@@ -189,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserPayementInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementDelete]    Script Date: 4/1/2014 2:11:46 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementDelete]    Script Date: 4/13/2014 3:19:43 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementDelete];
 GO

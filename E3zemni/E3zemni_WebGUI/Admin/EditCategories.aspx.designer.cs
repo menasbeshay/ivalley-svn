@@ -58,6 +58,15 @@ namespace E3zemni_WebGUI.Admin {
         protected global::System.Web.UI.WebControls.FileUpload uiFileUploadImage;
         
         /// <summary>
+        /// uiFileUploadHover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadHover;
+        
+        /// <summary>
         /// uiLinkButtonOK control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace E3zemni_WebGUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel uiPanelAllCats;
+        
+        /// <summary>
+        /// uiDropDownListTC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListTC;
+        
+        /// <summary>
+        /// uiDropDownListMainCats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListMainCats;
         
         /// <summary>
         /// uiLinkButtonAdd control.

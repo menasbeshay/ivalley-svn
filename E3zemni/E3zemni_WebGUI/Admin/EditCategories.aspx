@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#catsItem").addClass("current")
+        $("#catsItem").addClass("current");
+        $("#cat").addClass("current");
     });
 </script>
 </asp:Content>
@@ -41,7 +42,15 @@
                             </div>
                            
                         
-                        <div class="clear" style="height:10px;"></div>                    
+                        <div class="clear" style="height:10px;"></div>   
+                        <div class="col-lg-6"> 
+                                   Choose hover image &nbsp;
+                                        <asp:FileUpload ID="uiFileUploadHover" runat="server" />
+                                   </div>
+                            </div>
+                           
+                        
+                        <div class="clear" style="height:10px;"></div>                  
                         <div class="form-actions">
                             
                             <div class="col-lg-4">
@@ -66,8 +75,25 @@
                 
                         <h4>
                             Catgeories</h4>
-                        
-                
+
+                               <div class="col-lg-6"> 
+                               Top Categories
+                        <asp:DropDownList ID="uiDropDownListTC" runat="server" 
+                                    CssClass="form-control" 
+                                       OnSelectedIndexChanged="uiDropDownListTC_SelectedIndexChanged" 
+                                       AutoPostBack="True">
+                                </asp:DropDownList>
+                </div>
+                <div class="clear" style="height:10px;"></div>
+                             <div class="col-lg-6"> 
+                             Main Categories
+                        <asp:DropDownList ID="uiDropDownListMainCats" runat="server" 
+                                    CssClass="form-control" 
+                                     OnSelectedIndexChanged="uiDropDownListMainCats_SelectedIndexChanged" 
+                                     AutoPostBack="True">
+                                </asp:DropDownList>
+                </div>
+                <div class="clear" style="height:10px;"></div>
                         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn btn-primary" 
                             onclick="uiLinkButtonAdd_Click" > Add new category</asp:LinkButton>
                         <div class="clear" style="height: 20px;">
