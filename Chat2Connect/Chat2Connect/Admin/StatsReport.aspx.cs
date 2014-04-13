@@ -37,7 +37,7 @@ namespace Chat2Connect.Admin
         private void BindStats()
         {
             DAL.StatsReport st = new DAL.StatsReport();
-            grdResult.DataSource = st.Load(Convert.ToDateTime(txtStartDate.Text), Convert.ToDateTime(txtEndDate.Text));
+            grdResult.DataSource = st.Load(Helper.Date.ToDate(txtStartDate.Text), Helper.Date.ToDate(txtEndDate.Text));
             grdResult.DataBind();
         }
     }
