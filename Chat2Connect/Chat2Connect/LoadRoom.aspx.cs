@@ -122,7 +122,9 @@ namespace Chat2Connect
                 // attache
                 uiLiteralAttach.Text = "<a id='gift_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='إرسال هدايا' data-placement='top'><i class='icon-gift'></i></a>";
                 uiLiteralAttach.Text += "<a id='invite_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='دعوة أصدقاء' data-placement='top'><i class='icon-group'></i></a>";
-                uiLiteralAttach.Text += "<a id='file_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='تحميل ملفات' data-placement='top'><i class='icon-paper-clip'></i></a>";
+                uiLiteralAttach.Text += "<button type='button' class='btn btn-default dropdown-toggle btn-group' data-toggle='dropdown' id='attachbtn' onclick=\"$(this).next('ul').toggle();\" title='تحميل ملفات' data-placement='top'><i class='icon-paper-clip'></i></button>" +
+                                "<ul id='myul' style='display:none;' class='dropdown-menu' role='menu'>" +
+                                 "<li><a id='yt_" + rid.ToString() + "' onclick=\"$(this).next('#mydiv').toggle();\">مقطع فيديو</a><div id='mydiv' style='display:none;'>mena</div></li></ul>";
 
                 // msg history panel 
                 uiLiteralMsg.Text = "<textarea id='uiTextMsg_" + rid.ToString() + "' type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>";

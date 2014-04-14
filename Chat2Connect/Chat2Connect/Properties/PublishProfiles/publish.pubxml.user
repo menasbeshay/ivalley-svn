@@ -24,6 +24,60 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="AddPhoto.aspx">
       <publishTime>12/22/2013 15:56:42</publishTime>
     </File>
+    <File Include="Admin/AccountHistory.aspx">
+      <publishTime>04/13/2014 13:05:36</publishTime>
+    </File>
+    <File Include="Admin/Accounts.aspx">
+      <publishTime>04/13/2014 13:05:36</publishTime>
+    </File>
+    <File Include="Admin/AddAccount.aspx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/Admin.master">
+      <publishTime>04/13/2014 13:05:34</publishTime>
+    </File>
+    <File Include="Admin/App_LocalResources/StatsReport.aspx.resx">
+      <publishTime>04/13/2014 13:05:34</publishTime>
+    </File>
+    <File Include="Admin/Default.aspx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/ManageAccount.aspx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/ManageRoom.aspx">
+      <publishTime>04/13/2014 13:05:35</publishTime>
+    </File>
+    <File Include="Admin/SendMessage.aspx">
+      <publishTime>04/13/2014 13:05:36</publishTime>
+    </File>
+    <File Include="Admin/SiteMails.aspx">
+      <publishTime>04/13/2014 13:05:36</publishTime>
+    </File>
+    <File Include="Admin/StatsReport.aspx">
+      <publishTime>04/13/2014 13:05:36</publishTime>
+    </File>
+    <File Include="Admin/UserControls/AccountInfo.ascx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/UserControls/AccountRoles.ascx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/UserControls/AccountStatus.ascx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/UserControls/AccountType.ascx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/UserControls/AdminRoles.ascx">
+      <publishTime>04/08/2014 10:56:23</publishTime>
+    </File>
+    <File Include="Admin/UserControls/Room/RoomStatus.ascx">
+      <publishTime>04/13/2014 13:05:35</publishTime>
+    </File>
+    <File Include="Admin/UserControls/Room/RoomType.ascx">
+      <publishTime>04/13/2014 13:05:35</publishTime>
+    </File>
     <File Include="App_LocalResources/createRoom.aspx.resx">
       <publishTime>12/25/2013 11:34:48</publishTime>
     </File>
@@ -34,10 +88,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/16/2013 13:20:40</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>03/19/2014 17:22:18</publishTime>
+      <publishTime>04/13/2014 21:41:01</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>03/31/2014 10:59:39</publishTime>
+      <publishTime>04/13/2014 21:41:01</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>03/18/2014 10:44:29</publishTime>
@@ -58,7 +112,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>03/09/2014 22:46:15</publishTime>
+      <publishTime>04/13/2014 15:52:07</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -150,6 +204,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/fonts/modernpics.woff">
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
+    <File Include="bin/Helper.dll">
+      <publishTime>04/13/2014 21:41:01</publishTime>
+    </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>01/19/2014 13:36:26</publishTime>
     </File>
@@ -210,6 +267,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="css/bootstrap-image-gallery.css">
       <publishTime>12/23/2013 11:14:03</publishTime>
     </File>
+    <File Include="css/bootstrap-switch.css">
+      <publishTime>04/08/2014 10:56:22</publishTime>
+    </File>
     <File Include="css/bootstrap-tagsinput.css">
       <publishTime>03/05/2014 14:43:56</publishTime>
     </File>
@@ -227,6 +287,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="css/dreamcodes.css">
       <publishTime>03/06/2014 16:08:35</publishTime>
+    </File>
+    <File Include="css/fileupload/demo-ie8.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/demo.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/jquery.fileupload-noscript.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/jquery.fileupload-ui-noscript.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/jquery.fileupload-ui.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/jquery.fileupload.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
+    </File>
+    <File Include="css/fileupload/style.css">
+      <publishTime>04/09/2014 14:39:24</publishTime>
     </File>
     <File Include="css/font-awesome/css/font-awesome-ie7.min.css">
       <publishTime>12/11/2013 14:18:34</publishTime>
@@ -1047,6 +1128,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/bootstrap-image-gallery.js">
       <publishTime>12/23/2013 10:20:28</publishTime>
     </File>
+    <File Include="js/bootstrap-switch.js">
+      <publishTime>04/08/2014 10:56:22</publishTime>
+    </File>
     <File Include="js/bootstrap-tagsinput.min.js">
       <publishTime>03/05/2014 14:30:55</publishTime>
     </File>
@@ -1064,6 +1148,51 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
+    </File>
+    <File Include="js/fileupload/app.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/cors/jquery.postmessage-transport.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/cors/jquery.xdr-transport.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-angular.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-audio.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-image.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-jquery-ui.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-process.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-ui.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-validate.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload-video.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.fileupload.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/jquery.iframe-transport.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/main.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
+    </File>
+    <File Include="js/fileupload/vendor/jquery.ui.widget.js">
+      <publishTime>04/09/2014 14:38:40</publishTime>
     </File>
     <File Include="js/group_validation.js">
       <publishTime>12/18/2013 17:16:56</publishTime>
@@ -1189,7 +1318,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>03/09/2014 07:49:49</publishTime>
+      <publishTime>04/13/2014 13:05:36</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>03/13/2014 16:36:48</publishTime>
@@ -1244,6 +1373,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="testswf/chat2connect2.swf">
       <publishTime>02/22/2014 10:31:23</publishTime>
+    </File>
+    <File Include="usercontrols/Mail.ascx">
+      <publishTime>04/13/2014 13:05:34</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>03/26/2014 20:22:02</publishTime>

@@ -164,17 +164,19 @@
                                         <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
                                         <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
                                     <div class="clearfix" style="height: 1px;"></div> 
-                                     <div class="popup-menu">
-						           <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
-						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
-					            </div>                              
+                                   
+                                <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <li><a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
+						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
+                                   
+                                </ul>                           
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> 
                             <div class="Alteven friend-link rm" id="m_<%# Eval("MemberID") %>">
@@ -183,18 +185,22 @@
                                     <div class="pull-left controls">
                                         <asp:Literal ID="uiLiteralCamLink" runat="server"></asp:Literal>
                                         <img src="images/hand.png" style="width:16px;" class="hand"/><img src="images/microphone_1.png" style="width:16px;" class="mic"/><i class="icon-ban-circle mark" ></i></div>
-                                    <div class="clearfix" style="height: 1px;"></div>         
-                                 <div class="popup-menu">
-						            <a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a>
-						            <a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a>
-						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
-						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
-						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
-						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
-						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
-						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
-						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
-					            </div>                      
+                                    <div class="clearfix" style="height: 1px;"></div>  
+                                
+                                
+                                <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <li><a class="jslink" ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
+						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
+						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
+                                   
+                                </ul>
+                                                    
                                 </div>
                         </AlternatingItemTemplate>
                     </asp:Repeater>
