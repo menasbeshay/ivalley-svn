@@ -11,7 +11,12 @@ namespace E3zemni_WebGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Master.PageTitle = "Login";
+                Master.Path = "";
+                Master.ViewPath = true;
+            }
         }
         protected void uiLinkButtonMainLogin_Click(object sender, EventArgs e)
         {

@@ -161,7 +161,7 @@
 								<img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
 								<img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->								
 								<div class="product_inner">
-									<h3> <a href='Browse.aspx?cid=<%# Eval("CategoryID") %>'> <%# Eval("CatNameAr")%> </a> </h3>
+									<h3> <a href='Browse.aspx?catid=<%# Eval("CategoryID") %>'> <%# Eval("CatNameAr")%> </a> </h3>
 									<div class="clearfix">																				
 									</div>
 								</div>								

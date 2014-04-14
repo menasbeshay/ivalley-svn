@@ -41,6 +41,9 @@ namespace E3zemni_WebGUI
                 if (Session["UserPayment"] != null)
                 {
                     BindOrder();
+                    Master.PageTitle = "Checkout";
+                    Master.Path = "";
+                    Master.ViewPath = true;
                 }
             }
         }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true" CodeBehind="Browse.aspx.cs" Inherits="E3zemni_WebGUI.Browse" %>
+<%@ MasterType VirtualPath="~/MasterPages/All.Master" %>
 <%@ Register src="controls/ucSearch.ascx" tagname="ucSearch" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
