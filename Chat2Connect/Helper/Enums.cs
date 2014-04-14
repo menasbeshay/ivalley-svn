@@ -107,5 +107,17 @@ namespace Helper
             [StringValue("معطل نهائيا")]
             PermanentlyDisabled = 3,
         }
+
+        public enum AdminMailAddressAlias
+        {
+            [StringValue("الجميع")]
+            All,
+            [StringValue("المتواجدين الأن")]
+            Online,
+            [StringValue("الغير متواجد")]
+            Offline,
+            [StringValue("الحساب المصبوغ")]
+            TypedAccount,
+        }
     }
 }

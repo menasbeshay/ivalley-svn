@@ -30,11 +30,11 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool changeMail(string question,string answer, string mail)
-        {            
+        public bool changeMail(string question, string answer, string mail)
+        {
             MembershipUser user = Membership.GetUser();
             Member member = new Member();
-            
+
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
             if (user.PasswordQuestion == question && member.Answer == answer)
             {
@@ -57,7 +57,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool changePass(string oldpass ,string question, string answer, string pass)
+        public bool changePass(string oldpass, string question, string answer, string pass)
         {
             bool update = false;
             MembershipUser user = Membership.GetUser();
@@ -68,8 +68,8 @@ namespace Chat2Connect.services
             {
                 string Oldpass = oldpass;
                 update = user.ChangePassword(Oldpass, pass);
-                if(update)
-                    Membership.UpdateUser(user);                
+                if (update)
+                    Membership.UpdateUser(user);
             }
             else
             {
@@ -99,12 +99,12 @@ namespace Chat2Connect.services
             Member member = new Member();
 
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-            member.Status = status;            
+            member.Status = status;
             member.Save();
             return true;
         }
 
-         [WebMethod]
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool SendMsg(string ToMember, string subject, string content)
         {
@@ -124,12 +124,12 @@ namespace Chat2Connect.services
                     message.MessageContent = content;
                 }
             }
-            
+
             message.Save();
             return true;
         }
 
-        
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string[] SearchMembers(string query)
@@ -176,14 +176,41 @@ namespace Chat2Connect.services
             return str;
         }
 
-       
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SearchMailMembers(int memberID, string q)
+        {
+            List<dynamic> friends = new List<dynamic>();
+            Member member = new Member();
+            member.SearchMembersExceptFriends(q, memberID);
+            if (member.RowCount > 0)
+            {
+                for (int i = 0; i < member.RowCount; i++)
+                {
+                    friends.Add(new { id = member.MemberID, name = member.Name });
+                    member.MoveNext();
+                }
+            }
+            if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_SendMessgae.ToString()))
+            {
+                friends.AddRange(Helper.EnumUtil.GetValues<Helper.Enums.AdminMailAddressAlias>().Select(r => new
+                {
+                    id = ((int)r) * -1,
+                    name = Helper.StringEnum.GetStringValue(r)
+                }));
+            }
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(friends);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
+        }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int GetQueueOrder(int memberID, int roomID)
         {
             int value = 0;
             RoomMember member = new RoomMember();
-            member.LoadByPrimaryKey(memberID,roomID);
+            member.LoadByPrimaryKey(memberID, roomID);
             RoomMember order = new RoomMember();
             order.GetMaxQueueOrderByRoomID(roomID);
             if (member.IsColumnNull("QueueOrder"))
@@ -193,9 +220,9 @@ namespace Chat2Connect.services
             }
             else
                 member.SetColumnNull("QueueOrder");
-            
+
             member.Save();
-            
+
             return value;
         }
 
@@ -224,16 +251,16 @@ namespace Chat2Connect.services
             }
             catch (Exception ex)
             {
-                return false;                
+                return false;
             }
-            
+
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool ClearQueue(string rid)
         {
-            
+
             Room room = new Room();
             room.LoadByPrimaryKey(Convert.ToInt32(rid));
 
@@ -307,7 +334,7 @@ namespace Chat2Connect.services
 
             try
             {
-                if(CanWrite)
+                if (CanWrite)
                     room.MarkOnLoginWithWrite = CanWrite;
                 else
                     room.MarkOnLoginWithoutWrite = !CanWrite;
