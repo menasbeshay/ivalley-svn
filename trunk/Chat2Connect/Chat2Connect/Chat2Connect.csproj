@@ -175,6 +175,7 @@
     <Content Include="css\Tags\textext.plugin.focus.css" />
     <Content Include="css\Tags\textext.plugin.prompt.css" />
     <Content Include="css\Tags\textext.plugin.tags.css" />
+    <Content Include="css\token-input-facebook.css" />
     <Content Include="css\tsc_pricingtables.css" />
     <Content Include="css\validationEngine.jquery.css" />
     <Content Include="css\validationEngine1.jquery.css" />
@@ -378,6 +379,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="images\backgrounds\.DS_Store" />
     <Content Include="js\bootstrap-tagsinput.min.js.map" />
+    <Content Include="js\jquery.tokeninput.js" />
     <Content Include="js\fileupload\app.js" />
     <Content Include="js\fileupload\cors\jquery.postmessage-transport.js" />
     <Content Include="js\fileupload\cors\jquery.xdr-transport.js" />
@@ -407,6 +409,7 @@
     <Content Include="MyBalance.aspx" />
     <Content Include="testswf\chat2connect.swf" />
     <Content Include="usercontrols\Mail.ascx" />
+    <Content Include="usercontrols\SendMail.ascx" />
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Admin.master" />
@@ -779,6 +782,13 @@
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.designer.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\SendMail.ascx.cs">
+      <DependentUpon>SendMail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\SendMail.ascx.designer.cs">
+      <DependentUpon>SendMail.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\ucFriends.ascx.cs">
       <DependentUpon>ucFriends.ascx</DependentUpon>
