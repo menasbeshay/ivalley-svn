@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true" CodeBehind="customize.aspx.cs" Inherits="E3zemni_WebGUI.customize" %>
+<%@ MasterType VirtualPath="~/MasterPages/All.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script src="js/spectrum.js" type="text/javascript"></script>
     <link href="js/spectrum.css" rel="stylesheet" type="text/css" />

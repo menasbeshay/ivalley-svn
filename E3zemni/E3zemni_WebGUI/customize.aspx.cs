@@ -40,6 +40,9 @@ namespace E3zemni_WebGUI
             if (!IsPostBack)
             {
                 LoadCardInfo();
+                Master.PageTitle = "Customize";
+                Master.Path = "";
+                Master.ViewPath = true;
             }
         }
 

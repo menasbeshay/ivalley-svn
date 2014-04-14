@@ -76,6 +76,42 @@ namespace E3zemni_WebGUI.MasterPages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderSlider;
         
         /// <summary>
+        /// uiPanelBreadcrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelBreadcrumb;
+        
+        /// <summary>
+        /// uiLabelTopTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelTopTitle;
+        
+        /// <summary>
+        /// uiLiteralSubPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralSubPath;
+        
+        /// <summary>
+        /// uiLabelTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelTitle;
+        
+        /// <summary>
         /// ContentPlaceHolderContent control.
         /// </summary>
         /// <remarks>

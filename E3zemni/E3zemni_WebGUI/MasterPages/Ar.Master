@@ -115,6 +115,23 @@
         
             </asp:ContentPlaceHolder>
 
+            <asp:Panel ID="uiPanelBreadcrumb" runat="server" Visible="false">
+            <div class="breadcrumb-place">
+				<div class="row clearfix">
+					<h3 class="page-title"> 
+                        <asp:Label ID="uiLabelTopTitle" runat="server" ></asp:Label> </h3>
+					<div class="breadcrumbIn">
+						<ul>
+							<li><a href="default.aspx"><i class="icon_house_alt mi"></i> الرئيسية </a></li>
+                            <asp:Literal ID="uiLiteralSubPath" runat="server"></asp:Literal>
+							<li> 
+                                <asp:Label ID="uiLabelTitle" runat="server"></asp:Label> </li>
+						</ul>
+					</div><!-- breadcrumbIn -->
+				</div><!-- row -->
+			</div>
+            </asp:Panel>
+
 			<div class="page-content">
                 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server">

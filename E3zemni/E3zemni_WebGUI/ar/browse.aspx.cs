@@ -15,11 +15,58 @@ namespace E3zemni_WebGUI.ar
         {
             get
             {
-                if (Request.QueryString["cid"] != null)
+                if (Request.QueryString["catid"] != null)
                 {
                     try
                     {
-                        return int.Parse(Request.QueryString["cid"].ToString());
+                        return int.Parse(Request.QueryString["catid"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return 0;
+                    }
+
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+
+        public int MainCatID
+        {
+            get
+            {
+                if (Request.QueryString["mcid"] != null)
+                {
+                    try
+                    {
+                        return int.Parse(Request.QueryString["mcid"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return 0;
+                    }
+
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public int TopCatID
+        {
+            get
+            {
+                if (Request.QueryString["tcid"] != null)
+                {
+                    try
+                    {
+                        return int.Parse(Request.QueryString["tcid"].ToString());
                     }
                     catch (Exception ex)
                     {
@@ -129,6 +176,8 @@ namespace E3zemni_WebGUI.ar
         }
 
 
+
+
         public int currentPage
         {
             get
@@ -149,6 +198,45 @@ namespace E3zemni_WebGUI.ar
             if (!IsPostBack)
             {
                 BindData();
+                if (CatID != 0)
+                {
+                    Categories cat = new Categories();
+                    cat.LoadByPrimaryKey(CatID);
+                    Master.PageTitle = cat.CatNameAr;
+
+                    MainCat Mcat = new MainCat();
+                    Mcat.LoadByPrimaryKey(cat.MainCatId);
+
+                    TopLevelCat Tcat = new TopLevelCat();
+                    Tcat.LoadByPrimaryKey(Mcat.TopLevelCatID);
+
+                    Master.Path = "<li><a href='#'>" + Tcat.NameAr + "</a></li>" + "<li><a href='#'>" + Mcat.NameAr + "</a></li>";
+
+                    Master.ViewPath = true;
+                }
+                else if (MainCatID != 0)
+                {
+                    MainCat cat = new MainCat();
+                    cat.LoadByPrimaryKey(MainCatID);
+                    Master.PageTitle = cat.NameAr;
+
+                    TopLevelCat Tcat = new TopLevelCat();
+                    Tcat.LoadByPrimaryKey(cat.TopLevelCatID);
+
+                    Master.Path = "<li><a href='#'>" + Tcat.NameAr + "</a></li>";
+
+                    Master.ViewPath = true;
+                }
+                else if (TopCatID != 0)
+                {
+                    TopLevelCat cat = new TopLevelCat();
+                    cat.LoadByPrimaryKey(MainCatID);
+                    Master.PageTitle = cat.NameAr;
+
+                    Master.ViewPath = true;
+                }
+
+
             }
         }
 

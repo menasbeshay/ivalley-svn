@@ -47,5 +47,17 @@ namespace E3zemni_WebGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::E3zemni_WebGUI.controls.ucSearch ucSearch1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new E3zemni_WebGUI.MasterPages.All Master {
+            get {
+                return ((E3zemni_WebGUI.MasterPages.All)(base.Master));
+            }
+        }
     }
 }
