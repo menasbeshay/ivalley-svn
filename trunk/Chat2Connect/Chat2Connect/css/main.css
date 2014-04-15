@@ -1014,9 +1014,12 @@ fieldset[disabled] .btn-main.active {
     width:20px;
     padding:0px;margin:3px;
 }
+
+
 #smilesMenu > li > a {
     padding:2px !important;
 }
+
 
 #smilesMenu > li.divider {
     background-color:transparent !important;
@@ -1026,8 +1029,9 @@ fieldset[disabled] .btn-main.active {
 }
 .itemImage {
     width:auto;
-    height:22px;
+    height:auto;
     float:right;
+    margin:1px;
 }
 
 .MsgHeader th {

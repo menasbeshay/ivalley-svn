@@ -122,9 +122,23 @@ namespace Chat2Connect
                 // attache
                 uiLiteralAttach.Text = "<a id='gift_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='إرسال هدايا' data-placement='top'><i class='icon-gift'></i></a>";
                 uiLiteralAttach.Text += "<a id='invite_" + rid.ToString() + "' class='btn btn-default roomMenuItem' title='دعوة أصدقاء' data-placement='top'><i class='icon-group'></i></a>";
-                uiLiteralAttach.Text += "<button type='button' class='btn btn-default dropdown-toggle btn-group' data-toggle='dropdown' id='attachbtn' onclick=\"$(this).next('ul').toggle();\" title='تحميل ملفات' data-placement='top'><i class='icon-paper-clip'></i></button>" +
+                uiLiteralAttach.Text += "<div class='roomMenuItem' title='تحميل ملفات' data-placement='top' style='display: inline-block;position:relative;'> <button type='button' class='btn btn-default dropdown-toggle btn-group' data-toggle='dropdown' id='attachbtn' onclick='animateMenu($(this));' ><i class='icon-paper-clip'></i></button>" +
                                 "<ul id='myul' style='display:none;' class='dropdown-menu' role='menu'>" +
-                                 "<li><a id='yt_" + rid.ToString() + "' onclick=\"$(this).next('#mydiv').toggle();\">مقطع فيديو</a><div id='mydiv' style='display:none;'>mena</div></li></ul>";
+                                   // video file 
+                                 "<li><a id='yt_" + rid.ToString() + "' onclick=\"$(this).next('#mydiv').toggle();\">مقطع فيديو</a><div id='mydiv' style='display:none;'>"
+                                 + "<input type='text' class='form-control' ><a onclick='sendvideo(" + rid.ToString() + ", $(this).prev(\"input\").val() ,$(\"#uiHiddenFieldCurrentName\").val(), $(this).prev(\"input\")); return false;' class='btn btn-default' style='cursor:pointer;' >إرسال</a></div></li>" + 
+
+                                 // image file
+                                 @"<li>
+                                   <div class='UploadDiv'>
+                                    <div id='UploadStatus_" + rid.ToString() + @"'>
+                                    </div>
+                                    <input type='button' id='UploadButton_" + rid.ToString() + @"' class='UploadButton'  />
+                                    <div id='UploadedFile_" + rid.ToString() + @"'>
+                                    </div>
+                                </div>
+                                 </li> " +
+                                 "</ul></div>";
 
                 // msg history panel 
                 uiLiteralMsg.Text = "<textarea id='uiTextMsg_" + rid.ToString() + "' type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>";
@@ -134,8 +148,47 @@ namespace Chat2Connect
 
                 // javascript functions 
                 uiLiteralScript.Text = "<script type='text/javascript'>" +
-                   // "$('#initCam_" + rid.ToString() + "').click(function () { " + "startCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
-                   // "$('#closeCam_" + rid.ToString() + "').click(function () { " + "stopCam" + rid.ToString() + @"(" + CurrentMember.MemberID.ToString() + "); });" +
+                   @"
+                    $(function () {
+
+                        new AjaxUpload('#UploadButton_" + rid.ToString() + @"', {
+                            action: 'services/FileUploader.ashx',
+                            onComplete: function (file, response) {" +
+                                "$('<div><img src=\"images/btndelete.png\" onclick=\"DeleteFile('"+" + response + " +"')\"  class=\"delete\"/>' + response + '</div>').appendTo('#UploadedFile_" + rid.ToString() + @"');
+                                $('#UploadStatus_" + rid.ToString() + @"').html('تم رفع الصورة بنجاح');
+                                $('#UploadButton_" + rid.ToString() + @"').hide();
+                            },
+                            onSubmit: function (file, ext) {
+                                if (!(ext && /^(png|gif|jpg)$/i.test(ext))) {
+                                    alert('حدث خطأ . تأكد من نوع ملف الصورة');
+                                    return false;
+                                }
+                                $('#UploadStatus_" + rid.ToString() + @"').html('جارى التحميل...');
+                            }
+                        });
+
+                    });
+
+                    function DeleteFile(file) {
+                        $('#UploadStatus_" + rid.ToString() + @"').html('جارى الحذف...');
+                        $.ajax({
+                            url: 'services/FileUploader.ashx?file=' + file,
+                            type: 'GET',
+                            cache: false,
+                            async: true,
+                            success: function (html) {
+                                $('#UploadedFile_" + rid.ToString() + @"').html('');
+                                $('#UploadStatus_" + rid.ToString() + @"').html('تم حذف الملف');
+                                $('#UploadButton_" + rid.ToString() + @"').show();
+
+                            }
+                        });
+
+                    }
+
+                    " +
+
+
                     "var editor_" + rid.ToString() + " = new wysihtml5.Editor('uiTextMsg_" + rid.ToString() + "',{toolbar: 'toolbar" + rid.ToString() + "', parserRules: wysihtml5ParserRules, useLineBreaks:  false, stylesheets: 'css/main.css'});" +
                     @"editor_" + rid.ToString() + @".observe('load', function() {
                                                 editor_" + rid.ToString() + @".composer.element.addEventListener('keyup', function(e) {                                                        
