@@ -30,6 +30,7 @@
     <script src="../js/html5shiv-printshiv.js"></script>
     <script src="../js/jquery.pnotify.min.js"></script>
     <script src="../Scripts/jquery.signalR-2.0.1.js"></script>
+    <script src="../js/fileupload/ajaxupload.js"></script>
     <script src="/signalr/hubs"></script>
 
     <script type="text/javascript">

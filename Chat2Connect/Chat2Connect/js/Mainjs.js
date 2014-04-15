@@ -218,6 +218,23 @@ function DisableCams(rid) {
     });
 }
 
+
+function animateMenu(obj)
+{
+    var ul = obj.next("ul");
+    if (ul.is(":hidden")) {
+        ul.slideDown();
+    } else {
+        ul.slideUp();
+    }
+
+}
+
+function sendvideo(rid, url,sender, input)
+{
+    input.val('');
+    rHub.server.sendVideoToRoom(rid, sender, url);
+}
 /************ signalr ********************/
 $(document).ready(function () {
     
@@ -252,7 +269,23 @@ $(document).ready(function () {
 
     /* rooms hub */
     rHub.client.getMessage = function (rid, sname, msg) {        
-        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b>:</div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
+        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
+        $(".MsgHistroy").slimScroll({
+            railVisible: true,
+            height: '400px',
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left',
+            scrollTo: $(".MsgHistroy", "#room_" + rid).height()
+        });
+
+    };
+
+    rHub.client.getVideoMessage = function (rid, sname, url) {
+        var arr = url.split('v='); // remove "youtube.com/watch?v="
+        var id = arr[1].split('&'); // extract vedio id from query string - first element in the array
+
+        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/"+ id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>");
         $(".MsgHistroy").slimScroll({
             railVisible: true,
             height: '400px',

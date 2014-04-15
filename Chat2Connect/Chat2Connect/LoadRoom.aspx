@@ -260,60 +260,201 @@
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 <span class="icon-smile"></span>
                                 </button> 
-                                <ul class="dropdown-menu" role="menu" id="smilesMenu">
-                                     
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/1.gif'><img src="images/emotions/1.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/2.gif'><img src="images/emotions/2.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/3.gif'><img src="images/emotions/3.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/4.gif'><img src="images/emotions/4.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/5.gif'><img src="images/emotions/5.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/8.gif'><img src="images/emotions/8.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/9.gif'><img src="images/emotions/9.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/10.gif'><img src="images/emotions/10.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/11.gif'><img src="images/emotions/11.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/12.gif'><img src="images/emotions/12.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/13.gif'><img src="images/emotions/13.gif" /></a></li>                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/15.gif'><img src="images/emotions/15.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/16.gif'><img src="images/emotions/16.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/17.gif'><img src="images/emotions/17.gif" /></a></li>                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/19.gif'><img src="images/emotions/19.gif" /></a></li>                                    
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/21.gif'><img src="images/emotions/21.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/22.gif'><img src="images/emotions/22.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/23.gif'><img src="images/emotions/23.gif" /></a></li>                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/27.gif'><img src="images/emotions/27.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/28.gif'><img src="images/emotions/28.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/29.gif'><img src="images/emotions/29.gif" /></a></li>                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/31.gif'><img src="images/emotions/31.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/32.gif'><img src="images/emotions/32.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/33.gif'><img src="images/emotions/33.gif" /></a></li>                                                                                                    
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/37.gif'><img src="images/emotions/37.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/38.gif'><img src="images/emotions/38.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/39.gif'><img src="images/emotions/39.gif" /></a></li>                                    
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/41.gif'><img src="images/emotions/41.gif" /></a></li>                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/43.gif'><img src="images/emotions/43.gif" /></a></li>                                                                
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/47.gif'><img src="images/emotions/47.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/48.gif'><img src="images/emotions/48.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/49.gif'><img src="images/emotions/49.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/20.gif'><img src="images/emotions/20.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/44.gif'><img src="images/emotions/44.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/45.gif'><img src="images/emotions/45.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/46.gif'><img src="images/emotions/46.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/7.gif'><img src="images/emotions/7.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/14.gif'><img src="images/emotions/14.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/18.gif'><img src="images/emotions/18.gif" /></a></li>
+                                <ul class="dropdown-menu " role="menu" style="width:300px !important">
+                                     <li><ul id="smilesMenu" class="SScroll" data-height="120px">
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (1).png'><img src="images/emotions/icon (1).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (2).png'><img src="images/emotions/icon (2).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (3).png'><img src="images/emotions/icon (3).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (4).png'><img src="images/emotions/icon (4).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (5).png'><img src="images/emotions/icon (5).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (6).png'><img src="images/emotions/icon (6).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (7).png'><img src="images/emotions/icon (7).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (8).png'><img src="images/emotions/icon (8).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (9).png'><img src="images/emotions/icon (9).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (10).png'><img src="images/emotions/icon (10).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (11).png'><img src="images/emotions/icon (11).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (12).png'><img src="images/emotions/icon (12).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (13).png'><img src="images/emotions/icon (13).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (14).png'><img src="images/emotions/icon (14).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (15).png'><img src="images/emotions/icon (15).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (16).png'><img src="images/emotions/icon (16).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (17).png'><img src="images/emotions/icon (17).png" /></a></li> 
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (18).png'><img src="images/emotions/icon (18).png" /></a></li>                               
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (19).png'><img src="images/emotions/icon (19).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (20).png'><img src="images/emotions/icon (20).png" /></a></li>                                  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (21).png'><img src="images/emotions/icon (21).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (22).png'><img src="images/emotions/icon (22).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (23).png'><img src="images/emotions/icon (23).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (24).png'><img src="images/emotions/icon (24).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (25).png'><img src="images/emotions/icon (25).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (26).png'><img src="images/emotions/icon (26).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (27).png'><img src="images/emotions/icon (27).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (28).png'><img src="images/emotions/icon (28).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (29).png'><img src="images/emotions/icon (29).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (30).png'><img src="images/emotions/icon (30).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (31).png'><img src="images/emotions/icon (31).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (32).png'><img src="images/emotions/icon (32).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (33).png'><img src="images/emotions/icon (33).png" /></a></li> 
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (34).png'><img src="images/emotions/icon (34).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (35).png'><img src="images/emotions/icon (35).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (36).png'><img src="images/emotions/icon (36).png" /></a></li>                                                                                                   
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (37).png'><img src="images/emotions/icon (37).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (38).png'><img src="images/emotions/icon (38).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (39).png'><img src="images/emotions/icon (39).png" /></a></li>                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (40).png'><img src="images/emotions/icon (40).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (41).png'><img src="images/emotions/icon (41).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (42).png'><img src="images/emotions/icon (42).png" /></a></li>                              
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (43).png'><img src="images/emotions/icon (43).png" /></a></li>                                                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (44).png'><img src="images/emotions/icon (44).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (45).png'><img src="images/emotions/icon (45).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (46).png'><img src="images/emotions/icon (46).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (47).png'><img src="images/emotions/icon (47).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (48).png'><img src="images/emotions/icon (48).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (49).png'><img src="images/emotions/icon (49).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (50).png'><img src="images/emotions/icon (50).png" /></a></li>
                                 
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/24.gif'><img src="images/emotions/24.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/25.gif'><img src="images/emotions/25.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/26.gif'><img src="images/emotions/26.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/30.gif'><img src="images/emotions/30.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/34.gif'><img src="images/emotions/34.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/35.gif'><img src="images/emotions/35.gif" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (51).png'><img src="images/emotions/icon (51).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (52).png'><img src="images/emotions/icon (52).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (53).png'><img src="images/emotions/icon (53).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (54).png'><img src="images/emotions/icon (54).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (55).png'><img src="images/emotions/icon (55).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (56).png'><img src="images/emotions/icon (56).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (57).png'><img src="images/emotions/icon (57).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (58).png'><img src="images/emotions/icon (58).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (59).png'><img src="images/emotions/icon (59).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (60).png'><img src="images/emotions/icon (60).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (61).png'><img src="images/emotions/icon (61).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (62).png'><img src="images/emotions/icon (62).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (63).png'><img src="images/emotions/icon (63).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (64).png'><img src="images/emotions/icon (64).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (65).png'><img src="images/emotions/icon (65).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (66).png'><img src="images/emotions/icon (66).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (67).png'><img src="images/emotions/icon (67).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (68).png'><img src="images/emotions/icon (68).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (69).png'><img src="images/emotions/icon (69).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (70).png'><img src="images/emotions/icon (70).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (71).png'><img src="images/emotions/icon (71).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (72).png'><img src="images/emotions/icon (72).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (73).png'><img src="images/emotions/icon (73).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (74).png'><img src="images/emotions/icon (74).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (75).png'><img src="images/emotions/icon (75).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (76).png'><img src="images/emotions/icon (76).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (77).png'><img src="images/emotions/icon (77).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (78).png'><img src="images/emotions/icon (78).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (79).png'><img src="images/emotions/icon (79).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (80).png'><img src="images/emotions/icon (80).png" /></a></li>                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (81).png'><img src="images/emotions/icon (81).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (82).png'><img src="images/emotions/icon (82).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (83).png'><img src="images/emotions/icon (83).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (84).png'><img src="images/emotions/icon (84).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (85).png'><img src="images/emotions/icon (85).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (86).png'><img src="images/emotions/icon (86).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (87).png'><img src="images/emotions/icon (87).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (88).png'><img src="images/emotions/icon (88).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (89).png'><img src="images/emotions/icon (89).png" /></a></li>                                                                                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (90).png'><img src="images/emotions/icon (90).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (91).png'><img src="images/emotions/icon (91).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (92).png'><img src="images/emotions/icon (92).png" /></a></li>                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (93).png'><img src="images/emotions/icon (93).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (94).png'><img src="images/emotions/icon (94).png" /></a></li>                                                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (95).png'><img src="images/emotions/icon (95).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (96).png'><img src="images/emotions/icon (96).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (97).png'><img src="images/emotions/icon (97).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (98).png'><img src="images/emotions/icon (98).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (99).png'><img src="images/emotions/icon (99).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (100).png'><img src="images/emotions/icon (100).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (101).png'><img src="images/emotions/icon (101).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (102).png'><img src="images/emotions/icon (102).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (103).png'><img src="images/emotions/icon (103).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (104).png'><img src="images/emotions/icon (104).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (105).png'><img src="images/emotions/icon (105).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (106).png'><img src="images/emotions/icon (106).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (107).png'><img src="images/emotions/icon (107).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (108).png'><img src="images/emotions/icon (108).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (109).png'><img src="images/emotions/icon (109).png" /></a></li>
+                                 <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (110).png'><img src="images/emotions/icon (110).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (111).png'><img src="images/emotions/icon (111).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (112).png'><img src="images/emotions/icon (112).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (113).png'><img src="images/emotions/icon (113).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (114).png'><img src="images/emotions/icon (114).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (115).png'><img src="images/emotions/icon (115).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (116).png'><img src="images/emotions/icon (116).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (117).png'><img src="images/emotions/icon (117).png" /></a></li> 
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (118).png'><img src="images/emotions/icon (118).png" /></a></li>                               
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (119).png'><img src="images/emotions/icon (119).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (120).png'><img src="images/emotions/icon (120).png" /></a></li>                                  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (121).png'><img src="images/emotions/icon (121).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (122).png'><img src="images/emotions/icon (122).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (123).png'><img src="images/emotions/icon (123).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (124).png'><img src="images/emotions/icon (124).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (125).png'><img src="images/emotions/icon (125).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (126).png'><img src="images/emotions/icon (126).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (127).png'><img src="images/emotions/icon (127).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (128).png'><img src="images/emotions/icon (128).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (129).png'><img src="images/emotions/icon (129).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (130).png'><img src="images/emotions/icon (130).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (131).png'><img src="images/emotions/icon (131).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (132).png'><img src="images/emotions/icon (132).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (133).png'><img src="images/emotions/icon (133).png" /></a></li> 
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (134).png'><img src="images/emotions/icon (134).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (135).png'><img src="images/emotions/icon (135).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (136).png'><img src="images/emotions/icon (136).png" /></a></li>                                                                                                   
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (137).png'><img src="images/emotions/icon (137).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (138).png'><img src="images/emotions/icon (138).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (139).png'><img src="images/emotions/icon (139).png" /></a></li>                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (140).png'><img src="images/emotions/icon (140).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (141).png'><img src="images/emotions/icon (141).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (142).png'><img src="images/emotions/icon (142).png" /></a></li>                              
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (143).png'><img src="images/emotions/icon (143).png" /></a></li>                                                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (144).png'><img src="images/emotions/icon (144).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (145).png'><img src="images/emotions/icon (145).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (146).png'><img src="images/emotions/icon (146).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (147).png'><img src="images/emotions/icon (147).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (148).png'><img src="images/emotions/icon (148).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (149).png'><img src="images/emotions/icon (149).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (150).png'><img src="images/emotions/icon (150).png" /></a></li>
                                 
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/40.gif'><img src="images/emotions/40.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/42.gif'><img src="images/emotions/42.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/36.gif'><img src="images/emotions/36.gif" /></a></li>
-                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/6.gif'><img src="images/emotions/6.gif" /></a></li>  
-                                </ul>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (151).png'><img src="images/emotions/icon (151).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (152).png'><img src="images/emotions/icon (152).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (153).png'><img src="images/emotions/icon (153).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (154).png'><img src="images/emotions/icon (154).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (155).png'><img src="images/emotions/icon (155).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (156).png'><img src="images/emotions/icon (156).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (157).png'><img src="images/emotions/icon (157).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (158).png'><img src="images/emotions/icon (158).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (159).png'><img src="images/emotions/icon (159).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (160).png'><img src="images/emotions/icon (160).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (161).png'><img src="images/emotions/icon (161).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (162).png'><img src="images/emotions/icon (162).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (163).png'><img src="images/emotions/icon (163).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (164).png'><img src="images/emotions/icon (164).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (165).png'><img src="images/emotions/icon (165).png" /></a></li>  
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (166).png'><img src="images/emotions/icon (166).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (167).png'><img src="images/emotions/icon (167).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (168).png'><img src="images/emotions/icon (168).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (169).png'><img src="images/emotions/icon (169).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (170).png'><img src="images/emotions/icon (170).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (171).png'><img src="images/emotions/icon (171).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (172).png'><img src="images/emotions/icon (172).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (173).png'><img src="images/emotions/icon (173).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (174).png'><img src="images/emotions/icon (174).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (175).png'><img src="images/emotions/icon (175).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (176).png'><img src="images/emotions/icon (176).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (177).png'><img src="images/emotions/icon (177).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (178).png'><img src="images/emotions/icon (178).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (179).png'><img src="images/emotions/icon (179).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (180).png'><img src="images/emotions/icon (180).png" /></a></li>                                    
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (181).png'><img src="images/emotions/icon (181).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (182).png'><img src="images/emotions/icon (182).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (183).png'><img src="images/emotions/icon (183).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (184).png'><img src="images/emotions/icon (184).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (185).png'><img src="images/emotions/icon (185).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (186).png'><img src="images/emotions/icon (186).png" /></a></li>                                
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (187).png'><img src="images/emotions/icon (187).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (188).png'><img src="images/emotions/icon (188).png" /></a></li>
+                                <li class='itemImage'><a data-wysihtml5-command='insertImage' data-wysihtml5-command-value='images/emotions/icon (189).png'><img src="images/emotions/icon (189).png" /></a></li>
+                                </ul></li>
+                                     </ul>
                             </div>                          
                     </div>
                      
@@ -349,12 +490,22 @@
         }
     });
 
+    $('.SScroll').each(function () {
+        $(this).slimScroll({
+            railVisible: true,
+            height: $(this).attr('data-height'),
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left'
+        });
+    });
+
     $(".roomMenuItem").tooltip();
 </script>
      <asp:Literal ID="uiLiteralScript" runat="server"></asp:Literal>
 
         <asp:Literal ID="uiLiteralNoOfMics" runat="server"></asp:Literal>        
-        <!-- a literal for toolbar div has a start for a div , this is the end of roomcontents div -->
+        <!-- this is the end of roomcontents div -->
     </div>
     </form>
 </body>

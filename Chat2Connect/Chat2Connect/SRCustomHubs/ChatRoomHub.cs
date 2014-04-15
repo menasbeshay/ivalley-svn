@@ -61,6 +61,11 @@ namespace Chat2Connect.SRCustomHubs
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
         }
 
+        public void sendVideoToRoom(int roomid, string sender, string url)
+        {
+            Clients.Group(roomid.ToString()).getVideoMessage(roomid, sender, url);
+        }
+
         public void userStartMic(int rid, int memberid)
         {
             Clients.Group(rid.ToString(),Context.ConnectionId).ListenMic("startMic" + rid.ToString() , memberid, rid);

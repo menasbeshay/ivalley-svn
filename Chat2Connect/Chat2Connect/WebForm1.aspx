@@ -34,6 +34,49 @@
     <link href="css/Tags/jquery.tagit.css" rel="stylesheet" />
     <link href="css/Tags/tagit.ui-zendesk.css" rel="stylesheet" />
 
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            new AjaxUpload('#UploadButton', {
+                action: 'UploadHandler.ashx',
+                onComplete: function (file, response) {
+                    $("<div><img src='resources/btndelete.png' onclick=\"DeleteFile('" + response + "')\"  class='delete'/>" + response + "</div>").appendTo('#UploadedFile');
+                    $('#UploadStatus').html("file has been uploaded sucessfully");
+                    $("#UploadButton").hide();
+                },
+                onSubmit: function (file, ext) {
+                    if (!(ext && /^(png|gif|jpg)$/i.test(ext))) {
+                        alert('Invalid File Format.');
+                        return false;
+                    }
+                    $('#UploadStatus').html("Uploading...");
+                }
+            });
+
+        });
+
+
+        function DeleteFile(file) {
+            $('#UploadStatus').html("deleting...");
+            $.ajax({
+                url: "UploadHandler.ashx?file=" + file,
+                type: "GET",
+                cache: false,
+                async: true,
+                success: function (html) {
+                    $('#UploadedFile').html("");
+                    $('#UploadStatus').html("file has been deleted");
+                    $("#UploadButton").show();
+
+                }
+            });
+
+        }
+
+
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
