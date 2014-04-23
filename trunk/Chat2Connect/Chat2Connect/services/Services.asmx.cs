@@ -292,7 +292,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool MarkMembers(string rid, bool CanWrite)
+        public bool MarkMembers(string rid, bool CanWrite, bool mark)
         {
 
             Room room = new Room();
@@ -305,7 +305,7 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < members.RowCount; i++)
                 {
-                    members.IsMarked = true;
+                    members.IsMarked = mark;
                     members.CanWrite = CanWrite;
                     members.Save();
 
@@ -349,14 +349,14 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool DisableCams(string rid)
+        public bool DisableCams(bool mark, string rid)
         {
             Room room = new Room();
             room.LoadByPrimaryKey(Convert.ToInt32(rid));
 
             try
             {
-                room.EnableCam = false;
+                room.EnableCam = !mark;
                 room.Save();
             }
             catch (Exception ex)
@@ -368,7 +368,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool EnableMic(string rid, bool adminsonly)
+        public bool EnableMic(bool mark, string rid, bool adminsonly)
         {
             Room room = new Room();
             room.LoadByPrimaryKey(Convert.ToInt32(rid));
@@ -377,12 +377,12 @@ namespace Chat2Connect.services
             {
                 if (adminsonly)
                 {
-                    room.EnableMicForAdminsOnly = true;
+                    room.EnableMicForAdminsOnly = mark;
                     room.EnableMic = false;
                 }
                 else
                 {
-                    room.EnableMic = true;
+                    room.EnableMic = mark;
                     room.EnableMicForAdminsOnly = false;
                 }
                 room.Save();

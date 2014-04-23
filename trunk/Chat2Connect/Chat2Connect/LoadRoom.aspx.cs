@@ -328,6 +328,16 @@ namespace Chat2Connect
 
                 
                 // admin menu
+                uiLiteralClearQueue.Text = "<input type='checkbox' onclick='ClearQueue(" + rid.ToString() + ");' />&nbsp;إزالة الأيدى&nbsp;";
+                uiLiteralMarkWithWrite.Text = "<input type='checkbox' onclick='MarkMember(this," + rid.ToString() + ", true);' />&nbsp;تنقيط الجميع ومسموح الكتابة&nbsp;";
+                uiLiteralMarkWithoutWrite.Text = "<input type='checkbox' onclick='MarkMember(this," + rid.ToString() + ",false);' />&nbsp;تنقيط الجميع بدون كتابة&nbsp;";
+                uiLiteralMarkWithWriteLogin.Text = "<input type='checkbox' onclick='MarkMemberOnLogin(this," + rid.ToString() + ", true);' />&nbsp;تنقيط عند الدخول ومسموح الكتابة&nbsp;";
+                uiLiteralMarkWithoutWriteLogin.Text = "<input type='checkbox' onclick='MarkMemberOnLogin(this," + rid.ToString() + ", false);' />&nbsp;تنقيط عند الدخول وبدون كتابة&nbsp;";
+                uiLiteralDisableCam.Text = "<input type='checkbox' onclick='DisableCams(this," + rid.ToString() + ")'/>&nbsp;ممنوع الكمراء&nbsp;";
+                uiLiteralDisableMic.Text = "<input type='checkbox' onclick='EnableMic(this," + rid.ToString() + ", false)' />&nbsp;مسموح المكرفون للجميع&nbsp;";
+                uiLiteralEnableMicAdminOnly.Text = "<input type='checkbox' onclick='EnableMic(this," + rid.ToString() + ", true)' />&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;";
+                uiLiteralCpanel.Text = "<a href='#' style='cursor:pointer;'><i class=' icon-dashboard'></i>&nbsp;لوحة تحكم المشرف </a>";
+                /*
                 uiLiteralClearQueue.Text = "<a onclick='ClearQueue(" + rid.ToString() + ");' style='cursor:pointer;'><i class='icon-remove'></i>&nbsp;إزالة الأيدى&nbsp;</a>";
                 uiLiteralMarkWithWrite.Text = "<a onclick='MarkMember(" + rid.ToString() + ", true);' style='cursor:pointer;'><i class='icon-edit'></i>&nbsp;تنقيط الجميع ومسموح الكتابة&nbsp;</a>";
                 uiLiteralMarkWithoutWrite.Text = "<a onclick='MarkMember(" + rid.ToString() + ",false);' style='cursor:pointer;'><i class='icon-ban-circle'></i>&nbsp;تنقيط الجميع بدون كتابة&nbsp;</a>";
@@ -337,10 +347,10 @@ namespace Chat2Connect
                 uiLiteralDisableMic.Text = "<a onclick='EnableMic(" + rid.ToString() + ", false)' style='cursor:pointer;'><i class='icon-microphone'></i>&nbsp;مسموح المكرفون للجميع&nbsp;</a>";
                 uiLiteralEnableMicAdminOnly.Text = "<a onclick='EnableMic(" + rid.ToString() + ", true)' style='cursor:pointer;'><i class='icon-key'></i>&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;</a>";
                 uiLiteralCpanel.Text = "<a href='#' style='cursor:pointer;'><i class=' icon-dashboard'></i>&nbsp;لوحة تحكم المشرف </a>";
-                
+                */
 
                 // user menu 
-
+                uiLiteralSaveConv.Text = "<a href='#' class='btn btn-main' id='SaveConv_"+ rid.ToString() +"' download='room.txt'>حفظ النقاش</a>";
 
                 // room type - cam/mic
                 int roomtype = 0;
@@ -415,5 +425,6 @@ namespace Chat2Connect
                 camlink.Text = "<a href='#' class='camera' data-related='" + rid.ToString() + "$" + row["MemberID"].ToString() + "'><img src='images/video_camera.png' style='width:16px;'/></a>";
             }
         }
+
     }
 }
