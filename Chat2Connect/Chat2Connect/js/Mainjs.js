@@ -131,13 +131,13 @@ function ClearQueue(rid) {
     });
 }
 
-function MarkMember(rid, enableWrite) {
+function MarkMember(cb, rid, enableWrite) {
     $('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/MarkMembers",
         dataType: "json",
         type: "post",
-        data: "{'rid':'" + rid + "', 'CanWrite' : '"+ enableWrite +"'}",
+        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "', 'mark':'" + $(cb).attr('checked') + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -192,13 +192,13 @@ function MarkMemberOnLogin(rid, enableWrite) {
 }
 
 
-function DisableCams(rid) {
+function DisableCams(cb, rid) {
     $('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/DisableCams",
         dataType: "json",
         type: "post",
-        data: "{'rid':'" + rid + "'}",
+        data: "{'mark':'" + $(cb).attr('checked') + "','rid':'" + rid + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -209,6 +209,33 @@ function DisableCams(rid) {
                 $('#pGeneral').css('display', 'none');
                 notify('success', 'تم إيقاف الكمراء بنجاح.');
                 
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
+
+function EnableMic(cb, rid, adminsonly) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/EnableMic",
+        dataType: "json",
+        type: "post",
+        data: "{'mark':'" + $(cb).attr('checked') + "','rid':'" + rid + "', 'adminsonly':'" + adminsonly + "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                notify('success', 'تم إيقاف الكمراء بنجاح.');
+
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -235,6 +262,12 @@ function sendvideo(rid, url,sender, input)
     input.val('');
     rHub.server.sendVideoToRoom(rid, sender, url);
 }
+
+function SaveConversation(rid) {
+    var str = $(".MsgHistroy", "#room_" + rid).html().replace('<div style="clear:both;height:1px;"></div>', "\r\n");
+    $('#SaveConv_' + rid).attr("href", "data:text/plain;charset=UTF-8," + $('<span>' + str + '</span>').text());
+}
+
 /************ signalr ********************/
 $(document).ready(function () {
     
@@ -278,6 +311,8 @@ $(document).ready(function () {
             position: 'left',
             scrollTo: $(".MsgHistroy", "#room_" + rid).height()
         });
+        // update save link 
+        SaveConversation(rid);
 
     };
 

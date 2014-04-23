@@ -959,6 +959,10 @@ fieldset[disabled] .btn-main.active {
     display:none;
 }
 
+.RoomAdminMenu {
+width:200px;
+}
+
 /* auto complete */
 .ui-autocomplete {
     z-index:2000;

@@ -21,7 +21,7 @@
                          <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="position:relative;">
                             المشرف  <span class="caret"></span> 
                           </button>
-                          <ul class="dropdown-menu" role="menu" >                                            
+                          <ul class="dropdown-menu RoomAdminMenu" role="menu" >                                            
 		                    	<li>
                                     <asp:Literal ID="uiLiteralClearQueue" runat="server"></asp:Literal>
 		                    	</li>
@@ -69,10 +69,8 @@
 							</ul>
 
                            </div>
-                    
                         
-                        
-                        <a href="#" class="btn btn-main">حفظ النقاش</a>
+                    <asp:Literal ID="uiLiteralSaveConv" runat="server"></asp:Literal>
                         <a href="#" class="btn btn-main">خروج</a>
                     </div>
                 </div>                
@@ -501,12 +499,19 @@
     });
 
     $(".roomMenuItem").tooltip();
+
+   
 </script>
      <asp:Literal ID="uiLiteralScript" runat="server"></asp:Literal>
 
         <asp:Literal ID="uiLiteralNoOfMics" runat="server"></asp:Literal>        
         <!-- this is the end of roomcontents div -->
     </div>
+
+        <div id="proof">
+            abc
+
+        </div>
     </form>
 </body>
 </html>
