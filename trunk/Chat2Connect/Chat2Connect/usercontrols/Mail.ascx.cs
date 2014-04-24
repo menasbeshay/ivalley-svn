@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,26 +23,41 @@ namespace Chat2Connect.usercontrols
             set
             {
                 ViewState["MemberID"] = value;
+                ctrlSendMail.MemberID = MemberID;
+                BindFolders();
                 BindMessages();
+            }
+        }
+
+        public string MemberName
+        {
+            get
+            {
+                if (ViewState["MemberName"] == null)
+                    ViewState["MemberName"] = "";
+                return ViewState["MemberName"].ToString();
+            }
+            set
+            {
+                ViewState["MemberName"] = value;
+                ctrlSendMail.MemberName = MemberName;
             }
         }
         protected enum Folders
         {
-            Inbox,
-            Sent,
-            Deleted
+            Inbox=-1,
+            Sent=-2,
+            Deleted=-3
         }
-        protected Folders CurrentFolder
+        protected int CurrentFolder
         {
             get
             {
                 if (ViewState["MessagesFolder"] == null)
                 {
-                    ViewState["MessagesFolder"] = Folders.Inbox;
+                    ViewState["MessagesFolder"] = (int)Folders.Inbox;
                 }
-                Folders result;
-                Enum.TryParse<Folders>(Convert.ToString(ViewState["MessagesFolder"]), out result);
-                return result;
+                return Convert.ToInt32(ViewState["MessagesFolder"]);
             }
             set
             {
@@ -50,45 +66,51 @@ namespace Chat2Connect.usercontrols
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                BindFolders();
+            }
         }
 
         protected void lnkInboxLoad_Click(object sender, EventArgs e)
         {
-            CurrentFolder = Folders.Inbox;
+            CurrentFolder = (int)Folders.Inbox;
             BindMessages();
         }
 
         protected void lnkSentLoad_Click(object sender, EventArgs e)
         {
-            CurrentFolder = Folders.Sent;
+            CurrentFolder = (int)Folders.Sent;
             BindMessages();
         }
 
         protected void lnkDeletedLoad_Click(object sender, EventArgs e)
         {
-            CurrentFolder = Folders.Deleted;
+            CurrentFolder = (int)Folders.Deleted;
             BindMessages();
         }
 
         private void BindMessages()
         {
+            pnlViewMessages.Visible = true;
+            pnlSendMessage.Visible = false;
+            pnlCreateFolder.Visible = false;
             MemberMessage messages = new MemberMessage();
             if (MemberID > 0)
             {
                 switch (CurrentFolder)
                 {
-                    case Folders.Inbox:
+                    case (int)Folders.Inbox:
                         messages.GetMessagesByMemberID_Received(MemberID);
                         break;
-                    case Folders.Sent:
+                    case (int)Folders.Sent:
                         messages.GetMessagesBySenderID_Sent(MemberID);
                         break;
-                    case Folders.Deleted:
+                    case (int)Folders.Deleted:
                         messages.GetMessagesByMemberID_Deleted(MemberID);
                         break;
                     default:
-                        messages.GetMessagesByMemberID_Received(MemberID);
+                        messages.GetMessagesByFolderID(CurrentFolder);
                         break;
                 }
             }
@@ -117,6 +139,101 @@ namespace Chat2Connect.usercontrols
                 _Date.Text = DateTime.Parse(row["SendDate"].ToString()).ToString("dd / MM / yyyy hh:mm tt");
 
             }
+        }
+
+        protected void lnkSendMessage_Click(object sender, EventArgs e)
+        {
+            pnlSendMessage.Visible = true;
+            pnlCreateFolder.Visible = false;
+            pnlViewMessages.Visible = false;
+        }
+
+        protected void lnkCreateFolder_Click(object sender, EventArgs e)
+        {
+            pnlViewMessages.Visible = false;
+            pnlSendMessage.Visible = false;
+            pnlCreateFolder.Visible = true;
+        }
+
+        protected void lnkCustomeFolderMessages_Click(object sender, EventArgs e)
+        {
+            CurrentFolder = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());
+            BindMessages();
+        }
+
+        protected void lnkSaveFolder_Click(object sender, EventArgs e)
+        {
+            MessageFolder folder = new MessageFolder();
+            if (folderID.Value == "0")
+            {
+                folder.AddNew();
+            }
+            else
+            {
+                folder.LoadByPrimaryKey(Convert.ToInt32(folderID.Value));
+            }
+            
+            folder.Name = txtFolderName.Text;
+            folder.MemberID = MemberID;
+            folder.Save();
+
+            BindFolders();
+            txtFolderName.Text = "";
+            folderID.Value = "0";
+        }
+
+        protected void grdFolders_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void grdFolders_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditFolder")
+            {
+                MessageFolder folder = new MessageFolder();
+                folder.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                txtFolderName.Text = folder.Name;
+                folderID.Value = e.CommandArgument.ToString();
+            }
+            else if (e.CommandName == "DeleteFolder")
+            {
+                MessageFolder folders = new MessageFolder();
+                folders.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                MemberMessage msg = new MemberMessage();
+                msg.GetMessagesByFolderID(folders.MessageFolderID);
+
+                if (!(msg.RowCount > 0))
+                {
+                    folders.MarkAsDeleted();
+                    folders.Save();
+                    BindFolders();
+                }
+                else
+                {
+//                    ClientScript.RegisterStartupScript(this.GetType(), "Notify_error_del_folder", @"$.pnotify({
+//                                                                                                        text: 'حذث خطأ .يوجد رسائل تحت هذا التصميف.',
+//                                                                                                        type: 'error',
+//                                                                                                        history: false,
+//                                                                                                        closer_hover: false,
+//                                                                                                        delay: 5000,
+//                                                                                                        sticker: false
+//                                                                                                    });", true);
+                }
+            }
+        }
+
+        private void BindFolders()
+        {
+            MessageFolder folders = new MessageFolder();
+            folders.GetFolderByMemberID(MemberID);
+
+            grdFolders.DataSource = folders.DefaultView;
+            grdFolders.DataBind();
+
+            repMemberFolders.DataSource = folders.DefaultView;
+            repMemberFolders.DataBind();
+
         }
     }
 }

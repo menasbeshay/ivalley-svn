@@ -24,23 +24,21 @@ namespace Chat2Connect.Admin
         {
             if (!IsPostBack)
             {
-                drpSiteMembers.DataValueField = BLL.Member.ColumnNames.MemberID;
-                drpSiteMembers.DataTextField = BLL.Member.ColumnNames.Name;
-                drpSiteMembers.DataSource = BLL.Member.SiteMembers;
-                drpSiteMembers.DataBind();
-
-                if (!String.IsNullOrEmpty(drpSiteMembers.SelectedValue))
+                if (Request.QueryString["m"] != null && !String.IsNullOrEmpty(Request.QueryString["m"]))
                 {
-                    ctrlMail.MemberID = Convert.ToInt32(drpSiteMembers.SelectedValue);
+                    Helper.Enums.SiteMembers mailMember;
+                    Enum.TryParse<Helper.Enums.SiteMembers>(Request.QueryString["m"],out mailMember);
+                    Member member = Member.SiteMembers.Where(m => String.Equals(m.Name,Helper.StringEnum.GetStringValue(mailMember),StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+                    if (member != null)
+                    {
+                        ctrlMail.MemberID = member.MemberID;
+                        ctrlMail.MemberName = member.Name;
+                    }
                 }
-            }
-        }
-
-        protected void lnkLoadMail_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(drpSiteMembers.SelectedValue))
-            {
-                ctrlMail.MemberID = Convert.ToInt32(drpSiteMembers.SelectedValue);
+                else
+                {
+                    ctrlMail.Visible = false;
+                }
             }
         }
 

@@ -67,6 +67,34 @@ namespace BLL
 
         }
 
+        public bool GetByAliase(Helper.Enums.AdminMailAddressAlias aliase)
+        {
+            bool result = false;
+            switch (aliase)
+            {
+                case Helper.Enums.AdminMailAddressAlias.All:
+                    result = Query.Load();
+                    break;
+                case Helper.Enums.AdminMailAddressAlias.Offline:
+                    Where.IsOnLine.Value = false;
+                    result = Query.Load();
+                    break;
+                case Helper.Enums.AdminMailAddressAlias.Online:
+                    Where.IsOnLine.Value = true;
+                    result = Query.Load();
+                    break;
+                case Helper.Enums.AdminMailAddressAlias.TypedAccount:
+                    //Where.MemberTypeID.Value = DBNull.Value;
+                    Where.MemberTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull;
+                    result = Query.Load();
+                    break;
+                default:
+                    break;
+            }
+
+            return result;
+        }
+
         private static List<Member> lstSiteMembers;
         public static List<Member> SiteMembers
         {
