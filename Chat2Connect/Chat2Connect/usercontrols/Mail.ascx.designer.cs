@@ -13,6 +13,15 @@ namespace Chat2Connect.usercontrols {
     public partial class Mail {
         
         /// <summary>
+        /// lnkSendMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSendMessage;
+        
+        /// <summary>
         /// lnkInboxLoad control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,33 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.WebControls.LinkButton lnkDeletedLoad;
         
         /// <summary>
+        /// repMemberFolders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repMemberFolders;
+        
+        /// <summary>
+        /// lnkCreateFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkCreateFolder;
+        
+        /// <summary>
+        /// pnlViewMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlViewMessages;
+        
+        /// <summary>
         /// grdMessages control.
         /// </summary>
         /// <remarks>
@@ -47,5 +83,68 @@ namespace Chat2Connect.usercontrols {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdMessages;
+        
+        /// <summary>
+        /// pnlSendMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSendMessage;
+        
+        /// <summary>
+        /// ctrlSendMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Chat2Connect.usercontrols.SendMail ctrlSendMail;
+        
+        /// <summary>
+        /// pnlCreateFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCreateFolder;
+        
+        /// <summary>
+        /// folderID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField folderID;
+        
+        /// <summary>
+        /// txtFolderName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFolderName;
+        
+        /// <summary>
+        /// lnkSaveFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSaveFolder;
+        
+        /// <summary>
+        /// grdFolders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdFolders;
     }
 }

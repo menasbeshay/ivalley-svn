@@ -106,27 +106,47 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SendMsg(string ToMember, string subject, string content)
+        public bool SendMsg(int sender, string ToMember, string subject, string content)
         {
-            Member member = new Member();
-            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
             string[] ToMembers = ToMember.Split(',');
             MemberMessage message = new MemberMessage();
             foreach (string item in ToMembers)
             {
                 if (!string.IsNullOrEmpty(item))
                 {
-                    message.AddNew();
-                    message.SendDate = DateTime.Now;
-                    message.SenderID = member.MemberID;
-                    message.MemberID = Convert.ToInt32(item);
-                    message.MessageSubject = subject;
-                    message.MessageContent = content;
+                    int recipientID = Convert.ToInt32(item);
+                    if (recipientID > 0)
+                    {
+                        SendMsg(sender, subject, content, message, recipientID);
+                    }
+                    else
+                    {
+                        recipientID = recipientID * -1;
+                        if (Enum.IsDefined(typeof(Helper.Enums.AdminMailAddressAlias), recipientID))
+                        {
+                            Member aliasMembers = new Member();
+                            aliasMembers.GetByAliase((Helper.Enums.AdminMailAddressAlias)recipientID);
+                            do
+                            {
+                                SendMsg(sender, subject, content, message, aliasMembers.MemberID);
+                            } while (aliasMembers.MoveNext());
+                        }
+                    }
                 }
             }
 
             message.Save();
             return true;
+        }
+
+        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID)
+        {
+            message.AddNew();
+            message.SendDate = DateTime.Now;
+            message.SenderID = sender;
+            message.MemberID = recipientID;
+            message.MessageSubject = subject;
+            message.MessageContent = content;
         }
 
 

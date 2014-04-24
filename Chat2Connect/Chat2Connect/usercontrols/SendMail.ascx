@@ -234,7 +234,7 @@
             url: "../Services/Services.asmx/SendMsg",
             dataType: "json",
             type: "post",
-            data: "{'ToMember':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'subject' : '" + $('#<%= txtSubject.ClientID %>').val() + "' , 'content' : '" + Msgeditor.getValue() + "'}",
+            data: "{'sender':" + $('#<%= uiHiddenFieldCurrentMember.ClientID %>').val() + ",'ToMember':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'subject' : '" + $('#<%= txtSubject.ClientID %>').val() + "' , 'content' : '" + Msgeditor.getValue() + "'}",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 if (data.d == false) {

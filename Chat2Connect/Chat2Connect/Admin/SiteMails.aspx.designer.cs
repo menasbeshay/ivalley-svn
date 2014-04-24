@@ -13,24 +13,6 @@ namespace Chat2Connect.Admin {
     public partial class SiteMails {
         
         /// <summary>
-        /// drpSiteMembers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpSiteMembers;
-        
-        /// <summary>
-        /// lnkLoadMail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLoadMail;
-        
-        /// <summary>
         /// ctrlMail control.
         /// </summary>
         /// <remarks>
