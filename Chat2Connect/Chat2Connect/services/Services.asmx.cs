@@ -334,7 +334,10 @@ namespace Chat2Connect.services
                     MembershipUser u = Membership.GetUser(m.UserID);
 
                     IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Rcontext.Clients.Group(room.RoomID.ToString()).UserMarked(room.RoomID, members.MemberID, CanWrite);
+                    if (mark)
+                        _Rcontext.Clients.Group(room.RoomID.ToString()).UserMarked(room.RoomID, members.MemberID, CanWrite);
+                    else
+                        _Rcontext.Clients.Group(room.RoomID.ToString()).UserUnMarked(room.RoomID, members.MemberID, CanWrite);
                     members.MoveNext();
                 }
             }
@@ -347,7 +350,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool MarkMemberOnLogin(string rid, bool CanWrite)
+        public bool MarkMemberOnLogin(string rid, bool CanWrite, bool mark)
         {
             Room room = new Room();
             room.LoadByPrimaryKey(Convert.ToInt32(rid));
@@ -355,9 +358,9 @@ namespace Chat2Connect.services
             try
             {
                 if (CanWrite)
-                    room.MarkOnLoginWithWrite = CanWrite;
+                    room.MarkOnLoginWithWrite = mark;
                 else
-                    room.MarkOnLoginWithoutWrite = !CanWrite;
+                    room.MarkOnLoginWithoutWrite = mark;
                 room.Save();
             }
             catch (Exception ex)

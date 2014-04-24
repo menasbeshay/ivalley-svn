@@ -259,6 +259,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter RowStatusID
+			{
+				get
+				{
+					return new SqlParameter("@RowStatusID", SqlDbType.TinyInt, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -285,6 +293,7 @@ namespace DAL
             public const string EnableTwoMic = "EnableTwoMic";
             public const string EnableThreeMic = "EnableThreeMic";
             public const string RoomAdminPassword = "RoomAdminPassword";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -312,6 +321,7 @@ namespace DAL
 					ht[EnableTwoMic] = _Room.PropertyNames.EnableTwoMic;
 					ht[EnableThreeMic] = _Room.PropertyNames.EnableThreeMic;
 					ht[RoomAdminPassword] = _Room.PropertyNames.RoomAdminPassword;
+					ht[RowStatusID] = _Room.PropertyNames.RowStatusID;
 
 				}
 				return (string)ht[columnName];
@@ -344,6 +354,7 @@ namespace DAL
             public const string EnableTwoMic = "EnableTwoMic";
             public const string EnableThreeMic = "EnableThreeMic";
             public const string RoomAdminPassword = "RoomAdminPassword";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -371,6 +382,7 @@ namespace DAL
 					ht[EnableTwoMic] = _Room.ColumnNames.EnableTwoMic;
 					ht[EnableThreeMic] = _Room.ColumnNames.EnableThreeMic;
 					ht[RoomAdminPassword] = _Room.ColumnNames.RoomAdminPassword;
+					ht[RowStatusID] = _Room.ColumnNames.RowStatusID;
 
 				}
 				return (string)ht[propertyName];
@@ -403,6 +415,7 @@ namespace DAL
             public const string EnableTwoMic = "s_EnableTwoMic";
             public const string EnableThreeMic = "s_EnableThreeMic";
             public const string RoomAdminPassword = "s_RoomAdminPassword";
+            public const string RowStatusID = "s_RowStatusID";
 
 		}
 		#endregion		
@@ -646,6 +659,18 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.RoomAdminPassword, value);
+			}
+		}
+
+		public virtual byte RowStatusID
+	    {
+			get
+	        {
+				return base.Getbyte(ColumnNames.RowStatusID);
+			}
+			set
+	        {
+				base.Setbyte(ColumnNames.RowStatusID, value);
 			}
 		}
 
@@ -954,6 +979,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_RowStatusID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RowStatusID) ? string.Empty : base.GetbyteAsString(ColumnNames.RowStatusID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RowStatusID);
+				else
+					this.RowStatusID = base.SetbyteAsString(ColumnNames.RowStatusID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1182,6 +1222,16 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.RoomAdminPassword, Parameters.RoomAdminPassword);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RowStatusID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1432,6 +1482,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter RowStatusID
+		    {
+				get
+		        {
+					if(_RowStatusID_W == null)
+	        	    {
+						_RowStatusID_W = TearOff.RowStatusID;
+					}
+					return _RowStatusID_W;
+				}
+			}
+
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _SubCategoryID_W = null;
@@ -1452,6 +1514,7 @@ namespace DAL
 			private WhereParameter _EnableTwoMic_W = null;
 			private WhereParameter _EnableThreeMic_W = null;
 			private WhereParameter _RoomAdminPassword_W = null;
+			private WhereParameter _RowStatusID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1475,6 +1538,7 @@ namespace DAL
 				_EnableTwoMic_W = null;
 				_EnableThreeMic_W = null;
 				_RoomAdminPassword_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1731,6 +1795,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter RowStatusID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1976,6 +2050,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter RowStatusID
+		    {
+				get
+		        {
+					if(_RowStatusID_W == null)
+	        	    {
+						_RowStatusID_W = TearOff.RowStatusID;
+					}
+					return _RowStatusID_W;
+				}
+			}
+
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _SubCategoryID_W = null;
@@ -1996,6 +2082,7 @@ namespace DAL
 			private AggregateParameter _EnableTwoMic_W = null;
 			private AggregateParameter _EnableThreeMic_W = null;
 			private AggregateParameter _RoomAdminPassword_W = null;
+			private AggregateParameter _RowStatusID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2019,6 +2106,7 @@ namespace DAL
 				_EnableTwoMic_W = null;
 				_EnableThreeMic_W = null;
 				_RoomAdminPassword_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2171,6 +2259,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.RoomAdminPassword);
 			p.SourceColumn = ColumnNames.RoomAdminPassword;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RowStatusID);
+			p.SourceColumn = ColumnNames.RowStatusID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

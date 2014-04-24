@@ -331,6 +331,22 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter IP
+			{
+				get
+				{
+					return new SqlParameter("@IP", SqlDbType.VarChar, 50);
+				}
+			}
+			
+			public static SqlParameter RowStatusID
+			{
+				get
+				{
+					return new SqlParameter("@RowStatusID", SqlDbType.TinyInt, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -366,6 +382,8 @@ namespace DAL
             public const string TURL = "tURL";
             public const string YtURL = "ytURL";
             public const string Status = "Status";
+            public const string IP = "IP";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -402,6 +420,8 @@ namespace DAL
 					ht[TURL] = _Member.PropertyNames.TURL;
 					ht[YtURL] = _Member.PropertyNames.YtURL;
 					ht[Status] = _Member.PropertyNames.Status;
+					ht[IP] = _Member.PropertyNames.IP;
+					ht[RowStatusID] = _Member.PropertyNames.RowStatusID;
 
 				}
 				return (string)ht[columnName];
@@ -443,6 +463,8 @@ namespace DAL
             public const string TURL = "TURL";
             public const string YtURL = "YtURL";
             public const string Status = "Status";
+            public const string IP = "IP";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -479,6 +501,8 @@ namespace DAL
 					ht[TURL] = _Member.ColumnNames.TURL;
 					ht[YtURL] = _Member.ColumnNames.YtURL;
 					ht[Status] = _Member.ColumnNames.Status;
+					ht[IP] = _Member.ColumnNames.IP;
+					ht[RowStatusID] = _Member.ColumnNames.RowStatusID;
 
 				}
 				return (string)ht[propertyName];
@@ -520,6 +544,8 @@ namespace DAL
             public const string TURL = "s_TURL";
             public const string YtURL = "s_YtURL";
             public const string Status = "s_Status";
+            public const string IP = "s_IP";
+            public const string RowStatusID = "s_RowStatusID";
 
 		}
 		#endregion		
@@ -871,6 +897,30 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.Status, value);
+			}
+		}
+
+		public virtual string IP
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.IP);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.IP, value);
+			}
+		}
+
+		public virtual byte RowStatusID
+	    {
+			get
+	        {
+				return base.Getbyte(ColumnNames.RowStatusID);
+			}
+			set
+	        {
+				base.Setbyte(ColumnNames.RowStatusID, value);
 			}
 		}
 
@@ -1314,6 +1364,36 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_IP
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IP) ? string.Empty : base.GetstringAsString(ColumnNames.IP);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IP);
+				else
+					this.IP = base.SetstringAsString(ColumnNames.IP, value);
+			}
+		}
+
+		public virtual string s_RowStatusID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RowStatusID) ? string.Empty : base.GetbyteAsString(ColumnNames.RowStatusID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RowStatusID);
+				else
+					this.RowStatusID = base.SetbyteAsString(ColumnNames.RowStatusID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1632,6 +1712,26 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Status, Parameters.Status);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IP
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IP, Parameters.IP);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RowStatusID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1990,6 +2090,30 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter IP
+		    {
+				get
+		        {
+					if(_IP_W == null)
+	        	    {
+						_IP_W = TearOff.IP;
+					}
+					return _IP_W;
+				}
+			}
+
+			public WhereParameter RowStatusID
+		    {
+				get
+		        {
+					if(_RowStatusID_W == null)
+	        	    {
+						_RowStatusID_W = TearOff.RowStatusID;
+					}
+					return _RowStatusID_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _IsOnLine_W = null;
@@ -2019,6 +2143,8 @@ namespace DAL
 			private WhereParameter _TURL_W = null;
 			private WhereParameter _YtURL_W = null;
 			private WhereParameter _Status_W = null;
+			private WhereParameter _IP_W = null;
+			private WhereParameter _RowStatusID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2051,6 +2177,8 @@ namespace DAL
 				_TURL_W = null;
 				_YtURL_W = null;
 				_Status_W = null;
+				_IP_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2392,6 +2520,26 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Status, Parameters.Status);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IP
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IP, Parameters.IP);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter RowStatusID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2750,6 +2898,30 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter IP
+		    {
+				get
+		        {
+					if(_IP_W == null)
+	        	    {
+						_IP_W = TearOff.IP;
+					}
+					return _IP_W;
+				}
+			}
+
+			public AggregateParameter RowStatusID
+		    {
+				get
+		        {
+					if(_RowStatusID_W == null)
+	        	    {
+						_RowStatusID_W = TearOff.RowStatusID;
+					}
+					return _RowStatusID_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _IsOnLine_W = null;
@@ -2779,6 +2951,8 @@ namespace DAL
 			private AggregateParameter _TURL_W = null;
 			private AggregateParameter _YtURL_W = null;
 			private AggregateParameter _Status_W = null;
+			private AggregateParameter _IP_W = null;
+			private AggregateParameter _RowStatusID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2811,6 +2985,8 @@ namespace DAL
 				_TURL_W = null;
 				_YtURL_W = null;
 				_Status_W = null;
+				_IP_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2999,6 +3175,14 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.Status);
 			p.SourceColumn = ColumnNames.Status;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IP);
+			p.SourceColumn = ColumnNames.IP;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RowStatusID);
+			p.SourceColumn = ColumnNames.RowStatusID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

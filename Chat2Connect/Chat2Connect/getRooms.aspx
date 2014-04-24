@@ -13,8 +13,7 @@
                 <div class="SScroll" data-height="500px">
                     <div class="headerRow">
                         <div class="col-lg-4 pull-right">إسم الغرفة</div>
-                        <div class="pull-right center" style="width: 21%; padding: 0 5px;">المتواجدين الأن</div>
-                        <div class="pull-right center" style="width: 15%; padding: 0 5px;">عدد الزوار</div>
+                        <div class="pull-right center" style="width: 21%; padding: 0 5px;">المتواجدين الأن</div>                        
                         <div class="pull-right center" style="width: 15%; padding: 0 5px;">كاميرات</div>
                         <div class="pull-right center" style="width: 15%; padding: 0 5px;">تقييم</div>
                     </div>
@@ -22,8 +21,7 @@
             <ItemTemplate>
                 <div class="ContentRow">
                     <div class="col-lg-4 pull-right"><a href="#" class="OpenRoom type_<%# Eval("RoomTypeID") %>" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>'><%# Eval("Name") %></a></div>
-                    <div class="pull-right center" style="width: 21%; padding: 0 5px;">8</div>
-                    <div class="pull-right center" style="width: 15%; padding: 0 5px;">10</div>
+                    <div class="pull-right center" style="width: 21%; padding: 0 5px;">8</div>                    
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;">3</div>
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;"><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i></div>
                 </div>

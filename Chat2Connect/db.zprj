@@ -20,7 +20,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|FavRoom;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|RestrictedNames;System.String|H|RowStatus;" />
         <item name="txtNamespace" type="System.String" val="bll" />
         <item name="txtPath" type="System.String" val="D:\SmartValley\chat2connect\generated\bll" />
       </items>
@@ -44,7 +44,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|UserTransLog;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|Member;System.String|H|MemberMessage;System.String|H|RestrictedNames;System.String|H|Room;System.String|H|RowStatus;" />
         <item name="prefix" type="System.Boolean" val="False" />
         <item name="trimName" type="System.Boolean" val="False" />
         <item name="txtNamespace" type="System.String" val="DAL" />
@@ -73,7 +73,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|AdminType;System.String|H|Bot;System.String|H|Category;System.String|H|Country;System.String|H|FavRoom;System.String|H|FriendGroup;System.String|H|Gift;System.String|H|Member;System.String|H|MemberFriend;System.String|H|MemberGift;System.String|H|MemberMessage;System.String|H|MemberPic;System.String|H|MemberSetting;System.String|H|MemberType;System.String|H|MessageFolder;System.String|H|Religion;System.String|H|Room;System.String|H|RoomBot;System.String|H|RoomMember;System.String|H|RoomMemberSetting;System.String|H|RoomType;System.String|H|SubCategory;System.String|H|UserTransLog;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|AdminType;System.String|H|Bot;System.String|H|Category;System.String|H|Country;System.String|H|FavRoom;System.String|H|FriendGroup;System.String|H|Gift;System.String|H|Member;System.String|H|MemberFriend;System.String|H|MemberGift;System.String|H|MemberMessage;System.String|H|MemberPic;System.String|H|MemberSetting;System.String|H|MemberType;System.String|H|MessageFolder;System.String|H|Religion;System.String|H|RestrictedNames;System.String|H|Room;System.String|H|RoomBot;System.String|H|RoomMember;System.String|H|RoomMemberSetting;System.String|H|RoomType;System.String|H|RowStatus;System.String|H|SubCategory;System.String|H|UserTransLog;" />
         <item name="txtPath" type="System.String" val="D:\SmartValley\chat2connect\generated\sps" />
       </items>
     </obj>
