@@ -57,11 +57,13 @@
     <Compile Include="MessageFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Religion.cs" />
+    <Compile Include="RestrictedNames.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomBot.cs" />
     <Compile Include="RoomMember.cs" />
     <Compile Include="RoomMemberSetting.cs" />
     <Compile Include="RoomType.cs" />
+    <Compile Include="RowStatus.cs" />
     <Compile Include="StatsReport.cs" />
     <Compile Include="SubCategory.cs" />
     <Compile Include="UserTransLog.cs" />
