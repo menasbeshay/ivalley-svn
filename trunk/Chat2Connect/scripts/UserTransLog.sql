@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_UserTransLogLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_UserTransLogLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:34 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserTransLogLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserTransLogLoadByPrimaryKey];
 GO
@@ -40,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserTransLogLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_UserTransLogLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserTransLogLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_UserTransLogLoadAll]    Script Date: 4/24/2014 3:42:34 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserTransLogLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserTransLogLoadAll];
 GO
@@ -77,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserTransLogLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserTransLogLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserTransLogUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_UserTransLogUpdate]    Script Date: 4/24/2014 3:42:34 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserTransLogUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserTransLogUpdate];
 GO
@@ -132,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UserTransLogInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_UserTransLogInsert]    Script Date: 4/24/2014 3:42:34 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserTransLogInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserTransLogInsert];
 GO
@@ -196,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserTransLogInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserTransLogInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserTransLogDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_UserTransLogDelete]    Script Date: 4/24/2014 3:42:34 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserTransLogDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserTransLogDelete];
 GO

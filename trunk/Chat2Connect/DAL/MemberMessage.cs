@@ -163,6 +163,22 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter IsRead
+			{
+				get
+				{
+					return new SqlParameter("@IsRead", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter OperationID
+			{
+				get
+				{
+					return new SqlParameter("@OperationID", SqlDbType.UniqueIdentifier, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -177,6 +193,8 @@ namespace DAL
             public const string MessageSubject = "MessageSubject";
             public const string MessageContent = "MessageContent";
             public const string IsDeleted = "IsDeleted";
+            public const string IsRead = "IsRead";
+            public const string OperationID = "OperationID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -192,6 +210,8 @@ namespace DAL
 					ht[MessageSubject] = _MemberMessage.PropertyNames.MessageSubject;
 					ht[MessageContent] = _MemberMessage.PropertyNames.MessageContent;
 					ht[IsDeleted] = _MemberMessage.PropertyNames.IsDeleted;
+					ht[IsRead] = _MemberMessage.PropertyNames.IsRead;
+					ht[OperationID] = _MemberMessage.PropertyNames.OperationID;
 
 				}
 				return (string)ht[columnName];
@@ -212,6 +232,8 @@ namespace DAL
             public const string MessageSubject = "MessageSubject";
             public const string MessageContent = "MessageContent";
             public const string IsDeleted = "IsDeleted";
+            public const string IsRead = "IsRead";
+            public const string OperationID = "OperationID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -227,6 +249,8 @@ namespace DAL
 					ht[MessageSubject] = _MemberMessage.ColumnNames.MessageSubject;
 					ht[MessageContent] = _MemberMessage.ColumnNames.MessageContent;
 					ht[IsDeleted] = _MemberMessage.ColumnNames.IsDeleted;
+					ht[IsRead] = _MemberMessage.ColumnNames.IsRead;
+					ht[OperationID] = _MemberMessage.ColumnNames.OperationID;
 
 				}
 				return (string)ht[propertyName];
@@ -247,6 +271,8 @@ namespace DAL
             public const string MessageSubject = "s_MessageSubject";
             public const string MessageContent = "s_MessageContent";
             public const string IsDeleted = "s_IsDeleted";
+            public const string IsRead = "s_IsRead";
+            public const string OperationID = "s_OperationID";
 
 		}
 		#endregion		
@@ -346,6 +372,30 @@ namespace DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsDeleted, value);
+			}
+		}
+
+		public virtual bool IsRead
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsRead);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsRead, value);
+			}
+		}
+
+		public virtual Guid OperationID
+	    {
+			get
+	        {
+				return base.GetGuid(ColumnNames.OperationID);
+			}
+			set
+	        {
+				base.SetGuid(ColumnNames.OperationID, value);
 			}
 		}
 
@@ -474,6 +524,36 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_IsRead
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsRead) ? string.Empty : base.GetboolAsString(ColumnNames.IsRead);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsRead);
+				else
+					this.IsRead = base.SetboolAsString(ColumnNames.IsRead, value);
+			}
+		}
+
+		public virtual string s_OperationID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.OperationID) ? string.Empty : base.GetGuidAsString(ColumnNames.OperationID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.OperationID);
+				else
+					this.OperationID = base.SetGuidAsString(ColumnNames.OperationID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -587,6 +667,26 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter IsRead
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsRead, Parameters.IsRead);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter OperationID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.OperationID, Parameters.OperationID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -688,6 +788,30 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter IsRead
+		    {
+				get
+		        {
+					if(_IsRead_W == null)
+	        	    {
+						_IsRead_W = TearOff.IsRead;
+					}
+					return _IsRead_W;
+				}
+			}
+
+			public WhereParameter OperationID
+		    {
+				get
+		        {
+					if(_OperationID_W == null)
+	        	    {
+						_OperationID_W = TearOff.OperationID;
+					}
+					return _OperationID_W;
+				}
+			}
+
 			private WhereParameter _MemberMessageID_W = null;
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _MessageFolderID_W = null;
@@ -696,6 +820,8 @@ namespace DAL
 			private WhereParameter _MessageSubject_W = null;
 			private WhereParameter _MessageContent_W = null;
 			private WhereParameter _IsDeleted_W = null;
+			private WhereParameter _IsRead_W = null;
+			private WhereParameter _OperationID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -707,6 +833,8 @@ namespace DAL
 				_MessageSubject_W = null;
 				_MessageContent_W = null;
 				_IsDeleted_W = null;
+				_IsRead_W = null;
+				_OperationID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -843,6 +971,26 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter IsRead
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsRead, Parameters.IsRead);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter OperationID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OperationID, Parameters.OperationID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -944,6 +1092,30 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter IsRead
+		    {
+				get
+		        {
+					if(_IsRead_W == null)
+	        	    {
+						_IsRead_W = TearOff.IsRead;
+					}
+					return _IsRead_W;
+				}
+			}
+
+			public AggregateParameter OperationID
+		    {
+				get
+		        {
+					if(_OperationID_W == null)
+	        	    {
+						_OperationID_W = TearOff.OperationID;
+					}
+					return _OperationID_W;
+				}
+			}
+
 			private AggregateParameter _MemberMessageID_W = null;
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _MessageFolderID_W = null;
@@ -952,6 +1124,8 @@ namespace DAL
 			private AggregateParameter _MessageSubject_W = null;
 			private AggregateParameter _MessageContent_W = null;
 			private AggregateParameter _IsDeleted_W = null;
+			private AggregateParameter _IsRead_W = null;
+			private AggregateParameter _OperationID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -963,6 +1137,8 @@ namespace DAL
 				_MessageSubject_W = null;
 				_MessageContent_W = null;
 				_IsDeleted_W = null;
+				_IsRead_W = null;
+				_OperationID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1067,6 +1243,14 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.IsDeleted);
 			p.SourceColumn = ColumnNames.IsDeleted;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsRead);
+			p.SourceColumn = ColumnNames.IsRead;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.OperationID);
+			p.SourceColumn = ColumnNames.OperationID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

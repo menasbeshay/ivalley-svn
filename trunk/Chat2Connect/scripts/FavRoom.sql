@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_FavRoomLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_FavRoomLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FavRoomLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FavRoomLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FavRoomLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_FavRoomLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FavRoomLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_FavRoomLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FavRoomLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FavRoomLoadAll];
 GO
@@ -69,7 +69,7 @@ GO
 -------------------------------------------
 
 
-/****** Object:  StoredProcedure [proc_FavRoomInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_FavRoomInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FavRoomInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FavRoomInsert];
 GO
@@ -110,7 +110,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FavRoomInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FavRoomInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FavRoomDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_FavRoomDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FavRoomDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FavRoomDelete];
 GO

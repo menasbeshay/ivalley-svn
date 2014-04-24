@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CategoryLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_CategoryLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoryLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoryLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_CategoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoryLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_CategoryLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoryLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoryUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_CategoryUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoryUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CategoryInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_CategoryInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoryInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoryDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_CategoryDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoryDelete];
 GO

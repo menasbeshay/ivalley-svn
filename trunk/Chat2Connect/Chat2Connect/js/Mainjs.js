@@ -137,7 +137,7 @@ function MarkMember(cb, rid, enableWrite) {
         url: "../Services/Services.asmx/MarkMembers",
         dataType: "json",
         type: "post",
-        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "', 'mark':'" + $(cb).attr('checked') + "'}",
+        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "', 'mark':'" + $(cb).prop('checked') + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -162,13 +162,13 @@ function MarkMember(cb, rid, enableWrite) {
 
 
 
-function MarkMemberOnLogin(rid, enableWrite) {
+function MarkMemberOnLogin(cb, rid, enableWrite) {
     $('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/MarkMemberOnLogin",
         dataType: "json",
         type: "post",
-        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "'}",
+        data: "{'rid':'" + rid + "', 'CanWrite' : '" + enableWrite + "', 'mark' : '" + $(cb).prop('checked') + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -198,7 +198,7 @@ function DisableCams(cb, rid) {
         url: "../Services/Services.asmx/DisableCams",
         dataType: "json",
         type: "post",
-        data: "{'mark':'" + $(cb).attr('checked') + "','rid':'" + rid + "'}",
+        data: "{'mark':'" + $(cb).prop('checked') + "','rid':'" + rid + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -225,7 +225,7 @@ function EnableMic(cb, rid, adminsonly) {
         url: "../Services/Services.asmx/EnableMic",
         dataType: "json",
         type: "post",
-        data: "{'mark':'" + $(cb).attr('checked') + "','rid':'" + rid + "', 'adminsonly':'" + adminsonly + "'}",
+        data: "{'mark':'" + $(cb).prop('checked') + "','rid':'" + rid + "', 'adminsonly':'" + adminsonly + "'}",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
@@ -386,6 +386,9 @@ $(document).ready(function () {
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');        
     };
     
+    rHub.client.UserUnMarked = function (rid, memberid) {
+        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
+    };
 
     rHub.client.ShowCamLink = function (mid, rid) {
         $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');

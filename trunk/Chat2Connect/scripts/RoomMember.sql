@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomMemberLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberLoadByPrimaryKey];
 GO
@@ -48,7 +48,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_RoomMemberLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberLoadAll];
 GO
@@ -91,7 +91,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomMemberLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberUpdate];
 GO
@@ -158,7 +158,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomMemberInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberInsert];
 GO
@@ -241,7 +241,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomMemberInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberDelete];
 GO

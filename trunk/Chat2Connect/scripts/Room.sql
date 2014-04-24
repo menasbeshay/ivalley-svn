@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadByPrimaryKey];
 GO
@@ -33,7 +33,8 @@ BEGIN
 		[EnableOneMic],
 		[EnableTwoMic],
 		[EnableThreeMic],
-		[RoomAdminPassword]
+		[RoomAdminPassword],
+		[RowStatusID]
 	FROM [Room]
 	WHERE
 		([RoomID] = @RoomID)
@@ -50,7 +51,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadAll];
 GO
@@ -82,7 +83,8 @@ BEGIN
 		[EnableOneMic],
 		[EnableTwoMic],
 		[EnableThreeMic],
-		[RoomAdminPassword]
+		[RoomAdminPassword],
+		[RowStatusID]
 	FROM [Room]
 
 	SET @Err = @@Error
@@ -97,7 +99,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomUpdate];
 GO
@@ -119,11 +121,12 @@ CREATE PROCEDURE [proc_RoomUpdate]
 	@EnableMicForAdminsOnly bit = NULL,
 	@MarkOnLoginWithWrite bit = NULL,
 	@MarkOnLoginWithoutWrite bit = NULL,
-	@CreatedBy int,
+	@CreatedBy int = NULL,
 	@EnableOneMic bit = NULL,
 	@EnableTwoMic bit = NULL,
 	@EnableThreeMic bit = NULL,
-	@RoomAdminPassword nvarchar(50) = NULL
+	@RoomAdminPassword nvarchar(50) = NULL,
+	@RowStatusID tinyint
 )
 AS
 BEGIN
@@ -151,7 +154,8 @@ BEGIN
 		[EnableOneMic] = @EnableOneMic,
 		[EnableTwoMic] = @EnableTwoMic,
 		[EnableThreeMic] = @EnableThreeMic,
-		[RoomAdminPassword] = @RoomAdminPassword
+		[RoomAdminPassword] = @RoomAdminPassword,
+		[RowStatusID] = @RowStatusID
 	WHERE
 		[RoomID] = @RoomID
 
@@ -172,7 +176,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomInsert];
 GO
@@ -194,11 +198,12 @@ CREATE PROCEDURE [proc_RoomInsert]
 	@EnableMicForAdminsOnly bit = NULL,
 	@MarkOnLoginWithWrite bit = NULL,
 	@MarkOnLoginWithoutWrite bit = NULL,
-	@CreatedBy int,
+	@CreatedBy int = NULL,
 	@EnableOneMic bit = NULL,
 	@EnableTwoMic bit = NULL,
 	@EnableThreeMic bit = NULL,
-	@RoomAdminPassword nvarchar(50) = NULL
+	@RoomAdminPassword nvarchar(50) = NULL,
+	@RowStatusID tinyint
 )
 AS
 BEGIN
@@ -227,7 +232,8 @@ BEGIN
 		[EnableOneMic],
 		[EnableTwoMic],
 		[EnableThreeMic],
-		[RoomAdminPassword]
+		[RoomAdminPassword],
+		[RowStatusID]
 	)
 	VALUES
 	(
@@ -249,7 +255,8 @@ BEGIN
 		@EnableOneMic,
 		@EnableTwoMic,
 		@EnableThreeMic,
-		@RoomAdminPassword
+		@RoomAdminPassword,
+		@RowStatusID
 	)
 
 	SET @Err = @@Error
@@ -266,7 +273,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomDelete];
 GO

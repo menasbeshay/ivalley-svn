@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadByPrimaryKey];
 GO
@@ -42,7 +42,9 @@ BEGIN
 		[fbURL],
 		[tURL],
 		[ytURL],
-		[Status]
+		[Status],
+		[IP],
+		[RowStatusID]
 	FROM [Member]
 	WHERE
 		([MemberID] = @MemberID)
@@ -59,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Succeede
 ELSE PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadAll];
 GO
@@ -100,7 +102,9 @@ BEGIN
 		[fbURL],
 		[tURL],
 		[ytURL],
-		[Status]
+		[Status],
+		[IP],
+		[RowStatusID]
 	FROM [Member]
 
 	SET @Err = @@Error
@@ -115,7 +119,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberUpdate]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_MemberUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberUpdate];
 GO
@@ -150,7 +154,9 @@ CREATE PROCEDURE [proc_MemberUpdate]
 	@fbURL nvarchar(400) = NULL,
 	@tURL nvarchar(400) = NULL,
 	@ytURL nvarchar(400) = NULL,
-	@Status int = NULL
+	@Status int = NULL,
+	@IP varchar(50) = NULL,
+	@RowStatusID tinyint
 )
 AS
 BEGIN
@@ -187,7 +193,9 @@ BEGIN
 		[fbURL] = @fbURL,
 		[tURL] = @tURL,
 		[ytURL] = @ytURL,
-		[Status] = @Status
+		[Status] = @Status,
+		[IP] = @IP,
+		[RowStatusID] = @RowStatusID
 	WHERE
 		[MemberID] = @MemberID
 
@@ -208,7 +216,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberInsert];
 GO
@@ -243,7 +251,9 @@ CREATE PROCEDURE [proc_MemberInsert]
 	@fbURL nvarchar(400) = NULL,
 	@tURL nvarchar(400) = NULL,
 	@ytURL nvarchar(400) = NULL,
-	@Status int = NULL
+	@Status int = NULL,
+	@IP varchar(50) = NULL,
+	@RowStatusID tinyint
 )
 AS
 BEGIN
@@ -281,7 +291,9 @@ BEGIN
 		[fbURL],
 		[tURL],
 		[ytURL],
-		[Status]
+		[Status],
+		[IP],
+		[RowStatusID]
 	)
 	VALUES
 	(
@@ -312,7 +324,9 @@ BEGIN
 		@fbURL,
 		@tURL,
 		@ytURL,
-		@Status
+		@Status,
+		@IP,
+		@RowStatusID
 	)
 
 	SET @Err = @@Error
@@ -329,7 +343,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 3/9/2014 11:33:57 AM ******/
+/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberDelete];
 GO
