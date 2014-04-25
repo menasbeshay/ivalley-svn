@@ -40,12 +40,24 @@ namespace Chat2Connect.Admin.UserControls.Room
 
         private void BindRoomInfo()
         {
-            
+            BLL.Room room = new BLL.Room();
+            if (room.LoadByPrimaryKey(RoomID))
+            {
+                drpRoomStatus.SelectedValue = room.s_RowStatusID;
+            }
         }
 
         protected void btnUpdateRoomStatus_Click(object sender, EventArgs e)
         {
-
+            BLL.Room room = new BLL.Room();
+            if (room.LoadByPrimaryKey(RoomID))
+            {
+                if (drpRoomStatus.SelectedValue != room.s_RowStatusID)
+                {
+                    room.RowStatusID = Convert.ToByte(drpRoomStatus.SelectedValue);
+                    room.Save();
+                }
+            }
         }
     }
 }
