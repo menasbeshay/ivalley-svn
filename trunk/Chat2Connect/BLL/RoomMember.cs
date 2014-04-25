@@ -75,5 +75,10 @@ namespace BLL
             return LoadFromSql("GetAllRoomsByMemberID", parameters);
 
         }
+
+        public bool GetAllRoomsByAdminMemberID(int MemberID)
+        {
+            return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
+        }
 	}
 }

@@ -1,4 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AccountInfo.ascx.cs" Inherits="Chat2Connect.Admin.UserControls.AccountInfo" %>
+<style>
+    /*ul > li {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+    }*/
+    .horizontallist li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+    }
+</style>
 <div class="modal-content">
     <div class="modal-header">
         <h3 id="myModalLabel1">معلومات الحساب</h3>
@@ -17,7 +29,10 @@
                                 <% if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_ChangeUsername.ToString()))
                                    { %>
                                 <asp:TextBox ID="txtUsername" runat="server" Text='<%# Eval("UserName") %>'></asp:TextBox>
-                                <asp:Button ID="btnUpdateUserName" runat="server" Text="تعديل" CssClass="pull-left btn btn-warning " Style="width: 100px;" OnClick="btnUpdateUserName_Click" />
+                                <asp:LinkButton ID="btnUpdateUserName" runat="server" Text="تعديل" CssClass="pull-left btn btn-warning" OnClick="btnUpdateUserName_Click">
+                                    <i class="icon-pencil"></i>
+                                    تعديل
+                                </asp:LinkButton>
                                 <%}
                                    else
                                    { %>
@@ -34,6 +49,7 @@
                         <asp:TemplateField Visible="false">
                             <HeaderTemplate>كلمة السر</HeaderTemplate>
                             <ItemTemplate>
+                                <%# Eval("Password") %>
                                 <a href="#passwordModal" data-toggle="modal" class="pull-left btn btn-warning">
                                     <i class="icon-pencil"></i>
                                     تعديل
@@ -49,10 +65,41 @@
                         <asp:TemplateField Visible="false">
                             <HeaderTemplate></HeaderTemplate>
                             <ItemTemplate>
+                                <%# Eval("QuestionAnswer") %>
                                 <a href="#questionModal" data-toggle="modal" class="pull-left btn btn-warning">
                                     <i class="icon-pencil"></i>
                                     تعديل
                                 </a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField Visible="false" HeaderText="تاريخ التسجيل" DataField="CreationDate" DataFormatString="{0:dd / MM / yyyy hh:mm}" HtmlEncode="false" />
+                        <asp:BoundField Visible="false" HeaderText="اّى بى التسجيل" DataField="IP" />
+                        <asp:BoundField Visible="false" HeaderText="لون الصبغة" DataField="MemberTypeColor" />
+                        <asp:BoundField Visible="false" HeaderText="إنتهاء الصبغة" DataField="MemberTypeExpiryDate" DataFormatString="{0:dd / MM / yyyy hh:mm}" HtmlEncode="false" />
+                        <asp:BoundField Visible="false" HeaderText="الرصيد" DataField="Credit_Money" />
+                        <asp:BoundField Visible="false" HeaderText="متصل؟" DataField="IsOnline" />
+                        <asp:BoundField Visible="false" HeaderText="الحالة" DataField="StatusName" />
+                        <asp:BoundField Visible="false" HeaderText="الأصدقاء" DataField="FriendsCount" />
+                        <asp:TemplateField HeaderText="الغرف التى يمتلكها">
+                            <ItemTemplate>
+                                <ul class="horizontallist">
+                                    <asp:Repeater ID="repOwnerRooms" runat="server">
+                                        <ItemTemplate>
+                                            <li><%# Eval("Name") %></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="الغرف التى يديرها">
+                            <ItemTemplate>
+                                <ul class="horizontallist">
+                                    <asp:Repeater ID="repAdminRooms" runat="server">
+                                        <ItemTemplate>
+                                            <li><%# Eval("RoomName") %></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Fields>

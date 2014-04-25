@@ -13,6 +13,112 @@ namespace BLL
 {
     public class Member : _Member
     {
+        #region Extended Properties
+        private System.Web.Security.MembershipUser _membershipUser;
+        private bool isLoaded;
+        private System.Web.Security.MembershipUser _MembershipUser
+        {
+            get
+            {
+                if (!isLoaded)
+                {
+                    _membershipUser = System.Web.Security.Membership.GetUser(this.UserID);
+                    isLoaded = true;
+                }
+                return _membershipUser;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                if (_MembershipUser != null)
+                    return _MembershipUser.Email;
+                return "";
+            }
+        }
+
+        public string UserName
+        {
+            get
+            {
+                if (_MembershipUser != null)
+                    return _MembershipUser.UserName;
+                return "";
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                if (_MembershipUser != null)
+                    return _MembershipUser.GetPassword(this.Answer);
+                return "";
+            }
+        }
+        //PasswordQuestion
+        public string PasswordQuestion
+        {
+            get
+            {
+                if (_MembershipUser != null)
+                    return _MembershipUser.PasswordQuestion;
+                return "";
+            }
+        }
+        //CreationDate
+        public DateTime CreationDate
+        {
+            get
+            {
+                if (_MembershipUser != null)
+                    return _MembershipUser.CreationDate;
+                return DateTime.MinValue;
+            }
+        }
+
+        private MemberType _memberType;
+        public string MemberTypeColor
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.s_MemberTypeID))
+                    return "";
+                if (_memberType == null)
+                {
+                    _memberType = new MemberType();
+                    _memberType.LoadByPrimaryKey(this.MemberTypeID);
+                }
+
+                return _memberType.Color;
+            }
+        }
+
+        public string StatusName
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(this.s_Status))
+                {
+                    return Helper.StringEnum.GetStringValue((Helper.Enums.MemberStatus)this.Status);
+                }
+                return "";
+            }
+        }
+
+        #endregion
+
+        #region Extended Methods
+        public int FriendsCount()
+        {
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(this.MemberID);
+
+            return friends.RowCount;
+        }
+        #endregion
         public Member()
         {
 
@@ -28,6 +134,21 @@ namespace BLL
 
         }
 
+        public virtual bool GetMemberByUserName(string userName)
+        {
+            _membershipUser = System.Web.Security.Membership.GetUser(userName);
+            isLoaded = true;
+            if (_membershipUser == null)
+                return false;
+
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@UserId", SqlDbType.UniqueIdentifier, 0), new Guid(_membershipUser.ProviderUserKey.ToString()));
+
+            return LoadFromSql("GetMemberByUserId", parameters);
+
+        }
+
         public virtual bool GetMemberFriendsByStatus(int MemberID, bool Status)
         {
             ListDictionary parameters = new ListDictionary();
@@ -36,8 +157,6 @@ namespace BLL
             return LoadFromSql("GetMemberFriendsByStatus", parameters);
 
         }
-
-
 
 
         public virtual bool SearchMembers(string query)

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using System.Data;
 
 namespace Chat2Connect.Admin.UserControls
 {
@@ -16,10 +17,10 @@ namespace Chat2Connect.Admin.UserControls
             {
                 if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AccountInfo.ToString()))
                 {
-                    dtlAccountInfo.Fields[1].Visible = true;
-                    dtlAccountInfo.Fields[2].Visible = true;
-                    dtlAccountInfo.Fields[3].Visible = true;
-                    dtlAccountInfo.Fields[4].Visible = true;
+                    for (int i = 1; i < dtlAccountInfo.Fields.Count; i++)
+                    {
+                        dtlAccountInfo.Fields[i].Visible = true;
+                    }
                 }
             }
         }
@@ -37,34 +38,55 @@ namespace Chat2Connect.Admin.UserControls
         }
         private void BindAccountInfo()
         {
-            MembershipUser user = Membership.GetUser(MemberUserName);
-            List<dynamic> dataSource = null;
-            if (user != null)
+            dtlAccountInfo.DataSource = null;
+            dtlAccountInfo.DataBind();
+            try
             {
-                try
+                BLL.Member member = new BLL.Member();
+                if (member.GetMemberByUserName(MemberUserName))
                 {
-                    BLL.Member member = new BLL.Member();
-                    if (member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString())))
-                    {
-                        dataSource = new List<dynamic>()
+
+                    List<dynamic> dataSource = new List<dynamic>()
                         {
                             new {
-                                UserName=user.UserName,
-                                Email=user.Email,
-                                Password=user.GetPassword(member.Answer),
-                                PasswordQuestion=user.PasswordQuestion,
-                                QuestionAnswer=member.Answer
+                                UserName=member.UserName,
+                                Email=member.Email,
+                                Password=member.Password,
+                                PasswordQuestion=member.PasswordQuestion,
+                                QuestionAnswer=member.Answer,
+                                CreationDate=member.CreationDate,
+                                IP=member.s_IP,
+                                MemberTypeExpiryDate=member.s_MemberTypeExpiryDate,
+                                Credit_Money=member.s_Credit_Money,
+                                MemberTypeColor=member.MemberTypeColor,
+                                StatusName=member.StatusName,
+                                IsOnline=(member.IsOnLine?"نعم":"لا"),
+                                FriendsCount=member.FriendsCount()
                             }
                         };
+                    dtlAccountInfo.DataSource = dataSource;
+                    dtlAccountInfo.DataBind();
+                    if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AccountInfo.ToString()))
+                    {
+                        Repeater repOwnerRooms = (Repeater)dtlAccountInfo.FindControl("repOwnerRooms");
+                        Repeater repAdminRooms = (Repeater)dtlAccountInfo.FindControl("repAdminRooms");
+
+                        BLL.RoomMember roomMember = new BLL.RoomMember();
+                        roomMember.GetAllRoomsByAdminMemberID(member.MemberID);
+                        repAdminRooms.DataSource = roomMember.DefaultView; 
+                        repAdminRooms.DataBind();
+                        //string adminRoom = string.Join(",", roomMember.DefaultView.Table.AsEnumerable().Select(x => x["RoomName"].ToString()).ToArray());
+                        BLL.Room room = new BLL.Room();
+                        room.GetRoomsByCreatorID(member.MemberID);
+                        repOwnerRooms.DataSource = room.DefaultView;
+                        repOwnerRooms.DataBind();
                     }
                 }
-                catch
-                {
-                }
-
             }
-            dtlAccountInfo.DataSource = dataSource;
-            dtlAccountInfo.DataBind();
+            catch
+            {
+            }
+
         }
 
         protected void btnChangePassword_Click(object sender, EventArgs e)
