@@ -28,8 +28,10 @@ namespace Chat2Connect.Admin.UserControls
             MembershipUser user = Membership.GetUser(MemberUserName);
             if (user != null)
             {
-                member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-                //drpAccountStatus.SelectedValue = member.s_RowStatus;
+                if (member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString())))
+                {
+                    drpAccountStatus.SelectedValue = member.s_RowStatusID;
+                }
             }
 
         }
@@ -55,12 +57,12 @@ namespace Chat2Connect.Admin.UserControls
             MembershipUser user = Membership.GetUser(MemberUserName);
             if (user != null)
             {
-                //member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-                //if (drpAccountStatus.SelectedValue != member.s_RowStatusID)
-                //{
-                //    member.RowStatusID = Convert.ToInt32(drpAccountStatus.SelectedValue);
-                //    member.Save();
-                //}
+                member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+                if (drpAccountStatus.SelectedValue != member.s_RowStatusID)
+                {
+                    member.RowStatusID = Convert.ToByte(drpAccountStatus.SelectedValue);
+                    member.Save();
+                }
             }
         }
     }
