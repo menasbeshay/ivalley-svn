@@ -26,6 +26,17 @@ namespace Helper
             UpgradeRoom
         }
 
+        public enum MemberStatus
+        {
+            [StringValue("متصل")]
+            Online=1,
+            [StringValue("مشغول")]
+            Busy=2,
+            [StringValue("بعيد")]
+            Away=3,
+            [StringValue("غير متصل")]
+            Offline=4
+        }
         public enum MemberRoles
         {
             [StringValue("المحادثة الخاصة")]
@@ -34,13 +45,10 @@ namespace Helper
             TempRoom,
             [StringValue("صندوق البريد")]
             Mailinbox,
-            [StringValue("البريد الصوتى")]
-            VoiceMail,
             [StringValue("إرسال رسالة بريد")]
             SendEmail,
-            [StringValue("إرسال SMS")]
-            SendSMS
-
+            [StringValue("دخول مخفى للغرف")]
+            InvisibleInRoom
         }
 
         public enum AdminRoles
