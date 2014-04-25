@@ -8,45 +8,113 @@ using System.Data.SqlClient;
 using DAL;
 namespace BLL
 {
-	public class MemberMessage : _MemberMessage
-	{
-		public MemberMessage()
-		{
-		
-		}
+    public class MemberMessage : _MemberMessage
+    {
+        public MemberMessage()
+        {
+
+        }
 
         public virtual bool GetMessagesBySenderID_Sent(int MemberID)
         {
-            ListDictionary parameters = new ListDictionary();
-            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
-            return LoadFromSql("GetMessagesBySenderID_Sent", parameters);
+            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
+                                    from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+                                    where SenderID = {0} And (IsDeleted is null Or IsDeleted <> 1) AND MessageFolderID IS NULL
+                                    Order by SendDate desc", MemberID);
 
         }
 
         public virtual bool GetMessagesByMemberID_Received(int MemberID)
         {
             ListDictionary parameters = new ListDictionary();
-            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
-            return LoadFromSql("GetMessagesByMemberID_Received", parameters);
-
+            
+            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
+                                    from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+                                    where MemberMessage.MemberID = {0} And 
+	                                      (IsDeleted is null Or IsDeleted <> 1) AND MessageFolderID IS NULL
+                                    Order by SendDate desc", MemberID);
         }
 
         public virtual bool GetMessagesByMemberID_Deleted(int MemberID)
         {
-            ListDictionary parameters = new ListDictionary();
-            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
-            return LoadFromSql("GetMessagesByMemberID_Deleted", parameters);
+            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
+                                from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+                                where MemberMessage.MemberID = {0} And 
+	                                  IsDeleted = 1 AND MessageFolderID IS NULL
+                                Order by SendDate desc", MemberID);
 
         }
 
 
         public virtual bool GetMessagesByFolderID(int FolderID)
         {
-            this.Where.MessageFolderID.Value = FolderID;
-            this.Where.MessageFolderID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-
-            return this.Query.Load();
+            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
+                                from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+                                where MemberMessage.MessageFolderID = {0}
+                                Order by SendDate desc", FolderID);
 
         }
-	}
+
+        public void MoveToFolder(System.Collections.Generic.List<int> selectedMessages, int folderID)
+        {
+            if (selectedMessages != null && selectedMessages.Count > 0)
+            {
+                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
+                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                if (this.Query.Load())
+                {
+                    do
+                    {
+                        this.MessageFolderID = folderID;
+                        this.IsDeleted = false;
+                    } while (this.MoveNext());
+                    this.Save();
+                }
+            }
+        }
+
+        public void MoveToTrash(System.Collections.Generic.List<int> selectedMessages)
+        {
+            if (selectedMessages != null && selectedMessages.Count > 0)
+            {
+                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
+                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                if (this.Query.Load())
+                {
+                    do
+                    {
+                        this.IsDeleted = true;
+                        this.SetColumnNull(MemberMessage.ColumnNames.MessageFolderID);
+                    } while (this.MoveNext());
+                    this.Save();
+                }
+            }
+        }
+
+        public void Delete(System.Collections.Generic.List<int> selectedMessages)
+        {
+            if (selectedMessages != null && selectedMessages.Count > 0)
+            {
+                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
+                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                if (this.Query.Load())
+                {
+                    do
+                    {
+                        this.MarkAsDeleted();
+                    } while (this.MoveNext());
+                    this.Save();
+                }
+            }
+        }
+
+        public bool LoadFullInfoByIDAndOperation(int msgID, string operation)
+        {
+            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=sender.Name ,[RecipientName]=Recipient.Name
+                                    from MemberMessage INNER JOIN Member sender on sender.MemberID=MemberMessage.SenderID
+                                    INNER JOIN Member Recipient on Recipient.MemberID=MemberMessage.MemberID
+                                    WHERE MemberMessage.MemberMessageID={0} AND ISNULL(convert(nvarchar(50), OperationID),'')={1}
+                                Order by SendDate desc", msgID,operation);
+        }
+    }
 }

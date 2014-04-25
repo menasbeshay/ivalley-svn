@@ -22,33 +22,6 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.WebControls.LinkButton lnkSendMessage;
         
         /// <summary>
-        /// lnkInboxLoad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkInboxLoad;
-        
-        /// <summary>
-        /// lnkSentLoad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSentLoad;
-        
-        /// <summary>
-        /// lnkDeletedLoad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkDeletedLoad;
-        
-        /// <summary>
         /// repMemberFolders control.
         /// </summary>
         /// <remarks>
@@ -74,6 +47,24 @@ namespace Chat2Connect.usercontrols {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlViewMessages;
+        
+        /// <summary>
+        /// btnDeleteMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteMessages;
+        
+        /// <summary>
+        /// rptFoldersMove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptFoldersMove;
         
         /// <summary>
         /// grdMessages control.

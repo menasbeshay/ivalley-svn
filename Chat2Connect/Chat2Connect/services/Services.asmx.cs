@@ -109,6 +109,7 @@ namespace Chat2Connect.services
         public bool SendMsg(int sender, string ToMember, string subject, string content)
         {
             string[] ToMembers = ToMember.Split(',');
+            Guid operationID = Guid.NewGuid();
             MemberMessage message = new MemberMessage();
             foreach (string item in ToMembers)
             {
@@ -117,7 +118,7 @@ namespace Chat2Connect.services
                     int recipientID = Convert.ToInt32(item);
                     if (recipientID > 0)
                     {
-                        SendMsg(sender, subject, content, message, recipientID);
+                        SendMsg(sender, subject, content, message, recipientID,operationID);
                     }
                     else
                     {
@@ -128,7 +129,7 @@ namespace Chat2Connect.services
                             aliasMembers.GetByAliase((Helper.Enums.AdminMailAddressAlias)recipientID);
                             do
                             {
-                                SendMsg(sender, subject, content, message, aliasMembers.MemberID);
+                                SendMsg(sender, subject, content, message, aliasMembers.MemberID, operationID);
                             } while (aliasMembers.MoveNext());
                         }
                     }
@@ -139,7 +140,7 @@ namespace Chat2Connect.services
             return true;
         }
 
-        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID)
+        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID,Guid operationID)
         {
             message.AddNew();
             message.SendDate = DateTime.Now;
@@ -147,6 +148,8 @@ namespace Chat2Connect.services
             message.MemberID = recipientID;
             message.MessageSubject = subject;
             message.MessageContent = content;
+            message.IsRead = false;
+            message.OperationID = operationID;
         }
 
 

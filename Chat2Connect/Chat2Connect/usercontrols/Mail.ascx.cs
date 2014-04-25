@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,9 +46,12 @@ namespace Chat2Connect.usercontrols
         }
         protected enum Folders
         {
-            Inbox=-1,
-            Sent=-2,
-            Deleted=-3
+            [StringValue("البريد الوارد")]
+            Inbox=-3,
+            [StringValue("البريد المرسل")]
+            Sent = -2,
+            [StringValue("المهملات")]
+            Deleted = -1
         }
         protected int CurrentFolder
         {
@@ -72,30 +76,13 @@ namespace Chat2Connect.usercontrols
             }
         }
 
-        protected void lnkInboxLoad_Click(object sender, EventArgs e)
-        {
-            CurrentFolder = (int)Folders.Inbox;
-            BindMessages();
-        }
-
-        protected void lnkSentLoad_Click(object sender, EventArgs e)
-        {
-            CurrentFolder = (int)Folders.Sent;
-            BindMessages();
-        }
-
-        protected void lnkDeletedLoad_Click(object sender, EventArgs e)
-        {
-            CurrentFolder = (int)Folders.Deleted;
-            BindMessages();
-        }
-
         private void BindMessages()
         {
             pnlViewMessages.Visible = true;
             pnlSendMessage.Visible = false;
             pnlCreateFolder.Visible = false;
             MemberMessage messages = new MemberMessage();
+            btnDeleteMessages.OnClientClick = "";
             if (MemberID > 0)
             {
                 switch (CurrentFolder)
@@ -108,6 +95,7 @@ namespace Chat2Connect.usercontrols
                         break;
                     case (int)Folders.Deleted:
                         messages.GetMessagesByMemberID_Deleted(MemberID);
+                        btnDeleteMessages.OnClientClick = "return confirm('سيتم الحذف نهائياهل تريد الإستمرار؟');";
                         break;
                     default:
                         messages.GetMessagesByFolderID(CurrentFolder);
@@ -124,21 +112,6 @@ namespace Chat2Connect.usercontrols
         {
             grdMessages.PageIndex = e.NewPageIndex;
             BindMessages();
-        }
-
-        protected void grdMessages_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                Label sendername = (Label)e.Row.FindControl("uiLabelSenderName");
-                Label _Date = (Label)e.Row.FindControl("uiLabelDate");
-                DataRowView row = (DataRowView)e.Row.DataItem;
-                Member _sender = new Member();
-                _sender.LoadByPrimaryKey(Convert.ToInt32(row["SenderID"].ToString()));
-                sendername.Text = _sender.Name;
-                _Date.Text = DateTime.Parse(row["SendDate"].ToString()).ToString("dd / MM / yyyy hh:mm tt");
-
-            }
         }
 
         protected void lnkSendMessage_Click(object sender, EventArgs e)
@@ -159,6 +132,7 @@ namespace Chat2Connect.usercontrols
         {
             CurrentFolder = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());
             BindMessages();
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "ActiviateFolder", "ActiviateFolder("+CurrentFolder.ToString()+")", true);
         }
 
         protected void lnkSaveFolder_Click(object sender, EventArgs e)
@@ -228,12 +202,79 @@ namespace Chat2Connect.usercontrols
             MessageFolder folders = new MessageFolder();
             folders.GetFolderByMemberID(MemberID);
 
+            rptFoldersMove.Visible = folders.RowCount > 0;
+
             grdFolders.DataSource = folders.DefaultView;
             grdFolders.DataBind();
 
+            rptFoldersMove.DataSource = folders.DefaultView;
+            rptFoldersMove.DataBind();
+
+            int idx = 0;
+            foreach (var f in Helper.EnumUtil.GetValues<Folders>())
+            {
+                DataRow dr = folders.DefaultView.Table.NewRow();
+                dr[MessageFolder.ColumnNames.MessageFolderID] = (int)f;
+                dr[MessageFolder.ColumnNames.Name] = Helper.StringEnum.GetStringValue(f);
+                folders.DefaultView.Table.Rows.InsertAt(dr, idx);
+                idx++;
+            }
+            
             repMemberFolders.DataSource = folders.DefaultView;
             repMemberFolders.DataBind();
 
+            
+
         }
+
+        protected void btnDeleteMessages_Click(object sender, EventArgs e)
+        {
+            MemberMessage message = new MemberMessage();
+            List<int> selectedMessages = GetSelectedMessages();
+            if (selectedMessages.Count > 0)
+            {
+                if (CurrentFolder == (int)Folders.Deleted)
+                {
+                    message.Delete(selectedMessages);
+                }
+                else
+                {
+                    message.MoveToTrash(selectedMessages);
+                }
+                BindMessages();
+            }
+        }
+
+        protected void lnkMoveMessagesToFolder_Click(object sender, EventArgs e)
+        {
+            int folderID = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());
+            MemberMessage message = new MemberMessage();
+            List<int> selectedMessages = GetSelectedMessages();
+            if (selectedMessages.Count>0)
+            {
+                message.MoveToFolder(selectedMessages,folderID);
+                BindMessages();
+            }
+        }
+
+        private List<int> GetSelectedMessages()
+        {
+            List<int> selectedMessages = new List<int>();
+            CheckBox chkMsg;
+            for (int i = 0; i < grdMessages.Rows.Count; i++)
+            {
+                if (grdMessages.Rows[i].RowType == DataControlRowType.DataRow)
+                {
+                    chkMsg = (CheckBox)grdMessages.Rows[i].FindControl("chkSelect");
+                    if (chkMsg.Checked)
+                    {
+                        selectedMessages.Add(Convert.ToInt32(chkMsg.Attributes["data-id"]));
+                    }
+                }
+            }
+            return selectedMessages;
+        }
+
+        
     }
 }
