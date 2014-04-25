@@ -1152,3 +1152,7 @@ li.g-dark-selected {
 
 
 /**/
+.un-read
+{
+    font-weight:bold;
+}

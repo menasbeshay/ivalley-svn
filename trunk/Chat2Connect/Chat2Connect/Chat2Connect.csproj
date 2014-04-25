@@ -598,6 +598,7 @@
     <Content Include="js\tags\textext.plugin.prompt.js" />
     <Content Include="js\tags\textext.plugin.suggestions.js" />
     <Content Include="js\tags\textext.plugin.tags.js" />
+    <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
     <Content Include="testswf\chat2connect.swf" />
     <Content Include="usercontrols\Mail.ascx" />
@@ -861,6 +862,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadMessage.aspx.cs">
+      <DependentUpon>LoadMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadMessage.aspx.designer.cs">
+      <DependentUpon>LoadMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoadRoom.aspx.cs">
       <DependentUpon>LoadRoom.aspx</DependentUpon>
