@@ -1,0 +1,6 @@
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
+D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache

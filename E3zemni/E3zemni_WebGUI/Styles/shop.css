@@ -165,8 +165,12 @@
 	border-radius: 10px;
 	color: #fff;
 	text-transform: uppercase;
-	background: #5486DA;
-	border: 1px solid #5486DA;
+	/*background: #5486DA;*/
+	background:#7b58a3;
+	
+	/*border: 1px solid #5486DA;*/
+	border : 1px solid #7b58a3;
+	
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }

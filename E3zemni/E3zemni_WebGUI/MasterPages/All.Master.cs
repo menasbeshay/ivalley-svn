@@ -9,14 +9,14 @@ namespace E3zemni_WebGUI.MasterPages
 {
     public partial class All : System.Web.UI.MasterPage
     {
-        public string PageTitle 
-        { 
-            get 
-            { 
-                return uiLabelTitle.Text; 
-            } 
-            set 
-            { 
+        public string PageTitle
+        {
+            get
+            {
+                return uiLabelTitle.Text;
+            }
+            set
+            {
                 uiLabelTitle.Text = value;
                 uiLabelTopTitle.Text = value;
             }
@@ -30,7 +30,7 @@ namespace E3zemni_WebGUI.MasterPages
             }
             set
             {
-                uiLiteralSubPath.Text = value;                
+                uiLiteralSubPath.Text = value;
             }
         }
 
@@ -39,11 +39,40 @@ namespace E3zemni_WebGUI.MasterPages
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["CurrentUser"] != null)
+            {
+                lbtnLogin.Visible = false;
+                lbtnLogout.Visible = true;
+                lbtnProfile.Visible = true;
+
+            }
+            else
+            {
+                lbtnLogin.Visible = true;
+                lbtnLogout.Visible = false;
+                lbtnProfile.Visible = false;
+
+            }
+
+
         }
 
         protected void uiLinkButtonAr_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ar/" + Request.RawUrl);
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            if (Session["CurrentUser"] !=null)
+            {
+                Session.Remove("CurrentUser");
+                lbtnLogin.Visible = true;
+                lbtnLogout.Visible = false;
+                lbtnProfile.Visible = false;
+                Response.Redirect("default.aspx");
+            }
+
         }
     }
 }

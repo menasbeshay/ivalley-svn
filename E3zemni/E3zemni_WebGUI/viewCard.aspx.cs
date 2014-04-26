@@ -53,6 +53,12 @@ namespace E3zemni_WebGUI
                     uiRepeaterColor.DataBind();
                     uiLinkButtonCustomize.PostBackUrl = "customize.aspx?cid=" + card.CardID;
                     BindReviews();
+
+                    Master.PageTitle = card.CardNameEng;
+
+                    //Master.Path = "<li><a href='#'>" + card.CardNameEng + "</a></li>";
+                    Master.ViewPath = true;
+
                 }
                 else
                 {

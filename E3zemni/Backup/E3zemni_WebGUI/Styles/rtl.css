@@ -1,0 +1,184 @@
+body { direction: rtl }
+.anyClass, div.pp_pic_holder, .flexslider, .flex-viewport, .slides, .ltr, .clients, .anymore, .modern-slider, #iview {direction: ltr !important}
+.col3 .col1, .col2, .col3, .logo, .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .tabs li, .social a, .foot-menu li {
+	float: right
+}
+.sf-menu, .sidebar .rating, ul.showcomments span.date, .coupon_button, #contactForm #sendMessage, #sendOrder, .widget .list li a span {float: left}
+.alpha {
+	margin-left: 1% !important;
+	margin-right: 0 !important;
+}
+.omega {
+	margin-right: 1% !important;
+	margin-left: 0 !important;
+}
+.sf-menu li {
+	float: right;
+	margin: 0 14px 0 0
+}
+#header .search {
+	margin: 42px 20px 42px 0;
+	padding: 0 20px 0 0;
+	float: left;
+	border-left: 0;
+	border-right: 1px solid #CFCFCF;
+}
+.s_form {
+	right: auto;
+	left: 0
+}
+#header .search button, .widget #searchwidget button, #newsletters button {
+	left: 12px;
+	right: auto
+}
+.l_ht span {margin-left: 15px;margin-right: 0}
+.l_ht span i {margin-left: 8px;margin-right: 0}
+.services [class^="grid_"]:before {
+	left: auto;
+	right: -12px;
+}
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {
+	left: auto !important;
+	right: 0 !important
+}
+.sf-menu li li:hover ul, .sf-menu li li.sfHover ul {
+	left: auto !important;
+	right: 172px !important
+}
+.sf-menu i {
+	margin-right: 0;
+	margin-left: 8px
+}
+li li a .sf-sub-indicator {
+	right: auto;
+	left: 1%
+}
+.sf-menu li li:first-child, ul.mega {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 0
+}
+.sf-menu a.sf-with-ul {
+	padding-right: 15px;
+	padding-left: 30px
+}
+a > .sf-sub-indicator {
+	right: auto;
+	left: 8%
+}
+.accordion-head-sign, .toggle-head-sign {
+	left: auto;
+	right: 0
+}
+.accordion-head, .toggle-head {
+	padding: 10px 60px 10px 0
+}
+#toTop i {padding: 0px 7.5px 0 0}
+.set_two .s_icon {
+	margin: 0 0 20px 30px;
+	float: right
+}
+.set_two {
+	text-align: right
+}
+.set_two .tbutton {
+	float: left
+}
+.f_blog .f_meta span {
+	margin-right: 0;
+	margin-left: 20px
+}
+.mi { margin-left: 4px !important;margin-right: 0 !important }
+.mid { margin-left: 8px !important;margin-right: 0 !important }
+.mii { margin-left: 4px !important;margin-right: 0 !important }
+.miid { margin-left: 8px !important;margin-right: 0 !important }
+.shop .product .sale {
+	left: auto;
+	right: -22px
+}
+.tab-content-items .post-thumbnail {
+	float: right;
+	margin: 0 0 0 10px
+}
+.breadcrumbIn li:before {
+	font-family: FontAwesome;
+	content: "\f0da";
+	position: absolute;
+	display: block;
+	font-size: 12px;
+	left: auto;
+	right: -4px;
+	top: 0;
+}
+.breadcrumbIn li:before {
+	content: "\f0d9";
+	left: auto;
+	right: -4px
+}
+.sf-menu .fa-caret-right:before {
+	content: "\f0d9"
+}
+.sf-menu .fa-chevron-right:before {
+	content: "\f053"
+}
+ul.showcomments .thumb {
+	float: right;
+	margin: 0 0 0 30px;
+}
+table.shop_table, .woocommerce table.shop_table, table.shop_table th, .woocommerce table.shop_table th, .total_w_table th, .total_w_table td, .forum .table th, .forum .table td, .tab-content-items .post-meta {
+	text-align: right
+}
+.total_w_table td, .total_w_table .shipping td {
+	text-align: left
+}
+.blockquote {
+	border-right: 5px solid #E6E6E6;
+	border-left: 0
+}
+.dropcap, .dropcap-txt, .dropcap-border {
+	margin: 0px 0 8px 16px;
+	float: right
+}
+ol li {
+	margin: 0 30px 0 0;
+}
+a.notification-close {
+	left: 20px;
+	right: auto
+}
+.notification-box p i {
+	padding-left: 10px;
+	border-left: 1px solid;
+	margin-left: 10px;
+	padding-right: 0;
+	border-right: 0;
+	margin-right: 0
+}
+.col-eleven span, .col-ten span {
+	padding-right: 0;
+	padding-left: 10px
+}
+.post_format {
+	left: auto;
+	right: 20px
+}
+.meta_box h3, .post_meta {
+	margin: 0 140px 10px 0
+}
+.widget .list li.current a, .widget .list li:hover a {
+	padding-left: 0;
+	padding-right: 10px
+}
+.widget_social i {
+	right: auto;
+	left: 20px
+}
+.widget_social span {
+	right: 20px;
+	left: auto
+}
+.tabs li {
+	margin: 0 0 0 10px
+}
+ul.showcomments li.child {
+	margin: 0 112px 40px 0
+}

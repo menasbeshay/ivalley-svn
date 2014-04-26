@@ -1,0 +1,7 @@
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\bin\Debug\E3zemni_DAL.dll
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\bin\Debug\E3zemni_DAL.pdb
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\bin\Debug\MyGeneration.dOOdads.dll
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\bin\Debug\MyGeneration.dOOdads.pdb
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\obj\Debug\E3zemni_DAL.csprojResolveAssemblyReference.cache
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\obj\Debug\E3zemni_DAL.dll
+D:\Web Projects\I-valley Projects\E3zemni\E3zemni_DAL\obj\Debug\E3zemni_DAL.pdb

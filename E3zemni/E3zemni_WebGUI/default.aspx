@@ -1,38 +1,121 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="E3zemni_WebGUI._default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true"
+    CodeBehind="default.aspx.cs" Inherits="E3zemni_WebGUI._default" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .divLoginStyle
+        {
+            background-color: rgb(255, 255, 255);
+            color: black;
+            margin-top: 235px;
+            height: 300px;
+            width: 700px;
+            margin-left: 320px;
+        }
+        
+        .divLoginPopup
+        {
+            top: 0;
+            left: 0;
+            z-index: 1;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSlider" runat="server">
-    
     <!-- Start Modern Slider -->
-				<div class="iview clearfix">
-					<div id="iview">
-						<div data-iview:image="images/slides/iview1.jpg" data-iview:transition="slice-top-fade,slice-right-fade">
-							<div class="iview-caption" data-x="80" data-y="200">iView Awesome Slider</div>
-							<div class="iview-caption" data-x="80" data-y="245" data-transition="wipeRight">The world's most awesome jQuery Image & Content Slider</div>
-							<div class="iview-caption" data-x="254" data-y="290" data-transition="wipeLeft"><i>Presented by <b>Hemn Chawroka</b></i></div>
-						</div>
-			
-						<div data-iview:image="images/slides/iview2.jpg" data-iview:transition="zigzag-top,strip-left-fade">
-							<div class="iview-caption caption5" data-x="60" data-y="230" data-transition="wipeDown">Captions can be positioned and resized freely</div>
-							<div class="iview-caption caption5" data-x="300" data-y="285" data-transition="wipeUp"><a href="#">Example URL-link</a></div>
-						</div>
-			
-						<div data-iview:image="images/slides/iview3.jpg">
-							<div class="iview-caption caption4" data-x="50" data-y="60" data-width="312" data-transition="fade">Some of iView's Options:</div>
-							<div class="iview-caption blackcaption" data-x="50" data-y="115" data-transition="wipeLeft" data-easing="easeInOutElastic">Touch swipe for iOS and Android devices</div>
-							<div class="iview-caption blackcaption" data-x="50" data-y="155" data-transition="wipeLeft" data-easing="easeInOutElastic">Image And Thumbs Fully Resizable</div>
-							<div class="iview-caption blackcaption" data-x="50" data-y="195" data-transition="wipeLeft" data-easing="easeInOutElastic">Customizable Transition Effect</div>
-							<div class="iview-caption blackcaption" data-x="50" data-y="235" data-transition="wipeLeft" data-easing="easeInOutElastic">Freely Positionable and Stylable Captions</div>
-							<div class="iview-caption blackcaption" data-x="50" data-y="275" data-transition="wipeLeft" data-easing="easeInOutElastic">Cross Browser Compatibility!</div>
-						</div>
-					</div><!-- End iview id -->
-				</div><!-- End iview class -->
-			<!-- End Modern Slider -->
-
+    <div class="iview clearfix">
+        <div id="iview">
+            <div data-iview:image="images/slides/iview1.jpg" data-iview:transition="slice-top-fade,slice-right-fade">
+                <div class="iview-caption" data-x="80" data-y="200">
+                    iView Awesome Slider</div>
+                <div class="iview-caption" data-x="80" data-y="245" data-transition="wipeRight">
+                    The world's most awesome jQuery Image & Content Slider</div>
+                <div class="iview-caption" data-x="254" data-y="290" data-transition="wipeLeft">
+                    <i>Presented by <b>Hemn Chawroka</b></i></div>
+            </div>
+            <div data-iview:image="images/slides/iview2.jpg" data-iview:transition="zigzag-top,strip-left-fade">
+                <div class="iview-caption caption5" data-x="60" data-y="230" data-transition="wipeDown">
+                    Captions can be positioned and resized freely</div>
+                <div class="iview-caption caption5" data-x="300" data-y="285" data-transition="wipeUp">
+                    <a href="#">Example URL-link</a></div>
+            </div>
+            <div data-iview:image="images/slides/iview3.jpg">
+                <div class="iview-caption caption4" data-x="50" data-y="60" data-width="312" data-transition="fade">
+                    Some of iView's Options:</div>
+                <div class="iview-caption blackcaption" data-x="50" data-y="115" data-transition="wipeLeft"
+                    data-easing="easeInOutElastic">
+                    Touch swipe for iOS and Android devices</div>
+                <div class="iview-caption blackcaption" data-x="50" data-y="155" data-transition="wipeLeft"
+                    data-easing="easeInOutElastic">
+                    Image And Thumbs Fully Resizable</div>
+                <div class="iview-caption blackcaption" data-x="50" data-y="195" data-transition="wipeLeft"
+                    data-easing="easeInOutElastic">
+                    Customizable Transition Effect</div>
+                <div class="iview-caption blackcaption" data-x="50" data-y="235" data-transition="wipeLeft"
+                    data-easing="easeInOutElastic">
+                    Freely Positionable and Stylable Captions</div>
+                <div class="iview-caption blackcaption" data-x="50" data-y="275" data-transition="wipeLeft"
+                    data-easing="easeInOutElastic">
+                    Cross Browser Compatibility!</div>
+            </div>
+        </div>
+        <!-- End iview id -->
+    </div>
+    <!-- End iview class -->
+    <!-- End Modern Slider -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" runat="server">
-    
-			<%--	<div class="row clearfix mbs">
+    <!--popup login -->
+    <div id="divLogin" runat="server" class="divLoginPopup" visible="true">
+        <asp:Panel ID="pnllogin" runat="server">
+            <div class="divLoginStyle">
+                <div style="margin-left: 670px; padding-top: 5px;">
+                    <asp:ImageButton ID="btnCloselogin" runat="server" ImageUrl="/images/close.png" OnClick="btnCloselogin_Click" />
+                </div>
+                <div class="contactform" style="margin-left: 50px; margin-top: 30px;">
+                    <h2 class="title">
+                        Login
+                    </h2>
+                    <div class="row" style="width: 700px;">
+                        <div class="col-md-8">
+                            <asp:Label ID="uiLabelError" runat="server" Font-Bold="True" ForeColor="Red" Text="Error. please try again"
+                                Visible="False"></asp:Label>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <asp:TextBox ID="uiTextBoxUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required"
+                                    ControlToValidate="uiTextBoxUserName" Font-Bold="true" Display="Dynamic" ForeColor="Red"
+                                    ValidationGroup="MainUserLogin"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="form-group">
+                                <asp:TextBox ID="uiTextBoxPassword" runat="server" CssClass="form-control" placeholder="Password"
+                                    TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Required"
+                                    ControlToValidate="uiTextBoxPassword" Font-Bold="true" Display="Dynamic" ForeColor="Red"
+                                    ValidationGroup="MainUserLogin"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 600px;">
+                        <div class="col-md-5">
+                            <asp:LinkButton ID="uiLinkButtonMainLogin" runat="server" CssClass="btn btn-success"
+                                ValidationGroup="MainUserLogin" OnClick="uiLinkButtonMainLogin_Click">Login</asp:LinkButton>
+                            &nbsp;&nbsp; <a href="register.aspx" class="btn btn-default">Register new account</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                </div>
+            </div>
+        </asp:Panel>
+    </div>
+    <!--end popup login-->
+    <%--	<div class="row clearfix mbs">
 					<div class="services">
 						<div class="grid_3">
 							<div class="s_icon"><i class="icon_wallet"></i><span class="fa-check"></span></div>
@@ -143,37 +226,43 @@
 									</div>
 									<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
 									<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->
-								</div><!-- portfolio carousel -->	
+								</div><!-- portfolio carousel -->
+	
 							</div>
 						</div><!-- end f portfolio -->
 					</div><!-- end row -->
 				</div>--%><!-- end parallax -->
-
-				<div class="row clearfix mbs">
-					<h3 class="col-title mb">Card Categories</h3>
-                    <asp:Repeater ID="uiRepeaterCats" runat="server">
-                    <HeaderTemplate>
-                    <div class="products shop clearfix">
-                    </HeaderTemplate>
-                    <FooterTemplate>
+    <div class="row clearfix mbs">
+        <h3 class="col-title mb">
+            Card Categories</h3>
+        <asp:Repeater ID="uiRepeaterCats" runat="server">
+            <HeaderTemplate>
+                <div class="products shop clearfix">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+            <ItemTemplate>
+                <div class="product grid_3">
+                    <img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
+                    <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
+                    <div class="product_inner">
+                        <h3>
+                            <a href='Browse.aspx?catid=<%# Eval("CategoryID") %>'>
+                                <%# Eval("CatNameEng")%>
+                            </a>
+                        </h3>
+                        <div class="clearfix">
+                        </div>
                     </div>
-                    </FooterTemplate>
-                    <ItemTemplate>
-                        <div class="product grid_3">
-								<img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->								
-								<div class="product_inner">
-									<h3> <a href='Browse.aspx?catid=<%# Eval("CategoryID") %>'> <%# Eval("CatNameEng")%> </a> </h3>
-									<div class="clearfix">																				
-									</div>
-								</div>								
-							</div><!-- product -->
-                    </ItemTemplate>
-                    </asp:Repeater>
-						<!-- products -->
-				</div><!-- row -->
-
-				<%--<div class="grey-line mbs">
+                </div>
+                <!-- product -->
+            </ItemTemplate>
+        </asp:Repeater>
+        <!-- products -->
+    </div>
+    <!-- row -->
+    <%--<div class="grey-line mbs">
 					<div class="row clearfix">
 						<div class="grid_6 custom_block1_img" data-gen="bigEntrance">
 							<div class="h_slider"><img class="custom_1" src="images/assets/t5.png" alt="tablet"></div>
@@ -197,8 +286,7 @@
 						</div><!-- end grid6 -->
 					</div><!-- end row -->
 				</div>--%><!-- end grey line -->
-
-				<%--<div class="row clearfix mbs">
+    <%--<div class="row clearfix mbs">
 						<div class="custom_block2" data-gen="bigEntrance">
 							<div class="inner_list">
 								<ul>
@@ -223,17 +311,28 @@
 							<div class="h_slider"><span class="t_7"><i class="icon_quotations"></i> Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable. <i class="icon_quotations"></i> <small> - Victor Zack </small></span></div>
 						</div><!-- end -->
 				</div>--%><!-- clearfix -->
-
-				<div class="row clearfix mbs" data-gen="bigEntrance">
-					<div class="tac"><h3 class="block_title">Best Seller</h3><span class="after_line"></span></div>
-					<ul>
-						<li class="grid_2"><a href="#"><img src="images/assets/logo1.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="images/assets/logo2.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="images/assets/logo3.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="images/assets/logo4.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="images/assets/logo5.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="images/assets/logo6.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-					</ul>
-				</div><!-- end row -->
-
+    <div class="row clearfix mbs" data-gen="bigEntrance">
+        <div class="tac">
+            <h3 class="block_title">
+                Best Seller</h3>
+            <span class="after_line"></span>
+        </div>
+        <ul>
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo1.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo2.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo3.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo4.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo5.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+            <li class="grid_2"><a href="#">
+                <img src="images/assets/logo6.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
+        </ul>
+    </div>
+    <!-- end row -->
+    <!--facebook script-->
+    <!-- end facebook script-->
 </asp:Content>

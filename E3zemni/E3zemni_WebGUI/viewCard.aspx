@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true" CodeBehind="viewCard.aspx.cs" Inherits="E3zemni_WebGUI.viewCard" %>
+<%@ MasterType VirtualPath="~/MasterPages/All.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSlider" runat="server">
@@ -48,7 +50,7 @@
 								
 								<div class="variations_button">									
                                     <asp:LinkButton ID="uiLinkButtonAddToCart" runat="server" class="tbutton medium"><span>Add to shopping bag</span></asp:LinkButton>
-                                    <asp:LinkButton ID="uiLinkButtonCustomize" runat="server" class="tbutton medium"><span>Customize</span></asp:LinkButton>                                    
+                                    <asp:LinkButton ID="uiLinkButtonCustomize" runat="server" class="tbutton medium"><span>Edit</span></asp:LinkButton>                                    
 								</div>
 							</div>
 							<div><input type="hidden" name="product_id" value=""></div>						

@@ -16,6 +16,14 @@ namespace E3zemni_WebGUI
             {
                 LoadCats();
             }
+
+
+            if (Session["CurrentUser"] != null)
+            {
+                divLogin.Visible = false;
+
+            }
+
         }
 
         private void LoadCats()
@@ -25,5 +33,31 @@ namespace E3zemni_WebGUI
             uiRepeaterCats.DataSource = cats.DefaultView;
             uiRepeaterCats.DataBind();
         }
+
+        protected void btnCloselogin_Click(object sender, ImageClickEventArgs e)
+        {
+            divLogin.Visible = false;
+
+        }
+
+        protected void uiLinkButtonMainLogin_Click(object sender, EventArgs e)
+        {
+            UserInfo user = new UserInfo();
+            user.GetUserByUserNameAndPassword(uiTextBoxUserName.Text, uiTextBoxPassword.Text);
+            if (user.RowCount > 0)
+            {
+                Session["CurrentUser"] = user.UserID;
+                if (Request.QueryString["url"] != null)
+                    Response.Redirect(Request.QueryString["url"].ToString());
+                Response.Redirect("default.aspx");
+                divLogin.Visible = false;
+
+            }
+            else
+            {
+                uiLabelError.Visible = true;
+            }
+        }
+
     }
 }

@@ -1,0 +1,31 @@
+a:hover, .tbutton:hover, #header .search button, .custom_block1 li.active a, .custom_block1 li.active a i, .preve:hover, .nexte:hover, .breadcrumbIn ul li a:hover, .active_link, .foot-menu li a:hover, .post_meta a:hover, .post_more,
+.languages a:hover, .languages:hover > a, .services [class^="grid_"]:hover .tbutton:hover, .services [class^="grid_"]:hover .s_icon i, .f_portfolio .inner a, .portfolio .inner a, .projectslider .flex-direction-nav a:hover i, 
+#toTop:hover, .f_portfolio .nexte:hover, .f_portfolio .preve:hover, .big-slider .flex-direction-nav a:hover i, .pricing-table .head h4, .product_inner .price, .product_meta a:hover, .sidebar .price, 
+.widget #searchwidget button:hover, #newsletters button:hover, .item_price .amount, .amount_single, .widget .list li.current a, .widget .list li:hover a, .tab-content-items .post-meta, 
+.countdown li p.timeRefDays, .countdown li p.timeRefHours, .countdown li p.timeRefMinutes, .countdown li p.timeRefSeconds {
+	color: #8E9396
+}
+.progress-bar span, .tipsy-inner, #mobilepro, .shop .product .sale, .sf-menu li.current > a, .sf-menu > li:hover > a, .sf-menu > li > a:hover, .sf-menu ul li, ul.mega, .tbutton, .services [class^="grid_"]:hover .tbutton,
+.services [class^="grid_"]:hover .s_icon span, .f_portfolio .f_hover, .portfolio .f_hover, .tabs li a.active, .accordion-head-sign, .toggle-head-sign, .f_blog .f_hover, .big-slider h3, .big-slider p, .featured_table .recommended,
+.mslider-arrow:hover, .iview-caption.caption4, .ui-slider .ui-slider-handle, .ui-widget-header, #filter_button:hover, .pagination-tt ul li a:hover, .pagination-tt ul li.current span, #contactForm #sendMessage:hover, #sendOrder:hover,
+#login_form_increate #login_button:hover, #register_form_increate #register_button:hover, .table th, .table tfoot td, .tags a:hover, .filterable li.current a, .filterable li a:hover, .load_more_portfolio a:hover, .project_links a:hover i, 
+.post-links a:hover i, .related_posts a:hover span, ul.showcomments .reply a:hover, #commentform .send-message:hover, .xactive {
+	background-color: #8E9396
+}
+.sf-menu li.current > a, .sf-menu > li:hover > a, .sf-menu > li > a:hover, .tbutton:hover, .languages a:hover, .languages:hover > a, .other_languages, .services [class^="grid_"]:hover .tbutton:hover,
+.services [class^="grid_"]:hover .tbutton, .custom_block2 li.active img, .tabs li a.active, #toTop:hover, .f_portfolio .nexte:hover, .f_portfolio .preve:hover, .custom_block2 ul, .featured_table, .labele, #filter_button:hover, 
+.pagination-tt ul li a:hover, .pagination-tt ul li.current span, .widget #searchwidget input:focus, #newsletters input:focus, .coupon_input:focus, .quantity input.qty:focus, #content .quantity input.qty:focus, 
+#track_input:focus, #contactForm #senderName:focus, #contactForm #senderEmail:focus, #contactForm #message:focus, #contactForm #sendMessage:hover, #sendOrder:hover, #login_form_increate #login_input:focus, 
+#register_form_increate #register_input:focus, #login_form_increate #login_button:hover, #register_form_increate #register_button:hover, .widget .list li.current a, .widget .list li:hover a, .tags a:hover, 
+.filterable li.current a, .filterable li a:hover, .load_more_portfolio a:hover, ul.showcomments .reply a:hover, #commentform .send-message:hover, #commentform textarea:focus, #commentform input:focus {
+	border-color: #8E9396
+}
+::selection{background:#8E9396}
+::-moz-selection{background:#8E9396}
+.tipsy-w .tipsy-arrow:before {border-right-color: #8E9396}
+.tipsy-s .tipsy-arrow:before, .tipsy-e .tipsy-arrow:before, .action {border-top-color: #8E9396}
+.custom_block2 li.active:after, .tipsy-n .tipsy-arrow:before {border-bottom-color: #8E9396}
+
+.sf-menu ul li:hover, .sf-menu li li.current {background: #74787A}
+.sf-menu li li {border-top: 1px solid #B1B4B6;border-bottom: 1px solid #74787A;}
+.sf-menu ul li:hover, .sf-menu li li.current, .sf-menu .mega li li:hover, .sf-menu .mega li li.current, .sf-menu .mega li:hover, .sf-menu .mega li.current {background: #74787A}

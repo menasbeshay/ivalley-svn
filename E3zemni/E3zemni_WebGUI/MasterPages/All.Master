@@ -50,6 +50,13 @@
 		<script type="text/javascript" src="../js/custom.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+    
+    .lbtnMarge
+    {
+        margin:10px;
+        }
+    </style>
     
 </head>
 <body>
@@ -61,7 +68,11 @@
 				<div class="head_up">
 					<div class="row clearfix">
 						<div class="l_ht">
-							<a href="../login.aspx">Login</a>
+							<%--<a  runat="server" href="../login.aspx">Login</a>--%>
+                            <asp:linkbutton id="lbtnLogin" PostBackUrl="~/login.aspx"  text="Login" runat="server"  CssClass="lbtnMarge" />
+                            <asp:linkbutton id="lbtnLogout"   text="Logout" CssClass="lbtnMarge" 
+                                Visible="false" runat="server" onclick="lbtnLogout_Click"   />
+                            <asp:linkbutton id="lbtnProfile" PostBackUrl="~/UserProfile.aspx"  text="My Profile" CssClass="lbtnMarge"  Visible="false" runat="server" />
 						</div><!-- end text left -->
 
 						<div class="r_ht">
@@ -199,7 +210,8 @@
 					</div><!-- end row -->
 				</div><!-- end last footer -->
 
-			</footer><!-- end footer -->
+			</footer><!-- end footer -->
+
 		</div><!-- end layout -->
 	</div><!-- end frame -->
 
