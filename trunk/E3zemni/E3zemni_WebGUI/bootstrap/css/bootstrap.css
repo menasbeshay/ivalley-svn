@@ -2389,6 +2389,19 @@ input[type="button"].btn-block {
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
+
+
+@font-face {
+    font-family: 'duru_sansregular';
+    src: url('../fonts/durusans-regular-webfont.eot');
+    src: url('../fonts/durusans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/durusans-regular-webfont.woff') format('woff'),
+         url('../fonts/durusans-regular-webfont.ttf') format('truetype'),
+         url('../fonts/durusans-regular-webfont.svg#duru_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+
 .glyphicon {
   position: relative;
   top: 1px;

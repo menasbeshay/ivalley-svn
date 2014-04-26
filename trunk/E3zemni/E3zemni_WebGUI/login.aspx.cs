@@ -16,7 +16,17 @@ namespace E3zemni_WebGUI
                 Master.PageTitle = "Login";
                 Master.Path = "";
                 Master.ViewPath = true;
+
+                
             }
+
+
+            if (Session["CurrentUser"] != null)
+            {
+                Response.Redirect("userProfile.aspx");
+
+            }
+
         }
         protected void uiLinkButtonMainLogin_Click(object sender, EventArgs e)
         {
@@ -24,10 +34,10 @@ namespace E3zemni_WebGUI
             user.GetUserByUserNameAndPassword(uiTextBoxUserName.Text, uiTextBoxPassword.Text);
             if (user.RowCount > 0)
             {
-                Session["CurrentUser"] = user;
+                Session["CurrentUser"] = user.UserID;
                 if (Request.QueryString["url"] != null)
                     Response.Redirect(Request.QueryString["url"].ToString());
-                Response.Redirect("default.aspx");
+                Response.Redirect("userProfile.aspx");
             }
             else
             {

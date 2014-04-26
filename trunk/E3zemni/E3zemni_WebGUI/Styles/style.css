@@ -448,13 +448,15 @@ textarea {
 /* 	Header
 ----------------------------------------------------------------------------------------------------*/
 #header {
-	position : relative
+	position : relative;
+	/*z-index: 1;*/
+	
 }
 .head_up {
 	background: #f7f7f7;
 	border-top: 1px solid #e4e4e4;
 	border-bottom: 1px solid #e4e4e4;
-	padding: 4px 0
+	padding: 4px 0;
 }
 .boxed-margin .head_up {
 	border-top-right-radius: 10px;
@@ -467,7 +469,7 @@ textarea {
 .l_ht span {font-size: 11px;margin-right: 15px}
 .l_ht span i {margin-right: 8px;font-size: 16px;vertical-align: sub;}
 .r_ht, .languages {
-	float: right
+	float: right;
 }
 .languages {
 	position: relative;
