@@ -298,7 +298,15 @@ $(document).ready(function () {
 
     };
 
-    
+    sHub.client.recieveMailNotification = function (id, totalNewMessages) {
+        // Add the message to the page.
+        if (totalNewMessages > 0) {
+            $('#msgCount_' + id).text(totalNewMessages);
+        }
+        else {
+            $('#msgCount_' + id).text("");
+        }
+    };
 
     /* rooms hub */
     rHub.client.getMessage = function (rid, sname, msg) {        
@@ -399,7 +407,13 @@ $(document).ready(function () {
     };
 
     $.connection.hub.start().done(function () {
+        sHub.server.sendMailNotifications();
+    }).fail(function (e) {
+
+        alert(e);
+
     });
 
 });
+
 /*****************************************/
