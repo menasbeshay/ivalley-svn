@@ -234,6 +234,8 @@ namespace BLL
             {
                 member.AddNew();
                 member.Name = name;
+                // throwing exception when insert rowstatusid = null
+                member.RowStatusID = 1;
                 member.Save();
             }
             return member;

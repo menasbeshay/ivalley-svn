@@ -48,6 +48,8 @@ namespace Chat2Connect.Admin
                     ctrlRoomStatus.Visible = true;
                     ctrlRoomStatus.RoomID = Convert.ToInt32(drpRooms.SelectedValue);
                 }
+
+                ctrlRoomInfo.RoomID = Convert.ToInt32(drpRooms.SelectedValue);
             }
         }
     }

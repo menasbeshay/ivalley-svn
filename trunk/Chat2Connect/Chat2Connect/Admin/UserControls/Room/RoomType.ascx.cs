@@ -13,12 +13,12 @@ namespace Chat2Connect.Admin.UserControls.Room
         {
             if (!IsPostBack)
             {
-                BLL.RoomType roomType = new BLL.RoomType();
+              /*  BLL.RoomType roomType = new BLL.RoomType();
                 roomType.LoadAll();
                 drpRoomType.DataValueField = BLL.RoomType.ColumnNames.RoomTypeID;
                 drpRoomType.DataTextField = BLL.RoomType.ColumnNames.Name;
                 drpRoomType.DataSource = roomType.DefaultView;
-                drpRoomType.DataBind();
+                drpRoomType.DataBind();*/
             }
         }
 
