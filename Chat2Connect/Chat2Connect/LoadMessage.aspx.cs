@@ -23,6 +23,8 @@ namespace Chat2Connect
                     {
                         msg.IsRead = true;
                         msg.Save();
+                        Chat2Connect.SRCustomHubs.NotificationHub notification = new SRCustomHubs.NotificationHub();
+                        notification.SendMailNotifications(msg.MemberID);
                     }
 
                     dtlMessage.DataSource = msg.DefaultView;

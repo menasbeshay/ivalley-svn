@@ -13,6 +13,19 @@ namespace Chat2Connect.MasterPages
 {
     public partial class Main : System.Web.UI.MasterPage
     {
+        public int MemberID
+        {
+            get
+            {
+                if (ViewState["ID"] == null)
+                    ViewState["ID"] = 0;
+                return Convert.ToInt32(ViewState["ID"]);
+            }
+            set
+            {
+                ViewState["ID"] = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +47,7 @@ namespace Chat2Connect.MasterPages
         {
             Member user = new Member();
             user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            MemberID = user.MemberID;
             if (!user.IsColumnNull("ProfilePic"))
                 uiImageUser.ImageUrl = user.ProfilePic;
             uiLabelName.Text = user.Name;

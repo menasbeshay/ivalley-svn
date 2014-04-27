@@ -56,6 +56,18 @@ namespace Chat2Connect.Admin.UserControls.Room
                 {
                     room.RowStatusID = Convert.ToByte(drpRoomStatus.SelectedValue);
                     room.Save();
+
+                    //SEND MAIL MESSAGE BY THE NEW STATUS TO ROOM OWNERS AND ADMINS
+                    string msgTitle = "تغيير حالة غرفة";
+                    string msgBody = String.Format("عزيزى العضو<br><br>تحية طيبة وبعد<br><br>نود إبلاغكم بأنه تم تغيير حالة الغرفة <b>{0}</b> إلى <b>{1}</b><br><br><br>شكرا<br>",room.Name,drpRoomStatus.SelectedItem.Text);
+                    BLL.MemberMessage message = new BLL.MemberMessage();
+                    message.AddNew();
+                    message.MessageSubject = msgTitle;
+                    message.MessageContent = msgBody;
+                    message.MemberID = room.CreatedBy;
+                    message.SenderID = BLL.Member.SiteMembers.Where(m => String.Equals(m.Name, Helper.StringEnum.GetStringValue(Helper.Enums.SiteMembers.Admin))).FirstOrDefault().MemberID;
+                    message.SendDate = DateTime.Now;
+                    message.Save();
                 }
             }
         }

@@ -108,6 +108,7 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool SendMsg(int sender, string ToMember, string subject, string content)
         {
+            List<int> recipients = new List<int>();
             string[] ToMembers = ToMember.Split(',');
             Guid operationID = Guid.NewGuid();
             MemberMessage message = new MemberMessage();
@@ -118,6 +119,7 @@ namespace Chat2Connect.services
                     int recipientID = Convert.ToInt32(item);
                     if (recipientID > 0)
                     {
+                        recipients.Add(recipientID);
                         SendMsg(sender, subject, content, message, recipientID,operationID);
                     }
                     else
@@ -129,6 +131,7 @@ namespace Chat2Connect.services
                             aliasMembers.GetByAliase((Helper.Enums.AdminMailAddressAlias)recipientID);
                             do
                             {
+                                recipients.Add(aliasMembers.MemberID);
                                 SendMsg(sender, subject, content, message, aliasMembers.MemberID, operationID);
                             } while (aliasMembers.MoveNext());
                         }
@@ -137,6 +140,14 @@ namespace Chat2Connect.services
             }
 
             message.Save();
+            if (recipients.Count > 0)
+            {
+                NotificationHub notifications = new NotificationHub();
+                for (int i = 0; i < recipients.Count; i++)
+                {
+                    notifications.SendMailNotifications(recipients[i]);
+                }
+            }
             return true;
         }
 
