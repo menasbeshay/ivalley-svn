@@ -46,7 +46,8 @@ namespace Chat2Connect
                 }
 
                 RoomMember Allmembers = new RoomMember();
-                Allmembers.GetAllMembersByRoomID(rid);
+                //Allmembers.GetAllMembersByRoomID(rid);
+                Allmembers.GetOnlineMembersByRoomID(rid);
 
                 RoomMember members = new RoomMember();
                 members.GetAllMembersByRoomIDNoQueue(rid);

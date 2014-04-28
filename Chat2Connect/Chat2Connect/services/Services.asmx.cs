@@ -431,5 +431,31 @@ namespace Chat2Connect.services
             return true;
         }
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool RateRoom(string rid, string rate)
+        {
+           
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+
+            RoomMember Rmember = new RoomMember();
+            Rmember.LoadByPrimaryKey(member.MemberID, Convert.ToInt32(rid));
+
+            try
+            {
+                Rmember.UserRate = Convert.ToInt16(rate);
+                Rmember.Save();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

@@ -39,9 +39,10 @@ namespace Chat2Connect.SRCustomHubs
         public void removeFromRoom(int roomid)
         {
             Groups.Remove(Context.ConnectionId, roomid.ToString());
-            Member m = new Member();
+            // just remove member from signalr hub 
+             Member m = new Member();
             m.GetMemberByUserId(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()));
-            try
+            /*try
             {
                 
                 RoomMember member = new RoomMember();
@@ -51,7 +52,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch (Exception ex)
             {
-            }
+            }*/
             Clients.Group(roomid.ToString()).removeMember(m.MemberID);
         }
 

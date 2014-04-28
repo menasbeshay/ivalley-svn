@@ -229,6 +229,14 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
+			public static SqlParameter UserRate
+			{
+				get
+				{
+					return new SqlParameter("@UserRate", SqlDbType.SmallInt, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -251,6 +259,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
             public const string QueueOrder = "QueueOrder";
+            public const string UserRate = "UserRate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -274,6 +283,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[IsMarked] = _RoomMember.PropertyNames.IsMarked;
 					ht[AskForMic] = _RoomMember.PropertyNames.AskForMic;
 					ht[QueueOrder] = _RoomMember.PropertyNames.QueueOrder;
+					ht[UserRate] = _RoomMember.PropertyNames.UserRate;
 
 				}
 				return (string)ht[columnName];
@@ -302,6 +312,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
             public const string QueueOrder = "QueueOrder";
+            public const string UserRate = "UserRate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -325,6 +336,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[IsMarked] = _RoomMember.ColumnNames.IsMarked;
 					ht[AskForMic] = _RoomMember.ColumnNames.AskForMic;
 					ht[QueueOrder] = _RoomMember.ColumnNames.QueueOrder;
+					ht[UserRate] = _RoomMember.ColumnNames.UserRate;
 
 				}
 				return (string)ht[propertyName];
@@ -353,6 +365,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string IsMarked = "s_IsMarked";
             public const string AskForMic = "s_AskForMic";
             public const string QueueOrder = "s_QueueOrder";
+            public const string UserRate = "s_UserRate";
 
 		}
 		#endregion		
@@ -548,6 +561,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 			set
 	        {
 				base.Setint(ColumnNames.QueueOrder, value);
+			}
+		}
+
+		public virtual short UserRate
+	    {
+			get
+	        {
+				return base.Getshort(ColumnNames.UserRate);
+			}
+			set
+	        {
+				base.Setshort(ColumnNames.UserRate, value);
 			}
 		}
 
@@ -796,6 +821,21 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual string s_UserRate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.UserRate) ? string.Empty : base.GetshortAsString(ColumnNames.UserRate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.UserRate);
+				else
+					this.UserRate = base.SetshortAsString(ColumnNames.UserRate, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -984,6 +1024,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.QueueOrder, Parameters.QueueOrder);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter UserRate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.UserRate, Parameters.UserRate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1186,6 +1236,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public WhereParameter UserRate
+		    {
+				get
+		        {
+					if(_UserRate_W == null)
+	        	    {
+						_UserRate_W = TearOff.UserRate;
+					}
+					return _UserRate_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _IsAdmin_W = null;
@@ -1202,6 +1264,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private WhereParameter _IsMarked_W = null;
 			private WhereParameter _AskForMic_W = null;
 			private WhereParameter _QueueOrder_W = null;
+			private WhereParameter _UserRate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1221,6 +1284,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_IsMarked_W = null;
 				_AskForMic_W = null;
 				_QueueOrder_W = null;
+				_UserRate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1437,6 +1501,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public AggregateParameter UserRate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UserRate, Parameters.UserRate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1634,6 +1708,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public AggregateParameter UserRate
+		    {
+				get
+		        {
+					if(_UserRate_W == null)
+	        	    {
+						_UserRate_W = TearOff.UserRate;
+					}
+					return _UserRate_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _IsAdmin_W = null;
@@ -1650,6 +1736,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private AggregateParameter _IsMarked_W = null;
 			private AggregateParameter _AskForMic_W = null;
 			private AggregateParameter _QueueOrder_W = null;
+			private AggregateParameter _UserRate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1669,6 +1756,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_IsMarked_W = null;
 				_AskForMic_W = null;
 				_QueueOrder_W = null;
+				_UserRate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1805,6 +1893,10 @@ parameters.Add(Parameters.RoomID, RoomID);
 
 			p = cmd.Parameters.Add(Parameters.QueueOrder);
 			p.SourceColumn = ColumnNames.QueueOrder;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.UserRate);
+			p.SourceColumn = ColumnNames.UserRate;
 			p.SourceVersion = DataRowVersion.Current;
 
 

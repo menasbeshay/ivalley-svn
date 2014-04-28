@@ -519,7 +519,7 @@ Left Join RoomMember RM on RM.RoomID = R.RoomID
 Left join Member M on M.MemberID = RM.MemberID
 where R.CategoryID = @CategoryID /*and 
 	  M.IsOnline = 1*/
-Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID
 order by R.RoomTypeID Desc , R.Name Asc
 Go
 
@@ -559,7 +559,7 @@ Left Join RoomMember RM on RM.RoomID = R.RoomID
 Left join Member M on M.MemberID = RM.MemberID
 where R.SubCategoryID = @SubCategoryID /*and 
 	  M.IsOnline = 1*/
-Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID
 order by R.RoomTypeID Desc , R.Name Asc
 Go
 
@@ -629,7 +629,8 @@ select RM.* , M.*
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
-	  RM.QueueOrder is null
+	  RM.QueueOrder is null and 
+	  M.IsOnline = 1
 Go
 
 If Exists (select Name 
@@ -645,7 +646,8 @@ select RM.* , M.*
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
-	  RM.QueueOrder is not null
+	  RM.QueueOrder is not null and 
+	  M.IsOnline = 1
 order by RM.QueueOrder	  
 Go
 
