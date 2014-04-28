@@ -1151,8 +1151,46 @@ li.g-dark-selected {
 }
 
 
+.rating {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 20px;
+    position: relative;
+}
+.rating-input 
+{
+    font-family:FontAwesome;
+    /*float: right;
+    width: 16px !important;
+    height: 16px !important;*/
+    padding: 0;
+    /*margin: 0 0 0 -16px;*/
+    opacity: 0;
+    display:none;
+}
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+    color:#f70;
+    /*background-position: 0 0;*/
+}
+.rating-star,
+.rating:hover .rating-star 
+{
+    font-family:FontAwesome;
+    position: relative;
+    float: left;
+    display: block;
+    width:20px;    
+    Color: #aaaaaa;
+    cursor:pointer;
+    /*background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;*/
+}
+
+
 /**/
 .un-read
 {
     font-weight:bold;
 }
+

@@ -246,6 +246,31 @@ function EnableMic(cb, rid, adminsonly) {
 }
 
 
+function RateRoom(rid, rate) {
+    $('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/RateRoom",
+        dataType: "json",
+        type: "post",
+        data: "{'rid':'" + rid + "', 'rate':'" + rate+ "'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == false) {
+                $('#pGeneral').css('display', 'none');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == true) {
+                $('#pGeneral').css('display', 'none');
+                notify('success', 'تم التقييم بنجاح.');
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#pGeneral').css('display', 'none');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
 function animateMenu(obj)
 {
     var ul = obj.next("ul");

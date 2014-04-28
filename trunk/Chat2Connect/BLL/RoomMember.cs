@@ -35,6 +35,16 @@ namespace BLL
 
         }
 
+        public virtual bool GetOnlineMembersByRoomID(int RoomID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
+
+            return LoadFromSql("GetOnlineMembersByRoomID", parameters);
+
+        }
+
         public virtual bool GetAllMembersByRoomIDNoQueue(int RoomID)
         {
             ListDictionary parameters = new ListDictionary();
