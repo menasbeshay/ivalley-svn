@@ -267,6 +267,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter OpenCams
+			{
+				get
+				{
+					return new SqlParameter("@OpenCams", SqlDbType.SmallInt, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -294,6 +302,7 @@ namespace DAL
             public const string EnableThreeMic = "EnableThreeMic";
             public const string RoomAdminPassword = "RoomAdminPassword";
             public const string RowStatusID = "RowStatusID";
+            public const string OpenCams = "OpenCams";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -322,6 +331,7 @@ namespace DAL
 					ht[EnableThreeMic] = _Room.PropertyNames.EnableThreeMic;
 					ht[RoomAdminPassword] = _Room.PropertyNames.RoomAdminPassword;
 					ht[RowStatusID] = _Room.PropertyNames.RowStatusID;
+					ht[OpenCams] = _Room.PropertyNames.OpenCams;
 
 				}
 				return (string)ht[columnName];
@@ -355,6 +365,7 @@ namespace DAL
             public const string EnableThreeMic = "EnableThreeMic";
             public const string RoomAdminPassword = "RoomAdminPassword";
             public const string RowStatusID = "RowStatusID";
+            public const string OpenCams = "OpenCams";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -383,6 +394,7 @@ namespace DAL
 					ht[EnableThreeMic] = _Room.ColumnNames.EnableThreeMic;
 					ht[RoomAdminPassword] = _Room.ColumnNames.RoomAdminPassword;
 					ht[RowStatusID] = _Room.ColumnNames.RowStatusID;
+					ht[OpenCams] = _Room.ColumnNames.OpenCams;
 
 				}
 				return (string)ht[propertyName];
@@ -416,6 +428,7 @@ namespace DAL
             public const string EnableThreeMic = "s_EnableThreeMic";
             public const string RoomAdminPassword = "s_RoomAdminPassword";
             public const string RowStatusID = "s_RowStatusID";
+            public const string OpenCams = "s_OpenCams";
 
 		}
 		#endregion		
@@ -671,6 +684,18 @@ namespace DAL
 			set
 	        {
 				base.Setbyte(ColumnNames.RowStatusID, value);
+			}
+		}
+
+		public virtual short OpenCams
+	    {
+			get
+	        {
+				return base.Getshort(ColumnNames.OpenCams);
+			}
+			set
+	        {
+				base.Setshort(ColumnNames.OpenCams, value);
 			}
 		}
 
@@ -994,6 +1019,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_OpenCams
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.OpenCams) ? string.Empty : base.GetshortAsString(ColumnNames.OpenCams);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.OpenCams);
+				else
+					this.OpenCams = base.SetshortAsString(ColumnNames.OpenCams, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1232,6 +1272,16 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter OpenCams
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.OpenCams, Parameters.OpenCams);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1494,6 +1544,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter OpenCams
+		    {
+				get
+		        {
+					if(_OpenCams_W == null)
+	        	    {
+						_OpenCams_W = TearOff.OpenCams;
+					}
+					return _OpenCams_W;
+				}
+			}
+
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _SubCategoryID_W = null;
@@ -1515,6 +1577,7 @@ namespace DAL
 			private WhereParameter _EnableThreeMic_W = null;
 			private WhereParameter _RoomAdminPassword_W = null;
 			private WhereParameter _RowStatusID_W = null;
+			private WhereParameter _OpenCams_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1539,6 +1602,7 @@ namespace DAL
 				_EnableThreeMic_W = null;
 				_RoomAdminPassword_W = null;
 				_RowStatusID_W = null;
+				_OpenCams_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1805,6 +1869,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter OpenCams
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OpenCams, Parameters.OpenCams);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2062,6 +2136,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter OpenCams
+		    {
+				get
+		        {
+					if(_OpenCams_W == null)
+	        	    {
+						_OpenCams_W = TearOff.OpenCams;
+					}
+					return _OpenCams_W;
+				}
+			}
+
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _SubCategoryID_W = null;
@@ -2083,6 +2169,7 @@ namespace DAL
 			private AggregateParameter _EnableThreeMic_W = null;
 			private AggregateParameter _RoomAdminPassword_W = null;
 			private AggregateParameter _RowStatusID_W = null;
+			private AggregateParameter _OpenCams_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2107,6 +2194,7 @@ namespace DAL
 				_EnableThreeMic_W = null;
 				_RoomAdminPassword_W = null;
 				_RowStatusID_W = null;
+				_OpenCams_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2263,6 +2351,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.RowStatusID);
 			p.SourceColumn = ColumnNames.RowStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.OpenCams);
+			p.SourceColumn = ColumnNames.OpenCams;
 			p.SourceVersion = DataRowVersion.Current;
 
 

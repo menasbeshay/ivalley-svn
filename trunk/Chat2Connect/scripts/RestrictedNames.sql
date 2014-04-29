@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RestrictedNamesLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RestrictedNamesLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RestrictedNamesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RestrictedNamesLoadByPrimaryKey];
 GO
@@ -32,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RestrictedNamesLoadByPrimaryKey
 ELSE PRINT 'Procedure Creation: proc_RestrictedNamesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RestrictedNamesLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RestrictedNamesLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RestrictedNamesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RestrictedNamesLoadAll];
 GO
@@ -61,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RestrictedNamesLoadAll Succeede
 ELSE PRINT 'Procedure Creation: proc_RestrictedNamesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RestrictedNamesUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RestrictedNamesUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RestrictedNamesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RestrictedNamesUpdate];
 GO
@@ -100,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RestrictedNamesInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RestrictedNamesInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RestrictedNamesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RestrictedNamesInsert];
 GO
@@ -140,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RestrictedNamesInsert Succeeded
 ELSE PRINT 'Procedure Creation: proc_RestrictedNamesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RestrictedNamesDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RestrictedNamesDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RestrictedNamesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RestrictedNamesDelete];
 GO

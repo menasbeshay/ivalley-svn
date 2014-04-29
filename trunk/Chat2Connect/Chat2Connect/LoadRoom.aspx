@@ -110,6 +110,7 @@
                             <input type="radio" class="rating-input <%= "r_" + localParams %>" id="rating-input-1-1" name="rating-input-1" value="1"/>
                             <label for="rating-input-1-1" class="rating-star fa icon-star"></label>
                     </span>
+                <asp:HiddenField ID="uiHiddenFieldUserRate" runat="server" ClientIDMode="Static" />
 
             </div>
             <div class="pull-left col-lg-9" style="padding: 2px;">
@@ -139,7 +140,7 @@
 						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
 						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
 						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
-						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
 						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
 						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
 						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
@@ -159,7 +160,7 @@
 						            <a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a>
 						            <a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a>
 						            <a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a>
-						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
+						            <a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a>
 						            <a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a>
 						            <a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a>
 						            <a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a>
@@ -518,6 +519,12 @@
     $('<%= ".r_" + localParams %>').click(function () {
         RateRoom('<%= localParams %>', $(this).val());        
     });
+    
+    $(document).ready(function () {
+        var value = $('#uiHiddenFieldUserRate', "#room_" + '<%= localParams %>').val();
+        $("#rating-input-1-" + value, "#room_" + '<%= localParams %>').prop("checked", true);
+    });
+    
 
    
 </script>

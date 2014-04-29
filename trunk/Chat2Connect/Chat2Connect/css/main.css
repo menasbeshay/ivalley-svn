@@ -1194,3 +1194,7 @@ li.g-dark-selected {
     font-weight:bold;
 }
 
+#msgmain .badge {
+    background-color:#f00 !important;
+}
+

@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Repeater ID="uiRepeaterRooms" runat="server">
+        <asp:Repeater ID="uiRepeaterRooms" runat="server" OnItemDataBound="uiRepeaterRooms_ItemDataBound">
             <HeaderTemplate>
                 <div class="SScroll" data-height="500px">
                     <div class="headerRow">
@@ -21,9 +21,12 @@
             <ItemTemplate>
                 <div class="ContentRow">
                     <div class="col-lg-4 pull-right"><a href="#" class="OpenRoom type_<%# Eval("RoomTypeID") %>" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>'><%# Eval("Name") %></a></div>
-                    <div class="pull-right center" style="width: 21%; padding: 0 5px;">8</div>                    
-                    <div class="pull-right center" style="width: 15%; padding: 0 5px;">3</div>
-                    <div class="pull-right center" style="width: 15%; padding: 0 5px;"><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i><i class="icon icon-star-empty"></i></div>
+                    <div class="pull-right center" style="width: 21%; padding: 0 5px;">
+                        <asp:Label ID="uiLabelMemberCount" runat="server" ></asp:Label>
+                    </div>                    
+                    <div class="pull-right center" style="width: 15%; padding: 0 5px;"><%# string.IsNullOrEmpty(Eval("OpenCams").ToString()) || Eval("OpenCams").ToString() == "0" ? "لا يوجد" : Eval("OpenCams").ToString() %></div>
+                    <div class="pull-right center" style="width: 15%; padding: 0 5px;">
+                        <asp:Literal ID="uiLiteralRate" runat="server"></asp:Literal></div>
                 </div>
             </ItemTemplate>
             <FooterTemplate>

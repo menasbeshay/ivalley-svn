@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_ReligionLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_ReligionLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReligionLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReligionLoadByPrimaryKey];
 GO
@@ -32,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReligionLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_ReligionLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReligionLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_ReligionLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReligionLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReligionLoadAll];
 GO
@@ -61,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReligionLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ReligionLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReligionUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_ReligionUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReligionUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReligionUpdate];
 GO
@@ -100,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_ReligionInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_ReligionInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReligionInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReligionInsert];
 GO
@@ -140,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReligionInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ReligionInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReligionDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_ReligionDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReligionDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReligionDelete];
 GO

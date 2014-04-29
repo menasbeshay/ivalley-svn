@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_BotLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_BotLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_BotLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_BotLoadByPrimaryKey];
 GO
@@ -50,7 +50,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_BotLoadByPrimaryKey Succeeded'
 ELSE PRINT 'Procedure Creation: proc_BotLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_BotLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_BotLoadAll]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_BotLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_BotLoadAll];
 GO
@@ -97,7 +97,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_BotLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_BotLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_BotUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_BotUpdate]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_BotUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_BotUpdate];
 GO
@@ -172,7 +172,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_BotInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_BotInsert]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_BotInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_BotInsert];
 GO
@@ -266,7 +266,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_BotInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_BotInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_BotDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_BotDelete]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_BotDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_BotDelete];
 GO

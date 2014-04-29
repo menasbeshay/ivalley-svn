@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MemberMessageLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageLoadByPrimaryKey];
 GO
@@ -40,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_MemberMessageLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageLoadAll]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageLoadAll];
 GO
@@ -77,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberMessageLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageUpdate]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageUpdate];
 GO
@@ -132,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberMessageInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageInsert]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageInsert];
 GO
@@ -196,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberMessageInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberMessageInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberMessageDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MemberMessageDelete]    Script Date: 4/29/2014 2:20:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberMessageDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberMessageDelete];
 GO

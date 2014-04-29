@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadByPrimaryKey];
 GO
@@ -34,7 +34,8 @@ BEGIN
 		[EnableTwoMic],
 		[EnableThreeMic],
 		[RoomAdminPassword],
-		[RowStatusID]
+		[RowStatusID],
+		[OpenCams]
 	FROM [Room]
 	WHERE
 		([RoomID] = @RoomID)
@@ -51,7 +52,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadAll];
 GO
@@ -84,7 +85,8 @@ BEGIN
 		[EnableTwoMic],
 		[EnableThreeMic],
 		[RoomAdminPassword],
-		[RowStatusID]
+		[RowStatusID],
+		[OpenCams]
 	FROM [Room]
 
 	SET @Err = @@Error
@@ -99,7 +101,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomUpdate];
 GO
@@ -126,7 +128,8 @@ CREATE PROCEDURE [proc_RoomUpdate]
 	@EnableTwoMic bit = NULL,
 	@EnableThreeMic bit = NULL,
 	@RoomAdminPassword nvarchar(50) = NULL,
-	@RowStatusID tinyint
+	@RowStatusID tinyint,
+	@OpenCams smallint = NULL
 )
 AS
 BEGIN
@@ -155,7 +158,8 @@ BEGIN
 		[EnableTwoMic] = @EnableTwoMic,
 		[EnableThreeMic] = @EnableThreeMic,
 		[RoomAdminPassword] = @RoomAdminPassword,
-		[RowStatusID] = @RowStatusID
+		[RowStatusID] = @RowStatusID,
+		[OpenCams] = @OpenCams
 	WHERE
 		[RoomID] = @RoomID
 
@@ -176,7 +180,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomInsert];
 GO
@@ -203,7 +207,8 @@ CREATE PROCEDURE [proc_RoomInsert]
 	@EnableTwoMic bit = NULL,
 	@EnableThreeMic bit = NULL,
 	@RoomAdminPassword nvarchar(50) = NULL,
-	@RowStatusID tinyint
+	@RowStatusID tinyint,
+	@OpenCams smallint = NULL
 )
 AS
 BEGIN
@@ -233,7 +238,8 @@ BEGIN
 		[EnableTwoMic],
 		[EnableThreeMic],
 		[RoomAdminPassword],
-		[RowStatusID]
+		[RowStatusID],
+		[OpenCams]
 	)
 	VALUES
 	(
@@ -256,7 +262,8 @@ BEGIN
 		@EnableTwoMic,
 		@EnableThreeMic,
 		@RoomAdminPassword,
-		@RowStatusID
+		@RowStatusID,
+		@OpenCams
 	)
 
 	SET @Err = @@Error
@@ -273,7 +280,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomDelete];
 GO
