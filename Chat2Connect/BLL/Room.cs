@@ -64,5 +64,14 @@ namespace BLL
             return LoadFromSql("GetFavRoomsByCreatorID", parameters);
 
         }
+
+        public virtual bool GetRoomRateByRoomID(int RoomID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
+
+            return LoadFromSql("GetRoomRateByRoomID", parameters);
+        }
 	}
 }

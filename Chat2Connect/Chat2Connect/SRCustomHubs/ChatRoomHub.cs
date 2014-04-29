@@ -80,6 +80,25 @@ namespace Chat2Connect.SRCustomHubs
         public void userStartCam(int rid, int memberid)
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).ShowCamLink(memberid, rid);
+            Room room = new Room();
+            room.LoadByPrimaryKey(rid);
+            if (room.IsColumnNull("OpenCams"))
+                room.OpenCams = 1;
+            else
+                room.OpenCams += 1;
+            room.Save();
+        }
+
+        public void userStopCam(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).HideCamLink(memberid, rid);
+            Room room = new Room();
+            room.LoadByPrimaryKey(rid);
+            if (room.IsColumnNull("OpenCams"))
+                room.OpenCams = 0;
+            else
+               room.OpenCams -= 1;
+            room.Save();
         }
 
         public void userRaisHand(int rid, int memberid)

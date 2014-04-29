@@ -97,3 +97,53 @@ Go
 
 Alter table RoomMember
 Add UserRate smallint
+
+Alter table Room
+Add OpenCams smallint
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetRoomRateByRoomID' and
+		        xtype = 'P')
+Drop Procedure GetRoomRateByRoomID
+Go
+Create Procedure GetRoomRateByRoomID @RoomID int
+as
+
+select floor(sum(isnull(UserRate,0)) / count(MemberID)) Rate
+from RoomMember 
+where RoomID = @RoomID
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetMemberFriendsByStatus' and
+		        xtype = 'P')
+Drop Procedure GetMemberFriendsByStatus
+Go
+Create Procedure GetMemberFriendsByStatus @MemberID int ,
+										  @Status bit
+as
+If (@Status = 1)
+begin
+select F.*, asp.UserName
+from MemberFriend MF
+Inner Join Member M on MF.MemberID = M.MemberID 
+Inner Join Member F on MF.FriendID = F.MemberID 
+Inner Join aspnet_users asp on asp.UserID = F.UserID
+where M.MemberID = @MemberID and 
+	  F.IsOnline = @Status
+End
+else 
+begin 
+select F.*, asp.UserName
+from MemberFriend MF
+Inner Join Member M on MF.MemberID = M.MemberID 
+Inner Join Member F on MF.FriendID = F.MemberID 
+Inner Join aspnet_users asp on asp.UserID = F.UserID
+where M.MemberID = @MemberID and 
+	  (F.IsOnline = @Status or F.Isonline is null or F.Isonline = 0 )
+end 
+Go

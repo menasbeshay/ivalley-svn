@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -79,6 +80,32 @@ namespace Chat2Connect
                     uiRepeaterRooms.DataBind();
                 } 
 
+            }
+        }
+
+        protected void uiRepeaterRooms_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                Literal labelRate = (Literal)e.Item.FindControl("uiLiteralRate");
+                Label membercount = (Label)e.Item.FindControl("uiLabelMemberCount");
+                Room room = new Room();
+                room.GetRoomRateByRoomID(Convert.ToInt32(row["RoomID"].ToString()));
+
+                RoomMember members = new RoomMember();
+                members.GetOnlineMembersByRoomID(Convert.ToInt32(row["RoomID"].ToString()));
+                membercount.Text = members.RowCount.ToString();
+
+                int rate = 0;
+                int.TryParse(room.GetColumn("Rate").ToString(), out rate);
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i < rate)
+                        labelRate.Text += "<i class='icon icon-star'></i>";
+                    else
+                        labelRate.Text += "<i class='icon icon-star-empty'></i>";
+                }
             }
         }
     }

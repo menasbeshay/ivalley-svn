@@ -43,6 +43,12 @@ namespace Chat2Connect
                     roomMember.MemberID = member.MemberID;
                     roomMember.RoomID = rid;
                     roomMember.Save();
+                    uiHiddenFieldUserRate.Value = "0";
+                }
+                else
+                {
+                    if (!roomMember.IsColumnNull("UserRate"))
+                        uiHiddenFieldUserRate.Value = roomMember.UserRate.ToString(); ;
                 }
 
                 RoomMember Allmembers = new RoomMember();
@@ -294,6 +300,11 @@ namespace Chat2Connect
 			        function stopCam" + rid.ToString() + @"(userId)
 			        {
 				        getFlashMovie" + rid.ToString() + @"('chat2connect_" + rid.ToString() + @"').stopCam(userId);
+                        if(" + CurrentMember.MemberID.ToString() + @"==userId)
+                        {
+                            rHub.server.userStopCam(" + rid.ToString() + @", " + CurrentMember.MemberID.ToString() + @");
+                            $('#room_" + rid.ToString() + " #roomMembersDiv #m_" + CurrentMember.MemberID.ToString() + @" .controls .camera').css('display', 'none');                            
+                        }     
 			        }
 			
 			        function startMic" + rid.ToString() + @"(userId)

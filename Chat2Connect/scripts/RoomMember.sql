@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomMemberLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberLoadByPrimaryKey];
 GO
@@ -30,7 +30,8 @@ BEGIN
 		[IsBannedForMonth],
 		[IsMarked],
 		[AskForMic],
-		[QueueOrder]
+		[QueueOrder],
+		[UserRate]
 	FROM [RoomMember]
 	WHERE
 		([MemberID] = @MemberID) AND
@@ -48,7 +49,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_RoomMemberLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberLoadAll];
 GO
@@ -76,7 +77,8 @@ BEGIN
 		[IsBannedForMonth],
 		[IsMarked],
 		[AskForMic],
-		[QueueOrder]
+		[QueueOrder],
+		[UserRate]
 	FROM [RoomMember]
 
 	SET @Err = @@Error
@@ -91,7 +93,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomMemberLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberUpdate];
 GO
@@ -113,7 +115,8 @@ CREATE PROCEDURE [proc_RoomMemberUpdate]
 	@IsBannedForMonth bit = NULL,
 	@IsMarked bit = NULL,
 	@AskForMic bit = NULL,
-	@QueueOrder int = NULL
+	@QueueOrder int = NULL,
+	@UserRate smallint = NULL
 )
 AS
 BEGIN
@@ -136,7 +139,8 @@ BEGIN
 		[IsBannedForMonth] = @IsBannedForMonth,
 		[IsMarked] = @IsMarked,
 		[AskForMic] = @AskForMic,
-		[QueueOrder] = @QueueOrder
+		[QueueOrder] = @QueueOrder,
+		[UserRate] = @UserRate
 	WHERE
 		[MemberID] = @MemberID
 	AND	[RoomID] = @RoomID
@@ -158,7 +162,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomMemberInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberInsert];
 GO
@@ -180,7 +184,8 @@ CREATE PROCEDURE [proc_RoomMemberInsert]
 	@IsBannedForMonth bit = NULL,
 	@IsMarked bit = NULL,
 	@AskForMic bit = NULL,
-	@QueueOrder int = NULL
+	@QueueOrder int = NULL,
+	@UserRate smallint = NULL
 )
 AS
 BEGIN
@@ -206,7 +211,8 @@ BEGIN
 		[IsBannedForMonth],
 		[IsMarked],
 		[AskForMic],
-		[QueueOrder]
+		[QueueOrder],
+		[UserRate]
 	)
 	VALUES
 	(
@@ -225,7 +231,8 @@ BEGIN
 		@IsBannedForMonth,
 		@IsMarked,
 		@AskForMic,
-		@QueueOrder
+		@QueueOrder,
+		@UserRate
 	)
 
 	SET @Err = @@Error
@@ -241,7 +248,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomMemberInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomMemberInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomMemberDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_RoomMemberDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomMemberDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomMemberDelete];
 GO

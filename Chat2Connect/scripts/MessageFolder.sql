@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MessageFolderLoadByPrimaryKey]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MessageFolderLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MessageFolderLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MessageFolderLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MessageFolderLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_MessageFolderLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MessageFolderLoadAll]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MessageFolderLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MessageFolderLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MessageFolderLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MessageFolderLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MessageFolderLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MessageFolderUpdate]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MessageFolderUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MessageFolderUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MessageFolderUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MessageFolderInsert]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MessageFolderInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MessageFolderInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MessageFolderInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MessageFolderInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MessageFolderInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MessageFolderDelete]    Script Date: 4/24/2014 3:42:33 PM ******/
+/****** Object:  StoredProcedure [proc_MessageFolderDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MessageFolderDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MessageFolderDelete];
 GO

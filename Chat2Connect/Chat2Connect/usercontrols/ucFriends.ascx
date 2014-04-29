@@ -44,7 +44,7 @@
                         <ItemTemplate> 
                             <div class="Altodd friend-link" id='usernode-<%# Eval("MemberID") %>'>
                                     <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class='friendpic online'/>
-                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                                     </a>
                             <div class="clearfix" style="height: 1px;"></div>
                             <span id='user-status-<%# Eval("MemberID") %>'>
@@ -57,7 +57,7 @@
 						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
@@ -65,8 +65,8 @@
                                 </ul> 
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> <div class="Alteven friend-link" id='usernode-<%# Eval("MemberID") %>'>
-                                    <img src="images/defaultavatar.png" class="friendpic online"/>
-                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("Name") %>
+                                    <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic online"/>
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                                     </a>
                             <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
@@ -77,7 +77,7 @@
 						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
@@ -96,9 +96,9 @@
                     <asp:Repeater ID="uiRepeaterOffline" runat="server">
                         <HeaderTemplate><div id="offlinepeople" class="panel-collapse collapse in " ></HeaderTemplate>
                         <FooterTemplate></div></FooterTemplate>
-                        <ItemTemplate> <div class="Altodd friend-link" >
-                                    <img src="images/defaultavatar.png" class="friendpic offline"/>
-                                    <a href="#"><%# Eval("Name") %>
+                        <ItemTemplate> <div class="Altodd friend-link" id='usernode-<%# Eval("MemberID") %>'>
+                                    <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic offline"/>
+                                    <a href="#"><%# Eval("UserName") %>
                                     </a>
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
@@ -109,16 +109,16 @@
 						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
                                    
                                 </ul> 
                                 </div></ItemTemplate>
-                        <AlternatingItemTemplate> <div class="Alteven friend-link" >
-                                    <img src="images/defaultavatar.png" class="friendpic offline"/>
-                                    <a href="#"><%# Eval("Name") %>
+                        <AlternatingItemTemplate> <div class="Alteven friend-link" id='usernode-<%# Eval("MemberID") %>'>
+                                    <img src="images/defaultavatar.png"  id='user-<%# Eval("MemberID") %>' class="friendpic offline"/>
+                                    <a href="#"><%# Eval("UserName") %>
                                     </a>
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
@@ -129,7 +129,7 @@
 						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
+						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf10b;</span> أرسل SMS</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>

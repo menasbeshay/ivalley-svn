@@ -225,6 +225,8 @@
             searchingText: "بحث فى الأصدقاء..."
         });
 
+        
+
         Msgeditor = new wysihtml5.Editor('txtBody', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: '../css/main.css' });
     });
 

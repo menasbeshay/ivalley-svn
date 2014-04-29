@@ -73,6 +73,21 @@ namespace Chat2Connect.usercontrols
             if (!IsPostBack)
             {
                 BindFolders();
+
+                int friendId = 0;
+                string friendname = "";
+                if (!string.IsNullOrEmpty(Request.QueryString["t"].ToString()) && Request.QueryString["t"].ToString() == "createmsg")
+                {
+                    int.TryParse(Request.QueryString["u"].ToString(), out friendId);
+                    friendname = Request.QueryString["un"].ToString();
+                }
+                if (friendId != 0 && !string.IsNullOrEmpty(friendname))
+                {
+                    pnlSendMessage.Visible = true;
+                    pnlCreateFolder.Visible = false;
+                    pnlViewMessages.Visible = false;
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + friendId + ", name: '" + friendname + "' }); });", true);
+                }
             }
         }
 
