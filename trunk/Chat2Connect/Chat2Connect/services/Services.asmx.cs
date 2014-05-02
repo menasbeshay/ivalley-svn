@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ using System.Web.Services;
 using BLL;
 using Chat2Connect.SRCustomHubs;
 using Microsoft.AspNet.SignalR;
+using System.Dynamic;
 
 namespace Chat2Connect.services
 {
@@ -120,7 +122,7 @@ namespace Chat2Connect.services
                     if (recipientID > 0)
                     {
                         recipients.Add(recipientID);
-                        SendMsg(sender, subject, content, message, recipientID,operationID);
+                        SendMsg(sender, subject, content, message, recipientID, operationID);
                     }
                     else
                     {
@@ -151,7 +153,7 @@ namespace Chat2Connect.services
             return true;
         }
 
-        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID,Guid operationID)
+        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID, Guid operationID)
         {
             message.AddNew();
             message.SendDate = DateTime.Now;
@@ -436,7 +438,7 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool RateRoom(string rid, string rate)
         {
-           
+
             MembershipUser user = Membership.GetUser();
             Member member = new Member();
 
@@ -455,6 +457,102 @@ namespace Chat2Connect.services
                 return false;
             }
             return true;
+        }
+
+
+        [WebMethod]
+        public void GetChatRoom(int id,bool isTemp)
+        {
+            dynamic roomObject = new ExpandoObject();
+            roomObject.ID = id;
+            roomObject.Type = "Room";
+            roomObject.IsTemp = isTemp;
+            //Room Info
+            Room rooms = new Room();
+            rooms.LoadByPrimaryKey(id);
+
+            roomObject.Name = rooms.Name;
+            Member member = new Member();
+            member.LoadByPrimaryKey(rooms.CreatedBy);
+            roomObject.AdminName = member.Name;
+
+            Member CurrentMember = new Member();
+            CurrentMember.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            roomObject.MemberID = CurrentMember.MemberID;
+            if (CurrentMember.MemberID != member.MemberID)
+            {
+                roomObject.IsAdmin = false;
+            }
+            else
+            {
+                roomObject.IsAdmin = true;
+            }
+
+            roomObject.CamCount = 1;
+            roomObject.MaxMic = 1;
+            if (!String.IsNullOrEmpty(rooms.s_RoomTypeID))
+            {
+                switch (rooms.RoomTypeID)
+                {
+                    case 1: // black
+                        roomObject.CamCount = 1;
+                        roomObject.MaxMic = 1;
+                        break;
+                    case 2: // zety 
+                        roomObject.CamCount = 4;
+                        roomObject.MaxMic = 2;
+                        break;
+                    case 3: // purple
+                        roomObject.CamCount = 100;
+                        roomObject.MaxMic = 3;
+                        break;
+                    case 4: // premium 
+                        roomObject.CamCount = 100;
+                        roomObject.MaxMic = 4;
+                        break;
+                }
+            }
+            RoomMember Allmembers = new RoomMember();
+            Allmembers.GetOnlineMembersByRoomID(id);
+            roomObject.MemberCount = Allmembers.RowCount;
+            // add to favourite link
+            FavRoom fav = new FavRoom();
+            fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
+            if (fav.RowCount > 0 || isTemp)
+                roomObject.IsFav = true;
+            else
+            {
+                roomObject.IsFav = false;
+            }
+            //Member
+            roomObject.UserRate = 0;
+
+            RoomMember roomMember = new RoomMember();
+            roomMember.LoadByPrimaryKey(CurrentMember.MemberID, id);
+            if (roomMember.RowCount == 0)
+            {
+                roomMember.AddNew();
+                roomMember.MemberID = CurrentMember.MemberID;
+                roomMember.RoomID = id;
+                roomMember.Save();
+            }
+            else
+            {
+                if (!roomMember.IsColumnNull("UserRate"))
+                    roomObject.UserRate = roomMember.UserRate;
+            }
+
+            RoomMember members = new RoomMember();
+            members.GetAllMembersByRoomIDNoQueue(id);
+            RoomMember InQueueMembers = new RoomMember();
+            InQueueMembers.GetAllMembersByRoomIDInQueue(id);
+            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
+            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], MemberTypeID = m["MemberTypeID"] }).ToList();
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
         }
 
     }
