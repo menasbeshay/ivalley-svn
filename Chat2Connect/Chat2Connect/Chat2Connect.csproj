@@ -110,6 +110,7 @@
     <Content Include="Admin\UserControls\Room\RoomInfo.ascx" />
     <Content Include="Admin\UserControls\Room\RoomStatus.ascx" />
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
+    <Content Include="ChatRoomTemplate.html" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -182,8 +183,10 @@
     <Content Include="css\validationEngine1.jquery.css" />
     <Content Include="default.aspx" />
     <Content Include="getRooms.aspx" />
+    <Content Include="getRooms2.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home.aspx" />
+    <Content Include="Home2.aspx" />
     <Content Include="HtmlPage1.html" />
     <Content Include="images\0.png" />
     <Content Include="images\1.png" />
@@ -569,6 +572,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="images\backgrounds\.DS_Store" />
     <Content Include="js\bootstrap-tagsinput.min.js.map" />
+    <Content Include="js\chatwindows.js" />
     <Content Include="js\fileupload\ajaxupload.js" />
     <Content Include="js\jquery.tokeninput.js" />
     <Content Include="js\fileupload\app.js" />
@@ -601,6 +605,10 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="testswf\chat2connect.swf" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
@@ -861,6 +869,13 @@
     <Compile Include="getRooms.aspx.designer.cs">
       <DependentUpon>getRooms.aspx</DependentUpon>
     </Compile>
+    <Compile Include="getRooms2.aspx.cs">
+      <DependentUpon>getRooms2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getRooms2.aspx.designer.cs">
+      <DependentUpon>getRooms2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -870,6 +885,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home2.aspx.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home2.aspx.designer.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoadMessage.aspx.cs">
       <DependentUpon>LoadMessage.aspx</DependentUpon>
