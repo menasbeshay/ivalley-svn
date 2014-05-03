@@ -297,7 +297,6 @@ function SaveConversation(rid) {
 $(document).ready(function () {
     
     sHub = $.connection.notificationHub;
-    rHub = $.connection.chatRoomHub;
 
     /* notifications hub */
     sHub.client.friendStatusChanged = function (id, msg, status) {
@@ -316,8 +315,7 @@ $(document).ready(function () {
         }
 
     };
-
-
+    
     sHub.client.inviteToTempRoom = function (rid, fname) {
         notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a href="home.aspx?t=' + rid + '" target="_blank" class="btn btn-main">إضغط هنا للدخول</a>');
 
@@ -331,104 +329,6 @@ $(document).ready(function () {
         else {
             $('#msgCount_' + id).text("");
         }
-    };
-
-    /* rooms hub */
-    rHub.client.getMessage = function (rid, sname, msg) {        
-        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>");
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: '400px',
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#room_" + rid).height()
-        });
-        // update save link 
-        SaveConversation(rid);
-
-    };
-
-    rHub.client.getVideoMessage = function (rid, sname, url) {
-        var arr = url.split('v='); // remove "youtube.com/watch?v="
-        var id = arr[1].split('&'); // extract vedio id from query string - first element in the array
-
-        $(".MsgHistroy", "#room_" + rid).append("<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/"+ id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>");
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: '400px',
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#room_" + rid).height()
-        });
-
-    };
-
-    rHub.client.addNewMember = function (mid, name, rid) {
-        var c = $("#room_" + rid + " #roomMembersDiv #regular div.rm:last-child").attr('class');
-        if (c == "Alteven rm") {
-            c = "Altodd rm";
-        } else {
-            c = "Alteven rm";
-        }
-        if (document.getElementById("m_" + mid)) {
-            return;
-        }
-        $("#room_" + rid + " #roomMembersDiv #regular").append("<div class='" + c + "' id='m_" + mid + "'><a href='#'>" + name + "</a><div class='pull-left'><a href='#' class='camera'><img src='images/video_camera.png' style='width:16px;' /></a><img src='images/hand.png' style='width:16px;' class='hand'/><img src='images/microphone_1.png' style='width:16px;'/></div><div class='clearfix' style='height: 1px;' class='mic'></div></div>");
-    };
-
-    rHub.client.removeMember = function (mid) {
-        $("#m_" + mid).remove();        
-    };
-
-    rHub.client.ListenMic = function (listenmic, memberid, rid) {
-        var fn = window[listenmic];
-        var fnparams = [memberid];
-        if (typeof fn === 'function') {
-           fn.apply(null,fnparams);
-        }
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
-        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #MicDiv");
-    };
-
-    rHub.client.StopListenMic = function (listenmic, memberid, rid) {
-        var fn = window[listenmic];
-        var fnparams = [memberid];
-        if (typeof fn === 'function') {
-            fn.apply(null, fnparams);
-        }        
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
-        $("#room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
-    };
-
-    rHub.client.UserRaisHand = function (rid,memberid) {        
-        $("#room_" + rid + " #roomMembersDiv #regular #m_" + memberid + " .controls .hand").css('display', 'inline-block');
-    
-        $("#room_" + rid + " #roomMembersDiv #regular #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #queueDiv");
-    };
-
-    rHub.client.UserDownHand = function (rid, memberid) {
-        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid + " .controls .hand").css('display', 'none');
-        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
-
-    };
-
-    rHub.client.UserMarked = function (rid, memberid) {
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');        
-    };
-    
-    rHub.client.UserUnMarked = function (rid, memberid) {
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
-    };
-
-    rHub.client.ShowCamLink = function (mid, rid) {
-        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
-    };
-
-    rHub.client.HideCamLink = function (mid, rid) {
-        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
 
     $.connection.hub.start().done(function () {

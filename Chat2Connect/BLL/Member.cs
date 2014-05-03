@@ -121,7 +121,12 @@ namespace BLL
         #endregion
         public Member()
         {
+        }
 
+        public override void AddNew()
+        {
+            base.AddNew();
+            RowStatusID = (int)Helper.Enums.RowStatus.Enabled;
         }
 
         public virtual bool GetMemberByUserId(Guid UserId)
