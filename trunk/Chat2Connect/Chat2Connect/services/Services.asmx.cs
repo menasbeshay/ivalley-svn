@@ -463,10 +463,12 @@ namespace Chat2Connect.services
         [WebMethod]
         public void GetChatRoom(int id,bool isTemp)
         {
-            dynamic roomObject = new ExpandoObject();
+            Helper.ChatRoom roomObject = new Helper.ChatRoom();
             roomObject.ID = id;
             roomObject.Type = "Room";
             roomObject.IsTemp = isTemp;
+            roomObject.Message = "";
+            roomObject.MessageHistory = "";
             //Room Info
             Room rooms = new Room();
             rooms.LoadByPrimaryKey(id);
@@ -536,7 +538,7 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
                 roomMember.Save();
             }
-            else
+            else 
             {
                 if (!roomMember.IsColumnNull("UserRate"))
                     roomObject.UserRate = roomMember.UserRate;
@@ -546,8 +548,8 @@ namespace Chat2Connect.services
             members.GetAllMembersByRoomIDNoQueue(id);
             RoomMember InQueueMembers = new RoomMember();
             InQueueMembers.GetAllMembersByRoomIDInQueue(id);
-            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
-            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], MemberTypeID = m["MemberTypeID"] }).ToList();
+            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
+            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["MemberName"], MemberTypeID = m["MemberTypeID"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
