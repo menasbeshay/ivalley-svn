@@ -38,6 +38,12 @@ namespace Helper
         public List<ChatMember> RoomMembers { get; set; }
 
         public List<ChatMember> QueueMembers { get; set; }
+
+        public bool IsMicOpened { get; set; }
+
+        public ChatMember MicMember { get; set; }
+
+        public bool IsCamOpened { get; set; }
     }
 
     public class ChatMessage
