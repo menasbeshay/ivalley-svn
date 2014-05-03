@@ -469,6 +469,8 @@ namespace Chat2Connect.services
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
             roomObject.MessageHistory = "";
+            roomObject.IsMicOpened = false;
+            roomObject.IsCamOpened = false;
             //Room Info
             Room rooms = new Room();
             rooms.LoadByPrimaryKey(id);
@@ -549,7 +551,7 @@ namespace Chat2Connect.services
             RoomMember InQueueMembers = new RoomMember();
             InQueueMembers.GetAllMembersByRoomIDInQueue(id);
             roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
-            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["MemberName"], MemberTypeID = m["MemberTypeID"] }).ToList();
+            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";

@@ -299,6 +299,27 @@
                         <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 400px;">
                             <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow: hidden; width: auto; height: 400px;">
                                 <div id="MicDiv">
+                                    <div class="friend-link rm Altodd" data-bind="with:MicMember">
+                                        <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
+                                        <div class="pull-left controls">
+                                            <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
+                                                <img style="width: 16px;" src="images/video_camera.png"></a>
+                                            <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                        </div>
+                                        <div class="clearfix" style="height: 1px;"></div>
+
+                                        <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                            <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                            <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
+                                            <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div id="queueDiv">
                                     <!-- ko foreach: QueueMembers-->
@@ -371,9 +392,15 @@
 
                         <div class="col-lg-12">
                             <div class="pull-right">
-
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
-                                    <img style="width: 14px;" src="images/hand.png"></a><a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث"><i class="icon-microphone"></i></a><a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="    attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا"><i class="icon-camera"></i></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
+                                    <img style="width: 14px;" src="images/hand.png">
+                                </a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
+                                    <i class="icon-microphone"></i>
+                                </a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
+                                    <i class="icon-camera"></i>
+                                </a>
                             </div>
                             <div class="pull-right">
                                 <div id="toolbar12">
