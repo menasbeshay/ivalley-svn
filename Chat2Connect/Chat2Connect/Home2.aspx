@@ -287,7 +287,7 @@
                     <div style="padding: 2px;" class="pull-left col-lg-9">
                         <object width="690" height="200" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'ID='+ID()+'&amp;userId='+MemberID()+'&amp;allowedCams='+CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'ID='+ID()+'&amp;userId='+MemberID()+'&amp;allowedCams='+CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
                     </div>
                 </div>
@@ -378,16 +378,12 @@
                     </div>
                     <!-- /ko -->
                     <div id="roomTextDiv" style="padding: 5px; border-right: 2px solid #FEC200;" class='pull-left col-lg-9'">
-                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 400px;">
-                            <div data-height="400px;" style="width: auto; background-color: rgb(217, 217, 217); min-height: 400px; padding: 5px; direction: rtl; overflow: hidden; height: 400px;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
-                            <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(254, 196, 1); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; left: 1px; height: 400px;"></div>
-                            <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(199, 197, 192); opacity: 0.2; z-index: 90; left: 1px;"></div>
-                        </div>
+                        <div data-height="400px;" style="width:98%;background-color:#D9D9D9;min-height:400px;padding:5px;direction:rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
+                        
                         <div style="height: 5px;" class="clearfix"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, valueUpdate: 'afterkeydown', event: { keypress: $parent.keyboardCmd}" style="width: 91.5%; background-color: rgb(217, 217, 217); height: 70px; border: 0px none;" type="text"></textarea>
-                        <input type="hidden" name="_wysihtml5_mode" value="1"><iframe width="0" height="0" frameborder="0" class="wysihtml5-sandbox" security="restricted" allowtransparency="true" marginwidth="0" marginheight="0" style="display: inline; background-color: rgb(217, 217, 217); border-collapse: separate; border-color: -moz-use-text-color; border-style: none; border-width: 0px; clear: none; float: none; margin: 0px; outline: 0px none rgb(0, 0, 0); outline-offset: 0px; padding: 0px; position: static; z-index: auto; vertical-align: top; text-align: start; -moz-box-sizing: border-box; box-shadow: none; border-radius: 0px; width: 91.5%; height: 70px; top: auto; left: auto; right: auto; bottom: auto;"></iframe>
-
+                        <textarea data-bind="value:Message, valueUpdate: 'afterkeydown', event: { keypress: $parent.keyboardCmd}, attr:{id:'uiTextMsg_'+ID()}"  type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>
+                        
                         <div style="height: 20px;" class="clearfix"></div>
 
                         <div class="col-lg-12">
@@ -403,7 +399,7 @@
                                 </a>
                             </div>
                             <div class="pull-right">
-                                <div id="toolbar12">
+                                <div data-bind="attr:{id: 'toolbar'+ID()}">
                                     <div data-toggle="buttons" class="btn-group">
 
                                         <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold"></span></button>

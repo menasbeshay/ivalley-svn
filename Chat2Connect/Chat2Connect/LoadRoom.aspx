@@ -534,10 +534,7 @@
         <!-- this is the end of roomcontents div -->
     </div>
 
-        <div id="proof">
-            abc
-
-        </div>
+       
     </form>
 </body>
 </html>

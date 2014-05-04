@@ -5,10 +5,12 @@
 //};
 function Chat(maxWin, memberID, memberName) {
     var self = this;
+    var editor;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
+    self.Editor = editor;
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -96,12 +98,12 @@ function Chat(maxWin, memberID, memberName) {
     self.openWindow = function (id, name, type) {
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type);
+            self.addWindow(id, name, type);            
         }
     };
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "" };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: editor.getValue(), MessageHistory: "" };
             self.windows.push(ko.mapping.fromJS(room, mapping));
             self.changeCurrent(type + '_' + id);
         }
@@ -123,6 +125,7 @@ function Chat(maxWin, memberID, memberName) {
                     self.windows.push(win);
                     self.changeCurrent(type + '_' + id);
                     rHub.server.addToRoom(id);
+                    self.InitEditor(id);
                 });
         }
     }
@@ -143,17 +146,25 @@ function Chat(maxWin, memberID, memberName) {
         if (window == null)
             window = this;
         if (window.Type() == "Room") {
-            rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Message());
+            //rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Message());
+            rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, self.Editor.getValue());
         }
         else {
-            rHub.server.sendPrivateMessage(window.ID(), window.Message());
+            //rHub.server.sendPrivateMessage(window.ID(), window.Message());
+            rHub.server.sendPrivateMessage(window.ID(), self.Editor.getValue());
         }
-        window.Message("");
+        //window.Message("");
+        self.Editor.setValue("");
     }
     self.keyboardCmd = function (data, event) {
         if (event.keyCode == 13)
             self.sendMessage(this);
         return true;
+    };
+
+    // init html editor 
+    self.InitEditor = function (id) {        
+        self.Editor = new wysihtml5.Editor('uiTextMsg_' + id, { toolbar: 'toolbar' + id, parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
     };
 
     self.removeMember = function (mid) {
