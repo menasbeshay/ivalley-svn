@@ -9,7 +9,92 @@ namespace BLL
 	{
 		public RoomMemberSetting()
 		{
-		
-		}
-	}
+
+        }
+
+    
+        #region override properties reading
+        public override bool NotifyOnCloseCam
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnCloseCam))
+                    return false;
+                return base.NotifyOnCloseCam;
+            }
+            set
+            {
+                base.NotifyOnCloseCam = value;
+            }
+        }
+
+        public override bool NotifyOnFriendsLogOff
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnFriendsLogOff))
+                    return false;
+                return base.NotifyOnFriendsLogOff;
+            }
+            set
+            {
+                base.NotifyOnFriendsLogOff = value;
+            }
+        }
+
+        public override bool NotifyOnFriendsLogOn
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnFriendsLogOn))
+                    return false;
+                return base.NotifyOnFriendsLogOn;
+            }
+            set
+            {
+                base.NotifyOnFriendsLogOn = value;
+            }
+        }
+
+        public override bool NotifyOnMicOff
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnMicOff))
+                    return false;
+                return base.NotifyOnMicOff;
+            }
+            set
+            {
+                base.NotifyOnMicOff = value;
+            }
+        }
+        public override bool NotifyOnMicOn
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnMicOn))
+                    return false;
+                return base.NotifyOnMicOn;
+            }
+            set
+            {
+                base.NotifyOnMicOn = value;
+            }
+        }
+        public override bool NotifyOnOpenCam
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnOpenCam))
+                    return false;
+                return base.NotifyOnOpenCam;
+            }
+            set
+            {
+                base.NotifyOnOpenCam = value;
+            }
+        }
+        #endregion
+    }
 }

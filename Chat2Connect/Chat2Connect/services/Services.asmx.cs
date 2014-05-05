@@ -469,50 +469,53 @@ namespace Chat2Connect.services
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
             roomObject.MessageHistory = "";
-            roomObject.IsMicOpened = false;
-            roomObject.IsCamOpened = false;
+            roomObject.CurrentMemberSettings.IsMicOpened = false;
+            roomObject.CurrentMemberSettings.IsCamOpened = false;
             //Room Info
             Room rooms = new Room();
             rooms.LoadByPrimaryKey(id);
 
             roomObject.Name = rooms.Name;
+            roomObject.Settings.EnableCam= rooms.EnableCam;
+            roomObject.Settings.EnableMic = rooms.EnableMic;
+
             Member member = new Member();
             member.LoadByPrimaryKey(rooms.CreatedBy);
             roomObject.AdminName = member.Name;
 
             Member CurrentMember = new Member();
             CurrentMember.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            roomObject.MemberID = CurrentMember.MemberID;
+            roomObject.CurrentMemberSettings.MemberID = CurrentMember.MemberID;
             if (CurrentMember.MemberID != member.MemberID)
             {
-                roomObject.IsAdmin = false;
+                roomObject.CurrentMemberSettings.IsAdmin = false;
             }
             else
             {
-                roomObject.IsAdmin = true;
+                roomObject.CurrentMemberSettings.IsAdmin = true;
             }
 
-            roomObject.CamCount = 1;
-            roomObject.MaxMic = 1;
+            roomObject.Settings.CamCount = 1;
+            roomObject.Settings.MaxMic = 1;
             if (!String.IsNullOrEmpty(rooms.s_RoomTypeID))
             {
                 switch (rooms.RoomTypeID)
                 {
                     case 1: // black
-                        roomObject.CamCount = 1;
-                        roomObject.MaxMic = 1;
+                        roomObject.Settings.CamCount = 1;
+                        roomObject.Settings.MaxMic = 1;
                         break;
                     case 2: // zety 
-                        roomObject.CamCount = 4;
-                        roomObject.MaxMic = 2;
+                        roomObject.Settings.CamCount = 4;
+                        roomObject.Settings.MaxMic = 2;
                         break;
                     case 3: // purple
-                        roomObject.CamCount = 100;
-                        roomObject.MaxMic = 3;
+                        roomObject.Settings.CamCount = 100;
+                        roomObject.Settings.MaxMic = 3;
                         break;
                     case 4: // premium 
-                        roomObject.CamCount = 100;
-                        roomObject.MaxMic = 4;
+                        roomObject.Settings.CamCount = 100;
+                        roomObject.Settings.MaxMic = 4;
                         break;
                 }
             }
@@ -523,13 +526,13 @@ namespace Chat2Connect.services
             FavRoom fav = new FavRoom();
             fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
             if (fav.RowCount > 0 || isTemp)
-                roomObject.IsFav = true;
+                roomObject.CurrentMemberSettings.IsFav = true;
             else
             {
-                roomObject.IsFav = false;
+                roomObject.CurrentMemberSettings.IsFav = false;
             }
             //Member
-            roomObject.UserRate = 0;
+            roomObject.CurrentMemberSettings.UserRate = 0;
 
             RoomMember roomMember = new RoomMember();
             roomMember.LoadByPrimaryKey(CurrentMember.MemberID, id);
@@ -542,8 +545,23 @@ namespace Chat2Connect.services
             }
             else 
             {
-                if (!roomMember.IsColumnNull("UserRate"))
-                    roomObject.UserRate = roomMember.UserRate;
+                if (!roomMember.IsColumnNull(RoomMember.ColumnNames.UserRate))
+                    roomObject.CurrentMemberSettings.UserRate = roomMember.UserRate;
+            }
+            roomObject.CurrentMemberSettings.CanAccessCam= roomMember.CanAccessCam;
+            roomObject.CurrentMemberSettings.CanAccessMic = roomMember.CanAccessMic;
+            roomObject.CurrentMemberSettings.CanWrite = roomMember.CanWrite;
+            roomObject.CurrentMemberSettings.IsBanned = roomMember.IsBanned;
+            roomObject.CurrentMemberSettings.IsMarked = roomMember.IsMarked;
+            RoomMemberSetting sett = new RoomMemberSetting();
+            if (sett.LoadByPrimaryKey(id, CurrentMember.MemberID))
+            {
+                roomObject.CurrentMemberSettings.NotifyOnCloseCam = sett.NotifyOnCloseCam;
+                roomObject.CurrentMemberSettings.NotifyOnFriendsLogOff = sett.NotifyOnFriendsLogOff;
+                roomObject.CurrentMemberSettings.NotifyOnFriendsLogOn = sett.NotifyOnFriendsLogOn;
+                roomObject.CurrentMemberSettings.NotifyOnMicOff = sett.NotifyOnMicOff;
+                roomObject.CurrentMemberSettings.NotifyOnMicOn = sett.NotifyOnMicOn;
+                roomObject.CurrentMemberSettings.NotifyOnOpenCam = sett.NotifyOnOpenCam;
             }
 
             RoomMember members = new RoomMember();

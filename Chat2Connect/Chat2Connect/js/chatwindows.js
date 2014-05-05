@@ -4,7 +4,7 @@
 //    }
 //};
 function Chat(maxWin, memberID, memberName) {
-    var self = this;    
+    var self = this;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
     self.maxRoom = ko.observable(maxWin);
@@ -97,14 +97,16 @@ function Chat(maxWin, memberID, memberName) {
     self.openWindow = function (id, name, type) {
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type);            
+            self.addWindow(id, name, type);
         }
     };
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: self.Editor.getValue(), MessageHistory: "" };
-            self.windows.push(ko.mapping.fromJS(room, mapping));
-            self.changeCurrent(type + '_' + id);
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "" };
+            var win = ko.mapping.fromJS(room, mapping);
+            self.windows.push(win);
+            self.changeCurrent(win.uniqueID());
+            self.Init(win.uniqueID(), true);
         }
         else {
             if (self.notTempRoom().length == self.maxRoom()) {
@@ -122,9 +124,9 @@ function Chat(maxWin, memberID, memberName) {
                 .done(function (data) {
                     var win = ko.mapping.fromJS(data, mapping);
                     self.windows.push(win);
-                    self.changeCurrent(type + '_' + id);
+                    self.changeCurrent(win.uniqueID());
                     rHub.server.addToRoom(id);
-                    self.Init(id);
+                    self.Init(win.uniqueID(), win.CurrentMemberSettings.CanWrite());
                 });
         }
     }
@@ -138,7 +140,7 @@ function Chat(maxWin, memberID, memberName) {
     self.rateRoom = function (val) {
         var room = this;
         RateRoom(room.ID(), val);
-        room.UserRate(val);
+        room.CurrentMemberSettings.UserRate(val);
         return true;
     }
     self.sendMessage = function (window) {
@@ -161,13 +163,15 @@ function Chat(maxWin, memberID, memberName) {
         return true;
     };
 
-    // init html editor 
+    // init html 105or 
     // tooltips for toolbar
-    self.Init = function (id) {        
+    self.Init = function (id, isEnabled) {
         self.Editor = new wysihtml5.Editor('uiTextMsg_' + id, { toolbar: 'toolbar' + id, parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        if (!isEnabled)
+            self.Editor.disable();
         // apply enter key listener
         self.Editor.observe('load', function () {
-            self.Editor.composer.element.addEventListener('keyup', function(e) {                                                        
+            self.Editor.composer.element.addEventListener('keyup', function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
                     self.keyboardCmd(null, e);
@@ -221,7 +225,7 @@ function Chat(maxWin, memberID, memberName) {
     }
     self.mic = function () {
         var currentWindow = this;
-        if (currentWindow.IsMicOpened() == false) {
+        if (currentWindow.CurrentMemberSettings.IsMicOpened() == false) {
             self.startMic(currentWindow, self.CurrentMemberID);
             //currentWindow.NoOfMics(currentWindow.NoOfMics() + 1);
             //set current member as micMember
@@ -230,7 +234,7 @@ function Chat(maxWin, memberID, memberName) {
                 currentWindow.removeQueueMember(self.CurrentMemberID);
                 currentWindow.MicMember(member);
             }
-            currentWindow.IsMicOpened(true);
+            currentWindow.CurrentMemberSettings.IsMicOpened(true);
         }
         else {
             self.stopMic(currentWindow, self.CurrentMemberID);
@@ -240,7 +244,7 @@ function Chat(maxWin, memberID, memberName) {
                 currentWindow.addMember(micMember.MemberID(), micMember.MemberName());
                 currentWindow.MicMember(null);
             }
-            currentWindow.IsMicOpened(false);
+            currentWindow.CurrentMemberSettings.IsMicOpened(false);
         }
     }
     self.startMic = function (window, memberID) {
@@ -261,28 +265,25 @@ function Chat(maxWin, memberID, memberName) {
         //$('#Room_5 #roomMembersDiv #m_6 .controls .mic').css('display', 'none');
     }
 
-    self.cam=function()
-    {
+    self.cam = function () {
         var currentWindow = this;
-        if (currentWindow.IsCamOpened() == false) {
-            self.startCam(currentWindow,self.CurrentMemberID);
-            currentWindow.IsCamOpened(true);
+        if (currentWindow.CurrentMemberSettings.IsCamOpened() == false) {
+            self.startCam(currentWindow, self.CurrentMemberID);
+            currentWindow.CurrentMemberSettings.IsCamOpened(true);
         }
         else {
             self.stopCam(currentWindow, self.CurrentMemberID);
-            currentWindow.IsCamOpened(false);
+            currentWindow.CurrentMemberSettings.IsCamOpened(false);
         }
     }
-    self.startCam=function(window, memberID)
-    {
+    self.startCam = function (window, memberID) {
         getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID);
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStartCam(window.ID(), self.CurrentMemberID);
-           // $('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
+            // $('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
         }
     }
-    self.stopCam=function(window,memberID)
-    {
+    self.stopCam = function (window, memberID) {
         getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
@@ -308,8 +309,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
     /****** signalR ********/
     rHub = $.connection.chatRoomHub;
     rHub.client.getPrivateMessage = function (fromId, fromUserName, message) {
-        var window = chatVM.getWindow(fromId,"Private",fromUserName);
-        
+        var window = chatVM.getWindow(fromId, "Private", fromUserName);
+
         var history = window.MessageHistory();
         var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + ":</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
@@ -374,11 +375,11 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
 
     rHub.client.ListenMic = function (listenmic, memberid, rid) {
-       /* var fn = window[listenmic];
-        var fnparams = [memberid];
-        if (typeof fn === 'function') {
-            fn.apply(null, fnparams);
-        }*/
+        /* var fn = window[listenmic];
+         var fnparams = [memberid];
+         if (typeof fn === 'function') {
+             fn.apply(null, fnparams);
+         }*/
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
         if (window == null)
@@ -392,11 +393,11 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
 
     rHub.client.StopListenMic = function (listenmic, memberid, rid) {
-       /* var fn = window[listenmic];
-        var fnparams = [memberid];
-        if (typeof fn === 'function') {
-            fn.apply(null, fnparams);
-        }*/
+        /* var fn = window[listenmic];
+         var fnparams = [memberid];
+         if (typeof fn === 'function') {
+             fn.apply(null, fnparams);
+         }*/
 
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
@@ -411,11 +412,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
     rHub.client.UserRaisHand = function (rid, memberid) {
         var window = chatVM.getWindow(rid, "Room");
-        if (chatVM != null)
-        {
+        if (chatVM != null) {
             var member = window.getMember(memberid);
-            if (member != null)
-            {
+            if (member != null) {
                 window.removeMember(memberid);
                 window.addQueueMember(memberid, member.MemberName());
             }
