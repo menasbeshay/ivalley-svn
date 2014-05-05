@@ -4,13 +4,12 @@
 //    }
 //};
 function Chat(maxWin, memberID, memberName) {
-    var self = this;
-    var editor;
+    var self = this;    
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
-    self.Editor = editor;
+    self.Editor = null;
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -103,7 +102,7 @@ function Chat(maxWin, memberID, memberName) {
     };
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: editor.getValue(), MessageHistory: "" };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: self.Editor.getValue(), MessageHistory: "" };
             self.windows.push(ko.mapping.fromJS(room, mapping));
             self.changeCurrent(type + '_' + id);
         }
@@ -125,7 +124,7 @@ function Chat(maxWin, memberID, memberName) {
                     self.windows.push(win);
                     self.changeCurrent(type + '_' + id);
                     rHub.server.addToRoom(id);
-                    self.InitEditor(id);
+                    self.Init(id);
                 });
         }
     }
@@ -157,14 +156,27 @@ function Chat(maxWin, memberID, memberName) {
         self.Editor.setValue("");
     }
     self.keyboardCmd = function (data, event) {
-        if (event.keyCode == 13)
+        if (event.which == 13)
             self.sendMessage(this);
         return true;
     };
 
     // init html editor 
-    self.InitEditor = function (id) {        
+    // tooltips for toolbar
+    self.Init = function (id) {        
         self.Editor = new wysihtml5.Editor('uiTextMsg_' + id, { toolbar: 'toolbar' + id, parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        // apply enter key listener
+        self.Editor.observe('load', function () {
+            self.Editor.composer.element.addEventListener('keyup', function(e) {                                                        
+                if (e.which == 13) {
+                    e.preventDefault();
+                    self.keyboardCmd(null, e);
+                }
+            });
+        });
+
+        // tooltips 
+        $(".roomMenuItem").tooltip();
     };
 
     self.removeMember = function (mid) {
@@ -243,7 +255,7 @@ function Chat(maxWin, memberID, memberName) {
         }
     }
     self.stopMic = function (window, memberID) {
-        getFlashMovie5('chat2connect_' + window.uniqueID()).stopMic(memberID);
+        getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberID);
         if (self.CurrentMemberID == memberID)
             rHub.server.userStopMic(window.ID(), memberID);
         //$('#room_5 #roomMembersDiv #m_6 .controls .mic').css('display', 'none');
@@ -362,22 +374,37 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
 
     rHub.client.ListenMic = function (listenmic, memberid, rid) {
-        var fn = window[listenmic];
+       /* var fn = window[listenmic];
         var fnparams = [memberid];
         if (typeof fn === 'function') {
             fn.apply(null, fnparams);
-        }
+        }*/
+        var type = "Room";
+        var window = chatVM.getWindow(rid, type);
+        if (window == null)
+            return;
+
+        chatVM.startMic(window, memberid);
+
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
         $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #MicDiv");
     };
 
     rHub.client.StopListenMic = function (listenmic, memberid, rid) {
-        var fn = window[listenmic];
+       /* var fn = window[listenmic];
         var fnparams = [memberid];
         if (typeof fn === 'function') {
             fn.apply(null, fnparams);
-        }
+        }*/
+
+        var type = "Room";
+        var window = chatVM.getWindow(rid, type);
+        if (window == null)
+            return;
+
+        chatVM.stopMic(window, memberid);
+
         $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
         $("#room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
     };
