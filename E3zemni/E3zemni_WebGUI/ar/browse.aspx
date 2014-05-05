@@ -12,19 +12,43 @@
 <div class="row clearfix mbs">
 <div class="grid_9">
 <div class="products shop clearfix mbf">
-    <asp:Repeater ID="uiRepeaterCards" runat="server">
+    <asp:Repeater ID="uiRepeaterCards" runat="server" onitemdatabound="uiRepeaterCards_ItemDataBound">
     <ItemTemplate>
         <div class="product grid_4">
 			<img class="product_img" src='../<%# Eval("MainPhoto") %>' alt=""><!-- featured thumbnail -->
 			<img class="product_img_hover" src='../<%# Eval("MainPhotoHover") %>' alt=""><!-- featured thumbnail hover -->			
 			<div class="product_inner">
 				<h3> <a href='viewCard.aspx?cid=<%# Eval("CardID") %>'> <%# Eval("CardNameAr")%> </a> </h3>
-				<div class="clearfix">
-					<p class="price"> EGP <%# Eval("PriceNow")%> </p>					
+				<div class="clearfix" style="height:25px;text-align:right;">
+					<p class="price" style="float:right;" ><%# Eval("PriceNow")%>  جنيه </p>					
 				</div>
+                <div class="clearfix" style="height:25px;">
+                                    الألوان المتاحة :
+                                        <asp:Repeater ID="uiRepeaterColor" runat="server" 
+                                            onitemdatabound="uiRepeaterColor_ItemDataBound">
+                                        <ItemTemplate>
+                                            <asp:Literal ID="uiLiteralColor" runat="server"></asp:Literal>
+                                        </ItemTemplate>
+                                        </asp:Repeater>                                    
+                                </div>
+                                <div class="clearfix" style="height:25px;padding-top:5px;">
+                                    <div class="Share" style="direction:rtl;float:right;">
+                                        <!-- AddThis Button BEGIN -->
+                                        <div class="addthis_toolbox addthis_default_style ">
+                                            <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
+                                            </a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4">
+                                            </a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style">
+                                            </a>
+                                        </div>
+                                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ff5714055358f82"></script>
+                                        <!-- AddThis Button END -->
+                                    </div>
+                                </div>
 			</div>
-			<div class="product_meta clearfix">				
+			<div class="product_meta clearfix">	
+            <a href="#" class="f_btn add_c"><span><i class="icon_heart_alt"></i> إضافة إلى المفضلة</span></a>			
 				<a href='viewCard.aspx?cid=<%# Eval("CardID") %>' class="f_btn"><span><i class="icon_menu"></i> التفاصيل</span></a>
+
 			</div>
 		</div>
     </ItemTemplate>

@@ -14,7 +14,8 @@
     <div class="row clearfix mbs">
         <div class="grid_9">
             <div class="products shop clearfix mbf">
-                <asp:Repeater ID="uiRepeaterCards" runat="server">
+                <asp:Repeater ID="uiRepeaterCards" runat="server" 
+                    onitemdatabound="uiRepeaterCards_ItemDataBound">
                     <ItemTemplate>
                         <div class="product grid_4">
                             <img class="product_img" src='<%# Eval("MainPhoto") %>' alt=""><!-- featured thumbnail -->
@@ -25,12 +26,24 @@
                                         <%# Eval("CardNameEng")%>
                                     </a>
                                 </h3>
-                                <div class="clearfix">
+                                <div class="clearfix" style="height:25px;">
                                     <p class="price">
                                         EGP
                                         <%# Eval("PriceNow")%>
                                     </p>
-                                    <div class="Share" style=" margin-top: 50px;">
+                                    
+                                </div>
+                                <div class="clearfix" style="height:25px;">
+                                    Available colors :
+                                        <asp:Repeater ID="uiRepeaterColor" runat="server" 
+                                            onitemdatabound="uiRepeaterColor_ItemDataBound">
+                                        <ItemTemplate>
+                                            <asp:Literal ID="uiLiteralColor" runat="server"></asp:Literal>
+                                        </ItemTemplate>
+                                        </asp:Repeater>                                    
+                                </div>
+                                <div class="clearfix" style="height:25px;padding-top:5px;">
+                                    <div class="Share">
                                         <!-- AddThis Button BEGIN -->
                                         <div class="addthis_toolbox addthis_default_style ">
                                             <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
@@ -44,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="product_meta clearfix">
-                                <%--<a href="#" class="f_btn add_c"><span><i class="icon_cart_alt"></i> Add to Cart</span></a>--%>
+                                <a href="#" class="f_btn add_c"><span><i class="icon_heart_alt"></i> Add to wishlist</span></a>
                                 <a href='viewCard.aspx?cid=<%# Eval("CardID") %>' class="f_btn"><span><i class="icon_menu">
                                 </i>Details</span></a>
                             </div>

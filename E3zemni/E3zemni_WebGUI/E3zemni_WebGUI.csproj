@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\..\Estemico\Estimeco\Estemico_Solution\packages\Facebook.6.4.2\lib\net40-client\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="FredCK.FCKeditorV2">
       <HintPath>..\..\..\..\..\..\sources\FCK Editor\dll\FredCK.FCKeditorV2.dll</HintPath>
     </Reference>
@@ -266,6 +269,7 @@
     <Content Include="images\demo1.png" />
     <Content Include="images\demo2.png" />
     <Content Include="images\demo3.png" />
+    <Content Include="images\facebook.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\header.png" />
@@ -503,6 +507,7 @@
     <Content Include="js\theme20.js" />
     <Content Include="js\twitter\jquery.tweet.js" />
     <Content Include="login.aspx" />
+    <Content Include="loginFB.aspx" />
     <Content Include="Modules\fckeditor\editor\css\behaviors\disablehandles.htc" />
     <Content Include="Modules\fckeditor\editor\css\behaviors\showtableborders.htc" />
     <Content Include="Modules\fckeditor\editor\css\fck_editorarea.css" />
@@ -1264,6 +1269,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginFB.aspx.cs">
+      <DependentUpon>loginFB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginFB.aspx.designer.cs">
+      <DependentUpon>loginFB.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>

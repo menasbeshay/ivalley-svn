@@ -15,19 +15,14 @@ namespace E3zemni_WebGUI
 
             if (Session["CurrentUser"] != null)
             {
-                int userID = Int32.Parse (Session["CurrentUser"].ToString());
-                UserInfo user = new UserInfo();
-                user.LoadByPrimaryKey(userID);
-                Response.Write(user.UserName.ToString ());
 
-                
+                UserInfo user = (UserInfo)Session["CurrentUser"];                
+                Response.Write(user.UserName.ToString ());
 
             }
             else
             {
-
                 Response.Redirect("default.aspx");
-
             }
 
         }

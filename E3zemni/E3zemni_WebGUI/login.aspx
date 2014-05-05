@@ -11,7 +11,9 @@
         <div class="col-md-12 ">
             <asp:Panel ID="uiPanelLoginMain" runat="server" DefaultButton="uiLinkButtonMainLogin">
                 <div class="contactform">
-                    <h2 class="title">
+                <div class="row">
+                    <div class="grid_6" style="border-right:2px solid #ccc;">
+                          <h2 class="title">
                         Login
                     </h2>
                     <div class="row">
@@ -42,6 +44,15 @@
                             &nbsp;&nbsp; <a href="register.aspx" class="btn btn-default">Register new account</a>
                         </div>
                     </div>
+                    </div>
+                     <div class="grid_6" >
+                         <h2 class="title">
+                            Login with facebook
+                        </h2>
+                        <a href="#" onclick="return fblogin();" id="fbloginlink" class="fb_button_ps"><img src="../images/facebook.gif" alt="Connect with Facebook" /></a>    
+                    </div>
+                </div>
+                  
                 </div>
             </asp:Panel>
         </div>

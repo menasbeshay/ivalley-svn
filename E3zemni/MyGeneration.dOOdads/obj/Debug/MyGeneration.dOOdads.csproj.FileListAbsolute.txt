@@ -1,6 +1,11 @@
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
-D:\Web Projects\I-valley Projects\E3zemni\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache
+D:\SmartValley\CardsGenerator\E3zemni_31-3\E3zemni\E3zemni_Solution\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\CardsGenerator\E3zemni_31-3\E3zemni\E3zemni_Solution\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\CardsGenerator\E3zemni_31-3\E3zemni\E3zemni_Solution\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\SmartValley\CardsGenerator\E3zemni_31-3\E3zemni\E3zemni_Solution\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\CardsGenerator\E3zemni_31-3\E3zemni\E3zemni_Solution\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.csprojResolveAssemblyReference.cache

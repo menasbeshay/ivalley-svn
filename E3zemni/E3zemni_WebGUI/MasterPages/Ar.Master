@@ -24,12 +24,14 @@
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link id="gFontName" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=The Girl Next Door">
         <link id="pFontName" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
+        <link id="Link1" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Duru Sans">
+        <link id="Link2" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Duru Sans">
         <link href="../colors/E3zemni.css" rel="stylesheet" type="text/css" />
         <link href="../Styles/rtl.css" rel="stylesheet" type="text/css" />
 	<!-- CustomStyles -->
 		<style>body{background: url(../images/bg.png) fixed}</style>
-        <style id="gFontStyles" type="text/css">h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h5 a, h6 a, .sf-menu a, .tbutton, .foot-menu, .event-timer  { font-family:"The Girl Next Door", sans-serif !important; }</style>
-        <style id="pFontStyles" type="text/css">body, p, .sf-menu li a span, small { font-family:"Oswald", sans-serif !important; }</style>
+        <style id="gFontStyles" type="text/css">h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h5 a, h6 a, .sf-menu a, .tbutton, .foot-menu, .event-timer  { font-family:"Duru Sans", sans-serif !important; }</style>
+        <style id="pFontStyles" type="text/css">body, p, .sf-menu li a span, small { font-family:"Duru Sans", sans-serif !important; }</style>
 	<!-- Favicon -->
 		<%--<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">--%>
@@ -52,6 +54,44 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1429903633934724',
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true  // parse XFBML
+        });
+
+    };
+
+    // Load the SDK asynchronously
+    (function (d) {
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    } (document));
+
+    function login(token) {
+        document.location.href = "../loginfb.aspx?reference=" + token + "&back=" + document.location;
+    }
+
+    function fblogin() {
+        FB.login(function (response) {
+
+            if (response.status == 'connected') {
+                login(response.authResponse.accessToken);
+            } else {
+                // user is not logged in
+                window.location.reload();
+            }
+        }, { scope: 'email,publish_stream' });
+        return false;
+    }
+</script>
     <form id="form1" runat="server">
     
     <div id="frame_">

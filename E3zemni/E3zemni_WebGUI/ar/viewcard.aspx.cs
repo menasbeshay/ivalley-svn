@@ -53,6 +53,21 @@ namespace E3zemni_WebGUI.ar
                     uiRepeaterColor.DataBind();
                     uiLinkButtonCustomize.PostBackUrl = "customize.aspx?cid=" + card.CardID;
                     BindReviews();
+
+
+                    Master.PageTitle = card.CardNameAr;
+
+                    Categories cat = new Categories();
+                    cat.LoadByPrimaryKey(card.CategoryID);
+
+                    MainCat mcat = new MainCat();
+                    mcat.LoadByPrimaryKey(cat.MainCatId);
+
+                    TopLevelCat tcat = new TopLevelCat();
+                    tcat.LoadByPrimaryKey(mcat.TopLevelCatID);
+
+                    Master.Path = "<li><a href='#'>" + tcat.NameAr + "</a></li>" + "<li><a href='#'>" + mcat.NameAr + "</a></li>";
+                    Master.ViewPath = true;
                 }
                 else
                 {
