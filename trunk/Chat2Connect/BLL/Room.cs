@@ -73,5 +73,35 @@ namespace BLL
 
             return LoadFromSql("GetRoomRateByRoomID", parameters);
         }
-	}
+
+        #region override properties reading
+        public override bool EnableCam
+        {
+            get
+            {
+                if (this.IsColumnNull(Room.ColumnNames.EnableCam))
+                    return false;
+                return base.EnableCam;
+            }
+            set
+            {
+                base.EnableCam = value;
+            }
+        }
+        public override bool EnableMic
+        {
+            get
+            {
+                if (this.IsColumnNull(Room.ColumnNames.EnableMic))
+                    return false;
+                return base.EnableMic;
+            }
+            set
+            {
+                base.EnableMic = value;
+            }
+        }
+
+        #endregion
+    }
 }

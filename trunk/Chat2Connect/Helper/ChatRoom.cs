@@ -7,6 +7,11 @@ namespace Helper
 {
     public class ChatRoom
     {
+        public ChatRoom()
+        {
+            this.Settings = new RoomSettings();
+            this.CurrentMemberSettings = new MemberSettings();
+        }
         public int ID { get; set; }
 
         public string Type { get; set; }
@@ -21,33 +26,23 @@ namespace Helper
 
         public string AdminName { get; set; }
 
-        public int MemberID { get; set; }
-
-        public bool IsAdmin { get; set; }
-
-        public int CamCount { get; set; }
-
-        public int MaxMic { get; set; }
+        
 
         public int MemberCount { get; set; }
-
-        public bool IsFav { get; set; }
-
-        public int UserRate { get; set; }
 
         public List<ChatMember> RoomMembers { get; set; }
 
         public List<ChatMember> QueueMembers { get; set; }
 
-        public bool IsMicOpened { get; set; }
-
         public ChatMember MicMember { get; set; }
 
-        public bool IsCamOpened { get; set; }
-    }
+        public RoomSettings Settings
+        {
+            get;
+            set;
+        }
 
-    public class ChatMessage
-    {
+        public MemberSettings CurrentMemberSettings { get; set; }
     }
 
     public class ChatMember
@@ -57,5 +52,45 @@ namespace Helper
         public object MemberName { get; set; }
 
         public object MemberTypeID { get; set; }
+    }
+
+    public class RoomSettings
+    {
+        public bool EnableCam { get; set; }
+
+        public bool EnableMic { get; set; }
+
+        public int MaxMic { get; set; }
+
+        public int CamCount { get; set; }
+    }
+
+    public class MemberSettings
+    {
+        public bool IsFav { get; set; }
+        public int UserRate { get; set; }
+        public int MemberID { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsMicOpened { get; set; }
+        public bool IsCamOpened { get; set; }
+        public bool CanAccessCam { get; set; }
+
+        public bool CanAccessMic { get; set; }
+
+        public bool CanWrite { get; set; }
+
+        public bool IsBanned { get; set; }
+        public bool IsMarked { get; set; }
+
+        public bool NotifyOnCloseCam { get; set; }
+
+        public bool NotifyOnFriendsLogOff { get; set; }
+        public bool NotifyOnFriendsLogOn { get; set; }
+
+        public bool NotifyOnMicOff { get; set; }
+
+        public bool NotifyOnMicOn { get; set; }
+
+        public bool NotifyOnOpenCam { get; set; }
     }
 }

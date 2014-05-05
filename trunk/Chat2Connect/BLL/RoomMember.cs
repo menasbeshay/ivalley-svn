@@ -8,12 +8,12 @@ using System.Data.SqlClient;
 using DAL;
 namespace BLL
 {
-	public class RoomMember : _RoomMember
-	{
-		public RoomMember()
-		{
-		
-		}
+    public class RoomMember : _RoomMember
+    {
+        public RoomMember()
+        {
+
+        }
 
         public virtual bool GetAllAdminMembersByRoomID(int RoomID)
         {
@@ -74,7 +74,6 @@ namespace BLL
             return LoadFromSql("GetMaxQueueOrderByRoomID", parameters);
 
         }
-        
 
         public virtual bool GetAllRoomsByMemberID(int MemberID)
         {
@@ -91,6 +90,72 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
-       
-	}
+        #region override properties reading
+        public override bool CanAccessCam
+        {
+            get
+            {
+                if (IsColumnNull(RoomMember.ColumnNames.CanAccessCam))
+                    return false;
+                return base.CanAccessCam;
+            }
+            set
+            {
+                base.CanAccessCam = value;
+            }
+        }
+        public override bool CanAccessMic
+        {
+            get
+            {
+                if (IsColumnNull(RoomMember.ColumnNames.CanAccessMic))
+                    return false;
+                return base.CanAccessMic;
+            }
+            set
+            {
+                base.CanAccessMic = value;
+            }
+        }
+        public override bool CanWrite
+        {
+            get
+            {
+                if (IsColumnNull(RoomMember.ColumnNames.CanWrite))
+                    return false;
+                return base.CanWrite;
+            }
+            set
+            {
+                base.CanWrite = value;
+            }
+        }
+        public override bool IsBanned
+        {
+            get
+            {
+                if (IsColumnNull(RoomMember.ColumnNames.IsBanned))
+                    return false;
+                return base.IsBanned;
+            }
+            set
+            {
+                base.IsBanned = value;
+            }
+        }
+        public override bool IsMarked
+        {
+            get
+            {
+                if (IsColumnNull(RoomMember.ColumnNames.IsMarked))
+                    return false;
+                return base.IsMarked;
+            }
+            set
+            {
+                base.IsMarked = value;
+            }
+        }
+        #endregion
+    }
 }
