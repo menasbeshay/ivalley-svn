@@ -295,8 +295,7 @@
                 <div style="height: 5px;" class="clearfix"></div>
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
-                    <div style="padding: 5px; margin-top: 2px;" class="col-lg-3 pull-right">
-                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 400px;">
+                    <div style="padding: 5px; margin-top: 2px;" class="col-lg-3 pull-right">                        
                             <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow: hidden; width: auto; height: 400px;">
                                 <div id="MicDiv">
                                     <div class="friend-link rm Altodd" data-bind="with:MicMember">
@@ -304,7 +303,7 @@
                                         <div class="pull-left controls">
                                             <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                                 <img style="width: 16px;" src="images/video_camera.png"></a>
-                                            <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                            <img src="images/hand.png" style="width: 16px; " class="hand" /><img src="images/microphone_1.png" style="width: 16px;display:block;" class="mic" /><i class="icon-ban-circle mark"></i>
                                         </div>
                                         <div class="clearfix" style="height: 1px;"></div>
 
@@ -328,7 +327,7 @@
                                         <div class="pull-left controls">
                                             <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                                 <img style="width: 16px;" src="images/video_camera.png"></a>
-                                            <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                            <img src="images/hand.png" style="width: 16px;display:block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
                                         </div>
                                         <div class="clearfix" style="height: 1px;"></div>
                                         <ul class="popup-menu profileMenu g-dark g-dark-list">
@@ -352,7 +351,7 @@
                                         <div class="pull-left controls">
                                             <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                                 <img style="width: 16px;" src="images/video_camera.png"></a>
-                                            <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                            <img src="images/hand.png" style="width: 16px;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
                                         </div>
                                         <div class="clearfix" style="height: 1px;"></div>
 
@@ -370,11 +369,7 @@
                                     </div>
                                     <!-- /ko -->
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(254, 196, 1); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; left: 1px; height: 400px;"></div>
-                        <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(199, 197, 192); opacity: 0.2; z-index: 90; left: 1px;"></div>
+                            </div>                        
                     </div>
                     <!-- /ko -->
                     <div id="roomTextDiv" style="padding: 5px; border-right: 2px solid #FEC200;" class='pull-left col-lg-9'">

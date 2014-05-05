@@ -250,15 +250,15 @@ function Chat(maxWin, memberID, memberName) {
         }
         if (window.Type() == "Room") {
 
-            //$('#room_5 #roomMembersDiv #m_' + userId + ' .controls .hand').css('display', 'none');
-            //$('#room_5 #roomMembersDiv #m_' + userId + ' .controls .mic').css('display', 'inline-block');
+            //$('#Room_5 #roomMembersDiv #m_' + userId + ' .controls .hand').css('display', 'none');
+            //$('#Room_5 #roomMembersDiv #m_' + userId + ' .controls .mic').css('display', 'inline-block');
         }
     }
     self.stopMic = function (window, memberID) {
         getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberID);
         if (self.CurrentMemberID == memberID)
             rHub.server.userStopMic(window.ID(), memberID);
-        //$('#room_5 #roomMembersDiv #m_6 .controls .mic').css('display', 'none');
+        //$('#Room_5 #roomMembersDiv #m_6 .controls .mic').css('display', 'none');
     }
 
     self.cam=function()
@@ -278,7 +278,7 @@ function Chat(maxWin, memberID, memberName) {
         getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID);
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStartCam(window.ID(), self.CurrentMemberID);
-           // $('#room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
+           // $('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
         }
     }
     self.stopCam=function(window,memberID)
@@ -286,7 +286,7 @@ function Chat(maxWin, memberID, memberName) {
         getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
-            //$('#room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'none');
+            //$('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'none');
         }
     }
 }
@@ -386,9 +386,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
         chatVM.startMic(window, memberid);
 
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
-        $("#room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #MicDiv");
+        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
+        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
+        $("#Room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #MicDiv");
     };
 
     rHub.client.StopListenMic = function (listenmic, memberid, rid) {
@@ -405,8 +405,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
         chatVM.stopMic(window, memberid);
 
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
-        $("#room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#room_" + rid + " #roomMembersDiv #regular");
+        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
+        $("#Room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #regular");
     };
 
     rHub.client.UserRaisHand = function (rid, memberid) {
@@ -434,19 +434,19 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
 
     rHub.client.UserMarked = function (rid, memberid) {
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
+        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
     };
 
     rHub.client.UserUnMarked = function (rid, memberid) {
-        $("#room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
+        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
     };
 
     rHub.client.ShowCamLink = function (mid, rid) {
-        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
+        $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
     };
 
     rHub.client.HideCamLink = function (mid, rid) {
-        $('#room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
+        $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
 
     /*****************************************/
