@@ -610,8 +610,10 @@
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="testswf\chat2connect.swf" />
+    <Content Include="testswf\chat2connect3.swf" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
+    <Content Include="UserProfile.aspx" />
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Admin.master" />
@@ -1037,6 +1039,13 @@
     </Compile>
     <Compile Include="usercontrols\ucRooms.ascx.designer.cs">
       <DependentUpon>ucRooms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="VIPPrices.aspx.cs">
       <DependentUpon>VIPPrices.aspx</DependentUpon>

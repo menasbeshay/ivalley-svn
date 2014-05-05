@@ -287,7 +287,7 @@
                     <div style="padding: 2px;" class="pull-left col-lg-9">
                         <object width="690" height="200" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'ID='+ID()+'&amp;userId='+MemberID()+'&amp;allowedCams='+CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+ID()+'&amp;userId='+MemberID()+'&amp;allowedCams='+CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
                     </div>
                 </div>
