@@ -19,5 +19,14 @@ namespace E3zmni.BLL
             return this.Query.Load();
 
         }
+
+        public virtual bool GetCardColorsByCardIDTop3(int CardID)
+        {
+            this.Where.CardID.Value = CardID;
+            this.Where.CardID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Query.Top = 3;
+            return this.Query.Load();
+
+        }
 	}
 }

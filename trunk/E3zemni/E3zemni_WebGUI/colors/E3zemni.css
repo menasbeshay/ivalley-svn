@@ -44,14 +44,14 @@ a:hover, .tbutton:hover, #header .search button, .custom_block1 li.active a, .cu
 
 .sf-menu ul li:hover, .sf-menu li li.current
 {
-    background: #D34537;
+    background: #5A4077;
 }
 .sf-menu li li
 {
-    border-top: 1px solid #FF5A49;
-    border-bottom: 1px solid #C74335;
+    border-top: 1px solid #5A4077;
+    border-bottom: 1px solid #5A4077;
 }
 .sf-menu ul li:hover, .sf-menu li li.current, .sf-menu .mega li li:hover, .sf-menu .mega li li.current, .sf-menu .mega li:hover, .sf-menu .mega li.current
 {
-    background: #C74335;
+    background: #5A4077;
 }

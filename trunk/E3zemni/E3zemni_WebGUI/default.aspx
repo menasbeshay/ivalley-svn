@@ -17,7 +17,7 @@
         {
             top: 0;
             left: 0;
-            z-index: 1;
+            z-index: 1000;
             position: fixed;
             width: 100%;
             height: 100%;
@@ -77,7 +77,9 @@
                     <asp:ImageButton ID="btnCloselogin" runat="server" ImageUrl="/images/close.png" OnClick="btnCloselogin_Click" />
                 </div>
                 <div class="contactform" style="margin-left: 50px; margin-top: 30px;">
-                    <h2 class="title">
+                    <div class="row" style="width:100% !important;">
+                    <div class="grid_6" style="border-right:2px solid #ccc;">
+                         <h2 class="title">
                         Login
                     </h2>
                     <div class="row" style="width: 700px;">
@@ -108,6 +110,15 @@
                             &nbsp;&nbsp; <a href="register.aspx" class="btn btn-default">Register new account</a>
                         </div>
                     </div>
+                    </div>
+                    <div class="grid_6" >
+                         <h2 class="title">
+                            Login with facebook
+                        </h2>
+                        <a href="#" onclick="return fblogin();" id="fbloginlink" class="fb_button_ps"><img src="../images/facebook.gif" alt="Connect with Facebook" /></a>    
+                    </div>
+                    </div>
+                   
                 </div>
                 <div class="">
                 </div>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using E3zmni.BLL;
+using System.Data;
 
 namespace E3zemni_WebGUI
 {
@@ -275,5 +276,32 @@ namespace E3zemni_WebGUI
             }
         }
         #endregion
+
+        protected void uiRepeaterCards_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                CardColor colors = new CardColor();
+                colors.GetCardColorsByCardIDTop3(Convert.ToInt32(row["CardID"].ToString()));
+
+                Repeater uiRepeaterColor = (Repeater)e.Item.FindControl("uiRepeaterColor");
+
+                uiRepeaterColor.DataSource = colors.DefaultView;
+                uiRepeaterColor.DataBind();
+            }
+        }
+
+        protected void uiRepeaterColor_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                Literal l = (Literal)e.Item.FindControl("uiLiteralColor");
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                Color c = new Color();
+                c.LoadByPrimaryKey(Convert.ToInt32(row["ColorID"].ToString()));
+                l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
+            }
+        }
     }
 }

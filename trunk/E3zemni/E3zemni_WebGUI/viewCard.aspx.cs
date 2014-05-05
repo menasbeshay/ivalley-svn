@@ -56,7 +56,16 @@ namespace E3zemni_WebGUI
 
                     Master.PageTitle = card.CardNameEng;
 
-                    //Master.Path = "<li><a href='#'>" + card.CardNameEng + "</a></li>";
+                    Categories cat = new Categories();
+                    cat.LoadByPrimaryKey(card.CategoryID);
+
+                    MainCat mcat = new MainCat();
+                    mcat.LoadByPrimaryKey(cat.MainCatId);
+
+                    TopLevelCat tcat = new TopLevelCat();
+                    tcat.LoadByPrimaryKey(mcat.TopLevelCatID);
+
+                    Master.Path = "<li><a href='#'>" + tcat.NameEng + "</a></li>" + "<li><a href='#'>" + mcat.NameEng + "</a></li>";
                     Master.ViewPath = true;
 
                 }

@@ -34,7 +34,7 @@ namespace E3zemni_WebGUI
             user.GetUserByUserNameAndPassword(uiTextBoxUserName.Text, uiTextBoxPassword.Text);
             if (user.RowCount > 0)
             {
-                Session["CurrentUser"] = user.UserID;
+                Session["CurrentUser"] = user;
                 if (Request.QueryString["url"] != null)
                     Response.Redirect(Request.QueryString["url"].ToString());
                 Response.Redirect("userProfile.aspx");
