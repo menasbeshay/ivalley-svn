@@ -66,19 +66,19 @@ namespace Chat2Connect.SRCustomHubs
         {
             Groups.Remove(Context.ConnectionId, roomid.ToString());
             // just remove member from signalr hub 
-            try
-            {
-                int memberID = CurrentMemberID();
-                RoomMember member = new RoomMember();
-                member.LoadByPrimaryKey(memberID, roomid);
-                member.MarkAsDeleted();
-                member.Save();
+            //try
+            //{
+            //    int memberID = CurrentMemberID();
+            //    RoomMember member = new RoomMember();
+            //    member.LoadByPrimaryKey(memberID, roomid);
+            //    member.MarkAsDeleted();
+            //    member.Save();
 
-                Clients.Group(roomid.ToString()).removeMember(memberID);
-            }
-            catch (Exception ex)
-            {
-            }
+            //    Clients.Group(roomid.ToString()).removeMember(memberID);
+            //}
+            //catch (Exception ex)
+            //{
+            //}
         }
 
         private int CurrentMemberID()
