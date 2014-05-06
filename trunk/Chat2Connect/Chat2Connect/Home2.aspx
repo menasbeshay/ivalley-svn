@@ -226,10 +226,7 @@
                                         <li><a href="#"><i class="icon-eye-open"></i>&nbsp;تنبيه عند فتح كمراء&nbsp;</a></li>
                                         <li><a href="#"><i class="icon-eye-close"></i>&nbsp;تنبيه عند قفل كمراء&nbsp;</a></li>
                                         <li><a href="#"><i class="icon-microphone"></i>&nbsp;تنبيه عند أخذ المكرفون&nbsp;</a></li>
-                                        <li><a href="#"><i class="icon-microphone-off"></i>&nbsp;تنبيه عند ترك المكروفن&nbsp;</a></li>
-                                        <li><a href="#"><i class="icon-save"></i>&nbsp;حفظ الإعدادات&nbsp;</a></li>
-                                        <li><a href="#"><i class=" icon-remove"></i>&nbsp;حذف </a></li>
-                                        <li><a href="#"><i class="icon-power-off"></i>&nbsp;خروج&nbsp;</a></li>
+                                        <li><a href="#"><i class="icon-microphone-off"></i>&nbsp;تنبيه عند ترك المكروفن&nbsp;</a></li>                                        
                                     </ul>
 
                                 </div>
@@ -328,9 +325,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>                                            
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         </ul>
                                     </div>
@@ -351,9 +346,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>                                            
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         </ul>
                                     </div>
@@ -376,9 +369,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>                                            
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         </ul>
                                     </div>
@@ -456,8 +447,7 @@
                                             <span class="icon-smile"></span>
                                         </button>
                                         <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
-                                            <li>
-                                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 120px;">
+                                            <li>                                                
                                                     <ul data-height="120px" class="SScroll" id="smilesMenu" style="overflow: hidden; width: auto; height: 120px;">
                                                         <li class="itemImage"><a data-wysihtml5-command-value="images/emotions/icon (1).png" data-wysihtml5-command="insertImage" href="javascript:;" unselectable="on">
                                                             <img src="images/emotions/icon (1).png"></a></li>
@@ -839,10 +829,7 @@
                                                             <img src="images/emotions/icon (188).png"></a></li>
                                                         <li class="itemImage"><a data-wysihtml5-command-value="images/emotions/icon (189).png" data-wysihtml5-command="insertImage" href="javascript:;" unselectable="on">
                                                             <img src="images/emotions/icon (189).png"></a></li>
-                                                    </ul>
-                                                    <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(254, 196, 1); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; left: 1px;"></div>
-                                                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(199, 197, 192); opacity: 0.2; z-index: 90; left: 1px;"></div>
-                                                </div>
+                                                    </ul>                                                
                                             </li>
                                         </ul>
                                     </div>
