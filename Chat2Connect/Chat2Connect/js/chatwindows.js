@@ -129,6 +129,7 @@ function Chat(maxWin, memberID, memberName) {
                     self.Init(win.uniqueID(), win.CurrentMemberSettings.CanWrite());
                 });
         }
+       
     }
     self.removeWindow = function () {
         if (this.Type() == "Room") {
@@ -181,6 +182,17 @@ function Chat(maxWin, memberID, memberName) {
 
         // tooltips 
         $(".roomMenuItem").tooltip();
+
+        // apply scroll to all
+        $('.SScroll').each(function () {
+            $(this).slimScroll({
+                railVisible: true,
+                height: $(this).attr('data-height'),
+                color: '#FEC401',
+                railColor: '#C7C5C0',
+                position: 'left'
+            });
+        });
     };
 
     self.removeMember = function (mid) {
