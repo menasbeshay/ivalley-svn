@@ -476,8 +476,15 @@ namespace Chat2Connect.services
             rooms.LoadByPrimaryKey(id);
 
             roomObject.Name = rooms.Name;
+            
+            if (!rooms.IsColumnNull("OpenCams"))
+                roomObject.OpenCams = rooms.OpenCams;
+            else
+                roomObject.OpenCams = 0;
+
             roomObject.Settings.EnableCam= rooms.EnableCam;
             roomObject.Settings.EnableMic = rooms.EnableMic;
+            
 
             Member member = new Member();
             member.LoadByPrimaryKey(rooms.CreatedBy);

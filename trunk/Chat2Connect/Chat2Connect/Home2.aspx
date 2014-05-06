@@ -86,8 +86,8 @@
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
-                <li class="pull-right"><a data-toggle="tab" data-bind="attr: { href: '#' + Type() + '_' + ID() }, click: $parent.changeCurrent.bind($data, $data.Type() + '_' + $data.ID())">
-                    <span data-bind="text: Name"></span>
+                <li class="pull-right"><a style="display:block;height:28px;" data-toggle="tab" data-bind="attr: { href: '#' + Type() + '_' + ID() }, click: $parent.changeCurrent.bind($data, $data.Type() + '_' + $data.ID())">
+                    <span data-bind="text: Name" class="pull-right"></span>
                     <button type="button" class="close" data-bind="click: $parent.removeWindow">×</button></a></li>
                 <!-- /ko -->
             </ul>
@@ -172,8 +172,8 @@
     <script id="chatTemplate" type="text/html">
         <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade" style="">
             <div id="roomContents">
-                <div style="padding: 5px;" class="col-lg-12">
-                    <div>
+                <div class="col-lg-12" style="padding:5px;">
+                    <div >
                         <div class="pull-right ">
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
                             <span id="uiLabelRoomName" data-bind="text:Name"></span>
@@ -238,24 +238,24 @@
                                 <a class="btn btn-main" href="#" data-bind="click: $parent.removeWindow">خروج</a>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
+                        <div class="clear"></div>
                     </div>
 
                 </div>
                 <!-- ko if: Type()=="Room" -->
-                <div style="height: 1px;" class="clearfix"></div>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200;" class="col-lg-12">
+                <div style="height: 1px;" class="clear"></div>
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200;padding-top:0px;" class="col-lg-12">
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label1">مدير الغرفة:</span></label>
                         <span id="uiLabelAdmin" data-bind="text:AdminName"></span>
                         <div style="height: 1px;" class="clearfix"></div>
                         <label><span id="Label2">كاميرات:</span></label>
-                        <span id="Label4"></span>
+                        <span id="Label4" data-bind="text:OpenCams"></span>
                         <div style="height: 1px;" class="clearfix"></div>
                         <label><span id="Label3">متواجدين:</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:MemberCount"></span>
                         <div style="height: 10px;" class="clearfix"></div>
-                        <!-- ko if: !IsFav() -->
+                        <!-- ko if: !CurrentMemberSettings.IsFav() -->
                         <a style="cursor: pointer;" data-bind="attr:{onclick:'addtoFav('+ID()+');',id:'favlink_'+uniqueID()}"><i style="color: #FEC200;" class="icon-star"></i>أضف إلى المفضلة</a>
                         <!-- /ko -->
                         <div style="height: 10px;" class="clearfix"></div>
@@ -271,26 +271,41 @@
                         </div>
                         <div class="clearfix" style="height: 10px;"></div>
                         <span class="rating">
-                            <input type="radio" class='rating-input' data-bind="click:$parent.rateRoom.bind($data,5), checked:UserRate,checkedValue: 5,attr:{id:'rating-input-1-5_'+uniqueID()}" name="rating-input-1" />
+                            <input type="radio" class='rating-input' data-bind="click:$parent.rateRoom.bind($data,5), checked:CurrentMemberSettings.UserRate,checkedValue: 5,attr:{id:'rating-input-1-5_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-5_'+uniqueID()}" class="rating-star fa icon-star"></label>
-                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,4), checked:UserRate,checkedValue: 4,attr:{id:'rating-input-1-4_'+uniqueID()}" name="rating-input-1" />
+                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,4), checked:CurrentMemberSettings.UserRate,checkedValue: 4,attr:{id:'rating-input-1-4_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-4_'+uniqueID()}" class="rating-star fa icon-star"></label>
-                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,3), checked:UserRate,checkedValue: 3,attr:{id:'rating-input-1-3_'+uniqueID()}" name="rating-input-1" />
+                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,3), checked:CurrentMemberSettings.UserRate,checkedValue: 3,attr:{id:'rating-input-1-3_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-3_'+uniqueID()}" class="rating-star fa icon-star"></label>
-                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,2), checked:UserRate,checkedValue: 2,attr:{id:'rating-input-1-2_'+uniqueID()}" name="rating-input-1" />
+                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,2), checked:CurrentMemberSettings.UserRate,checkedValue: 2,attr:{id:'rating-input-1-2_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-2_'+uniqueID()}" class="rating-star fa icon-star"></label>
-                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,1), checked:UserRate,checkedValue: 1,attr:{id:'rating-input-1-1_'+uniqueID()}" name="rating-input-1" />
+                            <input type="radio" class="rating-input" data-bind="click:$parent.rateRoom.bind($data,1), checked:CurrentMemberSettings.UserRate,checkedValue: 1,attr:{id:'rating-input-1-1_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-1_'+uniqueID()}" class="rating-star fa icon-star"></label>
                         </span>
-                        <input id="uiHiddenFieldUserRate" type="hidden" name="uiHiddenFieldUserRate" data-bind="value:UserRate">
+                        <input id="uiHiddenFieldUserRate" type="hidden" name="uiHiddenFieldUserRate" data-bind="value:CurrentMemberSettings.UserRate">
                     </div>
                     <div style="padding: 2px;" class="pull-left col-lg-9">
-                        <object width="690" height="200" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        
+                        <object style="width:100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+ID()+'&amp;userId='+MemberID()+'&amp;allowedCams='+CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
+                       
                     </div>
                 </div>
+                <!-- /ko -->
+                 <!-- ko if: Type()=="Private" -->
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200;padding-top:0px;" class="col-lg-12">
+                <div style="padding: 2px;" class="pull-left col-lg-12">
+                        
+                        <object style="width:100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                            <param value="always" name="allowScriptAccess">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                        </object>
+                       
+                    </div>
+                    </div>
+                
                 <!-- /ko -->
                 <div style="height: 5px;" class="clearfix"></div>
                 <div style="padding: 5px;" class="col-lg-12">
@@ -313,7 +328,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
@@ -336,7 +351,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
@@ -361,7 +376,7 @@
                                             <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf10b;</span> أرسل SMS</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf093;</span> أرسل ملف</a></li>
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
@@ -372,12 +387,14 @@
                             </div>                        
                     </div>
                     <!-- /ko -->
-                    <div id="roomTextDiv" style="padding: 5px; border-right: 2px solid #FEC200;" class='pull-left col-lg-9'">
-                        <div data-height="400px;" style="width:98%;background-color:#D9D9D9;min-height:400px;padding:5px;direction:rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
+                    
+                    <div id="roomTextDiv" class='pull-left ' data-bind="css:{ 'col-lg-9' :Type()=='Room', 'col-lg-12': Type() == 'Private'}, style:{padding: '5px', 'border-right': Type() == 'Room'? '2px solid #FEC200' :'0px'}">
+                        
+                        <div data-height="400px;" style="width:100%;background-color:#D9D9D9;min-height:400px;padding:5px;direction:rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
                         
                         <div style="height: 5px;" class="clearfix"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, valueUpdate: 'afterkeydown', event: { keypress: $parent.keyboardCmd}, attr:{id:'uiTextMsg_'+ID()}"  type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>
+                        <textarea data-bind="value:Message, valueUpdate: 'afterkeydown', event: { keypress: $parent.keyboardCmd}, attr:{id:'uiTextMsg_'+uniqueID()}"  type='text' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;' ></textarea>
                         
                         <div style="height: 20px;" class="clearfix"></div>
 
@@ -394,7 +411,7 @@
                                 </a>
                             </div>
                             <div class="pull-right">
-                                <div data-bind="attr:{id: 'toolbar'+ID()}">
+                                <div data-bind="attr:{id: 'toolbar'+uniqueID()}">
                                     <div data-toggle="buttons" class="btn-group">
 
                                         <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold"></span></button>

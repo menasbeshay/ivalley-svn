@@ -39,7 +39,7 @@
                 $(".OpenRoom").click(function () {
                     r = $(this).attr("data-related");
                     n = $(this).attr("data-name");
-                    addChatRoom(r, n);
+                    addChatRoom(r, n, 'Room');
                     $("#pGeneral").css("display", "block");
                     //setTimeout(function () {
                     //$("#room_" + r).load("LoadRoom.aspx",
