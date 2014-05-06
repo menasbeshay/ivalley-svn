@@ -102,7 +102,7 @@ function Chat(maxWin, memberID, memberName) {
     };
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "" };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings :{MemberID:self.CurrentMemberID} };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -292,10 +292,10 @@ function Chat(maxWin, memberID, memberName) {
     }
 }
 
-function addChatRoom(id, name) {
+function addChatRoom(id, name, type) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, 'Room');
+    chatVM.openWindow(id, name, type);
 }
 
 function getFlashMovie(movieName) {
@@ -312,7 +312,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
 
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + ":</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -329,7 +329,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -351,7 +351,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + ":</b></div><div class='pull-left' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,

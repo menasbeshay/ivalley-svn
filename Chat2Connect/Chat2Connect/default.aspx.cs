@@ -66,7 +66,7 @@ namespace Chat2Connect
                 _Ncontext.Clients.Group(u.UserName).friendStatusChanged(member.MemberID, member.StatusMsg, status);
             }
 
-            Response.Redirect("home.aspx");
+            Response.Redirect("home2.aspx");
         }
 
         protected void uiButtonRegister_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace Chat2Connect
                 member.Status = 1;
                 member.Save();
                 FormsAuthentication.SetAuthCookie(objUser.UserName, false);
-                Response.Redirect("home.aspx");
+                Response.Redirect("home2.aspx");
             }
         }
     }

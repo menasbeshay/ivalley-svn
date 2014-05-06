@@ -26,9 +26,9 @@ namespace Helper
 
         public string AdminName { get; set; }
 
-        
-
         public int MemberCount { get; set; }
+        
+        public int OpenCams { get; set; }
 
         public List<ChatMember> RoomMembers { get; set; }
 
