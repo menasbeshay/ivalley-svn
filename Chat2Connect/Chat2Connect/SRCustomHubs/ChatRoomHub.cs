@@ -48,11 +48,13 @@ namespace Chat2Connect.SRCustomHubs
                 if (item == null)
                     return;
                 RoomMember member = new RoomMember();
-                member.AddNew();
-                member.MemberID = item.MemberID;
-                member.RoomID = roomid;
-                member.Save();
-
+                if (!member.LoadByPrimaryKey(item.MemberID, roomid))
+                {
+                    member.AddNew();
+                    member.MemberID = item.MemberID;
+                    member.RoomID = roomid;
+                    member.Save();
+                }
                 item.Rooms.Add(roomid);
 
                 Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid);
@@ -64,6 +66,11 @@ namespace Chat2Connect.SRCustomHubs
         }
         public void removeFromRoom(int roomid)
         {
+            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            if (item == null)
+                return;
+            item.Rooms.Remove(roomid);
+            Clients.Group(roomid.ToString()).removeMember(item.MemberID);
             Groups.Remove(Context.ConnectionId, roomid.ToString());
             // just remove member from signalr hub 
             //try
@@ -74,7 +81,6 @@ namespace Chat2Connect.SRCustomHubs
             //    member.MarkAsDeleted();
             //    member.Save();
 
-            //    Clients.Group(roomid.ToString()).removeMember(memberID);
             //}
             //catch (Exception ex)
             //{
