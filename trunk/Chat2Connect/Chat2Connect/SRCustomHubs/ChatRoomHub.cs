@@ -70,7 +70,7 @@ namespace Chat2Connect.SRCustomHubs
             if (item == null)
                 return;
             item.Rooms.Remove(roomid);
-            Clients.Group(roomid.ToString()).removeMember(item.MemberID);
+            Clients.Group(roomid.ToString()).removeMember(item.MemberID,roomid);
             Groups.Remove(Context.ConnectionId, roomid.ToString());
             // just remove member from signalr hub 
             //try
@@ -136,13 +136,13 @@ namespace Chat2Connect.SRCustomHubs
         public void userStartMic(int rid, int memberid)
         {
             //Clients.Group(rid.ToString(), Context.ConnectionId).ListenMic("startMic" + rid.ToString(), memberid, rid);
-            Clients.Group(rid.ToString(), Context.ConnectionId).ListenMic(rid.ToString(), memberid, rid);
+            Clients.Group(rid.ToString(), Context.ConnectionId).ListenMic(memberid, rid);
         }
 
         public void userStopMic(int rid, int memberid)
         {
             //Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic("stopMic" + rid.ToString(), memberid, rid);
-            Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic(rid.ToString(), memberid, rid);
+            Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic(memberid, rid);
         }
 
         public void userStartCam(int rid, int memberid)

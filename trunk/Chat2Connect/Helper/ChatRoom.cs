@@ -52,6 +52,9 @@ namespace Helper
         public object MemberName { get; set; }
 
         public object MemberTypeID { get; set; }
+
+        public bool IsCamOpened { get; set; }
+        public bool IsMicOpened { get; set; }
     }
 
     public class RoomSettings
