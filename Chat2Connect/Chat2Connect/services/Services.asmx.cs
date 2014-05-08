@@ -458,7 +458,29 @@ namespace Chat2Connect.services
             }
             return true;
         }
-
+        //UpdateRoomSetting
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool UpdateRoomSetting(int rid,int mid, string setting,bool newValue)
+        {
+            try
+            {
+                RoomMemberSetting rSetting=new RoomMemberSetting();
+                if (!rSetting.LoadByPrimaryKey(rid, mid))
+                {
+                    rSetting.AddNew();
+                    rSetting.RoomID = rid;
+                    rSetting.MemberID = mid;
+                }
+                rSetting.SetColumn(setting, newValue);
+                rSetting.Save();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
 
         [WebMethod]
         public void GetChatRoom(int id,bool isTemp)
