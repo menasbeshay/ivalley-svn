@@ -53,11 +53,12 @@ namespace Chat2Connect.SRCustomHubs
                     member.AddNew();
                     member.MemberID = item.MemberID;
                     member.RoomID = roomid;
+                    member.InRoom = true;
                     member.Save();
                 }
                 item.Rooms.Add(roomid);
 
-                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid);
+                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString());
             }
             catch (Exception ex)
             {
@@ -72,19 +73,19 @@ namespace Chat2Connect.SRCustomHubs
             item.Rooms.Remove(roomid);
             Clients.Group(roomid.ToString()).removeMember(item.MemberID,roomid);
             Groups.Remove(Context.ConnectionId, roomid.ToString());
-            // just remove member from signalr hub 
-            //try
-            //{
-            //    int memberID = CurrentMemberID();
-            //    RoomMember member = new RoomMember();
-            //    member.LoadByPrimaryKey(memberID, roomid);
-            //    member.MarkAsDeleted();
-            //    member.Save();
+            // just remove member from signalr hub and update flag InRoom to false
+            try
+            {
+                int memberID = CurrentMemberID();
+                RoomMember member = new RoomMember();
+                member.LoadByPrimaryKey(memberID, roomid);
+                member.InRoom = false;
+                member.Save();
 
-            //}
-            //catch (Exception ex)
-            //{
-            //}
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private int CurrentMemberID()

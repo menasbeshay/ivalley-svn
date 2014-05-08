@@ -27,7 +27,10 @@ function Chat(maxWin, memberID, memberName) {
         if (window == null) {
             if (type == "Private") {
                 chatVM.addWindow(id, name, type);
-                window = chatVM.getWindow(id, type);
+				// generated id for private chat
+                var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
+                window = chatVM.getWindow(newroomid, type);
+                //window = chatVM.getWindow(id, type);
             }
         }
         return window;
@@ -129,7 +132,9 @@ function Chat(maxWin, memberID, memberName) {
     };
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
+            //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
+			var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
+            var room = { ID: roomid, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{} };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -191,8 +196,9 @@ function Chat(maxWin, memberID, memberName) {
         return true;
     };
 
-    // init html 105or 
+    // init html Editor 
     // tooltips for toolbar
+    // scroll bars
     self.Init = function (id, isEnabled) {
         self.Editor = new wysihtml5.Editor('uiTextMsg_' + id, { toolbar: 'toolbar' + id, parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
         if (!isEnabled)
@@ -302,7 +308,7 @@ function Chat(maxWin, memberID, memberName) {
             else
             {
                 if (window.CurrentMemberSettings.NotifyOnMicOn()) {
-                    notify('success', 'العضو ' + member.MemberName() + ' أخذ المايك');
+                    notify('info', 'العضو ' + member.MemberName() + ' أخذ المايك');
                 }
             }
         }
@@ -320,7 +326,7 @@ function Chat(maxWin, memberID, memberName) {
             else
             {
                 if (window.CurrentMemberSettings.NotifyOnMicOff()) {
-                    notify('success', 'العضو ' + member.MemberName() + ' ترك المايك');
+                    notify('info', 'العضو ' + member.MemberName() + ' ترك المايك');
                 }
             }
         }
@@ -438,7 +444,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         member = window.newMember(mid, name);
         window.addMember(member);
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOn()) {
-            notify('success', '' + member.MemberName() + ' دخل الان فى الغرفة ' + window.Name() + '');
+            notify('info', '' + member.MemberName() + ' دخل الان فى الغرفة ' + window.Name() + '');
         }
     };
     rHub.client.removeMember = function (mid, roomId) {
@@ -456,7 +462,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (member == null)
             return;
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
-            notify('success', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
+            notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
         }
     };
 
@@ -528,7 +534,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             if (member != null) {
                 member.IsCamOpened(true);
                 if (window.CurrentMemberSettings.NotifyOnOpenCam()) {
-                    notify('success', 'العضو ' + member.MemberName() + ' فتح الكاميرا');
+                    notify('info', 'العضو ' + member.MemberName() + ' فتح الكاميرا');
                 }
             }
         }
@@ -545,7 +551,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             if (member != null) {
                 member.IsCamOpened(false);
                 if (window.CurrentMemberSettings.NotifyOnCloseCam()) {
-                    notify('success', 'العضو ' + member.MemberName() + ' أغلق الكاميرا');
+                    notify('info', 'العضو ' + member.MemberName() + ' أغلق الكاميرا');
                 }
             }
         }

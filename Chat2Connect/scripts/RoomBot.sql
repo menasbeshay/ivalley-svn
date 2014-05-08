@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomBotLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomBotLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomBotLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomBotLoadByPrimaryKey];
 GO
@@ -35,7 +35,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomBotLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_RoomBotLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomBotLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomBotLoadAll]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomBotLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomBotLoadAll];
 GO
@@ -65,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomBotLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomBotLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomBotUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomBotUpdate]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomBotUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomBotUpdate];
 GO
@@ -106,7 +106,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomBotInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomBotInsert]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomBotInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomBotInsert];
 GO
@@ -150,7 +150,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomBotInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomBotInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomBotDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomBotDelete]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomBotDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomBotDelete];
 GO

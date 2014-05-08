@@ -285,7 +285,8 @@
                         
                         <object style="width:100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+ID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <%--<embed src="testswf/chat2connect.swf" quality="high" width="100%" name="chat2connect" data-bind="attr:{FlashVars:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" align="middle" allowScriptAccess="sameDomain"  allowFullScreen="false"  type="application/x-shockwave-flash"  pluginspage="http://www.adobe.com/go/getflash"/>--%>
                         </object>
                        
                     </div>
@@ -297,7 +298,8 @@
                         
                         <object style="width:100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <%--<embed src="testswf/chat2connect.swf" quality="high" width="100%" name="chat2connect" data-bind="attr:{FlashVars:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" align="middle" allowScriptAccess="sameDomain"  allowFullScreen="false"  type="application/x-shockwave-flash"  pluginspage="http://www.adobe.com/go/getflash"/>--%>
                         </object>
                        
                     </div>

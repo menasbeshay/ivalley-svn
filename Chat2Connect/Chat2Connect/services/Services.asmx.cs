@@ -548,9 +548,7 @@ namespace Chat2Connect.services
                         break;
                 }
             }
-            RoomMember Allmembers = new RoomMember();
-            Allmembers.GetOnlineMembersByRoomID(id);
-            roomObject.MemberCount = Allmembers.RowCount;
+            
             // add to favourite link
             FavRoom fav = new FavRoom();
             fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
@@ -570,10 +568,13 @@ namespace Chat2Connect.services
                 roomMember.AddNew();
                 roomMember.MemberID = CurrentMember.MemberID;
                 roomMember.RoomID = id;
+                roomMember.InRoom = true;
                 roomMember.Save();
             }
             else 
             {
+                roomMember.InRoom = true;
+                roomMember.Save();
                 if (!roomMember.IsColumnNull(RoomMember.ColumnNames.UserRate))
                     roomObject.CurrentMemberSettings.UserRate = roomMember.UserRate;
             }
@@ -592,6 +593,9 @@ namespace Chat2Connect.services
                 roomObject.CurrentMemberSettings.NotifyOnMicOn = sett.NotifyOnMicOn;
                 roomObject.CurrentMemberSettings.NotifyOnOpenCam = sett.NotifyOnOpenCam;
             }
+            RoomMember Allmembers = new RoomMember();
+            Allmembers.GetOnlineMembersByRoomID(id);
+            roomObject.MemberCount = Allmembers.RowCount;
 
             RoomMember members = new RoomMember();
             members.GetAllMembersByRoomIDNoQueue(id);

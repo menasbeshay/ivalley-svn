@@ -337,6 +337,8 @@ Create Table RoomMember
 )
 Go
 
+alter table RoomMember
+add InRoom bit 
 
 If Exists (select Name 
 		   from sysobjects 
@@ -593,7 +595,8 @@ select RM.* , M.*
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID and 
-	  M.IsOnline = 1
+	  M.IsOnline = 1 and 
+	  Rm.InRoom = 1
 Go
 
 
@@ -629,7 +632,8 @@ from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
 	  RM.QueueOrder is null and 
-	  M.IsOnline = 1
+	  M.IsOnline = 1 and 
+	  Rm.InRoom = 1
 Go
 
 If Exists (select Name 
@@ -646,7 +650,8 @@ from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
 	  RM.QueueOrder is not null and 
-	  M.IsOnline = 1
+	  M.IsOnline = 1 and 
+	  Rm.InRoom = 1
 order by RM.QueueOrder	  
 Go
 

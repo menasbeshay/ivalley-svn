@@ -2,7 +2,7 @@
 USE [Chat2Connect_db]
 GO
 
-/****** Object:  StoredProcedure [proc_AdminTypeLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_AdminTypeLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AdminTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AdminTypeLoadByPrimaryKey];
 GO
@@ -35,7 +35,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AdminTypeLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_AdminTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AdminTypeLoadAll]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_AdminTypeLoadAll]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AdminTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AdminTypeLoadAll];
 GO
@@ -64,7 +64,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AdminTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AdminTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AdminTypeUpdate]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_AdminTypeUpdate]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AdminTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AdminTypeUpdate];
 GO
@@ -103,7 +103,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_AdminTypeInsert]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_AdminTypeInsert]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AdminTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AdminTypeInsert];
 GO
@@ -143,7 +143,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AdminTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AdminTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AdminTypeDelete]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_AdminTypeDelete]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AdminTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AdminTypeDelete];
 GO

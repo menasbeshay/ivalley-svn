@@ -91,10 +91,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/16/2013 13:20:40</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>04/27/2014 19:31:57</publishTime>
+      <publishTime>05/08/2014 14:05:31</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>04/27/2014 19:31:58</publishTime>
+      <publishTime>05/08/2014 14:06:06</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>03/18/2014 10:44:29</publishTime>
@@ -115,7 +115,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>04/27/2014 19:31:56</publishTime>
+      <publishTime>05/08/2014 14:05:31</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -208,7 +208,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>04/27/2014 19:31:56</publishTime>
+      <publishTime>05/08/2014 14:05:30</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>01/19/2014 13:36:26</publishTime>
@@ -238,7 +238,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2014 13:36:26</publishTime>
     </File>
     <File Include="bin/packages.config">
-      <publishTime>01/19/2014 13:56:35</publishTime>
+      <publishTime>05/04/2014 09:46:24</publishTime>
     </File>
     <File Include="bin/Scripts/jquery.signalR-2.0.1.js">
       <publishTime>01/19/2014 13:36:29</publishTime>
@@ -397,7 +397,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2014 14:12:26</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>04/27/2014 09:26:42</publishTime>
+      <publishTime>04/29/2014 14:59:37</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
@@ -556,13 +556,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="getRooms.aspx">
-      <publishTime>04/24/2014 14:36:47</publishTime>
+      <publishTime>04/29/2014 14:40:20</publishTime>
+    </File>
+    <File Include="getRooms2.aspx">
+      <publishTime>05/06/2014 15:08:08</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>02/05/2014 13:17:18</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>03/18/2014 15:29:16</publishTime>
+      <publishTime>05/08/2014 12:38:11</publishTime>
+    </File>
+    <File Include="Home2.aspx">
+      <publishTime>05/07/2014 14:36:21</publishTime>
     </File>
     <File Include="HtmlPage1.html">
       <publishTime>02/09/2014 10:41:56</publishTime>
@@ -1725,6 +1731,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/bootstrap.min.js">
       <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
+    <File Include="js/chatwindows.js">
+      <publishTime>05/08/2014 12:58:40</publishTime>
+    </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
     </File>
@@ -1828,7 +1837,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>04/27/2014 09:26:42</publishTime>
+      <publishTime>05/04/2014 09:46:23</publishTime>
     </File>
     <File Include="js/style.js">
       <publishTime>03/10/2014 14:06:24</publishTime>
@@ -1888,7 +1897,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2014 09:26:43</publishTime>
     </File>
     <File Include="LoadRoom.aspx">
-      <publishTime>04/23/2014 15:52:50</publishTime>
+      <publishTime>05/04/2014 14:02:16</publishTime>
     </File>
     <File Include="loadrooms.aspx">
       <publishTime>01/21/2014 12:06:03</publishTime>
@@ -1918,7 +1927,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/09/2014 11:02:33</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/19/2014 13:56:35</publishTime>
+      <publishTime>05/04/2014 09:46:24</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>12/16/2013 13:37:41</publishTime>
@@ -1931,6 +1940,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/jquery.signalR-2.0.1.min.js">
       <publishTime>01/19/2014 13:36:29</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.1.0.debug.js">
+      <publishTime>05/04/2014 09:46:24</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.1.0.js">
+      <publishTime>05/04/2014 09:46:24</publishTime>
+    </File>
+    <File Include="Scripts/knockout.mapping-latest.debug.js">
+      <publishTime>05/04/2014 09:46:24</publishTime>
+    </File>
+    <File Include="Scripts/knockout.mapping-latest.js">
+      <publishTime>05/04/2014 09:46:24</publishTime>
     </File>
     <File Include="services/ChatRoomService.asmx">
       <publishTime>01/19/2014 13:54:37</publishTime>
@@ -1957,7 +1978,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2014 10:35:40</publishTime>
     </File>
     <File Include="testswf/chat2connect.swf">
-      <publishTime>03/09/2014 21:44:41</publishTime>
+      <publishTime>05/05/2014 15:24:27</publishTime>
     </File>
     <File Include="testswf/chat2connect1.swf">
       <publishTime>02/14/2014 18:56:49</publishTime>
@@ -1965,14 +1986,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="testswf/chat2connect2.swf">
       <publishTime>02/22/2014 10:31:23</publishTime>
     </File>
+    <File Include="testswf/chat2connect3.swf">
+      <publishTime>03/09/2014 21:44:41</publishTime>
+    </File>
     <File Include="usercontrols/Mail.ascx">
       <publishTime>04/27/2014 09:26:41</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>04/24/2014 10:05:52</publishTime>
+      <publishTime>04/29/2014 15:59:24</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
-      <publishTime>04/14/2014 17:18:54</publishTime>
+      <publishTime>05/06/2014 17:07:13</publishTime>
     </File>
     <File Include="usercontrols/ucRooms.ascx">
       <publishTime>03/18/2014 14:31:49</publishTime>
@@ -1984,7 +2008,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/11/2014 16:39:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/27/2014 19:47:08</publishTime>
+      <publishTime>05/08/2014 14:05:34</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>04/15/2014 14:39:42</publishTime>
