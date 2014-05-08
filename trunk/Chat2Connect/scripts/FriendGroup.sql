@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_FriendGroupLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_FriendGroupLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FriendGroupLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FriendGroupLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FriendGroupLoadByPrimaryKey Suc
 ELSE PRINT 'Procedure Creation: proc_FriendGroupLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FriendGroupLoadAll]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_FriendGroupLoadAll]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FriendGroupLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FriendGroupLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FriendGroupLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FriendGroupLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FriendGroupUpdate]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_FriendGroupUpdate]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FriendGroupUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FriendGroupUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_FriendGroupInsert]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_FriendGroupInsert]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FriendGroupInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FriendGroupInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FriendGroupInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FriendGroupInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FriendGroupDelete]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_FriendGroupDelete]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FriendGroupDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FriendGroupDelete];
 GO

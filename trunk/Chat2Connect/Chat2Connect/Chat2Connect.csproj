@@ -110,7 +110,6 @@
     <Content Include="Admin\UserControls\Room\RoomInfo.ascx" />
     <Content Include="Admin\UserControls\Room\RoomStatus.ascx" />
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
-    <Content Include="ChatRoomTemplate.html" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

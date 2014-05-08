@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CountryLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_CountryLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CountryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CountryLoadByPrimaryKey];
 GO
@@ -32,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CountryLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_CountryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CountryLoadAll]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_CountryLoadAll]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CountryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CountryLoadAll];
 GO
@@ -61,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CountryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CountryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CountryUpdate]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_CountryUpdate]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CountryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CountryUpdate];
 GO
@@ -100,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CountryInsert]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_CountryInsert]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CountryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CountryInsert];
 GO
@@ -140,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CountryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CountryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CountryDelete]    Script Date: 4/29/2014 2:20:16 PM ******/
+/****** Object:  StoredProcedure [proc_CountryDelete]    Script Date: 5/8/2014 1:38:50 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CountryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CountryDelete];
 GO

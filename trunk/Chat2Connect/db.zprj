@@ -44,7 +44,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|Room;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|RoomMember;" />
         <item name="prefix" type="System.Boolean" val="False" />
         <item name="trimName" type="System.Boolean" val="False" />
         <item name="txtNamespace" type="System.String" val="DAL" />

@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_RoomTypeLoadByPrimaryKey]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomTypeLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomTypeLoadByPrimaryKey];
 GO
@@ -36,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomTypeLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_RoomTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomTypeLoadAll]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomTypeLoadAll]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomTypeLoadAll];
 GO
@@ -69,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomTypeUpdate]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomTypeUpdate]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomTypeUpdate];
 GO
@@ -116,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_RoomTypeInsert]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomTypeInsert]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomTypeInsert];
 GO
@@ -168,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_RoomTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_RoomTypeDelete]    Script Date: 4/29/2014 2:20:17 PM ******/
+/****** Object:  StoredProcedure [proc_RoomTypeDelete]    Script Date: 5/8/2014 1:38:51 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomTypeDelete];
 GO
