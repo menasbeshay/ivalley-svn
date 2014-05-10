@@ -88,6 +88,16 @@ namespace Chat2Connect.SRCustomHubs
             }
         }
 
+        public void banMemberFromRoom(int memberid, int roomid)
+        {
+            var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
+            if (item == null)
+                return;
+            item.Rooms.Remove(roomid);
+            Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid);
+            //Groups.Remove(item.ConnectionId, roomid.ToString());
+        }
+
         private int CurrentMemberID()
         {
             int memberID = 0;

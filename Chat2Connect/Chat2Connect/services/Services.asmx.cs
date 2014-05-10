@@ -461,11 +461,11 @@ namespace Chat2Connect.services
         //UpdateRoomSetting
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool UpdateRoomSetting(int rid,int mid, string setting,bool newValue)
+        public bool UpdateRoomSetting(int rid, int mid, string setting, bool newValue)
         {
             try
             {
-                RoomMemberSetting rSetting=new RoomMemberSetting();
+                RoomMemberSetting rSetting = new RoomMemberSetting();
                 if (!rSetting.LoadByPrimaryKey(rid, mid))
                 {
                     rSetting.AddNew();
@@ -483,7 +483,7 @@ namespace Chat2Connect.services
         }
 
         [WebMethod]
-        public void GetChatRoom(int id,bool isTemp)
+        public void GetChatRoom(int id, bool isTemp)
         {
             Helper.ChatRoom roomObject = new Helper.ChatRoom();
             roomObject.ID = id;
@@ -498,15 +498,15 @@ namespace Chat2Connect.services
             rooms.LoadByPrimaryKey(id);
 
             roomObject.Name = rooms.Name;
-            
+
             if (!rooms.IsColumnNull("OpenCams"))
                 roomObject.OpenCams = rooms.OpenCams;
             else
                 roomObject.OpenCams = 0;
 
-            roomObject.Settings.EnableCam= rooms.EnableCam;
+            roomObject.Settings.EnableCam = rooms.EnableCam;
             roomObject.Settings.EnableMic = rooms.EnableMic;
-            
+
 
             Member member = new Member();
             member.LoadByPrimaryKey(rooms.CreatedBy);
@@ -548,7 +548,7 @@ namespace Chat2Connect.services
                         break;
                 }
             }
-            
+
             // add to favourite link
             FavRoom fav = new FavRoom();
             fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
@@ -571,14 +571,14 @@ namespace Chat2Connect.services
                 roomMember.InRoom = true;
                 roomMember.Save();
             }
-            else 
+            else
             {
                 roomMember.InRoom = true;
                 roomMember.Save();
                 if (!roomMember.IsColumnNull(RoomMember.ColumnNames.UserRate))
                     roomObject.CurrentMemberSettings.UserRate = roomMember.UserRate;
             }
-            roomObject.CurrentMemberSettings.CanAccessCam= roomMember.CanAccessCam;
+            roomObject.CurrentMemberSettings.CanAccessCam = roomMember.CanAccessCam;
             roomObject.CurrentMemberSettings.CanAccessMic = roomMember.CanAccessMic;
             roomObject.CurrentMemberSettings.CanWrite = roomMember.CanWrite;
             roomObject.CurrentMemberSettings.IsBanned = roomMember.IsBanned;
@@ -610,5 +610,39 @@ namespace Chat2Connect.services
             //return result;
         }
 
+        [WebMethod]
+        public void BanRoomMember(int memberID, int roomID, int? days)
+        {
+            RoomMemberBanning ban = new RoomMemberBanning();
+            if (!ban.LoadByPrimaryKey(roomID, memberID))
+            {
+                ban.AddNew();
+                ban.RoomID = roomID;
+                ban.MemberID = memberID;
+            }
+            Member currentMember = new Member();
+            if (currentMember.LoadCurrentMember())
+                ban.CreatedByMemberID = currentMember.MemberID;
+            ban.CreateDate = DateTime.Now;
+            ban.StartDate = DateTime.Now;
+            if (days.HasValue)
+                ban.EndDate = DateTime.Now.AddDays(days.Value);
+            else
+                ban.SetColumnNull(RoomMemberBanning.ColumnNames.EndDate);
+            ban.Save();
+
+            
+        }
+
+        [WebMethod]
+        public void RemoveBanedRoomMember(int memberID, int roomID)
+        {
+            RoomMemberBanning ban = new RoomMemberBanning();
+            if (ban.LoadByPrimaryKey(roomID, memberID))
+            {
+                ban.MarkAsDeleted();
+                ban.Save();
+            }
+        }
     }
 }

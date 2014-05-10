@@ -163,7 +163,15 @@ namespace BLL
 
         }
 
-
+        public bool LoadCurrentMember()
+        {
+            System.Web.Security.MembershipUser user=System.Web.Security.Membership.GetUser();
+            if (user != null)
+            {
+                return GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            }
+            return false;
+        }
         public virtual bool SearchMembers(string query)
         {
             ListDictionary parameters = new ListDictionary();
