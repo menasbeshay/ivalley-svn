@@ -64,6 +64,7 @@
     <Compile Include="Room.cs" />
     <Compile Include="RoomBot.cs" />
     <Compile Include="RoomMember.cs" />
+    <Compile Include="RoomMemberBanning.cs" />
     <Compile Include="RoomMemberSetting.cs" />
     <Compile Include="RoomType.cs" />
     <Compile Include="RowStatus.cs" />

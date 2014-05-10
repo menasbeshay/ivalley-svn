@@ -151,6 +151,7 @@
             </div>
         </div>
     </div>
+
     <asp:HiddenField ID="uiHiddenFieldFriendID" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrent" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrentName" ClientIDMode="Static" runat="server" />
@@ -332,7 +333,9 @@
                                         <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                         <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
                                     </ul>
                                 </div>
                             </div>
@@ -345,6 +348,7 @@
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
                                         <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
+                                    <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
                                     <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink"><span class="awesome" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -353,8 +357,11 @@
                                         <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                         <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
                                     </ul>
+                                <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
                             </div>
@@ -367,8 +374,8 @@
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
                                         <img src="images/hand.png" style="width: 16px;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
+                                    <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
-
                                     <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
@@ -376,8 +383,11 @@
                                         <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                         <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
                                     </ul>
+                                    <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
                             </div>
@@ -867,6 +877,51 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div data-bind="attr:{id:'banModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">حجب عضو</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h4>حجب عضو</h4>
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>إسم العضو</label>
+                                </div>
+                                <div class="col-sm-8 pull-right">
+                                    <span id="banMemberName" data-bind="text:bannedMember.MemberName"></span>
+                                    <div style="display: none;">
+                                        <span id="banMemberID"></span>
+                                        <span id="banRoomID"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>عدد أيام الحجب</label>
+                                </div>
+                                <div class="col-sm-8 pull-right">
+                                    <input type="text" id="banDays" data-bind="value:bannedMember.Days" />
+                                    <br />
+                                    *فى حالة عدم كتابة عدد الأيام سيتم الحجب نهائيا
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" id="btnBanMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveBanMember" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </script>
 
 </asp:Content>

@@ -116,6 +116,54 @@ function Chat(maxWin, memberID, memberName) {
             });
             return true;
         }
+        var self = this;
+        this.banMember = function (id) {
+            var member = self.getMember(id);
+            if (member == null)
+                member = self.getQueueMember(id);
+            if (member == null)
+                return;
+
+            self.bannedMember.MemberName(member.MemberName());
+            self.bannedMember.MemberID(member.MemberID());
+            self.bannedMember.Days(1);
+
+            $("#banModal_" + self.uniqueID() ).modal('show');
+        };
+        this.saveBanMember = function () {
+            var window = this;
+            $.ajax({
+                url: '../Services/Services.asmx/BanRoomMember',
+                dataType: 'json',
+                type: 'post',
+                data: "{'memberID':" + window.bannedMember.MemberID() + ", 'roomID' : " + window.ID() + ",'days':'" + window.bannedMember.Days() + "'}",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    notify('success', 'تم حجب العضو بنجاح');
+                    $("#banModal_" + window.uniqueID()).modal('hide');
+                    rHub.server.banMemberFromRoom(window.bannedMember.MemberID(), window.ID());
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#banModal_" + window.uniqueID()).modal('hide');
+                    $.pnotify({
+                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
+                        type: 'error',
+                        history: false,
+                        closer_hover: false,
+                        delay: 5000,
+                        sticker: false
+                    });
+                }
+            });
+        };
+        this.bannedMember = new banMemberModel(this.newMember(0, ""));
+        
+    }
+    var banMemberModel=function(member)
+    {
+        var baned = { MemberID: member.MemberID(), MemberName: member.MemberName(), Days:1};
+        return ko.mapping.fromJS(baned);
     }
 
     self.changeCurrent = function (selctor) {
@@ -463,6 +511,30 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
             notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
+        }
+    };
+
+    rHub.client.banMemberFromRoom = function (mid, roomId) {
+        var window = chatVM.getWindow(roomId, "Room", "");
+        if (window == null)
+            return;
+        var member = window.getMember(mid);
+        if (member == null) {
+            member = window.getQueueMember(mid);
+            window.removeQueueMember(mid);
+        }
+        else
+            window.removeMember(mid);
+
+        if (member == null)
+            return;
+        if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
+            notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
+        }
+        if(chatVM.CurrentMemberID==mid)
+        {
+            chatVM.windows.remove(window);
+            $('.nav-tabs a:last').tab('show');
         }
     };
 
