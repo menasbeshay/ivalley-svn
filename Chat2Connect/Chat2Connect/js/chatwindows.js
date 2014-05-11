@@ -158,7 +158,29 @@ function Chat(maxWin, memberID, memberName) {
             });
         };
         this.bannedMember = new banMemberModel(this.newMember(0, ""));
-        
+        //control panel
+        this.BannedMembers = ko.computed(function () {
+            return ko.utils.arrayFilter(this.AllMembersSettings(), function (mem) {
+                return mem.IsMemberBanned();
+            });
+        }, this);
+        this.showControlPanel = function () {
+            var window = this;
+            $("#controlPanelModal_" + window.uniqueID()).modal('show');
+        };
+        this.removeBannedMember = function () {
+            var member = this;
+            member.IsMemberBanned(false);
+            //send to server to update
+        };
+        this.updateBannedMember=function()
+        {
+            var member = this;
+        }
+        this.updateRoomMemberSettings = function () {
+            var member = this;
+            
+        };
     }
     var banMemberModel=function(member)
     {

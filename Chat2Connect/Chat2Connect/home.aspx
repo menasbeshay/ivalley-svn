@@ -212,7 +212,7 @@
                                             <input type="checkbox" data-bind="attr: { onclick: 'EnableMic(this,'+ID()+', true);'}">&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;
                                         </li>
                                         <li>
-                                            <a style="cursor: pointer;" href="#"><i class=" icon-dashboard"></i>&nbsp;لوحة تحكم المشرف </a>
+                                            <a style="cursor: pointer;" data-bind="click:showControlPanel" href="#"><i class=" icon-dashboard"></i>&nbsp;لوحة تحكم المشرف </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -361,7 +361,7 @@
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
                                     </ul>
-                                <!-- /ko -->
+                                    <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
                             </div>
@@ -922,6 +922,79 @@
                 </div>
             </div>
         </div>
+
+        <div data-bind="attr:{id:'controlPanelModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                    <i class="icon-4x icon-dashboard+" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                    <h3 id="myModalLabel1">لوحة تحكم المشرف</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal blockBox validationGroup">
+                        <h4>لوحة تحكم المشرف</h4>
+                        <div class="form-group">
+                            <h3>الأعضاء المحجوبة</h3>
+                            <div class="SScroll" data-height="200px">
+                                <table class="table table-hover" >
+                                    <thead class="headerRow">
+                                        <tr>
+                                            <th></th>
+                                            <th>إسم العضو</th>
+                                            <th>الأيام المتبقية</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody data-bind="foreach:BannedMembers">
+                                        <tr class="ContentRow">
+                                            <td class="pull-right"><a data-bind="click:$parent.removeBannedMember">x</a></td>
+                                            <td class="pull-right" data-bind="text:MemberName"></td>
+                                            <td class="pull-right center"><input type="text" data-bind="value:BanDays" /></td>
+                                            <td class="pull-right center">
+                                                <input type="button" value="تعديل" data-bind="click:$parent.updateBannedMember" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>إعدادات الأعضاء</h3>
+                            <div class="SScroll" data-height="200px">
+                                <table class="table table-hover" style="text-align:center !important;width:98%;">
+                                    <thead>
+                                        <tr class="headerRow">
+                                            <th class="pull-right">إسم العضو</th>
+                                            <th class="pull-right center">إستخدام المايك</th>
+                                            <th class="pull-right center">إستخدام الكام</th>
+                                            <th class="pull-right center">الكتابة</th>
+                                            <th class="pull-right center">حجب أيام</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody data-bind="foreach:AllMembersSettings">
+                                        <tr class="ContentRow">
+                                            <td class="pull-right" data-bind="text:MemberName"></td>
+                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
+                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
+                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanWrite" /></td>
+                                            <td class="pull-right center" style="width: 15%; padding: 0 5px;"><input type="text" data-bind="value:BanDays" placeholder="0 يعنى حجب نهائى" /></td>
+                                            <td>
+                                                <input type="button" data-bind="click:$parent.updateRoomMemberSettings" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </script>
 
 </asp:Content>

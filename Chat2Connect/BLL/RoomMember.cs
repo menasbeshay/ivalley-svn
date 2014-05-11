@@ -90,6 +90,17 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
+        public bool LoadAllRoomMembersWithSettings(int roomID)
+        {
+            string sql = @"SELECT RM.MemberID,RM.RoomID,MemberName=M.Name,CanAccessCam=ISNULL(RM.CanAccessCam,0),CanAccessMic=ISNULL(RM.CanAccessMic,0),CanWrite=ISNULL(RM.CanWrite,0)
+	                            ,BanDays=DATEDIFF(day,GetDate(),ISNULL(B.EndDate,GetDATE()-1))+1
+	                            ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END 
+                            FROM RoomMember RM INNER JOIN Member M on RM.MemberID=M.MemberID
+                            LEFT JOIN RoomMemberBanning B ON B.RoomID=RM.RoomID AND B.MemberID=RM.MemberID AND B.EndDate>=GETDATE() 
+                            WHERE RM.RoomID={0}";
+            return LoadFromRawSql(sql, roomID);
+        }
+
         #region override properties reading
         public override bool CanAccessCam
         {
