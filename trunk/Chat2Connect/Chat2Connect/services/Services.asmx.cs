@@ -604,6 +604,9 @@ namespace Chat2Connect.services
             roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
             roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
 
+            Allmembers.LoadAllRoomMembersWithSettings(id);
+            roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanDays=m["BanDays"] }).ToList();
+
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);

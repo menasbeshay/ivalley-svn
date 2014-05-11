@@ -43,6 +43,8 @@ namespace Helper
         }
 
         public MemberSettings CurrentMemberSettings { get; set; }
+
+        public object AllMembersSettings { get; set; }
     }
 
     public class ChatMember
@@ -96,4 +98,7 @@ namespace Helper
 
         public bool NotifyOnOpenCam { get; set; }
     }
+
+    public class ControlMemberSettings
+    { }
 }
