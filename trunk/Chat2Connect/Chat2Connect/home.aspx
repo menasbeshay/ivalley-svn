@@ -934,64 +934,93 @@
                 <div class="modal-body">
                     <div class="form-horizontal blockBox validationGroup">
                         <h4>لوحة تحكم المشرف</h4>
-                        <div class="form-group">
-                            <h3>الأعضاء المحجوبة</h3>
-                            <div class="SScroll" data-height="200px">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>إسم العضو</th>
-                                            <th>الأيام المتبقية</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    
-                                    <tbody data-bind="foreach:BannedMembers">
-                                        <tr>
-                                            <td>
-                                            <button type="button" class="btn btn-success" data-bind="click:$parent.removeBannedMember">
-                                              <span class="glyphicon glyphicon-remove"></span>إلغاء
-                                            </button>
-                                            </td>
-                                            <td data-bind="text:MemberName"></td>
-                                            <td><input type="text" data-bind="value:BanDays" /></td>
-                                            <td>
-                                                <input type="button" class="btn btn-warning" value="تعديل" data-bind="click:$parent.updateBannedMember" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="panel-group" data-bind="attr:{id:'accordion'+uniqueID()}">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-bind="attr:{'data-parent':'#accordion'+uniqueID(),href:'#collapseOne'+uniqueID()}">
+                                            الأعضاء المحجوبة
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div data-bind="attr:{id:'collapseOne'+uniqueID()}" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <!-- ko if:BannedMembers().length==0 -->
+                                        <b>لا يوجد</b>
+                                        <!-- /ko -->
+                                        <!-- ko if:BannedMembers().length>0 -->
+                                        <div class="SScroll" data-height="200px">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th style="text-align:right;">إسم العضو</th>
+                                                        <th style="text-align:right;">الأيام المتبقية</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach:BannedMembers">
+                                                    <tr>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-default" data-bind="click:$parent.removeBannedMember">
+                                                                <span class="glyphicon glyphicon-trash"></span>إلغاء
+                                                            </button>
+                                                        </td>
+                                                        <td data-bind="text:MemberName"></td>
+                                                        <td><input type="text" style="width:50px;" data-bind="value:BanDays" /></td>
+                                                        <td>
+                                                            <input type="button" class="btn btn-xs btn-warning" value="تعديل" data-bind="click:$parent.updateBannedMember" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <h3>إعدادات الأعضاء</h3>
-                            <div class="SScroll" data-height="200px">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>إسم العضو</th>
-                                            <th>إستخدام المايك</th>
-                                            <th>إستخدام الكام</th>
-                                            <th>الكتابة</th>
-                                            <th>حجب أيام</th>
-                                        </tr>
-                                    </thead>
-                                    
-                                    <tbody data-bind="foreach:AllMembersSettings">
-                                        <tr>
-                                            <td data-bind="text:MemberName"></td>
-                                            <td><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
-                                            <td><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
-                                            <td><input type="checkbox" data-bind="checked:CanWrite" /></td>
-                                            <td><input type="text" data-bind="value:BanDays" placeholder="0 يعنى حجب نهائى" /></td>
-                                            <td>
-                                                <input type="button" class="btn btn-warning" value="تعديل" data-bind="click:$parent.updateRoomMemberSettings" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-bind="attr:{'data-parent':'#accordion'+uniqueID(),href:'#collapseTwo'+uniqueID()}">
+                                            إعدادات الأعضاء
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div data-bind="attr:{id:'collapseTwo'+uniqueID()}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="SScroll" data-height="200px">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align:right;">إسم العضو</th>
+                                                        <th style="text-align:right;">إستخدام المايك</th>
+                                                        <th style="text-align:right;">إستخدام الكام</th>
+                                                        <th style="text-align:right;">الكتابة</th>
+                                                        <th style="text-align:right;">حجب أيام</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach:AllMembersSettings">
+                                                    <tr>
+                                                        <td data-bind="text:MemberName"></td>
+                                                        <td><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
+                                                        <td><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
+                                                        <td><input type="checkbox" data-bind="checked:CanWrite" /></td>
+                                                        <td>
+                                                            <input type="text" style="width:50px;" data-bind="value:BanDays" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="button" class="btn btn-warning btn-xs" value="تعديل" data-bind="click:$parent.updateRoomMemberSettings" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
