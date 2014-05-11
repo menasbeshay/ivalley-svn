@@ -937,8 +937,8 @@
                         <div class="form-group">
                             <h3>الأعضاء المحجوبة</h3>
                             <div class="SScroll" data-height="200px">
-                                <table class="table table-hover" >
-                                    <thead class="headerRow">
+                                <table class="table">
+                                    <thead>
                                         <tr>
                                             <th></th>
                                             <th>إسم العضو</th>
@@ -948,12 +948,16 @@
                                     </thead>
                                     
                                     <tbody data-bind="foreach:BannedMembers">
-                                        <tr class="ContentRow">
-                                            <td class="pull-right"><a data-bind="click:$parent.removeBannedMember">x</a></td>
-                                            <td class="pull-right" data-bind="text:MemberName"></td>
-                                            <td class="pull-right center"><input type="text" data-bind="value:BanDays" /></td>
-                                            <td class="pull-right center">
-                                                <input type="button" value="تعديل" data-bind="click:$parent.updateBannedMember" />
+                                        <tr>
+                                            <td>
+                                            <button type="button" class="btn btn-success" data-bind="click:$parent.removeBannedMember">
+                                              <span class="glyphicon glyphicon-remove"></span>إلغاء
+                                            </button>
+                                            </td>
+                                            <td data-bind="text:MemberName"></td>
+                                            <td><input type="text" data-bind="value:BanDays" /></td>
+                                            <td>
+                                                <input type="button" class="btn btn-warning" value="تعديل" data-bind="click:$parent.updateBannedMember" />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -963,26 +967,26 @@
                         <div class="form-group">
                             <h3>إعدادات الأعضاء</h3>
                             <div class="SScroll" data-height="200px">
-                                <table class="table table-hover" style="text-align:center !important;width:98%;">
+                                <table class="table">
                                     <thead>
-                                        <tr class="headerRow">
-                                            <th class="pull-right">إسم العضو</th>
-                                            <th class="pull-right center">إستخدام المايك</th>
-                                            <th class="pull-right center">إستخدام الكام</th>
-                                            <th class="pull-right center">الكتابة</th>
-                                            <th class="pull-right center">حجب أيام</th>
+                                        <tr>
+                                            <th>إسم العضو</th>
+                                            <th>إستخدام المايك</th>
+                                            <th>إستخدام الكام</th>
+                                            <th>الكتابة</th>
+                                            <th>حجب أيام</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody data-bind="foreach:AllMembersSettings">
-                                        <tr class="ContentRow">
-                                            <td class="pull-right" data-bind="text:MemberName"></td>
-                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
-                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
-                                            <td class="pull-right"><input type="checkbox" data-bind="checked:CanWrite" /></td>
-                                            <td class="pull-right center" style="width: 15%; padding: 0 5px;"><input type="text" data-bind="value:BanDays" placeholder="0 يعنى حجب نهائى" /></td>
+                                        <tr>
+                                            <td data-bind="text:MemberName"></td>
+                                            <td><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
+                                            <td><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
+                                            <td><input type="checkbox" data-bind="checked:CanWrite" /></td>
+                                            <td><input type="text" data-bind="value:BanDays" placeholder="0 يعنى حجب نهائى" /></td>
                                             <td>
-                                                <input type="button" data-bind="click:$parent.updateRoomMemberSettings" />
+                                                <input type="button" class="btn btn-warning" value="تعديل" data-bind="click:$parent.updateRoomMemberSettings" />
                                             </td>
                                         </tr>
                                     </tbody>
