@@ -171,16 +171,32 @@ function Chat(maxWin, memberID, memberName) {
         this.removeBannedMember = function () {
             var member = this;
             member.IsMemberBanned(false);
+            member.BanDays("");
             //send to server to update
+            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(),member.CanAccessMic(),member.CanAccessCam(),member.BanDays());
         };
         this.updateBannedMember=function()
         {
             var member = this;
+            if (member.BanDays() == '')
+                member.IsMemberBanned(false);
+            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(), member.CanAccessMic(), member.CanAccessCam(), member.BanDays());
         }
         this.updateRoomMemberSettings = function () {
             var member = this;
-            
+            if (member.BanDays() != '')
+                member.IsMemberBanned(true);
+            else
+                member.IsMemberBanned(false);
+            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(), member.CanAccessMic(), member.CanAccessCam(), member.BanDays());
         };
+        this.getMemberSetting = function (mid) {
+            var member = ko.utils.arrayFirst(self.AllMembersSettings(), function (mem) {
+                    return mem.MemberID() == mid;
+            });
+            return member;
+        };
+        
     }
     var banMemberModel=function(member)
     {
@@ -535,8 +551,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
         }
     };
-
-    rHub.client.banMemberFromRoom = function (mid, roomId) {
+    function banMemberFromroom(mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
         if (window == null)
             return;
@@ -553,13 +568,40 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
             notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
         }
-        if(chatVM.CurrentMemberID==mid)
-        {
+        if (chatVM.CurrentMemberID == mid) {
             chatVM.windows.remove(window);
             $('.nav-tabs a:last').tab('show');
         }
+    }
+    rHub.client.banMemberFromRoom = function (mid, roomId) {
+        banMemberFromroom(mid, roomId);
     };
-
+    rHub.client.updateRoomMemberSettings = function (roomid, memberid, canWrite, canAccessMic, canAccessCam, banDays){
+        if(banDays!='')
+        {
+            banMemberFromroom(memberid, roomid);
+        }
+        var window = chatVM.getWindow(roomid, "Room");
+        if (window != null) {
+            var settingMember = window.getMemberSetting(memberid);
+            settingMember.CanWrite(canWrite);
+            settingMember.CanAccessCam(canAccessCam);
+            settingMember.CanAccessMic(canAccessMic);
+            settingMember.BanDays(banDays);
+            if (banDays != '') {
+                settingMember.IsMemberBanned(true);
+            }
+            else {
+                settingMember.IsMemberBanned(false);
+            }
+        }
+        if (chatVM.CurrentMemberID == memberid) {
+            chatVM.CurrentMemberSettings.CanWrite(canWrite);
+            chatVM.CurrentMemberSettings.CanAccessMic(canAccessMic);
+            chatVM.CurrentMemberSettings.CanAccessCam(canAccessCam);
+        }
+    };
+    
     rHub.client.ListenMic = function (memberid, rid) {
         /* var fn = window[listenmic];
          var fnparams = [memberid];

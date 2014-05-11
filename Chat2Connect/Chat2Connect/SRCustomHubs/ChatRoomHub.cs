@@ -22,7 +22,7 @@ namespace Chat2Connect.SRCustomHubs
         {
             Member m = new Member();
             m.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID=m.MemberID,Rooms=new List<int>() });
+            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID, Rooms = new List<int>() });
 
             return base.OnConnected();
         }
@@ -71,7 +71,7 @@ namespace Chat2Connect.SRCustomHubs
             if (item == null)
                 return;
             item.Rooms.Remove(roomid);
-            Clients.Group(roomid.ToString()).removeMember(item.MemberID,roomid);
+            Clients.Group(roomid.ToString()).removeMember(item.MemberID, roomid);
             Groups.Remove(Context.ConnectionId, roomid.ToString());
             // just remove member from signalr hub and update flag InRoom to false
             try
@@ -96,6 +96,18 @@ namespace Chat2Connect.SRCustomHubs
             item.Rooms.Remove(roomid);
             Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid);
             //Groups.Remove(item.ConnectionId, roomid.ToString());
+            try
+            {
+                int memberID = CurrentMemberID();
+                RoomMember member = new RoomMember();
+                member.LoadByPrimaryKey(memberID, roomid);
+                member.InRoom = false;
+                member.Save();
+
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private int CurrentMemberID()
@@ -188,6 +200,56 @@ namespace Chat2Connect.SRCustomHubs
         public void userDownHand(int rid, int memberid)
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).UserDownHand(rid, memberid);
+        }
+
+        public void updateRoomMemberSettings(int roomid, int memberid, bool canWrite, bool canAccessMic, bool canAccessCam, string banDays)
+        {
+            try
+            {
+                RoomMemberBanning banning = new RoomMemberBanning();
+                if (!banning.LoadByPrimaryKey(roomid, memberid))
+                {
+                    banning.AddNew();
+                    banning.RoomID = roomid;
+                    banning.MemberID = memberid;
+                }
+                if (String.IsNullOrEmpty(banDays))
+                {
+                    banning.MarkAsDeleted();
+                }
+                else
+                {
+                    int days = Convert.ToInt32(banDays);
+                    if (days == 0)
+                    {
+                        banning.SetColumnNull(RoomMemberBanning.ColumnNames.EndDate);
+                    }
+                    else
+                    {
+                        banning.EndDate = DateTime.Now.AddDays(days);
+                    }
+                }
+                banning.Save();
+                //room member settings
+                RoomMember rm = new RoomMember();
+                if (!rm.LoadByPrimaryKey(memberid, roomid))
+                {
+                    rm.AddNew();
+                    rm.RoomID = roomid;
+                    rm.MemberID = memberid;
+                }
+                rm.CanAccessCam = canAccessCam;
+                rm.CanAccessMic = canAccessMic;
+                rm.CanWrite = canWrite;
+                if (!String.IsNullOrEmpty(banDays))
+                    rm.InRoom = false;
+                rm.Save();
+                //update clients
+                Clients.Group(roomid.ToString()).updateRoomMemberSettings(roomid, memberid, canWrite, canAccessMic, canAccessCam, banDays);
+
+            }
+            catch { }
+
         }
 
     }
