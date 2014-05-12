@@ -1,8 +1,4 @@
-﻿//ko.bindingHandlers.scrollToEnd = {
-//    update: function(element, valueAccessor) {
-
-//    }
-//};
+﻿
 function Chat(maxWin, memberID, memberName) {
     var self = this;
     self.CurrentMemberID = memberID;
@@ -28,9 +24,9 @@ function Chat(maxWin, memberID, memberName) {
             if (type == "Private") {
                 chatVM.addWindow(id, name, type);
 				// generated id for private chat
-                var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-                window = chatVM.getWindow(newroomid, type);
-                //window = chatVM.getWindow(id, type);
+                //var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
+                //window = chatVM.getWindow(newroomid, type);
+                window = chatVM.getWindow(id, type);
             }
         }
         return window;
@@ -219,12 +215,12 @@ function Chat(maxWin, memberID, memberName) {
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
             //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
-			var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-			var room = { ID: roomid, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:{} };
+			//var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
+			var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:[] };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
-            self.Init(win.uniqueID(), true);
+            self.Init(win);
         }
         else {
             if (self.notTempRoom().length == self.maxRoom()) {
@@ -244,7 +240,7 @@ function Chat(maxWin, memberID, memberName) {
                     self.windows.push(win);
                     self.changeCurrent(win.uniqueID());
                     rHub.server.addToRoom(id);
-                    self.Init(win.uniqueID(), win.CurrentMemberSettings.CanWrite());
+                    self.Init(win);
                 });
         }
 
@@ -276,25 +272,20 @@ function Chat(maxWin, memberID, memberName) {
         //window.Message("");
         self.Editor.setValue("");
     }
-    self.keyboardCmd = function (data, event) {
-        if (event.which == 13)
-            self.sendMessage(this);
-        return true;
-    };
-
+    
     // init html Editor 
     // tooltips for toolbar
     // scroll bars
-    self.Init = function (id, isEnabled) {
-        self.Editor = new wysihtml5.Editor('uiTextMsg_' + id, { toolbar: 'toolbar' + id, parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-        if (!isEnabled)
+    self.Init = function (window) {
+        self.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        if (!window.CurrentMemberSettings.CanWrite())
             self.Editor.disable();
         // apply enter key listener
         self.Editor.observe('load', function () {
             self.Editor.composer.element.addEventListener('keyup', function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
-                    self.keyboardCmd(null, e);
+                    self.sendMessage(window);
                 }
             });
         });
@@ -550,6 +541,10 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
             notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
         }
+        if(mid==chatVM.CurrentMemberID)
+        {
+            chatVM.windows.remove(window);
+        }
     };
     function banMemberFromroom(mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
@@ -577,7 +572,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         banMemberFromroom(mid, roomId);
     };
     rHub.client.updateRoomMemberSettings = function (roomid, memberid, canWrite, canAccessMic, canAccessCam, banDays){
-        if(banDays!='')
+        if(banDays!='' && banDays!=null)
         {
             banMemberFromroom(memberid, roomid);
         }
