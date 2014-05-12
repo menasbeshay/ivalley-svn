@@ -19,7 +19,7 @@ namespace Chat2Connect.usercontrols
             online.GetMemberFriendsByStatus(user.MemberID, true);
             Member offline = new Member();
             offline.GetMemberFriendsByStatus(user.MemberID, false);
-
+            
             uiRepeaterOnline.DataSource = online.DefaultView;
             uiRepeaterOnline.DataBind();
 

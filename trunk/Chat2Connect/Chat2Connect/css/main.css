@@ -646,6 +646,7 @@ hr {
 .Altodd {background-color:#CCCCCC !important;padding:5px !important;}
 .Alteven {background-color:#D9D9D9 !important;padding:5px !important;}
 
+
 #onlinepeople .Altodd {
     padding-bottom:1px !important;
     font: bold 10px tahoma;
@@ -844,7 +845,7 @@ fieldset[disabled] .btn-main.active {
 }
 
 .singleuser, .jslink {
-    cursor:pointer;
+    cursor:pointer;    
 }
 
 .singleuser i {
@@ -1048,17 +1049,29 @@ width:200px;
 }
 
 .friend-link {
-    position:relative;
+    /*position:relative;*/
     cursor:pointer;
 }
 
 .friend-link .popup-menu {
 	position: absolute;	
-	left: 0;
+	right: 100px;
+    top:25px;
 	display: none;
-	z-index: 1;
+	z-index: 888888888;
     list-style:none;
 }
+
+.profileMenu {
+    width:450px;
+    background-color:#000;
+    padding:10px;
+    border-bottom:5px solid #FEC200;
+    color:#fff;    
+}
+.profileMenu a {
+    color:#fff !important;
+    }
 /*
 .friend-link .popup-menu a {
 	display: block;

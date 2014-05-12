@@ -160,7 +160,7 @@ function Chat(maxWin, memberID, memberName) {
         this.bannedMember = new banMemberModel(this.newMember(0, ""));
         //control panel
         this.BannedMembers = ko.computed(function () {
-            return ko.utils.arrayFilter(this.AllMembersSettings(), function (mem) {
+            return ko.utils.arrayFilter(self.AllMembersSettings(), function (mem) {
                 return mem.IsMemberBanned();
             });
         }, this);
@@ -220,7 +220,7 @@ function Chat(maxWin, memberID, memberName) {
         if (type == 'Private') {
             //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
 			var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-            var room = { ID: roomid, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{} };
+			var room = { ID: roomid, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:{} };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());

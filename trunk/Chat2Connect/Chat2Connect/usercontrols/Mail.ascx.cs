@@ -76,7 +76,7 @@ namespace Chat2Connect.usercontrols
 
                 int friendId = 0;
                 string friendname = "";
-                if (!string.IsNullOrEmpty(Request.QueryString["t"].ToString()) && Request.QueryString["t"].ToString() == "createmsg")
+                if (!string.IsNullOrEmpty(Request.QueryString["t"]) && Request.QueryString["t"].ToString() == "createmsg")
                 {
                     int.TryParse(Request.QueryString["u"].ToString(), out friendId);
                     friendname = Request.QueryString["un"].ToString();
