@@ -290,7 +290,7 @@
                     </div>
                     <div style="padding: 2px;" class="pull-left col-lg-9">
 
-                        <object style="width: 100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
                             <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
@@ -302,7 +302,7 @@
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
                     <div style="padding: 2px;" class="pull-left col-lg-12">
 
-                        <object style="width: 100%;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param value="always" name="allowScriptAccess">
                             <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
@@ -314,8 +314,8 @@
                 <div style="height: 5px;" class="clearfix"></div>
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
-                    <div style="padding: 5px; margin-top: 2px;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow: hidden; width: auto; height: 400px;">
+                    <div style="padding: 5px; margin-top: 2px;position:relative;" class="col-lg-3 pull-right">
+                        <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow-y: hidden; width: auto; height: 400px;overflow-x:visible;">
                             <div id="MicDiv">
                                 <div class="friend-link rm Altodd" data-bind="with:MicMember">
                                     <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
@@ -324,9 +324,41 @@
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
                                         <img src="images/hand.png" style="width: 16px;" class="hand" /><img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
+                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
 
-                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <div class="popup-menu profileMenu">
+                                        <div class="col-lg-3 pull-right">
+                                        <div class=" thumbnail">
+                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                        </div>
+                                             <div class="clearfix" style="height:1px;">
+                                            </div>
+                                            <div style="text-align:right;">
+                                            <span data-bind="text:$data.MemberName()"></span>
+                                                </div>
+                                            </div>
+                                        <div class="col-lg-9 pull-right">
+                                        <div class="col-lg-7 pull-right">
+                                            <ul>
+                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-5 pull-right">
+                                            <ul>
+                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
+                                            </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+<%--                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                         <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
@@ -336,7 +368,8 @@
                                         <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
-                                    </ul>
+                                    </ul>--%>
+                                 <!-- /ko -->
                                 </div>
                             </div>
                             <div id="queueDiv">
@@ -350,8 +383,39 @@
                                     </div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
-                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
-                                        <li><a class="jslink"><span class="awesome" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')">&#xf0e6;</span> محادثة خاصة</a></li>
+                                     <div class="popup-menu profileMenu">
+                                        <div class="col-lg-3 pull-right">
+                                        <div class=" thumbnail">
+                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                        </div>
+                                             <div class="clearfix" style="height:1px;">
+                                            </div>
+                                            <div style="text-align:right;">
+                                            <span data-bind="text:$data.MemberName()"></span>
+                                                </div>
+                                            </div>
+                                        <div class="col-lg-9 pull-right">
+                                        <div class="col-lg-7 pull-right">
+                                            <ul>
+                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-5 pull-right">
+                                            <ul>
+                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
+                                            </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                   <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                        <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome" >&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                         <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
@@ -360,7 +424,7 @@
                                         <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
-                                    </ul>
+                                    </ul>--%>
                                     <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
@@ -376,7 +440,38 @@
                                     </div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
-                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <div class="popup-menu profileMenu">
+                                        <div class="col-lg-3 pull-right">
+                                        <div class=" thumbnail">
+                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                        </div>
+                                             <div class="clearfix" style="height:1px;">
+                                            </div>
+                                            <div style="text-align:right;">
+                                            <span data-bind="text:$data.MemberName()"></span>
+                                                </div>
+                                            </div>
+                                        <div class="col-lg-9 pull-right">
+                                        <div class="col-lg-7 pull-right">
+                                            <ul>
+                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-5 pull-right">
+                                            <ul>
+                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                        <!-- /ko -->
+                                            </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                         <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
@@ -386,7 +481,7 @@
                                         <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
-                                    </ul>
+                                    </ul>--%>
                                     <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
@@ -878,6 +973,7 @@
                 </div>
             </div>
         </div>
+        <!-- ko if:CurrentMemberSettings.IsAdmin()-->
         <div data-bind="attr:{id:'banModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -893,18 +989,19 @@
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إسم العضو</label>
                                 </div>
-                                <div class="col-sm-8 pull-right">
+                                <div class="col-sm-7 pull-right">
                                     <span id="banMemberName" data-bind="text:bannedMember.MemberName"></span>
                                     <div style="display: none;">
                                         <span id="banMemberID"></span>
                                         <span id="banRoomID"></span>
                                     </div>
                                 </div>
-                                <br />
+                                </div>
+                               <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>عدد أيام الحجب</label>
                                 </div>
-                                <div class="col-sm-8 pull-right">
+                                <div class="col-sm-7 pull-right">
                                     <input type="text" id="banDays" data-bind="value:bannedMember.Days" />
                                     <br />
                                     *فى حالة عدم كتابة عدد الأيام سيتم الحجب نهائيا
@@ -1028,6 +1125,9 @@
             </div>
         </div>
     </div>
+        <!-- /ko -->
+
+        
     </script>
 
 </asp:Content>

@@ -609,6 +609,7 @@
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="testswf\chat2connect.swf" />
+    <Content Include="testswf\chat2connect4.swf" />
     <Content Include="testswf\chat2connect3.swf" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
