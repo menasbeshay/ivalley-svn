@@ -55,7 +55,10 @@ namespace E3zemni_WebGUI.Admin
         {
             Categories cat = new Categories();
             if (CurrentCat == null)
+            {
                 cat.AddNew();
+                cat.IsPartySupplier = false;
+            }
             else
                 cat = CurrentCat;
 
@@ -154,9 +157,12 @@ namespace E3zemni_WebGUI.Admin
 
         private void LoadDDLs()
         {
-            TopLevelCat Tcats = new TopLevelCat();
-            Tcats.LoadAll();
-            uiDropDownListTC.DataSource = Tcats.DefaultView;
+            TopLevelCat cats = new TopLevelCat();
+            cats.Where.IsPartySupplier.Value = true;
+            cats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.NotEqual;
+            cats.Sort = "NameEng";
+            cats.Query.Load();
+            uiDropDownListTC.DataSource = cats.DefaultView;
             uiDropDownListTC.DataTextField = "NameEng";
             uiDropDownListTC.DataValueField = "TopLevelCatID";
             uiDropDownListTC.DataBind();

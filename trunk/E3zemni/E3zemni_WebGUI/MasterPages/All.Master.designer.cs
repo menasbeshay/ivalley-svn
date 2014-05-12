@@ -94,6 +94,24 @@ namespace E3zemni_WebGUI.MasterPages {
         protected global::System.Web.UI.WebControls.LinkButton lbtnProfile;
         
         /// <summary>
+        /// uiLabelItemsCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelItemsCount;
+        
+        /// <summary>
+        /// uiLabelFavCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelFavCount;
+        
+        /// <summary>
         /// uiLinkButtonAr control.
         /// </summary>
         /// <remarks>

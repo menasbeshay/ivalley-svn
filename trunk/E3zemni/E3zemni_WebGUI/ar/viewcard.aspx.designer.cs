@@ -13,6 +13,33 @@ namespace E3zemni_WebGUI.ar {
     public partial class viewcard {
         
         /// <summary>
+        /// uipanelImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uipanelImages;
+        
+        /// <summary>
+        /// uiRepeaterImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterImages;
+        
+        /// <summary>
+        /// uiRepeaterthumbs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterthumbs;
+        
+        /// <summary>
         /// uiImagemain control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace E3zemni_WebGUI.ar {
         protected global::System.Web.UI.WebControls.Label uiLabelDate;
         
         /// <summary>
+        /// uipanelIsCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uipanelIsCard;
+        
+        /// <summary>
         /// uiRepeaterColor control.
         /// </summary>
         /// <remarks>
@@ -74,6 +110,15 @@ namespace E3zemni_WebGUI.ar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal uiLiteralDesc;
+        
+        /// <summary>
+        /// uiLinkButtonAddToCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddToCart;
         
         /// <summary>
         /// uiLinkButtonCustomize control.

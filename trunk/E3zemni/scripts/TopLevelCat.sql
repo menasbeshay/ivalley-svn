@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TopLevelCatLoadByPrimaryKey]    Script Date: 4/13/2014 3:19:42 PM ******/
+/****** Object:  StoredProcedure [proc_TopLevelCatLoadByPrimaryKey]    Script Date: 5/9/2014 4:42:48 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TopLevelCatLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TopLevelCatLoadByPrimaryKey];
 GO
@@ -18,7 +18,8 @@ BEGIN
 		[NameEng],
 		[NameAr],
 		[ImagePath],
-		[HoverImage]
+		[HoverImage],
+		[IsPartySupplier]
 	FROM [TopLevelCat]
 	WHERE
 		([TopLevelCatID] = @TopLevelCatID)
@@ -35,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TopLevelCatLoadByPrimaryKey Suc
 ELSE PRINT 'Procedure Creation: proc_TopLevelCatLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TopLevelCatLoadAll]    Script Date: 4/13/2014 3:19:42 PM ******/
+/****** Object:  StoredProcedure [proc_TopLevelCatLoadAll]    Script Date: 5/9/2014 4:42:48 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TopLevelCatLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TopLevelCatLoadAll];
 GO
@@ -52,7 +53,8 @@ BEGIN
 		[NameEng],
 		[NameAr],
 		[ImagePath],
-		[HoverImage]
+		[HoverImage],
+		[IsPartySupplier]
 	FROM [TopLevelCat]
 
 	SET @Err = @@Error
@@ -67,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TopLevelCatLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TopLevelCatLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TopLevelCatUpdate]    Script Date: 4/13/2014 3:19:42 PM ******/
+/****** Object:  StoredProcedure [proc_TopLevelCatUpdate]    Script Date: 5/9/2014 4:42:48 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TopLevelCatUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TopLevelCatUpdate];
 GO
@@ -78,7 +80,8 @@ CREATE PROCEDURE [proc_TopLevelCatUpdate]
 	@NameEng nvarchar(30) = NULL,
 	@NameAr nvarchar(30) = NULL,
 	@ImagePath nvarchar(200) = NULL,
-	@HoverImage nvarchar(200) = NULL
+	@HoverImage nvarchar(200) = NULL,
+	@IsPartySupplier bit = NULL
 )
 AS
 BEGIN
@@ -91,7 +94,8 @@ BEGIN
 		[NameEng] = @NameEng,
 		[NameAr] = @NameAr,
 		[ImagePath] = @ImagePath,
-		[HoverImage] = @HoverImage
+		[HoverImage] = @HoverImage,
+		[IsPartySupplier] = @IsPartySupplier
 	WHERE
 		[TopLevelCatID] = @TopLevelCatID
 
@@ -112,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TopLevelCatInsert]    Script Date: 4/13/2014 3:19:42 PM ******/
+/****** Object:  StoredProcedure [proc_TopLevelCatInsert]    Script Date: 5/9/2014 4:42:48 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TopLevelCatInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TopLevelCatInsert];
 GO
@@ -123,7 +127,8 @@ CREATE PROCEDURE [proc_TopLevelCatInsert]
 	@NameEng nvarchar(30) = NULL,
 	@NameAr nvarchar(30) = NULL,
 	@ImagePath nvarchar(200) = NULL,
-	@HoverImage nvarchar(200) = NULL
+	@HoverImage nvarchar(200) = NULL,
+	@IsPartySupplier bit = NULL
 )
 AS
 BEGIN
@@ -137,14 +142,16 @@ BEGIN
 		[NameEng],
 		[NameAr],
 		[ImagePath],
-		[HoverImage]
+		[HoverImage],
+		[IsPartySupplier]
 	)
 	VALUES
 	(
 		@NameEng,
 		@NameAr,
 		@ImagePath,
-		@HoverImage
+		@HoverImage,
+		@IsPartySupplier
 	)
 
 	SET @Err = @@Error
@@ -161,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TopLevelCatInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TopLevelCatInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TopLevelCatDelete]    Script Date: 4/13/2014 3:19:42 PM ******/
+/****** Object:  StoredProcedure [proc_TopLevelCatDelete]    Script Date: 5/9/2014 4:42:48 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TopLevelCatDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TopLevelCatDelete];
 GO

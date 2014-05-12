@@ -176,7 +176,7 @@ Customize your invitation
             <div class="pull-right grid_10" >
                
                 <div class="grid_3 alpha fll pull-right">
-                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">chose envelop</a>
+                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">choose envelop</a>
                 </div>
 
                 <div class="grid_3 alpha fll pull-right">

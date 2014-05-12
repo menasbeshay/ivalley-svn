@@ -53,13 +53,16 @@ namespace E3zemni_WebGUI.Admin
         {
             TopLevelCat cat = new TopLevelCat();
             if (CurrentTopCat == null)
+            {
                 cat.AddNew();
+                cat.IsPartySupplier = false;
+            }
             else
                 cat = CurrentTopCat;
 
             cat.NameEng = uiTextBoxEnName.Text;
             cat.NameAr = uiTextBoxArName.Text;
-
+            cat.IsPartySupplier = false;
 
             if (uiFileUploadImage.HasFile)
             {
@@ -144,8 +147,10 @@ namespace E3zemni_WebGUI.Admin
         private void BindCats()
         {
             TopLevelCat cats = new TopLevelCat();
-            cats.LoadAll();
+            cats.Where.IsPartySupplier.Value = true;
+            cats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.NotEqual;
             cats.Sort = "NameEng";
+            cats.Query.Load();
             uiGridViewCats.DataSource = cats.DefaultView;
             uiGridViewCats.DataBind();
         }

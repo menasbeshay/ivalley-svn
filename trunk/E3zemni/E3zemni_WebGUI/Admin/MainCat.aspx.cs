@@ -54,7 +54,10 @@ namespace E3zemni_WebGUI.Admin
         {
             MainCat cat = new MainCat();
             if (CurrentMainCat == null)
+            {
                 cat.AddNew();
+                cat.IsPartySupplier = false;
+            }
             else
                 cat = CurrentMainCat;
 
@@ -150,7 +153,10 @@ namespace E3zemni_WebGUI.Admin
         private void LoadDDLs()
         {
             TopLevelCat cats = new TopLevelCat();
-            cats.LoadAll();
+            cats.Where.IsPartySupplier.Value = true;
+            cats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.NotEqual;
+            cats.Sort = "NameEng";
+            cats.Query.Load();
             uiDropDownListTLCats.DataSource = cats.DefaultView;
             uiDropDownListTLCats.DataTextField = "NameEng";
             uiDropDownListTLCats.DataValueField = "TopLevelcatID";

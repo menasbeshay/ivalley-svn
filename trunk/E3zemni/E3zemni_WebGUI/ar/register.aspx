@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-md-12">
         <div class="contactform">
-        <h2 class="title">Register</h2>
+        <h2 class="title">إنشاء حساب جديد</h2>
         
           <div class="row">
             <div class="clear" style="height:5px;"></div><div class="col-md-8 pull-right">

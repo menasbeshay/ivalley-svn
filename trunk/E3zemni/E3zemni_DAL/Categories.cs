@@ -147,6 +147,14 @@ namespace E3zmni.DAL
 				}
 			}
 			
+			public static SqlParameter IsPartySupplier
+			{
+				get
+				{
+					return new SqlParameter("@IsPartySupplier", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace E3zmni.DAL
             public const string CatImage = "CatImage";
             public const string MainCatId = "MainCatId";
             public const string HoverImage = "HoverImage";
+            public const string IsPartySupplier = "IsPartySupplier";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace E3zmni.DAL
 					ht[CatImage] = _Categories.PropertyNames.CatImage;
 					ht[MainCatId] = _Categories.PropertyNames.MainCatId;
 					ht[HoverImage] = _Categories.PropertyNames.HoverImage;
+					ht[IsPartySupplier] = _Categories.PropertyNames.IsPartySupplier;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace E3zmni.DAL
             public const string CatImage = "CatImage";
             public const string MainCatId = "MainCatId";
             public const string HoverImage = "HoverImage";
+            public const string IsPartySupplier = "IsPartySupplier";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace E3zmni.DAL
 					ht[CatImage] = _Categories.ColumnNames.CatImage;
 					ht[MainCatId] = _Categories.ColumnNames.MainCatId;
 					ht[HoverImage] = _Categories.ColumnNames.HoverImage;
+					ht[IsPartySupplier] = _Categories.ColumnNames.IsPartySupplier;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace E3zmni.DAL
             public const string CatImage = "s_CatImage";
             public const string MainCatId = "s_MainCatId";
             public const string HoverImage = "s_HoverImage";
+            public const string IsPartySupplier = "s_IsPartySupplier";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace E3zmni.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.HoverImage, value);
+			}
+		}
+
+		public virtual bool IsPartySupplier
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsPartySupplier);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsPartySupplier, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace E3zmni.DAL
 			}
 		}
 
+		public virtual string s_IsPartySupplier
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsPartySupplier) ? string.Empty : base.GetboolAsString(ColumnNames.IsPartySupplier);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsPartySupplier);
+				else
+					this.IsPartySupplier = base.SetboolAsString(ColumnNames.IsPartySupplier, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace E3zmni.DAL
 					}
 				}
 
+				public WhereParameter IsPartySupplier
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsPartySupplier, Parameters.IsPartySupplier);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public WhereParameter IsPartySupplier
+		    {
+				get
+		        {
+					if(_IsPartySupplier_W == null)
+	        	    {
+						_IsPartySupplier_W = TearOff.IsPartySupplier;
+					}
+					return _IsPartySupplier_W;
+				}
+			}
+
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _CatNameAr_W = null;
 			private WhereParameter _CatNameEng_W = null;
 			private WhereParameter _CatImage_W = null;
 			private WhereParameter _MainCatId_W = null;
 			private WhereParameter _HoverImage_W = null;
+			private WhereParameter _IsPartySupplier_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace E3zmni.DAL
 				_CatImage_W = null;
 				_MainCatId_W = null;
 				_HoverImage_W = null;
+				_IsPartySupplier_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace E3zmni.DAL
 					}
 				}
 
+				public AggregateParameter IsPartySupplier
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsPartySupplier, Parameters.IsPartySupplier);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public AggregateParameter IsPartySupplier
+		    {
+				get
+		        {
+					if(_IsPartySupplier_W == null)
+	        	    {
+						_IsPartySupplier_W = TearOff.IsPartySupplier;
+					}
+					return _IsPartySupplier_W;
+				}
+			}
+
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _CatNameAr_W = null;
 			private AggregateParameter _CatNameEng_W = null;
 			private AggregateParameter _CatImage_W = null;
 			private AggregateParameter _MainCatId_W = null;
 			private AggregateParameter _HoverImage_W = null;
+			private AggregateParameter _IsPartySupplier_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace E3zmni.DAL
 				_CatImage_W = null;
 				_MainCatId_W = null;
 				_HoverImage_W = null;
+				_IsPartySupplier_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace E3zmni.DAL
 
 			p = cmd.Parameters.Add(Parameters.HoverImage);
 			p.SourceColumn = ColumnNames.HoverImage;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsPartySupplier);
+			p.SourceColumn = ColumnNames.IsPartySupplier;
 			p.SourceVersion = DataRowVersion.Current;
 
 

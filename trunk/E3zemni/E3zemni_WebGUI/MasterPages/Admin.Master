@@ -129,10 +129,10 @@
 
 						<nav>
 							<ul class="sf-menu">
-								<li id="homeItem"><a href="../Admin/AdminCP.aspx">Home</a>
-									
+								<li id="homeItem"><a href="../Admin/AdminCP.aspx">Home</a>									
                                 </li>
-                                <li id="cat" ><a href="#">Categories</a>
+                                <li id="invitation"><a href="">Invitations Categories</a>
+                                
                                 <ul>
                                 <li id="TopcatsItem"><a href="../Admin/EditTopLevelCat.aspx">Top Categories</a>
 									
@@ -144,14 +144,26 @@
 									
 								</li>
                                 </ul>
-                                </li>
+
+                                </li>       
+                                
+                                 <li id="PSCats"><a href="">Party Suppliers Categories</a>
+                                
+                                <ul>
+                                <li id="TopcatsPSItem"><a href="../Admin/EditTopLevelCat_ps.aspx">Top Categories</a>
+									
+								</li>								
+                                <li id="MaincatsPSItem"><a href="../Admin/MainCat_ps.aspx">Main Categories</a>
+									
+								</li>								
+								<li id="catsPSItem"><a href="../Admin/EditCategories_ps.aspx">Categories</a>
+									
+								</li>
+                                </ul>
+
+                                </li>                               
 								
-                                <li id="colorsItem"><a href="../Admin/EditColors.aspx">Colors</a>
-									
-								</li>
-                                <li id="DimItem"><a href="../Admin/EditDimension.aspx">Dimensions</a>
-									
-								</li>
+                             
                                 <li id="EnvItem"><a href="../Admin/EditEnvelops.aspx">Envelops</a>
 									
 								</li>
@@ -160,7 +172,18 @@
 								</li>
 								
 								<li id="cardItem"><a href="../Admin/EditCards.aspx">Cards</a></li>
+                                <li id="ProdItem"><a href="../Admin/EditProducts.aspx">Products</a></li>
                                 <li id="orderItem"><a href="../Admin/UserOrders.aspx">Orders</a></li>
+                                <li><a href="">Other</a>
+                                <ul>
+                                   <li id="colorsItem"><a href="../Admin/EditColors.aspx">Colors</a>
+									
+								</li>
+                                <li id="DimItem"><a href="../Admin/EditDimension.aspx">Dimensions</a>
+									
+								</li>
+                                </ul>
+                                </li>
 							</ul><!-- end menu -->
 						</nav><!-- end nav -->
 					</div><!-- row -->

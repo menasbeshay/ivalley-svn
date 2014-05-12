@@ -143,6 +143,7 @@ namespace E3zemni_WebGUI.Admin
                 card.AddNew();
                 card.UploadDate = DateTime.Now;
                 card.CategoryID = Convert.ToInt32(uiDropDownListCats.SelectedValue);
+                card.IsPartySupplier = false;
             }
             else
                 card = CurrentCard;
@@ -479,7 +480,7 @@ namespace E3zemni_WebGUI.Admin
         {
             Cards cards = new Cards();
             if (uiDropDownListCats.SelectedIndex != -1)
-                cards.GetCardsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue));
+                cards.GetCardsByCategoryID(Convert.ToInt32(uiDropDownListCats.SelectedValue), false);
             uiGridViewCards.DataSource = cards.DefaultView;
             uiGridViewCards.DataBind();
         }
@@ -533,7 +534,10 @@ namespace E3zemni_WebGUI.Admin
 
 
             TopLevelCat Tcats = new TopLevelCat();
-            Tcats.LoadAll();
+            Tcats.Where.IsPartySupplier.Value = true;
+            Tcats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.NotEqual;
+            Tcats.Sort = "NameEng";
+            Tcats.Query.Load();
             uiDropDownListTC.DataSource = Tcats.DefaultView;
             uiDropDownListTC.DataTextField = "NameEng";
             uiDropDownListTC.DataValueField = "TopLevelCatID";

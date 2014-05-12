@@ -8,6 +8,38 @@
 <div class="row clearfix mbs">
 					<div class="grid_8">
 						<div class="products shop clearfix mbf">
+                            <asp:Panel runat="server" ID="uipanelImages">
+                                <asp:Repeater ID="uiRepeaterImages" runat="server">
+                                    <HeaderTemplate>
+                                        <div id="projectslider" class="projectslider flexslider clearfix">
+								            <ul class="slides">
+                                    </HeaderTemplate>
+                                    <FooterTemplate>
+                                            </ul>
+							            </div>
+                                    </FooterTemplate>
+                                    <ItemTemplate>
+                                        <li><img src='<%# Eval("ImagePath") %>' alt="#"></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+
+                                <asp:Repeater ID="uiRepeaterthumbs" runat="server">
+                                    <HeaderTemplate>
+                                        <div id="thumbnails" class="flexslider clearfix">
+								            <ul class="slides">
+                                    </HeaderTemplate>
+                                    <FooterTemplate>
+                                            </ul>
+							            </div>
+                                    </FooterTemplate>
+                                    <ItemTemplate>
+                                        <li><img src='<%# Eval("ImagePath") %>' alt="#"></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                                                								
+							
+                            </asp:Panel>
                             <asp:Image ID="uiImagemain" runat="server" />
                         </div>
                         </div>
@@ -31,6 +63,7 @@
 							<i class="icon_star" title="Rated 4.40 out of 5"></i>
 							<i class="icon_star_alt" title="Rated 4.40 out of 5"></i>
 						</p>--%>
+                        <asp:Panel ID="uipanelIsCard" runat="server">
                         <p>
                             ألوان الخلفية المقترحة :
                             <asp:Repeater ID="uiRepeaterColor" runat="server" 
@@ -40,6 +73,7 @@
                             </ItemTemplate>
                             </asp:Repeater>
                         </p>
+                        </asp:Panel>
 						<p>
                             <asp:Literal ID="uiLiteralDesc" runat="server"></asp:Literal>
                         </p>
@@ -48,7 +82,8 @@
 							<div class="single_variation_wrap">
 								
 								<div class="variations_button">									
-                                    
+                                    <asp:LinkButton ID="uiLinkButtonAddToCart" runat="server" 
+                                        class="tbutton medium" onclick="uiLinkButtonAddToCart_Click"><span>أضف إلى سلة التسوق</span></asp:LinkButton>
                                     <asp:LinkButton ID="uiLinkButtonCustomize" runat="server" class="tbutton medium"><span>صمم بنفسك</span></asp:LinkButton>                                    
 								</div>
 							</div>

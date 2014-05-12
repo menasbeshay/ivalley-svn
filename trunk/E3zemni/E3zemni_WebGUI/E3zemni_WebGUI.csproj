@@ -70,13 +70,17 @@
     <Content Include="Admin\AdminCP.aspx" />
     <Content Include="Admin\EditCards.aspx" />
     <Content Include="Admin\EditCategories.aspx" />
+    <Content Include="Admin\EditCategories_ps.aspx" />
     <Content Include="Admin\EditColors.aspx" />
     <Content Include="Admin\EditDimension.aspx" />
     <Content Include="Admin\EditEnvelops.aspx" />
     <Content Include="Admin\EditPages.aspx" />
+    <Content Include="Admin\EditProducts.aspx" />
     <Content Include="Admin\EditTopLevelCat.aspx" />
+    <Content Include="Admin\EditTopLevelCat_ps.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\MainCat.aspx" />
+    <Content Include="Admin\MainCat_ps.aspx" />
     <Content Include="Admin\UserOrders.aspx" />
     <Content Include="ar\browse.aspx" />
     <Content Include="ar\checkout.aspx" />
@@ -87,6 +91,7 @@
     <Content Include="ar\login.aspx" />
     <Content Include="ar\page.aspx" />
     <Content Include="ar\register.aspx" />
+    <Content Include="ar\userprofile.aspx" />
     <Content Include="ar\viewcard.aspx" />
     <Content Include="ar\viewenvelops.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
@@ -122,6 +127,7 @@
     <Content Include="images\2c651a0b-87e9-4219-a5b0-f1e075a50487_1.jpeg" />
     <Content Include="images\32495a00-bfc2-494f-91f8-bb98e382c24a_2.jpeg" />
     <Content Include="images\7b78a19f-2604-42a0-9707-9bf9219ec5a7_2.jpeg" />
+    <Content Include="images\action_delete.gif" />
     <Content Include="images\ads1.gif" />
     <Content Include="images\ads2.jpg" />
     <Content Include="images\ads3.gif" />
@@ -1085,6 +1091,13 @@
     <Compile Include="Admin\EditCategories.aspx.designer.cs">
       <DependentUpon>EditCategories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditCategories_ps.aspx.cs">
+      <DependentUpon>EditCategories_ps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCategories_ps.aspx.designer.cs">
+      <DependentUpon>EditCategories_ps.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditColors.aspx.cs">
       <DependentUpon>EditColors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1113,12 +1126,26 @@
     <Compile Include="Admin\EditPages.aspx.designer.cs">
       <DependentUpon>EditPages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditProducts.aspx.cs">
+      <DependentUpon>EditProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditProducts.aspx.designer.cs">
+      <DependentUpon>EditProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditTopLevelCat.aspx.cs">
       <DependentUpon>EditTopLevelCat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\EditTopLevelCat.aspx.designer.cs">
       <DependentUpon>EditTopLevelCat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditTopLevelCat_ps.aspx.cs">
+      <DependentUpon>EditTopLevelCat_ps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTopLevelCat_ps.aspx.designer.cs">
+      <DependentUpon>EditTopLevelCat_ps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1133,6 +1160,13 @@
     </Compile>
     <Compile Include="Admin\MainCat.aspx.designer.cs">
       <DependentUpon>MainCat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MainCat_ps.aspx.cs">
+      <DependentUpon>MainCat_ps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MainCat_ps.aspx.designer.cs">
+      <DependentUpon>MainCat_ps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserOrders.aspx.cs">
       <DependentUpon>UserOrders.aspx</DependentUpon>
@@ -1203,6 +1237,13 @@
     </Compile>
     <Compile Include="ar\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\userprofile.aspx.cs">
+      <DependentUpon>userprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\userprofile.aspx.designer.cs">
+      <DependentUpon>userprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ar\viewcard.aspx.cs">
       <DependentUpon>viewcard.aspx</DependentUpon>
@@ -1327,7 +1368,6 @@
     <Compile Include="UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UsersInfo.cs" />
     <Compile Include="viewCard.aspx.cs">
       <DependentUpon>viewCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1349,6 +1389,7 @@
     <Folder Include="images\Category\" />
     <Folder Include="images\Envelop\" />
     <Folder Include="images\Layout\" />
+    <Folder Include="images\ProductImages\" />
     <Folder Include="images\UserOrders\" />
   </ItemGroup>
   <ItemGroup>

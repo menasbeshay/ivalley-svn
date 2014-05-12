@@ -15,7 +15,8 @@
         <div class="grid_9">
             <div class="products shop clearfix mbf">
                 <asp:Repeater ID="uiRepeaterCards" runat="server" 
-                    onitemdatabound="uiRepeaterCards_ItemDataBound">
+                    onitemdatabound="uiRepeaterCards_ItemDataBound" 
+                    onitemcommand="uiRepeaterCards_ItemCommand">
                     <ItemTemplate>
                         <div class="product grid_4">
                             <img class="product_img" src='<%# Eval("MainPhoto") %>' alt=""><!-- featured thumbnail -->
@@ -33,6 +34,7 @@
                                     </p>
                                     
                                 </div>
+                                <asp:Panel ID="uipanelIsCard" runat="server" Visible='<%# (Eval("IsPartySupplier").ToString() == "False" || string.IsNullOrEmpty(Eval("IsPartySupplier").ToString())) %>'>
                                 <div class="clearfix" style="height:25px;">
                                     Available colors :
                                         <asp:Repeater ID="uiRepeaterColor" runat="server" 
@@ -42,6 +44,7 @@
                                         </ItemTemplate>
                                         </asp:Repeater>                                    
                                 </div>
+                                </asp:Panel>
                                 <div class="clearfix" style="height:25px;padding-top:5px;">
                                     <div class="Share">
                                         <!-- AddThis Button BEGIN -->
@@ -57,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="product_meta clearfix">
-                                <a href="#" class="f_btn add_c"><span><i class="icon_heart_alt"></i> Add to wishlist</span></a>
+                                <asp:LinkButton ID="uiLinkButtonAddToFav" CommandName="AddToFav" CommandArgument='<%# Eval("CardID") %>' CssClass="f_btn add_c" runat="server"><span><i class="icon_heart_alt"></i> Add to wishlist</span></asp:LinkButton>                                
                                 <a href='viewCard.aspx?cid=<%# Eval("CardID") %>' class="f_btn"><span><i class="icon_menu">
                                 </i>Details</span></a>
                             </div>

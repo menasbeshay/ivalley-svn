@@ -178,6 +178,23 @@ namespace E3zemni_WebGUI.ar
 
 
 
+        public bool IsPartySupplier
+        {
+            get
+            {
+                if (Request.QueryString["ps"] != null)
+                {
+                    bool result = false;
+                    bool.TryParse(Request.QueryString["ps"].ToString(), out result);
+                    return result;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
 
         public int currentPage
         {
@@ -231,7 +248,7 @@ namespace E3zemni_WebGUI.ar
                 else if (TopCatID != 0)
                 {
                     TopLevelCat cat = new TopLevelCat();
-                    cat.LoadByPrimaryKey(MainCatID);
+                    cat.LoadByPrimaryKey(TopCatID);
                     Master.PageTitle = cat.NameAr;
 
                     Master.ViewPath = true;
@@ -258,7 +275,7 @@ namespace E3zemni_WebGUI.ar
         private void BindData()
         {
             Cards cards = new Cards();
-            cards.SearchCards(SearchText, CatID, PriceFrom, PriceTo, DimIds, ColorIds);
+            cards.SearchCards(SearchText, CatID,MainCatID,TopCatID, PriceFrom, PriceTo, DimIds, ColorIds, IsPartySupplier);
 
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = cards.DefaultView;
@@ -304,6 +321,33 @@ namespace E3zemni_WebGUI.ar
                 Color c = new Color();
                 c.LoadByPrimaryKey(Convert.ToInt32(row["ColorID"].ToString()));
                 l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
+            }
+        }
+
+        protected void uiRepeaterCards_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "AddToFav")
+            {
+                UserFavorites fav = new UserFavorites();
+                if (Session["CurrentUser"] != null)
+                {
+                    UserInfo user = new UserInfo();
+                    user = (UserInfo)Session["CurrentUser"];
+                    fav.GetFavouritesByUserIDAndProductID(user.UserID, Convert.ToInt32(e.CommandArgument.ToString()));
+
+                    if (!(fav.RowCount > 0))
+                    {
+                        fav.AddNew();
+                        fav.UserID = user.UserID;
+                        fav.CardID = Convert.ToInt32(e.CommandArgument.ToString());
+                        fav.MarkDate = DateTime.Now;
+                        fav.Save();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("login.aspx");
+                }
             }
         }
         #endregion
