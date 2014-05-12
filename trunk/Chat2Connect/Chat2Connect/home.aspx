@@ -496,7 +496,7 @@
 
                         <div style="height: 5px;" class="clearfix"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, valueUpdate: 'afterkeydown', event: { keypress: $parent.keyboardCmd}, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px;'></textarea>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px;'></textarea>
 
                         <div style="height: 20px;" class="clearfix"></div>
 
@@ -973,7 +973,7 @@
                 </div>
             </div>
         </div>
-        <!-- ko if:CurrentMemberSettings.IsAdmin()-->
+        <!-- ko if:Type()=="Room" && CurrentMemberSettings.IsAdmin()-->
         <div data-bind="attr:{id:'banModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
