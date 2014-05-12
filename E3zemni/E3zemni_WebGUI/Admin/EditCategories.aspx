@@ -16,13 +16,7 @@
                            Add / Edit Categories </h4>
                         
                     
-                        <asp:Panel ID="uipanelError" runat="server" >
-                            <div class="alert alert-error">
-                                <button class="close" data-dismiss="alert">
-                                    ×</button>
-                                <strong>Error!</strong> An error occurred. Can't delete this category.
-                            </div>
-                        </asp:Panel>
+                       
                         <div class="clearfix"></div>
                         <div class="form-horizontal">
                         
@@ -66,7 +60,7 @@
                         </div>
                    
             </div>
-        </div>
+        
     </asp:Panel>
     <asp:Panel ID="uiPanelAllCats" runat="server">
         <div class="row">
@@ -96,6 +90,15 @@
                 <div class="clear" style="height:10px;"></div>
                         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn btn-primary" 
                             onclick="uiLinkButtonAdd_Click" > Add new category</asp:LinkButton>
+                        <div class="clear" style="height: 20px;">
+                        </div>
+                         <asp:Panel ID="uipanelError" runat="server" >
+                            <div class="alert alert-error">
+                                <button class="close" data-dismiss="alert">
+                                    ×</button>
+                                <strong>Error!</strong> An error occurred. Can't delete this category.
+                            </div>
+                        </asp:Panel>
                         <div class="clear" style="height: 20px;">
                         </div>
                         <asp:GridView ID="uiGridViewCats" runat="server" AllowPaging="True" AutoGenerateColumns="False"

@@ -100,11 +100,28 @@
 				<div class="head_up">
 					<div class="row clearfix">
 						<div class="l_ht">
-							<a href="../ar/login.aspx">الدخول</a>
+							
+                             <asp:linkbutton id="lbtnLogin" PostBackUrl="~/ar/login.aspx"  text="الدخول" runat="server"  CssClass="lbtnMarge" />
+                            <asp:linkbutton id="lbtnLogout"   text="خروج" CssClass="lbtnMarge" 
+                                Visible="false" runat="server" onclick="lbtnLogout_Click"   />
+                            <asp:linkbutton id="lbtnProfile" PostBackUrl="~/ar/UserProfile.aspx"  text="حسابى" CssClass="lbtnMarge"  Visible="false" runat="server" />
 						</div><!-- end text left -->
 
 						<div class="r_ht">
 							
+                             <div class="shopping_bag">
+								<div class="header_bag">
+									<a href="../ar/checkout.aspx"><span>
+                                        <asp:Label ID="uiLabelItemsCount" runat="server"></asp:Label> صنف فى السلة </span><i class="icon_cart_alt"></i></a>
+								</div>
+                            </div>
+
+                            <div class="shopping_bag">
+                                <div class="header_bag">
+                                    <a href="../ar/wishlist.aspx"><span>
+                                        <asp:Label ID="uiLabelFavCount" runat="server"></asp:Label> صنف</span><i class="icon_heart_alt"></i></a>
+                                </div>
+                            </div>
 							
                             <div class="languages">								
                                 <asp:LinkButton ID="uiLinkButtonEn" runat="server" 

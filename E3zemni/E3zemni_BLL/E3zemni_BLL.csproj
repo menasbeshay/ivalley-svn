@@ -47,6 +47,7 @@
     <Compile Include="CardText.cs" />
     <Compile Include="Categories.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="PartySupplierImages.cs" />
     <Compile Include="Dimension.cs" />
     <Compile Include="Envelops.cs" />
     <Compile Include="MainCat.cs" />

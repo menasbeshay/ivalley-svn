@@ -78,4 +78,34 @@ select D.* , Cast(D.Width as nvarchar(50)) + N' × ' + cast(D.Height as nvarchar(
 from Dimension D
 Go
 
-exec GetAllDims
+
+
+
+alter table cards
+add IsPartySupplier bit
+
+alter table TopLevelCat
+add IsPartySupplier bit
+
+alter table MainCat
+add IsPartySupplier bit
+
+alter table Categories
+add IsPartySupplier bit
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'PartySupplierImages' and
+		        xtype = 'U')
+Drop Table PartySupplierImages
+Go
+Create Table PartySupplierImages
+(
+	PartySupplierImageID int not null
+			identity(1,1)
+			Primary Key,	
+	CardID int foreign key references Cards(CardID),
+	ImagePath nvarchar(200)
+)
+Go

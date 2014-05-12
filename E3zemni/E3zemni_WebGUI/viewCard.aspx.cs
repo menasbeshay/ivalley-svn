@@ -47,11 +47,36 @@ namespace E3zemni_WebGUI
                     uiImagemain.ImageUrl = card.MainPhoto;
                     uiLabelDate.Text = card.UploadDate.ToString("dd/MM/yyyy");
                     uiLiteralDesc.Text = card.DescriptionEng;
-                    CardColor colors = new CardColor();
-                    colors.GetCardColorsByCardID(card.CardID);
-                    uiRepeaterColor.DataSource = colors.DefaultView;
-                    uiRepeaterColor.DataBind();
-                    uiLinkButtonCustomize.PostBackUrl = "customize.aspx?cid=" + card.CardID;
+                    if (card.IsPartySupplier)
+                    {
+                        uipanelIsCard.Visible = false;
+                        uiLinkButtonCustomize.Visible = false;
+                        uipanelImages.Visible = true;
+                        uiImagemain.Visible = false;
+
+                        PartySupplierImages images = new PartySupplierImages();
+                        images.Where.CardID.Value = card.CardID;
+                        images.Where.CardID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                        images.Query.Load();
+                        images.AddNew();
+                        images.CardID = card.CardID;
+                        images.ImagePath = card.MainPhoto;
+                        uiRepeaterImages.DataSource = images.DefaultView;
+                        uiRepeaterImages.DataBind();
+
+                        uiRepeaterthumbs.DataSource = images.DefaultView;
+                        uiRepeaterthumbs.DataBind();
+
+                    }
+                    else
+                    {
+                        uipanelImages.Visible = false;
+                        CardColor colors = new CardColor();
+                        colors.GetCardColorsByCardID(card.CardID);
+                        uiRepeaterColor.DataSource = colors.DefaultView;
+                        uiRepeaterColor.DataBind();
+                        uiLinkButtonCustomize.PostBackUrl = "customize.aspx?cid=" + card.CardID;
+                    }
                     BindReviews();
 
                     Master.PageTitle = card.CardNameEng;
@@ -116,6 +141,20 @@ namespace E3zemni_WebGUI
                 uiLabelError.Visible = true;
             }
 
+        }
+
+        protected void uiLinkButtonAddToCart_Click(object sender, EventArgs e)
+        {
+            UserPayement temp = (UserPayement)Session["UserPayment"];
+            if (temp == null)
+                temp = new UserPayement();
+            temp.AddNew();
+            Cards card = new Cards();
+            card.LoadByPrimaryKey(CardID);
+            temp.CardID = card.CardID;
+            temp.CardDesign = card.MainPhoto;
+            temp.CardCount = 1;
+            Session["UserPayment"] = temp;
         }
     }
 }

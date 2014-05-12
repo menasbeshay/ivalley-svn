@@ -22,15 +22,6 @@ namespace E3zemni_WebGUI.Admin {
         protected global::System.Web.UI.WebControls.Panel uiPanelEditCat;
         
         /// <summary>
-        /// uipanelError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uipanelError;
-        
-        /// <summary>
         /// uiTextBoxEnName control.
         /// </summary>
         /// <remarks>
@@ -128,6 +119,15 @@ namespace E3zemni_WebGUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
+        
+        /// <summary>
+        /// uipanelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uipanelError;
         
         /// <summary>
         /// uiGridViewCats control.

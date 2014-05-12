@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using E3zmni.BLL;
 
 namespace E3zemni_WebGUI.MasterPages
 {
@@ -44,6 +45,10 @@ namespace E3zemni_WebGUI.MasterPages
                 lbtnLogin.Visible = false;
                 lbtnLogout.Visible = true;
                 lbtnProfile.Visible = true;
+                UserInfo user = (UserInfo)Session["CurrentUser"];
+                UserFavorites fav = new UserFavorites();
+                fav.GetFavouritesByUserID(user.UserID);                
+                uiLabelFavCount.Text = fav.RowCount.ToString();
 
             }
             else
@@ -51,9 +56,15 @@ namespace E3zemni_WebGUI.MasterPages
                 lbtnLogin.Visible = true;
                 lbtnLogout.Visible = false;
                 lbtnProfile.Visible = false;
+                uiLabelFavCount.Text = "0";
 
             }
 
+            UserPayement temp = (UserPayement)Session["UserPayment"];
+            if (temp == null)
+                uiLabelItemsCount.Text = "0";
+            else
+                uiLabelItemsCount.Text = temp.RowCount.ToString();
 
         }
 

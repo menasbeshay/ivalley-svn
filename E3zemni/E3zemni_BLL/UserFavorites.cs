@@ -12,5 +12,21 @@ namespace E3zmni.BLL
 		{
 		
 		}
+
+        public virtual bool GetFavouritesByUserIDAndProductID(int userid, int cardid)
+        {
+            this.Where.CardID.Value = cardid;
+            this.Where.CardID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Where.UserID.Value = userid;
+            this.Where.UserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
+
+        public virtual bool GetFavouritesByUserID(int userid)
+        {            
+            this.Where.UserID.Value = userid;
+            this.Where.UserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
 }

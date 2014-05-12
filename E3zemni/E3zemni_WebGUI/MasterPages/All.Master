@@ -117,7 +117,19 @@
 
 						<div class="r_ht">
 							
+                            <div class="shopping_bag">
+								<div class="header_bag">
+									<a href="../checkout.aspx"><i class="icon_cart_alt"></i><span>
+                                        <asp:Label ID="uiLabelItemsCount" runat="server"></asp:Label> item(s)</span></a>
+								</div>
+                            </div>
 
+                            <div class="shopping_bag">
+                                <div class="header_bag">
+                                    <a href="../wishlist.aspx"><i class="icon_heart_alt"></i><span>
+                                        <asp:Label ID="uiLabelFavCount" runat="server"></asp:Label> item(s)</span></a>
+                                </div>
+                            </div>
 							
                             <div class="languages">
 								<a href="#"><span>EN</span></a>

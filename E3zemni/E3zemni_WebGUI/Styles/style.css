@@ -860,7 +860,7 @@ textarea {
 .sf-menu ul {
 	position: absolute;
 	top: -999em;
-	width: 172px;
+	width: 200px;
 }
 .sf-menu ul li { 
 	width: 100%;
@@ -878,7 +878,7 @@ textarea {
 .sf-menu li {
 	float: left;
 	position: relative;
-	margin: 0 0 0 14px;
+	margin: 0 0 0 8px;
 	padding: 0
 }
 .sf-menu li li {
@@ -909,9 +909,9 @@ textarea {
 	position: relative;
 	color: #000;
 	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 400;
-	padding: 10px 16px;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px 6px;
 	margin: 0;
 	border-radius: 6px;
 	border: 1px solid transparent;
@@ -961,7 +961,7 @@ textarea {
 .sf-menu li:hover ul,
 .sf-menu li.sfHover ul {
 	left: 0px;
-	z-index:	 999;
+	z-index:999;
 	top: 34px;
 	padding: 0;
 }
@@ -969,9 +969,9 @@ textarea {
 .sf-menu li.sfHover ul li ul, 
 .sf-menu li:hover ul li ul li ul,
 .sf-menu li.sfHover ul li ul li ul  {
-	left: 172px;
+	left: 200px;
 	z-index: 999;
-	top: -1px !important
+	top: -1px !important;
 }
 ul.sf-menu li:hover li ul,
 ul.sf-menu li.sfHover li ul {
@@ -979,7 +979,7 @@ ul.sf-menu li.sfHover li ul {
 }
 ul.sf-menu li li:hover ul,
 ul.sf-menu li li.sfHover ul {
-	left: 172px;
+	left: 200px;
 	top: -1px !important;
 	padding: 0;
 }
@@ -989,7 +989,7 @@ ul.sf-menu li li.sfHover li ul {
 }
 ul.sf-menu li li li:hover ul,
 ul.sf-menu li li li.sfHover ul {
-	left: 172px;
+	left: 200px;
 	top: 0;
 }
 .sf-menu li:hover, .sf-menu li.sfHover,
@@ -1006,7 +1006,7 @@ ul.sf-menu li li li.sfHover ul {
 }
 a > .sf-sub-indicator { 
 	position: absolute;
-	right: 8%;
+	right: 4%;
 	top: 12px;
 	font-size: 8px;
 }
