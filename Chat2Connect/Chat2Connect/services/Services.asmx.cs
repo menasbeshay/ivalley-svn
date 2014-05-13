@@ -108,21 +108,33 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SendMsg(int sender, string ToMember, string subject, string content)
+        public bool SendMsg(int sender,string ToMember, string subject,string toName, string content)
         {
             List<int> recipients = new List<int>();
             string[] ToMembers = ToMember.Split(',');
-            Guid operationID = Guid.NewGuid();
-            MemberMessage message = new MemberMessage();
+            BLL.Message msg = new BLL.Message();
+            msg.AddNew();
+            msg.Body = content;
+            msg.SenderID = sender;
+            msg.Subject = subject;
+            msg.ToMembers = toName;
+            msg.Save();
+            MemberMessage memberMsg = new MemberMessage();
+            //add to member sent items
+            memberMsg.AddNew();
+            memberMsg.MessageID = msg.ID;
+            memberMsg.IsRead = true;
             foreach (string item in ToMembers)
             {
                 if (!string.IsNullOrEmpty(item))
                 {
                     int recipientID = Convert.ToInt32(item);
-                    if (recipientID > 0)
+                    if (recipientID > 0 && !recipients.Contains(recipientID))
                     {
                         recipients.Add(recipientID);
-                        SendMsg(sender, subject, content, message, recipientID, operationID);
+                        memberMsg.AddNew();
+                        memberMsg.MemberID = recipientID;
+                        memberMsg.MessageID = msg.ID;
                     }
                     else
                     {
@@ -133,15 +145,20 @@ namespace Chat2Connect.services
                             aliasMembers.GetByAliase((Helper.Enums.AdminMailAddressAlias)recipientID);
                             do
                             {
-                                recipients.Add(aliasMembers.MemberID);
-                                SendMsg(sender, subject, content, message, aliasMembers.MemberID, operationID);
+                                if (!recipients.Contains(aliasMembers.MemberID))
+                                {
+                                    recipients.Add(aliasMembers.MemberID);
+                                    memberMsg.AddNew();
+                                    memberMsg.MemberID = aliasMembers.MemberID;
+                                    memberMsg.MessageID = msg.ID;
+                                }
                             } while (aliasMembers.MoveNext());
                         }
                     }
                 }
             }
 
-            message.Save();
+            memberMsg.Save();
             if (recipients.Count > 0)
             {
                 NotificationHub notifications = new NotificationHub();
@@ -152,19 +169,6 @@ namespace Chat2Connect.services
             }
             return true;
         }
-
-        private static void SendMsg(int sender, string subject, string content, MemberMessage message, int recipientID, Guid operationID)
-        {
-            message.AddNew();
-            message.SendDate = DateTime.Now;
-            message.SenderID = sender;
-            message.MemberID = recipientID;
-            message.MessageSubject = subject;
-            message.MessageContent = content;
-            message.IsRead = false;
-            message.OperationID = operationID;
-        }
-
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

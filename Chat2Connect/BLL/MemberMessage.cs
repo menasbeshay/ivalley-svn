@@ -15,43 +15,45 @@ namespace BLL
 
         }
 
-        public virtual bool GetMessagesBySenderID_Sent(int MemberID)
+        public virtual bool LoadSentMessages(int MemberID)
         {
-            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
-                                    from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
-                                    where SenderID = {0} And (IsDeleted is null Or IsDeleted <> 1) AND MessageFolderID IS NULL
-                                    Order by SendDate desc", MemberID);
+            return LoadFromRawSql(@"Select MemberMessage.*,Message.*
+                                    from MemberMessage INNER JOIN Message on Message.ID=MemberMessage.MessageID AND MemberMessage.MemberID IS NULL
+                                    where Message.SenderID = {0} And (IsDeleted is null Or IsDeleted <> 1) AND MessageFolderID IS NULL
+                                    Order by CreateDate desc", MemberID);
 
         }
 
-        public virtual bool GetMessagesByMemberID_Received(int MemberID)
+        public virtual bool LoadReceivedMessages(int MemberID)
         {
             ListDictionary parameters = new ListDictionary();
             
-            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
-                                    from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+            return LoadFromRawSql(@"Select MemberMessage.*,Message.*,[FromMember]=Member.Name 
+                                    from MemberMessage INNER JOIN Message on Message.ID=MemberMessage.MessageID
+                                                       INNER JOIN Member ON Member.MemberID=Message.SenderID
                                     where MemberMessage.MemberID = {0} And 
 	                                      (IsDeleted is null Or IsDeleted <> 1) AND MessageFolderID IS NULL
-                                    Order by SendDate desc", MemberID);
+                                    Order by CreateDate desc", MemberID);
         }
 
-        public virtual bool GetMessagesByMemberID_Deleted(int MemberID)
+        public virtual bool LoadTrashMessages(int MemberID)
         {
-            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
-                                from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
-                                where MemberMessage.MemberID = {0} And 
+            return LoadFromRawSql(@"Select MemberMessage.*,Message.*,[FromMember]=Member.Name 
+                                    from MemberMessage INNER JOIN Message on Message.ID=MemberMessage.MessageID
+                                                       INNER JOIN Member ON Member.MemberID=Message.SenderID
+                                    where (MemberMessage.MemberID = {0} OR (Message.SenderID={0} AND MemberMessage.MemberID IS NULL))  And
 	                                  IsDeleted = 1 AND MessageFolderID IS NULL
-                                Order by SendDate desc", MemberID);
+                                Order by CreateDate desc", MemberID);
 
         }
 
-
-        public virtual bool GetMessagesByFolderID(int FolderID)
+        public virtual bool LoadByFolderID(int FolderID)
         {
-            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=Member.Name 
-                                from MemberMessage INNER JOIN Member on Member.MemberID=MemberMessage.SenderID
+            return LoadFromRawSql(@"Select MemberMessage.*,Message.*,[FromMember]=Member.Name 
+                                    from MemberMessage INNER JOIN Message on Message.ID=MemberMessage.MessageID
+                                                       INNER JOIN Member ON Member.MemberID=Message.SenderID
                                 where MemberMessage.MessageFolderID = {0}
-                                Order by SendDate desc", FolderID);
+                                Order by CreateDate desc", FolderID);
 
         }
 
@@ -59,8 +61,8 @@ namespace BLL
         {
             if (selectedMessages != null && selectedMessages.Count > 0)
             {
-                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
-                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                this.Where.ID.Value = String.Join(",", selectedMessages);
+                this.Where.ID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
                 if (this.Query.Load())
                 {
                     do
@@ -77,8 +79,8 @@ namespace BLL
         {
             if (selectedMessages != null && selectedMessages.Count > 0)
             {
-                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
-                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                this.Where.ID.Value = String.Join(",", selectedMessages);
+                this.Where.ID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
                 if (this.Query.Load())
                 {
                     do
@@ -95,8 +97,8 @@ namespace BLL
         {
             if (selectedMessages != null && selectedMessages.Count > 0)
             {
-                this.Where.MemberMessageID.Value = String.Join(",", selectedMessages);
-                this.Where.MemberMessageID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+                this.Where.ID.Value = String.Join(",", selectedMessages);
+                this.Where.ID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
                 if (this.Query.Load())
                 {
                     do
@@ -108,13 +110,40 @@ namespace BLL
             }
         }
 
-        public bool LoadFullInfoByIDAndOperation(int msgID, string operation)
+        public bool LoadFullInfoByID(int msgID)
         {
-            return LoadFromRawSql(@"Select MemberMessage.*,[SenderName]=sender.Name ,[RecipientName]=Recipient.Name
-                                    from MemberMessage INNER JOIN Member sender on sender.MemberID=MemberMessage.SenderID
-                                    INNER JOIN Member Recipient on Recipient.MemberID=MemberMessage.MemberID
-                                    WHERE MemberMessage.MemberMessageID={0} AND ISNULL(convert(nvarchar(50), OperationID),'')={1}
-                                Order by SendDate desc", msgID,operation);
+            return LoadFromRawSql(@"Select MemberMessage.*,Message.*,[FromMember]=Member.Name 
+                                    from MemberMessage INNER JOIN Message on Message.ID=MemberMessage.MessageID
+                                                       INNER JOIN Member ON Member.MemberID=Message.SenderID
+                                    WHERE MemberMessage.ID={0}
+                                Order by CreateDate desc", msgID);
+        }
+
+        public override bool IsRead
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.IsRead))
+                    return false;
+                return base.IsRead;
+            }
+            set
+            {
+                base.IsRead = value;
+            }
+        }
+        public override bool IsDeleted
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.IsDeleted))
+                    return false;
+                return base.IsDeleted;
+            }
+            set
+            {
+                base.IsDeleted = value;
+            }
         }
     }
 }

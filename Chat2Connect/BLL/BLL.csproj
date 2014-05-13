@@ -57,6 +57,7 @@
     <Compile Include="MemberSetting.cs" />
     <Compile Include="MembershipBLL.cs" />
     <Compile Include="MemberType.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="MessageFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Religion.cs" />

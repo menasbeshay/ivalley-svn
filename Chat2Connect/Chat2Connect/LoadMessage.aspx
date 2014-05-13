@@ -18,7 +18,7 @@
                                 <label>من </label>
                             </div>
                             <div class="col-sm-8 pull-right">
-                                <%#Eval("SenderName") %>
+                                <%#Eval("FromMember") %>
                             </div>
                         </div>
                         <div class="clearfix" style="height: 10px;"></div>
@@ -27,7 +27,7 @@
                                 <label> إلى </label>
                             </div>
                             <div class="col-sm-8 pull-right">
-                                <%#Eval("RecipientName") %>
+                                <%#Eval("ToMembers") %>
                             </div>
 
                         </div>
@@ -37,7 +37,7 @@
                                 <label>عنوان الرسالة</label>
                             </div>
                             <div class="col-sm-8 pull-right">
-                                <%#Eval("MessageSubject") %>
+                                <%#Eval("Subject") %>
                             </div>
                         </div>
                         <div class="clearfix" style="height: 10px;"></div>
@@ -46,7 +46,7 @@
                                 <label>المحتوى </label>
                             </div>
                             <div class="col-sm-8 pull-right">
-                                <%#Eval("MessageContent") %>
+                                <%#Eval("Body") %>
                             </div>
                         </div>
                     </div>

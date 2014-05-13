@@ -86,7 +86,7 @@ namespace Chat2Connect.SRCustomHubs
         {
             BLL.MemberMessage messages = new MemberMessage();
             int unReadCount = 0;
-            messages.GetMessagesByMemberID_Received(memberID);
+            messages.LoadReceivedMessages(memberID);
             if (messages.RowCount > 0)
             {
                 do
