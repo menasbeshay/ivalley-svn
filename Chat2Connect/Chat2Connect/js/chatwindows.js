@@ -6,6 +6,8 @@ function Chat(maxWin, memberID, memberName) {
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
     self.Editor = null;
+    // init gifts object    
+    
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -192,6 +194,70 @@ function Chat(maxWin, memberID, memberName) {
             });
             return member;
         };
+
+        // invite friends
+        this.ShowInviteFriends = function () {
+            $("#inviteModal_" + self.uniqueID()).modal('show');
+        };
+
+        this.Invitefriends = function () {
+            var window = this;
+            $.ajax({
+                url: '../Services/Services.asmx/InviteFriends',
+                dataType: 'json',
+                type: 'post',
+                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'"+ window.Name() +"','friendsIDs':'" + $('#invite_' + window.uniqueID()).val() + "'}",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    notify('success', 'تم دعوة الأصدقاء بنجاح');
+                    $("#inviteModal_" + window.uniqueID()).modal('hide');                    
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#inviteModal_" + window.uniqueID()).modal('hide');
+                    $.pnotify({
+                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
+                        type: 'error',
+                        history: false,
+                        closer_hover: false,
+                        delay: 5000,
+                        sticker: false
+                    });
+                }
+            });
+        };
+
+        // send gifts to friends
+        this.ShowSendGift = function () {
+            $("#giftModal_" + self.uniqueID()).modal('show');
+        };
+
+        this.SendGift = function () {
+            var window = this;
+            $.ajax({
+                url: '../Services/Services.asmx/SendGift',
+                dataType: 'json',
+                type: 'post',
+                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':''}",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    notify('success', 'تم دعوة الأصدقاء بنجاح');
+                    $("#inviteModal_" + window.uniqueID()).modal('hide');
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#inviteModal_" + window.uniqueID()).modal('hide');
+                    $.pnotify({
+                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
+                        type: 'error',
+                        history: false,
+                        closer_hover: false,
+                        delay: 5000,
+                        sticker: false
+                    });
+                }
+            });
+        };
         
     }
     var banMemberModel=function(member)
@@ -215,8 +281,15 @@ function Chat(maxWin, memberID, memberName) {
     self.addWindow = function (id, name, type) {
         if (type == 'Private') {
             //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
-			//var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-			var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:[] };
+            //var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
+            var gifts = null;
+             $.post("../services/Services.asmx/GetGifts")
+                .done(function (data) {
+                    console.log(data);
+                    gifts = data;                    
+                });
+
+			var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:[] , Gifts:gifts};
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -303,6 +376,27 @@ function Chat(maxWin, memberID, memberName) {
                 position: 'left'
             });
         });
+
+        // token input for invite members
+        $("#invite_" + window.uniqueID()).tokenInput("Services/Services.asmx/SearchMembersFriends?memberID=" + self.CurrentMemberID, {
+            theme: "facebook",
+            preventDuplicates: true,
+            hintText: "",
+            noResultsText: "لا يوجد",
+            searchingText: "بحث فى الأصدقاء..."
+        });
+
+        // token input for send gifts
+        $("#gift_" + window.uniqueID()).tokenInput("Services/Services.asmx/SearchMembersFriends?memberID=" + self.CurrentMemberID, {
+            theme: "facebook",
+            preventDuplicates: true,
+            hintText: "",
+            noResultsText: "لا يوجد",
+            searchingText: "بحث فى الأصدقاء..."
+        });
+
+        
+
     };
 
     self.removeMember = function (mid) {

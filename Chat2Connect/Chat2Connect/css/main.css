@@ -1211,3 +1211,28 @@ li.g-dark-selected {
     background-color:#f00 !important;
 }
 
+
+
+/* gifts */
+
+.gifts {
+    list-style:none;
+}
+
+.gifts li {
+    float:right;    
+    }
+.gifts li a {
+    display:block;
+    width:40px;
+    height:40px;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    }
+.gifts li a img {
+    max-width:40px;
+    max-height:40px;
+    }
