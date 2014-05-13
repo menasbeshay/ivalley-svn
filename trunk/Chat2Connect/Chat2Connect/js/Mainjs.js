@@ -321,6 +321,10 @@ $(document).ready(function () {
 
     };
 
+    sHub.client.InviteToRoomByFriend = function (rid, roomname, MemberName) {
+        notify('info', MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\');" class="btn btn-main">إضغط هنا للدخول</a>');
+    };
+
     sHub.client.recieveMailNotification = function (id, totalNewMessages) {
         // Add the message to the page.
         if (totalNewMessages > 0) {

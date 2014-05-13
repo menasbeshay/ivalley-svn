@@ -45,6 +45,8 @@ namespace Helper
         public MemberSettings CurrentMemberSettings { get; set; }
 
         public object AllMembersSettings { get; set; }
+
+        public object Gifts { get; set; }
     }
 
     public class ChatMember

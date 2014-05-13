@@ -62,6 +62,8 @@
 
     </script>
     <script src="Scripts/knockout-3.1.0.js"></script>
+    <script src="js/jquery.tokeninput.js"></script>
+    <link href="css/token-input-facebook.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="blockBoxshadow pull-right col-lg-2 margin20 " style="width: 21% !important;">
@@ -948,7 +950,8 @@
 
                             </div>
                             <div class="pull-right">
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا"><i class="icon-gift"></i></a><a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء"><i class="icon-group"></i></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><i class="icon-gift"></i></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><i class="icon-group"></i></a>
                                 <div style="display: inline-block; position: relative;" data-placement="top" title="" class="roomMenuItem" data-original-title="تحميل ملفات">
                                     <button onclick="animateMenu($(this));" id="attachbtn" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-group" type="button"><i class="icon-paper-clip"></i></button>
                                     <ul role="menu" class="dropdown-menu" style="display: none;" id="myul">
@@ -1127,7 +1130,79 @@
     </div>
         <!-- /ko -->
 
-        
+        <div data-bind="attr:{id:'inviteModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">دعوة أصدقاء</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>إرسال دعوة إلى </label>
+                                </div>
+                                <div class="col-sm-7 pull-right">
+                                    <input type="text" data-bind="attr:{id:'invite_'+uniqueID()}" class="form-control " />
+                                </div>                                
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" id="btnInviteFriend" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:Invitefriends"  />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="attr:{id:'giftModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">أرسل هدية</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>إرسال هدية إلى </label>
+                                </div>
+                                <div class="col-sm-7 pull-right">
+                                    <input type="text" data-bind="attr:{id:'gift_'+uniqueID()}" class="form-control " />
+                                </div>                                
+                            </div>
+                             <div class="form-group">
+                                <div class="col-sm-12 control-label pull-right">
+                                    <ul class="gifts" data-bind="foreach:Gifts">
+                                        <li>
+                                            <a><img data-bind="attr{'src':picPath}" /> <br /> <span data-bind="text:name"></span> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                                              
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" id="btnSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:SendGift"  />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </script>
 
 </asp:Content>

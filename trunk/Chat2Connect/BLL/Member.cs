@@ -192,6 +192,16 @@ namespace BLL
 
         }
 
+        public virtual bool SearchMembersFriends(string query, int MemberID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
+            parameters.Add(new SqlParameter("@query", SqlDbType.NVarChar, 50), query);
+
+            return LoadFromSql("SearchMembersFriends", parameters);
+
+        }
+
         public bool GetByName(string name)
         {
             Where.Name.Value = name;

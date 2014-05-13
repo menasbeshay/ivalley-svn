@@ -60,6 +60,7 @@ namespace Chat2Connect
                         Session["TempRoomCreate"] = null;
 
                     }
+                        // temp room invitation
                     else if (Request.QueryString["t"] != null)
                     {
                         try
@@ -71,7 +72,7 @@ namespace Chat2Connect
                         catch (Exception ex)
                         {                            
                         }
-                    }
+                    }                     
 
                 }
             }

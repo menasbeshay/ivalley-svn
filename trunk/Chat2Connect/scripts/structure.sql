@@ -727,7 +727,8 @@ as
 
 select * 
 from Member M 
-where M.Name like N'%' + @query + N'%'
+Inner join dbo.aspnet_Users U on M.UserID = U.UserID
+where U.UserName like N'%' + @query + N'%'
 Go
 
 
@@ -743,9 +744,30 @@ as
 
 select * 
 from Member M 
-where M.Name like N'%' + @query + N'%'
+Inner join dbo.aspnet_Users U on M.UserID = U.UserID
+where U.UserName like N'%' + @query + N'%'
 	  and MemberID <> @MemberID
 	  and M.MemberID not in (Select FriendID
+							 from MemberFriend where MemberID = @MemberID)
+							 
+Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchMembersFriends' and
+		        xtype = 'P')
+Drop Procedure SearchMembersFriends
+Go
+Create Procedure SearchMembersFriends @query nvarchar(50),
+											@MemberID int
+as
+
+select * 
+from Member M 
+Inner join dbo.aspnet_Users U on M.UserID = U.UserID
+where U.UserName like N'%' + @query + N'%'
+	  and MemberID <> @MemberID
+	  and M.MemberID in (Select FriendID
 							 from MemberFriend where MemberID = @MemberID)
 							 
 Go

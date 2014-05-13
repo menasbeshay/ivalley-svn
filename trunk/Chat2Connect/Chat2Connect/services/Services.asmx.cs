@@ -240,6 +240,29 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.Write(result);
             //return result;
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SearchMembersFriends(int memberID, string q)
+        {
+            List<dynamic> friends = new List<dynamic>();
+            Member member = new Member();
+            member.SearchMembersFriends(q, memberID);
+            if (member.RowCount > 0)
+            {
+                for (int i = 0; i < member.RowCount; i++)
+                {
+                    friends.Add(new { id = member.MemberID, name = member.Name });
+                    member.MoveNext();
+                }
+            }
+            
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(friends);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
+        }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int GetQueueOrder(int memberID, int roomID)
@@ -606,6 +629,10 @@ namespace Chat2Connect.services
 
             Allmembers.LoadAllRoomMembersWithSettings(id);
             roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanDays = (Convert.ToBoolean(m["IsMemberBanned"])? m["BanDays"] : null) }).ToList();
+            
+            Gift allgifts = new Gift();
+            allgifts.LoadAll();            
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { id = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
@@ -647,5 +674,56 @@ namespace Chat2Connect.services
                 ban.Save();
             }
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool InviteFriends(string memberName, int roomID,string roomName, string friendsIDs)
+        {            
+            string[] ToMembers = friendsIDs.Split(',');            
+            
+            foreach (string item in ToMembers)
+            {
+                if (!string.IsNullOrEmpty(item))
+                {
+                    int recipientID = Convert.ToInt32(item);
+                    Member m = new Member();
+                    m.LoadByPrimaryKey(recipientID);
+                    MembershipUser u = Membership.GetUser(m.UserID);
+
+                    IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+                    _Ncontext.Clients.Group(u.UserName).InviteToRoomByFriend(roomID, roomName, memberName);                    
+                }
+            }
+
+            
+            return true;
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetGifts()
+        {
+            List<dynamic> gifts = new List<dynamic>();
+            Gift allgifts = new Gift();
+            allgifts.LoadAll();
+            if (allgifts.RowCount > 0)
+            {
+                for (int i = 0; i < allgifts.RowCount; i++)
+                {
+                    gifts.Add(new { id = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString() , picPath = allgifts.PicPath });
+                    allgifts.MoveNext();
+                }
+            }
+            
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(gifts);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
+        }
+
+
+
+
     }
 }
