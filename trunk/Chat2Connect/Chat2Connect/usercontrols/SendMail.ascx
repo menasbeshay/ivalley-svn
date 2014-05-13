@@ -229,14 +229,20 @@
 
         Msgeditor = new wysihtml5.Editor('txtBody', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: '../css/main.css' });
     });
-
+    function joinObj(a, attr) {
+        var out = [];
+        for (var i = 0; i < a.length; i++) {
+            out.push(a[i][attr]);
+        }
+        return out.join("; ");
+    }
     function SendMsg() {
-
+        var toNames = joinObj($('#<%= txtTo.ClientID %>').tokenInput("get"), "name");
         $.ajax({
             url: "../Services/Services.asmx/SendMsg",
             dataType: "json",
             type: "post",
-            data: "{'sender':" + $('#<%= uiHiddenFieldCurrentMember.ClientID %>').val() + ",'ToMember':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'subject' : '" + $('#<%= txtSubject.ClientID %>').val() + "' , 'content' : '" + Msgeditor.getValue() + "'}",
+            data: "{'sender':" + $('#<%= uiHiddenFieldCurrentMember.ClientID %>').val() + ",'ToMember':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'subject' : '" + $('#<%= txtSubject.ClientID %>').val() + "','toName':'" + toNames + "' , 'content' : '" + Msgeditor.getValue() + "'}",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 if (data.d == false) {

@@ -94,21 +94,22 @@
                                     <asp:CheckBox ID="chkSelectAll" runat="server" ClientIDMode="Static" />
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="chkSelect" runat="server" data-id='<%# Eval("MemberMessageID") %>' />
+                                    <asp:CheckBox ID="chkSelect" runat="server" data-id='<%# Eval("ID") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="الراسل" DataField="SenderName" ItemStyle-HorizontalAlign="Center" />
+                            
                             <asp:TemplateField HeaderText="العنوان">
                                 <ItemTemplate>
-                                    <a href="#" class='<%# (Eval("IsRead")==DBNull.Value || Convert.ToBoolean(Eval("IsRead"))==false)? "message un-read" : "message" %>' data-message='<%# Eval("MemberMessageID") %>' data-operation='<%# Eval("OperationID") %>'>
-                                        <%# Eval("MessageSubject") %>
+                                    <a href="#" class='<%# (Eval("IsRead")==DBNull.Value || Convert.ToBoolean(Eval("IsRead"))==false)? "message un-read" : "message" %>' data-message='<%# Eval("ID") %>'>
+                                        <%# Eval("Subject") %>
                                     </a>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Right" />
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="التاريخ والوقت" DataField="SendDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HtmlEncode="false" />
+                            <asp:BoundField HeaderText="التاريخ والوقت" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HtmlEncode="false" />
                         </Columns>
 
                     </asp:GridView>

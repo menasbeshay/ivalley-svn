@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace DAL
 {
-	public abstract class _MemberMessage : SqlClientEntity
+	public abstract class _Message : SqlClientEntity
 	{
-		public _MemberMessage()
+		public _Message()
 		{
-			this.QuerySource = "MemberMessage";
-			this.MappingName = "MemberMessage";
+			this.QuerySource = "Message";
+			this.MappingName = "Message";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MemberMessageLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MessageLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -92,7 +92,7 @@ namespace DAL
 			parameters.Add(Parameters.ID, ID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MemberMessageLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MessageLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
@@ -107,43 +107,43 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter MemberID
+			public static SqlParameter SenderID
 			{
 				get
 				{
-					return new SqlParameter("@MemberID", SqlDbType.Int, 0);
+					return new SqlParameter("@SenderID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter MessageID
+			public static SqlParameter Subject
 			{
 				get
 				{
-					return new SqlParameter("@MessageID", SqlDbType.Int, 0);
+					return new SqlParameter("@Subject", SqlDbType.NVarChar, 1000);
 				}
 			}
 			
-			public static SqlParameter MessageFolderID
+			public static SqlParameter Body
 			{
 				get
 				{
-					return new SqlParameter("@MessageFolderID", SqlDbType.Int, 0);
+					return new SqlParameter("@Body", SqlDbType.NVarChar, 1073741823);
 				}
 			}
 			
-			public static SqlParameter IsDeleted
+			public static SqlParameter ToMembers
 			{
 				get
 				{
-					return new SqlParameter("@IsDeleted", SqlDbType.Bit, 0);
+					return new SqlParameter("@ToMembers", SqlDbType.NVarChar, 1000);
 				}
 			}
 			
-			public static SqlParameter IsRead
+			public static SqlParameter CreateDate
 			{
 				get
 				{
-					return new SqlParameter("@IsRead", SqlDbType.Bit, 0);
+					return new SqlParameter("@CreateDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
@@ -154,11 +154,11 @@ namespace DAL
 		public class ColumnNames
 		{  
             public const string ID = "ID";
-            public const string MemberID = "MemberID";
-            public const string MessageID = "MessageID";
-            public const string MessageFolderID = "MessageFolderID";
-            public const string IsDeleted = "IsDeleted";
-            public const string IsRead = "IsRead";
+            public const string SenderID = "SenderID";
+            public const string Subject = "Subject";
+            public const string Body = "Body";
+            public const string ToMembers = "ToMembers";
+            public const string CreateDate = "CreateDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -166,12 +166,12 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ID] = _MemberMessage.PropertyNames.ID;
-					ht[MemberID] = _MemberMessage.PropertyNames.MemberID;
-					ht[MessageID] = _MemberMessage.PropertyNames.MessageID;
-					ht[MessageFolderID] = _MemberMessage.PropertyNames.MessageFolderID;
-					ht[IsDeleted] = _MemberMessage.PropertyNames.IsDeleted;
-					ht[IsRead] = _MemberMessage.PropertyNames.IsRead;
+					ht[ID] = _Message.PropertyNames.ID;
+					ht[SenderID] = _Message.PropertyNames.SenderID;
+					ht[Subject] = _Message.PropertyNames.Subject;
+					ht[Body] = _Message.PropertyNames.Body;
+					ht[ToMembers] = _Message.PropertyNames.ToMembers;
+					ht[CreateDate] = _Message.PropertyNames.CreateDate;
 
 				}
 				return (string)ht[columnName];
@@ -185,11 +185,11 @@ namespace DAL
 		public class PropertyNames
 		{  
             public const string ID = "ID";
-            public const string MemberID = "MemberID";
-            public const string MessageID = "MessageID";
-            public const string MessageFolderID = "MessageFolderID";
-            public const string IsDeleted = "IsDeleted";
-            public const string IsRead = "IsRead";
+            public const string SenderID = "SenderID";
+            public const string Subject = "Subject";
+            public const string Body = "Body";
+            public const string ToMembers = "ToMembers";
+            public const string CreateDate = "CreateDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -197,12 +197,12 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ID] = _MemberMessage.ColumnNames.ID;
-					ht[MemberID] = _MemberMessage.ColumnNames.MemberID;
-					ht[MessageID] = _MemberMessage.ColumnNames.MessageID;
-					ht[MessageFolderID] = _MemberMessage.ColumnNames.MessageFolderID;
-					ht[IsDeleted] = _MemberMessage.ColumnNames.IsDeleted;
-					ht[IsRead] = _MemberMessage.ColumnNames.IsRead;
+					ht[ID] = _Message.ColumnNames.ID;
+					ht[SenderID] = _Message.ColumnNames.SenderID;
+					ht[Subject] = _Message.ColumnNames.Subject;
+					ht[Body] = _Message.ColumnNames.Body;
+					ht[ToMembers] = _Message.ColumnNames.ToMembers;
+					ht[CreateDate] = _Message.ColumnNames.CreateDate;
 
 				}
 				return (string)ht[propertyName];
@@ -216,11 +216,11 @@ namespace DAL
 		public class StringPropertyNames
 		{  
             public const string ID = "s_ID";
-            public const string MemberID = "s_MemberID";
-            public const string MessageID = "s_MessageID";
-            public const string MessageFolderID = "s_MessageFolderID";
-            public const string IsDeleted = "s_IsDeleted";
-            public const string IsRead = "s_IsRead";
+            public const string SenderID = "s_SenderID";
+            public const string Subject = "s_Subject";
+            public const string Body = "s_Body";
+            public const string ToMembers = "s_ToMembers";
+            public const string CreateDate = "s_CreateDate";
 
 		}
 		#endregion		
@@ -239,63 +239,63 @@ namespace DAL
 			}
 		}
 
-		public virtual int MemberID
+		public virtual int SenderID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.MemberID);
+				return base.Getint(ColumnNames.SenderID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.MemberID, value);
+				base.Setint(ColumnNames.SenderID, value);
 			}
 		}
 
-		public virtual int MessageID
+		public virtual string Subject
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.MessageID);
+				return base.Getstring(ColumnNames.Subject);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.MessageID, value);
+				base.Setstring(ColumnNames.Subject, value);
 			}
 		}
 
-		public virtual int MessageFolderID
+		public virtual string Body
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.MessageFolderID);
+				return base.Getstring(ColumnNames.Body);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.MessageFolderID, value);
+				base.Setstring(ColumnNames.Body, value);
 			}
 		}
 
-		public virtual bool IsDeleted
+		public virtual string ToMembers
 	    {
 			get
 	        {
-				return base.Getbool(ColumnNames.IsDeleted);
+				return base.Getstring(ColumnNames.ToMembers);
 			}
 			set
 	        {
-				base.Setbool(ColumnNames.IsDeleted, value);
+				base.Setstring(ColumnNames.ToMembers, value);
 			}
 		}
 
-		public virtual bool IsRead
+		public virtual DateTime CreateDate
 	    {
 			get
 	        {
-				return base.Getbool(ColumnNames.IsRead);
+				return base.GetDateTime(ColumnNames.CreateDate);
 			}
 			set
 	        {
-				base.Setbool(ColumnNames.IsRead, value);
+				base.SetDateTime(ColumnNames.CreateDate, value);
 			}
 		}
 
@@ -319,78 +319,78 @@ namespace DAL
 			}
 		}
 
-		public virtual string s_MemberID
+		public virtual string s_SenderID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.MemberID) ? string.Empty : base.GetintAsString(ColumnNames.MemberID);
+				return this.IsColumnNull(ColumnNames.SenderID) ? string.Empty : base.GetintAsString(ColumnNames.SenderID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MemberID);
+					this.SetColumnNull(ColumnNames.SenderID);
 				else
-					this.MemberID = base.SetintAsString(ColumnNames.MemberID, value);
+					this.SenderID = base.SetintAsString(ColumnNames.SenderID, value);
 			}
 		}
 
-		public virtual string s_MessageID
+		public virtual string s_Subject
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.MessageID) ? string.Empty : base.GetintAsString(ColumnNames.MessageID);
+				return this.IsColumnNull(ColumnNames.Subject) ? string.Empty : base.GetstringAsString(ColumnNames.Subject);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MessageID);
+					this.SetColumnNull(ColumnNames.Subject);
 				else
-					this.MessageID = base.SetintAsString(ColumnNames.MessageID, value);
+					this.Subject = base.SetstringAsString(ColumnNames.Subject, value);
 			}
 		}
 
-		public virtual string s_MessageFolderID
+		public virtual string s_Body
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.MessageFolderID) ? string.Empty : base.GetintAsString(ColumnNames.MessageFolderID);
+				return this.IsColumnNull(ColumnNames.Body) ? string.Empty : base.GetstringAsString(ColumnNames.Body);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MessageFolderID);
+					this.SetColumnNull(ColumnNames.Body);
 				else
-					this.MessageFolderID = base.SetintAsString(ColumnNames.MessageFolderID, value);
+					this.Body = base.SetstringAsString(ColumnNames.Body, value);
 			}
 		}
 
-		public virtual string s_IsDeleted
+		public virtual string s_ToMembers
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IsDeleted) ? string.Empty : base.GetboolAsString(ColumnNames.IsDeleted);
+				return this.IsColumnNull(ColumnNames.ToMembers) ? string.Empty : base.GetstringAsString(ColumnNames.ToMembers);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsDeleted);
+					this.SetColumnNull(ColumnNames.ToMembers);
 				else
-					this.IsDeleted = base.SetboolAsString(ColumnNames.IsDeleted, value);
+					this.ToMembers = base.SetstringAsString(ColumnNames.ToMembers, value);
 			}
 		}
 
-		public virtual string s_IsRead
+		public virtual string s_CreateDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IsRead) ? string.Empty : base.GetboolAsString(ColumnNames.IsRead);
+				return this.IsColumnNull(ColumnNames.CreateDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.CreateDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsRead);
+					this.SetColumnNull(ColumnNames.CreateDate);
 				else
-					this.IsRead = base.SetboolAsString(ColumnNames.IsRead, value);
+					this.CreateDate = base.SetDateTimeAsString(ColumnNames.CreateDate, value);
 			}
 		}
 
@@ -437,51 +437,51 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter MemberID
+				public WhereParameter SenderID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.MemberID, Parameters.MemberID);
+							WhereParameter where = new WhereParameter(ColumnNames.SenderID, Parameters.SenderID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter MessageID
+				public WhereParameter Subject
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.MessageID, Parameters.MessageID);
+							WhereParameter where = new WhereParameter(ColumnNames.Subject, Parameters.Subject);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter MessageFolderID
+				public WhereParameter Body
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.MessageFolderID, Parameters.MessageFolderID);
+							WhereParameter where = new WhereParameter(ColumnNames.Body, Parameters.Body);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter IsDeleted
+				public WhereParameter ToMembers
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							WhereParameter where = new WhereParameter(ColumnNames.ToMembers, Parameters.ToMembers);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter IsRead
+				public WhereParameter CreateDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsRead, Parameters.IsRead);
+							WhereParameter where = new WhereParameter(ColumnNames.CreateDate, Parameters.CreateDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -504,81 +504,81 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter MemberID
+			public WhereParameter SenderID
 		    {
 				get
 		        {
-					if(_MemberID_W == null)
+					if(_SenderID_W == null)
 	        	    {
-						_MemberID_W = TearOff.MemberID;
+						_SenderID_W = TearOff.SenderID;
 					}
-					return _MemberID_W;
+					return _SenderID_W;
 				}
 			}
 
-			public WhereParameter MessageID
+			public WhereParameter Subject
 		    {
 				get
 		        {
-					if(_MessageID_W == null)
+					if(_Subject_W == null)
 	        	    {
-						_MessageID_W = TearOff.MessageID;
+						_Subject_W = TearOff.Subject;
 					}
-					return _MessageID_W;
+					return _Subject_W;
 				}
 			}
 
-			public WhereParameter MessageFolderID
+			public WhereParameter Body
 		    {
 				get
 		        {
-					if(_MessageFolderID_W == null)
+					if(_Body_W == null)
 	        	    {
-						_MessageFolderID_W = TearOff.MessageFolderID;
+						_Body_W = TearOff.Body;
 					}
-					return _MessageFolderID_W;
+					return _Body_W;
 				}
 			}
 
-			public WhereParameter IsDeleted
+			public WhereParameter ToMembers
 		    {
 				get
 		        {
-					if(_IsDeleted_W == null)
+					if(_ToMembers_W == null)
 	        	    {
-						_IsDeleted_W = TearOff.IsDeleted;
+						_ToMembers_W = TearOff.ToMembers;
 					}
-					return _IsDeleted_W;
+					return _ToMembers_W;
 				}
 			}
 
-			public WhereParameter IsRead
+			public WhereParameter CreateDate
 		    {
 				get
 		        {
-					if(_IsRead_W == null)
+					if(_CreateDate_W == null)
 	        	    {
-						_IsRead_W = TearOff.IsRead;
+						_CreateDate_W = TearOff.CreateDate;
 					}
-					return _IsRead_W;
+					return _CreateDate_W;
 				}
 			}
 
 			private WhereParameter _ID_W = null;
-			private WhereParameter _MemberID_W = null;
-			private WhereParameter _MessageID_W = null;
-			private WhereParameter _MessageFolderID_W = null;
-			private WhereParameter _IsDeleted_W = null;
-			private WhereParameter _IsRead_W = null;
+			private WhereParameter _SenderID_W = null;
+			private WhereParameter _Subject_W = null;
+			private WhereParameter _Body_W = null;
+			private WhereParameter _ToMembers_W = null;
+			private WhereParameter _CreateDate_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ID_W = null;
-				_MemberID_W = null;
-				_MessageID_W = null;
-				_MessageFolderID_W = null;
-				_IsDeleted_W = null;
-				_IsRead_W = null;
+				_SenderID_W = null;
+				_Subject_W = null;
+				_Body_W = null;
+				_ToMembers_W = null;
+				_CreateDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -645,51 +645,51 @@ namespace DAL
 					}
 				}
 
-				public AggregateParameter MemberID
+				public AggregateParameter SenderID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberID, Parameters.MemberID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SenderID, Parameters.SenderID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter MessageID
+				public AggregateParameter Subject
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MessageID, Parameters.MessageID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Subject, Parameters.Subject);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter MessageFolderID
+				public AggregateParameter Body
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MessageFolderID, Parameters.MessageFolderID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Body, Parameters.Body);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter IsDeleted
+				public AggregateParameter ToMembers
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ToMembers, Parameters.ToMembers);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter IsRead
+				public AggregateParameter CreateDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsRead, Parameters.IsRead);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CreateDate, Parameters.CreateDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -712,81 +712,81 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter MemberID
+			public AggregateParameter SenderID
 		    {
 				get
 		        {
-					if(_MemberID_W == null)
+					if(_SenderID_W == null)
 	        	    {
-						_MemberID_W = TearOff.MemberID;
+						_SenderID_W = TearOff.SenderID;
 					}
-					return _MemberID_W;
+					return _SenderID_W;
 				}
 			}
 
-			public AggregateParameter MessageID
+			public AggregateParameter Subject
 		    {
 				get
 		        {
-					if(_MessageID_W == null)
+					if(_Subject_W == null)
 	        	    {
-						_MessageID_W = TearOff.MessageID;
+						_Subject_W = TearOff.Subject;
 					}
-					return _MessageID_W;
+					return _Subject_W;
 				}
 			}
 
-			public AggregateParameter MessageFolderID
+			public AggregateParameter Body
 		    {
 				get
 		        {
-					if(_MessageFolderID_W == null)
+					if(_Body_W == null)
 	        	    {
-						_MessageFolderID_W = TearOff.MessageFolderID;
+						_Body_W = TearOff.Body;
 					}
-					return _MessageFolderID_W;
+					return _Body_W;
 				}
 			}
 
-			public AggregateParameter IsDeleted
+			public AggregateParameter ToMembers
 		    {
 				get
 		        {
-					if(_IsDeleted_W == null)
+					if(_ToMembers_W == null)
 	        	    {
-						_IsDeleted_W = TearOff.IsDeleted;
+						_ToMembers_W = TearOff.ToMembers;
 					}
-					return _IsDeleted_W;
+					return _ToMembers_W;
 				}
 			}
 
-			public AggregateParameter IsRead
+			public AggregateParameter CreateDate
 		    {
 				get
 		        {
-					if(_IsRead_W == null)
+					if(_CreateDate_W == null)
 	        	    {
-						_IsRead_W = TearOff.IsRead;
+						_CreateDate_W = TearOff.CreateDate;
 					}
-					return _IsRead_W;
+					return _CreateDate_W;
 				}
 			}
 
 			private AggregateParameter _ID_W = null;
-			private AggregateParameter _MemberID_W = null;
-			private AggregateParameter _MessageID_W = null;
-			private AggregateParameter _MessageFolderID_W = null;
-			private AggregateParameter _IsDeleted_W = null;
-			private AggregateParameter _IsRead_W = null;
+			private AggregateParameter _SenderID_W = null;
+			private AggregateParameter _Subject_W = null;
+			private AggregateParameter _Body_W = null;
+			private AggregateParameter _ToMembers_W = null;
+			private AggregateParameter _CreateDate_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ID_W = null;
-				_MemberID_W = null;
-				_MessageID_W = null;
-				_MessageFolderID_W = null;
-				_IsDeleted_W = null;
-				_IsRead_W = null;
+				_SenderID_W = null;
+				_Subject_W = null;
+				_Body_W = null;
+				_ToMembers_W = null;
+				_CreateDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -818,7 +818,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberMessageInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MessageInsert]";
 	
 			CreateParameters(cmd);
 			
@@ -834,7 +834,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberMessageUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MessageUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -846,7 +846,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberMessageDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MessageDelete]";
 	
 			SqlParameter p;
 			p = cmd.Parameters.Add(Parameters.ID);
@@ -865,24 +865,24 @@ namespace DAL
 			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.MemberID);
-			p.SourceColumn = ColumnNames.MemberID;
+			p = cmd.Parameters.Add(Parameters.SenderID);
+			p.SourceColumn = ColumnNames.SenderID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.MessageID);
-			p.SourceColumn = ColumnNames.MessageID;
+			p = cmd.Parameters.Add(Parameters.Subject);
+			p.SourceColumn = ColumnNames.Subject;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.MessageFolderID);
-			p.SourceColumn = ColumnNames.MessageFolderID;
+			p = cmd.Parameters.Add(Parameters.Body);
+			p.SourceColumn = ColumnNames.Body;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsDeleted);
-			p.SourceColumn = ColumnNames.IsDeleted;
+			p = cmd.Parameters.Add(Parameters.ToMembers);
+			p.SourceColumn = ColumnNames.ToMembers;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsRead);
-			p.SourceColumn = ColumnNames.IsRead;
+			p = cmd.Parameters.Add(Parameters.CreateDate);
+			p.SourceColumn = ColumnNames.CreateDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 

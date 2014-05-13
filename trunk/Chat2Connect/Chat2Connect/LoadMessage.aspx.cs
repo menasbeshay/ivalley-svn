@@ -19,12 +19,15 @@ namespace Chat2Connect
                     int.TryParse(Request.Form["message"], out msgID);
 
                     BLL.MemberMessage msg = new BLL.MemberMessage();
-                    if (msg.LoadFullInfoByIDAndOperation(msgID, Request.Form["operation"]))
+                    if (msg.LoadFullInfoByID(msgID))
                     {
-                        msg.IsRead = true;
-                        msg.Save();
-                        Chat2Connect.SRCustomHubs.NotificationHub notification = new SRCustomHubs.NotificationHub();
-                        notification.SendMailNotifications(msg.MemberID);
+                        if (!msg.IsRead && !msg.IsColumnNull(BLL.MemberMessage.ColumnNames.MemberID))
+                        {
+                            msg.IsRead = true;
+                            msg.Save();
+                            Chat2Connect.SRCustomHubs.NotificationHub notification = new SRCustomHubs.NotificationHub();
+                            notification.SendMailNotifications(msg.MemberID);
+                        }
                     }
 
                     dtlMessage.DataSource = msg.DefaultView;

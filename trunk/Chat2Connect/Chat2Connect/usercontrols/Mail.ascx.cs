@@ -98,22 +98,27 @@ namespace Chat2Connect.usercontrols
             pnlCreateFolder.Visible = false;
             MemberMessage messages = new MemberMessage();
             btnDeleteMessages.OnClientClick = "";
+            var memberField = grdMessages.Columns[1] as BoundField;
+            memberField.HeaderText = "الراسل";
+            memberField.DataField = "FromMember";
             if (MemberID > 0)
             {
                 switch (CurrentFolder)
                 {
                     case (int)Folders.Inbox:
-                        messages.GetMessagesByMemberID_Received(MemberID);
+                        messages.LoadReceivedMessages(MemberID);
                         break;
                     case (int)Folders.Sent:
-                        messages.GetMessagesBySenderID_Sent(MemberID);
+                        messages.LoadSentMessages(MemberID);
+                        memberField.DataField = Message.ColumnNames.ToMembers;
+                        memberField.HeaderText = "إلى";
                         break;
                     case (int)Folders.Deleted:
-                        messages.GetMessagesByMemberID_Deleted(MemberID);
+                        messages.LoadTrashMessages(MemberID);
                         btnDeleteMessages.OnClientClick = "return confirm('سيتم الحذف نهائياهل تريد الإستمرار؟');";
                         break;
                     default:
-                        messages.GetMessagesByFolderID(CurrentFolder);
+                        messages.LoadByFolderID(CurrentFolder);
                         break;
                 }
             }
@@ -190,7 +195,7 @@ namespace Chat2Connect.usercontrols
                 MessageFolder folders = new MessageFolder();
                 folders.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 MemberMessage msg = new MemberMessage();
-                msg.GetMessagesByFolderID(folders.MessageFolderID);
+                msg.LoadByFolderID(folders.MessageFolderID);
 
                 if (!(msg.RowCount > 0))
                 {
@@ -200,14 +205,14 @@ namespace Chat2Connect.usercontrols
                 }
                 else
                 {
-//                    ClientScript.RegisterStartupScript(this.GetType(), "Notify_error_del_folder", @"$.pnotify({
-//                                                                                                        text: 'حذث خطأ .يوجد رسائل تحت هذا التصميف.',
-//                                                                                                        type: 'error',
-//                                                                                                        history: false,
-//                                                                                                        closer_hover: false,
-//                                                                                                        delay: 5000,
-//                                                                                                        sticker: false
-//                                                                                                    });", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Notify_error_del_folder", @"$.pnotify({
+                                                                                                        text: 'حذث خطأ .يوجد رسائل تحت هذا التصميف.',
+                                                                                                        type: 'error',
+                                                                                                        history: false,
+                                                                                                        closer_hover: false,
+                                                                                                        delay: 5000,
+                                                                                                        sticker: false
+                                                                                                    });", true);
                 }
             }
         }

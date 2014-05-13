@@ -103,5 +103,19 @@ namespace BLL
         }
 
         #endregion
+        private Member _createdByMember;
+        public Member CreatedByMember
+        {
+            get
+            {
+                if (_createdByMember == null)
+                {
+                    _createdByMember = new Member();
+                    _createdByMember.LoadByPrimaryKey(this.CreatedBy);
+                }
+                return _createdByMember;
+            }
+        }
+
     }
 }
