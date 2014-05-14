@@ -4,9 +4,9 @@
 		<title>chat2connect</title>
 		
 		<script>
-			function startCam(userId)
+			function startCam(userId, name)
 			{
-				getFlashMovie("chat2connect").startCam(userId);
+				getFlashMovie("chat2connect").startCam(userId, name);
 			}
 			
 			function stopCam(userId)
@@ -28,7 +28,7 @@
 			{
 				return document[movieName] || window[movieName];
 			}
-			setTimeout(startCam, 3000, [1]);
+			setTimeout(startCam, 3000, 1, 'mena');
 		</script>
 	</head>
 	<body>
