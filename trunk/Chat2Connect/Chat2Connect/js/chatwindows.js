@@ -6,6 +6,7 @@ function Chat(maxWin, memberID, memberName) {
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
     self.Editor = null;
+    self.selectedGift = null;
     // init gifts object    
     
     self.notTempRoom = ko.computed(function () {
@@ -215,14 +216,7 @@ function Chat(maxWin, memberID, memberName) {
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     $("#inviteModal_" + window.uniqueID()).modal('hide');
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
             });
         };
@@ -232,29 +226,29 @@ function Chat(maxWin, memberID, memberName) {
             $("#giftModal_" + self.uniqueID()).modal('show');
         };
 
+        this.selectGift = function () {
+            chatVM.selectedGift = this;
+            $('#gift_' + chatVM.selectedGift.giftid()).parent().parent().find('label').removeClass('selected');
+            $('#gift_' + chatVM.selectedGift.giftid()).next('label').addClass('selected');
+
+        };
+
         this.SendGift = function () {
             var window = this;
             $.ajax({
                 url: '../Services/Services.asmx/SendGift',
                 dataType: 'json',
                 type: 'post',
-                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':''}",
+                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + chatVM.selectedGift.giftid() + "}",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    notify('success', 'تم دعوة الأصدقاء بنجاح');
-                    $("#inviteModal_" + window.uniqueID()).modal('hide');
+                    $("#giftModal_" + window.uniqueID()).modal('hide');
+                    notify('success', 'تم إرسال الهدية بنجاح');                    
                     return;
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $("#inviteModal_" + window.uniqueID()).modal('hide');
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    $("#giftModal_" + window.uniqueID()).modal('hide');
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');                    
                 }
             });
         };
@@ -392,7 +386,8 @@ function Chat(maxWin, memberID, memberName) {
             preventDuplicates: true,
             hintText: "",
             noResultsText: "لا يوجد",
-            searchingText: "بحث فى الأصدقاء..."
+            searchingText: "بحث فى الأصدقاء...",
+            tokenLimit: 1
         });
 
         
@@ -507,7 +502,7 @@ function Chat(maxWin, memberID, memberName) {
     self.cam = function () {
         var currentWindow = this;
         if (currentWindow.CurrentMemberSettings.IsCamOpened() == false) {
-            self.startCam(currentWindow, self.CurrentMemberID);
+            self.startCam(currentWindow, self.CurrentMemberID, self.CurrentMemberName);
             currentWindow.CurrentMemberSettings.IsCamOpened(true);
         }
         else {
@@ -515,8 +510,8 @@ function Chat(maxWin, memberID, memberName) {
             currentWindow.CurrentMemberSettings.IsCamOpened(false);
         }
     }
-    self.startCam = function (window, memberID) {
-        getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID);
+    self.startCam = function (window, memberID, memberName) {
+        getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, memberName);
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStartCam(window.ID(), self.CurrentMemberID);
             // $('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
@@ -529,6 +524,12 @@ function Chat(maxWin, memberID, memberName) {
             //$('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'none');
         }
     }
+    
+}
+
+function onCamClose(userId)
+{
+    chatVM.stopCam(userId);
 }
 
 function addChatRoom(id, name, type) {
@@ -781,6 +782,21 @@ function InitChat(maxWinRooms, memberID, memberName) {
             }
         }
         $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
+    };
+
+    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName) {
+        var window = chatVM.getWindow(roomID, "Room");
+        message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
+        var history = window.MessageHistory();        
+        window.MessageHistory(history + message);
+        $(".MsgHistroy").slimScroll({
+            railVisible: true,
+            height: '400px',
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left',
+            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
+        });
     };
 
     /*****************************************/

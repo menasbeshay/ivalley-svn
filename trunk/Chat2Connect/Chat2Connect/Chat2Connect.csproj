@@ -499,6 +499,10 @@
     <Content Include="images\emotions\icon %2899%29.png" />
     <Content Include="images\facebook.png" />
     <Content Include="images\follow-me.png" />
+    <Content Include="images\gifts\cake-icon.png" />
+    <Content Include="images\gifts\Candy-icon.png" />
+    <Content Include="images\gifts\cocktail-icon.png" />
+    <Content Include="images\gifts\Gift-icon.png" />
     <Content Include="images\hours.png" />
     <Content Include="images\loading.GIF" />
     <Content Include="images\defaultavatar.png" />
@@ -608,6 +612,8 @@
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="testswf\c2c\c2c.html" />
+    <Content Include="testswf\c2c\js\swfobject.js" />
     <Content Include="testswf\chat2connect.swf" />
     <Content Include="testswf\chat2connect4.swf" />
     <Content Include="testswf\chat2connect3.swf" />

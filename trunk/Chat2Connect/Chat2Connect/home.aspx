@@ -292,9 +292,10 @@
                     </div>
                     <div style="padding: 2px;" class="pull-left col-lg-9">
 
-                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                            <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -304,9 +305,10 @@
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
                     <div style="padding: 2px;" class="pull-left col-lg-12">
 
-                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" name="chat2connect" data-bind="attr:{id:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                            <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -426,7 +428,7 @@
                                         <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
-                                    </ul>--%>
+                                    </ul>--%>   
                                     <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
@@ -1185,7 +1187,12 @@
                                 <div class="col-sm-12 control-label pull-right">
                                     <ul class="gifts" data-bind="foreach:Gifts">
                                         <li>
-                                            <a><img data-bind="attr{'src':picPath}" /> <br /> <span data-bind="text:name"></span> </a>
+                                            <input type="radio" name="gift" data-bind="attr:{id:'gift_' + giftid()},checkedValue: giftid" class="input_hidden" />
+                                            <label data-bind="attr:{for:'gift_' + giftid()}, click:$parent.selectGift" >
+                                                <img data-bind="attr:{src:picPath}" /> 
+                                                <br /> <span data-bind="text:name"></span> 
+                                                <br /> <span data-bind="text:price"></span>
+                                            </label>  
                                         </li>
                                     </ul>
                                 </div>

@@ -636,7 +636,7 @@ namespace Chat2Connect.services
             
             Gift allgifts = new Gift();
             allgifts.LoadAll();            
-            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { id = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
@@ -703,6 +703,32 @@ namespace Chat2Connect.services
             return true;
         }
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool SendGift(string memberName, int roomID, string roomName, int friendID, string friendName, int giftid)
+        {
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+
+            MemberGift gift = new MemberGift();
+            gift.AddNew();
+            gift.MemberID = friendID;
+            gift.SenderID = member.MemberID;
+            gift.SendDate = DateTime.Now;
+            gift.GiftID = giftid;
+            gift.Save();
+
+            Gift srcgift = new Gift();
+            srcgift.LoadByPrimaryKey(giftid);
+
+            IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, friendName, srcgift.Name);
+            
+            return true;
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
