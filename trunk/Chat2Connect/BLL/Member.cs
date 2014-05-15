@@ -119,6 +119,19 @@ namespace BLL
             return friends.RowCount;
         }
         #endregion
+
+        public static int CurrentMemberID
+        {
+            get
+            {
+                Member _current = new Member();
+                if (_current.LoadCurrentMember())
+                {
+                    return _current.MemberID;
+                }
+                return 0;
+            }
+        }
         public Member()
         {
         }
