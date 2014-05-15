@@ -96,8 +96,12 @@ namespace Chat2Connect.Admin.UserControls
             {
                 BLL.Member member = new BLL.Member();
                 member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-                user.ChangePassword(user.GetPassword(member.Answer), txtPassword.Text);
+                string oldPassowrd=user.GetPassword(member.Answer);
+                user.ChangePassword(oldPassowrd, txtPassword.Text);
 
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangePassword() { OldPassword = oldPassowrd, NewPassword = txtPassword.Text }, member.MemberID,null);
+                
                 BindAccountInfo();
             }
         }

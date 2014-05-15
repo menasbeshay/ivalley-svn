@@ -50,6 +50,7 @@
     <Compile Include="Member.cs" />
     <Compile Include="MemberFriend.cs" />
     <Compile Include="MemberGift.cs" />
+    <Compile Include="MemberLog.cs" />
     <Compile Include="MemberMessage.cs" />
     <Compile Include="MemberPic.cs" />
     <Compile Include="MemberSetting.cs" />

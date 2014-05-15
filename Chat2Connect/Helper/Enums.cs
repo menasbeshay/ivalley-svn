@@ -127,5 +127,33 @@ namespace Helper
             [StringValue("الحساب المصبوغ")]
             TypedAccount,
         }
+
+        public enum LogType
+        {
+            [StringValue("إنشاؤ غرفة")]
+            CreateRoom = 1,
+            [StringValue("إنشاء غرفة مؤقتة")]
+            CreateTempRoom = 2,
+            [StringValue("دخول غرفة")]
+            EnterRoom = 3,
+            [StringValue("إضافة صديق")]
+            AddFriend = 4,
+            [StringValue("عرض  صفحةالبريد")]
+            ViewMailPage = 5,
+            [StringValue("عرض  الرصيد")]
+            ViewBalancePage = 6,
+            [StringValue("صبغ غرفة")]
+            ChangeRoomType = 7,
+            [StringValue("صبغ حساب")]
+            ChangeMemberType = 8,
+            [StringValue("شحن رصيد")]
+            RechargeBalance = 9,
+            [StringValue("تحويل رصيد")]
+            TransferBalance = 10,
+            [StringValue("دخول محادثة خاصة")]
+            EnterPrivateChate = 11,
+            [StringValue("تغيير كلمة السر")]
+            ChangePassword = 12,
+        }
     }
 }
