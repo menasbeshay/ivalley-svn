@@ -772,6 +772,8 @@ where U.UserName like N'%' + @query + N'%'
 							 
 Go
 
+exec SearchMembersFriends N'weza', 3
+
 
 If Exists (select Name 
 		   from sysobjects 

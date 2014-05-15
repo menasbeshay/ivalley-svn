@@ -144,6 +144,10 @@ namespace Chat2Connect
                 room.EnableThreeMic = uiCheckBoxEnableThreeMic.Checked;
                 room.Save();
 
+                // log 
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
+
                  if (AdminsTable.Rows.Count > 0)
                  {
                      RoomMember roommember = new RoomMember();

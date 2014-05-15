@@ -279,7 +279,7 @@ function Chat(maxWin, memberID, memberName) {
             var gifts = null;
              $.post("../services/Services.asmx/GetGifts")
                 .done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     gifts = data;                    
                 });
 
@@ -288,6 +288,7 @@ function Chat(maxWin, memberID, memberName) {
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
             self.Init(win);
+            rHub.server.EnterPrivateChatLog(id, name);
         }
         else {
             if (self.notTempRoom().length == self.maxRoom()) {

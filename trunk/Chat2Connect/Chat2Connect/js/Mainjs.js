@@ -57,9 +57,18 @@ $(document).ready(function () {
             position: 'left'
         });
     });    
-
-
     
+    $('.friend-link').each(function () {
+        var $this = $(this);
+        $this.popover({
+            trigger: 'click',
+            placement: 'left',
+            html: true,
+            content: $this.find('.friendSubMenu').html(),
+            container: 'body'
+        });
+    });
+
 });
 
 

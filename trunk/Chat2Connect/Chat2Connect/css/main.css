@@ -1053,13 +1053,14 @@ width:200px;
     cursor:pointer;
 }
 
-.friend-link .popup-menu {
-	position: absolute;	
-	right: 100px;
-    top:25px;
-	display: none;
-	z-index: 888888888;
+.friend-link .popup-menu {	
+	display: none;	
     list-style:none;
+}
+
+
+.profileMenu li {
+    text-align:right;
 }
 
 .profileMenu {
@@ -1071,6 +1072,7 @@ width:200px;
 }
 .profileMenu a {
     color:#fff !important;
+    text-align:right;
     }
 /*
 .friend-link .popup-menu a {
@@ -1088,11 +1090,33 @@ width:200px;
 .friend-link .popup-menu a:hover {
 	background-color: #999999;
 }
-*/
+*//*
 .friend-link:hover .popup-menu {
 	display: block;
+}*/
+
+  .popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  display: none;
+  max-width: 480px;
+  padding: 1px;
+  text-align: left;
+  white-space: normal;
+  background-color: #000;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
+.popover.left > .arrow:after {
+    border-left-color:#000;
+    }
 
 /**/
 
@@ -1225,8 +1249,8 @@ li.g-dark-selected {
     }
 .gifts li label {
     display:block;
-    width:60px;
-    height:60px;
+    width:100px;
+    height:110px;
     border: 1px solid #ccc;
     border-radius:5px;
     -moz-border-radius:5px;
@@ -1234,6 +1258,7 @@ li.g-dark-selected {
     -ms-border-radius:5px;
     text-align:center;
     cursor:pointer;
+    padding:5px;
     }
 
 .gifts li label:hover {
@@ -1242,9 +1267,20 @@ li.g-dark-selected {
 .gifts li label img {
     max-width:60px;
     max-height:60px;
+    margin:0 auto;
     }
 .gifts li label span {
     text-align:center;
+    }
+
+.gifts li label span.giftname {
+    text-align:center;
+    font-size:70%;
+    }
+
+.gifts li label span.giftprice {
+    text-align:center;
+    font-size:70%;
     }
 
 .gifts .input_hidden {
