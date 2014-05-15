@@ -32,6 +32,11 @@ namespace Chat2Connect
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 ctrlMail.MemberName = Membership.GetUser().UserName;
                 ctrlMail.MemberID = member.MemberID;
+
+
+                // logging
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ViewMailPage() { }, null, null);
             }
         }
 

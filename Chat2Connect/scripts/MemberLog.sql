@@ -2,6 +2,27 @@
 USE [chat2connect]
 GO
 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'MemberLog' and
+		        xtype = 'U')
+Drop Table MemberLog
+Go
+Create Table MemberLog
+(
+	ID bigint not null identity(1,1),
+	MemberID int,
+	LogTypeID int,
+	LogDetails nvarchar(MAX),
+	RelatedRoomID int ,
+	RelatedMemberID int ,
+	CreateDate datetime
+)
+Go
+
+
+
 /****** Object:  StoredProcedure [proc_MemberLogLoadByPrimaryKey]    Script Date: 15/5/2014 12:59:14 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLogLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLogLoadByPrimaryKey];

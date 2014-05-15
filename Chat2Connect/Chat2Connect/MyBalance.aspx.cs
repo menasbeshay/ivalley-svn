@@ -18,6 +18,10 @@ namespace Chat2Connect
             {
                 LoadBalance();
                 LoadFriends();
+
+                // logging
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ViewBalancePage() { }, null, null);
             }
         }
 
@@ -100,6 +104,11 @@ namespace Chat2Connect
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل الرصيد بنجاح.'); });", true);
 
+                        // logging
+                        BLL.MemberLog log = new BLL.MemberLog();
+                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferBalance() { FriendID = ToMember.MemberID, FriendName = ToMember.Name, TranseferAmount = Convert.ToDecimal(uiTextBoxAmount.Text) }, ToMember.MemberID, null);
+
+                        /*
                         UserTransLog log = new UserTransLog();
                         log.AddNew();
                         log.MemberID = ToMember.MemberID;
@@ -118,7 +127,7 @@ namespace Chat2Connect
                         log2.TransType = 2;
                         log2.TransDate = DateTime.Now;
                         log2.PaymentMethod = StringEnum.GetStringValue(Enums.PaymentMethod.TranseferToFriend);
-                        log2.Save();
+                        log2.Save();*/
                         LoadBalance();
                         uiTextBoxAmount.Text = "";
                     }

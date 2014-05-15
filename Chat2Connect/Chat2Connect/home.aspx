@@ -499,12 +499,13 @@
                         <div data-height="400px;" style="width: 100%; background-color: #D9D9D9; min-height: 400px; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
 
                         <div style="height: 5px;" class="clearfix"></div>
-                        <a style="width: 8%; height: 70px; padding-top: 25px;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px;'></textarea>
+                        
+                        <a style="width: 8%; height: 70px; padding-top: 25px;float:right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px;float:left;'></textarea>
+                        
+                        <div style="height: 20px;" class="clear"></div>
 
-                        <div style="height: 20px;" class="clearfix"></div>
-
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" style="padding:0px;">
                             <div class="pull-right">
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
                                     <img style="width: 14px;" src="images/hand.png">
@@ -1165,7 +1166,7 @@
         </div>
 
         <div data-bind="attr:{id:'giftModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
@@ -1190,11 +1191,12 @@
                                             <input type="radio" name="gift" data-bind="attr:{id:'gift_' + giftid()},checkedValue: giftid" class="input_hidden" />
                                             <label data-bind="attr:{for:'gift_' + giftid()}, click:$parent.selectGift" >
                                                 <img data-bind="attr:{src:picPath}" /> 
-                                                <br /> <span data-bind="text:name"></span> 
-                                                <br /> <span data-bind="text:price"></span>
+                                                <br /> <span class="giftname" data-bind="text:name"></span> 
+                                                <br /> <span class="giftprice" data-bind="text:price"></span>
                                             </label>  
                                         </li>
                                     </ul>
+                                    <div class="clearfix" style="height:10px;"></div>
                                 </div>
                                                               
                             </div>

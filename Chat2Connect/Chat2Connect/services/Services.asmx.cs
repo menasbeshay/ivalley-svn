@@ -636,7 +636,7 @@ namespace Chat2Connect.services
             
             Gift allgifts = new Gift();
             allgifts.LoadAll();            
-            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"]  + " نقطة", picPath = m["PicPath"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";

@@ -130,7 +130,7 @@ namespace Helper
 
         public enum LogType
         {
-            [StringValue("إنشاؤ غرفة")]
+            [StringValue("إنشاء غرفة")]
             CreateRoom = 1,
             [StringValue("إنشاء غرفة مؤقتة")]
             CreateTempRoom = 2,

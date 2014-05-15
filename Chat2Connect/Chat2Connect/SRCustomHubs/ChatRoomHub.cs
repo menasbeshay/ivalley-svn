@@ -59,6 +59,13 @@ namespace Chat2Connect.SRCustomHubs
                 item.Rooms.Add(roomid);
 
                 Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString());
+
+                Room room = new Room();
+                room.LoadByPrimaryKey(roomid);
+
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, null);
+                
             }
             catch (Exception ex)
             {
@@ -250,6 +257,13 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
 
+        }
+
+        // logging 
+        public void EnterPrivateChatLog(int FriendID, string FriendName)
+        {
+            BLL.MemberLog log = new BLL.MemberLog();
+            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName}, FriendID, null);
         }
 
     }

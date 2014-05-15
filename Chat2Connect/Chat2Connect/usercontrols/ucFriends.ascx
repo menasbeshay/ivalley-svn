@@ -51,7 +51,8 @@
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
                                 </span>
                             <div class="clearfix" style="height: 1px;"></div>
-                                <div class="popup-menu profileMenu">
+                                <div class="friendSubMenu">
+                                <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
                                             <img src='<%# Eval("ProfilePic") %>'/>
@@ -63,7 +64,7 @@
                                             <%# Eval("UserName") %>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-8 pull-right">
+                                        <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
                                                 <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -82,8 +83,9 @@
                                             </ul>
                                         </div>
                                       </div>
+                                        <div class="clear" style="height: 1px;"></div>
                                     </div>
-
+                                    </div>
                                 <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
                                     <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
@@ -103,7 +105,8 @@
                             <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
                             <div class="clearfix" style="height: 1px;"></div>
-                            <div class="popup-menu profileMenu">
+                            <div class="friendSubMenu">
+                            <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
                                             <img src='<%# Eval("ProfilePic") %>'/>
@@ -115,7 +118,7 @@
                                             <%# Eval("UserName") %>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-8 pull-right">
+                                        <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
                                                 <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -134,7 +137,9 @@
                                             </ul>
                                         </div>
                                       </div>
+                                <div class="clear" style="height: 1px;"></div>
                                     </div>
+                                </div>
                                  <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                     <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");' ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
@@ -166,7 +171,8 @@
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
                             <div class="clearfix" style="height: 1px;"></div>
-                            <div class="popup-menu profileMenu">
+                            <div class="friendSubMenu">
+                            <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
                                             <img src='<%# Eval("ProfilePic") %>'/>
@@ -178,7 +184,7 @@
                                             <%# Eval("UserName") %>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-8 pull-right">
+                                        <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
                                                 <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -197,7 +203,9 @@
                                             </ul>
                                         </div>
                                       </div>
+                                <div class="clear" style="height: 1px;"></div>
                                     </div>
+                                </div>
                                  <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                     <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
@@ -217,7 +225,8 @@
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
                             <div class="clearfix" style="height: 1px;"></div>
-                            <div class="popup-menu profileMenu">
+                            <div class="friendSubMenu">
+                            <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
                                             <img src='<%# Eval("ProfilePic") %>'/>
@@ -229,7 +238,7 @@
                                             <%# Eval("UserName") %>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-8 pull-right">
+                                        <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
                                                 <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -248,7 +257,9 @@
                                             </ul>
                                         </div>
                                       </div>
+                                <div class="clear" style="height: 1px;"></div>
                                     </div>
+                                </div>
                                  <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                     <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
 						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
