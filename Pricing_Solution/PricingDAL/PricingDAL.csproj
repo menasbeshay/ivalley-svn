@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5C44A7D-C0C3-45A9-956C-DA6841F909F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PricingDAL</RootNamespace>
+    <AssemblyName>PricingDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommitteeDescision.cs" />
+    <Compile Include="CommitteeHistory.cs" />
+    <Compile Include="CommitteTypes.cs" />
+    <Compile Include="Companies.cs" />
+    <Compile Include="CompanyDescision.cs" />
+    <Compile Include="Dosage_form.cs" />
+    <Compile Include="Drug_Reguest_Substances.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="Generic_names.cs" />
+    <Compile Include="MailTemplates.cs" />
+    <Compile Include="Notifications.cs" />
+    <Compile Include="PricingStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registeration_Committee_Type.cs" />
+    <Compile Include="SQLHelper.cs" />
+    <Compile Include="StatusHistory.cs" />
+    <Compile Include="Substances.cs" />
+    <Compile Include="SubstancesReference.cs" />
+    <Compile Include="SUBSTANCE_SUPPLIER.cs" />
+    <Compile Include="TicketHistory.cs" />
+    <Compile Include="Tickets.cs" />
+    <Compile Include="TradePricing.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="userLogin.cs" />
+    <Compile Include="v_GetAllGenericInfoByDrugID.cs" />
+    <Compile Include="v_GetOneGenericInfoByDrugID.cs" />
+    <Compile Include="v_PriceSchedual.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
+      <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
+      <Name>MyGeneration.dOOdads</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

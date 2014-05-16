@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Pricing_GUI.SiteMaster" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Default.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+<script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
+<link href="Styles/calendar-blue.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Pricing
+                </h1>
+            </div>
+            <asp:ScriptManager runat="server" ID="ui_ScriptManager">
+            
+            </asp:ScriptManager>
+            <div class="loginDisplay">
+                <asp:Label runat="server" ID="ui_lblWelcome" 
+                        style="color: #FFFFFF; font-weight: 700"></asp:Label>
+                        <br /><br />
+                        <asp:LinkButton runat="server" ID="ui_lnkLogout" Text="Log out" 
+                        onclick="ui_lnkLogout_Click" ></asp:LinkButton>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/CAPA/Home.aspx" Text="Home"/>                        
+                        <asp:MenuItem NavigateUrl="~/CAPA/TradeSearch.aspx" Text="Waiting List Entry"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/ListPrices.aspx" Text="Sending Email"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/CompaniesAdmin.aspx" Text="Companies Data"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

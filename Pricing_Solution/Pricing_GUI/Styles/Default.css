@@ -1,0 +1,459 @@
+﻿
+
+/***** Class Styling *****/
+.ModalPopupBG
+{
+    background-color: #666699;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    
+}
+
+.ModalPopupCustom
+{
+    min-width:450px;
+    min-height:300px;
+    background:white;
+    padding-left:5px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.PopupHeader
+{
+    background:#A0074C;
+    height:20px;
+    color:White;
+    padding-left:5px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.popupDiv
+{	
+	background: white;
+	border-style :none;
+	border-color: inherit;
+	border-width: medium;
+	border-spacing: 0px 0px 0px 0px;
+    white-space:normal;
+    text-align:left;
+    width:720px;
+    height:470px;
+}
+.popupTable
+{	
+	background: white;
+	border-style :none;
+	border-color: inherit;
+	border-width: medium;
+	border-spacing: 0px 0px 0px 0px;
+    white-space:normal;
+    text-align:left;
+    width:300px;
+    height:150px;
+}
+.PopupEditParameter 
+{	
+	background: white;
+    white-space:normal;
+    border-style:none;
+    text-align:left;
+    width:420px;
+    height:230px;
+}
+.PopupEditParameter
+{
+	border-style:none;
+	
+}
+.PopupWide
+{
+	background: white;
+	border-style :none;
+	border-color:White;
+	border-width:medium;
+	border-spacing: 0px 0px 0px 0px;
+    white-space:normal;
+    text-align:left;
+    width:600px;
+    height:420px;
+}
+.ModalExtenderBackground {
+	background-color:#444444;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+
+/* Modal Popup Extender */
+.ModalBackground
+{
+    background-color: #000000;
+    filter: alpha(opacity=25);
+    -moz-opacity: .25;
+    opacity: .25;
+}
+
+.ModalPanel
+{
+    background-color: #f8f8f8;
+    border: 1px solid #000000;
+    padding: 2px;
+}
+
+.ModalTable
+{
+    border-collapse: collapse;
+    padding: 0;
+}
+
+.ModalDragHandle
+{
+    margin: 0;
+    cursor: move;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    
+    border: 2px solid #c0c0c0;
+    display: block;
+    border-radius: 4px 4px 0 0;
+}
+
+
+
+.RoundedCorners
+{
+    border-radius: 8px 8px 8px 8px;
+}
+
+
+.Shadow
+{
+    -moz-box-shadow: 3px 3px 3px #666; /* Drop shadow in mozilla browsers (Firefox). */
+    -webkit-box-shadow: 3px 3px 3px #666; /* Drop shadow in webkit browsers (Safari, Chrome). */
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#606060,direction=135,strength=3); /* Drop shadow in IE. */
+    box-shadow: 3px 3px 3px #666; /* Drop shadow in CSS3 browsers. */
+}
+
+.SiteTitle
+{
+    margin-left: 10px;
+    font-variant: small-caps;
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+.SelectedGridRow
+{
+    background-color:Red;
+}
+
+.Field
+{
+    font-weight: bold;
+}
+
+.Button
+{
+    background-color: #e7f7ff;
+    border: 1px solid #009ce4;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.Button:hover
+{
+    background-color: #bfe9ff;
+}
+.Button-Grid
+{
+    background-color: #e7f7ff;
+    border: 1px solid #009ce4;
+    width: 60px;
+    cursor:pointer;
+}
+.Button-Grid-Wide
+{
+    background-color: #e7f7ff;
+    border: 1px solid #009ce4;
+    width: 130px;
+    cursor:pointer;
+}
+
+.TextBox, .DropDownList
+{
+    background-color: #f0f0f0;
+    border: 1px solid #bfc5ca;
+    width: 300px;
+    height: 20px;
+}
+.DropDownList
+{
+    /* DropDownLists needs a bit more width to match a textbox for some reason. */
+    width: 304px;
+}
+.TextBox:hover, .DropDownList:hover
+{
+    background-color: #eaeaea;
+}
+.TextBoxPLCTag
+{
+	background-color: #f0f0f0;
+    border: 1px solid #bfc5ca;
+    width: 250px;
+}
+.TextBoxPLCTag:hover
+{
+    background-color: #eaeaea;
+}
+
+.InputSizeSmall
+{
+    width: 135px;
+}
+.InputSizeLarge
+{
+    width: 750px;
+}
+.InputSizeCustom1
+{
+    width: 220px;
+}
+.InputSizeCustom2
+{
+    width: 250px;
+}
+
+.ErrorMessage
+{
+    color: #ff0000;
+}
+
+.ChemicalFont
+{
+    font-family: Kemi5;
+}
+
+.TableSpacer
+{
+    /* Put the TableSpacer class on the widest table cell to give some breathing space to the next cell. */
+    padding-right: 50px;
+}
+
+.TableDivider
+{
+    height: 1px;
+    width: 100%;
+    border-bottom: solid 1px #cccccc;
+    margin: 0;
+    padding: 0;
+}
+td.TableCellTop
+{
+    vertical-align: top;
+}
+.TableCellMargin
+{
+    margin-left: 8px;
+}
+.TableCellAlignCenter
+{
+    text-align: center;
+}
+.TableCellAlignRight
+{
+    text-align: right;
+}
+
+.TableCellWidth50
+{
+    width: 50px;
+}
+.TableCellWidth75
+{
+    width: 75px;
+}
+.TableCellWidth80
+{
+    width: 80px;
+}
+.TableCellWidth85
+{
+    width: 85px;
+}
+.TableCellWidth100
+{
+    width: 100px;
+}
+.TableCellWidth150
+{
+    width: 150px;
+}
+.TableCellWidth175
+{
+    width: 175px;
+}
+.TableCellWidth200
+{
+    width: 200px;
+}
+.TableCellWidth250
+{
+    width: 250px;
+}
+.TableCellWidth300
+{
+    width: 300px;
+}
+.TableCellWidth400
+{
+    width: 400px;
+}
+.TableCellWidth600
+{
+    width: 600px;
+}
+.TableCellActions
+{
+	width:140px;
+    text-align: center;
+}
+.TableCellActions-Wide
+{
+	width:290px;
+    text-align: left;
+}
+
+/* Next iteration in GridView */
+.GridRowFutureIteration td
+{
+    background-color: #b0b0b0 !important;
+}
+.GridRowFutureIteration.AspNet-GridView-Alternate td
+{
+    background-color: #bbbbbb !important;
+}
+
+/* Various Status Div */
+.Status
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 2px;
+}
+
+/* Selection Status */
+.NotSelected
+{
+    background: url(../Images/selection.png) no-repeat;
+}
+.Selected
+{
+    background: url(../Images/selection2.png) no-repeat;
+}
+
+/* Phase Status Div */
+.PhaseStatusSuccess
+{
+    background: url(../Images/success.png) no-repeat;
+}
+.PhaseStatusError
+{
+    background: url(../Images/error.png) no-repeat;
+}
+.PhaseStatusWaiting
+{
+    /*background: url(../Images/phase-waiting.png) no-repeat;*/
+}
+.PhaseStatusRunning
+{
+    background: url(../Images/running.gif) no-repeat;
+}
+
+/* Alarm Status Div */
+.AlarmInvalid
+{
+    background: url(../Images/invalid.png) no-repeat;
+}
+.AlarmUnsigned
+{
+    background: url(../Images/error.png) no-repeat;
+}
+.AlarmSignedOK
+{
+    background: url(../Images/success.png) no-repeat;
+}
+.AlarmSignedHigh
+{
+    background: url(../Images/high.png) no-repeat;
+}
+.AlarmSignedWaiting
+{
+    background: url(../Images/info.png) no-repeat;
+}
+.AlarmPartiallySigned
+{
+    background: url(../Images/warning.png) no-repeat;
+}
+
+/* Batch Status Div */
+.BatchStatus1
+{
+    /* Running */
+    background: url(../Images/running.gif) no-repeat;
+}
+.BatchStatus5
+{
+    /* Pause */
+    background: url(../Images/pause.png) no-repeat;
+}
+.BatchStatus8, .BatchStatus9
+{
+    /* Batch afbrudt */
+    background: url(../Images/error.png) no-repeat;
+}
+.BatchStatus11
+{
+    /* Batch færdig */
+    background: url(../Images/success.png) no-repeat;
+}
+
+.BatchStatusMinus
+{
+    /* Batch færdig */
+    background: url(../Images/Minus.png) no-repeat 50% 50%;
+}
+
+.BatchStatusPlus
+{
+    /* Batch færdig */
+    background: url(../Images/Plus.png) no-repeat 50% 50%;
+}
+
+
+.Radio input
+{
+	background:#F0F0F0 none repeat scroll 0 0;
+	color:#333333;
+}
+.RadioAlternate input
+{
+	background:#EAEAEA none repeat scroll 0 0;
+}
+.NoPadding
+{
+	padding:0 0 0 0;
+}
+.AlignTop
+{
+	vertical-align:top;
+	padding-top:5px;
+}
+
+.chemicalText 
+{
+	font-size: 12px;
+    line-height: 1.5;
+    font-family: Kemi5, "Lucida Sans Unicode" , Verdana, Arial, Sans-Serif;
+	
+}
