@@ -58,8 +58,8 @@ function Chat(maxWin, memberID, memberName) {
             this.RoomMembers.push(member);
             
         };
-        this.newMember = function (id, name) {
-            var member = { MemberID: id, MemberName: name, MemberTypeID: 1, IsCamOpened: false, IsMicOpened: false };
+        this.newMember = function (id, name, memberType) {
+            var member = { MemberID: id, MemberName: name, MemberTypeID: memberType, IsCamOpened: false, IsMicOpened: false };
             return ko.mapping.fromJS(member);
         }
         this.removeMember = function (id) {
@@ -288,7 +288,7 @@ function Chat(maxWin, memberID, memberName) {
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
             self.Init(win);
-            rHub.server.EnterPrivateChatLog(id, name);
+            rHub.server.enterPrivateChatLog(id, name);
         }
         else {
             if (self.notTempRoom().length == self.maxRoom()) {
@@ -390,6 +390,18 @@ function Chat(maxWin, memberID, memberName) {
             searchingText: "بحث فى الأصدقاء...",
             tokenLimit: 1
         });
+
+        // popover menu for members
+        /*$('.roomMemberlink').each(function () {
+            var $this = $(this);
+            $this.popover({
+                trigger: 'click',
+                placement: 'left',
+                html: true,
+                content: $this.find('.friendSubMenu').html(),
+                container: '#' + window.uniqueID()
+            });
+        });*/
 
         
 
@@ -528,7 +540,7 @@ function Chat(maxWin, memberID, memberName) {
     
 }
 
-function onCamClose(userId)
+function onCamClose(userId, roomId)
 {
     chatVM.stopCam(userId);
 }
@@ -604,7 +616,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         });
 
     };
-    rHub.client.addNewMember = function (mid, name, rid) {
+    rHub.client.addNewMember = function (mid, name, rid, memberType) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type, name);
         if (window == null)
@@ -614,7 +626,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             member = window.getQueueMember(mid);
         if (member != null)
             return;
-        member = window.newMember(mid, name);
+        member = window.newMember(mid, name, memberType);
         window.addMember(member);
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOn()) {
             notify('info', '' + member.MemberName() + ' دخل الان فى الغرفة ' + window.Name() + '');
@@ -704,9 +716,10 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
 
-        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
+        chatVM.startMic(window, memberid);
+        /*$("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
         $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
-        $("#Room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #MicDiv");
+        $("#Room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #MicDiv");*/
     };
 
     rHub.client.StopListenMic = function (memberid, rid) {
@@ -717,8 +730,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
         chatVM.stopMic(window, memberid);
 
-        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
-        $("#Room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #regular");
+       /* $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
+        $("#Room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #regular");*/
     };
 
     rHub.client.UserRaisHand = function (rid, memberid) {
