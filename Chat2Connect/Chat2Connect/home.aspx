@@ -321,16 +321,18 @@
                     <div style="padding: 5px; margin-top: 2px;position:relative;" class="col-lg-3 pull-right">
                         <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow-y: hidden; width: auto; height: 400px;overflow-x:visible;">
                             <div id="MicDiv">
-                                <div class="friend-link rm Altodd" data-bind="with:MicMember">
+                                <div class="friend-link rm Altodd roomMemberlink" data-bind="with:MicMember">
                                     <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
                                     <div class="pull-left controls">
+                                        <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
-                                        <img src="images/hand.png" style="width: 16px;" class="hand" /><img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                        </div>
+                                        <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
                                      <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
-
+                        <div class="friendSubMenu">
                                     <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
@@ -361,6 +363,8 @@
                                             </ul>
                                         </div>
                                       </div>
+                                        <div class="clear" style="height: 1px;"></div>
+                                    </div>
                                     </div>
 <%--                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -378,15 +382,18 @@
                             </div>
                             <div id="queueDiv">
                                 <!-- ko foreach: QueueMembers-->
-                                <div class="friend-link rm" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
+                                <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
                                     <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
                                     <div class="pull-left controls">
+                                        <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
-                                        <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                        </div>
+                                        <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><i class="icon-ban-circle mark"></i>
                                     </div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
+                            <div class="friendSubMenu">
                                      <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
@@ -416,7 +423,10 @@
                                         <!-- /ko -->
                                             </ul>
                                         </div>
+        
                                       </div>
+                                        <div class="clear" style="height: 1px;"></div>
+                                    </div>
                                     </div>
                                    <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome" >&#xf0e6;</span> محادثة خاصة</a></li>
@@ -435,15 +445,18 @@
                             </div>
                             <div id="regular">
                                 <!-- ko foreach: RoomMembers-->
-                                <div class="friend-link rm" data-bind="css:{Altodd:$index()%2,Alteven:!$index()%2}">
+                                <div class="friend-link rm roomMemberlink" data-bind="css:{Altodd:$index()%2,Alteven:!$index()%2}">
                                     <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
                                     <div class="pull-left controls">
+                                        <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
                                             <img style="width: 16px;" src="images/video_camera.png"></a>
-                                        <img src="images/hand.png" style="width: 16px;" class="hand" /><img src="images/microphone_1.png" style="width: 16px;" class="mic" /><i class="icon-ban-circle mark"></i>
+                                            </div>
+                                        <i class="icon-ban-circle mark"></i>
                                     </div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clearfix" style="height: 1px;"></div>
+        <div class="friendSubMenu"> 
                                     <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
@@ -474,6 +487,8 @@
                                             </ul>
                                         </div>
                                       </div>
+        <div class="clear" style="height: 1px;"></div>
+                                    </div>
                                     </div>
                                     <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -507,9 +522,11 @@
 
                         <div class="col-lg-12" style="padding:0px;">
                             <div class="pull-right">
+                            <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
                                     <img style="width: 14px;" src="images/hand.png">
                                 </a>
+                                <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
                                     <i class="icon-microphone"></i>
                                 </a>
@@ -954,7 +971,9 @@
                             </div>
                             <div class="pull-right">
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><i class="icon-gift"></i></a>
+                                <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><i class="icon-group"></i></a>
+                                <!-- /ko -->
                                 <div style="display: inline-block; position: relative;" data-placement="top" title="" class="roomMenuItem" data-original-title="تحميل ملفات">
                                     <button onclick="animateMenu($(this));" id="attachbtn" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-group" type="button"><i class="icon-paper-clip"></i></button>
                                     <ul role="menu" class="dropdown-menu" style="display: none;" id="myul">

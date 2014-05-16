@@ -956,12 +956,21 @@ fieldset[disabled] .btn-main.active {
     color:#000;
 }
 
+.cameraHolder {
+    float:left;
+    width:16px;
+    height:16px;
+}
+
 .camera, .hand, .mic , .mark{
     display:none;
+    float:left;
+     width:16px;
+    height:16px;
 }
 
 .RoomAdminMenu {
-width:200px;
+width:230px;
 }
 
 /* auto complete */
@@ -1294,5 +1303,5 @@ li.g-dark-selected {
 
 .giftmsg {
     font-weight:bold;
-    color:#e007e2;
+    color:#808040;
 }
