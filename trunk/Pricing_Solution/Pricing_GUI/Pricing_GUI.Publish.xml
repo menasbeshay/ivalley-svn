@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\10.10.10.112\c$\inetpub\wwwroot\Pricing" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="ListPrices.aspx" publishTime="04/29/2014 11:53:56" />
+    <file relUrl="Scripts/jquery.dynDateTime.min.js" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="Images/MailHeader.jpg" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="bin/MyGeneration.dOOdads.dll" publishTime="04/29/2014 10:04:29" />
+    <file relUrl="Images/del1.png" publishTime="04/06/2014 09:48:53" />
+    <file relUrl="Global.asax" publishTime="03/24/2014 10:53:50" />
+    <file relUrl="Site.Master" publishTime="04/07/2014 13:51:59" />
+    <file relUrl="Styles/Site.css" publishTime="04/27/2014 14:43:08" />
+    <file relUrl="About.aspx" publishTime="04/22/2014 10:18:59" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="Scripts/calendar-en.min.js" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="bin/Pricing_GUI.dll" publishTime="04/29/2014 11:54:02" />
+    <file relUrl="bin/PricingBLL.pdb" publishTime="04/29/2014 10:04:31" />
+    <file relUrl="Account/Web.config" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="Account/Register.aspx" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="LogIn.aspx" publishTime="04/07/2014 13:35:38" />
+    <file relUrl="Account/Login.aspx" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="DefaultSite.Master" publishTime="04/07/2014 13:20:32" />
+    <file relUrl="Images/calender.png" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="bin/MyGeneration.dOOdads.pdb" publishTime="04/29/2014 10:04:29" />
+    <file relUrl="bin/AjaxControlToolkit.dll" publishTime="03/24/2014 10:57:40" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="Styles/dateTimeStyle.css" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="Styles/Default.css" publishTime="03/24/2014 12:34:30" />
+    <file relUrl="Default.aspx" publishTime="04/07/2014 13:36:13" />
+    <file relUrl="Account/ChangePasswordSuccess.aspx" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="bin/PricingDAL.pdb" publishTime="04/29/2014 10:04:31" />
+    <file relUrl="Images/MailFooter.jpg" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="WebForm1.aspx" publishTime="04/29/2014 11:27:19" />
+    <file relUrl="bin/Pricing_GUI.pdb" publishTime="04/29/2014 11:54:02" />
+    <file relUrl="Images/Excel-icon.png" publishTime="03/24/2014 14:44:33" />
+    <file relUrl="Styles/calendar-blue.css" publishTime="04/09/2014 10:48:52" />
+    <file relUrl="CompaniesAdmin.aspx" publishTime="04/09/2014 11:24:26" />
+    <file relUrl="Account/ChangePassword.aspx" publishTime="03/24/2014 10:53:49" />
+    <file relUrl="Images/edit.png" publishTime="04/06/2014 09:48:53" />
+    <file relUrl="bin/PricingDAL.dll" publishTime="04/29/2014 10:04:31" />
+    <file relUrl="Web.config" publishTime="04/29/2014 11:56:16" />
+    <file relUrl="Attachments/1005_____1.jpg" publishTime="03/18/2014 13:39:42" />
+    <file relUrl="Images/loading.gif" publishTime="04/06/2014 09:48:53" />
+    <file relUrl="bin/PricingBLL.dll" publishTime="04/29/2014 10:04:32" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="03/24/2014 10:53:49" />
+  </publishProfile>
+</publishData>
