@@ -13,7 +13,14 @@ namespace BLL.Log
         }
 
         public int RoomID { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "إسم الغرفة", DisplayOrder = 1)]
+
         public string RoomName { get; set; }
-        
+
+        public static EnterRoom FromString(string stringValue)
+        {
+            return Helper.JsonConverter.Deserialize<EnterRoom>(stringValue);
+        }
     }
 }

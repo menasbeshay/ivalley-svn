@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,6 @@ namespace BLL.Log
 {
     public class Log
     {
-        [JsonIgnore]
         public Helper.Enums.LogType Type
         {
             get;
@@ -17,14 +15,11 @@ namespace BLL.Log
 
         public string ToString()
         {
-            return JsonConvert.SerializeObject(this);
-
+            return Helper.JsonConverter.Serialize(this);
         }
-
-        public T Deserialize<T>(string stringValue)
+        public static Log FromString(string stringValue)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(stringValue);
+            return Helper.JsonConverter.Deserialize<Log>(stringValue);
         }
-
     }
 }

@@ -25,7 +25,7 @@ namespace BLL
             this.LogTypeID = (int)log.Type;
             this.MemberID = currentMemberID;
             if(relatedMemberID.HasValue) 
-                this.RelatedRoomID = relatedMemberID.Value;
+                this.RelatedMemberID = relatedMemberID.Value;
             if(relatedRoomID.HasValue) 
                 this.RelatedRoomID = relatedRoomID.Value;
 
