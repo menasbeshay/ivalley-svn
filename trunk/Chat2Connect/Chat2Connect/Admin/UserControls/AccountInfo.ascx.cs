@@ -100,7 +100,7 @@ namespace Chat2Connect.Admin.UserControls
                 user.ChangePassword(oldPassowrd, txtPassword.Text);
 
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangePassword() { OldPassword = oldPassowrd, NewPassword = txtPassword.Text }, member.MemberID,null);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangePassword() { OldPassword = oldPassowrd, NewPassword = txtPassword.Text,MemberName=member.Name }, member.MemberID,null);
                 
                 BindAccountInfo();
             }

@@ -109,6 +109,7 @@
     <Content Include="Admin\UserControls\AccountStatus.ascx" />
     <Content Include="Admin\UserControls\AccountType.ascx" />
     <Content Include="Admin\UserControls\AdminRoles.ascx" />
+    <Content Include="Admin\UserControls\MemberLogDetails.ascx" />
     <Content Include="Admin\UserControls\Room\RoomInfo.ascx" />
     <Content Include="Admin\UserControls\Room\RoomStatus.ascx" />
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
@@ -829,6 +830,13 @@
     </Compile>
     <Compile Include="Admin\UserControls\AdminRoles.ascx.designer.cs">
       <DependentUpon>AdminRoles.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserControls\MemberLogDetails.ascx.cs">
+      <DependentUpon>MemberLogDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserControls\MemberLogDetails.ascx.designer.cs">
+      <DependentUpon>MemberLogDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserControls\Room\RoomInfo.ascx.cs">
       <DependentUpon>RoomInfo.ascx</DependentUpon>

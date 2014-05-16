@@ -12,15 +12,29 @@ namespace BLL.Log
             Type = Helper.Enums.LogType.ChangePassword;
         }
 
+        public static ChangePassword FromString(string stringValue)
+        {
+            return Helper.JsonConverter.Deserialize<ChangePassword>(stringValue);
+        }
+
+        [Helper.BoundProperty(HeaderText = "إسم العضو", DisplayOrder = 1)]
+        public string MemberName
+        {
+            get;
+            set;
+        }
+        [Helper.BoundProperty(HeaderText="كلمة السر القديمة",DisplayOrder=2)]
         public string OldPassword
         {
             get;
             set;
         }
+        [Helper.BoundProperty(HeaderText = "كلمة السر الجديدة", DisplayOrder = 3)]
         public string NewPassword
         {
             get;
             set;
         }
+
     }
 }

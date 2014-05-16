@@ -12,6 +12,11 @@ namespace BLL.Log
             Type = Helper.Enums.LogType.ChangeRoomType;
         }
 
+        public static ChangeRoomType FromString(string stringValue)
+        {
+            return Helper.JsonConverter.Deserialize<ChangeRoomType>(stringValue);
+        }
+
         public int OldTypeID { get; set; }
 
         public int NewTypeID { get; set; }

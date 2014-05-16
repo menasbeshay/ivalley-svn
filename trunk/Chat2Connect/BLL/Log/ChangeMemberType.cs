@@ -12,6 +12,11 @@ namespace BLL.Log
             Type = Helper.Enums.LogType.ChangeMemberType;
         }
 
+        public static ChangeMemberType FromString(string stringValue)
+        {
+            return Helper.JsonConverter.Deserialize<ChangeMemberType>(stringValue);
+        }
+
         public int OldTypeID { get; set; }
 
         public int NewTypeID { get; set; }

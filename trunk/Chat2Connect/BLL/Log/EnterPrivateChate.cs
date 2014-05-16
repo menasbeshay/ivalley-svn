@@ -11,8 +11,12 @@ namespace BLL.Log
         {
             Type = Helper.Enums.LogType.EnterRoom;
         }
-
+        public static EnterPrivateChate FromString(string stringValue)
+        {
+            return Helper.JsonConverter.Deserialize<EnterPrivateChate>(stringValue);
+        }
         public int FriendID { get; set; }
+        [Helper.BoundProperty(HeaderText = "إسم الصديق", DisplayOrder = 1)]
         public string FriendName { get; set; }
 
 
