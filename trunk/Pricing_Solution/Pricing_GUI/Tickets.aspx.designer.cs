@@ -94,6 +94,15 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxCommittedDate;
         
         /// <summary>
+        /// uiTextBoxCommittedDate_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender uiTextBoxCommittedDate_CalendarExtender;
+        
+        /// <summary>
         /// uiTextBoxCommittedDecision control.
         /// </summary>
         /// <remarks>
