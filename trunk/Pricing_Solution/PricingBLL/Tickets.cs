@@ -4,7 +4,8 @@
 using System;
 using Pricing.DAL;// We should use the namespace of Data access layer generated form business entity
 using System.Data; // Added by Michael
-using System.Data.SqlClient; // Added by Michael
+using System.Data.SqlClient;
+using System.Collections.Specialized; // Added by Michael
 
 namespace Pricing.BLL
 {
@@ -14,5 +15,12 @@ namespace Pricing.BLL
 		{
 		
 		}
+
+        public virtual bool GetAllTicketsByCompanyID(int CompanyID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@CompanyID", SqlDbType.Int, 0), CompanyID);
+            return LoadFromSql("GetAllTicketsByCompanyID", parameters);
+        }
 	}
 }

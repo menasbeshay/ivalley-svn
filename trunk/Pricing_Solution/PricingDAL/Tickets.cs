@@ -195,6 +195,22 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter TicketStatusID
+			{
+				get
+				{
+					return new SqlParameter("@TicketStatusID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter TradeName
+			{
+				get
+				{
+					return new SqlParameter("@TradeName", SqlDbType.NVarChar, 200);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -213,6 +229,8 @@ namespace Pricing.DAL
             public const string TextRequest = "TextRequest";
             public const string FileAttachement = "FileAttachement";
             public const string InitiateDate = "InitiateDate";
+            public const string TicketStatusID = "TicketStatusID";
+            public const string TradeName = "TradeName";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -232,6 +250,8 @@ namespace Pricing.DAL
 					ht[TextRequest] = _Tickets.PropertyNames.TextRequest;
 					ht[FileAttachement] = _Tickets.PropertyNames.FileAttachement;
 					ht[InitiateDate] = _Tickets.PropertyNames.InitiateDate;
+					ht[TicketStatusID] = _Tickets.PropertyNames.TicketStatusID;
+					ht[TradeName] = _Tickets.PropertyNames.TradeName;
 
 				}
 				return (string)ht[columnName];
@@ -256,6 +276,8 @@ namespace Pricing.DAL
             public const string TextRequest = "TextRequest";
             public const string FileAttachement = "FileAttachement";
             public const string InitiateDate = "InitiateDate";
+            public const string TicketStatusID = "TicketStatusID";
+            public const string TradeName = "TradeName";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -275,6 +297,8 @@ namespace Pricing.DAL
 					ht[TextRequest] = _Tickets.ColumnNames.TextRequest;
 					ht[FileAttachement] = _Tickets.ColumnNames.FileAttachement;
 					ht[InitiateDate] = _Tickets.ColumnNames.InitiateDate;
+					ht[TicketStatusID] = _Tickets.ColumnNames.TicketStatusID;
+					ht[TradeName] = _Tickets.ColumnNames.TradeName;
 
 				}
 				return (string)ht[propertyName];
@@ -299,6 +323,8 @@ namespace Pricing.DAL
             public const string TextRequest = "s_TextRequest";
             public const string FileAttachement = "s_FileAttachement";
             public const string InitiateDate = "s_InitiateDate";
+            public const string TicketStatusID = "s_TicketStatusID";
+            public const string TradeName = "s_TradeName";
 
 		}
 		#endregion		
@@ -446,6 +472,30 @@ namespace Pricing.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.InitiateDate, value);
+			}
+		}
+
+		public virtual int TicketStatusID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TicketStatusID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TicketStatusID, value);
+			}
+		}
+
+		public virtual string TradeName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TradeName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TradeName, value);
 			}
 		}
 
@@ -634,6 +684,36 @@ namespace Pricing.DAL
 			}
 		}
 
+		public virtual string s_TicketStatusID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TicketStatusID) ? string.Empty : base.GetintAsString(ColumnNames.TicketStatusID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TicketStatusID);
+				else
+					this.TicketStatusID = base.SetintAsString(ColumnNames.TicketStatusID, value);
+			}
+		}
+
+		public virtual string s_TradeName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TradeName) ? string.Empty : base.GetstringAsString(ColumnNames.TradeName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TradeName);
+				else
+					this.TradeName = base.SetstringAsString(ColumnNames.TradeName, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -782,6 +862,26 @@ namespace Pricing.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.InitiateDate, Parameters.InitiateDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TicketStatusID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TicketStatusID, Parameters.TicketStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TradeName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TradeName, Parameters.TradeName);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -936,6 +1036,30 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter TicketStatusID
+		    {
+				get
+		        {
+					if(_TicketStatusID_W == null)
+	        	    {
+						_TicketStatusID_W = TearOff.TicketStatusID;
+					}
+					return _TicketStatusID_W;
+				}
+			}
+
+			public WhereParameter TradeName
+		    {
+				get
+		        {
+					if(_TradeName_W == null)
+	        	    {
+						_TradeName_W = TearOff.TradeName;
+					}
+					return _TradeName_W;
+				}
+			}
+
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _TicketTypeID_W = null;
 			private WhereParameter _CompanyID_W = null;
@@ -948,6 +1072,8 @@ namespace Pricing.DAL
 			private WhereParameter _TextRequest_W = null;
 			private WhereParameter _FileAttachement_W = null;
 			private WhereParameter _InitiateDate_W = null;
+			private WhereParameter _TicketStatusID_W = null;
+			private WhereParameter _TradeName_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -963,6 +1089,8 @@ namespace Pricing.DAL
 				_TextRequest_W = null;
 				_FileAttachement_W = null;
 				_InitiateDate_W = null;
+				_TicketStatusID_W = null;
+				_TradeName_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1139,6 +1267,26 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter TicketStatusID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TicketStatusID, Parameters.TicketStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TradeName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TradeName, Parameters.TradeName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1288,6 +1436,30 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter TicketStatusID
+		    {
+				get
+		        {
+					if(_TicketStatusID_W == null)
+	        	    {
+						_TicketStatusID_W = TearOff.TicketStatusID;
+					}
+					return _TicketStatusID_W;
+				}
+			}
+
+			public AggregateParameter TradeName
+		    {
+				get
+		        {
+					if(_TradeName_W == null)
+	        	    {
+						_TradeName_W = TearOff.TradeName;
+					}
+					return _TradeName_W;
+				}
+			}
+
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _TicketTypeID_W = null;
 			private AggregateParameter _CompanyID_W = null;
@@ -1300,6 +1472,8 @@ namespace Pricing.DAL
 			private AggregateParameter _TextRequest_W = null;
 			private AggregateParameter _FileAttachement_W = null;
 			private AggregateParameter _InitiateDate_W = null;
+			private AggregateParameter _TicketStatusID_W = null;
+			private AggregateParameter _TradeName_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1315,6 +1489,8 @@ namespace Pricing.DAL
 				_TextRequest_W = null;
 				_FileAttachement_W = null;
 				_InitiateDate_W = null;
+				_TicketStatusID_W = null;
+				_TradeName_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1435,6 +1611,14 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.InitiateDate);
 			p.SourceColumn = ColumnNames.InitiateDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TicketStatusID);
+			p.SourceColumn = ColumnNames.TicketStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TradeName);
+			p.SourceColumn = ColumnNames.TradeName;
 			p.SourceVersion = DataRowVersion.Current;
 
 
