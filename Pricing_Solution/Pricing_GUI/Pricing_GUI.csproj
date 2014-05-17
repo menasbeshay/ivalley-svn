@@ -823,6 +823,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Tickets.aspx" />
+    <Content Include="ViewTicket.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -986,9 +987,17 @@
     <Compile Include="Tickets.aspx.designer.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewTicket.aspx.cs">
+      <DependentUpon>ViewTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTicket.aspx.designer.cs">
+      <DependentUpon>ViewTicket.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Attachments\Tickets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

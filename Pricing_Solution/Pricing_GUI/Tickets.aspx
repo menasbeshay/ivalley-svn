@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Tickets.aspx.cs" Inherits="Pricing_GUI.Tickets" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -108,6 +109,9 @@
                                             <div class="controls" style="margin-left: 100px !important;">
                                                 <div class="input-append">
                                                     <asp:TextBox ID="uiTextBoxCommittedDate" runat="server"></asp:TextBox>
+                                                    <asp:CalendarExtender ID="uiTextBoxCommittedDate_CalendarExtender" 
+                                                        runat="server" Enabled="True" TargetControlID="uiTextBoxCommittedDate" Format="dd/MM/yyyy">
+                                                    </asp:CalendarExtender>
                                                 </div>
                                             </div>
                                         </div>
