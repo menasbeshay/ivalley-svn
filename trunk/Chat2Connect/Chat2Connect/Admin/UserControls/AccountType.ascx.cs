@@ -29,7 +29,7 @@ namespace Chat2Connect.Admin.UserControls
             if (user != null)
             {
                 member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-                drpAccountType.SelectedValue = member.s_MemberTypeID;
+                //drpAccountType.SelectedValue = member.s_MemberTypeID;
             }
 
         }
@@ -37,12 +37,12 @@ namespace Chat2Connect.Admin.UserControls
         {
             if (!IsPostBack)
             {
-                BLL.MemberType memberType = new BLL.MemberType();
-                memberType.LoadAll();
-                drpAccountType.DataSource = memberType.DefaultView;
-                drpAccountType.DataValueField = BLL.MemberType.ColumnNames.MemberTypeID;
-                drpAccountType.DataTextField = BLL.MemberType.ColumnNames.Name;
-                drpAccountType.DataBind();
+                //BLL.MemberType memberType = new BLL.MemberType();
+                //memberType.LoadAll();
+                //drpAccountType.DataSource = memberType.DefaultView;
+                //drpAccountType.DataValueField = BLL.MemberType.ColumnNames.MemberTypeID;
+                //drpAccountType.DataTextField = BLL.MemberType.ColumnNames.Name;
+                //drpAccountType.DataBind();
             }
         }
 
@@ -53,14 +53,14 @@ namespace Chat2Connect.Admin.UserControls
             if (user != null)
             {
                 member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-                if (drpAccountType.SelectedValue != member.s_MemberTypeID)
-                {
-                    if (!String.IsNullOrEmpty(drpAccountType.SelectedValue))
-                        member.MemberTypeID = Convert.ToInt32(drpAccountType.SelectedValue);
-                    else
-                        member.SetColumnNull(BLL.Member.ColumnNames.MemberTypeID);
-                    member.Save();
-                }
+                //if (drpAccountType.SelectedValue != member.s_MemberTypeID)
+                //{
+                //    if (!String.IsNullOrEmpty(drpAccountType.SelectedValue))
+                //        member.MemberTypeID = Convert.ToInt32(drpAccountType.SelectedValue);
+                //    else
+                //        member.SetColumnNull(BLL.Member.ColumnNames.MemberTypeID);
+                //    member.Save();
+                //}
 
             }
         }

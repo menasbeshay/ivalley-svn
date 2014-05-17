@@ -27,12 +27,12 @@ namespace BLL
 
         public virtual bool GetPremiumRooms()
         {
-            this.Where.RoomTypeID.Value = 4; // premium
-            this.Where.RoomTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
-            this.Query.AddOrderBy("CategoryID", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
-            this.Query.AddOrderBy("SubCategoryID", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
-            this.Query.AddOrderBy("Name", MyGeneration.dOOdads.WhereParameter.Dir.ASC);
-            return this.Query.Load();
+            return this.LoadFromRawSql(@"Select * FROM Room
+                                        INNER JOIN RoomType ON RoomType.RoomID=Room.RoomID
+                                        INNER JOIN RoomTypeSpecDuration ON RoomType.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
+                                        INNER JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
+                                        WHERE RoomTypeSpec.ID=0
+                                        ORDER BY CategoryID ASC,SubCategoryID ASC,Room.Name ASC", Helper.Defaults.VIPRoomTypeSpecID);
         }
 
         public virtual bool GetRoomsByCategoryID(int CategoryID)
@@ -114,6 +114,24 @@ namespace BLL
                     _createdByMember.LoadByPrimaryKey(this.CreatedBy);
                 }
                 return _createdByMember;
+            }
+        }
+
+        private RoomType _RoomType;
+        public RoomType RoomType
+        {
+            get
+            {
+                if (_RoomType == null)
+                {
+                    _RoomType = new RoomType();
+                    _RoomType.LoadByRoomID(this.RoomID);
+                }
+                if (_RoomType.RoomID != this.RoomID)
+                {
+                    _RoomType.LoadByRoomID(this.RoomID);
+                }
+                return _RoomType;
             }
         }
 

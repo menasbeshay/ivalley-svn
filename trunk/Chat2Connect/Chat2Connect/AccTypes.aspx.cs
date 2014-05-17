@@ -78,8 +78,9 @@ namespace Chat2Connect
                         member.Credit_Money -= val;
                         member.Save();
 
-                        upgrademember.MemberTypeID = type;
-                        upgrademember.Save();
+                        //upgrademember.MemberTypeID = type;
+                        upgrademember.MemberType.MemberTypeSpecDurationID = type;
+                        upgrademember.MemberType.Save();
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الإسم بنجاح.'); });", true);
                         

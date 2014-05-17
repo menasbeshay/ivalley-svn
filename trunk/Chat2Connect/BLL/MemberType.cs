@@ -5,11 +5,55 @@ using System;
 using DAL;
 namespace BLL
 {
-	public class MemberType : _MemberType
-	{
-		public MemberType()
-		{
-		
-		}
-	}
+    public class MemberType : _MemberType
+    {
+        public MemberType()
+        {
+
+        }
+
+        public bool LoadByMemberID(int memberID)
+        {
+            Query.FlushWhereParameters();
+            Where.MemberID.Value = memberID;
+            if (!Query.Load())
+            {
+                AddNew();
+                this.MemberID = memberID;
+                this.StartDate = DateTime.Now;
+                this.MemberTypeSpecDurationID = Helper.Defaults.MemberTypeSpecDurationID;
+            }
+            else
+            {
+                if (!String.IsNullOrEmpty(this.s_EndDate))
+                {
+                    if (this.EndDate < DateTime.Now)
+                    {
+                        this.MemberTypeSpecDurationID = Helper.Defaults.MemberTypeSpecDurationID;
+                        this.SetColumnNull(MemberType.ColumnNames.EndDate);
+                    }
+                }
+            }
+            return true;
+        }
+
+        private MemberTypeSpecDuration memberTypeSpecDuration;
+        public MemberTypeSpecDuration MemberTypeSpecDuration
+        {
+            get
+            {
+                if (memberTypeSpecDuration == null)
+                {
+                    memberTypeSpecDuration = new MemberTypeSpecDuration();
+                    memberTypeSpecDuration.LoadByPrimaryKey(this.MemberTypeSpecDurationID);
+                }
+                if (memberTypeSpecDuration.ID != this.MemberTypeSpecDurationID)
+                {
+                    memberTypeSpecDuration.LoadByPrimaryKey(this.MemberTypeSpecDurationID);
+                }
+
+                return memberTypeSpecDuration;
+            }
+        }
+    }
 }

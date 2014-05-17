@@ -86,10 +86,10 @@ namespace DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int MemberTypeID)
+		public virtual bool LoadByPrimaryKey(int ID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.MemberTypeID, MemberTypeID);
+			parameters.Add(Parameters.ID, ID);
 
 		
 			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MemberTypeLoadByPrimaryKey]", parameters);
@@ -99,51 +99,51 @@ namespace DAL
 		protected class Parameters
 		{
 			
-			public static SqlParameter MemberTypeID
+			public static SqlParameter ID
 			{
 				get
 				{
-					return new SqlParameter("@MemberTypeID", SqlDbType.Int, 0);
+					return new SqlParameter("@ID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter Name
+			public static SqlParameter MemberID
 			{
 				get
 				{
-					return new SqlParameter("@Name", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@MemberID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter IconPath
+			public static SqlParameter MemberTypeSpecDurationID
 			{
 				get
 				{
-					return new SqlParameter("@IconPath", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@MemberTypeSpecDurationID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter Price_Money
+			public static SqlParameter StartDate
 			{
 				get
 				{
-					return new SqlParameter("@Price_Money", SqlDbType.Decimal, 0);
+					return new SqlParameter("@StartDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
-			public static SqlParameter Price_Point
+			public static SqlParameter EndDate
 			{
 				get
 				{
-					return new SqlParameter("@Price_Point", SqlDbType.Int, 0);
+					return new SqlParameter("@EndDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
-			public static SqlParameter Color
+			public static SqlParameter CreateBy
 			{
 				get
 				{
-					return new SqlParameter("@Color", SqlDbType.NVarChar, 7);
+					return new SqlParameter("@CreateBy", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -153,12 +153,12 @@ namespace DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string MemberTypeID = "MemberTypeID";
-            public const string Name = "Name";
-            public const string IconPath = "IconPath";
-            public const string Price_Money = "Price_Money";
-            public const string Price_Point = "Price_Point";
-            public const string Color = "Color";
+            public const string ID = "ID";
+            public const string MemberID = "MemberID";
+            public const string MemberTypeSpecDurationID = "MemberTypeSpecDurationID";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string CreateBy = "CreateBy";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -166,12 +166,12 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[MemberTypeID] = _MemberType.PropertyNames.MemberTypeID;
-					ht[Name] = _MemberType.PropertyNames.Name;
-					ht[IconPath] = _MemberType.PropertyNames.IconPath;
-					ht[Price_Money] = _MemberType.PropertyNames.Price_Money;
-					ht[Price_Point] = _MemberType.PropertyNames.Price_Point;
-					ht[Color] = _MemberType.PropertyNames.Color;
+					ht[ID] = _MemberType.PropertyNames.ID;
+					ht[MemberID] = _MemberType.PropertyNames.MemberID;
+					ht[MemberTypeSpecDurationID] = _MemberType.PropertyNames.MemberTypeSpecDurationID;
+					ht[StartDate] = _MemberType.PropertyNames.StartDate;
+					ht[EndDate] = _MemberType.PropertyNames.EndDate;
+					ht[CreateBy] = _MemberType.PropertyNames.CreateBy;
 
 				}
 				return (string)ht[columnName];
@@ -184,12 +184,12 @@ namespace DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string MemberTypeID = "MemberTypeID";
-            public const string Name = "Name";
-            public const string IconPath = "IconPath";
-            public const string Price_Money = "Price_Money";
-            public const string Price_Point = "Price_Point";
-            public const string Color = "Color";
+            public const string ID = "ID";
+            public const string MemberID = "MemberID";
+            public const string MemberTypeSpecDurationID = "MemberTypeSpecDurationID";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string CreateBy = "CreateBy";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -197,12 +197,12 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[MemberTypeID] = _MemberType.ColumnNames.MemberTypeID;
-					ht[Name] = _MemberType.ColumnNames.Name;
-					ht[IconPath] = _MemberType.ColumnNames.IconPath;
-					ht[Price_Money] = _MemberType.ColumnNames.Price_Money;
-					ht[Price_Point] = _MemberType.ColumnNames.Price_Point;
-					ht[Color] = _MemberType.ColumnNames.Color;
+					ht[ID] = _MemberType.ColumnNames.ID;
+					ht[MemberID] = _MemberType.ColumnNames.MemberID;
+					ht[MemberTypeSpecDurationID] = _MemberType.ColumnNames.MemberTypeSpecDurationID;
+					ht[StartDate] = _MemberType.ColumnNames.StartDate;
+					ht[EndDate] = _MemberType.ColumnNames.EndDate;
+					ht[CreateBy] = _MemberType.ColumnNames.CreateBy;
 
 				}
 				return (string)ht[propertyName];
@@ -215,87 +215,87 @@ namespace DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string MemberTypeID = "s_MemberTypeID";
-            public const string Name = "s_Name";
-            public const string IconPath = "s_IconPath";
-            public const string Price_Money = "s_Price_Money";
-            public const string Price_Point = "s_Price_Point";
-            public const string Color = "s_Color";
+            public const string ID = "s_ID";
+            public const string MemberID = "s_MemberID";
+            public const string MemberTypeSpecDurationID = "s_MemberTypeSpecDurationID";
+            public const string StartDate = "s_StartDate";
+            public const string EndDate = "s_EndDate";
+            public const string CreateBy = "s_CreateBy";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int MemberTypeID
+		public virtual int ID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.MemberTypeID);
+				return base.Getint(ColumnNames.ID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.MemberTypeID, value);
+				base.Setint(ColumnNames.ID, value);
 			}
 		}
 
-		public virtual string Name
+		public virtual int MemberID
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.Name);
+				return base.Getint(ColumnNames.MemberID);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.Name, value);
+				base.Setint(ColumnNames.MemberID, value);
 			}
 		}
 
-		public virtual string IconPath
+		public virtual int MemberTypeSpecDurationID
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.IconPath);
+				return base.Getint(ColumnNames.MemberTypeSpecDurationID);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.IconPath, value);
+				base.Setint(ColumnNames.MemberTypeSpecDurationID, value);
 			}
 		}
 
-		public virtual decimal Price_Money
+		public virtual DateTime StartDate
 	    {
 			get
 	        {
-				return base.Getdecimal(ColumnNames.Price_Money);
+				return base.GetDateTime(ColumnNames.StartDate);
 			}
 			set
 	        {
-				base.Setdecimal(ColumnNames.Price_Money, value);
+				base.SetDateTime(ColumnNames.StartDate, value);
 			}
 		}
 
-		public virtual int Price_Point
+		public virtual DateTime EndDate
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Price_Point);
+				return base.GetDateTime(ColumnNames.EndDate);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Price_Point, value);
+				base.SetDateTime(ColumnNames.EndDate, value);
 			}
 		}
 
-		public virtual string Color
+		public virtual int CreateBy
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.Color);
+				return base.Getint(ColumnNames.CreateBy);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.Color, value);
+				base.Setint(ColumnNames.CreateBy, value);
 			}
 		}
 
@@ -304,93 +304,93 @@ namespace DAL
 		
 		#region String Properties
 	
-		public virtual string s_MemberTypeID
+		public virtual string s_ID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.MemberTypeID) ? string.Empty : base.GetintAsString(ColumnNames.MemberTypeID);
+				return this.IsColumnNull(ColumnNames.ID) ? string.Empty : base.GetintAsString(ColumnNames.ID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MemberTypeID);
+					this.SetColumnNull(ColumnNames.ID);
 				else
-					this.MemberTypeID = base.SetintAsString(ColumnNames.MemberTypeID, value);
+					this.ID = base.SetintAsString(ColumnNames.ID, value);
 			}
 		}
 
-		public virtual string s_Name
+		public virtual string s_MemberID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Name) ? string.Empty : base.GetstringAsString(ColumnNames.Name);
+				return this.IsColumnNull(ColumnNames.MemberID) ? string.Empty : base.GetintAsString(ColumnNames.MemberID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Name);
+					this.SetColumnNull(ColumnNames.MemberID);
 				else
-					this.Name = base.SetstringAsString(ColumnNames.Name, value);
+					this.MemberID = base.SetintAsString(ColumnNames.MemberID, value);
 			}
 		}
 
-		public virtual string s_IconPath
+		public virtual string s_MemberTypeSpecDurationID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IconPath) ? string.Empty : base.GetstringAsString(ColumnNames.IconPath);
+				return this.IsColumnNull(ColumnNames.MemberTypeSpecDurationID) ? string.Empty : base.GetintAsString(ColumnNames.MemberTypeSpecDurationID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IconPath);
+					this.SetColumnNull(ColumnNames.MemberTypeSpecDurationID);
 				else
-					this.IconPath = base.SetstringAsString(ColumnNames.IconPath, value);
+					this.MemberTypeSpecDurationID = base.SetintAsString(ColumnNames.MemberTypeSpecDurationID, value);
 			}
 		}
 
-		public virtual string s_Price_Money
+		public virtual string s_StartDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price_Money) ? string.Empty : base.GetdecimalAsString(ColumnNames.Price_Money);
+				return this.IsColumnNull(ColumnNames.StartDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.StartDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price_Money);
+					this.SetColumnNull(ColumnNames.StartDate);
 				else
-					this.Price_Money = base.SetdecimalAsString(ColumnNames.Price_Money, value);
+					this.StartDate = base.SetDateTimeAsString(ColumnNames.StartDate, value);
 			}
 		}
 
-		public virtual string s_Price_Point
+		public virtual string s_EndDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price_Point) ? string.Empty : base.GetintAsString(ColumnNames.Price_Point);
+				return this.IsColumnNull(ColumnNames.EndDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.EndDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price_Point);
+					this.SetColumnNull(ColumnNames.EndDate);
 				else
-					this.Price_Point = base.SetintAsString(ColumnNames.Price_Point, value);
+					this.EndDate = base.SetDateTimeAsString(ColumnNames.EndDate, value);
 			}
 		}
 
-		public virtual string s_Color
+		public virtual string s_CreateBy
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Color) ? string.Empty : base.GetstringAsString(ColumnNames.Color);
+				return this.IsColumnNull(ColumnNames.CreateBy) ? string.Empty : base.GetintAsString(ColumnNames.CreateBy);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Color);
+					this.SetColumnNull(ColumnNames.CreateBy);
 				else
-					this.Color = base.SetstringAsString(ColumnNames.Color, value);
+					this.CreateBy = base.SetintAsString(ColumnNames.CreateBy, value);
 			}
 		}
 
@@ -427,61 +427,61 @@ namespace DAL
 				}
 				
 				
-				public WhereParameter MemberTypeID
+				public WhereParameter ID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.MemberTypeID, Parameters.MemberTypeID);
+							WhereParameter where = new WhereParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Name
+				public WhereParameter MemberID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Name, Parameters.Name);
+							WhereParameter where = new WhereParameter(ColumnNames.MemberID, Parameters.MemberID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter IconPath
+				public WhereParameter MemberTypeSpecDurationID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.IconPath, Parameters.IconPath);
+							WhereParameter where = new WhereParameter(ColumnNames.MemberTypeSpecDurationID, Parameters.MemberTypeSpecDurationID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Price_Money
+				public WhereParameter StartDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price_Money, Parameters.Price_Money);
+							WhereParameter where = new WhereParameter(ColumnNames.StartDate, Parameters.StartDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Price_Point
+				public WhereParameter EndDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price_Point, Parameters.Price_Point);
+							WhereParameter where = new WhereParameter(ColumnNames.EndDate, Parameters.EndDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Color
+				public WhereParameter CreateBy
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Color, Parameters.Color);
+							WhereParameter where = new WhereParameter(ColumnNames.CreateBy, Parameters.CreateBy);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -492,93 +492,93 @@ namespace DAL
 			}
 			#endregion
 		
-			public WhereParameter MemberTypeID
+			public WhereParameter ID
 		    {
 				get
 		        {
-					if(_MemberTypeID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_MemberTypeID_W = TearOff.MemberTypeID;
+						_ID_W = TearOff.ID;
 					}
-					return _MemberTypeID_W;
+					return _ID_W;
 				}
 			}
 
-			public WhereParameter Name
+			public WhereParameter MemberID
 		    {
 				get
 		        {
-					if(_Name_W == null)
+					if(_MemberID_W == null)
 	        	    {
-						_Name_W = TearOff.Name;
+						_MemberID_W = TearOff.MemberID;
 					}
-					return _Name_W;
+					return _MemberID_W;
 				}
 			}
 
-			public WhereParameter IconPath
+			public WhereParameter MemberTypeSpecDurationID
 		    {
 				get
 		        {
-					if(_IconPath_W == null)
+					if(_MemberTypeSpecDurationID_W == null)
 	        	    {
-						_IconPath_W = TearOff.IconPath;
+						_MemberTypeSpecDurationID_W = TearOff.MemberTypeSpecDurationID;
 					}
-					return _IconPath_W;
+					return _MemberTypeSpecDurationID_W;
 				}
 			}
 
-			public WhereParameter Price_Money
+			public WhereParameter StartDate
 		    {
 				get
 		        {
-					if(_Price_Money_W == null)
+					if(_StartDate_W == null)
 	        	    {
-						_Price_Money_W = TearOff.Price_Money;
+						_StartDate_W = TearOff.StartDate;
 					}
-					return _Price_Money_W;
+					return _StartDate_W;
 				}
 			}
 
-			public WhereParameter Price_Point
+			public WhereParameter EndDate
 		    {
 				get
 		        {
-					if(_Price_Point_W == null)
+					if(_EndDate_W == null)
 	        	    {
-						_Price_Point_W = TearOff.Price_Point;
+						_EndDate_W = TearOff.EndDate;
 					}
-					return _Price_Point_W;
+					return _EndDate_W;
 				}
 			}
 
-			public WhereParameter Color
+			public WhereParameter CreateBy
 		    {
 				get
 		        {
-					if(_Color_W == null)
+					if(_CreateBy_W == null)
 	        	    {
-						_Color_W = TearOff.Color;
+						_CreateBy_W = TearOff.CreateBy;
 					}
-					return _Color_W;
+					return _CreateBy_W;
 				}
 			}
 
-			private WhereParameter _MemberTypeID_W = null;
-			private WhereParameter _Name_W = null;
-			private WhereParameter _IconPath_W = null;
-			private WhereParameter _Price_Money_W = null;
-			private WhereParameter _Price_Point_W = null;
-			private WhereParameter _Color_W = null;
+			private WhereParameter _ID_W = null;
+			private WhereParameter _MemberID_W = null;
+			private WhereParameter _MemberTypeSpecDurationID_W = null;
+			private WhereParameter _StartDate_W = null;
+			private WhereParameter _EndDate_W = null;
+			private WhereParameter _CreateBy_W = null;
 
 			public void WhereClauseReset()
 			{
-				_MemberTypeID_W = null;
-				_Name_W = null;
-				_IconPath_W = null;
-				_Price_Money_W = null;
-				_Price_Point_W = null;
-				_Color_W = null;
+				_ID_W = null;
+				_MemberID_W = null;
+				_MemberTypeSpecDurationID_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_CreateBy_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -635,61 +635,61 @@ namespace DAL
 				}
 				
 				
-				public AggregateParameter MemberTypeID
+				public AggregateParameter ID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberTypeID, Parameters.MemberTypeID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Name
+				public AggregateParameter MemberID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Name, Parameters.Name);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberID, Parameters.MemberID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter IconPath
+				public AggregateParameter MemberTypeSpecDurationID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IconPath, Parameters.IconPath);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberTypeSpecDurationID, Parameters.MemberTypeSpecDurationID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Price_Money
+				public AggregateParameter StartDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price_Money, Parameters.Price_Money);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StartDate, Parameters.StartDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Price_Point
+				public AggregateParameter EndDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price_Point, Parameters.Price_Point);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EndDate, Parameters.EndDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Color
+				public AggregateParameter CreateBy
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Color, Parameters.Color);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CreateBy, Parameters.CreateBy);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -700,93 +700,93 @@ namespace DAL
 			}
 			#endregion
 		
-			public AggregateParameter MemberTypeID
+			public AggregateParameter ID
 		    {
 				get
 		        {
-					if(_MemberTypeID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_MemberTypeID_W = TearOff.MemberTypeID;
+						_ID_W = TearOff.ID;
 					}
-					return _MemberTypeID_W;
+					return _ID_W;
 				}
 			}
 
-			public AggregateParameter Name
+			public AggregateParameter MemberID
 		    {
 				get
 		        {
-					if(_Name_W == null)
+					if(_MemberID_W == null)
 	        	    {
-						_Name_W = TearOff.Name;
+						_MemberID_W = TearOff.MemberID;
 					}
-					return _Name_W;
+					return _MemberID_W;
 				}
 			}
 
-			public AggregateParameter IconPath
+			public AggregateParameter MemberTypeSpecDurationID
 		    {
 				get
 		        {
-					if(_IconPath_W == null)
+					if(_MemberTypeSpecDurationID_W == null)
 	        	    {
-						_IconPath_W = TearOff.IconPath;
+						_MemberTypeSpecDurationID_W = TearOff.MemberTypeSpecDurationID;
 					}
-					return _IconPath_W;
+					return _MemberTypeSpecDurationID_W;
 				}
 			}
 
-			public AggregateParameter Price_Money
+			public AggregateParameter StartDate
 		    {
 				get
 		        {
-					if(_Price_Money_W == null)
+					if(_StartDate_W == null)
 	        	    {
-						_Price_Money_W = TearOff.Price_Money;
+						_StartDate_W = TearOff.StartDate;
 					}
-					return _Price_Money_W;
+					return _StartDate_W;
 				}
 			}
 
-			public AggregateParameter Price_Point
+			public AggregateParameter EndDate
 		    {
 				get
 		        {
-					if(_Price_Point_W == null)
+					if(_EndDate_W == null)
 	        	    {
-						_Price_Point_W = TearOff.Price_Point;
+						_EndDate_W = TearOff.EndDate;
 					}
-					return _Price_Point_W;
+					return _EndDate_W;
 				}
 			}
 
-			public AggregateParameter Color
+			public AggregateParameter CreateBy
 		    {
 				get
 		        {
-					if(_Color_W == null)
+					if(_CreateBy_W == null)
 	        	    {
-						_Color_W = TearOff.Color;
+						_CreateBy_W = TearOff.CreateBy;
 					}
-					return _Color_W;
+					return _CreateBy_W;
 				}
 			}
 
-			private AggregateParameter _MemberTypeID_W = null;
-			private AggregateParameter _Name_W = null;
-			private AggregateParameter _IconPath_W = null;
-			private AggregateParameter _Price_Money_W = null;
-			private AggregateParameter _Price_Point_W = null;
-			private AggregateParameter _Color_W = null;
+			private AggregateParameter _ID_W = null;
+			private AggregateParameter _MemberID_W = null;
+			private AggregateParameter _MemberTypeSpecDurationID_W = null;
+			private AggregateParameter _StartDate_W = null;
+			private AggregateParameter _EndDate_W = null;
+			private AggregateParameter _CreateBy_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_MemberTypeID_W = null;
-				_Name_W = null;
-				_IconPath_W = null;
-				_Price_Money_W = null;
-				_Price_Point_W = null;
-				_Color_W = null;
+				_ID_W = null;
+				_MemberID_W = null;
+				_MemberTypeSpecDurationID_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_CreateBy_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -821,11 +821,7 @@ namespace DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberTypeInsert]";
 	
 			CreateParameters(cmd);
-			
-			SqlParameter p;
-			p = cmd.Parameters[Parameters.MemberTypeID.ParameterName];
-			p.Direction = ParameterDirection.Output;
-    
+			    
 			return cmd;
 		}
 	
@@ -849,8 +845,8 @@ namespace DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberTypeDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.MemberTypeID);
-			p.SourceColumn = ColumnNames.MemberTypeID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -861,28 +857,28 @@ namespace DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.MemberTypeID);
-			p.SourceColumn = ColumnNames.MemberTypeID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Name);
-			p.SourceColumn = ColumnNames.Name;
+			p = cmd.Parameters.Add(Parameters.MemberID);
+			p.SourceColumn = ColumnNames.MemberID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IconPath);
-			p.SourceColumn = ColumnNames.IconPath;
+			p = cmd.Parameters.Add(Parameters.MemberTypeSpecDurationID);
+			p.SourceColumn = ColumnNames.MemberTypeSpecDurationID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price_Money);
-			p.SourceColumn = ColumnNames.Price_Money;
+			p = cmd.Parameters.Add(Parameters.StartDate);
+			p.SourceColumn = ColumnNames.StartDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price_Point);
-			p.SourceColumn = ColumnNames.Price_Point;
+			p = cmd.Parameters.Add(Parameters.EndDate);
+			p.SourceColumn = ColumnNames.EndDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Color);
-			p.SourceColumn = ColumnNames.Color;
+			p = cmd.Parameters.Add(Parameters.CreateBy);
+			p.SourceColumn = ColumnNames.CreateBy;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -15,7 +15,7 @@ namespace Chat2Connect
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 LoadDDls();
                 LoadProfile();
@@ -48,7 +48,7 @@ namespace Chat2Connect
                 Member member = new Member();
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 uiLabelName.Text = uiTextBoxName.Text = member.Name;
-                
+
                 if (!member.IsColumnNull("ReligionID"))
                 {
                     Religion religion = new Religion();
@@ -79,17 +79,15 @@ namespace Chat2Connect
                 uiHyperLinkyt.NavigateUrl = uiTextBoxyt.Text = member.YtURL;
 
                 uiLabelCreatedDate.Text = Membership.GetUser().CreationDate.ToString("yyyy/MM/dd");
-                if (!member.IsColumnNull("MemberTypeID"))
+                if (member.MemberType.MemberTypeSpecDurationID != Helper.Defaults.MemberTypeSpecDurationID)
                 {
-                    MemberType type = new MemberType ();
-                    type.LoadByPrimaryKey(member.MemberTypeID);
-                    uiLabelAccountType.Text = type.Name;
-                    if (!member.IsColumnNull("MemberTypeExpiryDate"))
-                        uiLabelTypeExpiry.Text = member.MemberTypeExpiryDate.ToString("yyyy/MM/dd");
+                    uiLabelAccountType.Text = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name;
+                    if (!member.MemberType.IsColumnNull("EndDate"))
+                        uiLabelTypeExpiry.Text = member.MemberType.EndDate.ToString("yyyy/MM/dd");
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
-                    uiImageMain.ImageUrl = member.ProfilePic;                    
+                    uiImageMain.ImageUrl = member.ProfilePic;
                 }
                 ///////////////////////////////
                 uiLabelInterests.Text = uiTextBoxInterests.Text = member.Interests;
@@ -113,9 +111,9 @@ namespace Chat2Connect
                 uiCheckBoxSearchMeByMail.Checked = setting.SearchMeByMail;
                 uiCheckBoxVoiceNotfication.Checked = setting.VoiceNotfication;
                 uiCheckBoxChangeMyStatus.Checked = setting.ChangeMyStatus;
-                
+
                 if (!setting.IsColumnNull("ChangeMyStatusMin"))
-                     uiTextBoxChangeMyStatusMin.Text = setting.ChangeMyStatusMin.ToString();
+                    uiTextBoxChangeMyStatusMin.Text = setting.ChangeMyStatusMin.ToString();
 
                 if (!setting.IsColumnNull("AcceptPM"))
                     uiRadioButtonListAcceptPM.SelectedValue = setting.AcceptPM ? "0" : "1";
@@ -150,13 +148,13 @@ namespace Chat2Connect
             }
             catch (Exception ex)
             {
-                
+
             }
             /*if(!string.IsNullOrEmpty( uiDropDownListReligion.SelectedValue))
                 member.ReligionID = Convert.ToInt32(uiDropDownListReligion.SelectedValue);*/
             if (!string.IsNullOrEmpty(uiTextBoxReligion.Text))
                 member.Religion = uiTextBoxReligion.Text;
-            if(!string.IsNullOrEmpty( uiDropDownListCountry.SelectedValue) && uiDropDownListCountry.SelectedValue != "0")
+            if (!string.IsNullOrEmpty(uiDropDownListCountry.SelectedValue) && uiDropDownListCountry.SelectedValue != "0")
                 member.CountryID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);
             member.JobTitle = uiTextBoxJob.Text;
             member.BestTeam = uiTextBoxBestTeam.Text;
@@ -169,11 +167,11 @@ namespace Chat2Connect
             member.YtURL = uiTextBoxyt.Text;
 
             string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
-            DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path+"/" + Membership.GetUser().ProviderUserKey.ToString()));
-            if(!dir.Exists)
+            DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
+            if (!dir.Exists)
                 dir.Create();
             path += "/" + Membership.GetUser().ProviderUserKey.ToString();
-            
+
             member.Save();
             LoadProfile();
         }
@@ -183,7 +181,7 @@ namespace Chat2Connect
             Member member = new Member();
             member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
 
-            member.Interests = uiTextBoxInterests.Text;            
+            member.Interests = uiTextBoxInterests.Text;
             member.Save();
             LoadProfile();
         }
@@ -268,7 +266,7 @@ namespace Chat2Connect
 
         private void LoadPics()
         {
-            
+
         }
 
         private void LoadRooms()

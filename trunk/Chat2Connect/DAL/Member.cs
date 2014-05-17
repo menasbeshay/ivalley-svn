@@ -155,14 +155,6 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter MemberTypeID
-			{
-				get
-				{
-					return new SqlParameter("@MemberTypeID", SqlDbType.Int, 0);
-				}
-			}
-			
 			public static SqlParameter BirthDate
 			{
 				get
@@ -360,7 +352,6 @@ namespace DAL
             public const string Credit_Point = "Credit_Point";
             public const string Credit_Money = "Credit_Money";
             public const string PicPath = "PicPath";
-            public const string MemberTypeID = "MemberTypeID";
             public const string BirthDate = "BirthDate";
             public const string ReligionID = "ReligionID";
             public const string CountryID = "CountryID";
@@ -398,7 +389,6 @@ namespace DAL
 					ht[Credit_Point] = _Member.PropertyNames.Credit_Point;
 					ht[Credit_Money] = _Member.PropertyNames.Credit_Money;
 					ht[PicPath] = _Member.PropertyNames.PicPath;
-					ht[MemberTypeID] = _Member.PropertyNames.MemberTypeID;
 					ht[BirthDate] = _Member.PropertyNames.BirthDate;
 					ht[ReligionID] = _Member.PropertyNames.ReligionID;
 					ht[CountryID] = _Member.PropertyNames.CountryID;
@@ -441,7 +431,6 @@ namespace DAL
             public const string Credit_Point = "Credit_Point";
             public const string Credit_Money = "Credit_Money";
             public const string PicPath = "PicPath";
-            public const string MemberTypeID = "MemberTypeID";
             public const string BirthDate = "BirthDate";
             public const string ReligionID = "ReligionID";
             public const string CountryID = "CountryID";
@@ -479,7 +468,6 @@ namespace DAL
 					ht[Credit_Point] = _Member.ColumnNames.Credit_Point;
 					ht[Credit_Money] = _Member.ColumnNames.Credit_Money;
 					ht[PicPath] = _Member.ColumnNames.PicPath;
-					ht[MemberTypeID] = _Member.ColumnNames.MemberTypeID;
 					ht[BirthDate] = _Member.ColumnNames.BirthDate;
 					ht[ReligionID] = _Member.ColumnNames.ReligionID;
 					ht[CountryID] = _Member.ColumnNames.CountryID;
@@ -522,7 +510,6 @@ namespace DAL
             public const string Credit_Point = "s_Credit_Point";
             public const string Credit_Money = "s_Credit_Money";
             public const string PicPath = "s_PicPath";
-            public const string MemberTypeID = "s_MemberTypeID";
             public const string BirthDate = "s_BirthDate";
             public const string ReligionID = "s_ReligionID";
             public const string CountryID = "s_CountryID";
@@ -633,18 +620,6 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.PicPath, value);
-			}
-		}
-
-		public virtual int MemberTypeID
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.MemberTypeID);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.MemberTypeID, value);
 			}
 		}
 
@@ -1031,21 +1006,6 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.PicPath);
 				else
 					this.PicPath = base.SetstringAsString(ColumnNames.PicPath, value);
-			}
-		}
-
-		public virtual string s_MemberTypeID
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.MemberTypeID) ? string.Empty : base.GetintAsString(ColumnNames.MemberTypeID);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MemberTypeID);
-				else
-					this.MemberTypeID = base.SetintAsString(ColumnNames.MemberTypeID, value);
 			}
 		}
 
@@ -1497,16 +1457,6 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter MemberTypeID
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.MemberTypeID, Parameters.MemberTypeID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 				public WhereParameter BirthDate
 				{
 					get
@@ -1826,18 +1776,6 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter MemberTypeID
-		    {
-				get
-		        {
-					if(_MemberTypeID_W == null)
-	        	    {
-						_MemberTypeID_W = TearOff.MemberTypeID;
-					}
-					return _MemberTypeID_W;
-				}
-			}
-
 			public WhereParameter BirthDate
 		    {
 				get
@@ -2121,7 +2059,6 @@ namespace DAL
 			private WhereParameter _Credit_Point_W = null;
 			private WhereParameter _Credit_Money_W = null;
 			private WhereParameter _PicPath_W = null;
-			private WhereParameter _MemberTypeID_W = null;
 			private WhereParameter _BirthDate_W = null;
 			private WhereParameter _ReligionID_W = null;
 			private WhereParameter _CountryID_W = null;
@@ -2155,7 +2092,6 @@ namespace DAL
 				_Credit_Point_W = null;
 				_Credit_Money_W = null;
 				_PicPath_W = null;
-				_MemberTypeID_W = null;
 				_BirthDate_W = null;
 				_ReligionID_W = null;
 				_CountryID_W = null;
@@ -2300,16 +2236,6 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PicPath, Parameters.PicPath);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter MemberTypeID
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberTypeID, Parameters.MemberTypeID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2634,18 +2560,6 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter MemberTypeID
-		    {
-				get
-		        {
-					if(_MemberTypeID_W == null)
-	        	    {
-						_MemberTypeID_W = TearOff.MemberTypeID;
-					}
-					return _MemberTypeID_W;
-				}
-			}
-
 			public AggregateParameter BirthDate
 		    {
 				get
@@ -2929,7 +2843,6 @@ namespace DAL
 			private AggregateParameter _Credit_Point_W = null;
 			private AggregateParameter _Credit_Money_W = null;
 			private AggregateParameter _PicPath_W = null;
-			private AggregateParameter _MemberTypeID_W = null;
 			private AggregateParameter _BirthDate_W = null;
 			private AggregateParameter _ReligionID_W = null;
 			private AggregateParameter _CountryID_W = null;
@@ -2963,7 +2876,6 @@ namespace DAL
 				_Credit_Point_W = null;
 				_Credit_Money_W = null;
 				_PicPath_W = null;
-				_MemberTypeID_W = null;
 				_BirthDate_W = null;
 				_ReligionID_W = null;
 				_CountryID_W = null;
@@ -3087,10 +2999,6 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.PicPath);
 			p.SourceColumn = ColumnNames.PicPath;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.MemberTypeID);
-			p.SourceColumn = ColumnNames.MemberTypeID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.BirthDate);
