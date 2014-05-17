@@ -551,31 +551,9 @@ namespace Chat2Connect.services
                 roomObject.CurrentMemberSettings.IsAdmin = true;
             }
 
-            roomObject.Settings.CamCount = 1;
-            roomObject.Settings.MaxMic = 1;
-            if (!String.IsNullOrEmpty(rooms.s_RoomTypeID))
-            {
-                switch (rooms.RoomTypeID)
-                {
-                    case 1: // black
-                        roomObject.Settings.CamCount = 1;
-                        roomObject.Settings.MaxMic = 1;
-                        break;
-                    case 2: // zety 
-                        roomObject.Settings.CamCount = 4;
-                        roomObject.Settings.MaxMic = 2;
-                        break;
-                    case 3: // purple
-                        roomObject.Settings.CamCount = 100;
-                        roomObject.Settings.MaxMic = 3;
-                        break;
-                    case 4: // premium 
-                        roomObject.Settings.CamCount = 100;
-                        roomObject.Settings.MaxMic = 4;
-                        break;
-                }
-            }
-
+            roomObject.Settings.CamCount = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            roomObject.Settings.MaxMic = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            
             // add to favourite link
             FavRoom fav = new FavRoom();
             fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
@@ -628,8 +606,8 @@ namespace Chat2Connect.services
             members.GetAllMembersByRoomIDNoQueue(id);
             RoomMember InQueueMembers = new RoomMember();
             InQueueMembers.GetAllMembersByRoomIDInQueue(id);
-            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
-            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = m["MemberTypeID"] }).ToList();
+            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0 }).ToList();
+            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0 }).ToList();
 
             Allmembers.LoadAllRoomMembersWithSettings(id);
             roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanDays = (Convert.ToBoolean(m["IsMemberBanned"])? m["BanDays"] : null) }).ToList();

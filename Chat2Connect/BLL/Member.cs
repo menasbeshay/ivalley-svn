@@ -80,19 +80,20 @@ namespace BLL
         }
 
         private MemberType _memberType;
-        public string MemberTypeColor
+        public MemberType MemberType
         {
             get
             {
-                if (string.IsNullOrEmpty(this.s_MemberTypeID))
-                    return "";
                 if (_memberType == null)
                 {
                     _memberType = new MemberType();
-                    _memberType.LoadByPrimaryKey(this.MemberTypeID);
+                    _memberType.LoadByMemberID(this.MemberID);
                 }
-
-                return _memberType.Color;
+                if (_memberType.MemberID != this.MemberID)
+                {
+                    _memberType.LoadByMemberID(this.MemberID);
+                }
+                return _memberType;
             }
         }
 
@@ -239,9 +240,10 @@ namespace BLL
                     result = Query.Load();
                     break;
                 case Helper.Enums.AdminMailAddressAlias.TypedAccount:
-                    //Where.MemberTypeID.Value = DBNull.Value;
-                    Where.MemberTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNotNull;
-                    result = Query.Load();
+                    result=LoadFromRawSql(@"Select * FROM Member
+                                            INNER JOIN MemberType ON MemberType.MemberID=Member.MemberID
+                                            INNER JOIN MemberTypeSpecDuration ON MemberType.MemberTypeSpecDurationID=MemberTypeSpecDuration.ID
+                                            WHERE MemberTypeSpecDurationID!={0}",Helper.Defaults.MemberTypeSpecDurationID);
                     break;
                 default:
                     break;

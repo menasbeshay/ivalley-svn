@@ -139,14 +139,6 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter RoomTypeID
-			{
-				get
-				{
-					return new SqlParameter("@RoomTypeID", SqlDbType.Int, 0);
-				}
-			}
-			
 			public static SqlParameter CreatedDate
 			{
 				get
@@ -286,7 +278,6 @@ namespace DAL
             public const string SubCategoryID = "SubCategoryID";
             public const string Name = "Name";
             public const string IconPath = "IconPath";
-            public const string RoomTypeID = "RoomTypeID";
             public const string CreatedDate = "CreatedDate";
             public const string WelcomeText = "WelcomeText";
             public const string RoomPassword = "RoomPassword";
@@ -315,7 +306,6 @@ namespace DAL
 					ht[SubCategoryID] = _Room.PropertyNames.SubCategoryID;
 					ht[Name] = _Room.PropertyNames.Name;
 					ht[IconPath] = _Room.PropertyNames.IconPath;
-					ht[RoomTypeID] = _Room.PropertyNames.RoomTypeID;
 					ht[CreatedDate] = _Room.PropertyNames.CreatedDate;
 					ht[WelcomeText] = _Room.PropertyNames.WelcomeText;
 					ht[RoomPassword] = _Room.PropertyNames.RoomPassword;
@@ -349,7 +339,6 @@ namespace DAL
             public const string SubCategoryID = "SubCategoryID";
             public const string Name = "Name";
             public const string IconPath = "IconPath";
-            public const string RoomTypeID = "RoomTypeID";
             public const string CreatedDate = "CreatedDate";
             public const string WelcomeText = "WelcomeText";
             public const string RoomPassword = "RoomPassword";
@@ -378,7 +367,6 @@ namespace DAL
 					ht[SubCategoryID] = _Room.ColumnNames.SubCategoryID;
 					ht[Name] = _Room.ColumnNames.Name;
 					ht[IconPath] = _Room.ColumnNames.IconPath;
-					ht[RoomTypeID] = _Room.ColumnNames.RoomTypeID;
 					ht[CreatedDate] = _Room.ColumnNames.CreatedDate;
 					ht[WelcomeText] = _Room.ColumnNames.WelcomeText;
 					ht[RoomPassword] = _Room.ColumnNames.RoomPassword;
@@ -412,7 +400,6 @@ namespace DAL
             public const string SubCategoryID = "s_SubCategoryID";
             public const string Name = "s_Name";
             public const string IconPath = "s_IconPath";
-            public const string RoomTypeID = "s_RoomTypeID";
             public const string CreatedDate = "s_CreatedDate";
             public const string WelcomeText = "s_WelcomeText";
             public const string RoomPassword = "s_RoomPassword";
@@ -492,18 +479,6 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.IconPath, value);
-			}
-		}
-
-		public virtual int RoomTypeID
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.RoomTypeID);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.RoomTypeID, value);
 			}
 		}
 
@@ -776,21 +751,6 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.IconPath);
 				else
 					this.IconPath = base.SetstringAsString(ColumnNames.IconPath, value);
-			}
-		}
-
-		public virtual string s_RoomTypeID
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.RoomTypeID) ? string.Empty : base.GetintAsString(ColumnNames.RoomTypeID);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.RoomTypeID);
-				else
-					this.RoomTypeID = base.SetintAsString(ColumnNames.RoomTypeID, value);
 			}
 		}
 
@@ -1117,16 +1077,6 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter RoomTypeID
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.RoomTypeID, Parameters.RoomTypeID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 				public WhereParameter CreatedDate
 				{
 					get
@@ -1352,18 +1302,6 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter RoomTypeID
-		    {
-				get
-		        {
-					if(_RoomTypeID_W == null)
-	        	    {
-						_RoomTypeID_W = TearOff.RoomTypeID;
-					}
-					return _RoomTypeID_W;
-				}
-			}
-
 			public WhereParameter CreatedDate
 		    {
 				get
@@ -1561,7 +1499,6 @@ namespace DAL
 			private WhereParameter _SubCategoryID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _IconPath_W = null;
-			private WhereParameter _RoomTypeID_W = null;
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _WelcomeText_W = null;
 			private WhereParameter _RoomPassword_W = null;
@@ -1586,7 +1523,6 @@ namespace DAL
 				_SubCategoryID_W = null;
 				_Name_W = null;
 				_IconPath_W = null;
-				_RoomTypeID_W = null;
 				_CreatedDate_W = null;
 				_WelcomeText_W = null;
 				_RoomPassword_W = null;
@@ -1704,16 +1640,6 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IconPath, Parameters.IconPath);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter RoomTypeID
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomTypeID, Parameters.RoomTypeID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1944,18 +1870,6 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter RoomTypeID
-		    {
-				get
-		        {
-					if(_RoomTypeID_W == null)
-	        	    {
-						_RoomTypeID_W = TearOff.RoomTypeID;
-					}
-					return _RoomTypeID_W;
-				}
-			}
-
 			public AggregateParameter CreatedDate
 		    {
 				get
@@ -2153,7 +2067,6 @@ namespace DAL
 			private AggregateParameter _SubCategoryID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _IconPath_W = null;
-			private AggregateParameter _RoomTypeID_W = null;
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _WelcomeText_W = null;
 			private AggregateParameter _RoomPassword_W = null;
@@ -2178,7 +2091,6 @@ namespace DAL
 				_SubCategoryID_W = null;
 				_Name_W = null;
 				_IconPath_W = null;
-				_RoomTypeID_W = null;
 				_CreatedDate_W = null;
 				_WelcomeText_W = null;
 				_RoomPassword_W = null;
@@ -2287,10 +2199,6 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.IconPath);
 			p.SourceColumn = ColumnNames.IconPath;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.RoomTypeID);
-			p.SourceColumn = ColumnNames.RoomTypeID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.CreatedDate);

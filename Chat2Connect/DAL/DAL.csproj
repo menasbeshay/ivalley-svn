@@ -55,6 +55,8 @@
     <Compile Include="MemberPic.cs" />
     <Compile Include="MemberSetting.cs" />
     <Compile Include="MemberType.cs" />
+    <Compile Include="MemberTypeSpec.cs" />
+    <Compile Include="MemberTypeSpecDuration.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,9 +68,12 @@
     <Compile Include="RoomMemberBanning.cs" />
     <Compile Include="RoomMemberSetting.cs" />
     <Compile Include="RoomType.cs" />
+    <Compile Include="RoomTypeSpec.cs" />
+    <Compile Include="RoomTypeSpecDuration.cs" />
     <Compile Include="RowStatus.cs" />
     <Compile Include="StatsReport.cs" />
     <Compile Include="SubCategory.cs" />
+    <Compile Include="TypeDuration.cs" />
     <Compile Include="UserTransLog.cs" />
     <Compile Include="Membership.cs" />
   </ItemGroup>

@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace DAL
 {
-	public abstract class _RoomType : SqlClientEntity
+	public abstract class _RoomTypeSpecDuration : SqlClientEntity
 	{
-		public _RoomType()
+		public _RoomTypeSpecDuration()
 		{
-			this.QuerySource = "RoomType";
-			this.MappingName = "RoomType";
+			this.QuerySource = "RoomTypeSpecDuration";
+			this.MappingName = "RoomTypeSpecDuration";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomTypeLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomTypeSpecDurationLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -92,7 +92,7 @@ namespace DAL
 			parameters.Add(Parameters.ID, ID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomTypeLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomTypeSpecDurationLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
@@ -107,43 +107,35 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter RoomID
+			public static SqlParameter RoomTypeSpecID
 			{
 				get
 				{
-					return new SqlParameter("@RoomID", SqlDbType.Int, 0);
+					return new SqlParameter("@RoomTypeSpecID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter RoomTypeSpecDurationID
+			public static SqlParameter TypeDurationID
 			{
 				get
 				{
-					return new SqlParameter("@RoomTypeSpecDurationID", SqlDbType.Int, 0);
+					return new SqlParameter("@TypeDurationID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter StartDate
+			public static SqlParameter Price
 			{
 				get
 				{
-					return new SqlParameter("@StartDate", SqlDbType.DateTime, 0);
+					return new SqlParameter("@Price", SqlDbType.Decimal, 0);
 				}
 			}
 			
-			public static SqlParameter EndDate
+			public static SqlParameter OpenMemberCount
 			{
 				get
 				{
-					return new SqlParameter("@EndDate", SqlDbType.DateTime, 0);
-				}
-			}
-			
-			public static SqlParameter CreateBy
-			{
-				get
-				{
-					return new SqlParameter("@CreateBy", SqlDbType.Int, 0);
+					return new SqlParameter("@OpenMemberCount", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -154,11 +146,10 @@ namespace DAL
 		public class ColumnNames
 		{  
             public const string ID = "ID";
-            public const string RoomID = "RoomID";
-            public const string RoomTypeSpecDurationID = "RoomTypeSpecDurationID";
-            public const string StartDate = "StartDate";
-            public const string EndDate = "EndDate";
-            public const string CreateBy = "CreateBy";
+            public const string RoomTypeSpecID = "RoomTypeSpecID";
+            public const string TypeDurationID = "TypeDurationID";
+            public const string Price = "Price";
+            public const string OpenMemberCount = "OpenMemberCount";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -166,12 +157,11 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ID] = _RoomType.PropertyNames.ID;
-					ht[RoomID] = _RoomType.PropertyNames.RoomID;
-					ht[RoomTypeSpecDurationID] = _RoomType.PropertyNames.RoomTypeSpecDurationID;
-					ht[StartDate] = _RoomType.PropertyNames.StartDate;
-					ht[EndDate] = _RoomType.PropertyNames.EndDate;
-					ht[CreateBy] = _RoomType.PropertyNames.CreateBy;
+					ht[ID] = _RoomTypeSpecDuration.PropertyNames.ID;
+					ht[RoomTypeSpecID] = _RoomTypeSpecDuration.PropertyNames.RoomTypeSpecID;
+					ht[TypeDurationID] = _RoomTypeSpecDuration.PropertyNames.TypeDurationID;
+					ht[Price] = _RoomTypeSpecDuration.PropertyNames.Price;
+					ht[OpenMemberCount] = _RoomTypeSpecDuration.PropertyNames.OpenMemberCount;
 
 				}
 				return (string)ht[columnName];
@@ -185,11 +175,10 @@ namespace DAL
 		public class PropertyNames
 		{  
             public const string ID = "ID";
-            public const string RoomID = "RoomID";
-            public const string RoomTypeSpecDurationID = "RoomTypeSpecDurationID";
-            public const string StartDate = "StartDate";
-            public const string EndDate = "EndDate";
-            public const string CreateBy = "CreateBy";
+            public const string RoomTypeSpecID = "RoomTypeSpecID";
+            public const string TypeDurationID = "TypeDurationID";
+            public const string Price = "Price";
+            public const string OpenMemberCount = "OpenMemberCount";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -197,12 +186,11 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ID] = _RoomType.ColumnNames.ID;
-					ht[RoomID] = _RoomType.ColumnNames.RoomID;
-					ht[RoomTypeSpecDurationID] = _RoomType.ColumnNames.RoomTypeSpecDurationID;
-					ht[StartDate] = _RoomType.ColumnNames.StartDate;
-					ht[EndDate] = _RoomType.ColumnNames.EndDate;
-					ht[CreateBy] = _RoomType.ColumnNames.CreateBy;
+					ht[ID] = _RoomTypeSpecDuration.ColumnNames.ID;
+					ht[RoomTypeSpecID] = _RoomTypeSpecDuration.ColumnNames.RoomTypeSpecID;
+					ht[TypeDurationID] = _RoomTypeSpecDuration.ColumnNames.TypeDurationID;
+					ht[Price] = _RoomTypeSpecDuration.ColumnNames.Price;
+					ht[OpenMemberCount] = _RoomTypeSpecDuration.ColumnNames.OpenMemberCount;
 
 				}
 				return (string)ht[propertyName];
@@ -216,11 +204,10 @@ namespace DAL
 		public class StringPropertyNames
 		{  
             public const string ID = "s_ID";
-            public const string RoomID = "s_RoomID";
-            public const string RoomTypeSpecDurationID = "s_RoomTypeSpecDurationID";
-            public const string StartDate = "s_StartDate";
-            public const string EndDate = "s_EndDate";
-            public const string CreateBy = "s_CreateBy";
+            public const string RoomTypeSpecID = "s_RoomTypeSpecID";
+            public const string TypeDurationID = "s_TypeDurationID";
+            public const string Price = "s_Price";
+            public const string OpenMemberCount = "s_OpenMemberCount";
 
 		}
 		#endregion		
@@ -239,63 +226,51 @@ namespace DAL
 			}
 		}
 
-		public virtual int RoomID
+		public virtual int RoomTypeSpecID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.RoomID);
+				return base.Getint(ColumnNames.RoomTypeSpecID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.RoomID, value);
+				base.Setint(ColumnNames.RoomTypeSpecID, value);
 			}
 		}
 
-		public virtual int RoomTypeSpecDurationID
+		public virtual int TypeDurationID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.RoomTypeSpecDurationID);
+				return base.Getint(ColumnNames.TypeDurationID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.RoomTypeSpecDurationID, value);
+				base.Setint(ColumnNames.TypeDurationID, value);
 			}
 		}
 
-		public virtual DateTime StartDate
+		public virtual decimal Price
 	    {
 			get
 	        {
-				return base.GetDateTime(ColumnNames.StartDate);
+				return base.Getdecimal(ColumnNames.Price);
 			}
 			set
 	        {
-				base.SetDateTime(ColumnNames.StartDate, value);
+				base.Setdecimal(ColumnNames.Price, value);
 			}
 		}
 
-		public virtual DateTime EndDate
+		public virtual int OpenMemberCount
 	    {
 			get
 	        {
-				return base.GetDateTime(ColumnNames.EndDate);
+				return base.Getint(ColumnNames.OpenMemberCount);
 			}
 			set
 	        {
-				base.SetDateTime(ColumnNames.EndDate, value);
-			}
-		}
-
-		public virtual int CreateBy
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.CreateBy);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.CreateBy, value);
+				base.Setint(ColumnNames.OpenMemberCount, value);
 			}
 		}
 
@@ -319,78 +294,63 @@ namespace DAL
 			}
 		}
 
-		public virtual string s_RoomID
+		public virtual string s_RoomTypeSpecID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.RoomID) ? string.Empty : base.GetintAsString(ColumnNames.RoomID);
+				return this.IsColumnNull(ColumnNames.RoomTypeSpecID) ? string.Empty : base.GetintAsString(ColumnNames.RoomTypeSpecID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.RoomID);
+					this.SetColumnNull(ColumnNames.RoomTypeSpecID);
 				else
-					this.RoomID = base.SetintAsString(ColumnNames.RoomID, value);
+					this.RoomTypeSpecID = base.SetintAsString(ColumnNames.RoomTypeSpecID, value);
 			}
 		}
 
-		public virtual string s_RoomTypeSpecDurationID
+		public virtual string s_TypeDurationID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.RoomTypeSpecDurationID) ? string.Empty : base.GetintAsString(ColumnNames.RoomTypeSpecDurationID);
+				return this.IsColumnNull(ColumnNames.TypeDurationID) ? string.Empty : base.GetintAsString(ColumnNames.TypeDurationID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.RoomTypeSpecDurationID);
+					this.SetColumnNull(ColumnNames.TypeDurationID);
 				else
-					this.RoomTypeSpecDurationID = base.SetintAsString(ColumnNames.RoomTypeSpecDurationID, value);
+					this.TypeDurationID = base.SetintAsString(ColumnNames.TypeDurationID, value);
 			}
 		}
 
-		public virtual string s_StartDate
+		public virtual string s_Price
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.StartDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.StartDate);
+				return this.IsColumnNull(ColumnNames.Price) ? string.Empty : base.GetdecimalAsString(ColumnNames.Price);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.StartDate);
+					this.SetColumnNull(ColumnNames.Price);
 				else
-					this.StartDate = base.SetDateTimeAsString(ColumnNames.StartDate, value);
+					this.Price = base.SetdecimalAsString(ColumnNames.Price, value);
 			}
 		}
 
-		public virtual string s_EndDate
+		public virtual string s_OpenMemberCount
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.EndDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.EndDate);
+				return this.IsColumnNull(ColumnNames.OpenMemberCount) ? string.Empty : base.GetintAsString(ColumnNames.OpenMemberCount);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.EndDate);
+					this.SetColumnNull(ColumnNames.OpenMemberCount);
 				else
-					this.EndDate = base.SetDateTimeAsString(ColumnNames.EndDate, value);
-			}
-		}
-
-		public virtual string s_CreateBy
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.CreateBy) ? string.Empty : base.GetintAsString(ColumnNames.CreateBy);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.CreateBy);
-				else
-					this.CreateBy = base.SetintAsString(ColumnNames.CreateBy, value);
+					this.OpenMemberCount = base.SetintAsString(ColumnNames.OpenMemberCount, value);
 			}
 		}
 
@@ -437,51 +397,41 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter RoomID
+				public WhereParameter RoomTypeSpecID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.RoomID, Parameters.RoomID);
+							WhereParameter where = new WhereParameter(ColumnNames.RoomTypeSpecID, Parameters.RoomTypeSpecID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter RoomTypeSpecDurationID
+				public WhereParameter TypeDurationID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.RoomTypeSpecDurationID, Parameters.RoomTypeSpecDurationID);
+							WhereParameter where = new WhereParameter(ColumnNames.TypeDurationID, Parameters.TypeDurationID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter StartDate
+				public WhereParameter Price
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.StartDate, Parameters.StartDate);
+							WhereParameter where = new WhereParameter(ColumnNames.Price, Parameters.Price);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter EndDate
+				public WhereParameter OpenMemberCount
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.EndDate, Parameters.EndDate);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter CreateBy
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.CreateBy, Parameters.CreateBy);
+							WhereParameter where = new WhereParameter(ColumnNames.OpenMemberCount, Parameters.OpenMemberCount);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -504,81 +454,67 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter RoomID
+			public WhereParameter RoomTypeSpecID
 		    {
 				get
 		        {
-					if(_RoomID_W == null)
+					if(_RoomTypeSpecID_W == null)
 	        	    {
-						_RoomID_W = TearOff.RoomID;
+						_RoomTypeSpecID_W = TearOff.RoomTypeSpecID;
 					}
-					return _RoomID_W;
+					return _RoomTypeSpecID_W;
 				}
 			}
 
-			public WhereParameter RoomTypeSpecDurationID
+			public WhereParameter TypeDurationID
 		    {
 				get
 		        {
-					if(_RoomTypeSpecDurationID_W == null)
+					if(_TypeDurationID_W == null)
 	        	    {
-						_RoomTypeSpecDurationID_W = TearOff.RoomTypeSpecDurationID;
+						_TypeDurationID_W = TearOff.TypeDurationID;
 					}
-					return _RoomTypeSpecDurationID_W;
+					return _TypeDurationID_W;
 				}
 			}
 
-			public WhereParameter StartDate
+			public WhereParameter Price
 		    {
 				get
 		        {
-					if(_StartDate_W == null)
+					if(_Price_W == null)
 	        	    {
-						_StartDate_W = TearOff.StartDate;
+						_Price_W = TearOff.Price;
 					}
-					return _StartDate_W;
+					return _Price_W;
 				}
 			}
 
-			public WhereParameter EndDate
+			public WhereParameter OpenMemberCount
 		    {
 				get
 		        {
-					if(_EndDate_W == null)
+					if(_OpenMemberCount_W == null)
 	        	    {
-						_EndDate_W = TearOff.EndDate;
+						_OpenMemberCount_W = TearOff.OpenMemberCount;
 					}
-					return _EndDate_W;
-				}
-			}
-
-			public WhereParameter CreateBy
-		    {
-				get
-		        {
-					if(_CreateBy_W == null)
-	        	    {
-						_CreateBy_W = TearOff.CreateBy;
-					}
-					return _CreateBy_W;
+					return _OpenMemberCount_W;
 				}
 			}
 
 			private WhereParameter _ID_W = null;
-			private WhereParameter _RoomID_W = null;
-			private WhereParameter _RoomTypeSpecDurationID_W = null;
-			private WhereParameter _StartDate_W = null;
-			private WhereParameter _EndDate_W = null;
-			private WhereParameter _CreateBy_W = null;
+			private WhereParameter _RoomTypeSpecID_W = null;
+			private WhereParameter _TypeDurationID_W = null;
+			private WhereParameter _Price_W = null;
+			private WhereParameter _OpenMemberCount_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ID_W = null;
-				_RoomID_W = null;
-				_RoomTypeSpecDurationID_W = null;
-				_StartDate_W = null;
-				_EndDate_W = null;
-				_CreateBy_W = null;
+				_RoomTypeSpecID_W = null;
+				_TypeDurationID_W = null;
+				_Price_W = null;
+				_OpenMemberCount_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -645,51 +581,41 @@ namespace DAL
 					}
 				}
 
-				public AggregateParameter RoomID
+				public AggregateParameter RoomTypeSpecID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomID, Parameters.RoomID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomTypeSpecID, Parameters.RoomTypeSpecID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter RoomTypeSpecDurationID
+				public AggregateParameter TypeDurationID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomTypeSpecDurationID, Parameters.RoomTypeSpecDurationID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TypeDurationID, Parameters.TypeDurationID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter StartDate
+				public AggregateParameter Price
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StartDate, Parameters.StartDate);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price, Parameters.Price);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter EndDate
+				public AggregateParameter OpenMemberCount
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EndDate, Parameters.EndDate);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter CreateBy
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CreateBy, Parameters.CreateBy);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OpenMemberCount, Parameters.OpenMemberCount);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -712,81 +638,67 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter RoomID
+			public AggregateParameter RoomTypeSpecID
 		    {
 				get
 		        {
-					if(_RoomID_W == null)
+					if(_RoomTypeSpecID_W == null)
 	        	    {
-						_RoomID_W = TearOff.RoomID;
+						_RoomTypeSpecID_W = TearOff.RoomTypeSpecID;
 					}
-					return _RoomID_W;
+					return _RoomTypeSpecID_W;
 				}
 			}
 
-			public AggregateParameter RoomTypeSpecDurationID
+			public AggregateParameter TypeDurationID
 		    {
 				get
 		        {
-					if(_RoomTypeSpecDurationID_W == null)
+					if(_TypeDurationID_W == null)
 	        	    {
-						_RoomTypeSpecDurationID_W = TearOff.RoomTypeSpecDurationID;
+						_TypeDurationID_W = TearOff.TypeDurationID;
 					}
-					return _RoomTypeSpecDurationID_W;
+					return _TypeDurationID_W;
 				}
 			}
 
-			public AggregateParameter StartDate
+			public AggregateParameter Price
 		    {
 				get
 		        {
-					if(_StartDate_W == null)
+					if(_Price_W == null)
 	        	    {
-						_StartDate_W = TearOff.StartDate;
+						_Price_W = TearOff.Price;
 					}
-					return _StartDate_W;
+					return _Price_W;
 				}
 			}
 
-			public AggregateParameter EndDate
+			public AggregateParameter OpenMemberCount
 		    {
 				get
 		        {
-					if(_EndDate_W == null)
+					if(_OpenMemberCount_W == null)
 	        	    {
-						_EndDate_W = TearOff.EndDate;
+						_OpenMemberCount_W = TearOff.OpenMemberCount;
 					}
-					return _EndDate_W;
-				}
-			}
-
-			public AggregateParameter CreateBy
-		    {
-				get
-		        {
-					if(_CreateBy_W == null)
-	        	    {
-						_CreateBy_W = TearOff.CreateBy;
-					}
-					return _CreateBy_W;
+					return _OpenMemberCount_W;
 				}
 			}
 
 			private AggregateParameter _ID_W = null;
-			private AggregateParameter _RoomID_W = null;
-			private AggregateParameter _RoomTypeSpecDurationID_W = null;
-			private AggregateParameter _StartDate_W = null;
-			private AggregateParameter _EndDate_W = null;
-			private AggregateParameter _CreateBy_W = null;
+			private AggregateParameter _RoomTypeSpecID_W = null;
+			private AggregateParameter _TypeDurationID_W = null;
+			private AggregateParameter _Price_W = null;
+			private AggregateParameter _OpenMemberCount_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ID_W = null;
-				_RoomID_W = null;
-				_RoomTypeSpecDurationID_W = null;
-				_StartDate_W = null;
-				_EndDate_W = null;
-				_CreateBy_W = null;
+				_RoomTypeSpecID_W = null;
+				_TypeDurationID_W = null;
+				_Price_W = null;
+				_OpenMemberCount_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -818,7 +730,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeSpecDurationInsert]";
 	
 			CreateParameters(cmd);
 			
@@ -834,7 +746,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeSpecDurationUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -846,7 +758,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomTypeSpecDurationDelete]";
 	
 			SqlParameter p;
 			p = cmd.Parameters.Add(Parameters.ID);
@@ -865,24 +777,20 @@ namespace DAL
 			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.RoomID);
-			p.SourceColumn = ColumnNames.RoomID;
+			p = cmd.Parameters.Add(Parameters.RoomTypeSpecID);
+			p.SourceColumn = ColumnNames.RoomTypeSpecID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.RoomTypeSpecDurationID);
-			p.SourceColumn = ColumnNames.RoomTypeSpecDurationID;
+			p = cmd.Parameters.Add(Parameters.TypeDurationID);
+			p.SourceColumn = ColumnNames.TypeDurationID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.StartDate);
-			p.SourceColumn = ColumnNames.StartDate;
+			p = cmd.Parameters.Add(Parameters.Price);
+			p.SourceColumn = ColumnNames.Price;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.EndDate);
-			p.SourceColumn = ColumnNames.EndDate;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.CreateBy);
-			p.SourceColumn = ColumnNames.CreateBy;
+			p = cmd.Parameters.Add(Parameters.OpenMemberCount);
+			p.SourceColumn = ColumnNames.OpenMemberCount;
 			p.SourceVersion = DataRowVersion.Current;
 
 

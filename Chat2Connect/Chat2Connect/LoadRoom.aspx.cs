@@ -368,31 +368,31 @@ namespace Chat2Connect
                 int roomtype = 0;
                 int camCount = 0;
                 int maxmic = 0;
-                if (!rooms.IsColumnNull("RoomTypeID"))
-                    roomtype = rooms.RoomTypeID;
-                switch (roomtype)
-                {
-                    case 1: // black
-                        camCount = 1;
-                        maxmic = 1;
-                        break;
-                    case 2: // zety 
-                        camCount = 4;
-                        maxmic = 2;
-                        break;
-                    case 3: // purple
-                        camCount = 100;
-                        maxmic = 3;
-                        break;
-                    case 4: // premium 
-                        camCount = 100;
-                        maxmic = 4;
-                        break;
-                    default:
-                        camCount = 1;
-                        maxmic = 1;
-                        break;
-                }
+                //if (!rooms.IsColumnNull("RoomTypeID"))
+                //    roomtype = rooms.RoomTypeID;
+                //switch (roomtype)
+                //{
+                //    case 1: // black
+                //        camCount = 1;
+                //        maxmic = 1;
+                //        break;
+                //    case 2: // zety 
+                //        camCount = 4;
+                //        maxmic = 2;
+                //        break;
+                //    case 3: // purple
+                //        camCount = 100;
+                //        maxmic = 3;
+                //        break;
+                //    case 4: // premium 
+                //        camCount = 100;
+                //        maxmic = 4;
+                //        break;
+                //    default:
+                //        camCount = 1;
+                //        maxmic = 1;
+                //        break;
+                //}
 
 
                 // flash object & flashvars 

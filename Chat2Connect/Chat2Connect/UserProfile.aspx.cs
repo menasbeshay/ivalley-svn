@@ -52,14 +52,14 @@ namespace Chat2Connect
                             Response.Redirect("home.aspx");
                     }
                     if (!setting.IsColumnNull("HidePics"))
-                    uiPanelPics.Visible = setting.HidePics;                                                            
+                        uiPanelPics.Visible = setting.HidePics;
                 }
 
                 uiLabelName.Text = member.Name;
 
                 if (!member.IsColumnNull("ReligionID"))
                 {
-                    Religion religion = new Religion();                    
+                    Religion religion = new Religion();
                     religion.LoadByPrimaryKey(member.ReligionID);
                     uiLabelReligion.Text = religion.Name;
                 }
@@ -82,23 +82,21 @@ namespace Chat2Connect
                 uiLabelBestTeam.Text = member.BestTeam;
                 uiLabelBestCountry.Text = member.BestCounrty;
                 uiLabelMail.Text = Membership.GetUser(member.UserID).Email;
-                uiHyperLinkFb.NavigateUrl =  member.FbURL;
+                uiHyperLinkFb.NavigateUrl = member.FbURL;
                 uiHyperLinktwitter.NavigateUrl = member.TURL;
                 uiHyperLinkyt.NavigateUrl = member.YtURL;
-                
-                if (!member.IsColumnNull("MemberTypeID"))
+
+                if (member.MemberType.MemberTypeSpecDurationID != Helper.Defaults.MemberTypeSpecDurationID)
                 {
-                    MemberType type = new MemberType();
-                    type.LoadByPrimaryKey(member.MemberTypeID);
-                    uiLabelAccountType.Text = type.Name;
-                    
+                    uiLabelAccountType.Text = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name;
+
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
                     uiImageMain.ImageUrl = member.ProfilePic;
                 }
                 ///////////////////////////////
-                uiLabelInterests.Text = member.Interests;                
+                uiLabelInterests.Text = member.Interests;
 
             }
             else

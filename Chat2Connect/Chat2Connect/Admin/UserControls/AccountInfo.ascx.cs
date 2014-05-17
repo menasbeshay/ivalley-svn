@@ -58,7 +58,7 @@ namespace Chat2Connect.Admin.UserControls
                                 IP=member.s_IP,
                                 MemberTypeExpiryDate=member.s_MemberTypeExpiryDate,
                                 Credit_Money=member.s_Credit_Money,
-                                MemberTypeColor=member.MemberTypeColor,
+                                MemberTypeColor=member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Color,
                                 StatusName=member.StatusName,
                                 IsOnline=(member.IsOnLine?"نعم":"لا"),
                                 FriendsCount=member.FriendsCount()

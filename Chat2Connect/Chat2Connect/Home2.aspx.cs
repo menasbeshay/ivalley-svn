@@ -27,7 +27,7 @@ namespace Chat2Connect
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
                     int membertype = 0;
                     if (!member.IsColumnNull("MemberTypeID"))
-                        membertype = member.MemberTypeID;
+                        membertype = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID;
                     switch (membertype)
                     {
                         case 1: // black
