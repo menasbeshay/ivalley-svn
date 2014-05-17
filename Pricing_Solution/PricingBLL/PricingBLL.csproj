@@ -49,6 +49,8 @@
     <Compile Include="Notifications.cs" />
     <Compile Include="TicketHistory.cs" />
     <Compile Include="Tickets.cs" />
+    <Compile Include="TicketStatus.cs" />
+    <Compile Include="TicketType.cs" />
     <Compile Include="v_GetAllGenericInfoByDrugID.cs" />
     <Compile Include="v_GetOneGenericInfoByDrugID.cs" />
     <Compile Include="Drug_Reguest_Substances.cs" />

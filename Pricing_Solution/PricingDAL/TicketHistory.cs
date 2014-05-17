@@ -139,6 +139,14 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter TicketStatusID
+			{
+				get
+				{
+					return new SqlParameter("@TicketStatusID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +158,7 @@ namespace Pricing.DAL
             public const string ResponseText = "ResponseText";
             public const string ResponseDate = "ResponseDate";
             public const string CAPA_ResponderID = "CAPA_ResponderID";
+            public const string TicketStatusID = "TicketStatusID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +171,7 @@ namespace Pricing.DAL
 					ht[ResponseText] = _TicketHistory.PropertyNames.ResponseText;
 					ht[ResponseDate] = _TicketHistory.PropertyNames.ResponseDate;
 					ht[CAPA_ResponderID] = _TicketHistory.PropertyNames.CAPA_ResponderID;
+					ht[TicketStatusID] = _TicketHistory.PropertyNames.TicketStatusID;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +189,7 @@ namespace Pricing.DAL
             public const string ResponseText = "ResponseText";
             public const string ResponseDate = "ResponseDate";
             public const string CAPA_ResponderID = "CAPA_ResponderID";
+            public const string TicketStatusID = "TicketStatusID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +202,7 @@ namespace Pricing.DAL
 					ht[ResponseText] = _TicketHistory.ColumnNames.ResponseText;
 					ht[ResponseDate] = _TicketHistory.ColumnNames.ResponseDate;
 					ht[CAPA_ResponderID] = _TicketHistory.ColumnNames.CAPA_ResponderID;
+					ht[TicketStatusID] = _TicketHistory.ColumnNames.TicketStatusID;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +220,7 @@ namespace Pricing.DAL
             public const string ResponseText = "s_ResponseText";
             public const string ResponseDate = "s_ResponseDate";
             public const string CAPA_ResponderID = "s_CAPA_ResponderID";
+            public const string TicketStatusID = "s_TicketStatusID";
 
 		}
 		#endregion		
@@ -271,6 +284,18 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setint(ColumnNames.CAPA_ResponderID, value);
+			}
+		}
+
+		public virtual int TicketStatusID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TicketStatusID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TicketStatusID, value);
 			}
 		}
 
@@ -351,6 +376,21 @@ namespace Pricing.DAL
 					this.SetColumnNull(ColumnNames.CAPA_ResponderID);
 				else
 					this.CAPA_ResponderID = base.SetintAsString(ColumnNames.CAPA_ResponderID, value);
+			}
+		}
+
+		public virtual string s_TicketStatusID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TicketStatusID) ? string.Empty : base.GetintAsString(ColumnNames.TicketStatusID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TicketStatusID);
+				else
+					this.TicketStatusID = base.SetintAsString(ColumnNames.TicketStatusID, value);
 			}
 		}
 
@@ -437,6 +477,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public WhereParameter TicketStatusID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TicketStatusID, Parameters.TicketStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +552,24 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter TicketStatusID
+		    {
+				get
+		        {
+					if(_TicketStatusID_W == null)
+	        	    {
+						_TicketStatusID_W = TearOff.TicketStatusID;
+					}
+					return _TicketStatusID_W;
+				}
+			}
+
 			private WhereParameter _TicketHistoryID_W = null;
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _ResponseText_W = null;
 			private WhereParameter _ResponseDate_W = null;
 			private WhereParameter _CAPA_ResponderID_W = null;
+			private WhereParameter _TicketStatusID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +578,7 @@ namespace Pricing.DAL
 				_ResponseText_W = null;
 				_ResponseDate_W = null;
 				_CAPA_ResponderID_W = null;
+				_TicketStatusID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +685,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter TicketStatusID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TicketStatusID, Parameters.TicketStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +760,24 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter TicketStatusID
+		    {
+				get
+		        {
+					if(_TicketStatusID_W == null)
+	        	    {
+						_TicketStatusID_W = TearOff.TicketStatusID;
+					}
+					return _TicketStatusID_W;
+				}
+			}
+
 			private AggregateParameter _TicketHistoryID_W = null;
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _ResponseText_W = null;
 			private AggregateParameter _ResponseDate_W = null;
 			private AggregateParameter _CAPA_ResponderID_W = null;
+			private AggregateParameter _TicketStatusID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +786,7 @@ namespace Pricing.DAL
 				_ResponseText_W = null;
 				_ResponseDate_W = null;
 				_CAPA_ResponderID_W = null;
+				_TicketStatusID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +879,10 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.CAPA_ResponderID);
 			p.SourceColumn = ColumnNames.CAPA_ResponderID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TicketStatusID);
+			p.SourceColumn = ColumnNames.TicketStatusID;
 			p.SourceVersion = DataRowVersion.Current;
 
 
