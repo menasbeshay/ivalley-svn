@@ -729,10 +729,18 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
-    <Content Include="font\myriadprobold.svg" />
-    <Content Include="font\myriadproit.svg" />
-    <Content Include="font\myriadprolight.svg" />
-    <Content Include="font\myriadproregular.svg" />
+    <Content Include="font\myriadprobold.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproit.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprolight.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproregular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Home.aspx" />
     <Content Include="Images\calender.png" />
     <Content Include="Images\MailFooter.jpg" />
@@ -1196,15 +1204,31 @@
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\variables.less" />
     <None Include="assets\font-awesome\docs\assets\less\twbs-222\wells.less" />
     <None Include="assets\font-awesome\docs\assets\less\variables.less" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.eot" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.ttf" />
-    <None Include="assets\font-awesome\font\fontawesome-webfont.woff" />
-    <None Include="assets\font-awesome\font\FontAwesome.otf" />
-    <None Include="assets\font-awesome\less\font-awesome-ie7.less" />
-    <None Include="assets\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\font\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\font\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\less\font-awesome-ie7.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\less\font-awesome.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="assets\font-awesome\README.md" />
-    <None Include="assets\font-awesome\sass\font-awesome.sass" />
-    <None Include="assets\font-awesome\sass\font-awesome.scss" />
+    <Content Include="assets\font-awesome\sass\font-awesome.sass">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\font-awesome\sass\font-awesome.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="assets\fullcalendar\.DS_Store" />
     <None Include="assets\fullcalendar\demos\.DS_Store" />
     <None Include="assets\fullcalendar\demos\cupertino\.DS_Store" />
@@ -1243,18 +1267,42 @@
     <Content Include="CompaniesMaster.Master" />
     <None Include="css\.DS_Store" />
     <None Include="font\.DS_Store" />
-    <None Include="font\myriadprobold.eot" />
-    <None Include="font\myriadprobold.ttf" />
-    <None Include="font\myriadprobold.woff" />
-    <None Include="font\myriadproit.eot" />
-    <None Include="font\myriadproit.ttf" />
-    <None Include="font\myriadproit.woff" />
-    <None Include="font\myriadprolight.eot" />
-    <None Include="font\myriadprolight.ttf" />
-    <None Include="font\myriadprolight.woff" />
-    <None Include="font\myriadproregular.eot" />
-    <None Include="font\myriadproregular.ttf" />
-    <None Include="font\myriadproregular.woff" />
+    <Content Include="font\myriadprobold.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprobold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprobold.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproit.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproit.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproit.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprolight.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprolight.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadprolight.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproregular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproregular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\myriadproregular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="General.Master" />
     <None Include="img\.DS_Store" />
     <None Include="img\blog\.DS_Store" />
