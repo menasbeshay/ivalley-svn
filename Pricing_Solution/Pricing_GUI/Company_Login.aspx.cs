@@ -19,12 +19,12 @@ namespace Pricing_GUI
         {
             Companies obj = new Companies();
 
-            obj.Where.Login_Code.Value = txtCompanyCode.Text;
+            obj.Where.Login_Code.Value = input_username.Text;
             obj.Where.Login_Code.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
 
             obj.Where.Login_Code.Conjuction = MyGeneration.dOOdads.WhereParameter.Conj.And;
 
-            obj.Where.Login_Password.Value = txtPassword.Text;
+            obj.Where.Login_Password.Value = input_password.Text;
             obj.Where.Login_Password.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
 
             if (obj.Query.Load())
