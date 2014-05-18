@@ -14,5 +14,22 @@ namespace Pricing.BLL
 		{
 		
 		}
+
+        public virtual bool GetTopGeneralNotifications()
+        {
+            this.Query.Top = 5;            
+            this.Where.CompanyID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNull;
+            this.Query.AddOrderBy(ColumnNames.NotifyDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
+            return this.Query.Load();
+        }
+
+        public virtual bool GetTopPrivateNotifications(int CompanyID)
+        {
+            this.Query.Top = 5;
+            this.Where.CompanyID.Value = CompanyID;
+            this.Where.CompanyID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Query.AddOrderBy(ColumnNames.NotifyDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
+            return this.Query.Load();
+        }
 	}
 }
