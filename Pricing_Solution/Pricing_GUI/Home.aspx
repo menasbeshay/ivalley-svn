@@ -47,6 +47,14 @@
                         <i class="icon-bell-alt"></i>Inbox</h4>
                 </div>
                 <div class="widget-body">
+                    <asp:GridView ID="uiGridViewInbox" runat="server" AllowPaging="True" AutoGenerateColumns="False"  
+                 CssClass="table table-hover table-bordered">
+                <Columns>               
+                    <asp:BoundField HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}" DataField="SubmissionDate" />
+                    <asp:BoundField DataField="TradeName" HeaderText="Trade Name" />                                            
+                    <asp:BoundField DataField="Status" HeaderText="Status" />                   
+                </Columns>
+            </asp:GridView>
                     <span class="space5"></span>
                 </div>
             </div>

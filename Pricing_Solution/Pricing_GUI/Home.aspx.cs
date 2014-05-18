@@ -61,7 +61,11 @@ namespace Pricing_GUI
 
         private void BindInbox()
         {
-          //  throw new NotImplementedException();
+            Pricing.BLL.v_PriceSchedual inbox = new Pricing.BLL.v_PriceSchedual();
+            inbox.GetTopPricingSchedual(CodeGlobal.LogedInCompany.CompanyID);
+          
+            uiGridViewInbox.DataSource = inbox.DefaultView;
+            uiGridViewInbox.DataBind();
         }
 
         private void BindTickets()
