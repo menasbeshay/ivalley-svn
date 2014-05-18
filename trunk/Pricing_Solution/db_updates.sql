@@ -61,6 +61,24 @@ Go
 
 If Exists (select Name 
 		   from sysobjects 
+		   where name = 'GetTopTicketsByCompanyID' and
+		        xtype = 'P')
+Drop Procedure GetTopTicketsByCompanyID
+Go
+Create Procedure GetTopTicketsByCompanyID @CompanyID int
+as
+
+select top 5 T.* , TT.Name TypeName , S.Name StatusName, P.TradeName MainTradeName
+from Tickets T
+Inner Join TicketType TT on T.TicketTypeID = TT.TicketTypeID
+Inner join TicketStatus S on T.TicketStatusID = S.TicketStatusID
+Left JOIN dbo.TradePricing P ON T.TradePricingID = P.TradePricingID 
+where T.CompanyID = @CompanyID
+order by T.InitiateDate Desc 
+Go
+
+If Exists (select Name 
+		   from sysobjects 
 		   where name = 'GetAllHistoryTicketsByTicketID' and
 		        xtype = 'P')
 Drop Procedure GetAllHistoryTicketsByTicketID

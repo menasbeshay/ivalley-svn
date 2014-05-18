@@ -22,5 +22,12 @@ namespace Pricing.BLL
             parameters.Add(new SqlParameter("@CompanyID", SqlDbType.Int, 0), CompanyID);
             return LoadFromSql("GetAllTicketsByCompanyID", parameters);
         }
+
+        public virtual bool GetTopTicketsByCompanyID(int CompanyID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@CompanyID", SqlDbType.Int, 0), CompanyID);
+            return LoadFromSql("GetTopTicketsByCompanyID", parameters);
+        }
 	}
 }
