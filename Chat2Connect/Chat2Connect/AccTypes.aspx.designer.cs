@@ -13,75 +13,12 @@ namespace Chat2Connect {
     public partial class AccTypes {
         
         /// <summary>
-        /// uiDropDownListFriends control.
+        /// MemberTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFriends;
-        
-        /// <summary>
-        /// uiRadioButtonListType1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListType1;
-        
-        /// <summary>
-        /// uiRadioButtonListType2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListType2;
-        
-        /// <summary>
-        /// uiRadioButtonListPremium control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListPremium;
-        
-        /// <summary>
-        /// uiDropDownListQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListQuestion;
-        
-        /// <summary>
-        /// uiTextBoxAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAnswer;
-        
-        /// <summary>
-        /// AnswerRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnswerRequired;
-        
-        /// <summary>
-        /// uiLinkButtonConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonConfirm;
+        protected global::Chat2Connect.usercontrols.MemberTypes MemberTypes;
     }
 }

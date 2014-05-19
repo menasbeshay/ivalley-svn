@@ -821,7 +821,11 @@ namespace DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_MemberTypeInsert]";
 	
 			CreateParameters(cmd);
-			    
+			
+			SqlParameter p;
+			p = cmd.Parameters[Parameters.ID.ParameterName];
+			p.Direction = ParameterDirection.Output;
+    
 			return cmd;
 		}
 	

@@ -61,13 +61,13 @@ namespace Chat2Connect.SRCustomHubs
                 Member newMember = new Member();
                 newMember.LoadByPrimaryKey(item.MemberID);
 
-                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString(), newMember.MemberTypeID);
+                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString(), 0);
                 
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
 
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, null);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, roomid);
                 
             }
             catch (Exception ex)
