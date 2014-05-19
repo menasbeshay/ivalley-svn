@@ -53,5 +53,31 @@ namespace BLL
                 return memberTypeSpec;
             }
         }
+
+        private TypeDuration typeduration;
+        public TypeDuration TypeDuration
+        {
+            get
+            {
+                if (typeduration == null)
+                {
+                    typeduration = new TypeDuration();
+                    typeduration.LoadByPrimaryKey(this.TypeDurationID);
+                }
+                if (typeduration.ID != this.TypeDurationID)
+                {
+                    typeduration.LoadByPrimaryKey(this.TypeDurationID);
+                }
+                return typeduration;
+            }
+        }
+
+        public bool LoadByMemberTypeSpecID(int memberTypeSpecID)
+        {
+            return LoadFromRawSql(@"select MemberTypeSpecDuration.*,[DurationName]=TypeDuration.Name
+                                    FROM MemberTypeSpecDuration INNER JOIN TypeDuration ON TypeDuration.ID=MemberTypeSpecDuration.TypeDurationID
+                                    WHERE MemberTypeSpecDuration.MemberTypeSpecID={0}", memberTypeSpecID);
+        }
+
     }
 }

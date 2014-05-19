@@ -97,6 +97,7 @@
     <Content Include="AddPhoto.aspx" />
     <Content Include="Admin\AccountHistory.aspx" />
     <Content Include="Admin\Accounts.aspx" />
+    <Content Include="Admin\AccountType.aspx" />
     <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
@@ -621,6 +622,7 @@
     <Content Include="testswf\chat2connect4.swf" />
     <Content Include="testswf\chat2connect3.swf" />
     <Content Include="usercontrols\Mail.ascx" />
+    <Content Include="usercontrols\MemberTypes.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="VIPPrices.aspx" />
@@ -739,6 +741,13 @@
     </Compile>
     <Compile Include="Admin\Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AccountType.aspx.cs">
+      <DependentUpon>AccountType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountType.aspx.designer.cs">
+      <DependentUpon>AccountType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
@@ -1034,6 +1043,13 @@
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.designer.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\MemberTypes.ascx.cs">
+      <DependentUpon>MemberTypes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\MemberTypes.ascx.designer.cs">
+      <DependentUpon>MemberTypes.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\SendMail.ascx.cs">
       <DependentUpon>SendMail.ascx</DependentUpon>

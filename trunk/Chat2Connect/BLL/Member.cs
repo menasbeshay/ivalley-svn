@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using DAL;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace BLL
 {
@@ -125,14 +126,33 @@ namespace BLL
         {
             get
             {
-                Member _current = new Member();
-                if (_current.LoadCurrentMember())
-                {
-                    return _current.MemberID;
-                }
-                return 0;
+                if (CurrentMember == null)
+                    return 0;
+
+                return CurrentMember.MemberID;
             }
         }
+
+        public static Member CurrentMember
+        {
+            get
+            {
+                HttpContext current = HttpContext.Current;
+                if (current == null)
+                {
+                    return null;
+                }
+                if (current.Session["CurrentMember"] == null)
+                {
+                    Member currentMember = new Member();
+                    currentMember.LoadCurrentMember();
+                    current.Session["CurrentMember"] = currentMember;
+                }
+
+                return (Member)current.Session["CurrentMember"];
+            }
+        }
+
         public Member()
         {
         }
