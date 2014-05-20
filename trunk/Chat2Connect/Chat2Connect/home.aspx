@@ -248,23 +248,27 @@
                     </div>
 
                 </div>
+
                 <!-- ko if: Type()=="Room" -->
-                <div style="height: 1px;" class="clear"></div>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
+                <div class="col-lg-12">
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label1">مدير الغرفة:</span></label>
                         <span id="uiLabelAdmin" data-bind="text:AdminName"></span>
-                        <div style="height: 1px;" class="clearfix"></div>
+                        </div>
+                    <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label2">كاميرات:</span></label>
                         <span id="Label4" data-bind="text:OpenCams"></span>
-                        <div style="height: 1px;" class="clearfix"></div>
+                        |
                         <label><span id="Label3">متواجدين:</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:MemberCount"></span>
-                        <div style="height: 10px;" class="clearfix"></div>
+                        </div>
+                  
                         <!-- ko if: !CurrentMemberSettings.IsFav() -->
+                <div style="padding: 5px;" class="pull-right col-lg-2">
                         <a style="cursor: pointer;" data-bind="attr:{onclick:'addtoFav('+ID()+');',id:'favlink_'+uniqueID()}"><i style="color: #FEC200;" class="icon-star"></i>أضف إلى المفضلة</a>
-                        <!-- /ko -->
-                        <div style="height: 10px;" class="clearfix"></div>
+            </div>            
+            <!-- /ko -->
+                        <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
                             <a target="_blank" id="uiHyperLinkFb">
                                 <img src="images/facebook.png"></a>
@@ -275,7 +279,8 @@
                     <a target="_blank" id="uiHyperLinkyt">
                         <img src="images/youtube.png"></a>
                         </div>
-                        <div class="clearfix" style="height: 10px;"></div>
+                </div>
+                        <div style="padding: 5px;" class="pull-right col-lg-2">
                         <span class="rating">
                             <input type="radio" class='rating-input' data-bind="click:$parent.rateRoom.bind($data,5), checked:CurrentMemberSettings.UserRate,checkedValue: 5,attr:{id:'rating-input-1-5_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-5_'+uniqueID()}" class="rating-star fa icon-star"></label>
@@ -290,7 +295,12 @@
                         </span>
                         <input id="uiHiddenFieldUserRate" type="hidden" name="uiHiddenFieldUserRate" data-bind="value:CurrentMemberSettings.UserRate">
                     </div>
-                    <div style="padding: 2px;" class="pull-left col-lg-9">
+                </div>
+                <div style="height: 5px;" class="clear"></div>
+                <span class="col-lg-12" style="height:16px;cursor:pointer;border-bottom: 1px solid #FEC200;color:#000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
+                    
+                    <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
                         <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
@@ -302,8 +312,10 @@
                 </div>
                 <!-- /ko -->
                 <!-- ko if: Type()=="Private" -->
+                <span class="col-lg-12" style="height:16px;cursor:pointer;border-bottom: 1px solid #FEC200;color:#000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                    <div style="padding: 2px;" class="pull-left col-lg-12">
+                    
+                    <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
                         <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
@@ -315,7 +327,7 @@
                 </div>
 
                 <!-- /ko -->
-                <div style="height: 5px;" class="clearfix"></div>
+                <div style="height: 5px;" class="clear"></div>
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px;position:relative;" class="col-lg-3 pull-right">
