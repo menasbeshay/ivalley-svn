@@ -87,7 +87,7 @@ function notify(type, msg)
 /* room functions */
 
 function addtoFav(rid) {
-    $('#pGeneral').css('display', 'block');
+    //$('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/AddRoomToFav",
         dataType: "json",
@@ -96,18 +96,18 @@ function addtoFav(rid) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+                //$('#pGeneral').css('display', 'none');
                 $("#favlink_" + rid).css('display', 'block');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+                //$('#pGeneral').css('display', 'none');
                 $("#favlink_" + rid).css('display', 'none');
                 notify('success', 'تم إضافة الغرفة إلى المفضلة بنجاح.');                
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+            //$('#pGeneral').css('display', 'none');
             $("#favlink_" + rid).css('display', 'block');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
@@ -115,7 +115,7 @@ function addtoFav(rid) {
 }
 
 function ClearQueue(rid) {
-    $('#pGeneral').css('display', 'block');
+    //$('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/ClearQueue",
         dataType: "json",
@@ -124,7 +124,7 @@ function ClearQueue(rid) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');                
+               // $('#pGeneral').css('display', 'none');                
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
@@ -134,14 +134,14 @@ function ClearQueue(rid) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');            
+            //$('#pGeneral').css('display', 'none');            
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });
 }
 
 function MarkMember(cb, rid, enableWrite) {
-    $('#pGeneral').css('display', 'block');
+   // $('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/MarkMembers",
         dataType: "json",
@@ -150,11 +150,11 @@ function MarkMember(cb, rid, enableWrite) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+              //  $('#pGeneral').css('display', 'none');
                 if(enableWrite)
                     notify('success', 'تم تنقيط الأعضاء بنجاح.');
                 else
@@ -163,7 +163,7 @@ function MarkMember(cb, rid, enableWrite) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+           // $('#pGeneral').css('display', 'none');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });
@@ -172,7 +172,7 @@ function MarkMember(cb, rid, enableWrite) {
 
 
 function MarkMemberOnLogin(cb, rid, enableWrite) {
-    $('#pGeneral').css('display', 'block');
+    //$('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/MarkMemberOnLogin",
         dataType: "json",
@@ -181,11 +181,11 @@ function MarkMemberOnLogin(cb, rid, enableWrite) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 if (enableWrite)
                     notify('success', 'تم تنقيط الأعضاء بنجاح.');
                 else
@@ -194,7 +194,7 @@ function MarkMemberOnLogin(cb, rid, enableWrite) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+            //$('#pGeneral').css('display', 'none');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });
@@ -202,7 +202,7 @@ function MarkMemberOnLogin(cb, rid, enableWrite) {
 
 
 function DisableCams(cb, rid) {
-    $('#pGeneral').css('display', 'block');
+    //$('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/DisableCams",
         dataType: "json",
@@ -211,17 +211,17 @@ function DisableCams(cb, rid) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+                //$('#pGeneral').css('display', 'none');
                 notify('success', 'تم إيقاف الكمراء بنجاح.');
                 
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+            //$('#pGeneral').css('display', 'none');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });
@@ -229,7 +229,7 @@ function DisableCams(cb, rid) {
 
 
 function EnableMic(cb, rid, adminsonly) {
-    $('#pGeneral').css('display', 'block');
+    //$('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/EnableMic",
         dataType: "json",
@@ -238,17 +238,17 @@ function EnableMic(cb, rid, adminsonly) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('success', 'تم إيقاف الكمراء بنجاح.');
 
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+           // $('#pGeneral').css('display', 'none');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });
@@ -256,7 +256,7 @@ function EnableMic(cb, rid, adminsonly) {
 
 
 function RateRoom(rid, rate) {
-    $('#pGeneral').css('display', 'block');
+   // $('#pGeneral').css('display', 'block');
     $.ajax({
         url: "../Services/Services.asmx/RateRoom",
         dataType: "json",
@@ -265,17 +265,17 @@ function RateRoom(rid, rate) {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data.d == false) {
-                $('#pGeneral').css('display', 'none');
+               // $('#pGeneral').css('display', 'none');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
-                $('#pGeneral').css('display', 'none');
+              //  $('#pGeneral').css('display', 'none');
                 notify('success', 'تم التقييم بنجاح.');
 
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#pGeneral').css('display', 'none');
+           // $('#pGeneral').css('display', 'none');
             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
         }
     });

@@ -181,10 +181,14 @@
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
                             <span id="uiLabelRoomName" data-bind="text:Name"></span>
                         </div>
+                        <div class="pull-right " style="margin-right:30px;height:15px;padding:8px;font-weight:bold;">                            
+                            <span id="uiLabelRoomTopic" data-bind="text:RoomTopic"></span>
+                        </div>
                         <div class="pull-left">
                             <div class="form-group">
                                 <!-- ko if: Type()=="Room" -->
-                                <div id="admin-menu" class="btn-group">
+                                     
+                                <div id="admin-menu" class="btn-group" data-bind="if :CurrentMemberSettings.IsAdmin">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         المشرف  <span class="caret"></span>
                                     </button>
@@ -218,6 +222,7 @@
                                         </li>
                                     </ul>
                                 </div>
+                                    
                                 <div class="btn-group">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         إعدادت  <span class="caret"></span>
@@ -331,19 +336,22 @@
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px;position:relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-height="400px" class="SScroll" style="overflow-y: hidden; width: auto; height: 400px;overflow-x:visible;">
+                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px;overflow-x:visible;background-color:#ccc;">
                             <div id="MicDiv">
                                 <div class="friend-link rm Altodd roomMemberlink" data-bind="with:MicMember">
-                                    <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
+                                    
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 16px;" src="images/video_camera.png"></a>
+                                            <img style="width: 20px;" src="images/video_camera.png"></a>
                                         </div>
                                         <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
+
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <div class="clear" style="height: 1px;"></div>
                                      <!-- ko if: MemberID()!=$root.CurrentMemberID-->
-                                    <div class="clearfix" style="height: 1px;"></div>
+                                    <div class="clear" style="height: 1px;"></div>
                         <div class="friendSubMenu">
                                     <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
@@ -395,16 +403,18 @@
                             <div id="queueDiv">
                                 <!-- ko foreach: QueueMembers-->
                                 <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
-                                    <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
+                                    
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 16px;" src="images/video_camera.png"></a>
+                                            <img style="width: 20px;" src="images/video_camera.png"></a>
                                         </div>
                                         <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><i class="icon-ban-circle mark"></i>
                                     </div>
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <div class="clear" style="height: 1px;"></div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
-                                    <div class="clearfix" style="height: 1px;"></div>
+                                    <div class="clear" style="height: 1px;"></div>
                             <div class="friendSubMenu">
                                      <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
@@ -458,16 +468,18 @@
                             <div id="regular">
                                 <!-- ko foreach: RoomMembers-->
                                 <div class="friend-link rm roomMemberlink" data-bind="css:{Altodd:$index()%2,Alteven:!$index()%2}">
-                                    <a data-bind="text:MemberName,css:'jslink type_'+MemberTypeID()"></a>
+                                    
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
                                         <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 16px;" src="images/video_camera.png"></a>
+                                            <img style="width: 20px;" src="images/video_camera.png"></a>
                                             </div>
                                         <i class="icon-ban-circle mark"></i>
                                     </div>
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <div class="clear" style="height: 1px;"></div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
-                                    <div class="clearfix" style="height: 1px;"></div>
+                                    <div class="clear" style="height: 1px;"></div>
         <div class="friendSubMenu"> 
                                     <div class="popup-menu profileMenu">
                                         <div class="col-lg-3 pull-right">
@@ -536,29 +548,30 @@
                             <div class="pull-right">
                             <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
-                                    <img style="width: 14px;" src="images/hand.png">
+                                    <img src="images/hand-icon.png">
                                 </a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
-                                    <i class="icon-microphone"></i>
+                                    <i class="icon-microphone" style="font-size:19px;"></i>
                                 </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
-                                    <i class="icon-camera"></i>
+                                    <i class="icon-camera" style="font-size:19px;"></i>
                                 </a>
                             </div>
-                            <div class="pull-right">
+                            <div class="pull-right" style="margin-right:3px;">
                                 <div data-bind="attr:{id: 'toolbar'+uniqueID()}">
                                     <div data-toggle="buttons" class="btn-group">
 
-                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold"></span></button>
+                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size:19px;"></span></button>
+</div>
+                                    <div data-toggle="buttons" class="btn-group">
+                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size:19px;"></span></button>
+                                        </div>
+                                    
 
-                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic"></span></button>
-
-                                    </div>
-
-                                    <div class="btn-group">
+                                    <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <span class="icon-text-height"></span>
+                                            <span class="icon-text-height" style="font-size:19px;"></span>
                                         </button>
                                         <ul role="menu" class="dropdown-menu">
                                             <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">صغير جداً</a></li>
@@ -569,11 +582,59 @@
                                         </ul>
                                     </div>
 
-                                    <div class="btn-group">
+                                    <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <span class="icon-dashboard"></span>
+                                            <img src="images/font-color-icon.png"/>
                                         </button>
                                         <ul id="colorsMenu" role="menu" class="dropdown-menu">
+                                            <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #000;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #993300;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #333300;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            </a></li>
 
                                             <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #fff200;" class="colorDiv"></div>
@@ -587,9 +648,9 @@
                                         </ul>
                                     </div>
 
-                                    <div class="btn-group">
+                                    <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <span class="icon-smile"></span>
+                                            <img src="images/Emotes-icon.png" />
                                         </button>
                                         <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
                                             <li>
@@ -981,13 +1042,14 @@
                                 </div>
 
                             </div>
-                            <div class="pull-right">
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><i class="icon-gift"></i></a>
+                            <div class="pull-right" style="margin-right:3px;">
+                                
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><img src="images/gift-icon.png"/></a>
                                 <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><i class="icon-group"></i></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><img src="images/friends-icon.png"/></a>
                                 <!-- /ko -->
                                 <div style="display: inline-block; position: relative;" data-placement="top" title="" class="roomMenuItem" data-original-title="تحميل ملفات">
-                                    <button onclick="animateMenu($(this));" id="attachbtn" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-group" type="button"><i class="icon-paper-clip"></i></button>
+                                    <button onclick="animateMenu($(this));" id="attachbtn" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-group" type="button"><i class="icon-paper-clip" style="font-size:19px;"></i></button>
                                     <ul role="menu" class="dropdown-menu" style="display: none;" id="myul">
                                         <li><a onclick="$(this).next('#mydiv').toggle();" id="yt_12">مقطع فيديو</a><div style="display: none;" id="mydiv">
                                             <input type="text" class="form-control"><a style="cursor: pointer;" class="btn btn-default" data-binding="attr:{onclick:'sendvideo('+ID()+',$(this).prev(&quot;input&quot;).val() ,$(&quot;#uiHiddenFieldCurrentName&quot;).val(), $(this).prev(&quot;input&quot;)); return false;'}">إرسال</a>

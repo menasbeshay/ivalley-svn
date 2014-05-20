@@ -958,8 +958,9 @@ fieldset[disabled] .btn-main.active {
 
 .cameraHolder {
     float:left;
-    width:16px;
+    width:20px;
     height:16px;
+    margin-right:4px;
 }
 
 .camera, .hand, .mic , .mark{
@@ -979,6 +980,7 @@ width:230px;
 }
 
 /* wysiwyg */
+/*font size*/
 .wysiwyg-font-size-large {
   font-size: large;
 }
@@ -995,7 +997,7 @@ width:230px;
   font-size: medium;
 }
 
-
+/* font colors*/
 .wysiwyg-color-yellow {
   color: yellow ;
 }
@@ -1005,11 +1007,24 @@ width:230px;
 .wysiwyg-color-blue {
   color: blue;
 }
+.wysiwyg-color-black {
+  color: black;
+}
+.wysiwyg-color-Burntorange {
+  color: #993300;
+}
+.wysiwyg-color-Darkolive {
+  color: #333300;
+}
+
+
+
 
 .colorDiv {
     height:15px;
-    width:20px;
+    width:15px;
     padding:0px;margin:3px;
+    border:1px solid black;
 }
 #colorsMenu  > li > a {
     padding:2px !important;
@@ -1025,10 +1040,13 @@ width:230px;
 .itemColor {
     float:right;
     height:15px;
-    width:20px;
+    width:15px;
     padding:0px;margin:3px;
 }
 
+.GoldRate {
+    color:#fcd144;
+}
 
 #smilesMenu > li > a {
     padding:2px !important;
@@ -1067,6 +1085,19 @@ width:230px;
     list-style:none;
 }
 
+.friend-link .controls {
+    width:50px;
+    }
+.friend-link a.memberlink {
+    margin-left:10px;
+    text-align:left;
+    height:13px;
+    display:block;
+    text-decoration:none;
+    font-family:Tahoma !important;
+    font-size:9px;
+    font-weight:bold;
+    }
 
 .profileMenu li {
     text-align:right;

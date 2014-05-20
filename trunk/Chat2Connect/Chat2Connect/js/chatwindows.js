@@ -283,7 +283,7 @@ function Chat(maxWin, memberID, memberName) {
                     gifts = data;                    
                 });
 
-			var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:[] , Gifts:gifts};
+			var room = { ID: id, Name: name, RoomTopic:"", Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember:{}, AllMembersSettings:[] , Gifts:gifts};
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -343,12 +343,6 @@ function Chat(maxWin, memberID, memberName) {
 
     self.toggleFlashObj = function (window) {
         
-        /*if ($('#flashWrapper_' + window.uniqueID()).is(":hidden"))
-            $('#flashWrapper_' + window.uniqueID()).slideDown();
-        else 
-            $('#flashWrapper_' + window.uniqueID()).slideUp();
-        */
-        //$('#flashWrapper_' + window.uniqueID()).toggle();
         if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
             $('#chat2connect_' + window.uniqueID()).css('height', '180px');
         else
@@ -557,7 +551,10 @@ function Chat(maxWin, memberID, memberName) {
 
 function onCamClose(userId, roomId)
 {
-    chatVM.stopCam(userId);
+    var window = chatVM.getWindow(roomId.substr(roomId.indexOf("_") + 1), 'Room');
+    if (window == null)
+        return;
+    chatVM.stopCam(window, userId);
 }
 
 function addChatRoom(id, name, type) {

@@ -100,12 +100,14 @@ namespace Chat2Connect
 
                 int rate = 0;
                 int.TryParse(room.GetColumn("Rate").ToString(), out rate);
+               
                 for (int i = 0; i < 5; i++)
                 {
+
                     if (i < rate)
-                        labelRate.Text += "<i class='icon icon-star'></i>";
+                        labelRate.Text += "<i class='icon icon-star GoldRate'></i>";
                     else
-                        labelRate.Text += "<i class='icon icon-star-empty'></i>";
+                        labelRate.Text += "<i class='icon icon-star-empty GoldRate'></i>";
                 }
             }
         }

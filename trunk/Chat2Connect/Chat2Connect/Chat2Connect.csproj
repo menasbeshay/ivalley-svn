@@ -241,6 +241,7 @@
     <Content Include="images\circle-red.png" />
     <Content Include="images\circle.png" />
     <Content Include="images\days.png" />
+    <Content Include="images\Emotes-icon.png" />
     <Content Include="images\emotions\1.gif" />
     <Content Include="images\emotions\10.gif" />
     <Content Include="images\emotions\11.gif" />
@@ -503,10 +504,14 @@
     <Content Include="images\emotions\icon %2899%29.png" />
     <Content Include="images\facebook.png" />
     <Content Include="images\follow-me.png" />
+    <Content Include="images\font-color-icon.png" />
+    <Content Include="images\Friends-icon.png" />
+    <Content Include="images\gift-icon.png" />
     <Content Include="images\gifts\cake-icon.png" />
     <Content Include="images\gifts\Candy-icon.png" />
     <Content Include="images\gifts\cocktail-icon.png" />
     <Content Include="images\gifts\Gift-icon.png" />
+    <Content Include="images\hand-icon.png" />
     <Content Include="images\hours.png" />
     <Content Include="images\loading.GIF" />
     <Content Include="images\defaultavatar.png" />
