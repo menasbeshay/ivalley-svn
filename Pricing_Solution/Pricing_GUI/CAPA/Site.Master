@@ -39,6 +39,8 @@
                         <asp:MenuItem NavigateUrl="~/CAPA/TradeSearch.aspx" Text="Waiting List Entry"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/ListPrices.aspx" Text="Sending Email"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/CompaniesAdmin.aspx" Text="Companies Data"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/Generics.aspx" Text="Generics"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/CompNotifications.aspx" Text="Notifications"/>
                     </Items>
                 </asp:Menu>
             </div>

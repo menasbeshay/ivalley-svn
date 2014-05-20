@@ -31,5 +31,6 @@ namespace Pricing.BLL
             this.Query.AddOrderBy(ColumnNames.NotifyDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
             return this.Query.Load();
         }
+
 	}
 }

@@ -168,6 +168,14 @@ namespace View
 				}
 			}
 			
+			public static SqlParameter Approved
+			{
+				get
+				{
+					return new SqlParameter("@Approved", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion	
 	
@@ -189,6 +197,7 @@ namespace View
             public const string Drug_Reguest_Substances_ID = "Drug_Reguest_Substances_ID";
             public const string SubstancesReferenceID = "SubstancesReferenceID";
             public const string SubstancesReferenceName = "SubstancesReferenceName";
+            public const string Approved = "Approved";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -211,6 +220,7 @@ namespace View
 					ht[Drug_Reguest_Substances_ID] = _v_GetAllGenericInfoByDrugID.PropertyNames.Drug_Reguest_Substances_ID;
 					ht[SubstancesReferenceID] = _v_GetAllGenericInfoByDrugID.PropertyNames.SubstancesReferenceID;
 					ht[SubstancesReferenceName] = _v_GetAllGenericInfoByDrugID.PropertyNames.SubstancesReferenceName;
+					ht[Approved] = _v_GetAllGenericInfoByDrugID.PropertyNames.Approved;
 
 				}
 				return (string)ht[columnName];
@@ -238,6 +248,7 @@ namespace View
             public const string Drug_Reguest_Substances_ID = "Drug_Reguest_Substances_ID";
             public const string SubstancesReferenceID = "SubstancesReferenceID";
             public const string SubstancesReferenceName = "SubstancesReferenceName";
+            public const string Approved = "Approved";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -260,6 +271,7 @@ namespace View
 					ht[Drug_Reguest_Substances_ID] = _v_GetAllGenericInfoByDrugID.ColumnNames.Drug_Reguest_Substances_ID;
 					ht[SubstancesReferenceID] = _v_GetAllGenericInfoByDrugID.ColumnNames.SubstancesReferenceID;
 					ht[SubstancesReferenceName] = _v_GetAllGenericInfoByDrugID.ColumnNames.SubstancesReferenceName;
+					ht[Approved] = _v_GetAllGenericInfoByDrugID.ColumnNames.Approved;
 
 				}
 				return (string)ht[propertyName];
@@ -287,6 +299,7 @@ namespace View
             public const string Drug_Reguest_Substances_ID = "s_Drug_Reguest_Substances_ID";
             public const string SubstancesReferenceID = "s_SubstancesReferenceID";
             public const string SubstancesReferenceName = "s_SubstancesReferenceName";
+            public const string Approved = "s_Approved";
 
 		}
 		#endregion	
@@ -469,6 +482,18 @@ namespace View
 			set
 	        {
 				base.Setstring(ColumnNames.SubstancesReferenceName, value);
+			}
+		}
+
+		public virtual bool Approved
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.Approved);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.Approved, value);
 			}
 		}
 
@@ -702,6 +727,21 @@ namespace View
 			}
 		}
 
+		public virtual string s_Approved
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Approved) ? string.Empty : base.GetboolAsString(ColumnNames.Approved);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Approved);
+				else
+					this.Approved = base.SetboolAsString(ColumnNames.Approved, value);
+			}
+		}
+
 
 		#endregion			
 	
@@ -880,6 +920,16 @@ namespace View
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.SubstancesReferenceName, Parameters.SubstancesReferenceName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Approved
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Approved, Parameters.Approved);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1070,6 +1120,18 @@ namespace View
 				}
 			}
 
+			public WhereParameter Approved
+		    {
+				get
+		        {
+					if(_Approved_W == null)
+	        	    {
+						_Approved_W = TearOff.Approved;
+					}
+					return _Approved_W;
+				}
+			}
+
 			private WhereParameter _Drug_Req_ID_W = null;
 			private WhereParameter _Active_W = null;
 			private WhereParameter _QUANTITY_W = null;
@@ -1085,6 +1147,7 @@ namespace View
 			private WhereParameter _Drug_Reguest_Substances_ID_W = null;
 			private WhereParameter _SubstancesReferenceID_W = null;
 			private WhereParameter _SubstancesReferenceName_W = null;
+			private WhereParameter _Approved_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1103,6 +1166,7 @@ namespace View
 				_Drug_Reguest_Substances_ID_W = null;
 				_SubstancesReferenceID_W = null;
 				_SubstancesReferenceName_W = null;
+				_Approved_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1309,6 +1373,16 @@ namespace View
 					}
 				}
 
+				public AggregateParameter Approved
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Approved, Parameters.Approved);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1494,6 +1568,18 @@ namespace View
 				}
 			}
 
+			public AggregateParameter Approved
+		    {
+				get
+		        {
+					if(_Approved_W == null)
+	        	    {
+						_Approved_W = TearOff.Approved;
+					}
+					return _Approved_W;
+				}
+			}
+
 			private AggregateParameter _Drug_Req_ID_W = null;
 			private AggregateParameter _Active_W = null;
 			private AggregateParameter _QUANTITY_W = null;
@@ -1509,6 +1595,7 @@ namespace View
 			private AggregateParameter _Drug_Reguest_Substances_ID_W = null;
 			private AggregateParameter _SubstancesReferenceID_W = null;
 			private AggregateParameter _SubstancesReferenceName_W = null;
+			private AggregateParameter _Approved_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1527,6 +1614,7 @@ namespace View
 				_Drug_Reguest_Substances_ID_W = null;
 				_SubstancesReferenceID_W = null;
 				_SubstancesReferenceName_W = null;
+				_Approved_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 

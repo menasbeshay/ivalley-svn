@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<%--<style type="text/css">
+    <%--<style type="text/css">
 /* technique 1 */
 tbody tr:nth-child(odd){ background-color:#ccc; }
 /* technique 2 */
@@ -13,7 +13,7 @@ TBODY TR.odd { background-color:#78a5d1; }
      <p style="text-align:left">
             <asp:Label runat="server" ID="lblPageTitle" Text="Manage Pricing Cases" Font-Names="Sakkal Majalla"
                 Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
-   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="0" runat="server" CssClass="ajax__tab_yuitabview-theme">
+   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="1" runat="server" CssClass="ajax__tab_yuitabview-theme">
    <cc1:TabPanel runat="server" ID="ui_MainData" HeaderText="Main Data">
             <HeaderTemplate>
                 Main Data
@@ -266,6 +266,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                                     <td class="style12">
                                         <asp:Label ID="Label_Generic_Name" runat="server" ForeColor="Black"></asp:Label><asp:Label
                                             ID="Label_Generic_Name_ID" runat="server" ForeColor="Black" Visible="False"></asp:Label>
+                                        <asp:CheckBox ID="ui_chb_GenericApproved" runat="server" Visible="False" Checked="True" />
                                     </td>
                                     <td>
                                         <asp:LinkButton ID="ui_LnB_GenericSearch" runat="server" Font-Bold="True" 
@@ -320,6 +321,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                                     <td class="style12">
                                         <asp:Label ID="Label_Equ_Generic_Name" runat="server" ForeColor="Black"></asp:Label><asp:Label
                                             ID="Label_Equ_Generic_Name_ID" runat="server" ForeColor="Black" Visible="False"></asp:Label>
+                                        <asp:CheckBox ID="ui_chb_EquGenericApproved" runat="server" Visible="False" Checked="True" />
                                     </td>
                                     <td>
                                         <asp:LinkButton ID="ui_LnB_EquiGenericSearch" runat="server" Font-Bold="True" 
@@ -478,6 +480,19 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                             </table>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Approved">
+                                            <ItemTemplate>
+                                                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:CheckBox ID="ui_chb_Approved" runat="server" Checked='<%# Eval("Approved") %>' Enabled="False" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                                 </Columns>
                                                 <PagerStyle HorizontalAlign="Left" BackColor="White" ForeColor="#000066"></PagerStyle>
                                                 <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
@@ -524,6 +539,19 @@ TBODY TR.odd { background-color:#78a5d1; }
                                     <asp:BoundField DataField="OverEquiActiveQuantity" HeaderText="/Equivalent Quantity" DataFormatString="{0:F}"  />
                                     <asp:BoundField DataField="OverEquiActiveUnit" />
                                     <asp:BoundField DataField="GenericType" HeaderText="Type" />
+                                    <asp:TemplateField HeaderText="Approved">
+                                            <ItemTemplate>
+                                                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval("Approved") %>' Enabled="False" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Actions">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="LinkButton_Edit" runat="server" CommandArgument='<%# Eval("Drug_Reguest_Substances_ID") %>'

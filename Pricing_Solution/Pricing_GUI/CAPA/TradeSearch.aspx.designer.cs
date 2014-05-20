@@ -454,6 +454,15 @@ namespace PricingGUI {
         protected global::System.Web.UI.WebControls.Label Label_Generic_Name_ID;
         
         /// <summary>
+        /// ui_chb_GenericApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ui_chb_GenericApproved;
+        
+        /// <summary>
         /// ui_LnB_GenericSearch control.
         /// </summary>
         /// <remarks>
@@ -542,6 +551,15 @@ namespace PricingGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Equ_Generic_Name_ID;
+        
+        /// <summary>
+        /// ui_chb_EquGenericApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ui_chb_EquGenericApproved;
         
         /// <summary>
         /// ui_LnB_EquiGenericSearch control.

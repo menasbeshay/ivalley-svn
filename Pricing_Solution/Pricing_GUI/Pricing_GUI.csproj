@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\Pricing_Scheduel\Pricing_GUI\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="EASendMail20">
       <HintPath>C:\Program Files\EASendMail\EASendMail20.dll</HintPath>
@@ -718,6 +718,7 @@
     <Content Include="Attachments\1005_____1.jpg" />
     <Content Include="CAPA\About.aspx" />
     <Content Include="CAPA\CompaniesAdmin.aspx" />
+    <Content Include="CAPA\CompNotifications.aspx" />
     <Content Include="CAPA\Generics.aspx" />
     <Content Include="CAPA\Home.aspx" />
     <Content Include="CAPA\ListPrices.aspx" />
@@ -886,6 +887,13 @@
     </Compile>
     <Compile Include="CAPA\CompaniesAdmin.aspx.designer.cs">
       <DependentUpon>CompaniesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPA\CompNotifications.aspx.cs">
+      <DependentUpon>CompNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPA\CompNotifications.aspx.designer.cs">
+      <DependentUpon>CompNotifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="CAPA\Generics.aspx.cs">
       <DependentUpon>Generics.aspx</DependentUpon>

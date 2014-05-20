@@ -107,15 +107,15 @@ TBODY TR.odd { background-color:#78a5d1; }
                                     onpageindexchanging="ui_GvData_PageIndexChanging" PageSize="15" Width="100%">
                                     <Columns>
                                         <asp:BoundField DataField="Name" HeaderText="Generic Name" />
-                                        <asp:BoundField DataField="Approved" HeaderText="Approved" />
+                                        <%--<asp:BoundField DataField="Approved" HeaderText="Approved" />--%>
                                         
-                                        <asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Approved">
                                             <ItemTemplate>
                                                 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <%--<asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval("Approved") %>' />--%>
+                                                                <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval("Approved") %>' Enabled="False" />
                                                             </td>
                                                         </tr>
                                                     </tbody>
