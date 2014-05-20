@@ -67,6 +67,7 @@
     <Compile Include="Unit.cs" />
     <Compile Include="userLogin.cs" />
     <Compile Include="v_GetAllGenericInfoByDrugID.cs" />
+    <Compile Include="v_GetAllNotifications.cs" />
     <Compile Include="v_GetOneGenericInfoByDrugID.cs" />
     <Compile Include="v_PriceSchedual.cs" />
   </ItemGroup>

@@ -83,10 +83,10 @@ namespace PricingGUI
 
         private void BindAllGenerics()
         {
-            //Substances objData = new Substances();
-            //objData.LoadAll();
-            //ui_GvData.DataSource = objData.DefaultView;
-            //ui_GvData.DataBind();
+            Substances objData = new Substances();
+            objData.LoadAll();
+            ui_GvData.DataSource = objData.DefaultView;
+            ui_GvData.DataBind();
         }
 
         #endregion

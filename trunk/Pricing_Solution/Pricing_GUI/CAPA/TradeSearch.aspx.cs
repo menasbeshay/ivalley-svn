@@ -358,6 +358,14 @@ namespace PricingGUI
                 objData.DRUG_REQUEST_ID = TradePriceID;
                 objData.SUBSTANCE_ID = Label_Generic_Name_ID.Text == "" ? 0 : Convert.ToInt32(Label_Generic_Name_ID.Text);
                 objData.TYPE = DropDownList_GenericType.SelectedValue;
+                if (ui_chb_GenericApproved.Checked == false || ui_chb_EquGenericApproved.Checked == false)
+                {
+                    objData.Approved = false;
+                }
+                else
+                {
+                    objData.Approved = true;
+                }
                 objData.Save();
 
                 SUBSTANCE_SUPPLIER objSupplier = new Pricing.BLL.SUBSTANCE_SUPPLIER();
@@ -387,6 +395,14 @@ namespace PricingGUI
                     objDRSub.LoadByPrimaryKey(Convert.ToInt32(Session["DrugReguestSubstancesID"].ToString()));
                     objDRSub.TYPE = DropDownList_GenericType.SelectedValue;
                     objDRSub.SUBSTANCE_ID = Convert.ToInt32(Label_Generic_Name_ID.Text);
+                    if (ui_chb_GenericApproved.Checked == false || ui_chb_EquGenericApproved.Checked == false)
+                    {
+                        objDRSub.Approved = false;
+                    }
+                    else
+                    {
+                        objDRSub.Approved = true;
+                    }
                     objDRSub.Save();
 
                     SUBSTANCE_SUPPLIER objSubSupplier = new Pricing.BLL.SUBSTANCE_SUPPLIER();
@@ -451,6 +467,7 @@ namespace PricingGUI
                     {
                         Label_Generic_Name.Text = ((Label)DR.FindControl("Label_New_Generic")).Text;
                         Label_Generic_Name_ID.Text = ((CheckBox)DR.FindControl("chRow")).ToolTip;
+                        ui_chb_GenericApproved.Checked = ((CheckBox)DR.FindControl("ui_chb_Approved")).Checked;
                     }
                 }
             }
@@ -462,6 +479,7 @@ namespace PricingGUI
                     {
                         Label_Equ_Generic_Name.Text = ((Label)DR.FindControl("Label_New_Generic")).Text;
                         Label_Equ_Generic_Name_ID.Text = ((CheckBox)DR.FindControl("chRow")).ToolTip;
+                        ui_chb_EquGenericApproved.Checked = ((CheckBox)DR.FindControl("ui_chb_Approved")).Checked;
                     }
                 }
             }
