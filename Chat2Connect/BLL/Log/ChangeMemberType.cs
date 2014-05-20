@@ -17,14 +17,13 @@ namespace BLL.Log
             return Helper.JsonConverter.Deserialize<ChangeMemberType>(stringValue);
         }
 
-        public int OldTypeID { get; set; }
-
-        public int NewTypeID { get; set; }
-
-        public DateTime OldTypeExpiryDate { get; set; }
-
+        [Helper.BoundProperty(HeaderText = "إنتهاء الصبغة", DisplayOrder = 3, DataFormat = Helper.Date.DateStringFormat)]
         public DateTime NewTypeExpiryDate { get; set; }
 
+        [Helper.BoundProperty(HeaderText = "النيكنيم", DisplayOrder = 1)]
+        public string MemberName { get; set; }
 
+        [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
+        public string NewTypeName { get; set; }
     }
 }

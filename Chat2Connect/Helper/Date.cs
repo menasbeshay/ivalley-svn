@@ -7,13 +7,14 @@ namespace Helper
 {
     public class Date
     {
+        public static const string DateStringFormat = "yyyy/MM/dd";
         public static DateTime ToDate(string dateString)
         {
-            return DateTime.ParseExact(dateString, "yyyy/MM/dd", null);
+            return DateTime.ParseExact(dateString, DateStringFormat, null);
         }
         public static string ToString(DateTime date)
         {
-            return date.ToString("yyyy/MM/dd");
+            return date.ToString(DateStringFormat);
         }
     }
 }

@@ -17,12 +17,13 @@ namespace BLL.Log
             return Helper.JsonConverter.Deserialize<ChangeRoomType>(stringValue);
         }
 
-        public int OldTypeID { get; set; }
-
-        public int NewTypeID { get; set; }
-
-        public DateTime OldTypeExpiryDate { get; set; }
-
+        [Helper.BoundProperty(HeaderText = "إنتهاء الصبغة", DisplayOrder = 3,DataFormat=Helper.Date.DateStringFormat)]
         public DateTime NewTypeExpiryDate { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "إسم الغرفة", DisplayOrder = 1)]
+        public string RoomName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
+        public string NewTypeName { get; set; }
     }
 }

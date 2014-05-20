@@ -139,6 +139,30 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter MicQuality
+			{
+				get
+				{
+					return new SqlParameter("@MicQuality", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter CamQuality
+			{
+				get
+				{
+					return new SqlParameter("@CamQuality", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter ExtraMembersCount
+			{
+				get
+				{
+					return new SqlParameter("@ExtraMembersCount", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +174,9 @@ namespace DAL
             public const string Color = "Color";
             public const string OrderInRoomList = "OrderInRoomList";
             public const string MicCount = "MicCount";
+            public const string MicQuality = "MicQuality";
+            public const string CamQuality = "CamQuality";
+            public const string ExtraMembersCount = "ExtraMembersCount";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +189,9 @@ namespace DAL
 					ht[Color] = _RoomTypeSpec.PropertyNames.Color;
 					ht[OrderInRoomList] = _RoomTypeSpec.PropertyNames.OrderInRoomList;
 					ht[MicCount] = _RoomTypeSpec.PropertyNames.MicCount;
+					ht[MicQuality] = _RoomTypeSpec.PropertyNames.MicQuality;
+					ht[CamQuality] = _RoomTypeSpec.PropertyNames.CamQuality;
+					ht[ExtraMembersCount] = _RoomTypeSpec.PropertyNames.ExtraMembersCount;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +209,9 @@ namespace DAL
             public const string Color = "Color";
             public const string OrderInRoomList = "OrderInRoomList";
             public const string MicCount = "MicCount";
+            public const string MicQuality = "MicQuality";
+            public const string CamQuality = "CamQuality";
+            public const string ExtraMembersCount = "ExtraMembersCount";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +224,9 @@ namespace DAL
 					ht[Color] = _RoomTypeSpec.ColumnNames.Color;
 					ht[OrderInRoomList] = _RoomTypeSpec.ColumnNames.OrderInRoomList;
 					ht[MicCount] = _RoomTypeSpec.ColumnNames.MicCount;
+					ht[MicQuality] = _RoomTypeSpec.ColumnNames.MicQuality;
+					ht[CamQuality] = _RoomTypeSpec.ColumnNames.CamQuality;
+					ht[ExtraMembersCount] = _RoomTypeSpec.ColumnNames.ExtraMembersCount;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +244,9 @@ namespace DAL
             public const string Color = "s_Color";
             public const string OrderInRoomList = "s_OrderInRoomList";
             public const string MicCount = "s_MicCount";
+            public const string MicQuality = "s_MicQuality";
+            public const string CamQuality = "s_CamQuality";
+            public const string ExtraMembersCount = "s_ExtraMembersCount";
 
 		}
 		#endregion		
@@ -271,6 +310,42 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.MicCount, value);
+			}
+		}
+
+		public virtual string MicQuality
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.MicQuality);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.MicQuality, value);
+			}
+		}
+
+		public virtual string CamQuality
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CamQuality);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CamQuality, value);
+			}
+		}
+
+		public virtual int ExtraMembersCount
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ExtraMembersCount);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ExtraMembersCount, value);
 			}
 		}
 
@@ -351,6 +426,51 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.MicCount);
 				else
 					this.MicCount = base.SetintAsString(ColumnNames.MicCount, value);
+			}
+		}
+
+		public virtual string s_MicQuality
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MicQuality) ? string.Empty : base.GetstringAsString(ColumnNames.MicQuality);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MicQuality);
+				else
+					this.MicQuality = base.SetstringAsString(ColumnNames.MicQuality, value);
+			}
+		}
+
+		public virtual string s_CamQuality
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CamQuality) ? string.Empty : base.GetstringAsString(ColumnNames.CamQuality);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CamQuality);
+				else
+					this.CamQuality = base.SetstringAsString(ColumnNames.CamQuality, value);
+			}
+		}
+
+		public virtual string s_ExtraMembersCount
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ExtraMembersCount) ? string.Empty : base.GetintAsString(ColumnNames.ExtraMembersCount);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ExtraMembersCount);
+				else
+					this.ExtraMembersCount = base.SetintAsString(ColumnNames.ExtraMembersCount, value);
 			}
 		}
 
@@ -437,6 +557,36 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter MicQuality
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MicQuality, Parameters.MicQuality);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CamQuality
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CamQuality, Parameters.CamQuality);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ExtraMembersCount
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ExtraMembersCount, Parameters.ExtraMembersCount);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +652,50 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter MicQuality
+		    {
+				get
+		        {
+					if(_MicQuality_W == null)
+	        	    {
+						_MicQuality_W = TearOff.MicQuality;
+					}
+					return _MicQuality_W;
+				}
+			}
+
+			public WhereParameter CamQuality
+		    {
+				get
+		        {
+					if(_CamQuality_W == null)
+	        	    {
+						_CamQuality_W = TearOff.CamQuality;
+					}
+					return _CamQuality_W;
+				}
+			}
+
+			public WhereParameter ExtraMembersCount
+		    {
+				get
+		        {
+					if(_ExtraMembersCount_W == null)
+	        	    {
+						_ExtraMembersCount_W = TearOff.ExtraMembersCount;
+					}
+					return _ExtraMembersCount_W;
+				}
+			}
+
 			private WhereParameter _ID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _Color_W = null;
 			private WhereParameter _OrderInRoomList_W = null;
 			private WhereParameter _MicCount_W = null;
+			private WhereParameter _MicQuality_W = null;
+			private WhereParameter _CamQuality_W = null;
+			private WhereParameter _ExtraMembersCount_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +704,9 @@ namespace DAL
 				_Color_W = null;
 				_OrderInRoomList_W = null;
 				_MicCount_W = null;
+				_MicQuality_W = null;
+				_CamQuality_W = null;
+				_ExtraMembersCount_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +813,36 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter MicQuality
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MicQuality, Parameters.MicQuality);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CamQuality
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CamQuality, Parameters.CamQuality);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ExtraMembersCount
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ExtraMembersCount, Parameters.ExtraMembersCount);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +908,50 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter MicQuality
+		    {
+				get
+		        {
+					if(_MicQuality_W == null)
+	        	    {
+						_MicQuality_W = TearOff.MicQuality;
+					}
+					return _MicQuality_W;
+				}
+			}
+
+			public AggregateParameter CamQuality
+		    {
+				get
+		        {
+					if(_CamQuality_W == null)
+	        	    {
+						_CamQuality_W = TearOff.CamQuality;
+					}
+					return _CamQuality_W;
+				}
+			}
+
+			public AggregateParameter ExtraMembersCount
+		    {
+				get
+		        {
+					if(_ExtraMembersCount_W == null)
+	        	    {
+						_ExtraMembersCount_W = TearOff.ExtraMembersCount;
+					}
+					return _ExtraMembersCount_W;
+				}
+			}
+
 			private AggregateParameter _ID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _Color_W = null;
 			private AggregateParameter _OrderInRoomList_W = null;
 			private AggregateParameter _MicCount_W = null;
+			private AggregateParameter _MicQuality_W = null;
+			private AggregateParameter _CamQuality_W = null;
+			private AggregateParameter _ExtraMembersCount_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +960,9 @@ namespace DAL
 				_Color_W = null;
 				_OrderInRoomList_W = null;
 				_MicCount_W = null;
+				_MicQuality_W = null;
+				_CamQuality_W = null;
+				_ExtraMembersCount_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +1055,18 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.MicCount);
 			p.SourceColumn = ColumnNames.MicCount;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MicQuality);
+			p.SourceColumn = ColumnNames.MicQuality;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CamQuality);
+			p.SourceColumn = ColumnNames.CamQuality;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ExtraMembersCount);
+			p.SourceColumn = ColumnNames.ExtraMembersCount;
 			p.SourceVersion = DataRowVersion.Current;
 
 
