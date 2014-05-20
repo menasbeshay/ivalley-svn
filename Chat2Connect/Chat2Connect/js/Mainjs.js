@@ -44,7 +44,7 @@ function CheckBoxRequired_ClientValidate(sender, e) {
 
 $(document).ready(function () {
     $('.datecontrol').datepicker({
-        format: 'dd/mm/yyyy'
+        format: 'yyyy/mm/dd'
     });
     
 

@@ -340,6 +340,21 @@ function Chat(maxWin, memberID, memberName) {
         //window.Message("");
         self.Editor.setValue("");
     }
+
+    self.toggleFlashObj = function (window) {
+        
+        /*if ($('#flashWrapper_' + window.uniqueID()).is(":hidden"))
+            $('#flashWrapper_' + window.uniqueID()).slideDown();
+        else 
+            $('#flashWrapper_' + window.uniqueID()).slideUp();
+        */
+        //$('#flashWrapper_' + window.uniqueID()).toggle();
+        if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
+            $('#chat2connect_' + window.uniqueID()).css('height', '180px');
+        else
+            $('#chat2connect_' + window.uniqueID()).css('height', '0px');
+        return true;
+    }
     
     // init html Editor 
     // tooltips for toolbar
