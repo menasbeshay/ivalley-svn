@@ -66,6 +66,15 @@ namespace Chat2Connect.SRCustomHubs
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
 
+                // mark owner as admin if not marked
+                bool isadmin = false;
+                bool.TryParse(member.IsAdmin.ToString(), out isadmin);
+                if (room.CreatedBy == newMember.MemberID && !isadmin)
+                {
+                    member.IsAdmin = true;
+                    member.Save();
+                }
+
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, roomid);
                 

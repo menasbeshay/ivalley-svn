@@ -18,6 +18,8 @@ namespace Helper
 
         public bool IsTemp { get; set; }
 
+        public string RoomTopic { get; set; }
+
         public string Message { get; set; }
 
         public string MessageHistory { get; set; }
@@ -59,6 +61,8 @@ namespace Helper
 
         public bool IsCamOpened { get; set; }
         public bool IsMicOpened { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
 
     public class RoomSettings

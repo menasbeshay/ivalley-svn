@@ -521,7 +521,7 @@ Left Join RoomMember RM on RM.RoomID = R.RoomID
 Left join Member M on M.MemberID = RM.MemberID
 where R.CategoryID = @CategoryID /*and 
 	  M.IsOnline = 1*/
-Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic
 order by R.RoomTypeID Desc , R.Name Asc
 Go
 
@@ -560,7 +560,7 @@ Left Join RoomMember RM on RM.RoomID = R.RoomID
 Left join Member M on M.MemberID = RM.MemberID
 where R.SubCategoryID = @SubCategoryID /*and 
 	  M.IsOnline = 1*/
-Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams
+Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.RoomTypeID,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic
 order by R.RoomTypeID Desc , R.Name Asc
 Go
 
@@ -627,7 +627,7 @@ Go
 Create Procedure GetAllMembersByRoomIDNoQueue @RoomID int
 as
 
-select RM.* , M.*
+select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
@@ -645,7 +645,7 @@ Go
 Create Procedure GetAllMembersByRoomIDQueue @RoomID int
 as
 
-select RM.* , M.*
+select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
 where RM.RoomID = @RoomID And 
