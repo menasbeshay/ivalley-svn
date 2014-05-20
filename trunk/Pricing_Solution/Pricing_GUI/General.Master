@@ -80,7 +80,7 @@
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="Home.aspx">
-				    COMPANY
+				  <asp:Label runat="server" ID="ui_lblWelcome" ></asp:Label>
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -100,7 +100,9 @@
                         <!-- END SUPPORT -->
 						<!-- BEGIN USER LOGIN DROPDOWN -->
 						<li class="dropdown">
-                            <asp:Label ID="uiLabelLoginName" runat="server" ></asp:Label>
+                           <asp:LinkButton runat="server" ID="lnkLogOut" Text="Sign Out" 
+                                Font-Underline="true" Font-Size="14px" ForeColor="White" 
+                                onclick="lnkLogOut_Click" ></asp:LinkButton>
 						</li>
 						<!-- END USER LOGIN DROPDOWN -->
 					</ul>
@@ -182,7 +184,7 @@
 
     <!-- BEGIN FOOTER -->
 	<div id="footer">
-		2014 &copy; I-Valley
+		2014 &copy; Developed by CAPA IT Team 
 		<div class="span pull-right">
 			<span class="go-top"><i class="icon-arrow-up"></i></span>
 		</div>

@@ -18,10 +18,7 @@ namespace Pricing_GUI
 
             if (!IsPostBack)
             {
-                if (CodeGlobal.LogedInCompany == null)
-                {
-                    Response.Redirect("Company_Login.aspx");
-                }
+               
                 BindTickets();
                 LoadDDls();
             }

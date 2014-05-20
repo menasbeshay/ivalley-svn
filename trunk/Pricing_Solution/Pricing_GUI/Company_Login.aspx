@@ -123,7 +123,7 @@
     </center>--%>
     </form>
      <div id="login-copyright">
-      2013 &copy;I-Valley.
+      2013 &copy;Developed by CAPA IT Team 
   </div>
   <!-- END COPYRIGHT -->
   <!-- BEGIN JAVASCRIPTS -->

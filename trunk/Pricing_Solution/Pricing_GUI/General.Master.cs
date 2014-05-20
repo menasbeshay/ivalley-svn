@@ -11,7 +11,23 @@ namespace Pricing_GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (CodeGlobal.LogedInCompany == null)
+            {
+                Response.Redirect("Company_Login.aspx");
+            }
+            else
+            {
+                if (!Page.IsPostBack)
+                {
+                    ui_lblWelcome.Text = CodeGlobal.LogedInCompany.CompNameEng ;
+                }
+            }
+        }
+
+        protected void lnkLogOut_Click(object sender, EventArgs e)
+        {
+            CodeGlobal.LogedInCompany = null;
+            Response.Redirect("Company_Login.aspx");
         }
     }
 }
