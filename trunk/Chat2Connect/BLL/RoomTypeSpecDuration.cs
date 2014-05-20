@@ -53,5 +53,35 @@ namespace BLL
                 return roomTypeSpec;
             }
         }
-	}
+
+        private TypeDuration typeduration;
+        public TypeDuration TypeDuration
+        {
+            get
+            {
+                if (typeduration == null)
+                {
+                    typeduration = new TypeDuration();
+                    typeduration.LoadByPrimaryKey(this.TypeDurationID);
+                }
+                if (typeduration.ID != this.TypeDurationID)
+                {
+                    typeduration.LoadByPrimaryKey(this.TypeDurationID);
+                }
+                return typeduration;
+            }
+        }
+        public bool LoadByRoomTypeSpecIDAndDurationID(int typespecID,int durationID)
+        {
+            if (durationID == 0)
+            {
+                return LoadFromRawSql(@"select RoomTypeSpecDuration.*,[DurationName]=''
+                                    FROM RoomTypeSpecDuration
+                                    WHERE RoomTypeSpecDuration.RoomTypeSpecID={0} AND TypeDurationID IS NULL", typespecID, durationID);
+            }
+            return LoadFromRawSql(@"select RoomTypeSpecDuration.*,[DurationName]=TypeDuration.Name
+                                    FROM RoomTypeSpecDuration INNER JOIN TypeDuration ON TypeDuration.ID=RoomTypeSpecDuration.TypeDurationID
+                                    WHERE RoomTypeSpecDuration.RoomTypeSpecID={0} AND TypeDuration.ID={1}", typespecID,durationID);
+        }
+    }
 }

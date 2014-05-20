@@ -14,6 +14,20 @@ namespace BLL
 {
     public class Member : _Member
     {
+        public override decimal Credit_Money
+        {
+            get
+            {
+                if (IsColumnNull(Member.ColumnNames.Credit_Money))
+                    return 0;
+                return base.Credit_Money;
+            }
+            set
+            {
+                base.Credit_Money = value;
+            }
+        }
+
         #region Extended Properties
         private System.Web.Security.MembershipUser _membershipUser;
         private bool isLoaded;

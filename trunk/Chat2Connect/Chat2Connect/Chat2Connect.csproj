@@ -628,6 +628,7 @@
     <Content Include="testswf\chat2connect3.swf" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\MemberTypes.ascx" />
+    <Content Include="usercontrols\RoomTypes.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="VIPPrices.aspx" />
@@ -1055,6 +1056,13 @@
     </Compile>
     <Compile Include="usercontrols\MemberTypes.ascx.designer.cs">
       <DependentUpon>MemberTypes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\RoomTypes.ascx.cs">
+      <DependentUpon>RoomTypes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\RoomTypes.ascx.designer.cs">
+      <DependentUpon>RoomTypes.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\SendMail.ascx.cs">
       <DependentUpon>SendMail.ascx</DependentUpon>

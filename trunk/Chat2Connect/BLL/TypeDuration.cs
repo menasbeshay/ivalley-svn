@@ -12,5 +12,14 @@ namespace BLL
 		{
 		
 		}
-	}
+
+        public bool LoadOfRoomTypeSpecID(int typespecID)
+        {
+            return LoadFromRawSql(@"SELECT distinct TypeDuration.*
+                                    FROM TypeDuration INNER JOIN RoomTypeSpecDuration ON RoomTypeSpecDuration.TypeDurationID=TypeDuration.ID
+                                    WHERE RoomTypeSpecDuration.RoomTypeSpecID={0}
+                                    Union 
+                                    SELECT NULL,'',NULL", typespecID);
+        }
+    }
 }

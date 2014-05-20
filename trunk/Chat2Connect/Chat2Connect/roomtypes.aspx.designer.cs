@@ -13,102 +13,12 @@ namespace Chat2Connect {
     public partial class roomtypes {
         
         /// <summary>
-        /// uiDropDownListMyRooms control.
+        /// RoomTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListMyRooms;
-        
-        /// <summary>
-        /// uiRadioButtonListType1Count control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListType1Count;
-        
-        /// <summary>
-        /// RadioButtonList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
-        
-        /// <summary>
-        /// uiRadioButtonListType2CountMounth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListType2CountMounth;
-        
-        /// <summary>
-        /// uiRadioButtonListType2CountYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListType2CountYear;
-        
-        /// <summary>
-        /// RadioButtonList2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
-        
-        /// <summary>
-        /// RadioButtonList3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList3;
-        
-        /// <summary>
-        /// uiDropDownListQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListQuestion;
-        
-        /// <summary>
-        /// uiTextBoxAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAnswer;
-        
-        /// <summary>
-        /// AnswerRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnswerRequired;
-        
-        /// <summary>
-        /// uiLinkButtonConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonConfirm;
+        protected global::Chat2Connect.usercontrols.RoomTypes RoomTypes;
     }
 }

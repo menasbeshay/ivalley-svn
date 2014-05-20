@@ -31,7 +31,7 @@ namespace BLL
                                         INNER JOIN RoomType ON RoomType.RoomID=Room.RoomID
                                         INNER JOIN RoomTypeSpecDuration ON RoomType.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
                                         INNER JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
-                                        WHERE RoomTypeSpec.ID=0
+                                        WHERE RoomTypeSpec.ID={0}
                                         ORDER BY CategoryID ASC,SubCategoryID ASC,Room.Name ASC", Helper.Defaults.VIPRoomTypeSpecID);
         }
 
