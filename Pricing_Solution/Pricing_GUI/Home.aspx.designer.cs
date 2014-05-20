@@ -31,21 +31,21 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.GridView uiGridViewInbox;
         
         /// <summary>
-        /// uiGridViewGeneralNotifications control.
+        /// rptrGeneralNotification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewGeneralNotifications;
+        protected global::System.Web.UI.WebControls.Repeater rptrGeneralNotification;
         
         /// <summary>
-        /// uiGridViewPrivateNotifications control.
+        /// rptrPrivateNotifications control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewPrivateNotifications;
+        protected global::System.Web.UI.WebControls.Repeater rptrPrivateNotifications;
     }
 }

@@ -47,16 +47,19 @@ namespace Pricing_GUI
         {
             Pricing.BLL.Notifications privateNotifications = new Pricing.BLL.Notifications();
             privateNotifications.GetTopPrivateNotifications(CodeGlobal.LogedInCompany.CompanyID);
-            uiGridViewPrivateNotifications.DataSource = privateNotifications.DefaultView;
-            uiGridViewPrivateNotifications.DataBind();
+            //uiGridViewPrivateNotifications.DataSource = privateNotifications.DefaultView;
+            //uiGridViewPrivateNotifications.DataBind();
+
+            rptrPrivateNotifications.DataSource = privateNotifications.DefaultView;
+            rptrPrivateNotifications.DataBind();
         }
 
         private void BindGeneralNotifications()
         {
             Pricing.BLL.Notifications generalNotifications = new Pricing.BLL.Notifications();
             generalNotifications.GetTopGeneralNotifications();
-            uiGridViewPrivateNotifications.DataSource = generalNotifications.DefaultView;
-            uiGridViewPrivateNotifications.DataBind();
+            rptrGeneralNotification.DataSource = generalNotifications.DefaultView;
+            rptrGeneralNotification.DataBind();
         }
 
         private void BindInbox()
