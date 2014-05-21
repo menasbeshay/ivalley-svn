@@ -216,7 +216,7 @@ namespace PricingGUI
                 ui_lblResult.ForeColor = System.Drawing.Color.Green;
                 ui_lblResult.Text = "The new record saved successfully";
 
-                Response.Redirect("WebForm1.aspx?ID=" + objPricing.TradePricingID + "&type=new");
+                Response.Redirect("TradeSearch.aspx?ID=" + objPricing.TradePricingID + "&type=new");
 
             }
             catch
