@@ -13,7 +13,7 @@ TBODY TR.odd { background-color:#78a5d1; }
      <p style="text-align:left">
             <asp:Label runat="server" ID="lblPageTitle" Text="Manage Pricing Cases" Font-Names="Sakkal Majalla"
                 Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
-   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="1" runat="server" CssClass="ajax__tab_yuitabview-theme">
+   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="0" runat="server" CssClass="ajax__tab_yuitabview-theme">
    <cc1:TabPanel runat="server" ID="ui_MainData" HeaderText="Main Data">
             <HeaderTemplate>
                 Main Data
