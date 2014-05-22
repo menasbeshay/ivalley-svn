@@ -11,7 +11,19 @@ namespace Pricing_GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindInbox();
+            }
+        }
 
+        private void BindInbox()
+        {
+            Pricing.BLL.v_PriceSchedual inbox = new Pricing.BLL.v_PriceSchedual();
+            inbox.GetTopPricingSchedual(CodeGlobal.LogedInCompany.CompanyID);
+
+            uiGridViewInbox.DataSource = inbox.DefaultView;
+            uiGridViewInbox.DataBind();
         }
     }
 }
