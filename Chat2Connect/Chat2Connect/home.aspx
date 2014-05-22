@@ -3,8 +3,11 @@
 <%@ Register Src="usercontrols/ucRooms.ascx" TagName="ucRooms" TagPrefix="uc1" %>
 <%@ Register Src="usercontrols/ucFriends.ascx" TagName="ucFriends" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="js/bootstrap-slider.js"></script>
+    <link href="css/slider.css" rel="stylesheet" />
     <%--<script src="js/wysihtml5-0.3.0.min.js"></script>--%>
     <script src="js/advanced.js"></script>
+    
     <%--<script src="js/wysihtml5-0.4.0pre.js"></script>--%>
     <script src="js/wysihtml5-0.3.0.js"></script>
     <script type="text/javascript">
@@ -548,30 +551,30 @@
                             <div class="pull-right">
                             <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
-                                    <img src="images/hand-icon.png">
+                                    <img src="images/hand-icon.png" style="width:15px;">
                                 </a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
-                                    <i class="icon-microphone" style="font-size:19px;"></i>
+                                    <i class="icon-microphone" style="font-size:17px;"></i>
                                 </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
-                                    <i class="icon-camera" style="font-size:19px;"></i>
+                                    <i class="icon-camera" style="font-size:17px;"></i>
                                 </a>
                             </div>
                             <div class="pull-right" style="margin-right:3px;">
                                 <div data-bind="attr:{id: 'toolbar'+uniqueID()}">
                                     <div data-toggle="buttons" class="btn-group">
 
-                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size:19px;"></span></button>
+                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size:17px;"></span></button>
 </div>
                                     <div data-toggle="buttons" class="btn-group">
-                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size:19px;"></span></button>
+                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size:17px;"></span></button>
                                         </div>
                                     
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <span class="icon-text-height" style="font-size:19px;"></span>
+                                            <span class="icon-text-height" style="font-size:17px;"></span>
                                         </button>
                                         <ul role="menu" class="dropdown-menu">
                                             <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">صغير جداً</a></li>
@@ -584,7 +587,7 @@
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <img src="images/font-color-icon.png"/>
+                                            <img src="images/font-color-icon.png" style="width:15px;"/>
                                         </button>
                                         <ul id="colorsMenu" role="menu" class="dropdown-menu">
                                             <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
@@ -650,7 +653,7 @@
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <img src="images/Emotes-icon.png" />
+                                            <img src="images/Emotes-icon.png" style="width:15px;"/>
                                         </button>
                                         <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
                                             <li>
@@ -1044,28 +1047,26 @@
                             </div>
                             <div class="pull-right" style="margin-right:3px;">
                                 
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><img src="images/gift-icon.png"/></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><img src="images/gift-icon.png" style="width:15px;"/></a>
                                 <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><img src="images/friends-icon.png"/></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><img src="images/friends-icon.png" style="width:15px;"/></a>
                                 <!-- /ko -->
-                                <div style="display: inline-block; position: relative;" data-placement="top" title="" class="roomMenuItem" data-original-title="تحميل ملفات">
-                                    <button onclick="animateMenu($(this));" id="attachbtn" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-group" type="button"><i class="icon-paper-clip" style="font-size:19px;"></i></button>
-                                    <ul role="menu" class="dropdown-menu" style="display: none;" id="myul">
-                                        <li><a onclick="$(this).next('#mydiv').toggle();" id="yt_12">مقطع فيديو</a><div style="display: none;" id="mydiv">
-                                            <input type="text" class="form-control"><a style="cursor: pointer;" class="btn btn-default" data-binding="attr:{onclick:'sendvideo('+ID()+',$(this).prev(&quot;input&quot;).val() ,$(&quot;#uiHiddenFieldCurrentName&quot;).val(), $(this).prev(&quot;input&quot;)); return false;'}">إرسال</a>
-                                        </div>
-                                        </li>
-                                        <li>
-                                            <div class="UploadDiv">
-                                                <div data-binding="attr:{id:'UploadStatus_'+uniqueID()}">
-                                                </div>
-                                                <input type="button" class="UploadButton" data-binding="attr:{id:'UploadButton_'+uniqueID()}">
-                                                <div data-binding="attr:{id:'UploadedFile_'+uniqueID()}">
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size:17px;"></i></a>
+                                
+                            </div>
+
+                            <div class="pull-left col-lg-3" style="direction:ltr;">
+                                <div class="pull-left col-lg-3" style="direction:ltr;"><i class="icon-volume-up" style="font-size:17px;"></i></div>
+                                <div class="pull-left col-lg-9" style="direction:ltr;">
+                                <input type="text" value="" data-bind="attr:{'data-slider-id':'uiListenVolume_'+uniqueID() + 'slider', id:'uiListenVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width:70px;">
+                                    </div>
+                                <div class="clear" style="height:1px;"></div>
+                                <div class="pull-left col-lg-3" style="direction:ltr;">
+                                <i class="icon-microphone" style="font-size:17px;"></i>
+                                    </div>
+                                <div class="pull-left col-lg-9" style="direction:ltr;">
+                                    <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width:70px;">
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -1299,6 +1300,61 @@
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="attr:{id:'attachModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">إرسال ملفات</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            
+                            <div class="form-group">                                
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>مقطع فيديو</label>
+                                </div>
+                                <div class="col-sm-7 pull-right">
+                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}"><a style="cursor: pointer;" class="btn btn-default" data-bind="click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
+                                </div>                                
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    أضف صورة
+                                </div>
+                                <div class="col-sm-7 pull-right">
+
+                                    <div class="UploadDiv">
+                                                <div data-bind="attr:{id:'UploadStatus_'+uniqueID()}">
+                                                </div>
+                                                <input type="button" class="UploadButton" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
+                                                <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                   سجل مقطع صوت
+                                </div>
+                                <div class="col-sm-7 pull-right">
+                                        <object style="height:50px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
+                                            <param name="quality" value="high">
+                                            <param value="always" name="allowScriptAccess">
+                                            <param data-bind="attr:{value:'roomId=1&amp;userId=2&amp;recordUrl=services/FileUploader.ashx'}" name="flashvars">
+                                        </object>                          
+                                </div>
+                            </div>
                         </div>
                     </div>
 

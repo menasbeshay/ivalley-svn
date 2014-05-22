@@ -14,6 +14,7 @@ namespace Chat2Connect.services
 
         public void ProcessRequest(HttpContext context)
         {
+           
             //Uploaded File Deletion
             if (context.Request.QueryString.Count > 0)
             {
@@ -24,24 +25,43 @@ namespace Chat2Connect.services
             //File Upload
             else
             {
-                var ext = System.IO.Path.GetExtension(context.Request.Files[0].FileName);
-                var fileName = Path.GetFileName(context.Request.Files[0].FileName);
-
-                if (context.Request.Files[0].FileName.LastIndexOf("\\") != -1)
+                // upload image
+                if (context.Request.Files[0].FileName.Contains("png") || context.Request.Files[0].FileName.Contains("gif") || context.Request.Files[0].FileName.Contains("jpg"))
                 {
-                    fileName = context.Request.Files[0].FileName.Remove(0, context.Request.Files[0].FileName.LastIndexOf("\\")).ToLower();
+                    var ext = System.IO.Path.GetExtension(context.Request.Files[0].FileName);
+                    var fileName = Path.GetFileName(context.Request.Files[0].FileName);
+
+                    if (context.Request.Files[0].FileName.LastIndexOf("\\") != -1)
+                    {
+                        fileName = context.Request.Files[0].FileName.Remove(0, context.Request.Files[0].FileName.LastIndexOf("\\")).ToLower();
+                    }
+
+
+
+                    fileName = GetUniqueFileName(fileName, HttpContext.Current.Server.MapPath("~/files/rooms/attachedimages/"), ext).ToLower();
+
+
+
+                    string location = HttpContext.Current.Server.MapPath("~/files/rooms/attachedimages/") + fileName + ext;
+                    context.Request.Files[0].SaveAs(location);
+                    context.Response.Write(fileName + ext);
+                    context.Response.End();
                 }
 
-
-
-                fileName = GetUniqueFileName(fileName, HttpContext.Current.Server.MapPath("~/files/rooms/attachedimages/"), ext).ToLower();
-
-
-
-                string location = HttpContext.Current.Server.MapPath("~/files/rooms/attachedimages/") + fileName + ext;
-                context.Request.Files[0].SaveAs(location);
-                context.Response.Write(fileName + ext);
-                context.Response.End();
+                // upload audio
+                else
+                {
+                    System.IO.Stream str; 
+                    int strLen, strRead;
+                    str = context.Request.InputStream;
+                    strLen = Convert.ToInt32(str.Length);
+                    byte[] strArr = new byte[strLen];
+                    strRead = str.Read(strArr, 0, strLen);
+                    string fileName = GetUniqueFileName("audio", HttpContext.Current.Server.MapPath("~/files/rooms/attacheaudio/"), ".wav").ToLower();
+                    string location = HttpContext.Current.Server.MapPath("~/files/rooms/attachedimages/") + fileName + ".wav";
+                    File.WriteAllBytes(fileName, strArr);
+                    str.Close();
+                }
             }
         }
 
