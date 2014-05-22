@@ -7,7 +7,7 @@ namespace Helper
 {
     public class Date
     {
-        public static const string DateStringFormat = "yyyy/MM/dd";
+        public const string DateStringFormat = "yyyy/MM/dd";
         public static DateTime ToDate(string dateString)
         {
             return DateTime.ParseExact(dateString, DateStringFormat, null);

@@ -252,6 +252,12 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         };
+
+
+        // attach
+        this.ShowAttachFiles = function () {
+            $("#attachModal_" + self.uniqueID()).modal('show');
+        };
         
     }
     var banMemberModel=function(member)
@@ -400,6 +406,36 @@ function Chat(maxWin, memberID, memberName) {
             tokenLimit: 1
         });
 
+
+        // volume controls       
+
+        $('#uiListenVolume_' + window.uniqueID()).slider()
+          .on('slide', function(ev){
+              self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
+          });
+        $('#uiMicVolume_' + window.uniqueID()).slider()
+         .on('slide', function (ev) {
+             self.setListenVolume(window, $('#uiMicVolume_' + window.uniqueID()).data('slider').getValue());
+         });
+
+
+        // attach files
+        new AjaxUpload('#UploadButton_' + window.uniqueID() , {
+            action: '../services/FileUploader.ashx',
+            onComplete: function (file, response) {
+                $('<div><img src="../images/btndelete.png" onclick="DeleteFile('+ response + "')' class='delete'/>" + response + '</div>').appendTo('#UploadedFile_' + window.uniqueID());
+                $('#UploadStatus_' + window.uniqueID()).html('تم رفع الصورة بنجاح');
+                $('#UploadButton_' + window.uniqueID()).hide();
+            },
+            onSubmit: function (file, ext) {
+                if (!(ext && /^(png|gif|jpg)$/i.test(ext))) {
+                    alert('حدث خطأ . تأكد من نوع ملف الصورة');
+                    return false;
+                }
+                $('#UploadStatus_' + window.uniqueID()).html('جارى التحميل...');
+            }
+        });
+
         // popover menu for members
         /*$('.roomMemberlink').each(function () {
             var $this = $(this);
@@ -545,6 +581,11 @@ function Chat(maxWin, memberID, memberName) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
             //$('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'none');
         }
+    }
+
+    // set the playback volume (volume value is from 0 to 1)
+    self.setListenVolume = function setPlaybackVolume(window,volume) {
+        getFlashMovie('chat2connect_' + window.uniqueID()).setPlaybackVolume(volume/10.0);
     }
     
 }
