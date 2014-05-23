@@ -156,5 +156,16 @@ namespace Helper
             ChangePassword = 12,
         }
 
+        public enum BanningType
+        {
+            [StringValue("نهائى")]
+            Permanent = 1,
+            [StringValue("شهر")]
+            Month = 2,
+            [StringValue("أسبوع")]
+            Week = 3,
+            [StringValue("24 ساعة")]
+            Day = 4,
+        }
     }
 }

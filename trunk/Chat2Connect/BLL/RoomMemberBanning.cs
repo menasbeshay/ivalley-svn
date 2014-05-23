@@ -5,12 +5,12 @@ using System;
 using DAL;
 namespace BLL
 {
-	public class RoomMemberBanning : _RoomMemberBanning
-	{
-		public RoomMemberBanning()
-		{
-		
-		}
+    public class RoomMemberBanning : _RoomMemberBanning
+    {
+        public RoomMemberBanning()
+        {
+
+        }
 
         public override void AddNew()
         {
@@ -18,5 +18,20 @@ namespace BLL
             this.CreateDate = DateTime.Now;
             this.StartDate = DateTime.Now;
         }
-	}
+
+        public void Delete(int roomID, int[] membersID)
+        {
+            Where.RoomID.Value = roomID;
+            Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+            Where.MemberID.Value=string.Join(",",membersID);
+            if(Query.Load())
+            {
+                do
+                {
+                    MarkAsDeleted();
+                }while(MoveNext());
+                Save();
+            }
+        }
+    }
 }

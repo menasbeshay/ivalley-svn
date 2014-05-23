@@ -123,10 +123,10 @@ function Chat(maxWin, memberID, memberName) {
             if (member == null)
                 return;
 
-            self.bannedMember.MemberName(member.MemberName());
-            self.bannedMember.MemberID(member.MemberID());
-            self.bannedMember.Days(1);
-
+            //self.bannedMember().MemberName(member.MemberName());
+            //self.bannedMember().MemberID(member.MemberID());
+            var banned = self.getMemberSetting(id);
+            self.bannedMember(banned);
             $("#banModal_" + self.uniqueID() ).modal('show');
         };
         this.saveBanMember = function () {
@@ -135,12 +135,14 @@ function Chat(maxWin, memberID, memberName) {
                 url: '../Services/Services.asmx/BanRoomMember',
                 dataType: 'json',
                 type: 'post',
-                data: "{'memberID':" + window.bannedMember.MemberID() + ", 'roomID' : " + window.ID() + ",'days':'" + window.bannedMember.Days() + "'}",
+                data: "{'memberID':" + window.bannedMember().MemberID() + ", 'roomID' : " + window.ID() + ",'type':'" + window.bannedType() + "','adminID':"+chatVM.CurrentMemberID+"}",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     notify('success', 'تم حجب العضو بنجاح');
                     $("#banModal_" + window.uniqueID()).modal('hide');
-                    rHub.server.banMemberFromRoom(window.bannedMember.MemberID(), window.ID());
+                    rHub.server.banMemberFromRoom(window.bannedMember().MemberID(), window.ID(), window.bannedType(), chatVM.CurrentMemberName);
+                    window.bannedMember().BanType(window.bannedType());
+                    window.bannedMember().IsMemberBanned(true);
                     return;
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -156,46 +158,67 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         };
-        this.bannedMember = new banMemberModel(this.newMember(0, ""));
+        //this.bannedMember = new banMemberModel(this.newMember(0, ""));
         //control panel
         this.BannedMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.AllMembersSettings(), function (mem) {
                 return mem.IsMemberBanned();
             });
         }, this);
+        this.NotBannedMembers = ko.computed(function () {
+            return ko.utils.arrayFilter(self.AllMembersSettings(), function (mem) {
+                return !mem.IsMemberBanned() && mem.MemberID()!=chatVM.CurrentMemberID;
+            });
+        }, this);
+        this.bannedMember = ko.observable();
+        this.bannedType = ko.observable();
         this.showControlPanel = function () {
             var window = this;
             $("#controlPanelModal_" + window.uniqueID()).modal('show');
         };
-        this.removeBannedMember = function () {
-            var member = this;
-            member.IsMemberBanned(false);
-            member.BanDays("");
-            //send to server to update
-            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(),member.CanAccessMic(),member.CanAccessCam(),member.BanDays());
-        };
-        this.updateBannedMember=function()
+        this.removeSelectedBannedType = function (type)
         {
-            var member = this;
-            if (member.BanDays() == '')
-                member.IsMemberBanned(false);
-            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(), member.CanAccessMic(), member.CanAccessCam(), member.BanDays());
+            var bannedMembers = [];
+            $('#' + type).each(function (i, selected) {
+                var id;
+                if (this.options == undefined)
+                    id = $(this).val();
+                else
+                    id = $(this.options[i]).val();
+                var member = self.getMemberSetting(id);
+                if (member != null)
+                {
+                    member.BanType(null);
+                    member.IsMemberBanned(false);
+                    bannedMembers[i] = id;
+                }
+                
+            });
+            if (bannedMembers.length > 0)
+            {
+                $.ajax({
+                    url: '../Services/Services.asmx/RemoveBanningFromRoomMembers',
+                    type: 'GET',
+                    traditional: true,
+                    data: { membersID: bannedMembers, roomID: self.ID() },
+                    success: function (result) {
+                        notify('success', 'تم حذف الحجب بنجاح');
+                    }
+                });
+            }
         }
-        this.updateRoomMemberSettings = function () {
-            var member = this;
-            if (member.BanDays() != '')
-                member.IsMemberBanned(true);
-            else
-                member.IsMemberBanned(false);
-            rHub.server.updateRoomMemberSettings(self.ID(), member.MemberID(), member.CanWrite(), member.CanAccessMic(), member.CanAccessCam(), member.BanDays());
-        };
+        
         this.getMemberSetting = function (mid) {
             var member = ko.utils.arrayFirst(self.AllMembersSettings(), function (mem) {
                     return mem.MemberID() == mid;
             });
             return member;
         };
-
+        this.saveRoomTopic=function()
+        {
+            var window = this;
+            rHub.server.updateRoomTopic(window.ID(), window.RoomTopic());
+        }
         // invite friends
         this.ShowInviteFriends = function () {
             $("#inviteModal_" + self.uniqueID()).modal('show');
@@ -262,7 +285,7 @@ function Chat(maxWin, memberID, memberName) {
     }
     var banMemberModel=function(member)
     {
-        var baned = { MemberID: member.MemberID(), MemberName: member.MemberName(), Days:1};
+        var baned = { MemberID: member.MemberID(), MemberName: member.MemberName(), Type:4};
         return ko.mapping.fromJS(baned);
     }
 
@@ -310,7 +333,12 @@ function Chat(maxWin, memberID, memberName) {
             }
             $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: false })
                 .done(function (data) {
-                    var win = ko.mapping.fromJS(data, mapping);
+                    if (data.Status!=1)
+                    {
+                        notify('error', data.Data);
+                        return;
+                    }
+                    var win = ko.mapping.fromJS(data.Data, mapping);
                     self.windows.push(win);
                     self.changeCurrent(win.uniqueID());
                     rHub.server.addToRoom(id);
@@ -707,7 +735,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             chatVM.windows.remove(window);
         }
     };
-    function banMemberFromroom(mid, roomId) {
+    function banMemberFromroom(mid, roomId,banTypeName,adminName) {
         var window = chatVM.getWindow(roomId, "Room", "");
         if (window == null)
             return;
@@ -721,43 +749,43 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
         if (member == null)
             return;
-        if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
-            notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
-        }
+
         if (chatVM.CurrentMemberID == mid) {
+            notify('info', ' تم طردك '+banTypeName+' من الغرفة ' + window.Name() + ' عن طريق الادمن '+adminName);
             chatVM.windows.remove(window);
             $('.nav-tabs a:last').tab('show');
         }
-    }
-    rHub.client.banMemberFromRoom = function (mid, roomId) {
-        banMemberFromroom(mid, roomId);
-    };
-    rHub.client.updateRoomMemberSettings = function (roomid, memberid, canWrite, canAccessMic, canAccessCam, banDays){
-        if(banDays!='' && banDays!=null)
+        else
         {
-            banMemberFromroom(memberid, roomid);
-        }
-        var window = chatVM.getWindow(roomid, "Room");
-        if (window != null) {
-            var settingMember = window.getMemberSetting(memberid);
-            settingMember.CanWrite(canWrite);
-            settingMember.CanAccessCam(canAccessCam);
-            settingMember.CanAccessMic(canAccessMic);
-            settingMember.BanDays(banDays);
-            if (banDays != '') {
-                settingMember.IsMemberBanned(true);
+            var history = window.MessageHistory();
+            var msg = 'تم طرد العضو '+member.MemberName()+' '+banTypeName+' عن طريق الادمن '+adminName+'';
+            var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
+            window.MessageHistory(history + newMsg);
+            $(".MsgHistroy").slimScroll({
+                railVisible: true,
+                height: '400px',
+                color: '#FEC401',
+                railColor: '#C7C5C0',
+                position: 'left',
+                scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
+            });
+
+            if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
+                notify('info', msg+' من الغرفة '+window.Name());
             }
-            else {
-                settingMember.IsMemberBanned(false);
-            }
         }
-        if (chatVM.CurrentMemberID == memberid) {
-            chatVM.CurrentMemberSettings.CanWrite(canWrite);
-            chatVM.CurrentMemberSettings.CanAccessMic(canAccessMic);
-            chatVM.CurrentMemberSettings.CanAccessCam(canAccessCam);
-        }
+    }
+    rHub.client.banMemberFromRoom = function (mid, roomId,banTypeName,adminName) {
+        banMemberFromroom(mid, roomId, banTypeName, adminName);
     };
-    
+    rHub.client.updateRoomTopic = function (roomID, topic) {
+        var type = "Room";
+        var window = chatVM.getWindow(roomID, type);
+        if (window == null)
+            return;
+        window.RoomTopic(topic);
+    }
+
     rHub.client.ListenMic = function (memberid, rid) {
         /* var fn = window[listenmic];
          var fnparams = [memberid];

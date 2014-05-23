@@ -7,7 +7,7 @@
     <link href="css/slider.css" rel="stylesheet" />
     <%--<script src="js/wysihtml5-0.3.0.min.js"></script>--%>
     <script src="js/advanced.js"></script>
-    
+
     <%--<script src="js/wysihtml5-0.4.0pre.js"></script>--%>
     <script src="js/wysihtml5-0.3.0.js"></script>
     <script type="text/javascript">
@@ -184,13 +184,13 @@
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
                             <span id="uiLabelRoomName" data-bind="text:Name"></span>
                         </div>
-                        <div class="pull-right " style="margin-right:30px;height:15px;padding:8px;font-weight:bold;">                            
+                        <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">
                             <span id="uiLabelRoomTopic" data-bind="text:RoomTopic"></span>
                         </div>
                         <div class="pull-left">
                             <div class="form-group">
                                 <!-- ko if: Type()=="Room" -->
-                                     
+
                                 <div id="admin-menu" class="btn-group" data-bind="if :CurrentMemberSettings.IsAdmin">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         المشرف  <span class="caret"></span>
@@ -225,7 +225,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                    
+
                                 <div class="btn-group">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         إعدادت  <span class="caret"></span>
@@ -262,21 +262,21 @@
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label1">مدير الغرفة:</span></label>
                         <span id="uiLabelAdmin" data-bind="text:AdminName"></span>
-                        </div>
+                    </div>
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label2">كاميرات:</span></label>
                         <span id="Label4" data-bind="text:OpenCams"></span>
                         |
                         <label><span id="Label3">متواجدين:</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:MemberCount"></span>
-                        </div>
-                  
-                        <!-- ko if: !CurrentMemberSettings.IsFav() -->
-                <div style="padding: 5px;" class="pull-right col-lg-2">
+                    </div>
+
+                    <!-- ko if: !CurrentMemberSettings.IsFav() -->
+                    <div style="padding: 5px;" class="pull-right col-lg-2">
                         <a style="cursor: pointer;" data-bind="attr:{onclick:'addtoFav('+ID()+');',id:'favlink_'+uniqueID()}"><i style="color: #FEC200;" class="icon-star"></i>أضف إلى المفضلة</a>
-            </div>            
-            <!-- /ko -->
-                        <div style="padding: 5px;" class="pull-right col-lg-2">
+                    </div>
+                    <!-- /ko -->
+                    <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
                             <a target="_blank" id="uiHyperLinkFb">
                                 <img src="images/facebook.png"></a>
@@ -287,8 +287,8 @@
                     <a target="_blank" id="uiHyperLinkyt">
                         <img src="images/youtube.png"></a>
                         </div>
-                </div>
-                        <div style="padding: 5px;" class="pull-right col-lg-2">
+                    </div>
+                    <div style="padding: 5px;" class="pull-right col-lg-2">
                         <span class="rating">
                             <input type="radio" class='rating-input' data-bind="click:$parent.rateRoom.bind($data,5), checked:CurrentMemberSettings.UserRate,checkedValue: 5,attr:{id:'rating-input-1-5_'+uniqueID()}" name="rating-input-1" />
                             <label data-bind="attr:{'for':'rating-input-1-5_'+uniqueID()}" class="rating-star fa icon-star"></label>
@@ -305,30 +305,30 @@
                     </div>
                 </div>
                 <div style="height: 5px;" class="clear"></div>
-                <span class="col-lg-12" style="height:16px;cursor:pointer;border-bottom: 1px solid #FEC200;color:#000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
+                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                    
+
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
-                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
                 </div>
                 <!-- /ko -->
                 <!-- ko if: Type()=="Private" -->
-                <span class="col-lg-12" style="height:16px;cursor:pointer;border-bottom: 1px solid #FEC200;color:#000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
+                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                    
+
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
-                        <object style="width: 100%;height:180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
@@ -338,58 +338,58 @@
                 <div style="height: 5px;" class="clear"></div>
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
-                    <div style="padding: 5px; margin-top: 2px;position:relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px;overflow-x:visible;background-color:#ccc;">
+                    <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
+                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px; overflow-x: visible; background-color: #ccc;">
                             <div id="MicDiv">
                                 <div class="friend-link rm Altodd roomMemberlink" data-bind="with:MicMember">
-                                    
+
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
-                                        <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 20px;" src="images/video_camera.png"></a>
+                                            <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
+                                                <img style="width: 20px;" src="images/video_camera.png"></a>
                                         </div>
                                         <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
                                     </div>
 
-                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
                                     <div class="clear" style="height: 1px;"></div>
-                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
+                                    <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clear" style="height: 1px;"></div>
-                        <div class="friendSubMenu">
-                                    <div class="popup-menu profileMenu">
-                                        <div class="col-lg-3 pull-right">
-                                        <div class=" thumbnail">
-                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
-                                        </div>
-                                             <div class="clearfix" style="height:1px;">
-                                            </div>
-                                            <div style="text-align:right;">
-                                            <span data-bind="text:$data.MemberName()"></span>
+                                    <div class="friendSubMenu">
+                                        <div class="popup-menu profileMenu">
+                                            <div class="col-lg-3 pull-right">
+                                                <div class=" thumbnail">
+                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                </div>
+                                                <div class="clearfix" style="height: 1px;">
+                                                </div>
+                                                <div style="text-align: right;">
+                                                    <span data-bind="text:$data.MemberName()"></span>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-9 pull-right">
-                                        <div class="col-lg-7 pull-right">
-                                            <ul>
-                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
-                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
-                                            </ul>
+                                            <div class="col-lg-9 pull-right">
+                                                <div class="col-lg-7 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                        <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-5 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                                        <!-- /ko -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="clear" style="height: 1px;"></div>
                                         </div>
-                                        <div class="col-lg-5 pull-right">
-                                            <ul>
-                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
-                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
-                                        <!-- /ko -->
-                                            </ul>
-                                        </div>
-                                      </div>
-                                        <div class="clear" style="height: 1px;"></div>
                                     </div>
-                                    </div>
-<%--                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <%--                                    <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                         <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
@@ -400,60 +400,60 @@
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
                                     </ul>--%>
-                                 <!-- /ko -->
+                                    <!-- /ko -->
                                 </div>
                             </div>
                             <div id="queueDiv">
                                 <!-- ko foreach: QueueMembers-->
                                 <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
-                                    
+
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
-                                        <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 20px;" src="images/video_camera.png"></a>
+                                            <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
+                                                <img style="width: 20px;" src="images/video_camera.png"></a>
                                         </div>
                                         <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><i class="icon-ban-circle mark"></i>
                                     </div>
-                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
                                     <div class="clear" style="height: 1px;"></div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clear" style="height: 1px;"></div>
-                            <div class="friendSubMenu">
-                                     <div class="popup-menu profileMenu">
-                                        <div class="col-lg-3 pull-right">
-                                        <div class=" thumbnail">
-                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
-                                        </div>
-                                             <div class="clearfix" style="height:1px;">
-                                            </div>
-                                            <div style="text-align:right;">
-                                            <span data-bind="text:$data.MemberName()"></span>
+                                    <div class="friendSubMenu">
+                                        <div class="popup-menu profileMenu">
+                                            <div class="col-lg-3 pull-right">
+                                                <div class=" thumbnail">
+                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                </div>
+                                                <div class="clearfix" style="height: 1px;">
+                                                </div>
+                                                <div style="text-align: right;">
+                                                    <span data-bind="text:$data.MemberName()"></span>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-9 pull-right">
-                                        <div class="col-lg-7 pull-right">
-                                            <ul>
-                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
-                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
-                                            </ul>
+                                            <div class="col-lg-9 pull-right">
+                                                <div class="col-lg-7 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                        <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-5 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                                        <!-- /ko -->
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div class="clear" style="height: 1px;"></div>
                                         </div>
-                                        <div class="col-lg-5 pull-right">
-                                            <ul>
-                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
-                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
-                                        <!-- /ko -->
-                                            </ul>
-                                        </div>
-        
-                                      </div>
-                                        <div class="clear" style="height: 1px;"></div>
                                     </div>
-                                    </div>
-                                   <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
+                                    <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome" >&#xf0e6;</span> محادثة خاصة</a></li>
                                         <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                         <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
@@ -463,7 +463,7 @@
                                         <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
                                         <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                         <!-- /ko -->
-                                    </ul>--%>   
+                                    </ul>--%>
                                     <!-- /ko -->
                                 </div>
                                 <!-- /ko -->
@@ -471,51 +471,51 @@
                             <div id="regular">
                                 <!-- ko foreach: RoomMembers-->
                                 <div class="friend-link rm roomMemberlink" data-bind="css:{Altodd:$index()%2,Alteven:!$index()%2}">
-                                    
+
                                     <div class="pull-left controls">
                                         <div class="cameraHolder">
-                                        <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
-                                            <img style="width: 20px;" src="images/video_camera.png"></a>
-                                            </div>
+                                            <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
+                                                <img style="width: 20px;" src="images/video_camera.png"></a>
+                                        </div>
                                         <i class="icon-ban-circle mark"></i>
                                     </div>
-                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()" ></a>
+                                    <a data-bind="text:MemberName,css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
                                     <div class="clear" style="height: 1px;"></div>
                                     <!-- ko if: MemberID()!=$root.CurrentMemberID-->
                                     <div class="clear" style="height: 1px;"></div>
-        <div class="friendSubMenu"> 
-                                    <div class="popup-menu profileMenu">
-                                        <div class="col-lg-3 pull-right">
-                                        <div class=" thumbnail">
-                                            <img data-bind="attr:{'src':$parent.ProfilePic}" />
-                                        </div>
-                                             <div class="clearfix" style="height:1px;">
-                                            </div>
-                                            <div style="text-align:right;">
-                                            <span data-bind="text:$data.MemberName()"></span>
+                                    <div class="friendSubMenu">
+                                        <div class="popup-menu profileMenu">
+                                            <div class="col-lg-3 pull-right">
+                                                <div class=" thumbnail">
+                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                </div>
+                                                <div class="clearfix" style="height: 1px;">
+                                                </div>
+                                                <div style="text-align: right;">
+                                                    <span data-bind="text:$data.MemberName()"></span>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-9 pull-right">
-                                        <div class="col-lg-7 pull-right">
-                                            <ul>
-                                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
-                                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                                <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
-                                            </ul>
+                                            <div class="col-lg-9 pull-right">
+                                                <div class="col-lg-7 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                                        <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                                        <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-5 pull-right">
+                                                    <ul>
+                                                        <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
+                                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                                        <!-- /ko -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="clear" style="height: 1px;"></div>
                                         </div>
-                                        <div class="col-lg-5 pull-right">
-                                            <ul>
-                                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <!-- ko if:$parent.CurrentMemberSettings.IsAdmin()-->
-                                        <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
-                                        <!-- /ko -->
-                                            </ul>
-                                        </div>
-                                      </div>
-        <div class="clear" style="height: 1px;"></div>
-                                    </div>
                                     </div>
                                     <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
                                         <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -541,40 +541,40 @@
                         <div data-height="400px;" style="width: 100%; background-color: #D9D9D9; min-height: 400px; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
 
                         <div style="height: 5px;" class="clearfix"></div>
-                        
-                        <a style="width: 8%; height: 70px; padding-top: 25px;float:right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px;float:left;'></textarea>
-                        
+
+                        <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;'></textarea>
+
                         <div style="height: 20px;" class="clear"></div>
 
-                        <div class="col-lg-12" style="padding:0px;">
+                        <div class="col-lg-12" style="padding: 0px;">
                             <div class="pull-right">
-                            <!-- ko if: Type()=="Room" -->
+                                <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
-                                    <img src="images/hand-icon.png" style="width:15px;">
+                                    <img src="images/hand-icon.png" style="width: 15px;">
                                 </a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
-                                    <i class="icon-microphone" style="font-size:17px;"></i>
+                                    <i class="icon-microphone" style="font-size: 17px;"></i>
                                 </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
-                                    <i class="icon-camera" style="font-size:17px;"></i>
+                                    <i class="icon-camera" style="font-size: 17px;"></i>
                                 </a>
                             </div>
-                            <div class="pull-right" style="margin-right:3px;">
+                            <div class="pull-right" style="margin-right: 3px;">
                                 <div data-bind="attr:{id: 'toolbar'+uniqueID()}">
                                     <div data-toggle="buttons" class="btn-group">
 
-                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size:17px;"></span></button>
-</div>
+                                        <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size: 17px;"></span></button>
+                                    </div>
                                     <div data-toggle="buttons" class="btn-group">
-                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size:17px;"></span></button>
-                                        </div>
-                                    
+                                        <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size: 17px;"></span></button>
+                                    </div>
+
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <span class="icon-text-height" style="font-size:17px;"></span>
+                                            <span class="icon-text-height" style="font-size: 17px;"></span>
                                         </button>
                                         <ul role="menu" class="dropdown-menu">
                                             <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">صغير جداً</a></li>
@@ -587,7 +587,7 @@
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <img src="images/font-color-icon.png" style="width:15px;"/>
+                                            <img src="images/font-color-icon.png" style="width: 15px;" />
                                         </button>
                                         <ul id="colorsMenu" role="menu" class="dropdown-menu">
                                             <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
@@ -653,7 +653,7 @@
 
                                     <div class="btn-group dropup">
                                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                            <img src="images/Emotes-icon.png" style="width:15px;"/>
+                                            <img src="images/Emotes-icon.png" style="width: 15px;" />
                                         </button>
                                         <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
                                             <li>
@@ -1045,28 +1045,30 @@
                                 </div>
 
                             </div>
-                            <div class="pull-right" style="margin-right:3px;">
-                                
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift"><img src="images/gift-icon.png" style="width:15px;"/></a>
+                            <div class="pull-right" style="margin-right: 3px;">
+
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift">
+                                    <img src="images/gift-icon.png" style="width: 15px;" /></a>
                                 <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends"><img src="images/friends-icon.png" style="width:15px;"/></a>
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends">
+                                    <img src="images/friends-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size:17px;"></i></a>
-                                
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
+
                             </div>
 
-                            <div class="pull-left col-lg-3" style="direction:ltr;">
-                                <div class="pull-left col-lg-3" style="direction:ltr;"><i class="icon-volume-up" style="font-size:17px;"></i></div>
-                                <div class="pull-left col-lg-9" style="direction:ltr;">
-                                <input type="text" value="" data-bind="attr:{'data-slider-id':'uiListenVolume_'+uniqueID() + 'slider', id:'uiListenVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width:70px;">
-                                    </div>
-                                <div class="clear" style="height:1px;"></div>
-                                <div class="pull-left col-lg-3" style="direction:ltr;">
-                                <i class="icon-microphone" style="font-size:17px;"></i>
-                                    </div>
-                                <div class="pull-left col-lg-9" style="direction:ltr;">
-                                    <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width:70px;">
-                                    </div>
+                            <div class="pull-left col-lg-3" style="direction: ltr;">
+                                <div class="pull-left col-lg-3" style="direction: ltr;"><i class="icon-volume-up" style="font-size: 17px;"></i></div>
+                                <div class="pull-left col-lg-9" style="direction: ltr;">
+                                    <input type="text" value="" data-bind="attr:{'data-slider-id':'uiListenVolume_'+uniqueID() + 'slider', id:'uiListenVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
+                                </div>
+                                <div class="clear" style="height: 1px;"></div>
+                                <div class="pull-left col-lg-3" style="direction: ltr;">
+                                    <i class="icon-microphone" style="font-size: 17px;"></i>
+                                </div>
+                                <div class="pull-left col-lg-9" style="direction: ltr;">
+                                    <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1085,26 +1087,26 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                             <h4>حجب عضو</h4>
-                            <div class="form-group">
+                            <div class="form-group" style="display:none">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إسم العضو</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <span id="banMemberName" data-bind="text:bannedMember.MemberName"></span>
-                                    <div style="display: none;">
-                                        <span id="banMemberID"></span>
-                                        <span id="banRoomID"></span>
-                                    </div>
                                 </div>
-                                </div>
-                               <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
-                                    <label>عدد أيام الحجب</label>
+                                    <label>نوع الحجب</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <input type="text" id="banDays" data-bind="value:bannedMember.Days" />
+                                    <!-- ko foreach: BanningTypes -->
+                                    <label >
+                                        <input type="radio" name="banMember" data-bind="value:ID, checked:$parent.bannedType,checkedValue: ID" />
+                                        <span data-bind="text:Name"></span>
+                                    </label>
                                     <br />
-                                    *فى حالة عدم كتابة عدد الأيام سيتم الحجب نهائيا
+                                    <!-- /ko -->
                                 </div>
                             </div>
                             <div class="form-group">
@@ -1121,110 +1123,56 @@
         </div>
 
         <div data-bind="attr:{id:'controlPanelModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                    <i class="icon-4x icon-dashboard+" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
-                    <h3 id="myModalLabel1">لوحة تحكم المشرف</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-horizontal blockBox validationGroup">
-                        <h4>لوحة تحكم المشرف</h4>
-                        <div class="panel-group" data-bind="attr:{id:'accordion'+uniqueID()}">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-bind="attr:{'data-parent':'#accordion'+uniqueID(),href:'#collapseOne'+uniqueID()}">
-                                            الأعضاء المحجوبة
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div data-bind="attr:{id:'collapseOne'+uniqueID()}" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <!-- ko if:BannedMembers().length==0 -->
-                                        <b>لا يوجد</b>
+            <div class="modal-dialog" style="width: 865px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x icon-dashboard+" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">لوحة تحكم المشرف</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h4>لوحة تحكم المشرف</h4>
+                            <div class="">
+                                <!-- ko foreach: BanningTypes -->
+                                <div style="float: right; width: 190px; background-color: #EEEEEE; padding: 10px; margin-left: 10px;">
+                                    الأشخاص الممنوعين <span data-bind="text:Name"></span>
+                                    <br>
+                                    <select style="width: 100%; height: 100px;" multiple="multiple" data-bind="foreach: $parent.BannedMembers,attr{id:'selectBanType_'+$parent.uniqueID()+'_'+ID()}">
+                                        <!-- ko if: $parent.ID() == BanType() -->
+                                            <option data-bind="text:MemberName,value:MemberID"></option>
                                         <!-- /ko -->
-                                        <!-- ko if:BannedMembers().length>0 -->
-                                        <div class="SScroll" data-height="200px">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th style="text-align:right;">إسم العضو</th>
-                                                        <th style="text-align:right;">الأيام المتبقية</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody data-bind="foreach:BannedMembers">
-                                                    <tr>
-                                                        <td>
-                                                            <button type="button" class="btn btn-xs btn-default" data-bind="click:$parent.removeBannedMember">
-                                                                <span class="glyphicon glyphicon-trash"></span>إلغاء
-                                                            </button>
-                                                        </td>
-                                                        <td data-bind="text:MemberName"></td>
-                                                        <td><input type="text" style="width:50px;" data-bind="value:BanDays" /></td>
-                                                        <td>
-                                                            <input type="button" class="btn btn-xs btn-warning" value="تعديل" data-bind="click:$parent.updateBannedMember" />
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- /ko -->
-                                    </div>
+                                    </select>
+                                    
+                                    <br>
+                                    <a class="style2" href="" data-bind="{click:$parent.removeSelectedBannedType.bind($data,'selectBanType_'+$parent.uniqueID()+'_'+ID())}">حذف الجميع</a>
+                                    <a class="style2" href="" data-bind="{click:$parent.removeSelectedBannedType.bind($data,'selectBanType_'+$parent.uniqueID()+'_'+ID()+' :selected')}">حذف شخص</a>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-bind="attr:{'data-parent':'#accordion'+uniqueID(),href:'#collapseTwo'+uniqueID()}">
-                                            إعدادات الأعضاء
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div data-bind="attr:{id:'collapseTwo'+uniqueID()}" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="SScroll" data-height="200px">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="text-align:right;">إسم العضو</th>
-                                                        <th style="text-align:right;">إستخدام المايك</th>
-                                                        <th style="text-align:right;">إستخدام الكام</th>
-                                                        <th style="text-align:right;">الكتابة</th>
-                                                        <th style="text-align:right;">حجب أيام</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody data-bind="foreach:AllMembersSettings">
-                                                    <tr>
-                                                        <td data-bind="text:MemberName"></td>
-                                                        <td><input type="checkbox" data-bind="checked:CanAccessMic" /></td>
-                                                        <td><input type="checkbox" data-bind="checked:CanAccessCam" /></td>
-                                                        <td><input type="checkbox" data-bind="checked:CanWrite" /></td>
-                                                        <td>
-                                                            <input type="text" style="width:50px;" data-bind="value:BanDays" />
-                                                        </td>
-                                                        <td>
-                                                            <input type="button" class="btn btn-warning btn-xs" value="تعديل" data-bind="click:$parent.updateRoomMemberSettings" />
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- /ko -->
+                                <div class="clearfix"></div>
+                                <h4>إضافة عضو للقوائم</h4>
+                                <label class="mini">إسم العضو</label>
+                                <select data-bind="options: NotBannedMembers, optionsText: 'MemberName',value: bannedMember"></select>
+                                <!-- ko foreach: BanningTypes -->
+                                <label style="min-width: 120px !important;">
+                                    <input type="radio" name="banMember" data-bind="value:ID, checked:$parent.bannedType,checkedValue: ID" />
+                                    <span data-bind="text:Name"></span>
+                                </label>
+                                <!-- /ko -->
+                                <input type="button" id="btnBanNewMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveBanMember" />
+                                <div class="clearfix"></div>
+                                <h4>توبيك الغرفة</h4>
+                                <input type="text" data-bind="value:RoomTopic" style="width:200px">
+                                <input type="button" id="btnSaveRoomTopic" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveRoomTopic" />
+                                <div class="clearfix"></div>
                             </div>
 
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
         <!-- /ko -->
 
         <div data-bind="attr:{id:'inviteModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
@@ -1237,18 +1185,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إرسال دعوة إلى </label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <input type="text" data-bind="attr:{id:'invite_'+uniqueID()}" class="form-control " />
-                                </div>                                
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
-                                    <input type="button" id="btnInviteFriend" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:Invitefriends"  />
+                                    <input type="button" id="btnInviteFriend" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:Invitefriends" />
                                 </div>
                             </div>
 
@@ -1269,34 +1217,36 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إرسال هدية إلى </label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <input type="text" data-bind="attr:{id:'gift_'+uniqueID()}" class="form-control " />
-                                </div>                                
+                                </div>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-12 control-label pull-right">
                                     <ul class="gifts" data-bind="foreach:Gifts">
                                         <li>
                                             <input type="radio" name="gift" data-bind="attr:{id:'gift_' + giftid()},checkedValue: giftid" class="input_hidden" />
-                                            <label data-bind="attr:{for:'gift_' + giftid()}, click:$parent.selectGift" >
-                                                <img data-bind="attr:{src:picPath}" /> 
-                                                <br /> <span class="giftname" data-bind="text:name"></span> 
-                                                <br /> <span class="giftprice" data-bind="text:price"></span>
-                                            </label>  
+                                            <label data-bind="attr:{for:'gift_' + giftid()}, click:$parent.selectGift">
+                                                <img data-bind="attr:{src:picPath}" />
+                                                <br />
+                                                <span class="giftname" data-bind="text:name"></span>
+                                                <br />
+                                                <span class="giftprice" data-bind="text:price"></span>
+                                            </label>
                                         </li>
                                     </ul>
-                                    <div class="clearfix" style="height:10px;"></div>
+                                    <div class="clearfix" style="height: 10px;"></div>
                                 </div>
-                                                              
+
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
-                                    <input type="button" id="btnSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:SendGift"  />
+                                    <input type="button" id="btnSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:SendGift" />
                                 </div>
                             </div>
 
@@ -1317,14 +1267,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-                            
-                            <div class="form-group">                                
+
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>مقطع فيديو</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}"><a style="cursor: pointer;" class="btn btn-default" data-bind="click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
-                                </div>                                
+                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}"><a style="cursor: pointer;" class="btn btn-default" data-bind="    click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
@@ -1333,26 +1283,26 @@
                                 <div class="col-sm-7 pull-right">
 
                                     <div class="UploadDiv">
-                                                <div data-bind="attr:{id:'UploadStatus_'+uniqueID()}">
-                                                </div>
-                                                <input type="button" class="UploadButton" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
-                                                <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
-                                                </div>
-                                            </div>
+                                        <div data-bind="attr:{id:'UploadStatus_'+uniqueID()}">
+                                        </div>
+                                        <input type="button" class="UploadButton" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
+                                        <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
-                                   سجل مقطع صوت
+                                    سجل مقطع صوت
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                        <object style="height:50px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
-                                            <param name="quality" value="high">
-                                            <param value="always" name="allowScriptAccess">
-                                            <param data-bind="attr:{value:'roomId=1&amp;userId=2&amp;recordUrl=services/FileUploader.ashx'}" name="flashvars">
-                                        </object>                          
+                                    <object style="height: 50px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
+                                        <param name="quality" value="high">
+                                        <param value="always" name="allowScriptAccess">
+                                        <param data-bind="attr:{value:'roomId=1&amp;userId=2&amp;recordUrl=services/FileUploader.ashx'}" name="flashvars">
+                                    </object>
                                 </div>
                             </div>
                         </div>

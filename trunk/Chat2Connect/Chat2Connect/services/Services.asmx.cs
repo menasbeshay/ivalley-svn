@@ -108,7 +108,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SendMsg(int sender,string ToMember, string subject,string toName, string content)
+        public bool SendMsg(int sender, string ToMember, string subject, string toName, string content)
         {
             List<int> recipients = new List<int>();
             string[] ToMembers = ToMember.Split(',');
@@ -260,7 +260,7 @@ namespace Chat2Connect.services
                     member.MoveNext();
                 }
             }
-            
+
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(friends);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
@@ -509,9 +509,30 @@ namespace Chat2Connect.services
             return true;
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public void GetChatRoom(int id, bool isTemp)
         {
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            if (!isTemp)
+            {
+                RoomMemberBanning ban = new RoomMemberBanning();
+                if (ban.LoadByPrimaryKey(id, BLL.Member.CurrentMemberID))
+                {
+                    if (ban.IsColumnNull(RoomMemberBanning.ColumnNames.EndDate) || ban.EndDate > DateTime.Now)
+                    {
+                        string msg = "تم طردك من هذه الغرفة ";
+                        if (ban.IsColumnNull(RoomMemberBanning.ColumnNames.EndDate))
+                            msg = msg + "نهائيا ولن تتمكن من الدخول مرة أخرى";
+                        else
+                            msg =msg+ "لن تتمكن من دحول هذه الغرفة قبل هذا الوفت: "+Helper.Date.ToDateTimeString(ban.EndDate);
+
+                        HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"" + msg + "\"}");
+
+                        return;
+                    }
+                }
+            }
+
             Helper.ChatRoom roomObject = new Helper.ChatRoom();
             roomObject.ID = id;
             roomObject.Type = "Room";
@@ -540,10 +561,8 @@ namespace Chat2Connect.services
             member.LoadByPrimaryKey(rooms.CreatedBy);
             roomObject.AdminName = member.Name;
 
-            Member CurrentMember = new Member();
-            CurrentMember.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            roomObject.CurrentMemberSettings.MemberID = CurrentMember.MemberID;
-            if (CurrentMember.MemberID != member.MemberID)
+            roomObject.CurrentMemberSettings.MemberID = BLL.Member.CurrentMember.MemberID;
+            if (BLL.Member.CurrentMember.MemberID != member.MemberID)
             {
                 roomObject.CurrentMemberSettings.IsAdmin = false;
             }
@@ -554,10 +573,10 @@ namespace Chat2Connect.services
 
             roomObject.Settings.CamCount = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.MaxMic = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
-            
+
             // add to favourite link
             FavRoom fav = new FavRoom();
-            fav.LoadByPrimaryKey(CurrentMember.MemberID, id);
+            fav.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id);
             if (fav.RowCount > 0 || isTemp)
                 roomObject.CurrentMemberSettings.IsFav = true;
             else
@@ -568,11 +587,11 @@ namespace Chat2Connect.services
             roomObject.CurrentMemberSettings.UserRate = 0;
 
             RoomMember roomMember = new RoomMember();
-            roomMember.LoadByPrimaryKey(CurrentMember.MemberID, id);
+            roomMember.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id);
             if (roomMember.RowCount == 0)
             {
                 roomMember.AddNew();
-                roomMember.MemberID = CurrentMember.MemberID;
+                roomMember.MemberID = BLL.Member.CurrentMember.MemberID;
                 roomMember.RoomID = id;
                 roomMember.InRoom = true;
                 roomMember.Save();
@@ -590,7 +609,7 @@ namespace Chat2Connect.services
             roomObject.CurrentMemberSettings.IsBanned = roomMember.IsBanned;
             roomObject.CurrentMemberSettings.IsMarked = roomMember.IsMarked;
             RoomMemberSetting sett = new RoomMemberSetting();
-            if (sett.LoadByPrimaryKey(id, CurrentMember.MemberID))
+            if (sett.LoadByPrimaryKey(id, BLL.Member.CurrentMember.MemberID))
             {
                 roomObject.CurrentMemberSettings.NotifyOnCloseCam = sett.NotifyOnCloseCam;
                 roomObject.CurrentMemberSettings.NotifyOnFriendsLogOff = sett.NotifyOnFriendsLogOff;
@@ -607,24 +626,46 @@ namespace Chat2Connect.services
             members.GetAllMembersByRoomIDNoQueue(id);
             RoomMember InQueueMembers = new RoomMember();
             InQueueMembers.GetAllMembersByRoomIDInQueue(id);
-            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0, IsAdmin =  (bool)m["IsAdmin"] }).ToList();
+            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"] }).ToList();
             roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"] }).ToList();
 
             Allmembers.LoadAllRoomMembersWithSettings(id);
-            roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanDays = (Convert.ToBoolean(m["IsMemberBanned"])? m["BanDays"] : null) }).ToList();
-            
+            roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanType = GetBanType(m["StartDate"],m["EndDate"]) }).ToList();
+            ///////////////////////////
             Gift allgifts = new Gift();
-            allgifts.LoadAll();            
-            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"]  + " نقطة", picPath = m["PicPath"] }).ToList();
+            allgifts.LoadAll();
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"] + " نقطة", picPath = m["PicPath"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
-            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
-            HttpContext.Current.Response.Write(result);
+            HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
             //return result;
         }
 
+        private int? GetBanType(object startDate, object endDate)
+        {
+            if (startDate == DBNull.Value)
+                return null;
+            if (endDate == DBNull.Value)
+            {
+                return (int)Helper.Enums.BanningType.Permanent;
+            }
+            DateTime start=(DateTime)startDate
+                , end=(DateTime)endDate;
+            int diffDays = (end.Date - start.Date).Days;
+            if (diffDays == 1)
+            {
+                return (int)Helper.Enums.BanningType.Day;
+            }
+            if (diffDays == 7)
+            {
+                return (int)Helper.Enums.BanningType.Week;
+            }
+
+            return (int)Helper.Enums.BanningType.Month;
+        }
+
         [WebMethod]
-        public void BanRoomMember(int memberID, int roomID, int? days)
+        public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {
             RoomMemberBanning ban = new RoomMemberBanning();
             if (!ban.LoadByPrimaryKey(roomID, memberID))
@@ -633,37 +674,43 @@ namespace Chat2Connect.services
                 ban.RoomID = roomID;
                 ban.MemberID = memberID;
             }
-            Member currentMember = new Member();
-            if (currentMember.LoadCurrentMember())
-                ban.CreatedByMemberID = currentMember.MemberID;
+
+            ban.CreatedByMemberID = adminID;
             ban.CreateDate = DateTime.Now;
             ban.StartDate = DateTime.Now;
-            if (days.HasValue)
-                ban.EndDate = DateTime.Now.AddDays(days.Value);
-            else
-                ban.SetColumnNull(RoomMemberBanning.ColumnNames.EndDate);
+            switch (type)
+            {
+                case (int)Helper.Enums.BanningType.Day:
+                    ban.EndDate = DateTime.Now.AddDays(1);
+                    break;
+                case (int)Helper.Enums.BanningType.Month:
+                    ban.EndDate = DateTime.Now.AddMonths(1);
+                    break;
+                case (int)Helper.Enums.BanningType.Week:
+                    ban.EndDate = DateTime.Now.AddDays(7);
+                    break;
+                case (int)Helper.Enums.BanningType.Permanent:
+                    ban.SetColumnNull(RoomMemberBanning.ColumnNames.EndDate);
+                    break;
+            }
+
             ban.Save();
 
-            
         }
 
         [WebMethod]
-        public void RemoveBanedRoomMember(int memberID, int roomID)
+        public void RemoveBanningFromRoomMembers(int roomID, int[] membersID)
         {
             RoomMemberBanning ban = new RoomMemberBanning();
-            if (ban.LoadByPrimaryKey(roomID, memberID))
-            {
-                ban.MarkAsDeleted();
-                ban.Save();
-            }
+            ban.Delete(roomID, membersID);
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool InviteFriends(string memberName, int roomID,string roomName, string friendsIDs)
-        {            
-            string[] ToMembers = friendsIDs.Split(',');            
-            
+        public bool InviteFriends(string memberName, int roomID, string roomName, string friendsIDs)
+        {
+            string[] ToMembers = friendsIDs.Split(',');
+
             foreach (string item in ToMembers)
             {
                 if (!string.IsNullOrEmpty(item))
@@ -674,11 +721,11 @@ namespace Chat2Connect.services
                     MembershipUser u = Membership.GetUser(m.UserID);
 
                     IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
-                    _Ncontext.Clients.Group(u.UserName).InviteToRoomByFriend(roomID, roomName, memberName);                    
+                    _Ncontext.Clients.Group(u.UserName).InviteToRoomByFriend(roomID, roomName, memberName);
                 }
             }
 
-            
+
             return true;
         }
 
@@ -705,7 +752,7 @@ namespace Chat2Connect.services
 
             IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
             _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, friendName, srcgift.Name);
-            
+
             return true;
         }
 
@@ -720,11 +767,11 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < allgifts.RowCount; i++)
                 {
-                    gifts.Add(new { id = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString() , picPath = allgifts.PicPath });
+                    gifts.Add(new { id = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString(), picPath = allgifts.PicPath });
                     allgifts.MoveNext();
                 }
             }
-            
+
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(gifts);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);

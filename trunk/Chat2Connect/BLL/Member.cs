@@ -151,19 +151,23 @@ namespace BLL
         {
             get
             {
-                HttpContext current = HttpContext.Current;
-                if (current == null)
-                {
-                    return null;
-                }
-                if (current.Session["CurrentMember"] == null)
-                {
-                    Member currentMember = new Member();
-                    currentMember.LoadCurrentMember();
-                    current.Session["CurrentMember"] = currentMember;
-                }
+                Member currentMember;
+                currentMember = new Member();
+                currentMember.LoadCurrentMember();
+                return currentMember;
+                //HttpContext current = HttpContext.Current;
+                //if (current == null || current.Session==null)
+                //{
+                    
+                //}
+                //if (current.Session["CurrentMember"] == null)
+                //{
+                //    currentMember = new Member();
+                //    currentMember.LoadCurrentMember();
+                //    current.Session["CurrentMember"] = currentMember;
+                //}
 
-                return (Member)current.Session["CurrentMember"];
+                //return (Member)current.Session["CurrentMember"];
             }
         }
 
