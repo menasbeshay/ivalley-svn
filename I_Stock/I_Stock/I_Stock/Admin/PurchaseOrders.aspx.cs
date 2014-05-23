@@ -109,6 +109,9 @@ namespace I_Stock.Admin
             
             if(CurrentPurchaseOrder.Confirmed)
                 uiLinkButtonConfirm.Attributes.Add("disabled", "disabled");
+            else
+                uiLinkButtonConfirm.Attributes.Remove("disabled");
+
             uiGridViewItems.Enabled = !CurrentPurchaseOrder.Confirmed;
 
             uiDropDownListSuppliers.Enabled = !CurrentPurchaseOrder.Confirmed;

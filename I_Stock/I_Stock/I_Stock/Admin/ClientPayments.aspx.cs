@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace I_Stock.Admin
 {
@@ -69,17 +70,10 @@ namespace I_Stock.Admin
                 Payment.Amount = 0;
 
             Payment.PaymentTypeID = Convert.ToInt32(uiRadioButtonListPaymentType.SelectedValue);
-            
+            Payment.Confirmed = false;
             Payment.Save();
 
-            IStock.BLL.Clients client = new IStock.BLL.Clients();
-            client.LoadByPrimaryKey(Payment.ClientID);
-            if (!client.IsColumnNull("StartCredit"))
-                client.StartCredit -= Payment.Amount;
-            else
-                client.StartCredit = 0 - Payment.Amount;
             
-            client.Save();
 
             ClearFields();
             CurrentPayment = null;
@@ -105,6 +99,14 @@ namespace I_Stock.Admin
             IStock.BLL.Payments d = new IStock.BLL.Payments();
             uiTextBoxCode.Text = d.getNewSerial();
             uiPanelAllPayments.Visible = false;
+
+            uiLinkButtonConfirm.Enabled = true;
+            uiDropDownListClients.Enabled = true;
+            uiTextBoxDate.Enabled = true;
+            uiTextBoxAmount.Enabled = true;
+            uiRadioButtonListPaymentType.Enabled = true;
+            uiTextBoxCode.Enabled = true;
+            uiDropDownListEmployee.Enabled = true;
         }
 
 
@@ -116,7 +118,30 @@ namespace I_Stock.Admin
 
         protected void uiGridViewPayments_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "DeletePayment")
+            if (e.CommandName == "EditPayment")
+            {
+                IStock.BLL.Payments objData = new IStock.BLL.Payments();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+
+                uiTextBoxCode.Text = objData.PaymentID.ToString();
+                uiTextBoxDate.Text = objData.PaymentDate.ToString("dd/MM/yyy");
+                uiDropDownListClients.SelectedValue = objData.ClientID.ToString();
+                if (!objData.IsColumnNull("PaymentTypeID"))
+                    uiRadioButtonListPaymentType.SelectedValue = objData.PaymentTypeID.ToString();
+                else
+                    uiRadioButtonListPaymentType.SelectedValue = "1";
+
+                uiDropDownListEmployee.SelectedValue = objData.EmployeeID.ToString();
+                uiTextBoxAmount.Text = objData.Amount.ToString();
+
+                uiPanelAllPayments.Visible = false;
+                uiPanelEditPayment.Visible = true;
+
+                CurrentPayment = objData;
+                                              
+                EnableDisableControls();              
+            }
+            else if (e.CommandName == "DeletePayment")
             {
                 try
                 {
@@ -138,6 +163,7 @@ namespace I_Stock.Admin
                 }
             }
         }
+
         #endregion
 
         #region methods
@@ -172,6 +198,36 @@ namespace I_Stock.Admin
         }
 
 
+        private void EnableDisableControls()
+        {
+            if (!CurrentPayment.IsColumnNull("Confirmed"))
+            {
+                if (CurrentPayment.Confirmed)
+                    uiLinkButtonConfirm.Attributes.Add("disabled", "disabled");
+                else
+                    uiLinkButtonConfirm.Attributes.Remove("disabled");
+
+                uiDropDownListClients.Enabled = !CurrentPayment.Confirmed;
+                uiTextBoxDate.Enabled = !CurrentPayment.Confirmed;
+                uiTextBoxAmount.Enabled = !CurrentPayment.Confirmed;
+                uiRadioButtonListPaymentType.Enabled = !CurrentPayment.Confirmed;
+                uiTextBoxCode.Enabled = !CurrentPayment.Confirmed;
+                uiDropDownListEmployee.Enabled = !CurrentPayment.Confirmed;
+            }
+            else
+            {
+                uiLinkButtonConfirm.Attributes.Remove("disabled");
+                uiLinkButtonConfirm.Enabled = true;
+                uiDropDownListClients.Enabled = true;
+                uiTextBoxDate.Enabled = true;
+                uiTextBoxAmount.Enabled = true;
+                uiRadioButtonListPaymentType.Enabled = true;
+                uiTextBoxCode.Enabled = true;
+                uiDropDownListEmployee.Enabled = true;
+            }
+
+        }
+
         private void ClearFields()
         {
             uiTextBoxCode.Text = "";
@@ -180,5 +236,38 @@ namespace I_Stock.Admin
             
         }
         #endregion
+
+        protected void uiGridViewPayments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView row = (DataRowView)e.Row.DataItem;
+                LinkButton delete = (LinkButton)e.Row.FindControl("uiLinkButtonDelete");
+                if (!string.IsNullOrEmpty(row["Confirmed"].ToString()))
+                {
+                    if ((bool)row["Confirmed"])
+                    {
+                        delete.Attributes.Add("disabled", "disabled");
+                        delete.OnClientClick = "return false;";
+                    }
+                }
+               
+            }
+        }
+
+        protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
+        {
+            IStock.BLL.Clients client = new IStock.BLL.Clients();
+            client.LoadByPrimaryKey(CurrentPayment.ClientID);
+            if (!client.IsColumnNull("StartCredit"))
+                client.StartCredit -= CurrentPayment.Amount;
+            else
+                client.StartCredit = 0 - CurrentPayment.Amount;
+
+            client.Save();
+            CurrentPayment.Confirmed = true;
+            CurrentPayment.Save();
+            EnableDisableControls();
+        }
     }
 }

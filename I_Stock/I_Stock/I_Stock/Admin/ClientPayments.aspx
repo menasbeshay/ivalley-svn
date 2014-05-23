@@ -83,6 +83,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="control-group">
+                                <div class="span6">
+                                    <label class="control-label">
+                                        تأكيد الأمر </label>
+                                    <div class="controls">
+                                        <asp:LinkButton ID="uiLinkButtonConfirm" runat="server" 
+                                            CssClass="btn btn-success" onclick="uiLinkButtonConfirm_Click" style="width:200px;height:30px;font-size:20px;padding-top:15px;"><i class="icon-check"></i>&nbsp;تأكيد الأمر</asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="form-actions">
@@ -118,7 +128,9 @@
                         </div>
                         <asp:GridView ID="uiGridViewPayments" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                             CellPadding="4" GridLines="None" OnPageIndexChanging="uiGridViewPayments_PageIndexChanging"
-                            OnRowCommand="uiGridViewPayments_RowCommand" Width="90%" CssClass="table table-striped table-bordered">
+                            OnRowCommand="uiGridViewPayments_RowCommand" Width="90%" 
+                            CssClass="table table-striped table-bordered" 
+                            onrowdatabound="uiGridViewPayments_RowDataBound">
                             <AlternatingRowStyle HorizontalAlign="Center" />
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -129,8 +141,12 @@
                                 <asp:BoundField DataField="PaymentNo" HeaderText="رقم الأمر" />
                                 <asp:BoundField DataField="PaymentDate" HeaderText="التاريخ" DataFormatString="{0:dd/MM/yyyy}" />
                                 <asp:BoundField DataField="ClientName" HeaderText="العميل" />
+                                <asp:CheckBoxField DataField="Confirmed" HeaderText="مؤكد" />
+                                <asp:BoundField DataField="Amount" HeaderText="القيمة" />
                                 <asp:TemplateField HeaderText="إجراءات">
-                                    <ItemTemplate>                                        
+                                    <ItemTemplate>    
+                                        <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("PaymentID") %>'
+                                            CssClass="btn blue" CommandName="EditPayment"><i class='icon-edit'></i> تعديل</asp:LinkButton>&nbsp;                                    
                                         <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("PaymentID") %>'
                                             CssClass="btn blue" CommandName="DeletePayment" OnClientClick="return confirm('هل تريد حذف هذا السجل ؟');"><i class='icon-remove'></i> حذف</asp:LinkButton>
                                     </ItemTemplate>

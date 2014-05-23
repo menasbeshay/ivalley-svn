@@ -92,6 +92,7 @@
                                     <span class="username">
                                         <asp:LoginName ID="LoginName1" runat="server" />
                                     </span><b class="caret"></b>
+                                    </a>
                                     <ul class="dropdown-menu">                                        
                                         <li>
                                             <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج" />
@@ -99,6 +100,7 @@
                                     </ul>
                                 </LoggedInTemplate>
                             </asp:LoginView>
+                            
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
                     </ul>
