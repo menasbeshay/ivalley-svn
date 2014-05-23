@@ -107,14 +107,8 @@ namespace Chat2Connect.SRCustomHubs
             }
         }
 
-        public void banMemberFromRoom(int memberid, int roomid)
+        public void banMemberFromRoom(int memberid, int roomid,int banType,string adminName)
         {
-            var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
-            if (item == null)
-                return;
-            item.Rooms.Remove(roomid);
-            Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid);
-            //Groups.Remove(item.ConnectionId, roomid.ToString());
             try
             {
                 int memberID = CurrentMemberID();
@@ -123,6 +117,23 @@ namespace Chat2Connect.SRCustomHubs
                 member.InRoom = false;
                 member.Save();
 
+            }
+            catch (Exception ex)
+            {
+            }
+            var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
+            if (item == null)
+                return;
+            item.Rooms.Remove(roomid);
+            string banTypeName = Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.BanningType>(banType));
+            Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid, banTypeName, adminName);
+        }
+        public void removeBanningFromRoomMembers(int roomid, int[] members)
+        {
+            try
+            {
+                RoomMemberBanning rm = new RoomMemberBanning();
+                rm.Delete(roomid, members);
             }
             catch (Exception ex)
             {
@@ -144,6 +155,22 @@ namespace Chat2Connect.SRCustomHubs
                 memberID = m.MemberID;
             }
             return memberID;
+        }
+
+        public void updateRoomTopic(int roomID, string topic)
+        {
+            try
+            {
+                Room r = new Room();
+                if (r.LoadByPrimaryKey(roomID))
+                {
+                    r.RoomTopic = topic;
+                    r.Save();
+
+                    Clients.Group(roomID.ToString()).updateRoomTopic(roomID,topic);
+                }
+            }
+            catch { }
         }
 
         public void sendToRoom(int roomid, string sender, string msg)

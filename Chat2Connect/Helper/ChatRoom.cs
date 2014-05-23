@@ -11,6 +11,12 @@ namespace Helper
         {
             this.Settings = new RoomSettings();
             this.CurrentMemberSettings = new MemberSettings();
+            this.BanningTypes = Helper.EnumUtil.GetValues<Helper.Enums.BanningType>().Select(r => new
+            {
+                ID = (int)r,
+                Name = Helper.StringEnum.GetStringValue(r)
+            }).ToList();
+            //this.AllMembersSettings = new List<object>();
         }
         public int ID { get; set; }
 
@@ -49,6 +55,12 @@ namespace Helper
         public object AllMembersSettings { get; set; }
 
         public object Gifts { get; set; }
+
+        public object BanningTypes
+        {
+            get;
+            set;
+        }
     }
 
     public class ChatMember
@@ -105,6 +117,4 @@ namespace Helper
         public bool NotifyOnOpenCam { get; set; }
     }
 
-    public class ControlMemberSettings
-    { }
 }
