@@ -443,7 +443,7 @@ function Chat(maxWin, memberID, memberName) {
           });
         $('#uiMicVolume_' + window.uniqueID()).slider()
          .on('slide', function (ev) {
-             self.setListenVolume(window, $('#uiMicVolume_' + window.uniqueID()).data('slider').getValue());
+             self.setMicVolume(window, $('#uiMicVolume_' + window.uniqueID()).data('slider').getValue());
          });
 
 
@@ -615,6 +615,11 @@ function Chat(maxWin, memberID, memberName) {
     self.setListenVolume = function setPlaybackVolume(window,volume) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setPlaybackVolume(volume/10.0);
     }
+
+    // set the recording volume (volume value is from 0 to 1)
+    self.setMicVolume = function setMicVolume(window, volume) {
+        getFlashMovie('chat2connect_' + window.uniqueID()).setMicVolume(volume / 10.0);
+    }
     
 }
 
@@ -624,6 +629,16 @@ function onCamClose(userId, roomId)
     if (window == null)
         return;
     chatVM.stopCam(window, userId);
+}
+
+function onMicRecordSaveSuccess(fileName) {
+    // returned file name & roomid in this format [roomId,filename]
+    var window = chatVM.getWindow(fileName.substr(0,fileName.indexOf(",")), 'Room');
+    var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";
+    if (window == null)
+        return;
+    var history = window.MessageHistory();
+    window.MessageHistory(history + audioDiv);
 }
 
 function addChatRoom(id, name, type) {

@@ -313,7 +313,8 @@
                         <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param name="wmode" value="opaque" />
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -328,7 +329,8 @@
                         <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param name="wmode" value="opaque" />
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -1298,10 +1300,11 @@
                                     سجل مقطع صوت
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <object style="height: 50px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
+                                    <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
                                         <param value="always" name="allowScriptAccess">
-                                        <param data-bind="attr:{value:'roomId=1&amp;userId=2&amp;recordUrl=services/FileUploader.ashx'}" name="flashvars">
+                                        <param name="wmode" value="opaque" />
+                                        <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ CurrentMemberSettings.MemberID()+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
                             </div>
