@@ -633,12 +633,12 @@ function onCamClose(userId, roomId)
 
 function onMicRecordSaveSuccess(fileName) {
     // returned file name & roomid in this format [roomId,filename]
-    var window = chatVM.getWindow(fileName.substr(0,fileName.indexOf(",")), 'Room');
-    var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";
+    var window = chatVM.getWindow(fileName.substr(0, fileName.indexOf(",")), 'Room');
+
+    var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";    
     if (window == null)
         return;
-    var history = window.MessageHistory();
-    window.MessageHistory(history + audioDiv);
+    rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, audioDiv);    
 }
 
 function addChatRoom(id, name, type) {
