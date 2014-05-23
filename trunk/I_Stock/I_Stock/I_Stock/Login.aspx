@@ -12,7 +12,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
-    <link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <%--<link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />--%>
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/style_responsive.css" rel="stylesheet" />
@@ -43,8 +43,8 @@
                     <div class="control-group">
                         <div class="controls">
                             <div class="input-prepend">
-                                <span class="add-on"><i class="icon-user"></i></span>
-                                <asp:TextBox ID="UserName" runat="server" placeholder="إسم المستخدم" style="padding:20px;"></asp:TextBox>
+                                <span class="add-on"><i class="icon-user"></i></span>                                
+                                <asp:TextBox ID="UserName" runat="server"  style="padding:20px;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
                                     ErrorMessage="Password is required." ToolTip="أدخل اسم المسنخدم." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                             
                             </div>
@@ -53,8 +53,8 @@
                     <div class="control-group">
                         <div class="controls">
                             <div class="input-prepend">
-                                <span class="add-on"><i class="icon-key"></i></span>
-                                <asp:TextBox ID="Password" TextMode="Password" runat="server" placeholder="كلمة المرور"
+                                <span class="add-on"><i class="icon-key"></i></span>                                
+                                <asp:TextBox ID="Password" TextMode="Password" runat="server" 
                                     Style="padding: 20px;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password"
                                     ErrorMessage="Password is required." ToolTip="ادخل كلمة المرور." ValidationGroup="Login1">*</asp:RequiredFieldValidator>

@@ -94,6 +94,15 @@ namespace I_Stock.Admin {
         protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListPaymentType;
         
         /// <summary>
+        /// uiLinkButtonConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonConfirm;
+        
+        /// <summary>
         /// uiLinkButtonBack control.
         /// </summary>
         /// <remarks>
