@@ -638,6 +638,7 @@
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Admin.master" />
+    <Content Include="audioUploader.ashx" />
     <None Include="js\bootstrap.min.js_back" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\dreamcodes.js" />
@@ -877,6 +878,9 @@
     </Compile>
     <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
       <DependentUpon>RoomType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="audioUploader.ashx.cs">
+      <DependentUpon>audioUploader.ashx</DependentUpon>
     </Compile>
     <Compile Include="createRoom.aspx.cs">
       <DependentUpon>createRoom.aspx</DependentUpon>
