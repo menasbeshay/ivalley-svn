@@ -1302,8 +1302,7 @@
                                 <div class="col-sm-7 pull-right">
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
-                                        <param value="always" name="allowScriptAccess">
-                                        <param name="wmode" value="opaque" />
+                                        <param value="always" name="allowScriptAccess">                                        
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ CurrentMemberSettings.MemberID()+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
