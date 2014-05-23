@@ -95,7 +95,7 @@ function Chat(maxWin, memberID, memberName) {
                 url: '../Services/Services.asmx/UpdateRoomSetting',
                 dataType: 'json',
                 type: 'post',
-                data: "{'mid':" + self.CurrentMemberID + ", 'rid' : " + window.ID() + ",'setting':'" + settingName + "','newValue':"+newValue+" }",
+                data: "{'mid':" + self.CurrentMemberSettings.MemberID() + ", 'rid' : " + window.ID() + ",'setting':'" + settingName + "','newValue':" + newValue + " }",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     notify('success', 'تم تغيير الإعدادات بنجاح');
