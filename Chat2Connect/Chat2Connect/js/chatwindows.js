@@ -641,6 +641,18 @@ function InitChat(maxWinRooms, memberID, memberName) {
     ko.applyBindings(chatVM);
 
     /****** signalR ********/
+    function addMsgToWindow(window, msg, css) {
+        msg = "<br><div class='pull-left "+css+"' style='width:auto;margin-right:5px;'>" + msg + "</div>";
+        window.MessageHistory(window.MessageHistory() + msg);
+        $(".MsgHistroy").slimScroll({
+            railVisible: true,
+            height: '400px',
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left',
+            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
+        });
+    }
     rHub = $.connection.chatRoomHub;
     rHub.client.getPrivateMessage = function (fromId, fromUserName, message) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
@@ -710,7 +722,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
         member = window.newMember(mid, name, memberType);
         window.addMember(member);
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOn()) {
-            notify('info', '' + member.MemberName() + ' دخل الان فى الغرفة ' + window.Name() + '');
+            var msg= '' + member.MemberName() + 'قد إنضم للغرفة ';
+            addMsgToWindow(window,msg,"joinalert");
         }
     };
     rHub.client.removeMember = function (mid, roomId) {
@@ -728,7 +741,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (member == null)
             return;
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
-            notify('info', '' + member.MemberName() + ' خرج الان من الغرفة ' + window.Name() + '');
+            var msg=member.MemberName() + ' خرج من الغرفة ';
+            addMsgToWindow(window,msg,"leftalert");
         }
         if(mid==chatVM.CurrentMemberID)
         {
@@ -751,28 +765,17 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
 
         if (chatVM.CurrentMemberID == mid) {
-            notify('info', ' تم طردك '+banTypeName+' من الغرفة ' + window.Name() + ' عن طريق الادمن '+adminName);
+            notify('error', ' تم طردك '+banTypeName+' من الغرفة ' + window.Name() + ' عن طريق الادمن '+adminName);
             chatVM.windows.remove(window);
             $('.nav-tabs a:last').tab('show');
         }
         else
         {
-            var history = window.MessageHistory();
-            var msg = 'تم طرد العضو '+member.MemberName()+' '+banTypeName+' عن طريق الادمن '+adminName+'';
-            var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
-            window.MessageHistory(history + newMsg);
-            $(".MsgHistroy").slimScroll({
-                railVisible: true,
-                height: '400px',
-                color: '#FEC401',
-                railColor: '#C7C5C0',
-                position: 'left',
-                scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-            });
-
-            if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
-                notify('info', msg+' من الغرفة '+window.Name());
-            }
+            var msg = 'تم طرد العضو '+member.MemberName()+' '+banTypeName+' من قبل '+adminName+'';
+            addMsgToWindow(window, msg, "banalert");
+            //if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
+            //    notify('info', msg+' من الغرفة '+window.Name());
+            //}
         }
     }
     rHub.client.banMemberFromRoom = function (mid, roomId,banTypeName,adminName) {
@@ -855,7 +858,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
             if (member != null) {
                 member.IsCamOpened(true);
                 if (window.CurrentMemberSettings.NotifyOnOpenCam()) {
-                    notify('info', 'العضو ' + member.MemberName() + ' فتح الكاميرا');
+                    var msg = member.MemberName() + ' قد بدأ فتح الكمراء';
+                    addMsgToWindow(window, msg, "joinalert");
+                    //notify('info', );
                 }
             }
         }
@@ -872,7 +877,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
             if (member != null) {
                 member.IsCamOpened(false);
                 if (window.CurrentMemberSettings.NotifyOnCloseCam()) {
-                    notify('info', 'العضو ' + member.MemberName() + ' أغلق الكاميرا');
+                    var msg = member.MemberName() + ' أغلق الكمراء';
+                    addMsgToWindow(window, msg, "leftalert");
+                    //notify('info', );
                 }
             }
         }
