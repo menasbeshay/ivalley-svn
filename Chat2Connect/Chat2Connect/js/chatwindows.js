@@ -281,6 +281,8 @@ function Chat(maxWin, memberID, memberName) {
         this.ShowAttachFiles = function () {
             $("#attachModal_" + self.uniqueID()).modal('show');
         };
+
+        
         
     }
     var banMemberModel=function(member)
@@ -451,7 +453,8 @@ function Chat(maxWin, memberID, memberName) {
         new AjaxUpload('#UploadButton_' + window.uniqueID() , {
             action: '../services/FileUploader.ashx',
             onComplete: function (file, response) {
-                $('<div><img src="../images/btndelete.png" onclick="DeleteFile('+ response + "')' class='delete'/>" + response + '</div>').appendTo('#UploadedFile_' + window.uniqueID());
+                var div = '<div><img src="../images/btndelete.png" onclick="'+ "DeleteFile('" + response + "')\" class='delete'/>" + response + '</div>';
+                $(div).appendTo('#UploadedFile_' + window.uniqueID());
                 $('#UploadStatus_' + window.uniqueID()).html('تم رفع الصورة بنجاح');
                 $('#UploadButton_' + window.uniqueID()).hide();
             },
@@ -616,6 +619,16 @@ function Chat(maxWin, memberID, memberName) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setPlaybackVolume(volume/10.0);
     }
 
+    self.MuteRoom = function (window) {
+        if ($('#mute_'+window.uniqueID()).attr('checked')) {
+            self.setListenVolume(window, 0);
+        }
+        else {
+            self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
+        }
+
+    }
+
     // set the recording volume (volume value is from 0 to 1)
     self.setMicVolume = function setMicVolume(window, volume) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setMicVolume(volume / 10.0);
@@ -638,7 +651,9 @@ function onMicRecordSaveSuccess(fileName) {
     var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";    
     if (window == null)
         return;
-    rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, audioDiv);    
+    rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, audioDiv);
+    $("#attachModal_" + window.uniqueID()).modal('hide');
+
 }
 
 function addChatRoom(id, name, type) {
@@ -690,7 +705,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,

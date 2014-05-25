@@ -341,7 +341,7 @@
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px; overflow-x: visible; background-color: #ccc;">
+                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px; overflow-x: visible; background-color: #D9D9D9;">
                             <div id="MicDiv">
                                 <div class="friend-link rm Altodd roomMemberlink" data-bind="with:MicMember">
 
@@ -601,54 +601,115 @@
                                             <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #333300;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Darkgreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #003300;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Darkazure" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #003366;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="NavyBlue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #000080;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #333399;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #333333;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FF6600;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #808000;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #008000;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #008080;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #0000FF;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Grayishblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #666699;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
-                                            </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #808080;" class="colorDiv"></div>
                                             </a></li>
 
-                                            <li class="itemColor"><a data-wysihtml5-command-value="yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #fff200;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Amber" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FF9900;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="green" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #0f0;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Yellowgreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #99CC00;" class="colorDiv"></div>
                                             </a></li>
-                                            <li class="itemColor"><a data-wysihtml5-command-value="blue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
-                                                <div style="background-color: #00f;" class="colorDiv"></div>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Seagreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #339966;" class="colorDiv"></div>
+                                            </a></li>
+
+
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Turquoise" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #33CCCC;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Royalblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #3366FF;" class="colorDiv"></div>
+                                            </a></li>
+
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #800080;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #999999;" class="colorDiv"></div>
+                                            </a></li>                                            
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FFCC00;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FFFF00;" class="colorDiv"></div>
+                                            </a></li>
+
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Lime" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #00FF00;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Aqua" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #00FFFF;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Skyblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #00CCFF;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #993366;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Silver" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #C0C0C0;" class="colorDiv"></div>
+                                            </a></li>
+
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Pink" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FF99CC;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Peach" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FFCC99;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Lightyellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FFFF99;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Palegreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #CCFFCC;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Palecyan" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #CCFFFF;" class="colorDiv"></div>
+                                            </a></li>
+
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Lightskyblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #99CCFF;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="Plum" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #CC99FF;" class="colorDiv"></div>
+                                            </a></li>
+                                            <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                                                <div style="background-color: #FFFFFF;" class="colorDiv"></div>
                                             </a></li>
                                         </ul>
                                     </div>
@@ -1058,8 +1119,13 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
+                             <div class="pull-right btn-group" data-toggle="buttons" style="margin-right: 3px;">
+                                <div class="btn btn-default">
+                                <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}">×<i class="icon-volume-off" style="font-size: 17px;"></i> 
+                                </div>
+                            </div>
 
-                            <div class="pull-left col-lg-3" style="direction: ltr;">
+                            <div class="pull-left col-lg-3" style="direction: ltr;padding-left:0px;width:22%;">
                                 <div class="pull-left col-lg-3" style="direction: ltr;"><i class="icon-volume-up" style="font-size: 17px;"></i></div>
                                 <div class="pull-left col-lg-9" style="direction: ltr;">
                                     <input type="text" value="" data-bind="attr:{'data-slider-id':'uiListenVolume_'+uniqueID() + 'slider', id:'uiListenVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
@@ -1072,6 +1138,8 @@
                                     <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
                                 </div>
                             </div>
+
+                           
                         </div>
                     </div>
                 </div>
@@ -1278,6 +1346,7 @@
                                     <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}"><a style="cursor: pointer;" class="btn btn-default" data-bind="    click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
                                 </div>
                             </div>
+                            <hr style="width:50%"/>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     أضف صورة
@@ -1293,7 +1362,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <hr style="width:50%"/>
 
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
