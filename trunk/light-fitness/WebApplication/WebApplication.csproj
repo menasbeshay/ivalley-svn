@@ -68,6 +68,7 @@
     <Content Include="flash\index.swf" />
     <Content Include="flash\logo.swf" />
     <Content Include="flash\pics-banner.swf" />
+    <Content Include="Images.aspx" />
     <Content Include="images\0.gif" />
     <Content Include="images\008.gif" />
     <Content Include="images\008bg.gif" />
@@ -146,6 +147,20 @@
     <Content Include="images\rr.gif" />
     <Content Include="images\services.jpg" />
     <Content Include="images\sitestud.gif" />
+    <Content Include="images\slides\newslides\pic1.jpg" />
+    <Content Include="images\slides\newslides\pic2.jpg" />
+    <Content Include="images\slides\newslides\pic3.jpg" />
+    <Content Include="images\slides\newslides\pic4.jpg" />
+    <Content Include="images\slides\newslides\pic5.jpg" />
+    <Content Include="images\slides\newslides\pic6.jpg" />
+    <Content Include="images\slides\newslides\pic7.jpg" />
+    <Content Include="images\slides\pic1.jpg" />
+    <Content Include="images\slides\pic2.jpg" />
+    <Content Include="images\slides\pic3.jpg" />
+    <Content Include="images\slides\pic4.jpg" />
+    <Content Include="images\slides\pic5.jpg" />
+    <Content Include="images\slides\pic6.jpg" />
+    <Content Include="images\slides\pic7.jpg" />
     <Content Include="images\space.gif" />
     <Content Include="images\spacer.gif" />
     <Content Include="images\t-back.gif" />
@@ -164,6 +179,21 @@
     <Content Include="js\prototype.js" />
     <Content Include="js\purl.js" />
     <Content Include="js\scriptaculous.js" />
+    <Content Include="js\slider\allinone_bannerRotator.css" />
+    <Content Include="js\slider\allinone_bannerRotator.js" />
+    <Content Include="js\slider\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="js\slider\jquery.min.js" />
+    <Content Include="js\slider\jquery.ui.touch-punch.min.js" />
+    <Content Include="js\slider\skins\attractive\bottomNavLeft.png" />
+    <Content Include="js\slider\skins\attractive\bottomNavOFF.png" />
+    <Content Include="js\slider\skins\attractive\bottomNavON.png" />
+    <Content Include="js\slider\skins\attractive\bottomNavRight.png" />
+    <Content Include="js\slider\skins\attractive\bottomOverThumbBg.png" />
+    <Content Include="js\slider\skins\attractive\leftNavOFF.png" />
+    <Content Include="js\slider\skins\attractive\leftNavON.png" />
+    <Content Include="js\slider\skins\attractive\rightNavOFF.png" />
+    <Content Include="js\slider\skins\attractive\rightNavON.png" />
+    <Content Include="js\slider\skins\hand.cur" />
     <Content Include="js\stcode.js" />
     <Content Include="js\steffie.js" />
     <Content Include="js\steffrect.js" />
@@ -688,6 +718,13 @@
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Images.aspx.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Images.aspx.designer.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
     <Compile Include="lib\DBLayer.cs" />
     <Compile Include="Masterpages\Admin.Master.cs">
