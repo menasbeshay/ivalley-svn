@@ -532,6 +532,18 @@ namespace Chat2Connect.services
                     }
                 }
             }
+            //Room Info
+            Room rooms = new Room();
+            if (!rooms.LoadByPrimaryKey(id))
+            {
+                HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"غرفة غير متاحة\"}");
+                return;
+            }
+            if (rooms.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
+            {
+                HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"هذه الغرفة مغلقة حاليا\"}");
+                return;
+            }
 
             Helper.ChatRoom roomObject = new Helper.ChatRoom();
             roomObject.ID = id;
@@ -541,9 +553,7 @@ namespace Chat2Connect.services
             roomObject.MessageHistory = "";
             roomObject.CurrentMemberSettings.IsMicOpened = false;
             roomObject.CurrentMemberSettings.IsCamOpened = false;
-            //Room Info
-            Room rooms = new Room();
-            rooms.LoadByPrimaryKey(id);
+            
 
             roomObject.Name = rooms.Name;
             roomObject.RoomTopic = rooms.RoomTopic;

@@ -17,11 +17,15 @@ namespace BLL
 
         public virtual bool GetRoomsByCreatorID(int CreatedBy)
         {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@CreatedBy", SqlDbType.Int, 0), CreatedBy);
-
-            return LoadFromSql("GetChatRoomsByCreatorID", parameters);
+            return LoadFromRawSql(@"select R.* , C.Name CategoryName , SC.Name SubCategoryName
+                                    from Room R
+                                    LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
+                                    LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
+                                    LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
+                                    Left JOIN Category C ON R.CategoryID = C.CategoryID
+                                    Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
+                                    where R.CreatedBy = {0} AND ISNULL(R.RowStatusID,{1})={1} 
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy,(int)Helper.Enums.RowStatus.Enabled);
 
         }
 
@@ -31,37 +35,52 @@ namespace BLL
                                         INNER JOIN RoomType ON RoomType.RoomID=Room.RoomID
                                         INNER JOIN RoomTypeSpecDuration ON RoomType.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
                                         INNER JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
-                                        WHERE RoomTypeSpec.ID={0}
-                                        ORDER BY CategoryID ASC,SubCategoryID ASC,Room.Name ASC", Helper.Defaults.VIPRoomTypeSpecID);
+                                        WHERE RoomTypeSpec.ID={0} AND ISNULL(Room.RowStatusID,{1})={1}
+                                        ORDER BY CategoryID ASC,SubCategoryID ASC,Room.Name ASC", Helper.Defaults.VIPRoomTypeSpecID,(int)Helper.Enums.RowStatus.Enabled);
         }
 
         public virtual bool GetRoomsByCategoryID(int CategoryID)
         {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@CategoryID", SqlDbType.Int, 0), CategoryID);
-
-            return LoadFromSql("GetChatRoomsByCategoryID", parameters);
+            return LoadFromRawSql(@"select R.* , count(RM.MemberID) MemberCount
+                                    from Room R
+                                    LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
+                                    LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
+                                    LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
+                                    Left JOIN Category C ON R.CategoryID = C.CategoryID
+                                    Left Join RoomMember RM on RM.RoomID = R.RoomID
+                                    Left join Member M on M.MemberID = RM.MemberID
+                                    where R.CategoryID = {0} AND ISNULL(Room.RowStatusID,{1})={1}
+                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,   R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
 
         public virtual bool GetRoomsBySubCategoryID(int SubCategoryID)
         {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@SubCategoryID", SqlDbType.Int, 0), SubCategoryID);
-
-            return LoadFromSql("GetChatRoomsBySubCategoryID", parameters);
+            return LoadFromRawSql(@"select R.* , count(RM.MemberID) MemberCount
+                                    from Room R
+                                    Inner JOIN Category C ON R.CategoryID = C.CategoryID
+                                    Inner Join SubCategory SC on C.CategoryID = SC.CategoryID
+                                    Left Join RoomMember RM on RM.RoomID = R.RoomID
+                                    Left join Member M on M.MemberID = RM.MemberID
+                                    where R.SubCategoryID = {0}  AND ISNULL(R.RowStatusID,{1})={1}
+                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc",SubCategoryID,(int)Helper.Enums.RowStatus.Enabled);
 
         }
 
         public virtual bool GetFavRoomsByCreatorID(int CreatedBy)
         {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@CreatedBy", SqlDbType.Int, 0), CreatedBy);
-
-            return LoadFromSql("GetFavRoomsByCreatorID", parameters);
+            return LoadFromRawSql(@"select R.* , C.Name CategoryName , SC.Name SubCategoryName
+                                    from Room R
+                                    LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
+                                    LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
+                                    LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
+                                    Left JOIN Category C ON R.CategoryID = C.CategoryID
+                                    Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
+                                    Inner Join FavRoom F on F.RoomID = R.RoomID 
+                                    where F.MemberID = {0} AND ISNULL(R.RowStatusID,{1})={1}
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy,(int)Helper.Enums.RowStatus.Enabled);
 
         }
 
