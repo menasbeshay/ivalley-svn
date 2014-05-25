@@ -173,6 +173,21 @@ namespace Chat2Connect.SRCustomHubs
             catch { }
         }
 
+        public void closeRoom(int roomID, string adminName)
+        {
+            try
+            {
+                Room r = new Room();
+                if (r.LoadByPrimaryKey(roomID))
+                {
+                    r.RowStatusID = (byte)Helper.Enums.RowStatus.TemporaryDisabled;
+                    r.Save();
+
+                    Clients.Group(roomID.ToString()).closeRoom(roomID, adminName);
+                }
+            }
+            catch { }
+        }
         public void sendToRoom(int roomid, string sender, string msg)
         {
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);

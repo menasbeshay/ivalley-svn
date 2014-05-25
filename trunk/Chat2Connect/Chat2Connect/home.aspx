@@ -314,7 +314,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
@@ -330,7 +330,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
@@ -616,7 +616,7 @@
                                             <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #333333;" class="colorDiv"></div>
                                             </a></li>
-                                            
+
                                             <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #FF6600;" class="colorDiv"></div>
                                             </a></li>
@@ -662,7 +662,7 @@
                                             </a></li>
                                             <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #999999;" class="colorDiv"></div>
-                                            </a></li>                                            
+                                            </a></li>
                                             <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
                                                 <div style="background-color: #FFCC00;" class="colorDiv"></div>
                                             </a></li>
@@ -1119,13 +1119,13 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
-                             <div class="pull-right btn-group" data-toggle="buttons" style="margin-right: 3px;">
+                            <div class="pull-right btn-group" data-toggle="buttons" style="margin-right: 3px;">
                                 <div class="btn btn-default">
-                                <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}" ><a data-bind="click:$parent.MuteRoom.bind($data)" style="text-decoration:none;">×<i class="icon-volume-off" style="font-size: 17px;"></i> </a>
+                                    <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}"><a data-bind="    click:$parent.MuteRoom.bind($data)" style="text-decoration: none;">×<i class="icon-volume-off" style="font-size: 17px;"></i> </a>
                                 </div>
                             </div>
 
-                            <div class="pull-left col-lg-3" style="direction: ltr;padding-left:0px;width:22%;">
+                            <div class="pull-left col-lg-3" style="direction: ltr; padding-left: 0px; width: 22%;">
                                 <div class="pull-left col-lg-3" style="direction: ltr;"><i class="icon-volume-up" style="font-size: 17px;"></i></div>
                                 <div class="pull-left col-lg-9" style="direction: ltr;">
                                     <input type="text" value="" data-bind="attr:{'data-slider-id':'uiListenVolume_'+uniqueID() + 'slider', id:'uiListenVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
@@ -1139,7 +1139,7 @@
                                 </div>
                             </div>
 
-                           
+
                         </div>
                     </div>
                 </div>
@@ -1157,7 +1157,7 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                             <h4>حجب عضو</h4>
-                            <div class="form-group" style="display:none">
+                            <div class="form-group" style="display: none">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إسم العضو</label>
                                 </div>
@@ -1171,7 +1171,7 @@
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <!-- ko foreach: BanningTypes -->
-                                    <label >
+                                    <label>
                                         <input type="radio" name="banMember" data-bind="value:ID, checked:$parent.bannedType,checkedValue: ID" />
                                         <span data-bind="text:Name"></span>
                                     </label>
@@ -1203,6 +1203,7 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                             <h4>لوحة تحكم المشرف</h4>
+
                             <div class="">
                                 <!-- ko foreach: BanningTypes -->
                                 <div style="float: right; width: 190px; background-color: #EEEEEE; padding: 10px; margin-left: 10px;">
@@ -1210,10 +1211,10 @@
                                     <br>
                                     <select style="width: 100%; height: 100px;" multiple="multiple" data-bind="foreach: $parent.BannedMembers,attr{id:'selectBanType_'+$parent.uniqueID()+'_'+ID()}">
                                         <!-- ko if: $parent.ID() == BanType() -->
-                                            <option data-bind="text:MemberName,value:MemberID"></option>
+                                        <option data-bind="text:MemberName,value:MemberID"></option>
                                         <!-- /ko -->
                                     </select>
-                                    
+
                                     <br>
                                     <a class="style2" href="" data-bind="{click:$parent.removeSelectedBannedType.bind($data,'selectBanType_'+$parent.uniqueID()+'_'+ID())}">حذف الجميع</a>
                                     <a class="style2" href="" data-bind="{click:$parent.removeSelectedBannedType.bind($data,'selectBanType_'+$parent.uniqueID()+'_'+ID()+' :selected')}">حذف شخص</a>
@@ -1222,19 +1223,35 @@
                                 <div class="clearfix"></div>
                                 <h4>إضافة عضو للقوائم</h4>
                                 <label class="mini">إسم العضو</label>
-                                <select data-bind="options: NotBannedMembers, optionsText: 'MemberName',value: bannedMember"></select>
+                                <select style="display: none;" data-bind="options: NotBannedMembers, optionsText: 'MemberName',value: bannedMember"></select>
+                                <input type="text" data-bind="value:BanMemberName,attr{id:'txtBanMemberName_'+uniqueID()}" style="width: 180px;" maxlength="20" />
                                 <!-- ko foreach: BanningTypes -->
                                 <label style="min-width: 120px !important;">
                                     <input type="radio" name="banMember" data-bind="value:ID, checked:$parent.bannedType,checkedValue: ID" />
                                     <span data-bind="text:Name"></span>
                                 </label>
                                 <!-- /ko -->
-                                <input type="button" id="btnBanNewMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveBanMember" />
+                                <input type="button" id="btnBanNewMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:banMemberByName" />
                                 <div class="clearfix"></div>
                                 <h4>توبيك الغرفة</h4>
-                                <input type="text" data-bind="value:RoomTopic" style="width:200px">
+                                <input type="text" data-bind="value:RoomTopic" style="width: 400px" size="140" placeholder="140 حرف">
                                 <input type="button" id="btnSaveRoomTopic" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveRoomTopic" />
                                 <div class="clearfix"></div>
+                                <br />
+                                <input type="button" id="btnCloseRoom" value="إغلاق الغرفة" class="btn btn-warning" style="width: 100px;" data-bind="click:closeRoom" />
+                                <div style="padding: 5px;" class="pull-left col-lg-2">
+                                    <div>
+                                        <a target="_blank" id="uiHyperLinkFb">
+                                            <img src="images/facebook.png"></a>
+                                        &nbsp;&nbsp;
+                    <a target="_blank" id="uiHyperLinktwitter">
+                        <img src="images/twitter.png"></a>
+                                        &nbsp;&nbsp;
+                    <a target="_blank" id="uiHyperLinkyt">
+                        <img src="images/youtube.png"></a>
+                                    </div>
+                                </div>
+                                <br />
                             </div>
 
                         </div>
@@ -1348,7 +1365,7 @@
                                     <a style="cursor: pointer;" class="btn btn-default" data-bind="click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
                                 </div>
                             </div>
-                            <div style="height:1px;background-color:#ccc;clear:both;width:80%;margin:5px auto;"></div>
+                            <div style="height: 1px; background-color: #ccc; clear: both; width: 80%; margin: 5px auto;"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     أضف صورة
@@ -1367,7 +1384,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="height:1px;background-color:#ccc;clear:both;width:80%;margin:5px auto;"></div>
+                            <div style="height: 1px; background-color: #ccc; clear: both; width: 80%; margin: 5px auto;"></div>
 
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
@@ -1376,7 +1393,7 @@
                                 <div class="col-sm-7 pull-right">
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
-                                        <param value="always" name="allowScriptAccess">                                        
+                                        <param value="always" name="allowScriptAccess">
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ CurrentMemberSettings.MemberID()+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
