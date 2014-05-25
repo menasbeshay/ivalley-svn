@@ -55,10 +55,10 @@
         <asp:Repeater ID="uiRepeaterProducts" runat="server">
         
             <ItemTemplate>
-                <div style="float: left; width: 22%; padding: 5px; margin: 5px;" >
-                    <a href='<%# Eval("PicPath") %>' class="butt"
+                <div style="float: left; width: 32%; height:308px;padding: 5px; border:1px solid yellow;background-color:#fff;text-align:center;" >
+                    <a href='<%# Eval("PicPath") %>' style="text-align:center;color:#000;"
                         rel="lightbox[products]" title='<%# Eval("Description") %>' alt='<%# Eval("Description") %>'>
-                        <img src='Images.aspx?Inner=product&Image=<%# Eval("thumbs") %>' />
+                        <img src='Images.aspx?Inner=product&Image=<%# Eval("PicPath") %>' />
                         <br />
                         <%# Eval("ProductName") %></a>
                         <div class="clear"></div>
@@ -71,10 +71,7 @@
                         </div>
                         <div class="clear"></div>
                 </div>
-            </ItemTemplate>
-            <SeparatorTemplate>
-            <%# (Container.ItemIndex + 1) % 4 == 0 ? "<div class='clear5'></div>" : "" %>
-            </SeparatorTemplate>
+            </ItemTemplate>           
         </asp:Repeater>
 
         <asp:Panel ID="uiPanelPaging" runat="server" Style="text-align: center" CssClass="tittle_kreem">

@@ -39,14 +39,15 @@ namespace WebApplication
                 }
                 else
                 {
-                    uiPanelProducts.Visible = false;
+                   /* uiPanelProducts.Visible = false;
                     uiPanelCats.Visible = true;
 
                     DBLayer db = new DBLayer();
                     DataSet ds = new DataSet();
                     ds = db.GetAllCats();
                     uiRepeaterCats.DataSource = ds;
-                    uiRepeaterCats.DataBind();
+                    uiRepeaterCats.DataBind();*/
+                    Response.Redirect("products.aspx?cid=1");
 
                 }
 
