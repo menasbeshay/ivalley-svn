@@ -294,7 +294,10 @@ function animateMenu(obj)
 function sendvideo(rid, url,sender, input)
 {
     input.val('');
-    rHub.server.sendVideoToRoom(rid, sender, url);
+    if (url != '')
+        rHub.server.sendVideoToRoom(rid, sender, url);
+    else
+        return false;
 }
 
 function SaveConversation(rid) {

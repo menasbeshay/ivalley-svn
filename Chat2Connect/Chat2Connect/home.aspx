@@ -1121,7 +1121,7 @@
                             </div>
                              <div class="pull-right btn-group" data-toggle="buttons" style="margin-right: 3px;">
                                 <div class="btn btn-default">
-                                <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}">×<i class="icon-volume-off" style="font-size: 17px;"></i> 
+                                <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}" ><a data-bind="click:$parent.MuteRoom.bind($data)" style="text-decoration:none;">×<i class="icon-volume-off" style="font-size: 17px;"></i> </a>
                                 </div>
                             </div>
 
@@ -1343,10 +1343,12 @@
                                     <label>مقطع فيديو</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}"><a style="cursor: pointer;" class="btn btn-default" data-bind="    click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
+                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}">
+                                    <div class="clear" style="height: 5px;"></div>
+                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
                                 </div>
                             </div>
-                            <hr style="width:50%"/>
+                            <div style="height:1px;background-color:#ccc;clear:both;width:80%;margin:5px auto;"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     أضف صورة
@@ -1357,12 +1359,15 @@
                                         <div data-bind="attr:{id:'UploadStatus_'+uniqueID()}">
                                         </div>
                                         <input type="button" class="UploadButton" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
+                                        <input type="hidden" data-bind="attr:{id:'UploadFileName_'+uniqueID()}" />
                                         <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
                                         </div>
+                                        <div class="clear" style="height: 5px;"></div>
+                                        <a style="cursor: pointer;" class="btn btn-default" data-bind="click:$parent.SendImage($data)">إرسال</a>
                                     </div>
                                 </div>
                             </div>
-                            <hr style="width:50%"/>
+                            <div style="height:1px;background-color:#ccc;clear:both;width:80%;margin:5px auto;"></div>
 
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">

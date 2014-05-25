@@ -280,6 +280,16 @@ function Chat(maxWin, memberID, memberName) {
         // attach
         this.ShowAttachFiles = function () {
             $("#attachModal_" + self.uniqueID()).modal('show');
+
+            // clear fields & init hiddenfields
+            var hiddenfield = $('#UploadFileName_' + self.uniqueID());            
+            hiddenfield.val('');
+            $('#UploadFileName_' + self.uniqueID()).val('');
+            $('#UploadStatus_' + self.uniqueID()).html('');
+            $('#UploadButton_' + self.uniqueID()).show();
+            $('#uploadSendbtn_' + self.uniqueID()).hide();
+            $('#UploadedFile_' + self.uniqueID()).html('');
+            $('#videoURL_' + self.uniqueID()).val('');
         };
 
         
@@ -453,10 +463,12 @@ function Chat(maxWin, memberID, memberName) {
         new AjaxUpload('#UploadButton_' + window.uniqueID() , {
             action: '../services/FileUploader.ashx',
             onComplete: function (file, response) {
-                var div = '<div><img src="../images/btndelete.png" onclick="'+ "DeleteFile('" + response + "')\" class='delete'/>" + response + '</div>';
+                var div = '<div><img src="../images/btndelete.png" onclick="' + "DeleteFile(" + window.ID() + ",'" + response + "')\" class='delete' style='cursor:pointer;' title='حذف الصورة'/>" + response + '</div>';
                 $(div).appendTo('#UploadedFile_' + window.uniqueID());
+                $('#UploadFileName_' + window.uniqueID()).val(response);
                 $('#UploadStatus_' + window.uniqueID()).html('تم رفع الصورة بنجاح');
                 $('#UploadButton_' + window.uniqueID()).hide();
+                $('#uploadSendbtn_' + window.uniqueID()).show();
             },
             onSubmit: function (file, ext) {
                 if (!(ext && /^(png|gif|jpg)$/i.test(ext))) {
@@ -620,7 +632,7 @@ function Chat(maxWin, memberID, memberName) {
     }
 
     self.MuteRoom = function (window) {
-        if ($('#mute_'+window.uniqueID()).attr('checked')) {
+        if ($('#mute_' + window.uniqueID()).parent.hasClass('active')) {
             self.setListenVolume(window, 0);
         }
         else {
@@ -632,6 +644,25 @@ function Chat(maxWin, memberID, memberName) {
     // set the recording volume (volume value is from 0 to 1)
     self.setMicVolume = function setMicVolume(window, volume) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setMicVolume(volume / 10.0);
+    }
+
+    self.SendImage = function (window)
+    {
+        if (window == null)
+            return;
+        var hiddenfield = $('#UploadFileName_' + window.uniqueID());
+        if (hiddenfield.val() != '') {
+            var imageDiv = "<img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:150px;'/>";
+
+            rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, imageDiv);
+        }
+        hiddenfield.val('');
+        $('#UploadFileName_' + window.uniqueID()).val('');
+        $('#UploadStatus_' + window.uniqueID()).html('');
+        $('#UploadButton_' + window.uniqueID()).show();
+        $('#uploadSendbtn_' + window.uniqueID()).hide();
+        $('#UploadedFile_' + window.uniqueID()).html('');
+        $("#attachModal_" + window.uniqueID()).modal('hide');
     }
     
 }
@@ -653,6 +684,26 @@ function onMicRecordSaveSuccess(fileName) {
         return;
     rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, audioDiv);
     $("#attachModal_" + window.uniqueID()).modal('hide');
+
+}
+
+function DeleteFile(roomid, file) {
+    
+    $('#UploadStatus_Room_' + roomid).html('جارى الحذف...');
+    $.ajax({
+        url: 'services/FileUploader.ashx?file=' + file,
+        type: 'GET',
+        cache: false,
+        async: true,
+        success: function (html) {
+            $('#UploadedFile_Room_' + roomid).html('');
+            $('#UploadStatus_Room_' + roomid).html('تم حذف الملف');
+            $('#UploadButton_Room_' + roomid).show();
+            $('#uploadSendbtn_Room_' + roomid).hide();
+            $('#UploadFileName_Room_' + roomid).val('');
+
+        }
+    });
 
 }
 
