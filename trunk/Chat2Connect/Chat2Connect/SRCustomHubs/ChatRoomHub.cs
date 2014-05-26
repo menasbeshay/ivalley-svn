@@ -21,7 +21,7 @@ namespace Chat2Connect.SRCustomHubs
         public override Task OnConnected()
         {
             Member m = BLL.Member.CurrentMember;
-            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID,ProfilePic=m.ProfilePic,MemberTypeSpecID=m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
+            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID,ProfilePic=m.ProfilePic,MemberTypeSpecID=m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
 
             return base.OnConnected();
         }
