@@ -173,11 +173,12 @@ function Chat(maxWin, memberID, memberName) {
         }, this);
         this.bannedMember = ko.observable();
         this.bannedType = ko.observable();
-        this.BanMemberName = ko.observable();
+        this.BanMemberName = ko.observable("");
         this.banMemberByName=function()
         {
+            var name = $("#txtBanMemberName_" + self.uniqueID()).val();
             var member= ko.utils.arrayFirst(self.NotBannedMembers(), function (mem) {
-                return mem.MemberName() == self.BanMemberName();
+                return mem.MemberName() == name;
             });
             if (member == null)
                 return;
