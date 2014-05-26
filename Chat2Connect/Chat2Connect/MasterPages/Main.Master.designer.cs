@@ -112,6 +112,15 @@ namespace Chat2Connect.MasterPages {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxStatus;
         
         /// <summary>
+        /// uiLinkButtonLock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonLock;
+        
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>

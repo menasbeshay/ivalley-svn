@@ -40,7 +40,8 @@ namespace Chat2Connect
                 room.AddNew();
                 
                 room.EnableCam = true;
-                room.EnableOneMic = true;                
+                room.EnableOneMic = true;
+                room.RowStatusID = 1;
                 room.Save();
 
                 room.Name = room.RoomID.ToString();

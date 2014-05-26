@@ -253,7 +253,7 @@
                 </div>
                 <div style="color: #FEC200">
                     <i class="icon icon-off" style="font-size: 25px;"></i>
-                    <a href="../lock.aspx" style="color: #FEC200">سكون</a>
+                    <asp:LinkButton ID="uiLinkButtonLock" runat="server" style="color: #FEC200">سكون</asp:LinkButton>                    
                 </div>
             </div>
         </header>
