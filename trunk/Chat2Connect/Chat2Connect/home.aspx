@@ -361,7 +361,7 @@
                                         <div class="popup-menu profileMenu">
                                             <div class="col-lg-3 pull-right">
                                                 <div class=" thumbnail">
-                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                    <img data-bind="attr:{'src':ProfileImg}" />
                                                 </div>
                                                 <div class="clearfix" style="height: 1px;">
                                                 </div>
@@ -424,7 +424,7 @@
                                         <div class="popup-menu profileMenu">
                                             <div class="col-lg-3 pull-right">
                                                 <div class=" thumbnail">
-                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                    <img data-bind="attr:{'src':ProfileImg}" />
                                                 </div>
                                                 <div class="clearfix" style="height: 1px;">
                                                 </div>
@@ -489,7 +489,7 @@
                                         <div class="popup-menu profileMenu">
                                             <div class="col-lg-3 pull-right">
                                                 <div class=" thumbnail">
-                                                    <img data-bind="attr:{'src':$parent.ProfilePic}" />
+                                                    <img data-bind="attr:{'src':ProfileImg}" />
                                                 </div>
                                                 <div class="clearfix" style="height: 1px;">
                                                 </div>

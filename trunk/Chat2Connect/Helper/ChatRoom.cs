@@ -75,6 +75,8 @@ namespace Helper
         public bool IsMicOpened { get; set; }
 
         public bool IsAdmin { get; set; }
+
+        public string ProfileImg { get; set; }
     }
 
     public class RoomSettings

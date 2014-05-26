@@ -636,8 +636,8 @@ namespace Chat2Connect.services
             members.GetAllMembersByRoomIDNoQueue(id);
             RoomMember InQueueMembers = new RoomMember();
             InQueueMembers.GetAllMembersByRoomIDInQueue(id);
-            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"] }).ToList();
-            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["Name"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"] }).ToList();
+            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
+            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
 
             Allmembers.LoadAllRoomMembersWithSettings(id);
             roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanType = GetBanType(m["StartDate"],m["EndDate"]) }).ToList();
