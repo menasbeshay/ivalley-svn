@@ -13,31 +13,22 @@ namespace Pricing_GUI {
     public partial class New_Request {
         
         /// <summary>
-        /// lblPageTitle control.
+        /// tab_MainData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPageTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tab_MainData;
         
         /// <summary>
-        /// ui_TabContainerSearch control.
+        /// tab_Generics control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabContainer ui_TabContainerSearch;
-        
-        /// <summary>
-        /// ui_MainData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel ui_MainData;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tab_Generics;
         
         /// <summary>
         /// Label1 control.
@@ -490,15 +481,6 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.Button ui_btn_Click;
         
         /// <summary>
-        /// ui_TabGenericInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel ui_TabGenericInfo;
-        
-        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -506,24 +488,6 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// pnlDrag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDrag;
-        
-        /// <summary>
-        /// uilblTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uilblTitle;
         
         /// <summary>
         /// Label13 control.
