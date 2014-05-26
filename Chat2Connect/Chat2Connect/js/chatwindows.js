@@ -231,6 +231,10 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             rHub.server.updateRoomTopic(window.ID(), window.RoomTopic());
         }
+        this.updateSocialLinks = function () {
+            var window = this;
+            rHub.server.updateSocialLinks(window.ID(),window.fbURL(),window.tURL(),window.utURL() );
+        };
         // invite friends
         this.ShowInviteFriends = function () {
             $("#inviteModal_" + self.uniqueID()).modal('show');
@@ -895,6 +899,15 @@ function InitChat(maxWinRooms, memberID, memberName) {
         notify('error', 'تم غلق الغرفة '+window.Name()+' من قبل الأدمن '+adminName);
         chatVM.windows.remove(window);
         $('.nav-tabs a:last').tab('show');
+    }
+    rHub.client.updateSocialLinks = function (roomID, fbURL,tURL,utURL) {
+        var type = "Room";
+        var window = chatVM.getWindow(roomID, type);
+        if (window == null)
+            return;
+        window.fbURL(fbURL);
+        window.tURL(tURL);
+        window.utURL(utURL);
     }
     rHub.client.ListenMic = function (memberid, rid) {
         /* var fn = window[listenmic];

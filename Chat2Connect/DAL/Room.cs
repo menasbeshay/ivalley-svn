@@ -267,6 +267,30 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter FbURL
+			{
+				get
+				{
+					return new SqlParameter("@FbURL", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter TURL
+			{
+				get
+				{
+					return new SqlParameter("@TURL", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter UtURL
+			{
+				get
+				{
+					return new SqlParameter("@UtURL", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 			public static SqlParameter RoomTopic
 			{
 				get
@@ -302,6 +326,9 @@ namespace DAL
             public const string RoomAdminPassword = "RoomAdminPassword";
             public const string RowStatusID = "RowStatusID";
             public const string OpenCams = "OpenCams";
+            public const string FbURL = "fbURL";
+            public const string TURL = "tURL";
+            public const string UtURL = "utURL";
             public const string RoomTopic = "RoomTopic";
 
 			static public string ToPropertyName(string columnName)
@@ -331,6 +358,9 @@ namespace DAL
 					ht[RoomAdminPassword] = _Room.PropertyNames.RoomAdminPassword;
 					ht[RowStatusID] = _Room.PropertyNames.RowStatusID;
 					ht[OpenCams] = _Room.PropertyNames.OpenCams;
+					ht[FbURL] = _Room.PropertyNames.FbURL;
+					ht[TURL] = _Room.PropertyNames.TURL;
+					ht[UtURL] = _Room.PropertyNames.UtURL;
 					ht[RoomTopic] = _Room.PropertyNames.RoomTopic;
 
 				}
@@ -365,6 +395,9 @@ namespace DAL
             public const string RoomAdminPassword = "RoomAdminPassword";
             public const string RowStatusID = "RowStatusID";
             public const string OpenCams = "OpenCams";
+            public const string FbURL = "FbURL";
+            public const string TURL = "TURL";
+            public const string UtURL = "UtURL";
             public const string RoomTopic = "RoomTopic";
 
 			static public string ToColumnName(string propertyName)
@@ -394,6 +427,9 @@ namespace DAL
 					ht[RoomAdminPassword] = _Room.ColumnNames.RoomAdminPassword;
 					ht[RowStatusID] = _Room.ColumnNames.RowStatusID;
 					ht[OpenCams] = _Room.ColumnNames.OpenCams;
+					ht[FbURL] = _Room.ColumnNames.FbURL;
+					ht[TURL] = _Room.ColumnNames.TURL;
+					ht[UtURL] = _Room.ColumnNames.UtURL;
 					ht[RoomTopic] = _Room.ColumnNames.RoomTopic;
 
 				}
@@ -428,6 +464,9 @@ namespace DAL
             public const string RoomAdminPassword = "s_RoomAdminPassword";
             public const string RowStatusID = "s_RowStatusID";
             public const string OpenCams = "s_OpenCams";
+            public const string FbURL = "s_FbURL";
+            public const string TURL = "s_TURL";
+            public const string UtURL = "s_UtURL";
             public const string RoomTopic = "s_RoomTopic";
 
 		}
@@ -684,6 +723,42 @@ namespace DAL
 			set
 	        {
 				base.Setshort(ColumnNames.OpenCams, value);
+			}
+		}
+
+		public virtual string FbURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FbURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FbURL, value);
+			}
+		}
+
+		public virtual string TURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TURL, value);
+			}
+		}
+
+		public virtual string UtURL
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.UtURL);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.UtURL, value);
 			}
 		}
 
@@ -1019,6 +1094,51 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_FbURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FbURL) ? string.Empty : base.GetstringAsString(ColumnNames.FbURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FbURL);
+				else
+					this.FbURL = base.SetstringAsString(ColumnNames.FbURL, value);
+			}
+		}
+
+		public virtual string s_TURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TURL) ? string.Empty : base.GetstringAsString(ColumnNames.TURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TURL);
+				else
+					this.TURL = base.SetstringAsString(ColumnNames.TURL, value);
+			}
+		}
+
+		public virtual string s_UtURL
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.UtURL) ? string.Empty : base.GetstringAsString(ColumnNames.UtURL);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.UtURL);
+				else
+					this.UtURL = base.SetstringAsString(ColumnNames.UtURL, value);
+			}
+		}
+
 		public virtual string s_RoomTopic
 	    {
 			get
@@ -1272,6 +1392,36 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.OpenCams, Parameters.OpenCams);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FbURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FbURL, Parameters.FbURL);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TURL, Parameters.TURL);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter UtURL
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.UtURL, Parameters.UtURL);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1544,6 +1694,42 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter FbURL
+		    {
+				get
+		        {
+					if(_FbURL_W == null)
+	        	    {
+						_FbURL_W = TearOff.FbURL;
+					}
+					return _FbURL_W;
+				}
+			}
+
+			public WhereParameter TURL
+		    {
+				get
+		        {
+					if(_TURL_W == null)
+	        	    {
+						_TURL_W = TearOff.TURL;
+					}
+					return _TURL_W;
+				}
+			}
+
+			public WhereParameter UtURL
+		    {
+				get
+		        {
+					if(_UtURL_W == null)
+	        	    {
+						_UtURL_W = TearOff.UtURL;
+					}
+					return _UtURL_W;
+				}
+			}
+
 			public WhereParameter RoomTopic
 		    {
 				get
@@ -1577,6 +1763,9 @@ namespace DAL
 			private WhereParameter _RoomAdminPassword_W = null;
 			private WhereParameter _RowStatusID_W = null;
 			private WhereParameter _OpenCams_W = null;
+			private WhereParameter _FbURL_W = null;
+			private WhereParameter _TURL_W = null;
+			private WhereParameter _UtURL_W = null;
 			private WhereParameter _RoomTopic_W = null;
 
 			public void WhereClauseReset()
@@ -1602,6 +1791,9 @@ namespace DAL
 				_RoomAdminPassword_W = null;
 				_RowStatusID_W = null;
 				_OpenCams_W = null;
+				_FbURL_W = null;
+				_TURL_W = null;
+				_UtURL_W = null;
 				_RoomTopic_W = null;
 
 				this._entity.Query.FlushWhereParameters();
@@ -1864,6 +2056,36 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OpenCams, Parameters.OpenCams);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FbURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FbURL, Parameters.FbURL);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TURL, Parameters.TURL);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter UtURL
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UtURL, Parameters.UtURL);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2136,6 +2358,42 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter FbURL
+		    {
+				get
+		        {
+					if(_FbURL_W == null)
+	        	    {
+						_FbURL_W = TearOff.FbURL;
+					}
+					return _FbURL_W;
+				}
+			}
+
+			public AggregateParameter TURL
+		    {
+				get
+		        {
+					if(_TURL_W == null)
+	        	    {
+						_TURL_W = TearOff.TURL;
+					}
+					return _TURL_W;
+				}
+			}
+
+			public AggregateParameter UtURL
+		    {
+				get
+		        {
+					if(_UtURL_W == null)
+	        	    {
+						_UtURL_W = TearOff.UtURL;
+					}
+					return _UtURL_W;
+				}
+			}
+
 			public AggregateParameter RoomTopic
 		    {
 				get
@@ -2169,6 +2427,9 @@ namespace DAL
 			private AggregateParameter _RoomAdminPassword_W = null;
 			private AggregateParameter _RowStatusID_W = null;
 			private AggregateParameter _OpenCams_W = null;
+			private AggregateParameter _FbURL_W = null;
+			private AggregateParameter _TURL_W = null;
+			private AggregateParameter _UtURL_W = null;
 			private AggregateParameter _RoomTopic_W = null;
 
 			public void AggregateClauseReset()
@@ -2194,6 +2455,9 @@ namespace DAL
 				_RoomAdminPassword_W = null;
 				_RowStatusID_W = null;
 				_OpenCams_W = null;
+				_FbURL_W = null;
+				_TURL_W = null;
+				_UtURL_W = null;
 				_RoomTopic_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
@@ -2351,6 +2615,18 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.OpenCams);
 			p.SourceColumn = ColumnNames.OpenCams;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FbURL);
+			p.SourceColumn = ColumnNames.FbURL;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TURL);
+			p.SourceColumn = ColumnNames.TURL;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.UtURL);
+			p.SourceColumn = ColumnNames.UtURL;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.RoomTopic);
