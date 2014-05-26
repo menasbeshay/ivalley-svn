@@ -34,8 +34,10 @@
         
         <div class="col-lg-12 pull-right" style="background-color:#FEC200;height:210px;color:#595858;padding:95px 10px;border-top:5px solid #fff;text-align:center;">
             <div style="width:60%;margin:0 auto;">
-            <asp:TextBox ID="uiTextBoxPassword" runat="server" placeholder="كلمة المرور" CssClass="form-control pull-right" style="width:80%;"></asp:TextBox>
-            <button  class="btn pull-right" style="margin-right:-1px;"><i class=" icon-arrow-left"></i></button>
+                <asp:Panel ID="Panel1" runat="server" DefaultButton="uiLinkButtonLogin">
+            <asp:TextBox ID="uiTextBoxPassword" runat="server" placeholder="كلمة المرور" CssClass="form-control pull-right" style="width:80%;" TextMode="Password"></asp:TextBox>
+            <asp:LinkButton ID="uiLinkButtonLogin" runat="server" CssClass="btn btn-default pull-right" style="margin-right:-1px;" OnClick="uiLinkButtonLogin_Click"><i class=" icon-arrow-left"></i></asp:LinkButton>            
+                    </asp:Panel>
             <div class="clear"></div>    
             </div>
             <div class="clear"></div>

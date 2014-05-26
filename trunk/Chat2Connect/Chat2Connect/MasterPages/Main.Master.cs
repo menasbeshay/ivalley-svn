@@ -51,6 +51,7 @@ namespace Chat2Connect.MasterPages
             if (!user.IsColumnNull("ProfilePic"))
                 uiImageUser.ImageUrl = user.ProfilePic;
             uiLabelName.Text = Membership.GetUser().UserName;
+            uiLinkButtonLock.PostBackUrl = "../lock.aspx?u=" + Membership.GetUser().UserName;
             uiTextBoxStatus.Text = user.StatusMsg;
             uiHiddenFieldClientID.Value = user.MemberID.ToString();
             Session["Activate_session"] = 1;

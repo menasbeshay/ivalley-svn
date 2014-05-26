@@ -747,7 +747,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
     /****** signalR ********/
     function addMsgToWindow(window, msg, css) {
-        msg = "<br><div class='pull-left " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div>";
+        msg = "<div class='pull-left " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(window.MessageHistory() + msg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
