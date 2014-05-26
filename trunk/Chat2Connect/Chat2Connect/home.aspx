@@ -314,7 +314,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -330,7 +330,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + CurrentMemberSettings.MemberID() +'&amp;userId='+CurrentMemberSettings.MemberID()+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -1119,10 +1119,8 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
-                            <div class="pull-right btn-group" data-toggle="buttons" style="margin-right: 3px;">
-                                <div class="btn btn-default">
-                                    <input type="checkbox" data-bind="attr:{id:'mute_'+uniqueID()}"><a data-bind="    click:$parent.MuteRoom.bind($data)" style="text-decoration: none;">×<i class="icon-volume-off" style="font-size: 17px;"></i> </a>
-                                </div>
+                            <div class="pull-right btn-group" style="margin-right: 3px;" data-toggle="buttons-checkbox">                                
+                                    <button class="btn btn-default" data-bind="attr:{id:'mute_'+uniqueID()}, click:$parent.MuteRoom.bind($data)" data-mute='false'>×<i class="icon-volume-off" style="font-size: 17px;"></i></button>                                
                             </div>
 
                             <div class="pull-left col-lg-3" style="direction: ltr; padding-left: 0px; width: 22%;">
