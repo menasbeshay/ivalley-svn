@@ -278,13 +278,13 @@
                     <!-- /ko -->
                     <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
-                            <a target="_blank" id="uiHyperLinkFb">
+                            <a data-bind="attr{href:fbURL}" target="_blank" id="uiHyperLinkFb">
                                 <img src="images/facebook.png"></a>
                             &nbsp;&nbsp;
-                    <a target="_blank" id="uiHyperLinktwitter">
+                    <a data-bind="attr{href:tURL}" target="_blank" id="uiHyperLinktwitter">
                         <img src="images/twitter.png"></a>
                             &nbsp;&nbsp;
-                    <a target="_blank" id="uiHyperLinkyt">
+                    <a data-bind="attr{href:utURL}" target="_blank" id="uiHyperLinkyt">
                         <img src="images/youtube.png"></a>
                         </div>
                     </div>
@@ -1222,7 +1222,7 @@
                                 <h4>إضافة عضو للقوائم</h4>
                                 <label class="mini">إسم العضو</label>
                                 <select style="display: none;" data-bind="options: NotBannedMembers, optionsText: 'MemberName',value: bannedMember"></select>
-                                <input type="text" data-bind="value:BanMemberName,attr{id:'txtBanMemberName_'+uniqueID()}" style="width: 180px;" maxlength="20" />
+                                <input type="text" data-bind="value:BanMemberName,attr{id:'txtBanMemberName_'+uniqueID()}" style="width: 120px;" maxlength="20" />
                                 <!-- ko foreach: BanningTypes -->
                                 <label style="min-width: 120px !important;">
                                     <input type="radio" name="banMember" data-bind="value:ID, checked:$parent.bannedType,checkedValue: ID" />
@@ -1235,21 +1235,20 @@
                                 <input type="text" data-bind="value:RoomTopic" style="width: 400px" size="140" placeholder="140 حرف">
                                 <input type="button" id="btnSaveRoomTopic" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveRoomTopic" />
                                 <div class="clearfix"></div>
+                                <h4>شبكات التواصل</h4>
+                                <lablel class="col-lg-2 pull-right">فيسبوك</lablel>
+                                <input type="text" data-bind="value:fbURL" style="width: 400px"/>
+                                <div class="clearfix"></div>
+                                <lablel class="col-lg-2 pull-right">تويتر</lablel>
+                                <input type="text" data-bind="value:tURL" style="width: 400px"/>
+                                <div class="clearfix"></div>
+                                <lablel class="col-lg-2 pull-right">يوتيوب</lablel>
+                                <input type="text" data-bind="value:utURL" style="width: 400px"/>
+                                <input type="button" id="btnupdateSocialLinks" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:updateSocialLinks" />
+                                <br />
                                 <br />
                                 <input type="button" id="btnCloseRoom" value="إغلاق الغرفة" class="btn btn-warning" style="width: 100px;" data-bind="click:closeRoom" />
-                                <div style="padding: 5px;" class="pull-left col-lg-2">
-                                    <div>
-                                        <a target="_blank" id="uiHyperLinkFb">
-                                            <img src="images/facebook.png"></a>
-                                        &nbsp;&nbsp;
-                    <a target="_blank" id="uiHyperLinktwitter">
-                        <img src="images/twitter.png"></a>
-                                        &nbsp;&nbsp;
-                    <a target="_blank" id="uiHyperLinkyt">
-                        <img src="images/youtube.png"></a>
-                                    </div>
-                                </div>
-                                <br />
+                                
                             </div>
 
                         </div>

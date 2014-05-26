@@ -557,6 +557,9 @@ namespace Chat2Connect.services
 
             roomObject.Name = rooms.Name;
             roomObject.RoomTopic = rooms.RoomTopic;
+            roomObject.fbURL = rooms.FbURL;
+            roomObject.tURL = rooms.TURL;
+            roomObject.utURL = rooms.UtURL;
 
             if (!rooms.IsColumnNull("OpenCams"))
                 roomObject.OpenCams = rooms.OpenCams;

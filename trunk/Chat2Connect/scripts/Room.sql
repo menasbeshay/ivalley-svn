@@ -1,5 +1,9 @@
 
-/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:51 PM ******/
+ALTER TABLE Room ADD fbURL nvarchar(500),tURL nvarchar(500), utURL nvarchar(500)
+GO
+
+
+/****** Object:  StoredProcedure [proc_RoomLoadByPrimaryKey]    Script Date: 26/5/2014 2:03:00 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadByPrimaryKey];
 GO
@@ -19,7 +23,6 @@ BEGIN
 		[SubCategoryID],
 		[Name],
 		[IconPath],
-		[RoomTypeID],
 		[CreatedDate],
 		[WelcomeText],
 		[RoomPassword],
@@ -35,7 +38,11 @@ BEGIN
 		[EnableThreeMic],
 		[RoomAdminPassword],
 		[RowStatusID],
-		[OpenCams]
+		[OpenCams],
+		[fbURL],
+		[tURL],
+		[utURL],
+		[RoomTopic]
 	FROM [Room]
 	WHERE
 		([RoomID] = @RoomID)
@@ -47,12 +54,7 @@ END
 GO
 
 
--- Display the status of Proc creation
-IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Succeeded'
-ELSE PRINT 'Procedure Creation: proc_RoomLoadByPrimaryKey Error on Creation'
-GO
-
-/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 5/8/2014 1:38:51 PM ******/
+/****** Object:  StoredProcedure [proc_RoomLoadAll]    Script Date: 26/5/2014 2:03:00 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomLoadAll];
 GO
@@ -70,7 +72,6 @@ BEGIN
 		[SubCategoryID],
 		[Name],
 		[IconPath],
-		[RoomTypeID],
 		[CreatedDate],
 		[WelcomeText],
 		[RoomPassword],
@@ -86,7 +87,11 @@ BEGIN
 		[EnableThreeMic],
 		[RoomAdminPassword],
 		[RowStatusID],
-		[OpenCams]
+		[OpenCams],
+		[fbURL],
+		[tURL],
+		[utURL],
+		[RoomTopic]
 	FROM [Room]
 
 	SET @Err = @@Error
@@ -96,12 +101,7 @@ END
 GO
 
 
--- Display the status of Proc creation
-IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomLoadAll Succeeded'
-ELSE PRINT 'Procedure Creation: proc_RoomLoadAll Error on Creation'
-GO
-
-/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 5/8/2014 1:38:51 PM ******/
+/****** Object:  StoredProcedure [proc_RoomUpdate]    Script Date: 26/5/2014 2:03:00 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomUpdate];
 GO
@@ -113,7 +113,6 @@ CREATE PROCEDURE [proc_RoomUpdate]
 	@SubCategoryID int = NULL,
 	@Name nvarchar(200) = NULL,
 	@IconPath nvarchar(200) = NULL,
-	@RoomTypeID int = NULL,
 	@CreatedDate datetime = NULL,
 	@WelcomeText nvarchar(MAX) = NULL,
 	@RoomPassword nvarchar(50) = NULL,
@@ -129,7 +128,11 @@ CREATE PROCEDURE [proc_RoomUpdate]
 	@EnableThreeMic bit = NULL,
 	@RoomAdminPassword nvarchar(50) = NULL,
 	@RowStatusID tinyint,
-	@OpenCams smallint = NULL
+	@OpenCams smallint = NULL,
+	@fbURL nvarchar(500) = NULL,
+	@tURL nvarchar(500) = NULL,
+	@utURL nvarchar(500) = NULL,
+	@RoomTopic nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -143,7 +146,6 @@ BEGIN
 		[SubCategoryID] = @SubCategoryID,
 		[Name] = @Name,
 		[IconPath] = @IconPath,
-		[RoomTypeID] = @RoomTypeID,
 		[CreatedDate] = @CreatedDate,
 		[WelcomeText] = @WelcomeText,
 		[RoomPassword] = @RoomPassword,
@@ -159,7 +161,11 @@ BEGIN
 		[EnableThreeMic] = @EnableThreeMic,
 		[RoomAdminPassword] = @RoomAdminPassword,
 		[RowStatusID] = @RowStatusID,
-		[OpenCams] = @OpenCams
+		[OpenCams] = @OpenCams,
+		[fbURL] = @fbURL,
+		[tURL] = @tURL,
+		[utURL] = @utURL,
+		[RoomTopic] = @RoomTopic
 	WHERE
 		[RoomID] = @RoomID
 
@@ -172,15 +178,9 @@ END
 GO
 
 
--- Display the status of Proc creation
-IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomUpdate Succeeded'
-ELSE PRINT 'Procedure Creation: proc_RoomUpdate Error on Creation'
-GO
 
 
-
-
-/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 5/8/2014 1:38:51 PM ******/
+/****** Object:  StoredProcedure [proc_RoomInsert]    Script Date: 26/5/2014 2:03:00 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomInsert];
 GO
@@ -192,7 +192,6 @@ CREATE PROCEDURE [proc_RoomInsert]
 	@SubCategoryID int = NULL,
 	@Name nvarchar(200) = NULL,
 	@IconPath nvarchar(200) = NULL,
-	@RoomTypeID int = NULL,
 	@CreatedDate datetime = NULL,
 	@WelcomeText nvarchar(MAX) = NULL,
 	@RoomPassword nvarchar(50) = NULL,
@@ -208,7 +207,11 @@ CREATE PROCEDURE [proc_RoomInsert]
 	@EnableThreeMic bit = NULL,
 	@RoomAdminPassword nvarchar(50) = NULL,
 	@RowStatusID tinyint,
-	@OpenCams smallint = NULL
+	@OpenCams smallint = NULL,
+	@fbURL nvarchar(500) = NULL,
+	@tURL nvarchar(500) = NULL,
+	@utURL nvarchar(500) = NULL,
+	@RoomTopic nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -223,7 +226,6 @@ BEGIN
 		[SubCategoryID],
 		[Name],
 		[IconPath],
-		[RoomTypeID],
 		[CreatedDate],
 		[WelcomeText],
 		[RoomPassword],
@@ -239,7 +241,11 @@ BEGIN
 		[EnableThreeMic],
 		[RoomAdminPassword],
 		[RowStatusID],
-		[OpenCams]
+		[OpenCams],
+		[fbURL],
+		[tURL],
+		[utURL],
+		[RoomTopic]
 	)
 	VALUES
 	(
@@ -247,7 +253,6 @@ BEGIN
 		@SubCategoryID,
 		@Name,
 		@IconPath,
-		@RoomTypeID,
 		@CreatedDate,
 		@WelcomeText,
 		@RoomPassword,
@@ -263,7 +268,11 @@ BEGIN
 		@EnableThreeMic,
 		@RoomAdminPassword,
 		@RowStatusID,
-		@OpenCams
+		@OpenCams,
+		@fbURL,
+		@tURL,
+		@utURL,
+		@RoomTopic
 	)
 
 	SET @Err = @@Error
@@ -275,12 +284,7 @@ END
 GO
 
 
--- Display the status of Proc creation
-IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomInsert Succeeded'
-ELSE PRINT 'Procedure Creation: proc_RoomInsert Error on Creation'
-GO
-
-/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 5/8/2014 1:38:51 PM ******/
+/****** Object:  StoredProcedure [proc_RoomDelete]    Script Date: 26/5/2014 2:03:00 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_RoomDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_RoomDelete];
 GO
@@ -305,8 +309,3 @@ BEGIN
 END
 GO
 
-
--- Display the status of Proc creation
-IF (@@Error = 0) PRINT 'Procedure Creation: proc_RoomDelete Succeeded'
-ELSE PRINT 'Procedure Creation: proc_RoomDelete Error on Creation'
-GO

@@ -61,6 +61,12 @@ namespace Helper
             get;
             set;
         }
+
+        public string fbURL { get; set; }
+
+        public string tURL { get; set; }
+
+        public string utURL { get; set; }
     }
 
     public class ChatMember

@@ -188,6 +188,24 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
+
+        public void updateSocialLinks(int roomID, string fbURL, string tURL, string utURL)
+        {
+            try
+            {
+                Room r = new Room();
+                if (r.LoadByPrimaryKey(roomID))
+                {
+                    r.FbURL = fbURL;
+                    r.TURL = tURL;
+                    r.UtURL = utURL;
+                    r.Save();
+
+                    Clients.Group(roomID.ToString()).updateSocialLinks(roomID, fbURL, tURL, utURL);
+                }
+            }
+            catch { }
+        }
         public void sendToRoom(int roomid, string sender, string msg)
         {
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
