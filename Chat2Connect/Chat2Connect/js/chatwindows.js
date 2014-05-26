@@ -87,6 +87,7 @@ function Chat(maxWin, memberID, memberName) {
             }
         };
 
+
         this.updateSetting = function (settingName) {
             var window = this;
             var newValue = !window.CurrentMemberSettings[settingName]();
@@ -457,7 +458,9 @@ function Chat(maxWin, memberID, memberName) {
 
         $('#uiListenVolume_' + window.uniqueID()).slider()
           .on('slide', function (ev) {
-              self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
+              // check if room is not muted
+              if ($('#mute_' + window.uniqueID()).attr('data-mute') == 'false')
+                self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
           });
         $('#uiMicVolume_' + window.uniqueID()).slider()
          .on('slide', function (ev) {
@@ -486,16 +489,19 @@ function Chat(maxWin, memberID, memberName) {
         });
 
         // popover menu for members
-        /*$('.roomMemberlink').each(function () {
+        $('.roomMemberlink').each(function () {
             var $this = $(this);
+            var popoverContent = $this.find('.friendSubMenu');
             $this.popover({
                 trigger: 'click',
                 placement: 'left',
                 html: true,
-                content: $this.find('.friendSubMenu').html(),
+                content: popoverContent,                    
                 container: '#' + window.uniqueID()
+            }).on('hidden.bs.popover', function () {
+                $this.append(popoverContent);
             });
-        });*/
+        });
 
         if(window.Type()=="Room" && window.CurrentMemberSettings.IsAdmin())
         {
@@ -645,11 +651,13 @@ function Chat(maxWin, memberID, memberName) {
     }
 
     self.MuteRoom = function (window) {
-        if ($('#mute_' + window.uniqueID()).parent.hasClass('active')) {
+        if ($('#mute_' + window.uniqueID()).attr('data-mute') == 'false') {
             self.setListenVolume(window, 0);
+            $('#mute_' + window.uniqueID()).attr('data-mute', 'true');
         }
         else {
             self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
+            $('#mute_' + window.uniqueID()).attr('data-mute', 'false');
         }
 
     }
