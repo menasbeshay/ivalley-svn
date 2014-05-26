@@ -61,14 +61,14 @@ namespace Pricing_GUI
             {
                 BindDropDownListsData();
                 ui_lblResult.Text = "";
-                ui_TabGenericInfo.Enabled = false;
+                tab_Generics.Visible = false;
                 Session["PopUpType"] = "AddNewGeneric";
                 ui_btnSave.Text = "Add Main Data";
                 RequiredFieldValidator10.Visible = true;
 
                 if (IsUpdateMode)
                 {
-                    ui_TabGenericInfo.Enabled = true;
+                    tab_Generics.Visible = true;
                     BindMainData();
                     LoadQuantityUnit();
                     LoadGeneric();
@@ -77,11 +77,30 @@ namespace Pricing_GUI
 
                     if (Request.QueryString["type"] == "new")
                     {
-                        ui_TabContainerSearch.ActiveTab = ui_TabGenericInfo;
+                        
+                        //ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#tab_1_2\"]').tab('show');  $('#myTab a[href=\"#tab_1_2\"]').addClass('active');  $('#myTab a[href=\"#tab_1_1\"]').removeClass('active'); });", true);
+                        
+
+                        //div_Generics.Attributes.Remove("class");
+                        //div_MainData.Attributes.Remove("cl    ass");
+                        //tab_Generics.Attributes.Add("class", "tab-pane active");
+                        //div_MainData.Attributes.Add("class", "tab-pane");
+
+                        //tab_MainData.Attributes.Remove("class");
+                        //tab_Generics.Attributes.Remove("class");
+                        //tab_Generics.Attributes.Add("class", "active");
                     }
                     else
                     {
-                        ui_TabContainerSearch.ActiveTab = ui_MainData;
+                       // ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#tab_1_1\"]').tab('show');  $('#myTab a[href=\"#tab_1_1\"]').addClass('active'); });", true);
+                        //div_Generics.Attributes.Remove("class");
+                        //div_MainData.Attributes.Remove("class");
+                        //div_MainData.Attributes.Add("class", "tab-pane active");
+                        //div_Generics.Attributes.Add("class", "tab-pane");
+
+                        //tab_Generics.Attributes.Remove("class");
+                        //tab_MainData.Attributes.Remove("class");
+                        //tab_MainData.Attributes.Add("class", "active");
                     }
 
                 }
@@ -220,7 +239,7 @@ namespace Pricing_GUI
                 ui_lblResult.ForeColor = System.Drawing.Color.Green;
                 ui_lblResult.Text = "The new record saved successfully";
 
-               // Response.Redirect("WebForm1.aspx?ID=" + objPricing.TradePricingID + "&type=new");
+                Response.Redirect("New_Request.aspx?ID=" + objPricing.TradePricingID + "&type=new#tab_1_2");
 
             }
             catch
