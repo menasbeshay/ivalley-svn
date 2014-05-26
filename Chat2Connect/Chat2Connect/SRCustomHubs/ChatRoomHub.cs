@@ -20,9 +20,8 @@ namespace Chat2Connect.SRCustomHubs
 
         public override Task OnConnected()
         {
-            Member m = new Member();
-            m.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID, Rooms = new List<int>() });
+            Member m = BLL.Member.CurrentMember;
+            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID,ProfilePic=m.ProfilePic,MemberTypeSpecID=m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
 
             return base.OnConnected();
         }
@@ -58,10 +57,7 @@ namespace Chat2Connect.SRCustomHubs
                 }
                 item.Rooms.Add(roomid);
                 
-                Member newMember = new Member();
-                newMember.LoadByPrimaryKey(item.MemberID);
-
-                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString(), 0);
+                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString(),item.MemberTypeSpecID,item.ProfilePic);
                 
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
@@ -69,7 +65,7 @@ namespace Chat2Connect.SRCustomHubs
                 // mark owner as admin if not marked
                 bool isadmin = false;
                 bool.TryParse(member.IsAdmin.ToString(), out isadmin);
-                if (room.CreatedBy == newMember.MemberID && !isadmin)
+                if (room.CreatedBy == item.MemberID && !isadmin)
                 {
                     member.IsAdmin = true;
                     member.Save();
