@@ -155,6 +155,14 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter AssignedUserID
+			{
+				get
+				{
+					return new SqlParameter("@AssignedUserID", SqlDbType.Int, 0);
+				}
+			}
+			
 			public static SqlParameter TradeName
 			{
 				get
@@ -272,6 +280,7 @@ namespace Pricing.DAL
             public const string DosageFormID = "DosageFormID";
             public const string FileTypeID = "FileTypeID";
             public const string ManufactureID = "ManufactureID";
+            public const string AssignedUserID = "AssignedUserID";
             public const string TradeName = "TradeName";
             public const string Generics = "Generics";
             public const string CompanyPrice = "CompanyPrice";
@@ -299,6 +308,7 @@ namespace Pricing.DAL
 					ht[DosageFormID] = _TradePricing.PropertyNames.DosageFormID;
 					ht[FileTypeID] = _TradePricing.PropertyNames.FileTypeID;
 					ht[ManufactureID] = _TradePricing.PropertyNames.ManufactureID;
+					ht[AssignedUserID] = _TradePricing.PropertyNames.AssignedUserID;
 					ht[TradeName] = _TradePricing.PropertyNames.TradeName;
 					ht[Generics] = _TradePricing.PropertyNames.Generics;
 					ht[CompanyPrice] = _TradePricing.PropertyNames.CompanyPrice;
@@ -331,6 +341,7 @@ namespace Pricing.DAL
             public const string DosageFormID = "DosageFormID";
             public const string FileTypeID = "FileTypeID";
             public const string ManufactureID = "ManufactureID";
+            public const string AssignedUserID = "AssignedUserID";
             public const string TradeName = "TradeName";
             public const string Generics = "Generics";
             public const string CompanyPrice = "CompanyPrice";
@@ -358,6 +369,7 @@ namespace Pricing.DAL
 					ht[DosageFormID] = _TradePricing.ColumnNames.DosageFormID;
 					ht[FileTypeID] = _TradePricing.ColumnNames.FileTypeID;
 					ht[ManufactureID] = _TradePricing.ColumnNames.ManufactureID;
+					ht[AssignedUserID] = _TradePricing.ColumnNames.AssignedUserID;
 					ht[TradeName] = _TradePricing.ColumnNames.TradeName;
 					ht[Generics] = _TradePricing.ColumnNames.Generics;
 					ht[CompanyPrice] = _TradePricing.ColumnNames.CompanyPrice;
@@ -390,6 +402,7 @@ namespace Pricing.DAL
             public const string DosageFormID = "s_DosageFormID";
             public const string FileTypeID = "s_FileTypeID";
             public const string ManufactureID = "s_ManufactureID";
+            public const string AssignedUserID = "s_AssignedUserID";
             public const string TradeName = "s_TradeName";
             public const string Generics = "s_Generics";
             public const string CompanyPrice = "s_CompanyPrice";
@@ -490,6 +503,18 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setint(ColumnNames.ManufactureID, value);
+			}
+		}
+
+		public virtual int AssignedUserID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.AssignedUserID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.AssignedUserID, value);
 			}
 		}
 
@@ -756,6 +781,21 @@ namespace Pricing.DAL
 					this.SetColumnNull(ColumnNames.ManufactureID);
 				else
 					this.ManufactureID = base.SetintAsString(ColumnNames.ManufactureID, value);
+			}
+		}
+
+		public virtual string s_AssignedUserID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.AssignedUserID) ? string.Empty : base.GetintAsString(ColumnNames.AssignedUserID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.AssignedUserID);
+				else
+					this.AssignedUserID = base.SetintAsString(ColumnNames.AssignedUserID, value);
 			}
 		}
 
@@ -1057,6 +1097,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public WhereParameter AssignedUserID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 				public WhereParameter TradeName
 				{
 					get
@@ -1276,6 +1326,18 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter AssignedUserID
+		    {
+				get
+		        {
+					if(_AssignedUserID_W == null)
+	        	    {
+						_AssignedUserID_W = TearOff.AssignedUserID;
+					}
+					return _AssignedUserID_W;
+				}
+			}
+
 			public WhereParameter TradeName
 		    {
 				get
@@ -1439,6 +1501,7 @@ namespace Pricing.DAL
 			private WhereParameter _DosageFormID_W = null;
 			private WhereParameter _FileTypeID_W = null;
 			private WhereParameter _ManufactureID_W = null;
+			private WhereParameter _AssignedUserID_W = null;
 			private WhereParameter _TradeName_W = null;
 			private WhereParameter _Generics_W = null;
 			private WhereParameter _CompanyPrice_W = null;
@@ -1462,6 +1525,7 @@ namespace Pricing.DAL
 				_DosageFormID_W = null;
 				_FileTypeID_W = null;
 				_ManufactureID_W = null;
+				_AssignedUserID_W = null;
 				_TradeName_W = null;
 				_Generics_W = null;
 				_CompanyPrice_W = null;
@@ -1596,6 +1660,16 @@ namespace Pricing.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ManufactureID, Parameters.ManufactureID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter AssignedUserID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1820,6 +1894,18 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter AssignedUserID
+		    {
+				get
+		        {
+					if(_AssignedUserID_W == null)
+	        	    {
+						_AssignedUserID_W = TearOff.AssignedUserID;
+					}
+					return _AssignedUserID_W;
+				}
+			}
+
 			public AggregateParameter TradeName
 		    {
 				get
@@ -1983,6 +2069,7 @@ namespace Pricing.DAL
 			private AggregateParameter _DosageFormID_W = null;
 			private AggregateParameter _FileTypeID_W = null;
 			private AggregateParameter _ManufactureID_W = null;
+			private AggregateParameter _AssignedUserID_W = null;
 			private AggregateParameter _TradeName_W = null;
 			private AggregateParameter _Generics_W = null;
 			private AggregateParameter _CompanyPrice_W = null;
@@ -2006,6 +2093,7 @@ namespace Pricing.DAL
 				_DosageFormID_W = null;
 				_FileTypeID_W = null;
 				_ManufactureID_W = null;
+				_AssignedUserID_W = null;
 				_TradeName_W = null;
 				_Generics_W = null;
 				_CompanyPrice_W = null;
@@ -2119,6 +2207,10 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.ManufactureID);
 			p.SourceColumn = ColumnNames.ManufactureID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.AssignedUserID);
+			p.SourceColumn = ColumnNames.AssignedUserID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.TradeName);

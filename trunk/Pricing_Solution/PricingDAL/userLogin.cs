@@ -121,6 +121,14 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter Privaledge
+			{
+				get
+				{
+					return new SqlParameter("@Privaledge", SqlDbType.NVarChar, 50);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -130,6 +138,7 @@ namespace Pricing.DAL
             public const string AdminID = "adminID";
             public const string UserName = "UserName";
             public const string Password = "Password";
+            public const string Privaledge = "Privaledge";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -140,6 +149,7 @@ namespace Pricing.DAL
 					ht[AdminID] = _userLogin.PropertyNames.AdminID;
 					ht[UserName] = _userLogin.PropertyNames.UserName;
 					ht[Password] = _userLogin.PropertyNames.Password;
+					ht[Privaledge] = _userLogin.PropertyNames.Privaledge;
 
 				}
 				return (string)ht[columnName];
@@ -155,6 +165,7 @@ namespace Pricing.DAL
             public const string AdminID = "AdminID";
             public const string UserName = "UserName";
             public const string Password = "Password";
+            public const string Privaledge = "Privaledge";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -165,6 +176,7 @@ namespace Pricing.DAL
 					ht[AdminID] = _userLogin.ColumnNames.AdminID;
 					ht[UserName] = _userLogin.ColumnNames.UserName;
 					ht[Password] = _userLogin.ColumnNames.Password;
+					ht[Privaledge] = _userLogin.ColumnNames.Privaledge;
 
 				}
 				return (string)ht[propertyName];
@@ -180,6 +192,7 @@ namespace Pricing.DAL
             public const string AdminID = "s_AdminID";
             public const string UserName = "s_UserName";
             public const string Password = "s_Password";
+            public const string Privaledge = "s_Privaledge";
 
 		}
 		#endregion		
@@ -219,6 +232,18 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Password, value);
+			}
+		}
+
+		public virtual string Privaledge
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Privaledge);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Privaledge, value);
 			}
 		}
 
@@ -269,6 +294,21 @@ namespace Pricing.DAL
 					this.SetColumnNull(ColumnNames.Password);
 				else
 					this.Password = base.SetstringAsString(ColumnNames.Password, value);
+			}
+		}
+
+		public virtual string s_Privaledge
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Privaledge) ? string.Empty : base.GetstringAsString(ColumnNames.Privaledge);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Privaledge);
+				else
+					this.Privaledge = base.SetstringAsString(ColumnNames.Privaledge, value);
 			}
 		}
 
@@ -335,6 +375,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public WhereParameter Privaledge
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Privaledge, Parameters.Privaledge);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -376,15 +426,29 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter Privaledge
+		    {
+				get
+		        {
+					if(_Privaledge_W == null)
+	        	    {
+						_Privaledge_W = TearOff.Privaledge;
+					}
+					return _Privaledge_W;
+				}
+			}
+
 			private WhereParameter _AdminID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _Password_W = null;
+			private WhereParameter _Privaledge_W = null;
 
 			public void WhereClauseReset()
 			{
 				_AdminID_W = null;
 				_UserName_W = null;
 				_Password_W = null;
+				_Privaledge_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -471,6 +535,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter Privaledge
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Privaledge, Parameters.Privaledge);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -512,15 +586,29 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter Privaledge
+		    {
+				get
+		        {
+					if(_Privaledge_W == null)
+	        	    {
+						_Privaledge_W = TearOff.Privaledge;
+					}
+					return _Privaledge_W;
+				}
+			}
+
 			private AggregateParameter _AdminID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _Password_W = null;
+			private AggregateParameter _Privaledge_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_AdminID_W = null;
 				_UserName_W = null;
 				_Password_W = null;
+				_Privaledge_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -597,6 +685,10 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.Password);
 			p.SourceColumn = ColumnNames.Password;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Privaledge);
+			p.SourceColumn = ColumnNames.Privaledge;
 			p.SourceVersion = DataRowVersion.Current;
 
 
