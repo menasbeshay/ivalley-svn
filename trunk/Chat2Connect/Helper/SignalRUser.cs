@@ -15,5 +15,9 @@ namespace Helper
         public int MemberID { get; set; }
 
         public List<int> Rooms { get; set; }
+
+        public string ProfilePic { get; set; }
+
+        public int MemberTypeSpecID { get; set; }
     }
 }

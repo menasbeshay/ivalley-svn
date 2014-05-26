@@ -58,8 +58,8 @@ function Chat(maxWin, memberID, memberName) {
             this.RoomMembers.push(member);
 
         };
-        this.newMember = function (id, name, memberType) {
-            var member = { MemberID: id, MemberName: name, MemberTypeID: memberType, IsCamOpened: false, IsMicOpened: false };
+        this.newMember = function (id, name, memberType, profileImg) {
+            var member = { MemberID: id, MemberName: name, MemberTypeID: memberType,ProfileImg:profileImg, IsCamOpened: false, IsMicOpened: false };
             return ko.mapping.fromJS(member);
         }
         this.removeMember = function (id) {
@@ -814,7 +814,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         });
 
     };
-    rHub.client.addNewMember = function (mid, name, rid, memberType) {
+    rHub.client.addNewMember = function (mid, name, rid, memberType, profileImg) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type, name);
         if (window == null)
@@ -824,7 +824,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             member = window.getQueueMember(mid);
         if (member != null)
             return;
-        member = window.newMember(mid, name, memberType);
+        member = window.newMember(mid, name, memberType, profileImg);
         window.addMember(member);
         if (window.CurrentMemberSettings.NotifyOnFriendsLogOn()) {
             var msg = '' + member.MemberName() + 'قد إنضم للغرفة ';
