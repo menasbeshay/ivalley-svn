@@ -8,9 +8,10 @@ Go
 Create Procedure GetAllMembersByRoomIDNoQueue @RoomID int
 as
 
-select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*
+select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*, aspnet_Users.UserName
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
+Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
 where RM.RoomID = @RoomID And 
 	  RM.QueueOrder is null and 
 	  M.IsOnline = 1 and 
@@ -26,14 +27,35 @@ Go
 Create Procedure GetAllMembersByRoomIDQueue @RoomID int
 as
 
-select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*
+select RM.MemberID, RM.RoomID, Isnull(RM.IsAdmin,0) IsAdmin, RM.AdminTypeID, RM.HasMic, RM.HasCam, RM.CanAccessMic, RM.CanAccessCam, RM.CanWrite, RM.IsBanned, RM.IsBannedFor24, RM.IsBannedFor7Days, RM.IsBannedForMonth, RM.IsMarked, RM.AskForMic, RM.QueueOrder, RM.UserRate, RM.InRoom , M.*, aspnet_Users.UserName
 from RoomMember RM
 Inner Join Member M on RM.MemberId = M.MemberID
+Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
+
 where RM.RoomID = @RoomID And 
 	  RM.QueueOrder is not null and 
 	  M.IsOnline = 1 and 
 	  Rm.InRoom = 1
 order by RM.QueueOrder	  
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetOnlineMembersByRoomID' and
+		        xtype = 'P')
+Drop Procedure GetOnlineMembersByRoomID
+Go
+Create Procedure GetOnlineMembersByRoomID @RoomID int
+as
+
+select RM.* , M.*, aspnet_Users.UserName
+from RoomMember RM
+Inner Join Member M on RM.MemberId = M.MemberID
+Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
+where RM.RoomID = @RoomID and 
+	  M.IsOnline = 1 and 
+	  Rm.InRoom = 1
 Go
 
 
