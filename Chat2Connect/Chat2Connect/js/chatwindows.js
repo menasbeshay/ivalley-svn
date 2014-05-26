@@ -747,7 +747,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
     /****** signalR ********/
     function addMsgToWindow(window, msg, css) {
-        msg = "<div class='pull-left " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:1px;'></div>";
+        msg = "<div class='pull-left " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(window.MessageHistory() + msg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -763,7 +763,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
 
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -780,7 +780,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
