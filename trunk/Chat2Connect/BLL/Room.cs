@@ -49,8 +49,8 @@ namespace BLL
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     Left Join RoomMember RM on RM.RoomID = R.RoomID
                                     Left join Member M on M.MemberID = RM.MemberID
-                                    where R.CategoryID = {0} AND ISNULL(Room.RowStatusID,{1})={1}
-                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,   R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams
+                                    where R.CategoryID = {0} AND ISNULL(R.RowStatusID,{1})={1}
+                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,   R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic, RoomTypeSpec.OrderInRoomList
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
@@ -63,9 +63,12 @@ namespace BLL
                                     Inner Join SubCategory SC on C.CategoryID = SC.CategoryID
                                     Left Join RoomMember RM on RM.RoomID = R.RoomID
                                     Left join Member M on M.MemberID = RM.MemberID
+                                    LEFT JOIN RoomType RT on RT.RoomID=R.RoomID
+                                    LEFT JOIN RoomTypeSpecDuration  ON RT.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
+                                    LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     where R.SubCategoryID = {0}  AND ISNULL(R.RowStatusID,{1})={1}
-                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic
-                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc",SubCategoryID,(int)Helper.Enums.RowStatus.Enabled);
+                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic,RoomTypeSpec.OrderInRoomList
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", SubCategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
 
