@@ -7,7 +7,7 @@ function Chat(maxWin, memberID, memberName) {
     self.windows = ko.observableArray();
     self.Editor = null;
     self.selectedGift = null;
-    // init gifts object    
+    
 
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
@@ -458,6 +458,28 @@ function Chat(maxWin, memberID, memberName) {
             tokenLimit: 1
         });
 
+        //view gifts 
+        // get all prices loaded
+        var items = {};
+        $('#giftUL_' + window.uniqueID() + ' ul li').each(function () {
+            items[$(this).attr('data-cat')] = true;
+        });
+
+        // select distinct values
+        var result = new Array();
+        for (var i in items) {
+            result.push(i);
+        }
+
+        // group gifts
+        for (i = 0; i < result.length; i++) {
+            var wrapper = $('li[data-cat="' + result[i] + '"]').wrapAll('<div id="wrapper_' + i + '" class="collapse" />');
+            $('<a class="btn btn-default" data-toggle="collapse" data-target="#wrapper_' + i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
+            $('<div class="clear" style="height:2px;"></div>').appendTo(wrapper.parent());
+            // open 1st panel only
+            if (i == 0)
+                wrapper.parent().addClass('in');
+        }
 
         // volume controls       
 
@@ -497,15 +519,18 @@ function Chat(maxWin, memberID, memberName) {
         $('.roomMemberlink').each(function () {
             var $this = $(this);
             var popoverContent = $this.find('.friendSubMenu');
-            $this.popover({
-                trigger: 'click',
-                placement: 'left',
-                html: true,
-                content: popoverContent,                    
-                container: '#' + window.uniqueID()
-            }).on('hidden.bs.popover', function () {
-                $this.append(popoverContent);
-            });
+            // check if popover content exists
+            if (popoverContent.length > 0) {
+                $this.popover({
+                    trigger: 'click',
+                    placement: 'left',
+                    html: true,
+                    content: popoverContent,
+                    container: '#' + window.uniqueID()
+                }).on('hidden.bs.popover', function () {
+                    $this.append(popoverContent);
+                });
+            }
         });
 
         if(window.Type()=="Room" && window.CurrentMemberSettings.IsAdmin())
@@ -830,6 +855,23 @@ function InitChat(maxWinRooms, memberID, memberName) {
             var msg = '' + member.MemberName() + 'قد إنضم للغرفة ';
             addMsgToWindow(window, msg, "joinalert");
         }
+        // init popover menu for new members
+        $('.roomMemberlink').each(function () {
+            var $this = $(this);
+            var popoverContent = $this.find('.friendSubMenu');
+            // check if popover content exists
+            if (popoverContent.length > 0) {
+                $this.popover({
+                    trigger: 'click',
+                    placement: 'left',
+                    html: true,
+                    content: popoverContent,
+                    container: '#' + window.uniqueID()
+                }).on('hidden.bs.popover', function () {
+                    $this.append(popoverContent);
+                });
+            }
+        });
     };
     rHub.client.removeMember = function (mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");

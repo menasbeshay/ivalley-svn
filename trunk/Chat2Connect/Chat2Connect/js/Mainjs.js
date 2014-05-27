@@ -329,7 +329,8 @@ $(document).ready(function () {
     };
     
     sHub.client.inviteToTempRoom = function (rid, fname) {
-        if (window.location.indexOf('homa.aspx') > -1)
+        var location = window.location.href;
+        if (location.indexOf('home.aspx') > -1)
             notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a onclick="addChatRoom(' + rid + ', \'غرفة مؤقتة\', \'Room\');" class="btn btn-main">إضغط هنا للدخول</a>');
         else
             notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a href="home.aspx?t=' + rid + '" target="_blank" class="btn btn-main">إضغط هنا للدخول</a>');
@@ -361,3 +362,6 @@ $(document).ready(function () {
 });
 
 /*****************************************/
+
+
+

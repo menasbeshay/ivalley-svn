@@ -278,13 +278,13 @@
                     <!-- /ko -->
                     <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
-                            <a data-bind="attr{href:fbURL}" target="_blank" id="uiHyperLinkFb">
+                            <a data-bind="attr:{href:fbURL}" target="_blank" id="uiHyperLinkFb">
                                 <img src="images/facebook.png"></a>
                             &nbsp;&nbsp;
-                    <a data-bind="attr{href:tURL}" target="_blank" id="uiHyperLinktwitter">
+                    <a data-bind="attr:{href:tURL}" target="_blank" id="uiHyperLinktwitter">
                         <img src="images/twitter.png"></a>
                             &nbsp;&nbsp;
-                    <a data-bind="attr{href:utURL}" target="_blank" id="uiHyperLinkyt">
+                    <a data-bind="attr:{href:utURL}" target="_blank" id="uiHyperLinkyt">
                         <img src="images/youtube.png"></a>
                         </div>
                     </div>
@@ -1311,16 +1311,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-12 control-label pull-right">
-                                    <ul class="gifts" data-bind="foreach:Gifts">
-                                        <li>
+                                <div class="col-sm-12 control-label pull-right" data-bind="attr:{id:'giftUL_'+uniqueID()}">
+                                    <ul class="gifts" data-bind="foreach:Gifts" >
+                                        <li data-bind="attr:{'data-cat':price}">
                                             <input type="radio" name="gift" data-bind="attr:{id:'gift_' + giftid()},checkedValue: giftid" class="input_hidden" />
                                             <label data-bind="attr:{for:'gift_' + giftid()}, click:$parent.selectGift">
                                                 <img data-bind="attr:{src:picPath}" />
                                                 <br />
                                                 <span class="giftname" data-bind="text:name"></span>
                                                 <br />
-                                                <span class="giftprice" data-bind="text:price"></span>
+                                                <span class="giftprice" data-bind="text:price() + ' نقطة'"></span>
                                             </label>
                                         </li>
                                     </ul>

@@ -49,7 +49,6 @@ namespace Chat2Connect
 
                 Session["TempRoomCreate"] = room.RoomID;
 
-
                 // notify friends with new temp room 
                 
                 for (int i = 0; i < uiCheckBoxListFriends.Items.Count; i++)
@@ -60,9 +59,8 @@ namespace Chat2Connect
                         temp.LoadByPrimaryKey(Convert.ToInt32(uiCheckBoxListFriends.Items[i].Value));
                         MembershipUser u = Membership.GetUser(temp.UserID);
                         _Ncontext.Clients.Group(u.UserName).inviteToTempRoom(room.RoomID, member.Name);
-                    }
-                }
-
+                    }                   
+                }                
                 Response.Redirect("home.aspx");
             }
         }
