@@ -569,21 +569,24 @@ namespace Chat2Connect.services
             roomObject.Settings.EnableCam = rooms.EnableCam;
             roomObject.Settings.EnableMic = rooms.EnableMic;
 
-
-            Member member = new Member();
-            member.LoadByPrimaryKey(rooms.CreatedBy);
-            roomObject.AdminName = member.Name;
-
+            // this check for temp rooms
             roomObject.CurrentMemberSettings.MemberID = BLL.Member.CurrentMember.MemberID;
-            if (BLL.Member.CurrentMember.MemberID != member.MemberID)
+            if (!rooms.IsColumnNull("CreatedBy")) 
             {
-                roomObject.CurrentMemberSettings.IsAdmin = false;
-            }
-            else
-            {
-                roomObject.CurrentMemberSettings.IsAdmin = true;
-            }
+                Member member = new Member();
+                member.LoadByPrimaryKey(rooms.CreatedBy);
+                roomObject.AdminName = member.Name;
 
+                
+                if (BLL.Member.CurrentMember.MemberID != member.MemberID)
+                {
+                    roomObject.CurrentMemberSettings.IsAdmin = false;
+                }
+                else
+                {
+                    roomObject.CurrentMemberSettings.IsAdmin = true;
+                }
+            }
             roomObject.Settings.CamCount = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.MaxMic = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
 
@@ -647,7 +650,7 @@ namespace Chat2Connect.services
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
-            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"] + " نقطة", picPath = m["PicPath"] }).ToList();
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
             HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
