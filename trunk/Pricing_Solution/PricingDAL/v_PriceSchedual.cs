@@ -232,6 +232,14 @@ namespace View
 				}
 			}
 			
+			public static SqlParameter AssignedUserID
+			{
+				get
+				{
+					return new SqlParameter("@AssignedUserID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion	
 	
@@ -261,6 +269,7 @@ namespace View
             public const string Mail1 = "Mail1";
             public const string Mail2 = "Mail2";
             public const string Mail3 = "Mail3";
+            public const string AssignedUserID = "AssignedUserID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -291,6 +300,7 @@ namespace View
 					ht[Mail1] = _v_PriceSchedual.PropertyNames.Mail1;
 					ht[Mail2] = _v_PriceSchedual.PropertyNames.Mail2;
 					ht[Mail3] = _v_PriceSchedual.PropertyNames.Mail3;
+					ht[AssignedUserID] = _v_PriceSchedual.PropertyNames.AssignedUserID;
 
 				}
 				return (string)ht[columnName];
@@ -326,6 +336,7 @@ namespace View
             public const string Mail1 = "Mail1";
             public const string Mail2 = "Mail2";
             public const string Mail3 = "Mail3";
+            public const string AssignedUserID = "AssignedUserID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -356,6 +367,7 @@ namespace View
 					ht[Mail1] = _v_PriceSchedual.ColumnNames.Mail1;
 					ht[Mail2] = _v_PriceSchedual.ColumnNames.Mail2;
 					ht[Mail3] = _v_PriceSchedual.ColumnNames.Mail3;
+					ht[AssignedUserID] = _v_PriceSchedual.ColumnNames.AssignedUserID;
 
 				}
 				return (string)ht[propertyName];
@@ -391,6 +403,7 @@ namespace View
             public const string Mail1 = "s_Mail1";
             public const string Mail2 = "s_Mail2";
             public const string Mail3 = "s_Mail3";
+            public const string AssignedUserID = "s_AssignedUserID";
 
 		}
 		#endregion	
@@ -669,6 +682,18 @@ namespace View
 			set
 	        {
 				base.Setstring(ColumnNames.Mail3, value);
+			}
+		}
+
+		public virtual int AssignedUserID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.AssignedUserID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.AssignedUserID, value);
 			}
 		}
 
@@ -1022,6 +1047,21 @@ namespace View
 			}
 		}
 
+		public virtual string s_AssignedUserID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.AssignedUserID) ? string.Empty : base.GetintAsString(ColumnNames.AssignedUserID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.AssignedUserID);
+				else
+					this.AssignedUserID = base.SetintAsString(ColumnNames.AssignedUserID, value);
+			}
+		}
+
 
 		#endregion			
 	
@@ -1280,6 +1320,16 @@ namespace View
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Mail3, Parameters.Mail3);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter AssignedUserID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1566,6 +1616,18 @@ namespace View
 				}
 			}
 
+			public WhereParameter AssignedUserID
+		    {
+				get
+		        {
+					if(_AssignedUserID_W == null)
+	        	    {
+						_AssignedUserID_W = TearOff.AssignedUserID;
+					}
+					return _AssignedUserID_W;
+				}
+			}
+
 			private WhereParameter _CompNameEng_W = null;
 			private WhereParameter _Status_W = null;
 			private WhereParameter _CommitteType_W = null;
@@ -1589,6 +1651,7 @@ namespace View
 			private WhereParameter _Mail1_W = null;
 			private WhereParameter _Mail2_W = null;
 			private WhereParameter _Mail3_W = null;
+			private WhereParameter _AssignedUserID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1615,6 +1678,7 @@ namespace View
 				_Mail1_W = null;
 				_Mail2_W = null;
 				_Mail3_W = null;
+				_AssignedUserID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1901,6 +1965,16 @@ namespace View
 					}
 				}
 
+				public AggregateParameter AssignedUserID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2182,6 +2256,18 @@ namespace View
 				}
 			}
 
+			public AggregateParameter AssignedUserID
+		    {
+				get
+		        {
+					if(_AssignedUserID_W == null)
+	        	    {
+						_AssignedUserID_W = TearOff.AssignedUserID;
+					}
+					return _AssignedUserID_W;
+				}
+			}
+
 			private AggregateParameter _CompNameEng_W = null;
 			private AggregateParameter _Status_W = null;
 			private AggregateParameter _CommitteType_W = null;
@@ -2205,6 +2291,7 @@ namespace View
 			private AggregateParameter _Mail1_W = null;
 			private AggregateParameter _Mail2_W = null;
 			private AggregateParameter _Mail3_W = null;
+			private AggregateParameter _AssignedUserID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2231,6 +2318,7 @@ namespace View
 				_Mail1_W = null;
 				_Mail2_W = null;
 				_Mail3_W = null;
+				_AssignedUserID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
