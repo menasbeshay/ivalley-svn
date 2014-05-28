@@ -3,12 +3,10 @@ function Chat(maxWin, memberID, memberName) {
     var self = this;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
+    self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
-    self.Editor = null;
-    self.selectedGift = null;
     
-
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -48,11 +46,16 @@ function Chat(maxWin, memberID, memberName) {
             return this.Type() + '_' + this.ID();
         }, this);
 
+        this.Editor = null;
+        this.selectedGift = null;
+
         //Room Members
         this.getMember = function (id) {
+            if (this.RoomMembers().length > 0)
             return ko.utils.arrayFirst(this.RoomMembers(), function (mem) {
                 return mem.MemberID() == id;
             });
+            return null;
         }
         this.addMember = function (member) {
             this.RoomMembers.push(member);
@@ -71,9 +74,11 @@ function Chat(maxWin, memberID, memberName) {
         };
         //Queue Members
         this.getQueueMember = function (id) {
+            if (this.QueueMembers().length > 0)
             return ko.utils.arrayFirst(this.QueueMembers(), function (mem) {
                 return mem.MemberID() == id;
             });
+            return null;
         }
         this.addQueueMember = function (member) {
             if (member == null)
@@ -267,30 +272,38 @@ function Chat(maxWin, memberID, memberName) {
         };
 
         this.selectGift = function () {
-            chatVM.selectedGift = this;
-            $('#gift_' + chatVM.selectedGift.giftid()).parent().parent().find('label').removeClass('selected');
-            $('#gift_' + chatVM.selectedGift.giftid()).next('label').addClass('selected');
+            self.selectedGift = this;            
+            $('#giftUL_' + self.uniqueID()).find('label').removeClass('selected');
+            $('#giftUL_' + self.uniqueID() + ' #gift_' + self.selectedGift.giftid()).next('label').addClass('selected');
 
         };
 
         this.SendGift = function () {
             var window = this;
-            $.ajax({
-                url: '../Services/Services.asmx/SendGift',
-                dataType: 'json',
-                type: 'post',
-                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + chatVM.selectedGift.giftid() + "}",
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $("#giftModal_" + window.uniqueID()).modal('hide');
-                    notify('success', 'تم إرسال الهدية بنجاح');
-                    return;
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $("#giftModal_" + window.uniqueID()).modal('hide');
-                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
-                }
-            });
+            if (chatVM.CreditPoints() >= window.selectedGift.price()) {
+                $.ajax({
+                    url: '../Services/Services.asmx/SendGift',
+                    dataType: 'json',
+                    type: 'post',
+                    data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + window.selectedGift.giftid() + "}",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $("#giftModal_" + window.uniqueID()).modal('hide');
+                        notify('success', 'تم إرسال الهدية بنجاح');
+                        $('$uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - window.selectedGift.price());
+                        return;
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#giftModal_" + window.uniqueID()).modal('hide');
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                });
+            }
+            else {
+                notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
+                $("#giftModal_" + window.uniqueID()).modal('hide');
+                
+            }
         };
 
         // attach
@@ -330,13 +343,19 @@ function Chat(maxWin, memberID, memberName) {
         if (type == 'Private') {
             //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
             //var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-            var gifts = null;
-            $.post("../services/Services.asmx/GetGifts")
-               .done(function (data) {
-                   //console.log(data);
-                   gifts = data;
-               });
-
+            var gifts = [];
+            $.ajax({
+                url: '../services/Services.asmx/GetGifts',                
+                async: false,                
+                success: function (data) {
+                    gifts = data;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    notify('error','حدث خطأ . من فضلك أعد المحاولة.');
+                    return;
+                }
+            });
+            
             var room = { ID: id, Name: name, RoomTopic: "", Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember: {}, AllMembersSettings: [], Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
@@ -389,14 +408,14 @@ function Chat(maxWin, memberID, memberName) {
             window = this;
         if (window.Type() == "Room") {
             //rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Message());
-            rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, self.Editor.getValue());
+            rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Editor.getValue());
         }
         else {
             //rHub.server.sendPrivateMessage(window.ID(), window.Message());
-            rHub.server.sendPrivateMessage(window.ID(), self.Editor.getValue());
+            rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue());
         }
         //window.Message("");
-        self.Editor.setValue("");
+        window.Editor.setValue("");
     }
 
     self.toggleFlashObj = function (window) {
@@ -412,12 +431,12 @@ function Chat(maxWin, memberID, memberName) {
     // tooltips for toolbar
     // scroll bars
     self.Init = function (window) {
-        self.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
         if (!window.CurrentMemberSettings.CanWrite())
-            self.Editor.disable();
+            window.Editor.disable();
         // apply enter key listener
-        self.Editor.observe('load', function () {
-            self.Editor.composer.element.addEventListener('keyup', function (e) {
+        window.Editor.observe('load', function () {
+            window.Editor.composer.element.addEventListener('keyup', function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
                     self.sendMessage(window);
@@ -465,16 +484,16 @@ function Chat(maxWin, memberID, memberName) {
             items[$(this).attr('data-cat')] = true;
         });
 
-        // select distinct values
+        // select distinct price values
         var result = new Array();
         for (var i in items) {
             result.push(i);
         }
 
-        // group gifts
+        // group gifts by prices
         for (i = 0; i < result.length; i++) {
-            var wrapper = $('li[data-cat="' + result[i] + '"]').wrapAll('<div id="wrapper_' + i + '" class="collapse" />');
-            $('<a class="btn btn-default" data-toggle="collapse" data-target="#wrapper_' + i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
+            var wrapper = $('#giftUL_' + window.uniqueID() + ' li[data-cat="' + result[i] + '"]').wrapAll('<div id="wrapper_' + window.uniqueID() + "_"+ i + '" class="collapse" />');
+            $('<a class="btn btn-default" data-toggle="collapse" data-target="#wrapper_' + window.uniqueID() +"_"+ i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
             $('<div class="clear" style="height:2px;"></div>').appendTo(wrapper.parent());
             // open 1st panel only
             if (i == 0)
@@ -594,21 +613,21 @@ function Chat(maxWin, memberID, memberName) {
             self.startMic(currentWindow, self.CurrentMemberID);
             //currentWindow.NoOfMics(currentWindow.NoOfMics() + 1);
             //set current member as micMember
-            var member = currentWindow.getQueueMember(self.CurrentMemberID);
+            /*var member = currentWindow.getQueueMember(self.CurrentMemberID);
             if (member != null) {
-                currentWindow.removeQueueMember(self.CurrentMemberID);
+                currentWindow.removeQueueMember(self.CurrentMemberID);                
                 currentWindow.MicMember(member);
-            }
+            }*/
             currentWindow.CurrentMemberSettings.IsMicOpened(true);
         }
         else {
             self.stopMic(currentWindow, self.CurrentMemberID);
             //currentWindow.NoOfMics(currentWindow.NoOfMics() - 1);
-            var micMember = currentWindow.MicMember();//remove from mic member to room members
+            /*var micMember = currentWindow.MicMember();//remove from mic member to room members
             if (micMember != null) {
                 currentWindow.addMember(micMember.MemberID(), micMember.MemberName());
                 currentWindow.MicMember(null);
-            }
+            }*/
             currentWindow.CurrentMemberSettings.IsMicOpened(false);
         }
     }
@@ -619,6 +638,16 @@ function Chat(maxWin, memberID, memberName) {
         if (member != null) {
             member.IsMicOpened(true);
 
+            // remove current mic member from mic if exists
+            var CurrentMicMember = window.MicMember();
+            if (window.MicMember() != null) {
+                self.stopMic(window, CurrentMicMember.MemberID());
+            }
+
+            // remove member from list and add it to mic
+            window.removeMember(memberid);
+            window.removeQueueMember(memberid);
+            window.MicMember(member);
             getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
             if (self.CurrentMemberID == memberid) {
                 rHub.server.userStartMic(window.ID(), memberid);
@@ -631,18 +660,25 @@ function Chat(maxWin, memberID, memberName) {
         }
     }
     self.stopMic = function (window, memberid) {
-        var member = window.getMember(memberid);
-        if (member == null)
-            member = window.getQueueMember(memberid);
-        if (member != null) {
-            member.IsMicOpened(false);
+        //var member = window.getMember(memberid);
+        var micMember = window.MicMember();
+       /* if (member == null)
+            member = window.getQueueMember(memberid);    */    
+        if (micMember != null) {
+            micMember.IsMicOpened(false);
+            // remove member from mic and add it to list
+            
+            window.removeQueueMember(memberid);
+            window.MicMember(null);
+            window.addMember(micMember);
+            
 
             getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberid);
             if (self.CurrentMemberID == memberid)
                 rHub.server.userStopMic(window.ID(), memberid)
             else {
                 if (window.CurrentMemberSettings.NotifyOnMicOff()) {
-                    notify('info', 'العضو ' + member.MemberName() + ' ترك المايك');
+                    notify('info', 'العضو ' + micMember.MemberName() + ' ترك المايك');
                 }
             }
         }
