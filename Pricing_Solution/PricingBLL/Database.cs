@@ -26,9 +26,9 @@ using System.Configuration;
 
         public static DataTable SearchCases(string _submitDateFrom, string _submitDateTo, string _tradeName, int _CompanyID, int _committeTypeID,
                                          string _fileNO, int _fileTypeID, int _statusID
-                                        , string _generic1, string _generic2, string _generic3, string _generic4, string _generic5)
+                                        , string _generic1, string _generic2, string _generic3, string _generic4, string _generic5, string _assignedUser)
         {
-            SqlParameter[] parm = new SqlParameter[13];
+            SqlParameter[] parm = new SqlParameter[14];
             parm[0] = new SqlParameter("@submitDateFrom", _submitDateFrom);
             parm[1] = new SqlParameter("@submitDateTo", _submitDateTo);
             parm[2] = new SqlParameter("@tradeName", _tradeName);
@@ -42,6 +42,7 @@ using System.Configuration;
             parm[10] = new SqlParameter("@parmSubstance3", _generic3);
             parm[11] = new SqlParameter("@parmSubstance4", _generic4);
             parm[12] = new SqlParameter("@parmSubstance5", _generic5);
+            parm[13] = new SqlParameter("@assignedUserID", _assignedUser);
 
             return SqlHelper.ExecuteDataset(Connection.ConnectionString, CommandType.StoredProcedure, "SearchPricingSchedual", parm).Tables[0];
 

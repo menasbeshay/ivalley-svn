@@ -10,7 +10,7 @@ using System.Net.Mail;
 using System.Configuration;
 using System.IO;
 using System.Drawing;
-
+using BLL;
 using System.Threading;
 
 
@@ -28,12 +28,15 @@ namespace WebGUI
                 BindCommitteeTypes();
                 BindFileTypes();
                 BindStatus();
+                BindAssignedUser();
+                ui_lblDone.Text = "";
             }
         }
                 
         protected void ui_btnSearch_Click(object sender, EventArgs e)
         {
             SearchCases();
+            ui_lblDone.Text = "";
         }
 
         protected void ui_gvSearchResults_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -187,7 +190,57 @@ namespace WebGUI
             ui_btnShowSendMail.Enabled = true;
             //Label1.Text = DateTime.Now.ToString();
         }
-        
+
+        protected void ui_LB_Assign_Click(object sender, EventArgs e)
+        {
+            LinkButton lnBtn = (LinkButton)sender;
+            TradePricing objData = new TradePricing();
+            objData.LoadByPrimaryKey(Int32.Parse(lnBtn.CommandArgument));
+
+            foreach (GridViewRow row in ui_gvSearchResults.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    LinkButton lnBtn2 = (LinkButton)row.FindControl("ui_LB_Assign");
+                    if (lnBtn.CommandArgument == lnBtn2.CommandArgument)
+                    {
+                        objData.AssignedUserID = int.Parse(((DropDownList)row.FindControl("ui_ddlAssignedTo")).SelectedValue);
+                        objData.Save();
+                        ui_lblDone.Text = "Assignation Done";
+                    }
+                }
+            }        
+            SearchCases();
+        }
+
+        protected void ui_gvSearchResults_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            DropDownList ddl = (DropDownList)e.Row.FindControl("ui_ddlAssignedTo");
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                ListItem item = new ListItem(" --- Not Assigned ----", "-1");
+                userLogin objUsers = new userLogin();
+                objUsers.LoadAll();
+                
+                ddl.DataSource = objUsers.DefaultView;
+                ddl.DataTextField = userLogin.ColumnNames.UserName;
+                ddl.DataValueField = userLogin.ColumnNames.AdminID;
+                ddl.DataBind();
+                ddl.Items.Insert(0, item);
+
+                HiddenField hd = (HiddenField)e.Row.FindControl("ui_hdnUserID");
+                int _userID = -1;
+                if (hd.Value != "")
+                {
+                    _userID = int.Parse(hd.Value);
+                }
+
+                ddl.SelectedIndex = ddl.Items.IndexOf(ddl.Items.FindByValue(_userID.ToString()));
+            }
+            
+        }
+
         #endregion
 
         #region Methods
@@ -246,13 +299,14 @@ namespace WebGUI
 
             dtResult = Database.SearchCases(ui_txtSubmissionFromDate.Text, ui_txtSubmissionToDate.Text, ui_txtTradeName.Text
                 , int.Parse(ui_drpCompanies.SelectedValue), int.Parse(ui_drpCommitteType.SelectedValue), ui_txtFileNo.Text, int.Parse(ui_drpFileType.SelectedValue), int.Parse(ui_drpStatus.SelectedValue)
-                , ui_txtGeneric1.Text, ui_txtGeneric2.Text, ui_txtGeneric3.Text, ui_txtGeneric4.Text, ui_txtGeneric5.Text);
+                , ui_txtGeneric1.Text, ui_txtGeneric2.Text, ui_txtGeneric3.Text, ui_txtGeneric4.Text, ui_txtGeneric5.Text, ui_drpAssignedUser.SelectedValue);
                 
             ui_gvSearchResults.DataSource = dtResult;
             ui_gvSearchResults.DataBind();
 
             ui_gv_Export.DataSource = dtResult;
             ui_gv_Export.DataBind();
+            
         }
 
         private string PrepareMailBody(string _body,string _companyName,string _tradeName,string _dosageForm)
@@ -401,7 +455,34 @@ namespace WebGUI
             }
         }
 
+        private void BindAssignedUser()
+        {
+            ListItem item = new ListItem(" --- Select ----", "-1");
+            userLogin objCompany = new userLogin();
+            objCompany.LoadAll();
+            ui_drpAssignedUser.DataSource = objCompany.DefaultView;
+            ui_drpAssignedUser.DataTextField = userLogin.ColumnNames.UserName;
+            ui_drpAssignedUser.DataValueField = userLogin.ColumnNames.AdminID;
+            ui_drpAssignedUser.DataBind();
+            ui_drpAssignedUser.Items.Insert(0, item);
+
+            userLogin currentUser = (userLogin)(Session["adminUser"]);
+            if (currentUser.Privaledge == "user")
+            {
+                ui_drpAssignedUser.SelectedValue = currentUser.s_AdminID;
+                ui_drpAssignedUser.Enabled = false;
+            }
+            else if (currentUser.Privaledge == "admin")
+            {
+                ui_drpAssignedUser.SelectedValue = "-1";
+                ui_drpAssignedUser.Enabled = true;
+            }
+
+        }
+
         #endregion
+
+       
 
     }
 }

@@ -133,8 +133,11 @@ TBODY TR.odd { background-color:#78a5d1; }
             </td>
             <td></td>
             <td>
-                &nbsp;</td>
+                <asp:Label ID="Label30" runat="server" Text="Assigned User :"></asp:Label>
+            </td>
             <td>
+                <asp:DropDownList ID="ui_drpAssignedUser" runat="server" Width="225px">
+                </asp:DropDownList>
                 </td>
         </tr>
              <tr>
@@ -233,11 +236,17 @@ TBODY TR.odd { background-color:#78a5d1; }
         </tr>
     </table>
    
-      
+      <center>
+      <asp:Label runat="server" ID="ui_lblDone" Font-Bold="True" Font-Size="14pt" 
+              ForeColor="#003300"></asp:Label>
+      </center>
              
     <asp:GridView runat="server" ID="ui_gvSearchResults" EmptyDataText="Sorry, No results found ..."
-                                                    AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC"
-                                                    BorderStyle="None" BorderWidth="1px" CellPadding="3" Width="100%" OnPageIndexChanging="ui_gvSearchResults_PageIndexChanging">
+                                                    AllowPaging="True" 
+        AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC"
+                                                    BorderStyle="None" 
+        BorderWidth="1px" CellPadding="3" Width="100%" 
+        onrowdatabound="ui_gvSearchResults_RowDataBound">
                                                     <Columns>
                                                             <asp:TemplateField HeaderText="Choose">
                                                             <ItemTemplate>
@@ -283,16 +292,29 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                         </asp:BoundField>
                                                         
-                                                        <asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Assigned to">
                                                             <ItemTemplate>
-                                                                <asp:LinkButton ID="ui_LB_Details" runat="server" 
-                                                                    CommandArgument='<%# Eval("TradePricingID") %>' onclick="ui_LB_Details_Click">View</asp:LinkButton>
+                                                            &nbsp;
+                                                            <asp:HiddenField runat="server" ID="ui_hdnUserID" Value='<%# Eval("AssignedUserID") %>' />
+                                                                <asp:DropDownList ID="ui_ddlAssignedTo" runat="server" >
+                                                                   
+                                                                </asp:DropDownList>
+
+                                                                 &nbsp;&nbsp;|&nbsp;&nbsp;
+                                                                <asp:LinkButton ID="ui_LB_Assign" runat="server" 
+                                                                    CommandArgument='<%# Eval("TradePricingID") %>' onclick="ui_LB_Assign_Click">Change</asp:LinkButton>
+                                                                    &nbsp;
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Actions">
                                                             <ItemTemplate>
+                                                            &nbsp;
+                                                                <asp:LinkButton ID="ui_LB_Details" runat="server" 
+                                                                    CommandArgument='<%# Eval("TradePricingID") %>' onclick="ui_LB_Details_Click">View</asp:LinkButton>
+                                                                    &nbsp;&nbsp;|&nbsp;&nbsp;
                                                                 <asp:HyperLink ID="HyperLink1" runat="server" 
                                                                     NavigateUrl='<%# "TradeSearch.aspx?id=" + Eval("TradePricingID") %>'>Edit</asp:HyperLink>
+                                                                    &nbsp;
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         
