@@ -123,6 +123,7 @@ namespace Helper
         public bool NotifyOnMicOn { get; set; }
 
         public bool NotifyOnOpenCam { get; set; }
+
     }
 
 }

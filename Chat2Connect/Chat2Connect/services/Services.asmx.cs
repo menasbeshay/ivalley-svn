@@ -571,6 +571,7 @@ namespace Chat2Connect.services
 
             // this check for temp rooms
             roomObject.CurrentMemberSettings.MemberID = BLL.Member.CurrentMember.MemberID;
+            
             if (!rooms.IsColumnNull("CreatedBy")) 
             {
                 Member member = new Member();
@@ -754,6 +755,11 @@ namespace Chat2Connect.services
             Member member = new Member();
 
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            Gift srcgift = new Gift();
+            srcgift.LoadByPrimaryKey(giftid);
+
+            if (!(member.Credit_Point >= srcgift.Price_Point))
+                return false;
 
             MemberGift gift = new MemberGift();
             gift.AddNew();
@@ -763,9 +769,8 @@ namespace Chat2Connect.services
             gift.GiftID = giftid;
             gift.Save();
 
-            Gift srcgift = new Gift();
-            srcgift.LoadByPrimaryKey(giftid);
-
+            member.Credit_Point = member.Credit_Point - srcgift.Price_Point;
+            member.Save();
             IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
             _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, friendName, srcgift.Name);
 
@@ -783,7 +788,7 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < allgifts.RowCount; i++)
                 {
-                    gifts.Add(new { id = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString(), picPath = allgifts.PicPath });
+                    gifts.Add(new { giftid = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString(), picPath = allgifts.PicPath });
                     allgifts.MoveNext();
                 }
             }

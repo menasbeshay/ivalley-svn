@@ -164,6 +164,7 @@
     <asp:HiddenField ID="uiHiddenFieldOpenedRooms" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldMaxCams" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldOpenedCams" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldCreditPoints" ClientIDMode="Static" runat="server" />
 
     <script src="Scripts/knockout.mapping-latest.js"></script>
     <script src="js/chatwindows.js"></script>
@@ -1301,7 +1302,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-
+                            <div class="form-group">
+                                <h4>
+                                لديك <label data-bind="text:$parent.CreditPoints"></label> نقطة
+                                    <input type="hidden" data-bind="attr:{id: 'points_' + uniqueID(), value:$parent.CreditPoints}" />
+                                </h4>
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إرسال هدية إلى </label>

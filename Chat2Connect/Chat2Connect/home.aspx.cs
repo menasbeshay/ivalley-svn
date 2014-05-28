@@ -23,6 +23,7 @@ namespace Chat2Connect
                     member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                     uiHiddenFieldCurrent.Value = member.MemberID.ToString();
                     uiHiddenFieldCurrentName.Value = member.Name;
+                    uiHiddenFieldCreditPoints.Value = (!member.IsColumnNull("Credit_Point")) ? member.Credit_Point.ToString() : "0";
                     uiHiddenFieldOpenedCams.Value = 0.ToString();
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
                     int membertype = 0;
