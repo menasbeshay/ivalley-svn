@@ -18,3 +18,19 @@ where U.UserName like N'%' + @query + N'%'
 							 from MemberFriend where MemberID = @MemberID)
 							 
 Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllMemberFriends' and
+		        xtype = 'P')
+Drop Procedure GetAllMemberFriends
+Go
+Create Procedure GetAllMemberFriends @MemberID int   
+as  
+select MF.*, I.Name MemberName  , U.UserName
+from MemberFriend MF  
+Inner Join Member M on MF.MemberID = M.MemberID  
+Inner Join Member I on MF.FriendID = I.MemberID 
+Inner join dbo.aspnet_Users U on I.UserID = U.UserID   
+where M.MemberID = @MemberID   
+  
