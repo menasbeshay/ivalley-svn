@@ -333,13 +333,15 @@ function Chat(maxWin, memberID, memberName) {
             return;
         }
     };
-    self.openWindow = function (id, name, type) {
+    self.openWindow = function (id, name, type, istemp) {
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type);
+            self.addWindow(id, name, type, istemp);
         }
     };
-    self.addWindow = function (id, name, type) {
+    self.addWindow = function (id, name, type, istemp) {
+        if (istemp == undefined)
+            istemp = false;
         if (type == 'Private') {
             //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
             //var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
@@ -375,7 +377,7 @@ function Chat(maxWin, memberID, memberName) {
                 });
                 return;
             }
-            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: false })
+            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp })
                 .done(function (data) {
                     if (data.Status != 1) {
                         notify('error', data.Data);
@@ -792,10 +794,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type) {
+function addChatRoom(id, name, type, istemp) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type);
+    chatVM.openWindow(id, name, type, istemp);
 }
 
 function getFlashMovie(movieName) {

@@ -23,7 +23,7 @@ namespace Chat2Connect
                 friends.GetAllMemberFriends(member.MemberID);
 
                 uiCheckBoxListFriends.DataSource = friends.DefaultView;
-                uiCheckBoxListFriends.DataTextField = "MemberName";
+                uiCheckBoxListFriends.DataTextField = "UserName";
                 uiCheckBoxListFriends.DataValueField = "FriendID";
                 uiCheckBoxListFriends.DataBind();
             }

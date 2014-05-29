@@ -56,7 +56,7 @@ namespace Chat2Connect
                     {
                         Room room = new Room ();
                         room.LoadByPrimaryKey(Convert.ToInt32(Session["TempRoomCreate"].ToString()));
-                        ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room');" + @"},2000)}); ", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},2000)}); ", true);
                         Session["TempRoomCreate"] = null;
 
                     }
@@ -67,7 +67,7 @@ namespace Chat2Connect
                         {
                             Room room = new Room();
                             room.LoadByPrimaryKey(Convert.ToInt32(Request.QueryString["t"].ToString()));
-                            ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room');" + @"},2000)}); ", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},2000)}); ", true);
 
                         }
                         catch (Exception ex)
