@@ -58,6 +58,10 @@ namespace Helper
         public int CurrentMemberID { get; set; }
 
         public int CreatedBy { get; set; }
+
+        public string AdminMessage { get; set; }
+
+        public string AdminMessageHistory { get; set; }
     }
 
     public class ChatMember

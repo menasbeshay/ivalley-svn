@@ -530,6 +530,8 @@ namespace Chat2Connect.services
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
             roomObject.MessageHistory = "";
+            roomObject.AdminMessage = "";
+            roomObject.AdminMessageHistory = "";
 
             //Room info
             roomObject.Name = rooms.Name;
@@ -557,11 +559,7 @@ namespace Chat2Connect.services
                 roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
             roomMember.Save();
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
-            //roomObject.OnlineInRoomMembers = Allmembers.RowCount;
-            //normal members -- QueueOrder is null,online & InRoom
-            //queue member -- QueueOrder not null ,online & InRoom
-            //roomObject.RoomMembers = roomMember.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
-            //roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
+            
             roomObject.Members = roomMember.LoadWithSettings(id,null);
             ///////////////////////////
             Gift allgifts = new Gift();
