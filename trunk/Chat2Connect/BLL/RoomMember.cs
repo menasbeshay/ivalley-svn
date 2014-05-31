@@ -294,5 +294,16 @@ namespace BLL
         {
             LoadFromRawSql(@"UPDATE RoomMember SET QueueOrder=NULL ,InRoom=0 WHERE RoomID={0}", roomID);
         }
+
+        public bool HasExisitingMembersExceedCurrentMemberLevel(int roomID, int adminID)
+        {
+            return LoadFromRawSql(@"select RM.*,MemberName=aspnet_Users.UserName
+                                    FROM RoomMember  RM 
+                                    INNER JOIN Member M on RM.MemberID=M.MemberID
+                                    Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
+                                    WHERE RM.InRoom=1 AND RM.RoomID={0}
+	                                    AND RM.RoomMemberLevelID > (SELECT RoomMemberLevelID FROM RoomMember WHERE  RoomID={0} AND MemberID={1})", 
+                                  roomID, adminID);
+        }
     }
 }
