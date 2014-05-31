@@ -6,6 +6,8 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 using DAL;
+using System.Collections.Generic;
+using System.Linq;
 namespace BLL
 {
     public class RoomMember : _RoomMember
@@ -17,11 +19,14 @@ namespace BLL
 
         public virtual bool GetAllAdminMembersByRoomID(int RoomID)
         {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
-
-            return LoadFromSql("GetAllAdminMembersByRoomID", parameters);
+            return LoadFromRawSql(@"select RM.MemberID,RM.RoomID,MemberName=aspnet_Users.UserName
+		                            ,RoomMemberLevelID=CASE WHEN RM.MemberID=Room.CreatedBy THEN {1} ELSE RM.RoomMemberLevelID END
+                                    from RoomMember RM
+                                    Inner Join Member M on RM.MemberId = M.MemberID
+                                    Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
+                                    INNER JOIN Room ON Room.RoomID=RM.RoomID
+                                    where RM.RoomID = {0} and 
+	                              RM.RoomMemberLevelID > 1", RoomID, (int)Helper.Enums.RoomMemberLevel.Owner);
 
         }
 
@@ -32,36 +37,6 @@ namespace BLL
             parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
 
             return LoadFromSql("GetAllMembersByRoomID", parameters);
-
-        }
-
-        public virtual bool GetOnlineMembersByRoomID(int RoomID)
-        {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
-
-            return LoadFromSql("GetOnlineMembersByRoomID", parameters);
-
-        }
-
-        public virtual bool GetAllMembersByRoomIDNoQueue(int RoomID)
-        {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
-
-            return LoadFromSql("GetAllMembersByRoomIDNoQueue", parameters);
-
-        }
-
-        public virtual bool GetAllMembersByRoomIDInQueue(int RoomID)
-        {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
-
-            return LoadFromSql("GetAllMembersByRoomIDQueue", parameters);
 
         }
 
@@ -90,20 +65,85 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
-        public bool LoadAllRoomMembersWithSettings(int roomID)
+        public List<Helper.ChatMember> LoadWithSettings(int roomID,int? memberID)
         {
-            string sql = @"SELECT RM.MemberID,RM.RoomID,MemberName=aspnet_Users.UserName,CanAccessCam=ISNULL(RM.CanAccessCam,0),CanAccessMic=ISNULL(RM.CanAccessMic,0),CanWrite=ISNULL(RM.CanWrite,0)
-	                            ,BanDays=DATEDIFF(day,B.EndDate,B.StartDate)
+            string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
                                 ,B.EndDate,B.StartDate
-	                            ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END 
+                                ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END 
                             FROM RoomMember RM INNER JOIN Member M on RM.MemberID=M.MemberID
                             Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
+                            LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+                            LEFT JOIN MemberTypeSpecDuration MTSpec ON MTSpec.ID=ISNULL(MT.MemberTypeSpecDurationID,{1}) 
                             LEFT JOIN RoomMemberBanning B ON B.RoomID=RM.RoomID AND B.MemberID=RM.MemberID AND (B.EndDate>=GETDATE() OR B.EndDate IS NULL)
                             WHERE RM.RoomID={0}";
-            return LoadFromRawSql(sql, roomID);
-        }
+            if (memberID.HasValue)
+                sql += String.Format(" AND RM.MemberID={0}", memberID.Value);
 
+            LoadFromRawSql(sql, roomID, Helper.Defaults.MemberTypeSpecDurationID);
+
+            return DefaultView.Table.AsEnumerable().Select(m =>
+                new Helper.ChatMember()
+            {
+                MemberID = m["MemberID"],
+                MemberName = m["MemberName"],
+                ProfileImg = Helper.TypeConverter.ToString(m["ProfilePic"]),
+                InRoom = Helper.TypeConverter.ToBoolean(m["InRoom"]),
+                MemberTypeID = Helper.TypeConverter.ToInt32(m["MemberTypeSpecID"]),
+                MemberLevelID = Helper.TypeConverter.ToInt32(m["RoomMemberLevelID"]),
+                IsFavorite = Helper.TypeConverter.ToBoolean(m["IsFavorite"]),
+                UserRate = Helper.TypeConverter.ToInt32(m["UserRate"]),
+                CanAccessCam = Helper.TypeConverter.ToBoolean(m["CanAccessCam"]),
+                CanAccessMic = Helper.TypeConverter.ToBoolean(m["CanAccessMic"]),
+                CanWrite = Helper.TypeConverter.ToBoolean(m["CanWrite"]),
+                IsMemberBanned = m["IsMemberBanned"],
+                BanType = GetBanType(m["StartDate"], m["EndDate"]),
+                QueueOrder = m["QueueOrder"],
+                IsMicOpened = Helper.TypeConverter.ToBoolean(m["HasMic"]),
+                IsCamOpened = Helper.TypeConverter.ToBoolean(m["HasCam"]),
+                NotifyOnCloseCam = Helper.TypeConverter.ToBoolean(m["NotifyOnCloseCam"]),
+                NotifyOnFriendsLogOff = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOff"]),
+                NotifyOnFriendsLogOn = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOn"]),
+                NotifyOnMicOff = Helper.TypeConverter.ToBoolean(m["NotifyOnMicOff"]),
+                NotifyOnMicOn = Helper.TypeConverter.ToBoolean(m["NotifyOnMicOn"]),
+                NotifyOnOpenCam = Helper.TypeConverter.ToBoolean(m["NotifyOnOpenCam"])
+            }).ToList();
+        }
+        private int? GetBanType(object startDate, object endDate)
+        {
+            if (startDate == DBNull.Value)
+                return null;
+            if (endDate == DBNull.Value)
+            {
+                return (int)Helper.Enums.BanningType.Permanent;
+            }
+            DateTime start = (DateTime)startDate
+                , end = (DateTime)endDate;
+            int diffDays = (end.Date - start.Date).Days;
+            if (diffDays == 1)
+            {
+                return (int)Helper.Enums.BanningType.Day;
+            }
+            if (diffDays == 7)
+            {
+                return (int)Helper.Enums.BanningType.Week;
+            }
+
+            return (int)Helper.Enums.BanningType.Month;
+        }
         #region override properties reading
+        public override short UserRate
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.UserRate))
+                    return 0;
+                return base.UserRate;
+            }
+            set
+            {
+                base.UserRate = value;
+            }
+        }
         public override bool CanAccessCam
         {
             get
@@ -143,19 +183,6 @@ namespace BLL
                 base.CanWrite = value;
             }
         }
-        public override bool IsBanned
-        {
-            get
-            {
-                if (IsColumnNull(RoomMember.ColumnNames.IsBanned))
-                    return false;
-                return base.IsBanned;
-            }
-            set
-            {
-                base.IsBanned = value;
-            }
-        }
         public override bool IsMarked
         {
             get
@@ -169,6 +196,103 @@ namespace BLL
                 base.IsMarked = value;
             }
         }
+
+        public override bool NotifyOnCloseCam
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnCloseCam))
+                    return false;
+                return base.NotifyOnCloseCam;
+            }
+            set
+            {
+                base.NotifyOnCloseCam = value;
+            }
+        }
+        public override bool NotifyOnFriendsLogOff
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnFriendsLogOff))
+                    return false;
+                return base.NotifyOnFriendsLogOff;
+            }
+            set
+            {
+                base.NotifyOnFriendsLogOff = value;
+            }
+        }
+        public override bool NotifyOnFriendsLogOn
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnFriendsLogOn))
+                    return false;
+                return base.NotifyOnFriendsLogOn;
+            }
+            set
+            {
+                base.NotifyOnFriendsLogOn = value;
+            }
+        }
+        public override bool NotifyOnMicOff
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnMicOff))
+                    return false;
+                return base.NotifyOnMicOff;
+            }
+            set
+            {
+                base.NotifyOnMicOff = value;
+            }
+        }
+        public override bool NotifyOnMicOn
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnMicOn))
+                    return false;
+                return base.NotifyOnMicOn;
+            }
+            set
+            {
+                base.NotifyOnMicOn = value;
+            }
+        }
+        public override bool NotifyOnOpenCam
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.NotifyOnOpenCam))
+                    return false;
+                return base.NotifyOnOpenCam;
+            }
+            set
+            {
+                base.NotifyOnOpenCam = value;
+            }
+        }
         #endregion
+        public override void AddNew()
+        {
+            base.AddNew();
+            CanAccessCam = true;
+            CanAccessMic = true;
+            CanWrite = true;
+            RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Visitor;
+        }
+
+        public void ClearQueue(int roomID)
+        {
+            LoadFromRawSql(@"UPDATE RoomMember SET QueueOrder=NULL WHERE QueueOrder IS NOT NULL AND RoomID={0}", roomID);
+        }
+
+        public void OutRoomMembers(int roomID)
+        {
+            LoadFromRawSql(@"UPDATE RoomMember SET QueueOrder=NULL ,InRoom=0 WHERE RoomID={0}", roomID);
+        }
     }
 }

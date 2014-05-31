@@ -117,22 +117,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
-			public static SqlParameter IsAdmin
-			{
-				get
-				{
-					return new SqlParameter("@IsAdmin", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter AdminTypeID
-			{
-				get
-				{
-					return new SqlParameter("@AdminTypeID", SqlDbType.Int, 0);
-				}
-			}
-			
 			public static SqlParameter HasMic
 			{
 				get
@@ -170,38 +154,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 				get
 				{
 					return new SqlParameter("@CanWrite", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter IsBanned
-			{
-				get
-				{
-					return new SqlParameter("@IsBanned", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter IsBannedFor24
-			{
-				get
-				{
-					return new SqlParameter("@IsBannedFor24", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter IsBannedFor7Days
-			{
-				get
-				{
-					return new SqlParameter("@IsBannedFor7Days", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter IsBannedForMonth
-			{
-				get
-				{
-					return new SqlParameter("@IsBannedForMonth", SqlDbType.Bit, 0);
 				}
 			}
 			
@@ -245,6 +197,70 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
+			public static SqlParameter RoomMemberLevelID
+			{
+				get
+				{
+					return new SqlParameter("@RoomMemberLevelID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnFriendsLogOn
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnFriendsLogOn", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnFriendsLogOff
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnFriendsLogOff", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnMicOn
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnMicOn", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnMicOff
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnMicOff", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnOpenCam
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnOpenCam", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter NotifyOnCloseCam
+			{
+				get
+				{
+					return new SqlParameter("@NotifyOnCloseCam", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter IsFavorite
+			{
+				get
+				{
+					return new SqlParameter("@IsFavorite", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -253,22 +269,24 @@ parameters.Add(Parameters.RoomID, RoomID);
 		{  
             public const string MemberID = "MemberID";
             public const string RoomID = "RoomID";
-            public const string IsAdmin = "IsAdmin";
-            public const string AdminTypeID = "AdminTypeID";
             public const string HasMic = "HasMic";
             public const string HasCam = "HasCam";
             public const string CanAccessMic = "CanAccessMic";
             public const string CanAccessCam = "CanAccessCam";
             public const string CanWrite = "CanWrite";
-            public const string IsBanned = "IsBanned";
-            public const string IsBannedFor24 = "IsBannedFor24";
-            public const string IsBannedFor7Days = "IsBannedFor7Days";
-            public const string IsBannedForMonth = "IsBannedForMonth";
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
             public const string QueueOrder = "QueueOrder";
             public const string UserRate = "UserRate";
             public const string InRoom = "InRoom";
+            public const string RoomMemberLevelID = "RoomMemberLevelID";
+            public const string NotifyOnFriendsLogOn = "NotifyOnFriendsLogOn";
+            public const string NotifyOnFriendsLogOff = "NotifyOnFriendsLogOff";
+            public const string NotifyOnMicOn = "NotifyOnMicOn";
+            public const string NotifyOnMicOff = "NotifyOnMicOff";
+            public const string NotifyOnOpenCam = "NotifyOnOpenCam";
+            public const string NotifyOnCloseCam = "NotifyOnCloseCam";
+            public const string IsFavorite = "IsFavorite";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -278,22 +296,24 @@ parameters.Add(Parameters.RoomID, RoomID);
 					
 					ht[MemberID] = _RoomMember.PropertyNames.MemberID;
 					ht[RoomID] = _RoomMember.PropertyNames.RoomID;
-					ht[IsAdmin] = _RoomMember.PropertyNames.IsAdmin;
-					ht[AdminTypeID] = _RoomMember.PropertyNames.AdminTypeID;
 					ht[HasMic] = _RoomMember.PropertyNames.HasMic;
 					ht[HasCam] = _RoomMember.PropertyNames.HasCam;
 					ht[CanAccessMic] = _RoomMember.PropertyNames.CanAccessMic;
 					ht[CanAccessCam] = _RoomMember.PropertyNames.CanAccessCam;
 					ht[CanWrite] = _RoomMember.PropertyNames.CanWrite;
-					ht[IsBanned] = _RoomMember.PropertyNames.IsBanned;
-					ht[IsBannedFor24] = _RoomMember.PropertyNames.IsBannedFor24;
-					ht[IsBannedFor7Days] = _RoomMember.PropertyNames.IsBannedFor7Days;
-					ht[IsBannedForMonth] = _RoomMember.PropertyNames.IsBannedForMonth;
 					ht[IsMarked] = _RoomMember.PropertyNames.IsMarked;
 					ht[AskForMic] = _RoomMember.PropertyNames.AskForMic;
 					ht[QueueOrder] = _RoomMember.PropertyNames.QueueOrder;
 					ht[UserRate] = _RoomMember.PropertyNames.UserRate;
 					ht[InRoom] = _RoomMember.PropertyNames.InRoom;
+					ht[RoomMemberLevelID] = _RoomMember.PropertyNames.RoomMemberLevelID;
+					ht[NotifyOnFriendsLogOn] = _RoomMember.PropertyNames.NotifyOnFriendsLogOn;
+					ht[NotifyOnFriendsLogOff] = _RoomMember.PropertyNames.NotifyOnFriendsLogOff;
+					ht[NotifyOnMicOn] = _RoomMember.PropertyNames.NotifyOnMicOn;
+					ht[NotifyOnMicOff] = _RoomMember.PropertyNames.NotifyOnMicOff;
+					ht[NotifyOnOpenCam] = _RoomMember.PropertyNames.NotifyOnOpenCam;
+					ht[NotifyOnCloseCam] = _RoomMember.PropertyNames.NotifyOnCloseCam;
+					ht[IsFavorite] = _RoomMember.PropertyNames.IsFavorite;
 
 				}
 				return (string)ht[columnName];
@@ -308,22 +328,24 @@ parameters.Add(Parameters.RoomID, RoomID);
 		{  
             public const string MemberID = "MemberID";
             public const string RoomID = "RoomID";
-            public const string IsAdmin = "IsAdmin";
-            public const string AdminTypeID = "AdminTypeID";
             public const string HasMic = "HasMic";
             public const string HasCam = "HasCam";
             public const string CanAccessMic = "CanAccessMic";
             public const string CanAccessCam = "CanAccessCam";
             public const string CanWrite = "CanWrite";
-            public const string IsBanned = "IsBanned";
-            public const string IsBannedFor24 = "IsBannedFor24";
-            public const string IsBannedFor7Days = "IsBannedFor7Days";
-            public const string IsBannedForMonth = "IsBannedForMonth";
             public const string IsMarked = "IsMarked";
             public const string AskForMic = "AskForMic";
             public const string QueueOrder = "QueueOrder";
             public const string UserRate = "UserRate";
             public const string InRoom = "InRoom";
+            public const string RoomMemberLevelID = "RoomMemberLevelID";
+            public const string NotifyOnFriendsLogOn = "NotifyOnFriendsLogOn";
+            public const string NotifyOnFriendsLogOff = "NotifyOnFriendsLogOff";
+            public const string NotifyOnMicOn = "NotifyOnMicOn";
+            public const string NotifyOnMicOff = "NotifyOnMicOff";
+            public const string NotifyOnOpenCam = "NotifyOnOpenCam";
+            public const string NotifyOnCloseCam = "NotifyOnCloseCam";
+            public const string IsFavorite = "IsFavorite";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -333,22 +355,24 @@ parameters.Add(Parameters.RoomID, RoomID);
 					
 					ht[MemberID] = _RoomMember.ColumnNames.MemberID;
 					ht[RoomID] = _RoomMember.ColumnNames.RoomID;
-					ht[IsAdmin] = _RoomMember.ColumnNames.IsAdmin;
-					ht[AdminTypeID] = _RoomMember.ColumnNames.AdminTypeID;
 					ht[HasMic] = _RoomMember.ColumnNames.HasMic;
 					ht[HasCam] = _RoomMember.ColumnNames.HasCam;
 					ht[CanAccessMic] = _RoomMember.ColumnNames.CanAccessMic;
 					ht[CanAccessCam] = _RoomMember.ColumnNames.CanAccessCam;
 					ht[CanWrite] = _RoomMember.ColumnNames.CanWrite;
-					ht[IsBanned] = _RoomMember.ColumnNames.IsBanned;
-					ht[IsBannedFor24] = _RoomMember.ColumnNames.IsBannedFor24;
-					ht[IsBannedFor7Days] = _RoomMember.ColumnNames.IsBannedFor7Days;
-					ht[IsBannedForMonth] = _RoomMember.ColumnNames.IsBannedForMonth;
 					ht[IsMarked] = _RoomMember.ColumnNames.IsMarked;
 					ht[AskForMic] = _RoomMember.ColumnNames.AskForMic;
 					ht[QueueOrder] = _RoomMember.ColumnNames.QueueOrder;
 					ht[UserRate] = _RoomMember.ColumnNames.UserRate;
 					ht[InRoom] = _RoomMember.ColumnNames.InRoom;
+					ht[RoomMemberLevelID] = _RoomMember.ColumnNames.RoomMemberLevelID;
+					ht[NotifyOnFriendsLogOn] = _RoomMember.ColumnNames.NotifyOnFriendsLogOn;
+					ht[NotifyOnFriendsLogOff] = _RoomMember.ColumnNames.NotifyOnFriendsLogOff;
+					ht[NotifyOnMicOn] = _RoomMember.ColumnNames.NotifyOnMicOn;
+					ht[NotifyOnMicOff] = _RoomMember.ColumnNames.NotifyOnMicOff;
+					ht[NotifyOnOpenCam] = _RoomMember.ColumnNames.NotifyOnOpenCam;
+					ht[NotifyOnCloseCam] = _RoomMember.ColumnNames.NotifyOnCloseCam;
+					ht[IsFavorite] = _RoomMember.ColumnNames.IsFavorite;
 
 				}
 				return (string)ht[propertyName];
@@ -363,22 +387,24 @@ parameters.Add(Parameters.RoomID, RoomID);
 		{  
             public const string MemberID = "s_MemberID";
             public const string RoomID = "s_RoomID";
-            public const string IsAdmin = "s_IsAdmin";
-            public const string AdminTypeID = "s_AdminTypeID";
             public const string HasMic = "s_HasMic";
             public const string HasCam = "s_HasCam";
             public const string CanAccessMic = "s_CanAccessMic";
             public const string CanAccessCam = "s_CanAccessCam";
             public const string CanWrite = "s_CanWrite";
-            public const string IsBanned = "s_IsBanned";
-            public const string IsBannedFor24 = "s_IsBannedFor24";
-            public const string IsBannedFor7Days = "s_IsBannedFor7Days";
-            public const string IsBannedForMonth = "s_IsBannedForMonth";
             public const string IsMarked = "s_IsMarked";
             public const string AskForMic = "s_AskForMic";
             public const string QueueOrder = "s_QueueOrder";
             public const string UserRate = "s_UserRate";
             public const string InRoom = "s_InRoom";
+            public const string RoomMemberLevelID = "s_RoomMemberLevelID";
+            public const string NotifyOnFriendsLogOn = "s_NotifyOnFriendsLogOn";
+            public const string NotifyOnFriendsLogOff = "s_NotifyOnFriendsLogOff";
+            public const string NotifyOnMicOn = "s_NotifyOnMicOn";
+            public const string NotifyOnMicOff = "s_NotifyOnMicOff";
+            public const string NotifyOnOpenCam = "s_NotifyOnOpenCam";
+            public const string NotifyOnCloseCam = "s_NotifyOnCloseCam";
+            public const string IsFavorite = "s_IsFavorite";
 
 		}
 		#endregion		
@@ -406,30 +432,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 			set
 	        {
 				base.Setint(ColumnNames.RoomID, value);
-			}
-		}
-
-		public virtual bool IsAdmin
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsAdmin);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsAdmin, value);
-			}
-		}
-
-		public virtual int AdminTypeID
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.AdminTypeID);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.AdminTypeID, value);
 			}
 		}
 
@@ -493,54 +495,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
-		public virtual bool IsBanned
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsBanned);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsBanned, value);
-			}
-		}
-
-		public virtual bool IsBannedFor24
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsBannedFor24);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsBannedFor24, value);
-			}
-		}
-
-		public virtual bool IsBannedFor7Days
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsBannedFor7Days);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsBannedFor7Days, value);
-			}
-		}
-
-		public virtual bool IsBannedForMonth
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsBannedForMonth);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsBannedForMonth, value);
-			}
-		}
-
 		public virtual bool IsMarked
 	    {
 			get
@@ -601,6 +555,102 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual int RoomMemberLevelID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.RoomMemberLevelID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.RoomMemberLevelID, value);
+			}
+		}
+
+		public virtual bool NotifyOnFriendsLogOn
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnFriendsLogOn);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnFriendsLogOn, value);
+			}
+		}
+
+		public virtual bool NotifyOnFriendsLogOff
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnFriendsLogOff);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnFriendsLogOff, value);
+			}
+		}
+
+		public virtual bool NotifyOnMicOn
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnMicOn);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnMicOn, value);
+			}
+		}
+
+		public virtual bool NotifyOnMicOff
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnMicOff);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnMicOff, value);
+			}
+		}
+
+		public virtual bool NotifyOnOpenCam
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnOpenCam);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnOpenCam, value);
+			}
+		}
+
+		public virtual bool NotifyOnCloseCam
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.NotifyOnCloseCam);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.NotifyOnCloseCam, value);
+			}
+		}
+
+		public virtual bool IsFavorite
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsFavorite);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsFavorite, value);
+			}
+		}
+
 
 		#endregion
 		
@@ -633,36 +683,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 					this.SetColumnNull(ColumnNames.RoomID);
 				else
 					this.RoomID = base.SetintAsString(ColumnNames.RoomID, value);
-			}
-		}
-
-		public virtual string s_IsAdmin
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsAdmin) ? string.Empty : base.GetboolAsString(ColumnNames.IsAdmin);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsAdmin);
-				else
-					this.IsAdmin = base.SetboolAsString(ColumnNames.IsAdmin, value);
-			}
-		}
-
-		public virtual string s_AdminTypeID
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.AdminTypeID) ? string.Empty : base.GetintAsString(ColumnNames.AdminTypeID);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.AdminTypeID);
-				else
-					this.AdminTypeID = base.SetintAsString(ColumnNames.AdminTypeID, value);
 			}
 		}
 
@@ -741,66 +761,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
-		public virtual string s_IsBanned
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsBanned) ? string.Empty : base.GetboolAsString(ColumnNames.IsBanned);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBanned);
-				else
-					this.IsBanned = base.SetboolAsString(ColumnNames.IsBanned, value);
-			}
-		}
-
-		public virtual string s_IsBannedFor24
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsBannedFor24) ? string.Empty : base.GetboolAsString(ColumnNames.IsBannedFor24);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBannedFor24);
-				else
-					this.IsBannedFor24 = base.SetboolAsString(ColumnNames.IsBannedFor24, value);
-			}
-		}
-
-		public virtual string s_IsBannedFor7Days
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsBannedFor7Days) ? string.Empty : base.GetboolAsString(ColumnNames.IsBannedFor7Days);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBannedFor7Days);
-				else
-					this.IsBannedFor7Days = base.SetboolAsString(ColumnNames.IsBannedFor7Days, value);
-			}
-		}
-
-		public virtual string s_IsBannedForMonth
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsBannedForMonth) ? string.Empty : base.GetboolAsString(ColumnNames.IsBannedForMonth);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBannedForMonth);
-				else
-					this.IsBannedForMonth = base.SetboolAsString(ColumnNames.IsBannedForMonth, value);
-			}
-		}
-
 		public virtual string s_IsMarked
 	    {
 			get
@@ -876,6 +836,126 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual string s_RoomMemberLevelID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RoomMemberLevelID) ? string.Empty : base.GetintAsString(ColumnNames.RoomMemberLevelID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RoomMemberLevelID);
+				else
+					this.RoomMemberLevelID = base.SetintAsString(ColumnNames.RoomMemberLevelID, value);
+			}
+		}
+
+		public virtual string s_NotifyOnFriendsLogOn
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnFriendsLogOn) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnFriendsLogOn);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnFriendsLogOn);
+				else
+					this.NotifyOnFriendsLogOn = base.SetboolAsString(ColumnNames.NotifyOnFriendsLogOn, value);
+			}
+		}
+
+		public virtual string s_NotifyOnFriendsLogOff
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnFriendsLogOff) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnFriendsLogOff);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnFriendsLogOff);
+				else
+					this.NotifyOnFriendsLogOff = base.SetboolAsString(ColumnNames.NotifyOnFriendsLogOff, value);
+			}
+		}
+
+		public virtual string s_NotifyOnMicOn
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnMicOn) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnMicOn);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnMicOn);
+				else
+					this.NotifyOnMicOn = base.SetboolAsString(ColumnNames.NotifyOnMicOn, value);
+			}
+		}
+
+		public virtual string s_NotifyOnMicOff
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnMicOff) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnMicOff);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnMicOff);
+				else
+					this.NotifyOnMicOff = base.SetboolAsString(ColumnNames.NotifyOnMicOff, value);
+			}
+		}
+
+		public virtual string s_NotifyOnOpenCam
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnOpenCam) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnOpenCam);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnOpenCam);
+				else
+					this.NotifyOnOpenCam = base.SetboolAsString(ColumnNames.NotifyOnOpenCam, value);
+			}
+		}
+
+		public virtual string s_NotifyOnCloseCam
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NotifyOnCloseCam) ? string.Empty : base.GetboolAsString(ColumnNames.NotifyOnCloseCam);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NotifyOnCloseCam);
+				else
+					this.NotifyOnCloseCam = base.SetboolAsString(ColumnNames.NotifyOnCloseCam, value);
+			}
+		}
+
+		public virtual string s_IsFavorite
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsFavorite) ? string.Empty : base.GetboolAsString(ColumnNames.IsFavorite);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsFavorite);
+				else
+					this.IsFavorite = base.SetboolAsString(ColumnNames.IsFavorite, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -924,26 +1004,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.RoomID, Parameters.RoomID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter IsAdmin
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsAdmin, Parameters.IsAdmin);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter AdminTypeID
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.AdminTypeID, Parameters.AdminTypeID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -999,46 +1059,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
-				public WhereParameter IsBanned
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBanned, Parameters.IsBanned);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter IsBannedFor24
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBannedFor24, Parameters.IsBannedFor24);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter IsBannedFor7Days
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBannedFor7Days, Parameters.IsBannedFor7Days);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter IsBannedForMonth
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBannedForMonth, Parameters.IsBannedForMonth);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 				public WhereParameter IsMarked
 				{
 					get
@@ -1089,6 +1109,86 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public WhereParameter RoomMemberLevelID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RoomMemberLevelID, Parameters.RoomMemberLevelID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnFriendsLogOn
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnFriendsLogOn, Parameters.NotifyOnFriendsLogOn);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnFriendsLogOff
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnFriendsLogOff, Parameters.NotifyOnFriendsLogOff);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnMicOn
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnMicOn, Parameters.NotifyOnMicOn);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnMicOff
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnMicOff, Parameters.NotifyOnMicOff);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnOpenCam
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnOpenCam, Parameters.NotifyOnOpenCam);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NotifyOnCloseCam
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NotifyOnCloseCam, Parameters.NotifyOnCloseCam);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsFavorite
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsFavorite, Parameters.IsFavorite);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -1115,30 +1215,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 						_RoomID_W = TearOff.RoomID;
 					}
 					return _RoomID_W;
-				}
-			}
-
-			public WhereParameter IsAdmin
-		    {
-				get
-		        {
-					if(_IsAdmin_W == null)
-	        	    {
-						_IsAdmin_W = TearOff.IsAdmin;
-					}
-					return _IsAdmin_W;
-				}
-			}
-
-			public WhereParameter AdminTypeID
-		    {
-				get
-		        {
-					if(_AdminTypeID_W == null)
-	        	    {
-						_AdminTypeID_W = TearOff.AdminTypeID;
-					}
-					return _AdminTypeID_W;
 				}
 			}
 
@@ -1202,54 +1278,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
-			public WhereParameter IsBanned
-		    {
-				get
-		        {
-					if(_IsBanned_W == null)
-	        	    {
-						_IsBanned_W = TearOff.IsBanned;
-					}
-					return _IsBanned_W;
-				}
-			}
-
-			public WhereParameter IsBannedFor24
-		    {
-				get
-		        {
-					if(_IsBannedFor24_W == null)
-	        	    {
-						_IsBannedFor24_W = TearOff.IsBannedFor24;
-					}
-					return _IsBannedFor24_W;
-				}
-			}
-
-			public WhereParameter IsBannedFor7Days
-		    {
-				get
-		        {
-					if(_IsBannedFor7Days_W == null)
-	        	    {
-						_IsBannedFor7Days_W = TearOff.IsBannedFor7Days;
-					}
-					return _IsBannedFor7Days_W;
-				}
-			}
-
-			public WhereParameter IsBannedForMonth
-		    {
-				get
-		        {
-					if(_IsBannedForMonth_W == null)
-	        	    {
-						_IsBannedForMonth_W = TearOff.IsBannedForMonth;
-					}
-					return _IsBannedForMonth_W;
-				}
-			}
-
 			public WhereParameter IsMarked
 		    {
 				get
@@ -1310,45 +1338,145 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public WhereParameter RoomMemberLevelID
+		    {
+				get
+		        {
+					if(_RoomMemberLevelID_W == null)
+	        	    {
+						_RoomMemberLevelID_W = TearOff.RoomMemberLevelID;
+					}
+					return _RoomMemberLevelID_W;
+				}
+			}
+
+			public WhereParameter NotifyOnFriendsLogOn
+		    {
+				get
+		        {
+					if(_NotifyOnFriendsLogOn_W == null)
+	        	    {
+						_NotifyOnFriendsLogOn_W = TearOff.NotifyOnFriendsLogOn;
+					}
+					return _NotifyOnFriendsLogOn_W;
+				}
+			}
+
+			public WhereParameter NotifyOnFriendsLogOff
+		    {
+				get
+		        {
+					if(_NotifyOnFriendsLogOff_W == null)
+	        	    {
+						_NotifyOnFriendsLogOff_W = TearOff.NotifyOnFriendsLogOff;
+					}
+					return _NotifyOnFriendsLogOff_W;
+				}
+			}
+
+			public WhereParameter NotifyOnMicOn
+		    {
+				get
+		        {
+					if(_NotifyOnMicOn_W == null)
+	        	    {
+						_NotifyOnMicOn_W = TearOff.NotifyOnMicOn;
+					}
+					return _NotifyOnMicOn_W;
+				}
+			}
+
+			public WhereParameter NotifyOnMicOff
+		    {
+				get
+		        {
+					if(_NotifyOnMicOff_W == null)
+	        	    {
+						_NotifyOnMicOff_W = TearOff.NotifyOnMicOff;
+					}
+					return _NotifyOnMicOff_W;
+				}
+			}
+
+			public WhereParameter NotifyOnOpenCam
+		    {
+				get
+		        {
+					if(_NotifyOnOpenCam_W == null)
+	        	    {
+						_NotifyOnOpenCam_W = TearOff.NotifyOnOpenCam;
+					}
+					return _NotifyOnOpenCam_W;
+				}
+			}
+
+			public WhereParameter NotifyOnCloseCam
+		    {
+				get
+		        {
+					if(_NotifyOnCloseCam_W == null)
+	        	    {
+						_NotifyOnCloseCam_W = TearOff.NotifyOnCloseCam;
+					}
+					return _NotifyOnCloseCam_W;
+				}
+			}
+
+			public WhereParameter IsFavorite
+		    {
+				get
+		        {
+					if(_IsFavorite_W == null)
+	        	    {
+						_IsFavorite_W = TearOff.IsFavorite;
+					}
+					return _IsFavorite_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _RoomID_W = null;
-			private WhereParameter _IsAdmin_W = null;
-			private WhereParameter _AdminTypeID_W = null;
 			private WhereParameter _HasMic_W = null;
 			private WhereParameter _HasCam_W = null;
 			private WhereParameter _CanAccessMic_W = null;
 			private WhereParameter _CanAccessCam_W = null;
 			private WhereParameter _CanWrite_W = null;
-			private WhereParameter _IsBanned_W = null;
-			private WhereParameter _IsBannedFor24_W = null;
-			private WhereParameter _IsBannedFor7Days_W = null;
-			private WhereParameter _IsBannedForMonth_W = null;
 			private WhereParameter _IsMarked_W = null;
 			private WhereParameter _AskForMic_W = null;
 			private WhereParameter _QueueOrder_W = null;
 			private WhereParameter _UserRate_W = null;
 			private WhereParameter _InRoom_W = null;
+			private WhereParameter _RoomMemberLevelID_W = null;
+			private WhereParameter _NotifyOnFriendsLogOn_W = null;
+			private WhereParameter _NotifyOnFriendsLogOff_W = null;
+			private WhereParameter _NotifyOnMicOn_W = null;
+			private WhereParameter _NotifyOnMicOff_W = null;
+			private WhereParameter _NotifyOnOpenCam_W = null;
+			private WhereParameter _NotifyOnCloseCam_W = null;
+			private WhereParameter _IsFavorite_W = null;
 
 			public void WhereClauseReset()
 			{
 				_MemberID_W = null;
 				_RoomID_W = null;
-				_IsAdmin_W = null;
-				_AdminTypeID_W = null;
 				_HasMic_W = null;
 				_HasCam_W = null;
 				_CanAccessMic_W = null;
 				_CanAccessCam_W = null;
 				_CanWrite_W = null;
-				_IsBanned_W = null;
-				_IsBannedFor24_W = null;
-				_IsBannedFor7Days_W = null;
-				_IsBannedForMonth_W = null;
 				_IsMarked_W = null;
 				_AskForMic_W = null;
 				_QueueOrder_W = null;
 				_UserRate_W = null;
 				_InRoom_W = null;
+				_RoomMemberLevelID_W = null;
+				_NotifyOnFriendsLogOn_W = null;
+				_NotifyOnFriendsLogOff_W = null;
+				_NotifyOnMicOn_W = null;
+				_NotifyOnMicOff_W = null;
+				_NotifyOnOpenCam_W = null;
+				_NotifyOnCloseCam_W = null;
+				_IsFavorite_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1425,26 +1553,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
-				public AggregateParameter IsAdmin
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsAdmin, Parameters.IsAdmin);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter AdminTypeID
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AdminTypeID, Parameters.AdminTypeID);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
 				public AggregateParameter HasMic
 				{
 					get
@@ -1490,46 +1598,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CanWrite, Parameters.CanWrite);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter IsBanned
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBanned, Parameters.IsBanned);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter IsBannedFor24
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBannedFor24, Parameters.IsBannedFor24);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter IsBannedFor7Days
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBannedFor7Days, Parameters.IsBannedFor7Days);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter IsBannedForMonth
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBannedForMonth, Parameters.IsBannedForMonth);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1585,6 +1653,86 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public AggregateParameter RoomMemberLevelID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomMemberLevelID, Parameters.RoomMemberLevelID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnFriendsLogOn
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnFriendsLogOn, Parameters.NotifyOnFriendsLogOn);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnFriendsLogOff
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnFriendsLogOff, Parameters.NotifyOnFriendsLogOff);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnMicOn
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnMicOn, Parameters.NotifyOnMicOn);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnMicOff
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnMicOff, Parameters.NotifyOnMicOff);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnOpenCam
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnOpenCam, Parameters.NotifyOnOpenCam);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NotifyOnCloseCam
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NotifyOnCloseCam, Parameters.NotifyOnCloseCam);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsFavorite
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsFavorite, Parameters.IsFavorite);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1611,30 +1759,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 						_RoomID_W = TearOff.RoomID;
 					}
 					return _RoomID_W;
-				}
-			}
-
-			public AggregateParameter IsAdmin
-		    {
-				get
-		        {
-					if(_IsAdmin_W == null)
-	        	    {
-						_IsAdmin_W = TearOff.IsAdmin;
-					}
-					return _IsAdmin_W;
-				}
-			}
-
-			public AggregateParameter AdminTypeID
-		    {
-				get
-		        {
-					if(_AdminTypeID_W == null)
-	        	    {
-						_AdminTypeID_W = TearOff.AdminTypeID;
-					}
-					return _AdminTypeID_W;
 				}
 			}
 
@@ -1698,54 +1822,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
-			public AggregateParameter IsBanned
-		    {
-				get
-		        {
-					if(_IsBanned_W == null)
-	        	    {
-						_IsBanned_W = TearOff.IsBanned;
-					}
-					return _IsBanned_W;
-				}
-			}
-
-			public AggregateParameter IsBannedFor24
-		    {
-				get
-		        {
-					if(_IsBannedFor24_W == null)
-	        	    {
-						_IsBannedFor24_W = TearOff.IsBannedFor24;
-					}
-					return _IsBannedFor24_W;
-				}
-			}
-
-			public AggregateParameter IsBannedFor7Days
-		    {
-				get
-		        {
-					if(_IsBannedFor7Days_W == null)
-	        	    {
-						_IsBannedFor7Days_W = TearOff.IsBannedFor7Days;
-					}
-					return _IsBannedFor7Days_W;
-				}
-			}
-
-			public AggregateParameter IsBannedForMonth
-		    {
-				get
-		        {
-					if(_IsBannedForMonth_W == null)
-	        	    {
-						_IsBannedForMonth_W = TearOff.IsBannedForMonth;
-					}
-					return _IsBannedForMonth_W;
-				}
-			}
-
 			public AggregateParameter IsMarked
 		    {
 				get
@@ -1806,45 +1882,145 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public AggregateParameter RoomMemberLevelID
+		    {
+				get
+		        {
+					if(_RoomMemberLevelID_W == null)
+	        	    {
+						_RoomMemberLevelID_W = TearOff.RoomMemberLevelID;
+					}
+					return _RoomMemberLevelID_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnFriendsLogOn
+		    {
+				get
+		        {
+					if(_NotifyOnFriendsLogOn_W == null)
+	        	    {
+						_NotifyOnFriendsLogOn_W = TearOff.NotifyOnFriendsLogOn;
+					}
+					return _NotifyOnFriendsLogOn_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnFriendsLogOff
+		    {
+				get
+		        {
+					if(_NotifyOnFriendsLogOff_W == null)
+	        	    {
+						_NotifyOnFriendsLogOff_W = TearOff.NotifyOnFriendsLogOff;
+					}
+					return _NotifyOnFriendsLogOff_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnMicOn
+		    {
+				get
+		        {
+					if(_NotifyOnMicOn_W == null)
+	        	    {
+						_NotifyOnMicOn_W = TearOff.NotifyOnMicOn;
+					}
+					return _NotifyOnMicOn_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnMicOff
+		    {
+				get
+		        {
+					if(_NotifyOnMicOff_W == null)
+	        	    {
+						_NotifyOnMicOff_W = TearOff.NotifyOnMicOff;
+					}
+					return _NotifyOnMicOff_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnOpenCam
+		    {
+				get
+		        {
+					if(_NotifyOnOpenCam_W == null)
+	        	    {
+						_NotifyOnOpenCam_W = TearOff.NotifyOnOpenCam;
+					}
+					return _NotifyOnOpenCam_W;
+				}
+			}
+
+			public AggregateParameter NotifyOnCloseCam
+		    {
+				get
+		        {
+					if(_NotifyOnCloseCam_W == null)
+	        	    {
+						_NotifyOnCloseCam_W = TearOff.NotifyOnCloseCam;
+					}
+					return _NotifyOnCloseCam_W;
+				}
+			}
+
+			public AggregateParameter IsFavorite
+		    {
+				get
+		        {
+					if(_IsFavorite_W == null)
+	        	    {
+						_IsFavorite_W = TearOff.IsFavorite;
+					}
+					return _IsFavorite_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _RoomID_W = null;
-			private AggregateParameter _IsAdmin_W = null;
-			private AggregateParameter _AdminTypeID_W = null;
 			private AggregateParameter _HasMic_W = null;
 			private AggregateParameter _HasCam_W = null;
 			private AggregateParameter _CanAccessMic_W = null;
 			private AggregateParameter _CanAccessCam_W = null;
 			private AggregateParameter _CanWrite_W = null;
-			private AggregateParameter _IsBanned_W = null;
-			private AggregateParameter _IsBannedFor24_W = null;
-			private AggregateParameter _IsBannedFor7Days_W = null;
-			private AggregateParameter _IsBannedForMonth_W = null;
 			private AggregateParameter _IsMarked_W = null;
 			private AggregateParameter _AskForMic_W = null;
 			private AggregateParameter _QueueOrder_W = null;
 			private AggregateParameter _UserRate_W = null;
 			private AggregateParameter _InRoom_W = null;
+			private AggregateParameter _RoomMemberLevelID_W = null;
+			private AggregateParameter _NotifyOnFriendsLogOn_W = null;
+			private AggregateParameter _NotifyOnFriendsLogOff_W = null;
+			private AggregateParameter _NotifyOnMicOn_W = null;
+			private AggregateParameter _NotifyOnMicOff_W = null;
+			private AggregateParameter _NotifyOnOpenCam_W = null;
+			private AggregateParameter _NotifyOnCloseCam_W = null;
+			private AggregateParameter _IsFavorite_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_MemberID_W = null;
 				_RoomID_W = null;
-				_IsAdmin_W = null;
-				_AdminTypeID_W = null;
 				_HasMic_W = null;
 				_HasCam_W = null;
 				_CanAccessMic_W = null;
 				_CanAccessCam_W = null;
 				_CanWrite_W = null;
-				_IsBanned_W = null;
-				_IsBannedFor24_W = null;
-				_IsBannedFor7Days_W = null;
-				_IsBannedForMonth_W = null;
 				_IsMarked_W = null;
 				_AskForMic_W = null;
 				_QueueOrder_W = null;
 				_UserRate_W = null;
 				_InRoom_W = null;
+				_RoomMemberLevelID_W = null;
+				_NotifyOnFriendsLogOn_W = null;
+				_NotifyOnFriendsLogOff_W = null;
+				_NotifyOnMicOn_W = null;
+				_NotifyOnMicOff_W = null;
+				_NotifyOnOpenCam_W = null;
+				_NotifyOnCloseCam_W = null;
+				_IsFavorite_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1927,14 +2103,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 			p.SourceColumn = ColumnNames.RoomID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsAdmin);
-			p.SourceColumn = ColumnNames.IsAdmin;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.AdminTypeID);
-			p.SourceColumn = ColumnNames.AdminTypeID;
-			p.SourceVersion = DataRowVersion.Current;
-
 			p = cmd.Parameters.Add(Parameters.HasMic);
 			p.SourceColumn = ColumnNames.HasMic;
 			p.SourceVersion = DataRowVersion.Current;
@@ -1955,22 +2123,6 @@ parameters.Add(Parameters.RoomID, RoomID);
 			p.SourceColumn = ColumnNames.CanWrite;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsBanned);
-			p.SourceColumn = ColumnNames.IsBanned;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.IsBannedFor24);
-			p.SourceColumn = ColumnNames.IsBannedFor24;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.IsBannedFor7Days);
-			p.SourceColumn = ColumnNames.IsBannedFor7Days;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.IsBannedForMonth);
-			p.SourceColumn = ColumnNames.IsBannedForMonth;
-			p.SourceVersion = DataRowVersion.Current;
-
 			p = cmd.Parameters.Add(Parameters.IsMarked);
 			p.SourceColumn = ColumnNames.IsMarked;
 			p.SourceVersion = DataRowVersion.Current;
@@ -1989,6 +2141,38 @@ parameters.Add(Parameters.RoomID, RoomID);
 
 			p = cmd.Parameters.Add(Parameters.InRoom);
 			p.SourceColumn = ColumnNames.InRoom;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RoomMemberLevelID);
+			p.SourceColumn = ColumnNames.RoomMemberLevelID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnFriendsLogOn);
+			p.SourceColumn = ColumnNames.NotifyOnFriendsLogOn;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnFriendsLogOff);
+			p.SourceColumn = ColumnNames.NotifyOnFriendsLogOff;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnMicOn);
+			p.SourceColumn = ColumnNames.NotifyOnMicOn;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnMicOff);
+			p.SourceColumn = ColumnNames.NotifyOnMicOff;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnOpenCam);
+			p.SourceColumn = ColumnNames.NotifyOnOpenCam;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NotifyOnCloseCam);
+			p.SourceColumn = ColumnNames.NotifyOnCloseCam;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsFavorite);
+			p.SourceColumn = ColumnNames.IsFavorite;
 			p.SourceVersion = DataRowVersion.Current;
 
 

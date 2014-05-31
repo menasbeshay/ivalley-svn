@@ -59,6 +59,7 @@
     <Compile Include="SignalRUser.cs" />
     <Compile Include="StringEnum.cs" />
     <Compile Include="StringValue.cs" />
+    <Compile Include="TypeConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

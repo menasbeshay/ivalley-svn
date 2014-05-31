@@ -41,6 +41,7 @@ function Chat(maxWin, memberID, memberName) {
     }
     var windowModel = function (data) {
         ko.mapping.fromJS(data, {}, this);
+        var self = this;
 
         this.uniqueID = ko.computed(function () {
             return this.Type() + '_' + this.ID();
@@ -49,90 +50,77 @@ function Chat(maxWin, memberID, memberName) {
         this.Editor = null;
         this.selectedGift = null;
 
-        //Room Members
         this.getMember = function (id) {
-            if (this.RoomMembers().length > 0)
-            return ko.utils.arrayFirst(this.RoomMembers(), function (mem) {
+            return ko.utils.arrayFirst(this.Members(), function (mem) {
                 return mem.MemberID() == id;
             });
-            return null;
         }
-        this.addMember = function (member) {
-            this.RoomMembers.push(member);
-
-        };
-        this.newMember = function (id, name, memberType, profileImg) {
-            var member = { MemberID: id, MemberName: name, MemberTypeID: memberType,ProfileImg:profileImg, IsCamOpened: false, IsMicOpened: false };
-            return ko.mapping.fromJS(member);
-        }
-        this.removeMember = function (id) {
-            var member = this.getMember(id);
-            if (member != null) {
-                this.RoomMembers.remove(member);
-
-            }
-        };
+        //Existing Members
+        this.ExistingMembers = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            return ko.utils.arrayFilter(self.Members(), function (mem) {
+                return mem.InRoom();
+            });
+        }, this);
+        //Room Members
+        this.RoomMembers = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            return ko.utils.arrayFilter(self.Members(), function (mem) {
+                return (mem.InRoom() && mem.QueueOrder()==null);
+            });
+        }, this);
         //Queue Members
-        this.getQueueMember = function (id) {
-            if (this.QueueMembers().length > 0)
-            return ko.utils.arrayFirst(this.QueueMembers(), function (mem) {
-                return mem.MemberID() == id;
+        this.QueueMembers = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            return ko.utils.arrayFilter(self.Members(), function (mem) {
+                return (mem.InRoom() && mem.QueueOrder() != null);
+            }).slice().sort(function (a, b) {
+                return a.QueueOrder() > b.QueueOrder() ? 1 : -1;
             });
-            return null;
-        }
-        this.addQueueMember = function (member) {
-            if (member == null)
-                return;
-            this.QueueMembers.push(member);
-        };
-        this.removeQueueMember = function (id) {
-            var member = this.getQueueMember(id);
-            if (member != null) {
-                this.QueueMembers.remove(member);
-            }
-        };
-
+        }, this);
+        //Current member
+        this.CurrentMember = ko.computed(function () {
+            return self.getMember(self.CurrentMemberID());
+        }, this);
+        //Owner
+        this.OwnerMember = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            return self.getMember(self.CreatedBy());
+        }, this);
+        //MicMember
+        this.MicMember = ko.observable();
 
         this.updateSetting = function (settingName) {
             var window = this;
-            var newValue = !window.CurrentMemberSettings[settingName]();
-            window.CurrentMemberSettings[settingName](newValue);
+            var newValue = !window.CurrentMember()[settingName]();
+            window.CurrentMember()[settingName](newValue);
             $.ajax({
                 url: '../Services/Services.asmx/UpdateRoomSetting',
                 dataType: 'json',
                 type: 'post',
-                data: "{'mid':" + self.CurrentMemberSettings.MemberID() + ", 'rid' : " + window.ID() + ",'setting':'" + settingName + "','newValue':" + newValue + " }",
+                data: "{'mid':" + self.CurrentMember().MemberID() + ", 'rid' : " + window.ID() + ",'setting':'" + settingName + "','newValue':" + newValue + " }",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     notify('success', 'تم تغيير الإعدادات بنجاح');
                     return;
-
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة');
                 }
             });
             return true;
         }
-        var self = this;
+        //control panel
+        this.bannedMember = ko.observable();
         this.banMember = function (id) {
             var member = self.getMember(id);
             if (member == null)
-                member = self.getQueueMember(id);
-            if (member == null)
                 return;
-
-            //self.bannedMember().MemberName(member.MemberName());
-            //self.bannedMember().MemberID(member.MemberID());
-            var banned = self.getMemberSetting(id);
-            self.bannedMember(banned);
+            self.bannedMember(member);
             $("#banModal_" + self.uniqueID()).modal('show');
         };
         this.saveBanMember = function () {
@@ -146,7 +134,7 @@ function Chat(maxWin, memberID, memberName) {
                 success: function (data) {
                     notify('success', 'تم حجب العضو بنجاح');
                     $("#banModal_" + window.uniqueID()).modal('hide');
-                    rHub.server.banMemberFromRoom(window.bannedMember().MemberID(), window.ID(), window.bannedType(), chatVM.CurrentMemberName);
+                    rHub.server.banMemberFromRoom(window.bannedMember().MemberID(), window.ID(), window.bannedType(), window.CurrentMember().MemberName());
                     window.bannedMember().BanType(window.bannedType());
                     window.bannedMember().IsMemberBanned(true);
                     self.BanMemberName("");
@@ -154,29 +142,24 @@ function Chat(maxWin, memberID, memberName) {
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     $("#banModal_" + window.uniqueID()).modal('hide');
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة');
                 }
             });
         };
-        //control panel
         this.BannedMembers = ko.computed(function () {
-            return ko.utils.arrayFilter(self.AllMembersSettings(), function (mem) {
+            if (self.Type() == 'Private')
+                return null;
+            return ko.utils.arrayFilter(self.Members(), function (mem) {
                 return mem.IsMemberBanned();
             });
         }, this);
         this.NotBannedMembers = ko.computed(function () {
-            return ko.utils.arrayFilter(self.AllMembersSettings(), function (mem) {
-                return !mem.IsMemberBanned() && mem.MemberID() != chatVM.CurrentMemberID;
+            if (self.Type() == 'Private')
+                return null;
+            return ko.utils.arrayFilter(self.Members(), function (mem) {
+                return !mem.IsMemberBanned() && mem.MemberID() != self.CurrentMemberID();
             });
         }, this);
-        this.bannedMember = ko.observable();
         this.bannedType = ko.observable();
         this.BanMemberName = ko.observable("");
         this.banMemberByName=function()
@@ -202,13 +185,12 @@ function Chat(maxWin, memberID, memberName) {
                     id = $(this).val();
                 else
                     id = $(this.options[i]).val();
-                var member = self.getMemberSetting(id);
+                var member = self.getMember(id);
                 if (member != null) {
                     member.BanType(null);
                     member.IsMemberBanned(false);
                     bannedMembers[i] = id;
                 }
-
             });
             if (bannedMembers.length > 0) {
                 $.ajax({
@@ -224,14 +206,8 @@ function Chat(maxWin, memberID, memberName) {
         }
         this.closeRoom = function () {
             var window = this;
-            rHub.server.closeRoom(window.ID(), chatVM.CurrentMemberName);
+            rHub.server.closeRoom(window.ID(), self.CurrentMember().MemberName());
             $("#controlPanelModal_" + window.uniqueID()).modal('hide');
-        };
-        this.getMemberSetting = function (mid) {
-            var member = ko.utils.arrayFirst(self.AllMembersSettings(), function (mem) {
-                return mem.MemberID() == mid;
-            });
-            return member;
         };
         this.saveRoomTopic = function () {
             var window = this;
@@ -245,14 +221,13 @@ function Chat(maxWin, memberID, memberName) {
         this.ShowInviteFriends = function () {
             $("#inviteModal_" + self.uniqueID()).modal('show');
         };
-
         this.Invitefriends = function () {
             var window = this;
             $.ajax({
                 url: '../Services/Services.asmx/InviteFriends',
                 dataType: 'json',
                 type: 'post',
-                data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + $('#invite_' + window.uniqueID()).val() + "'}",
+                data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + $('#invite_' + window.uniqueID()).val() + "'}",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     notify('success', 'تم دعوة الأصدقاء بنجاح');
@@ -265,19 +240,16 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         };
-
         // send gifts to friends
         this.ShowSendGift = function () {
             $("#giftModal_" + self.uniqueID()).modal('show');
         };
-
         this.selectGift = function () {
             self.selectedGift = this;            
             $('#giftUL_' + self.uniqueID()).find('label').removeClass('selected');
             $('#giftUL_' + self.uniqueID() + ' #gift_' + self.selectedGift.giftid()).next('label').addClass('selected');
 
         };
-
         this.SendGift = function () {
             var window = this;
             if (chatVM.CreditPoints() >= window.selectedGift.price()) {
@@ -285,7 +257,7 @@ function Chat(maxWin, memberID, memberName) {
                     url: '../Services/Services.asmx/SendGift',
                     dataType: 'json',
                     type: 'post',
-                    data: "{'memberName':'" + chatVM.CurrentMemberName + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + window.selectedGift.giftid() + "}",
+                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + window.selectedGift.giftid() + "}",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
@@ -322,10 +294,6 @@ function Chat(maxWin, memberID, memberName) {
         };
 
     }
-    var banMemberModel = function (member) {
-        var baned = { MemberID: member.MemberID(), MemberName: member.MemberName(), Type: 4 };
-        return ko.mapping.fromJS(baned);
-    }
 
     self.changeCurrent = function (selctor) {
         if (document.getElementById(selctor)) {
@@ -343,8 +311,6 @@ function Chat(maxWin, memberID, memberName) {
         if (istemp == undefined)
             istemp = false;
         if (type == 'Private') {
-            //var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID } };
-            //var roomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
             var gifts = [];
             $.ajax({
                 url: '../services/Services.asmx/GetGifts',                
@@ -358,7 +324,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
             
-            var room = { ID: id, Name: name, RoomTopic: "", Type: type, IsTemp: true, Message: "", MessageHistory: "", CurrentMemberSettings: { MemberID: self.CurrentMemberID, IsMicOpened: false, IsCamOpened: false, CanAccessCam: true, CanAccessMic: true, CanWrite: true }, Settings: { EnableCam: true, EnableMic: true, MaxMic: 2, CamCount: 2 }, RoomMembers: {}, QueueMembers: {}, MicMember: {}, AllMembersSettings: [], Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", Members: [{MemberID:self.CurrentMemberID,MemberName:self.CurrentMemberName,IsMicOpened:false,IsCamOpened:false}],CurrentMemberID:self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -367,14 +333,7 @@ function Chat(maxWin, memberID, memberName) {
         }
         else {
             if (self.notTempRoom().length == self.maxRoom()) {
-                $.pnotify({
-                    text: 'عفواً ، لقد قمت بدخول العدد الأقصى من الغرف فى نفس الوقت.',
-                    type: 'error',
-                    history: false,
-                    closer_hover: false,
-                    delay: 5000,
-                    sticker: false
-                });
+                notify('error', 'عفواً ، لقد قمت بدخول العدد الأقصى من الغرف فى نفس الوقت.');
                 return;
             }
             $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp })
@@ -390,7 +349,6 @@ function Chat(maxWin, memberID, memberName) {
                     self.Init(win);
                 });
         }
-
     }
     self.removeWindow = function () {
         if (this.Type() == "Room") {
@@ -402,18 +360,16 @@ function Chat(maxWin, memberID, memberName) {
     self.rateRoom = function (val) {
         var room = this;
         RateRoom(room.ID(), val);
-        room.CurrentMemberSettings.UserRate(val);
+        room.CurrentMember().UserRate(val);
         return true;
     }
     self.sendMessage = function (window) {
         if (window == null)
             window = this;
         if (window.Type() == "Room") {
-            //rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Message());
-            rHub.server.sendToRoom(window.ID(), self.CurrentMemberName, window.Editor.getValue());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), window.Editor.getValue());
         }
         else {
-            //rHub.server.sendPrivateMessage(window.ID(), window.Message());
             rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue());
         }
         //window.Message("");
@@ -421,7 +377,6 @@ function Chat(maxWin, memberID, memberName) {
     }
 
     self.toggleFlashObj = function (window) {
-
         if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
             $('#chat2connect_' + window.uniqueID()).css('height', '180px');
         else
@@ -434,7 +389,7 @@ function Chat(maxWin, memberID, memberName) {
     // scroll bars
     self.Init = function (window) {
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-        if (!window.CurrentMemberSettings.CanWrite())
+        if (window.Type() == 'Room' && !window.CurrentMember().CanWrite())
             window.Editor.disable();
         // apply enter key listener
         window.Editor.observe('load', function () {
@@ -445,10 +400,8 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         });
-
         // tooltips 
         $(".roomMenuItem").tooltip();
-
         // apply scroll to all
         $('.SScroll').each(function () {
             $(this).slimScroll({
@@ -459,7 +412,6 @@ function Chat(maxWin, memberID, memberName) {
                 position: 'left'
             });
         });
-
         // token input for invite members
         $("#invite_" + window.uniqueID()).tokenInput("Services/Services.asmx/SearchMembersFriends?memberID=" + self.CurrentMemberID, {
             theme: "facebook",
@@ -468,7 +420,6 @@ function Chat(maxWin, memberID, memberName) {
             noResultsText: "لا يوجد",
             searchingText: "بحث فى الأصدقاء..."
         });
-
         // token input for send gifts
         $("#gift_" + window.uniqueID()).tokenInput("Services/Services.asmx/SearchMembersFriends?memberID=" + self.CurrentMemberID, {
             theme: "facebook",
@@ -478,7 +429,6 @@ function Chat(maxWin, memberID, memberName) {
             searchingText: "بحث فى الأصدقاء...",
             tokenLimit: 1
         });
-
         //view gifts 
         // get all prices loaded
         var items = {};
@@ -554,9 +504,9 @@ function Chat(maxWin, memberID, memberName) {
             }
         });
 
-        if(window.Type()=="Room" && window.CurrentMemberSettings.IsAdmin())
+        if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) //MemberLevelID>1>>> Admin
         {
-            var names = ko.utils.arrayMap(window.AllMembersSettings(), function (item) {
+            var names = ko.utils.arrayMap(window.Members(), function (item) {
                 return item.MemberName();
             });
 
@@ -567,10 +517,19 @@ function Chat(maxWin, memberID, memberName) {
 
     };
 
-    self.removeMember = function (mid) {
-        ko.utils.arrayForEach(self.allRooms(), function (room) {
-            room.removeMember(mid);
-            room.removeQueueMember(mid);
+    self.removeMember = function (mid) { //remove member from rooms and private chate
+        ko.utils.arrayForEach(self.windows(), function (room) {
+            if (room.Type() == 'Private' && room.ID() == mid)
+                self.windows().remove(room);
+            else
+            {
+                var member = room.getMember(mid);
+                if(member!=null)
+                {
+                    member.InRoom(false);
+                    member.QueueOrder(null);
+                }
+            }
         });
     };
     self.requestMic = function () {
@@ -585,131 +544,105 @@ function Chat(maxWin, memberID, memberName) {
                 if (data.d > 0) {
                     //move from roomMembers to queueMembers
                     var member = currentWindow.getMember(self.CurrentMemberID);
-                    currentWindow.addQueueMember(member);
-                    currentWindow.removeMember(self.CurrentMemberID);
-                    rHub.server.userRaisHand(currentWindow.ID(), self.CurrentMemberID);
+                    member.QueueOrder(data.d);
+                    rHub.server.userRaisHand(currentWindow.ID(), self.CurrentMemberID,member.QueueOrder());
                 }
                 else {
                     //move from queueMembers to roomMembers
-                    var member = currentWindow.getQueueMember(self.CurrentMemberID);
-                    currentWindow.addMember(member);
-                    currentWindow.removeQueueMember(self.CurrentMemberID);
+                    var member = currentWindow.getMember(self.CurrentMemberID);
+                    member.QueueOrder(null);
                     rHub.server.userDownHand(currentWindow.ID(), self.CurrentMemberID);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $.pnotify({
-                    text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                    type: 'error',
-                    history: false,
-                    closer_hover: false,
-                    delay: 5000,
-                    sticker: false
-                });
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة')
             }
         });
     }
     self.mic = function () {
         var currentWindow = this;
-        if (currentWindow.CurrentMemberSettings.IsMicOpened() == false) {
+        if (currentWindow.CurrentMember().IsMicOpened() == false) {
             self.startMic(currentWindow, self.CurrentMemberID);
-            //currentWindow.NoOfMics(currentWindow.NoOfMics() + 1);
-            //set current member as micMember
-            /*var member = currentWindow.getQueueMember(self.CurrentMemberID);
-            if (member != null) {
-                currentWindow.removeQueueMember(self.CurrentMemberID);                
-                currentWindow.MicMember(member);
-            }*/
-            currentWindow.CurrentMemberSettings.IsMicOpened(true);
+            currentWindow.CurrentMember().IsMicOpened(true);
         }
         else {
             self.stopMic(currentWindow, self.CurrentMemberID);
-            //currentWindow.NoOfMics(currentWindow.NoOfMics() - 1);
-            /*var micMember = currentWindow.MicMember();//remove from mic member to room members
-            if (micMember != null) {
-                currentWindow.addMember(micMember.MemberID(), micMember.MemberName());
-                currentWindow.MicMember(null);
-            }*/
-            currentWindow.CurrentMemberSettings.IsMicOpened(false);
+            currentWindow.CurrentMember().IsMicOpened(false);
         }
     }
     self.startMic = function (window, memberid) {
         var member = window.getMember(memberid);
-        if (member == null)
-            member = window.getQueueMember(memberid);
         if (member != null) {
-            member.IsMicOpened(true);
-
-            // remove current mic member from mic if exists
-            var CurrentMicMember = window.MicMember();
-            if (window.MicMember() != null) {
-                self.stopMic(window, CurrentMicMember.MemberID());
-            }
-
-            // remove member from list and add it to mic
-            window.removeMember(memberid);
-            window.removeQueueMember(memberid);
-            window.MicMember(member);
             getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
+            if (window.Type() == 'Private')
+            {
+                member.IsMicOpened(true);
+                return;
+            }
+            // remove current mic member from mic if exists
+            if (window.MicMember() != null) {
+                self.stopMic(window, window.MicMember().MemberID());
+            }
+            member.IsMicOpened(true);
+            // remove member from list and add it to mic
+            member.QueueOrder(null);
+            window.MicMember(member);
             if (self.CurrentMemberID == memberid) {
                 rHub.server.userStartMic(window.ID(), memberid);
             }
             else {
-                if (window.CurrentMemberSettings.NotifyOnMicOn()) {
+                if (window.CurrentMember().NotifyOnMicOn()) {
                     notify('info', 'العضو ' + member.MemberName() + ' أخذ المايك');
                 }
             }
         }
     }
     self.stopMic = function (window, memberid) {
-        //var member = window.getMember(memberid);
-        var micMember = window.MicMember();
-       /* if (member == null)
-            member = window.getQueueMember(memberid);    */    
-        if (micMember != null) {
-            micMember.IsMicOpened(false);
-            // remove member from mic and add it to list
-            
-            window.removeQueueMember(memberid);
-            window.MicMember(null);
-            window.addMember(micMember);
-            
+        var member = window.getMember(memberid);
 
+        if (member != null) {
             getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberid);
+            member.IsMicOpened(false);
+            if (window.Type() == 'Private')
+                return;
+
+            member.QueueOrder(null);
+            window.MicMember(null);
             if (self.CurrentMemberID == memberid)
                 rHub.server.userStopMic(window.ID(), memberid)
             else {
-                if (window.CurrentMemberSettings.NotifyOnMicOff()) {
+                if (window.CurrentMember().NotifyOnMicOff()) {
                     notify('info', 'العضو ' + micMember.MemberName() + ' ترك المايك');
                 }
             }
         }
-        //$('#Room_5 #roomMembersDiv #m_6 .controls .mic').css('display', 'none');
     }
 
     self.cam = function () {
         var currentWindow = this;
-        if (currentWindow.CurrentMemberSettings.IsCamOpened() == false) {
-            self.startCam(currentWindow, self.CurrentMemberID, self.CurrentMemberName);
-            currentWindow.CurrentMemberSettings.IsCamOpened(true);
+        if (currentWindow.CurrentMember().IsCamOpened() == false) {
+            self.startCam(currentWindow, currentWindow.CurrentMember().MemberID(), currentWindow.CurrentMember().MemberName());
+            currentWindow.CurrentMember().IsCamOpened(true);
         }
         else {
-            self.stopCam(currentWindow, self.CurrentMemberID);
-            currentWindow.CurrentMemberSettings.IsCamOpened(false);
+            self.stopCam(currentWindow, currentWindow.CurrentMember().MemberID());
+            currentWindow.CurrentMember().IsCamOpened(false);
         }
     }
     self.startCam = function (window, memberID, memberName) {
         getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, memberName);
+        if (window.Type() == 'Private')
+            return;
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStartCam(window.ID(), self.CurrentMemberID);
-            // $('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'inline-block');
         }
     }
     self.stopCam = function (window, memberID) {
         getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
+        if (window.Type() == 'Private')
+            return;
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
-            //$('#Room_5 #roomMembersDiv #m_6 .controls .camera').css('display', 'none');
         }
     }
 
@@ -742,7 +675,7 @@ function Chat(maxWin, memberID, memberName) {
         if (hiddenfield.val() != '') {
             var imageDiv = "<img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:150px;'/>";
 
-            rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, imageDiv);
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), imageDiv);
         }
         hiddenfield.val('');
         $('#UploadFileName_' + window.uniqueID()).val('');
@@ -769,7 +702,7 @@ function onMicRecordSaveSuccess(fileName) {
     var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";
     if (window == null)
         return;
-    rHub.server.sendToRoom(window.ID(), chatVM.CurrentMemberName, audioDiv);
+    rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), audioDiv);
     $("#attachModal_" + window.uniqueID()).modal('hide');
 
 }
@@ -877,20 +810,27 @@ function InitChat(maxWinRooms, memberID, memberName) {
         });
 
     };
-    rHub.client.addNewMember = function (mid, name, rid, memberType, profileImg) {
+    rHub.client.addNewMember = function (rid,memberData) {
+        var newMember=ko.mapping.fromJS(memberData);
         var type = "Room";
-        var window = chatVM.getWindow(rid, type, name);
+        var window = chatVM.getWindow(rid, type);
         if (window == null)
             return;
-        var member = window.getMember(mid);
-        if (member == null)
-            member = window.getQueueMember(mid);
-        if (member != null)
+        var existingMember = window.getMember(newMember.MemberID());
+        if (existingMember != null && existingMember.InRoom())//already exists in the room
             return;
-        member = window.newMember(mid, name, memberType, profileImg);
-        window.addMember(member);
-        if (window.CurrentMemberSettings.NotifyOnFriendsLogOn()) {
-            var msg = '' + member.MemberName() + 'قد إنضم للغرفة ';
+
+        if (existingMember == null)
+        {
+            window.Members().push(newMember);
+        }
+        else
+        {
+            newMember = existingMember;
+        }
+        newMember.InRoom(true);
+        if (window.CurrentMember().NotifyOnFriendsLogOn()) {
+            var msg = '' + newMember.MemberName() + 'قد إنضم للغرفة ';
             addMsgToWindow(window, msg, "joinalert");
         }
         // init popover menu for new members
@@ -916,16 +856,11 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var member = window.getMember(mid);
-        if (member == null) {
-            member = window.getQueueMember(mid);
-            window.removeQueueMember(mid);
-        }
-        else
-            window.removeMember(mid);
-
         if (member == null)
             return;
-        if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
+        member.QueueOrder(null);
+        member.InRoom(false);
+        if (window.CurrentMember().NotifyOnFriendsLogOff()) {
             var msg = member.MemberName() + ' خرج من الغرفة ';
             addMsgToWindow(window, msg, "leftalert");
         }
@@ -938,27 +873,18 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var member = window.getMember(mid);
-        if (member == null) {
-            member = window.getQueueMember(mid);
-            window.removeQueueMember(mid);
-        }
-        else
-            window.removeMember(mid);
-
         if (member == null)
             return;
-
+        member.QueueOrder(null);
+        member.InRoom(false);
         if (chatVM.CurrentMemberID == mid) {
-            notify('error', ' تم طردك ' + banTypeName + ' من الغرفة ' + window.Name() + ' عن طريق الادمن ' + adminName);
+            notify('error', ' تم طردك ' + banTypeName + ' من الغرفة ' + window.Name() + ' من قبل ' + adminName);
             chatVM.windows.remove(window);
             $('.nav-tabs a:last').tab('show');
         }
         else {
             var msg = 'تم طرد العضو ' + member.MemberName() + ' ' + banTypeName + ' من قبل ' + adminName + '';
             addMsgToWindow(window, msg, "banalert");
-            //if (window.CurrentMemberSettings.NotifyOnFriendsLogOff()) {
-            //    notify('info', msg+' من الغرفة '+window.Name());
-            //}
         }
     }
     rHub.client.banMemberFromRoom = function (mid, roomId, banTypeName, adminName) {
@@ -991,22 +917,13 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.utURL(utURL);
     }
     rHub.client.ListenMic = function (memberid, rid) {
-        /* var fn = window[listenmic];
-         var fnparams = [memberid];
-         if (typeof fn === 'function') {
-             fn.apply(null, fnparams);
-         }*/
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
         if (window == null)
             return;
 
         chatVM.startMic(window, memberid);
-        /*$("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .hand").css('display', 'none');
-        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'inline-block');
-        $("#Room_" + rid + " #roomMembersDiv #queueDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #MicDiv");*/
     };
-
     rHub.client.StopListenMic = function (memberid, rid) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
@@ -1014,79 +931,82 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
 
         chatVM.stopMic(window, memberid);
-
-        /* $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mic").css('display', 'none');
-         $("#Room_" + rid + " #roomMembersDiv #MicDiv #m_" + memberid).appendTo("#Room_" + rid + " #roomMembersDiv #regular");*/
     };
-
-    rHub.client.UserRaisHand = function (rid, memberid) {
+    rHub.client.UserRaisHand = function (rid, memberid,queueOrder) {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(memberid);
             if (member != null) {
-                window.removeMember(memberid);
-                window.addQueueMember(member);
+                member.QueueOrder(queueOrder);
             }
         }
     };
-
     rHub.client.UserDownHand = function (rid, memberid) {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
-            var member = window.getQueueMember(memberid);
+            var member = window.getMember(memberid);
             if (member != null) {
-                window.removeQueueMember(memberid);
-                window.addMember(member);
+                member.QueueOrder(null);
             }
         }
     };
-
     rHub.client.UserMarked = function (rid, memberid) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            var member = window.getMember(memberid);
+            if (member != null) {
+                member.IsMarked(true);
+            }
+        }
         $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
     };
-
     rHub.client.UserUnMarked = function (rid, memberid) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            var member = window.getMember(memberid);
+            if (member != null) {
+                member.IsMarked(false);
+            }
+        }
         $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
     };
-
     rHub.client.ShowCamLink = function (mid, rid) {//member opened cam
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(mid);
-            if (member == null) {
-                member = window.getQueueMember(mid);
-            }
             if (member != null) {
                 member.IsCamOpened(true);
-                if (window.CurrentMemberSettings.NotifyOnOpenCam()) {
+                if (window.CurrentMember().NotifyOnOpenCam()) {
                     var msg = member.MemberName() + ' قد بدأ فتح الكمراء';
                     addMsgToWindow(window, msg, "joinalert");
-                    //notify('info', );
                 }
             }
         }
         $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
     };
-
     rHub.client.HideCamLink = function (mid, rid) {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(mid);
-            if (member == null) {
-                member = window.getQueueMember(mid);
-            }
             if (member != null) {
                 member.IsCamOpened(false);
                 if (window.CurrentMemberSettings.NotifyOnCloseCam()) {
                     var msg = member.MemberName() + ' أغلق الكمراء';
                     addMsgToWindow(window, msg, "leftalert");
-                    //notify('info', );
                 }
             }
         }
         $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
+    rHub.client.UserDownHandAll = function (rid) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            ko.utils.arrayForEach(window.QueueMembers(), function (member) {
+                member.QueueOrder(null);
+            });
 
+        }
+    };
     rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName) {
         var window = chatVM.getWindow(roomID, "Room");
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";

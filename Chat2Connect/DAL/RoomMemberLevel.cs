@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace DAL
 {
-	public abstract class _AdminType : SqlClientEntity
+	public abstract class _RoomMemberLevel : SqlClientEntity
 	{
-		public _AdminType()
+		public _RoomMemberLevel()
 		{
-			this.QuerySource = "AdminType";
-			this.MappingName = "AdminType";
+			this.QuerySource = "RoomMemberLevel";
+			this.MappingName = "RoomMemberLevel";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_AdminTypeLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomMemberLevelLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -86,24 +86,24 @@ namespace DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int AdminTypeID)
+		public virtual bool LoadByPrimaryKey(int ID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.AdminTypeID, AdminTypeID);
+			parameters.Add(Parameters.ID, ID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_AdminTypeLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomMemberLevelLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
 		protected class Parameters
 		{
 			
-			public static SqlParameter AdminTypeID
+			public static SqlParameter ID
 			{
 				get
 				{
-					return new SqlParameter("@AdminTypeID", SqlDbType.Int, 0);
+					return new SqlParameter("@ID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -111,7 +111,7 @@ namespace DAL
 			{
 				get
 				{
-					return new SqlParameter("@Name", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@Name", SqlDbType.NVarChar, 50);
 				}
 			}
 			
@@ -121,7 +121,7 @@ namespace DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string AdminTypeID = "AdminTypeID";
+            public const string ID = "ID";
             public const string Name = "Name";
 
 			static public string ToPropertyName(string columnName)
@@ -130,8 +130,8 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[AdminTypeID] = _AdminType.PropertyNames.AdminTypeID;
-					ht[Name] = _AdminType.PropertyNames.Name;
+					ht[ID] = _RoomMemberLevel.PropertyNames.ID;
+					ht[Name] = _RoomMemberLevel.PropertyNames.Name;
 
 				}
 				return (string)ht[columnName];
@@ -144,7 +144,7 @@ namespace DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string AdminTypeID = "AdminTypeID";
+            public const string ID = "ID";
             public const string Name = "Name";
 
 			static public string ToColumnName(string propertyName)
@@ -153,8 +153,8 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[AdminTypeID] = _AdminType.ColumnNames.AdminTypeID;
-					ht[Name] = _AdminType.ColumnNames.Name;
+					ht[ID] = _RoomMemberLevel.ColumnNames.ID;
+					ht[Name] = _RoomMemberLevel.ColumnNames.Name;
 
 				}
 				return (string)ht[propertyName];
@@ -167,7 +167,7 @@ namespace DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string AdminTypeID = "s_AdminTypeID";
+            public const string ID = "s_ID";
             public const string Name = "s_Name";
 
 		}
@@ -175,15 +175,15 @@ namespace DAL
 		
 		#region Properties
 	
-		public virtual int AdminTypeID
+		public virtual int ID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.AdminTypeID);
+				return base.Getint(ColumnNames.ID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.AdminTypeID, value);
+				base.Setint(ColumnNames.ID, value);
 			}
 		}
 
@@ -204,18 +204,18 @@ namespace DAL
 		
 		#region String Properties
 	
-		public virtual string s_AdminTypeID
+		public virtual string s_ID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.AdminTypeID) ? string.Empty : base.GetintAsString(ColumnNames.AdminTypeID);
+				return this.IsColumnNull(ColumnNames.ID) ? string.Empty : base.GetintAsString(ColumnNames.ID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.AdminTypeID);
+					this.SetColumnNull(ColumnNames.ID);
 				else
-					this.AdminTypeID = base.SetintAsString(ColumnNames.AdminTypeID, value);
+					this.ID = base.SetintAsString(ColumnNames.ID, value);
 			}
 		}
 
@@ -267,11 +267,11 @@ namespace DAL
 				}
 				
 				
-				public WhereParameter AdminTypeID
+				public WhereParameter ID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.AdminTypeID, Parameters.AdminTypeID);
+							WhereParameter where = new WhereParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -292,15 +292,15 @@ namespace DAL
 			}
 			#endregion
 		
-			public WhereParameter AdminTypeID
+			public WhereParameter ID
 		    {
 				get
 		        {
-					if(_AdminTypeID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_AdminTypeID_W = TearOff.AdminTypeID;
+						_ID_W = TearOff.ID;
 					}
-					return _AdminTypeID_W;
+					return _ID_W;
 				}
 			}
 
@@ -316,12 +316,12 @@ namespace DAL
 				}
 			}
 
-			private WhereParameter _AdminTypeID_W = null;
+			private WhereParameter _ID_W = null;
 			private WhereParameter _Name_W = null;
 
 			public void WhereClauseReset()
 			{
-				_AdminTypeID_W = null;
+				_ID_W = null;
 				_Name_W = null;
 
 				this._entity.Query.FlushWhereParameters();
@@ -379,11 +379,11 @@ namespace DAL
 				}
 				
 				
-				public AggregateParameter AdminTypeID
+				public AggregateParameter ID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AdminTypeID, Parameters.AdminTypeID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -404,15 +404,15 @@ namespace DAL
 			}
 			#endregion
 		
-			public AggregateParameter AdminTypeID
+			public AggregateParameter ID
 		    {
 				get
 		        {
-					if(_AdminTypeID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_AdminTypeID_W = TearOff.AdminTypeID;
+						_ID_W = TearOff.ID;
 					}
-					return _AdminTypeID_W;
+					return _ID_W;
 				}
 			}
 
@@ -428,12 +428,12 @@ namespace DAL
 				}
 			}
 
-			private AggregateParameter _AdminTypeID_W = null;
+			private AggregateParameter _ID_W = null;
 			private AggregateParameter _Name_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_AdminTypeID_W = null;
+				_ID_W = null;
 				_Name_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
@@ -466,14 +466,10 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AdminTypeInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomMemberLevelInsert]";
 	
 			CreateParameters(cmd);
-			
-			SqlParameter p;
-			p = cmd.Parameters[Parameters.AdminTypeID.ParameterName];
-			p.Direction = ParameterDirection.Output;
-    
+			    
 			return cmd;
 		}
 	
@@ -482,7 +478,7 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AdminTypeUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomMemberLevelUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -494,11 +490,11 @@ namespace DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AdminTypeDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomMemberLevelDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.AdminTypeID);
-			p.SourceColumn = ColumnNames.AdminTypeID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -509,8 +505,8 @@ namespace DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.AdminTypeID);
-			p.SourceColumn = ColumnNames.AdminTypeID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.Name);

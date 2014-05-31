@@ -86,17 +86,14 @@ namespace Chat2Connect.Admin.UserControls.Room
         private void loadAdminTable()
         {
             AdminsTable.Clear();
-            RoomMember currentadmins = new RoomMember();            
-            currentadmins.GetAllAdminMembersByRoomID(RoomID);
-            for (int i = 0; i < currentadmins.RowCount; i++)
+            RoomMember roomAdmins = new RoomMember();            
+            roomAdmins.GetAllAdminMembersByRoomID(RoomID);
+            Helper.Enums.RoomMemberLevel adminType;
+            for (int i = 0; i < roomAdmins.RowCount; i++)
             {
-                Member currentMember = new Member();
-                currentMember.LoadByPrimaryKey(currentadmins.MemberID);
-                AdminType currentType = new AdminType();
-                currentType.LoadByPrimaryKey(currentadmins.AdminTypeID);
-
-                AdminsTable.Rows.Add(currentadmins.MemberID, currentMember.Name, currentadmins.AdminTypeID, currentType.Name);
-                currentadmins.MoveNext();
+                adminType=Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(roomAdmins.RoomMemberLevelID);
+                AdminsTable.Rows.Add(roomAdmins.MemberID, roomAdmins.GetColumn("MemberName"), roomAdmins.RoomMemberLevelID, Helper.StringEnum.GetStringValue(adminType));
+                roomAdmins.MoveNext();
             }
         }
     }

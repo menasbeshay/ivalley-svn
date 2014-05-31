@@ -293,24 +293,18 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool AddRoomToFav(string rid)
         {
-            MembershipUser user = Membership.GetUser();
-            Member member = new Member();
-
-            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
             try
             {
-                FavRoom favroom = new FavRoom();
-                favroom.LoadByPrimaryKey(member.MemberID, Convert.ToInt32(rid));
-                if (favroom.RowCount > 0)
-                    return true;
-                else
+                BLL.Member member = BLL.Member.CurrentMember;
+                RoomMember rm = new RoomMember();
+                if (!rm.LoadByPrimaryKey(member.MemberID, Convert.ToInt32(rid)))
                 {
-                    favroom.AddNew();
-                    favroom.MemberID = member.MemberID;
-                    favroom.RoomID = Convert.ToInt32(rid);
-                    favroom.Save();
-                    return true;
+                    rm.AddNew();
+                    rm.MemberID = member.MemberID;
+                    rm.RoomID = Convert.ToInt32(rid);
                 }
+                rm.IsFavorite = true;
+                return true;
             }
             catch (Exception ex)
             {
@@ -321,30 +315,15 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool ClearQueue(string rid)
+        public bool ClearQueue(int rid)
         {
-
-            Room room = new Room();
-            room.LoadByPrimaryKey(Convert.ToInt32(rid));
-
-            RoomMember members = new RoomMember();
-            members.GetAllMembersByRoomIDInQueue(room.RoomID);
-
             try
             {
-                for (int i = 0; i < members.RowCount; i++)
-                {
-                    members.SetColumnNull("QueueOrder");
-                    members.Save();
+                RoomMember members = new RoomMember();
+                members.ClearQueue(rid);
 
-                    Member m = new Member();
-                    m.LoadByPrimaryKey(members.MemberID);
-                    MembershipUser u = Membership.GetUser(m.UserID);
-
-                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Rcontext.Clients.Group(room.RoomID.ToString()).UserDownHand(room.RoomID, members.MemberID);
-                    members.MoveNext();
-                }
+                IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                _Rcontext.Clients.Group(rid.ToString()).UserDownHandAll(rid);
             }
             catch (Exception ex)
             {
@@ -492,7 +471,7 @@ namespace Chat2Connect.services
         {
             try
             {
-                RoomMemberSetting rSetting = new RoomMemberSetting();
+                RoomMember rSetting = new RoomMember();
                 if (!rSetting.LoadByPrimaryKey(rid, mid))
                 {
                     rSetting.AddNew();
@@ -524,7 +503,7 @@ namespace Chat2Connect.services
                         if (ban.IsColumnNull(RoomMemberBanning.ColumnNames.EndDate))
                             msg = msg + "نهائيا ولن تتمكن من الدخول مرة أخرى";
                         else
-                            msg =msg+ "لن تتمكن من دحول هذه الغرفة قبل هذا الوفت: "+Helper.Date.ToDateTimeString(ban.EndDate);
+                            msg = msg + "لن تتمكن من دحول هذه الغرفة قبل هذا الوفت: " + Helper.Date.ToDateTimeString(ban.EndDate);
 
                         HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"" + msg + "\"}");
 
@@ -551,103 +530,39 @@ namespace Chat2Connect.services
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
             roomObject.MessageHistory = "";
-            roomObject.CurrentMemberSettings.IsMicOpened = false;
-            roomObject.CurrentMemberSettings.IsCamOpened = false;
-            
 
+            //Room info
             roomObject.Name = rooms.Name;
             roomObject.RoomTopic = rooms.RoomTopic;
             roomObject.fbURL = rooms.FbURL;
             roomObject.tURL = rooms.TURL;
             roomObject.utURL = rooms.UtURL;
-
-            if (!rooms.IsColumnNull("OpenCams"))
-                roomObject.OpenCams = rooms.OpenCams;
-            else
-                roomObject.OpenCams = 0;
-
+            roomObject.OpenCams = rooms.OpenCams;
+            roomObject.CreatedBy = rooms.CreatedBy;
+            //Room settings
             roomObject.Settings.EnableCam = rooms.EnableCam;
             roomObject.Settings.EnableMic = rooms.EnableMic;
-
-            // this check for temp rooms
-            roomObject.CurrentMemberSettings.MemberID = BLL.Member.CurrentMember.MemberID;
-            
-            if (!rooms.IsColumnNull("CreatedBy")) 
-            {
-                Member member = new Member();
-                member.LoadByPrimaryKey(rooms.CreatedBy);
-                roomObject.AdminName = member.Name;
-
-                
-                if (BLL.Member.CurrentMember.MemberID != member.MemberID)
-                {
-                    roomObject.CurrentMemberSettings.IsAdmin = false;
-                }
-                else
-                {
-                    roomObject.CurrentMemberSettings.IsAdmin = true;
-                }
-            }
             roomObject.Settings.CamCount = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.MaxMic = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
-
-            // add to favourite link
-            FavRoom fav = new FavRoom();
-            fav.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id);
-            if (fav.RowCount > 0 || isTemp)
-                roomObject.CurrentMemberSettings.IsFav = true;
-            else
-            {
-                roomObject.CurrentMemberSettings.IsFav = false;
-            }
-            //Member
-            roomObject.CurrentMemberSettings.UserRate = 0;
-
+            //Room Members
             RoomMember roomMember = new RoomMember();
-            roomMember.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id);
-            if (roomMember.RowCount == 0)
+            if (!roomMember.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id))
             {
                 roomMember.AddNew();
                 roomMember.MemberID = BLL.Member.CurrentMember.MemberID;
                 roomMember.RoomID = id;
-                roomMember.InRoom = true;
-                roomMember.Save();
             }
-            else
-            {
-                roomMember.InRoom = true;
-                roomMember.Save();
-                if (!roomMember.IsColumnNull(RoomMember.ColumnNames.UserRate))
-                    roomObject.CurrentMemberSettings.UserRate = roomMember.UserRate;
-            }
-            roomObject.CurrentMemberSettings.CanAccessCam = roomMember.CanAccessCam;
-            roomObject.CurrentMemberSettings.CanAccessMic = roomMember.CanAccessMic;
-            roomObject.CurrentMemberSettings.CanWrite = roomMember.CanWrite;
-            roomObject.CurrentMemberSettings.IsBanned = roomMember.IsBanned;
-            roomObject.CurrentMemberSettings.IsMarked = roomMember.IsMarked;
-            RoomMemberSetting sett = new RoomMemberSetting();
-            if (sett.LoadByPrimaryKey(id, BLL.Member.CurrentMember.MemberID))
-            {
-                roomObject.CurrentMemberSettings.NotifyOnCloseCam = sett.NotifyOnCloseCam;
-                roomObject.CurrentMemberSettings.NotifyOnFriendsLogOff = sett.NotifyOnFriendsLogOff;
-                roomObject.CurrentMemberSettings.NotifyOnFriendsLogOn = sett.NotifyOnFriendsLogOn;
-                roomObject.CurrentMemberSettings.NotifyOnMicOff = sett.NotifyOnMicOff;
-                roomObject.CurrentMemberSettings.NotifyOnMicOn = sett.NotifyOnMicOn;
-                roomObject.CurrentMemberSettings.NotifyOnOpenCam = sett.NotifyOnOpenCam;
-            }
-            RoomMember Allmembers = new RoomMember();
-            Allmembers.GetOnlineMembersByRoomID(id);
-            roomObject.MemberCount = Allmembers.RowCount;
-
-            RoomMember members = new RoomMember();
-            members.GetAllMembersByRoomIDNoQueue(id);
-            RoomMember InQueueMembers = new RoomMember();
-            InQueueMembers.GetAllMembersByRoomIDInQueue(id);
-            roomObject.RoomMembers = members.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
-            roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
-
-            Allmembers.LoadAllRoomMembersWithSettings(id);
-            roomObject.AllMembersSettings = Allmembers.DefaultView.Table.AsEnumerable().Select(m => new { MemberID = m["MemberID"], MemberName = m["MemberName"], CanAccessCam = m["CanAccessCam"], CanAccessMic = m["CanAccessMic"], CanWrite = m["CanWrite"], IsMemberBanned = m["IsMemberBanned"], BanType = GetBanType(m["StartDate"],m["EndDate"]) }).ToList();
+            roomMember.InRoom = true;
+            if (roomMember.MemberID == rooms.CreatedBy)
+                roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+            roomMember.Save();
+            roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
+            //roomObject.OnlineInRoomMembers = Allmembers.RowCount;
+            //normal members -- QueueOrder is null,online & InRoom
+            //queue member -- QueueOrder not null ,online & InRoom
+            //roomObject.RoomMembers = roomMember.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
+            //roomObject.QueueMembers = InQueueMembers.DefaultView.Table.AsEnumerable().Select(m => new Helper.ChatMember() { MemberID = m["MemberID"], MemberName = m["UserName"], MemberTypeID = 0, IsAdmin = (bool)m["IsAdmin"], ProfileImg = m["ProfilePic"].ToString() }).ToList();
+            roomObject.Members = roomMember.LoadWithSettings(id,null);
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
@@ -657,30 +572,7 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
             //return result;
         }
-
-        private int? GetBanType(object startDate, object endDate)
-        {
-            if (startDate == DBNull.Value)
-                return null;
-            if (endDate == DBNull.Value)
-            {
-                return (int)Helper.Enums.BanningType.Permanent;
-            }
-            DateTime start=(DateTime)startDate
-                , end=(DateTime)endDate;
-            int diffDays = (end.Date - start.Date).Days;
-            if (diffDays == 1)
-            {
-                return (int)Helper.Enums.BanningType.Day;
-            }
-            if (diffDays == 7)
-            {
-                return (int)Helper.Enums.BanningType.Week;
-            }
-
-            return (int)Helper.Enums.BanningType.Month;
-        }
-
+        
         [WebMethod]
         public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {

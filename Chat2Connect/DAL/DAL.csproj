@@ -40,11 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminType.cs" />
     <Compile Include="Bot.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
-    <Compile Include="FavRoom.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
     <Compile Include="Member.cs" />
@@ -66,7 +64,7 @@
     <Compile Include="RoomBot.cs" />
     <Compile Include="RoomMember.cs" />
     <Compile Include="RoomMemberBanning.cs" />
-    <Compile Include="RoomMemberSetting.cs" />
+    <Compile Include="RoomMemberLevel.cs" />
     <Compile Include="RoomType.cs" />
     <Compile Include="RoomTypeSpec.cs" />
     <Compile Include="RoomTypeSpecDuration.cs" />
