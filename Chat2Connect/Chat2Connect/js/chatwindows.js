@@ -206,7 +206,16 @@ function Chat(maxWin, memberID, memberName) {
         }
         this.closeRoom = function () {
             var window = this;
-            rHub.server.closeRoom(window.ID(), self.CurrentMember().MemberName());
+            var currentMemberLevel = window.CurrentMember().MemberLevelID();
+            var topMember=ko.utils.arrayFirst(this.Members(), function (mem) {
+                return mem.MemberLevelID() > currentMemberLevel;
+            });
+            if (topMember != null)
+            {
+                notify('error', 'لا يمكنك غلق الغرفة فى وجود '+topMember.MemberName());
+                return;
+            }
+            rHub.server.closeRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName());
             $("#controlPanelModal_" + window.uniqueID()).modal('hide');
         };
         this.saveRoomTopic = function () {

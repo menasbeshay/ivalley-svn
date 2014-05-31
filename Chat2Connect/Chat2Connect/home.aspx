@@ -190,7 +190,7 @@
                 <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
                 <!-- /ko -->
             </div>
-            <a data-bind="text:(MemberLevelID() > 1 ?'@':'')+MemberName(),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
+            <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
             <div class="clear" style="height: 1px;"></div>
             <!-- ko if: MemberID()!=$root.CurrentMemberID-->
             <div class="clear" style="height: 1px;"></div>

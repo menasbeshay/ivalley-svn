@@ -162,21 +162,24 @@ namespace Chat2Connect.SRCustomHubs
             catch { }
         }
 
-        public void closeRoom(int roomID, string adminName)
+        public void closeRoom(int roomID,int adminID, string adminName)
         {
-            try
+            RoomMember roomMember = new RoomMember();
+            if (!roomMember.HasExisitingMembersExceedCurrentMemberLevel(roomID, adminID))
             {
                 Room r = new Room();
                 if (r.LoadByPrimaryKey(roomID))
                 {
                     r.RowStatusID = (byte)Helper.Enums.RowStatus.TemporaryDisabled;
                     r.Save();
-                    RoomMember roomMember = new RoomMember();
                     roomMember.OutRoomMembers(roomID);
                     Clients.Group(roomID.ToString()).closeRoom(roomID, adminName);
                 }
             }
-            catch { }
+            else
+            {
+                throw new UnauthorizedAccessException("لا يمكن غلق الغرفة فى وجود " + Helper.TypeConverter.ToString(roomMember.GetColumn("MemberName")));
+            }
         }
 
         public void updateSocialLinks(int roomID, string fbURL, string tURL, string utURL)
