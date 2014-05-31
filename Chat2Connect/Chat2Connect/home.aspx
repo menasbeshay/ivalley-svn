@@ -423,7 +423,16 @@
                     <!-- /ko -->
 
                     <div id="roomTextDiv" class='pull-left ' data-bind="css:{ 'col-lg-9' :Type()=='Room', 'col-lg-12': Type() == 'Private'}, style:{padding: '5px', 'border-right': Type() == 'Room'? '2px solid #FEC200' :'0px'}">
+                        <!-- ko if: Type()=="Room" && CurrentMember().MemberLevelID()>1 && AdminMembers().length>0 -->
+                        <div data-height="100px;" style="width: 100%; background-color: #D9D9D9; min-height: 100px; padding: 5px; direction: rtl;" class="AdminMsgHistroy" data-bind="html:AdminMessageHistory"></div>
 
+                        <div style="height: 5px;" class="clearfix"></div>
+
+                        <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendAdminMessage,attr:{id:'a_SendAdmin_'+uniqueID()}">إرسال</a>
+                        <textarea data-bind="value:AdminMessage, attr:{id:'uiTextAdminMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;'></textarea>
+
+                        <div style="height: 20px;" class="clear"></div>
+                        <!-- /ko -->
                         <div data-height="400px;" style="width: 100%; background-color: #D9D9D9; min-height: 400px; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="html:MessageHistory"></div>
 
                         <div style="height: 5px;" class="clearfix"></div>

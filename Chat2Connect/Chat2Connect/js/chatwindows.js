@@ -65,20 +65,22 @@ function Chat(maxWin, memberID, memberName) {
         }, this);
         //Room Members
         this.RoomMembers = ko.computed(function () {
-            if (self.Type() == 'Private')
-                return null;
-            return ko.utils.arrayFilter(self.Members(), function (mem) {
-                return (mem.InRoom() && mem.QueueOrder()==null);
+            return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
+                return (mem.QueueOrder()==null);
             });
         }, this);
         //Queue Members
         this.QueueMembers = ko.computed(function () {
-            if (self.Type() == 'Private')
-                return null;
-            return ko.utils.arrayFilter(self.Members(), function (mem) {
-                return (mem.InRoom() && mem.QueueOrder() != null);
+            return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
+                return (mem.QueueOrder() != null);
             }).slice().sort(function (a, b) {
                 return a.QueueOrder() > b.QueueOrder() ? 1 : -1;
+            });
+        }, this);
+        //Admin Members
+        this.AdminMembers = ko.computed(function () {
+            return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
+                return (mem.MemberLevelID() > 1);
             });
         }, this);
         //Current member
@@ -384,7 +386,9 @@ function Chat(maxWin, memberID, memberName) {
         //window.Message("");
         window.Editor.setValue("");
     }
+    self.sendAdminMessage = function () {
 
+    };
     self.toggleFlashObj = function (window) {
         if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
             $('#chat2connect_' + window.uniqueID()).css('height', '180px');
