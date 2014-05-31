@@ -14,7 +14,7 @@ namespace Chat2Connect
     public partial class createRoom : System.Web.UI.Page
     {
         #region Properties
-        public bool IsEdit 
+        public bool IsEdit
         {
             get
             {
@@ -22,10 +22,10 @@ namespace Chat2Connect
                 if (Request.QueryString["isEdit"] != null)
                 {
                     bool.TryParse(Request.QueryString["isEdit"], out result);
-                    
+
                 }
                 return result;
-            }            
+            }
         }
 
         public int CurrentRoom
@@ -45,7 +45,7 @@ namespace Chat2Connect
             }
         }
 
-        public DataTable AdminsTable 
+        public DataTable AdminsTable
         {
             get
             {
@@ -62,9 +62,9 @@ namespace Chat2Connect
             }
         }
 
-        #endregion 
+        #endregion
 
-        #region Events 
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.IsAuthenticated)
@@ -82,7 +82,7 @@ namespace Chat2Connect
                         loadAdminTable();
                     }
                     else
-                    { 
+                    {
 
                     }
 
@@ -109,11 +109,11 @@ namespace Chat2Connect
                 Member member = new Member();
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 Room room = new Room();
-                if(!IsEdit)
+                if (!IsEdit)
                     room.AddNew();
                 room.Name = uiTextBoxName.Text;
-                if(!IsEdit)
-                {   
+                if (!IsEdit)
+                {
                     room.CreatedDate = DateTime.Now;
                     room.CreatedBy = member.MemberID;
                 }
@@ -148,23 +148,22 @@ namespace Chat2Connect
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
 
-                 if (AdminsTable.Rows.Count > 0)
-                 {
-                     RoomMember roommember = new RoomMember();
-                     roommember.GetAllAdminMembersByRoomID(room.RoomID);
-                     roommember.DeleteAll();
-                     roommember.Save();
-                     for (int i = 0; i < AdminsTable.Rows.Count; i++)
-                     {
+                if (AdminsTable.Rows.Count > 0)
+                {
+                    RoomMember roommember = new RoomMember();
+                    roommember.GetAllAdminMembersByRoomID(room.RoomID);
+                    roommember.DeleteAll();
+                    roommember.Save();
+                    for (int i = 0; i < AdminsTable.Rows.Count; i++)
+                    {
                         roommember.AddNew();
                         roommember.RoomID = room.RoomID;
                         roommember.MemberID = Convert.ToInt32(AdminsTable.Rows[i]["MemberID"].ToString());
-                        roommember.IsAdmin = true;
-                        roommember.AdminTypeID = Convert.ToInt32(AdminsTable.Rows[i]["AdminTypeID"].ToString());
-                     }
-                     
-                     roommember.Save();
-                 }
+                        roommember.RoomMemberLevelID = Convert.ToInt32(AdminsTable.Rows[i]["AdminTypeID"].ToString());
+                    }
+
+                    roommember.Save();
+                }
 
             }
         }
@@ -173,8 +172,7 @@ namespace Chat2Connect
         {
             Member currentMember = new Member();
             currentMember.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldAdminID.Value));
-            AdminType currentType = new AdminType();
-            currentType.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListAdminType.SelectedValue));
+            Helper.Enums.RoomMemberLevel currentType = Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(Convert.ToInt32(uiDropDownListAdminType.SelectedValue));
 
             for (int i = 0; i < AdminsTable.Rows.Count; i++)
             {
@@ -185,11 +183,11 @@ namespace Chat2Connect
                 }
             }
 
-            AdminsTable.Rows.Add(currentMember.MemberID, currentMember.Name, currentType.AdminTypeID, currentType.Name);
+            AdminsTable.Rows.Add(currentMember.MemberID, currentMember.Name, (int)currentType, Helper.StringEnum.GetStringValue(currentType));
             AdminsTable.AcceptChanges();
             BindAdmins();
         }
-        #endregion 
+        #endregion
 
         #region methods
 
@@ -210,14 +208,11 @@ namespace Chat2Connect
             RoomMember currentadmins = new RoomMember();
             if (IsEdit)
                 currentadmins.GetAllAdminMembersByRoomID(CurrentRoom);
+            Helper.Enums.RoomMemberLevel adminType;
             for (int i = 0; i < currentadmins.RowCount; i++)
             {
-                Member currentMember = new Member();
-                currentMember.LoadByPrimaryKey(currentadmins.MemberID);
-                AdminType currentType = new AdminType();
-                currentType.LoadByPrimaryKey(currentadmins.AdminTypeID);
-
-                AdminsTable.Rows.Add(currentadmins.MemberID, currentMember.Name, currentadmins.AdminTypeID, currentType.Name);
+                adminType = Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(currentadmins.RoomMemberLevelID);
+                AdminsTable.Rows.Add(currentadmins.MemberID, currentadmins.GetColumn("MemberName"), currentadmins.RoomMemberLevelID, Helper.StringEnum.GetStringValue(adminType));
                 currentadmins.MoveNext();
             }
         }
@@ -230,9 +225,12 @@ namespace Chat2Connect
             uiDropDownListCategory.DataValueField = "CategoryID";
             uiDropDownListCategory.DataBind();
 
-            AdminType adminTypes = new AdminType();
-            adminTypes.LoadAll();
-            uiDropDownListAdminType.DataSource = adminTypes.DefaultView;
+            var adminTypes = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l > 1).Select(r => new
+            {
+                AdminTypeID = (int)r,
+                Name = Helper.StringEnum.GetStringValue(r)
+            }).ToList();
+            uiDropDownListAdminType.DataSource = adminTypes;
             uiDropDownListAdminType.DataTextField = "Name";
             uiDropDownListAdminType.DataValueField = "AdminTypeID";
             uiDropDownListAdminType.DataBind();

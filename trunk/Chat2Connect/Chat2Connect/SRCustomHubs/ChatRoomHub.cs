@@ -46,34 +46,26 @@ namespace Chat2Connect.SRCustomHubs
                 var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
                 if (item == null)
                     return;
-                RoomMember member = new RoomMember();
-                if (!member.LoadByPrimaryKey(item.MemberID, roomid))
+                RoomMember roomMember = new RoomMember();
+                if (!roomMember.LoadByPrimaryKey(item.MemberID, roomid))
                 {
-                    member.AddNew();
-                    member.MemberID = item.MemberID;
-                    member.RoomID = roomid;
-                    member.InRoom = true;
-                    member.Save();
+                    roomMember.AddNew();
+                    roomMember.MemberID = item.MemberID;
+                    roomMember.RoomID = roomid;
                 }
-                item.Rooms.Add(roomid);
-                
-                Clients.Group(roomid.ToString()).addNewMember(item.MemberID, item.MemberName, roomid.ToString(),item.MemberTypeSpecID,item.ProfilePic);
-                
+                roomMember.InRoom = true;
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
+                if (room.CreatedBy == roomMember.MemberID)
+                    roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+                roomMember.Save();
 
-                // mark owner as admin if not marked
-                bool isadmin = false;
-                bool.TryParse(member.IsAdmin.ToString(), out isadmin);
-                if (room.CreatedBy == item.MemberID && !isadmin)
-                {
-                    member.IsAdmin = true;
-                    member.Save();
-                }
+                Helper.ChatMember member=roomMember.LoadWithSettings(roomid,roomMember.MemberID).FirstOrDefault();
+                item.Rooms.Add(roomid);
+                Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
 
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, roomid);
-                
             }
             catch (Exception ex)
             {
@@ -95,6 +87,7 @@ namespace Chat2Connect.SRCustomHubs
                 RoomMember member = new RoomMember();
                 member.LoadByPrimaryKey(memberID, roomid);
                 member.InRoom = false;
+                member.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
                 member.Save();
 
             }
@@ -178,7 +171,8 @@ namespace Chat2Connect.SRCustomHubs
                 {
                     r.RowStatusID = (byte)Helper.Enums.RowStatus.TemporaryDisabled;
                     r.Save();
-
+                    RoomMember roomMember = new RoomMember();
+                    roomMember.OutRoomMembers(roomID);
                     Clients.Group(roomID.ToString()).closeRoom(roomID, adminName);
                 }
             }
@@ -233,14 +227,24 @@ namespace Chat2Connect.SRCustomHubs
 
         public void userStartMic(int rid, int memberid)
         {
-            //Clients.Group(rid.ToString(), Context.ConnectionId).ListenMic("startMic" + rid.ToString(), memberid, rid);
             Clients.Group(rid.ToString(), Context.ConnectionId).ListenMic(memberid, rid);
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasMic = true;
+                roomMember.Save();
+            }
         }
 
         public void userStopMic(int rid, int memberid)
         {
-            //Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic("stopMic" + rid.ToString(), memberid, rid);
             Clients.Group(rid.ToString(), Context.ConnectionId).StopListenMic(memberid, rid);
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasMic = false;
+                roomMember.Save();
+            }
         }
 
         public void userStartCam(int rid, int memberid)
@@ -253,6 +257,12 @@ namespace Chat2Connect.SRCustomHubs
             else
                 room.OpenCams += 1;
             room.Save();
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasCam = true;
+                roomMember.Save();
+            }
         }
 
         public void userStopCam(int rid, int memberid)
@@ -264,12 +274,18 @@ namespace Chat2Connect.SRCustomHubs
                 room.OpenCams = 0;
             else
                 room.OpenCams -= 1;
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasCam = false;
+                roomMember.Save();
+            }
             room.Save();
         }
 
-        public void userRaisHand(int rid, int memberid)
+        public void userRaisHand(int rid, int memberid,int queueOrder)
         {
-            Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid);
+            Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid,queueOrder);
         }
 
         public void userDownHand(int rid, int memberid)

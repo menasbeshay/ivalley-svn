@@ -167,5 +167,17 @@ namespace Helper
             [StringValue("24 ساعة")]
             Day = 4,
         }
+
+        public enum RoomMemberLevel
+        {
+            [StringValue("زائر")]
+            Visitor = 1,
+            [StringValue("أدمن")]
+            Admin = 2,
+            [StringValue("سوبر أدمن")]
+            SuperAdmin = 3,
+            [StringValue("مالك الغرفة")]
+            Owner = 4
+        }
     }
 }

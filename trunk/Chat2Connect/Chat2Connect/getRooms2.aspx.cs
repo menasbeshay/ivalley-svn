@@ -62,21 +62,15 @@ namespace Chat2Connect
                 }
                 else if (myparams[0] == "cb=1")
                 {
-                    Member member = new Member();
-                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-
                     Room rooms = new Room();
-                    rooms.GetRoomsByCreatorID(member.MemberID);
+                    rooms.GetRoomsByCreatorID(BLL.Member.CurrentMember.MemberID);
                     uiRepeaterRooms.DataSource = rooms.DefaultView;
                     uiRepeaterRooms.DataBind();
                 }
                 else if (myparams[0] == "fav=1")
                 {
-                    Member member = new Member();
-                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-
                     Room rooms = new Room();
-                    rooms.GetFavRoomsByCreatorID(member.MemberID);
+                    rooms.GetFavoriteByMemberID(BLL.Member.CurrentMember.MemberID);
                     uiRepeaterRooms.DataSource = rooms.DefaultView;
                     uiRepeaterRooms.DataBind();
                 }
@@ -84,32 +78,19 @@ namespace Chat2Connect
             }
         }
 
-        protected void uiRepeaterRooms_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        public string GetRoomRate(int rate)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            string rateString = "";
+            for (int i = 0; i < 5; i++)
             {
-                DataRowView row = (DataRowView)e.Item.DataItem;
-                Literal labelRate = (Literal)e.Item.FindControl("uiLiteralRate");
-                Label membercount = (Label)e.Item.FindControl("uiLabelMemberCount");
-                Room room = new Room();
-                room.GetRoomRateByRoomID(Convert.ToInt32(row["RoomID"].ToString()));
 
-                RoomMember members = new RoomMember();
-                members.GetOnlineMembersByRoomID(Convert.ToInt32(row["RoomID"].ToString()));
-                membercount.Text = members.RowCount.ToString();
-
-                int rate = 0;
-                int.TryParse(room.GetColumn("Rate").ToString(), out rate);
-               
-                for (int i = 0; i < 5; i++)
-                {
-
-                    if (i < rate)
-                        labelRate.Text += "<i class='icon icon-star GoldRate'></i>";
-                    else
-                        labelRate.Text += "<i class='icon icon-star-empty GoldRate'></i>";
-                }
+                if (i < rate)
+                    rateString += "<i class='icon icon-star GoldRate'></i>";
+                else
+                    rateString += "<i class='icon icon-star-empty GoldRate'></i>";
             }
+            return rateString;
         }
+        
     }
 }

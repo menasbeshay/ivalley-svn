@@ -18,6 +18,8 @@ namespace BLL
         public virtual bool GetRoomsByCreatorID(int CreatedBy)
         {
             return LoadFromRawSql(@"select R.* , C.Name CategoryName , SC.Name SubCategoryName
+	                                    ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
+	                                    ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
@@ -25,75 +27,69 @@ namespace BLL
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
                                     where R.CreatedBy = {0} AND ISNULL(R.RowStatusID,{1})={1} 
-                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy,(int)Helper.Enums.RowStatus.Enabled);
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled);
 
         }
 
         public virtual bool GetPremiumRooms()
         {
-            return this.LoadFromRawSql(@"Select * FROM Room
-                                        INNER JOIN RoomType ON RoomType.RoomID=Room.RoomID
+            return this.LoadFromRawSql(@"Select  R.RoomID,R.Name,R.OpenCams
+                                        ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
+                                        ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                        from Room R
+                                        INNER JOIN RoomType ON RoomType.RoomID=R.RoomID
                                         INNER JOIN RoomTypeSpecDuration ON RoomType.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
                                         INNER JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
-                                        WHERE RoomTypeSpec.ID={0} AND ISNULL(Room.RowStatusID,{1})={1}
-                                        ORDER BY CategoryID ASC,SubCategoryID ASC,Room.Name ASC", Helper.Defaults.VIPRoomTypeSpecID,(int)Helper.Enums.RowStatus.Enabled);
+                                        WHERE RoomTypeSpec.ID={0} AND ISNULL(R.RowStatusID,{1})={1}
+                                        ORDER BY R.Name ASC", Helper.Defaults.VIPRoomTypeSpecID, (int)Helper.Enums.RowStatus.Enabled);
         }
 
         public virtual bool GetRoomsByCategoryID(int CategoryID)
         {
-            return LoadFromRawSql(@"select R.* , count(RM.MemberID) MemberCount
+            return LoadFromRawSql(@"select  R.RoomID,R.Name,R.OpenCams
+	                                ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
+	                                ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
-                                    Left Join RoomMember RM on RM.RoomID = R.RoomID
-                                    Left join Member M on M.MemberID = RM.MemberID
                                     where R.CategoryID = {0} AND ISNULL(R.RowStatusID,{1})={1}
-                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,   R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic,R.fbURL,R.utURL,R.tURL, RoomTypeSpec.OrderInRoomList
+                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
 
         public virtual bool GetRoomsBySubCategoryID(int SubCategoryID)
         {
-            return LoadFromRawSql(@"select R.* , count(RM.MemberID) MemberCount
+            return LoadFromRawSql(@"select R.RoomID,R.Name,R.OpenCams
+                                    ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
+                                    ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
                                     Inner JOIN Category C ON R.CategoryID = C.CategoryID
                                     Inner Join SubCategory SC on C.CategoryID = SC.CategoryID
-                                    Left Join RoomMember RM on RM.RoomID = R.RoomID
-                                    Left join Member M on M.MemberID = RM.MemberID
                                     LEFT JOIN RoomType RT on RT.RoomID=R.RoomID
                                     LEFT JOIN RoomTypeSpecDuration  ON RT.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     where R.SubCategoryID = {0}  AND ISNULL(R.RowStatusID,{1})={1}
-                                    Group By  R.RoomID,  R.CategoryID,  R.SubCategoryID,  R.Name,  R.IconPath,  R.CreatedDate,  R.WelcomeText,  R.RoomPassword,  R.RoomPasswordenabled,  R.EnableCam,  R.EnableMic,  R.EnableMicForAdminsOnly,  R.MarkOnLoginWithWrite,  R.MarkOnLoginWithoutWrite,  R.CreatedBy,  R.EnableOneMic,  R.EnableTwoMic,  R.EnableThreeMic,  R.RoomAdminPassword, R.RowStatusID, R.OpenCams, R.RoomTopic,R.fbURL,R.utURL,R.tURL,RoomTypeSpec.OrderInRoomList
+                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", SubCategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
 
-        public virtual bool GetFavRoomsByCreatorID(int CreatedBy)
+        public virtual bool GetFavoriteByMemberID(int memberID)
         {
-            return LoadFromRawSql(@"select R.* , C.Name CategoryName , SC.Name SubCategoryName
+            return LoadFromRawSql(@"select R.RoomID,R.Name,R.OpenCams
+                                    ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
+                                    ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
-                                    Left JOIN Category C ON R.CategoryID = C.CategoryID
-                                    Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
-                                    Inner Join FavRoom F on F.RoomID = R.RoomID 
-                                    where F.MemberID = {0} AND ISNULL(R.RowStatusID,{1})={1}
-                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy,(int)Helper.Enums.RowStatus.Enabled);
+                                    INNER JOIN RoomMember RM ON RM.RoomID=R.RoomID
+                                    where RM.IsFavorite=1 AND RM.MemberID = {0} AND ISNULL(R.RowStatusID,{1})={1}
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", memberID, (int)Helper.Enums.RowStatus.Enabled);
 
-        }
-
-        public virtual bool GetRoomRateByRoomID(int RoomID)
-        {
-            ListDictionary parameters = new ListDictionary();
-
-            parameters.Add(new SqlParameter("@RoomID", SqlDbType.Int, 0), RoomID);
-
-            return LoadFromSql("GetRoomRateByRoomID", parameters);
         }
 
         #region override properties reading
@@ -121,6 +117,20 @@ namespace BLL
             set
             {
                 base.EnableMic = value;
+            }
+        }
+
+        public override short OpenCams
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.OpenCams))
+                    return 0;
+                return base.OpenCams;
+            }
+            set
+            {
+                base.OpenCams = value;
             }
         }
 
