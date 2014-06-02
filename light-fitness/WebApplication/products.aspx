@@ -56,7 +56,7 @@
         
             <ItemTemplate>
                 <div style="float: left; width: 32%; height:308px;padding: 5px; border:1px solid yellow;background-color:#fff;text-align:center;" >
-                    <a href='<%# Eval("PicPath") %>' style="text-align:center;color:#000;"
+                    <a class="tittle_black" href='<%# Eval("PicPath") %>' style="text-align:center;color:#000;"
                         rel="lightbox[products]" title='<%# Eval("Description") %>' alt='<%# Eval("Description") %>'>
                         <img src='Images.aspx?Inner=product&Image=<%# Eval("PicPath") %>' />
                         <br />
