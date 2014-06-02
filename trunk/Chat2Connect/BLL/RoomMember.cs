@@ -100,6 +100,7 @@ namespace BLL
                 QueueOrder = m["QueueOrder"],
                 IsMicOpened = Helper.TypeConverter.ToBoolean(m["HasMic"]),
                 IsCamOpened = Helper.TypeConverter.ToBoolean(m["HasCam"]),
+                IsCamViewed = false,
                 NotifyOnCloseCam = Helper.TypeConverter.ToBoolean(m["NotifyOnCloseCam"]),
                 NotifyOnFriendsLogOff = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOff"]),
                 NotifyOnFriendsLogOn = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOn"]),

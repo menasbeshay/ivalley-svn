@@ -34,7 +34,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="#" id="giftbox" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">صندوق الهدايا</a>
+                <a href="../giftbox.aspx" id="giftbox" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">صندوق الهدايا</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">

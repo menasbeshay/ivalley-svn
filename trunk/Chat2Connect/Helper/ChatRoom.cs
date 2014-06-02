@@ -93,6 +93,8 @@ namespace Helper
 
         public bool IsCamOpened { get; set; }
 
+        public bool IsCamViewed { get; set; }
+
         public bool InRoom { get; set; }
     }
 

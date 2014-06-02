@@ -188,6 +188,8 @@
     <Content Include="default.aspx" />
     <Content Include="getRooms.aspx" />
     <Content Include="getRooms2.aspx" />
+    <Content Include="giftbox.aspx" />
+    <Content Include="GiftPoints.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home.aspx" />
     <Content Include="Home2.aspx" />
@@ -916,6 +918,20 @@
     </Compile>
     <Compile Include="getRooms2.aspx.designer.cs">
       <DependentUpon>getRooms2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="giftbox.aspx.cs">
+      <DependentUpon>giftbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="giftbox.aspx.designer.cs">
+      <DependentUpon>giftbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GiftPoints.aspx.cs">
+      <DependentUpon>GiftPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GiftPoints.aspx.designer.cs">
+      <DependentUpon>GiftPoints.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

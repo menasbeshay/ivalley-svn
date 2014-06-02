@@ -24,11 +24,12 @@
     <link href="../css/validationEngine.jquery.css" rel="stylesheet" />
     <link href="../css/bootstrap-tagsinput.css" rel="stylesheet" />
     <!-- end stylesheets -->
-    <link href="../css/jquery.pnotify.default.css" rel="stylesheet" />
+    
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="../js/html5shiv-printshiv.js"></script>
-    <script src="../js/jquery.pnotify.min.js"></script>
+    <script src="../js/jquery.pnotify.js"></script>
+    <link href="../css/jquery.pnotify.default.css" rel="stylesheet" />    
     <script src="../Scripts/jquery.signalR-2.0.1.js"></script>
     <script src="../js/fileupload/ajaxupload.js"></script>
     <script src="/signalr/hubs"></script>
@@ -52,39 +53,16 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     if (data.d == false) {
-
-                        $.pnotify({
-                            text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                            type: 'error',
-                            history: false,
-                            closer_hover: false,
-                            delay: 5000,
-                            sticker: false
-                        });
+                        notify('error','حدث خطأ . من فضلك أعد المحاولة.' );                        
                     }
                     else if (data.d == true) {
-
-                        $.pnotify({
-                            text: 'تم التحديث بنجاح.',
-                            type: 'success',
-                            history: false,
-                            closer_hover: false,
-                            delay: 5000,
-                            sticker: false
-                        });
+                        notify('success', 'تم التحديث بنجاح.');
+                        
                         sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
             });
     }
@@ -104,14 +82,7 @@
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $.pnotify({
-                    text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                    type: 'error',
-                    history: false,
-                    closer_hover: false,
-                    delay: 5000,
-                    sticker: false
-                });
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
         });
     }
@@ -128,39 +99,18 @@
             success: function (data) {
                 if (data.d == false) {
                     $('#pGeneral').css('display', 'none');
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
                 else if (data.d == true) {
                     $('#pGeneral').css('display', 'none');
-                    $.pnotify({
-                        text: 'تم التحديث بنجاح.',
-                        type: 'success',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
+                    notify('success', 'تم التحديث بنجاح.');
                     $('#<%= uiTextBoxStatus.ClientID %>').val('');
                     sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $('#pGeneral').css('display', 'none');
-                $.pnotify({
-                    text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                    type: 'error',
-                    history: false,
-                    closer_hover: false,
-                    delay: 5000,
-                    sticker: false
-                });
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
         });
 }
