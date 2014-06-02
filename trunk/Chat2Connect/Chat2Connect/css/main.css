@@ -213,6 +213,7 @@ margin:0 !important;
     font-size:13px;    
     border:0px !important;
     width:210px;
+    color:#555;
     }
 
 .input-ok {
@@ -956,9 +957,9 @@ fieldset[disabled] .btn-main.active {
     color:#000;
 }
 
-.cameraHolder {
+.cameraHolder{
     float:left;
-    width:20px;
+    width:27px;
     height:16px;
     margin-right:4px;
 }
@@ -1128,11 +1129,6 @@ width:230px;
 }
 
 
-
-
-
-
-
 .colorDiv {
     height:15px;
     width:15px;
@@ -1199,7 +1195,7 @@ width:230px;
 }
 
 .friend-link .controls {
-    width:50px;
+    width:72px;
     }
 .friend-link a.memberlink {
     margin-left:10px;
