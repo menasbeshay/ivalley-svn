@@ -63,6 +63,8 @@ namespace Chat2Connect.SRCustomHubs
                 Helper.ChatMember member=roomMember.LoadWithSettings(roomid,roomMember.MemberID).FirstOrDefault();
                 item.Rooms.Add(roomid);
                 Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
+                if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
+                    Groups.Add(Context.ConnectionId, GetRoomAdminGroupName(roomid));
 
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, roomid);
@@ -71,6 +73,11 @@ namespace Chat2Connect.SRCustomHubs
             {
 
             }
+        }
+
+        private static string GetRoomAdminGroupName(int roomID)
+        {
+            return String.Format("Admins_{0}",roomID);
         }
         public void removeFromRoom(int roomid)
         {
@@ -84,12 +91,14 @@ namespace Chat2Connect.SRCustomHubs
             try
             {
                 int memberID = CurrentMemberID();
-                RoomMember member = new RoomMember();
-                member.LoadByPrimaryKey(memberID, roomid);
-                member.InRoom = false;
-                member.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
-                member.Save();
+                RoomMember roomMember = new RoomMember();
+                roomMember.LoadByPrimaryKey(memberID, roomid);
+                roomMember.InRoom = false;
+                roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
+                roomMember.Save();
 
+                if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
+                    Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
             }
             catch (Exception ex)
             {
@@ -202,6 +211,10 @@ namespace Chat2Connect.SRCustomHubs
         public void sendToRoom(int roomid, string sender, string msg)
         {
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
+        }
+        public void sendToRoomAdmins(int roomid, string sender, string msg)
+        {
+            Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, sender, msg);
         }
         public void sendPrivateMessage(int toUserId, string message)
         {

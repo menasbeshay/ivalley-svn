@@ -6,7 +6,7 @@ function Chat(maxWin, memberID, memberName) {
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
-    
+
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -48,6 +48,7 @@ function Chat(maxWin, memberID, memberName) {
         }, this);
 
         this.Editor = null;
+        this.AdminsEditor = null;
         this.selectedGift = null;
 
         this.getMember = function (id) {
@@ -66,7 +67,7 @@ function Chat(maxWin, memberID, memberName) {
         //Room Members
         this.RoomMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
-                return (mem.QueueOrder()==null);
+                return (mem.QueueOrder() == null);
             });
         }, this);
         //Queue Members
@@ -159,15 +160,14 @@ function Chat(maxWin, memberID, memberName) {
             if (self.Type() == 'Private')
                 return null;
             return ko.utils.arrayFilter(self.Members(), function (mem) {
-                return !mem.IsMemberBanned() && mem.MemberID() != self.CurrentMemberID();
+                return !mem.IsMemberBanned() && mem.MemberID() != self.CurrentMemberID() && mem.MemberLevelID() < self.CurrentMember().MemberLevelID();
             });
         }, this);
         this.bannedType = ko.observable();
         this.BanMemberName = ko.observable("");
-        this.banMemberByName=function()
-        {
+        this.banMemberByName = function () {
             var name = $("#txtBanMemberName_" + self.uniqueID()).val();
-            var member= ko.utils.arrayFirst(self.NotBannedMembers(), function (mem) {
+            var member = ko.utils.arrayFirst(self.NotBannedMembers(), function (mem) {
                 return mem.MemberName() == name;
             });
             if (member == null)
@@ -209,12 +209,11 @@ function Chat(maxWin, memberID, memberName) {
         this.closeRoom = function () {
             var window = this;
             var currentMemberLevel = window.CurrentMember().MemberLevelID();
-            var topMember=ko.utils.arrayFirst(this.Members(), function (mem) {
+            var topMember = ko.utils.arrayFirst(this.Members(), function (mem) {
                 return mem.MemberLevelID() > currentMemberLevel;
             });
-            if (topMember != null)
-            {
-                notify('error', 'لا يمكنك غلق الغرفة فى وجود '+topMember.MemberName());
+            if (topMember != null) {
+                notify('error', 'لا يمكنك غلق الغرفة فى وجود ' + topMember.MemberName());
                 return;
             }
             rHub.server.closeRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName());
@@ -226,7 +225,7 @@ function Chat(maxWin, memberID, memberName) {
         }
         this.updateSocialLinks = function () {
             var window = this;
-            rHub.server.updateSocialLinks(window.ID(),window.fbURL(),window.tURL(),window.utURL() );
+            rHub.server.updateSocialLinks(window.ID(), window.fbURL(), window.tURL(), window.utURL());
         };
         // invite friends
         this.ShowInviteFriends = function () {
@@ -256,7 +255,7 @@ function Chat(maxWin, memberID, memberName) {
             $("#giftModal_" + self.uniqueID()).modal('show');
         };
         this.selectGift = function () {
-            self.selectedGift = this;            
+            self.selectedGift = this;
             $('#giftUL_' + self.uniqueID()).find('label').removeClass('selected');
             $('#giftUL_' + self.uniqueID() + ' #gift_' + self.selectedGift.giftid()).next('label').addClass('selected');
 
@@ -285,7 +284,7 @@ function Chat(maxWin, memberID, memberName) {
             else {
                 notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
                 $("#giftModal_" + window.uniqueID()).modal('hide');
-                
+
             }
         };
 
@@ -303,7 +302,15 @@ function Chat(maxWin, memberID, memberName) {
             $('#UploadedFile_' + self.uniqueID()).html('');
             $('#videoURL_' + self.uniqueID()).val('');
         };
-
+        //admin part
+        this.showAdminPart = ko.observable(false);
+        if (this.Type() == "Room" && this.CurrentMember().MemberLevelID()>1)
+        {
+            this.showAdminPart = ko.observable(true);
+        }
+        this.toggleAdminPart = function () {
+            self.showAdminPart(!self.showAdminPart());
+        };
     }
 
     self.changeCurrent = function (selctor) {
@@ -324,17 +331,17 @@ function Chat(maxWin, memberID, memberName) {
         if (type == 'Private') {
             var gifts = [];
             $.ajax({
-                url: '../services/Services.asmx/GetGifts',                
-                async: false,                
+                url: '../services/Services.asmx/GetGifts',
+                async: false,
                 success: function (data) {
                     gifts = data;
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    notify('error','حدث خطأ . من فضلك أعد المحاولة.');
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                     return;
                 }
             });
-            
+
             var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
@@ -386,8 +393,13 @@ function Chat(maxWin, memberID, memberName) {
         //window.Message("");
         window.Editor.setValue("");
     }
-    self.sendAdminMessage = function () {
-
+    self.sendAdminMessage = function (window) {
+        if (window == null)
+            window = this;
+        if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) {
+            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue());
+            window.AdminsEditor.setValue("");
+        }
     };
     self.toggleFlashObj = function (window) {
         if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
@@ -402,6 +414,17 @@ function Chat(maxWin, memberID, memberName) {
     // scroll bars
     self.Init = function (window) {
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        if (window.Type() == 'Room') {
+            window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { toolbar: 'admintoolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+            window.AdminsEditor.observe('load', function () {
+                window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
+                    if (e.which == 13) {
+                        e.preventDefault();
+                        self.sendAdminMessage(window);
+                    }
+                });
+            });
+        }
         if (window.Type() == 'Room' && !window.CurrentMember().CanWrite())
             window.Editor.disable();
         // apply enter key listener
@@ -457,8 +480,8 @@ function Chat(maxWin, memberID, memberName) {
 
         // group gifts by prices
         for (i = 0; i < result.length; i++) {
-            var wrapper = $('#giftUL_' + window.uniqueID() + ' li[data-cat="' + result[i] + '"]').wrapAll('<div id="wrapper_' + window.uniqueID() + "_"+ i + '" class="collapse" />');
-            $('<a class="btn btn-default" data-toggle="collapse" data-target="#wrapper_' + window.uniqueID() +"_"+ i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
+            var wrapper = $('#giftUL_' + window.uniqueID() + ' li[data-cat="' + result[i] + '"]').wrapAll('<div id="wrapper_' + window.uniqueID() + "_" + i + '" class="collapse" />');
+            $('<a class="btn btn-default" data-toggle="collapse" data-target="#wrapper_' + window.uniqueID() + "_" + i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
             $('<div class="clear" style="height:2px;"></div>').appendTo(wrapper.parent());
             // open 1st panel only
             if (i == 0)
@@ -471,7 +494,7 @@ function Chat(maxWin, memberID, memberName) {
           .on('slide', function (ev) {
               // check if room is not muted
               if ($('#mute_' + window.uniqueID()).attr('data-mute') == 'false')
-                self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
+                  self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
           });
         $('#uiMicVolume_' + window.uniqueID()).slider()
          .on('slide', function (ev) {
@@ -534,11 +557,9 @@ function Chat(maxWin, memberID, memberName) {
         ko.utils.arrayForEach(self.windows(), function (room) {
             if (room.Type() == 'Private' && room.ID() == mid)
                 self.windows().remove(room);
-            else
-            {
+            else {
                 var member = room.getMember(mid);
-                if(member!=null)
-                {
+                if (member != null) {
                     member.InRoom(false);
                     member.QueueOrder(null);
                 }
@@ -558,7 +579,7 @@ function Chat(maxWin, memberID, memberName) {
                     //move from roomMembers to queueMembers
                     var member = currentWindow.getMember(self.CurrentMemberID);
                     member.QueueOrder(data.d);
-                    rHub.server.userRaisHand(currentWindow.ID(), self.CurrentMemberID,member.QueueOrder());
+                    rHub.server.userRaisHand(currentWindow.ID(), self.CurrentMemberID, member.QueueOrder());
                 }
                 else {
                     //move from queueMembers to roomMembers
@@ -587,8 +608,7 @@ function Chat(maxWin, memberID, memberName) {
         var member = window.getMember(memberid);
         if (member != null) {
             getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
-            if (window.Type() == 'Private')
-            {
+            if (window.Type() == 'Private') {
                 member.IsMicOpened(true);
                 return;
             }
@@ -770,7 +790,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.MessageHistory(window.MessageHistory() + msg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
-            height: '400px',
+            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
             color: '#FEC401',
             railColor: '#C7C5C0',
             position: 'left',
@@ -786,12 +806,31 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
-            height: '400px',
+            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
             color: '#FEC401',
             railColor: '#C7C5C0',
             position: 'left',
             scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
         });
+    };
+    rHub.client.getAdminMessage = function (rid, sname, msg) {
+        var type = "Room";
+        var window = chatVM.getWindow(rid, type, sname);
+        if (window == null)
+            return;
+        var history = window.AdminMessageHistory();
+        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
+        window.AdminMessageHistory(history + newMsg);
+        $(".AdminMsgHistroy").slimScroll({
+            railVisible: true,
+            height: $(".AdminMsgHistroy", "#" + window.uniqueID()).attr('data-height'),
+            color: '#FEC401',
+            railColor: '#C7C5C0',
+            position: 'left',
+            scrollTo: $(".AdminMsgHistroy", "#" + window.uniqueID()).height()
+        });
+        // update save link 
+        //SaveConversation(rid);
     };
     rHub.client.getMessage = function (rid, sname, msg) {
         var type = "Room";
@@ -803,7 +842,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
-            height: '400px',
+            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
             color: '#FEC401',
             railColor: '#C7C5C0',
             position: 'left',
@@ -825,7 +864,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
-            height: '400px',
+            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
             color: '#FEC401',
             railColor: '#C7C5C0',
             position: 'left',
@@ -833,8 +872,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
         });
 
     };
-    rHub.client.addNewMember = function (rid,memberData) {
-        var newMember=ko.mapping.fromJS(memberData);
+    rHub.client.addNewMember = function (rid, memberData) {
+        var newMember = ko.mapping.fromJS(memberData);
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
         if (window == null)
@@ -843,17 +882,15 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (existingMember != null && existingMember.InRoom())//already exists in the room
             return;
 
-        if (existingMember == null)
-        {
+        if (existingMember == null) {
             window.Members().push(newMember);
         }
-        else
-        {
+        else {
             newMember = existingMember;
         }
         newMember.InRoom(true);
         if (window.CurrentMember().NotifyOnFriendsLogOn()) {
-            var msg = '' + newMember.MemberName() + 'قد إنضم للغرفة ';
+            var msg = newMember.MemberName() + ' قد إنضم للغرفة ';
             addMsgToWindow(window, msg, "joinalert");
         }
         // init popover menu for new members
@@ -925,12 +962,12 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(roomID, type);
         if (window == null)
             return;
-        
-        notify('error', 'تم غلق الغرفة '+window.Name()+' من قبل الأدمن '+adminName);
+
+        notify('error', 'تم غلق الغرفة ' + window.Name() + ' من قبل الأدمن ' + adminName);
         chatVM.windows.remove(window);
         $('.nav-tabs a:last').tab('show');
     }
-    rHub.client.updateSocialLinks = function (roomID, fbURL,tURL,utURL) {
+    rHub.client.updateSocialLinks = function (roomID, fbURL, tURL, utURL) {
         var type = "Room";
         var window = chatVM.getWindow(roomID, type);
         if (window == null)
@@ -955,7 +992,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
         chatVM.stopMic(window, memberid);
     };
-    rHub.client.UserRaisHand = function (rid, memberid,queueOrder) {
+    rHub.client.UserRaisHand = function (rid, memberid, queueOrder) {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(memberid);
@@ -981,7 +1018,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 member.IsMarked(true);
             }
         }
-      //  $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
+        //  $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
     };
     rHub.client.UserUnMarked = function (rid, memberid) {
         var window = chatVM.getWindow(rid, "Room");
@@ -991,7 +1028,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 member.IsMarked(false);
             }
         }
-     //   $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
+        //   $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
     };
     rHub.client.ShowCamLink = function (mid, rid) {//member opened cam
         var window = chatVM.getWindow(rid, "Room");
@@ -1005,7 +1042,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 }
             }
         }
-       // $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
+        // $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
     };
     rHub.client.HideCamLink = function (mid, rid) {
         var window = chatVM.getWindow(rid, "Room");
@@ -1019,7 +1056,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 }
             }
         }
-      //  $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
+        //  $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
     rHub.client.UserDownHandAll = function (rid) {
         var window = chatVM.getWindow(rid, "Room");
@@ -1037,7 +1074,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         window.MessageHistory(history + message);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
-            height: '400px',
+            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
             color: '#FEC401',
             railColor: '#C7C5C0',
             position: 'left',
