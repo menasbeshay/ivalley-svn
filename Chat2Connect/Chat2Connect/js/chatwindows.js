@@ -273,7 +273,7 @@ function Chat(maxWin, memberID, memberName) {
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
                         notify('success', 'تم إرسال الهدية بنجاح');
-                        $('$uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - window.selectedGift.price());
+                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - window.selectedGift.price());
                         return;
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -335,7 +335,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
             
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", Members: [{MemberID:self.CurrentMemberID,MemberName:self.CurrentMemberName,IsMicOpened:false,IsCamOpened:false}],CurrentMemberID:self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: "", Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -649,6 +649,11 @@ function Chat(maxWin, memberID, memberName) {
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStartCam(window.ID(), self.CurrentMemberID);
         }
+        else {
+            var member = window.getMember(memberID);
+            if (member != null)
+                member.IsCamViewed(true);
+        }
     }
     self.stopCam = function (window, memberID) {
         getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
@@ -656,6 +661,11 @@ function Chat(maxWin, memberID, memberName) {
             return;
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
+        }
+        else {
+            var member = window.getMember(memberID);
+            if (member != null)
+                member.IsCamViewed(false);
         }
     }
 
@@ -756,7 +766,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
 
     /****** signalR ********/
     function addMsgToWindow(window, msg, css) {
-        msg = "<div class='pull-left " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
+        msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(window.MessageHistory() + msg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -772,7 +782,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
 
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + fromUserName + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + message + "</div><div style='clear:both;height:3px;'></div>";
+        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + fromUserName + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + message + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -789,7 +799,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
+        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -811,7 +821,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var history = window.MessageHistory();
-        var newMsg = "<div class='pull-left' style='width:auto;margin-right:5px;'><b>" + sname + "</b></div><div class='pull-left'><b>:</b></div><div class='pull-left' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
+        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
         window.MessageHistory(history + newMsg);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
@@ -971,7 +981,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 member.IsMarked(true);
             }
         }
-        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
+      //  $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
     };
     rHub.client.UserUnMarked = function (rid, memberid) {
         var window = chatVM.getWindow(rid, "Room");
@@ -981,7 +991,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 member.IsMarked(false);
             }
         }
-        $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
+     //   $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
     };
     rHub.client.ShowCamLink = function (mid, rid) {//member opened cam
         var window = chatVM.getWindow(rid, "Room");
@@ -995,7 +1005,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
                 }
             }
         }
-        $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
+       // $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
     };
     rHub.client.HideCamLink = function (mid, rid) {
         var window = chatVM.getWindow(rid, "Room");
@@ -1003,13 +1013,13 @@ function InitChat(maxWinRooms, memberID, memberName) {
             var member = window.getMember(mid);
             if (member != null) {
                 member.IsCamOpened(false);
-                if (window.CurrentMemberSettings.NotifyOnCloseCam()) {
+                if (window.CurrentMember().NotifyOnCloseCam()) {
                     var msg = member.MemberName() + ' أغلق الكمراء';
                     addMsgToWindow(window, msg, "leftalert");
                 }
             }
         }
-        $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
+      //  $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
     rHub.client.UserDownHandAll = function (rid) {
         var window = chatVM.getWindow(rid, "Room");

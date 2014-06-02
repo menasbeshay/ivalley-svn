@@ -55,7 +55,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
-                <a href="#" id="gifts" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">الهدايا</a>
+                <a href="../GiftPoints.aspx" id="gifts" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">شحن نقاط الهدايا  </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         

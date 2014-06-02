@@ -74,13 +74,16 @@ $(document).ready(function () {
 
 function notify(type, msg)
 {
-    $.pnotify({
+    var myStack = { 'dir1': 'down', 'dir2': 'left', 'push': 'up', 'spacing1':25, 'spacing2':40 };
+    
+   $.pnotify({
         text: msg,
         type: type,
         history: false,
         closer_hover: false,
         delay: 5000,
-        sticker: false
+        sticker: false,
+        stack: myStack
     });
 }
 

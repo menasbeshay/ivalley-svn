@@ -540,7 +540,8 @@ namespace Chat2Connect.services
             roomObject.tURL = rooms.TURL;
             roomObject.utURL = rooms.UtURL;
             roomObject.OpenCams = rooms.OpenCams;
-            roomObject.CreatedBy = rooms.CreatedBy;
+            if (!rooms.IsColumnNull("CreatedBy"))
+                roomObject.CreatedBy = rooms.CreatedBy;
             //Room settings
             roomObject.Settings.EnableCam = rooms.EnableCam;
             roomObject.Settings.EnableMic = rooms.EnableMic;
@@ -555,8 +556,11 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
-            if (roomMember.MemberID == rooms.CreatedBy)
-                roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+            if (!rooms.IsColumnNull("CreatedBy"))
+            {
+                if (roomMember.MemberID == rooms.CreatedBy)
+                    roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+            }
             roomMember.Save();
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
             

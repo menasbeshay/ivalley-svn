@@ -196,5 +196,203 @@
             </tr>
         </tbody>
     </table>
+
+
+    <table class="jfk-palette-table" cellspacing="0" cellpadding="0" style="-webkit-user-select: none;">
+        <tbody class="jfk-palette-body" style="-webkit-user-select: none;">
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-20" role="gridcell" aria-selected="false" aria-label="light red berry 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red berry 3" style="background-color: rgb(230, 184, 175); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-21" role="gridcell" aria-selected="false" aria-label="light red 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red 3" style="background-color: rgb(244, 204, 204); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-22" role="gridcell" aria-selected="false" aria-label="light orange 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light orange 3" style="background-color: rgb(252, 229, 205); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-23" role="gridcell" aria-selected="false" aria-label="light yellow 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light yellow 3" style="background-color: rgb(255, 242, 204); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-24" role="gridcell" aria-selected="false" aria-label="light green 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light green 3" style="background-color: rgb(217, 234, 211); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-25" role="gridcell" aria-selected="false" aria-label="light cyan 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cyan 3" style="background-color: rgb(208, 224, 227); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-26" role="gridcell" aria-selected="false" aria-label="light cornflower blue 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cornflower blue 3" style="background-color: rgb(201, 218, 248); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-27" role="gridcell" aria-selected="false" aria-label="light blue 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light blue 3" style="background-color: rgb(207, 226, 243); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-28" role="gridcell" aria-selected="false" aria-label="light purple 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light purple 3" style="background-color: rgb(217, 210, 233); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-29" role="gridcell" aria-selected="false" aria-label="light magenta 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light magenta 3" style="background-color: rgb(234, 209, 220); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-30" role="gridcell" aria-selected="false" aria-label="light red berry 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red berry 2" style="background-color: rgb(221, 126, 107); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-31" role="gridcell" aria-selected="false" aria-label="light red 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red 2" style="background-color: rgb(234, 153, 153); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-32" role="gridcell" aria-selected="false" aria-label="light orange 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light orange 2" style="background-color: rgb(249, 203, 156); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-33" role="gridcell" aria-selected="false" aria-label="light yellow 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light yellow 1" style="background-color: rgb(255, 229, 153); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-34" role="gridcell" aria-selected="false" aria-label="light green 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light green 2" style="background-color: rgb(182, 215, 168); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-35" role="gridcell" aria-selected="false" aria-label="light cyan 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cyan 2" style="background-color: rgb(162, 196, 201); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-36" role="gridcell" aria-selected="false" aria-label="light cornflower blue 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cornflower blue 2" style="background-color: rgb(164, 194, 244); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-37" role="gridcell" aria-selected="false" aria-label="light blue 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light blue 2" style="background-color: rgb(159, 197, 232); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-38" role="gridcell" aria-selected="false" aria-label="light purple 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light purple 2" style="background-color: rgb(180, 167, 214); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-39" role="gridcell" aria-selected="false" aria-label="light magenta 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light magenta 2" style="background-color: rgb(213, 166, 189); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-40" role="gridcell" aria-selected="false" aria-label="light red berry 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red berry 1" style="background-color: rgb(204, 65, 37); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-41" role="gridcell" aria-selected="false" aria-label="light red 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light red 1" style="background-color: rgb(224, 102, 102); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-42" role="gridcell" aria-selected="false" aria-label="light orange 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light orange 1" style="background-color: rgb(246, 178, 107); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-43" role="gridcell" aria-selected="false" aria-label="light yellow 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light yellow 2" style="background-color: rgb(255, 217, 102); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-44" role="gridcell" aria-selected="false" aria-label="light green 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light green 1" style="background-color: rgb(147, 196, 125); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-45" role="gridcell" aria-selected="false" aria-label="light cyan 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cyan 1" style="background-color: rgb(118, 165, 175); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-46" role="gridcell" aria-selected="false" aria-label="light cornflower blue 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light cornflower blue 1" style="background-color: rgb(109, 158, 235); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-47" role="gridcell" aria-selected="false" aria-label="light blue 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light blue 1" style="background-color: rgb(111, 168, 220); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-48" role="gridcell" aria-selected="false" aria-label="light purple 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light purple 1" style="background-color: rgb(142, 124, 195); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-49" role="gridcell" aria-selected="false" aria-label="light magenta 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="light magenta 1" style="background-color: rgb(194, 123, 160); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-50" role="gridcell" aria-selected="false" aria-label="dark red berry 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red berry 1" style="background-color: rgb(166, 28, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-51" role="gridcell" aria-selected="false" aria-label="dark red 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red 1" style="background-color: rgb(204, 0, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-52" role="gridcell" aria-selected="false" aria-label="dark orange 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark orange 1" style="background-color: rgb(230, 145, 56); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-53" role="gridcell" aria-selected="false" aria-label="dark yellow 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark yellow 1" style="background-color: rgb(241, 194, 50); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-54" role="gridcell" aria-selected="false" aria-label="dark green 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark green 1" style="background-color: rgb(106, 168, 79); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-55" role="gridcell" aria-selected="false" aria-label="dark cyan 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cyan 1" style="background-color: rgb(69, 129, 142); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-56" role="gridcell" aria-selected="false" aria-label="dark cornflower blue 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cornflower blue 1" style="background-color: rgb(60, 120, 216); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-57" role="gridcell" aria-selected="false" aria-label="dark blue 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark blue 1" style="background-color: rgb(61, 133, 198); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-58" role="gridcell" aria-selected="false" aria-label="dark purple 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark purple 1" style="background-color: rgb(103, 78, 167); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-59" role="gridcell" aria-selected="false" aria-label="dark magenta 1" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark magenta 1" style="background-color: rgb(166, 77, 121); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-60" role="gridcell" aria-selected="false" aria-label="dark red berry 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red berry 2" style="background-color: rgb(133, 32, 12); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-61" role="gridcell" aria-selected="false" aria-label="dark red 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red 2" style="background-color: rgb(153, 0, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-62" role="gridcell" aria-selected="false" aria-label="dark orange 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark orange 2" style="background-color: rgb(180, 95, 6); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-63" role="gridcell" aria-selected="false" aria-label="dark yellow 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark yellow 2" style="background-color: rgb(191, 144, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-64" role="gridcell" aria-selected="false" aria-label="dark green 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark green 2" style="background-color: rgb(56, 118, 29); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-65" role="gridcell" aria-selected="false" aria-label="dark cyan 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cyan 2" style="background-color: rgb(19, 79, 92); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-66" role="gridcell" aria-selected="false" aria-label="dark cornflower blue 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cornflower blue 2" style="background-color: rgb(17, 85, 204); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-67" role="gridcell" aria-selected="false" aria-label="dark blue 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark blue 2" style="background-color: rgb(11, 83, 148); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-68" role="gridcell" aria-selected="false" aria-label="dark purple 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark purple 2" style="background-color: rgb(53, 28, 117); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-69" role="gridcell" aria-selected="false" aria-label="dark magenta 2" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark magenta 2" style="background-color: rgb(116, 27, 71); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+            <tr class="jfk-palette-row" role="row" style="-webkit-user-select: none;">
+                <td class="jfk-palette-cell" id="jfk-palette-cell-70" role="gridcell" aria-selected="false" aria-label="dark red berry 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red berry 3" style="background-color: rgb(91, 15, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-71" role="gridcell" aria-selected="false" aria-label="dark red 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark red 3" style="background-color: rgb(102, 0, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-72" role="gridcell" aria-selected="false" aria-label="dark orange 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark orange 3" style="background-color: rgb(120, 63, 4); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-73" role="gridcell" aria-selected="false" aria-label="dark yellow 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark yellow 3" style="background-color: rgb(127, 96, 0); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-74" role="gridcell" aria-selected="false" aria-label="dark green 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark green 3" style="background-color: rgb(39, 78, 19); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-75" role="gridcell" aria-selected="false" aria-label="dark cyan 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cyan 3" style="background-color: rgb(12, 52, 61); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-76" role="gridcell" aria-selected="false" aria-label="dark cornflower blue 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark cornflower blue 3" style="background-color: rgb(28, 69, 135); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-77" role="gridcell" aria-selected="false" aria-label="dark blue 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark blue 3" style="background-color: rgb(7, 55, 99); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-78" role="gridcell" aria-selected="false" aria-label="dark purple 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark purple 3" style="background-color: rgb(32, 18, 77); -webkit-user-select: none;"></div>
+                </td>
+                <td class="jfk-palette-cell" id="jfk-palette-cell-79" role="gridcell" aria-selected="false" aria-label="dark magenta 3" style="-webkit-user-select: none;">
+                    <div class="jfk-palette-colorswatch" title="dark magenta 3" style="background-color: rgb(76, 17, 48); -webkit-user-select: none;"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

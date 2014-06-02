@@ -180,15 +180,28 @@
         <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
             <div class="pull-left controls">
                 <div class="cameraHolder">
-                    <a data-bind="attr:{'data-related':$parent.ID()+'$'+MemberID()}" class="camera" href="#">
+                    
+                    <!-- ko if: IsCamOpened()-->
+                    <!-- ko if: IsCamViewed()-->
+                    <i class="icon-circle" style="color:#f00;font-size: 8px;float: left;"></i>
+                    <!-- /ko -->
+                    <a data-bind="click:$root.startCam.bind($data,$parent,$data.MemberID(),$data.MemberName())" class="camera" style="display:block;margin-left:5px;">
                         <img style="width: 20px;" src="images/video_camera.png"></a>
+                    <!-- /ko -->
                 </div>
+                <div class="MicHandHolder">
                 <!-- ko if: QueueOrder()-->
-                <img src="images/hand.png" style="width: 16px; display: block;" class="hand" /><i class="icon-ban-circle mark"></i>
+                <img src="images/hand.png" style="width: 16px; display: block;" class="hand" />
                 <!-- /ko -->
                 <!-- ko if: IsMicOpened()-->
-                <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" /><i class="icon-ban-circle mark"></i>
+                <img src="images/microphone_1.png" style="width: 16px; display: block;" class="mic" />
                 <!-- /ko -->
+                    </div>
+                <div class="MarkHolder">
+                <!-- ko if: IsMarked()-->
+                        <i class="icon-ban-circle"></i>
+                <!-- /ko -->
+                </div>
             </div>
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
             <div class="clear" style="height: 1px;"></div>
@@ -379,7 +392,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -395,7 +408,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
