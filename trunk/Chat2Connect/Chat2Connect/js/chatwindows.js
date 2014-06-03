@@ -311,6 +311,37 @@ function Chat(maxWin, memberID, memberName) {
         this.toggleAdminPart = function () {
             self.showAdminPart(!self.showAdminPart());
         };
+        //messages
+        this.MessageHistory = ko.observableArray();
+        this.AdminMessageHistory = ko.observableArray();
+        this.toggleMessageTime = function () { };
+        function chatMessage(msg)
+        {
+            var msgVM= { Message: msg, Time: new Date().toLocaleTimeString() };
+            return msgVM;
+        }
+        this.addMessage = function (msg) {
+            this.MessageHistory.push(chatMessage(msg));
+            $(".MsgHistroy").slimScroll({
+                railVisible: true,
+                height: $(".MsgHistroy", "#" + this.uniqueID()).attr('data-height'),
+                color: '#FEC401',
+                railColor: '#C7C5C0',
+                position: 'left',
+                scrollTo: $(".MsgHistroy", "#" + this.uniqueID()).height()
+            });
+        };
+        this.addAdminMessage = function (msg) {
+            this.AdminMessageHistory.push(chatMessage(msg));
+            $(".AdminMsgHistroy").slimScroll({
+                railVisible: true,
+                height: $(".AdminMsgHistroy", "#" + this.uniqueID()).attr('data-height'),
+                color: '#FEC401',
+                railColor: '#C7C5C0',
+                position: 'left',
+                scrollTo: $(".AdminMsgHistroy", "#" + this.uniqueID()).height()
+            });
+        };
     }
 
     self.changeCurrent = function (selctor) {
@@ -787,69 +818,30 @@ function InitChat(maxWinRooms, memberID, memberName) {
     /****** signalR ********/
     function addMsgToWindow(window, msg, css) {
         msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
-        window.MessageHistory(window.MessageHistory() + msg);
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-        });
+        window.addMessage(msg);
     }
     rHub = $.connection.chatRoomHub;
     rHub.client.getPrivateMessage = function (fromId, fromUserName, message) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
 
-        var history = window.MessageHistory();
         var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + fromUserName + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + message + "</div><div style='clear:both;height:3px;'></div>";
-        window.MessageHistory(history + newMsg);
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-        });
+        window.addMessage(newMsg);
     };
     rHub.client.getAdminMessage = function (rid, sname, msg) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type, sname);
         if (window == null)
             return;
-        var history = window.AdminMessageHistory();
         var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
-        window.AdminMessageHistory(history + newMsg);
-        $(".AdminMsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".AdminMsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".AdminMsgHistroy", "#" + window.uniqueID()).height()
-        });
-        // update save link 
-        //SaveConversation(rid);
+        window.addAdminMessage(newMsg);
     };
     rHub.client.getMessage = function (rid, sname, msg) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type, sname);
         if (window == null)
             return;
-        var history = window.MessageHistory();
         var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
-        window.MessageHistory(history + newMsg);
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-        });
-        // update save link 
-        //SaveConversation(rid);
+        window.addMessage(newMsg);
     };
     rHub.client.getVideoMessage = function (rid, sname, url) {
         var arr = url.split('v='); // remove "youtube.com/watch?v="
@@ -859,18 +851,8 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(rid, type, sname);
         if (window == null)
             return;
-        var history = window.MessageHistory();
         var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
-        window.MessageHistory(history + newMsg);
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-        });
-
+        window.addMessage(newMsg);
     };
     rHub.client.addNewMember = function (rid, memberData) {
         var newMember = ko.mapping.fromJS(memberData);

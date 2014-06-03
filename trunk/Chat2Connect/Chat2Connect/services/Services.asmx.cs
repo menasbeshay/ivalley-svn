@@ -473,7 +473,7 @@ namespace Chat2Connect.services
             try
             {
                 RoomMember rSetting = new RoomMember();
-                if (!rSetting.LoadByPrimaryKey(rid, mid))
+                if (!rSetting.LoadByPrimaryKey(mid,rid))
                 {
                     rSetting.AddNew();
                     rSetting.RoomID = rid;
@@ -530,10 +530,8 @@ namespace Chat2Connect.services
             roomObject.Type = "Room";
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
-            roomObject.MessageHistory = "";
             roomObject.AdminMessage = "";
-            roomObject.AdminMessageHistory = "";
-
+            
             //Room info
             roomObject.Name = rooms.Name;
             roomObject.RoomTopic = rooms.RoomTopic;

@@ -16,6 +16,8 @@ namespace Helper
                 Name = Helper.StringEnum.GetStringValue(r)
             }).ToList();
             this.Members = new List<ChatMember>();
+            //this.MessageHistory = new List<ChatMessage>();
+            //this.AdminMessageHistory = new List<ChatMessage>();
         }
         public int ID { get; set; }
 
@@ -27,7 +29,7 @@ namespace Helper
 
         public string Message { get; set; }
 
-        public string MessageHistory { get; set; }
+        //public List<ChatMessage> MessageHistory { get; set; }
 
         public string Name { get; set; }
 
@@ -61,7 +63,7 @@ namespace Helper
 
         public string AdminMessage { get; set; }
 
-        public string AdminMessageHistory { get; set; }
+        //public List<ChatMessage> AdminMessageHistory { get; set; }
     }
 
     public class ChatMember
@@ -96,6 +98,8 @@ namespace Helper
         public bool IsCamViewed { get; set; }
 
         public bool InRoom { get; set; }
+
+        public bool ShowMessageTime { get; set; }
     }
 
     public class RoomSettings
@@ -107,6 +111,11 @@ namespace Helper
         public int MaxMic { get; set; }
 
         public int CamCount { get; set; }
+
+        public bool MarkOnLoginWithWrite { get; set; }
+        public bool MarkOnLoginWithoutWrite { get; set; }
+
+        public bool EnableMicForAdminsOnly { get; set; }
     }
 
 }

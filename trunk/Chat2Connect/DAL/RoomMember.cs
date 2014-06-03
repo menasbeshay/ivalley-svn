@@ -261,6 +261,14 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
+			public static SqlParameter ShowMessageTime
+			{
+				get
+				{
+					return new SqlParameter("@ShowMessageTime", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -287,6 +295,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnOpenCam = "NotifyOnOpenCam";
             public const string NotifyOnCloseCam = "NotifyOnCloseCam";
             public const string IsFavorite = "IsFavorite";
+            public const string ShowMessageTime = "ShowMessageTime";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -314,6 +323,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[NotifyOnOpenCam] = _RoomMember.PropertyNames.NotifyOnOpenCam;
 					ht[NotifyOnCloseCam] = _RoomMember.PropertyNames.NotifyOnCloseCam;
 					ht[IsFavorite] = _RoomMember.PropertyNames.IsFavorite;
+					ht[ShowMessageTime] = _RoomMember.PropertyNames.ShowMessageTime;
 
 				}
 				return (string)ht[columnName];
@@ -346,6 +356,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnOpenCam = "NotifyOnOpenCam";
             public const string NotifyOnCloseCam = "NotifyOnCloseCam";
             public const string IsFavorite = "IsFavorite";
+            public const string ShowMessageTime = "ShowMessageTime";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -373,6 +384,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[NotifyOnOpenCam] = _RoomMember.ColumnNames.NotifyOnOpenCam;
 					ht[NotifyOnCloseCam] = _RoomMember.ColumnNames.NotifyOnCloseCam;
 					ht[IsFavorite] = _RoomMember.ColumnNames.IsFavorite;
+					ht[ShowMessageTime] = _RoomMember.ColumnNames.ShowMessageTime;
 
 				}
 				return (string)ht[propertyName];
@@ -405,6 +417,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnOpenCam = "s_NotifyOnOpenCam";
             public const string NotifyOnCloseCam = "s_NotifyOnCloseCam";
             public const string IsFavorite = "s_IsFavorite";
+            public const string ShowMessageTime = "s_ShowMessageTime";
 
 		}
 		#endregion		
@@ -648,6 +661,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 			set
 	        {
 				base.Setbool(ColumnNames.IsFavorite, value);
+			}
+		}
+
+		public virtual bool ShowMessageTime
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.ShowMessageTime);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.ShowMessageTime, value);
 			}
 		}
 
@@ -956,6 +981,21 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual string s_ShowMessageTime
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ShowMessageTime) ? string.Empty : base.GetboolAsString(ColumnNames.ShowMessageTime);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ShowMessageTime);
+				else
+					this.ShowMessageTime = base.SetboolAsString(ColumnNames.ShowMessageTime, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1184,6 +1224,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.IsFavorite, Parameters.IsFavorite);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ShowMessageTime
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ShowMessageTime, Parameters.ShowMessageTime);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1434,6 +1484,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public WhereParameter ShowMessageTime
+		    {
+				get
+		        {
+					if(_ShowMessageTime_W == null)
+	        	    {
+						_ShowMessageTime_W = TearOff.ShowMessageTime;
+					}
+					return _ShowMessageTime_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _HasMic_W = null;
@@ -1454,6 +1516,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private WhereParameter _NotifyOnOpenCam_W = null;
 			private WhereParameter _NotifyOnCloseCam_W = null;
 			private WhereParameter _IsFavorite_W = null;
+			private WhereParameter _ShowMessageTime_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1477,6 +1540,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_NotifyOnOpenCam_W = null;
 				_NotifyOnCloseCam_W = null;
 				_IsFavorite_W = null;
+				_ShowMessageTime_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1733,6 +1797,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public AggregateParameter ShowMessageTime
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ShowMessageTime, Parameters.ShowMessageTime);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1978,6 +2052,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public AggregateParameter ShowMessageTime
+		    {
+				get
+		        {
+					if(_ShowMessageTime_W == null)
+	        	    {
+						_ShowMessageTime_W = TearOff.ShowMessageTime;
+					}
+					return _ShowMessageTime_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _HasMic_W = null;
@@ -1998,6 +2084,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private AggregateParameter _NotifyOnOpenCam_W = null;
 			private AggregateParameter _NotifyOnCloseCam_W = null;
 			private AggregateParameter _IsFavorite_W = null;
+			private AggregateParameter _ShowMessageTime_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2021,6 +2108,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_NotifyOnOpenCam_W = null;
 				_NotifyOnCloseCam_W = null;
 				_IsFavorite_W = null;
+				_ShowMessageTime_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2173,6 +2261,10 @@ parameters.Add(Parameters.RoomID, RoomID);
 
 			p = cmd.Parameters.Add(Parameters.IsFavorite);
 			p.SourceColumn = ColumnNames.IsFavorite;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ShowMessageTime);
+			p.SourceColumn = ColumnNames.ShowMessageTime;
 			p.SourceVersion = DataRowVersion.Current;
 
 
