@@ -191,6 +191,7 @@
     <Content Include="giftbox.aspx" />
     <Content Include="GiftPoints.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="GroupMsg.aspx" />
     <Content Include="home.aspx" />
     <Content Include="Home2.aspx" />
     <Content Include="HtmlPage1.html" />
@@ -935,6 +936,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GroupMsg.aspx.cs">
+      <DependentUpon>GroupMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupMsg.aspx.designer.cs">
+      <DependentUpon>GroupMsg.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

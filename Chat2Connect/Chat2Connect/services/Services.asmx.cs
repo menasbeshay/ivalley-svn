@@ -9,6 +9,7 @@ using System.Web.Services;
 using BLL;
 using Chat2Connect.SRCustomHubs;
 using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 using System.Dynamic;
 
 namespace Chat2Connect.services
@@ -691,6 +692,31 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
             //return result;
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool SendPrivateMsg(string toIds, string msg)
+        {
+            string[] ToMembers = toIds.Split(',');
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            
+            try
+            {
+                for (int i = 0; i < ToMembers.Length; i++)
+                {
+                    Member m = new Member();
+                    m.LoadByPrimaryKey(Convert.ToInt32(ToMembers[i]));
+                    MembershipUser user = Membership.GetUser(m.UserID);
+                    _Rcontext.Clients.Group(user.UserName).getPrivateMessage(Member.CurrentMemberID, Member.CurrentMember.UserName, msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
 
 
