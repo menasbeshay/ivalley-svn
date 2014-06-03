@@ -23,6 +23,8 @@ namespace Chat2Connect.SRCustomHubs
             Member m = BLL.Member.CurrentMember;
             ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID,ProfilePic=m.ProfilePic,MemberTypeSpecID=m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
 
+            // add user to new group by his user name 
+            Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
             return base.OnConnected();
         }
         public override System.Threading.Tasks.Task OnDisconnected()
@@ -36,6 +38,8 @@ namespace Chat2Connect.SRCustomHubs
                 }
                 ConnectedUsers.Remove(item);
             }
+            // remove user to new group by his user name 
+            Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
             return base.OnDisconnected();
         }
         public void addToRoom(int roomid)
@@ -235,6 +239,7 @@ namespace Chat2Connect.SRCustomHubs
             }
 
         }
+
 
         public void sendVideoToRoom(int roomid, string sender, string url)
         {

@@ -1,9 +1,86 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SendMail.ascx.cs" Inherits="Chat2Connect.usercontrols.SendMail" %>
-<script src="../js/jquery.tokeninput.js"></script>
-<script src="../js/wysihtml5-0.3.0.js"></script>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/createMaster.master" AutoEventWireup="true" CodeBehind="GroupMsg.aspx.cs" Inherits="Chat2Connect.GroupMsg" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
+    <script src="js/jquery.tokeninput.js"></script>
+    <link href="css/token-input-facebook.css" rel="stylesheet" />
+    <script src="../js/wysihtml5-0.3.0.js"></script>
 <script src="../js/advanced.js"></script>
-<link href="../css/token-input-facebook.css" rel="stylesheet" />
-<div class="form-horizontal blockBox">
+
+      <script type="text/javascript">
+          $(document).ready(function () {
+              $('#sendmsgtoall').addClass('active');
+
+              var Msgeditor;
+
+              $('#sendmsgbtn').click(function () {
+                  SendMsg();
+              });
+              
+              $("#txtTo").tokenInput("../Services/Services.asmx/SearchMembersFriends?memberID=" + <%= BLL.Member.CurrentMemberID.ToString() %>, {
+                  theme: "facebook",
+                  preventDuplicates: true,
+                  hintText: "",
+                  noResultsText: "لا يوجد",
+                  searchingText: "بحث فى الأصدقاء..."
+              });
+
+              Msgeditor = new wysihtml5.Editor('txtBody', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: '../css/main.css' });
+
+
+              function SendMsg() {
+                  
+                  $.ajax({
+                      url: "../Services/Services.asmx/SendPrivateMsg",
+                      dataType: "json",
+                      type: "post",
+                      data: "{'toIds':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'msg' : '" + Msgeditor.getValue() + "'}",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data.d == false) {
+
+                    $.pnotify({
+                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
+                        type: 'error',
+                        history: false,
+                        closer_hover: false,
+                        delay: 5000,
+                        sticker: false
+                    });
+                }
+                else if (data.d == true) {
+
+                    $.pnotify({
+                        text: 'تم الإرسال بنجاح.',
+                        type: 'success',
+                        history: false,
+                        closer_hover: false,
+                        delay: 5000,
+                        sticker: false
+                    });
+                    setTimeout(function () {
+                        document.location.href = document.location.href;
+                    }, 3000);
+
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                $.pnotify({
+                    text: 'حدث خطأ . من فضلك أعد المحاولة.',
+                    type: 'error',
+                    history: false,
+                    closer_hover: false,
+                    delay: 5000,
+                    sticker: false
+                });
+            }
+        });
+    }
+          });
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <div class="form-horizontal blockBoxshadow">
     <div class="row">
         <div class="col-sm-2 pull-right">
             <label>من </label>
@@ -20,18 +97,6 @@
         </div>
         <div class="col-sm-8 pull-right">
             <asp:TextBox ID="txtTo" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-        </div>
-
-    </div>
-
-    <div class="clearfix" style="height: 10px;"></div>
-
-    <div class="row">
-        <div class="col-sm-2 pull-right">
-            <label>عنوان الرسالة</label>
-        </div>
-        <div class="col-sm-8 pull-right">
-            <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
 
     </div>
@@ -598,85 +663,7 @@
         <div class="col-sm-8 pull-right">
             <a class="btn btn-main" id="sendmsgbtn">إرسال</a>
         </div>
-    </div>
-    <asp:HiddenField ID="uiHiddenFieldCurrentMember" runat="server" />
+    </div>    
 </div>
 
-<script type="text/javascript">
-    var Msgeditor;
-    $(document).ready(function () {
-        $('#sendmsgbtn').click(function () {
-            SendMsg();
-        });
-        //var friends = 
-        $("#txtTo").tokenInput("../Services/Services.asmx/SearchMailMembers?memberID=" + $('#<%= uiHiddenFieldCurrentMember.ClientID %>').val(), {
-            theme: "facebook",
-            preventDuplicates: true,
-            hintText: "",
-            noResultsText: "لا يوجد",
-            searchingText: "بحث فى الأصدقاء..."
-        });
-
-        
-
-        Msgeditor = new wysihtml5.Editor('txtBody', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: '../css/main.css' });
-    });
-    function joinObj(a, attr) {
-        var out = [];
-        for (var i = 0; i < a.length; i++) {
-            out.push(a[i][attr]);
-        }
-        return out.join("; ");
-    }
-    function SendMsg() {
-        var toNames = joinObj($('#<%= txtTo.ClientID %>').tokenInput("get"), "name");
-        $.ajax({
-            url: "../Services/Services.asmx/SendMsg",
-            dataType: "json",
-            type: "post",
-            data: "{'sender':" + $('#<%= uiHiddenFieldCurrentMember.ClientID %>').val() + ",'ToMember':'" + $('#<%= txtTo.ClientID %>').val() + "' , 'subject' : '" + $('#<%= txtSubject.ClientID %>').val() + "','toName':'" + toNames + "' , 'content' : '" + Msgeditor.getValue() + "'}",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                if (data.d == false) {
-
-                    $.pnotify({
-                        text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                        type: 'error',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
-                }
-                else if (data.d == true) {
-
-                    $.pnotify({
-                        text: 'تم الإرسال بنجاح.',
-                        type: 'success',
-                        history: false,
-                        closer_hover: false,
-                        delay: 5000,
-                        sticker: false
-                    });
-                    setTimeout(function () {
-                        document.location.href = document.location.href + "?t=inbox";
-                    }, 3000);
-
-
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-                $.pnotify({
-                    text: 'حدث خطأ . من فضلك أعد المحاولة.',
-                    type: 'error',
-                    history: false,
-                    closer_hover: false,
-                    delay: 5000,
-                    sticker: false
-                });
-            }
-        });
-    }
-
-</script>
+</asp:Content>

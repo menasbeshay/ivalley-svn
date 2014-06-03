@@ -58,6 +58,13 @@ $(document).ready(function () {
         });
     });    
     
+    initPopupMenu();
+
+});
+
+
+function initPopupMenu() {
+
     $('.friend-link').each(function () {
         var $this = $(this);
         $this.popover({
@@ -68,9 +75,7 @@ $(document).ready(function () {
             container: 'body'
         });
     });
-
-});
-
+}
 
 function notify(type, msg)
 {
@@ -322,11 +327,13 @@ $(document).ready(function () {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#offlinepeople");
+            initPopupMenu();
         }
         else if ($("#usernode-" + id).parent("#offlinepeople") && status != "offline") {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#onlinepeople");
+            initPopupMenu();
         }
 
     };
