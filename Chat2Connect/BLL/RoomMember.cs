@@ -84,29 +84,30 @@ namespace BLL
             return DefaultView.Table.AsEnumerable().Select(m =>
                 new Helper.ChatMember()
             {
-                MemberID = m["MemberID"],
+                MemberID = m[ColumnNames.MemberID],
                 MemberName = m["MemberName"],
                 ProfileImg = Helper.TypeConverter.ToString(m["ProfilePic"]),
-                InRoom = Helper.TypeConverter.ToBoolean(m["InRoom"]),
+                InRoom = Helper.TypeConverter.ToBoolean(m[ColumnNames.InRoom]),
                 MemberTypeID = Helper.TypeConverter.ToInt32(m["MemberTypeSpecID"]),
-                MemberLevelID = Helper.TypeConverter.ToInt32(m["RoomMemberLevelID"]),
-                IsFavorite = Helper.TypeConverter.ToBoolean(m["IsFavorite"]),
-                UserRate = Helper.TypeConverter.ToInt32(m["UserRate"]),
-                CanAccessCam = Helper.TypeConverter.ToBoolean(m["CanAccessCam"]),
-                CanAccessMic = Helper.TypeConverter.ToBoolean(m["CanAccessMic"]),
-                CanWrite = Helper.TypeConverter.ToBoolean(m["CanWrite"]),
+                MemberLevelID = Helper.TypeConverter.ToInt32(m[ColumnNames.RoomMemberLevelID]),
+                IsFavorite = Helper.TypeConverter.ToBoolean(m[ColumnNames.IsFavorite]),
+                UserRate = Helper.TypeConverter.ToInt32(m[ColumnNames.UserRate]),
+                CanAccessCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.CanAccessCam]),
+                CanAccessMic = Helper.TypeConverter.ToBoolean(m[ColumnNames.CanAccessMic]),
+                CanWrite = Helper.TypeConverter.ToBoolean(m[ColumnNames.CanWrite]),
                 IsMemberBanned = m["IsMemberBanned"],
                 BanType = GetBanType(m["StartDate"], m["EndDate"]),
-                QueueOrder = m["QueueOrder"],
-                IsMicOpened = Helper.TypeConverter.ToBoolean(m["HasMic"]),
-                IsCamOpened = Helper.TypeConverter.ToBoolean(m["HasCam"]),
+                QueueOrder = m[ColumnNames.QueueOrder],
+                IsMicOpened = Helper.TypeConverter.ToBoolean(m[ColumnNames.HasMic]),
+                IsCamOpened = Helper.TypeConverter.ToBoolean(m[ColumnNames.HasCam]),
                 IsCamViewed = false,
-                NotifyOnCloseCam = Helper.TypeConverter.ToBoolean(m["NotifyOnCloseCam"]),
-                NotifyOnFriendsLogOff = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOff"]),
-                NotifyOnFriendsLogOn = Helper.TypeConverter.ToBoolean(m["NotifyOnFriendsLogOn"]),
-                NotifyOnMicOff = Helper.TypeConverter.ToBoolean(m["NotifyOnMicOff"]),
-                NotifyOnMicOn = Helper.TypeConverter.ToBoolean(m["NotifyOnMicOn"]),
-                NotifyOnOpenCam = Helper.TypeConverter.ToBoolean(m["NotifyOnOpenCam"])
+                NotifyOnCloseCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnCloseCam]),
+                NotifyOnFriendsLogOff = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnFriendsLogOff]),
+                NotifyOnFriendsLogOn = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnFriendsLogOn]),
+                NotifyOnMicOff = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnMicOff]),
+                NotifyOnMicOn = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnMicOn]),
+                NotifyOnOpenCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnOpenCam]),
+                ShowMessageTime = Helper.TypeConverter.ToBoolean(m[ColumnNames.ShowMessageTime])
             }).ToList();
         }
         private int? GetBanType(object startDate, object endDate)

@@ -176,6 +176,13 @@
             InitChat(maxRooms,currentMemberID,currentMemberName);
         });
     </script>
+    <script id="chatMsgTemplate" type="text/html">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="pull-left" data-bind="html:Message"></div>
+            <div class="pull-right" data-bind="text:Time,visible:$parent.CurrentMember().ShowMessageTime"></div>
+        </div>
+    </script>
     <script id="memberTemplate" type="text/html">
         <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
             <div class="pull-left controls">
@@ -845,7 +852,9 @@
                                         إعدادت  <span class="caret"></span>
                                     </button>
                                     <ul role="menu" class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-time"></i>&nbsp;طابع زمنى&nbsp;</a></li>
+                                        <li><a href="#"><i class="icon-time"></i>
+                                            <label style="font-weight: normal;">
+                                                <input type="checkbox" data-bind="click:updateSetting.bind($data,'ShowMessageTime'),checked:CurrentMember().ShowMessageTime" />&nbsp;طابع زمنى&nbsp;</label></a></li>
                                         <li><a href="#"><i class="icon-reply"></i>
                                             <label style="font-weight: normal;">
                                                 <input type="checkbox" data-bind="click:updateSetting.bind($data,'NotifyOnFriendsLogOn'),checked:CurrentMember().NotifyOnFriendsLogOn" />&nbsp;تنبيه عند دخول أشخاص&nbsp;</label></a></li>
@@ -988,7 +997,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-height="100px;" style="width: 80%; background-color: #D9D9D9; min-height: 100px; padding: 5px; direction: rtl;" class="AdminMsgHistroy" data-bind="html:AdminMessageHistory,attr:{id:'MsgAdminHistroy_'+uniqueID()}"></div>
+                                <div data-height="100px;" style="width: 80%; background-color: #D9D9D9; min-height: 100px; padding: 5px; direction: rtl;" class="AdminMsgHistroy" data-bind="template: { name: 'chatMsgTemplate', foreach: AdminMessageHistory },attr:{id:'MsgAdminHistroy_'+uniqueID()}"></div>
 
                                 <div style="height: 5px;" class="clearfix"></div>
 
@@ -1012,7 +1021,7 @@
                             <div style="height: 10px;" class="clear"></div>
                         </div>
                         <!-- /ko -->
-                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="html:MessageHistory,style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}"></div>
+                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="template: { name: 'chatMsgTemplate', foreach: MessageHistory },style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}"></div>
 
                         <div style="height: 5px;" class="clearfix"></div>
 
