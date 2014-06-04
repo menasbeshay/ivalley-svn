@@ -29,7 +29,7 @@ namespace Helper
 
         public string Message { get; set; }
 
-        //public List<ChatMessage> MessageHistory { get; set; }
+        public List<ChatMessage> MessageHistory { get; set; }
 
         public string Name { get; set; }
 
@@ -63,7 +63,7 @@ namespace Helper
 
         public string AdminMessage { get; set; }
 
-        //public List<ChatMessage> AdminMessageHistory { get; set; }
+        public List<ChatMessage> AdminMessageHistory { get; set; }
     }
 
     public class ChatMember

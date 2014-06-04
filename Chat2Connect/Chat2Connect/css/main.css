@@ -1390,6 +1390,11 @@ li.g-dark-selected {
     transition: height 1s;
 }
 
+.adminPart {
+    -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+    transition: height 1s;
+}
+
 
 /* gifts */
 

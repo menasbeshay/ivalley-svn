@@ -1,4 +1,15 @@
 ﻿
+ko.bindingHandlers.slideVisible = {
+    init: function (element, valueAccessor) {        
+        var value = valueAccessor();
+        $(element).toggle(ko.unwrap(value)); 
+    },
+    update: function (element, valueAccessor) {        
+        var value = valueAccessor();
+        ko.unwrap(value) ? $(element).slideDown(700) : $(element).slideUp(700);
+    }
+};
+
 function Chat(maxWin, memberID, memberName) {
     var self = this;
     self.CurrentMemberID = memberID;
@@ -311,6 +322,12 @@ function Chat(maxWin, memberID, memberName) {
         this.toggleAdminPart = function () {
             self.showAdminPart(!self.showAdminPart());
         };
+
+        // flash object 
+        this.showFlashObject = ko.observable(true);
+        this.toggleFlashObj = function (window) {
+            self.showFlashObject(!self.showFlashObject());            
+        }
         //messages
         this.MessageHistory = ko.observableArray();
         this.AdminMessageHistory = ko.observableArray();
@@ -342,6 +359,15 @@ function Chat(maxWin, memberID, memberName) {
                 scrollTo: $(".AdminMsgHistroy", "#" + this.uniqueID()).height()
             });
         };
+
+        this.SaveConversation = function () {
+            var str = '';
+            ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
+                str += msg.Message;
+            });
+            $('#SaveConv_' + self.ID()).attr("href", "data:text/plain;charset=UTF-8," + str);
+        };
+       
     }
 
     self.changeCurrent = function (selctor) {
@@ -432,20 +458,14 @@ function Chat(maxWin, memberID, memberName) {
             window.AdminsEditor.setValue("");
         }
     };
-    self.toggleFlashObj = function (window) {
-        if ($('#chat2connect_' + window.uniqueID()).css('height') == '0px')
-            $('#chat2connect_' + window.uniqueID()).css('height', '180px');
-        else
-            $('#chat2connect_' + window.uniqueID()).css('height', '0px');
-        return true;
-    }
+   
 
     // init html Editor 
     // tooltips for toolbar
     // scroll bars
     self.Init = function (window) {
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-        if (window.Type() == 'Room') {
+        if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { toolbar: 'admintoolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             window.AdminsEditor.observe('load', function () {
                 window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
