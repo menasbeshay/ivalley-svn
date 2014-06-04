@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../js/stmenu.js"></script>
 
 
-
-
-
 <link rel="stylesheet" type="text/css" href="../css/lightbox.css">
 
     <link href="../js/slider/allinone_bannerRotator.css" rel="stylesheet" type="text/css" />
@@ -20,7 +17,9 @@
     <script src="../js/slider/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
     <script src="../js/slider/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
     <script src="../js/slider/allinone_bannerRotator.js" type="text/javascript"></script>
-
+    <script src="../js/jquery.clock.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/analog.css"> 
+<link rel="stylesheet" type="text/css" href="../css/digital.css">
     <script type="text/javascript">
         $(document).ready(function () {
             $('#allinone_bannerRotator_attractive').css('display', 'block');
@@ -30,6 +29,8 @@
                 responsive: true,
                 thumbsWrapperMarginBottom: -10
             });
+
+            $('#analog-clock').clock({ offset: '+3', type: 'analog' });
         });
     </script>
 
@@ -196,12 +197,19 @@
 							<td height="5 px" bgcolor="#FF9900">
 							
 							
-						<p align="center">
-						<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="160" height="160">
+						<div style="text-align: center;">
+						<%--<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="160" height="160">
 							<param name="movie" value="flash/clock.swf">
 							<param name="quality" value="High">
 							<param name="wmode" value="transparent">
-							<embed src="flash/clock.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" width="160" height="160" quality="High" wmode="transparent"></object>
+							<embed src="flash/clock.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" width="160" height="160" quality="High" wmode="transparent"></object>--%>
+                             <ul id="analog-clock" class="analog">	
+	   	  <li class="hour"></li>
+	     	<li class="min"></li>
+        <li class="sec"></li>
+        <li class="meridiem"></li>
+     	</ul>
+        </div>
 							</td>
 						</tr>
 						<tr>
