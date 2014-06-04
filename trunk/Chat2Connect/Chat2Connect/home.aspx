@@ -3,6 +3,12 @@
 <%@ Register Src="usercontrols/ucRooms.ascx" TagName="ucRooms" TagPrefix="uc1" %>
 <%@ Register Src="usercontrols/ucFriends.ascx" TagName="ucFriends" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        label
+        {
+            font-weight:normal;
+        }
+    </style>
     <script src="js/bootstrap-slider.js"></script>
     <link href="css/slider.css" rel="stylesheet" />
     <%--<script src="js/wysihtml5-0.3.0.min.js"></script>--%>
@@ -818,31 +824,47 @@
                                     </button>
                                     <ul role="menu" class="dropdown-menu RoomAdminMenu">
                                         <li>
-                                            <a href="#" data-bind="attr: { onclick: 'ClearQueue('+ID()+');'}">&nbsp;إزالة الأيدى&nbsp;</a>
+                                            <a href="#" data-bind="click:clearQueue">&nbsp;إزالة الأيدى&nbsp;</a>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'MarkMember(this,'+ID()+', true);'}">&nbsp;تنقيط الجميع ومسموح الكتابة&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:markAllWithWrite,checked:MarkAllWithWriteCheck">&nbsp;تنقيط الجميع ومسموح الكتابة&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'MarkMember(this,'+ID()+',false);'}">&nbsp;تنقيط الجميع بدون كتابة&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:markAllWithoutWrite,checked:MarkAllWithoutWriteCheck">&nbsp;تنقيط الجميع بدون كتابة&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'MarkMemberOnLogin(this,'+ID()+', true);'}">&nbsp;تنقيط عند الدخول ومسموح الكتابة&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'MarkOnLoginWithWrite'),checked:Settings.MarkOnLoginWithWrite">&nbsp;تنقيط عند الدخول ومسموح الكتابة&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'MarkMemberOnLogin(this,'+ID()+', false);'}">&nbsp;تنقيط عند الدخول وبدون كتابة&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'MarkOnLoginWithoutWrite'),checked:Settings.MarkOnLoginWithoutWrite">&nbsp;تنقيط عند الدخول وبدون كتابة&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'DisableCams(this,'+ID()+');'}">&nbsp;ممنوع الكمراء&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'EnableCam'),checked:Settings.EnableCam">&nbsp;مسموح الكمراء&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'EnableMic(this,'+ID()+', false);'}">&nbsp;مسموح المكرفون للجميع&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'EnableMic'),checked:Settings.EnableMic">&nbsp;مسموح المكرفون للجميع&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" data-bind="attr: { onclick: 'EnableMic(this,'+ID()+', true);'}">&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;
+                                            <label>
+                                                <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'EnableMicForAdminsOnly'),checked:Settings.EnableMicForAdminsOnly">&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;
+                                            </label>
                                         </li>
                                         <li>
-                                            <a style="cursor: pointer;" data-bind="click:showControlPanel" href="#"><i class=" icon-dashboard"></i>&nbsp;لوحة تحكم المشرف </a>
+                                            <label>
+                                                <a style="cursor: pointer;" data-bind="click:showControlPanel" href="#"><i class=" icon-dashboard"></i>&nbsp;لوحة تحكم المشرف </a>
+                                            </label>
                                         </li>
                                     </ul>
                                 </div>
@@ -933,6 +955,7 @@
                         <input id="uiHiddenFieldUserRate" type="hidden" name="uiHiddenFieldUserRate" data-bind="value:CurrentMember().UserRate">
                     </div>
                 </div>
+                <div data-bind="visible:(Settings.EnableCam())">
                 <div style="height: 5px;" class="clear"></div>
                 <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12" >
@@ -948,6 +971,7 @@
 
                     </div>
                 </div>
+                    </div>
                 <!-- /ko -->
                 <!-- ko if: Type()=="Private" -->
                 <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}" ></i>&nbsp;&nbsp;الكاميرات</span>
@@ -1006,16 +1030,16 @@
 
                                 <div style="height: 5px;" class="clearfix"></div>
                             </div>
-                            <div class="col-lg-12" style="padding: 0px; padding-bottom:5px; border-bottom: 1px solid #FEC200;">
-                                <div data-bind="slideVisible:showAdminPart" class="pull-right" style="margin-right: 3px;">
+                            <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
+                                <div  data-bind="visible:showAdminPart" class="pull-right" style="margin-right: 3px;">
                                     <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'admintoolbar'+uniqueID()}">
                                     </div>
                                 </div>
                                 <div class="pull-left" style="padding: 5px;">
                                     <a href="#" data-bind="click:toggleAdminPart" style="text-decoration:none;">
-                                    <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
-                                    منطقة الأدمينز
-                                        </a>
+                                        <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
+                                        منطقة الأدمينز
+                                    </a>
                                 </div>
                             </div>
                             <div style="height: 10px;" class="clear"></div>
@@ -1025,6 +1049,7 @@
 
                         <div style="height: 5px;" class="clearfix"></div>
 
+                        <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute;left:0;width: 100%;height:70px;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
                         <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;'></textarea>
 
@@ -1033,21 +1058,20 @@
                         <div class="col-lg-12" style="padding: 0px;">
                             <div class="pull-right">
                                 <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1) ), click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
                                     <img src="images/hand-icon.png" style="width: 15px;">
                                 </a>
                                 <!-- /ko -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1)), click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
                                     <i class="icon-microphone" style="font-size: 17px;"></i>
                                 </a>
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableCam()), click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
                                     <i class="icon-camera" style="font-size: 17px;"></i>
                                 </a>
                             </div>
-                            <div class="pull-right" style="margin-right: 3px;">
+                            <div class="pull-right" style="margin-right: 3px;" data-bind="visible:(Type()=='Private' || CurrentMember().CanWrite())">
                                 <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'toolbar'+uniqueID()}">
                                 </div>
-
                             </div>
                             <div class="pull-right" style="margin-right: 3px;">
 

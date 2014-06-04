@@ -68,7 +68,7 @@ namespace Helper
 
     public class ChatMember
     {
-        public object MemberID { get; set; }
+        public int MemberID { get; set; }
         public object MemberName { get; set; }
         public object MemberTypeID { get; set; }
         public string ProfileImg { get; set; }

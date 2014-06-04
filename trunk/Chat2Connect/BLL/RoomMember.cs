@@ -84,7 +84,7 @@ namespace BLL
             return DefaultView.Table.AsEnumerable().Select(m =>
                 new Helper.ChatMember()
             {
-                MemberID = m[ColumnNames.MemberID],
+                MemberID = Helper.TypeConverter.ToInt32(m[ColumnNames.MemberID]),
                 MemberName = m["MemberName"],
                 ProfileImg = Helper.TypeConverter.ToString(m["ProfilePic"]),
                 InRoom = Helper.TypeConverter.ToBoolean(m[ColumnNames.InRoom]),
@@ -275,6 +275,71 @@ namespace BLL
             set
             {
                 base.NotifyOnOpenCam = value;
+            }
+        }
+        public override bool HasCam
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.HasCam))
+                    return false;
+                return base.HasCam;
+            }
+            set
+            {
+                base.HasCam = value;
+            }
+        }
+        public override bool HasMic
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.HasMic))
+                    return false;
+                return base.HasMic;
+            }
+            set
+            {
+                base.HasMic = value;
+            }
+        }
+        public override bool IsFavorite
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.IsFavorite))
+                    return false;
+                return base.IsFavorite;
+            }
+            set
+            {
+                base.IsFavorite = value;
+            }
+        }
+        public override bool InRoom
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.InRoom))
+                    return false;
+                return base.InRoom;
+            }
+            set
+            {
+                base.InRoom = value;
+            }
+        }
+        public override bool ShowMessageTime
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.ShowMessageTime))
+                    return false;
+                return base.ShowMessageTime;
+            }
+            set
+            {
+                base.ShowMessageTime = value;
             }
         }
         #endregion
