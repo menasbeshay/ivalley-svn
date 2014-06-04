@@ -78,9 +78,9 @@
             
             <div class="clear5" style="height: 10px">
             </div>
-            <asp:LinkButton ID="uiLinkButtonPrev" runat="server" OnClick="uiLinkButtonPrev_Click"><< Prev</asp:LinkButton>&nbsp;
+            <asp:LinkButton ID="uiLinkButtonPrev" runat="server" OnClick="uiLinkButtonPrev_Click" CssClass="nav"><< Prev</asp:LinkButton>&nbsp;
             <asp:Label ID="uiLabelPages" runat="server" Text="Page "></asp:Label>&nbsp;
-            <asp:LinkButton ID="uiLinkButtonNext" runat="server" OnClick="uiLinkButtonNext_Click">Next >></asp:LinkButton>
+            <asp:LinkButton ID="uiLinkButtonNext" runat="server" OnClick="uiLinkButtonNext_Click" CssClass="nav">Next >></asp:LinkButton>
         </asp:Panel>
     </asp:Panel>
 

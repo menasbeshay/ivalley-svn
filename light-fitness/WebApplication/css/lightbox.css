@@ -60,7 +60,7 @@
 	}
 
 #imageData{	color: #666666;font-size:13px; font-family:Tahoma; padding-left:10px; padding-right:10px; padding-top:0; padding-bottom:0 }
-#imageData #imageDetails{ width: 70%; float: left; text-align: left; font-family:tahoma; font-size:13 px }	
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; font-family:tahoma; font-size:13px }	
 #imageData #caption{ font-weight: bold;	}
 #imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
 #imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em;	}	
@@ -72,7 +72,7 @@
 	z-index: 90;
 	width: 100%;
 	height: 500px;
-	background-color: #000; font-family:Tahoma; font-size:13 px; color:#FFFFFF
+	background-color: #000; font-family:Tahoma; font-size:13px; color:#FFFFFF
 	}
 	
 
@@ -137,14 +137,14 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 9 pt; font-weight:bold 
+	font-size: 9pt; font-weight:bold 
 }
 
 .tittle_blue 
 {
 	font-family: Tahoma;
 	color: #FF6600;
-	font-size: 13 px; font-weight:bold
+	font-size: 13px; font-weight:bold
 }
 
 .tittle_black
@@ -161,28 +161,28 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 12;
+	font-size: 12px;
 }
 
 .content_black 
 {
 	font-family: Tahoma;
 	color: #333333;
-	font-size: 13 px
+	font-size: 13px
 }
 
 .content_gray
 {
 	font-family: Tahoma;
 	color: #666666;
-	font-size: 13 PX; background-image:url('../images/B_menu_up.jpg');
+	font-size: 13PX; background-image:url('../images/B_menu_up.jpg');
 	height:20px; font-weight:bold
 }
 .content_grayOver
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 12; background-image:url('../images/B_menu_over.jpg');
+	font-size: 12px; background-image:url('../images/B_menu_over.jpg');
 	height:20px; font-weight:bold
 }
 
@@ -190,7 +190,7 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #BF0000;
-	font-size: 12
+	font-size: 12px;
 }
 
 
@@ -199,24 +199,24 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 .tittle 
 {
 	font-family: Tahoma;
-	font-size: 13; font-weight:bold
+	font-size: 13px; font-weight:bold
 }
 
 
 a:link{
 	font-family: Tahoma;
 	color: #BF0000;
-	font-size: 11 px; text-decoration:none
+	font-size: 11px; text-decoration:none
 }
 a:visited{
 	font-family: Tahoma;
 	color: #BF0000;
-	font-size: 11 px; text-decoration:none
+	font-size: 11px; text-decoration:none
 }
 a:hover{
 	font-family: Tahoma;
 	color: #000099;
-	font-size: 11 px; text-decoration:underline
+	font-size: 11px; text-decoration:underline
 }
 
 
@@ -225,18 +225,18 @@ a:hover{
 a:link.butt{
 	font-family: Tahoma;
 	color: #666666;
-	font-size: 13 px;font-weight:bold; text-decoration:none
+	font-size: 13px;font-weight:bold; text-decoration:none
 }
 a:visited.butt{
 	font-family: Tahoma;
 	color: #666666;
-	font-size: 13 px;font-weight:bold; text-decoration:none
+	font-size: 13px;font-weight:bold; text-decoration:none
 
 }
 a:hover.butt{
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 13 px; font-weight:bold; text-decoration:none
+	font-size: 13px; font-weight:bold; text-decoration:none
 }
 
 
@@ -265,14 +265,14 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 13 px; font-weight:bold 
+	font-size: 13px; font-weight:bold 
 }
 
 .tittle_orange
 {
 	font-family: Tahoma;
 	color: #FF6600;
-	font-size: 13 px; font-weight:bold
+	font-size: 13px; font-weight:bold
 }
 
 .tittle_black
@@ -296,28 +296,28 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 12;
+	font-size: 12px;
 }
 
 .content_black 
 {
 	font-family: Tahoma;
 	color: #cc0066;
-	font-size: 13 px
+	font-size: 13px
 }
 
 .content_gray
 {
 	font-family: Tahoma;
 	color: #333333;
-	font-size: 13 px; background-image:url('../images/B_menu_up.jpg');
+	font-size: 13px; background-image:url('../images/B_menu_up.jpg');
 	height:20px; 
 }
 .content_grayOver
 {
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 12; background-image:url('../images/B_menu_over.jpg');
+	font-size: 12px; background-image:url('../images/B_menu_over.jpg');
 	height:20px; font-weight:bold
 }
 
@@ -325,7 +325,7 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 {
 	font-family: Tahoma;
 	color: #BF0000;
-	font-size: 13 px
+	font-size: 13px
 }
 
 
@@ -344,44 +344,62 @@ font-family: Thuluth Arabic; color: #FF0000; font-style: oblique;
 .tittle 
 {
 	font-family: Tahoma;
-	font-size: 13; font-weight:bold
+	font-size: 13px; font-weight:bold
 }
 
 
 a:link{
 	font-family: Tahoma;
 	color: #FF9900;
-	font-size: 12 px;font-weight:bold; text-decoration:none
+	font-size: 12px;font-weight:bold; text-decoration:none
 }
 a:visited{
 	font-family: Tahoma;
 	color: #FF9900;
-	font-size: 12 px;font-weight:bold; text-decoration:none
+	font-size: 12px;font-weight:bold; text-decoration:none
 }
 a:hover{
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 12 px;font-weight:bold; text-decoration:none
+	font-size: 12px;font-weight:bold; text-decoration:none
 }
 
 
 a:link.butt{
 	font-family: Tahoma;
 	color: #666666;
-	font-size: 13 px;font-weight:bold; text-decoration:none
+	font-size: 13px;font-weight:bold; text-decoration:none
 }
 a:visited.butt{
 	font-family: Tahoma;
 	color: #666666;
-	font-size: 13 px;font-weight:bold; text-decoration:none
+	font-size: 13px;font-weight:bold; text-decoration:none
 
 }
 a:hover.butt{
 	font-family: Tahoma;
 	color: #FFFFFF;
-	font-size: 13 px; font-weight:bold; text-decoration:none
+	font-size: 13px; font-weight:bold; text-decoration:none
 }
 
+
+
+
+a:link.nav{
+	font-family: Tahoma;
+	color: #BF0000;
+	font-size: 11px; text-decoration:none
+}
+a:visited.nav{
+	font-family: Tahoma;
+	color: #BF0000;
+	font-size: 11px; text-decoration:none
+}
+a:hover.nav{
+	font-family: Tahoma;
+	color: #000099;
+	font-size: 11px; text-decoration:underline
+}
 
 .SearchBtn {width:58px;display:block; float:left; height:18px; margin:10px; }
 
