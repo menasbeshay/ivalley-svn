@@ -455,7 +455,7 @@ namespace Chat2Connect.services
             try
             {
                 RoomMember rSetting = new RoomMember();
-                if (!rSetting.LoadByPrimaryKey(mid,rid))
+                if (!rSetting.LoadByPrimaryKey(mid, rid))
                 {
                     rSetting.AddNew();
                     rSetting.RoomID = rid;
@@ -471,8 +471,8 @@ namespace Chat2Connect.services
             return true;
         }
 
-        [WebMethod(EnableSession = true)]
-        public void GetChatRoom(int id, bool isTemp)
+        [WebMethod]
+        public void GetChatRoom(int id, bool isTemp, bool isHidden, int levelID)
         {
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             if (!isTemp)
@@ -513,7 +513,7 @@ namespace Chat2Connect.services
             roomObject.IsTemp = isTemp;
             roomObject.Message = "";
             roomObject.AdminMessage = "";
-            
+
             //Room info
             roomObject.Name = room.Name;
             roomObject.RoomTopic = room.RoomTopic;
@@ -540,6 +540,8 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
+            if (isHidden && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
+                roomMember.InRoom = false;
             if (!room.IsColumnNull("CreatedBy"))
             {
                 if (roomMember.MemberID == room.CreatedBy)
@@ -547,8 +549,8 @@ namespace Chat2Connect.services
             }
             roomMember.Save();
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
-            
-            roomObject.Members = roomMember.LoadWithSettings(id,null);
+
+            roomObject.Members = roomMember.LoadWithSettings(id, null);
             var currentMemberSettings = roomObject.Members.First(m => m.MemberID == roomObject.CurrentMemberID);
             if (currentMemberSettings != null)
             {
@@ -562,6 +564,10 @@ namespace Chat2Connect.services
                     currentMemberSettings.IsMarked = true;
                     currentMemberSettings.CanWrite = false;
                 }
+                if (levelID!=0 && currentMemberSettings.MemberLevelID >= levelID)
+                {
+                    currentMemberSettings.MemberLevelID = levelID;
+                }
             }
             ///////////////////////////
             Gift allgifts = new Gift();
@@ -572,7 +578,7 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
             //return result;
         }
-        
+
         [WebMethod]
         public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {
@@ -698,7 +704,7 @@ namespace Chat2Connect.services
         {
             string[] ToMembers = toIds.Split(',');
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            
+
             try
             {
                 for (int i = 0; i < ToMembers.Length; i++)

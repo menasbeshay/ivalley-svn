@@ -401,13 +401,13 @@ function Chat(maxWin, memberID, memberName) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp) {
+    self.openWindow = function (id, name, type, istemp,ishidden,levelid) {
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp);
+            self.addWindow(id, name, type, istemp,ishidden,levelid);
         }
     };
-    self.addWindow = function (id, name, type, istemp) {
+    self.addWindow = function (id, name, type, istemp, isHidden, levelid) {
         if (istemp == undefined)
             istemp = false;
         if (type == 'Private') {
@@ -436,7 +436,11 @@ function Chat(maxWin, memberID, memberName) {
                 notify('error', 'عفواً ، لقد قمت بدخول العدد الأقصى من الغرف فى نفس الوقت.');
                 return;
             }
-            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp })
+            if (isHidden == null || isHidden == undefined)
+                isHidden = false;
+            if (levelid == null || levelid == undefined)
+                levelid = 0;
+            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp, isHidden: isHidden, levelID: levelid })
                 .done(function (data) {
                     if (data.Status != 1) {
                         notify('error', data.Data);
@@ -445,7 +449,8 @@ function Chat(maxWin, memberID, memberName) {
                     var win = ko.mapping.fromJS(data.Data, mapping);
                     self.windows.push(win);
                     self.changeCurrent(win.uniqueID());
-                    rHub.server.addToRoom(id);
+                    if (win.CurrentMember().InRoom())
+                        rHub.server.addToRoom(id);
                     self.Init(win);
                 });
         }
@@ -847,10 +852,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp) {
+function addChatRoom(id, name, type, istemp,isHidden,levelid) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp);
+    chatVM.openWindow(id, name, type, istemp,isHidden,levelid);
 }
 
 function getFlashMovie(movieName) {
