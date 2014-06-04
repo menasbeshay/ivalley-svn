@@ -877,7 +877,7 @@
 
                                 </div>
                                 <!-- /ko -->
-                                <a download="room.txt" data-bind="attr:{id:'SaveConv_'+uniqueID()}" class="btn btn-main" href="#">حفظ النقاش</a>
+                                <a download="room.html" data-bind="click:SaveConversation, attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>
                                 <a class="btn btn-main" href="#" data-bind="click: $parent.removeWindow">خروج</a>
                             </div>
                         </div>
@@ -934,32 +934,32 @@
                     </div>
                 </div>
                 <div style="height: 5px;" class="clear"></div>
-                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
+                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12" >
 
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
-                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}, style:{height: showFlashObject() == true? '180px' : '0px'}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
                 </div>
                 <!-- /ko -->
                 <!-- ko if: Type()=="Private" -->
-                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:$parent.toggleFlashObj($data)"><i class="icon-arrow-down"></i>&nbsp;&nbsp;الكاميرات</span>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
+                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}" ></i>&nbsp;&nbsp;الكاميرات</span>
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12" >
 
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
-                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}" type="application/x-shockwave-flash">
+                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}, style:{height: showFlashObject() == true? '180px' : '0px'}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -988,7 +988,7 @@
                     <div id="roomTextDiv" class='pull-left ' data-bind="css:{ 'col-lg-9' :Type()=='Room', 'col-lg-12': Type() == 'Private'}, style:{padding: '5px', 'border-right': Type() == 'Room'? '2px solid #FEC200' :'0px'}">
                         <!-- ko if: Type()=="Room" && CurrentMember().MemberLevelID()>1 -->
                         <div>
-                            <div data-bind="visible:showAdminPart">
+                            <div data-bind="slideVisible:showAdminPart">
                                 <div style="width: 20%; padding: 5px; padding-top: 0px; position: relative;" class="pull-left">
                                     <div id="roomAdminMembersDiv" data-height="155px" class="SScroll" style="overflow-y: hidden; width: auto; height: 155px; overflow-x: visible; background-color: #D9D9D9;">
                                         <div id="regular">
@@ -997,7 +997,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-height="100px;" style="width: 80%; background-color: #D9D9D9; min-height: 100px; padding: 5px; direction: rtl;" class="AdminMsgHistroy" data-bind="template: { name: 'chatMsgTemplate', foreach: AdminMessageHistory },attr:{id:'MsgAdminHistroy_'+uniqueID()}"></div>
+                                <div data-height="100px" style="width: 80%; background-color: #D9D9D9; min-height: 100px; padding: 5px; direction: rtl;" class="AdminMsgHistroy" data-bind="template: { name: 'chatMsgTemplate', foreach: AdminMessageHistory },attr:{id:'MsgAdminHistroy_'+uniqueID()}"></div>
 
                                 <div style="height: 5px;" class="clearfix"></div>
 
@@ -1007,12 +1007,12 @@
                                 <div style="height: 5px;" class="clearfix"></div>
                             </div>
                             <div class="col-lg-12" style="padding: 0px; padding-bottom:5px; border-bottom: 1px solid #FEC200;">
-                                <div  data-bind="visible:showAdminPart" class="pull-right" style="margin-right: 3px;">
+                                <div data-bind="slideVisible:showAdminPart" class="pull-right" style="margin-right: 3px;">
                                     <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'admintoolbar'+uniqueID()}">
                                     </div>
                                 </div>
                                 <div class="pull-left" style="padding: 5px;">
-                                    <a href="#" data-bind="click:toggleAdminPart">
+                                    <a href="#" data-bind="click:toggleAdminPart" style="text-decoration:none;">
                                     <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
                                     منطقة الأدمينز
                                         </a>
