@@ -91,6 +91,25 @@ namespace Chat2Connect
             }
             return rateString;
         }
-        
+
+        protected void uiRepeaterRooms_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                Repeater repLoginTypes = (Repeater)e.Item.FindControl("repLoginTypes");
+                int roomID = Convert.ToInt32(row["RoomID"]);
+                var loginTypes = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Select(t => new
+                {
+                    RoomID = roomID,
+                    ID = (int)t,
+                    Name = Helper.StringEnum.GetStringValue(t)
+                }).ToList();
+                repLoginTypes.DataSource = loginTypes;
+                repLoginTypes.DataBind();
+
+            }
+        }
+
     }
 }
