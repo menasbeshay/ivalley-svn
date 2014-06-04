@@ -21,7 +21,7 @@ namespace Chat2Connect.SRCustomHubs
         public override Task OnConnected()
         {
             Member m = BLL.Member.CurrentMember;
-            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID,ProfilePic=m.ProfilePic,MemberTypeSpecID=m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
+            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
 
             // add user to new group by his user name 
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
@@ -64,7 +64,7 @@ namespace Chat2Connect.SRCustomHubs
                     roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
                 roomMember.Save();
 
-                Helper.ChatMember member=roomMember.LoadWithSettings(roomid,roomMember.MemberID).FirstOrDefault();
+                Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID).FirstOrDefault();
                 item.Rooms.Add(roomid);
                 Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
@@ -81,7 +81,7 @@ namespace Chat2Connect.SRCustomHubs
 
         private static string GetRoomAdminGroupName(int roomID)
         {
-            return String.Format("Admins_{0}",roomID);
+            return String.Format("Admins_{0}", roomID);
         }
         public void removeFromRoom(int roomid)
         {
@@ -109,7 +109,7 @@ namespace Chat2Connect.SRCustomHubs
             }
         }
 
-        public void banMemberFromRoom(int memberid, int roomid,int banType,string adminName)
+        public void banMemberFromRoom(int memberid, int roomid, int banType, string adminName)
         {
             try
             {
@@ -169,13 +169,13 @@ namespace Chat2Connect.SRCustomHubs
                     r.RoomTopic = topic;
                     r.Save();
 
-                    Clients.Group(roomID.ToString()).updateRoomTopic(roomID,topic);
+                    Clients.Group(roomID.ToString()).updateRoomTopic(roomID, topic);
                 }
             }
             catch { }
         }
 
-        public void closeRoom(int roomID,int adminID, string adminName)
+        public void closeRoom(int roomID, int adminID, string adminName)
         {
             RoomMember roomMember = new RoomMember();
             if (!roomMember.HasExisitingMembersExceedCurrentMemberLevel(roomID, adminID))
@@ -304,9 +304,9 @@ namespace Chat2Connect.SRCustomHubs
             room.Save();
         }
 
-        public void userRaisHand(int rid, int memberid,int queueOrder)
+        public void userRaisHand(int rid, int memberid, int queueOrder)
         {
-            Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid,queueOrder);
+            Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid, queueOrder);
         }
 
         public void userDownHand(int rid, int memberid)
@@ -368,8 +368,37 @@ namespace Chat2Connect.SRCustomHubs
         public void enterPrivateChatLog(int FriendID, string FriendName)
         {
             BLL.MemberLog log = new BLL.MemberLog();
-            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName}, FriendID, null);
+            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName }, FriendID, null);
         }
 
+        #region Room supervisor
+
+        public void ClearQueue(int rid)
+        {
+            RoomMember rm = new RoomMember();
+            rm.ClearQueue(rid);
+
+            Clients.Group(rid.ToString()).clearQueue(rid);
+        }
+        public void UpdateRoomSetting(int rid, string setting, bool newValue)
+        {
+            Room room = new Room();
+            if (room.LoadByPrimaryKey(rid))
+            {
+                room.SetColumn(setting, newValue);
+                room.Save();
+            }
+            Clients.Group(rid.ToString()).updateRoomSetting(rid,setting,newValue);
+        }
+
+        public void MarkAllWithWrite(int rid,bool isMarked,int adminID)
+        {
+            Clients.Group(rid.ToString()).markAllWithWrite(rid, isMarked,adminID);
+        }
+        public void MarkAllWithoutWrite(int rid, bool isMarked,int adminID)
+        {
+            Clients.Group(rid.ToString()).markAllWithoutWrite(rid, isMarked,adminID);
+        }
+        #endregion
     }
 }

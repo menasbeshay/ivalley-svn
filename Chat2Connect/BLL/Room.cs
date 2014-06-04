@@ -119,7 +119,46 @@ namespace BLL
                 base.EnableMic = value;
             }
         }
-
+        public override bool EnableMicForAdminsOnly
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.EnableMicForAdminsOnly))
+                    return false;
+                return base.EnableMicForAdminsOnly;
+            }
+            set
+            {
+                base.EnableMicForAdminsOnly = value;
+            }
+        }
+        public override bool MarkOnLoginWithoutWrite
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.MarkOnLoginWithoutWrite))
+                    return false;
+                return base.MarkOnLoginWithoutWrite;
+            }
+            set
+            {
+                base.MarkOnLoginWithoutWrite = value;
+            }
+        }
+        public override bool MarkOnLoginWithWrite
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.MarkOnLoginWithWrite))
+                    return false;
+                return base.MarkOnLoginWithWrite;
+            }
+            set
+            {
+                base.MarkOnLoginWithWrite = value;
+            }
+        }
+        
         public override short OpenCams
         {
             get

@@ -305,6 +305,7 @@ namespace Chat2Connect.services
                     rm.RoomID = Convert.ToInt32(rid);
                 }
                 rm.IsFavorite = true;
+                rm.Save();
                 return true;
             }
             catch (Exception ex)
@@ -312,25 +313,6 @@ namespace Chat2Connect.services
                 return false;
             }
 
-        }
-
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool ClearQueue(int rid)
-        {
-            try
-            {
-                RoomMember members = new RoomMember();
-                members.ClearQueue(rid);
-
-                IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                _Rcontext.Clients.Group(rid.ToString()).UserDownHandAll(rid);
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            return true;
         }
 
         [WebMethod]
@@ -468,7 +450,7 @@ namespace Chat2Connect.services
         //UpdateRoomSetting
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool UpdateRoomSetting(int rid, int mid, string setting, bool newValue)
+        public bool UpdateRoomMemberSetting(int rid, int mid, string setting, bool newValue)
         {
             try
             {
@@ -513,13 +495,13 @@ namespace Chat2Connect.services
                 }
             }
             //Room Info
-            Room rooms = new Room();
-            if (!rooms.LoadByPrimaryKey(id))
+            Room room = new Room();
+            if (!room.LoadByPrimaryKey(id))
             {
                 HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"غرفة غير متاحة\"}");
                 return;
             }
-            if (rooms.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
+            if (room.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
             {
                 HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"هذه الغرفة مغلقة حاليا\"}");
                 return;
@@ -533,19 +515,22 @@ namespace Chat2Connect.services
             roomObject.AdminMessage = "";
             
             //Room info
-            roomObject.Name = rooms.Name;
-            roomObject.RoomTopic = rooms.RoomTopic;
-            roomObject.fbURL = rooms.FbURL;
-            roomObject.tURL = rooms.TURL;
-            roomObject.utURL = rooms.UtURL;
-            roomObject.OpenCams = rooms.OpenCams;
-            if (!rooms.IsColumnNull("CreatedBy"))
-                roomObject.CreatedBy = rooms.CreatedBy;
+            roomObject.Name = room.Name;
+            roomObject.RoomTopic = room.RoomTopic;
+            roomObject.fbURL = room.FbURL;
+            roomObject.tURL = room.TURL;
+            roomObject.utURL = room.UtURL;
+            roomObject.OpenCams = room.OpenCams;
+            if (!room.IsColumnNull("CreatedBy"))
+                roomObject.CreatedBy = room.CreatedBy;
             //Room settings
-            roomObject.Settings.EnableCam = rooms.EnableCam;
-            roomObject.Settings.EnableMic = rooms.EnableMic;
-            roomObject.Settings.CamCount = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
-            roomObject.Settings.MaxMic = rooms.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            roomObject.Settings.EnableCam = room.EnableCam;
+            roomObject.Settings.EnableMic = room.EnableMic;
+            roomObject.Settings.MarkOnLoginWithoutWrite = room.MarkOnLoginWithoutWrite;
+            roomObject.Settings.MarkOnLoginWithWrite = room.MarkOnLoginWithWrite;
+            roomObject.Settings.EnableMicForAdminsOnly = room.EnableMicForAdminsOnly;
+            roomObject.Settings.CamCount = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            roomObject.Settings.MaxMic = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             //Room Members
             RoomMember roomMember = new RoomMember();
             if (!roomMember.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id))
@@ -555,15 +540,29 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
-            if (!rooms.IsColumnNull("CreatedBy"))
+            if (!room.IsColumnNull("CreatedBy"))
             {
-                if (roomMember.MemberID == rooms.CreatedBy)
+                if (roomMember.MemberID == room.CreatedBy)
                     roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
             }
             roomMember.Save();
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
             
             roomObject.Members = roomMember.LoadWithSettings(id,null);
+            var currentMemberSettings = roomObject.Members.First(m => m.MemberID == roomObject.CurrentMemberID);
+            if (currentMemberSettings != null)
+            {
+                if (room.MarkOnLoginWithWrite)
+                {
+                    currentMemberSettings.IsMarked = true;
+                    currentMemberSettings.CanWrite = true;
+                }
+                if (room.MarkOnLoginWithoutWrite)
+                {
+                    currentMemberSettings.IsMarked = true;
+                    currentMemberSettings.CanWrite = false;
+                }
+            }
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();

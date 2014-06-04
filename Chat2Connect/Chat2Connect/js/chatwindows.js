@@ -1,10 +1,10 @@
 ﻿
 ko.bindingHandlers.slideVisible = {
-    init: function (element, valueAccessor) {        
+    init: function (element, valueAccessor) {
         var value = valueAccessor();
-        $(element).toggle(ko.unwrap(value)); 
+        $(element).toggle(ko.unwrap(value));
     },
-    update: function (element, valueAccessor) {        
+    update: function (element, valueAccessor) {
         var value = valueAccessor();
         ko.unwrap(value) ? $(element).slideDown(700) : $(element).slideUp(700);
     }
@@ -113,7 +113,7 @@ function Chat(maxWin, memberID, memberName) {
             var newValue = !window.CurrentMember()[settingName]();
             window.CurrentMember()[settingName](newValue);
             $.ajax({
-                url: '../Services/Services.asmx/UpdateRoomSetting',
+                url: '../Services/Services.asmx/UpdateRoomMemberSetting',
                 dataType: 'json',
                 type: 'post',
                 data: "{'mid':" + self.CurrentMember().MemberID() + ", 'rid' : " + window.ID() + ",'setting':'" + settingName + "','newValue':" + newValue + " }",
@@ -315,8 +315,7 @@ function Chat(maxWin, memberID, memberName) {
         };
         //admin part
         this.showAdminPart = ko.observable(false);
-        if (this.Type() == "Room" && this.CurrentMember().MemberLevelID()>1)
-        {
+        if (this.Type() == "Room" && this.CurrentMember().MemberLevelID() > 1) {
             this.showAdminPart = ko.observable(true);
         }
         this.toggleAdminPart = function () {
@@ -326,15 +325,14 @@ function Chat(maxWin, memberID, memberName) {
         // flash object 
         this.showFlashObject = ko.observable(true);
         this.toggleFlashObj = function (window) {
-            self.showFlashObject(!self.showFlashObject());            
+            self.showFlashObject(!self.showFlashObject());
         }
         //messages
         this.MessageHistory = ko.observableArray();
         this.AdminMessageHistory = ko.observableArray();
         this.toggleMessageTime = function () { };
-        function chatMessage(msg)
-        {
-            var msgVM= { Message: msg, Time: new Date().toLocaleTimeString() };
+        function chatMessage(msg) {
+            var msgVM = { Message: msg, Time: new Date().toLocaleTimeString() };
             return msgVM;
         }
         this.addMessage = function (msg) {
@@ -359,7 +357,6 @@ function Chat(maxWin, memberID, memberName) {
                 scrollTo: $(".AdminMsgHistroy", "#" + this.uniqueID()).height()
             });
         };
-
         this.SaveConversation = function () {
             var str = '';
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
@@ -367,7 +364,35 @@ function Chat(maxWin, memberID, memberName) {
             });
             $('#SaveConv_' + self.ID()).attr("href", "data:text/plain;charset=UTF-8," + str);
         };
-       
+
+        //Room supervisor
+        this.clearQueue = function () {
+            var window = this;
+            rHub.server.clearQueue(window.ID());
+        };
+        this.updateRoomSetting = function (settingName) {
+            var window = this;
+            var newValue = !window.Settings[settingName]();
+            rHub.server.updateRoomSetting(window.ID(), settingName, newValue);
+            window.Settings[settingName](newValue);
+            return true;
+        }
+        this.MarkAllWithWriteCheck = ko.observable(false);
+        this.markAllWithWrite = function () {
+            var window = this;
+            var newValue = !window.MarkAllWithWriteCheck();
+            rHub.server.markAllWithWrite(window.ID(), newValue, window.CurrentMember().MemberID());
+            window.MarkAllWithWriteCheck(newValue);
+            return true;
+        };
+        this.MarkAllWithoutWriteCheck = ko.observable(false);
+        this.markAllWithoutWrite = function () {
+            var window = this;
+            var newValue = !window.MarkAllWithoutWriteCheck();
+            rHub.server.markAllWithoutWrite(window.ID(), newValue, window.CurrentMember().MemberID());
+            window.MarkAllWithoutWriteCheck(newValue);
+            return true;
+        };
     }
 
     self.changeCurrent = function (selctor) {
@@ -458,7 +483,6 @@ function Chat(maxWin, memberID, memberName) {
             window.AdminsEditor.setValue("");
         }
     };
-   
 
     // init html Editor 
     // tooltips for toolbar
@@ -467,22 +491,24 @@ function Chat(maxWin, memberID, memberName) {
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { toolbar: 'admintoolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-            window.AdminsEditor.observe('load', function () {
-                window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
-                    if (e.which == 13) {
-                        e.preventDefault();
-                        self.sendAdminMessage(window);
-                    }
+            if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
+                window.AdminsEditor.observe('load', function () {
+                    window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
+                        if (e.which == 13) {
+                            e.preventDefault();
+                            self.sendAdminMessage(window);
+                        }
+                    });
                 });
-            });
+            }
         }
-        if (window.Type() == 'Room' && !window.CurrentMember().CanWrite())
-            window.Editor.disable();
         // apply enter key listener
         window.Editor.observe('load', function () {
             window.Editor.composer.element.addEventListener('keyup', function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
+                    if (window.Type() == 'Room' && !window.CurrentMember().CanWrite())
+                        return;
                     self.sendMessage(window);
                 }
             });
@@ -1060,13 +1086,43 @@ function InitChat(maxWinRooms, memberID, memberName) {
         }
         //  $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
-    rHub.client.UserDownHandAll = function (rid) {
+    rHub.client.clearQueue = function (rid) {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             ko.utils.arrayForEach(window.QueueMembers(), function (member) {
                 member.QueueOrder(null);
             });
 
+        }
+    };
+    rHub.client.updateRoomSetting = function (rid, setting, newValue) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            window.Settings[setting](newValue);
+        }
+    };
+    rHub.client.markAllWithWrite = function (rid, isMarked, adminID) {
+        var window = chatVM.getWindow(rid, "Room");
+        var adminMember = window.getMember(adminID);
+        if (window != null) {
+            ko.utils.arrayForEach(window.ExistingMembers(), function (member) {
+                if (adminMember == null || member.MemberLevelID() < adminMember.MemberLevelID()) {
+                    member.IsMarked(isMarked);
+                    member.CanWrite(true);
+                }
+            });
+        }
+    };
+    rHub.client.markAllWithoutWrite = function (rid, isMarked, adminID) {
+        var window = chatVM.getWindow(rid, "Room");
+        var adminMember = window.getMember(adminID);
+        if (window != null) {
+            ko.utils.arrayForEach(window.ExistingMembers(), function (member) {
+                if (adminMember == null || member.MemberLevelID() < adminMember.MemberLevelID()) {
+                    member.IsMarked(isMarked);
+                    member.CanWrite(!isMarked);
+                }
+            });
         }
     };
     rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName) {
