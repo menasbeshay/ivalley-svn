@@ -16,8 +16,6 @@ namespace Helper
                 Name = Helper.StringEnum.GetStringValue(r)
             }).ToList();
             this.Members = new List<ChatMember>();
-            //this.MessageHistory = new List<ChatMessage>();
-            //this.AdminMessageHistory = new List<ChatMessage>();
         }
         public int ID { get; set; }
 
@@ -28,8 +26,6 @@ namespace Helper
         public string RoomTopic { get; set; }
 
         public string Message { get; set; }
-
-        public List<ChatMessage> MessageHistory { get; set; }
 
         public string Name { get; set; }
 
@@ -63,7 +59,6 @@ namespace Helper
 
         public string AdminMessage { get; set; }
 
-        public List<ChatMessage> AdminMessageHistory { get; set; }
     }
 
     public class ChatMember

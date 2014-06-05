@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="BoundProperty.cs" />
-    <Compile Include="ChatMessage.cs" />
     <Compile Include="ChatRoom.cs" />
     <Compile Include="DataBinding.cs" />
     <Compile Include="Date.cs" />
