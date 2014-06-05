@@ -899,7 +899,7 @@
 
                                 </div>
                                 <!-- /ko -->
-                                <a download="room.html" data-bind="click:SaveConversation, attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>
+                                <a download="room.html" data-bind="attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>                                
                                 <a class="btn btn-main" href="#" data-bind="click: $parent.removeWindow">خروج</a>
                             </div>
                         </div>

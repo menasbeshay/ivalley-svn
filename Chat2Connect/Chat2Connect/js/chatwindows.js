@@ -345,6 +345,8 @@ function Chat(maxWin, memberID, memberName) {
                 position: 'left',
                 scrollTo: $(".MsgHistroy", "#" + this.uniqueID()).height()
             });
+            // update save coversation link
+            this.SaveConversation();
         };
         this.addAdminMessage = function (msg) {
             this.AdminMessageHistory.push(chatMessage(msg));
@@ -358,11 +360,12 @@ function Chat(maxWin, memberID, memberName) {
             });
         };
         this.SaveConversation = function () {
-            var str = '';
+            var str = "<link href='http://chat2connect.com/css/bootstrap.min.css' rel='stylesheet' /> <link href='http://chat2connect.com/css/main.css' rel='stylesheet' /> ";
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
                 str += msg.Message;
             });
-            $('#SaveConv_' + self.ID()).attr("href", "data:text/plain;charset=UTF-8," + str);
+            
+            $('#SaveConv_' + self.ID()).attr("href", "data:text/plain;charset=UTF-8," + str);            
         };
 
         //Room supervisor

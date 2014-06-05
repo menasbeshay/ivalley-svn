@@ -100,10 +100,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2014 20:28:17</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>05/26/2014 17:10:07</publishTime>
+      <publishTime>06/05/2014 11:13:01</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>05/26/2014 17:10:07</publishTime>
+      <publishTime>06/05/2014 11:13:02</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>03/18/2014 10:44:29</publishTime>
@@ -124,7 +124,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>05/26/2014 17:10:06</publishTime>
+      <publishTime>06/05/2014 11:13:01</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -217,7 +217,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>05/26/2014 17:10:06</publishTime>
+      <publishTime>06/05/2014 11:13:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>01/19/2014 13:36:26</publishTime>
@@ -403,10 +403,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 16:51:38</publishTime>
     </File>
     <File Include="css/jquery.pnotify.default.css">
-      <publishTime>02/02/2014 14:12:26</publishTime>
+      <publishTime>06/02/2014 16:33:35</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>05/25/2014 10:47:21</publishTime>
+      <publishTime>06/04/2014 15:06:54</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
@@ -571,13 +571,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2014 15:40:20</publishTime>
     </File>
     <File Include="getRooms2.aspx">
-      <publishTime>05/18/2014 13:40:01</publishTime>
+      <publishTime>06/05/2014 09:29:26</publishTime>
+    </File>
+    <File Include="giftbox.aspx">
+      <publishTime>06/03/2014 12:20:46</publishTime>
+    </File>
+    <File Include="GiftPoints.aspx">
+      <publishTime>06/02/2014 14:21:04</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>02/05/2014 13:17:18</publishTime>
     </File>
+    <File Include="GroupMsg.aspx">
+      <publishTime>06/03/2014 14:06:28</publishTime>
+    </File>
     <File Include="home.aspx">
-      <publishTime>06/04/2014 11:34:56</publishTime>
+      <publishTime>06/05/2014 10:40:41</publishTime>
     </File>
     <File Include="Home2.aspx">
       <publishTime>05/07/2014 15:36:21</publishTime>
@@ -1774,7 +1783,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>05/26/2014 16:31:35</publishTime>
+      <publishTime>06/05/2014 10:45:12</publishTime>
     </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
@@ -1858,10 +1867,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/23/2013 16:35:30</publishTime>
     </File>
     <File Include="js/jquery.pnotify.js">
-      <publishTime>02/02/2014 13:30:45</publishTime>
+      <publishTime>05/28/2014 12:36:26</publishTime>
     </File>
     <File Include="js/jquery.pnotify.min.js">
-      <publishTime>02/02/2014 13:30:45</publishTime>
+      <publishTime>05/28/2014 12:39:44</publishTime>
     </File>
     <File Include="js/jquery.prettyPhoto.js">
       <publishTime>12/22/2013 14:13:29</publishTime>
@@ -1879,7 +1888,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>05/26/2014 17:03:47</publishTime>
+      <publishTime>06/03/2014 12:26:35</publishTime>
     </File>
     <File Include="js/style.js">
       <publishTime>03/10/2014 14:06:24</publishTime>
@@ -1948,16 +1957,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/26/2014 15:20:02</publishTime>
     </File>
     <File Include="MasterPages/Balance.master">
-      <publishTime>03/13/2014 16:36:41</publishTime>
+      <publishTime>06/02/2014 16:49:43</publishTime>
     </File>
     <File Include="MasterPages/createMaster.master">
-      <publishTime>03/11/2014 10:23:40</publishTime>
+      <publishTime>06/03/2014 12:35:23</publishTime>
     </File>
     <File Include="MasterPages/Home.Master">
       <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>05/26/2014 15:05:26</publishTime>
+      <publishTime>06/02/2014 15:52:15</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>03/13/2014 16:36:48</publishTime>
@@ -2026,7 +2035,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2014 10:35:40</publishTime>
     </File>
     <File Include="testswf/chat2connect.swf">
-      <publishTime>05/23/2014 21:42:14</publishTime>
+      <publishTime>06/04/2014 12:18:59</publishTime>
     </File>
     <File Include="testswf/chat2connect1.7.swf">
       <publishTime>05/20/2014 15:39:22</publishTime>
@@ -2043,6 +2052,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="testswf/chat2connect4.swf">
       <publishTime>05/05/2014 16:24:27</publishTime>
     </File>
+    <File Include="testswf/chat2connect_fv.swf">
+      <publishTime>05/23/2014 21:42:14</publishTime>
+    </File>
     <File Include="testswf/recorder.swf">
       <publishTime>05/23/2014 21:42:15</publishTime>
     </File>
@@ -2056,7 +2068,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2014 12:44:45</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>05/14/2014 12:02:46</publishTime>
+      <publishTime>06/03/2014 12:38:01</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>05/20/2014 16:47:38</publishTime>
@@ -2074,7 +2086,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2014 22:52:21</publishTime>
     </File>
     <File Include="WebForm1.aspx">
-      <publishTime>05/20/2014 13:08:03</publishTime>
+      <publishTime>06/01/2014 13:58:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
