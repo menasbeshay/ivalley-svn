@@ -1133,8 +1133,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
     rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName) {
         var window = chatVM.getWindow(roomID, "Room");
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
-        var history = window.MessageHistory();
-        window.MessageHistory(history + message);
+        window.addMessage(message);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
             height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
