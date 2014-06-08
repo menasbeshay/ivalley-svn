@@ -28,10 +28,22 @@ namespace E3zemni_WebGUI
 
         private void LoadCats()
         {
-            Categories cats = new Categories();
-            cats.LoadAll();
-            uiRepeaterCats.DataSource = cats.DefaultView;
+            MainCat Invcats = new MainCat();
+            Invcats.Where.IsPartySupplier.Value = true;
+            Invcats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.NotEqual;
+            Invcats.Sort = "NameEng";
+            Invcats.Query.Load();
+            uiRepeaterCats.DataSource = Invcats.DefaultView;
             uiRepeaterCats.DataBind();
+
+            MainCat PScats = new MainCat();
+            PScats.Where.IsPartySupplier.Value = true;
+            PScats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            PScats.Sort = "NameEng";
+            PScats.Query.Load();
+            uiRepeaterPS.DataSource = PScats.DefaultView;
+            uiRepeaterPS.DataBind();
+            
         }
 
         protected void btnCloselogin_Click(object sender, ImageClickEventArgs e)
@@ -46,7 +58,7 @@ namespace E3zemni_WebGUI
             user.GetUserByUserNameAndPassword(uiTextBoxUserName.Text, uiTextBoxPassword.Text);
             if (user.RowCount > 0)
             {
-                Session["CurrentUser"] = user.UserID;
+                Session["CurrentUser"] = user;
                 if (Request.QueryString["url"] != null)
                     Response.Redirect(Request.QueryString["url"].ToString());
                 Response.Redirect("default.aspx");

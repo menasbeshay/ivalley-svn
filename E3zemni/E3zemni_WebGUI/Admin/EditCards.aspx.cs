@@ -41,6 +41,21 @@ namespace E3zemni_WebGUI.Admin
             }
         }
 
+        public CardImages CurrentImg
+        {
+            get
+            {
+                if (Session["CurrentImg"] != null)
+                    return (CardImages)Session["CurrentImg"];
+                else
+                    return null;
+            }
+            set
+            {
+                Session["CurrentImg"] = value;
+            }
+        }
+
         public CardLayouts CurrentLayout
         {
             get
@@ -105,6 +120,7 @@ namespace E3zemni_WebGUI.Admin
                 BindCardTxt();
                 BindCardLayout();
                 BindCardColors();
+                BindCardImages();
             }
             else if (e.CommandName == "DeleteCard")
             {
@@ -298,7 +314,7 @@ namespace E3zemni_WebGUI.Admin
         protected void uiGridViewLayout_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             uiGridViewLayout.PageIndex = e.NewPageIndex;
-            BindCardTxt();
+            BindCardLayout();
         }
 
         protected void uiGridViewLayout_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -311,8 +327,8 @@ namespace E3zemni_WebGUI.Admin
                     objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                     objData.MarkAsDeleted();
                     objData.Save();
-                    CurrentTxt = null;
-                    BindCardTxt();
+                    CurrentLayout = null;
+                    BindCardLayout();
                 }
                 catch (Exception ex)
                 {
@@ -449,7 +465,76 @@ namespace E3zemni_WebGUI.Admin
 
         }
 
-        
+        protected void uiGridViewCardImages_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditImg")
+            {
+                CardImages objData = new CardImages();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+
+                
+                uiTextBoxImageWidth.Text = objData.ImgWidth.ToString();
+                uiTextBoxImageHeight.Text = objData.ImgHieght.ToString();
+                uiTextBoxImageX.Text = objData.PosX.ToString();
+                uiTextBoxImageY.Text = objData.PosY.ToString();
+                
+
+                CurrentImg = objData;
+                ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-5\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-5\"]').addClass('active'); });", true);
+            }
+            else if (e.CommandName == "DeleteImg")
+            {
+                try
+                {
+                    CardImages objData = new CardImages();
+                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                    objData.MarkAsDeleted();
+                    objData.Save();
+                    CurrentImg = null;
+                    BindCardImages();
+                    ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-5\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-5\"]').addClass('active'); });", true);
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+
+        protected void uiButtonSaveImageInfo_Click(object sender, EventArgs e)
+        {
+            CardImages txt = new CardImages();
+            if (CurrentTxt == null)
+            {
+                txt.AddNew();
+                txt.CardID = CurrentCard.CardID;
+            }
+            else
+                txt = CurrentImg;
+
+            
+            int width, height, x, y;
+            int.TryParse(uiTextBoxImageWidth.Text, out width);
+            int.TryParse(uiTextBoxImageHeight.Text, out height);
+            int.TryParse(uiTextBoxImageY.Text, out y);
+            int.TryParse(uiTextBoxImageX.Text, out x);
+            txt.ImgWidth = width;
+            txt.ImgHieght = height;
+            txt.PosX = x;
+            txt.PosY = y;            
+            txt.Save();
+            BindCardImages();
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-5\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-5\"]').addClass('active'); });", true);
+            ClearImageFields();
+            CurrentImg = null;
+        }
+        protected void uiLinkButtonCancelImage_Click(object sender, EventArgs e)
+        {
+            ClearImageFields();
+            CurrentImg = null;
+            ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#t-5\"]').tab('show'); $('#myTab a[href=\"#t-1\"]').removeClass('active'); $('#myTab a[href=\"#t-5\"]').addClass('active'); });", true);
+        }
         #endregion
 
         #region Methods
@@ -475,6 +560,14 @@ namespace E3zemni_WebGUI.Admin
             uiCheckBoxIsMultiLine.Checked = false;
         }
 
+        private void ClearImageFields()
+        {            
+            uiTextBoxImageWidth.Text = "";
+            uiTextBoxImageHeight.Text = "";
+            uiTextBoxImageX.Text = "";
+            uiTextBoxImageY.Text = "";            
+        }
+
 
         private void BindData()
         {
@@ -491,6 +584,22 @@ namespace E3zemni_WebGUI.Admin
             txt.GetCardTxtByCardID(CurrentCard.CardID);
             uiGridViewCardText.DataSource = txt.DefaultView;
             uiGridViewCardText.DataBind();
+        }
+
+        private void BindCardImages()
+        {
+            CardImages txt = new CardImages();
+            txt.GetCardImageByCardID(CurrentCard.CardID);
+            uiGridViewCardImages.DataSource = txt.DefaultView;
+            uiGridViewCardImages.DataBind();
+            if (txt.RowCount < 2)
+            {
+                uiButtonSaveImageInfo.Visible = true;
+            }
+            else 
+            {
+                uiButtonSaveImageInfo.Visible = false;
+            }
         }
 
         private void BindCardLayout()

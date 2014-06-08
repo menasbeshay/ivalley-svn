@@ -126,126 +126,41 @@
         </asp:Panel>
     </div>
     <!--end popup login-->
-    <%--	<div class="row clearfix mbs">
-					<div class="services">
-						<div class="grid_3">
-							<div class="s_icon"><i class="icon_wallet"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Well Documented</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid3 -->
-	
-						<div class="grid_6">
-							<div class="s_icon"><i class="icon_id-2"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Unlimited Colors</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella ut aut reiciendis voluptatibus maiores alias consequatur. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid6 -->
-	
-						<div class="grid_3">
-							<div class="s_icon"><i class="icon_search-2"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Seo Optimized</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid3 -->
-					</div>
-				</div>
-
-				<div class="parallax portfolio_parallax mbs" data-stellar-background-ratio="0.2">
-					<div class="row clearfix">
-						<div class="f_portfolio">
-							<div class="intro_content">
-								<div class="inner">
-									<h3> LATEST PROJECTS </h3>
-									<p> Print this page to PDF for the complete set of vectors. Or to use on the desktop, install FontAwesome.otf and copy and paste .. <a href="portfolio4.html">View All</a></p>
-								</div>
-							</div>
-							<div class="f_items">
-								<div class="portfolio_carousel">
-									<div class="anyClass">
-										<ul>
-											<li>
-												<img src="images/assets/portfolio1.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="images/assets/portfolio2.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="images/assets/portfolio3.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="images/assets/portfolio4.jpg" alt="#">
-												<div class="f_hover">
-													<h5> <a href="#">Sed ut perspiciatis unde</a> </h5>
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="images/assets/portfolio5.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="images/assets/portfolio6.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-										</ul>
-									</div>
-									<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
-									<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->
-								</div><!-- portfolio carousel -->
-	
-							</div>
-						</div><!-- end f portfolio -->
-					</div><!-- end row -->
-				</div>--%><!-- end parallax -->
+    
+                <!-- end parallax -->
     <div class="row clearfix mbs">
-        <h3 class="col-title mb">
-            Card Categories</h3>
+        <h3 class="col-title mb " style="text-align:center;">
+            PARTY SUPPLIES</h3>
+        <asp:Repeater ID="uiRepeaterPS" runat="server">
+            <HeaderTemplate>
+                <div class="products shop clearfix">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+            <ItemTemplate>
+                <div class="product grid_3">
+                    <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
+                    <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
+                    <div class="product_inner">
+                        <h3>
+                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
+                                <%# Eval("NameEng")%>
+                            </a>
+                        </h3>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <!-- product -->
+            </ItemTemplate>
+        </asp:Repeater>
+        <!-- products -->
+    </div>
+
+    <div class="row clearfix mbs">
+        <h3 class="col-title mb " style="text-align:center;">
+            INVITATIONS</h3>
         <asp:Repeater ID="uiRepeaterCats" runat="server">
             <HeaderTemplate>
                 <div class="products shop clearfix">
@@ -255,12 +170,12 @@
             </FooterTemplate>
             <ItemTemplate>
                 <div class="product grid_3">
-                    <img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
+                    <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
                     <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
                     <div class="product_inner">
                         <h3>
-                            <a href='Browse.aspx?catid=<%# Eval("CategoryID") %>'>
-                                <%# Eval("CatNameEng")%>
+                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
+                                <%# Eval("NameEng")%>
                             </a>
                         </h3>
                         <div class="clearfix">
@@ -273,6 +188,62 @@
         <!-- products -->
     </div>
     <!-- row -->
+
+    <div class="parallax  mbs" data-stellar-background-ratio="0.2">
+					<div class="row clearfix">
+						<div class="f_portfolio">
+							<div class="intro_content">
+								<div class="inner">
+									<h3> LATEST PROJECTS </h3>
+									<p> Print this page to PDF for the complete set of vectors... <a href="#">View All</a></p>
+								</div>
+							</div>
+							<div class="f_items">
+								<div class="portfolio_carousel">
+									<div class="anyClass">
+										<ul>
+											<li>
+												<img src="images/assets/LP1.jpg" alt="#">
+												<div class="f_hover">
+													<div class="f_links">
+														<a class="tbutton small" href="images/assets/LP1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>More Details</span></a>
+													</div>
+													<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												</div>
+											</li><!-- portfolio item -->
+											<li>
+												<img src="images/assets/LP2.jpg" alt="#">
+												<div class="f_hover">
+													<div class="f_links">
+														<a class="tbutton small" href="images/assets/LP2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>More Details</span></a>
+													</div>
+													<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												</div>
+											</li><!-- portfolio item -->
+											<li>
+												<img src="images/assets/LP3.jpg" alt="#">
+												<div class="f_hover">
+													<div class="f_links">
+														<a class="tbutton small" href="images/assets/LP3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>More Details</span></a>
+													</div>
+													<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												</div>
+											</li><!-- portfolio item -->
+											
+										</ul>
+									</div>
+									<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
+									<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->
+								</div><!-- portfolio carousel -->
+	
+							</div>
+						</div><!-- end f portfolio -->
+					</div><!-- end row -->
+				</div>
+
     <%--<div class="grey-line mbs">
 					<div class="row clearfix">
 						<div class="grid_6 custom_block1_img" data-gen="bigEntrance">
@@ -322,7 +293,73 @@
 							<div class="h_slider"><span class="t_7"><i class="icon_quotations"></i> Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable. <i class="icon_quotations"></i> <small> - Victor Zack </small></span></div>
 						</div><!-- end -->
 				</div>--%><!-- clearfix -->
-    <div class="row clearfix mbs" data-gen="bigEntrance">
+
+    <div class="row clearfix mbs">
+					<div class="services">
+						<div class="grid_3">
+							<div class="s_icon"><img src="images/FullOptimized.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>Full Customization</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
+								<a href="#" class="tbutton small"><span>More Details</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid3 -->
+	
+						<div class="grid_6">
+							<div class="s_icon">
+                                <img src="images/OrderSample.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>Order Samples</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella ut aut reiciendis voluptatibus maiores alias consequatur. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</p>
+								<a href="#" class="tbutton small"><span>More Details</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid6 -->
+	
+						<div class="grid_3">
+							<div class="s_icon"><img src="images/BestQuality.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>Best Quality</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
+								<a href="#" class="tbutton small"><span>More Details</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid3 -->
+					</div>
+				</div>
+
+    <div class="parallax mbs" data-stellar-background-ratio="0.2">
+					<div class="row clearfix">
+						<h3>
+                        we print and ship your party to you ....
+                        </h3>
+                        <div class="grid_4">
+                            <img src="images/icon-gif.gif" />
+                        </div>
+                        <div class="grid_8">
+                        <ul style="list-style-type:circle;margin-left:20px;">
+                        <li>Printing takes 2 to 3 bussiness days and shipping time is 1 to 7 days.</li>
+                        <li>YES, we ship internationally !! Orders outside Egypt may incur customs fees or taxes</li>
+                        <li>Payment comes in different forms , we have cash on delivery , paypal....</li>
+                        </ul>
+                        </div>
+					</div><!-- end row -->
+				</div>
+
+                <div class="parallax mbs" style="background:url('images/SMBanner.jpg');height:380px;padding-top:250px;">
+					<div class="row clearfix">
+						
+                        <div class="social" style="margin-left:100px;">
+								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
+								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>								
+								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>
+								<a href="#" class="toptip" title="RSS"><i class="fa-rss"></i></a>
+								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>
+								<a href="#" class="toptip" title="Flickr"><i class="fa-flickr"></i></a>
+							</div>
+                        </div>
+					</div><!-- end row -->
+				
+
+    <%--<div class="row clearfix mbs" data-gen="bigEntrance">
         <div class="tac">
             <h3 class="block_title">
                 Best Seller</h3>
@@ -342,7 +379,7 @@
             <li class="grid_2"><a href="#">
                 <img src="images/assets/logo6.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
         </ul>
-    </div>
+    </div>--%>
     <!-- end row -->
     <!--facebook script-->
     <!-- end facebook script-->

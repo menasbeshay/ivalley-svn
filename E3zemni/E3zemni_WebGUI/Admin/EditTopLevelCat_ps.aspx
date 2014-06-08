@@ -17,7 +17,7 @@
                         
                     
                         <asp:Panel ID="uipanelError" runat="server" >
-                            <div class="alert alert-error">
+                            <div class="alert alert-danger">
                                 <button class="close" data-dismiss="alert">
                                     ×</button>
                                 <strong>Error!</strong> An error occurred. Can't delete this category.

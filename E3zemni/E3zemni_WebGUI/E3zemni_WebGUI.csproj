@@ -119,6 +119,7 @@
     <Content Include="colors\pumpkin.css" />
     <Content Include="colors\silver.css" />
     <Content Include="colors\wisteria.css" />
+    <Content Include="controls\ucFav.ascx" />
     <Content Include="controls\ucMenu.ascx" />
     <Content Include="controls\ucSearch.ascx" />
     <Content Include="customize.aspx" />
@@ -169,6 +170,9 @@
     <Content Include="images\assets\logo4.jpg" />
     <Content Include="images\assets\logo5.jpg" />
     <Content Include="images\assets\logo6.jpg" />
+    <Content Include="images\assets\LP1.jpg" />
+    <Content Include="images\assets\LP2.jpg" />
+    <Content Include="images\assets\LP3.jpg" />
     <Content Include="images\assets\parallax_1.jpg" />
     <Content Include="images\assets\portfolio1.jpg" />
     <Content Include="images\assets\portfolio10.jpg" />
@@ -268,7 +272,24 @@
     <Content Include="images\backgrounds\9.jpg" />
     <Content Include="images\backgrounds\9.png" />
     <Content Include="images\backgrounds\s2.png" />
+    <Content Include="images\BestQuality.png" />
     <Content Include="images\bg.png" />
+    <Content Include="images\Category\IImage1_Main.jpg" />
+    <Content Include="images\Category\IImage1.jpg" />
+    <Content Include="images\Category\IImage2_Main.jpg" />
+    <Content Include="images\Category\IImage2.jpg" />
+    <Content Include="images\Category\IImage3_Main.jpg" />
+    <Content Include="images\Category\IImage3.jpg" />
+    <Content Include="images\Category\IImage4_Main.jpg" />
+    <Content Include="images\Category\IImage4.jpg" />
+    <Content Include="images\Category\PSImage1.jpg" />
+    <Content Include="images\Category\PSImage1_hover.jpg" />
+    <Content Include="images\Category\PSImage2.jpg" />
+    <Content Include="images\Category\PSImage2_hover.jpg" />
+    <Content Include="images\Category\PSImage3.jpg" />
+    <Content Include="images\Category\PSImage3_hover.jpg" />
+    <Content Include="images\Category\PSImage4.jpg" />
+    <Content Include="images\Category\PSImage4_hover.jpg" />
     <Content Include="images\cf33d2de-3c26-451b-bf55-aeaccea4fd6b_2.jpeg" />
     <Content Include="images\close.png" />
     <Content Include="images\d6da563d-01ac-4bc0-985f-baaece898ac5_1.jpeg" />
@@ -276,6 +297,8 @@
     <Content Include="images\demo2.png" />
     <Content Include="images\demo3.png" />
     <Content Include="images\facebook.gif" />
+    <Content Include="images\FullOptimized.png" />
+    <Content Include="images\icon-gif.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\header.png" />
@@ -303,6 +326,7 @@
     <Content Include="images\logo_1.png" />
     <Content Include="images\logo1.png" />
     <Content Include="images\logo_dark.png" />
+    <Content Include="images\OrderSample.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
     <Content Include="images\prettyPhoto\dark_rounded\contentPattern.png" />
@@ -426,8 +450,10 @@
     <Content Include="images\slides\modern3.jpg" />
     <Content Include="images\slides\nivo1.jpg" />
     <Content Include="images\slides\nivo2.jpg" />
+    <Content Include="images\SMBanner.jpg" />
     <Content Include="images\transparent.png" />
     <Content Include="images\transparent_dark.png" />
+    <Content Include="js\bootstrap-slider.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\iview.js" />
     <Content Include="js\jquery.flexslider-min.js" />
@@ -1027,6 +1053,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\slider.css" />
     <Content Include="Styles\style.css" />
     <Content Include="UserProfile.aspx" />
     <Content Include="viewCard.aspx" />
@@ -1273,6 +1300,13 @@
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="controls\ucFav.ascx.cs">
+      <DependentUpon>ucFav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\ucFav.ascx.designer.cs">
+      <DependentUpon>ucFav.ascx</DependentUpon>
+    </Compile>
     <Compile Include="controls\ucMenu.ascx.cs">
       <DependentUpon>ucMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1386,11 +1420,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\Card\" />
-    <Folder Include="images\Category\" />
     <Folder Include="images\Envelop\" />
     <Folder Include="images\Layout\" />
     <Folder Include="images\ProductImages\" />
-    <Folder Include="images\UserOrders\" />
+    <Folder Include="images\UserOrders\cardImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -1403,6 +1436,10 @@
     <ProjectReference Include="..\E3zemni_DAL\E3zemni_DAL.csproj">
       <Project>{76BC35C7-7F7B-45E7-B6F4-95585CE4C513}</Project>
       <Name>E3zemni_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageHandler\ImageHandler.csproj">
+      <Project>{1DE3C16C-0928-43F2-A3AD-A40EB97BA2B7}</Project>
+      <Name>ImageHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
