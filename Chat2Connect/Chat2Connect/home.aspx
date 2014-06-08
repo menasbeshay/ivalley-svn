@@ -190,7 +190,7 @@
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
-        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:{Altodd:$index()%2,Alteven:!$index()%2}">
+        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">
             <div class="pull-left controls">
                 <div class="cameraHolder">
 
@@ -412,7 +412,7 @@
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
                 <img src="images/Emotes-icon.png" style="width: 15px;" />
             </button>
-            <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
+            <ul style="width: 300px !important" role="menu" class="dropdown-menu emotionMenu">
                 <li>
                     <ul data-height="120px" class="SScroll" id="smilesMenu" style="overflow: hidden; width: auto; height: 120px;">
                         <li class="itemImage"><a data-wysihtml5-command-value="images/emotions/icon (1).png" data-wysihtml5-command="insertImage" href="javascript:;" unselectable="on">
@@ -911,14 +911,14 @@
                 <!-- ko if: Type()=="Room" -->
                 <div class="col-lg-12" data-bind="if:!IsTemp()">
                     <div style="padding: 5px;" class="pull-right col-lg-3">
-                        <label><span id="Label1">مدير الغرفة:</span></label>
+                        <label><span id="Label1">مدير الغرفة</span></label>
                         <span id="uiLabelAdmin" data-bind="text:OwnerMember().MemberName"></span>
                     </div>
                     <div style="padding: 5px;" class="pull-right col-lg-3">
-                        <label><span id="Label2">كاميرات:</span></label>
+                        <label><span id="Label2">كاميرات</span></label>
                         <span id="Label4" data-bind="text:OpenCams"></span>
-                        |
-                        <label><span id="Label3">متواجدين:</span></label>
+                        &nbsp;|&nbsp;
+                        <label><span id="Label3">متواجدين</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:ExistingMembers().length"></span>
                     </div>
 
@@ -1031,14 +1031,14 @@
                                 <div style="height: 5px;" class="clearfix"></div>
                             </div>
                             <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
-                                <div  data-bind="visible:showAdminPart" class="pull-right" style="margin-right: 3px;">
+                                <%--<div  data-bind="visible:showAdminPart" class="pull-right" style="margin-right: 3px;">
                                     <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'admintoolbar'+uniqueID()}">
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="pull-left" style="padding: 5px;">
                                     <a href="#" data-bind="click:toggleAdminPart" style="text-decoration:none;">
                                         <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
-                                        منطقة الأدمينز
+                                        غرفة الإدارة
                                     </a>
                                 </div>
                             </div>

@@ -629,6 +629,7 @@
     <Content Include="testswf\c2c\c2c.html" />
     <Content Include="testswf\c2c\js\swfobject.js" />
     <Content Include="testswf\chat2connect.swf" />
+    <Content Include="testswf\chat2connect5.swf" />
     <Content Include="testswf\chat2connect_fv.swf" />
     <Content Include="testswf\chat2connect1.7.swf" />
     <Content Include="testswf\chat2connect4.swf" />

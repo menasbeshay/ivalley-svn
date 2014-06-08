@@ -495,10 +495,10 @@ function Chat(maxWin, memberID, memberName) {
     // init html Editor 
     // tooltips for toolbar
     // scroll bars
-    self.Init = function (window) {
+    self.Init = function (window) {        
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
-            window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { toolbar: 'admintoolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+            window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
                 window.AdminsEditor.observe('load', function () {
                     window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
@@ -635,6 +635,8 @@ function Chat(maxWin, memberID, memberName) {
                 source: names
             });
         }
+
+       
 
     };
 
