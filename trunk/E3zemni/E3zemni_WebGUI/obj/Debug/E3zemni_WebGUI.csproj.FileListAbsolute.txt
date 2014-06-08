@@ -50,3 +50,5 @@ D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\obj\Debug\E3zemni_
 D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\obj\Debug\E3zemni_WebGUI.pdb
 D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\bin\Facebook.dll
 D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\bin\Facebook.xml
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\bin\ImageHandler.dll
+D:\SmartValley\CardsGenerator\E3zemni_31-3\SVN\E3zemni_WebGUI\bin\ImageHandler.pdb

@@ -44,7 +44,19 @@
 <h3>
 صمم كارتك بنفسك
 </h3>
-    
+    <asp:Panel ID="uipanelError" runat="server" >
+<div class="alert alert-danger">
+                                <button class="close" data-dismiss="alert">
+                                    ×</button>
+                                <strong>خطأ!</strong> حدث خطأ . من فضلك تأكد من أحد الخطوات التالية :<br />
+                                <ul>
+                                    <li>إختر تصميم.</li>
+                                    <li>أكتب جميع الكلمات المطلوبة.</li>
+                                    <li>إختر لون الخلفية.</li>
+                                </ul>
+
+                            </div>
+    </asp:Panel>
     <ul class="tabs">
 		<li><a href="#t-1" class="active">الوجه</a></li>
 		<li><a href="#t-2">الخلف</a></li>								

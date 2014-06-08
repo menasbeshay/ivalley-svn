@@ -13,6 +13,15 @@ namespace E3zemni_WebGUI.ar {
     public partial class customize {
         
         /// <summary>
+        /// uipanelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uipanelError;
+        
+        /// <summary>
         /// uiRadioButtonListLayouts control.
         /// </summary>
         /// <remarks>

@@ -141,12 +141,10 @@
                             
 							<div class="social social_head">
 								<a href="#" class="bottomtip" title="Twitter"><i class="fa-twitter"></i></a>
-								<a href="#" class="bottomtip" title="Facebook"><i class="fa-facebook"></i></a>
-								<a href="#" class="bottomtip" title="Dribbble"><i class="fa-dribbble"></i></a>
+								<a href="#" class="bottomtip" title="Facebook"><i class="fa-facebook"></i></a>								
 								<a href="#" class="bottomtip" title="Pinterest"><i class="fa-pinterest"></i></a>
 								<a href="#" class="bottomtip" title="RSS"><i class="fa-rss"></i></a>
-								<a href="#" class="bottomtip" title="Youtube"><i class="fa-youtube"></i></a>
-								<a href="#" class="bottomtip" title="SoundCloud"><i class="fa-cloud"></i></a>
+								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>								
 								<a href="#" class="bottomtip" title="Flickr"><i class="fa-flickr"></i></a>
 							</div><!-- end social -->
 						</div><!-- end social and bag -->
@@ -213,28 +211,26 @@
 						<div class="widget-content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 	
-							<div class="social">
+							<%--<div class="social">
 								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
-								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>
-								<a href="#" class="toptip" title="Dribbble"><i class="fa-dribbble"></i></a>
+								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>								
 								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>
 								<a href="#" class="toptip" title="RSS"><i class="fa-rss"></i></a>
-								<a href="#" class="toptip" title="Youtube"><i class="fa-youtube"></i></a>
-								<a href="#" class="toptip" title="SoundCloud"><i class="fa-cloud"></i></a>
+								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>
 								<a href="#" class="toptip" title="Flickr"><i class="fa-flickr"></i></a>
-							</div>
+							</div>--%>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 	
-					<div class="grid_4">
+					<%--<div class="grid_4">
 						<h3 class="col-title">Our Location</h3>
 	
 						<div class="widget-content">
 							<iframe height="160" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=New+York,+NY,+United+States&amp;aq=0&amp;oq=New+yok&amp;sll=37.0625,-95.677068&amp;sspn=41.224889,86.044922&amp;ie=UTF8&amp;hq=&amp;hnear=New+York&amp;t=m&amp;z=10&amp;ll=40.714353,-74.005973&amp;output=embed"></iframe>
 						</div><!-- widget content -->
-					</div><!-- grid 4 -->
+					</div>--%><!-- grid 4 -->
 		
-					<div class="grid_4">
+					<div class="grid_4 pull-right">
 						<h3 class="col-title">PhotoStream <small>- Instagram</small></h3>
 	
 						<div class="widget-content">

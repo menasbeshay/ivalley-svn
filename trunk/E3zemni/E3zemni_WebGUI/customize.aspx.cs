@@ -8,7 +8,9 @@ using System.Drawing.Drawing2D;
 using System.Drawing;
 using E3zmni.BLL;
 using System.Data;
-
+using ImageHandler;
+using System.Net;
+using System.Configuration;
 namespace E3zemni_WebGUI
 {
     public partial class customize : System.Web.UI.Page
@@ -43,6 +45,7 @@ namespace E3zemni_WebGUI
                 Master.PageTitle = "Customize";
                 Master.Path = "";
                 Master.ViewPath = true;
+                uipanelError.Visible = false;
             }
         }
 
@@ -71,6 +74,11 @@ namespace E3zemni_WebGUI
             uiDataListCardText.DataSource = texts.DefaultView;
             uiDataListCardText.DataBind();
 
+            CardImages images = new CardImages();
+            images.GetCardImageByCardID(CardID);
+            uiDataListImages.DataSource = images.DefaultView;
+            uiDataListImages.DataBind();
+           
             Cards card = new Cards();
             card.LoadByPrimaryKey(CardID);
 
@@ -84,28 +92,84 @@ namespace E3zemni_WebGUI
                 System.Drawing.Graphics myGraphic = null;
                 string[] images = uiRadioButtonListLayouts.SelectedValue.Split('#');                
 
-                System.Drawing.Image imgF;// =new Image.FromFile(ImageBack);
-                imgF = System.Drawing.Image.FromFile(Server.MapPath("~/" + images[0]));
+                System.Drawing.Image imgSelectedLayout;
+                imgSelectedLayout = System.Drawing.Image.FromFile(Server.MapPath("~/" + images[0]));
 
                 System.Drawing.Color backcolor = System.Drawing.ColorTranslator.FromHtml(uiHiddenFieldColor.Value);
                 System.Drawing.Brush b = new System.Drawing.SolidBrush(backcolor);
 
-                System.Drawing.Bitmap backimg = new System.Drawing.Bitmap(imgF.Width, imgF.Height);
-                System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(backimg);
-                g.FillRectangle(b, 0, 0, imgF.Width, imgF.Height);
+                System.Drawing.Bitmap backgroundcolor = new System.Drawing.Bitmap(imgSelectedLayout.Width, imgSelectedLayout.Height);
+                System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(backgroundcolor);
+                g.FillRectangle(b, 0, 0, imgSelectedLayout.Width, imgSelectedLayout.Height);
                 g.Save();
                 string backpath = Guid.NewGuid().ToString();
-                backimg.Save(Server.MapPath("~/images/UserOrders/" + backpath + "_1.jpeg"));
+                backgroundcolor.Save(Server.MapPath("~/images/UserOrders/" + backpath + "_1.jpeg"));
 
 
-                System.Drawing.Image imgB;// =new Image.FromFile(ImageBack);
-                imgB = System.Drawing.Image.FromFile(Server.MapPath("~/images/UserOrders/" + backpath + "_1.jpeg"));
-                myGraphic = System.Drawing.Graphics.FromImage(imgB);
-                myGraphic.SmoothingMode = SmoothingMode.HighQuality;
-                myGraphic.DrawImageUnscaled(imgB, 0, 0);
-                myGraphic.DrawImageUnscaled(imgF, 0, 0);
+                System.Drawing.Image GeneratedImg;// =new Image.FromFile(ImageBack);
+                GeneratedImg = System.Drawing.Image.FromFile(Server.MapPath("~/images/UserOrders/" + backpath + "_1.jpeg"));
+                myGraphic = System.Drawing.Graphics.FromImage(GeneratedImg);
+                myGraphic.SmoothingMode = SmoothingMode.HighQuality;  
+                // draw background 
+                myGraphic.DrawImageUnscaled(GeneratedImg, 0, 0);
+
+                //draw user uploaded images
+                foreach (DataListItem dli in uiDataListImages.Items)
+                {
+                    if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
+                    {
+                        FileUpload imgfile = (FileUpload)dli.FindControl("uiFileUploadImg");
+                        HiddenField hfPath = (HiddenField)dli.FindControl("uiHiddenFieldPath");
+                        HiddenField hf = (HiddenField)dli.FindControl("uiHiddenFieldImgID");
+
+                        HiddenField contrast = (HiddenField)dli.FindControl("uiHiddenFieldContrast");
+                        HiddenField brightness = (HiddenField)dli.FindControl("uiHiddenFieldBrightness");
+                        HiddenField rotate = (HiddenField)dli.FindControl("uiHiddenFieldRotate");
+
+                        DropDownList style = (DropDownList)dli.FindControl("uiDropDownListStyle");
+                        System.Web.UI.WebControls.Image current = (System.Web.UI.WebControls.Image)dli.FindControl("uiImageCurrent");
+                        CardImages img = new CardImages();                        
+                        img.LoadByPrimaryKey(Convert.ToInt32(hf.Value));
+                        string path = hfPath.Value; 
+                        if (imgfile.HasFile)
+                        {
+                            path = "images/UserOrders/cardImages/" + Guid.NewGuid().ToString() + imgfile.FileName;
+                            imgfile.SaveAs(Server.MapPath("~/" + path));
+                            hfPath.Value = path;
+                            current.ImageUrl = path;
+                            current.Visible = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(path)) 
+                        {
+                            System.Drawing.Image currentCardImage;
+                            WebClient webclient = new WebClient();
+                            System.IO.Stream s = webclient.OpenRead(ConfigurationManager.AppSettings["appHome"] + "ImageOnDemand.ashx?url=" + path + "&brightness="+ brightness.Value +"&contrast="+ contrast.Value +"&" + style.SelectedValue);
+                            currentCardImage = System.Drawing.Image.FromStream(s);
+
+                            if (float.Parse(rotate.Value) > 0)
+                            {
+                                myGraphic.TranslateTransform((float)img.ImgWidth / 2, (float)img.ImgHieght / 2);
+                                myGraphic.RotateTransform(float.Parse(rotate.Value));
+                                myGraphic.DrawImageUnscaled(currentCardImage, img.PosX, img.PosY, img.ImgWidth, img.ImgHieght);
+                                myGraphic.RotateTransform(-float.Parse(rotate.Value));
+                                myGraphic.TranslateTransform(-(float)img.ImgWidth / 2, -(float)img.ImgHieght / 2);
+                            }
+                            else
+                            {
+                                myGraphic.DrawImageUnscaled(currentCardImage, img.PosX, img.PosY, img.ImgWidth, img.ImgHieght);
+                            }
+                            
+                        }
+                        
+                    }
+                }
+
+                // draw layout 
+                myGraphic.DrawImageUnscaled(imgSelectedLayout, 0, 0);
                 myGraphic.Save();
 
+                // draw strings 
                 myGraphic.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
                 foreach (DataListItem dli in uiDataListCardText.Items)
@@ -122,6 +186,7 @@ namespace E3zemni_WebGUI
 
                         System.Drawing.Color fontcolor = System.Drawing.ColorTranslator.FromHtml(hfc.Value);
                         System.Drawing.Brush fontbrush = new System.Drawing.SolidBrush(fontcolor);
+
                         myGraphic.DrawString(tb.Text, new Font(ddlfont.SelectedItem.Text, Convert.ToInt32(ddlfontsize.SelectedItem.Text), FontStyle.Italic), fontbrush, new RectangleF(text.PosX, text.PosY, text.Width, text.Height));
                     }
                 }
@@ -130,7 +195,8 @@ namespace E3zemni_WebGUI
 
                 string newpath = Guid.NewGuid().ToString();
 
-                imgB.Save(Server.MapPath("~/images/UserOrders/" + newpath + "_2.jpeg"), System.Drawing.Imaging.ImageFormat.Jpeg);
+                // save generated img
+                GeneratedImg.Save(Server.MapPath("~/images/UserOrders/" + newpath + "_2.jpeg"), System.Drawing.Imaging.ImageFormat.Jpeg);
                 uiImageMain.ImageUrl = "~/images/UserOrders/" + newpath + "_2.jpeg";
 
                 myGraphic.Dispose();
@@ -141,11 +207,12 @@ namespace E3zemni_WebGUI
                 temp.CardDesign = "images/UserOrders/" + newpath + "_2.jpeg";
                 temp.CardCount = 1;
                 Session["UserPayment"] = temp;
+                uipanelError.Visible = false;
 
             }
             catch (Exception ex)
             {
-                throw;
+                uipanelError.Visible = true;
             }
         }
 

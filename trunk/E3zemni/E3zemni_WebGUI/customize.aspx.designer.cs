@@ -13,6 +13,15 @@ namespace E3zemni_WebGUI {
     public partial class customize {
         
         /// <summary>
+        /// uipanelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uipanelError;
+        
+        /// <summary>
         /// uiRadioButtonListLayouts control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace E3zemni_WebGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater uiRepeaterSizes;
+        
+        /// <summary>
+        /// uiDataListImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList uiDataListImages;
         
         /// <summary>
         /// uiButtonApply control.

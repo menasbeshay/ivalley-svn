@@ -89,6 +89,7 @@
 					<li><a href="#t-2">Card text</a></li>
 					<li><a href="#t-3">Card layout</a></li>		
                     <li><a href="#t-4">Card default background colors </a></li>
+                     <li><a href="#t-5">Card attached images info </a></li>
                     </asp:PlaceHolder>			
 				</ul><!-- tabs -->
 
@@ -333,6 +334,61 @@
                                                 <ItemTemplate>                                                    
                                                     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("ColorID") %>'
                                                         CssClass="btn btn-default" CommandName="DeleteColor" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="20%" />
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </li>
+                                  <li id="t-5">
+                                    <asp:Panel ID="Panel3" runat="server" DefaultButton="uiButtonSaveText">
+                                        <div class="col-lg-12">                                        
+                                        <div class="col-lg-3">
+                                            X position
+                                            <asp:TextBox ID="uiTextBoxImageX" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            Y position
+                                            <asp:TextBox ID="uiTextBoxImageY" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div><div class="col-lg-3">
+                                            Width
+                                            <asp:TextBox ID="uiTextBoxImageWidth" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            Height
+                                            <asp:TextBox ID="uiTextBoxImageHeight" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="clear" style="height:10px;"></div>
+                                        <div class="form-actions">
+                            
+                                            <div class="col-lg-4">
+                                                <asp:Button ID="uiButtonSaveImageInfo" runat="server" CssClass="btn btn-success" 
+                                                    Text="Add Image info " onclick="uiButtonSaveImageInfo_Click"> </asp:Button>
+                                                <asp:LinkButton ID="uiLinkButtonCancelImage" runat="server" 
+                                                    CssClass="btn btn-default" onclick="uiLinkButtonCancelImage_Click" > Cancel</asp:LinkButton>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    </asp:Panel>
+                                    
+                                    <div class="clear" style="height:10px;"></div>
+                                    <asp:GridView ID="uiGridViewCardImages" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                                        CellPadding="4" GridLines="None" EmptyDataText="No records found."
+                                         Width="90%" 
+                                        CssClass="table"                                         
+                                        onrowcommand="uiGridViewCardImages_RowCommand">                            
+                                        <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        <PagerStyle HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" />
+                                        <Columns>
+                                            <asp:BoundField DataField="PosX" HeaderText="X" />
+                                            <asp:BoundField DataField="PosY" HeaderText="Y" />                                            
+                                            <asp:TemplateField HeaderText="Actions">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("CardImageID") %>'
+                                                        CssClass="btn btn-default" CommandName="EditImg"> Edit</asp:LinkButton>&nbsp;
+                                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("CardImageID") %>'
+                                                        CssClass="btn btn-default" CommandName="DeleteImg" OnClientClick="return confirm('Are you want to delete this record ?');"> Delete</asp:LinkButton>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="20%" />
                                             </asp:TemplateField>

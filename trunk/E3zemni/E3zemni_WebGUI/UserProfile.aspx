@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/All.Master" AutoEventWireup="true" CodeBehind="UserProfile.aspx.cs" Inherits="E3zemni_WebGUI.UserProfile" %>
+<%@ Register src="controls/ucFav.ascx" tagname="ucFav" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSlider" runat="server">
@@ -7,7 +8,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div class="contactform">
         <h2 class="title">My Account</h2>
         
@@ -30,7 +31,7 @@
               <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Required" Display="Dynamic" Font-Bold="true" ForeColor="Red" ValidationGroup="register" ControlToValidate="uiTextBoxEmail"></asp:RequiredFieldValidator>
               </div>
               <div class="clear" style="height:5px;"></div><div class="col-md-8">
-              <asp:TextBox ValidationGroup="register" ID="uiTextBoxPassword" runat="server" CssClass="form-control" placeholder="Passwrod*" TextMode="Password"></asp:TextBox>   
+              <asp:TextBox ValidationGroup="register" ID="uiTextBoxPassword" runat="server" CssClass="form-control" placeholder="Password*" TextMode="Password"></asp:TextBox>   
               </div>
               <div class="col-md-4">
               <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Required" Display="Dynamic" Font-Bold="true" ForeColor="Red" ValidationGroup="register" ControlToValidate="uiTextBoxPassword"></asp:RequiredFieldValidator>
@@ -62,6 +63,9 @@
           </div>
         
       </div>
+    </div>
+    <div class="col-md-3">    
+        <uc1:ucFav ID="ucFav1" runat="server" />
     </div>
    </div>
 </div>

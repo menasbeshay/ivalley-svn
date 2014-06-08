@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script src="js/spectrum.js" type="text/javascript"></script>
     <link href="js/spectrum.css" rel="stylesheet" type="text/css" />
+    <script src="js/bootstrap-slider.js" type="text/javascript"></script>
+    <link href="Styles/slider.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
          $(document).ready(function () {
              $("#custom").spectrum({
@@ -30,6 +32,24 @@
                      //$('#uiHiddenFieldMyColor').val(color.toHexString()); // #ff0000
                  }
              });
+
+             $('.contslider').slider({ min: 0, max: 3, step: 0.5, value:1 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
+
+              $('.brightslider').slider({ min: -1, max: 1, step: .5, value: 0 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
+
+              $('.rotateslider').slider({ min: 0, max: 360, step: 10, value: 0 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
          });
 </script>
 <style type="text/css">
@@ -44,7 +64,19 @@
 <h3>
 Customize your invitation
 </h3>
-    
+<asp:Panel ID="uipanelError" runat="server" >
+<div class="alert alert-danger">
+                                <button class="close" data-dismiss="alert">
+                                    ×</button>
+                                <strong>Error!</strong> An error occurred. please be sure of one of the following steps:<br />
+                                <ul>
+                                    <li>select a layout.</li>
+                                    <li>write down all text.</li>
+                                    <li>choose a background color.</li>
+                                </ul>
+
+                            </div>
+    </asp:Panel>
     <ul class="tabs">
 		<li><a href="#t-1" class="active">Front</a></li>
 		<li><a href="#t-2">Back</a></li>								
@@ -173,9 +205,53 @@ Customize your invitation
 			</div>
                                  </div>
             <div style="clear:both;height:1px;"></div>  
+            <asp:DataList ID="uiDataListImages" runat="server" Width="100%">
+            
+            <ItemTemplate>
+            <div class="grid_12" style="width:100%;border:1px solid black;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;padding:10px;margin-bottom:10px;">
+             <div class="grid_3 alpha fll" >
+            <%# "Image " + (Container.ItemIndex + 1).ToString() %> 
+            </div>
+            <div class="grid_9 alpha fll">
+                <asp:FileUpload ID="uiFileUploadImg" runat="server" />
+                <asp:Image ID="uiImageCurrent" runat="server" width="100px" Visible="false"/>
+                <asp:HiddenField ID="uiHiddenFieldPath" runat="server" value=''/>
+            </div>            
+            <div style="clear:both;height:1px;"></div>  
+            <div class="grid_12 alpha fll" >
+                <div class="grid_3">
+                    Style  
+                    <asp:DropDownList ID="uiDropDownListStyle" runat="server">
+                    <asp:ListItem Value="normal=true" Selected="True">Normal</asp:ListItem>
+                    <asp:ListItem Value="grayscaling=true">Grayscale</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="grid_3 sliderParent">
+                    Contrast  
+                    <input type="text" data-slider-orientation="horizontal" class="contslider" />
+                    <asp:HiddenField ID="uiHiddenFieldContrast" runat="server" Value="1" />
+                </div>
+                <div class="grid_3 sliderParent">
+                    Brightness  
+                    <input type="text" data-slider-orientation="horizontal" class="brightslider" />
+                    <asp:HiddenField ID="uiHiddenFieldBrightness" runat="server" Value="0"/>
+                </div>
+                 <div class="grid_3 sliderParent">
+                    Rotate  
+                    <input type="text" data-slider-orientation="horizontal" class="rotateslider" />
+                     <asp:HiddenField ID="uiHiddenFieldRotate" runat="server" Value="0"/>
+                </div>
+
+            </div>
+                <asp:HiddenField ID="uiHiddenFieldImgID" runat="server" value='<%# Eval("CardImageID") %>'/>
+                </div>
+            </ItemTemplate>
+            </asp:DataList>
+
+
             <div class="pull-right grid_10" >
                
-                <div class="grid_3 alpha fll pull-right">
+                <div class="grid_5 alpha fll pull-right">
                     <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">choose envelop</a>
                 </div>
 

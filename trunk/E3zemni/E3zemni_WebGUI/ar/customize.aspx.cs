@@ -40,6 +40,7 @@ namespace E3zemni_WebGUI.ar
             if (!IsPostBack)
             {
                 LoadCardInfo();
+                uipanelError.Visible = false;
             }
         }
 
@@ -142,7 +143,7 @@ namespace E3zemni_WebGUI.ar
             }
             catch (Exception ex)
             {
-                throw;
+                uipanelError.Visible = true;
             }
         }
 

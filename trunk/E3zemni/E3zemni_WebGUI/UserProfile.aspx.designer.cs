@@ -128,5 +128,14 @@ namespace E3zemni_WebGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonRegister;
+        
+        /// <summary>
+        /// ucFav1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E3zemni_WebGUI.controls.ucFav ucFav1;
     }
 }
