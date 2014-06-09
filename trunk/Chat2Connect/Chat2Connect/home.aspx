@@ -1199,19 +1199,39 @@
                                 <input type="button" id="btnBanNewMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:banMemberByName" />
                                 <div class="clearfix"></div>
                                 <h4>توبيك الغرفة</h4>
-                                <input type="text" data-bind="value:RoomTopic" style="width: 400px" size="140" placeholder="140 حرف">
+                                <input type="text" data-bind="value:RoomTopic" maxlength="100" size="80" placeholder="80 حرف">
                                 <input type="button" id="btnSaveRoomTopic" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveRoomTopic" />
                                 <div class="clearfix"></div>
                                 <h4>شبكات التواصل</h4>
-                                <lablel class="col-lg-2 pull-right">فيسبوك</lablel>
-                                <input type="text" data-bind="value:fbURL" style="width: 400px" />
-                                <div class="clearfix"></div>
-                                <lablel class="col-lg-2 pull-right">تويتر</lablel>
-                                <input type="text" data-bind="value:tURL" style="width: 400px" />
-                                <div class="clearfix"></div>
-                                <lablel class="col-lg-2 pull-right">يوتيوب</lablel>
-                                <input type="text" data-bind="value:utURL" style="width: 400px" />
-                                <input type="button" id="btnupdateSocialLinks" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:updateSocialLinks" />
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <lablel class="col-lg-2 pull-right">فيسبوك</lablel>
+                                        </td>
+                                        <td>
+                                            <input type="text" data-bind="value:fbURL" style="width: 400px" />
+                                        </td>
+                                        <td rowspan="3" style="vertical-align:bottom;padding-right: 5px;">
+                                            <input type="button" id="btnupdateSocialLinks" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:updateSocialLinks" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <lablel class="col-lg-2 pull-right">تويتر</lablel>
+                                        </td>
+                                        <td>
+                                            <input type="text" data-bind="value:tURL" style="width: 400px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <lablel class="col-lg-2 pull-right">يوتيوب</lablel>
+                                        </td>
+                                        <td>
+                                            <input type="text" data-bind="value:utURL" style="width: 400px" />
+                                        </td>
+                                    </tr>
+                                </table>
                                 <br />
                                 <br />
                                 <input type="button" id="btnCloseRoom" value="إغلاق الغرفة" class="btn btn-warning" style="width: 100px;" data-bind="click:closeRoom" />
