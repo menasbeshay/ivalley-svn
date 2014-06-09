@@ -1223,6 +1223,10 @@ width:230px;
     color:#fff !important;
     text-align:right;
     }
+
+.msgHolder img{
+    margin-top:-10px;
+}
 /*
 .friend-link .popup-menu a {
 	display: block;
