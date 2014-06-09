@@ -183,7 +183,7 @@
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
-        <div class="clearfix"></div>
+        <div class="clear" style="height:5px;"></div>
         <div class="row">
             <div class="pull-left" data-bind="html:Message"></div>
             <div class="pull-right" data-bind="text:Time,visible:$parent.CurrentMember().ShowMessageTime"></div>
@@ -286,7 +286,7 @@
                 <img src="images/font-color-icon.png" style="width: 15px;" />
             </button>
             <ul id="colorsMenu" role="menu" class="dropdown-menu">
-                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" style="color:#000;" href="javascript:;" unselectable="on">
                     <div style="background-color: #000;" class="colorDiv"></div>
                 </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
@@ -408,11 +408,11 @@
             </ul>
         </div>
 
-        <div class="btn-group dropup">
+        <div class="btn-group dropup emotionMenu">
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
                 <img src="images/Emotes-icon.png" style="width: 15px;" />
             </button>
-            <ul style="width: 300px !important" role="menu" class="dropdown-menu emotionMenu">
+            <ul style="width: 300px !important" role="menu" class="dropdown-menu" data-bind="attr:{id: 'emotionMenu_' + ID()}">
                 <li>
                     <ul data-height="120px" class="SScroll" id="smilesMenu" style="overflow: hidden; width: auto; height: 120px;">
                         <li class="itemImage"><a data-wysihtml5-command-value="images/emotions/icon (1).png" data-wysihtml5-command="insertImage" href="javascript:;" unselectable="on">
@@ -1360,13 +1360,19 @@
                                 <div class="col-sm-4 control-label pull-right">
                                     سجل مقطع صوت
                                 </div>
-                                <div class="col-sm-7 pull-right">
+                                <div class="clear" style="height: 5px;"></div>
+                                <div class="col-sm-9 pull-right center">
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
                                         <param value="always" name="allowScriptAccess">
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ $root.CurrentMemberID+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
+                                 <div class="clear" style="height: 1px;"></div>
+                                 <div class="col-sm-4 control-label pull-right"></div>
+                                <div class="col-sm-7 control-label pull-right">
+                                 <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
+                                    </div>
                             </div>
                         </div>
                     </div>

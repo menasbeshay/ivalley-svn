@@ -313,6 +313,21 @@ function Chat(maxWin, memberID, memberName) {
             $('#UploadedFile_' + self.uniqueID()).html('');
             $('#videoURL_' + self.uniqueID()).val('');
         };
+
+        // audio 
+        this.audioAttachment = "";
+        this.UpdateAudioAttachment = function (audioDiv) {
+            this.audioAttachment = audioDiv;            
+        };
+
+        this.SendAudio = function () {
+            if (this.audioAttachment != "") {
+                rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberName(), self.audioAttachment);
+                $("#attachModal_" + self.uniqueID()).modal('hide');
+                self.audioAttachment = "";
+            }
+        };
+
         //admin part
         this.showAdminPart = ko.observable(false);
         if (this.Type() == "Room" && this.CurrentMember().MemberLevelID() > 1) {
@@ -482,6 +497,7 @@ function Chat(maxWin, memberID, memberName) {
         }
         //window.Message("");
         window.Editor.setValue("");
+        $('#emotionMenu_'+window.ID()).hide();
     }
     self.sendAdminMessage = function (window) {
         if (window == null)
@@ -495,7 +511,12 @@ function Chat(maxWin, memberID, memberName) {
     // init html Editor 
     // tooltips for toolbar
     // scroll bars
-    self.Init = function (window) {        
+    self.Init = function (window) {
+        $(".emotionMenu > button.dropdown-toggle").click(function (e) {
+            e.stopPropagation();
+            $(this).next('.dropdown-menu').toggle();
+        });
+
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
@@ -608,22 +629,7 @@ function Chat(maxWin, memberID, memberName) {
         });
 
         // popover menu for members
-        $('.roomMemberlink').each(function () {
-            var $this = $(this);
-            var popoverContent = $this.find('.friendSubMenu');
-            // check if popover content exists
-            if (popoverContent.length > 0) {
-                $this.popover({
-                    trigger: 'click',
-                    placement: 'left',
-                    html: true,
-                    content: popoverContent,
-                    container: '#' + window.uniqueID()
-                }).on('hidden.bs.popover', function () {
-                    $this.append(popoverContent);
-                });
-            }
-        });
+        initPopover(window);
 
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) //MemberLevelID>1>>> Admin
         {
@@ -803,9 +809,12 @@ function Chat(maxWin, memberID, memberName) {
             return;
         var hiddenfield = $('#UploadFileName_' + window.uniqueID());
         if (hiddenfield.val() != '') {
-            var imageDiv = "<img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:150px;'/>";
+            var randomid = Math.floor((Math.random() * 100000) + 1);
+            var imageDiv = "<a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100px;margin:0 !important;'/></a>";
 
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), imageDiv);
+            var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100%;'/></div></div></div></div></div></div></div>";
+
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), imageDiv + modaldiv);
         }
         hiddenfield.val('');
         $('#UploadFileName_' + window.uniqueID()).val('');
@@ -828,12 +837,10 @@ function onCamClose(userId, roomId) {
 function onMicRecordSaveSuccess(fileName) {
     // returned file name & roomid in this format [roomId,filename]
     var window = chatVM.getWindow(fileName.substr(0, fileName.indexOf(",")), 'Room');
-
-    var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";
     if (window == null)
         return;
-    rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), audioDiv);
-    $("#attachModal_" + window.uniqueID()).modal('hide');
+    var audioDiv = "<audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio>";
+    window.UpdateAudioAttachment(audioDiv);    
 
 }
 
@@ -907,7 +914,11 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(rid, type, sname);
         if (window == null)
             return;
-        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'><a href='" + url + "' target='_blank'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:120px;' /></div><div style='clear:both;height:1px;'></div>";
+        var randomid = Math.floor((Math.random() * 100000) + 1);
+        var videoLink = "<a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:100px;margin:0 !important;' /></a>";
+        var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
+        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>"+iframe+"</div></div></div></div></div></div></div>";
+        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'>"+ videoLink + modaldiv + "</div><div style='clear:both;height:1px;'></div>";
         window.addMessage(newMsg);
     };
     rHub.client.addNewMember = function (rid, memberData) {
@@ -932,22 +943,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             addMsgToWindow(window, msg, "joinalert");
         }
         // init popover menu for new members
-        $('.roomMemberlink').each(function () {
-            var $this = $(this);
-            var popoverContent = $this.find('.friendSubMenu');
-            // check if popover content exists
-            if (popoverContent.length > 0) {
-                $this.popover({
-                    trigger: 'click',
-                    placement: 'left',
-                    html: true,
-                    content: popoverContent,
-                    container: '#' + window.uniqueID()
-                }).on('hidden.bs.popover', function () {
-                    $this.append(popoverContent);
-                });
-            }
-        });
+        initPopover(window);
     };
     rHub.client.removeMember = function (mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
@@ -1021,6 +1017,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
 
         chatVM.startMic(window, memberid);
+        initPopover(window);
     };
     rHub.client.StopListenMic = function (memberid, rid) {
         var type = "Room";
@@ -1029,6 +1026,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
 
         chatVM.stopMic(window, memberid);
+        initPopover(window);
     };
     rHub.client.UserRaisHand = function (rid, memberid, queueOrder) {
         var window = chatVM.getWindow(rid, "Room");
@@ -1036,6 +1034,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             var member = window.getMember(memberid);
             if (member != null) {
                 member.QueueOrder(queueOrder);
+                initPopover(window);
             }
         }
     };
@@ -1045,6 +1044,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             var member = window.getMember(memberid);
             if (member != null) {
                 member.QueueOrder(null);
+                initPopover(window);
             }
         }
     };
@@ -1102,6 +1102,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             ko.utils.arrayForEach(window.QueueMembers(), function (member) {
                 member.QueueOrder(null);
             });
+            initPopover(window);
 
         }
     };
@@ -1150,4 +1151,26 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
 
     /*****************************************/
+}
+
+
+/********* common functions ****************/
+function initPopover(window) {
+    // popover menu for members
+    $('.roomMemberlink').each(function () {
+        var $this = $(this);
+        var popoverContent = $this.find('.friendSubMenu');
+        // check if popover content exists
+        if (popoverContent.length > 0) {
+            $this.popover({
+                trigger: 'click',
+                placement: 'left',
+                html: true,
+                content: popoverContent,
+                container: '#' + window.uniqueID()
+            }).on('hidden.bs.popover', function () {
+                $this.append(popoverContent);
+            });
+        }
+    });
 }

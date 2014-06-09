@@ -306,6 +306,8 @@ function sendvideo(rid, url,sender, input)
         rHub.server.sendVideoToRoom(rid, sender, url);
     else
         return false;
+    $("#attachModal_Room_" + rid).modal('hide');
+    $("#attachModal_Private_" + rid).modal('hide');
 }
 
 function SaveConversation(rid) {
