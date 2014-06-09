@@ -718,7 +718,8 @@ function Chat(maxWin, memberID, memberName) {
             }
             else {
                 if (window.CurrentMember().NotifyOnMicOn()) {
-                    notify('info', 'العضو ' + member.MemberName() + ' أخذ المايك');
+                    var msg = member.MemberName() + ' أخذ المايك ';
+                    addMsgToWindow(window, msg, "joinalert");
                 }
             }
         }
@@ -738,7 +739,8 @@ function Chat(maxWin, memberID, memberName) {
                 rHub.server.userStopMic(window.ID(), memberid)
             else {
                 if (window.CurrentMember().NotifyOnMicOff()) {
-                    notify('info', 'العضو ' + micMember.MemberName() + ' ترك المايك');
+                    var msg = member.MemberName() + ' ترك المايك ';
+                    addMsgToWindow(window, msg, "leftalert");
                 }
             }
         }
@@ -874,15 +876,16 @@ function getFlashMovie(movieName) {
     return document[movieName] || window[movieName];
 }
 var chatVM;
+function addMsgToWindow(window, msg, css) {
+    msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
+    window.addMessage(msg);
+}
 function InitChat(maxWinRooms, memberID, memberName) {
     chatVM = new Chat(maxWinRooms, memberID, memberName);
     ko.applyBindings(chatVM);
 
     /****** signalR ********/
-    function addMsgToWindow(window, msg, css) {
-        msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
-        window.addMessage(msg);
-    }
+    
     rHub = $.connection.chatRoomHub;
     rHub.client.getPrivateMessage = function (fromId, fromUserName, message) {
         var window = chatVM.getWindow(fromId, "Private", fromUserName);
