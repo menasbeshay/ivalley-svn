@@ -459,11 +459,8 @@ function Chat(maxWin, memberID, memberName) {
                 notify('error', 'عفواً ، لقد قمت بدخول العدد الأقصى من الغرف فى نفس الوقت.');
                 return;
             }
-            if (isHidden == null || isHidden == undefined)
-                isHidden = false;
-            if (levelid == null || levelid == undefined)
-                levelid = 0;
-            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp, isHidden: isHidden, levelID: levelid })
+            
+            $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp })
                 .done(function (data) {
                     if (data.Status != 1) {
                         notify('error', data.Data);
@@ -472,8 +469,8 @@ function Chat(maxWin, memberID, memberName) {
                     var win = ko.mapping.fromJS(data.Data, mapping);
                     self.windows.push(win);
                     self.changeCurrent(win.uniqueID());
-                    if (win.CurrentMember().InRoom())
-                        rHub.server.addToRoom(id);
+
+                    rHub.server.addToRoom(id, win.CurrentMember().InRoom());
                     self.Init(win);
                 });
         }
@@ -495,6 +492,10 @@ function Chat(maxWin, memberID, memberName) {
         if (window == null)
             window = this;
         if (window.Type() == "Room") {
+            if (!window.CurrentMember().InRoom())
+            {
+                rHub.server.showMemberInRoom(window.ID(), window.CurrentMember().MemberID());
+            }
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberName(), window.Editor.getValue());
         }
         else {
@@ -898,6 +899,19 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.addAdminMessage(newMsg);
     };
+    rHub.client.showMemberInRoom = function (rid, mid) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window == null)
+            return;
+        var member = window.getMember(mid);
+        if (member == null)
+            return;
+        member.InRoom(true);
+        if (member.MemberID() != window.CurrentMember().MemberID() && window.CurrentMember().NotifyOnFriendsLogOn()) {
+            var msg = member.MemberName() + ' قد إنضم للغرفة ';
+            addMsgToWindow(window, msg, "joinalert");
+        }
+    };
     rHub.client.getMessage = function (rid, sname, msg) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type, sname);
@@ -928,17 +942,14 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
         var existingMember = window.getMember(newMember.MemberID());
-        if (existingMember != null && existingMember.InRoom())//already exists in the room
-            return;
-
         if (existingMember == null) {
             window.Members().push(newMember);
+            existingMember = newMember;
         }
         else {
-            newMember = existingMember;
+            existingMember.InRoom(newMember.InRoom());
         }
-        newMember.InRoom(true);
-        if (window.CurrentMember().NotifyOnFriendsLogOn()) {
+        if (newMember.InRoom() && window.CurrentMember().NotifyOnFriendsLogOn()) {
             var msg = newMember.MemberName() + ' قد إنضم للغرفة ';
             addMsgToWindow(window, msg, "joinalert");
         }

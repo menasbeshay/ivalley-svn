@@ -472,7 +472,7 @@ namespace Chat2Connect.services
         }
 
         [WebMethod]
-        public void GetChatRoom(int id, bool isTemp, bool isHidden, int levelID)
+        public void GetChatRoom(int id, bool isTemp)
         {
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             if (!isTemp)
@@ -540,7 +540,7 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
-            if (isHidden && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
+            if (BLL.Member.CurrentMember.Status==(int)Helper.Enums.MemberStatus.Offline && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
                 roomMember.InRoom = false;
             if (!room.IsColumnNull("CreatedBy"))
             {
@@ -563,10 +563,6 @@ namespace Chat2Connect.services
                 {
                     currentMemberSettings.IsMarked = true;
                     currentMemberSettings.CanWrite = false;
-                }
-                if (levelID!=0 && currentMemberSettings.MemberLevelID >= levelID)
-                {
-                    currentMemberSettings.MemberLevelID = levelID;
                 }
             }
             ///////////////////////////

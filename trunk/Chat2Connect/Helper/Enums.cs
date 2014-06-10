@@ -154,6 +154,8 @@ namespace Helper
             EnterPrivateChate = 11,
             [StringValue("تغيير كلمة السر")]
             ChangePassword = 12,
+            [StringValue("دخول غرفة مخفى")]
+            EnterRoomHidden = 13
         }
 
         public enum BanningType
