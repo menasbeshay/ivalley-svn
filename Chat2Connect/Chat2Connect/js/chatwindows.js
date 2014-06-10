@@ -273,7 +273,12 @@ function Chat(maxWin, memberID, memberName) {
         };
         this.SendGift = function () {
             var window = this;
-            if (chatVM.CreditPoints() >= window.selectedGift.price()) {
+            // get selected members
+            var cbs = $('#giftMembers_' + window.uniqueID() + ' input:checked');
+            $.each(cbs, function (key, value) {
+                alert(key + ": " + value);
+            });
+           /* if (chatVM.CreditPoints() >= window.selectedGift.price()) {
                 $.ajax({
                     url: '../Services/Services.asmx/SendGift',
                     dataType: 'json',
@@ -296,7 +301,7 @@ function Chat(maxWin, memberID, memberName) {
                 notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
                 $("#giftModal_" + window.uniqueID()).modal('hide');
 
-            }
+            }*/
         };
 
         // attach
@@ -562,15 +567,7 @@ function Chat(maxWin, memberID, memberName) {
             noResultsText: "لا يوجد",
             searchingText: "بحث فى الأصدقاء..."
         });
-        // token input for send gifts
-        $("#gift_" + window.uniqueID()).tokenInput("Services/Services.asmx/SearchMembersFriends?memberID=" + self.CurrentMemberID, {
-            theme: "facebook",
-            preventDuplicates: true,
-            hintText: "",
-            noResultsText: "لا يوجد",
-            searchingText: "بحث فى الأصدقاء...",
-            tokenLimit: 1
-        });
+        
         //view gifts 
         // get all prices loaded
         var items = {};
@@ -946,7 +943,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             addMsgToWindow(window, msg, "joinalert");
         }
         // init popover menu for new members
-        initPopover(window);
+        initPopover(window);        
     };
     rHub.client.removeMember = function (mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
@@ -963,7 +960,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         }
         if (mid == chatVM.CurrentMemberID) {
             chatVM.windows.remove(window);
-        }
+        }        
     };
     function banMemberFromroom(mid, roomId, banTypeName, adminName) {
         var window = chatVM.getWindow(roomId, "Room", "");

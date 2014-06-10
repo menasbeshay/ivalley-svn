@@ -69,7 +69,8 @@ namespace BLL
         {
             string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
                                 ,B.EndDate,B.StartDate
-                                ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END 
+                                ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END , 
+                                HasGift = 0
                             FROM RoomMember RM INNER JOIN Member M on RM.MemberID=M.MemberID
                             Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
                             LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID

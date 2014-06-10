@@ -15,7 +15,7 @@
     <script src="js/advanced.js"></script>
 
     <%--<script src="js/wysihtml5-0.4.0pre.js"></script>--%>
-    <script src="js/wysihtml5-0.3.0.js"></script>
+    <script src="js/wysihtml5-0.3.0.js"></script>    
     <script type="text/javascript">
         $(document).ready(function () {
             $('.iconentypo-addfriend').tooltip();
@@ -217,6 +217,11 @@
                 </div>
             </div>
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
+            <div class="GiftHolder">
+                <!-- ko if: HasGift() -->
+                <i class="icon-gift" style="color: #f00; font-size: 8px; float: right;"></i>
+                <!-- /ko -->
+            </div>
             <div class="clear" style="height: 1px;"></div>
             <!-- ko if: MemberID()!=$root.CurrentMemberID-->
             <div class="clear" style="height: 1px;"></div>
@@ -1296,11 +1301,16 @@
                                 </h4>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-4 control-label pull-right">
+                                <div class="col-sm-2 control-label pull-right">
                                     <label>إرسال هدية إلى </label>
                                 </div>
-                                <div class="col-sm-7 pull-right">
-                                    <input type="text" data-bind="attr:{id:'gift_'+uniqueID()}" class="form-control " />
+                                <div class="col-sm-9 pull-right bordered" style="padding:3px;">
+                                    <div class="col-sm-12 SScroll" data-height="130px" style="width:100% !important;float:right">                                    
+                                    <ul class="giftMembers" data-bind="foreach:ExistingMembers, attr:{id:'giftMembers_' + uniqueID()}">
+                                        <li><input type="checkbox" class="checkboxes" data-bind="attr:{value:MemberID, 'data-member-name':MemberName()}"/>
+                                        <span data-bind="text:MemberName()"></span></li>
+                                    </ul>                                     
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
