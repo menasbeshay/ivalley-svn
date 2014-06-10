@@ -42,7 +42,7 @@ namespace Chat2Connect.SRCustomHubs
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
             return base.OnDisconnected();
         }
-        public void addToRoom(int roomid)
+        public void addToRoom(int roomid,bool isVisible)
         {
             Groups.Add(Context.ConnectionId, roomid.ToString());
             try
@@ -57,7 +57,7 @@ namespace Chat2Connect.SRCustomHubs
                     roomMember.MemberID = item.MemberID;
                     roomMember.RoomID = roomid;
                 }
-                roomMember.InRoom = true;
+                roomMember.InRoom = isVisible;
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
                 if (room.CreatedBy == roomMember.MemberID)
@@ -66,12 +66,13 @@ namespace Chat2Connect.SRCustomHubs
 
                 Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID).FirstOrDefault();
                 item.Rooms.Add(roomid);
-                Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
+                if(isVisible) 
+                    Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Add(Context.ConnectionId, GetRoomAdminGroupName(roomid));
 
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { RoomID = roomid, RoomName = room.Name }, null, roomid);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom(isVisible) { RoomID = roomid, RoomName = room.Name }, null, roomid);
             }
             catch (Exception ex)
             {
@@ -215,6 +216,16 @@ namespace Chat2Connect.SRCustomHubs
         public void sendToRoom(int roomid, string sender, string msg)
         {
             Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
+        }
+        public void showMemberInRoom(int roomid, int memberid)
+        {
+            RoomMember rm = new RoomMember();
+            if (rm.LoadByPrimaryKey(memberid, roomid))
+            {
+                rm.InRoom = true;
+                rm.Save();
+            }
+            Clients.Group(roomid.ToString()).showMemberInRoom(roomid, memberid);
         }
         public void sendToRoomAdmins(int roomid, string sender, string msg)
         {

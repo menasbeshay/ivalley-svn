@@ -7,9 +7,12 @@ namespace BLL.Log
 {
     public class EnterRoom : Log
     {
-        public EnterRoom()
+        public EnterRoom(bool isvisible)
         {
-            Type = Helper.Enums.LogType.EnterRoom;
+            if (isvisible)
+                Type = Helper.Enums.LogType.EnterRoom;
+            else
+                Type = Helper.Enums.LogType.EnterRoomHidden;
         }
 
         public int RoomID { get; set; }
