@@ -1399,17 +1399,31 @@ li.g-dark-selected {
     transition: height 1s;
 }
 
+.bordered {
+    border:1px solid #bbb;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+}
+
 
 /* gifts */
 
-.gifts {
+.gifts, .giftMembers {
     list-style:none;
 }
-
-.gifts li {
+.giftMembers {
+    width:100%;
+}
+.gifts li , .giftMembers li {
     float:right;    
     margin:5px;
     }
+
+.giftMembers li {
+    width:150px;
+}
 .gifts li label {
     display:block;
     width:100px;

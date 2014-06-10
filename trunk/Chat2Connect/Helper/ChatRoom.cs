@@ -73,6 +73,7 @@ namespace Helper
         public bool CanAccessMic { get; set; }
         public bool CanWrite { get; set; }
         public bool IsMarked { get; set; }
+        public bool HasGift { get; set; }
         public bool NotifyOnCloseCam { get; set; }
         public bool NotifyOnFriendsLogOff { get; set; }
         public bool NotifyOnFriendsLogOn { get; set; }
