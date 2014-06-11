@@ -65,6 +65,7 @@
     <Compile Include="RoomMember.cs" />
     <Compile Include="RoomMemberBanning.cs" />
     <Compile Include="RoomMemberLevel.cs" />
+    <Compile Include="RoomMessages.cs" />
     <Compile Include="RoomType.cs" />
     <Compile Include="RoomTypeSpec.cs" />
     <Compile Include="RoomTypeSpecDuration.cs" />

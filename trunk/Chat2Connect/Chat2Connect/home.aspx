@@ -4,9 +4,8 @@
 <%@ Register Src="usercontrols/ucFriends.ascx" TagName="ucFriends" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        label
-        {
-            font-weight:normal;
+        label {
+            font-weight: normal;
         }
     </style>
     <script src="js/bootstrap-slider.js"></script>
@@ -15,7 +14,7 @@
     <script src="js/advanced.js"></script>
 
     <%--<script src="js/wysihtml5-0.4.0pre.js"></script>--%>
-    <script src="js/wysihtml5-0.3.0.js"></script>    
+    <script src="js/wysihtml5-0.3.0.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.iconentypo-addfriend').tooltip();
@@ -183,10 +182,15 @@
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
-        <div class="clear" style="height:5px;"></div>
+        <div class="clear" style="height: 5px;"></div>
         <div class="row">
-            <div class="pull-left" data-bind="html:Message"></div>
-            <div class="pull-right" data-bind="text:Time,visible:$parent.CurrentMember().ShowMessageTime"></div>
+            <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;'>
+                <b data-bind="text:FromName"></b>
+            </div>
+            <div class='pull-left msgHolder'><b>:</b></div>
+            <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
+            </div>
+            <div class="pull-right" data-bind="text:MessageDate,visible:$parent.CurrentMember().ShowMessageTime"></div>
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
@@ -291,7 +295,7 @@
                 <img src="images/font-color-icon.png" style="width: 15px;" />
             </button>
             <ul id="colorsMenu" role="menu" class="dropdown-menu">
-                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" style="color:#000;" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" style="color: #000;" href="javascript:;" unselectable="on">
                     <div style="background-color: #000;" class="colorDiv"></div>
                 </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
@@ -904,7 +908,7 @@
 
                                 </div>
                                 <!-- /ko -->
-                                <a download="room.html" data-bind="attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>                                
+                                <a download="room.html" data-bind="attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>
                                 <a class="btn btn-main" href="#" data-bind="click: $parent.removeWindow">خروج</a>
                             </div>
                         </div>
@@ -961,26 +965,26 @@
                     </div>
                 </div>
                 <div data-bind="visible:(Settings.EnableCam())">
-                <div style="height: 5px;" class="clear"></div>
-                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12" >
+                    <div style="height: 5px;" class="clear"></div>
+                    <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
+                    <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
 
-                    <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
+                        <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
-                        <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}, style:{height: showFlashObject() == true? '180px' : '0px'}" type="application/x-shockwave-flash">
-                            <param name="quality" value="high">
-                            <param value="always" name="allowScriptAccess">
-                            <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
-                        </object>
+                            <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}, style:{height: showFlashObject() == true? '180px' : '0px'}" type="application/x-shockwave-flash">
+                                <param name="quality" value="high">
+                                <param value="always" name="allowScriptAccess">
+                                <param name="wmode" value="opaque" />
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            </object>
 
+                        </div>
                     </div>
                 </div>
-                    </div>
                 <!-- /ko -->
                 <!-- ko if: Type()=="Private" -->
-                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}" ></i>&nbsp;&nbsp;الكاميرات</span>
-                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12" >
+                <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
+                <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
 
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
@@ -988,7 +992,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
@@ -1041,7 +1045,7 @@
                                     </div>
                                 </div>--%>
                                 <div class="pull-left" style="padding: 5px;">
-                                    <a href="#" data-bind="click:toggleAdminPart" style="text-decoration:none;">
+                                    <a href="#" data-bind="click:toggleAdminPart" style="text-decoration: none;">
                                         <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
                                         غرفة الإدارة
                                     </a>
@@ -1050,11 +1054,14 @@
                             <div style="height: 10px;" class="clear"></div>
                         </div>
                         <!-- /ko -->
-                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="template: { name: 'chatMsgTemplate', foreach: MessageHistory },style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}"></div>
-
+                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
+                        <input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />
+                            <!-- ko template: { name: 'chatMsgTemplate', foreach: MessageHistory }-->
+                            <!-- /ko -->
+                        </div>
                         <div style="height: 5px;" class="clearfix"></div>
 
-                        <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute;left:0;width: 100%;height:70px;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
+                        <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute; left: 0; width: 100%; height: 70px; z-index: 2; opacity: 0.4; filter: alpha(opacity = 50)"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
                         <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;'></textarea>
 
@@ -1216,7 +1223,7 @@
                                         <td>
                                             <input type="text" data-bind="value:fbURL" style="width: 400px" />
                                         </td>
-                                        <td rowspan="3" style="vertical-align:bottom;padding-right: 5px;">
+                                        <td rowspan="3" style="vertical-align: bottom; padding-right: 5px;">
                                             <input type="button" id="btnupdateSocialLinks" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:updateSocialLinks" />
                                         </td>
                                     </tr>
@@ -1304,12 +1311,13 @@
                                 <div class="col-sm-2 control-label pull-right">
                                     <label>إرسال هدية إلى </label>
                                 </div>
-                                <div class="col-sm-9 pull-right bordered" style="padding:3px;">
-                                    <div class="col-sm-12 SScroll" data-height="130px" style="width:100% !important;float:right">                                    
-                                    <ul class="giftMembers" data-bind="foreach:ExistingMembers, attr:{id:'giftMembers_' + uniqueID()}">
-                                        <li><input type="checkbox" class="checkboxes" data-bind="attr:{value:MemberID, 'data-member-name':MemberName()}"/>
-                                        <span data-bind="text:MemberName()"></span></li>
-                                    </ul>                                     
+                                <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
+                                    <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
+                                        <ul class="giftMembers" data-bind="foreach:ExistingMembers, attr:{id:'giftMembers_' + uniqueID()}">
+                                            <li>
+                                                <input type="checkbox" class="checkboxes" data-bind="attr:{value:MemberID, 'data-member-name':MemberName()}" />
+                                                <span data-bind="text:MemberName()"></span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -1398,11 +1406,11 @@
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ $root.CurrentMemberID+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
-                                 <div class="clear" style="height: 1px;"></div>
-                                 <div class="col-sm-4 control-label pull-right"></div>
+                                <div class="clear" style="height: 1px;"></div>
+                                <div class="col-sm-4 control-label pull-right"></div>
                                 <div class="col-sm-7 control-label pull-right">
-                                 <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
-                                    </div>
+                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
+                                </div>
                             </div>
                         </div>
                     </div>
