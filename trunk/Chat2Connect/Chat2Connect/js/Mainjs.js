@@ -60,11 +60,13 @@ $(document).ready(function () {
     
     initPopupMenu();
 
+    initGeneralGiftModal();
+
 });
 
 
 function initPopupMenu() {
-
+    /*
     $('.friend-link').each(function () {
         var $this = $(this);
         $this.popover({
@@ -75,6 +77,105 @@ function initPopupMenu() {
             container: 'body'
         });
     });
+    */
+    $('.friend-link').each(function () {
+        var $this = $(this);
+        var popoverContent = $this.find('.friendSubMenu');
+        // check if popover content exists
+        if (popoverContent.length > 0) {
+            $this.popover({
+                trigger: 'click',
+                placement: 'left',
+                html: true,
+                content: popoverContent,
+                container: 'body'
+            }).on('hidden.bs.popover', function () {
+                $this.append(popoverContent);
+            });
+        }
+    });
+}
+
+var generalSelectedGift;
+function initGeneralGiftModal() {
+    //view gifts 
+    // get all prices loaded
+    var items = {};
+    $('#GeneralGiftUL ul li').each(function () {
+        items[$(this).attr('data-cat')] = true;
+    });
+
+    // select distinct price values
+    var result = new Array();
+    for (var i in items) {
+        result.push(i);
+    }
+
+    // group gifts by prices
+    for (i = 0; i < result.length; i++) {
+        var wrapper = $('#GeneralGiftUL li[data-cat="' + result[i] + '"]').wrapAll('<div id="GeneralGiftwrapper_' + i + '" class="collapse" />');
+        $('<a class="btn btn-default" data-toggle="collapse" data-target="#GeneralGiftwrapper_' + i + '" style="width:100%">' + result[i] + ' نقطة' + '</a><div class="clear" style="height:2px;"></div>').insertBefore(wrapper.parent());
+        $('<div class="clear" style="height:2px;"></div>').appendTo(wrapper.parent());
+        // open 1st panel only
+        if (i == 0)
+            wrapper.parent().addClass('in');
+    }
+
+    // init link in friends menu 
+    $('.openGiftModal').click(function () {
+        $('#GeneralGiftModal').modal('show');
+        $('#GeneralGiftModal input.checkboxes').each(function () {
+            $(this).attr('checked', false);
+        });
+        $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');        
+    });
+
+    // init send btn 
+    $('#btnGeneralSendGift').click(function () { sendGeneralGift(); });
+
+    // init select gift
+    $('#GeneralGiftUL .GiftLabel').click(function () {
+        generalSelectedGift = $(this);
+        $('#GeneralGiftUL').find('label').removeClass('selected');
+        $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
+    });
+    
+    
+}
+
+function sendGeneralGift()
+{
+    var cbs = $('#GeneralGiftMembers input:checked');
+    var ToMember = [];
+    $.each(cbs, function () {
+        var member = { ID: $(this).val(), Name: $(this).attr('data-member-name') };
+        ToMember.push(member);
+    });
+    var total = generalSelectedGift.attr('data-giftprice') * ToMember.length;
+    if (total > chatVM.CreditPoints()) {
+        notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
+        $("#GeneralGiftModal").modal('hide');
+        return;
+    }
+    else {
+        $.ajax({
+            url: '../Services/Services.asmx/SendGift',
+            dataType: 'json',
+            type: 'post',
+            data: "{'memberName':'', 'roomID' : 0, 'roomName' :'','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + generalSelectedGift.attr('data-giftid') + "}",
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $("#GeneralGiftModal").modal('hide');
+                notify('success', 'تم إرسال الهدية بنجاح');
+                $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
+                return;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#GeneralGiftModal").modal('hide');
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+        });
+    }
 }
 
 function notify(type, msg)
@@ -329,12 +430,16 @@ $(document).ready(function () {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#offlinepeople");
+            var member = { ID: id, Name: $("#user-" + id).attr('data-name') };
+            chatVM.removeOnlineFriend(member);
             initPopupMenu();
         }
         else if ($("#usernode-" + id).parent("#offlinepeople") && status != "offline") {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#onlinepeople");
+            var member = { ID: id, Name: $("#user-" + id).attr('data-name') };
+            chatVM.addOnlineFriend(member);
             initPopupMenu();
         }
 

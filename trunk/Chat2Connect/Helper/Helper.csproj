@@ -54,6 +54,7 @@
     <Compile Include="Defaults.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="EnumUtil.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="JsonConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignalRUser.cs" />

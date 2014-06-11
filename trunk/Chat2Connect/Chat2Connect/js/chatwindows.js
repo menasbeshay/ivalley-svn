@@ -17,6 +17,7 @@ function Chat(maxWin, memberID, memberName) {
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
+    self.OnlineFriends = ko.observableArray();
 
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
@@ -43,6 +44,21 @@ function Chat(maxWin, memberID, memberName) {
         }
         return window;
     }
+
+    self.addOnlineFriend = function (member) {
+        self.OnlineFriends.push(member);
+    }
+
+    self.removeOnlineFriend = function (member) {
+        $.each(self.OnlineFriends(), function () {
+            if ($(this).ID == member.ID) {
+                self.OnlineFriends.remove($(this).index);
+                return;
+            }
+        });
+
+    }
+
     var mapping = {
         '': {
             create: function (options) {
@@ -275,33 +291,36 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             // get selected members
             var cbs = $('#giftMembers_' + window.uniqueID() + ' input:checked');
-            $.each(cbs, function (key, value) {
-                alert(key + ": " + value);
+            var ToMember = [];
+            $.each(cbs, function () {
+                var member = { ID: $(this).val(), Name: $(this).attr('data-member-name') };
+                ToMember.push(member);
             });
-            /* if (chatVM.CreditPoints() >= window.selectedGift.price()) {
-                 $.ajax({
-                     url: '../Services/Services.asmx/SendGift',
-                     dataType: 'json',
-                     type: 'post',
-                     data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendID':'" + $('#gift_' + window.uniqueID()).val() + "', 'friendName':'" + $("#gift_" + window.uniqueID()).tokenInput("get")[0].name + "', 'giftid':" + window.selectedGift.giftid() + "}",
-                     contentType: 'application/json; charset=utf-8',
-                     success: function (data) {
-                         $("#giftModal_" + window.uniqueID()).modal('hide');
-                         notify('success', 'تم إرسال الهدية بنجاح');
-                         $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - window.selectedGift.price());
-                         return;
-                     },
-                     error: function (XMLHttpRequest, textStatus, errorThrown) {
-                         $("#giftModal_" + window.uniqueID()).modal('hide');
-                         notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
-                     }
-                 });
-             }
-             else {
-                 notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
-                 $("#giftModal_" + window.uniqueID()).modal('hide');
- 
-             }*/
+            var total = window.selectedGift.price() * ToMember.length;
+            if (total > chatVM.CreditPoints()) {
+                notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
+                $("#giftModal_" + window.uniqueID()).modal('hide');
+                return;
+            }
+            else {
+                $.ajax({
+                    url: '../Services/Services.asmx/SendGift',
+                    dataType: 'json',
+                    type: 'post',
+                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + window.selectedGift.giftid() + "}",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $("#giftModal_" + window.uniqueID()).modal('hide');
+                        notify('success', 'تم إرسال الهدية بنجاح');
+                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
+                        return;
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#giftModal_" + window.uniqueID()).modal('hide');
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                });
+            }           
         };
 
         // attach
@@ -613,6 +632,16 @@ function Chat(maxWin, memberID, memberName) {
                 wrapper.parent().addClass('in');
         }
 
+        // init send gift link for room member 
+        $('.MemberSendGift').click(function () {
+            $("#giftModal_" + window.uniqueID()).modal('show');
+            $('#giftModal_' + window.uniqueID() + ' input.checkboxes').each(function () {
+                $(this).attr('checked', false);
+            });
+            $('#giftModal_' + window.uniqueID() + ' input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', true);
+        });
+        
+
         // volume controls       
 
         $('#uiListenVolume_' + window.uniqueID()).slider()
@@ -673,6 +702,7 @@ function Chat(maxWin, memberID, memberName) {
                 var member = room.getMember(mid);
                 if (member != null) {
                     member.InRoom(false);
+                    member.IsCamOpened(false);
                     member.QueueOrder(null);
                 }
             }
@@ -795,6 +825,9 @@ function Chat(maxWin, memberID, memberName) {
             return;
         if (self.CurrentMemberID == memberID) {
             rHub.server.userStopCam(window.ID(), self.CurrentMemberID);
+            var member = window.getMember(memberID);
+            if (member != null)
+                member.IsCamOpened(false);
         }
         else {
             var member = window.getMember(memberID);
@@ -1168,10 +1201,10 @@ function InitChat(maxWinRooms, memberID, memberName) {
             });
         }
     };
-    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName) {
+    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID) {
         var window = chatVM.getWindow(roomID, "Room");
-        message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
-        window.addMessage(message);
+        message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";        
+        window.addNotificationMessage(message);
         $(".MsgHistroy").slimScroll({
             railVisible: true,
             height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
@@ -1180,6 +1213,11 @@ function InitChat(maxWinRooms, memberID, memberName) {
             position: 'left',
             scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
         });
+        var receiverMember = window.getMember(friendID);
+        if (receiverMember != null) {
+            receiverMember.HasGift(true);
+            setTimeout(function () { receiverMember.HasGift(false); },10000)
+        }
     };
 
     /*****************************************/
