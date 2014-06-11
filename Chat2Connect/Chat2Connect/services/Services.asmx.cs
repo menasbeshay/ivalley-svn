@@ -565,6 +565,8 @@ namespace Chat2Connect.services
                     currentMemberSettings.CanWrite = false;
                 }
             }
+            //messages
+            roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id,0);
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
@@ -719,7 +721,14 @@ namespace Chat2Connect.services
         }
 
 
-
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetRoomOlderMessages(int roomid, int oldestMsgID)
+        {
+            string result= Helper.JsonConverter.Serialize(new RoomMessages().GetLatestMessags(roomid, oldestMsgID));
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
 
     }
 }

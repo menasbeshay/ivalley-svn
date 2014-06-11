@@ -213,9 +213,26 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
-        public void sendToRoom(int roomid, string sender, string msg)
+        public void sendToRoom(int roomid,int senderid, string sender, string msg)
         {
-            Clients.Group(roomid.ToString()).getMessage(roomid, sender, msg);
+            RoomMessages messages = new RoomMessages();
+            messages.AddNew();
+            messages.RoomID = roomid;
+            messages.Message = msg;
+            messages.MemberID = senderid;
+            messages.MessageDate = DateTime.Now;
+            messages.Save();
+
+            var resultMsg = new Helper.ChatMessage()
+            {
+                ID = messages.ID,
+                FromID = messages.MemberID,
+                ToID = messages.RoomID,
+                FromName = sender,
+                Message = messages.Message,
+                MessageDate = messages.MessageDate
+            };
+            Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg);
         }
         public void showMemberInRoom(int roomid, int memberid)
         {
@@ -227,9 +244,17 @@ namespace Chat2Connect.SRCustomHubs
             }
             Clients.Group(roomid.ToString()).showMemberInRoom(roomid, memberid);
         }
-        public void sendToRoomAdmins(int roomid, string sender, string msg)
+        public void sendToRoomAdmins(int roomid,int senderid, string sender, string msg)
         {
-            Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, sender, msg);
+            var resultMsg = new Helper.ChatMessage()
+            {
+                FromID = senderid,
+                ToID = roomid,
+                FromName = sender,
+                Message = msg,
+                MessageDate = DateTime.Now
+            };
+            Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, resultMsg);
         }
         public void sendPrivateMessage(int toUserId, string message)
         {
@@ -238,11 +263,19 @@ namespace Chat2Connect.SRCustomHubs
 
             if (toUser != null && fromUser != null)
             {
+                var resultMsg = new Helper.ChatMessage()
+                {
+                    FromID = fromUser.MemberID,
+                    ToID = toUser.MemberID,
+                    FromName = fromUser.MemberName,
+                    Message = message,
+                    MessageDate = DateTime.Now
+                };
                 // send to 
-                Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, fromUser.MemberName, message);
+                Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, fromUser.MemberName, resultMsg);
 
                 // send to caller user
-                Clients.Caller.getPrivateMessage(toUserId, fromUser.MemberName, message);
+                Clients.Caller.getPrivateMessage(toUserId, fromUser.MemberName, resultMsg);
             }
             else
             {

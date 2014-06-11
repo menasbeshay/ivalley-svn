@@ -59,6 +59,8 @@ namespace Helper
 
         public string AdminMessage { get; set; }
 
+
+        public List<ChatMessage> MessageHistory { get; set; }
     }
 
     public class ChatMember
@@ -112,6 +114,21 @@ namespace Helper
         public bool MarkOnLoginWithoutWrite { get; set; }
 
         public bool EnableMicForAdminsOnly { get; set; }
+    }
+
+    public class ChatMessage
+    {
+        public object ID { get; set; }
+
+        public object ToID { get; set; }
+
+        public object FromID { get; set; }
+
+        public object FromName { get; set; }
+
+        public object Message { get; set; }
+
+        public object MessageDate { get; set; }
     }
 
 }
