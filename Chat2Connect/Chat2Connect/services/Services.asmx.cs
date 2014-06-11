@@ -645,7 +645,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SendGift(string memberName, int roomID, string roomName, int friendID, string friendName, int giftid)
+        public bool SendGift(string memberName, int roomID, string roomName, Helper.Item[] friends, int giftid)
         {
             MembershipUser user = Membership.GetUser();
             Member member = new Member();
@@ -654,22 +654,30 @@ namespace Chat2Connect.services
             Gift srcgift = new Gift();
             srcgift.LoadByPrimaryKey(giftid);
 
-            if (!(member.Credit_Point >= srcgift.Price_Point))
+            if (!(member.Credit_Point >= srcgift.Price_Point * friends.Length))
                 return false;
+            foreach (Helper.Item item in friends)
+            {
+                MemberGift gift = new MemberGift();
+                gift.AddNew();
+                gift.MemberID = item.ID;
+                gift.SenderID = member.MemberID;
+                gift.SendDate = DateTime.Now;
+                gift.GiftID = giftid;
+                gift.Save();
 
-            MemberGift gift = new MemberGift();
-            gift.AddNew();
-            gift.MemberID = friendID;
-            gift.SenderID = member.MemberID;
-            gift.SendDate = DateTime.Now;
-            gift.GiftID = giftid;
-            gift.Save();
+                member.Credit_Point = member.Credit_Point - srcgift.Price_Point;
+                member.Save();
 
-            member.Credit_Point = member.Credit_Point - srcgift.Price_Point;
-            member.Save();
-            IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, friendName, srcgift.Name);
+                // check if in room or send to friend
+                if (roomID != 0)
+                {
+                    IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID);
+                }
 
+            }
+            
             return true;
         }
 

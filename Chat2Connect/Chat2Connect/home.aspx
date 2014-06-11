@@ -193,6 +193,12 @@
             <div class="pull-right" data-bind="text:MessageDate,visible:$parent.CurrentMember().ShowMessageTime"></div>
         </div>
     </script>
+    <script id="adminMemberTemplate" type="text/html">
+        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">            
+            <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
+            <div class="clear" style="height: 1px;"></div>                        
+        </div>
+    </script>
     <script id="memberTemplate" type="text/html">
         <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">
             <div class="pull-left controls">
@@ -223,7 +229,7 @@
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
             <div class="GiftHolder">
                 <!-- ko if: HasGift() -->
-                <i class="icon-gift" style="color: #f00; font-size: 8px; float: right;"></i>
+                <i class="icon-gift" style="color: #f00; float: right;margin-top:-3px;"></i>
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
@@ -252,7 +258,7 @@
                         </div>
                         <div class="col-lg-5 pull-right">
                             <ul>
-                                <li><a class="jslink"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
                                 <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
@@ -975,7 +981,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                             </object>
 
                         </div>
@@ -992,7 +998,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -1025,7 +1031,7 @@
                                 <div style="width: 20%; padding: 5px; padding-top: 0px; position: relative;" class="pull-left">
                                     <div id="roomAdminMembersDiv" data-height="155px" class="SScroll" style="overflow-y: hidden; width: auto; height: 155px; overflow-x: visible; background-color: #D9D9D9;">
                                         <div id="regular">
-                                            <!-- ko template: { name: 'memberTemplate', foreach: AdminMembers } -->
+                                            <!-- ko template: { name: 'adminMemberTemplate', foreach: AdminMembers } -->
                                             <!-- /ko -->
                                         </div>
                                     </div>
@@ -1275,6 +1281,9 @@
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <input type="text" data-bind="attr:{id:'invite_'+uniqueID()}" class="form-control " />
+                                    <!-- ko: foreach:$parent.OnlineFriends -->
+                                        <span data-bind:"text:ID"></span>
+                                    <!-- /ko -->
                                 </div>
                             </div>
                             <div class="form-group">
@@ -1420,6 +1429,81 @@
         </div>
     </script>
 
+
+    <div id='GeneralGiftModal' class="modal fade " role="modal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">أرسل هدية</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <div class="form-group">
+                                <h4>لديك
+                                    <label id="generalGiftPoints"></label>
+                                    نقطة
+                                   
+                                </h4>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 control-label pull-right">
+                                    <label>إرسال هدية إلى </label>
+                                </div>
+                                <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
+                                    <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
+                                        <asp:Repeater ID="uiRepeaterGiftFriends" runat="server">
+                                            <HeaderTemplate><ul class="giftMembers" id='GeneralGiftMembers'></HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li>
+                                                <input type="checkbox" class="checkboxes" value='<%#Eval("FriendID") %>' data-member-name ='<%# Eval("UserName") %>' />
+                                                <span><%# Eval("UserName") %></span></li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 control-label pull-right" id='GeneralGiftUL'>
+                                    <asp:Repeater ID="uiRepeaterGeneralGifts" runat="server">
+                                            <HeaderTemplate><ul class="gifts" ></HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li data-cat='<%# Eval("Price_Point") %>'>
+                                            <input type="radio" name="gift" id='gift_<%# Eval("GiftID") %>' value='<%# Eval("GiftID") %>' class="input_hidden" />
+                                            <label for='gift_<%# Eval("GiftID") %>' class="GiftLabel" data-giftid='<%# Eval("GiftID") %>' data-giftprice='<%# Eval("Price_Point")%>'>
+                                                <img src='<%# Eval("PicPath") %>' />
+                                                <br />
+                                                <span class="giftname"><%# Eval("Name") %></span>
+                                                <br />
+                                                <span class="giftprice"><%# Eval("Price_Point") + " نقطة" %></span>
+                                            </label>
+                                        </li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    
+                                    <div class="clearfix" style="height: 10px;"></div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" id="btnGeneralSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;"  />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 </asp:Content>
 
 

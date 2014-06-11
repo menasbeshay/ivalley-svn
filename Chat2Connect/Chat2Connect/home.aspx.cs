@@ -28,6 +28,18 @@ namespace Chat2Connect
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
                     int membertype = 0;
                     membertype = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID;
+
+                    // init friends & gifts for general gift modal
+                    MemberFriend friends = new MemberFriend();
+                    friends.GetAllMemberFriends(member.MemberID);
+                    uiRepeaterGiftFriends.DataSource = friends.DefaultView;
+                    uiRepeaterGiftFriends.DataBind();
+
+                    Gift gifts = new Gift();
+                    gifts.LoadAll();
+                    uiRepeaterGeneralGifts.DataSource = gifts.DefaultView;
+                    uiRepeaterGeneralGifts.DataBind(); 
+
                     switch (membertype)
                     {
                         case 1: // black

@@ -128,5 +128,23 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldCreditPoints;
+        
+        /// <summary>
+        /// uiRepeaterGiftFriends control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterGiftFriends;
+        
+        /// <summary>
+        /// uiRepeaterGeneralGifts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterGeneralGifts;
     }
 }

@@ -15,7 +15,8 @@ Inner Join MemberGift MG on M.MemberID = MG.MemberID
 Inner join Member S on MG.SenderID = S.MemberID
 Inner join dbo.aspnet_Users US on S.UserID = US.UserID
 Inner Join Gift G on G.GiftID = MG.GiftID 
-where MG.MemberID = @MemberID							 
+where MG.MemberID = @MemberID	
+Order by SendDate desc		 				 
 Go
 
 
@@ -35,5 +36,6 @@ Inner Join MemberGift MG on M.MemberID = MG.MemberID
 Inner join Member S on MG.SenderID = S.MemberID
 Inner join dbo.aspnet_Users US on S.UserID = US.UserID
 Inner Join Gift G on G.GiftID = MG.GiftID 
-where MG.SenderID = @MemberID							 
+where MG.SenderID = @MemberID
+Order by SendDate desc							 
 Go

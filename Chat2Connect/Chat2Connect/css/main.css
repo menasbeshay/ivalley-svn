@@ -959,9 +959,16 @@ fieldset[disabled] .btn-main.active {
 
 .cameraHolder{
     float:left;
-    width:27px;
+    width:28px;
     height:16px;
-    margin-right:4px;
+    margin-right:2px;
+}
+
+.MicHandHolder, .MarkHolder{
+    float:left;
+    width:18px;
+    height:16px;
+    margin-right:2px;
 }
 
 .camera, .hand, .mic , .mark{
@@ -1198,9 +1205,9 @@ width:230px;
     width:72px;
     }
 .friend-link a.memberlink {
-    margin-left:10px;
+    margin-left:5px;
     text-align:left;
-    height:13px;
+    height:16px;
     display:block;
     text-decoration:none;
     font-family:Tahoma !important;
@@ -1462,7 +1469,8 @@ li.g-dark-selected {
 
 .gifts .input_hidden {
     position: absolute;
-    left: -9999px;
+    width:0px;
+    height:0px;
 }
 
 .gifts label.selected {
