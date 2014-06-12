@@ -45,14 +45,26 @@ function Chat(maxWin, memberID, memberName) {
         return window;
     }
 
+    // init online friends    
+    $.ajax({
+        url: '../services/Services.asmx/GetOnlineFriends',
+        async: false,
+        success: function (data) {
+            self.OnlineFriends = data;
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {            
+            return;
+        }
+    });
+
     self.addOnlineFriend = function (member) {
         self.OnlineFriends.push(member);
     }
 
     self.removeOnlineFriend = function (member) {
-        $.each(self.OnlineFriends(), function () {
-            if ($(this).ID == member.ID) {
-                self.OnlineFriends.remove($(this).index);
+        $.each(self.OnlineFriends, function () {
+            if (this.id == member.id) {
+                self.OnlineFriends.remove(this);
                 return;
             }
         });
@@ -77,6 +89,11 @@ function Chat(maxWin, memberID, memberName) {
         this.Editor = null;
         this.AdminsEditor = null;
         this.selectedGift = null;
+        // default editor styles
+        this.IsBold = false;
+        this.IsItalic = false;
+        this.FontSize = 'small';
+        this.ForeColor = 'black';
 
         this.getMember = function (id) {
             return ko.utils.arrayFirst(this.Members(), function (mem) {
@@ -260,11 +277,16 @@ function Chat(maxWin, memberID, memberName) {
         };
         this.Invitefriends = function () {
             var window = this;
+            var cbs = $('#inviteMembers_' + window.uniqueID() + ' input:checked');
+            var ToMember = '';
+            $.each(cbs, function () {                
+                ToMember += $(this).val() + ',';
+            });
             $.ajax({
                 url: '../Services/Services.asmx/InviteFriends',
                 dataType: 'json',
                 type: 'post',
-                data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + $('#invite_' + window.uniqueID()).val() + "'}",
+                data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friendsIDs':'" + ToMember + "'}",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     notify('success', 'تم دعوة الأصدقاء بنجاح');
@@ -387,11 +409,11 @@ function Chat(maxWin, memberID, memberName) {
             this.MessageHistory.push(msg);
             $(".MsgHistroy").slimScroll({
                 railVisible: true,
-                height: $(".MsgHistroy", "#" + this.uniqueID()).attr('data-height'),
+                height: $(".MsgHistroy", " #" + this.uniqueID()).attr('data-height'),
                 color: '#FEC401',
                 railColor: '#C7C5C0',
                 position: 'left',
-                scrollTo: $(".MsgHistroy", "#" + this.uniqueID()).height()
+                scrollTo: $(".MsgHistroy", " #" + this.uniqueID()).prop('scrollHeight')  //$(".MsgHistroy", " #" + this.uniqueID()).height()
             });
             // update save coversation link
             this.SaveConversation();
@@ -400,11 +422,11 @@ function Chat(maxWin, memberID, memberName) {
             this.AdminMessageHistory.push(msg);
             $(".AdminMsgHistroy").slimScroll({
                 railVisible: true,
-                height: $(".AdminMsgHistroy", "#" + this.uniqueID()).attr('data-height'),
+                height: $(".AdminMsgHistroy", " #" + this.uniqueID()).attr('data-height'),
                 color: '#FEC401',
                 railColor: '#C7C5C0',
                 position: 'left',
-                scrollTo: $(".AdminMsgHistroy", "#" + this.uniqueID()).height()
+                scrollTo: $(".AdminMsgHistroy", " #" + this.uniqueID()).prop('scrollHeight') //$(".AdminMsgHistroy", " #" + this.uniqueID()).height()
             });
         };
         this.SaveConversation = function () {
@@ -564,6 +586,9 @@ function Chat(maxWin, memberID, memberName) {
         });
 
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+        window.Editor.on("beforecommand:composer", function () {
+            //console.log(composer);
+        });
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
@@ -866,7 +891,7 @@ function Chat(maxWin, memberID, memberName) {
             var randomid = Math.floor((Math.random() * 100000) + 1);
             var imageDiv = "<a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100px;margin:0 !important;'/></a>";
 
-            var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100%;'/></div></div></div></div></div></div></div>";
+            var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;'/></div></div></div></div></div></div></div>";
 
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv);
         }
@@ -879,6 +904,23 @@ function Chat(maxWin, memberID, memberName) {
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
 
+    self.SendVideo = function (window) {
+        var url = $('#videoURL_' + window.uniqueID()).val();
+        if (url = '')
+            return false;
+        var arr = url.split('v='); // remove "youtube.com/watch?v="
+        var id = [];
+        if (arr.length > 1)
+            id = arr[1].split('&'); // extract vedio id from query string - first element in the array
+
+        var randomid = Math.floor((Math.random() * 100000) + 1);
+        var videoLink = "<a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:100px;margin:0 !important;' /></a>";
+        var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
+        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
+        var newMsg = videoLink + modaldiv;
+        rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg);
+        $("#attachModal_" + window.uniqueID()).modal('hide');
+    }
 }
 
 function onCamClose(userId, roomId) {
@@ -974,21 +1016,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         //var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'> " + msg + "</div><div style='clear:both;height:3px;'></div>";
         window.addMessage(msg);
     };
-    rHub.client.getVideoMessage = function (rid, sname, url) {
-        var arr = url.split('v='); // remove "youtube.com/watch?v="
-        var id = arr[1].split('&'); // extract vedio id from query string - first element in the array
-
-        var type = "Room";
-        var window = chatVM.getWindow(rid, type, sname);
-        if (window == null)
-            return;
-        var randomid = Math.floor((Math.random() * 100000) + 1);
-        var videoLink = "<a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:100px;margin:0 !important;' /></a>";
-        var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
-        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
-        var newMsg = "<div class='pull-left msgHolder' style='width:auto;margin-right:5px;font-size:9px;font-family:tahoma;'><b>" + sname + "</b></div><div class='pull-left msgHolder'><b>:</b></div><div class='pull-left msgHolder' style='width:auto;'>" + videoLink + modaldiv + "</div><div style='clear:both;height:1px;'></div>";
-        window.addMessage(newMsg);
-    };
+    
     rHub.client.addNewMember = function (rid, memberData) {
         var newMember = ko.mapping.fromJS(memberData);
         var type = "Room";
@@ -1216,7 +1244,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var receiverMember = window.getMember(friendID);
         if (receiverMember != null) {
             receiverMember.HasGift(true);
-            setTimeout(function () { receiverMember.HasGift(false); },10000)
+            setTimeout(function () { receiverMember.HasGift(false); }, 60000);
         }
     };
 
