@@ -61,6 +61,7 @@ namespace Helper
 
 
         public List<ChatMessage> MessageHistory { get; set; }
+
     }
 
     public class ChatMember

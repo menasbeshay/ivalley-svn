@@ -400,17 +400,6 @@ function animateMenu(obj)
 
 }
 
-function sendvideo(rid, url,sender, input)
-{
-    input.val('');
-    if (url != '')
-        rHub.server.sendVideoToRoom(rid, sender, url);
-    else
-        return false;
-    $("#attachModal_Room_" + rid).modal('hide');
-    $("#attachModal_Private_" + rid).modal('hide');
-}
-
 function SaveConversation(rid) {
     var str = $(".MsgHistroy", "#room_" + rid).html().replace('<div style="clear:both;height:1px;"></div>', "\r\n");
     $('#SaveConv_' + rid).attr("href", "data:text/plain;charset=UTF-8," + $('<span>' + str + '</span>').text());
@@ -430,7 +419,7 @@ $(document).ready(function () {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#offlinepeople");
-            var member = { ID: id, Name: $("#user-" + id).attr('data-name') };
+            var member = { id: id, name: $("#usernode-" + id).attr('data-name') };
             chatVM.removeOnlineFriend(member);
             initPopupMenu();
         }
@@ -438,7 +427,7 @@ $(document).ready(function () {
             var node = $("#usernode-" + id);
             $("#usernode-" + id).remove();
             node.appendTo("#onlinepeople");
-            var member = { ID: id, Name: $("#user-" + id).attr('data-name') };
+            var member = { id: id, name: $("#usernode-" + id).attr('data-name') };
             chatVM.addOnlineFriend(member);
             initPopupMenu();
         }

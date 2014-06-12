@@ -971,6 +971,13 @@ fieldset[disabled] .btn-main.active {
     margin-right:2px;
 }
 
+.GiftHolder {
+    float:right;
+    width:18px;
+    height:16px;
+    margin-left:2px;
+}
+
 .camera, .hand, .mic , .mark{
     display:none;
     float:left;

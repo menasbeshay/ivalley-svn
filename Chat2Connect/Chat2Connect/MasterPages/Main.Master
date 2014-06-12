@@ -201,7 +201,7 @@
                     <i class="modernicon iconmodern-createroom" style="font-size: 25px;"></i>
                     <a href="../createRoom.aspx">إنشاء غرفة</a>
                 </div>
-                <div style="color: #FEC200">
+                <div style="color: #FEC200;display:none;">
                     <i class="icon icon-off" style="font-size: 25px;"></i>
                     <asp:LinkButton ID="uiLinkButtonLock" runat="server" style="color: #FEC200">سكون</asp:LinkButton>                    
                 </div>

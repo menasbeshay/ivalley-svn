@@ -703,6 +703,32 @@ namespace Chat2Connect.services
             //return result;
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetOnlineFriends()
+        {
+            List<dynamic> friends = new List<dynamic>();
+            MembershipUser user = Membership.GetUser();
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+
+            Member online = new Member();
+            online.GetMemberFriendsByStatus(member.MemberID, true);
+            if (online.RowCount > 0)
+            {
+                for (int i = 0; i < online.RowCount; i++)
+                {
+                    friends.Add(new { id = online.MemberID , name = online.GetColumn("UserName") });
+                    online.MoveNext();
+                }
+            }
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(friends);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
+        }
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

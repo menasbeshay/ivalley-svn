@@ -222,14 +222,14 @@
                 </div>
                 <div class="MarkHolder">
                     <!-- ko if: IsMarked()-->
-                    <i class="icon-ban-circle"></i>
+                    <i class="icon-ban-circle" style="color:#f00;" ></i>
                     <!-- /ko -->
                 </div>
             </div>
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
             <div class="GiftHolder">
                 <!-- ko if: HasGift() -->
-                <i class="icon-gift" style="color: #f00; float: right;margin-top:-3px;"></i>
+                <img src="images/gift-icon.png" style="width: 12px;" />
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
@@ -1060,7 +1060,7 @@
                             <div style="height: 10px;" class="clear"></div>
                         </div>
                         <!-- /ko -->
-                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
+                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
                         <input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />
                             <!-- ko template: { name: 'chatMsgTemplate', foreach: MessageHistory }-->
                             <!-- /ko -->
@@ -1276,18 +1276,22 @@
                         <div class="form-horizontal blockBox validationGroup">
 
                             <div class="form-group">
-                                <div class="col-sm-4 control-label pull-right">
+                                <div class="col-sm-3 control-label pull-right">
                                     <label>إرسال دعوة إلى </label>
                                 </div>
-                                <div class="col-sm-7 pull-right">
-                                    <input type="text" data-bind="attr:{id:'invite_'+uniqueID()}" class="form-control " />
-                                    <!-- ko: foreach:$parent.OnlineFriends -->
-                                        <span data-bind:"text:ID"></span>
-                                    <!-- /ko -->
+                                <div class="col-sm-8 pull-right bordered"> 
+                                    <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">                                   
+                                    <ul class="giftMembers" data-bind="foreach:$parent.OnlineFriends, attr:{id:'inviteMembers_' + uniqueID()}">
+                                            <li>
+                                                <input type="checkbox" class="invitecheckboxes" data-bind="attr:{value:id, 'data-member-name':name}" />
+                                                <span data-bind="text:name"></span></li>
+                                        </ul>   
+                                        </div>                                 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                <div class="col-sm-3 control-label pull-right"></div>
+                                <div class=" col-sm-8 pull-right">
                                     <input type="button" id="btnInviteFriend" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:Invitefriends" />
                                 </div>
                             </div>
@@ -1379,7 +1383,7 @@
                                 <div class="col-sm-7 pull-right">
                                     <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}">
                                     <div class="clear" style="height: 5px;"></div>
-                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:sendvideo(ID(),$('#videoURL_' + uniqueID()).val() ,$('#uiHiddenFieldCurrentName').val(), $('#videoURL_' + uniqueID()))">إرسال</a>
+                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:$parent.SendVideo($data)">إرسال</a>
                                 </div>
                             </div>
                             <div style="height: 1px; background-color: #ccc; clear: both; width: 80%; margin: 5px auto;"></div>
