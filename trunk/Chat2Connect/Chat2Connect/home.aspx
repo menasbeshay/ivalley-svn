@@ -185,9 +185,9 @@
         <div class="clear" style="height: 5px;"></div>
         <div class="row">
             <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;'>
+                <b data-bind="if:FromName">:</b>
                 <b data-bind="text:FromName"></b>
             </div>
-            <div class='pull-left msgHolder'><b>:</b></div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
             </div>
             <div class="pull-right" data-bind="text:MessageDate,visible:$parent.CurrentMember().ShowMessageTime"></div>
@@ -208,7 +208,7 @@
                     <!-- ko if: IsCamViewed()-->
                     <i class="icon-circle" style="color: #f00; font-size: 8px; float: left;"></i>
                     <!-- /ko -->
-                    <a data-bind="click:$root.startCam.bind($data,$parent,$data.MemberID(),$data.MemberName())" class="camera" style="display: block; margin-left: 5px;">
+                    <a data-bind="click:$parent.startCam.bind($data,$data.MemberID())" class="camera" style="display: block; margin-left: 5px;">
                         <img style="width: 20px;" src="images/video_camera.png"></a>
                     <!-- /ko -->
                 </div>
@@ -1061,7 +1061,9 @@
                         </div>
                         <!-- /ko -->
                         <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
-                        <input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />
+                            <!-- ko if: Type()=="Room" -->
+                            <input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />
+                            <!-- /ko -->
                             <!-- ko template: { name: 'chatMsgTemplate', foreach: MessageHistory }-->
                             <!-- /ko -->
                         </div>
@@ -1076,14 +1078,14 @@
                         <div class="col-lg-12" style="padding: 0px;">
                             <div class="pull-right">
                                 <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1) ), click:$parent.requestMic,attr:{id:'requestMic_'+uniqueID()}" data-original-title="طلب/إلغاء مايك">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1) ), click:requestMic" data-original-title="طلب/إلغاء مايك">
                                     <img src="images/hand-icon.png" style="width: 15px;">
                                 </a>
                                 <!-- /ko -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1)), click:$parent.mic,attr:{id:'Mic_'+uniqueID()}" data-original-title="تحدث">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1)), click:toggleMic" data-original-title="تحدث">
                                     <i class="icon-microphone" style="font-size: 17px;"></i>
                                 </a>
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableCam()), click:$parent.cam,attr:{id:'Cam_'+uniqueID()}" data-original-title="تشغيل/ إيقاف الكاميرا">
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableCam()), click:toggleCam" data-original-title="تشغيل/ إيقاف الكاميرا">
                                     <i class="icon-camera" style="font-size: 17px;"></i>
                                 </a>
                             </div>

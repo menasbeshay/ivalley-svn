@@ -272,14 +272,20 @@ namespace Chat2Connect.SRCustomHubs
                     MessageDate = DateTime.Now
                 };
                 // send to 
-                Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, fromUser.MemberName, resultMsg);
+                Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, resultMsg);
 
                 // send to caller user
-                Clients.Caller.getPrivateMessage(toUserId, fromUser.MemberName, resultMsg);
+                Clients.Caller.getPrivateMessage(toUserId, resultMsg);
             }
             else
             {
-                Clients.Caller.getPrivateMessage(toUserId, "System", "Message not delivered, user may went offline");
+                var resultMsg = new Helper.ChatMessage()
+                {
+                    FromName = "System",
+                    Message = "Message not delivered, user may went offline",
+                    MessageDate = DateTime.Now
+                };
+                Clients.Caller.getPrivateMessage(toUserId, resultMsg);
             }
 
         }
