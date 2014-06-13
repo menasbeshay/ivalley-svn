@@ -538,7 +538,7 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             var member = window.getMember(memberid);
             if (member != null) {
-                //getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
+                getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
                 member.IsMicOpened(true);
                 if (window.Type() == 'Private') {
                     return;
@@ -561,7 +561,7 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             var member = window.getMember(memberid);
             if (member != null) {
-                //getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberid);
+                getFlashMovie('chat2connect_' + window.uniqueID()).stopMic(memberid);
                 member.IsMicOpened(false);
                 if (window.Type() == 'Private')
                     return;
@@ -591,7 +591,7 @@ function Chat(maxWin, memberID, memberName) {
         this.startCam = function (memberID) {
             var window = this;
             var member = window.getMember(memberID);
-            //getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, member.MemberName());
+            getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, member.MemberName());
             member.IsCamOpened(true);
             if (window.Type() == 'Private')
                 return;
@@ -601,7 +601,7 @@ function Chat(maxWin, memberID, memberName) {
         }
         this.stopCam = function (memberID) {
             var window = this;
-            //getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
+            getFlashMovie('chat2connect_' + window.uniqueID()).stopCam(memberID);
             var member = window.getMember(memberID);
             if (member == null)
                 return;
