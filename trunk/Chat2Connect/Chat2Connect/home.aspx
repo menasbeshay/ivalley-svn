@@ -69,6 +69,7 @@
         });
 
     </script>
+    <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/knockout-3.1.0.js"></script>
     <script src="js/jquery.tokeninput.js"></script>
     <link href="css/token-input-facebook.css" rel="stylesheet" />
@@ -190,7 +191,7 @@
             </div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
             </div>
-            <div class="pull-right" data-bind="text:MessageDate,visible:$parent.CurrentMember().ShowMessageTime"></div>
+            <div class="pull-right" data-bind="date:MessageDate,format: 'LLL',visible:$parent.CurrentMember().ShowMessageTime"></div>
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">
@@ -1219,7 +1220,7 @@
                                 <input type="button" id="btnBanNewMember" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:banMemberByName" />
                                 <div class="clearfix"></div>
                                 <h4>توبيك الغرفة</h4>
-                                <input type="text" data-bind="value:RoomTopic" maxlength="100" size="80" placeholder="80 حرف">
+                                <input type="text" data-bind="value:RoomTopic" maxlength="60" size="65" placeholder="60 حرف">
                                 <input type="button" id="btnSaveRoomTopic" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:saveRoomTopic" />
                                 <div class="clearfix"></div>
                                 <h4>شبكات التواصل</h4>
