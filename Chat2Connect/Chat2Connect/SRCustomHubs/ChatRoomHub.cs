@@ -6,6 +6,7 @@ using System.Web.Security;
 using BLL;
 using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Chat2Connect.SRCustomHubs
 {
@@ -73,6 +74,7 @@ namespace Chat2Connect.SRCustomHubs
 
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom(isVisible) { RoomID = roomid, RoomName = room.Name }, null, roomid);
+
             }
             catch (Exception ex)
             {
@@ -104,6 +106,8 @@ namespace Chat2Connect.SRCustomHubs
 
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
+
+              
             }
             catch (Exception ex)
             {

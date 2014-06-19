@@ -11,6 +11,7 @@ using Chat2Connect.SRCustomHubs;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Dynamic;
+using System.Collections;
 
 namespace Chat2Connect.services
 {
@@ -763,6 +764,27 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
         }
+        
+        [WebMethod(EnableSession = true)]
+        public void SaveChatRoom(int id, bool add)
+        {
+            // save opened rooms 
+            List<int> rooms ;
+            if (HttpContext.Current.Session["OpenedChatRooms"] != null)
+                rooms = (List<int>)HttpContext.Current.Session["OpenedChatRooms"];
+            else
+                rooms = new List<int>();
+
+            if (add)
+            {
+                if(!rooms.Contains(id))
+                    rooms.Add(id);
+            }
+            else
+                rooms = rooms.Where(m => m != id).ToList();
+            HttpContext.Current.Session["OpenedChatRooms"] = rooms;
+        }
+
 
     }
 }
