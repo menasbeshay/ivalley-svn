@@ -353,7 +353,8 @@ function Chat(maxWin, memberID, memberName) {
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
                         notify('success', 'تم إرسال الهدية بنجاح');
-                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
+                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);                        
+                        chatVM.CreditPoints($('#uiHiddenFieldCreditPoints').val());
                         return;
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -612,6 +613,31 @@ function Chat(maxWin, memberID, memberName) {
                 rHub.server.userStopCam(window.ID(), window.CurrentMember().MemberID());
             }
         }
+
+        this.initEditor = function () {
+            this.Editor.setValue("");
+            if (this.IsBold) {
+                this.Editor.composer.commands.exec("bold");
+            }
+            if (this.IsItalic) {
+                this.Editor.composer.commands.exec("italic");
+            }
+            this.Editor.composer.commands.exec("fontSize", this.FontSize);
+            this.Editor.composer.commands.exec("foreColor", this.ForeColor);
+        }
+
+        this.toggleBold = function () {
+            self.IsBold = !self.IsBold;
+        };
+        this.toggleItalic = function () {
+            self.IsItalic = !self.IsItalic;
+        };
+        this.setFontSize = function (fontsize) {
+            self.FontSize = fontsize;
+        };
+        this.setForeColor = function (color) {
+            self.ForeColor = color;
+        };
     }
 
     self.changeCurrent = function (selctor) {
@@ -625,6 +651,8 @@ function Chat(maxWin, memberID, memberName) {
         if (window == undefined) {
             self.addWindow(id, name, type, istemp, ishidden, levelid);
         }
+        else
+            self.changeCurrent(window.uniqueID());
     };
     self.addWindow = function (id, name, type, istemp, isHidden, levelid) {
         if (istemp == undefined)
@@ -669,11 +697,16 @@ function Chat(maxWin, memberID, memberName) {
                     rHub.server.addToRoom(id, win.CurrentMember().InRoom());
                     self.Init(win);
                 });
+
+            // save opened rooms
+            $.post("../services/Services.asmx/SaveChatRoom", { id: id, add:true });                
         }
     }
     self.removeWindow = function () {
         if (this.Type() == "Room") {
             rHub.server.removeFromRoom(this.ID());
+            // save opened rooms
+            $.post("../services/Services.asmx/SaveChatRoom", { id: this.ID(), add: false });
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
@@ -697,7 +730,8 @@ function Chat(maxWin, memberID, memberName) {
             rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue());
         }
         //window.Message("");
-        window.Editor.setValue("");
+        window.initEditor();
+       /* window.Editor.setValue("");*/
         $('#emotionMenu_' + window.ID()).hide();
     }
     self.sendAdminMessage = function (window) {
@@ -719,9 +753,7 @@ function Chat(maxWin, memberID, memberName) {
         });
 
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-        window.Editor.on("beforecommand:composer", function () {
-            //console.log(composer);
-        });
+       
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             if (window.AdminsEditor != null && window.AdminsEditor != undefined) {

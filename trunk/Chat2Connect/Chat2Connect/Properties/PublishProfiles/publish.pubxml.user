@@ -100,10 +100,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2014 20:28:17</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>06/11/2014 17:21:12</publishTime>
+      <publishTime>06/17/2014 11:29:40</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>06/11/2014 17:21:13</publishTime>
+      <publishTime>06/17/2014 11:29:41</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>03/18/2014 10:44:29</publishTime>
@@ -217,7 +217,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>06/11/2014 17:21:11</publishTime>
+      <publishTime>06/17/2014 11:29:39</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>01/19/2014 13:36:26</publishTime>
@@ -247,7 +247,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2014 13:36:26</publishTime>
     </File>
     <File Include="bin/packages.config">
-      <publishTime>05/04/2014 10:46:24</publishTime>
+      <publishTime>06/17/2014 10:16:12</publishTime>
     </File>
     <File Include="bin/Scripts/jquery.signalR-2.0.1.js">
       <publishTime>01/19/2014 13:36:29</publishTime>
@@ -406,7 +406,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/02/2014 16:33:35</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>06/11/2014 16:17:57</publishTime>
+      <publishTime>06/12/2014 11:09:57</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
@@ -586,7 +586,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 14:06:28</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>06/11/2014 16:44:41</publishTime>
+      <publishTime>06/17/2014 10:16:12</publishTime>
     </File>
     <File Include="Home2.aspx">
       <publishTime>05/07/2014 15:36:21</publishTime>
@@ -1783,7 +1783,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>06/11/2014 17:08:32</publishTime>
+      <publishTime>06/17/2014 10:16:11</publishTime>
     </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
@@ -1888,7 +1888,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>06/11/2014 16:38:20</publishTime>
+      <publishTime>06/12/2014 13:25:51</publishTime>
     </File>
     <File Include="js/style.js">
       <publishTime>03/10/2014 14:06:24</publishTime>
@@ -1966,7 +1966,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>06/02/2014 15:52:15</publishTime>
+      <publishTime>06/12/2014 12:36:22</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>03/13/2014 16:36:48</publishTime>
@@ -1978,7 +1978,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/09/2014 11:02:33</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/04/2014 10:46:24</publishTime>
+      <publishTime>06/17/2014 10:16:12</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>12/16/2013 13:37:41</publishTime>
@@ -2003,6 +2003,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/knockout.mapping-latest.js">
       <publishTime>05/04/2014 10:46:24</publishTime>
+    </File>
+    <File Include="Scripts/moment-with-langs.js">
+      <publishTime>06/17/2014 11:35:41</publishTime>
+    </File>
+    <File Include="Scripts/moment-with-langs.min.js">
+      <publishTime>06/17/2014 11:35:41</publishTime>
+    </File>
+    <File Include="Scripts/moment.js">
+      <publishTime>06/17/2014 11:35:50</publishTime>
+    </File>
+    <File Include="Scripts/moment.min.js">
+      <publishTime>06/17/2014 11:35:41</publishTime>
     </File>
     <File Include="services/ChatRoomService.asmx">
       <publishTime>01/19/2014 13:54:37</publishTime>

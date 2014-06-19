@@ -37,6 +37,8 @@
 
 
     <script type="text/javascript">
+        
+
         $(function () {
 
             new AjaxUpload('#UploadButton', {
@@ -394,5 +396,237 @@
             </tr>
         </tbody>
     </table>
+
+
+    <div id="main" style="background-color:#D9D9D9;">
+		<h1>Color Names</h1>
+		<p>You can use this color names if you have a color blindness or if you prefer to have more descriptive color names.</p>
+		
+
+		<h2>Red color names</h2> 
+<p> 
+</p><table class="colortable"> 
+<tbody><tr style="color:indianred;"><td>&nbsp;</td><td class="whitename">IndianRed</td><td class="white">CD5C5C</td><td>&nbsp;</td></tr> 
+<tr style="color:lightcoral;"><td>&nbsp;</td><td class="whitename">LightCoral</td><td class="white">F08080</td><td>&nbsp;</td></tr> 
+<tr style="color:salmon;"><td>&nbsp;</td><td class="whitename">Salmon   </td><td class="white">FA8072</td><td>&nbsp;</td></tr> 
+<tr style="color:darksalmon;"><td>&nbsp;</td><td class="whitename">DarkSalmon</td><td class="white">E9967A</td><td>&nbsp;</td></tr> 
+<tr style="color:lightsalmon;"><td>&nbsp;</td><td class="whitename">LightSalmon</td><td class="white">FFA07A</td><td>&nbsp;</td></tr> 
+<tr style="color:crimson;"><td>&nbsp;</td><td class="whitename">Crimson  </td><td class="white">DC143C</td><td>&nbsp;</td></tr> 
+<tr style="color:red;"><td>&nbsp;</td><td class="whitename">Red      </td><td class="white">FF0000</td><td>&nbsp;</td></tr> 
+<tr style="color:fireBrick;"><td>&nbsp;</td><td class="whitename">FireBrick</td><td class="white">B22222</td><td>&nbsp;</td></tr> 
+<tr style="color:darkred;"><td>&nbsp;</td><td class="whitename">DarkRed  </td><td class="white">8B0000</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Pink color names</h2> 
+<p> 
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BelowColorChart -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6483924506584584" data-ad-slot="3874231427" data-adsbygoogle-status="done"><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</p><table class="colortable"> 
+<tbody><tr style="color:pink;"><td>&nbsp;</td><td class="whitename">Pink     </td><td class="white">FFC0CB</td><td>&nbsp;</td></tr> 
+<tr style="color:lightpink;"><td>&nbsp;</td><td class="whitename">LightPink</td><td class="white">FFB6C1</td><td>&nbsp;</td></tr> 
+<tr style="color:hotpink;"><td>&nbsp;</td><td class="whitename">HotPink  </td><td class="white">FF69B4</td><td>&nbsp;</td></tr> 
+<tr style="color:deeppink;"><td>&nbsp;</td><td class="whitename">DeepPink </td><td class="white">FF1493</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumvioletred;"><td>&nbsp;</td><td class="whitename">MediumVioletRed</td><td class="white">C71585</td><td>&nbsp;</td></tr> 
+<tr style="color:palevioletred;"><td>&nbsp;</td><td class="whitename">PaleVioletRed  </td><td class="white">DB7093</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+
+<h2>Orange color names</h2> 
+<p>  
+</p><table class="colortable"> 
+<tbody><tr style="color:lightsalmon;"><td>&nbsp;</td><td class="whitename">LightSalmon   </td><td class="white">FFA07A</td><td>&nbsp;</td></tr> 
+<tr style="color:coral;"><td>&nbsp;</td><td class="whitename">Coral    </td><td class="white">FF7F50</td><td>&nbsp;</td></tr> 
+<tr style="color:tomato;"><td>&nbsp;</td><td class="whitename">Tomato   </td><td class="white">FF6347</td><td>&nbsp;</td></tr> 
+<tr style="color:orangered;"><td>&nbsp;</td><td class="whitename">OrangeRed</td><td class="white">FF4500</td><td>&nbsp;</td></tr> 
+<tr style="color:darkorange;"><td>&nbsp;</td><td class="whitename">DarkOrange</td><td class="white">FF8C00</td><td>&nbsp;</td></tr> 
+<tr style="color:orange;"><td>&nbsp;</td><td class="whitename">Orange   </td><td class="white">FFA500</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Yellow color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:gold;"><td>&nbsp;</td><td class="whitename">Gold     </td><td class="white">FFD700</td><td>&nbsp;</td></tr> 
+<tr style="color:yellow;"><td>&nbsp;</td><td class="whitename">Yellow   </td><td class="white">FFFF00</td><td>&nbsp;</td></tr> 
+<tr style="color:lightyellow;"><td>&nbsp;</td><td class="whitename">LightYellow</td><td class="white">FFFFE0</td><td>&nbsp;</td></tr> 
+<tr style="color:lemonchiffon;"><td>&nbsp;</td><td class="whitename">LemonChiffon   </td><td class="white">FFFACD</td><td>&nbsp;</td></tr> 
+<tr style="color:lightgoldenrodyellow;"><td>&nbsp;</td><td class="whitename">LightGoldenrodYellow</td><td class="white">FAFAD2</td><td>&nbsp;</td></tr> 
+<tr style="color:papayawhip;"><td>&nbsp;</td><td class="whitename">PapayaWhip</td><td class="white">FFEFD5</td><td>&nbsp;</td></tr> 
+<tr style="color:moccasin;"><td>&nbsp;</td><td class="whitename">Moccasin </td><td class="white">FFE4B5</td><td>&nbsp;</td></tr> 
+<tr style="color:peachpuff;"><td>&nbsp;</td><td class="whitename">PeachPuff</td><td class="white">FFDAB9</td><td>&nbsp;</td></tr> 
+<tr style="color:palegoldenrod;"><td>&nbsp;</td><td class="whitename">PaleGoldenrod  </td><td class="white">EEE8AA</td><td>&nbsp;</td></tr> 
+<tr style="color:khaki;"><td>&nbsp;</td><td class="whitename">Khaki    </td><td class="white">F0E68C</td><td>&nbsp;</td></tr> 
+<tr style="color:darkkhaki;"><td>&nbsp;</td><td class="whitename">DarkKhaki</td><td class="white">BDB76B</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Purple color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:lavender;"><td>&nbsp;</td><td class="whitename">Lavender </td><td class="white">E6E6FA</td><td>&nbsp;</td></tr> 
+<tr style="color:thistle;"><td>&nbsp;</td><td class="whitename">Thistle  </td><td class="white">D8BFD8</td><td>&nbsp;</td></tr> 
+<tr style="color:plum;"><td>&nbsp;</td><td class="whitename">Plum     </td><td class="white">DDA0DD</td><td>&nbsp;</td></tr> 
+<tr style="color:violet;"><td>&nbsp;</td><td class="whitename">Violet   </td><td class="white">EE82EE</td><td>&nbsp;</td></tr> 
+<tr style="color:orchid;"><td>&nbsp;</td><td class="whitename">Orchid   </td><td class="white">DA70D6</td><td>&nbsp;</td></tr> 
+<tr style="color:fuchsia;"><td>&nbsp;</td><td class="whitename">Fuchsia  </td><td class="white">FF00FF</td><td>&nbsp;</td></tr> 
+<tr style="color:Magenta;"><td>&nbsp;</td><td class="whitename">Magenta  </td><td class="white">FF00FF</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumorchid;"><td>&nbsp;</td><td class="whitename">MediumOrchid   </td><td class="white">BA55D3</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumpurple;"><td>&nbsp;</td><td class="whitename">MediumPurple   </td><td class="white">9370DB</td><td>&nbsp;</td></tr> 
+<tr style="color:#9966CC;"><td>&nbsp;</td><td class="whitename">Amethyst </td><td class="white">9966CC</td><td>&nbsp;</td></tr> 
+<tr style="color:blueviolet;"><td>&nbsp;</td><td class="whitename">BlueViolet</td><td class="white">8A2BE2</td><td>&nbsp;</td></tr> 
+<tr style="color:darkviolet;"><td>&nbsp;</td><td class="whitename">DarkViolet</td><td class="white">9400D3</td><td>&nbsp;</td></tr> 
+<tr style="color:darkorchid;"><td>&nbsp;</td><td class="whitename">DarkOrchid</td><td class="white">9932CC</td><td>&nbsp;</td></tr> 
+<tr style="color:darkmagenta;"><td>&nbsp;</td><td class="whitename">DarkMagenta</td><td class="white">8B008B</td><td>&nbsp;</td></tr> 
+<tr style="color:purple;"><td>&nbsp;</td><td class="whitename">Purple   </td><td class="white">800080</td><td>&nbsp;</td></tr> 
+<tr style="color:indigo;"><td>&nbsp;</td><td class="whitename">Indigo   </td><td class="white">4B0082</td><td>&nbsp;</td></tr> 
+<tr style="color:slateblue;"><td>&nbsp;</td><td class="whitename">SlateBlue</td><td class="white">6A5ACD</td><td>&nbsp;</td></tr> 
+<tr style="color:darkslateblue;"><td>&nbsp;</td><td class="whitename">DarkSlateBlue  </td><td class="white">483D8B</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumslateblue;"><td>&nbsp;</td><td class="whitename">MediumSlateBlue</td><td class="white">7B68EE</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Green color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:greenyellow;"><td>&nbsp;</td><td class="whitename">GreenYellow</td><td class="white">ADFF2F</td><td>&nbsp;</td></tr> 
+<tr style="color:chartreuse;"><td>&nbsp;</td><td class="whitename">Chartreuse</td><td class="white">7FFF00</td><td>&nbsp;</td></tr> 
+<tr style="color:lawngreen;"><td>&nbsp;</td><td class="whitename">LawnGreen</td><td class="white">7CFC00</td><td>&nbsp;</td></tr> 
+<tr style="color:lime;"><td>&nbsp;</td><td class="whitename">Lime     </td><td class="white">00FF00</td><td>&nbsp;</td></tr> 
+<tr style="color:limegreen;"><td>&nbsp;</td><td class="whitename">LimeGreen</td><td class="white">32CD32</td><td>&nbsp;</td></tr> 
+<tr style="color:palegreen;"><td>&nbsp;</td><td class="whitename">PaleGreen</td><td class="white">98FB98</td><td>&nbsp;</td></tr> 
+<tr style="color:lightgreen;"><td>&nbsp;</td><td class="whitename">LightGreen</td><td class="white">90EE90</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumspringgreen;"><td>&nbsp;</td><td class="whitename">MediumSpringGreen</td><td class="white">00FA9A</td><td>&nbsp;</td></tr> 
+<tr style="color:springgreen;"><td>&nbsp;</td><td class="whitename">SpringGreen</td><td class="white">00FF7F</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumseagreen;"><td>&nbsp;</td><td class="whitename">MediumSeaGreen </td><td class="white">3CB371</td><td>&nbsp;</td></tr> 
+<tr style="color:seagreen;"><td>&nbsp;</td><td class="whitename">SeaGreen </td><td class="white">2E8B57</td><td>&nbsp;</td></tr> 
+<tr style="color:forestgreen;"><td>&nbsp;</td><td class="whitename">ForestGreen</td><td class="white">228B22</td><td>&nbsp;</td></tr> 
+<tr style="color:green;"><td>&nbsp;</td><td class="whitename">Green    </td><td class="white">008000</td><td>&nbsp;</td></tr> 
+<tr style="color:darkgreen;"><td>&nbsp;</td><td class="whitename">DarkGreen</td><td class="white">006400</td><td>&nbsp;</td></tr> 
+<tr style="color:yellowgreen;"><td>&nbsp;</td><td class="whitename">YellowGreen</td><td class="white">9ACD32</td><td>&nbsp;</td></tr> 
+<tr style="color:olivedrab;"><td>&nbsp;</td><td class="whitename">OliveDrab</td><td class="white">6B8E23</td><td>&nbsp;</td></tr> 
+<tr style="color:olive;"><td>&nbsp;</td><td class="whitename">Olive    </td><td class="white">808000</td><td>&nbsp;</td></tr> 
+<tr style="color:darkolivegreen;"><td>&nbsp;</td><td class="whitename">DarkOliveGreen </td><td class="white">556B2F</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumaquamarine;"><td>&nbsp;</td><td class="whitename">MediumAquamarine</td><td class="white">66CDAA</td><td>&nbsp;</td></tr> 
+<tr style="color:darkseagreen;"><td>&nbsp;</td><td class="whitename">DarkSeaGreen   </td><td class="white">8FBC8F</td><td>&nbsp;</td></tr> 
+<tr style="color:lightseagreen;"><td>&nbsp;</td><td class="whitename">LightSeaGreen  </td><td class="white">20B2AA</td><td>&nbsp;</td></tr> 
+<tr style="color:darkcyan;"><td>&nbsp;</td><td class="whitename">DarkCyan </td><td class="white">008B8B</td><td>&nbsp;</td></tr> 
+<tr style="color:teal;"><td>&nbsp;</td><td class="whitename">Teal     </td><td class="white">008080</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Blue color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:aqua;"><td>&nbsp;</td><td class="whitename">Aqua     </td><td class="white">00FFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:cyan;"><td>&nbsp;</td><td class="whitename">Cyan     </td><td class="white">00FFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:lightcyan;"><td>&nbsp;</td><td class="whitename">LightCyan</td><td class="white">E0FFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:paleturquoise;"><td>&nbsp;</td><td class="whitename">PaleTurquoise  </td><td class="white">AFEEEE</td><td>&nbsp;</td></tr> 
+<tr style="color:aquamarine;"><td>&nbsp;</td><td class="whitename">Aquamarine</td><td class="white">7FFFD4</td><td>&nbsp;</td></tr> 
+<tr style="color:turquoise;"><td>&nbsp;</td><td class="whitename">Turquoise</td><td class="white">40E0D0</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumturquoise;"><td>&nbsp;</td><td class="whitename">MediumTurquoise</td><td class="white">48D1CC</td><td>&nbsp;</td></tr> 
+<tr style="color:darkturquoise;"><td>&nbsp;</td><td class="whitename">DarkTurquoise  </td><td class="white">00CED1</td><td>&nbsp;</td></tr> 
+<tr style="color:cadetblue;"><td>&nbsp;</td><td class="whitename">CadetBlue</td><td class="white">5F9EA0</td><td>&nbsp;</td></tr> 
+<tr style="color:steelblue;"><td>&nbsp;</td><td class="whitename">SteelBlue</td><td class="white">4682B4</td><td>&nbsp;</td></tr> 
+<tr style="color:lightsteelblue;"><td>&nbsp;</td><td class="whitename">LightSteelBlue </td><td class="white">B0C4DE</td><td>&nbsp;</td></tr> 
+<tr style="color:powderblue;"><td>&nbsp;</td><td class="whitename">PowderBlue</td><td class="white">B0E0E6</td><td>&nbsp;</td></tr> 
+<tr style="color:lightblue;"><td>&nbsp;</td><td class="whitename">LightBlue</td><td class="white">ADD8E6</td><td>&nbsp;</td></tr> 
+<tr style="color:skyblue;"><td>&nbsp;</td><td class="whitename">SkyBlue  </td><td class="white">87CEEB</td><td>&nbsp;</td></tr> 
+<tr style="color:lightskyblue;"><td>&nbsp;</td><td class="whitename">LightSkyBlue   </td><td class="white">87CEFA</td><td>&nbsp;</td></tr> 
+<tr style="color:deepskyblue;"><td>&nbsp;</td><td class="whitename">DeepSkyBlue</td><td class="white">00BFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:dodgerblue;"><td>&nbsp;</td><td class="whitename">DodgerBlue</td><td class="white">1E90FF</td><td>&nbsp;</td></tr> 
+<tr style="color:cornflowerblue;"><td>&nbsp;</td><td class="whitename">CornflowerBlue </td><td class="white">6495ED</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumslateblue;"><td>&nbsp;</td><td class="whitename">MediumSlateBlue</td><td class="white">7B68EE</td><td>&nbsp;</td></tr> 
+<tr style="color:royalblue;"><td>&nbsp;</td><td class="whitename">RoyalBlue</td><td class="white">4169E1</td><td>&nbsp;</td></tr> 
+<tr style="color:blue;"><td>&nbsp;</td><td class="whitename">Blue     </td><td class="white">0000FF</td><td>&nbsp;</td></tr> 
+<tr style="color:mediumblue;"><td>&nbsp;</td><td class="whitename">MediumBlue</td><td class="white">0000CD</td><td>&nbsp;</td></tr> 
+<tr style="color:darkblue;"><td>&nbsp;</td><td class="whitename">DarkBlue </td><td class="white">00008B</td><td>&nbsp;</td></tr> 
+<tr style="color:navy;"><td>&nbsp;</td><td class="whitename">Navy     </td><td class="white">000080</td><td>&nbsp;</td></tr> 
+<tr style="color:midnightblue;"><td>&nbsp;</td><td class="whitename">MidnightBlue   </td><td class="white">191970</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+ 
+<h2>Brown color names</h2> 
+<p>    
+</p><table class="colortable"> 
+<tbody><tr style="color:cornsilk;"><td>&nbsp;</td><td class="whitename">Cornsilk </td><td class="white">FFF8DC</td><td>&nbsp;</td></tr> 
+<tr style="color:blanchedalmond;"><td>&nbsp;</td><td class="whitename">BlanchedAlmond </td><td class="white">FFEBCD</td><td>&nbsp;</td></tr> 
+<tr style="color:bisque;"><td>&nbsp;</td><td class="whitename">Bisque   </td><td class="white">FFE4C4</td><td>&nbsp;</td></tr> 
+<tr style="color:navajowhite;"><td>&nbsp;</td><td class="whitename">NavajoWhite</td><td class="white">FFDEAD</td><td>&nbsp;</td></tr> 
+<tr style="color:wheat;"><td>&nbsp;</td><td class="whitename">Wheat    </td><td class="white">F5DEB3</td><td>&nbsp;</td></tr> 
+<tr style="color:burlywood;"><td>&nbsp;</td><td class="whitename">BurlyWood</td><td class="white">DEB887</td><td>&nbsp;</td></tr> 
+<tr style="color:tan;"><td>&nbsp;</td><td class="whitename">Tan      </td><td class="white">D2B48C</td><td>&nbsp;</td></tr> 
+<tr style="color:rosybrown;"><td>&nbsp;</td><td class="whitename">RosyBrown</td><td class="white">BC8F8F</td><td>&nbsp;</td></tr> 
+<tr style="color:sandybrown;"><td>&nbsp;</td><td class="whitename">SandyBrown</td><td class="white">F4A460</td><td>&nbsp;</td></tr> 
+<tr style="color:goldenrod;"><td>&nbsp;</td><td class="whitename">Goldenrod</td><td class="white">DAA520</td><td>&nbsp;</td></tr> 
+<tr style="color:darkgoldenrod;"><td>&nbsp;</td><td class="whitename">DarkGoldenrod  </td><td class="white">B8860B</td><td>&nbsp;</td></tr> 
+<tr style="color:Peru;"><td>&nbsp;</td><td class="whitename">Peru     </td><td class="white">CD853F</td><td>&nbsp;</td></tr> 
+<tr style="color:chocolate;"><td>&nbsp;</td><td class="whitename">Chocolate</td><td class="white">D2691E</td><td>&nbsp;</td></tr> 
+<tr style="color:saddlebrown;"><td>&nbsp;</td><td class="whitename">SaddleBrown</td><td class="white">8B4513</td><td>&nbsp;</td></tr> 
+<tr style="color:sienna;"><td>&nbsp;</td><td class="whitename">Sienna   </td><td class="white">A0522D</td><td>&nbsp;</td></tr> 
+<tr style="color:brown;"><td>&nbsp;</td><td class="whitename">Brown    </td><td class="white">A52A2A</td><td>&nbsp;</td></tr> 
+<tr style="color:maroon;"><td>&nbsp;</td><td class="whitename">Maroon   </td><td class="white">800000</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>White color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:white;"><td>&nbsp;</td><td class="whitename">White    </td><td class="white">FFFFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:snow;"><td>&nbsp;</td><td class="whitename">Snow     </td><td class="white">FFFAFA</td><td>&nbsp;</td></tr> 
+<tr style="color:honeydew;"><td>&nbsp;</td><td class="whitename">Honeydew </td><td class="white">F0FFF0</td><td>&nbsp;</td></tr> 
+<tr style="color:mintcream;"><td>&nbsp;</td><td class="whitename">MintCream</td><td class="white">F5FFFA</td><td>&nbsp;</td></tr> 
+<tr style="color:azure;"><td>&nbsp;</td><td class="whitename">Azure    </td><td class="white">F0FFFF</td><td>&nbsp;</td></tr> 
+<tr style="color:aliceblue;"><td>&nbsp;</td><td class="whitename">AliceBlue</td><td class="white">F0F8FF</td><td>&nbsp;</td></tr> 
+<tr style="color:ghostwhite;"><td>&nbsp;</td><td class="whitename">GhostWhite</td><td class="white">F8F8FF</td><td>&nbsp;</td></tr> 
+<tr style="color:whitesmoke;"><td>&nbsp;</td><td class="whitename">WhiteSmoke</td><td class="white">F5F5F5</td><td>&nbsp;</td></tr> 
+<tr style="color:seashell;"><td>&nbsp;</td><td class="whitename">Seashell </td><td class="white">FFF5EE</td><td>&nbsp;</td></tr> 
+<tr style="color:beige;"><td>&nbsp;</td><td class="whitename">Beige    </td><td class="white">F5F5DC</td><td>&nbsp;</td></tr> 
+<tr style="color:oldlace;"><td>&nbsp;</td><td class="whitename">OldLace  </td><td class="white">FDF5E6</td><td>&nbsp;</td></tr> 
+<tr style="color:floralwhite;"><td>&nbsp;</td><td class="whitename">FloralWhite</td><td class="white">FFFAF0</td><td>&nbsp;</td></tr> 
+<tr style="color:ivory;"><td>&nbsp;</td><td class="whitename">Ivory    </td><td class="white">FFFFF0</td><td>&nbsp;</td></tr> 
+<tr style="color:antiquewhite;"><td>&nbsp;</td><td class="whitename">AntiqueWhite   </td><td class="white">FAEBD7</td><td>&nbsp;</td></tr> 
+<tr style="color:linen;"><td>&nbsp;</td><td class="whitename">Linen    </td><td class="white">FAF0E6</td><td>&nbsp;</td></tr> 
+<tr style="color:lavenderblush;"><td>&nbsp;</td><td class="whitename">LavenderBlush  </td><td class="white">FFF0F5</td><td>&nbsp;</td></tr> 
+<tr style="color:mistyrose;"><td>&nbsp;</td><td class="whitename">MistyRose</td><td class="white">FFE4E1</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<p></p>  
+<h2>Grey color names</h2> 
+<p>   
+</p><table class="colortable"> 
+<tbody><tr style="color:gainsboro;"><td>&nbsp;</td><td class="whitename">Gainsboro</td><td class="white">DCDCDC</td><td>&nbsp;</td></tr> 
+<tr style="color:lightgrey;"><td>&nbsp;</td><td class="whitename">LightGrey</td><td class="white">D3D3D3</td><td>&nbsp;</td></tr> 
+<tr style="color:silver;"><td>&nbsp;</td><td class="whitename">Silver   </td><td class="white">C0C0C0</td><td>&nbsp;</td></tr> 
+<tr style="color:darkgray;"><td>&nbsp;</td><td class="whitename">DarkGray </td><td class="white">A9A9A9</td><td>&nbsp;</td></tr> 
+<tr style="color:gray;"><td>&nbsp;</td><td class="whitename">Gray     </td><td class="white">808080</td><td>&nbsp;</td></tr> 
+<tr style="color:dimgray;"><td>&nbsp;</td><td class="whitename">DimGray  </td><td class="white">696969</td><td>&nbsp;</td></tr> 
+<tr style="color:lightslategray;"><td>&nbsp;</td><td class="whitename">LightSlateGray </td><td class="white">778899</td><td>&nbsp;</td></tr> 
+<tr style="color:slategray;"><td>&nbsp;</td><td class="whitename">SlateGray</td><td class="white">708090</td><td>&nbsp;</td></tr> 
+<tr style="color:darkslategray;"><td>&nbsp;</td><td class="whitename">DarkSlateGray  </td><td class="white">2F4F4F</td><td>&nbsp;</td></tr> 
+<tr style="color:black;"><td>&nbsp;</td><td class="whitename">Black    </td><td class="white">000000</td><td>&nbsp;</td></tr> 
+</tbody></table> 
+<br> 
+		<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BelowColorPicker -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6483924506584584" data-ad-slot="8304431024" data-adsbygoogle-status="done"><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br> 
+<br> 
+<a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank" class="footer">Data on this page is under Creative Commons Attribution-ShareAlike License</a> 
+
+		<br><br>
+
+<!--<div class="fblike"></div>-->
+<div class="fbrecomend">
+<a title="Publish in Facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http://html-color-codes.info/color-names/">
+<div class="socialsprite" style="background-position: -0px -0px; width: 24px; height: 24px">&nbsp;</div>
+</a>
+</div>
+<div class="twrecomend">
+<a title="Twit it" target="_blank" href="http://twitter.com/home?status=http://html-color-codes.info/color-names/">
+<div class="socialsprite" style="background-position: -0px -34px; width: 24px; height: 24px">&nbsp;</div>
+</a>
+</div>
+	</div>
 </body>
 </html>

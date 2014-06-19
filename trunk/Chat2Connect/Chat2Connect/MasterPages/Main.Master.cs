@@ -26,8 +26,7 @@ namespace Chat2Connect.MasterPages
                 ViewState["ID"] = value;
             }
         }
-
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
             if (Request.IsAuthenticated)
             {
@@ -40,6 +39,11 @@ namespace Chat2Connect.MasterPages
             {
                 Response.Redirect("~/default.aspx");
             }
+            base.OnInit(e);
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
         }
 
 
@@ -66,13 +70,14 @@ namespace Chat2Connect.MasterPages
             user.IsOnLine = false;
             user.Status = 4;
             user.Save();
-            RoomMember rooms = new RoomMember();
+
+            /*RoomMember rooms = new RoomMember();
             rooms.GetAllRoomsByMemberID(user.MemberID);
             if (rooms.RowCount > 0)
             {
                 rooms.MarkAsDeleted();
                 rooms.Save();
-            }
+            }*/
 
             MemberFriend friends = new MemberFriend();
             friends.GetAllMemberFriends(user.MemberID);
@@ -83,6 +88,9 @@ namespace Chat2Connect.MasterPages
                 MembershipUser u = Membership.GetUser(temp.UserID);
                 _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, "offline");
             }
+
+            // clear all session vars
+            Session.Abandon();
         }
     }
 }

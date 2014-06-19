@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -68,7 +69,7 @@ namespace Chat2Connect
                     {
                         Room room = new Room ();
                         room.LoadByPrimaryKey(Convert.ToInt32(Session["TempRoomCreate"].ToString()));
-                        ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},2000)}); ", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},1500)}); ", true);
                         Session["TempRoomCreate"] = null;
 
                     }
@@ -79,13 +80,29 @@ namespace Chat2Connect
                         {
                             Room room = new Room();
                             room.LoadByPrimaryKey(Convert.ToInt32(Request.QueryString["t"].ToString()));
-                            ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},2000)}); ", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},1500)}); ", true);
 
                         }
                         catch (Exception ex)
                         {                            
                         }
-                    }                     
+                    }
+
+                    if (Session["OpenedChatRooms"] != null)
+                    {
+                        List<int> rooms = (List<int>)Session["OpenedChatRooms"];
+                        string script = "";
+                        int time = 1500;
+                        foreach (var item in rooms)
+                        {
+                            Room room = new Room();
+                            room.LoadByPrimaryKey(Convert.ToInt32(item));
+                            script += "setTimeout( function(){addChatRoom(" + room.RoomID.ToString() + ", '" + room.Name + "', 'Room', false); },"+time+");";
+                            time += 500;
+                            
+                        }
+                        ClientScript.RegisterStartupScript(this.GetType(), "openrooms", "$(document).ready(function (){ "+ script + "}); ", true);    
+                    }
 
                 }
             }

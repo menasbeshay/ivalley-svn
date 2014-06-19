@@ -277,10 +277,10 @@
     <script id="editorToolbarTemplate" type="text/html">
         <div data-toggle="buttons" class="btn-group">
 
-            <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-bold" style="font-size: 17px;"></span></button>
+            <button title="CTRL+B" data-wysihtml5-command="bold" class="btn btn-default" href="javascript:;" unselectable="on" data-bind="click:toggleBold"><span class="icon-bold" style="font-size: 17px;"></span></button>
         </div>
         <div data-toggle="buttons" class="btn-group">
-            <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on"><span class="icon-italic" style="font-size: 17px;"></span></button>
+            <button title="CTRL+I" data-wysihtml5-command="italic" class="btn btn-default" href="javascript:;" unselectable="on" data-bind="click:toggleItalic"><span class="icon-italic" style="font-size: 17px;"></span></button>
         </div>
 
 
@@ -289,11 +289,11 @@
                 <span class="icon-text-height" style="font-size: 17px;"></span>
             </button>
             <ul role="menu" class="dropdown-menu">
-                <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">صغير جداً</a></li>
-                <li><a data-wysihtml5-command-value="small" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">صغير</a></li>
-                <li><a data-wysihtml5-command-value="medium" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">متوسط</a></li>
-                <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">كبير</a></li>
-                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on">كبير جداً</a></li>
+                <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xsmall')">صغير جداً</a></li>
+                <li><a data-wysihtml5-command-value="small" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('small')">صغير</a></li>
+                <li><a data-wysihtml5-command-value="medium" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('medium')">متوسط</a></li>
+                <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('large')">كبير</a></li>
+                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xlarge')">كبير جداً</a></li>
             </ul>
         </div>
 
@@ -302,123 +302,123 @@
                 <img src="images/font-color-icon.png" style="width: 15px;" />
             </button>
             <ul id="colorsMenu" role="menu" class="dropdown-menu">
-                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" style="color: #000;" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('black')"  style="color: #000;" href="javascript:;" unselectable="on">
                     <div style="background-color: #000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Burntorange')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #993300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkolive')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkgreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkgreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #003300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkazure" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkazure" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkazure')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #003366;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="NavyBlue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="NavyBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('NavyBlue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #000080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Indigo')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333399;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Verydarkgray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333333;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Orange')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF6600;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Olive')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #808000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Green')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #008000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Teal')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #008080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Blue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #0000FF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Grayishblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Grayishblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Grayishblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #666699;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #808080;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Amber" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Amber" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Amber')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF9900;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Yellowgreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Yellowgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellowgreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #99CC00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Seagreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Seagreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Seagreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #339966;" class="colorDiv"></div>
                 </a></li>
 
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Turquoise" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Turquoise" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Turquoise')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #33CCCC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Royalblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Royalblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Royalblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #3366FF;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Purple')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #800080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Mediumgray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #999999;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gold')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFCC00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellow')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFF00;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Lime" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lime" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lime')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00FF00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Aqua" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Aqua" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Aqua')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00FFFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Skyblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Skyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Skyblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00CCFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Brown')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #993366;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Silver" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Silver" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Silver')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #C0C0C0;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Pink" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Pink" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Pink')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF99CC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Peach" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Peach" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Peach')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFCC99;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Lightyellow" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lightyellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightyellow')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFF99;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Palegreen" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Palegreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palegreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CCFFCC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Palecyan" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Palecyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palecyan')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CCFFFF;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Lightskyblue" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lightskyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightskyblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #99CCFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Plum" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Plum" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Plum')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CC99FF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('White')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFFFF;" class="colorDiv"></div>
                 </a></li>
             </ul>
@@ -1449,7 +1449,7 @@
                         <div class="form-horizontal blockBox validationGroup">
                             <div class="form-group">
                                 <h4>لديك
-                                    <label id="generalGiftPoints"></label>
+                                    <label id="generalGiftPoints" data-bind="text:CreditPoints"></label>
                                     نقطة
                                    
                                 </h4>
