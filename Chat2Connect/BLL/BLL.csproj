@@ -48,6 +48,7 @@
     <Compile Include="Country.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="Log\DeleteFriend.cs" />
     <Compile Include="Log\AddFriend.cs" />
     <Compile Include="Log\ChangeMemberType.cs" />
     <Compile Include="Log\ChangePassword.cs" />
