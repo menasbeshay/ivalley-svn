@@ -785,6 +785,36 @@ namespace Chat2Connect.services
             HttpContext.Current.Session["OpenedChatRooms"] = rooms;
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void AddRemoveFriend(int mid,int fid,bool isFriend)
+        {
+            try
+            {
+                BLL.MemberFriend friend = new MemberFriend();
+                Member friendMember = new Member();
+                friendMember.LoadByPrimaryKey(fid);
+                if (!isFriend)
+                {
+                    friend.AddNew();
+                    friend.MemberID = mid;
+                    friend.FriendID = fid;
+                    friend.Save();
+                    // logging
+                    BLL.MemberLog log = new BLL.MemberLog();
+                    log.AddNew(mid, new BLL.Log.AddFriend() { FriendID = fid, FriendName = friendMember.Name }, fid, null);
+                }
+                else
+                {
+                    friend.DeleteFriend(mid, fid);
+                    // logging
+                    BLL.MemberLog log = new BLL.MemberLog();
+                    log.AddNew(mid, new BLL.Log.DeleteFriend() { FriendID = fid, FriendName = friendMember.Name }, fid, null);
+                }
 
+               
+            }
+            catch { }
+        }
     }
 }

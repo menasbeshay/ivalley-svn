@@ -31,5 +31,10 @@ namespace BLL
 
         }
 
+
+        public bool DeleteFriend(int mid, int fid)
+        {
+            return LoadFromRawSql("Delete From MemberFriend WHERE MemberID={0} AND FriendID={1}", mid, fid);
+        }
     }
 }

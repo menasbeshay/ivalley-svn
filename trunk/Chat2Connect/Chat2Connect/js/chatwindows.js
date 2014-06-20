@@ -71,7 +71,7 @@ function Chat(maxWin, memberID, memberName) {
         success: function (data) {
             self.OnlineFriends = data;
         },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {            
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
             return;
         }
     });
@@ -180,6 +180,21 @@ function Chat(maxWin, memberID, memberName) {
             });
             return true;
         }
+
+        //member menu
+        this.toggleFriend = function (window,friend) {
+            var mid = window.CurrentMember().MemberID();
+            var fid = friend.MemberID();
+            var isFriend = friend.IsFriend();
+            friend.IsFriend(!isFriend);
+            $.ajax({
+                url: '../Services/Services.asmx/AddRemoveFriend',
+                type: 'GET',
+                data: { mid: mid, fid: fid, isFriend: isFriend },
+                success: function (result) {
+                }
+            });
+        };
         //control panel
         this.bannedMember = ko.observable();
         this.banMember = function (id) {
@@ -298,7 +313,7 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             var cbs = $('#inviteMembers_' + window.uniqueID() + ' input:checked');
             var ToMember = '';
-            $.each(cbs, function () {                
+            $.each(cbs, function () {
                 ToMember += $(this).val() + ',';
             });
             $.ajax({
@@ -353,7 +368,7 @@ function Chat(maxWin, memberID, memberName) {
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
                         notify('success', 'تم إرسال الهدية بنجاح');
-                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);                        
+                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
                         chatVM.CreditPoints($('#uiHiddenFieldCreditPoints').val());
                         return;
                     },
@@ -362,7 +377,7 @@ function Chat(maxWin, memberID, memberName) {
                         notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                     }
                 });
-            }           
+            }
         };
 
         // attach
@@ -699,7 +714,7 @@ function Chat(maxWin, memberID, memberName) {
                 });
 
             // save opened rooms
-            $.post("../services/Services.asmx/SaveChatRoom", { id: id, add:true });                
+            $.post("../services/Services.asmx/SaveChatRoom", { id: id, add: true });
         }
     }
     self.removeWindow = function () {
@@ -731,7 +746,7 @@ function Chat(maxWin, memberID, memberName) {
         }
         //window.Message("");
         window.initEditor();
-       /* window.Editor.setValue("");*/
+        /* window.Editor.setValue("");*/
         $('#emotionMenu_' + window.ID()).hide();
     }
     self.sendAdminMessage = function (window) {
@@ -753,7 +768,7 @@ function Chat(maxWin, memberID, memberName) {
         });
 
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-       
+
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
@@ -830,7 +845,7 @@ function Chat(maxWin, memberID, memberName) {
             });
             $('#giftModal_' + window.uniqueID() + ' input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', true);
         });
-        
+
 
         // volume controls       
 
@@ -1049,7 +1064,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             return;
         window.addMessage(msg);
     };
-    
+
     rHub.client.addNewMember = function (rid, memberData) {
         var newMember = ko.mapping.fromJS(memberData);
         var type = "Room";
@@ -1064,7 +1079,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         else {
             existingMember.InRoom(newMember.InRoom());
         }
-        if (newMember.InRoom() && newMember.MemberID()!=window.CurrentMember().MemberID() && window.CurrentMember().NotifyOnFriendsLogOn()) {
+        if (newMember.InRoom() && newMember.MemberID() != window.CurrentMember().MemberID() && window.CurrentMember().NotifyOnFriendsLogOn()) {
             var msg = newMember.MemberName() + ' قد إنضم للغرفة ';
             addMsgToWindow(window, msg, "joinalert");
         }
@@ -1200,7 +1215,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             var member = window.getMember(mid);
             if (member != null) {
                 member.IsCamOpened(true);
-                if (window.CurrentMember().MemberID()!=member.MemberID() && window.CurrentMember().NotifyOnOpenCam()) {
+                if (window.CurrentMember().MemberID() != member.MemberID() && window.CurrentMember().NotifyOnOpenCam()) {
                     var msg = member.MemberName() + ' قد بدأ فتح الكمراء';
                     addMsgToWindow(window, msg, "joinalert");
                 }
@@ -1264,7 +1279,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
     };
     rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID) {
         var window = chatVM.getWindow(roomID, "Room");
-        message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";        
+        message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
         $(".MsgHistroy").slimScroll({
             railVisible: true,

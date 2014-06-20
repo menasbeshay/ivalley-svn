@@ -67,10 +67,12 @@ namespace BLL
 
         public List<Helper.ChatMember> LoadWithSettings(int roomID,int? memberID)
         {
+            int currentMemberID = BLL.Member.CurrentMemberID;
             string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
                                 ,B.EndDate,B.StartDate
                                 ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END , 
-                                HasGift = 0
+                                HasGift = 0,
+                                IsFriend= CASE WHEN Exists (Select * From MemberFriend WHERE FriendID=RM.MemberID AND MemberID={2}) THEN 1 ELSE 0 END
                             FROM RoomMember RM INNER JOIN Member M on RM.MemberID=M.MemberID
                             Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
                             LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
@@ -80,7 +82,7 @@ namespace BLL
             if (memberID.HasValue)
                 sql += String.Format(" AND RM.MemberID={0}", memberID.Value);
 
-            LoadFromRawSql(sql, roomID, Helper.Defaults.MemberTypeSpecDurationID);
+            LoadFromRawSql(sql, roomID, Helper.Defaults.MemberTypeSpecDurationID,currentMemberID);
 
             return DefaultView.Table.AsEnumerable().Select(m =>
                 new Helper.ChatMember()
@@ -108,7 +110,8 @@ namespace BLL
                 NotifyOnMicOff = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnMicOff]),
                 NotifyOnMicOn = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnMicOn]),
                 NotifyOnOpenCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnOpenCam]),
-                ShowMessageTime = Helper.TypeConverter.ToBoolean(m[ColumnNames.ShowMessageTime])
+                ShowMessageTime = Helper.TypeConverter.ToBoolean(m[ColumnNames.ShowMessageTime]),
+                IsFriend = Helper.TypeConverter.ToBoolean(m["IsFriend"])
             }).ToList();
         }
         private int? GetBanType(object startDate, object endDate)

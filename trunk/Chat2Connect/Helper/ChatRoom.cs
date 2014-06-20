@@ -99,6 +99,8 @@ namespace Helper
         public bool InRoom { get; set; }
 
         public bool ShowMessageTime { get; set; }
+
+        public bool IsFriend { get; set; }
     }
 
     public class RoomSettings
