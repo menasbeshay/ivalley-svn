@@ -195,6 +195,20 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         };
+        this.SelectedMember = ko.observable(this.CurrentMember());
+        this.showRoomMemberLevelsPopup = function (mid) {
+            var member = self.getMember(mid);
+            if (member == null)
+                return;
+            self.SelectedMember(member);
+            $("#changeLevelModal_" + self.uniqueID()).modal('show');
+        };
+        this.updateMemberLevel = function () {
+            var window = this;
+            rHub.server.updateMemberLevel(window.ID(), self.SelectedMember().MemberID(), self.SelectedMember().MemberLevelID());
+            $("#changeLevelModal_" + self.uniqueID()).modal('hide');
+            return true;
+        };
         //control panel
         this.bannedMember = ko.observable();
         this.banMember = function (id) {
@@ -1124,6 +1138,15 @@ function InitChat(maxWinRooms, memberID, memberName) {
     }
     rHub.client.banMemberFromRoom = function (mid, roomId, banTypeName, adminName) {
         banMemberFromroom(mid, roomId, banTypeName, adminName);
+    };
+    rHub.client.updateMemberLevel = function (roomId, mid, level) {
+        var window = chatVM.getWindow(roomId, "Room", "");
+        if (window == null)
+            return;
+        var member = window.getMember(mid);
+        if (member == null)
+            return;
+        member.MemberLevelID(level);
     };
     rHub.client.updateRoomTopic = function (roomID, topic) {
         var type = "Room";

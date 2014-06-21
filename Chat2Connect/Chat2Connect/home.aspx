@@ -263,6 +263,7 @@
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
                                 <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> تعديل الصلاحيات</a></li>
                                 <!-- /ko -->
                             </ul>
                         </div>
@@ -816,6 +817,46 @@
             </ul>
         </div>
     </script>
+    <script id="roomMemberLevel" type="text/html">
+        <div data-bind="attr:{id:'changeLevelModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3>تغيير صلاحيات عضو</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h3>تغيير صلاحيات <span data-bind="text:SelectedMember().MemberName"></span></h3>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>الصلاحيات</label>
+                                </div>
+                                <div class="col-sm-7 pull-right">
+                                    <!-- ko foreach: MemberLevels -->
+                                    <label>
+                                        <input type="radio" name="memberLevel" data-bind="value:ID, checked:$parent.SelectedMember().MemberLevelID,checkedValue: ID" />
+                                        <span data-bind="text:Name"></span>
+                                    </label>
+                                    <br />
+                                    <!-- /ko -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" value="إعتمد" class="btn btn-warning" style="width: 100px;" data-bind="click:updateMemberLevel" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </script>
     <script id="chatTemplate" type="text/html">
         <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade" style="">
             <div id="roomContents">
@@ -1265,6 +1306,7 @@
                 </div>
             </div>
         </div>
+        <div data-bind="template: { name: 'roomMemberLevel'}"></div>
         <!-- /ko -->
 
         <div data-bind="attr:{id:'inviteModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
@@ -1511,6 +1553,8 @@
                 </div>
             </div>
         </div>
+
+
 </asp:Content>
 
 

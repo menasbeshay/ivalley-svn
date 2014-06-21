@@ -541,7 +541,7 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
-            if (BLL.Member.CurrentMember.Status==(int)Helper.Enums.MemberStatus.Offline && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
+            if (BLL.Member.CurrentMember.Status == (int)Helper.Enums.MemberStatus.Offline && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
                 roomMember.InRoom = false;
             if (!room.IsColumnNull("CreatedBy"))
             {
@@ -566,8 +566,14 @@ namespace Chat2Connect.services
                     currentMemberSettings.CanWrite = false;
                 }
             }
+            //member level change
+            roomObject.MemberLevels = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l <= currentMemberSettings.MemberLevelID).Select(l => new
+            {
+                ID = (int)l,
+                Name = Helper.StringEnum.GetStringValue(l)
+            }).ToList();
             //messages
-            roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id,0);
+            roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
@@ -678,7 +684,7 @@ namespace Chat2Connect.services
                 }
 
             }
-            
+
             return true;
         }
 
@@ -719,7 +725,7 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < online.RowCount; i++)
                 {
-                    friends.Add(new { id = online.MemberID , name = online.GetColumn("UserName") });
+                    friends.Add(new { id = online.MemberID, name = online.GetColumn("UserName") });
                     online.MoveNext();
                 }
             }
@@ -760,16 +766,16 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void GetRoomOlderMessages(int roomid, int oldestMsgID)
         {
-            string result= Helper.JsonConverter.Serialize(new RoomMessages().GetLatestMessags(roomid, oldestMsgID));
+            string result = Helper.JsonConverter.Serialize(new RoomMessages().GetLatestMessags(roomid, oldestMsgID));
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
         }
-        
+
         [WebMethod(EnableSession = true)]
         public void SaveChatRoom(int id, bool add)
         {
             // save opened rooms 
-            List<int> rooms ;
+            List<int> rooms;
             if (HttpContext.Current.Session["OpenedChatRooms"] != null)
                 rooms = (List<int>)HttpContext.Current.Session["OpenedChatRooms"];
             else
@@ -777,7 +783,7 @@ namespace Chat2Connect.services
 
             if (add)
             {
-                if(!rooms.Contains(id))
+                if (!rooms.Contains(id))
                     rooms.Add(id);
             }
             else
@@ -787,7 +793,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void AddRemoveFriend(int mid,int fid,bool isFriend)
+        public void AddRemoveFriend(int mid, int fid, bool isFriend)
         {
             try
             {
@@ -812,7 +818,7 @@ namespace Chat2Connect.services
                     log.AddNew(mid, new BLL.Log.DeleteFriend() { FriendID = fid, FriendName = friendMember.Name }, fid, null);
                 }
 
-               
+
             }
             catch { }
         }

@@ -15,6 +15,7 @@ namespace Helper
                 ID = (int)r,
                 Name = Helper.StringEnum.GetStringValue(r)
             }).ToList();
+            
             this.Members = new List<ChatMember>();
         }
         public int ID { get; set; }
@@ -62,6 +63,8 @@ namespace Helper
 
         public List<ChatMessage> MessageHistory { get; set; }
 
+
+        public object MemberLevels { get; set; }
     }
 
     public class ChatMember

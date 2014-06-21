@@ -412,6 +412,21 @@ namespace Chat2Connect.SRCustomHubs
 
         }
 
+        public void updateMemberLevel(int roomid, int memberid, int level)
+        {
+            try
+            {
+                RoomMember rm = new RoomMember();
+                if (rm.LoadByPrimaryKey(memberid, roomid))
+                {
+                    rm.RoomMemberLevelID = level;
+                    rm.Save();
+                }
+                //update clients
+                Clients.Group(roomid.ToString(), Context.ConnectionId).updateMemberLevel(roomid, memberid, level);
+            }
+            catch { }
+        }
         // logging 
         public void enterPrivateChatLog(int FriendID, string FriendName)
         {
