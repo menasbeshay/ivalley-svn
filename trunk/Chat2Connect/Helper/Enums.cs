@@ -176,11 +176,11 @@ namespace Helper
         {
             [StringValue("زائر")]
             Visitor = 1,
-            [StringValue("أدمن")]
+            [StringValue("مراقب")]
             Admin = 2,
-            [StringValue("سوبر أدمن")]
+            [StringValue("مشرف")]
             SuperAdmin = 3,
-            [StringValue("مالك الغرفة")]
+            [StringValue("مدير")]
             Owner = 4
         }
     }
