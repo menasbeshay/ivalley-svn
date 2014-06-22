@@ -65,6 +65,30 @@ $(document).ready(function () {
 });
 
 
+function textboxMultilineMaxNumber(txt,evt, maxLen) {
+    try {
+        if (!checkSpecialKeys(evt)) {
+            if (txt.value.length > (maxLen - 1)) {
+                if (window.event)//IE
+                    evt.returnValue = false;
+                else//Firefox
+                    evt.preventDefault();
+            }
+        }
+
+    } catch (e) {
+    }
+    return true;
+}
+
+function checkSpecialKeys(e) {
+    if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
+        return false;
+    else
+        return true;
+}
+
+
 function initPopupMenu() {
     /*
     $('.friend-link').each(function () {
