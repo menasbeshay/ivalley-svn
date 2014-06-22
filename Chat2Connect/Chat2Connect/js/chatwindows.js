@@ -121,8 +121,8 @@ function Chat(maxWin, memberID, memberName) {
         }
         //Existing Members
         this.ExistingMembers = ko.computed(function () {
-            if (self.Type() == 'Private')
-                return null;
+            /*if (self.Type() == 'Private')
+                return null;*/
             return ko.utils.arrayFilter(self.Members(), function (mem) {
                 return mem.InRoom();
             });
@@ -700,7 +700,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
 
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID : 0, InRoom : 1, QueueOrder : 0 }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -807,6 +807,10 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
         });
+
+        // popover menu for members
+        initPopover(window);
+
         // tooltips 
         $(".roomMenuItem").tooltip();
         // apply scroll to all
@@ -895,8 +899,7 @@ function Chat(maxWin, memberID, memberName) {
             }
         });
 
-        // popover menu for members
-        initPopover(window);
+        
 
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) //MemberLevelID>1>>> Admin
         {

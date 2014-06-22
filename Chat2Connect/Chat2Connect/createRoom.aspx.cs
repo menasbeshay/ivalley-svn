@@ -77,16 +77,20 @@ namespace Chat2Connect
                     uiLabelCreatedDate.Text = GetLocalResourceObject("Now").ToString();
                     LoadDDLs();
                     setupAdminTable();
+                    loadAdminTable();
                     if (!IsEdit)
                     {
-                        loadAdminTable();
+                        uiPanelCreateRoom.Visible = true;
+                        uiPanelEditRoom.Visible = false;
                     }
                     else
                     {
-
+                        uiPanelCreateRoom.Visible = false;
+                        uiPanelEditRoom.Visible = true;
+                        LoadRoomInfo();
                     }
-
                 }
+                
             }
             else
             {
@@ -94,10 +98,34 @@ namespace Chat2Connect
             }
         }
 
+        private void LoadRoomInfo()
+        {
+            Room room = new Room();
+            room.LoadByPrimaryKey(CurrentRoom);
 
-        protected void uiDropDownListCategory_SelectedIndexChanged(object sender, EventArgs e)
+            uiLabelCreatedDate_Edit.Text = room.CreatedDate.ToString("dd/MM/yyyy");
+            uiLabelOwnerName.Text = Member.CurrentMember.Name;
+            uiLabelRoomName.Text = room.Name;
+            if (!room.IsColumnNull("CategoryID"))
+            {
+                uiDropDownListEdit_Category.SelectedValue = room.CategoryID.ToString();
+                BindSubCatsForEdit();
+            }
+            if (!room.IsColumnNull("SubCategoryID"))
+                uiDropDownListEditSubCat.SelectedValue = room.SubCategoryID.ToString();
+
+            BindAdmins();
+        }
+
+
+        protected void uiDropDownListADD_Category_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindSubCats();
+        }
+
+        protected void uiDropDownListEdit_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindSubCatsForEdit();
         }
 
         protected void uiLinkButtonSaveRoom_Click(object sender, EventArgs e)
@@ -111,17 +139,19 @@ namespace Chat2Connect
                 Room room = new Room();
                 if (!IsEdit)
                     room.AddNew();
-                room.Name = uiTextBoxName.Text;
+                else
+                    room.LoadByPrimaryKey(CurrentRoom);
+                room.Name = uiTextBoxADD_Name.Text;
                 if (!IsEdit)
                 {
                     room.CreatedDate = DateTime.Now;
                     room.CreatedBy = member.MemberID;
                 }
 
-                if (uiDropDownListCategory.SelectedIndex != -1)
-                    room.CategoryID = Convert.ToInt32(uiDropDownListCategory.SelectedValue);
-                if (uiDropDownListSubCategory.SelectedIndex != 0)
-                    room.SubCategoryID = Convert.ToInt32(uiDropDownListSubCategory.SelectedValue);
+                if (uiDropDownListADD_Category.SelectedIndex != -1)
+                    room.CategoryID = Convert.ToInt32(uiDropDownListADD_Category.SelectedValue);
+                if (uiDropDownListADD_SubCategory.SelectedIndex != 0)
+                    room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);
 
                 if (uiFileUploadRoomPic.HasFile)
                 {
@@ -134,7 +164,7 @@ namespace Chat2Connect
                     room.IconPath = path;
                 }
 
-                room.WelcomeText = uiTextBoxWelcome.Text;
+                room.WelcomeText = uiTextBoxADD_Welcome.Text;
                 room.RoomPassword = uiTextBoxPassword.Text;
                 room.RoomAdminPassword = uiTextBoxAdminPass.Text;
                 room.RoomPasswordenabled = uiCheckBoxPasswordEnable.Checked;
@@ -142,6 +172,7 @@ namespace Chat2Connect
                 room.EnableOneMic = uiCheckBoxEnableOneMic.Checked;
                 room.EnableTwoMic = uiCheckBoxEnableTwoMic.Checked;
                 room.EnableThreeMic = uiCheckBoxEnableThreeMic.Checked;
+                room.RowStatusID = 1;
                 room.Save();
 
                 // log 
@@ -205,6 +236,7 @@ namespace Chat2Connect
 
         private void loadAdminTable()
         {
+            AdminsTable.Clear();
             RoomMember currentadmins = new RoomMember();
             if (IsEdit)
                 currentadmins.GetAllAdminMembersByRoomID(CurrentRoom);
@@ -220,10 +252,15 @@ namespace Chat2Connect
         {
             Category cats = new Category();
             cats.LoadAll();
-            uiDropDownListCategory.DataSource = cats.DefaultView;
-            uiDropDownListCategory.DataTextField = "Name";
-            uiDropDownListCategory.DataValueField = "CategoryID";
-            uiDropDownListCategory.DataBind();
+            uiDropDownListADD_Category.DataSource = cats.DefaultView;
+            uiDropDownListADD_Category.DataTextField = "Name";
+            uiDropDownListADD_Category.DataValueField = "CategoryID";
+            uiDropDownListADD_Category.DataBind();
+
+            uiDropDownListEdit_Category.DataSource = cats.DefaultView;
+            uiDropDownListEdit_Category.DataTextField = "Name";
+            uiDropDownListEdit_Category.DataValueField = "CategoryID";
+            uiDropDownListEdit_Category.DataBind();
 
             var adminTypes = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l > 1).Select(r => new
             {
@@ -236,18 +273,41 @@ namespace Chat2Connect
             uiDropDownListAdminType.DataBind();
 
             BindSubCats();
+
+            Room myrooms = new Room();
+            myrooms.GetRoomsByCreatorID(Member.CurrentMemberID);
+            uiDropDownListMyRooms.DataSource = myrooms.DefaultView;
+            uiDropDownListMyRooms.DataTextField = "Name";
+            uiDropDownListMyRooms.DataValueField = "RoomID";
+            uiDropDownListMyRooms.DataBind();
+            uiDropDownListMyRooms.Items.Insert(0, new ListItem("إختر غرفة. . . ."));
+            if (CurrentRoom != 0)
+                uiDropDownListMyRooms.SelectedValue = CurrentRoom.ToString();
         }
 
         private void BindSubCats()
         {
             SubCategory subcats = new SubCategory();
-            if (uiDropDownListCategory.SelectedIndex != -1)
-                subcats.GetSubCategoryByCategoryID(Convert.ToInt32(uiDropDownListCategory.SelectedValue));
-            uiDropDownListSubCategory.DataSource = subcats.DefaultView;
-            uiDropDownListSubCategory.DataTextField = "Name";
-            uiDropDownListSubCategory.DataValueField = "SubCategoryID";
-            uiDropDownListSubCategory.DataBind();
-            uiDropDownListSubCategory.Items.Insert(0, new ListItem("إختر قسم فرعى. . . ."));
+            if (uiDropDownListADD_Category.SelectedIndex != -1)
+                subcats.GetSubCategoryByCategoryID(Convert.ToInt32(uiDropDownListADD_Category.SelectedValue));
+            uiDropDownListADD_SubCategory.DataSource = subcats.DefaultView;
+            uiDropDownListADD_SubCategory.DataTextField = "Name";
+            uiDropDownListADD_SubCategory.DataValueField = "SubCategoryID";
+            uiDropDownListADD_SubCategory.DataBind();
+            uiDropDownListADD_SubCategory.Items.Insert(0, new ListItem("إختر قسم فرعى. . . ."));
+        }
+
+
+        private void BindSubCatsForEdit()
+        {
+            SubCategory subcats = new SubCategory();
+            if (uiDropDownListEdit_Category.SelectedIndex != -1)
+                subcats.GetSubCategoryByCategoryID(Convert.ToInt32(uiDropDownListEdit_Category.SelectedValue));
+            uiDropDownListEditSubCat.DataSource = subcats.DefaultView;
+            uiDropDownListEditSubCat.DataTextField = "Name";
+            uiDropDownListEditSubCat.DataValueField = "SubCategoryID";
+            uiDropDownListEditSubCat.DataBind();
+            uiDropDownListEditSubCat.Items.Insert(0, new ListItem("إختر قسم فرعى. . . ."));
         }
 
 
@@ -257,6 +317,31 @@ namespace Chat2Connect
             uiGridViewAdmins.DataBind();
         }
         #endregion
+
+        protected void uiDropDownListMyRooms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (uiDropDownListMyRooms.SelectedIndex != -1 && uiDropDownListMyRooms.SelectedIndex != 0)
+            {
+                if (!string.IsNullOrEmpty(uiDropDownListMyRooms.SelectedValue))
+                {
+                    CurrentRoom = Convert.ToInt32(uiDropDownListMyRooms.SelectedValue);
+                    Response.Redirect("createRoom.aspx?IsEdit=true");
+                }
+            }
+        }
+
+        protected void uiGridViewAdmins_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteAdmin") 
+            {
+                RoomMember mem = new RoomMember();
+                mem.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()), CurrentRoom);
+                mem.RoomMemberLevelID = 1; //Helper.Enums.RoomMemberLevel.Visitor;
+                mem.Save();
+                loadAdminTable();
+                BindAdmins();
+            }
+        }
 
 
 
