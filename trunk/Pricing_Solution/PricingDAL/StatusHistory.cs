@@ -179,6 +179,14 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter StatusDate
+			{
+				get
+				{
+					return new SqlParameter("@StatusDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -195,6 +203,7 @@ namespace Pricing.DAL
             public const string CurrentPrice = "CurrentPrice";
             public const string Comment = "Comment";
             public const string AttachementPath = "AttachementPath";
+            public const string StatusDate = "StatusDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -212,6 +221,7 @@ namespace Pricing.DAL
 					ht[CurrentPrice] = _StatusHistory.PropertyNames.CurrentPrice;
 					ht[Comment] = _StatusHistory.PropertyNames.Comment;
 					ht[AttachementPath] = _StatusHistory.PropertyNames.AttachementPath;
+					ht[StatusDate] = _StatusHistory.PropertyNames.StatusDate;
 
 				}
 				return (string)ht[columnName];
@@ -234,6 +244,7 @@ namespace Pricing.DAL
             public const string CurrentPrice = "CurrentPrice";
             public const string Comment = "Comment";
             public const string AttachementPath = "AttachementPath";
+            public const string StatusDate = "StatusDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -251,6 +262,7 @@ namespace Pricing.DAL
 					ht[CurrentPrice] = _StatusHistory.ColumnNames.CurrentPrice;
 					ht[Comment] = _StatusHistory.ColumnNames.Comment;
 					ht[AttachementPath] = _StatusHistory.ColumnNames.AttachementPath;
+					ht[StatusDate] = _StatusHistory.ColumnNames.StatusDate;
 
 				}
 				return (string)ht[propertyName];
@@ -273,6 +285,7 @@ namespace Pricing.DAL
             public const string CurrentPrice = "s_CurrentPrice";
             public const string Comment = "s_Comment";
             public const string AttachementPath = "s_AttachementPath";
+            public const string StatusDate = "s_StatusDate";
 
 		}
 		#endregion		
@@ -396,6 +409,18 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.AttachementPath, value);
+			}
+		}
+
+		public virtual DateTime StatusDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.StatusDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.StatusDate, value);
 			}
 		}
 
@@ -554,6 +579,21 @@ namespace Pricing.DAL
 			}
 		}
 
+		public virtual string s_StatusDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StatusDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.StatusDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StatusDate);
+				else
+					this.StatusDate = base.SetDateTimeAsString(ColumnNames.StatusDate, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -687,6 +727,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public WhereParameter StatusDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StatusDate, Parameters.StatusDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -812,6 +862,18 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter StatusDate
+		    {
+				get
+		        {
+					if(_StatusDate_W == null)
+	        	    {
+						_StatusDate_W = TearOff.StatusDate;
+					}
+					return _StatusDate_W;
+				}
+			}
+
 			private WhereParameter _StatusHistoryID_W = null;
 			private WhereParameter _TradePricingID_W = null;
 			private WhereParameter _CommitteeTypeID_W = null;
@@ -822,6 +884,7 @@ namespace Pricing.DAL
 			private WhereParameter _CurrentPrice_W = null;
 			private WhereParameter _Comment_W = null;
 			private WhereParameter _AttachementPath_W = null;
+			private WhereParameter _StatusDate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -835,6 +898,7 @@ namespace Pricing.DAL
 				_CurrentPrice_W = null;
 				_Comment_W = null;
 				_AttachementPath_W = null;
+				_StatusDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -991,6 +1055,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter StatusDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StatusDate, Parameters.StatusDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1116,6 +1190,18 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter StatusDate
+		    {
+				get
+		        {
+					if(_StatusDate_W == null)
+	        	    {
+						_StatusDate_W = TearOff.StatusDate;
+					}
+					return _StatusDate_W;
+				}
+			}
+
 			private AggregateParameter _StatusHistoryID_W = null;
 			private AggregateParameter _TradePricingID_W = null;
 			private AggregateParameter _CommitteeTypeID_W = null;
@@ -1126,6 +1212,7 @@ namespace Pricing.DAL
 			private AggregateParameter _CurrentPrice_W = null;
 			private AggregateParameter _Comment_W = null;
 			private AggregateParameter _AttachementPath_W = null;
+			private AggregateParameter _StatusDate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1139,6 +1226,7 @@ namespace Pricing.DAL
 				_CurrentPrice_W = null;
 				_Comment_W = null;
 				_AttachementPath_W = null;
+				_StatusDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1251,6 +1339,10 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.AttachementPath);
 			p.SourceColumn = ColumnNames.AttachementPath;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StatusDate);
+			p.SourceColumn = ColumnNames.StatusDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 

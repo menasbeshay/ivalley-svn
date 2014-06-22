@@ -41,11 +41,7 @@ namespace Pricing_GUI
         {
             get
             {
-                if (Request.QueryString["ID"] != null && Request.QueryString["ID"].ToString() != "")
-                {
-                    return true;
-                }
-                return false;
+                return TradePriceID != 0;
             }
         }
 
@@ -59,51 +55,33 @@ namespace Pricing_GUI
         {
             if (!Page.IsPostBack)
             {
+                TradePriceID = 0;
                 BindDropDownListsData();
                 ui_lblResult.Text = "";
                 tab_Generics.Visible = false;
+                tab_Status.Visible = false;
                 Session["PopUpType"] = "AddNewGeneric";
                 ui_btnSave.Text = "Add Main Data";
                 RequiredFieldValidator10.Visible = true;
 
                 if (IsUpdateMode)
                 {
-                    tab_Generics.Visible = true;
-                    BindMainData();
-                    LoadQuantityUnit();
-                    LoadGeneric();
-                    ui_btnSave.Text = "Update Main Data";
-                    RequiredFieldValidator10.Visible = false;
+                    InitializeUpdateMode();
 
-                    if (Request.QueryString["type"] == "new")
+                    if (CodeGlobal.IsDisableMode)
                     {
-                        
-                        //ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#tab_1_2\"]').tab('show');  $('#myTab a[href=\"#tab_1_2\"]').addClass('active');  $('#myTab a[href=\"#tab_1_1\"]').removeClass('active'); });", true);
-                        
-
-                        //div_Generics.Attributes.Remove("class");
-                        //div_MainData.Attributes.Remove("cl    ass");
-                        //tab_Generics.Attributes.Add("class", "tab-pane active");
-                        //div_MainData.Attributes.Add("class", "tab-pane");
-
-                        //tab_MainData.Attributes.Remove("class");
-                        //tab_Generics.Attributes.Remove("class");
-                        //tab_Generics.Attributes.Add("class", "active");
+                        // disable Page Content.
+                        pnl_MainData_Content.Enabled = false;
+                        pnl_Generic_Contenets.Enabled = false;
                     }
                     else
                     {
-                       // ClientScript.RegisterStartupScript(this.GetType(), "selectTab", "$(document).ready(function (){ $('#myTab a[href=\"#tab_1_1\"]').tab('show');  $('#myTab a[href=\"#tab_1_1\"]').addClass('active'); });", true);
-                        //div_Generics.Attributes.Remove("class");
-                        //div_MainData.Attributes.Remove("class");
-                        //div_MainData.Attributes.Add("class", "tab-pane active");
-                        //div_Generics.Attributes.Add("class", "tab-pane");
-
-                        //tab_Generics.Attributes.Remove("class");
-                        //tab_MainData.Attributes.Remove("class");
-                        //tab_MainData.Attributes.Add("class", "active");
+                        pnl_MainData_Content.Enabled = true;
+                        pnl_Generic_Contenets.Enabled = true;
                     }
-
                 }
+
+               
 
                 // Select Logged In Company .
                 ui_drpCompanies.SelectedIndex = ui_drpCompanies.Items.IndexOf(ui_drpCompanies.Items.FindByValue(CodeGlobal.LogedInCompany.s_CompanyID));
@@ -239,7 +217,21 @@ namespace Pricing_GUI
                 ui_lblResult.ForeColor = System.Drawing.Color.Green;
                 ui_lblResult.Text = "The new record saved successfully";
 
-                Response.Redirect("New_Request.aspx?ID=" + objPricing.TradePricingID + "&type=new#tab_1_2");
+                // Insert Inistial Status record for the new rquest ( status = initiated )
+                //-----------------------------------------------------------------------
+                StatusHistory objStatus = new StatusHistory();
+                objStatus.AddNew();
+                objStatus.PricingStatusID = 1; // Will be initiated by default.
+                objStatus.StatusDate = DateTime.Now;
+                objStatus.TradePricingID = objPricing.TradePricingID;
+                objStatus.CurrentPrice = objPricing.CompanyPrice;
+                objStatus.Save();
+                //--------------------------------------------------------------
+
+                //Response.Redirect("New_Request.aspx?ID=" + objPricing.TradePricingID + "&type=new#tab_1_2");
+
+                TradePriceID = objPricing.TradePricingID;
+                InitializeUpdateMode();
 
             }
             catch
@@ -350,6 +342,18 @@ namespace Pricing_GUI
             ui_txtFileNo.Text = objPricing.FileNo;
             ui_drpFileType.SelectedValue = objPricing.s_FileTypeID;
             ui_txtImportedManufacture.Text = objPricing.ImportedManufacture;
+        }
+
+        private void InitializeUpdateMode()
+        {
+            tab_Generics.Visible = true;
+            tab_Status.Visible = true;
+            BindMainData();
+            LoadQuantityUnit();
+            LoadGeneric();
+            ui_btnSave.Text = "Update Main Data";
+            RequiredFieldValidator10.Visible = false;
+            lblPageTitle.Text = "Modify Pricing Request";
         }
 
         #endregion

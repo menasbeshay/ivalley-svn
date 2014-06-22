@@ -13,6 +13,15 @@ namespace Pricing_GUI {
     public partial class New_Request {
         
         /// <summary>
+        /// lblPageTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPageTitle;
+        
+        /// <summary>
         /// tab_MainData control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tab_MainData;
         
         /// <summary>
+        /// lblMainDataTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMainDataTab;
+        
+        /// <summary>
         /// tab_Generics control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,42 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tab_Generics;
+        
+        /// <summary>
+        /// lblGenericTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGenericTab;
+        
+        /// <summary>
+        /// tab_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tab_Status;
+        
+        /// <summary>
+        /// lblStatusTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatusTab;
+        
+        /// <summary>
+        /// pnl_MainData_Content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_MainData_Content;
         
         /// <summary>
         /// Label1 control.
@@ -488,6 +542,15 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// pnl_Generic_Contenets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_Generic_Contenets;
         
         /// <summary>
         /// Label13 control.

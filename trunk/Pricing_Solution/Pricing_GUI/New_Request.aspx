@@ -12,7 +12,7 @@
             <div class="widget">
                 <div class="widget-title">
                     <h4>
-                        <i class="icon-reorder"></i>Submit New Pricing Request</h4>
+                        <i class="icon-reorder"></i><asp:Label runat="server" ID="lblPageTitle" ForeColor="#003366" Text="Submit New Pricing Request"></asp:Label></h4>
                     <span class="tools"><a href="javascript:;" class="icon-chevron-down"></a><a class="icon-remove"
                         href="javascript:;"></a></span>
                 </div>
@@ -23,11 +23,17 @@
                             <div class="tabbable tabbable-custom" id="myTab">
                                 <ul class="nav nav-tabs">
                                     <li runat="server" id="tab_MainData" class="active"><a href="#tab_1_1" data-toggle="tab">
-                                        Main data</a></li>
-                                    <li runat="server" id="tab_Generics"><a href="#tab_1_2" data-toggle="tab">Generic Information</a></li>
+                                      <asp:Label runat="server" ID="lblMainDataTab" Text="Main Data" ForeColor="Brown" Font-Bold="true"></asp:Label> </a></li>
+                                    <li runat="server" id="tab_Generics"><a href="#tab_1_2" data-toggle="tab">
+                                    <asp:Label runat="server" ID="lblGenericTab" Text="Generic information" ForeColor="DarkGreen" Font-Bold="true"></asp:Label>
+                                    </a></li>
+                                    <li runat="server" id="tab_Status"><a href="#tab_1_3" data-toggle="tab">
+                                    <asp:Label runat="server" ID="lblStatusTab" Text="Status History" ForeColor="DarkGoldenrod" Font-Bold="true"></asp:Label>
+                                    </a></li>
                                 </ul>
                                 <div class="tab-content" >
                                     <div  class="tab-pane active" id="tab_1_1">
+                                    <asp:Panel runat="server" ID="pnl_MainData_Content">
                                         <table >
                                             <tbody>
                                                 <tr>
@@ -227,14 +233,15 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        </asp:Panel>
                                     </div>
                                     <!---------------------------------  Generic Tab ---------------------------------- -->
                                     <div class="tab-pane" id="tab_1_2">
                                         <div style="display: block">
                                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                 <ContentTemplate>
-                                                   
-                                                    <table>
+                                                 <asp:Panel runat="server" ID="pnl_Generic_Contenets">
+                                                    <table >
                                                         <tr>
                                                             <td class="style14">
                                                                 <asp:Label ID="Label13" runat="server" Text="Generic Name" ForeColor="Black" Font-Bold="True"></asp:Label>
@@ -528,10 +535,20 @@
                                                         PopupControlID="uiPanelEditGeneric" PopupDragHandleControlID="pnlDragGeneric"
                                                         Drag="True" BackgroundCssClass="ModalBackground" DynamicServicePath="" Enabled="True" />
                                                     <asp:HiddenField runat="server" ID="ui_hdf_Generic" />
+                                                    </asp:Panel>  
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
                                     </div>
+                                    <!-- End Tab Generic ======================================= -->
+                                    
+                                    <!---------------  Tab Status  ------------------------->
+                                    <div class="tab-pane" id="tab_1_3">
+                                        <div style="display: block">
+                                        status tab information 
+                                        </div>
+                                        </div>
+                                      <!-- End Tab Status ======================================= -->
                                 </div>
                             </div>
                             <!--END TABS-->

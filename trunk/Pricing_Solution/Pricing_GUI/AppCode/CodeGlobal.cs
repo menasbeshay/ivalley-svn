@@ -26,5 +26,27 @@ namespace Pricing_GUI
                 HttpContext.Current.Session["LoggedInCompany"] = value;
             }
         }
+
+        /// <summary>
+        /// This property for informing us if the current TradePricing Record allowed for edit or not.
+        /// </summary>
+        public static bool IsDisableMode
+        {
+            get
+            {
+                if (HttpContext.Current.Session["DisableTradePricing"] != null)
+                {
+                    return HttpContext.Current.Session["DisableTradePricing"].ToString() == "True";
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session["DisableTradePricing"] = value;
+            }
+        }
     }
 }
