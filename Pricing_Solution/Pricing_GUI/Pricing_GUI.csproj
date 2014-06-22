@@ -33,9 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.24821, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Pricing_Scheduel\Pricing_GUI\bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="EASendMail20">
       <HintPath>C:\Program Files\EASendMail\EASendMail20.dll</HintPath>
@@ -832,6 +832,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TestTabs.aspx" />
     <Content Include="Tickets.aspx" />
     <Content Include="ViewTicket.aspx" />
     <Content Include="Web.config">
@@ -996,6 +997,13 @@
     </Compile>
     <Compile Include="CompaniesMaster.Master.designer.cs">
       <DependentUpon>CompaniesMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TestTabs.aspx.cs">
+      <DependentUpon>TestTabs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestTabs.aspx.designer.cs">
+      <DependentUpon>TestTabs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tickets.aspx.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>

@@ -19,7 +19,7 @@ namespace Pricing_GUI
             {
                 if (!Page.IsPostBack)
                 {
-                    ui_lblWelcome.Text = CodeGlobal.LogedInCompany.CompNameEng ;
+                    ui_lblWelcome.Text = CodeGlobal.LogedInCompany.CompNameEng;
                 }
             }
         }
