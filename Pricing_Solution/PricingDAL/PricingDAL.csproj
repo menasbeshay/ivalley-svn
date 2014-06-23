@@ -70,6 +70,7 @@
     <Compile Include="v_GetAllNotifications.cs" />
     <Compile Include="v_GetOneGenericInfoByDrugID.cs" />
     <Compile Include="v_PriceSchedual.cs" />
+    <Compile Include="v_StatusHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">

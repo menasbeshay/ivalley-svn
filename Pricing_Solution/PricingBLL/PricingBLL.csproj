@@ -46,6 +46,7 @@
     <Compile Include="Companies.cs" />
     <Compile Include="CompanyDescision.cs" />
     <Compile Include="ConvertDate.cs" />
+    <Compile Include="v_StatusHistory.cs" />
     <Compile Include="v_GetAllNotifications.cs" />
     <Compile Include="StatusHistory.cs" />
     <Compile Include="Notifications.cs" />

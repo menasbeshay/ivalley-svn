@@ -544,9 +544,38 @@
                                     
                                     <!---------------  Tab Status  ------------------------->
                                     <div class="tab-pane" id="tab_1_3">
-                                        <div style="display: block">
-                                        status tab information 
+                                        <div class="span12">
+            <!-- BEGIN PROGRESS BARS PORTLET-->
+           <div class="widget">
+								<div class="widget-title">
+									<h4><i class="icon-bullhorn"></i>Full Status History</h4>
+									<span class="tools">
+									</span>							
+								</div>
+								<div class="widget-body">
+                                    <asp:Repeater runat="server" ID="rptrStatusList" OnItemDataBound="rptrStatusList_ItemDataBound">
+                                    <ItemTemplate>
+                                     <div class="alert alert-block alert-success fade in">
+										<h4 class="alert-heading"><asp:Literal runat="server" ID="Literal2" Text='<%# Eval("Status") %>'></asp:Literal></h4>
+                                        <p>
+                                         <asp:Literal runat="server" ID="Literal4" Text='<%# Eval("StatusDate", "{0:dd-MM-yyyy}") %>'></asp:Literal>
+                                        </p>
+										<p>
+											 <asp:Label runat="server" ID="lblStatusDetailsText"></asp:Label>
+										</p>
+                                        <div style="text-align:right">
+                                        <asp:HyperLink runat="server" ID="lnkViewAttachementFile" Text="ViewAttachedFile"></asp:HyperLink>
                                         </div>
+									</div>
+
+                                   
+                                    </ItemTemplate>
+                                   
+                                    </asp:Repeater>
+								</div>
+							</div>
+            <!-- END PROGRESS BARS PORTLET-->
+        </div>
                                         </div>
                                       <!-- End Tab Status ======================================= -->
                                 </div>
