@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Pricing.BLL;
 using System.Configuration;
+using System.Data;
+
 
 namespace Pricing_GUI
 {
@@ -81,11 +83,11 @@ namespace Pricing_GUI
                     }
                 }
 
-               
+
 
                 // Select Logged In Company .
                 ui_drpCompanies.SelectedIndex = ui_drpCompanies.Items.IndexOf(ui_drpCompanies.Items.FindByValue(CodeGlobal.LogedInCompany.s_CompanyID));
-                ui_drpCompanies.Enabled = false;    
+                ui_drpCompanies.Enabled = false;
             }
 
         }
@@ -354,6 +356,9 @@ namespace Pricing_GUI
             ui_btnSave.Text = "Update Main Data";
             RequiredFieldValidator10.Visible = false;
             lblPageTitle.Text = "Modify Pricing Request";
+
+            // Bind status History
+            BindStatusHistory();
         }
 
         #endregion
@@ -662,6 +667,81 @@ namespace Pricing_GUI
         }
 
         #endregion
+
+        #endregion
+
+        #region Status History
+
+        #region Methods
+
+        private void BindStatusHistory()
+        {
+            v_StatusHistory objstatus = new v_StatusHistory();
+            objstatus.LoadStatusForTrade(TradePriceID);
+
+            rptrStatusList.DataSource = objstatus.DefaultView;
+            rptrStatusList.DataBind();
+        }
+
+       
+
+        #endregion
+
+
+        #region Events
+
+        protected void rptrStatusList_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Label lblStatusDetails;
+            HyperLink lnkViewAttachement;
+            string _statusText = "";
+
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                // get current data row 
+                DataRow CurrentRow = ((DataRowView)e.Item.DataItem).Row;
+
+                // get label which we will view it's status.
+                lblStatusDetails = (Label)e.Item.FindControl("lblStatusDetailsText");
+                lnkViewAttachement = (HyperLink)e.Item.FindControl("lnkViewAttachementFile");
+
+                if (CurrentRow["CommitteeTypeID"].ToString() != "")
+                {
+                    _statusText += "<b>Committee :</b>" + CurrentRow["TypeText"].ToString();
+                    _statusText += "<b>Date of Committee :</b>" + CurrentRow["CommitteDate"].ToString();
+                    _statusText += "<br>";
+                }
+
+                if (CurrentRow["CurrentPrice"].ToString() != "")
+                {
+                    _statusText += "<b>Current Price :</b>" + CurrentRow["CurrentPrice"].ToString();
+                    _statusText += "<br>";
+                }
+
+                if (CurrentRow["Comment"].ToString() != "")
+                {
+                    _statusText += "<b>Comment :</b>" + CurrentRow["Comment"].ToString();
+                    _statusText += "<br>";
+                }
+
+                lblStatusDetails.Text = _statusText;
+
+                if (CurrentRow["AttachementPath"].ToString() != "")
+                {
+                    lnkViewAttachement.Visible = true;
+                    lnkViewAttachement.NavigateUrl = ConfigurationManager.AppSettings["StatusAttachementPath"].ToString() + CurrentRow["StatusHistoryID"].ToString() + "_" + CurrentRow["AttachementPath"].ToString();
+                }
+                else
+                {
+                    lnkViewAttachement.Visible = false;
+                }
+            }
+            
+        }
+
+        #endregion
+
+
 
         #endregion
     }
