@@ -3738,6 +3738,12 @@ input[type="submit"].btn.btn-mini {
   line-height: 20px;
 }
 
+.alert-default {
+  color: #63246B;
+  background-color: #E9C7ED;
+  border-color: #A890AB;
+}
+
 .alert-success {
   color: #468847;
   background-color: #dff0d8;
