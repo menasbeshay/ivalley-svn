@@ -69,6 +69,9 @@ namespace Pricing_GUI
                 if (IsUpdateMode)
                 {
                     InitializeUpdateMode();
+                    // Bind status History
+                    BindStatusHistory();
+                    ValidateAndBindStatus();
 
                     if (CodeGlobal.IsDisableMode)
                     {
@@ -357,8 +360,7 @@ namespace Pricing_GUI
             RequiredFieldValidator10.Visible = false;
             lblPageTitle.Text = "Modify Pricing Request";
 
-            // Bind status History
-            BindStatusHistory();
+           
         }
 
         #endregion
@@ -681,6 +683,36 @@ namespace Pricing_GUI
 
             rptrStatusList.DataSource = objstatus.DefaultView;
             rptrStatusList.DataBind();
+
+
+        }
+
+        private void ValidateAndBindStatus()
+        {
+            // Get Last status ID
+            TradePricing obj = new TradePricing();
+            obj.LoadByPrimaryKey(TradePriceID);
+
+            switch (obj.PricingStatusID)
+            {
+                    
+                case 1: // inistiated
+                case 2:
+                default:// Accepted 
+                    // In case of that the company couldn't change the status 
+                    tblAddStatusContainer.Visible = false;
+                    uiLinkButtonAddStatus.Visible = false;
+                    lblCouldNotchangeStatus.Visible = true;
+                    break;
+                case 3:
+                     tblAddStatusContainer.Visible = true;
+                    uiLinkButtonAddStatus.Visible = true;
+                    lblCouldNotchangeStatus.Visible = false;
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Need More Info / Complete", "4"));
+                    break;
+                
+            }
         }
 
        
@@ -694,6 +726,8 @@ namespace Pricing_GUI
         {
             Label lblStatusDetails;
             HyperLink lnkViewAttachement;
+            Panel pnlTextContainer;
+            int _statusID = 0;
             string _statusText = "";
 
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
@@ -704,24 +738,25 @@ namespace Pricing_GUI
                 // get label which we will view it's status.
                 lblStatusDetails = (Label)e.Item.FindControl("lblStatusDetailsText");
                 lnkViewAttachement = (HyperLink)e.Item.FindControl("lnkViewAttachementFile");
+                pnlTextContainer = (Panel)e.Item.FindControl("pnlStatusContainer");
+                _statusID = int.Parse(CurrentRow["PricingStatusID"].ToString());
 
                 if (CurrentRow["CommitteeTypeID"].ToString() != "")
                 {
-                    _statusText += "<b>Committee :</b>" + CurrentRow["TypeText"].ToString();
-                    _statusText += "<b>Date of Committee :</b>" + CurrentRow["CommitteDate"].ToString();
+                    _statusText += "<b>Committee : </b>" + CurrentRow["TypeText"].ToString() + "&nbsp;&nbsp;";
+                    _statusText += "<b>Date of Committee : </b>" + CurrentRow["CommitteDate"].ToString();
                     _statusText += "<br>";
                 }
 
                 if (CurrentRow["CurrentPrice"].ToString() != "")
                 {
-                    _statusText += "<b>Current Price :</b>" + CurrentRow["CurrentPrice"].ToString();
+                    _statusText += "<b>Current Price : </b>" + CurrentRow["CurrentPrice"].ToString();
                     _statusText += "<br>";
                 }
 
                 if (CurrentRow["Comment"].ToString() != "")
                 {
-                    _statusText += "<b>Comment :</b>" + CurrentRow["Comment"].ToString();
-                    _statusText += "<br>";
+                    _statusText += "<b>Comment : </b>" + CurrentRow["Comment"].ToString();
                 }
 
                 lblStatusDetails.Text = _statusText;
@@ -735,8 +770,38 @@ namespace Pricing_GUI
                 {
                     lnkViewAttachement.Visible = false;
                 }
+
+
+                // Control status Color related to status ID
+                switch (_statusID)
+                {
+                    case 1: // initiated
+                    case 4: // Need More Info / Complete
+                        pnlTextContainer.CssClass = "alert alert-info";
+                        break;
+                    case 2: // Request Accepted
+                        pnlTextContainer.CssClass = "alert alert-success";
+                        break;
+                    case 3:
+                        pnlTextContainer.CssClass = "alert";
+                        break;
+                    case 5:
+                        pnlTextContainer.CssClass = "alert alert-error";
+                        break;
+                    case 6:
+                        pnlTextContainer.CssClass = "alert alert-default";
+                        break;
+                    default:
+                        pnlTextContainer.CssClass = "alert alert-default";
+                        break;
+                }
             }
             
+        }
+
+        protected void uiLinkButtonAddStatus_Click(object sender, EventArgs e)
+        {
+            //TODO: Handle add new status for the current Trade Pricing Product.
         }
 
         #endregion

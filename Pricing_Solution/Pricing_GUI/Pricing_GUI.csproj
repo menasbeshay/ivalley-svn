@@ -751,6 +751,8 @@
     <Content Include="Images\Excel-icon.png" />
     <Content Include="Images\del1.png" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\PreviewFile.png" />
+    <Content Include="Images\view_file-icon.gif" />
     <Content Include="img\404.png" />
     <Content Include="img\500.png" />
     <Content Include="img\avatar-mini.png" />

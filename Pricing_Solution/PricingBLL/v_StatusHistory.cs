@@ -26,6 +26,8 @@ namespace Pricing.BLL
             this.Query.Load();
         }
 
+        
+
        
 	}
 }
