@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesLoadByPrimaryKey];
 GO
@@ -36,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadByPr
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesLoadAll];
 GO
@@ -69,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadAll 
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesUpdate];
 GO
@@ -116,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesInsert];
 GO
@@ -168,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesInsert S
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesDelete];
 GO

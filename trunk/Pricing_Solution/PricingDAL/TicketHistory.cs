@@ -147,6 +147,14 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter FileAttachement
+			{
+				get
+				{
+					return new SqlParameter("@FileAttachement", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace Pricing.DAL
             public const string ResponseDate = "ResponseDate";
             public const string CAPA_ResponderID = "CAPA_ResponderID";
             public const string TicketStatusID = "TicketStatusID";
+            public const string FileAttachement = "FileAttachement";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace Pricing.DAL
 					ht[ResponseDate] = _TicketHistory.PropertyNames.ResponseDate;
 					ht[CAPA_ResponderID] = _TicketHistory.PropertyNames.CAPA_ResponderID;
 					ht[TicketStatusID] = _TicketHistory.PropertyNames.TicketStatusID;
+					ht[FileAttachement] = _TicketHistory.PropertyNames.FileAttachement;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace Pricing.DAL
             public const string ResponseDate = "ResponseDate";
             public const string CAPA_ResponderID = "CAPA_ResponderID";
             public const string TicketStatusID = "TicketStatusID";
+            public const string FileAttachement = "FileAttachement";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace Pricing.DAL
 					ht[ResponseDate] = _TicketHistory.ColumnNames.ResponseDate;
 					ht[CAPA_ResponderID] = _TicketHistory.ColumnNames.CAPA_ResponderID;
 					ht[TicketStatusID] = _TicketHistory.ColumnNames.TicketStatusID;
+					ht[FileAttachement] = _TicketHistory.ColumnNames.FileAttachement;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace Pricing.DAL
             public const string ResponseDate = "s_ResponseDate";
             public const string CAPA_ResponderID = "s_CAPA_ResponderID";
             public const string TicketStatusID = "s_TicketStatusID";
+            public const string FileAttachement = "s_FileAttachement";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setint(ColumnNames.TicketStatusID, value);
+			}
+		}
+
+		public virtual string FileAttachement
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FileAttachement);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FileAttachement, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace Pricing.DAL
 			}
 		}
 
+		public virtual string s_FileAttachement
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FileAttachement) ? string.Empty : base.GetstringAsString(ColumnNames.FileAttachement);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FileAttachement);
+				else
+					this.FileAttachement = base.SetstringAsString(ColumnNames.FileAttachement, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public WhereParameter FileAttachement
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FileAttachement, Parameters.FileAttachement);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter FileAttachement
+		    {
+				get
+		        {
+					if(_FileAttachement_W == null)
+	        	    {
+						_FileAttachement_W = TearOff.FileAttachement;
+					}
+					return _FileAttachement_W;
+				}
+			}
+
 			private WhereParameter _TicketHistoryID_W = null;
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _ResponseText_W = null;
 			private WhereParameter _ResponseDate_W = null;
 			private WhereParameter _CAPA_ResponderID_W = null;
 			private WhereParameter _TicketStatusID_W = null;
+			private WhereParameter _FileAttachement_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace Pricing.DAL
 				_ResponseDate_W = null;
 				_CAPA_ResponderID_W = null;
 				_TicketStatusID_W = null;
+				_FileAttachement_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter FileAttachement
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FileAttachement, Parameters.FileAttachement);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter FileAttachement
+		    {
+				get
+		        {
+					if(_FileAttachement_W == null)
+	        	    {
+						_FileAttachement_W = TearOff.FileAttachement;
+					}
+					return _FileAttachement_W;
+				}
+			}
+
 			private AggregateParameter _TicketHistoryID_W = null;
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _ResponseText_W = null;
 			private AggregateParameter _ResponseDate_W = null;
 			private AggregateParameter _CAPA_ResponderID_W = null;
 			private AggregateParameter _TicketStatusID_W = null;
+			private AggregateParameter _FileAttachement_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace Pricing.DAL
 				_ResponseDate_W = null;
 				_CAPA_ResponderID_W = null;
 				_TicketStatusID_W = null;
+				_FileAttachement_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.TicketStatusID);
 			p.SourceColumn = ColumnNames.TicketStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FileAttachement);
+			p.SourceColumn = ColumnNames.FileAttachement;
 			p.SourceVersion = DataRowVersion.Current;
 
 

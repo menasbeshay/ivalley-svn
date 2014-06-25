@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadByPrimaryKey];
 GO
@@ -19,7 +19,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	FROM [TicketHistory]
 	WHERE
 		([TicketHistoryID] = @TicketHistoryID)
@@ -36,7 +37,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadAll];
 GO
@@ -54,7 +55,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	FROM [TicketHistory]
 
 	SET @Err = @@Error
@@ -69,7 +71,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryUpdate];
 GO
@@ -81,7 +83,8 @@ CREATE PROCEDURE [proc_TicketHistoryUpdate]
 	@ResponseText nvarchar(500) = NULL,
 	@ResponseDate datetime = NULL,
 	@CAPA_ResponderID int = NULL,
-	@TicketStatusID int = NULL
+	@TicketStatusID int = NULL,
+	@FileAttachement nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -95,7 +98,8 @@ BEGIN
 		[ResponseText] = @ResponseText,
 		[ResponseDate] = @ResponseDate,
 		[CAPA_ResponderID] = @CAPA_ResponderID,
-		[TicketStatusID] = @TicketStatusID
+		[TicketStatusID] = @TicketStatusID,
+		[FileAttachement] = @FileAttachement
 	WHERE
 		[TicketHistoryID] = @TicketHistoryID
 
@@ -116,7 +120,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryInsert];
 GO
@@ -128,7 +132,8 @@ CREATE PROCEDURE [proc_TicketHistoryInsert]
 	@ResponseText nvarchar(500) = NULL,
 	@ResponseDate datetime = NULL,
 	@CAPA_ResponderID int = NULL,
-	@TicketStatusID int = NULL
+	@TicketStatusID int = NULL,
+	@FileAttachement nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -143,7 +148,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	)
 	VALUES
 	(
@@ -151,7 +157,8 @@ BEGIN
 		@ResponseText,
 		@ResponseDate,
 		@CAPA_ResponderID,
-		@TicketStatusID
+		@TicketStatusID,
+		@FileAttachement
 	)
 
 	SET @Err = @@Error
@@ -168,7 +175,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryDelete];
 GO

@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_NotificationsLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsLoadByPrimaryKey];
 GO
@@ -37,7 +37,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_NotificationsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsLoadAll];
 GO
@@ -71,7 +71,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_NotificationsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsUpdate];
 GO
@@ -120,7 +120,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_NotificationsInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsInsert];
 GO
@@ -175,7 +175,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_NotificationsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsDelete];
 GO

@@ -723,6 +723,8 @@
     <Content Include="CAPA\Home.aspx" />
     <Content Include="CAPA\ListPrices.aspx" />
     <Content Include="CAPA\Default.aspx" />
+    <Content Include="CAPA\ManageTickets.aspx" />
+    <Content Include="CAPA\TicketResponse.aspx" />
     <Content Include="CAPA\TradeSearch.aspx" />
     <Content Include="Company_Login.aspx" />
     <Content Include="css\style.css" />
@@ -834,7 +836,6 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="TestTabs.aspx" />
     <Content Include="Tickets.aspx" />
     <Content Include="ViewTicket.aspx" />
     <Content Include="Web.config">
@@ -933,12 +934,26 @@
     <Compile Include="CAPA\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CAPA\ManageTickets.aspx.cs">
+      <DependentUpon>ManageTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPA\ManageTickets.aspx.designer.cs">
+      <DependentUpon>ManageTickets.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CAPA\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CAPA\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CAPA\TicketResponse.aspx.cs">
+      <DependentUpon>TicketResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPA\TicketResponse.aspx.designer.cs">
+      <DependentUpon>TicketResponse.aspx</DependentUpon>
     </Compile>
     <Compile Include="CAPA\TradeSearch.aspx.cs">
       <DependentUpon>TradeSearch.aspx</DependentUpon>
@@ -1000,13 +1015,6 @@
     <Compile Include="CompaniesMaster.Master.designer.cs">
       <DependentUpon>CompaniesMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="TestTabs.aspx.cs">
-      <DependentUpon>TestTabs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestTabs.aspx.designer.cs">
-      <DependentUpon>TestTabs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Tickets.aspx.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1024,6 +1032,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Attachments\TicketHistory\" />
     <Folder Include="Attachments\Tickets\" />
   </ItemGroup>
   <ItemGroup>

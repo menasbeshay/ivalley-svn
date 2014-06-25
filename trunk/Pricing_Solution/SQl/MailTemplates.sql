@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_MailTemplatesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesLoadAll];
 GO
@@ -65,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesUpdate];
 GO
@@ -108,7 +108,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MailTemplatesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesInsert];
 GO
@@ -154,7 +154,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesDelete];
 GO

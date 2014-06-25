@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TicketTypeLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeLoadByPrimaryKey];
 GO
@@ -32,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_TicketTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeLoadAll];
 GO
@@ -61,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeUpdate];
 GO
@@ -100,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketTypeInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeInsert];
 GO
@@ -140,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeDelete];
 GO
