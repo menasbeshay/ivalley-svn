@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_StatusHistoryLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryLoadByPrimaryKey];
 GO
@@ -23,7 +23,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	FROM [StatusHistory]
 	WHERE
 		([StatusHistoryID] = @StatusHistoryID)
@@ -40,7 +41,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryLoadAll];
 GO
@@ -62,7 +63,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	FROM [StatusHistory]
 
 	SET @Err = @@Error
@@ -77,7 +79,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryUpdate];
 GO
@@ -93,7 +95,8 @@ CREATE PROCEDURE [proc_StatusHistoryUpdate]
 	@CommitteDate datetime = NULL,
 	@CurrentPrice float = NULL,
 	@Comment nvarchar(2500) = NULL,
-	@AttachementPath nvarchar(500) = NULL
+	@AttachementPath nvarchar(500) = NULL,
+	@StatusDate datetime = NULL
 )
 AS
 BEGIN
@@ -111,7 +114,8 @@ BEGIN
 		[CommitteDate] = @CommitteDate,
 		[CurrentPrice] = @CurrentPrice,
 		[Comment] = @Comment,
-		[AttachementPath] = @AttachementPath
+		[AttachementPath] = @AttachementPath,
+		[StatusDate] = @StatusDate
 	WHERE
 		[StatusHistoryID] = @StatusHistoryID
 
@@ -132,7 +136,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_StatusHistoryInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryInsert];
 GO
@@ -148,7 +152,8 @@ CREATE PROCEDURE [proc_StatusHistoryInsert]
 	@CommitteDate datetime = NULL,
 	@CurrentPrice float = NULL,
 	@Comment nvarchar(2500) = NULL,
-	@AttachementPath nvarchar(500) = NULL
+	@AttachementPath nvarchar(500) = NULL,
+	@StatusDate datetime = NULL
 )
 AS
 BEGIN
@@ -167,7 +172,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	)
 	VALUES
 	(
@@ -179,7 +185,8 @@ BEGIN
 		@CommitteDate,
 		@CurrentPrice,
 		@Comment,
-		@AttachementPath
+		@AttachementPath,
+		@StatusDate
 	)
 
 	SET @Err = @@Error
@@ -196,7 +203,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryDelete];
 GO

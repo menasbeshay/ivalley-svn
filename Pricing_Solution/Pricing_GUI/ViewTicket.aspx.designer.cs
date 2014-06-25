@@ -31,6 +31,15 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.Label uiLabelRequestText;
         
         /// <summary>
+        /// uiPanelResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelResponse;
+        
+        /// <summary>
         /// uiTextBoxResponse control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListStatus;
+        
+        /// <summary>
+        /// uiFileUploadAttach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadAttach;
         
         /// <summary>
         /// uiLinkButtonReply control.

@@ -10,6 +10,7 @@
 <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
 <script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
 <link href="Styles/calendar-blue.css" rel="stylesheet" type="text/css" />
+    
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -41,6 +42,7 @@
                         <asp:MenuItem NavigateUrl="~/CAPA/CompaniesAdmin.aspx" Text="Companies Data"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/Generics.aspx" Text="Generics"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/CompNotifications.aspx" Text="Notifications"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/ManageTickets.aspx" Text="Tickets"/>
                     </Items>
                 </asp:Menu>
             </div>

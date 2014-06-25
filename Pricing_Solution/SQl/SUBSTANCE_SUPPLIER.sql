@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey];
 GO
@@ -58,7 +58,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadByPrimary
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERLoadAll];
 GO
@@ -113,7 +113,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadAll Succe
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERUpdate];
 GO
@@ -204,7 +204,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERInsert];
 GO
@@ -322,7 +322,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERInsert Succee
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERDelete];
 GO

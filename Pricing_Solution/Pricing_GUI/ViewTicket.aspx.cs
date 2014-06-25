@@ -58,6 +58,14 @@ namespace Pricing_GUI
                         drug.LoadByPrimaryKey(ticket.TradePricingID);
                         uiLabelDrugName.Text = drug.TradeName;
                     }
+                    if (ticket.TicketStatusID == 4)
+                    {
+                        uiPanelResponse.Visible = true;
+                    }
+                    else
+                    {
+                        uiPanelResponse.Visible = false;
+                    }
                     BindHistory();
                 }
             }
@@ -72,18 +80,41 @@ namespace Pricing_GUI
 
         protected void uiLinkButtonReply_Click(object sender, EventArgs e)
         {
+            Pricing.BLL.Tickets ticket = new Pricing.BLL.Tickets();
+            ticket.LoadByPrimaryKey(TicketID);
+
             TicketHistory history = new TicketHistory();
             history.AddNew();
             history.TicketID = TicketID;
             history.ResponseDate = DateTime.Now;
             history.ResponseText = uiTextBoxResponse.Text;
-            history.TicketStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
+            if (ticket.TicketStatusID == 4) // need more info
+                history.TicketStatusID = 5; // need more info / complete            
+            //history.TicketStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
+
+            string filepath = "";
+            if (uiFileUploadAttach.HasFile)
+            {
+
+                filepath = "/Attachments/TicketHistory/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadAttach.FileName;
+                uiFileUploadAttach.SaveAs(Server.MapPath("~" + filepath));
+                history.FileAttachement = filepath;
+            }
             history.Save();
 
-            Pricing.BLL.Tickets ticket = new Pricing.BLL.Tickets();
-            ticket.LoadByPrimaryKey(TicketID);
-            ticket.TicketStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
+            if (ticket.TicketStatusID == 4) // need more info
+                ticket.TicketStatusID = 5;  // need more info / complete 
+            //ticket.TicketStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
             ticket.Save();
+
+            if (ticket.TicketStatusID == 4)
+            {
+                uiPanelResponse.Visible = true;
+            }
+            else
+            {
+                uiPanelResponse.Visible = false;
+            }
 
             uiTextBoxResponse.Text = "";
             uiDropDownListStatus.SelectedIndex = 0;

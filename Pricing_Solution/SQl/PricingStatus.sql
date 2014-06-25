@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_PricingStatusLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_PricingStatusLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PricingStatusLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_PricingStatusInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PricingStatusInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusDelete];
 GO

@@ -1,9 +1,8 @@
--- ERROR: Table 'userLogin' must have a primary key
 
 USE [PricingAppointment]
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteeDescisionLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteeDescisionLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteeDescisionLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteeDescisionLoadByPrimaryKey];
 GO
@@ -37,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteeDescisionLoadByPrimary
 ELSE PRINT 'Procedure Creation: proc_CommitteeDescisionLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteeDescisionLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteeDescisionLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteeDescisionLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteeDescisionLoadAll];
 GO
@@ -67,7 +66,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteeDescisionLoadAll Succe
 ELSE PRINT 'Procedure Creation: proc_CommitteeDescisionLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteeDescisionUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteeDescisionUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteeDescisionUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteeDescisionUpdate];
 GO
@@ -108,7 +107,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CommitteeDescisionInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteeDescisionInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteeDescisionInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteeDescisionInsert];
 GO
@@ -151,7 +150,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteeDescisionInsert Succee
 ELSE PRINT 'Procedure Creation: proc_CommitteeDescisionInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteeDescisionDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteeDescisionDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteeDescisionDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteeDescisionDelete];
 GO
@@ -182,7 +181,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteeDescisionDelete Succee
 ELSE PRINT 'Procedure Creation: proc_CommitteeDescisionDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteTypesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteTypesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteTypesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteTypesLoadByPrimaryKey];
 GO
@@ -216,7 +215,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteTypesLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_CommitteTypesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteTypesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteTypesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteTypesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteTypesLoadAll];
 GO
@@ -246,7 +245,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteTypesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CommitteTypesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteTypesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteTypesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteTypesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteTypesUpdate];
 GO
@@ -287,7 +286,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CommitteTypesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteTypesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteTypesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteTypesInsert];
 GO
@@ -330,7 +329,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteTypesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CommitteTypesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CommitteTypesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CommitteTypesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CommitteTypesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CommitteTypesDelete];
 GO
@@ -361,7 +360,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CommitteTypesDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CommitteTypesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompaniesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompaniesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompaniesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompaniesLoadByPrimaryKey];
 GO
@@ -406,7 +405,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompaniesLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_CompaniesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompaniesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompaniesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompaniesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompaniesLoadAll];
 GO
@@ -447,7 +446,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompaniesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CompaniesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompaniesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompaniesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompaniesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompaniesUpdate];
 GO
@@ -510,7 +509,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CompaniesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompaniesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompaniesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompaniesInsert];
 GO
@@ -586,7 +585,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompaniesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CompaniesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompaniesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompaniesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompaniesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompaniesDelete];
 GO
@@ -617,7 +616,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompaniesDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CompaniesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionLoadByPrimaryKey];
 GO
@@ -651,7 +650,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionLoadByPrimaryKe
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionLoadAll];
 GO
@@ -681,7 +680,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionLoadAll Succeed
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionUpdate];
 GO
@@ -722,7 +721,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionInsert];
 GO
@@ -765,7 +764,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionInsert Succeede
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionDelete];
 GO
@@ -796,7 +795,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionDelete Succeede
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formLoadByPrimaryKey];
 GO
@@ -830,7 +829,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formLoadByPrimaryKey Suc
 ELSE PRINT 'Procedure Creation: proc_Dosage_formLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formLoadAll];
 GO
@@ -860,7 +859,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Dosage_formLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formUpdate];
 GO
@@ -901,7 +900,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Dosage_formInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formInsert];
 GO
@@ -944,7 +943,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Dosage_formInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formDelete];
 GO
@@ -975,7 +974,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Dosage_formDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesLoadByPrimaryKey];
 GO
@@ -1012,7 +1011,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadByPr
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesLoadAll];
 GO
@@ -1045,7 +1044,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadAll 
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesUpdate];
 GO
@@ -1092,7 +1091,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesInsert];
 GO
@@ -1144,7 +1143,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesInsert S
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Drug_Reguest_SubstancesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Drug_Reguest_SubstancesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Drug_Reguest_SubstancesDelete];
 GO
@@ -1175,7 +1174,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesDelete S
 ELSE PRINT 'Procedure Creation: proc_Drug_Reguest_SubstancesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FileTypeLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_FileTypeLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FileTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FileTypeLoadByPrimaryKey];
 GO
@@ -1208,7 +1207,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FileTypeLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_FileTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FileTypeLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_FileTypeLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FileTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FileTypeLoadAll];
 GO
@@ -1237,7 +1236,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FileTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FileTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FileTypeUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_FileTypeUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FileTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FileTypeUpdate];
 GO
@@ -1276,7 +1275,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_FileTypeInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_FileTypeInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FileTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FileTypeInsert];
 GO
@@ -1316,7 +1315,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FileTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FileTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_FileTypeDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_FileTypeDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_FileTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_FileTypeDelete];
 GO
@@ -1347,7 +1346,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_FileTypeDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_FileTypeDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Generic_namesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Generic_namesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Generic_namesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Generic_namesLoadByPrimaryKey];
 GO
@@ -1380,7 +1379,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Generic_namesLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_Generic_namesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Generic_namesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Generic_namesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Generic_namesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Generic_namesLoadAll];
 GO
@@ -1409,7 +1408,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Generic_namesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Generic_namesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Generic_namesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Generic_namesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Generic_namesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Generic_namesUpdate];
 GO
@@ -1448,7 +1447,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Generic_namesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Generic_namesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Generic_namesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Generic_namesInsert];
 GO
@@ -1488,7 +1487,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Generic_namesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Generic_namesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Generic_namesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_Generic_namesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Generic_namesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Generic_namesDelete];
 GO
@@ -1519,7 +1518,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Generic_namesDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Generic_namesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesLoadByPrimaryKey];
 GO
@@ -1554,7 +1553,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesLoadAll]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesLoadAll];
 GO
@@ -1585,7 +1584,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesUpdate]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesUpdate];
 GO
@@ -1628,7 +1627,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MailTemplatesInsert]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesInsert];
 GO
@@ -1674,7 +1673,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MailTemplatesDelete]    Script Date: 5/17/2014 5:05:56 PM ******/
+/****** Object:  StoredProcedure [proc_MailTemplatesDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MailTemplatesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MailTemplatesDelete];
 GO
@@ -1705,7 +1704,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MailTemplatesDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MailTemplatesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsLoadByPrimaryKey];
 GO
@@ -1743,7 +1742,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_NotificationsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsLoadAll];
 GO
@@ -1777,7 +1776,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_NotificationsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsUpdate];
 GO
@@ -1826,7 +1825,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_NotificationsInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsInsert];
 GO
@@ -1881,7 +1880,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_NotificationsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_NotificationsDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_NotificationsDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_NotificationsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_NotificationsDelete];
 GO
@@ -1912,7 +1911,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_NotificationsDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_NotificationsDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusLoadByPrimaryKey];
 GO
@@ -1946,7 +1945,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_PricingStatusLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusLoadAll];
 GO
@@ -1976,7 +1975,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PricingStatusLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusUpdate];
 GO
@@ -2017,7 +2016,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_PricingStatusInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusInsert];
 GO
@@ -2060,7 +2059,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PricingStatusInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PricingStatusDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_PricingStatusDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PricingStatusDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PricingStatusDelete];
 GO
@@ -2091,7 +2090,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PricingStatusDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PricingStatusDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeLoadByPrimaryKey];
 GO
@@ -2126,7 +2125,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoa
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeLoadAll];
 GO
@@ -2157,7 +2156,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoa
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeUpdate];
 GO
@@ -2200,7 +2199,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeInsert];
 GO
@@ -2246,7 +2245,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeIns
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeDelete];
 GO
@@ -2277,7 +2276,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeDel
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryLoadByPrimaryKey];
 GO
@@ -2301,7 +2300,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	FROM [StatusHistory]
 	WHERE
 		([StatusHistoryID] = @StatusHistoryID)
@@ -2318,7 +2318,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryLoadAll];
 GO
@@ -2340,7 +2340,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	FROM [StatusHistory]
 
 	SET @Err = @@Error
@@ -2355,7 +2356,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryUpdate];
 GO
@@ -2371,7 +2372,8 @@ CREATE PROCEDURE [proc_StatusHistoryUpdate]
 	@CommitteDate datetime = NULL,
 	@CurrentPrice float = NULL,
 	@Comment nvarchar(2500) = NULL,
-	@AttachementPath nvarchar(500) = NULL
+	@AttachementPath nvarchar(500) = NULL,
+	@StatusDate datetime = NULL
 )
 AS
 BEGIN
@@ -2389,7 +2391,8 @@ BEGIN
 		[CommitteDate] = @CommitteDate,
 		[CurrentPrice] = @CurrentPrice,
 		[Comment] = @Comment,
-		[AttachementPath] = @AttachementPath
+		[AttachementPath] = @AttachementPath,
+		[StatusDate] = @StatusDate
 	WHERE
 		[StatusHistoryID] = @StatusHistoryID
 
@@ -2410,7 +2413,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_StatusHistoryInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryInsert];
 GO
@@ -2426,7 +2429,8 @@ CREATE PROCEDURE [proc_StatusHistoryInsert]
 	@CommitteDate datetime = NULL,
 	@CurrentPrice float = NULL,
 	@Comment nvarchar(2500) = NULL,
-	@AttachementPath nvarchar(500) = NULL
+	@AttachementPath nvarchar(500) = NULL,
+	@StatusDate datetime = NULL
 )
 AS
 BEGIN
@@ -2445,7 +2449,8 @@ BEGIN
 		[CommitteDate],
 		[CurrentPrice],
 		[Comment],
-		[AttachementPath]
+		[AttachementPath],
+		[StatusDate]
 	)
 	VALUES
 	(
@@ -2457,7 +2462,8 @@ BEGIN
 		@CommitteDate,
 		@CurrentPrice,
 		@Comment,
-		@AttachementPath
+		@AttachementPath,
+		@StatusDate
 	)
 
 	SET @Err = @@Error
@@ -2474,7 +2480,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_StatusHistoryDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_StatusHistoryDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_StatusHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_StatusHistoryDelete];
 GO
@@ -2505,7 +2511,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_StatusHistoryDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_StatusHistoryDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey];
 GO
@@ -2564,7 +2570,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadByPrimary
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERLoadAll];
 GO
@@ -2619,7 +2625,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadAll Succe
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERUpdate];
 GO
@@ -2710,7 +2716,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERInsert];
 GO
@@ -2828,7 +2834,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERInsert Succee
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SUBSTANCE_SUPPLIERDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SUBSTANCE_SUPPLIERDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SUBSTANCE_SUPPLIERDelete];
 GO
@@ -2859,7 +2865,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERDelete Succee
 ELSE PRINT 'Procedure Creation: proc_SUBSTANCE_SUPPLIERDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesLoadByPrimaryKey];
 GO
@@ -2893,7 +2899,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_SubstancesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesLoadAll];
 GO
@@ -2923,7 +2929,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_SubstancesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesUpdate];
 GO
@@ -2964,7 +2970,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_SubstancesInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesInsert];
 GO
@@ -3007,7 +3013,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_SubstancesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesDelete];
 GO
@@ -3038,7 +3044,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_SubstancesDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesReferenceLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesReferenceLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesReferenceLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesReferenceLoadByPrimaryKey];
 GO
@@ -3072,7 +3078,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesReferenceLoadByPrimar
 ELSE PRINT 'Procedure Creation: proc_SubstancesReferenceLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesReferenceLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesReferenceLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesReferenceLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesReferenceLoadAll];
 GO
@@ -3102,7 +3108,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesReferenceLoadAll Succ
 ELSE PRINT 'Procedure Creation: proc_SubstancesReferenceLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesReferenceUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesReferenceUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesReferenceUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesReferenceUpdate];
 GO
@@ -3143,7 +3149,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_SubstancesReferenceInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesReferenceInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesReferenceInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesReferenceInsert];
 GO
@@ -3186,7 +3192,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesReferenceInsert Succe
 ELSE PRINT 'Procedure Creation: proc_SubstancesReferenceInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_SubstancesReferenceDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_SubstancesReferenceDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_SubstancesReferenceDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_SubstancesReferenceDelete];
 GO
@@ -3217,7 +3223,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_SubstancesReferenceDelete Succe
 ELSE PRINT 'Procedure Creation: proc_SubstancesReferenceDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadByPrimaryKey];
 GO
@@ -3237,7 +3243,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	FROM [TicketHistory]
 	WHERE
 		([TicketHistoryID] = @TicketHistoryID)
@@ -3254,7 +3261,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadAll];
 GO
@@ -3272,7 +3279,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	FROM [TicketHistory]
 
 	SET @Err = @@Error
@@ -3287,7 +3295,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryUpdate];
 GO
@@ -3299,7 +3307,8 @@ CREATE PROCEDURE [proc_TicketHistoryUpdate]
 	@ResponseText nvarchar(500) = NULL,
 	@ResponseDate datetime = NULL,
 	@CAPA_ResponderID int = NULL,
-	@TicketStatusID int = NULL
+	@TicketStatusID int = NULL,
+	@FileAttachement nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -3313,7 +3322,8 @@ BEGIN
 		[ResponseText] = @ResponseText,
 		[ResponseDate] = @ResponseDate,
 		[CAPA_ResponderID] = @CAPA_ResponderID,
-		[TicketStatusID] = @TicketStatusID
+		[TicketStatusID] = @TicketStatusID,
+		[FileAttachement] = @FileAttachement
 	WHERE
 		[TicketHistoryID] = @TicketHistoryID
 
@@ -3334,7 +3344,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryInsert];
 GO
@@ -3346,7 +3356,8 @@ CREATE PROCEDURE [proc_TicketHistoryInsert]
 	@ResponseText nvarchar(500) = NULL,
 	@ResponseDate datetime = NULL,
 	@CAPA_ResponderID int = NULL,
-	@TicketStatusID int = NULL
+	@TicketStatusID int = NULL,
+	@FileAttachement nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -3361,7 +3372,8 @@ BEGIN
 		[ResponseText],
 		[ResponseDate],
 		[CAPA_ResponderID],
-		[TicketStatusID]
+		[TicketStatusID],
+		[FileAttachement]
 	)
 	VALUES
 	(
@@ -3369,7 +3381,8 @@ BEGIN
 		@ResponseText,
 		@ResponseDate,
 		@CAPA_ResponderID,
-		@TicketStatusID
+		@TicketStatusID,
+		@FileAttachement
 	)
 
 	SET @Err = @@Error
@@ -3386,7 +3399,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryDelete];
 GO
@@ -3417,7 +3430,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketsLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketsLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketsLoadByPrimaryKey];
 GO
@@ -3462,7 +3475,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketsLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_TicketsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketsLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketsLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketsLoadAll];
 GO
@@ -3503,7 +3516,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketsUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketsUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketsUpdate];
 GO
@@ -3566,7 +3579,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketsInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketsInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketsInsert];
 GO
@@ -3642,7 +3655,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketsDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketsDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketsDelete];
 GO
@@ -3673,7 +3686,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketsDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketsDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketStatusLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketStatusLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketStatusLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketStatusLoadByPrimaryKey];
 GO
@@ -3706,7 +3719,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketStatusLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_TicketStatusLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketStatusLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketStatusLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketStatusLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketStatusLoadAll];
 GO
@@ -3735,7 +3748,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketStatusLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketStatusLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketStatusUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketStatusUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketStatusUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketStatusUpdate];
 GO
@@ -3774,7 +3787,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketStatusInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketStatusInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketStatusInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketStatusInsert];
 GO
@@ -3814,7 +3827,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketStatusInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketStatusInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketStatusDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketStatusDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketStatusDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketStatusDelete];
 GO
@@ -3845,7 +3858,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketStatusDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketStatusDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeLoadByPrimaryKey];
 GO
@@ -3878,7 +3891,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_TicketTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeLoadAll];
 GO
@@ -3907,7 +3920,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeUpdate];
 GO
@@ -3946,7 +3959,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketTypeInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeInsert];
 GO
@@ -3986,7 +3999,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketTypeDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TicketTypeDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketTypeDelete];
 GO
@@ -4017,7 +4030,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketTypeDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketTypeDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingLoadByPrimaryKey];
 GO
@@ -4039,6 +4052,7 @@ BEGIN
 		[DosageFormID],
 		[FileTypeID],
 		[ManufactureID],
+		[AssignedUserID],
 		[TradeName],
 		[Generics],
 		[CompanyPrice],
@@ -4068,7 +4082,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_TradePricingLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingLoadAll];
 GO
@@ -4088,6 +4102,7 @@ BEGIN
 		[DosageFormID],
 		[FileTypeID],
 		[ManufactureID],
+		[AssignedUserID],
 		[TradeName],
 		[Generics],
 		[CompanyPrice],
@@ -4115,7 +4130,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TradePricingLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingUpdate];
 GO
@@ -4129,6 +4144,7 @@ CREATE PROCEDURE [proc_TradePricingUpdate]
 	@DosageFormID int = NULL,
 	@FileTypeID int = NULL,
 	@ManufactureID int = NULL,
+	@AssignedUserID int = NULL,
 	@TradeName nvarchar(150) = NULL,
 	@Generics nvarchar(250) = NULL,
 	@CompanyPrice float = NULL,
@@ -4157,6 +4173,7 @@ BEGIN
 		[DosageFormID] = @DosageFormID,
 		[FileTypeID] = @FileTypeID,
 		[ManufactureID] = @ManufactureID,
+		[AssignedUserID] = @AssignedUserID,
 		[TradeName] = @TradeName,
 		[Generics] = @Generics,
 		[CompanyPrice] = @CompanyPrice,
@@ -4190,7 +4207,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TradePricingInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingInsert];
 GO
@@ -4204,6 +4221,7 @@ CREATE PROCEDURE [proc_TradePricingInsert]
 	@DosageFormID int = NULL,
 	@FileTypeID int = NULL,
 	@ManufactureID int = NULL,
+	@AssignedUserID int = NULL,
 	@TradeName nvarchar(150) = NULL,
 	@Generics nvarchar(250) = NULL,
 	@CompanyPrice float = NULL,
@@ -4233,6 +4251,7 @@ BEGIN
 		[DosageFormID],
 		[FileTypeID],
 		[ManufactureID],
+		[AssignedUserID],
 		[TradeName],
 		[Generics],
 		[CompanyPrice],
@@ -4255,6 +4274,7 @@ BEGIN
 		@DosageFormID,
 		@FileTypeID,
 		@ManufactureID,
+		@AssignedUserID,
 		@TradeName,
 		@Generics,
 		@CompanyPrice,
@@ -4284,7 +4304,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TradePricingInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingDelete];
 GO
@@ -4315,7 +4335,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TradePricingDelete Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UnitLoadByPrimaryKey]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_UnitLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UnitLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UnitLoadByPrimaryKey];
 GO
@@ -4348,7 +4368,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UnitLoadByPrimaryKey Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UnitLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UnitLoadAll]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_UnitLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UnitLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UnitLoadAll];
 GO
@@ -4377,7 +4397,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UnitLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UnitLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UnitUpdate]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_UnitUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UnitUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UnitUpdate];
 GO
@@ -4416,7 +4436,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UnitInsert]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_UnitInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UnitInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UnitInsert];
 GO
@@ -4456,7 +4476,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UnitInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UnitInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UnitDelete]    Script Date: 5/17/2014 5:05:57 PM ******/
+/****** Object:  StoredProcedure [proc_UnitDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UnitDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UnitDelete];
 GO
@@ -4485,4 +4505,190 @@ GO
 -- Display the status of Proc creation
 IF (@@Error = 0) PRINT 'Procedure Creation: proc_UnitDelete Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UnitDelete Error on Creation'
+GO
+
+/****** Object:  StoredProcedure [proc_userLoginLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_userLoginLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+    DROP PROCEDURE [proc_userLoginLoadByPrimaryKey];
+GO
+
+CREATE PROCEDURE [proc_userLoginLoadByPrimaryKey]
+(
+	@adminID int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[adminID],
+		[UserName],
+		[Password],
+		[Privaledge]
+	FROM [userLogin]
+	WHERE
+		([adminID] = @adminID)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+
+
+-- Display the status of Proc creation
+IF (@@Error = 0) PRINT 'Procedure Creation: proc_userLoginLoadByPrimaryKey Succeeded'
+ELSE PRINT 'Procedure Creation: proc_userLoginLoadByPrimaryKey Error on Creation'
+GO
+
+/****** Object:  StoredProcedure [proc_userLoginLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_userLoginLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+    DROP PROCEDURE [proc_userLoginLoadAll];
+GO
+
+CREATE PROCEDURE [proc_userLoginLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[adminID],
+		[UserName],
+		[Password],
+		[Privaledge]
+	FROM [userLogin]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+
+
+-- Display the status of Proc creation
+IF (@@Error = 0) PRINT 'Procedure Creation: proc_userLoginLoadAll Succeeded'
+ELSE PRINT 'Procedure Creation: proc_userLoginLoadAll Error on Creation'
+GO
+
+/****** Object:  StoredProcedure [proc_userLoginUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_userLoginUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+    DROP PROCEDURE [proc_userLoginUpdate];
+GO
+
+CREATE PROCEDURE [proc_userLoginUpdate]
+(
+	@adminID int,
+	@UserName nvarchar(50) = NULL,
+	@Password nvarchar(50) = NULL,
+	@Privaledge nvarchar(50) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	UPDATE [userLogin]
+	SET
+		[UserName] = @UserName,
+		[Password] = @Password,
+		[Privaledge] = @Privaledge
+	WHERE
+		[adminID] = @adminID
+
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+
+
+-- Display the status of Proc creation
+IF (@@Error = 0) PRINT 'Procedure Creation: proc_userLoginUpdate Succeeded'
+ELSE PRINT 'Procedure Creation: proc_userLoginUpdate Error on Creation'
+GO
+
+
+
+
+/****** Object:  StoredProcedure [proc_userLoginInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_userLoginInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+    DROP PROCEDURE [proc_userLoginInsert];
+GO
+
+CREATE PROCEDURE [proc_userLoginInsert]
+(
+	@adminID int = NULL output,
+	@UserName nvarchar(50) = NULL,
+	@Password nvarchar(50) = NULL,
+	@Privaledge nvarchar(50) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	INSERT
+	INTO [userLogin]
+	(
+		[UserName],
+		[Password],
+		[Privaledge]
+	)
+	VALUES
+	(
+		@UserName,
+		@Password,
+		@Privaledge
+	)
+
+	SET @Err = @@Error
+
+	SELECT @adminID = SCOPE_IDENTITY()
+
+	RETURN @Err
+END
+GO
+
+
+-- Display the status of Proc creation
+IF (@@Error = 0) PRINT 'Procedure Creation: proc_userLoginInsert Succeeded'
+ELSE PRINT 'Procedure Creation: proc_userLoginInsert Error on Creation'
+GO
+
+/****** Object:  StoredProcedure [proc_userLoginDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_userLoginDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+    DROP PROCEDURE [proc_userLoginDelete];
+GO
+
+CREATE PROCEDURE [proc_userLoginDelete]
+(
+	@adminID int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [userLogin]
+	WHERE
+		[adminID] = @adminID
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+
+
+-- Display the status of Proc creation
+IF (@@Error = 0) PRINT 'Procedure Creation: proc_userLoginDelete Succeeded'
+ELSE PRINT 'Procedure Creation: proc_userLoginDelete Error on Creation'
 GO
