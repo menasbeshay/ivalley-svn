@@ -143,3 +143,86 @@ Inner join TicketStatus S on T.TicketStatusID = S.TicketStatusID
 Left JOIN dbo.TradePricing P ON T.TradePricingID = P.TradePricingID 
 order by T.InitiateDate Desc 
 Go
+
+
+
+/* new fields updates  */
+
+
+if Exists (select Name 
+		   from sysobjects 
+		   where name = 'TradePricingStatus' and
+		        xtype = 'U')
+Drop Table TradePricingStatus
+Go
+Create Table TradePricingStatus
+(
+	TradePricingStatusID int not null
+			identity(1,1)
+			Primary Key,	
+	Name Nvarchar(200)
+)
+Go
+
+
+if Exists (select Name 
+		   from sysobjects 
+		   where name = 'TradePricingLicenseType' and
+		        xtype = 'U')
+Drop Table TradePricingLicenseType
+Go
+Create Table TradePricingLicenseType
+(
+	TradePricingLicenseTypeID int not null
+			identity(1,1)
+			Primary Key,	
+	Name Nvarchar(200)
+)
+Go
+
+if Exists (select Name 
+		   from sysobjects 
+		   where name = 'SectorType' and
+		        xtype = 'U')
+Drop Table SectorType
+Go
+Create Table SectorType
+(
+	SectorTypeID int not null
+			identity(1,1)
+			Primary Key,	
+	Name Nvarchar(200)
+)
+Go
+
+
+alter table TradePricing
+add RegNo nvarchar(100),
+	Reference nvarchar(500),
+	Indication nvarchar(500),
+	Dose nvarchar(500),
+	SubmittedToSpecialized bit, 
+	SalesTaxes bit,
+	EssentialDrugList bit,
+	TradePricingStatusID int,
+	TradePricingLicenseTypeID int,
+	SectorTypeID int , 
+	CommitteePrice nvarchar(500),
+	CommiteeDate dateTime, 
+	RationalForPricing nvarchar(500),
+	NoInBox int, 
+	LowestIntPrice nvarchar(500),
+	PriceInEgy nvarchar(500),
+	PriceAfter30 nvarchar(500),
+	PriceAfter35HighTech nvarchar(500),
+	PriceAfter35FirstGeneric nvarchar(500),
+	PriceAfter40SecondGeneric nvarchar(500),
+	LowestPriceGeneric nvarchar(500),
+	FinalPrice nvarchar(500),
+	IsPricedTo499 bit,
+	Notes nvarchar(500),
+	MainGroup nvarchar(500),
+	Similar bit,
+	MonthYear nvarchar(20), 
+	PreviousPrice nvarchar(500),
+	PreviousPack nvarchar(500)

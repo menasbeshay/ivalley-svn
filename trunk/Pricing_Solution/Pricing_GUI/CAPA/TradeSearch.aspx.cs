@@ -62,13 +62,17 @@ namespace PricingGUI
                 BindDropDownListsData();                
                 ui_lblResult.Text = "";
                 ui_TabGenericInfo.Enabled = false;
+                uiTabBeforeCommitte.Enabled = false;
+                uiTabPanelAfterCommitte.Enabled = false;
                 Session["PopUpType"] = "AddNewGeneric";
                 ui_btnSave.Text = "Add Main Data";
                 RequiredFieldValidator10.Visible = true;
 
                 if (IsUpdateMode)
                 {
-                    ui_TabGenericInfo.Enabled = true;                    
+                    ui_TabGenericInfo.Enabled = true;
+                    uiTabBeforeCommitte.Enabled = true;
+                    uiTabPanelAfterCommitte.Enabled = true;
                     BindMainData();
                     LoadQuantityUnit();
                     LoadGeneric();
@@ -165,6 +169,39 @@ namespace PricingGUI
             ui_drpCommitteType.DataValueField = Registeration_Committee_Type.ColumnNames.ID;
             ui_drpCommitteType.DataBind();
             ui_drpCommitteType.Items.Insert(0, item);
+
+            uiDropDownListCommitterType_Before.DataSource = objCommitteType.DefaultView;
+            uiDropDownListCommitterType_Before.DataTextField = Registeration_Committee_Type.ColumnNames.CommitteType;
+            uiDropDownListCommitterType_Before.DataValueField = Registeration_Committee_Type.ColumnNames.ID;
+            uiDropDownListCommitterType_Before.DataBind();
+            uiDropDownListCommitterType_Before.Items.Insert(0, item);
+
+            //License Type
+            TradePricingLicenseType licenseTypes = new TradePricingLicenseType();
+            licenseTypes.LoadAll();
+            uiDropDownListLicenseType.DataSource = licenseTypes.DefaultView;
+            uiDropDownListLicenseType.DataTextField = TradePricingLicenseType.ColumnNames.Name;
+            uiDropDownListLicenseType.DataValueField = TradePricingLicenseType.ColumnNames.TradePricingLicenseTypeID;
+            uiDropDownListLicenseType.DataBind();
+            uiDropDownListLicenseType.Items.Insert(0, item);
+
+            //status Type
+            TradePricingStatus statusTypes = new TradePricingStatus();
+            statusTypes.LoadAll();
+            uiDropDownListStatusType.DataSource = statusTypes.DefaultView;
+            uiDropDownListStatusType.DataTextField = TradePricingStatus.ColumnNames.Name;
+            uiDropDownListStatusType.DataValueField = TradePricingStatus.ColumnNames.TradePricingStatusID;
+            uiDropDownListStatusType.DataBind();
+            uiDropDownListStatusType.Items.Insert(0, item);
+
+            //sector Type
+            SectorType sectorTypes = new SectorType();
+            sectorTypes.LoadAll();
+            uiDropDownListSectorType.DataSource = sectorTypes.DefaultView;
+            uiDropDownListSectorType.DataTextField = SectorType.ColumnNames.Name;
+            uiDropDownListSectorType.DataValueField = SectorType.ColumnNames.SectorTypeID;
+            uiDropDownListSectorType.DataBind();
+            uiDropDownListSectorType.Items.Insert(0, item);
 
             // Bind File Types
             FileType objFileTypes = new FileType();
@@ -326,7 +363,55 @@ namespace PricingGUI
             ui_txtPack.Text = objPricing.Pack;
             ui_txtFileNo.Text = objPricing.FileNo;
             ui_drpFileType.SelectedValue = objPricing.s_FileTypeID;
-            ui_txtImportedManufacture.Text = objPricing.ImportedManufacture;            
+            ui_txtImportedManufacture.Text = objPricing.ImportedManufacture;
+
+
+            // before commitee
+            if (!objPricing.IsColumnNull("RegistrationCommitteTypeID"))
+                uiDropDownListCommitterType_Before.SelectedValue = objPricing.RegistrationCommitteTypeID.ToString();
+            if (!objPricing.IsColumnNull("TradePricingStatusID"))
+                uiDropDownListStatusType.SelectedValue = objPricing.TradePricingStatusID.ToString();
+            if (!objPricing.IsColumnNull("TradePricingLicenseTypeID"))
+                uiDropDownListLicenseType.SelectedValue = objPricing.TradePricingLicenseTypeID.ToString();
+
+            uiTextBoxBeforeRegNo.Text = objPricing.RegNo;
+            uiTextBoxReference.Text = objPricing.Reference;
+            uiTextBoxIndication.Text = objPricing.Indication;
+            uiTextBoxDose.Text = objPricing.Dose;
+            uiCheckBoxSubmittedToSpecialized.Checked = objPricing.SubmittedToSpecialized;
+            uiCheckBoxSalesTaxes.Checked = objPricing.SalesTaxes;
+            uiCheckBoxEssentialDrugList.Checked = objPricing.EssentialDrugList;
+
+            // after commite
+            if (!objPricing.IsColumnNull("SectorTypeID"))
+                uiDropDownListSectorType.SelectedValue = objPricing.SectorTypeID.ToString();
+
+
+            uiTextBoxRegNoAfter.Text = objPricing.RegNo;
+            uiTextBoxCommittePrice.Text = objPricing.CommitteePrice;
+            if(!objPricing.IsColumnNull("CommiteeDate"))
+                uiTextBoxCommitteDate.Text = objPricing.CommiteeDate.ToString("dd/MM/yyyy");
+
+            uiTextBoxCommittePrice.Text = objPricing.CommitteePrice ;
+            uiTextBoxRationalForPricing.Text = objPricing.RationalForPricing ;
+            if(!objPricing.IsColumnNull("NoInBox"))
+                uiTextBoxNoInBox.Text = objPricing.NoInBox.ToString();
+
+            objPricing.LowestIntPrice = uiTextBoxLowestIntPriceBrand.Text;
+            objPricing.PriceInEgy = uiTextBoxBrandPriceInEgy.Text;
+            uiTextBoxPriceAfter30.Text = objPricing.PriceAfter30;
+            uiTextBoxPriceAfter35.Text = objPricing.PriceAfter35HighTech;
+            uiTextBoxPriceAfter35FirstGeneric.Text = objPricing.PriceAfter35FirstGeneric;
+            uiTextBoxPriceAfter40ndGeneric.Text = objPricing.PriceAfter40SecondGeneric;
+            uiTextBoxLowestPriceGeneric.Text = objPricing.LowestPriceGeneric;
+            uiTextBoxFinalPrice.Text = objPricing.FinalPrice;
+            uiCheckBoxIsPricedTo499.Checked = objPricing.IsPricedTo499;
+            uiTextBoxNotes.Text = objPricing.Notes;
+            uiTextBoxMainGroup.Text = objPricing.MainGroup;
+            uiTextBoxMonth.Text = objPricing.MonthYear;
+            uiCheckBoxSimilar.Checked = objPricing.Similar;
+            uiTextBoxPreviouspack.Text = objPricing.PreviousPack;
+            uiTextBoxPreviousPrice.Text = objPricing.PreviousPrice;
         }
 
         #endregion
@@ -547,7 +632,6 @@ namespace PricingGUI
         }
 
         #endregion
-
         
         #region Methods
 
@@ -653,7 +737,76 @@ namespace PricingGUI
         }
 
         #endregion
-
+        
         #endregion
+
+        #region BeforeAfterCommitte
+        protected void uiButtonBeforeComm_Save_Click(object sender, EventArgs e)
+        {
+            SaveBeforeAfterCommitte();
+        }
+
+        private void SaveBeforeAfterCommitte()
+        {
+            try
+            {
+                TradePricing objPricing = new TradePricing();
+                objPricing.LoadByPrimaryKey(TradePriceID);
+                // before commitee
+                if(uiDropDownListCommitterType_Before.SelectedValue != "-1")
+                    objPricing.RegistrationCommitteTypeID = Convert.ToInt32(uiDropDownListCommitterType_Before.SelectedValue);
+                if (uiDropDownListStatusType.SelectedValue != "-1")
+                    objPricing.TradePricingStatusID = Convert.ToInt32(uiDropDownListStatusType.SelectedValue);
+                if (uiDropDownListLicenseType.SelectedValue != "-1")
+                    objPricing.TradePricingLicenseTypeID = Convert.ToInt32(uiDropDownListLicenseType.SelectedValue);
+                objPricing.RegNo = uiTextBoxBeforeRegNo.Text;
+                objPricing.Reference = uiTextBoxReference.Text;
+                objPricing.Indication = uiTextBoxIndication.Text;
+                objPricing.Dose = uiTextBoxDose.Text;
+                objPricing.SubmittedToSpecialized = uiCheckBoxSubmittedToSpecialized.Checked;
+                objPricing.SalesTaxes = uiCheckBoxSalesTaxes.Checked;
+                objPricing.EssentialDrugList = uiCheckBoxEssentialDrugList.Checked;
+
+                // after commite
+                if(uiDropDownListSectorType.SelectedValue != "-1")
+                    objPricing.SectorTypeID = Convert.ToInt32(uiDropDownListSectorType.SelectedValue);
+                objPricing.RegNo = uiTextBoxRegNoAfter.Text;
+                objPricing.CommitteePrice = uiTextBoxCommittePrice.Text;
+                DateTime date;
+                if (DateTime.TryParseExact(uiTextBoxCommitteDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date))
+                    objPricing.CommiteeDate = date;
+                objPricing.CommitteePrice = uiTextBoxCommittePrice.Text;
+                objPricing.RationalForPricing = uiTextBoxRationalForPricing.Text;
+                if (!string.IsNullOrEmpty(uiTextBoxNoInBox.Text))
+                {
+                    int x = 0;
+                    int.TryParse(uiTextBoxNoInBox.Text, out x);
+                    objPricing.NoInBox = x;
+                }
+                objPricing.LowestIntPrice = uiTextBoxLowestIntPriceBrand.Text;
+                objPricing.PriceInEgy = uiTextBoxBrandPriceInEgy.Text;
+                objPricing.PriceAfter30 = uiTextBoxPriceAfter30.Text;
+                objPricing.PriceAfter35HighTech = uiTextBoxPriceAfter35.Text;
+                objPricing.PriceAfter35FirstGeneric = uiTextBoxPriceAfter35FirstGeneric.Text;
+                objPricing.PriceAfter40SecondGeneric = uiTextBoxPriceAfter40ndGeneric.Text;
+                objPricing.LowestPriceGeneric = uiTextBoxLowestPriceGeneric.Text;
+                objPricing.FinalPrice = uiTextBoxFinalPrice.Text;
+                objPricing.IsPricedTo499 = uiCheckBoxIsPricedTo499.Checked;
+                objPricing.Notes = uiTextBoxNotes.Text;
+                objPricing.MainGroup = uiTextBoxMainGroup.Text;
+                objPricing.MonthYear = uiTextBoxMonth.Text;
+                objPricing.Similar = uiCheckBoxSimilar.Checked;
+                objPricing.PreviousPack = uiTextBoxPreviouspack.Text;
+                objPricing.PreviousPrice = uiTextBoxPreviousPrice.Text;
+
+                objPricing.Save();
+
+            }
+            catch
+            {
+                
+            }
+        }
+        #endregion 
     }
 }

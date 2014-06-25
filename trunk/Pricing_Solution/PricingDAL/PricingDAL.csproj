@@ -54,6 +54,7 @@
     <Compile Include="PricingStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registeration_Committee_Type.cs" />
+    <Compile Include="SectorType.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="StatusHistory.cs" />
     <Compile Include="Substances.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="TicketStatus.cs" />
     <Compile Include="TicketType.cs" />
     <Compile Include="TradePricing.cs" />
+    <Compile Include="TradePricingLicenseType.cs" />
+    <Compile Include="TradePricingStatus.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="userLogin.cs" />
     <Compile Include="v_GetAllGenericInfoByDrugID.cs" />

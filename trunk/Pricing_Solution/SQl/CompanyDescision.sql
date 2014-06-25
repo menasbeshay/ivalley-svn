@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionLoadByPrimaryKey]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionLoadByPrimaryKe
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionLoadAll]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionLoadAll Succeed
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionUpdate]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionInsert]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CompanyDescisionInsert Succeede
 ELSE PRINT 'Procedure Creation: proc_CompanyDescisionInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CompanyDescisionDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_CompanyDescisionDelete]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CompanyDescisionDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CompanyDescisionDelete];
 GO

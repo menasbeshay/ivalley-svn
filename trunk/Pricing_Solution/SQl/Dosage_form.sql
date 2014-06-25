@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_Dosage_formLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formLoadByPrimaryKey]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formLoadByPrimaryKey Suc
 ELSE PRINT 'Procedure Creation: proc_Dosage_formLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formLoadAll]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Dosage_formLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formUpdate]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Dosage_formInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formInsert]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Dosage_formInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_Dosage_formInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Dosage_formDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Dosage_formDelete]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Dosage_formDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Dosage_formDelete];
 GO

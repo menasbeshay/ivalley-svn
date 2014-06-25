@@ -267,6 +267,238 @@ namespace Pricing.DAL
 				}
 			}
 			
+			public static SqlParameter RegNo
+			{
+				get
+				{
+					return new SqlParameter("@RegNo", SqlDbType.NVarChar, 100);
+				}
+			}
+			
+			public static SqlParameter Reference
+			{
+				get
+				{
+					return new SqlParameter("@Reference", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter Indication
+			{
+				get
+				{
+					return new SqlParameter("@Indication", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter Dose
+			{
+				get
+				{
+					return new SqlParameter("@Dose", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter SubmittedToSpecialized
+			{
+				get
+				{
+					return new SqlParameter("@SubmittedToSpecialized", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter SalesTaxes
+			{
+				get
+				{
+					return new SqlParameter("@SalesTaxes", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter EssentialDrugList
+			{
+				get
+				{
+					return new SqlParameter("@EssentialDrugList", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter TradePricingStatusID
+			{
+				get
+				{
+					return new SqlParameter("@TradePricingStatusID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter TradePricingLicenseTypeID
+			{
+				get
+				{
+					return new SqlParameter("@TradePricingLicenseTypeID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SectorTypeID
+			{
+				get
+				{
+					return new SqlParameter("@SectorTypeID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter CommitteePrice
+			{
+				get
+				{
+					return new SqlParameter("@CommitteePrice", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter CommiteeDate
+			{
+				get
+				{
+					return new SqlParameter("@CommiteeDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter RationalForPricing
+			{
+				get
+				{
+					return new SqlParameter("@RationalForPricing", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter NoInBox
+			{
+				get
+				{
+					return new SqlParameter("@NoInBox", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter LowestIntPrice
+			{
+				get
+				{
+					return new SqlParameter("@LowestIntPrice", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PriceInEgy
+			{
+				get
+				{
+					return new SqlParameter("@PriceInEgy", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PriceAfter30
+			{
+				get
+				{
+					return new SqlParameter("@PriceAfter30", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PriceAfter35HighTech
+			{
+				get
+				{
+					return new SqlParameter("@PriceAfter35HighTech", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PriceAfter35FirstGeneric
+			{
+				get
+				{
+					return new SqlParameter("@PriceAfter35FirstGeneric", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PriceAfter40SecondGeneric
+			{
+				get
+				{
+					return new SqlParameter("@PriceAfter40SecondGeneric", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter LowestPriceGeneric
+			{
+				get
+				{
+					return new SqlParameter("@LowestPriceGeneric", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter FinalPrice
+			{
+				get
+				{
+					return new SqlParameter("@FinalPrice", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter IsPricedTo499
+			{
+				get
+				{
+					return new SqlParameter("@IsPricedTo499", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter Notes
+			{
+				get
+				{
+					return new SqlParameter("@Notes", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter MainGroup
+			{
+				get
+				{
+					return new SqlParameter("@MainGroup", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter Similar
+			{
+				get
+				{
+					return new SqlParameter("@Similar", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter MonthYear
+			{
+				get
+				{
+					return new SqlParameter("@MonthYear", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter PreviousPrice
+			{
+				get
+				{
+					return new SqlParameter("@PreviousPrice", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter PreviousPack
+			{
+				get
+				{
+					return new SqlParameter("@PreviousPack", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -294,6 +526,35 @@ namespace Pricing.DAL
             public const string Generic = "Generic";
             public const string GenericStrength = "GenericStrength";
             public const string ImportedManufacture = "ImportedManufacture";
+            public const string RegNo = "RegNo";
+            public const string Reference = "Reference";
+            public const string Indication = "Indication";
+            public const string Dose = "Dose";
+            public const string SubmittedToSpecialized = "SubmittedToSpecialized";
+            public const string SalesTaxes = "SalesTaxes";
+            public const string EssentialDrugList = "EssentialDrugList";
+            public const string TradePricingStatusID = "TradePricingStatusID";
+            public const string TradePricingLicenseTypeID = "TradePricingLicenseTypeID";
+            public const string SectorTypeID = "SectorTypeID";
+            public const string CommitteePrice = "CommitteePrice";
+            public const string CommiteeDate = "CommiteeDate";
+            public const string RationalForPricing = "RationalForPricing";
+            public const string NoInBox = "NoInBox";
+            public const string LowestIntPrice = "LowestIntPrice";
+            public const string PriceInEgy = "PriceInEgy";
+            public const string PriceAfter30 = "PriceAfter30";
+            public const string PriceAfter35HighTech = "PriceAfter35HighTech";
+            public const string PriceAfter35FirstGeneric = "PriceAfter35FirstGeneric";
+            public const string PriceAfter40SecondGeneric = "PriceAfter40SecondGeneric";
+            public const string LowestPriceGeneric = "LowestPriceGeneric";
+            public const string FinalPrice = "FinalPrice";
+            public const string IsPricedTo499 = "IsPricedTo499";
+            public const string Notes = "Notes";
+            public const string MainGroup = "MainGroup";
+            public const string Similar = "Similar";
+            public const string MonthYear = "MonthYear";
+            public const string PreviousPrice = "PreviousPrice";
+            public const string PreviousPack = "PreviousPack";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -322,6 +583,35 @@ namespace Pricing.DAL
 					ht[Generic] = _TradePricing.PropertyNames.Generic;
 					ht[GenericStrength] = _TradePricing.PropertyNames.GenericStrength;
 					ht[ImportedManufacture] = _TradePricing.PropertyNames.ImportedManufacture;
+					ht[RegNo] = _TradePricing.PropertyNames.RegNo;
+					ht[Reference] = _TradePricing.PropertyNames.Reference;
+					ht[Indication] = _TradePricing.PropertyNames.Indication;
+					ht[Dose] = _TradePricing.PropertyNames.Dose;
+					ht[SubmittedToSpecialized] = _TradePricing.PropertyNames.SubmittedToSpecialized;
+					ht[SalesTaxes] = _TradePricing.PropertyNames.SalesTaxes;
+					ht[EssentialDrugList] = _TradePricing.PropertyNames.EssentialDrugList;
+					ht[TradePricingStatusID] = _TradePricing.PropertyNames.TradePricingStatusID;
+					ht[TradePricingLicenseTypeID] = _TradePricing.PropertyNames.TradePricingLicenseTypeID;
+					ht[SectorTypeID] = _TradePricing.PropertyNames.SectorTypeID;
+					ht[CommitteePrice] = _TradePricing.PropertyNames.CommitteePrice;
+					ht[CommiteeDate] = _TradePricing.PropertyNames.CommiteeDate;
+					ht[RationalForPricing] = _TradePricing.PropertyNames.RationalForPricing;
+					ht[NoInBox] = _TradePricing.PropertyNames.NoInBox;
+					ht[LowestIntPrice] = _TradePricing.PropertyNames.LowestIntPrice;
+					ht[PriceInEgy] = _TradePricing.PropertyNames.PriceInEgy;
+					ht[PriceAfter30] = _TradePricing.PropertyNames.PriceAfter30;
+					ht[PriceAfter35HighTech] = _TradePricing.PropertyNames.PriceAfter35HighTech;
+					ht[PriceAfter35FirstGeneric] = _TradePricing.PropertyNames.PriceAfter35FirstGeneric;
+					ht[PriceAfter40SecondGeneric] = _TradePricing.PropertyNames.PriceAfter40SecondGeneric;
+					ht[LowestPriceGeneric] = _TradePricing.PropertyNames.LowestPriceGeneric;
+					ht[FinalPrice] = _TradePricing.PropertyNames.FinalPrice;
+					ht[IsPricedTo499] = _TradePricing.PropertyNames.IsPricedTo499;
+					ht[Notes] = _TradePricing.PropertyNames.Notes;
+					ht[MainGroup] = _TradePricing.PropertyNames.MainGroup;
+					ht[Similar] = _TradePricing.PropertyNames.Similar;
+					ht[MonthYear] = _TradePricing.PropertyNames.MonthYear;
+					ht[PreviousPrice] = _TradePricing.PropertyNames.PreviousPrice;
+					ht[PreviousPack] = _TradePricing.PropertyNames.PreviousPack;
 
 				}
 				return (string)ht[columnName];
@@ -355,6 +645,35 @@ namespace Pricing.DAL
             public const string Generic = "Generic";
             public const string GenericStrength = "GenericStrength";
             public const string ImportedManufacture = "ImportedManufacture";
+            public const string RegNo = "RegNo";
+            public const string Reference = "Reference";
+            public const string Indication = "Indication";
+            public const string Dose = "Dose";
+            public const string SubmittedToSpecialized = "SubmittedToSpecialized";
+            public const string SalesTaxes = "SalesTaxes";
+            public const string EssentialDrugList = "EssentialDrugList";
+            public const string TradePricingStatusID = "TradePricingStatusID";
+            public const string TradePricingLicenseTypeID = "TradePricingLicenseTypeID";
+            public const string SectorTypeID = "SectorTypeID";
+            public const string CommitteePrice = "CommitteePrice";
+            public const string CommiteeDate = "CommiteeDate";
+            public const string RationalForPricing = "RationalForPricing";
+            public const string NoInBox = "NoInBox";
+            public const string LowestIntPrice = "LowestIntPrice";
+            public const string PriceInEgy = "PriceInEgy";
+            public const string PriceAfter30 = "PriceAfter30";
+            public const string PriceAfter35HighTech = "PriceAfter35HighTech";
+            public const string PriceAfter35FirstGeneric = "PriceAfter35FirstGeneric";
+            public const string PriceAfter40SecondGeneric = "PriceAfter40SecondGeneric";
+            public const string LowestPriceGeneric = "LowestPriceGeneric";
+            public const string FinalPrice = "FinalPrice";
+            public const string IsPricedTo499 = "IsPricedTo499";
+            public const string Notes = "Notes";
+            public const string MainGroup = "MainGroup";
+            public const string Similar = "Similar";
+            public const string MonthYear = "MonthYear";
+            public const string PreviousPrice = "PreviousPrice";
+            public const string PreviousPack = "PreviousPack";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -383,6 +702,35 @@ namespace Pricing.DAL
 					ht[Generic] = _TradePricing.ColumnNames.Generic;
 					ht[GenericStrength] = _TradePricing.ColumnNames.GenericStrength;
 					ht[ImportedManufacture] = _TradePricing.ColumnNames.ImportedManufacture;
+					ht[RegNo] = _TradePricing.ColumnNames.RegNo;
+					ht[Reference] = _TradePricing.ColumnNames.Reference;
+					ht[Indication] = _TradePricing.ColumnNames.Indication;
+					ht[Dose] = _TradePricing.ColumnNames.Dose;
+					ht[SubmittedToSpecialized] = _TradePricing.ColumnNames.SubmittedToSpecialized;
+					ht[SalesTaxes] = _TradePricing.ColumnNames.SalesTaxes;
+					ht[EssentialDrugList] = _TradePricing.ColumnNames.EssentialDrugList;
+					ht[TradePricingStatusID] = _TradePricing.ColumnNames.TradePricingStatusID;
+					ht[TradePricingLicenseTypeID] = _TradePricing.ColumnNames.TradePricingLicenseTypeID;
+					ht[SectorTypeID] = _TradePricing.ColumnNames.SectorTypeID;
+					ht[CommitteePrice] = _TradePricing.ColumnNames.CommitteePrice;
+					ht[CommiteeDate] = _TradePricing.ColumnNames.CommiteeDate;
+					ht[RationalForPricing] = _TradePricing.ColumnNames.RationalForPricing;
+					ht[NoInBox] = _TradePricing.ColumnNames.NoInBox;
+					ht[LowestIntPrice] = _TradePricing.ColumnNames.LowestIntPrice;
+					ht[PriceInEgy] = _TradePricing.ColumnNames.PriceInEgy;
+					ht[PriceAfter30] = _TradePricing.ColumnNames.PriceAfter30;
+					ht[PriceAfter35HighTech] = _TradePricing.ColumnNames.PriceAfter35HighTech;
+					ht[PriceAfter35FirstGeneric] = _TradePricing.ColumnNames.PriceAfter35FirstGeneric;
+					ht[PriceAfter40SecondGeneric] = _TradePricing.ColumnNames.PriceAfter40SecondGeneric;
+					ht[LowestPriceGeneric] = _TradePricing.ColumnNames.LowestPriceGeneric;
+					ht[FinalPrice] = _TradePricing.ColumnNames.FinalPrice;
+					ht[IsPricedTo499] = _TradePricing.ColumnNames.IsPricedTo499;
+					ht[Notes] = _TradePricing.ColumnNames.Notes;
+					ht[MainGroup] = _TradePricing.ColumnNames.MainGroup;
+					ht[Similar] = _TradePricing.ColumnNames.Similar;
+					ht[MonthYear] = _TradePricing.ColumnNames.MonthYear;
+					ht[PreviousPrice] = _TradePricing.ColumnNames.PreviousPrice;
+					ht[PreviousPack] = _TradePricing.ColumnNames.PreviousPack;
 
 				}
 				return (string)ht[propertyName];
@@ -416,6 +764,35 @@ namespace Pricing.DAL
             public const string Generic = "s_Generic";
             public const string GenericStrength = "s_GenericStrength";
             public const string ImportedManufacture = "s_ImportedManufacture";
+            public const string RegNo = "s_RegNo";
+            public const string Reference = "s_Reference";
+            public const string Indication = "s_Indication";
+            public const string Dose = "s_Dose";
+            public const string SubmittedToSpecialized = "s_SubmittedToSpecialized";
+            public const string SalesTaxes = "s_SalesTaxes";
+            public const string EssentialDrugList = "s_EssentialDrugList";
+            public const string TradePricingStatusID = "s_TradePricingStatusID";
+            public const string TradePricingLicenseTypeID = "s_TradePricingLicenseTypeID";
+            public const string SectorTypeID = "s_SectorTypeID";
+            public const string CommitteePrice = "s_CommitteePrice";
+            public const string CommiteeDate = "s_CommiteeDate";
+            public const string RationalForPricing = "s_RationalForPricing";
+            public const string NoInBox = "s_NoInBox";
+            public const string LowestIntPrice = "s_LowestIntPrice";
+            public const string PriceInEgy = "s_PriceInEgy";
+            public const string PriceAfter30 = "s_PriceAfter30";
+            public const string PriceAfter35HighTech = "s_PriceAfter35HighTech";
+            public const string PriceAfter35FirstGeneric = "s_PriceAfter35FirstGeneric";
+            public const string PriceAfter40SecondGeneric = "s_PriceAfter40SecondGeneric";
+            public const string LowestPriceGeneric = "s_LowestPriceGeneric";
+            public const string FinalPrice = "s_FinalPrice";
+            public const string IsPricedTo499 = "s_IsPricedTo499";
+            public const string Notes = "s_Notes";
+            public const string MainGroup = "s_MainGroup";
+            public const string Similar = "s_Similar";
+            public const string MonthYear = "s_MonthYear";
+            public const string PreviousPrice = "s_PreviousPrice";
+            public const string PreviousPack = "s_PreviousPack";
 
 		}
 		#endregion		
@@ -671,6 +1048,354 @@ namespace Pricing.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.ImportedManufacture, value);
+			}
+		}
+
+		public virtual string RegNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.RegNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.RegNo, value);
+			}
+		}
+
+		public virtual string Reference
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Reference);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Reference, value);
+			}
+		}
+
+		public virtual string Indication
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Indication);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Indication, value);
+			}
+		}
+
+		public virtual string Dose
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Dose);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Dose, value);
+			}
+		}
+
+		public virtual bool SubmittedToSpecialized
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.SubmittedToSpecialized);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.SubmittedToSpecialized, value);
+			}
+		}
+
+		public virtual bool SalesTaxes
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.SalesTaxes);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.SalesTaxes, value);
+			}
+		}
+
+		public virtual bool EssentialDrugList
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.EssentialDrugList);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.EssentialDrugList, value);
+			}
+		}
+
+		public virtual int TradePricingStatusID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TradePricingStatusID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TradePricingStatusID, value);
+			}
+		}
+
+		public virtual int TradePricingLicenseTypeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TradePricingLicenseTypeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TradePricingLicenseTypeID, value);
+			}
+		}
+
+		public virtual int SectorTypeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SectorTypeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SectorTypeID, value);
+			}
+		}
+
+		public virtual string CommitteePrice
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CommitteePrice);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CommitteePrice, value);
+			}
+		}
+
+		public virtual DateTime CommiteeDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.CommiteeDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.CommiteeDate, value);
+			}
+		}
+
+		public virtual string RationalForPricing
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.RationalForPricing);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.RationalForPricing, value);
+			}
+		}
+
+		public virtual int NoInBox
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.NoInBox);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.NoInBox, value);
+			}
+		}
+
+		public virtual string LowestIntPrice
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.LowestIntPrice);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.LowestIntPrice, value);
+			}
+		}
+
+		public virtual string PriceInEgy
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PriceInEgy);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PriceInEgy, value);
+			}
+		}
+
+		public virtual string PriceAfter30
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PriceAfter30);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PriceAfter30, value);
+			}
+		}
+
+		public virtual string PriceAfter35HighTech
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PriceAfter35HighTech);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PriceAfter35HighTech, value);
+			}
+		}
+
+		public virtual string PriceAfter35FirstGeneric
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PriceAfter35FirstGeneric);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PriceAfter35FirstGeneric, value);
+			}
+		}
+
+		public virtual string PriceAfter40SecondGeneric
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PriceAfter40SecondGeneric);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PriceAfter40SecondGeneric, value);
+			}
+		}
+
+		public virtual string LowestPriceGeneric
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.LowestPriceGeneric);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.LowestPriceGeneric, value);
+			}
+		}
+
+		public virtual string FinalPrice
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FinalPrice);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FinalPrice, value);
+			}
+		}
+
+		public virtual bool IsPricedTo499
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsPricedTo499);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsPricedTo499, value);
+			}
+		}
+
+		public virtual string Notes
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Notes);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Notes, value);
+			}
+		}
+
+		public virtual string MainGroup
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.MainGroup);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.MainGroup, value);
+			}
+		}
+
+		public virtual bool Similar
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.Similar);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.Similar, value);
+			}
+		}
+
+		public virtual string MonthYear
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.MonthYear);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.MonthYear, value);
+			}
+		}
+
+		public virtual string PreviousPrice
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PreviousPrice);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PreviousPrice, value);
+			}
+		}
+
+		public virtual string PreviousPack
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PreviousPack);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PreviousPack, value);
 			}
 		}
 
@@ -994,6 +1719,441 @@ namespace Pricing.DAL
 			}
 		}
 
+		public virtual string s_RegNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RegNo) ? string.Empty : base.GetstringAsString(ColumnNames.RegNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RegNo);
+				else
+					this.RegNo = base.SetstringAsString(ColumnNames.RegNo, value);
+			}
+		}
+
+		public virtual string s_Reference
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Reference) ? string.Empty : base.GetstringAsString(ColumnNames.Reference);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Reference);
+				else
+					this.Reference = base.SetstringAsString(ColumnNames.Reference, value);
+			}
+		}
+
+		public virtual string s_Indication
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Indication) ? string.Empty : base.GetstringAsString(ColumnNames.Indication);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Indication);
+				else
+					this.Indication = base.SetstringAsString(ColumnNames.Indication, value);
+			}
+		}
+
+		public virtual string s_Dose
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Dose) ? string.Empty : base.GetstringAsString(ColumnNames.Dose);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Dose);
+				else
+					this.Dose = base.SetstringAsString(ColumnNames.Dose, value);
+			}
+		}
+
+		public virtual string s_SubmittedToSpecialized
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SubmittedToSpecialized) ? string.Empty : base.GetboolAsString(ColumnNames.SubmittedToSpecialized);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SubmittedToSpecialized);
+				else
+					this.SubmittedToSpecialized = base.SetboolAsString(ColumnNames.SubmittedToSpecialized, value);
+			}
+		}
+
+		public virtual string s_SalesTaxes
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SalesTaxes) ? string.Empty : base.GetboolAsString(ColumnNames.SalesTaxes);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SalesTaxes);
+				else
+					this.SalesTaxes = base.SetboolAsString(ColumnNames.SalesTaxes, value);
+			}
+		}
+
+		public virtual string s_EssentialDrugList
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EssentialDrugList) ? string.Empty : base.GetboolAsString(ColumnNames.EssentialDrugList);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EssentialDrugList);
+				else
+					this.EssentialDrugList = base.SetboolAsString(ColumnNames.EssentialDrugList, value);
+			}
+		}
+
+		public virtual string s_TradePricingStatusID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TradePricingStatusID) ? string.Empty : base.GetintAsString(ColumnNames.TradePricingStatusID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TradePricingStatusID);
+				else
+					this.TradePricingStatusID = base.SetintAsString(ColumnNames.TradePricingStatusID, value);
+			}
+		}
+
+		public virtual string s_TradePricingLicenseTypeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TradePricingLicenseTypeID) ? string.Empty : base.GetintAsString(ColumnNames.TradePricingLicenseTypeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TradePricingLicenseTypeID);
+				else
+					this.TradePricingLicenseTypeID = base.SetintAsString(ColumnNames.TradePricingLicenseTypeID, value);
+			}
+		}
+
+		public virtual string s_SectorTypeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SectorTypeID) ? string.Empty : base.GetintAsString(ColumnNames.SectorTypeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SectorTypeID);
+				else
+					this.SectorTypeID = base.SetintAsString(ColumnNames.SectorTypeID, value);
+			}
+		}
+
+		public virtual string s_CommitteePrice
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CommitteePrice) ? string.Empty : base.GetstringAsString(ColumnNames.CommitteePrice);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CommitteePrice);
+				else
+					this.CommitteePrice = base.SetstringAsString(ColumnNames.CommitteePrice, value);
+			}
+		}
+
+		public virtual string s_CommiteeDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CommiteeDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.CommiteeDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CommiteeDate);
+				else
+					this.CommiteeDate = base.SetDateTimeAsString(ColumnNames.CommiteeDate, value);
+			}
+		}
+
+		public virtual string s_RationalForPricing
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RationalForPricing) ? string.Empty : base.GetstringAsString(ColumnNames.RationalForPricing);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RationalForPricing);
+				else
+					this.RationalForPricing = base.SetstringAsString(ColumnNames.RationalForPricing, value);
+			}
+		}
+
+		public virtual string s_NoInBox
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.NoInBox) ? string.Empty : base.GetintAsString(ColumnNames.NoInBox);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.NoInBox);
+				else
+					this.NoInBox = base.SetintAsString(ColumnNames.NoInBox, value);
+			}
+		}
+
+		public virtual string s_LowestIntPrice
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.LowestIntPrice) ? string.Empty : base.GetstringAsString(ColumnNames.LowestIntPrice);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.LowestIntPrice);
+				else
+					this.LowestIntPrice = base.SetstringAsString(ColumnNames.LowestIntPrice, value);
+			}
+		}
+
+		public virtual string s_PriceInEgy
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PriceInEgy) ? string.Empty : base.GetstringAsString(ColumnNames.PriceInEgy);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PriceInEgy);
+				else
+					this.PriceInEgy = base.SetstringAsString(ColumnNames.PriceInEgy, value);
+			}
+		}
+
+		public virtual string s_PriceAfter30
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PriceAfter30) ? string.Empty : base.GetstringAsString(ColumnNames.PriceAfter30);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PriceAfter30);
+				else
+					this.PriceAfter30 = base.SetstringAsString(ColumnNames.PriceAfter30, value);
+			}
+		}
+
+		public virtual string s_PriceAfter35HighTech
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PriceAfter35HighTech) ? string.Empty : base.GetstringAsString(ColumnNames.PriceAfter35HighTech);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PriceAfter35HighTech);
+				else
+					this.PriceAfter35HighTech = base.SetstringAsString(ColumnNames.PriceAfter35HighTech, value);
+			}
+		}
+
+		public virtual string s_PriceAfter35FirstGeneric
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PriceAfter35FirstGeneric) ? string.Empty : base.GetstringAsString(ColumnNames.PriceAfter35FirstGeneric);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PriceAfter35FirstGeneric);
+				else
+					this.PriceAfter35FirstGeneric = base.SetstringAsString(ColumnNames.PriceAfter35FirstGeneric, value);
+			}
+		}
+
+		public virtual string s_PriceAfter40SecondGeneric
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PriceAfter40SecondGeneric) ? string.Empty : base.GetstringAsString(ColumnNames.PriceAfter40SecondGeneric);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PriceAfter40SecondGeneric);
+				else
+					this.PriceAfter40SecondGeneric = base.SetstringAsString(ColumnNames.PriceAfter40SecondGeneric, value);
+			}
+		}
+
+		public virtual string s_LowestPriceGeneric
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.LowestPriceGeneric) ? string.Empty : base.GetstringAsString(ColumnNames.LowestPriceGeneric);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.LowestPriceGeneric);
+				else
+					this.LowestPriceGeneric = base.SetstringAsString(ColumnNames.LowestPriceGeneric, value);
+			}
+		}
+
+		public virtual string s_FinalPrice
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FinalPrice) ? string.Empty : base.GetstringAsString(ColumnNames.FinalPrice);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FinalPrice);
+				else
+					this.FinalPrice = base.SetstringAsString(ColumnNames.FinalPrice, value);
+			}
+		}
+
+		public virtual string s_IsPricedTo499
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsPricedTo499) ? string.Empty : base.GetboolAsString(ColumnNames.IsPricedTo499);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsPricedTo499);
+				else
+					this.IsPricedTo499 = base.SetboolAsString(ColumnNames.IsPricedTo499, value);
+			}
+		}
+
+		public virtual string s_Notes
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Notes) ? string.Empty : base.GetstringAsString(ColumnNames.Notes);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Notes);
+				else
+					this.Notes = base.SetstringAsString(ColumnNames.Notes, value);
+			}
+		}
+
+		public virtual string s_MainGroup
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MainGroup) ? string.Empty : base.GetstringAsString(ColumnNames.MainGroup);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MainGroup);
+				else
+					this.MainGroup = base.SetstringAsString(ColumnNames.MainGroup, value);
+			}
+		}
+
+		public virtual string s_Similar
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Similar) ? string.Empty : base.GetboolAsString(ColumnNames.Similar);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Similar);
+				else
+					this.Similar = base.SetboolAsString(ColumnNames.Similar, value);
+			}
+		}
+
+		public virtual string s_MonthYear
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MonthYear) ? string.Empty : base.GetstringAsString(ColumnNames.MonthYear);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MonthYear);
+				else
+					this.MonthYear = base.SetstringAsString(ColumnNames.MonthYear, value);
+			}
+		}
+
+		public virtual string s_PreviousPrice
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PreviousPrice) ? string.Empty : base.GetstringAsString(ColumnNames.PreviousPrice);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PreviousPrice);
+				else
+					this.PreviousPrice = base.SetstringAsString(ColumnNames.PreviousPrice, value);
+			}
+		}
+
+		public virtual string s_PreviousPack
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PreviousPack) ? string.Empty : base.GetstringAsString(ColumnNames.PreviousPack);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PreviousPack);
+				else
+					this.PreviousPack = base.SetstringAsString(ColumnNames.PreviousPack, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1232,6 +2392,296 @@ namespace Pricing.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.ImportedManufacture, Parameters.ImportedManufacture);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RegNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RegNo, Parameters.RegNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Reference
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Reference, Parameters.Reference);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Indication
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Indication, Parameters.Indication);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Dose
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Dose, Parameters.Dose);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SubmittedToSpecialized
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SubmittedToSpecialized, Parameters.SubmittedToSpecialized);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SalesTaxes
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SalesTaxes, Parameters.SalesTaxes);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EssentialDrugList
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EssentialDrugList, Parameters.EssentialDrugList);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TradePricingStatusID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TradePricingStatusID, Parameters.TradePricingStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TradePricingLicenseTypeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TradePricingLicenseTypeID, Parameters.TradePricingLicenseTypeID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SectorTypeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SectorTypeID, Parameters.SectorTypeID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CommitteePrice
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CommitteePrice, Parameters.CommitteePrice);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CommiteeDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CommiteeDate, Parameters.CommiteeDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RationalForPricing
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RationalForPricing, Parameters.RationalForPricing);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter NoInBox
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.NoInBox, Parameters.NoInBox);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter LowestIntPrice
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.LowestIntPrice, Parameters.LowestIntPrice);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PriceInEgy
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PriceInEgy, Parameters.PriceInEgy);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PriceAfter30
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PriceAfter30, Parameters.PriceAfter30);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PriceAfter35HighTech
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PriceAfter35HighTech, Parameters.PriceAfter35HighTech);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PriceAfter35FirstGeneric
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PriceAfter35FirstGeneric, Parameters.PriceAfter35FirstGeneric);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PriceAfter40SecondGeneric
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PriceAfter40SecondGeneric, Parameters.PriceAfter40SecondGeneric);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter LowestPriceGeneric
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.LowestPriceGeneric, Parameters.LowestPriceGeneric);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FinalPrice
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FinalPrice, Parameters.FinalPrice);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsPricedTo499
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsPricedTo499, Parameters.IsPricedTo499);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Notes
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Notes, Parameters.Notes);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter MainGroup
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MainGroup, Parameters.MainGroup);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Similar
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Similar, Parameters.Similar);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter MonthYear
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MonthYear, Parameters.MonthYear);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PreviousPrice
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PreviousPrice, Parameters.PreviousPrice);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PreviousPack
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PreviousPack, Parameters.PreviousPack);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1494,6 +2944,354 @@ namespace Pricing.DAL
 				}
 			}
 
+			public WhereParameter RegNo
+		    {
+				get
+		        {
+					if(_RegNo_W == null)
+	        	    {
+						_RegNo_W = TearOff.RegNo;
+					}
+					return _RegNo_W;
+				}
+			}
+
+			public WhereParameter Reference
+		    {
+				get
+		        {
+					if(_Reference_W == null)
+	        	    {
+						_Reference_W = TearOff.Reference;
+					}
+					return _Reference_W;
+				}
+			}
+
+			public WhereParameter Indication
+		    {
+				get
+		        {
+					if(_Indication_W == null)
+	        	    {
+						_Indication_W = TearOff.Indication;
+					}
+					return _Indication_W;
+				}
+			}
+
+			public WhereParameter Dose
+		    {
+				get
+		        {
+					if(_Dose_W == null)
+	        	    {
+						_Dose_W = TearOff.Dose;
+					}
+					return _Dose_W;
+				}
+			}
+
+			public WhereParameter SubmittedToSpecialized
+		    {
+				get
+		        {
+					if(_SubmittedToSpecialized_W == null)
+	        	    {
+						_SubmittedToSpecialized_W = TearOff.SubmittedToSpecialized;
+					}
+					return _SubmittedToSpecialized_W;
+				}
+			}
+
+			public WhereParameter SalesTaxes
+		    {
+				get
+		        {
+					if(_SalesTaxes_W == null)
+	        	    {
+						_SalesTaxes_W = TearOff.SalesTaxes;
+					}
+					return _SalesTaxes_W;
+				}
+			}
+
+			public WhereParameter EssentialDrugList
+		    {
+				get
+		        {
+					if(_EssentialDrugList_W == null)
+	        	    {
+						_EssentialDrugList_W = TearOff.EssentialDrugList;
+					}
+					return _EssentialDrugList_W;
+				}
+			}
+
+			public WhereParameter TradePricingStatusID
+		    {
+				get
+		        {
+					if(_TradePricingStatusID_W == null)
+	        	    {
+						_TradePricingStatusID_W = TearOff.TradePricingStatusID;
+					}
+					return _TradePricingStatusID_W;
+				}
+			}
+
+			public WhereParameter TradePricingLicenseTypeID
+		    {
+				get
+		        {
+					if(_TradePricingLicenseTypeID_W == null)
+	        	    {
+						_TradePricingLicenseTypeID_W = TearOff.TradePricingLicenseTypeID;
+					}
+					return _TradePricingLicenseTypeID_W;
+				}
+			}
+
+			public WhereParameter SectorTypeID
+		    {
+				get
+		        {
+					if(_SectorTypeID_W == null)
+	        	    {
+						_SectorTypeID_W = TearOff.SectorTypeID;
+					}
+					return _SectorTypeID_W;
+				}
+			}
+
+			public WhereParameter CommitteePrice
+		    {
+				get
+		        {
+					if(_CommitteePrice_W == null)
+	        	    {
+						_CommitteePrice_W = TearOff.CommitteePrice;
+					}
+					return _CommitteePrice_W;
+				}
+			}
+
+			public WhereParameter CommiteeDate
+		    {
+				get
+		        {
+					if(_CommiteeDate_W == null)
+	        	    {
+						_CommiteeDate_W = TearOff.CommiteeDate;
+					}
+					return _CommiteeDate_W;
+				}
+			}
+
+			public WhereParameter RationalForPricing
+		    {
+				get
+		        {
+					if(_RationalForPricing_W == null)
+	        	    {
+						_RationalForPricing_W = TearOff.RationalForPricing;
+					}
+					return _RationalForPricing_W;
+				}
+			}
+
+			public WhereParameter NoInBox
+		    {
+				get
+		        {
+					if(_NoInBox_W == null)
+	        	    {
+						_NoInBox_W = TearOff.NoInBox;
+					}
+					return _NoInBox_W;
+				}
+			}
+
+			public WhereParameter LowestIntPrice
+		    {
+				get
+		        {
+					if(_LowestIntPrice_W == null)
+	        	    {
+						_LowestIntPrice_W = TearOff.LowestIntPrice;
+					}
+					return _LowestIntPrice_W;
+				}
+			}
+
+			public WhereParameter PriceInEgy
+		    {
+				get
+		        {
+					if(_PriceInEgy_W == null)
+	        	    {
+						_PriceInEgy_W = TearOff.PriceInEgy;
+					}
+					return _PriceInEgy_W;
+				}
+			}
+
+			public WhereParameter PriceAfter30
+		    {
+				get
+		        {
+					if(_PriceAfter30_W == null)
+	        	    {
+						_PriceAfter30_W = TearOff.PriceAfter30;
+					}
+					return _PriceAfter30_W;
+				}
+			}
+
+			public WhereParameter PriceAfter35HighTech
+		    {
+				get
+		        {
+					if(_PriceAfter35HighTech_W == null)
+	        	    {
+						_PriceAfter35HighTech_W = TearOff.PriceAfter35HighTech;
+					}
+					return _PriceAfter35HighTech_W;
+				}
+			}
+
+			public WhereParameter PriceAfter35FirstGeneric
+		    {
+				get
+		        {
+					if(_PriceAfter35FirstGeneric_W == null)
+	        	    {
+						_PriceAfter35FirstGeneric_W = TearOff.PriceAfter35FirstGeneric;
+					}
+					return _PriceAfter35FirstGeneric_W;
+				}
+			}
+
+			public WhereParameter PriceAfter40SecondGeneric
+		    {
+				get
+		        {
+					if(_PriceAfter40SecondGeneric_W == null)
+	        	    {
+						_PriceAfter40SecondGeneric_W = TearOff.PriceAfter40SecondGeneric;
+					}
+					return _PriceAfter40SecondGeneric_W;
+				}
+			}
+
+			public WhereParameter LowestPriceGeneric
+		    {
+				get
+		        {
+					if(_LowestPriceGeneric_W == null)
+	        	    {
+						_LowestPriceGeneric_W = TearOff.LowestPriceGeneric;
+					}
+					return _LowestPriceGeneric_W;
+				}
+			}
+
+			public WhereParameter FinalPrice
+		    {
+				get
+		        {
+					if(_FinalPrice_W == null)
+	        	    {
+						_FinalPrice_W = TearOff.FinalPrice;
+					}
+					return _FinalPrice_W;
+				}
+			}
+
+			public WhereParameter IsPricedTo499
+		    {
+				get
+		        {
+					if(_IsPricedTo499_W == null)
+	        	    {
+						_IsPricedTo499_W = TearOff.IsPricedTo499;
+					}
+					return _IsPricedTo499_W;
+				}
+			}
+
+			public WhereParameter Notes
+		    {
+				get
+		        {
+					if(_Notes_W == null)
+	        	    {
+						_Notes_W = TearOff.Notes;
+					}
+					return _Notes_W;
+				}
+			}
+
+			public WhereParameter MainGroup
+		    {
+				get
+		        {
+					if(_MainGroup_W == null)
+	        	    {
+						_MainGroup_W = TearOff.MainGroup;
+					}
+					return _MainGroup_W;
+				}
+			}
+
+			public WhereParameter Similar
+		    {
+				get
+		        {
+					if(_Similar_W == null)
+	        	    {
+						_Similar_W = TearOff.Similar;
+					}
+					return _Similar_W;
+				}
+			}
+
+			public WhereParameter MonthYear
+		    {
+				get
+		        {
+					if(_MonthYear_W == null)
+	        	    {
+						_MonthYear_W = TearOff.MonthYear;
+					}
+					return _MonthYear_W;
+				}
+			}
+
+			public WhereParameter PreviousPrice
+		    {
+				get
+		        {
+					if(_PreviousPrice_W == null)
+	        	    {
+						_PreviousPrice_W = TearOff.PreviousPrice;
+					}
+					return _PreviousPrice_W;
+				}
+			}
+
+			public WhereParameter PreviousPack
+		    {
+				get
+		        {
+					if(_PreviousPack_W == null)
+	        	    {
+						_PreviousPack_W = TearOff.PreviousPack;
+					}
+					return _PreviousPack_W;
+				}
+			}
+
 			private WhereParameter _TradePricingID_W = null;
 			private WhereParameter _CompanyID_W = null;
 			private WhereParameter _PricingStatusID_W = null;
@@ -1515,6 +3313,35 @@ namespace Pricing.DAL
 			private WhereParameter _Generic_W = null;
 			private WhereParameter _GenericStrength_W = null;
 			private WhereParameter _ImportedManufacture_W = null;
+			private WhereParameter _RegNo_W = null;
+			private WhereParameter _Reference_W = null;
+			private WhereParameter _Indication_W = null;
+			private WhereParameter _Dose_W = null;
+			private WhereParameter _SubmittedToSpecialized_W = null;
+			private WhereParameter _SalesTaxes_W = null;
+			private WhereParameter _EssentialDrugList_W = null;
+			private WhereParameter _TradePricingStatusID_W = null;
+			private WhereParameter _TradePricingLicenseTypeID_W = null;
+			private WhereParameter _SectorTypeID_W = null;
+			private WhereParameter _CommitteePrice_W = null;
+			private WhereParameter _CommiteeDate_W = null;
+			private WhereParameter _RationalForPricing_W = null;
+			private WhereParameter _NoInBox_W = null;
+			private WhereParameter _LowestIntPrice_W = null;
+			private WhereParameter _PriceInEgy_W = null;
+			private WhereParameter _PriceAfter30_W = null;
+			private WhereParameter _PriceAfter35HighTech_W = null;
+			private WhereParameter _PriceAfter35FirstGeneric_W = null;
+			private WhereParameter _PriceAfter40SecondGeneric_W = null;
+			private WhereParameter _LowestPriceGeneric_W = null;
+			private WhereParameter _FinalPrice_W = null;
+			private WhereParameter _IsPricedTo499_W = null;
+			private WhereParameter _Notes_W = null;
+			private WhereParameter _MainGroup_W = null;
+			private WhereParameter _Similar_W = null;
+			private WhereParameter _MonthYear_W = null;
+			private WhereParameter _PreviousPrice_W = null;
+			private WhereParameter _PreviousPack_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1539,6 +3366,35 @@ namespace Pricing.DAL
 				_Generic_W = null;
 				_GenericStrength_W = null;
 				_ImportedManufacture_W = null;
+				_RegNo_W = null;
+				_Reference_W = null;
+				_Indication_W = null;
+				_Dose_W = null;
+				_SubmittedToSpecialized_W = null;
+				_SalesTaxes_W = null;
+				_EssentialDrugList_W = null;
+				_TradePricingStatusID_W = null;
+				_TradePricingLicenseTypeID_W = null;
+				_SectorTypeID_W = null;
+				_CommitteePrice_W = null;
+				_CommiteeDate_W = null;
+				_RationalForPricing_W = null;
+				_NoInBox_W = null;
+				_LowestIntPrice_W = null;
+				_PriceInEgy_W = null;
+				_PriceAfter30_W = null;
+				_PriceAfter35HighTech_W = null;
+				_PriceAfter35FirstGeneric_W = null;
+				_PriceAfter40SecondGeneric_W = null;
+				_LowestPriceGeneric_W = null;
+				_FinalPrice_W = null;
+				_IsPricedTo499_W = null;
+				_Notes_W = null;
+				_MainGroup_W = null;
+				_Similar_W = null;
+				_MonthYear_W = null;
+				_PreviousPrice_W = null;
+				_PreviousPack_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1805,6 +3661,296 @@ namespace Pricing.DAL
 					}
 				}
 
+				public AggregateParameter RegNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RegNo, Parameters.RegNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Reference
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Reference, Parameters.Reference);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Indication
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Indication, Parameters.Indication);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Dose
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Dose, Parameters.Dose);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SubmittedToSpecialized
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SubmittedToSpecialized, Parameters.SubmittedToSpecialized);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SalesTaxes
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SalesTaxes, Parameters.SalesTaxes);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EssentialDrugList
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EssentialDrugList, Parameters.EssentialDrugList);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TradePricingStatusID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TradePricingStatusID, Parameters.TradePricingStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TradePricingLicenseTypeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TradePricingLicenseTypeID, Parameters.TradePricingLicenseTypeID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SectorTypeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SectorTypeID, Parameters.SectorTypeID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CommitteePrice
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CommitteePrice, Parameters.CommitteePrice);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CommiteeDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CommiteeDate, Parameters.CommiteeDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter RationalForPricing
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RationalForPricing, Parameters.RationalForPricing);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter NoInBox
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.NoInBox, Parameters.NoInBox);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter LowestIntPrice
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LowestIntPrice, Parameters.LowestIntPrice);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PriceInEgy
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PriceInEgy, Parameters.PriceInEgy);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PriceAfter30
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PriceAfter30, Parameters.PriceAfter30);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PriceAfter35HighTech
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PriceAfter35HighTech, Parameters.PriceAfter35HighTech);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PriceAfter35FirstGeneric
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PriceAfter35FirstGeneric, Parameters.PriceAfter35FirstGeneric);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PriceAfter40SecondGeneric
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PriceAfter40SecondGeneric, Parameters.PriceAfter40SecondGeneric);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter LowestPriceGeneric
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LowestPriceGeneric, Parameters.LowestPriceGeneric);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FinalPrice
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FinalPrice, Parameters.FinalPrice);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsPricedTo499
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsPricedTo499, Parameters.IsPricedTo499);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Notes
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Notes, Parameters.Notes);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter MainGroup
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MainGroup, Parameters.MainGroup);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Similar
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Similar, Parameters.Similar);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter MonthYear
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MonthYear, Parameters.MonthYear);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PreviousPrice
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PreviousPrice, Parameters.PreviousPrice);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PreviousPack
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PreviousPack, Parameters.PreviousPack);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2062,6 +4208,354 @@ namespace Pricing.DAL
 				}
 			}
 
+			public AggregateParameter RegNo
+		    {
+				get
+		        {
+					if(_RegNo_W == null)
+	        	    {
+						_RegNo_W = TearOff.RegNo;
+					}
+					return _RegNo_W;
+				}
+			}
+
+			public AggregateParameter Reference
+		    {
+				get
+		        {
+					if(_Reference_W == null)
+	        	    {
+						_Reference_W = TearOff.Reference;
+					}
+					return _Reference_W;
+				}
+			}
+
+			public AggregateParameter Indication
+		    {
+				get
+		        {
+					if(_Indication_W == null)
+	        	    {
+						_Indication_W = TearOff.Indication;
+					}
+					return _Indication_W;
+				}
+			}
+
+			public AggregateParameter Dose
+		    {
+				get
+		        {
+					if(_Dose_W == null)
+	        	    {
+						_Dose_W = TearOff.Dose;
+					}
+					return _Dose_W;
+				}
+			}
+
+			public AggregateParameter SubmittedToSpecialized
+		    {
+				get
+		        {
+					if(_SubmittedToSpecialized_W == null)
+	        	    {
+						_SubmittedToSpecialized_W = TearOff.SubmittedToSpecialized;
+					}
+					return _SubmittedToSpecialized_W;
+				}
+			}
+
+			public AggregateParameter SalesTaxes
+		    {
+				get
+		        {
+					if(_SalesTaxes_W == null)
+	        	    {
+						_SalesTaxes_W = TearOff.SalesTaxes;
+					}
+					return _SalesTaxes_W;
+				}
+			}
+
+			public AggregateParameter EssentialDrugList
+		    {
+				get
+		        {
+					if(_EssentialDrugList_W == null)
+	        	    {
+						_EssentialDrugList_W = TearOff.EssentialDrugList;
+					}
+					return _EssentialDrugList_W;
+				}
+			}
+
+			public AggregateParameter TradePricingStatusID
+		    {
+				get
+		        {
+					if(_TradePricingStatusID_W == null)
+	        	    {
+						_TradePricingStatusID_W = TearOff.TradePricingStatusID;
+					}
+					return _TradePricingStatusID_W;
+				}
+			}
+
+			public AggregateParameter TradePricingLicenseTypeID
+		    {
+				get
+		        {
+					if(_TradePricingLicenseTypeID_W == null)
+	        	    {
+						_TradePricingLicenseTypeID_W = TearOff.TradePricingLicenseTypeID;
+					}
+					return _TradePricingLicenseTypeID_W;
+				}
+			}
+
+			public AggregateParameter SectorTypeID
+		    {
+				get
+		        {
+					if(_SectorTypeID_W == null)
+	        	    {
+						_SectorTypeID_W = TearOff.SectorTypeID;
+					}
+					return _SectorTypeID_W;
+				}
+			}
+
+			public AggregateParameter CommitteePrice
+		    {
+				get
+		        {
+					if(_CommitteePrice_W == null)
+	        	    {
+						_CommitteePrice_W = TearOff.CommitteePrice;
+					}
+					return _CommitteePrice_W;
+				}
+			}
+
+			public AggregateParameter CommiteeDate
+		    {
+				get
+		        {
+					if(_CommiteeDate_W == null)
+	        	    {
+						_CommiteeDate_W = TearOff.CommiteeDate;
+					}
+					return _CommiteeDate_W;
+				}
+			}
+
+			public AggregateParameter RationalForPricing
+		    {
+				get
+		        {
+					if(_RationalForPricing_W == null)
+	        	    {
+						_RationalForPricing_W = TearOff.RationalForPricing;
+					}
+					return _RationalForPricing_W;
+				}
+			}
+
+			public AggregateParameter NoInBox
+		    {
+				get
+		        {
+					if(_NoInBox_W == null)
+	        	    {
+						_NoInBox_W = TearOff.NoInBox;
+					}
+					return _NoInBox_W;
+				}
+			}
+
+			public AggregateParameter LowestIntPrice
+		    {
+				get
+		        {
+					if(_LowestIntPrice_W == null)
+	        	    {
+						_LowestIntPrice_W = TearOff.LowestIntPrice;
+					}
+					return _LowestIntPrice_W;
+				}
+			}
+
+			public AggregateParameter PriceInEgy
+		    {
+				get
+		        {
+					if(_PriceInEgy_W == null)
+	        	    {
+						_PriceInEgy_W = TearOff.PriceInEgy;
+					}
+					return _PriceInEgy_W;
+				}
+			}
+
+			public AggregateParameter PriceAfter30
+		    {
+				get
+		        {
+					if(_PriceAfter30_W == null)
+	        	    {
+						_PriceAfter30_W = TearOff.PriceAfter30;
+					}
+					return _PriceAfter30_W;
+				}
+			}
+
+			public AggregateParameter PriceAfter35HighTech
+		    {
+				get
+		        {
+					if(_PriceAfter35HighTech_W == null)
+	        	    {
+						_PriceAfter35HighTech_W = TearOff.PriceAfter35HighTech;
+					}
+					return _PriceAfter35HighTech_W;
+				}
+			}
+
+			public AggregateParameter PriceAfter35FirstGeneric
+		    {
+				get
+		        {
+					if(_PriceAfter35FirstGeneric_W == null)
+	        	    {
+						_PriceAfter35FirstGeneric_W = TearOff.PriceAfter35FirstGeneric;
+					}
+					return _PriceAfter35FirstGeneric_W;
+				}
+			}
+
+			public AggregateParameter PriceAfter40SecondGeneric
+		    {
+				get
+		        {
+					if(_PriceAfter40SecondGeneric_W == null)
+	        	    {
+						_PriceAfter40SecondGeneric_W = TearOff.PriceAfter40SecondGeneric;
+					}
+					return _PriceAfter40SecondGeneric_W;
+				}
+			}
+
+			public AggregateParameter LowestPriceGeneric
+		    {
+				get
+		        {
+					if(_LowestPriceGeneric_W == null)
+	        	    {
+						_LowestPriceGeneric_W = TearOff.LowestPriceGeneric;
+					}
+					return _LowestPriceGeneric_W;
+				}
+			}
+
+			public AggregateParameter FinalPrice
+		    {
+				get
+		        {
+					if(_FinalPrice_W == null)
+	        	    {
+						_FinalPrice_W = TearOff.FinalPrice;
+					}
+					return _FinalPrice_W;
+				}
+			}
+
+			public AggregateParameter IsPricedTo499
+		    {
+				get
+		        {
+					if(_IsPricedTo499_W == null)
+	        	    {
+						_IsPricedTo499_W = TearOff.IsPricedTo499;
+					}
+					return _IsPricedTo499_W;
+				}
+			}
+
+			public AggregateParameter Notes
+		    {
+				get
+		        {
+					if(_Notes_W == null)
+	        	    {
+						_Notes_W = TearOff.Notes;
+					}
+					return _Notes_W;
+				}
+			}
+
+			public AggregateParameter MainGroup
+		    {
+				get
+		        {
+					if(_MainGroup_W == null)
+	        	    {
+						_MainGroup_W = TearOff.MainGroup;
+					}
+					return _MainGroup_W;
+				}
+			}
+
+			public AggregateParameter Similar
+		    {
+				get
+		        {
+					if(_Similar_W == null)
+	        	    {
+						_Similar_W = TearOff.Similar;
+					}
+					return _Similar_W;
+				}
+			}
+
+			public AggregateParameter MonthYear
+		    {
+				get
+		        {
+					if(_MonthYear_W == null)
+	        	    {
+						_MonthYear_W = TearOff.MonthYear;
+					}
+					return _MonthYear_W;
+				}
+			}
+
+			public AggregateParameter PreviousPrice
+		    {
+				get
+		        {
+					if(_PreviousPrice_W == null)
+	        	    {
+						_PreviousPrice_W = TearOff.PreviousPrice;
+					}
+					return _PreviousPrice_W;
+				}
+			}
+
+			public AggregateParameter PreviousPack
+		    {
+				get
+		        {
+					if(_PreviousPack_W == null)
+	        	    {
+						_PreviousPack_W = TearOff.PreviousPack;
+					}
+					return _PreviousPack_W;
+				}
+			}
+
 			private AggregateParameter _TradePricingID_W = null;
 			private AggregateParameter _CompanyID_W = null;
 			private AggregateParameter _PricingStatusID_W = null;
@@ -2083,6 +4577,35 @@ namespace Pricing.DAL
 			private AggregateParameter _Generic_W = null;
 			private AggregateParameter _GenericStrength_W = null;
 			private AggregateParameter _ImportedManufacture_W = null;
+			private AggregateParameter _RegNo_W = null;
+			private AggregateParameter _Reference_W = null;
+			private AggregateParameter _Indication_W = null;
+			private AggregateParameter _Dose_W = null;
+			private AggregateParameter _SubmittedToSpecialized_W = null;
+			private AggregateParameter _SalesTaxes_W = null;
+			private AggregateParameter _EssentialDrugList_W = null;
+			private AggregateParameter _TradePricingStatusID_W = null;
+			private AggregateParameter _TradePricingLicenseTypeID_W = null;
+			private AggregateParameter _SectorTypeID_W = null;
+			private AggregateParameter _CommitteePrice_W = null;
+			private AggregateParameter _CommiteeDate_W = null;
+			private AggregateParameter _RationalForPricing_W = null;
+			private AggregateParameter _NoInBox_W = null;
+			private AggregateParameter _LowestIntPrice_W = null;
+			private AggregateParameter _PriceInEgy_W = null;
+			private AggregateParameter _PriceAfter30_W = null;
+			private AggregateParameter _PriceAfter35HighTech_W = null;
+			private AggregateParameter _PriceAfter35FirstGeneric_W = null;
+			private AggregateParameter _PriceAfter40SecondGeneric_W = null;
+			private AggregateParameter _LowestPriceGeneric_W = null;
+			private AggregateParameter _FinalPrice_W = null;
+			private AggregateParameter _IsPricedTo499_W = null;
+			private AggregateParameter _Notes_W = null;
+			private AggregateParameter _MainGroup_W = null;
+			private AggregateParameter _Similar_W = null;
+			private AggregateParameter _MonthYear_W = null;
+			private AggregateParameter _PreviousPrice_W = null;
+			private AggregateParameter _PreviousPack_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2107,6 +4630,35 @@ namespace Pricing.DAL
 				_Generic_W = null;
 				_GenericStrength_W = null;
 				_ImportedManufacture_W = null;
+				_RegNo_W = null;
+				_Reference_W = null;
+				_Indication_W = null;
+				_Dose_W = null;
+				_SubmittedToSpecialized_W = null;
+				_SalesTaxes_W = null;
+				_EssentialDrugList_W = null;
+				_TradePricingStatusID_W = null;
+				_TradePricingLicenseTypeID_W = null;
+				_SectorTypeID_W = null;
+				_CommitteePrice_W = null;
+				_CommiteeDate_W = null;
+				_RationalForPricing_W = null;
+				_NoInBox_W = null;
+				_LowestIntPrice_W = null;
+				_PriceInEgy_W = null;
+				_PriceAfter30_W = null;
+				_PriceAfter35HighTech_W = null;
+				_PriceAfter35FirstGeneric_W = null;
+				_PriceAfter40SecondGeneric_W = null;
+				_LowestPriceGeneric_W = null;
+				_FinalPrice_W = null;
+				_IsPricedTo499_W = null;
+				_Notes_W = null;
+				_MainGroup_W = null;
+				_Similar_W = null;
+				_MonthYear_W = null;
+				_PreviousPrice_W = null;
+				_PreviousPack_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2263,6 +4815,122 @@ namespace Pricing.DAL
 
 			p = cmd.Parameters.Add(Parameters.ImportedManufacture);
 			p.SourceColumn = ColumnNames.ImportedManufacture;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RegNo);
+			p.SourceColumn = ColumnNames.RegNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Reference);
+			p.SourceColumn = ColumnNames.Reference;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Indication);
+			p.SourceColumn = ColumnNames.Indication;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Dose);
+			p.SourceColumn = ColumnNames.Dose;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SubmittedToSpecialized);
+			p.SourceColumn = ColumnNames.SubmittedToSpecialized;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SalesTaxes);
+			p.SourceColumn = ColumnNames.SalesTaxes;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EssentialDrugList);
+			p.SourceColumn = ColumnNames.EssentialDrugList;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TradePricingStatusID);
+			p.SourceColumn = ColumnNames.TradePricingStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TradePricingLicenseTypeID);
+			p.SourceColumn = ColumnNames.TradePricingLicenseTypeID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SectorTypeID);
+			p.SourceColumn = ColumnNames.SectorTypeID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CommitteePrice);
+			p.SourceColumn = ColumnNames.CommitteePrice;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CommiteeDate);
+			p.SourceColumn = ColumnNames.CommiteeDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RationalForPricing);
+			p.SourceColumn = ColumnNames.RationalForPricing;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.NoInBox);
+			p.SourceColumn = ColumnNames.NoInBox;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.LowestIntPrice);
+			p.SourceColumn = ColumnNames.LowestIntPrice;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PriceInEgy);
+			p.SourceColumn = ColumnNames.PriceInEgy;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PriceAfter30);
+			p.SourceColumn = ColumnNames.PriceAfter30;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PriceAfter35HighTech);
+			p.SourceColumn = ColumnNames.PriceAfter35HighTech;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PriceAfter35FirstGeneric);
+			p.SourceColumn = ColumnNames.PriceAfter35FirstGeneric;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PriceAfter40SecondGeneric);
+			p.SourceColumn = ColumnNames.PriceAfter40SecondGeneric;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.LowestPriceGeneric);
+			p.SourceColumn = ColumnNames.LowestPriceGeneric;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FinalPrice);
+			p.SourceColumn = ColumnNames.FinalPrice;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsPricedTo499);
+			p.SourceColumn = ColumnNames.IsPricedTo499;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Notes);
+			p.SourceColumn = ColumnNames.Notes;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MainGroup);
+			p.SourceColumn = ColumnNames.MainGroup;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Similar);
+			p.SourceColumn = ColumnNames.Similar;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MonthYear);
+			p.SourceColumn = ColumnNames.MonthYear;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PreviousPrice);
+			p.SourceColumn = ColumnNames.PreviousPrice;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PreviousPack);
+			p.SourceColumn = ColumnNames.PreviousPack;
 			p.SourceVersion = DataRowVersion.Current;
 
 
