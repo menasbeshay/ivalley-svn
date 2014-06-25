@@ -33,7 +33,11 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="TypeName" HeaderText="Ticket Type" />
-                    <asp:BoundField DataField="StatusName" HeaderText="Status" />
+                    <asp:TemplateField HeaderText="Status">         
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("StatusName") %>' runat="server" CssClass="label" ID="uiLabelStatus"></asp:Label>
+                        </ItemTemplate>               
+                    </asp:TemplateField>                    
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
                             <asp:LinkButton ID="uiLinkButtonView" runat="server" CommandArgument='<%# Eval("TicketID").ToString() %>'

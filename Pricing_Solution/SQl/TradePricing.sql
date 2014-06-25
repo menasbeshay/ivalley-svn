@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TradePricingLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:26 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingLoadByPrimaryKey]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingLoadByPrimaryKey];
 GO
@@ -34,7 +34,36 @@ BEGIN
 		[FilePath],
 		[Generic],
 		[GenericStrength],
-		[ImportedManufacture]
+		[ImportedManufacture],
+		[RegNo],
+		[Reference],
+		[Indication],
+		[Dose],
+		[SubmittedToSpecialized],
+		[SalesTaxes],
+		[EssentialDrugList],
+		[TradePricingStatusID],
+		[TradePricingLicenseTypeID],
+		[SectorTypeID],
+		[CommitteePrice],
+		[CommiteeDate],
+		[RationalForPricing],
+		[NoInBox],
+		[LowestIntPrice],
+		[PriceInEgy],
+		[PriceAfter30],
+		[PriceAfter35HighTech],
+		[PriceAfter35FirstGeneric],
+		[PriceAfter40SecondGeneric],
+		[LowestPriceGeneric],
+		[FinalPrice],
+		[IsPricedTo499],
+		[Notes],
+		[MainGroup],
+		[Similar],
+		[MonthYear],
+		[PreviousPrice],
+		[PreviousPack]
 	FROM [TradePricing]
 	WHERE
 		([TradePricingID] = @TradePricingID)
@@ -51,7 +80,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_TradePricingLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingLoadAll]    Script Date: 6/25/2014 1:38:26 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingLoadAll]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingLoadAll];
 GO
@@ -84,7 +113,36 @@ BEGIN
 		[FilePath],
 		[Generic],
 		[GenericStrength],
-		[ImportedManufacture]
+		[ImportedManufacture],
+		[RegNo],
+		[Reference],
+		[Indication],
+		[Dose],
+		[SubmittedToSpecialized],
+		[SalesTaxes],
+		[EssentialDrugList],
+		[TradePricingStatusID],
+		[TradePricingLicenseTypeID],
+		[SectorTypeID],
+		[CommitteePrice],
+		[CommiteeDate],
+		[RationalForPricing],
+		[NoInBox],
+		[LowestIntPrice],
+		[PriceInEgy],
+		[PriceAfter30],
+		[PriceAfter35HighTech],
+		[PriceAfter35FirstGeneric],
+		[PriceAfter40SecondGeneric],
+		[LowestPriceGeneric],
+		[FinalPrice],
+		[IsPricedTo499],
+		[Notes],
+		[MainGroup],
+		[Similar],
+		[MonthYear],
+		[PreviousPrice],
+		[PreviousPack]
 	FROM [TradePricing]
 
 	SET @Err = @@Error
@@ -99,7 +157,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TradePricingLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingUpdate]    Script Date: 6/25/2014 1:38:26 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingUpdate]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingUpdate];
 GO
@@ -126,7 +184,36 @@ CREATE PROCEDURE [proc_TradePricingUpdate]
 	@FilePath nvarchar(250) = NULL,
 	@Generic nvarchar(250) = NULL,
 	@GenericStrength nvarchar(50) = NULL,
-	@ImportedManufacture nvarchar(1500) = NULL
+	@ImportedManufacture nvarchar(1500) = NULL,
+	@RegNo nvarchar(100) = NULL,
+	@Reference nvarchar(500) = NULL,
+	@Indication nvarchar(500) = NULL,
+	@Dose nvarchar(500) = NULL,
+	@SubmittedToSpecialized bit = NULL,
+	@SalesTaxes bit = NULL,
+	@EssentialDrugList bit = NULL,
+	@TradePricingStatusID int = NULL,
+	@TradePricingLicenseTypeID int = NULL,
+	@SectorTypeID int = NULL,
+	@CommitteePrice nvarchar(500) = NULL,
+	@CommiteeDate datetime = NULL,
+	@RationalForPricing nvarchar(500) = NULL,
+	@NoInBox int = NULL,
+	@LowestIntPrice nvarchar(500) = NULL,
+	@PriceInEgy nvarchar(500) = NULL,
+	@PriceAfter30 nvarchar(500) = NULL,
+	@PriceAfter35HighTech nvarchar(500) = NULL,
+	@PriceAfter35FirstGeneric nvarchar(500) = NULL,
+	@PriceAfter40SecondGeneric nvarchar(500) = NULL,
+	@LowestPriceGeneric nvarchar(500) = NULL,
+	@FinalPrice nvarchar(500) = NULL,
+	@IsPricedTo499 bit = NULL,
+	@Notes nvarchar(500) = NULL,
+	@MainGroup nvarchar(500) = NULL,
+	@Similar bit = NULL,
+	@MonthYear nvarchar(20) = NULL,
+	@PreviousPrice nvarchar(500) = NULL,
+	@PreviousPack nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -155,7 +242,36 @@ BEGIN
 		[FilePath] = @FilePath,
 		[Generic] = @Generic,
 		[GenericStrength] = @GenericStrength,
-		[ImportedManufacture] = @ImportedManufacture
+		[ImportedManufacture] = @ImportedManufacture,
+		[RegNo] = @RegNo,
+		[Reference] = @Reference,
+		[Indication] = @Indication,
+		[Dose] = @Dose,
+		[SubmittedToSpecialized] = @SubmittedToSpecialized,
+		[SalesTaxes] = @SalesTaxes,
+		[EssentialDrugList] = @EssentialDrugList,
+		[TradePricingStatusID] = @TradePricingStatusID,
+		[TradePricingLicenseTypeID] = @TradePricingLicenseTypeID,
+		[SectorTypeID] = @SectorTypeID,
+		[CommitteePrice] = @CommitteePrice,
+		[CommiteeDate] = @CommiteeDate,
+		[RationalForPricing] = @RationalForPricing,
+		[NoInBox] = @NoInBox,
+		[LowestIntPrice] = @LowestIntPrice,
+		[PriceInEgy] = @PriceInEgy,
+		[PriceAfter30] = @PriceAfter30,
+		[PriceAfter35HighTech] = @PriceAfter35HighTech,
+		[PriceAfter35FirstGeneric] = @PriceAfter35FirstGeneric,
+		[PriceAfter40SecondGeneric] = @PriceAfter40SecondGeneric,
+		[LowestPriceGeneric] = @LowestPriceGeneric,
+		[FinalPrice] = @FinalPrice,
+		[IsPricedTo499] = @IsPricedTo499,
+		[Notes] = @Notes,
+		[MainGroup] = @MainGroup,
+		[Similar] = @Similar,
+		[MonthYear] = @MonthYear,
+		[PreviousPrice] = @PreviousPrice,
+		[PreviousPack] = @PreviousPack
 	WHERE
 		[TradePricingID] = @TradePricingID
 
@@ -176,7 +292,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TradePricingInsert]    Script Date: 6/25/2014 1:38:26 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingInsert]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingInsert];
 GO
@@ -203,7 +319,36 @@ CREATE PROCEDURE [proc_TradePricingInsert]
 	@FilePath nvarchar(250) = NULL,
 	@Generic nvarchar(250) = NULL,
 	@GenericStrength nvarchar(50) = NULL,
-	@ImportedManufacture nvarchar(1500) = NULL
+	@ImportedManufacture nvarchar(1500) = NULL,
+	@RegNo nvarchar(100) = NULL,
+	@Reference nvarchar(500) = NULL,
+	@Indication nvarchar(500) = NULL,
+	@Dose nvarchar(500) = NULL,
+	@SubmittedToSpecialized bit = NULL,
+	@SalesTaxes bit = NULL,
+	@EssentialDrugList bit = NULL,
+	@TradePricingStatusID int = NULL,
+	@TradePricingLicenseTypeID int = NULL,
+	@SectorTypeID int = NULL,
+	@CommitteePrice nvarchar(500) = NULL,
+	@CommiteeDate datetime = NULL,
+	@RationalForPricing nvarchar(500) = NULL,
+	@NoInBox int = NULL,
+	@LowestIntPrice nvarchar(500) = NULL,
+	@PriceInEgy nvarchar(500) = NULL,
+	@PriceAfter30 nvarchar(500) = NULL,
+	@PriceAfter35HighTech nvarchar(500) = NULL,
+	@PriceAfter35FirstGeneric nvarchar(500) = NULL,
+	@PriceAfter40SecondGeneric nvarchar(500) = NULL,
+	@LowestPriceGeneric nvarchar(500) = NULL,
+	@FinalPrice nvarchar(500) = NULL,
+	@IsPricedTo499 bit = NULL,
+	@Notes nvarchar(500) = NULL,
+	@MainGroup nvarchar(500) = NULL,
+	@Similar bit = NULL,
+	@MonthYear nvarchar(20) = NULL,
+	@PreviousPrice nvarchar(500) = NULL,
+	@PreviousPack nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -233,7 +378,36 @@ BEGIN
 		[FilePath],
 		[Generic],
 		[GenericStrength],
-		[ImportedManufacture]
+		[ImportedManufacture],
+		[RegNo],
+		[Reference],
+		[Indication],
+		[Dose],
+		[SubmittedToSpecialized],
+		[SalesTaxes],
+		[EssentialDrugList],
+		[TradePricingStatusID],
+		[TradePricingLicenseTypeID],
+		[SectorTypeID],
+		[CommitteePrice],
+		[CommiteeDate],
+		[RationalForPricing],
+		[NoInBox],
+		[LowestIntPrice],
+		[PriceInEgy],
+		[PriceAfter30],
+		[PriceAfter35HighTech],
+		[PriceAfter35FirstGeneric],
+		[PriceAfter40SecondGeneric],
+		[LowestPriceGeneric],
+		[FinalPrice],
+		[IsPricedTo499],
+		[Notes],
+		[MainGroup],
+		[Similar],
+		[MonthYear],
+		[PreviousPrice],
+		[PreviousPack]
 	)
 	VALUES
 	(
@@ -256,7 +430,36 @@ BEGIN
 		@FilePath,
 		@Generic,
 		@GenericStrength,
-		@ImportedManufacture
+		@ImportedManufacture,
+		@RegNo,
+		@Reference,
+		@Indication,
+		@Dose,
+		@SubmittedToSpecialized,
+		@SalesTaxes,
+		@EssentialDrugList,
+		@TradePricingStatusID,
+		@TradePricingLicenseTypeID,
+		@SectorTypeID,
+		@CommitteePrice,
+		@CommiteeDate,
+		@RationalForPricing,
+		@NoInBox,
+		@LowestIntPrice,
+		@PriceInEgy,
+		@PriceAfter30,
+		@PriceAfter35HighTech,
+		@PriceAfter35FirstGeneric,
+		@PriceAfter40SecondGeneric,
+		@LowestPriceGeneric,
+		@FinalPrice,
+		@IsPricedTo499,
+		@Notes,
+		@MainGroup,
+		@Similar,
+		@MonthYear,
+		@PreviousPrice,
+		@PreviousPack
 	)
 
 	SET @Err = @@Error
@@ -273,7 +476,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TradePricingInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TradePricingInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TradePricingDelete]    Script Date: 6/25/2014 1:38:26 PM ******/
+/****** Object:  StoredProcedure [proc_TradePricingDelete]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TradePricingDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TradePricingDelete];
 GO

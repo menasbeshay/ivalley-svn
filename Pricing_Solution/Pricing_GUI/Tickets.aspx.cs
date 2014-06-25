@@ -46,6 +46,7 @@ namespace Pricing_GUI
             {
                 DataRowView row = (DataRowView)e.Row.DataItem;
                 Label tradeName = (Label)e.Row.FindControl("uiLabelTradeName");
+                Label statusLabel = (Label)e.Row.FindControl("uiLabelStatus");
                 if (!string.IsNullOrEmpty(row["MainTradeName"].ToString()))
                 {
                     tradeName.Text = row["MainTradeName"].ToString();
@@ -53,6 +54,27 @@ namespace Pricing_GUI
                 else
                 {
                     tradeName.Text = row["TradeName"].ToString();
+                }
+
+                switch (row["TicketStatusID"].ToString())
+                {
+                    case "1": // open
+                        statusLabel.CssClass = "label label-info";
+                        break;
+                    case "2": // closed 
+                        statusLabel.CssClass = "label label-danger";
+                        break;
+                    case "3": // pending 
+                        statusLabel.CssClass = "label label-warning";
+                        break;
+                    case "4": // need more info
+                        statusLabel.CssClass = "label label-success";
+                        break;
+                    case "5": // need more info / complete
+                        statusLabel.CssClass = "label label-inverse";
+                        break;
+                    default:
+                        break;
                 }
             }
         }

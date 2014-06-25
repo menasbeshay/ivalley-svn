@@ -46,6 +46,9 @@
     <Compile Include="Companies.cs" />
     <Compile Include="CompanyDescision.cs" />
     <Compile Include="ConvertDate.cs" />
+    <Compile Include="SectorType.cs" />
+    <Compile Include="TradePricingLicenseType.cs" />
+    <Compile Include="TradePricingStatus.cs" />
     <Compile Include="v_StatusHistory.cs" />
     <Compile Include="v_GetAllNotifications.cs" />
     <Compile Include="StatusHistory.cs" />

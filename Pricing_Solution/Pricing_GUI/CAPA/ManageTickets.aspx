@@ -3,7 +3,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<p style="text-align:left">
+    <p style="text-align:left">
     <asp:Label runat="server" ID="lblPageTitle" Text="Tickets :" Font-Names="Sakkal Majalla"
         Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
 

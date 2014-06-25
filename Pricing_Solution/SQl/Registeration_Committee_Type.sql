@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadByPrimaryKey]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadByPrimaryKey]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeLoadByPrimaryKey];
 GO
@@ -34,7 +34,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoa
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadAll]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeLoadAll]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeLoadAll];
 GO
@@ -65,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoa
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeUpdate]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeUpdate]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeUpdate];
 GO
@@ -108,7 +108,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeInsert]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeInsert]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeInsert];
 GO
@@ -154,7 +154,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_Registeration_Committee_TypeIns
 ELSE PRINT 'Procedure Creation: proc_Registeration_Committee_TypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeDelete]    Script Date: 6/25/2014 1:38:25 PM ******/
+/****** Object:  StoredProcedure [proc_Registeration_Committee_TypeDelete]    Script Date: 6/25/2014 4:33:39 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_Registeration_Committee_TypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_Registeration_Committee_TypeDelete];
 GO

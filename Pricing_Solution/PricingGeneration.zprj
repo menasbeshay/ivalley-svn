@@ -20,7 +20,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|TicketStatus;System.String|H|TicketType;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|SectorType;System.String|H|TradePricingLicenseType;System.String|H|TradePricingStatus;" />
         <item name="txtNamespace" type="System.String" val="BLL" />
         <item name="txtPath" type="System.String" val="D:\SmartValley\Pricing\PricingBLL" />
       </items>
@@ -44,7 +44,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|TicketHistory;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|SectorType;System.String|H|TradePricing;System.String|H|TradePricingLicenseType;System.String|H|TradePricingStatus;" />
         <item name="prefix" type="System.Boolean" val="False" />
         <item name="trimName" type="System.Boolean" val="False" />
         <item name="txtNamespace" type="System.String" val="Pricing.DAL" />
@@ -73,7 +73,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|CommitteeDescision;System.String|H|CommitteTypes;System.String|H|Companies;System.String|H|CompanyDescision;System.String|H|Dosage_form;System.String|H|Drug_Reguest_Substances;System.String|H|FileType;System.String|H|Generic_names;System.String|H|MailTemplates;System.String|H|Notifications;System.String|H|PricingStatus;System.String|H|Registeration_Committee_Type;System.String|H|StatusHistory;System.String|H|SUBSTANCE_SUPPLIER;System.String|H|Substances;System.String|H|SubstancesReference;System.String|H|TicketHistory;System.String|H|Tickets;System.String|H|TicketStatus;System.String|H|TicketType;System.String|H|TradePricing;System.String|H|Unit;System.String|H|userLogin;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|CommitteeDescision;System.String|H|CommitteTypes;System.String|H|Companies;System.String|H|CompanyDescision;System.String|H|Dosage_form;System.String|H|Drug_Reguest_Substances;System.String|H|FileType;System.String|H|Generic_names;System.String|H|MailTemplates;System.String|H|Notifications;System.String|H|PricingStatus;System.String|H|Registeration_Committee_Type;System.String|H|SectorType;System.String|H|StatusHistory;System.String|H|SUBSTANCE_SUPPLIER;System.String|H|Substances;System.String|H|SubstancesReference;System.String|H|TicketHistory;System.String|H|Tickets;System.String|H|TicketStatus;System.String|H|TicketType;System.String|H|TradePricing;System.String|H|TradePricingLicenseType;System.String|H|TradePricingStatus;System.String|H|Unit;System.String|H|userLogin;" />
         <item name="txtPath" type="System.String" val="D:\SmartValley\Pricing\SQl" />
       </items>
     </obj>
