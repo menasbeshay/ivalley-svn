@@ -39,10 +39,6 @@ alter table TicketHistory
 Add TicketStatusID int null
 
 
-alter table TicketHistory
-add FileAttachement nvarchar(500)
-
-
 
 If Exists (select Name 
 		   from sysobjects 
@@ -64,23 +60,6 @@ Go
 
 
 
-
-If Exists (select Name 
-		   from sysobjects 
-		   where name = 'GetAllTickets' and
-		        xtype = 'P')
-Drop Procedure GetAllTickets
-Go
-Create Procedure GetAllTickets 
-as
-
-select T.* , TT.Name TypeName , S.Name StatusName, P.TradeName MainTradeName
-from Tickets T
-Inner Join TicketType TT on T.TicketTypeID = TT.TicketTypeID
-Inner join TicketStatus S on T.TicketStatusID = S.TicketStatusID
-Left JOIN dbo.TradePricing P ON T.TradePricingID = P.TradePricingID 
-order by T.InitiateDate Desc 
-Go
 
 If Exists (select Name 
 		   from sysobjects 
@@ -117,6 +96,13 @@ order by T.ResponseDate Desc
 Go
 
 
+/*********************************************************************/ 
+/*   25-6-2014 updates  */
+/***********************************************************************/
+
+alter table TicketHistory
+add FileAttachement nvarchar(500)
+
 
 
 If Exists (select Name 
@@ -137,5 +123,23 @@ Left JOIN dbo.TradePricing P ON T.TradePricingID = P.TradePricingID
 Inner join dbo.Companies C on T.CompanyID = C.CompanyID
 where C.CompNameEng like N'%' + @SearchTxt + N'%' And 
 	  T.TicketStatusID = @StatusID
+order by T.InitiateDate Desc 
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllTickets' and
+		        xtype = 'P')
+Drop Procedure GetAllTickets
+Go
+Create Procedure GetAllTickets 
+as
+
+select T.* , TT.Name TypeName , S.Name StatusName, P.TradeName MainTradeName
+from Tickets T
+Inner Join TicketType TT on T.TicketTypeID = TT.TicketTypeID
+Inner join TicketStatus S on T.TicketStatusID = S.TicketStatusID
+Left JOIN dbo.TradePricing P ON T.TradePricingID = P.TradePricingID 
 order by T.InitiateDate Desc 
 Go
