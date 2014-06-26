@@ -573,7 +573,7 @@
                                                                             </p>
                                                                         </td>
                                                                         <td align="right">
-                                                                            <asp:HyperLink runat="server" ImageUrl="~/Images/PreviewFile.png" ToolTip="View Attached File"
+                                                                            <asp:HyperLink runat="server" ImageUrl="~/Images/PreviewFile.png" Target="_blank" ToolTip="View Attached File"
                                                                                 Width="40px" ID="lnkViewAttachementFile" Text=""></asp:HyperLink>
                                                                         </td>
                                                                     </tr>
@@ -623,25 +623,44 @@
                Modify Status</h3>
         </div>
         <div class="modal-body">
-            <asp:UpdatePanel ID="uiUpdatePanelPrices" runat="server">
-                <ContentTemplate>
-                   <table width="100%" runat="server" id="tblAddStatusContainer">
-                   <tr>
-                   <td> <asp:Label runat="server" ID="ui_lblstatusTitle" Text="Status"></asp:Label> </td>
-                   <td> <asp:DropDownList runat="server" ID="ui_drpTradeStatus" Width="210px"></asp:DropDownList> </td>
-                   <td> <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="ValidateStatus" ControlToValidate="ui_drpTradeStatus" InitialValue="-1" runat="server" ForeColor="Red" ErrorMessage="*"></asp:RequiredFieldValidator></td>
-                   </tr>
-                   <tr>
-                   <td><asp:Label runat="server" ID="Label3" Text="Comment"></asp:Label>  </td>
-                   <td><asp:TextBox runat="server" ID="ui_txtStatusComment" TextMode="MultiLine" Width="200px"></asp:TextBox> </td>
-                   <td></td>
-                   </tr>
-                    <tr>
-                   <td><asp:Label runat="server" ID="Label9" Text="Attache File"></asp:Label>  </td>
-                   <td><asp:FileUpload runat="server" ID="ui_fileStatusUpload" Width="200px" /> </td>
-                   <td></td>
-                   </tr>
-                   </table>
+       
+            <table width="100%" runat="server" id="tblAddStatusContainer">
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="ui_lblstatusTitle" Text="Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="ui_drpTradeStatus" Width="210px">
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="ValidateStatus"
+                            ControlToValidate="ui_drpTradeStatus" InitialValue="-1" runat="server" ForeColor="Red"
+                            ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="Label3" Text="Comment"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="ui_txtStatusComment" TextMode="MultiLine" Width="200px"></asp:TextBox>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="Label9" Text="Attache File"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:FileUpload runat="server" ID="ui_fileStatusUpload" Width="200px" />
+                    </td>
+                    <td>
+                      
+                    </td>
+                </tr>
+            </table>
 
                    <asp:Label runat="server" Visible="false" ID="lblCouldNotchangeStatus" Text="Sorry you couldn't change the status at the moment - it's the Role of CAPA Now . !" ></asp:Label>
                         
@@ -649,8 +668,10 @@
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">
                     Cancel</button>
-                <asp:LinkButton ID="uiLinkButtonAddStatus" runat="server" OnClick="uiLinkButtonAddStatus_Click" class="btn btn-primary">Add</asp:LinkButton>
+                <asp:LinkButton ID="uiLinkButtonAddStatus" runat="server" ValidationGroup="ValidateStatus"  OnClick="uiLinkButtonAddStatus_Click" class="btn btn-primary">Add</asp:LinkButton>
             </div>
+              <asp:UpdatePanel ID="uiUpdatePanelPrices" runat="server">
+                <ContentTemplate>
              </ContentTemplate>
             </asp:UpdatePanel>
         </div>
