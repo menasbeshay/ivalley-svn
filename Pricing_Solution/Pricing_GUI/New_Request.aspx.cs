@@ -876,7 +876,7 @@ namespace Pricing_GUI
             // update status history view in the page.
           //  Session["UpdateStatus"] = "1";
             BindStatusHistory();
-           
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "opentab", "$(document).ready(function(){ $('.nav-tabs a[href=\"#tab_1_3\"]').tab('show'); });", true);
         }
 
         
