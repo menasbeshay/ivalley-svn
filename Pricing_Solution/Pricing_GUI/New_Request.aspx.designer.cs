@@ -877,15 +877,6 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.Repeater rptrStatusList;
         
         /// <summary>
-        /// uiUpdatePanelPrices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uiUpdatePanelPrices;
-        
-        /// <summary>
         /// tblAddStatusContainer control.
         /// </summary>
         /// <remarks>
@@ -974,5 +965,14 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddStatus;
+        
+        /// <summary>
+        /// uiUpdatePanelPrices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel uiUpdatePanelPrices;
     }
 }

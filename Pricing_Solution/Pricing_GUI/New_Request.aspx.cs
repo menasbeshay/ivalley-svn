@@ -49,11 +49,9 @@ namespace Pricing_GUI
 
         #endregion
 
-        #region MainDataTab
+        #region Page Events 
 
-        #region Events
-
-        protected void Page_Load(object sender, EventArgs e)
+         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
@@ -94,6 +92,23 @@ namespace Pricing_GUI
             }
 
         }
+
+         protected void Page_PreRender(object sender, EventArgs e)
+         {
+             //if (Session["UpdateStatus"] != null)
+             //{
+             //    BindStatusHistory();
+             //    Session["UpdateStatus"] = null;
+             //}
+         }
+
+      #endregion 
+
+        #region MainDataTab
+
+        #region Events
+
+       
 
         protected void ui_btnSave_Click(object sender, EventArgs e)
         {
@@ -302,6 +317,19 @@ namespace Pricing_GUI
                 ui_fileUpload.PostedFile.SaveAs(filepath);
 
                 return ui_fileUpload.FileName;
+            }
+            return "";
+        }
+
+        private string SaveStatusFile(int statusHistoryID)
+        {
+            if (ui_fileStatusUpload.HasFile)
+            {
+                string newFileName = statusHistoryID.ToString() + "_" + ui_fileStatusUpload.FileName;
+                string filepath = Server.MapPath(ConfigurationManager.AppSettings["StatusAttachementPath"].ToString()) + newFileName;
+                ui_fileStatusUpload.PostedFile.SaveAs(filepath);
+
+                return ui_fileStatusUpload.FileName;
             }
             return "";
         }
@@ -697,17 +725,13 @@ namespace Pricing_GUI
             {
                     
                 case 1: // inistiated
-                case 2:
-                default:// Accepted 
+                case 2:// Accepted 
+                default:
                     // In case of that the company couldn't change the status 
-                    tblAddStatusContainer.Visible = false;
-                    uiLinkButtonAddStatus.Visible = false;
-                    lblCouldNotchangeStatus.Visible = true;
+                    StatusHistoryEnable(false);
                     break;
                 case 3:
-                     tblAddStatusContainer.Visible = true;
-                    uiLinkButtonAddStatus.Visible = true;
-                    lblCouldNotchangeStatus.Visible = false;
+                    StatusHistoryEnable(true);
                     ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Need More Info / Complete", "4"));
                     break;
@@ -715,11 +739,51 @@ namespace Pricing_GUI
             }
         }
 
-       
+        private void AddNewStatusHistory()
+        {
+            StatusHistory objStatus = new StatusHistory();
+            objStatus.AddNew();
+
+            objStatus.PricingStatusID = int.Parse(ui_drpTradeStatus.SelectedValue);
+            objStatus.StatusDate = DateTime.Now;
+            objStatus.Comment = ui_txtStatusComment.Text;
+            objStatus.TradePricingID = TradePriceID;
+            objStatus.AttachementPath = "";
+            objStatus.Save();
+
+            // if file exist - save it with the current record 
+            if (ui_fileStatusUpload.HasFile)
+            {
+                objStatus.AttachementPath = SaveStatusFile(objStatus.StatusHistoryID);
+                objStatus.Save();
+            }
+
+            // Upate the Trade Pricing Record with the last status we have .
+            TradePricing objTradePricing = new TradePricing();
+            objTradePricing.LoadByPrimaryKey(TradePriceID);
+            objTradePricing.PricingStatusID = objStatus.PricingStatusID;
+            objTradePricing.Save();
+        }
+
+        private void StatusHistoryEnable(bool isEnable)
+        {
+            if (isEnable)
+            {
+                tblAddStatusContainer.Visible = true;
+                uiLinkButtonAddStatus.Visible = true;
+                lblCouldNotchangeStatus.Visible = false;
+            }
+            else
+            {
+                tblAddStatusContainer.Visible = false;
+                uiLinkButtonAddStatus.Visible = false;
+                lblCouldNotchangeStatus.Visible = true;
+            }
+            
+        }
 
         #endregion
-
-
+        
         #region Events
 
         protected void rptrStatusList_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -802,12 +866,24 @@ namespace Pricing_GUI
         protected void uiLinkButtonAddStatus_Click(object sender, EventArgs e)
         {
             //TODO: Handle add new status for the current Trade Pricing Product.
+            AddNewStatusHistory();
+
+            //disable status History 
+            StatusHistoryEnable(false);
+
+            lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now CAPA only can modify status - you couldn't to do it again at the moment.";
+
+            // update status history view in the page.
+          //  Session["UpdateStatus"] = "1";
+            BindStatusHistory();
+           
         }
 
-        #endregion
-
-
+        
 
         #endregion
+        
+        #endregion
+
     }
 }
