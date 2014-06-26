@@ -675,4 +675,7 @@
             </asp:UpdatePanel>
         </div>
     </div>    
+   <%-- <script type="text/javascript">
+        $(document).ready(function () { $('.nav-tabs a[href="#tab_1_3"]').tab('show'); });
+    </script>--%>
 </asp:Content>

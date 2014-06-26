@@ -282,7 +282,7 @@ namespace Pricing_GUI
                 objPricing.Pack = ui_txtPack.Text;
                 objPricing.FileNo = ui_txtFileNo.Text;
                 objPricing.FileTypeID = Int32.Parse(ui_drpFileType.SelectedValue);
-                objPricing.PricingStatusID = 1;
+             //   objPricing.PricingStatusID = 1;
                 objPricing.ImportedManufacture = ui_txtImportedManufacture.Text;
                 //TODO: Save File to disk and save it's path.
 
@@ -724,18 +724,43 @@ namespace Pricing_GUI
             switch (obj.PricingStatusID)
             {
                     
-                case 1: // inistiated
-                case 2:// Accepted 
+                case 3: //Reviw / Need More Info
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Need More Info / Complete", "4"));
+                    break;
+
+                case 6: //Committee Price Informed 
+                     StatusHistoryEnable(true);
+                     ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Price Accepted ", "11"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Price Refused  ", "12"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Need Discussion  ", "13"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Price Review ", "14"));
+                    break;
+
+                case 12: //Price Review 
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Price Accepted ", "11"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Price Refused  ", "12"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Need Discussion  ", "13"));
+                    break;
+
+                case 7: //Committee Postponded / Need More Info 
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Postponded / Need More Info / Complete", "10"));
+                    break;
+
                 default:
                     // In case of that the company couldn't change the status 
                     StatusHistoryEnable(false);
                     break;
-                case 3:
-                    StatusHistoryEnable(true);
-                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
-                    ui_drpTradeStatus.Items.Add(new ListItem("Need More Info / Complete", "4"));
-                    break;
-                
             }
         }
 
@@ -868,15 +893,26 @@ namespace Pricing_GUI
             //TODO: Handle add new status for the current Trade Pricing Product.
             AddNewStatusHistory();
 
-            //disable status History 
-            StatusHistoryEnable(false);
+            if (ui_drpTradeStatus.SelectedValue != "12")
+            {
+                //disable status History 
+                StatusHistoryEnable(false);
+                lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now CAPA only can modify status - you couldn't to do it again at the moment.";
+            }
+            else
+            {
+                // Company still can control the status in case of Price review only 
+                StatusHistoryEnable(true);
+                ValidateAndBindStatus();
+            }
 
-            lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now CAPA only can modify status - you couldn't to do it again at the moment.";
+            // disable Page Content.
+            pnl_MainData_Content.Enabled = false;
+            pnl_Generic_Contenets.Enabled = false;
 
-            // update status history view in the page.
-          //  Session["UpdateStatus"] = "1";
             BindStatusHistory();
-            ScriptManager.RegisterStartupScript(Page, this.GetType(), "opentab", "$(document).ready(function(){ $('.nav-tabs a[href=\"#tab_1_3\"]').tab('show'); });", true);
+         
+            ScriptManager.RegisterStartupScript(uiLinkButtonAddStatus, this.GetType(), "opentab", "$(document).ready(function(){ $('.nav-tabs a[href=\"#tab_1_3\"]').tab('show'); });", true);
         }
 
         

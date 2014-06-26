@@ -3485,12 +3485,8 @@ ul.amounts li {
     margin-bottom: 15px;
 }
 
-
-
-/***** alerts ******/
-.alert-default
-{
-    color: #BBBB00;
-    background-color: #FFFFCC;
-    border-color: #CCCC00;
+.alert-default {
+  color: #63246B;
+  background-color: #EACEED;
+  border-color: #DCCEDE;
 }

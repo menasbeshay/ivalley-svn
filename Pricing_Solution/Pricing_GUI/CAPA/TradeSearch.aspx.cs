@@ -747,6 +747,7 @@ namespace PricingGUI
         #endregion
 
         #region BeforeAfterCommitte
+
         protected void uiButtonBeforeComm_Save_Click(object sender, EventArgs e)
         {
             SaveBeforeCommitte();
