@@ -594,8 +594,7 @@
                                                         class="icon-remove"></a></span>
                                                 </div>
                                                 <div class="widget-body" style="text-align: center">
-                                                    <a class="btn btn-primary" href="#Addmodal" data-toggle="modal">Update Status</a>
-                                                    </a>
+                                                    <a class="btn btn-primary" href="#Addmodal" data-toggle="modal">Update Status</a>                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -675,5 +674,5 @@
              </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-    </div>
+    </div>    
 </asp:Content>

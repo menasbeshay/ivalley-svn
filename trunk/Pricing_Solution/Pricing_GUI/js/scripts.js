@@ -7,9 +7,9 @@ var App = function () {
 
     var handleJQVMAP = function () {
 
-        if (!sample_data) {
+        /*if (!sample_data) {
             return;
-        }
+        }*/
 
         var showMap = function (name) {
             jQuery('.vmaps').hide();
@@ -17,7 +17,7 @@ var App = function () {
         }
 
         var setMap = function (name) {
-            var data = {
+            /*var data = {
                 map: 'world_en',
                 backgroundColor: null,
                 borderColor: '#333333',
@@ -52,7 +52,7 @@ var App = function () {
             map.width(map.parent().parent().width());
             map.show();
             map.vectorMap(data);
-            map.hide();
+            map.hide();*/
         }
 
         setMap("world");
@@ -602,7 +602,7 @@ var App = function () {
 
         $('#site_statistics_loading').hide();
         $('#site_statistics_content').show();
-
+        /*
         var plot = $.plot($("#site_statistics"), [{
             data: pageviews,
             label: "Unique Visits"
@@ -644,7 +644,7 @@ var App = function () {
                 tickDecimals: 0
             }
         });
-
+        */
 
         function showTooltip(x, y, contents) {
             $('<div id="tooltip">' + contents + '</div>').css({
@@ -720,12 +720,12 @@ var App = function () {
         $('#load_statistics_content').show();
 
         var updateInterval = 30;
-        var plot = $.plot($("#load_statistics"), [getRandomData()], options);
+        /*var plot = $.plot($("#load_statistics"), [getRandomData()], options);*/
 
         function update() {
-            plot.setData([getRandomData()]);
+           /* plot.setData([getRandomData()]);
             plot.draw();
-            setTimeout(update, updateInterval);
+            setTimeout(update, updateInterval);*/
         }
         update();
     }
@@ -2214,7 +2214,7 @@ var App = function () {
             handleSidebarToggler();
 
             if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
-                handleIntro();
+                //handleIntro();
             }
         },
 
