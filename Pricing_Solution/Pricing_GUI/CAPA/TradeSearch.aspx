@@ -934,7 +934,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                 <td colspan="1" style="text-align:right">
                     <asp:Button runat="server" class="btn btn-default" Font-Bold="False" 
                         Font-Size="11pt" ID="uiButtonUpdate_After" Text="Add / update " 
-                        OnClick="uiButtonBeforeComm_Save_Click" Font-Names="Calibri" 
+                        OnClick="uiButtonUpdate_After_Click" Font-Names="Calibri" 
                         ValidationGroup="SaveMainPriceData" />
                    
 

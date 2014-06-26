@@ -378,9 +378,12 @@ namespace PricingGUI
             uiTextBoxReference.Text = objPricing.Reference;
             uiTextBoxIndication.Text = objPricing.Indication;
             uiTextBoxDose.Text = objPricing.Dose;
-            uiCheckBoxSubmittedToSpecialized.Checked = objPricing.SubmittedToSpecialized;
-            uiCheckBoxSalesTaxes.Checked = objPricing.SalesTaxes;
-            uiCheckBoxEssentialDrugList.Checked = objPricing.EssentialDrugList;
+            if(!objPricing.IsColumnNull("SubmittedToSpecialized"))
+                uiCheckBoxSubmittedToSpecialized.Checked = objPricing.SubmittedToSpecialized;
+            if (!objPricing.IsColumnNull("SalesTaxes"))
+                uiCheckBoxSalesTaxes.Checked = objPricing.SalesTaxes;
+            if (!objPricing.IsColumnNull("EssentialDrugList"))
+                uiCheckBoxEssentialDrugList.Checked = objPricing.EssentialDrugList;
 
             // after commite
             if (!objPricing.IsColumnNull("SectorTypeID"))
@@ -405,11 +408,14 @@ namespace PricingGUI
             uiTextBoxPriceAfter40ndGeneric.Text = objPricing.PriceAfter40SecondGeneric;
             uiTextBoxLowestPriceGeneric.Text = objPricing.LowestPriceGeneric;
             uiTextBoxFinalPrice.Text = objPricing.FinalPrice;
-            uiCheckBoxIsPricedTo499.Checked = objPricing.IsPricedTo499;
+
+            if (!objPricing.IsColumnNull("IsPricedTo499"))
+                uiCheckBoxIsPricedTo499.Checked = objPricing.IsPricedTo499;
             uiTextBoxNotes.Text = objPricing.Notes;
             uiTextBoxMainGroup.Text = objPricing.MainGroup;
             uiTextBoxMonth.Text = objPricing.MonthYear;
-            uiCheckBoxSimilar.Checked = objPricing.Similar;
+            if (!objPricing.IsColumnNull("Similar"))
+                uiCheckBoxSimilar.Checked = objPricing.Similar;
             uiTextBoxPreviouspack.Text = objPricing.PreviousPack;
             uiTextBoxPreviousPrice.Text = objPricing.PreviousPrice;
         }
@@ -743,10 +749,15 @@ namespace PricingGUI
         #region BeforeAfterCommitte
         protected void uiButtonBeforeComm_Save_Click(object sender, EventArgs e)
         {
-            SaveBeforeAfterCommitte();
+            SaveBeforeCommitte();
         }
 
-        private void SaveBeforeAfterCommitte()
+        protected void uiButtonUpdate_After_Click(object sender, EventArgs e)
+        {
+            SaveAfterCommitte();
+        }
+
+        private void SaveBeforeCommitte()
         {
             try
             {
@@ -767,8 +778,23 @@ namespace PricingGUI
                 objPricing.SalesTaxes = uiCheckBoxSalesTaxes.Checked;
                 objPricing.EssentialDrugList = uiCheckBoxEssentialDrugList.Checked;
 
+                objPricing.Save();
+
+            }
+            catch
+            {
+                
+            }
+        }
+
+        private void SaveAfterCommitte()
+        {
+            try
+            {
+                TradePricing objPricing = new TradePricing();
+                objPricing.LoadByPrimaryKey(TradePriceID);
                 // after commite
-                if(uiDropDownListSectorType.SelectedValue != "-1")
+                if (uiDropDownListSectorType.SelectedValue != "-1")
                     objPricing.SectorTypeID = Convert.ToInt32(uiDropDownListSectorType.SelectedValue);
                 objPricing.RegNo = uiTextBoxRegNoAfter.Text;
                 objPricing.CommitteePrice = uiTextBoxCommittePrice.Text;
@@ -798,15 +824,14 @@ namespace PricingGUI
                 objPricing.Similar = uiCheckBoxSimilar.Checked;
                 objPricing.PreviousPack = uiTextBoxPreviouspack.Text;
                 objPricing.PreviousPrice = uiTextBoxPreviousPrice.Text;
-
                 objPricing.Save();
-
             }
-            catch
-            {
-                
+            catch (Exception ex)
+            {                
             }
         }
         #endregion 
+
+        
     }
 }
