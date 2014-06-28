@@ -228,7 +228,7 @@
             </div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
             </div>
-            <div class="pull-right" data-bind="date:MessageDate,format: 'LLL',visible:$parent.CurrentMember().ShowMessageTime"></div>
+            <b class="pull-right joinalert" style="width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;" data-bind="date:MessageDate,format: 'LLL',visible:$parent.CurrentMember().ShowMessageTime"></b>
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">

@@ -90,7 +90,7 @@ namespace Chat2Connect
                         LoadRoomInfo();
                     }
                 }
-                
+
             }
             else
             {
@@ -262,7 +262,7 @@ namespace Chat2Connect
             uiDropDownListEdit_Category.DataValueField = "CategoryID";
             uiDropDownListEdit_Category.DataBind();
 
-            var adminTypes = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l > 1).Select(r => new
+            var adminTypes = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l > (int)Helper.Enums.RoomMemberLevel.Visitor && (int)l != (int)Helper.Enums.RoomMemberLevel.Owner).Select(r => new
             {
                 AdminTypeID = (int)r,
                 Name = Helper.StringEnum.GetStringValue(r)
@@ -332,7 +332,7 @@ namespace Chat2Connect
 
         protected void uiGridViewAdmins_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "DeleteAdmin") 
+            if (e.CommandName == "DeleteAdmin")
             {
                 RoomMember mem = new RoomMember();
                 mem.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()), CurrentRoom);
