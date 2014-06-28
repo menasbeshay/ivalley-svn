@@ -1374,6 +1374,8 @@
             </div>
         </div>
         <div data-bind="template: { name: 'roomMemberLevel'}"></div>
+        <!-- /ko -->
+        <!-- ko if:Type()=="Room" -->
         <div data-bind="template: { name: 'hamsaModal'}"></div>
         <!-- /ko -->
 
@@ -1386,17 +1388,21 @@
                         <h3 id="myModalLabel1">دعوة أصدقاء</h3>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal blockBox validationGroup">
+                        <div class="form-horizontal validationGroup">
 
                             <div class="form-group">
                                 <div class="col-sm-3 control-label pull-right">
                                     <label>إرسال دعوة إلى </label>
                                 </div>
                                 <div class="col-sm-8 pull-right bordered">
+                                    <div style="padding-right:15px;">
+                                        <ul class="giftMembers"><li style="width:100%; border-bottom:1px solid;"><input type="checkbox" data-bind="click:$parent.selectAllOnlineFriendsToInvite, checked:$parent.AllOnlineFriendsSelected" /><span style="padding-right:5px;">إختيار الكل</span></li></ul>
+                                        </div>
+                                    <div class="clearfix"></div>
                                     <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
                                         <ul class="giftMembers" data-bind="foreach:$parent.OnlineFriends, attr:{id:'inviteMembers_' + uniqueID()}">
                                             <li>
-                                                <input type="checkbox" class="invitecheckboxes" data-bind="attr:{value:id, 'data-member-name':name}" />
+                                                <input type="checkbox" class="invitecheckboxes" data-bind="attr:{value:id, 'data-member-name':name}, checked:IsSelected, click:$root.selectOnlineFriendToInvite" />
                                                 <span data-bind="text:name"></span></li>
                                         </ul>
                                     </div>
