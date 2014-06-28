@@ -184,7 +184,7 @@
                             <label>كلمة ترحيب عند الدخول </label>
                         </div>
                         <div class="col-sm-8 pull-right">
-                            <asp:TextBox ID="uiTextBoxEditWelcome" TextMode="MultiLine" Rows="3" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="uiTextBoxEditWelcome" MaxLength="70" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1"
     ControlToValidate="uiTextBoxADD_Welcome"
     ValidationExpression="^[\s\S]{0,100}$"
