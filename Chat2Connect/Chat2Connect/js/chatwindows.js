@@ -15,7 +15,6 @@ ko.bindingHandlers.date = {
         var value = valueAccessor();
         var allBindings = allBindingsAccessor();
         var valueUnwrapped = ko.utils.unwrapObservable(value);
-        // Date formats: http://momentjs.com/docs/#/displaying/format/
         var pattern = allBindings.format || 'DD/MM/YYYY';
         var output = "-";
         if (valueUnwrapped !== null && valueUnwrapped !== undefined && valueUnwrapped.length > 0) {
@@ -182,7 +181,7 @@ function Chat(maxWin, memberID, memberName) {
         }
 
         //member menu
-        this.toggleFriend = function (window,friend) {
+        this.toggleFriend = function (window, friend) {
             var mid = window.CurrentMember().MemberID();
             var fid = friend.MemberID();
             var isFriend = friend.IsFriend();
@@ -207,6 +206,17 @@ function Chat(maxWin, memberID, memberName) {
             var window = this;
             rHub.server.updateMemberLevel(window.ID(), self.SelectedMember().MemberID(), self.SelectedMember().MemberLevelID());
             $("#changeLevelModal_" + self.uniqueID()).modal('hide');
+            return true;
+        };
+        this.HamsaText = ko.observable();
+        this.showSendHamsa = function (member) {
+            self.SelectedMember(member);
+            $("#sendHamsaModal_" + self.uniqueID()).modal('show');
+        };
+        this.sendHamsa = function () {
+            rHub.server.sendHamsa(self.ID(), self.SelectedMember().MemberID(), self.HamsaText(), self.CurrentMember().MemberName());
+            $("#sendHamsaModal_" + self.uniqueID()).modal('hide');
+            self.HamsaText("");
             return true;
         };
         //control panel
@@ -700,7 +710,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
 
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID : 0, InRoom : 1, QueueOrder : 0 }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0 }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -899,7 +909,7 @@ function Chat(maxWin, memberID, memberName) {
             }
         });
 
-        
+
 
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) //MemberLevelID>1>>> Admin
         {
@@ -1322,6 +1332,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
         }
     };
 
+    rHub.client.getHamsa = function (fromMember, hamsa) {
+        createHamsaWindow(hamsa, fromMember);
+    };
     /*****************************************/
 }
 
@@ -1343,6 +1356,22 @@ function initPopover(window) {
             }).on('hidden.bs.popover', function () {
                 $this.append(popoverContent);
             });
+        }
+    });
+}
+function createHamsaWindow(hamsa, sender) {
+
+    var div = '<div class="ui-widget-content draggable hamsa" rel="0">' +
+               '<div class="header">' +
+                  '<button type="button" class="close" onclick="javascript:$(this).parent().closest(\'.hamsa\').remove();">×</button>' +
+                  '<span class="selText" rel="0">همسة من ' + sender + '</span>' +
+               '</div>' +
+               '<div id="divMessage" class="messageArea">' + hamsa +  '</div>' + '</div>';
+    var $div = $(div);
+    $('#MainTabs').prepend($div);
+    $div.draggable({
+        handle: ".header",
+        stop: function () {
         }
     });
 }
