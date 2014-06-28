@@ -36,7 +36,23 @@ function Chat(maxWin, memberID, memberName) {
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
     self.OnlineFriends = ko.observableArray();
-
+    self.AllOnlineFriendsSelected = ko.observable(false);
+    self.selectAllOnlineFriendsToInvite = function () {
+        var newValue=!self.AllOnlineFriendsSelected();
+        ko.utils.arrayForEach(self.OnlineFriends(), function (friend) {
+            friend.IsSelected(newValue);
+        });
+        return true;
+    };
+    self.selectOnlineFriendToInvite = function () {
+        var isAllSelected = true;
+        ko.utils.arrayForEach(self.OnlineFriends(), function (friend) {
+            if (!friend.IsSelected())
+                isAllSelected = false;
+        });
+        self.AllOnlineFriendsSelected(isAllSelected);
+        return true;
+    };
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -68,7 +84,7 @@ function Chat(maxWin, memberID, memberName) {
         url: '../services/Services.asmx/GetOnlineFriends',
         async: false,
         success: function (data) {
-            self.OnlineFriends = data;
+            self.OnlineFriends = ko.mapping.fromJS(data);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             return;

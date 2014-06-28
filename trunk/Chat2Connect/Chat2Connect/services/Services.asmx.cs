@@ -725,7 +725,7 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < online.RowCount; i++)
                 {
-                    friends.Add(new { id = online.MemberID, name = online.GetColumn("UserName") });
+                    friends.Add(new { id = online.MemberID, name = online.GetColumn("UserName"), IsSelected = false });
                     online.MoveNext();
                 }
             }
