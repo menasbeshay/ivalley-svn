@@ -153,50 +153,59 @@ namespace E3zemni_WebGUI.Admin
 
         protected void uiLinkButtonOK_Click(object sender, EventArgs e)
         {
-            Cards card = new Cards();
-            if (CurrentCard == null)
+            if (!string.IsNullOrEmpty(uiDropDownListCats.SelectedValue) && uiDropDownListCats.SelectedIndex != -1)
             {
-                card.AddNew();
-                card.UploadDate = DateTime.Now;
-                card.CategoryID = Convert.ToInt32(uiDropDownListCats.SelectedValue);
-                card.IsPartySupplier = false;
+                Cards card = new Cards();
+                if (CurrentCard == null)
+                {
+                    card.AddNew();
+                    card.UploadDate = DateTime.Now;
+                    card.CategoryID = Convert.ToInt32(uiDropDownListCats.SelectedValue);
+                    card.IsPartySupplier = false;
+                }
+                else
+                    card = CurrentCard;
+
+
+                card.CardNameEng = uiTextBoxCardNameEn.Text;
+                card.CardNameAr = uiTextBoxCardNameAr.Text;
+                card.DescriptionEng = uiTextBoxDescEn.Text;
+                card.DescriptionAr = uiTextBoxDescAr.Text;
+                card.DimensionID = Convert.ToInt32(uiDropDownListDim.SelectedValue);
+                double priceBefore, priceAfter = 0;
+                double.TryParse(uiTextBoxPriceAfter.Text, out priceAfter);
+                double.TryParse(uiTextBoxPriceBefore.Text, out priceBefore);
+                card.PriceNow = priceAfter;
+                card.PriceBefore = priceBefore;
+
+                if (uiFileUploadMainImage.HasFile)
+                {
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadMainImage.FileName;
+                    uiFileUploadMainImage.SaveAs(Server.MapPath("~" + filepath));
+                    card.MainPhoto = filepath;
+                }
+
+                if (uiFileUploadHoverImage.HasFile)
+                {
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadHoverImage.FileName;
+                    uiFileUploadHoverImage.SaveAs(Server.MapPath("~" + filepath));
+                    card.MainPhotoHover = filepath;
+                }
+
+                card.Save();
+                uiLabelMsg.Text = "Card saved successfully. Now you can add card text, card layouts and card default colors.";
+                uiLabelMsg.ForeColor = System.Drawing.Color.Green;
+                uiLabelMsg.Visible = true;
+                tabs.Visible = true;
+                tabscontent.Visible = true;
+                CurrentCard = card;
             }
             else
-                card = CurrentCard;
-
-
-            card.CardNameEng = uiTextBoxCardNameEn.Text;
-            card.CardNameAr = uiTextBoxCardNameAr.Text;
-            card.DescriptionEng = uiTextBoxDescEn.Text;
-            card.DescriptionAr = uiTextBoxDescAr.Text;
-            card.DimensionID = Convert.ToInt32(uiDropDownListDim.SelectedValue);
-            double priceBefore, priceAfter = 0;
-            double.TryParse(uiTextBoxPriceAfter.Text, out priceAfter);
-            double.TryParse(uiTextBoxPriceBefore.Text, out priceBefore);
-            card.PriceNow = priceAfter;
-            card.PriceBefore = priceBefore;
-
-            if (uiFileUploadMainImage.HasFile)
             {
-                string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadMainImage.FileName;
-                uiFileUploadMainImage.SaveAs(Server.MapPath("~" + filepath));
-                card.MainPhoto = filepath;
+                uiLabelMsg.Text = "Error. please back to select a category before adding a new card. ";
+                uiLabelMsg.ForeColor = System.Drawing.Color.Red;
+                uiLabelMsg.Visible = true;
             }
-
-            if (uiFileUploadHoverImage.HasFile)
-            {
-                string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadHoverImage.FileName;
-                uiFileUploadHoverImage.SaveAs(Server.MapPath("~" + filepath));
-                card.MainPhotoHover = filepath;
-            }
-
-            card.Save();
-            uiLabelMsg.Text = "Card saved successfully. Now you can add card text, card layouts and card default colors.";
-            uiLabelMsg.ForeColor = System.Drawing.Color.Green;
-            uiLabelMsg.Visible = true;
-            tabs.Visible = true;
-            tabscontent.Visible = true;
-            CurrentCard = card;
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -288,9 +297,9 @@ namespace E3zemni_WebGUI.Admin
             txt.TextLabel = uiTextBoxTxtLabel.Text;
             int width, height, x, y;
             int.TryParse(uiTextBoxWidth.Text, out width);
-            int.TryParse(uiTextBoxWidth.Text, out height);
-            int.TryParse(uiTextBoxWidth.Text, out y);
-            int.TryParse(uiTextBoxWidth.Text, out x);
+            int.TryParse(uiTextBoxHeight.Text, out height);
+            int.TryParse(uiTextBoxY.Text, out y);
+            int.TryParse(uiTextBoxX.Text, out x);
             txt.Width = width;
             txt.Height = height;
             txt.PosX = x;

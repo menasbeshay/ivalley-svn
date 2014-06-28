@@ -15,8 +15,10 @@
     <asp:Repeater ID="uiRepeaterCards" runat="server" onitemdatabound="uiRepeaterCards_ItemDataBound" onitemcommand="uiRepeaterCards_ItemCommand">
     <ItemTemplate>
         <div class="product grid_4">
-			<img class="product_img" src='../<%# Eval("MainPhoto") %>' alt=""><!-- featured thumbnail -->
-			<img class="product_img_hover" src='../<%# Eval("MainPhotoHover") %>' alt=""><!-- featured thumbnail hover -->			
+        <a href='viewCard.aspx?cid=<%# Eval("CardID") %>'>
+			<img class="product_img" src='..<%# Eval("MainPhoto") %>' alt=""><!-- featured thumbnail -->
+			<img class="product_img_hover" src='..<%# Eval("MainPhotoHover") %>' alt=""><!-- featured thumbnail hover -->	
+            </a>		
 			<div class="product_inner">
 				<h3> <a href='viewCard.aspx?cid=<%# Eval("CardID") %>'> <%# Eval("CardNameAr")%> </a> </h3>
 				<div class="clearfix" style="height:25px;text-align:right;">

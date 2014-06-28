@@ -8,12 +8,12 @@
                  if(pfrom == undefined)
                     pfrom = 100;
                 if(pto == undefined)
-                    pto = 500;
+                    pto = 300;
 				$(function() {
 					$( "#price-range" ).slider({
 						range: true,
-						min: 0,
-						max: 3000,
+						min: 1,
+						max: 500,
 						values: [ pfrom, pto],
 						slide: function( event, ui ) {
 							$( "#amount" ).val( ui.values[ 0 ] + "جنيه - " + ui.values[ 1 ]  + " جنيه");

@@ -51,6 +51,7 @@ namespace E3zemni_WebGUI.ar
                     {
                         uipanelIsCard.Visible = false;
                         uiLinkButtonCustomize.Visible = false;
+                        uiLinkButtonAddToCart.Visible = true;
 
                         uipanelImages.Visible = true;
                         uiImagemain.Visible = false;

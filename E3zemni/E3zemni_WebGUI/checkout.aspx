@@ -32,6 +32,9 @@
 											<td class="product-quantity">
 												<div class="quantity buttons_added">
                                                     <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="qty" Text='<%# Eval("CardCount") %>'></asp:TextBox>                                                    
+                                                    <br />
+                                                    <span style="font-size:10px">
+                                                    Minimum quantity (30)</span>
 												</div>
 											</td>
 

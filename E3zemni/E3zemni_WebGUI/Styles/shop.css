@@ -145,7 +145,7 @@
 	color: #A3A3A3;
 	font-weight: 300;
 	background-color: rgba(0, 0, 0, 0);
-	width: 50%;
+	width: 70%;
 	float: left;
 	padding: 10px 0;
 	font-family: Raleway;
@@ -619,6 +619,7 @@ table.shop_table td.product-subtotal, .woocommerce table.shop_table td.product-s
 }
 .shop .product_inner h3 {
 	font-size: 14px;
+	text-align:center;
 }
 .shop .product_meta {
 	border-top: 1px solid #F2F2F2;
@@ -903,7 +904,8 @@ table.shop_table td, .woocommerce table.shop_table td {
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	cursor: pointer;
-	padding: 0
+	padding: 0;
+	font-size:12px !important;
 }
 
 
@@ -935,7 +937,7 @@ table.shop_table td, .woocommerce table.shop_table td {
 
 .checkbox_sizes input[type=checkbox] + label, .checkbox_sizes input[type=checkbox]:checked + label
 {
-    width: 60px;
+    width: 90px;
 }
 
 
@@ -952,7 +954,9 @@ table.shop_table td, .woocommerce table.shop_table td {
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	cursor: pointer;
-	padding: 0
+	padding: 0;
+	font-size:12px !important;
+	
 }
 
 
@@ -966,6 +970,7 @@ table.shop_table td, .woocommerce table.shop_table td {
 	display:inline-block;
 	position: relative;
 	padding: 0;
+	
 }
 .checkbox_sizes input[type=radio]:checked + label:after {
 	content: 'x';
@@ -981,7 +986,7 @@ table.shop_table td, .woocommerce table.shop_table td {
     
 .checkbox_sizes input[type=radio] + label, .checkbox_sizes input[type=radio]:checked + label
 {
-    width: 60px;
+    width: 90px;
 }   
     
     
@@ -998,7 +1003,8 @@ table.shop_table td, .woocommerce table.shop_table td {
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	cursor: pointer;
-	padding: 0
+	padding: 0;
+	font-size:12px !important;
 }
 
 

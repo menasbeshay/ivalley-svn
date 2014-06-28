@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using E3zmni.BLL;
 using System.Data;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace E3zemni_WebGUI
 {
@@ -98,13 +100,33 @@ namespace E3zemni_WebGUI
 
             Session["UserPayment"] = order;
 
-            if (Session["CurrentUser"] != null)
+            
+
+           if (Session["CurrentUser"] != null)
             {
                 UserInfo user = (UserInfo)Session["CurrentUser"];
-                order.UserID = user.UserID;
+
+                MailMessage msg = new MailMessage();
+                if (Session["Order_Mail"] != null)
+                {
+                    msg = (MailMessage)Session["Order_Mail"];
+                    msg.Body = " user name : " + user.UserName + " <br /> Email: " + user.Email + "<br />" + msg.Body;
+                    string mail = ConfigurationManager.AppSettings["mail"];
+                    string mailto = ConfigurationManager.AppSettings["mailto"];
+                    msg.To.Add(mailto);
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = " New order ";
+                    SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
+                    client.UseDefaultCredentials = false;
+
+                    client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["mailpass"]);
+                    client.Send(msg);
+                    Response.Redirect("Success.aspx");
+                }
+                /*order.UserID = user.UserID;
                 order.Save();
                 Session["UserPayment"] = null;
-                Response.Redirect("~/browse.aspx");
+                Response.Redirect("~/browse.aspx");*/
             }
             else
             {

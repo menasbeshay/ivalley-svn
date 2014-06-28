@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script src="../js/spectrum.js" type="text/javascript"></script>
     <link href="../js/spectrum.css" rel="stylesheet" type="text/css" />
+    <script src="../js/bootstrap-slider.js" type="text/javascript"></script>
+    <link href="../Styles/slider.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
          $(document).ready(function () {
              $("#custom").spectrum({
@@ -30,11 +32,30 @@
                      //$('#uiHiddenFieldMyColor').val(color.toHexString()); // #ff0000
                  }
              });
+
+             $('.contslider').slider({ min: 0, max: 3, step: 0.5, value: 1 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
+
+             $('.brightslider').slider({ min: -1, max: 1, step: .5, value: 0 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
+
+             $('.rotateslider').slider({ min: 0, max: 360, step: 10, value: 0 })
+              .on('slide', function (ev) {
+                  var hf = $(this).closest(".sliderParent").children("input");
+                  hf.val($(this).data('slider').getValue());
+              });
          });
 </script>
 <style type="text/css">
 .radiow { list-style:none;}
 .radiow li{ float:right;text-align:center;width:100px;padding:10px;margin:10px;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;}
+.radiow li label {display:block;}
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSlider" runat="server">
@@ -65,6 +86,7 @@
                             <ul class="tabs-content">
                             <li id="t-1" class="active">
                              <div style="width:100%;margin:0 auto;text-align:center;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;background-color:#fff;padding:20px;">
+    <div class="step_title">الخطوة رقم 1</div>
        إختر التصميم : 
             <asp:RadioButtonList ID="uiRadioButtonListLayouts" runat="server" 
                 CssClass="radiow" RepeatLayout="UnorderedList" AutoPostBack="True" 
@@ -81,6 +103,7 @@
         <div style="clear:both;height:1px;"></div>
         </div>
         <div id="contactForm" style="width:49%;float:left;margin:0 auto;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;background-color:#fff;padding:20px;">
+        <div class="step_title">الخطوة رقم 2</div>
             <asp:DataList ID="uiDataListCardText" runat="server" 
                 onitemdatabound="uiDataListCardText_ItemDataBound">
             <ItemTemplate>
@@ -111,6 +134,7 @@
                 <asp:ListItem>24</asp:ListItem>
                 <asp:ListItem>28</asp:ListItem>
                 <asp:ListItem>32</asp:ListItem>
+                <asp:ListItem>34</asp:ListItem>
             </asp:DropDownList>
             </div>
             <div class="grid_1 alpha fll"></div>
@@ -169,6 +193,9 @@
             </asp:DropDownList>
             </div>
             </div>
+
+            <div class="step_title">الخطوة رقم 3</div>
+
             <div class="grid_3 alpha fll">
             حجم الطباعة : </div>
             <div class="grid_9 alpha fll">
@@ -184,8 +211,60 @@
 				</div>
 			</div>
                                  </div>
+
+             <div style="clear:both;height:1px;"></div>  
+             <div class="step_title">الخطوة رقم 4</div>
+            <asp:DataList ID="uiDataListImages" runat="server" Width="100%">
+            
+            <ItemTemplate>
+            <div class="grid_12" style="width:100%;border:1px solid black;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;padding:10px;margin-bottom:10px;">
+             <div class="grid_3 alpha fll" >
+            <%# "Image " + (Container.ItemIndex + 1).ToString() %> 
+            </div>
+            <div class="grid_9 alpha fll">
+                <asp:FileUpload ID="uiFileUploadImg" runat="server" />
+                <asp:Image ID="uiImageCurrent" runat="server" width="100px" Visible="false"/>
+                <asp:HiddenField ID="uiHiddenFieldPath" runat="server" value=''/>
+            </div>            
             <div style="clear:both;height:1px;"></div>  
-            <div class="pull-right grid_10" >
+            <div class="grid_12 alpha fll" >
+                <div class="grid_3">
+                    التأثير   
+                    <asp:DropDownList ID="uiDropDownListStyle" runat="server">
+                    <asp:ListItem Value="normal=true" Selected="True">عادى</asp:ListItem>
+                    <asp:ListItem Value="grayscaling=true">رمادية</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="grid_3 sliderParent">
+                    الوضوح  
+                    <input type="text" data-slider-orientation="horizontal" class="contslider" />
+                    <asp:HiddenField ID="uiHiddenFieldContrast" runat="server" Value="1" />
+                </div>
+                <div class="grid_3 sliderParent">
+                    الإضاءة   
+                    <input type="text" data-slider-orientation="horizontal" class="brightslider" />
+                    <asp:HiddenField ID="uiHiddenFieldBrightness" runat="server" Value="0"/>
+                </div>
+                 <div class="grid_3 sliderParent">
+                    الدوران  
+                    <input type="text" data-slider-orientation="horizontal" class="rotateslider" />
+                     <asp:HiddenField ID="uiHiddenFieldRotate" runat="server" Value="0"/>
+                </div>
+
+            </div>
+                <asp:HiddenField ID="uiHiddenFieldImgID" runat="server" value='<%# Eval("CardImageID") %>'/>
+                </div>
+            </ItemTemplate>
+            </asp:DataList>
+
+
+            <div style="clear:both;height:1px;"></div>  
+            <div class="step_title">الخطوة رقم 5</div>
+            <div class="pull-right grid_12" >
+                 
+               <div class="grid_4 alpha fll pull-left">
+                    <a href="" class="btn btn-success pull-right" data-toggle="modal" data-target="#ViewModal">تعرف على مقاسات الكروت ؟</a>
+                </div>
                
                 <div class="grid_3 alpha fll pull-right">
                     <a href="viewenvelops.aspx" class="btn btn-success pull-right">أطلب</a>
@@ -215,4 +294,22 @@
        
     
     </div>
+
+    
+    <div class="modal fade" id="ViewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-left" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">إغلاق</span></button>
+        <h4 class="modal-title">مقاسات الكروت</h4>
+      </div>
+      <div class="modal-body">
+        <p>مقاسات الكروت</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </asp:Content>

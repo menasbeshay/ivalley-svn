@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_DimensionLoadByPrimaryKey]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_DimensionLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DimensionLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DimensionLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DimensionLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_DimensionLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DimensionLoadAll]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_DimensionLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DimensionLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DimensionLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DimensionLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_DimensionLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DimensionUpdate]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_DimensionUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DimensionUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DimensionUpdate];
 GO
@@ -71,8 +71,8 @@ GO
 CREATE PROCEDURE [proc_DimensionUpdate]
 (
 	@DimensionID int,
-	@Width int = NULL,
-	@Height int = NULL
+	@Width decimal(6,2) = NULL,
+	@Height decimal(6,2) = NULL
 )
 AS
 BEGIN
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_DimensionInsert]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_DimensionInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DimensionInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DimensionInsert];
 GO
@@ -112,8 +112,8 @@ GO
 CREATE PROCEDURE [proc_DimensionInsert]
 (
 	@DimensionID int = NULL output,
-	@Width int = NULL,
-	@Height int = NULL
+	@Width decimal(6,2) = NULL,
+	@Height decimal(6,2) = NULL
 )
 AS
 BEGIN
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DimensionInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_DimensionInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DimensionDelete]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_DimensionDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DimensionDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DimensionDelete];
 GO

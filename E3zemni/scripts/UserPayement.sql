@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_UserPayementLoadByPrimaryKey]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementLoadByPrimaryKey];
 GO
@@ -40,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_UserPayementLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementLoadAll]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementLoadAll];
 GO
@@ -77,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserPayementLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementUpdate]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementUpdate];
 GO
@@ -132,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UserPayementInsert]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementInsert];
 GO
@@ -196,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserPayementInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserPayementInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserPayementDelete]    Script Date: 5/9/2014 4:42:48 PM ******/
+/****** Object:  StoredProcedure [proc_UserPayementDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserPayementDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserPayementDelete];
 GO

@@ -111,7 +111,7 @@ namespace E3zmni.DAL
 			{
 				get
 				{
-					return new SqlParameter("@Width", SqlDbType.Int, 0);
+					return new SqlParameter("@Width", SqlDbType.Decimal, 0);
 				}
 			}
 			
@@ -119,7 +119,7 @@ namespace E3zmni.DAL
 			{
 				get
 				{
-					return new SqlParameter("@Height", SqlDbType.Int, 0);
+					return new SqlParameter("@Height", SqlDbType.Decimal, 0);
 				}
 			}
 			
@@ -200,27 +200,27 @@ namespace E3zmni.DAL
 			}
 		}
 
-		public virtual int Width
+		public virtual decimal Width
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Width);
+				return base.Getdecimal(ColumnNames.Width);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Width, value);
+				base.Setdecimal(ColumnNames.Width, value);
 			}
 		}
 
-		public virtual int Height
+		public virtual decimal Height
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Height);
+				return base.Getdecimal(ColumnNames.Height);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Height, value);
+				base.Setdecimal(ColumnNames.Height, value);
 			}
 		}
 
@@ -248,14 +248,14 @@ namespace E3zmni.DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Width) ? string.Empty : base.GetintAsString(ColumnNames.Width);
+				return this.IsColumnNull(ColumnNames.Width) ? string.Empty : base.GetdecimalAsString(ColumnNames.Width);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.Width);
 				else
-					this.Width = base.SetintAsString(ColumnNames.Width, value);
+					this.Width = base.SetdecimalAsString(ColumnNames.Width, value);
 			}
 		}
 
@@ -263,14 +263,14 @@ namespace E3zmni.DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Height) ? string.Empty : base.GetintAsString(ColumnNames.Height);
+				return this.IsColumnNull(ColumnNames.Height) ? string.Empty : base.GetdecimalAsString(ColumnNames.Height);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.Height);
 				else
-					this.Height = base.SetintAsString(ColumnNames.Height, value);
+					this.Height = base.SetdecimalAsString(ColumnNames.Height, value);
 			}
 		}
 

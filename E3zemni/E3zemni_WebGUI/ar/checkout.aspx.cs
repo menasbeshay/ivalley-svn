@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using E3zmni.BLL;
 using System.Data;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace E3zemni_WebGUI.ar
 {
@@ -60,10 +62,12 @@ namespace E3zemni_WebGUI.ar
             {                
                 Image envelop = (Image)e.Item.FindControl("uiImageEnvelop");
                 DataRowView row = (DataRowView)e.Item.DataItem;
-
-                Envelops envelopTemp = new Envelops();
-                envelopTemp.LoadByPrimaryKey(Convert.ToInt32(row["EnvelopID"].ToString()));
-                envelop.ImageUrl = ".." + envelopTemp.ImagePath;
+                if (EnverlopID != 0)
+                {
+                    Envelops envelopTemp = new Envelops();
+                    envelopTemp.LoadByPrimaryKey(Convert.ToInt32(row["EnvelopID"].ToString()));
+                    envelop.ImageUrl = ".." + envelopTemp.ImagePath;
+                }
 
                 
             }
@@ -88,13 +92,33 @@ namespace E3zemni_WebGUI.ar
 
             Session["UserPayment"] = order;
 
+            
+
+
             if (Session["CurrentUser"] != null)
             {
                 UserInfo user = (UserInfo)Session["CurrentUser"];
-                order.UserID = user.UserID;
+                MailMessage msg = new MailMessage();
+                if (Session["Order_Mail"] != null)
+                {
+                    msg = (MailMessage)Session["Order_Mail"];
+                    msg.Body = " user name : " + user.UserName + " <br /> Email: " + user.Email + "<br />" + msg.Body;
+                    string mail = ConfigurationManager.AppSettings["mail"];
+                    string mailto = ConfigurationManager.AppSettings["mailto"];
+                    msg.To.Add(mailto);
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = " New order ";
+                    SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
+                    client.UseDefaultCredentials = false;
+
+                    client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["mailpass"]);
+                    client.Send(msg);
+                    Response.Redirect("Success.aspx");
+                }
+                /*order.UserID = user.UserID;
                 order.Save();
                 Session["UserPayment"] = null;
-                Response.Redirect("~/ar/browse.aspx");
+                Response.Redirect("~/ar/browse.aspx");*/
             }
             else
             {

@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CardImagesLoadByPrimaryKey]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardImagesLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardImagesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardImagesLoadByPrimaryKey];
 GO
@@ -37,7 +37,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardImagesLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_CardImagesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardImagesLoadAll]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardImagesLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardImagesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardImagesLoadAll];
 GO
@@ -71,7 +71,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardImagesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardImagesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardImagesUpdate]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardImagesUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardImagesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardImagesUpdate];
 GO
@@ -120,7 +120,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CardImagesInsert]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardImagesInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardImagesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardImagesInsert];
 GO
@@ -175,7 +175,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardImagesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardImagesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardImagesDelete]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardImagesDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardImagesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardImagesDelete];
 GO

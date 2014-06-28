@@ -275,8 +275,12 @@
                                         <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
                                         <PagerStyle HorizontalAlign="Center" />
                                         <RowStyle HorizontalAlign="Center" />
-                                        <Columns>
-                                            <asp:ImageField DataImageUrlField="LayoutImage" HeaderText="Front Image" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="30"/>
+                                        <Columns>                                            
+                                            <asp:TemplateField HeaderText="Front Image" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="30">
+                                            <ItemTemplate>
+                                                <img src='..<%# Eval("LayoutImage") %>'
+                                            </ItemTemplate>
+                                            </asp:TemplateField>
                                            <asp:TemplateField HeaderText="Color">
                                             <ItemTemplate>
                                                 <div id="ColorDiv" runat="server" style="width:20px;height:20px;margin:0 auto;"></div>

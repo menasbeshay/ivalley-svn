@@ -525,8 +525,8 @@ textarea {
 }
 .headdown {
 	position: relative;
-	border-bottom: 2px solid #E4E4E4;
-	border-bottom: 2px solid rgba(209, 209, 209, 0.4);
+	/*border-bottom: 2px solid #E4E4E4;
+	border-bottom: 2px solid rgba(209, 209, 209, 0.4);*/
 	background: url(../images/header.png) repeat-x top;
 	z-index: 999;
 }
@@ -1397,18 +1397,19 @@ li li a .sf-sub-indicator {
 }
 .breadcrumb-place {
 	height: 224px;
-	background: #0B0B0B url(../images/assets/breadcrumb1.jpg) repeat center;
+	/*background: #0B0B0B url(../images/assets/breadcrumb1.jpg) repeat center;*/
 	margin-top: -110px;
 	text-align: center;
 }
-.page-title {
-	display: block;
-	margin: 0;
-	font-weight: normal;
-	font-size: 24px;
-	text-transform: uppercase;
-	color: #fff;
-	padding: 145px 0 0
+.page-title
+{
+    display: block;
+    margin: 0;
+    font-weight: normal;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #7b58a3;
+    padding: 145px 0 0;
 }
 .breadcrumbIn {
 	display: block;
@@ -1418,7 +1419,7 @@ li li a .sf-sub-indicator {
 	display: inline-block;
 }
 .breadcrumbIn ul li {
-	color : #dbdbdb;
+	color : #7b58a3;
 	font-size: 12px;
 	padding: 0 10px;
 	font-weight: normal;
@@ -1427,7 +1428,7 @@ li li a .sf-sub-indicator {
 	position: relative;
 }
 .breadcrumbIn ul li a {
-	color : #fff
+	color : #7b58a3
 }
 .breadcrumbIn li:before {
 	font-family: FontAwesome;
@@ -4592,3 +4593,19 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 .subarrow {
 	display: none
 }
+
+
+.step_title
+{
+    background-color:#7b58a3;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    text-align:center;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    margin-bottom:5px;
+    }
+   
