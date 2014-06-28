@@ -2,7 +2,7 @@
 USE [E3zemni]
 GO
 
-/****** Object:  StoredProcedure [proc_CardColorLoadByPrimaryKey]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardColorLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardColorLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardColorLoadByPrimaryKey];
 GO
@@ -37,7 +37,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardColorLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_CardColorLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardColorLoadAll]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardColorLoadAll]    Script Date: 6/28/2014 3:09:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardColorLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardColorLoadAll];
 GO
@@ -72,7 +72,7 @@ GO
 -------------------------------------------
 
 
-/****** Object:  StoredProcedure [proc_CardColorInsert]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardColorInsert]    Script Date: 6/28/2014 3:09:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardColorInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardColorInsert];
 GO
@@ -113,7 +113,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardColorInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardColorInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardColorDelete]    Script Date: 5/9/2014 4:42:47 PM ******/
+/****** Object:  StoredProcedure [proc_CardColorDelete]    Script Date: 6/28/2014 3:09:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardColorDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardColorDelete];
 GO

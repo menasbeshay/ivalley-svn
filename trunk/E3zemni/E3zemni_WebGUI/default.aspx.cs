@@ -18,9 +18,10 @@ namespace E3zemni_WebGUI
             }
 
 
-            if (Session["CurrentUser"] != null)
+            if (Session["CurrentUser"] == null)
             {
-                divLogin.Visible = false;
+                //divLogin.Visible = false;
+                ClientScript.RegisterStartupScript(this.GetType(), "loginmodal", @"$(document).ready(function () {$('#loginModal').modal('show');});", true);
 
             }
 

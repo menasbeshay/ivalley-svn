@@ -91,6 +91,7 @@
     <Content Include="ar\login.aspx" />
     <Content Include="ar\page.aspx" />
     <Content Include="ar\register.aspx" />
+    <Content Include="ar\success.aspx" />
     <Content Include="ar\userprofile.aspx" />
     <Content Include="ar\viewcard.aspx" />
     <Content Include="ar\viewenvelops.aspx" />
@@ -1055,6 +1056,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\slider.css" />
     <Content Include="Styles\style.css" />
+    <Content Include="success.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="viewCard.aspx" />
     <Content Include="ViewEnvelops.aspx" />
@@ -1265,6 +1267,13 @@
     <Compile Include="ar\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\success.aspx.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\success.aspx.designer.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\userprofile.aspx.cs">
       <DependentUpon>userprofile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1394,6 +1403,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="success.aspx.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="success.aspx.designer.cs">
+      <DependentUpon>success.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>

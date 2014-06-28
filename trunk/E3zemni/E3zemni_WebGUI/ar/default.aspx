@@ -29,44 +29,81 @@
 			<!-- End Modern Slider -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" runat="server">
-<%--<div class="row clearfix mbs">
-					<div class="services">
-						<div class="grid_3">
-							<div class="s_icon"><i class="icon_wallet"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Well Documented</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid3 -->
-	
-						<div class="grid_6">
-							<div class="s_icon"><i class="icon_id-2"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Unlimited Colors</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella ut aut reiciendis voluptatibus maiores alias consequatur. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid6 -->
-	
-						<div class="grid_3">
-							<div class="s_icon"><i class="icon_search-2"></i><span class="fa-check"></span></div>
-							<div class="s_info">
-								<h3>Seo Optimized</h3>
-								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
-								<a href="#" class="tbutton small"><span>More Details</span></a>
-							</div><!-- end info -->
-						</div><!-- end grid3 -->
-					</div>
-				</div>
+				
 
-				<div class="parallax portfolio_parallax mbs" data-stellar-background-ratio="0.2">
+                <div class="row clearfix mbs">
+        <h3 class="col-title mb " style="text-align:center;">
+            لوازم الحفلات</h3>
+            <a href="Browse.aspx?tcid=1" class="pull-right btn btn-default" style="position:absolute;margin-top:-40px;left:15px;">المزيد</a>
+        <asp:Repeater ID="uiRepeaterPS" runat="server">
+            <HeaderTemplate>
+                <div class="products shop clearfix">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+            <ItemTemplate>
+                <div class="product grid_3">
+                <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
+                    <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
+                    <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
+                    </a>
+                    <div class="product_inner">
+                        <h3>
+                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
+                                <%# Eval("NameAr")%>
+                            </a>
+                        </h3>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <!-- product -->
+            </ItemTemplate>
+        </asp:Repeater>
+        <!-- products -->
+    </div>
+
+    <div class="row clearfix mbs">
+        <h3 class="col-title mb " style="text-align:center;">
+            دعوات</h3>
+            <a href="Browse.aspx?tcid=2" class="pull-right btn btn-default" style="position:absolute;margin-top:-40px;left:15px;">المزيد</a>
+        <asp:Repeater ID="uiRepeaterCats" runat="server">
+            <HeaderTemplate>
+                <div class="products shop clearfix">
+            </HeaderTemplate>
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+            <ItemTemplate>
+                <div class="product grid_3">
+                <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
+                    <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
+                    <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
+                    </a>
+                    <div class="product_inner">
+                        <h3>
+                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
+                                <%# Eval("NameAr")%>
+                            </a>
+                        </h3>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <!-- product -->
+            </ItemTemplate>
+        </asp:Repeater>
+        <!-- products -->
+    </div>
+
+				<div class="parallax  mbs" data-stellar-background-ratio="0.2">
 					<div class="row clearfix">
 						<div class="f_portfolio">
 							<div class="intro_content">
 								<div class="inner">
-									<h3> LATEST PROJECTS </h3>
-									<p> Print this page to PDF for the complete set of vectors. Or to use on the desktop, install FontAwesome.otf and copy and paste .. <a href="portfolio4.html">View All</a></p>
+									<h3> أخر المشروعات </h3>
+									<p> إطبع هذه الصفحة ... <a href="#">عرض الكل</a></p>
 								</div>
 							</div>
 							<div class="f_items">
@@ -74,163 +111,159 @@
 									<div class="anyClass">
 										<ul>
 											<li>
-												<img src="../images/assets/portfolio1.jpg" alt="#">
+												<img src="../images/assets/LP1.jpg" alt="#">
 												<div class="f_hover">
 													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
+														<a class="tbutton small" href="../images/assets/LP1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>التفاصيل</span></a>
 													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
+													<h5> <a href="#">العنوان</a> </h5>
 												</div>
 											</li><!-- portfolio item -->
 											<li>
-												<img src="../images/assets/portfolio2.jpg" alt="#">
+												<img src="../images/assets/LP2.jpg" alt="#">
 												<div class="f_hover">
 													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
+														<a class="tbutton small" href="../images/assets/LP2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>التفاصيل</span></a>
 													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
+													<h5> <a href="#">العنوان</a> </h5>
 												</div>
 											</li><!-- portfolio item -->
 											<li>
-												<img src="../images/assets/portfolio3.jpg" alt="#">
+												<img src="../images/assets/LP3.jpg" alt="#">
 												<div class="f_hover">
 													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
+														<a class="tbutton small" href="../images/assets/LP3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
+														<a class="tbutton small" href="#"><span>التفاصيل</span></a>
 													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
+													<h5> <a href="#">العنوان</a> </h5>
 												</div>
 											</li><!-- portfolio item -->
-											<li>
-												<img src="../images/assets/portfolio4.jpg" alt="#">
-												<div class="f_hover">
-													<h5> <a href="#">Sed ut perspiciatis unde</a> </h5>
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="../images/assets/portfolio5.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
-											<li>
-												<img src="../images/assets/portfolio6.jpg" alt="#">
-												<div class="f_hover">
-													<div class="f_links">
-														<a class="tbutton small" href="../images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-														<a class="tbutton small" href="portfolio_single.html"><span>More Details</span></a>
-													</div>
-													<h5> <a href="portfolio_single.html">Portfolio Project Title Here</a> </h5>
-												</div>
-											</li><!-- portfolio item -->
+											
 										</ul>
 									</div>
 									<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
 									<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->
-								</div><!-- portfolio carousel -->	
+								</div><!-- portfolio carousel -->
+	
 							</div>
 						</div><!-- end f portfolio -->
 					</div><!-- end row -->
-				</div>--%><!-- end parallax -->
+				</div>
 
-				<div class="row clearfix mbs">
-					<h3 class="col-title mb">أقسام الكروت</h3>
+                <div class="row clearfix mbs">
+					<div class="services">
+						<div class="grid_3">
+							<div class="s_icon"><img src="../images/FullOptimized.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>أضف تعديلاتك الخاصة</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
+								<a href="#" class="tbutton small"><span>التفاصيل</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid3 -->
+	
+						<div class="grid_6">
+							<div class="s_icon">
+                                <img src="../images/OrderSample.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>أطلب نماذج</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella ut aut reiciendis voluptatibus maiores alias consequatur. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</p>
+								<a href="#" class="tbutton small"><span>التفاصيل</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid6 -->
+	
+						<div class="grid_3">
+							<div class="s_icon"><img src="../images/BestQuality.png" /><span class="fa-check"></span></div>
+							<div class="s_info">
+								<h3>جودة عالية</h3>
+								<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repella.</p>
+								<a href="#" class="tbutton small"><span>التفاصيل</span></a>
+							</div><!-- end info -->
+						</div><!-- end grid3 -->
+					</div>
+				</div>
 
-						  <asp:Repeater ID="uiRepeaterCats" runat="server">
-                    <HeaderTemplate>
-                    <div class="products shop clearfix">
-                    </HeaderTemplate>
-                    <FooterTemplate>
-                    </div>
-                    </FooterTemplate>
-                    <ItemTemplate>
-                        <div class="product grid_3">
-								<img class="product_img" src='<%# Eval("CatImage") %>' alt=""><!-- featured thumbnail -->
-								<img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->								
-								<div class="product_inner">
-									<h3> <a href='Browse.aspx?catid=<%# Eval("CategoryID") %>'> <%# Eval("CatNameAr")%> </a> </h3>
-									<div class="clearfix">																				
-									</div>
-								</div>								
-							</div><!-- product -->
-                    </ItemTemplate>
-                    </asp:Repeater>
-						<!-- products -->
-				</div><!-- row -->
-
-				<%--<div class="grey-line mbs">
+    <div class="parallax mbs" data-stellar-background-ratio="0.2">
 					<div class="row clearfix">
-						<div class="grid_6 custom_block1_img" data-gen="bigEntrance">
-							<div class="h_slider"><img class="custom_1" src="../images/assets/t5.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_2" src="../images/assets/t2.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_3" src="../images/assets/t3.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_4" src="../images/assets/t4.png" alt="tablet"></div>
-							<div class="h_slider"><img class="custom_5" src="../images/assets/t1.png" alt="tablet"></div>
-						</div><!-- end grid6 -->
-
-						<div class="grid_6 custom_block1" data-gen="bigEntrance">
-							<div class="inner_list">
-								<h3>- More Top Features from inCreate Template</h3>
-								<ul>
-									<li><a href="#custom_1"><i class="icon_check_alt2"></i> Phasellus vehicula justo eget diam posuer</a></li>
-									<li><a href="#custom_2"><i class="icon_check_alt2"></i> Eget diam posuere sollicitudin eu tincidunt nulla vehicula justo</a></li>
-									<li><a href="#custom_3"><i class="icon_check_alt2"></i> Sollicitudin eu tincidunt nulla</a></li>
-									<li><a href="#custom_4"><i class="icon_check_alt2"></i> Posuere sollicitudin eu tincidunt nulla loremo ipsum</a></li>
-									<li><a href="#custom_5"><i class="icon_check_alt2"></i> Eget diam posuere sollicitudin eu tincidunt nulla</a></li>
-								</ul>
-							</div><!-- end inner -->
-						</div><!-- end grid6 -->
+						<h3>
+                        نقوم بالطباعة ونرسل إليك حفلتك ....
+                        </h3>
+                        <div class="grid_4">
+                            <img src="../images/icon-gif.gif" />
+                        </div>
+                        <div class="grid_8">
+                        <ul style="list-style-type:circle;margin-left:20px;">
+                        <li>الطباعة تستغرق 2-3 أيام عمل والشحن من 1 إلى 7 أيام.</li>
+                        <li>نقوم بالشحن الدولى . الشحن خارج مصر قد يستلزم دفع رسوم إضافية</li>
+                        <li>هناك العديد من طرق الدفع إختر ما يناسبك</li>
+                        </ul>
+                        </div>
 					</div><!-- end row -->
-				</div>--%><!-- end grey line -->
+				</div>
 
-				<%--<div class="row clearfix mbs">
-						<div class="custom_block2" data-gen="bigEntrance">
-							<div class="inner_list">
-								<ul>
-									<li><a href="#t_1"><img src="../images/assets/avatar1.jpg" alt=""></a></li>
-									<li><a href="#t_2"><img src="../images/assets/avatar2.jpg" alt=""></a></li>
-									<li><a href="#t_3"><img src="../images/assets/avatar3.jpg" alt=""></a></li>
-									<li><a href="#t_4"><img src="../images/assets/avatar4.jpg" alt=""></a></li>
-									<li><a href="#t_5"><img src="../images/assets/avatar5.jpg" alt=""></a></li>
-									<li><a href="#t_6"><img src="../images/assets/avatar6.jpg" alt=""></a></li>
-									<li><a href="#t_7"><img src="../images/assets/avatar7.jpg" alt=""></a></li>
-								</ul>
-							</div><!-- end inner -->
-						</div><!-- end -->
+                <div class="parallax mbs" style="background:url('../images/SMBanner.jpg');height:380px;padding-top:250px;">
+					<div class="row clearfix">
 						
-						<div class="rev_testimonials custom_block2_testimonial" data-gen="bigEntrance">
-							<div class="h_slider"><span class="t_1"><i class="icon_quotations"></i> Dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt <i class="icon_quotations"></i> <small> - Anna Rabinson </small></span></div>
-							<div class="h_slider"><span class="t_2"><i class="icon_quotations"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. <i class="icon_quotations"></i> <small> - Jennifer Raya </small></span></div>
-							<div class="h_slider"><span class="t_3"><i class="icon_quotations"></i> Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum maker including versions of Lorem Ipsum. <i class="icon_quotations"></i> <small> - Nicolas Cool </small></span></div>
-							<div class="h_slider"><span class="t_4"><i class="icon_quotations"></i> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letter. <i class="icon_quotations"></i> <small> - Ryan Giggs </small></span></div>
-							<div class="h_slider"><span class="t_5"><i class="icon_quotations"></i> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. <i class="icon_quotations"></i> <small> - Victoria Hins </small></span></div>
-							<div class="h_slider"><span class="t_6"><i class="icon_quotations"></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden. <i class="icon_quotations"></i> <small> - Annie Maria </small></span></div>
-							<div class="h_slider"><span class="t_7"><i class="icon_quotations"></i> Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable. <i class="icon_quotations"></i> <small> - Victor Zack </small></span></div>
-						</div><!-- end -->
-				</div>--%><!-- clearfix -->
+                        <div class="social" style="margin-left:100px;">
+								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
+								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>								
+								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>
+								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>
+								<a href="#" class="toptip" title="Flickr"><i class="fa-flickr"></i></a>
+							</div>
+                        </div>
+					</div>
 
-				<div class="row clearfix mbs" data-gen="bigEntrance">
-					<div class="tac"><h3 class="block_title">الأكثر مبيعاً</h3><span class="after_line"></span></div>
-					<ul>
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo1.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo2.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo3.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo4.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo5.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-						<li class="grid_2"><a href="#"><img src="../images/assets/logo6.jpg" alt="#" class="toptip" title="Logo name here"></a></li><!-- logo -->
-					</ul>
-				</div><!-- end row -->
+                <div id="loginModal" class="modal fade" role="modal" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+         <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">الدخول</h4>
+      </div>
+      <div class="modal-body">      
+                    <div class="col-lg-4" >
+                         <h4 class="title">
+                            دخول عن طريق حساب الفيس بوك
+                        </h4>
+                        <a href="#" onclick="return fblogin();" id="fbloginlink" class="fb_button_ps"><img src="../images/facebook.gif" alt="Connect with Facebook" /></a>    
+                    </div>                                       
+                    <div class="col-lg-8" style="border-left:2px solid #ccc;">                         
+                    <div class="col-lg-12">
+                        <div class="col-md-8">
+                            <asp:Label ID="uiLabelError" runat="server" Font-Bold="True" ForeColor="Red" Text="Error. please try again"
+                                Visible="False"></asp:Label>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <asp:TextBox ID="uiTextBoxUserName" runat="server" CssClass="form-control" placeholder="إسم المستخدم"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="أدخل إسم المستخدم"
+                                    ControlToValidate="uiTextBoxUserName" Font-Bold="true" Display="Dynamic" ForeColor="Red"
+                                    ValidationGroup="MainUserLogin"></asp:RequiredFieldValidator>
+                            <div class="clear" style="height:15px;"></div>
+                                <asp:TextBox ID="uiTextBoxPassword" runat="server" CssClass="form-control" placeholder="كلمة المرور"
+                                    TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="أدخل كلمة المرور"
+                                    ControlToValidate="uiTextBoxPassword" Font-Bold="true" Display="Dynamic" ForeColor="Red"
+                                    ValidationGroup="MainUserLogin"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-md-12">
+                            <asp:LinkButton ID="uiLinkButtonMainLogin" runat="server" CssClass="btn btn-success"
+                                ValidationGroup="MainUserLogin" OnClick="uiLinkButtonMainLogin_Click">الدخول</asp:LinkButton>
+                            &nbsp;&nbsp; <a href="register.aspx" class="btn" style="background:#efefef;border:1px solid #ccc;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;">إنشاء حساب جديد</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    </div>
+                                        
+                         <div class="clear"></div>          
+      </div>      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 </asp:Content>

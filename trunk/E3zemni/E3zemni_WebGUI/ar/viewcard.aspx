@@ -82,7 +82,7 @@
 							<div class="single_variation_wrap">
 								
 								<div class="variations_button">									
-                                    <asp:LinkButton ID="uiLinkButtonAddToCart" runat="server" 
+                                    <asp:LinkButton ID="uiLinkButtonAddToCart" runat="server" Visible="false"
                                         class="tbutton medium" onclick="uiLinkButtonAddToCart_Click"><span>أضف إلى سلة التسوق</span></asp:LinkButton>
                                     <asp:LinkButton ID="uiLinkButtonCustomize" runat="server" class="tbutton medium"><span>صمم بنفسك</span></asp:LinkButton>                                    
 								</div>

@@ -59,8 +59,8 @@ namespace E3zemni_WebGUI.Admin
 
             try
             {
-                dim.Width = Convert.ToInt32(uiTextBoxWidth.Text);
-                dim.Height = Convert.ToInt32(uiTextBoxHeight.Text);
+                dim.Width = Convert.ToDecimal(uiTextBoxWidth.Text);
+                dim.Height = Convert.ToDecimal(uiTextBoxHeight.Text);
 
             }
             catch (Exception ex)

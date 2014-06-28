@@ -55,6 +55,7 @@
 <style type="text/css">
 .radiow { list-style:none;}
 .radiow li{ float:left;text-align:center;width:100px;padding:10px;margin:10px;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;}
+.radiow li label {display:block;}
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSlider" runat="server">
@@ -84,7 +85,9 @@ Customize your invitation
 
                             <ul class="tabs-content">
                             <li id="t-1" class="active">
+
                              <div style="width:100%;margin:0 auto;text-align:center;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;background-color:#fff;padding:20px;">
+                             <div class="step_title">Step 1</div>
         choose your design : 
             <asp:RadioButtonList ID="uiRadioButtonListLayouts" runat="server" 
                 CssClass="radiow" RepeatLayout="UnorderedList" AutoPostBack="True" 
@@ -101,6 +104,7 @@ Customize your invitation
         <div style="clear:both;height:1px;"></div>
         </div>
         <div id="contactForm" style="width:49%;float:right;margin:0 auto;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-ms-border-radius:10px;border:1px solid #ccc;background-color:#fff;padding:20px;">
+        <div class="step_title">Step 2</div>
             <asp:DataList ID="uiDataListCardText" runat="server" 
                 onitemdatabound="uiDataListCardText_ItemDataBound">
             <ItemTemplate>
@@ -131,6 +135,7 @@ Customize your invitation
                 <asp:ListItem>24</asp:ListItem>
                 <asp:ListItem>28</asp:ListItem>
                 <asp:ListItem>32</asp:ListItem>
+                <asp:ListItem>34</asp:ListItem>
             </asp:DropDownList>
             </div>
             <div class="grid_1 alpha fll"></div>
@@ -168,27 +173,10 @@ Customize your invitation
             <input id="custom" type="color" />
             </div>
             </div>
-            <div style="display:none;">
-            <div style="clear:both;height:1px;"></div>    
-            <div class="grid_3 alpha fll"> Text color : </div>
-            <div class="grid_3 alpha fll">
-            <input id="custom2" type="color" />
-            </div>
+            
             <div style="clear:both;height:1px;"></div> 
 
-            <div class="grid_3 alpha fll">
-             Text font : </div>
-             <div class="grid_9 alpha fll">
-            <asp:DropDownList ID="uiDropDownListFonts" runat="server" CssClass="form-control">
-                <asp:ListItem>Comic Sans MS</asp:ListItem>
-                <asp:ListItem>Times New Roman</asp:ListItem>
-                <asp:ListItem>Tahoma</asp:ListItem>
-                <asp:ListItem>Verdana</asp:ListItem>
-
-            </asp:DropDownList>
-            </div>
-
-            </div>
+            <div class="step_title">Step 3</div>
             <div class="grid_3 alpha fll">
              Print Size : </div>
             <div class="grid_9 alpha fll">
@@ -205,6 +193,7 @@ Customize your invitation
 			</div>
                                  </div>
             <div style="clear:both;height:1px;"></div>  
+            <div class="step_title">Step 4</div>
             <asp:DataList ID="uiDataListImages" runat="server" Width="100%">
             
             <ItemTemplate>
@@ -248,11 +237,15 @@ Customize your invitation
             </ItemTemplate>
             </asp:DataList>
 
-
-            <div class="pull-right grid_10" >
+            <div class="step_title">Step 5</div>
+            <div class="pull-right grid_12" >
                
+               <div class="grid_4 alpha fll pull-left">
+                    <a href="" class="btn btn-success pull-right" data-toggle="modal" data-target="#ViewModal">Card size chart ?</a>
+                </div>
+
                 <div class="grid_5 alpha fll pull-right">
-                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">choose envelop</a>
+                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">choose envelopes</a>
                 </div>
 
                 <div class="grid_3 alpha fll pull-right">
@@ -279,4 +272,21 @@ Customize your invitation
        
     
     </div>
+
+    <div class="modal fade" id="ViewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Card size chart</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </asp:Content>

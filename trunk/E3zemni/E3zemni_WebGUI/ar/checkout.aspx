@@ -25,12 +25,15 @@
                             <ItemTemplate>
                             <tr class="cart_table_item">
 											<td class="product-thumbnail">
-												<a href="#"><img src='../<%# Eval("CardDesign") %>' alt="#"></a>
+												<a href="#"><img src='..<%# Eval("CardDesign") %>' alt="#"></a>
 											</td>
 																	
 											<td class="product-quantity">
 												<div class="quantity buttons_added">
                                                     <asp:TextBox ID="uiTextBoxQty" runat="server" CssClass="qty" Text='<%# Eval("CardCount") %>'></asp:TextBox>                                                    
+                                                     <br />
+                                                    <span style="font-size:10px">
+                                                    أقل عدد مسموح (30)</span>
 												</div>
 											</td>
 

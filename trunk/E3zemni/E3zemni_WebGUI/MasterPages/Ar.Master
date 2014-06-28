@@ -136,8 +136,7 @@
 							<div class="social social_head">
 								<a href="#" class="bottomtip" title="Twitter"><i class="fa-twitter"></i></a>
 								<a href="#" class="bottomtip" title="Facebook"><i class="fa-facebook"></i></a>								
-								<a href="#" class="bottomtip" title="Pinterest"><i class="fa-pinterest"></i></a>
-								<a href="#" class="bottomtip" title="RSS"><i class="fa-rss"></i></a>
+								<a href="#" class="bottomtip" title="Pinterest"><i class="fa-pinterest"></i></a>								
 								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>
 								<a href="#" class="bottomtip" title="Flickr"><i class="fa-flickr"></i></a>
 							</div><!-- end social -->
@@ -145,7 +144,7 @@
 					</div><!-- row -->
 				</div><!-- head -->
 	
-				<div class="headdown my_sticky">
+				<div class="headdown ">
 					<div class="row clearfix">
 						<div class="logo">
 							<a href="../default.aspx" title="E3zemni"><img src="../images/logo.png" alt="E3zemni"></a>
@@ -203,13 +202,14 @@
 						<img src="../images/logo.png" alt="logo title" class="mb">
 	
 						<div class="widget-content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>
+                                <asp:Literal ID="uiLiteralAbout" runat="server" />
+                            </p>
 	
 							<div class="social">
 								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
 								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>								
-								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>
-								<a href="#" class="toptip" title="RSS"><i class="fa-rss"></i></a>
+								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>								
 								<a href="#" class="bottomtip" title="Instagram"><i class="fa-instagram"></i></a>
 								<a href="#" class="toptip" title="Flickr"><i class="fa-flickr"></i></a>
 							</div>
@@ -224,7 +224,7 @@
 						</div><!-- widget content -->
 					</div>--%><!-- grid 4 -->
 		
-					<div class="grid_4 pull-right">
+					<div class="grid_4 pull-left">
 						<h3 class="col-title">PhotoStream <small>- Instagram</small></h3>
 	
 						<div class="widget-content">

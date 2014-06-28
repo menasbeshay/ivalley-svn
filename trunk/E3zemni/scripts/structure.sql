@@ -14,6 +14,12 @@ Create Table Dimension
 )
 Go
 
+alter table Dimension
+alter column Width decimal(6,2)
+
+alter table Dimension
+alter column Height decimal(6,2)
+
 If Exists (select Name 
 		   from sysobjects 
 		   where name = 'Color' and

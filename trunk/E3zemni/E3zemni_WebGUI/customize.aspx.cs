@@ -11,10 +11,23 @@ using System.Data;
 using ImageHandler;
 using System.Net;
 using System.Configuration;
+using System.Net.Mail;
 namespace E3zemni_WebGUI
 {
     public partial class customize : System.Web.UI.Page
     {
+        public MailMessage OrderMail 
+        { 
+            get 
+            {
+                return (Session["Order_Mail"] != null) ? (MailMessage)Session["Order_Mail_Body"] : null; 
+            } 
+            
+            set 
+            { 
+                Session["Order_Mail"] = value; 
+            } 
+        }
         public int CardID
         {
             get
@@ -57,7 +70,10 @@ namespace E3zemni_WebGUI
             {
                 uiRadioButtonListLayouts.Items.Add(new ListItem(String.Format("<img src='{0}' style='width:100px' />", layout.LayoutImage), layout.LayoutImage + "#" + layout.LayeoutBackImage));
                 layout.MoveNext();
-            }                    
+            }
+
+            if (uiRadioButtonListLayouts.Items.Count > 0)
+                uiRadioButtonListLayouts.Items[0].Selected = true;
 
             CardColor colors = new CardColor();
             colors.GetCardColorsByCardID(CardID);
@@ -89,14 +105,26 @@ namespace E3zemni_WebGUI
         {
             try
             {
+                MailMessage msg = new MailMessage();
+                msg.IsBodyHtml = true;
+
                 System.Drawing.Graphics myGraphic = null;
                 string[] images = uiRadioButtonListLayouts.SelectedValue.Split('#');                
 
                 System.Drawing.Image imgSelectedLayout;
                 imgSelectedLayout = System.Drawing.Image.FromFile(Server.MapPath("~/" + images[0]));
 
+                // add layout as attach
+                msg.Attachments.Add(new Attachment(Server.MapPath("~/" + images[0])));
+
                 System.Drawing.Color backcolor = System.Drawing.ColorTranslator.FromHtml(uiHiddenFieldColor.Value);
                 System.Drawing.Brush b = new System.Drawing.SolidBrush(backcolor);
+
+                // add background color
+                msg.Body += "<br /> =========================================================== <br />";
+                msg.Body += " ========================= Background color ================== <br />";
+
+                msg.Body += "Background Color : " + uiHiddenFieldColor.Value + "<br />"; 
 
                 System.Drawing.Bitmap backgroundcolor = new System.Drawing.Bitmap(imgSelectedLayout.Width, imgSelectedLayout.Height);
                 System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(backgroundcolor);
@@ -112,6 +140,9 @@ namespace E3zemni_WebGUI
                 myGraphic.SmoothingMode = SmoothingMode.HighQuality;  
                 // draw background 
                 myGraphic.DrawImageUnscaled(GeneratedImg, 0, 0);
+
+                msg.Body += "<br /> =========================================================== <br />";
+                msg.Body += " ========================= Images Info ================== <br />";
 
                 //draw user uploaded images
                 foreach (DataListItem dli in uiDataListImages.Items)
@@ -159,6 +190,14 @@ namespace E3zemni_WebGUI
                             {
                                 myGraphic.DrawImageUnscaled(currentCardImage, img.PosX, img.PosY, img.ImgWidth, img.ImgHieght);
                             }
+
+                            // add image uploaded by user as attachment 
+                            msg.Attachments.Add(new Attachment(Server.MapPath("~/" + path)));
+                            msg.Body += "Image " + (dli.ItemIndex + 1).ToString() + " : <br />";
+                            msg.Body += "contrust :  " + contrast.Value + "<br />";
+                            msg.Body += "brightness :  " + brightness.Value + " <br />";
+                            msg.Body += "rotaion : " + rotate.Value + " <br />";
+                            msg.Body += "style : " + style.SelectedValue.Substring(0, style.SelectedValue.IndexOf("=")) + " <br />";
                             
                         }
                         
@@ -166,11 +205,14 @@ namespace E3zemni_WebGUI
                 }
 
                 // draw layout 
-                myGraphic.DrawImageUnscaled(imgSelectedLayout, 0, 0);
+                myGraphic.DrawImageUnscaled(imgSelectedLayout, 0, 0,imgSelectedLayout.Width, imgSelectedLayout.Height);
                 myGraphic.Save();
 
                 // draw strings 
                 myGraphic.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+                msg.Body += "<br /> =========================================================== <br />";
+                msg.Body += " ========================= Text Info ================== <br />";
+
 
                 foreach (DataListItem dli in uiDataListCardText.Items)
                 {
@@ -188,6 +230,11 @@ namespace E3zemni_WebGUI
                         System.Drawing.Brush fontbrush = new System.Drawing.SolidBrush(fontcolor);
 
                         myGraphic.DrawString(tb.Text, new Font(ddlfont.SelectedItem.Text, Convert.ToInt32(ddlfontsize.SelectedItem.Text), FontStyle.Italic), fontbrush, new RectangleF(text.PosX, text.PosY, text.Width, text.Height));
+
+                        msg.Body += text.TextLabel + " : " + tb.Text + "<br />";
+                        msg.Body += "font :  " + ddlfont.SelectedItem.Text + "<br />";
+                        msg.Body += "font size :  " + ddlfontsize.SelectedItem.Text + " <br />";
+                        msg.Body += "color : " + hfc.Value + " <br />";                        
                     }
                 }
 
@@ -199,6 +246,9 @@ namespace E3zemni_WebGUI
                 GeneratedImg.Save(Server.MapPath("~/images/UserOrders/" + newpath + "_2.jpeg"), System.Drawing.Imaging.ImageFormat.Jpeg);
                 uiImageMain.ImageUrl = "~/images/UserOrders/" + newpath + "_2.jpeg";
 
+                // add final image as attachment 
+                msg.Attachments.Add(new Attachment(Server.MapPath("~/images/UserOrders/" + newpath + "_2.jpeg")));
+
                 myGraphic.Dispose();
 
                 UserPayement temp = new UserPayement();
@@ -208,6 +258,8 @@ namespace E3zemni_WebGUI
                 temp.CardCount = 1;
                 Session["UserPayment"] = temp;
                 uipanelError.Visible = false;
+
+                OrderMail = msg;
 
             }
             catch (Exception ex)

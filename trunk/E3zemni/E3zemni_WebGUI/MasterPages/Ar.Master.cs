@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using E3zmni.BLL;
+using System.Text.RegularExpressions;
 
 namespace E3zemni_WebGUI.MasterPages
 {
@@ -60,6 +61,15 @@ namespace E3zemni_WebGUI.MasterPages
             else
                 uiLabelItemsCount.Text = temp.RowCount.ToString();
 
+            SitePages page = new SitePages();
+            page.LoadByPrimaryKey(1);
+            string inputHTML = Server.HtmlDecode(page.PageTextAr);
+            string noHTML = Regex.Replace(inputHTML, @"<[^>]+>|&nbsp;", "").Trim();
+            string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
+            if (noHTMLNormalised.Length > 250)
+                uiLiteralAbout.Text = noHTMLNormalised.Substring(0, 250) + " ...";
+            else
+                uiLiteralAbout.Text = noHTMLNormalised;
         }
 
         protected void uiLinkButtonEn_Click(object sender, EventArgs e)
