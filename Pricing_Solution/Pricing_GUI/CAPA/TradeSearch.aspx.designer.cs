@@ -1327,13 +1327,49 @@ namespace PricingGUI {
         protected global::System.Web.UI.WebControls.Label uilblStatusTitle;
         
         /// <summary>
-        /// ui_lnkAddNewStatus control.
+        /// btnOpenStatusModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ui_lnkAddNewStatus;
+        protected global::System.Web.UI.WebControls.Button btnOpenStatusModal;
+        
+        /// <summary>
+        /// rptrStatusList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrStatusList;
+        
+        /// <summary>
+        /// uiPanelModifyStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelModifyStatus;
+        
+        /// <summary>
+        /// pnlStatusDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlStatusDrag;
+        
+        /// <summary>
+        /// Label40 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label40;
         
         /// <summary>
         /// tblAddStatusContainer control.
@@ -1372,13 +1408,103 @@ namespace PricingGUI {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
         
         /// <summary>
-        /// Label40 control.
+        /// tr_committee_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label40;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_committee_1;
+        
+        /// <summary>
+        /// lblCommitteetypeTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCommitteetypeTitle;
+        
+        /// <summary>
+        /// ui_drpCommitteeTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ui_drpCommitteeTypes;
+        
+        /// <summary>
+        /// RequiredFieldValidator12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        
+        /// <summary>
+        /// tr_committee_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_committee_2;
+        
+        /// <summary>
+        /// lblDateAndTimeForCommittee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateAndTimeForCommittee;
+        
+        /// <summary>
+        /// ui_txtCommitteeDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ui_txtCommitteeDate;
+        
+        /// <summary>
+        /// committeeCalenderExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender committeeCalenderExtender;
+        
+        /// <summary>
+        /// drpCommitteeHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpCommitteeHours;
+        
+        /// <summary>
+        /// drpCommitteeMinutes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpCommitteeMinutes;
+        
+        /// <summary>
+        /// Label41 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label41;
         
         /// <summary>
         /// ui_txtStatusComment control.
@@ -1390,13 +1516,13 @@ namespace PricingGUI {
         protected global::System.Web.UI.WebControls.TextBox ui_txtStatusComment;
         
         /// <summary>
-        /// Label41 control.
+        /// Label42 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label41;
+        protected global::System.Web.UI.WebControls.Label Label42;
         
         /// <summary>
         /// ui_fileStatusUpload control.
@@ -1417,12 +1543,39 @@ namespace PricingGUI {
         protected global::System.Web.UI.WebControls.Label lblCouldNotchangeStatus;
         
         /// <summary>
-        /// uiLinkButtonAddStatus control.
+        /// btnAddNewStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddStatus;
+        protected global::System.Web.UI.WebControls.Button btnAddNewStatus;
+        
+        /// <summary>
+        /// btnCancelStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelStatus;
+        
+        /// <summary>
+        /// ui_modalPopup_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ui_modalPopup_Status;
+        
+        /// <summary>
+        /// ui_hdf_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ui_hdf_Status;
     }
 }

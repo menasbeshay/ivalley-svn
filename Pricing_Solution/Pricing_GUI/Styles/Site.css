@@ -1145,3 +1145,47 @@ input[type="button"].btn-block {
 .btn-primary.active {
   background-color: #003399 \9;
 }
+.Initiated {
+  color: #194525;
+  background-color: #A7C9B0;
+  border-color: #294230;
+  border-width:2px;
+ border-style:solid;
+}
+
+.NeedMoreInfo {
+  color: #A86916;
+  background-color: #E6C497;
+  border-color: #A86916;
+  border-width:2px;
+ border-style:solid;
+}
+.CommitteeDateInformed {
+  color: #821943;
+  background-color: #CC89A4;
+  border-color: #821943;
+  border-width:2px;
+ border-style:solid;
+}
+.Complete {
+  color: #57590B;
+  background-color: #DADE62;
+  border-color: #9A9E18;
+  border-width:2px;
+ border-style:solid;
+}
+.Accepted {
+  color: #12468A;
+  background-color: #A8B1BD;
+  border-color: #1F3757;
+  border-width:2px;
+ border-style:solid;
+}
+
+.default_Status {
+  color: #12468A;
+  background-color: #A8B1BD;
+  border-color: #1F3757;
+  border-width:2px;
+ border-style:solid;
+}

@@ -246,7 +246,7 @@ TBODY TR.odd { background-color:#78a5d1; }
         AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC"
                                                     BorderStyle="None" 
         BorderWidth="1px" CellPadding="3" Width="100%" 
-        onrowdatabound="ui_gvSearchResults_RowDataBound">
+        onrowdatabound="ui_gvSearchResults_RowDataBound" onpageindexchanging="ui_gvSearchResults_PageIndexChanging">
                                                     <Columns>
                                                             <asp:TemplateField HeaderText="Choose">
                                                             <ItemTemplate>

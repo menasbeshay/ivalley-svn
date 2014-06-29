@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Pricing.BLL;
 using System.Configuration;
+using System.Data;
 
 namespace PricingGUI
 {
@@ -64,6 +65,7 @@ namespace PricingGUI
                 ui_TabGenericInfo.Enabled = false;
                 uiTabBeforeCommitte.Enabled = false;
                 uiTabPanelAfterCommitte.Enabled = false;
+                uiTabPanelStatus.Enabled = false;
                 Session["PopUpType"] = "AddNewGeneric";
                 ui_btnSave.Text = "Add Main Data";
                 RequiredFieldValidator10.Visible = true;
@@ -73,9 +75,12 @@ namespace PricingGUI
                     ui_TabGenericInfo.Enabled = true;
                     uiTabBeforeCommitte.Enabled = true;
                     uiTabPanelAfterCommitte.Enabled = true;
+                    uiTabPanelStatus.Enabled = true;
                     BindMainData();
                     LoadQuantityUnit();
                     LoadGeneric();
+                    BindStatusHistory();
+                    ValidateAndBindStatus();
                     ui_btnSave.Text = "Update Main Data";
                     RequiredFieldValidator10.Visible = false;
 
@@ -833,6 +838,183 @@ namespace PricingGUI
         }
         #endregion 
 
-        
+        #region Status History
+
+        protected void btnOpenStatusModal_Click(object sender, EventArgs e)
+        {
+            ui_modalPopup_Status.Show();
+        }
+
+        private void BindStatusHistory()
+        {
+            v_StatusHistory objstatus = new v_StatusHistory();
+            objstatus.LoadStatusForTrade(TradePriceID);
+
+            rptrStatusList.DataSource = objstatus.DefaultView;
+            rptrStatusList.DataBind();
+
+
+        }
+
+        private void ValidateAndBindStatus()
+        {
+            // Get Last status ID
+            TradePricing obj = new TradePricing();
+            obj.LoadByPrimaryKey(TradePriceID);
+
+            switch (obj.PricingStatusID)
+            {
+
+                case 1: //Initiated.
+                case 4: // Need More Info / Complete
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Request Accepted", "2"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Reviw / Need More Info", "3"));
+                    break;
+
+                case 2: //Request Accepted.
+                case 10: // Committee Postponded / Need More Info / Complete
+                case 13: // Need Discussion
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Date Informed ", "5"));
+                    tr_committee_1.Visible = true;
+                    tr_committee_2.Visible = true;
+                    break;
+
+                case 5: //Committee Date Informed
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Price Informed  ", "6"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Postponded / Need More Info  ", "7"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Postponded / Studies  ", "8"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Committee Product Transfered  ", "9"));
+                    break;
+
+                case 11: //Price Accepted 
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Approved by the Minister", "15"));
+                    break;
+
+                case 15: //Price Accepted 
+                    StatusHistoryEnable(true);
+                    ui_drpTradeStatus.Items.Clear();
+                    ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
+                    ui_drpTradeStatus.Items.Add(new ListItem("Pricing Certificate Issued", "16"));
+                    break;
+
+                default:
+                    // In case of that the company couldn't change the status 
+                    StatusHistoryEnable(false);
+                    break;
+            }
+        }
+
+        private void StatusHistoryEnable(bool isEnable)
+        {
+            if (isEnable)
+            {
+                tblAddStatusContainer.Visible = true;
+                btnAddNewStatus.Visible = true;
+                lblCouldNotchangeStatus.Visible = false;
+            }
+            else
+            {
+                tblAddStatusContainer.Visible = false;
+                btnAddNewStatus.Visible = false;
+                lblCouldNotchangeStatus.Visible = true;
+            }
+
+        }
+
+        protected void rptrStatusList_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Label lblStatusDetails;
+            HyperLink lnkViewAttachement;
+            Panel pnlTextContainer;
+            int _statusID = 0;
+            string _statusText = "";
+
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                // get current data row 
+                DataRow CurrentRow = ((DataRowView)e.Item.DataItem).Row;
+
+                // get label which we will view it's status.
+                lblStatusDetails = (Label)e.Item.FindControl("lblStatusDetailsText");
+                lnkViewAttachement = (HyperLink)e.Item.FindControl("lnkViewAttachementFile");
+                pnlTextContainer = (Panel)e.Item.FindControl("pnlStatusContainer");
+                _statusID = int.Parse(CurrentRow["PricingStatusID"].ToString());
+
+                if (CurrentRow["CommitteeTypeID"].ToString() != "")
+                {
+                    _statusText += "<b>Committee : </b>" + CurrentRow["TypeText"].ToString() + "&nbsp;&nbsp;";
+                    _statusText += "<b>Date of Committee : </b>" + CurrentRow["CommitteDate"].ToString();
+                    _statusText += "<br>";
+                }
+
+                if (CurrentRow["CurrentPrice"].ToString() != "")
+                {
+                    _statusText += "<b>Current Price : </b>" + CurrentRow["CurrentPrice"].ToString();
+                    _statusText += "<br>";
+                }
+
+                if (CurrentRow["Comment"].ToString() != "")
+                {
+                    _statusText += "<b>Comment : </b>" + CurrentRow["Comment"].ToString();
+                }
+
+                lblStatusDetails.Text = _statusText;
+
+                if (CurrentRow["AttachementPath"].ToString() != "")
+                {
+                    lnkViewAttachement.Visible = true;
+                    lnkViewAttachement.NavigateUrl = ConfigurationManager.AppSettings["StatusAttachementPath"].ToString() + CurrentRow["StatusHistoryID"].ToString() + "_" + CurrentRow["AttachementPath"].ToString();
+                }
+                else
+                {
+                    lnkViewAttachement.Visible = false;
+                }
+
+
+                // Control status Color related to status ID
+                switch (_statusID)
+                {
+                    case 1: // initiated
+                         pnlTextContainer.CssClass = "Initiated";
+                        break;
+                    case 4: // Need More Info / Complete
+                    case 10: //Committee Postponded / Need More Info / Complete
+                        pnlTextContainer.CssClass = "Complete";
+                        break;
+                    case 5: // Need More Info / Complete
+                        pnlTextContainer.CssClass = "CommitteeDateInformed";
+                        break;
+                    case 2:
+                        pnlTextContainer.CssClass = "Accepted";
+                        break;
+                    default:
+                        pnlTextContainer.CssClass = "default_Status";
+                        break;
+                }
+            }
+
+        }
+
+        protected void btnAddNewStatus_Click(object sender, EventArgs e)
+        {
+            //TODO: add code for saving status 
+        }
+
+
+        #endregion 
+
+
     }
 }
