@@ -915,8 +915,6 @@ namespace Pricing_GUI
             ScriptManager.RegisterStartupScript(uiLinkButtonAddStatus, this.GetType(), "opentab", "$(document).ready(function(){ $('.nav-tabs a[href=\"#tab_1_3\"]').tab('show'); });", true);
         }
 
-        
-
         #endregion
         
         #endregion
