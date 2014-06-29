@@ -51,8 +51,8 @@
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
                                 </span>
                             <div class="clearfix" style="height: 1px;"></div>
-                                <div class="friendSubMenu">
-                                <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
+                                <div class="friendSubMenu" >
+                                <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>' >
                                         <div class="col-lg-3 pull-right">
                                         <div class=" thumbnail">
                                             <img src='<%# Eval("ProfilePic") %>'/>
