@@ -953,6 +953,88 @@ TBODY TR.odd { background-color:#78a5d1; }
             </ContentTemplate>
         </cc1:TabPanel>
 
+        <cc1:TabPanel runat="server" ID="uiTabPanelStatus" HeaderText="Status History">
+            <ContentTemplate>
+                <div style="display: block">
+                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                        <ContentTemplate>                           
+                           <table width="100%"> 
+                           <tr>
+                           <td style="width:90%">
+                           <asp:Label runat="server" ID="uilblStatusTitle" Text="Full Status Hstory" Font-Bold="true" Font-Size="18px" Font-Names="Sakkal Majalla"></asp:Label>
+                           </td>
+                           <td>
+                           <asp:HyperLink runat="server" ID="ui_lnkAddNewStatus" text="Add new Status" NavigateUrl="#Addmodal"></asp:HyperLink>
+                           </td>
+                           </tr>
+                           </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+
+
+                 <div id="Addmodal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel1"
+        aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel1">
+               Modify Status</h3>
+        </div>
+        <div class="modal-body">
+       
+            <table width="100%" runat="server" id="tblAddStatusContainer">
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="ui_lblstatusTitle" Text="Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="ui_drpTradeStatus" Width="210px">
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="ValidateStatus"
+                            ControlToValidate="ui_drpTradeStatus" InitialValue="-1" runat="server" ForeColor="Red"
+                            ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="Label40" Text="Comment"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="ui_txtStatusComment" TextMode="MultiLine" Width="200px"></asp:TextBox>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="Label41" Text="Attache File"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:FileUpload runat="server" ID="ui_fileStatusUpload" Width="200px" />
+                    </td>
+                    <td>
+                      
+                    </td>
+                </tr>
+            </table>
+
+                   <asp:Label runat="server" Visible="false" ID="lblCouldNotchangeStatus" Text="Sorry you couldn't change the status at the moment - it's the Role of CAPA Now . !" ></asp:Label>
+                        
+               
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                    Cancel</button>
+                <asp:LinkButton ID="uiLinkButtonAddStatus" runat="server" ValidationGroup="ValidateStatus" class="btn btn-primary">Add</asp:LinkButton>
+            </div>
+           
+        </div>
+    </div>    
+            </ContentTemplate>
+        </cc1:TabPanel>
+
     </cc1:TabContainer>   
 
     <br />
