@@ -546,7 +546,8 @@ TBODY TR.odd { background-color:#78a5d1; }
                                     <asp:BoundField DataField="OverEquiActiveQuantity" HeaderText="/Equivalent Quantity" DataFormatString="{0:F}"  />
                                     <asp:BoundField DataField="OverEquiActiveUnit" />
                                     <asp:BoundField DataField="GenericType" HeaderText="Type" />
-                                    <asp:TemplateField HeaderText="Approved">
+                                    <asp:CheckBoxField DataField="Approved" HeaderText="Approved" ReadOnly="true" />
+                                    <%--<asp:TemplateField HeaderText="Approved">
                                             <ItemTemplate>
                                                 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
                                                     <tbody>
@@ -558,7 +559,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                     </tbody>
                                                 </table>
                                             </ItemTemplate>
-                                        </asp:TemplateField>
+                                        </asp:TemplateField>--%>
                                     <asp:TemplateField HeaderText="Actions">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="LinkButton_Edit" runat="server" CommandArgument='<%# Eval("Drug_Reguest_Substances_ID") %>'
