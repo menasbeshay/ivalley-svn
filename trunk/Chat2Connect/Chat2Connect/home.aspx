@@ -8,11 +8,11 @@
             font-weight: normal;
         }
 
-        .draggable {
+	 .draggable {
             position: absolute;
             border: #5f9482 solid 1px !important;
             width: 250px;
-            z-index: 1000;
+            z-index: 99999;
         }
 
             .draggable .header {
@@ -21,7 +21,9 @@
                 border-bottom: #5f9482 solid 1px;
                 color: #1e4638;
                 background-image: none;
-                min-height: 40px;
+                min-height: 20px;
+                padding:10px;
+                z-index: 99999;
             }
 
             .draggable .selText {
@@ -32,9 +34,10 @@
             .draggable .messageArea {
                 width: 250px;
                 overflow-y: scroll;
-                height: 200px;
+                height: 100px;
                 border-bottom: #5f9482 solid 1px;
                 padding:10px;
+                z-index: 99999;
             }
             .hamsa
             {
@@ -129,8 +132,8 @@
         <uc2:ucFriends ID="ucFriends1" runat="server" />
 
     </div>
-    <div id="MainTabs">
-        <div style="padding: 5px; padding-right: 0px; margin-left: 10px;" class="pull-left col-lg-9" id="homeNav">
+    <div id="MainTabs" class="pull-right" style="width:76%">
+        <div style="padding: 5px; padding-right: 0px; margin-left: 10px;padding-right: 20px;" class="col-lg-12" id="homeNav">
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
@@ -140,9 +143,9 @@
                 <!-- /ko -->
             </ul>
         </div>
-        <div style="height: 1px;" class="clearfix"></div>
+        <div style="height: 1px;" class="clear"></div>
 
-        <div class="blockBoxshadow pull-left col-lg-9 margin20" style="margin-top: 2px;">
+        <div class="blockBoxshadow pull-right col-lg-12 margin20" style="margin-top: 2px;">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <div style="border-bottom: 1px solid #FEC200">
@@ -228,13 +231,20 @@
             </div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
             </div>
-            <b class="pull-right joinalert" style="width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;" data-bind="date:MessageDate,format: 'LLL',visible:$parent.CurrentMember().ShowMessageTime"></b>
+            <div class="pull-right" data-bind="">
+
+            </div>
+            <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
+                <span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right:2px;"></span>
+                <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left:2px;"></span>
+                <span data-bind="date:MessageDate, format:'H:M '" class="pull-right"></span>
+            </div>
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">
-        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">
+        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">            
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
-            <div class="clear" style="height: 1px;"></div>
+            <div class="clear" style="height: 1px;"></div>                        
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
@@ -260,14 +270,14 @@
                 </div>
                 <div class="MarkHolder">
                     <!-- ko if: IsMarked()-->
-                    <i class="icon-ban-circle" style="color: #f00;"></i>
+                    <i class="icon-ban-circle" style="color:#f00;" ></i>
                     <!-- /ko -->
                 </div>
             </div>
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
             <div class="GiftHolder">
                 <!-- ko if: HasGift() -->
-                <img src="images/gift-icon.png" style="width: 12px;" />
+                <img src="images/gift-icon.png" style="width: 15px;" />
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
@@ -285,17 +295,17 @@
                             <span data-bind="text:$data.MemberName()"></span>
                         </div>
                     </div>
-                    <div class="col-lg-9 pull-right">
-                        <div class="col-lg-7 pull-right">
+                    <div class="col-lg-9 pull-right" style="padding:0 5px;">
+                        <div class="col-lg-6 pull-right"  style="padding:0 5px;">
                             <ul>
                                 <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf00d;</span> إرسال همسة</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="text:IsFriend()?' حذف من ':'إضافة إلى'"></span> الأصدقاء</a></li>
+								<li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf00d;</span> إرسال همسة</a></li>
                             </ul>
                         </div>
-                        <div class="col-lg-5 pull-right">
+                        <div class="col-lg-6 pull-right"  style="padding:0 5px;">
                             <ul>
                                 <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
@@ -340,125 +350,359 @@
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
                 <img src="images/font-color-icon.png" style="width: 15px;" />
             </button>
-            <ul id="colorsMenu" role="menu" class="dropdown-menu">
-                <li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('black')" style="color: #000;" href="javascript:;" unselectable="on">
+            <ul id="colorsMenu" role="menu" class="dropdown-menu" style="width: 280px !important">
+                <%--<li class="itemColor"><a data-wysihtml5-command-value="black" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('black')"  style="color: #000;" href="javascript:;" unselectable="on">
                     <div style="background-color: #000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Burntorange')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Burntorange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Burntorange')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #993300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkolive')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkolive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkolive')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkgreen')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkgreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #003300;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Darkazure" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkazure')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Darkazure" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Darkazure')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #003366;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="NavyBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('NavyBlue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="NavyBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('NavyBlue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #000080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Indigo')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Indigo')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333399;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Verydarkgray')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Verydarkgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Verydarkgray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #333333;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Orange')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Orange')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF6600;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Olive')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Olive')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #808000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Green')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Green')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #008000;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Teal')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Teal')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #008080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Blue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Blue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #0000FF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Grayishblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Grayishblue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Grayishblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Grayishblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #666699;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gray')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #808080;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Amber" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Amber')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Amber" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Amber')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF9900;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Yellowgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellowgreen')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Yellowgreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellowgreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #99CC00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Seagreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Seagreen')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Seagreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Seagreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #339966;" class="colorDiv"></div>
                 </a></li>
 
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Turquoise" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Turquoise')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Turquoise" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Turquoise')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #33CCCC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Royalblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Royalblue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Royalblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Royalblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #3366FF;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Purple')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Purple')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #800080;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Mediumgray')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Mediumgray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Mediumgray')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #999999;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gold')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Gold" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gold')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFCC00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellow')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellow')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFF00;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Lime" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lime')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lime" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lime')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00FF00;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Aqua" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Aqua')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Aqua" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Aqua')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00FFFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Skyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Skyblue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Skyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Skyblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #00CCFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Brown')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Brown')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #993366;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Silver" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Silver')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Silver" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Silver')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #C0C0C0;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Pink" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Pink')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Pink" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Pink')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FF99CC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Peach" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Peach')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Peach" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Peach')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFCC99;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Lightyellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightyellow')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lightyellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightyellow')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFF99;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Palegreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palegreen')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Palegreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palegreen')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CCFFCC;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Palecyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palecyan')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Palecyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Palecyan')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CCFFFF;" class="colorDiv"></div>
                 </a></li>
 
-                <li class="itemColor"><a data-wysihtml5-command-value="Lightskyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightskyblue')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Lightskyblue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Lightskyblue')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #99CCFF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="Plum" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Plum')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="Plum" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Plum')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #CC99FF;" class="colorDiv"></div>
                 </a></li>
-                <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('White')" href="javascript:;" unselectable="on">
+                <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('White')"  href="javascript:;" unselectable="on">
                     <div style="background-color: #FFFFFF;" class="colorDiv"></div>
+                </a></li>--%>
+                <li class="itemColor"><a data-wysihtml5-command-value="IndianRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('IndianRed')" style="color: IndianRed;" href="javascript:;" unselectable="on">
+                    <div style="background-color: IndianRed;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightCoral" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightCoral')" style="color: LightCoral;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightCoral;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Salmon" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Salmon')" style="color: Salmon;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Salmon;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkSalmon" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkSalmon')" style="color: DarkSalmon;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkSalmon;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightSalmon" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightSalmon')" style="color: LightSalmon;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightSalmon;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Crimson" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Crimson')" style="color: Crimson;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Crimson;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Red" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Red')" style="color: Red;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Red;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="FireBrick" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('FireBrick')" style="color: FireBrick;" href="javascript:;" unselectable="on">
+                    <div style="background-color: FireBrick;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkRed')" style="color: DarkRed;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkRed;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="HotPink" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('HotPink')" style="color: HotPink;" href="javascript:;" unselectable="on">
+                    <div style="background-color: HotPink;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DeepPink" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DeepPink')" style="color: DeepPink;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DeepPink;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumVioletRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumVioletRed')" style="color: MediumVioletRed;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumVioletRed;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="PaleVioletRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('PaleVioletRed')" style="color: PaleVioletRed;" href="javascript:;" unselectable="on">
+                    <div style="background-color: PaleVioletRed;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightSalmon" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightSalmon')" style="color: LightSalmon;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightSalmon;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Coral" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Coral')" style="color: Coral;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Coral;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Tomato" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Tomato')" style="color: Tomato;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Tomato;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="OrangeRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('OrangeRed')" style="color: OrangeRed;" href="javascript:;" unselectable="on">
+                    <div style="background-color: OrangeRed;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkOrange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkOrange')" style="color: DarkOrange;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkOrange;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Orange" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Orange')" style="color: Orange;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Orange;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Yellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Yellow')" style="color: Yellow;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Yellow;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkKhaki" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkKhaki')" style="color: DarkKhaki;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkKhaki;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Orchid" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Orchid')" style="color: Orchid;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Orchid;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Fuchsia" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Fuchsia')" style="color: Fuchsia;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Fuchsia;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Magenta" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Magenta')" style="color: Magenta;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Magenta;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumOrchid" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumOrchid')" style="color: MediumOrchid;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumOrchid;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumPurple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumPurple')" style="color: MediumPurple;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumPurple;" class="colorDiv"></div>
+                </a></li>               
+                <li class="itemColor"><a data-wysihtml5-command-value="BlueViolet" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('BlueViolet')" style="color: BlueViolet;" href="javascript:;" unselectable="on">
+                    <div style="background-color: BlueViolet;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkViolet" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkViolet')" style="color: DarkViolet;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkViolet;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkOrchid" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkOrchid')" style="color: DarkOrchid;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkOrchid;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkMagenta" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkMagenta')" style="color: DarkMagenta;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkMagenta;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Purple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Purple')" style="color: Purple;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Purple;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Indigo" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Indigo')" style="color: Indigo;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Indigo;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SlateBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SlateBlue')" style="color: SlateBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SlateBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkSlateBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkSlateBlue')" style="color: DarkSlateBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkSlateBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumSlateBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumSlateBlue')" style="color: MediumSlateBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumSlateBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="GreenYellow" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('GreenYellow')" style="color: GreenYellow;" href="javascript:;" unselectable="on">
+                    <div style="background-color: GreenYellow;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Chartreuse" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Chartreuse')" style="color: Chartreuse;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Chartreuse;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumSeaGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumSeaGreen')" style="color: MediumSeaGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumSeaGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SeaGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SeaGreen')" style="color: SeaGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SeaGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="ForestGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('ForestGreen')" style="color: ForestGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: ForestGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Green" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Green')" style="color: Green;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Green;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkGreen')" style="color: DarkGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="OliveDrab" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('OliveDrab')" style="color: OliveDrab;" href="javascript:;" unselectable="on">
+                    <div style="background-color: OliveDrab;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Olive" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Olive')" style="color: Olive;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Olive;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkOliveGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkOliveGreen')" style="color: DarkOliveGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkOliveGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightSeaGreen" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightSeaGreen')" style="color: LightSeaGreen;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightSeaGreen;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkCyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkCyan')" style="color: DarkCyan;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkCyan;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Teal')" style="color: Teal;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Teal;" class="colorDiv"></div>
+                </a></li>                
+                <li class="itemColor"><a data-wysihtml5-command-value="Cyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Cyan')" style="color: Cyan;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Cyan;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightCyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightCyan')" style="color: LightCyan;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightCyan;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="CadetBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('CadetBlue')" style="color: CadetBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: CadetBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SteelBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SteelBlue')" style="color: SteelBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SteelBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DodgerBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DodgerBlue')" style="color: DodgerBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DodgerBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="CornflowerBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('CornflowerBlue')" style="color: CornflowerBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: CornflowerBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumSlateBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumSlateBlue')" style="color: MediumSlateBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumSlateBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="RoyalBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('RoyalBlue')" style="color: RoyalBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: RoyalBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Blue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Blue')" style="color: Blue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Blue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MediumBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumBlue')" style="color: MediumBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MediumBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkBlue')" style="color: DarkBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Navy" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Navy')" style="color: Navy;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Navy;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="MidnightBlue" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MidnightBlue')" style="color: MidnightBlue;" href="javascript:;" unselectable="on">
+                    <div style="background-color: MidnightBlue;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="RosyBrown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('RosyBrown')" style="color: RosyBrown;" href="javascript:;" unselectable="on">
+                    <div style="background-color: RosyBrown;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SandyBrown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SandyBrown')" style="color: SandyBrown;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SandyBrown;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Goldenrod" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Goldenrod')" style="color: Goldenrod;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Goldenrod;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkGoldenrod" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkGoldenrod')" style="color: DarkGoldenrod;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkGoldenrod;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Peru" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Peru')" style="color: Peru;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Peru;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Chocolate" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Chocolate')" style="color: Chocolate;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Chocolate;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SaddleBrown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SaddleBrown')" style="color: SaddleBrown;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SaddleBrown;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Sienna" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Sienna')" style="color: Sienna;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Sienna;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Brown" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Brown')" style="color: Brown;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Brown;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Maroon" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Maroon')" style="color: Maroon;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Maroon;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="White" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('White')" style="color: White;" href="javascript:;" unselectable="on">
+                    <div style="background-color: White;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Gray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Gray')" style="color: Gray;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Gray;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DimGray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DimGray')" style="color: DimGray;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DimGray;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="LightSlateGray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('LightSlateGray')" style="color: LightSlateGray;" href="javascript:;" unselectable="on">
+                    <div style="background-color: LightSlateGray;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="SlateGray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('SlateGray')" style="color: SlateGray;" href="javascript:;" unselectable="on">
+                    <div style="background-color: SlateGray;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="DarkSlateGray" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('DarkSlateGray')" style="color: DarkSlateGray;" href="javascript:;" unselectable="on">
+                    <div style="background-color: DarkSlateGray;" class="colorDiv"></div>
+                </a></li>
+                <li class="itemColor"><a data-wysihtml5-command-value="Black" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Black')" style="color: Black;" href="javascript:;" unselectable="on">
+                    <div style="background-color: Black;" class="colorDiv"></div>
                 </a></li>
             </ul>
         </div>
@@ -867,7 +1111,7 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                             <h3>تغيير صلاحيات <span data-bind="text:SelectedMember().MemberName"></span></h3>
-
+                            
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>الصلاحيات</label>
@@ -895,7 +1139,7 @@
             </div>
         </div>
     </script>
-    <script id="hamsaModal" type="text/html">
+	<script id="hamsaModal" type="text/html">
         <div data-bind="attr:{id:'sendHamsaModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content hamsaModal">
@@ -1041,7 +1285,7 @@
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label2">كاميرات</span></label>
                         <span id="Label4" data-bind="text:OpenCams"></span>
-                        &nbsp;|&nbsp;
+                        &nbsp;&nbsp;
                         <label><span id="Label3">متواجدين</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:ExistingMembers().length"></span>
                     </div>
@@ -1090,7 +1334,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                             </object>
 
                         </div>
@@ -1107,7 +1351,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '_' + $root.CurrentMemberID +'&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -1118,7 +1362,7 @@
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-height="530px" class="SScroll" style="overflow-y: hidden; width: auto; height: 530px; overflow-x: visible; background-color: #D9D9D9;">
+                        <div id="roomMembersDiv" data-bind="attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '580px' : '530px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '580px' : '530px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
                             <div id="MicDiv">
                             </div>
                             <div id="queueDiv">
@@ -1375,7 +1619,7 @@
         </div>
         <div data-bind="template: { name: 'roomMemberLevel'}"></div>
         <!-- /ko -->
-        <!-- ko if:Type()=="Room" -->
+		<!-- ko if:Type()=="Room" -->
         <div data-bind="template: { name: 'hamsaModal'}"></div>
         <!-- /ko -->
 
@@ -1423,7 +1667,7 @@
         </div>
 
         <div data-bind="attr:{id:'giftModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg"  style="width:700px;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
@@ -1494,20 +1738,21 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-
                             <div class="form-group">
-                                <div class="col-sm-4 control-label pull-right">
+                                <div class="col-sm-3 control-label pull-right">
                                     <label>مقطع فيديو</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <input type="text" class="form-control" data-bind="attr:{id:'videoURL_' + uniqueID()}">
-                                    <div class="clear" style="height: 5px;"></div>
-                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:$parent.SendVideo($data)">إرسال</a>
+                                    <input type="text" class="form-control " data-bind="attr:{id:'videoURL_' + uniqueID()}">                                    
+                                    
+                                </div>
+                                <div class="col-sm-2 pull-right">
+                                    <a style="cursor: pointer;" class="btn btn-default " data-bind="click:$parent.SendVideo($data)">إرسال</a>
                                 </div>
                             </div>
-                            <div style="height: 1px; background-color: #ccc; clear: both; width: 80%; margin: 5px auto;"></div>
+                            <div style="height: 1px; background-color: #ccc; clear: both; width: 95%; margin: 5px auto;"></div>
                             <div class="form-group">
-                                <div class="col-sm-4 control-label pull-right">
+                                <div class="col-sm-3 control-label pull-right">
                                     أضف صورة
                                 </div>
                                 <div class="col-sm-7 pull-right">
@@ -1515,32 +1760,33 @@
                                     <div class="UploadDiv">
                                         <div data-bind="attr:{id:'UploadStatus_'+uniqueID()}">
                                         </div>
-                                        <input type="button" class="UploadButton" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
+                                        <input type="button" class="UploadButton pull-right" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
                                         <input type="hidden" data-bind="attr:{id:'UploadFileName_'+uniqueID()}" />
                                         <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
-                                        </div>
-                                        <div class="clear" style="height: 5px;"></div>
-                                        <a style="cursor: pointer;" class="btn btn-default" data-bind="click:$parent.SendImage($data)">إرسال</a>
+                                        </div>                                        
+                                       
                                     </div>
                                 </div>
-                            </div>
-                            <div style="height: 1px; background-color: #ccc; clear: both; width: 80%; margin: 5px auto;"></div>
-
-                            <div class="form-group">
-                                <div class="col-sm-4 control-label pull-right">
-                                    سجل مقطع صوت
+                                <div class="col-sm-2 control-label pull-right">
+                                    <a style="cursor: pointer;" class="btn btn-default pull-right" data-bind="click:$parent.SendImage($data)">إرسال</a>
                                 </div>
-                                <div class="clear" style="height: 5px;"></div>
-                                <div class="col-sm-9 pull-right center">
+                            </div>
+                            <div style="height: 1px; background-color: #ccc; clear: both; width: 95%; margin: 5px auto;"></div>
+
+                            <div class="form-group" >
+                                <div class="col-sm-3 control-label pull-right">
+                                    سجل مقطع صوت
+                                </div>                                
+                                <div class="col-sm-7 pull-right center">
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
                                         <param value="always" name="allowScriptAccess">
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ $root.CurrentMemberID+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
-                                <div class="clear" style="height: 1px;"></div>
-                                <div class="col-sm-4 control-label pull-right"></div>
-                                <div class="col-sm-7 control-label pull-right">
+                                
+                                
+                                <div class="col-sm-2 control-label pull-right">
                                     <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
                                 </div>
                             </div>
@@ -1554,52 +1800,48 @@
 
 
     <div id='GeneralGiftModal' class="modal fade " role="modal" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                    <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
-                    <h3 id="myModalLabel1">أرسل هدية</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-horizontal blockBox validationGroup">
-                        <div class="form-group">
-                            <h4>لديك
+            <div class="modal-dialog modal-lg" style="width:700px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3 id="myModalLabel1">أرسل هدية</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <div class="form-group">
+                                <h4>لديك
                                     <label id="generalGiftPoints" data-bind="text:CreditPoints"></label>
-                                نقطة
+                                    نقطة
                                    
-                            </h4>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-2 control-label pull-right">
-                                <label>إرسال هدية إلى </label>
+                                </h4>
                             </div>
-                            <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
-                                <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
-                                    <asp:Repeater ID="uiRepeaterGiftFriends" runat="server">
-                                        <HeaderTemplate>
-                                            <ul class="giftMembers" id='GeneralGiftMembers'>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li>
-                                                <input type="checkbox" class="checkboxes" value='<%#Eval("FriendID") %>' data-member-name='<%# Eval("UserName") %>' />
+                            <div class="form-group">
+                                <div class="col-sm-2 control-label pull-right">
+                                    <label>إرسال هدية إلى </label>
+                                </div>
+                                <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
+                                    <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
+                                        <asp:Repeater ID="uiRepeaterGiftFriends" runat="server">
+                                            <HeaderTemplate><ul class="giftMembers" id='GeneralGiftMembers'></HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li>
+                                                <input type="checkbox" class="checkboxes" value='<%#Eval("FriendID") %>' data-member-name ='<%# Eval("UserName") %>' />
                                                 <span><%# Eval("UserName") %></span></li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 control-label pull-right" id='GeneralGiftUL'>
-                                <asp:Repeater ID="uiRepeaterGeneralGifts" runat="server">
-                                    <HeaderTemplate>
-                                        <ul class="gifts">
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li data-cat='<%# Eval("Price_Point") %>'>
+                            <div class="form-group">
+                                <div class="col-sm-12 control-label pull-right" id='GeneralGiftUL'>
+                                    <asp:Repeater ID="uiRepeaterGeneralGifts" runat="server">
+                                            <HeaderTemplate><ul class="gifts" ></HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li data-cat='<%# Eval("Price_Point") %>'>
                                             <input type="radio" name="gift" id='gift_<%# Eval("GiftID") %>' value='<%# Eval("GiftID") %>' class="input_hidden" />
                                             <label for='gift_<%# Eval("GiftID") %>' class="GiftLabel" data-giftid='<%# Eval("GiftID") %>' data-giftprice='<%# Eval("Price_Point")%>'>
                                                 <img src='<%# Eval("PicPath") %>' />
@@ -1609,28 +1851,28 @@
                                                 <span class="giftprice"><%# Eval("Price_Point") + " نقطة" %></span>
                                             </label>
                                         </li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    
+                                    <div class="clearfix" style="height: 10px;"></div>
+                                </div>
 
-                                <div class="clearfix" style="height: 10px;"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" id="btnGeneralSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;"  />
+                                </div>
                             </div>
 
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-6 pull-left">
-                                <input type="button" id="btnGeneralSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;" />
-                            </div>
-                        </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
 
 </asp:Content>
