@@ -230,15 +230,25 @@
                 <b data-bind="text:FromName"></b>
             </div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
-            </div>
-            <div class="pull-right" data-bind="">
-
-            </div>
+            </div>            
             <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
                 <span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right:2px;"></span>
                 <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left:2px;"></span>
                 <span data-bind="date:MessageDate, format:'H:M '" class="pull-right"></span>
             </div>
+            <!-- ko if:MemberLevel -->
+            <div class="pull-right" data-bind="css:MemberLevel == 2 ? 'adminrole_reviewer' : 'adminrole' , visible:MemberLevel != 1">
+                <!-- ko if: MemberLevel == 4 -->
+                المالك
+                <!-- /ko -->
+                <!-- ko if: MemberLevel == 3 -->
+                مدير
+                <!-- /ko -->
+                 <!-- ko if: MemberLevel == 2 -->
+                مراقب
+                <!-- /ko -->
+            </div>
+              <!-- /ko -->
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">
@@ -299,10 +309,10 @@
                         <div class="col-lg-6 pull-right"  style="padding:0 5px;">
                             <ul>
                                 <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="text:IsFriend()?' حذف من ':'إضافة إلى'"></span> الأصدقاء</a></li>
-								<li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf00d;</span> إرسال همسة</a></li>
+								<li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 pull-right"  style="padding:0 5px;">
@@ -311,7 +321,7 @@
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
                                 <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> تعديل الصلاحيات</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
                                 <!-- /ko -->
                             </ul>
                         </div>

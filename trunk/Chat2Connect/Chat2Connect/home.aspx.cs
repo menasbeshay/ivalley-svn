@@ -92,7 +92,7 @@ namespace Chat2Connect
                     {
                         List<int> rooms = (List<int>)Session["OpenedChatRooms"];
                         string script = "";
-                        int time = 1500;
+                        int time = 1000;
                         foreach (var item in rooms)
                         {
                             Room room = new Room();
@@ -116,30 +116,26 @@ namespace Chat2Connect
         {
             Member member = new Member();
             member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            MemberFriend Currentfriends = new MemberFriend();
-            Currentfriends.GetAllMemberFriends(member.MemberID);
-            for (int i = 0; i < Currentfriends.RowCount; i++)
+
+            try
             {
-                if (Currentfriends.FriendID == Convert.ToInt32(uiHiddenFieldFriendID.Value))
-                {
-                    // view error
-                }
-                else
-                    continue;
+                MemberFriend newfriend = new MemberFriend();
+                newfriend.AddNew();
+                newfriend.MemberID = member.MemberID;
+                newfriend.FriendID = Convert.ToInt32(uiHiddenFieldFriendID.Value);
+                newfriend.Save();
+
+                Member memberfriend = new Member();
+                memberfriend.LoadByPrimaryKey(newfriend.FriendID);
+
+                // logging
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.AddFriend() { FriendID = newfriend.FriendID, FriendName = memberfriend.Name }, newfriend.FriendID, null);
             }
-
-            MemberFriend newfriend = new MemberFriend();
-            newfriend.AddNew();
-            newfriend.MemberID = member.MemberID;
-            newfriend.FriendID = Convert.ToInt32(uiHiddenFieldFriendID.Value);
-            newfriend.Save();
-
-            Member memberfriend = new Member();
-            memberfriend.LoadByPrimaryKey(newfriend.FriendID);
-
-            // logging
-            BLL.MemberLog log = new BLL.MemberLog();
-            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.AddFriend() { FriendID = newfriend.FriendID, FriendName = memberfriend.Name }, newfriend.FriendID, null);
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "ErrorAddingFriend", "$(document).ready(function (){ notify('error','خطأ. حدث خطأ . من فضلك أعد المحاولة مرة أخرى أو تأكد من وجود الصديق فى قائمة الأصدقاء.');}); ", true);
+            }
         }
     }
 }

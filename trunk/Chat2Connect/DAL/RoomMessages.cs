@@ -139,6 +139,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter MemberLevel
+			{
+				get
+				{
+					return new SqlParameter("@MemberLevel", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +158,7 @@ namespace DAL
             public const string MemberID = "MemberID";
             public const string Message = "Message";
             public const string MessageDate = "MessageDate";
+            public const string MemberLevel = "MemberLevel";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +171,7 @@ namespace DAL
 					ht[MemberID] = _RoomMessages.PropertyNames.MemberID;
 					ht[Message] = _RoomMessages.PropertyNames.Message;
 					ht[MessageDate] = _RoomMessages.PropertyNames.MessageDate;
+					ht[MemberLevel] = _RoomMessages.PropertyNames.MemberLevel;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +189,7 @@ namespace DAL
             public const string MemberID = "MemberID";
             public const string Message = "Message";
             public const string MessageDate = "MessageDate";
+            public const string MemberLevel = "MemberLevel";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +202,7 @@ namespace DAL
 					ht[MemberID] = _RoomMessages.ColumnNames.MemberID;
 					ht[Message] = _RoomMessages.ColumnNames.Message;
 					ht[MessageDate] = _RoomMessages.ColumnNames.MessageDate;
+					ht[MemberLevel] = _RoomMessages.ColumnNames.MemberLevel;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +220,7 @@ namespace DAL
             public const string MemberID = "s_MemberID";
             public const string Message = "s_Message";
             public const string MessageDate = "s_MessageDate";
+            public const string MemberLevel = "s_MemberLevel";
 
 		}
 		#endregion		
@@ -271,6 +284,18 @@ namespace DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.MessageDate, value);
+			}
+		}
+
+		public virtual int MemberLevel
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.MemberLevel);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.MemberLevel, value);
 			}
 		}
 
@@ -351,6 +376,21 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.MessageDate);
 				else
 					this.MessageDate = base.SetDateTimeAsString(ColumnNames.MessageDate, value);
+			}
+		}
+
+		public virtual string s_MemberLevel
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MemberLevel) ? string.Empty : base.GetintAsString(ColumnNames.MemberLevel);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MemberLevel);
+				else
+					this.MemberLevel = base.SetintAsString(ColumnNames.MemberLevel, value);
 			}
 		}
 
@@ -437,6 +477,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter MemberLevel
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MemberLevel, Parameters.MemberLevel);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +552,24 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter MemberLevel
+		    {
+				get
+		        {
+					if(_MemberLevel_W == null)
+	        	    {
+						_MemberLevel_W = TearOff.MemberLevel;
+					}
+					return _MemberLevel_W;
+				}
+			}
+
 			private WhereParameter _ID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _Message_W = null;
 			private WhereParameter _MessageDate_W = null;
+			private WhereParameter _MemberLevel_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +578,7 @@ namespace DAL
 				_MemberID_W = null;
 				_Message_W = null;
 				_MessageDate_W = null;
+				_MemberLevel_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +685,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter MemberLevel
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MemberLevel, Parameters.MemberLevel);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +760,24 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter MemberLevel
+		    {
+				get
+		        {
+					if(_MemberLevel_W == null)
+	        	    {
+						_MemberLevel_W = TearOff.MemberLevel;
+					}
+					return _MemberLevel_W;
+				}
+			}
+
 			private AggregateParameter _ID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _Message_W = null;
 			private AggregateParameter _MessageDate_W = null;
+			private AggregateParameter _MemberLevel_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +786,7 @@ namespace DAL
 				_MemberID_W = null;
 				_Message_W = null;
 				_MessageDate_W = null;
+				_MemberLevel_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +879,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.MessageDate);
 			p.SourceColumn = ColumnNames.MessageDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MemberLevel);
+			p.SourceColumn = ColumnNames.MemberLevel;
 			p.SourceVersion = DataRowVersion.Current;
 
 

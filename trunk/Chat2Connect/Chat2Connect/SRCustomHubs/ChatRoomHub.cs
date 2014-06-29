@@ -217,7 +217,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
-        public void sendToRoom(int roomid,int senderid, string sender, string msg)
+        public void sendToRoom(int roomid,int senderid, string sender, string msg, int MemberLevelID)
         {
             RoomMessages messages = new RoomMessages();
             messages.AddNew();
@@ -225,6 +225,7 @@ namespace Chat2Connect.SRCustomHubs
             messages.Message = msg;
             messages.MemberID = senderid;
             messages.MessageDate = DateTime.Now;
+            messages.MemberLevel = MemberLevelID;
             messages.Save();
 
             var resultMsg = new Helper.ChatMessage()
@@ -234,7 +235,8 @@ namespace Chat2Connect.SRCustomHubs
                 ToID = messages.RoomID,
                 FromName = sender,
                 Message = messages.Message,
-                MessageDate = messages.MessageDate
+                MessageDate = messages.MessageDate,
+                MemberLevel = MemberLevelID
             };
             Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg);
         }
