@@ -467,7 +467,7 @@ function Chat(maxWin, memberID, memberName) {
         this.AdminMessageHistory = ko.observableArray();
         this.toggleMessageTime = function () { };
         function chatMessage(msg) {
-            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null };
+            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1 };
             return ko.mapping.fromJS(msgData, {}, this);
         }
         this.oldestMsgID = function () {
@@ -779,7 +779,7 @@ function Chat(maxWin, memberID, memberName) {
             if (!window.CurrentMember().InRoom()) {
                 rHub.server.showMemberInRoom(window.ID(), window.CurrentMember().MemberID());
             }
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID());
         }
         else {
             rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue());
@@ -939,6 +939,8 @@ function Chat(maxWin, memberID, memberName) {
         }
 
 
+        // add welcome message
+        window.addNotificationMessage(window.WelcomeMsg());
 
     };
 
@@ -1329,7 +1331,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
             });
         }
     };
-    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID) {
+    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath) {
         var window = chatVM.getWindow(roomID, "Room");
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
@@ -1345,6 +1347,15 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (receiverMember != null) {
             receiverMember.HasGift(true);
             setTimeout(function () { receiverMember.HasGift(false); }, 60000);
+        }
+
+        if (window.CurrentMemberID() == friendID)
+        {
+            var modaldiv = "<div class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>هدية</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='" + giftpath + "' style='max-height:400px;'/></div></div></div></div></div></div>" + "<audio autoplay><source src='" + "files/sounds/invite.wav" + "'></audio>" + "</div>";
+            
+            var $div = $(modaldiv);
+            $("#" + window.uniqueID() + "").prepend($div);
+            $div.modal('show');
         }
     };
 

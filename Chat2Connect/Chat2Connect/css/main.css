@@ -1837,3 +1837,17 @@ li.g-dark-selected {
     font-size:9px;
     direction:rtl;    
 }
+
+.adminrole {
+    color:red;
+    font-weight:bold;
+    font-size:12px;
+    padding-right:10px;
+}
+
+.adminrole_reviewer {
+    color:darkgreen;
+    font-weight:bold;
+    font-size:12px;
+    padding-right:10px;
+}

@@ -524,6 +524,8 @@ namespace Chat2Connect.services
             roomObject.OpenCams = room.OpenCams;
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
+            roomObject.WelcomeMsg = room.WelcomeText;
+
             //Room settings
             roomObject.Settings.EnableCam = room.EnableCam;
             roomObject.Settings.EnableMic = room.EnableMic;
@@ -680,7 +682,7 @@ namespace Chat2Connect.services
                 if (roomID != 0)
                 {
                     IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID);
+                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath);
                 }
 
             }

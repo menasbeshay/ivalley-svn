@@ -43,7 +43,8 @@ namespace BLL
                 ToID = m[ColumnNames.RoomID],
                 FromName = m["MemberName"],
                 Message = m[ColumnNames.Message],
-                MessageDate = m[ColumnNames.MessageDate]
+                MessageDate = m[ColumnNames.MessageDate],
+                MemberLevel = m[ColumnNames.MemberLevel]
             });
             return result.OrderBy(m=>m.MessageDate).ToList();
         }

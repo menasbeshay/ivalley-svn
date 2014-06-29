@@ -65,6 +65,8 @@ namespace Helper
 
 
         public object MemberLevels { get; set; }
+
+        public string WelcomeMsg { get; set; }
     }
 
     public class ChatMember
@@ -135,6 +137,8 @@ namespace Helper
         public object Message { get; set; }
 
         public object MessageDate { get; set; }
+
+        public object MemberLevel { get; set; }
     }
 
 }
