@@ -130,7 +130,7 @@ function Chat(maxWin, memberID, memberName) {
         this.ForeColor = 'black';
 
         this.getMember = function (id) {
-            return ko.utils.arrayFirst(this.Members(), function (mem) {
+            return ko.utils.arrayFirst(self.Members(), function (mem) {
                 return mem.MemberID() == id;
             });
         }
@@ -1011,7 +1011,7 @@ function Chat(maxWin, memberID, memberName) {
         var randomid = Math.floor((Math.random() * 100000) + 1);
         var videoLink = "<a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='max-width:100px;margin:0 !important;' /></a>";
         var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
-        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
+        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>فيديو</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
         var newMsg = videoLink + modaldiv;
         rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg);
         $("#attachModal_" + window.uniqueID()).modal('hide');
@@ -1368,6 +1368,7 @@ function initPopover(window) {
                 placement: 'left',
                 html: true,
                 content: popoverContent,
+                title: '<a class="close pull-left closepopover" style="color:#fff;" onclick="$(&#39;#' + $this.attr('id') + '&#39;).popover(&#39;hide&#39;);">&times;</a>',
                 container: '#' + window.uniqueID()
             }).on('hidden.bs.popover', function () {
                 $this.append(popoverContent);
@@ -1379,10 +1380,11 @@ function createHamsaWindow(hamsa, sender) {
 
     var div = '<div class="ui-widget-content draggable hamsa" rel="0">' +
                '<div class="header">' +
-                  '<button type="button" class="close" onclick="javascript:$(this).parent().closest(\'.hamsa\').remove();">×</button>' +
+                  '<button type="button" class="close pull-left" onclick="javascript:$(this).parent().closest(\'.hamsa\').remove();">×</button>' +
                   '<span class="selText" rel="0">همسة من ' + sender + '</span>' +
                '</div>' +
-               '<div id="divMessage" class="messageArea">' + hamsa +  '</div>' + '</div>';
+               '<div id="divMessage" class="messageArea">' + hamsa + '<div class="clear" style="height:1px;"></div></div>' + '</div>';
+
     var $div = $(div);
     $('#MainTabs').prepend($div);
     $div.draggable({

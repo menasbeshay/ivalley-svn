@@ -178,9 +178,9 @@ namespace Helper
             Visitor = 1,
             [StringValue("مراقب")]
             Admin = 2,
-            [StringValue("مشرف")]
-            SuperAdmin = 3,
             [StringValue("مدير")]
+            SuperAdmin = 3,
+            [StringValue("مالك")]
             Owner = 4
         }
     }
