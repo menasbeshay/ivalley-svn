@@ -724,6 +724,7 @@
     <Content Include="CAPA\ListPrices.aspx" />
     <Content Include="CAPA\Default.aspx" />
     <Content Include="CAPA\ManageTickets.aspx" />
+    <Content Include="CAPA\test.aspx" />
     <Content Include="CAPA\TicketResponse.aspx" />
     <Content Include="CAPA\TradeSearch.aspx" />
     <Content Include="Company_Login.aspx" />
@@ -761,6 +762,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="Images\attachment.png" />
     <Content Include="Images\calender.png" />
     <Content Include="Images\MailFooter.jpg" />
     <Content Include="Images\MailHeader.jpg" />
@@ -964,6 +966,13 @@
     </Compile>
     <Compile Include="CAPA\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CAPA\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPA\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="CAPA\TicketResponse.aspx.cs">
       <DependentUpon>TicketResponse.aspx</DependentUpon>

@@ -19,7 +19,7 @@ TBODY TR.odd { background-color:#78a5d1; }
      <p style="text-align:left">
             <asp:Label runat="server" ID="lblPageTitle" Text="Manage Pricing Cases" Font-Names="Sakkal Majalla"
                 Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
-   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="3" runat="server" 
+   <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="0" runat="server" 
         CssClass="ajax__tab_yuitabview-theme">
    <cc1:TabPanel runat="server" ID="ui_MainData" HeaderText="Main Data">
             <HeaderTemplate>
@@ -953,44 +953,85 @@ TBODY TR.odd { background-color:#78a5d1; }
                 </div>
             </ContentTemplate>
         </cc1:TabPanel>
-
-        <cc1:TabPanel runat="server" ID="uiTabPanelStatus" HeaderText="Status History">
-            <ContentTemplate>
-                <div style="display: block">
-                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                        <ContentTemplate>                           
-                           <table width="100%"> 
-                           <tr>
-                           <td style="width:90%">
-                           <asp:Label runat="server" ID="uilblStatusTitle" Text="Full Status Hstory" Font-Bold="true" Font-Size="18px" Font-Names="Sakkal Majalla"></asp:Label>
-                           </td>
-                           <td>
-                           <asp:HyperLink runat="server" ID="ui_lnkAddNewStatus" text="Add new Status" NavigateUrl="#Addmodal"></asp:HyperLink>
-                           </td>
-                           </tr>
+       <cc1:TabPanel runat="server" ID="uiTabPanelStatus" HeaderText="Status History">
+           <ContentTemplate>
+               <div style="display: block">
+                   <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                       <ContentTemplate>
+                           <table width="100%">
+                               <tr>
+                                   <td style="width: 90%">
+                                       <asp:Label runat="server" ID="uilblStatusTitle" Text="Full Status Hstory" Font-Bold="true"
+                                           Font-Size="23px" Font-Names="Sakkal Majalla"></asp:Label>
+                                   </td>
+                                   <td>
+                                       <asp:Button runat="server" ID="btnOpenStatusModal" Text="Add status" Font-Size="Larger" OnClick="btnOpenStatusModal_Click" />
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       <asp:Repeater runat="server" ID="rptrStatusList" OnItemDataBound="rptrStatusList_ItemDataBound">
+                                           <ItemTemplate>
+                                               <asp:Panel runat="server" ID="pnlStatusContainer" Font-Names="Sakkal Majalla" Font-Size="18px">
+                                                   <table width="80%">
+                                                       <tr>
+                                                           <td style="width: 80%">
+                                                               <p>
+                                                                   <asp:Label runat="server" Font-Size="20px" Font-Bold="true" ID="Literal2" Text='<%# Eval("Status") %>'></asp:Label>
+                                                                   &nbsp;&nbsp;
+                                                                   <asp:Label runat="server" ID="Literal4" Text='<%#Eval("StatusDate", "{0:dd-MM-yyyy}") %>'></asp:Label>
+                                                               </p>
+                                                               <p>
+                                                                   <asp:Label runat="server" ID="lblStatusDetailsText"></asp:Label>
+                                                               </p>
+                                                           </td>
+                                                           <td align="right" style="width:40px">
+                                                               <asp:HyperLink runat="server" ImageUrl="~/Images/attachment.png" Target="_blank"
+                                                                   ToolTip="View Attached File" Width="25px" ID="lnkViewAttachementFile" Text=""></asp:HyperLink>
+                                                           </td>
+                                                       </tr>
+                                                   </table>
+                                               </asp:Panel>
+                                               <br />
+                                           </ItemTemplate>
+                                       </asp:Repeater>
+                                   </td>
+                                   <td>
+                                   
+                                   </td>
+                               </tr>
                            </table>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
-
-
-                 <div id="Addmodal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel1"
-        aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                ×</button>
-            <h3 id="myModalLabel1">
-               Modify Status</h3>
-        </div>
-        <div class="modal-body">
-       
-            <table width="100%" runat="server" id="tblAddStatusContainer">
+                       </ContentTemplate>
+                   </asp:UpdatePanel>
+               </div>
+               <!-- **********************  Popup Status ***************************************** -->
+               <asp:Panel ID="uiPanelModifyStatus" runat="server" DefaultButton="btnOpenStatusModal"
+                   Style="display: block" BorderColor="#006699" BorderStyle="Solid" BorderWidth="1px"
+                   BackColor="WhiteSmoke">
+                   <table class="style6">
+                       <tr>
+                           <td style="text-align: center">
+                               <asp:Panel ID="pnlStatusDrag" runat="server" BackColor="#006699" CssClass="ModalDragHandle"
+                                   Height="25px">
+                                   <table align="center">
+                                       <tr>
+                                           <td>
+                                               <asp:Label ID="Label40" runat="server" ForeColor="White" Text="Add status" Width="100%"></asp:Label>
+                                           </td>
+                                       </tr>
+                                   </table>
+                               </asp:Panel>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td style="text-align: center">
+                             <table width="100%" runat="server" cellpadding="5" id="tblAddStatusContainer">
                 <tr>
-                    <td>
+                    <td style="width:15%">
                         <asp:Label runat="server" ID="ui_lblstatusTitle" Text="Status"></asp:Label>
                     </td>
-                    <td>
-                        <asp:DropDownList runat="server" ID="ui_drpTradeStatus" Width="210px">
+                    <td style="width:70%">
+                        <asp:DropDownList runat="server" ID="ui_drpTradeStatus" Width="310px">
                         </asp:DropDownList>
                     </td>
                     <td>
@@ -999,19 +1040,61 @@ TBODY TR.odd { background-color:#78a5d1; }
                             ErrorMessage="*"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
+                <tr runat="server" visible="false" id="tr_committee_1">
+                <td>
+                 <asp:Label Text="CommitteeType" ID="lblCommitteetypeTitle" runat="server" />
+                </td>
+                <td>
+                  <asp:DropDownList runat="server" ID="ui_drpCommitteeTypes" Width="150px">
+                    </asp:DropDownList>
+                </td>
+                <td>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="ValidateStatus"
+                            ControlToValidate="ui_drpCommitteeTypes" InitialValue="-1" runat="server" ForeColor="Red"
+                            ErrorMessage="*"></asp:RequiredFieldValidator>
+                </td>
+                </tr>
+                <tr runat="server" visible="false" id="tr_committee_2">
+                <td colspan="3">
+                   <asp:Label Text="Committee Time" runat="server" ID="lblDateAndTimeForCommittee" />
+                 &nbsp;&nbsp;
+                <asp:TextBox runat="server" ID="ui_txtCommitteeDate" ></asp:TextBox>
+                    <cc1:CalendarExtender runat="server" ID="committeeCalenderExtender" TargetControlID="ui_txtCommitteeDate"></cc1:CalendarExtender>
+                    
+                &nbsp;&nbsp;
+                   Hours       
+                    <asp:DropDownList runat="server" ID="drpCommitteeHours" >
+                    <asp:ListItem Text="09" ></asp:ListItem><asp:ListItem Text="10" ></asp:ListItem>
+                    <asp:ListItem Text="11" ></asp:ListItem><asp:ListItem Text="12" ></asp:ListItem>
+                    <asp:ListItem Text="13" ></asp:ListItem><asp:ListItem Text="14" ></asp:ListItem>
+                    <asp:ListItem Text="15" ></asp:ListItem><asp:ListItem Text="16" ></asp:ListItem>
+                    <asp:ListItem Text="17" ></asp:ListItem><asp:ListItem Text="18" ></asp:ListItem>
+                    <asp:ListItem Text="19" ></asp:ListItem><asp:ListItem Text="20" ></asp:ListItem>
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;
+                     Minutes 
+                      <asp:DropDownList runat="server" ID="drpCommitteeMinutes" >
+                      <asp:ListItem Text="00" ></asp:ListItem>
+                    <asp:ListItem Text="15" ></asp:ListItem>
+                    <asp:ListItem Text="30" ></asp:ListItem>
+                    <asp:ListItem Text="45" ></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                
+                </tr>
                 <tr>
                     <td>
-                        <asp:Label runat="server" ID="Label40" Text="Comment"></asp:Label>
+                        <asp:Label runat="server" ID="Label41" Text="Comment"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="ui_txtStatusComment" TextMode="MultiLine" Width="200px"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="ui_txtStatusComment" TextMode="MultiLine" Width="300px"></asp:TextBox>
                     </td>
                     <td>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label runat="server" ID="Label41" Text="Attache File"></asp:Label>
+                        <asp:Label runat="server" ID="Label42" Text="Attache File"></asp:Label>
                     </td>
                     <td>
                         <asp:FileUpload runat="server" ID="ui_fileStatusUpload" Width="200px" />
@@ -1022,19 +1105,35 @@ TBODY TR.odd { background-color:#78a5d1; }
                 </tr>
             </table>
 
-                   <asp:Label runat="server" Visible="false" ID="lblCouldNotchangeStatus" Text="Sorry you couldn't change the status at the moment - it's the Role of CAPA Now . !" ></asp:Label>
-                        
-               
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                    Cancel</button>
-                <asp:LinkButton ID="uiLinkButtonAddStatus" runat="server" ValidationGroup="ValidateStatus" class="btn btn-primary">Add</asp:LinkButton>
-            </div>
-           
-        </div>
-    </div>    
-            </ContentTemplate>
-        </cc1:TabPanel>
+                 
+                           </td>
+                       </tr>
+                      <tr>
+                      <td>
+                        <asp:Label runat="server" Visible="false" ID="lblCouldNotchangeStatus" Text="Sorry you couldn't change the status at the moment - it's the Role of Company Now . !" ></asp:Label>
+                      </td>
+                      </tr>
+                       <tr>
+                           <td style="text-align: center">
+                               <asp:Button runat="server" ID="btnAddNewStatus" OnClick="btnAddNewStatus_Click" ValidationGroup="ValidateStatus" Text="Add status" />
+                               <asp:Button ID="btnCancelStatus" runat="server" Font-Names="Calibri" Font-Size="11pt"
+                                   Text="Cancel" />
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>
+                               &#160;&#160;
+                           </td>
+                       </tr>
+                   </table>
+               </asp:Panel>
+               <cc1:ModalPopupExtender ID="ui_modalPopup_Status" runat="server" TargetControlID="ui_hdf_Status"
+                   PopupControlID="uiPanelModifyStatus" PopupDragHandleControlID="pnlStatusDrag"
+                   Drag="True" BackgroundCssClass="ModalBackground" DynamicServicePath="" Enabled="True" />
+               <asp:HiddenField runat="server" ID="ui_hdf_Status" />
+               <!-- ***************************************************************************************************** -->
+           </ContentTemplate>
+       </cc1:TabPanel>
 
     </cc1:TabContainer>   
 
