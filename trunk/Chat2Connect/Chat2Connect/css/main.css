@@ -1831,6 +1831,10 @@ li.g-dark-selected {
 {
     color:red;
 }
+.welcomeText
+{
+    color:#0aa40d;
+}
 
 .MessageTime {
     font-family:'Times New Roman';
