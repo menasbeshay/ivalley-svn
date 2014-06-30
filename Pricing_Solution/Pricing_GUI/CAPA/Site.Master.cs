@@ -10,21 +10,34 @@ namespace Pricing_GUI
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public string ChildPageTitle
+        {
+            get
+            {
+                return lblPageTitle.Text;
+            }
+            set
+            {
+                lblPageTitle.Text = value;
+            }
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
         {
             if (Session["adminUser"] == null)
             {
                 Response.Redirect("Default.aspx");
             }
-            else
-            {
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
                 if (!Page.IsPostBack)
                 {
                     userLogin obj = (userLogin)Session["adminUser"];
 
                     ui_lblWelcome.Text = "Welcome " + obj.s_UserName;
                 }
-            }
         }
 
         protected void ui_lnkLogout_Click(object sender, EventArgs e)

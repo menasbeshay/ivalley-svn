@@ -13,15 +13,6 @@ namespace PricingGUI {
     public partial class TradeSearch {
         
         /// <summary>
-        /// lblPageTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPageTitle;
-        
-        /// <summary>
         /// ui_TabContainerSearch control.
         /// </summary>
         /// <remarks>
@@ -1577,5 +1568,17 @@ namespace PricingGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField ui_hdf_Status;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Pricing_GUI.SiteMaster Master {
+            get {
+                return ((Pricing_GUI.SiteMaster)(base.Master));
+            }
+        }
     }
 }

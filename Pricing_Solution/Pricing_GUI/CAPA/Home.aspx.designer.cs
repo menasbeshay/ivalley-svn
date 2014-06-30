@@ -11,5 +11,17 @@ namespace Pricing_GUI {
     
     
     public partial class Home {
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Pricing_GUI.SiteMaster Master {
+            get {
+                return ((Pricing_GUI.SiteMaster)(base.Master));
+            }
+        }
     }
 }

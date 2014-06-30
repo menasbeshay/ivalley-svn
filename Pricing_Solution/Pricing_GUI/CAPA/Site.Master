@@ -21,7 +21,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    Pricing
+                  <asp:Label runat="server" ID="lblPageTitle" Text="Test Page Title"></asp:Label>
                 </h1>
             </div>
             <asp:ScriptManager runat="server" ID="ui_ScriptManager">
@@ -38,9 +38,9 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/CAPA/Home.aspx" Text="Home"/>                        
-                        <asp:MenuItem NavigateUrl="~/CAPA/TradeSearch.aspx" Text="Waiting List Entry"/>
-                        <asp:MenuItem NavigateUrl="~/CAPA/ListPrices.aspx" Text="Sending Email"/>
-                        <asp:MenuItem NavigateUrl="~/CAPA/CompaniesAdmin.aspx" Text="Companies Data"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/TradeSearch.aspx" Text="New Request"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/ListPrices.aspx" Text="Inbox"/>
+                        <asp:MenuItem NavigateUrl="~/CAPA/CompaniesAdmin.aspx" Text="Companies Managment"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/Generics.aspx" Text="Generics"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/CompNotifications.aspx" Text="Notifications"/>
                         <asp:MenuItem NavigateUrl="~/CAPA/ManageTickets.aspx" Text="Tickets"/>
