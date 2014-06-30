@@ -17,6 +17,7 @@ namespace PricingGUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.ChildPageTitle = "Notifications";
             if (!Page.IsPostBack)
             {
                 ui_lb_msg.Text = "";

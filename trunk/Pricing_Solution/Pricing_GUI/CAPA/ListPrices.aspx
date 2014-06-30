@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CAPA/Site.Master" AutoEventWireup="true" CodeBehind="ListPrices.aspx.cs" Inherits="WebGUI.ListPrices"   EnableEventValidation="false" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
+<%@ MasterType virtualpath="~/CAPA/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -42,11 +42,7 @@ TBODY TR.odd { background-color:#78a5d1; }
          });
      });
 </script>
-
-     <p style="text-align:left">
-            <asp:Label runat="server" ID="lblPageTitle" Text="Search Pricing Cases" Font-Names="Sakkal Majalla"
-                Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
-   
+ 
     <table style="width: 80%;">
         <tbody>
         <tr>
@@ -158,69 +154,15 @@ TBODY TR.odd { background-color:#78a5d1; }
                 <td>
                     <asp:Label ID="Label10" runat="server" Text="Status"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ui_drpStatus" AutoPostBack="true" OnSelectedIndexChanged="ui_drpStatus_SelectedIndexChanged" runat="server" Width="225px">
+                   <asp:DropDownList ID="ui_drpStatus" AutoPostBack="false"  runat="server" Width="225px">
                 </asp:DropDownList></td>
                 <td>
                     &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="4" style="text-align:left">
-                    <asp:Label ID="lblMailResult" runat="server"></asp:Label>
-                </td>
-                <td colspan="1" style="text-align:right">
-                    <asp:Button runat="server" class="btn btn-default" Font-Bold="true" Font-Size="20px" ID="ui_btnSearch" Text="Search ..." OnClick="ui_btnSearch_Click" />
-                   
-
-                </td>
-
-            </tr>
-            </tbody>
-    </table>
-    
-    <table width=100%>
-        <tr>
-            <td align="left" style="width:32%">
-                <asp:Panel runat="server" Visible="true" ID="pnlDate">
-                    <asp:Label ID="ui_lblPickDate" Text="Specify Committee date and Time" runat="server"></asp:Label>
-                    <br />
-                    <asp:Label ID="ui_lblDateSelectLabel" runat="server" Text="Date"></asp:Label>
-                      <asp:TextBox runat="server" ID="ui_DatePickerForCommittee" ></asp:TextBox>
-                    <cc1:CalendarExtender ID="CalendarExtender2" TargetControlID="ui_DatePickerForCommittee" runat="server">
-                    </cc1:CalendarExtender>
-                    <asp:Label ID="Label5" runat="server" Text="H:M"></asp:Label>
-                    <asp:TextBox runat="server" MaxLength="2" ID="ui_txtTimeHours" Width="20px" ></asp:TextBox>
-                    :
-                    <asp:TextBox runat="server" MaxLength="2" ID="ui_txtTimeMinutes" Width="20px" ></asp:TextBox>
-                    &nbsp;&nbsp;
-                    <asp:DropDownList runat="server" ID="ui_drpTimeZone" >
-                    <asp:ListItem Text="AM" ></asp:ListItem>
-                    <asp:ListItem Text="PM" ></asp:ListItem>
-                    </asp:DropDownList>
-                 
-                </asp:Panel>
-                <asp:Panel runat="server" Visible="false" ID="pnlPrice">
-                    <asp:Label ID="Label7" Text="Specify Price" runat="server"></asp:Label>
-                    <asp:TextBox runat="server" ID="ui_txtPriceToSend"></asp:TextBox>
-                </asp:Panel>
-            </td>
-            <td align="left">
-                <asp:Button runat="server" ID="ui_btnShowSendMail" Text="Send Mail" OnClick="ui_btnShowSendMail_Click" />
-            </td>
-            <td>
-        <asp:UpdateProgress AssociatedUpdatePanelID="ui_updatePanel" runat="server" ID="ui_progressBar"
-                                                      DisplayAfter="1">
-                                                      <ProgressTemplate>
-                                                          <input type="image" src="../Images/loading.gif" />
-                                                      </ProgressTemplate>
-                                                  </asp:UpdateProgress>
-            </td>
-            <td align="right">
-                <div>
-                    <table>
+                <td colspan="2">
+                <table width="100%">
+                <tr>
+                <td > 
+                 <table>
                         <tr>
                             <td>
                                 <img alt="" class="style4" src="../Images/Excel-icon.png" />
@@ -231,11 +173,33 @@ TBODY TR.odd { background-color:#78a5d1; }
                             </td>
                         </tr>
                     </table>
-                </div>
-            </td>
-        </tr>
+                </td>
+                <td > <asp:Button runat="server" class="btn btn-default" Font-Bold="true" Font-Size="20px" ID="ui_btnSearch" Text="Search ..." OnClick="ui_btnSearch_Click" /> </td>
+                </tr>
+                </table>
+                  
+                  
+                   
+                    
+                    </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align:left">
+                    <asp:Label ID="lblMailResult" runat="server"></asp:Label>
+                      
+                </td>
+                <td colspan="1" style="text-align:right">
+                    
+                   
+
+                </td>
+
+            </tr>
+            </tbody>
     </table>
-   
+    
+ 
+ 
       <center>
       <asp:Label runat="server" ID="ui_lblDone" Font-Bold="True" Font-Size="14pt" 
               ForeColor="#003300"></asp:Label>
@@ -248,7 +212,7 @@ TBODY TR.odd { background-color:#78a5d1; }
         BorderWidth="1px" CellPadding="3" Width="100%" 
         onrowdatabound="ui_gvSearchResults_RowDataBound" onpageindexchanging="ui_gvSearchResults_PageIndexChanging">
                                                     <Columns>
-                                                            <asp:TemplateField HeaderText="Choose">
+                                                          <%--  <asp:TemplateField HeaderText="Choose">
                                                             <ItemTemplate>
                                                                 <asp:CheckBox ID="chRow1" runat="server" __designer:wfdid="w10" ToolTip='<%# Eval("TradePricingID") %>'></asp:CheckBox>
                                                                 <asp:HiddenField ID="ui_hdf_ManufactureID1" runat="server" Value='<%# Eval("TradePricingID") %>' />
@@ -265,7 +229,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                                </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Center" />
                                                             <HeaderStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
 
                                                           <asp:BoundField HeaderText="Submission Date" DataField="SubmissionDate" NullDisplayText="-">
                                                             <ItemStyle HorizontalAlign="Center" />

@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CAPA/Site.Master" AutoEventWireup="true" CodeBehind="ManageTickets.aspx.cs" Inherits="Pricing_GUI.CAPA.ManageTickets" %>
+<%@ MasterType virtualpath="~/CAPA/Site.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <p style="text-align:left">
-    <asp:Label runat="server" ID="lblPageTitle" Text="Tickets :" Font-Names="Sakkal Majalla"
-        Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
+
 
 <div class="clearfix" style="clear:both;height:5px;"></div>
     <asp:Panel runat="server" ID="uiPanelSearch" DefaultButton="uiLinkButtonSearch">  

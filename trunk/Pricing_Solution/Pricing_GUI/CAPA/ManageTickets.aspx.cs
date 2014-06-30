@@ -13,6 +13,7 @@ namespace Pricing_GUI.CAPA
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.ChildPageTitle = "Tickets ..";
             if (!IsPostBack)
             {
                 LoadDDls();

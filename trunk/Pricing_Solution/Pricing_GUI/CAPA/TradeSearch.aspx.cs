@@ -58,6 +58,7 @@ namespace PricingGUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.ChildPageTitle = "Pricing Request Management ...";
             if (!Page.IsPostBack)
             {
                 BindDropDownListsData();                
@@ -872,6 +873,8 @@ namespace PricingGUI
                     ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Request Accepted", "2"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Reviw / Need More Info", "3"));
+                     tr_committee_1.Visible = false;
+                    tr_committee_2.Visible = false;
                     break;
 
                 case 2: //Request Accepted.
@@ -893,6 +896,8 @@ namespace PricingGUI
                     ui_drpTradeStatus.Items.Add(new ListItem("Committee Postponded / Need More Info  ", "7"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Committee Postponded / Studies  ", "8"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Committee Product Transfered  ", "9"));
+                      tr_committee_1.Visible = false;
+                    tr_committee_2.Visible = false;
                     break;
 
                 case 11: //Price Accepted 
@@ -900,6 +905,8 @@ namespace PricingGUI
                     ui_drpTradeStatus.Items.Clear();
                     ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Approved by the Minister", "15"));
+                      tr_committee_1.Visible = false;
+                    tr_committee_2.Visible = false;
                     break;
 
                 case 15: //Price Accepted 
@@ -907,6 +914,8 @@ namespace PricingGUI
                     ui_drpTradeStatus.Items.Clear();
                     ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
                     ui_drpTradeStatus.Items.Add(new ListItem("Pricing Certificate Issued", "16"));
+                      tr_committee_1.Visible = false;
+                    tr_committee_2.Visible = false;
                     break;
 
                 default:
@@ -931,6 +940,52 @@ namespace PricingGUI
                 lblCouldNotchangeStatus.Visible = true;
             }
 
+        }
+
+        private void AddNewStatusHistory()
+        {
+            StatusHistory objStatus = new StatusHistory();
+            objStatus.AddNew();
+
+            objStatus.PricingStatusID = int.Parse(ui_drpTradeStatus.SelectedValue);
+            objStatus.StatusDate = DateTime.Now;
+            objStatus.Comment = ui_txtStatusComment.Text;
+            objStatus.TradePricingID = TradePriceID;
+            objStatus.AttachementPath = "";
+
+            if (ui_drpTradeStatus.SelectedValue == "5")
+            {
+                objStatus.CommitteeTypeID = int.Parse(ui_drpCommitteeTypes.SelectedValue);
+                DateTime comDate = DateTime.Parse(ui_txtCommitteeDate.Text + " " + drpCommitteeHours.SelectedItem.Text + ":" + drpCommitteeMinutes.SelectedItem.Text + ":00");
+                objStatus.CommitteDate = comDate;
+            }
+            objStatus.Save();
+
+            // if file exist - save it with the current record 
+            if (ui_fileStatusUpload.HasFile)
+            {
+                objStatus.AttachementPath = SaveStatusFile(objStatus.StatusHistoryID);
+                objStatus.Save();
+            }
+
+            // Upate the Trade Pricing Record with the last status we have .
+            TradePricing objTradePricing = new TradePricing();
+            objTradePricing.LoadByPrimaryKey(TradePriceID);
+            objTradePricing.PricingStatusID = objStatus.PricingStatusID;
+            objTradePricing.Save();
+        }
+
+        private string SaveStatusFile(int statusHistoryID)
+        {
+            if (ui_fileStatusUpload.HasFile)
+            {
+                string newFileName = statusHistoryID.ToString() + "_" + ui_fileStatusUpload.FileName;
+                string filepath = Server.MapPath(ConfigurationManager.AppSettings["StatusAttachementPath"].ToString()) + newFileName;
+                ui_fileStatusUpload.PostedFile.SaveAs(filepath);
+
+                return ui_fileStatusUpload.FileName;
+            }
+            return "";
         }
 
         protected void rptrStatusList_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -1010,11 +1065,26 @@ namespace PricingGUI
         protected void btnAddNewStatus_Click(object sender, EventArgs e)
         {
             //TODO: add code for saving status 
+            AddNewStatusHistory();
+
+            if (ui_drpTradeStatus.SelectedValue == "3" || ui_drpTradeStatus.SelectedValue == "7")
+            {
+                //disable status History 
+                StatusHistoryEnable(false);
+                lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now The Company only can modify status - you couldn't do it again at the moment.";
+            }
+            else
+            {
+                // CAPA still can control the status in case of Price review only 
+                StatusHistoryEnable(true);
+                ValidateAndBindStatus();
+            }
+
+            BindStatusHistory();
+
         }
 
-
         #endregion 
-
 
     }
 }

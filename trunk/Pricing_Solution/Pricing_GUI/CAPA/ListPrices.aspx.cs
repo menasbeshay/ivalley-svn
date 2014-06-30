@@ -22,6 +22,8 @@ namespace WebGUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.ChildPageTitle = "Pricing Requests Search";
+
             if (!IsPostBack)
             {
                 BindCompanies();
@@ -82,38 +84,10 @@ namespace WebGUI
 
         }
 
-        protected void ui_btnShowSendMail_Click(object sender, EventArgs e)
-        {
-            //ModalPopupExtender1.Show();
-
-            //ui_txtProgress.Text = "";
-            //Progress progress = ProgressBar1.Progress;
-            //Thread thread = new Thread(() => SendEmail(progress));
-            //thread.Start();
-            //ui_btnShowSendMail.Enabled = false;
-
-          //  ModalPopupExtender1.Show();
-            SendEmail();
-        }
-
         protected void ui_btnCloseMailPopup_Click(object sender, EventArgs e)
         {
           //  ModalPopupExtender1.Hide();
 
-        }
-
-        protected void ui_drpStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ui_drpStatus.SelectedItem.Value == "2")
-            {
-                pnlPrice.Visible = true;
-                pnlDate.Visible = false;
-            }
-            else
-            {
-                pnlPrice.Visible = false;
-                pnlDate.Visible = true;
-            }
         }
 
         protected void ui_LB_Excel_Click(object sender, EventArgs e)
@@ -183,12 +157,6 @@ namespace WebGUI
             /* Verifies that the control is rendered */
 
             return;
-        }
-
-        protected void ProgressBar1_Complete(object sender, EventArgs e)
-        {
-            ui_btnShowSendMail.Enabled = true;
-            //Label1.Text = DateTime.Now.ToString();
         }
 
         protected void ui_LB_Assign_Click(object sender, EventArgs e)
@@ -313,15 +281,15 @@ namespace WebGUI
         {
             string resultBody="";
 
-            string committeeDateTime = ui_DatePickerForCommittee.Text + " " + ui_txtTimeHours.Text + ":" + ui_txtTimeMinutes.Text +
-                                       " " + ui_drpTimeZone.SelectedItem.Text;
+           // string committeeDateTime = ui_DatePickerForCommittee.Text + " " + ui_txtTimeHours.Text + ":" + ui_txtTimeMinutes.Text +
+           //                            " " + ui_drpTimeZone.SelectedItem.Text;
             
             switch (ui_drpStatus.SelectedValue)
             {
                 case "1": // Initiated Case
                     resultBody = _body.Replace("(CompanyName)", _companyName);
                     resultBody = resultBody.Replace("(TradeName)", _tradeName + " " + _dosageForm);
-                    resultBody = resultBody.Replace("(CommitteeDateTime)", committeeDateTime);
+                 //   resultBody = resultBody.Replace("(CommitteeDateTime)", committeeDateTime);
                 break;
 
             }   

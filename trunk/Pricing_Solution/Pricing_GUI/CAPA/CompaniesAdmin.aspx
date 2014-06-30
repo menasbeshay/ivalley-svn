@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CAPA/Site.Master" AutoEventWireup="true" CodeBehind="CompaniesAdmin.aspx.cs" Inherits="PricingGUI.CompaniesAdmin" %>
-
+<%@ MasterType virtualpath="~/CAPA/Site.Master" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -17,10 +17,7 @@ TBODY TR.odd { background-color:#78a5d1; }
 <asp:UpdatePanel ID="ui_UpdtPanel" runat="server">
             <ContentTemplate>
             
-     <p style="text-align:left">
-            <asp:Label runat="server" ID="lblPageTitle" Text="Companies :" Font-Names="Sakkal Majalla"
-                Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
-   
+    
     <table style="width: 80%;">
         <tbody>
         <tr>

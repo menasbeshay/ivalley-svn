@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CAPA/Site.Master" AutoEventWireup="true" CodeBehind="TradeSearch.aspx.cs" Inherits="PricingGUI.TradeSearch" %>
-
+<%@ MasterType virtualpath="~/CAPA/Site.Master" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -16,9 +16,7 @@ TBODY TR.odd { background-color:#78a5d1; }
     });
 </script>
 
-     <p style="text-align:left">
-            <asp:Label runat="server" ID="lblPageTitle" Text="Manage Pricing Cases" Font-Names="Sakkal Majalla"
-                Font-Size="XX-Large" ForeColor="#003366" Font-Underline="True" Font-Bold="True"></asp:Label></p>
+    
    <cc1:TabContainer ID="ui_TabContainerSearch" ActiveTabIndex="0" runat="server" 
         CssClass="ajax__tab_yuitabview-theme">
    <cc1:TabPanel runat="server" ID="ui_MainData" HeaderText="Main Data">
@@ -1045,7 +1043,9 @@ TBODY TR.odd { background-color:#78a5d1; }
                  <asp:Label Text="CommitteeType" ID="lblCommitteetypeTitle" runat="server" />
                 </td>
                 <td>
-                  <asp:DropDownList runat="server" ID="ui_drpCommitteeTypes" Width="150px">
+                  <asp:DropDownList runat="server" ID="ui_drpCommitteeTypes" Width="200px">
+                  <asp:ListItem Text="Evaluation Committee" Value="1" ></asp:ListItem>
+                  <asp:ListItem Text="Discussion Committee" Value="2" ></asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>

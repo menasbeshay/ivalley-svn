@@ -35,6 +35,7 @@ namespace PricingGUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.ChildPageTitle = "Companies Management";
             if (!Page.IsPostBack)
             {
                 ui_lb_msg.Text = "";
