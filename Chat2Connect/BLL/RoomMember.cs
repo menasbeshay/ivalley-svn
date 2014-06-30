@@ -30,6 +30,18 @@ namespace BLL
 
         }
 
+        public List<Helper.ChatMember> GetAdminsMembersByRoomID(int roomid)
+        {
+            GetAllAdminMembersByRoomID(roomid);
+            return DefaultView.Table.AsEnumerable().Select(m =>
+                new Helper.ChatMember()
+                {
+                    MemberID = Helper.TypeConverter.ToInt32(m[ColumnNames.MemberID]),
+                    MemberName = m["MemberName"],
+                    MemberLevelID = Helper.TypeConverter.ToInt32(m[ColumnNames.RoomMemberLevelID])
+                }).ToList();
+        }
+
         public virtual bool GetAllMembersByRoomID(int RoomID)
         {
             ListDictionary parameters = new ListDictionary();

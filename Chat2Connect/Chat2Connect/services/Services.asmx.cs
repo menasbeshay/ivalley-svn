@@ -526,6 +526,9 @@ namespace Chat2Connect.services
                 roomObject.CreatedBy = room.CreatedBy;
             roomObject.WelcomeMsg = room.WelcomeText;
 
+            if (!room.IsColumnNull("CreatedDate"))
+                roomObject.CreatedDate = room.CreatedDate;
+
             //Room settings
             roomObject.Settings.EnableCam = room.EnableCam;
             roomObject.Settings.EnableMic = room.EnableMic;
@@ -568,6 +571,25 @@ namespace Chat2Connect.services
                     currentMemberSettings.CanWrite = false;
                 }
             }
+            // load owner / admins 
+            roomObject.Admins = roomMember.GetAdminsMembersByRoomID(id);
+
+            // load cat & subcat
+            Category cat = new Category();
+            cat.LoadByPrimaryKey(room.CategoryID);
+            roomObject.CategoryName = cat.Name;
+
+            SubCategory scat = new SubCategory();
+            if (!room.IsColumnNull("SubCategoryID"))
+            {
+                scat.LoadByPrimaryKey(room.SubCategoryID);
+                roomObject.SubCategoryName = scat.Name;
+            }
+            else
+            {
+                roomObject.SubCategoryName = "لا يوجد";
+            }
+
             //member level change
             roomObject.MemberLevels = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l <= currentMemberSettings.MemberLevelID).Select(l => new
             {

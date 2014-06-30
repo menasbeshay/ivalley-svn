@@ -443,7 +443,7 @@ function Chat(maxWin, memberID, memberName) {
 
         this.SendAudio = function () {
             if (this.audioAttachment != "") {
-                rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberID(), self.CurrentMember().MemberName(), self.audioAttachment);
+                rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberID(), self.CurrentMember().MemberName(), self.audioAttachment, self.CurrentMember().MemberLevelID());
                 $("#attachModal_" + self.uniqueID()).modal('hide');
                 self.audioAttachment = "";
             }
@@ -693,6 +693,10 @@ function Chat(maxWin, memberID, memberName) {
         this.setForeColor = function (color) {
             self.ForeColor = color;
         };
+
+        this.showRoomInfo = function () {
+            $("#infoModal_" + self.uniqueID()).modal('show');
+        };
     }
 
     self.changeCurrent = function (selctor) {
@@ -940,7 +944,7 @@ function Chat(maxWin, memberID, memberName) {
 
 
         // add welcome message
-        window.addNotificationMessage(window.WelcomeMsg());
+        addMsgToWindow(window, window.WelcomeMsg(), "welcomeText");
 
     };
 
@@ -988,9 +992,9 @@ function Chat(maxWin, memberID, memberName) {
             var randomid = Math.floor((Math.random() * 100000) + 1);
             var imageDiv = "<a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100px;margin:0 !important;'/></a>";
 
-            var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;'/></div></div></div></div></div></div></div>";
+            var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;max-width:450px;'/></div></div></div></div></div></div></div>";
 
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv);
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv, window.CurrentMember().MemberLevelID());
         }
         hiddenfield.val('');
         $('#UploadFileName_' + window.uniqueID()).val('');
@@ -1015,17 +1019,17 @@ function Chat(maxWin, memberID, memberName) {
         var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
         var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>فيديو</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
         var newMsg = videoLink + modaldiv;
-        rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg);
+        rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
 }
 
-//function onCamClose(userId, roomId) {
-//    var window = chatVM.getWindow(roomId.substr(roomId.indexOf("_") + 1), 'Room');
-//    if (window == null)
-//        return;
-//    window.stopCam(userId);
-//}
+function onCamClose(userId, roomId) {
+    var window = chatVM.getWindow(roomId.substr(roomId.indexOf("_") + 1), 'Room');
+    if (window == null)
+        return;
+    window.stopCam(userId);
+}
 
 function onMicRecordSaveSuccess(fileName) {
     // returned file name & roomid in this format [roomId,filename]

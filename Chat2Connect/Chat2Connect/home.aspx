@@ -1185,7 +1185,7 @@
                     <div>
                         <div class="pull-right ">
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
-                            <span id="uiLabelRoomName" data-bind="text:Name"></span>
+                            <a id="uiLabelRoomName" data-bind="text:Name, click:showRoomInfo" style="font-weight:bold;text-decoration:none;cursor:pointer;"></a>
                         </div>
                         <!-- ko if: Type()=="Room" -->
                         <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">
@@ -1806,6 +1806,98 @@
                 </div>
             </div>
         </div>
+
+        <div data-bind="attr:{id:'infoModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="modernicon iconmodern-createroom pull-right icon-2x"></i>
+                        <h3 id="myModalLabel1" data-bind="text:Name"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">                           
+                            <div class="form-group" >
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>القسم</label>
+                                </div>
+                                <div class="col-sm-7  control-label pull-right">
+                                    <span data-bind="text:CategoryName"></span>
+                                </div>
+                            </div>
+                             <div class="form-group" >
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>الفرع</label>
+                                </div>
+                                <div class="col-sm-7  control-label pull-right">
+                                    <span data-bind="text:SubCategoryName"></span>
+                                </div>
+                            </div>
+                             <div class="form-group" >
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>تاريخ إنشائها</label>
+                                </div>
+                                <div class="col-sm-7 control-label pull-right">
+                                    <span data-bind="date:CreatedDate, format:' D-M-YYYY '"></span>
+                                </div>
+                            </div>
+                             <div class="form-group" >
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>المالك</label>
+                                </div>
+                                <div class="col-sm-7 control-label pull-right">
+                                    <span data-bind="text:OwnerMember().MemberName"></span>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 control-label pull-right">
+                                    <label>المدير</label>
+                                    <div class="col-sm-12 pull-right" style="border:1px solid #FEC200;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;min-height:30px;">
+                                         <ul data-bind="foreach:Admins">
+                                            <!-- ko if:MemberLevelID() == 3 -->
+                                            <li>
+                                             <span data-bind="text:MemberName()"></span></li>
+                                            <!-- /ko -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 control-label pull-right">
+                                   <label>مراقب</label>
+                                    <div class="col-sm-12 pull-right" style="border:1px solid #FEC200;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;min-height:30px;">
+                                         <ul data-bind="foreach:Admins">
+                                            <!-- ko if:MemberLevelID() == 2 -->
+                                            <li>
+                                             <span data-bind="text:MemberName()"></span></li>
+                                            <!-- /ko -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>عدد الزوار</label>
+                                </div>
+                                <div class="col-sm-7 control-label pull-right">
+                                    <span data-bind="text:ExistingMembers().length"></span>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 control-label pull-right">
+                                    <label>إستيعاب الغرفة</label>
+                                </div>
+                                <div class="col-sm-7 control-label pull-right">
+                                    <span >500</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </script>
 
 
@@ -1883,6 +1975,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
 </asp:Content>

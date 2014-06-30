@@ -54,6 +54,8 @@ namespace Helper
 
         public List<ChatMember> Members { get; set; }
 
+        public List<ChatMember> Admins { get; set; }
+
         public int CurrentMemberID { get; set; }
 
         public int CreatedBy { get; set; }
@@ -67,6 +69,10 @@ namespace Helper
         public object MemberLevels { get; set; }
 
         public string WelcomeMsg { get; set; }
+        public string CategoryName { get; set; }
+        public string SubCategoryName { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 
     public class ChatMember
