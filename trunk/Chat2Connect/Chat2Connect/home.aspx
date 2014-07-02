@@ -1196,7 +1196,7 @@
                             <div class="form-group">
                                 <!-- ko if: Type()=="Room" -->
 
-                                <div id="admin-menu" class="btn-group" data-bind="if :CurrentMember().MemberLevelID() > 1">
+                                <div id="admin-menu" class="btn-group adminSettingsMenu" data-bind="if :CurrentMember().MemberLevelID() > 1">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         المشرف  <span class="caret"></span>
                                     </button>
@@ -1247,7 +1247,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="btn-group">
+                                <div class="btn-group adminSettingsMenu">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         إعدادت  <span class="caret"></span>
                                     </button>
@@ -1791,6 +1791,7 @@
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
                                         <param value="always" name="allowScriptAccess">
+                                        <param name="wmode" value="opaque" />
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ $root.CurrentMemberID+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
