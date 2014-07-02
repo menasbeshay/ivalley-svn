@@ -591,6 +591,9 @@
     <Content Include="js\bootstrap-tagsinput.min.js.map" />
     <Content Include="js\chatwindows.js" />
     <Content Include="js\fileupload\ajaxupload.js" />
+    <Content Include="js\jquery-1.11.1.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="js\jquery.tokeninput.js" />
     <Content Include="js\fileupload\app.js" />
     <Content Include="images\btndelete.png" />
@@ -1279,6 +1282,9 @@
     <Content Include="MasterPages\createMaster.master" />
     <Content Include="MasterPages\MessageMaster.master" />
     <Content Include="MasterPages\Balance.master" />
+    <Content Include="js\jquery-1.11.1.min.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>

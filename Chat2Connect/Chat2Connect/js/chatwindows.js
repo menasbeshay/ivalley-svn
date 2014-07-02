@@ -482,13 +482,14 @@ function Chat(maxWin, memberID, memberName) {
         };
         this.addMessage = function (msg) {
             this.MessageHistory.push(msg);
+            yscroll = $(".MsgHistroy", " #" + this.uniqueID()).prop('scrollHeight') + 'px';
             $(".MsgHistroy").slimScroll({
                 railVisible: true,
                 height: $(".MsgHistroy", " #" + this.uniqueID()).attr('data-height'),
                 color: '#FEC401',
                 railColor: '#C7C5C0',
                 position: 'left',
-                scrollTo: $(".MsgHistroy", " #" + this.uniqueID()).prop('scrollHeight')  //$(".MsgHistroy", " #" + this.uniqueID()).height()
+                scrollTo: yscroll  //$(".MsgHistroy", " #" + this.uniqueID()).height()
             });
             // update save coversation link
             this.SaveConversation();
@@ -501,7 +502,7 @@ function Chat(maxWin, memberID, memberName) {
                 color: '#FEC401',
                 railColor: '#C7C5C0',
                 position: 'left',
-                scrollTo: $(".AdminMsgHistroy", " #" + this.uniqueID()).prop('scrollHeight') //$(".AdminMsgHistroy", " #" + this.uniqueID()).height()
+                scrollTo: "'" + $(".AdminMsgHistroy", " #" + this.uniqueID()).prop('scrollHeight') + "px'" //$(".AdminMsgHistroy", " #" + this.uniqueID()).height()
             });
         };
         this.SaveConversation = function () {
@@ -807,6 +808,11 @@ function Chat(maxWin, memberID, memberName) {
     // scroll bars
     self.Init = function (window) {
         $(".emotionMenu > button.dropdown-toggle").click(function (e) {
+            e.stopPropagation();
+            $(this).next('.dropdown-menu').toggle();
+        });
+
+        $(".adminSettingsMenu > button.dropdown-toggle").click(function (e) {
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggle();
         });

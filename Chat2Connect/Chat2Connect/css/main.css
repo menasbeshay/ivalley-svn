@@ -1818,11 +1818,12 @@ li.g-dark-selected {
 
 .giftmsg {
     font-weight:bold;
-    color:#FF00FE;
+    color:#9E0399;
 }
 
 .joinalert {
-    color:#4E2B4C;
+    /*color:#4E2B4C;*/
+    color:#9E0399;
 }
 .leftalert {
     color:#000;

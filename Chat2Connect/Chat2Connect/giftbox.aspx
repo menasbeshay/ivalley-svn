@@ -4,6 +4,11 @@
         $(document).ready(function () {
             $('#giftbox').addClass('active');
         });
+
+        function PlayGiftSound(id)
+        {
+            $('#giftAudio_' + id).trigger("play");
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -25,7 +30,7 @@
                     <asp:BoundField HeaderText="الراسل" DataField="SenderName" HeaderStyle-CssClass="center"/>
                     <asp:TemplateField HeaderText="نوع الهدية" HeaderStyle-CssClass="center">
                         <ItemTemplate>
-                            <a href='#giftModal_<%# Container.DataItemIndex %>' data-toggle="modal" style="text-decoration:none;"><%# Eval("GiftName") %></a>
+                            <a href='#giftModal_<%# Container.DataItemIndex %>' data-toggle="modal" style="text-decoration:none;" onclick="PlayGiftSound(<%# Container.DataItemIndex %>);"><%# Eval("GiftName") %></a>
                             <div id='giftModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
         <div class="modal-dialog">
                 <div class="modal-content">
@@ -58,6 +63,7 @@
                                 </div>                                
                             </div>
                    </div>
+                    <audio id='giftAudio_<%# Container.DataItemIndex %>'><source src='files/sounds/invite.wav'></audio>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>                        
                     </div>
@@ -84,7 +90,7 @@
                     <asp:BoundField HeaderText="مرسلة إلى" DataField="Name" HeaderStyle-CssClass="center"/>
                     <asp:TemplateField HeaderText="نوع الهدية" HeaderStyle-CssClass="center">
                         <ItemTemplate>
-                            <a href='#giftModal_<%# Container.DataItemIndex %>' data-toggle="modal" style="text-decoration:none;"><%# Eval("GiftName") %></a>
+                            <a href='#giftModal_<%# Container.DataItemIndex %>' data-toggle="modal" style="text-decoration:none;"  onclick="PlayGiftSound(<%# Container.DataItemIndex %>);"><%# Eval("GiftName") %></a>
                             <div id='giftModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
         <div class="modal-dialog">
                 <div class="modal-content">
@@ -117,6 +123,7 @@
                                 </div>                                
                             </div>
                    </div>
+                     <audio id='giftAudio_<%# Container.DataItemIndex %>'><source src='files/sounds/invite.wav'></audio>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>                        
                     </div>
