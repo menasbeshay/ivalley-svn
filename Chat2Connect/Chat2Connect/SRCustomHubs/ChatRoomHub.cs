@@ -354,6 +354,61 @@ namespace Chat2Connect.SRCustomHubs
             room.Save();
         }
 
+        /* private chat cam/mic handlers */
+        public void userStartMic_Private(int rid, int memberid)
+        {
+            var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == rid);
+            var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+
+            // send to 
+            Clients.Client(toUser.ConnectionId).ListenMic_Private(memberid);
+        }
+
+        public void userStopMic_Private(int rid, int memberid)
+        {
+            var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == rid);
+            var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+
+            // send to 
+            Clients.Client(toUser.ConnectionId).StopListenMic_Private(memberid);       
+        }
+        /*
+        public void userStartCam(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).ShowCamLink(memberid, rid);
+            Room room = new Room();
+            room.LoadByPrimaryKey(rid);
+            if (room.IsColumnNull("OpenCams"))
+                room.OpenCams = 1;
+            else
+                room.OpenCams += 1;
+            room.Save();
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasCam = true;
+                roomMember.Save();
+            }
+        }
+
+        public void userStopCam(int rid, int memberid)
+        {
+            Clients.Group(rid.ToString(), Context.ConnectionId).HideCamLink(memberid, rid);
+            Room room = new Room();
+            room.LoadByPrimaryKey(rid);
+            if (room.IsColumnNull("OpenCams"))
+                room.OpenCams = 0;
+            else
+                room.OpenCams -= 1;
+            RoomMember roomMember = new RoomMember();
+            if (roomMember.LoadByPrimaryKey(memberid, rid))
+            {
+                roomMember.HasCam = false;
+                roomMember.Save();
+            }
+            room.Save();
+        }
+        */
         public void userRaisHand(int rid, int memberid, int queueOrder)
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid, queueOrder);
