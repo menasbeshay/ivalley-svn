@@ -472,10 +472,30 @@ namespace Chat2Connect.services
             return true;
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public void GetChatRoom(int id, bool isTemp)
         {
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            string error;
+            Room room;
+            if(!IsValideRoom(id,isTemp,out room,out error))
+            {
+                HttpContext.Current.Response.Write(String.Format("{\"Status\":0,\"Data\":\"{0}\"}",error));
+                return;
+            }
+
+            Helper.ChatRoom roomObject = GetRoomInfo(id, isTemp, room);
+            Helper.Sessions.OpenedRooms.Add(new Helper.Sessions.RoomSession() { ID = id, IsTemp = isTemp });
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
+            HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
+            //return result;
+        }
+
+        private static bool IsValideRoom(int id,bool isTemp,out Room room,out string message)
+        {
+            message = "";
+            room = new Room();
             if (!isTemp)
             {
                 RoomMemberBanning ban = new RoomMemberBanning();
@@ -483,31 +503,32 @@ namespace Chat2Connect.services
                 {
                     if (ban.IsColumnNull(RoomMemberBanning.ColumnNames.EndDate) || ban.EndDate > DateTime.Now)
                     {
-                        string msg = "تم طردك من هذه الغرفة ";
+                        message = "تم طردك من هذه الغرفة ";
                         if (ban.IsColumnNull(RoomMemberBanning.ColumnNames.EndDate))
-                            msg = msg + "نهائيا ولن تتمكن من الدخول مرة أخرى";
+                            message = message + "نهائيا ولن تتمكن من الدخول مرة أخرى";
                         else
-                            msg = msg + "لن تتمكن من دحول هذه الغرفة قبل هذا الوفت: " + Helper.Date.ToDateTimeString(ban.EndDate);
+                            message = message + "لن تتمكن من دحول هذه الغرفة قبل هذا الوفت: " + Helper.Date.ToDateTimeString(ban.EndDate);
 
-                        HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"" + msg + "\"}");
-
-                        return;
+                        return false;
                     }
                 }
             }
             //Room Info
-            Room room = new Room();
             if (!room.LoadByPrimaryKey(id))
             {
-                HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"غرفة غير متاحة\"}");
-                return;
+                message = "غرفة غير متاحة";
+                return false;
             }
             if (room.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
             {
-                HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":\"هذه الغرفة مغلقة حاليا\"}");
-                return;
+                message = "هذه الغرفة مغلقة حاليا";
+                return false;
             }
 
+            return true;
+        }
+        public static Helper.ChatRoom GetRoomInfo(int id, bool isTemp, Room room)
+        {
             Helper.ChatRoom roomObject = new Helper.ChatRoom();
             roomObject.ID = id;
             roomObject.Type = "Room";
@@ -603,9 +624,7 @@ namespace Chat2Connect.services
             allgifts.LoadAll();
             roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
 
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
-            HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
-            //return result;
+            return roomObject;
         }
 
         [WebMethod]
@@ -795,26 +814,6 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.Write(result);
         }
 
-        [WebMethod(EnableSession = true)]
-        public void SaveChatRoom(int id, bool add)
-        {
-            // save opened rooms 
-            List<int> rooms;
-            if (HttpContext.Current.Session["OpenedChatRooms"] != null)
-                rooms = (List<int>)HttpContext.Current.Session["OpenedChatRooms"];
-            else
-                rooms = new List<int>();
-
-            if (add)
-            {
-                if (!rooms.Contains(id))
-                    rooms.Add(id);
-            }
-            else
-                rooms = rooms.Where(m => m != id).ToList();
-            HttpContext.Current.Session["OpenedChatRooms"] = rooms;
-        }
-
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void AddRemoveFriend(int mid, int fid, bool isFriend)
@@ -846,5 +845,14 @@ namespace Chat2Connect.services
             }
             catch { }
         }
+
+        [WebMethod(EnableSession = true)]
+        public void closeChatRoom(int id)
+        {
+            var roomSession = Helper.Sessions.OpenedRooms.FirstOrDefault(r => r.ID == id);
+            if (roomSession != null)
+                Helper.Sessions.OpenedRooms.Remove(roomSession);
+        }
+
     }
 }

@@ -8,7 +8,7 @@
             font-weight: normal;
         }
 
-	 .draggable {
+        .draggable {
             position: absolute;
             border: #5f9482 solid 1px !important;
             width: 250px;
@@ -22,7 +22,7 @@
                 color: #1e4638;
                 background-image: none;
                 min-height: 20px;
-                padding:10px;
+                padding: 10px;
                 z-index: 99999;
             }
 
@@ -36,17 +36,17 @@
                 overflow-y: scroll;
                 height: 100px;
                 border-bottom: #5f9482 solid 1px;
-                padding:10px;
+                padding: 10px;
                 z-index: 99999;
             }
-            .hamsa
-            {
-                /*bottom:0px;*/
-            }
-            .hamsaModal
-            {
-                width:400px;
-            }
+
+        .hamsa {
+            /*bottom:0px;*/
+        }
+
+        .hamsaModal {
+            width: 400px;
+        }
     </style>
     <script src="js/bootstrap-slider.js"></script>
     <link href="css/slider.css" rel="stylesheet" />
@@ -132,8 +132,8 @@
         <uc2:ucFriends ID="ucFriends1" runat="server" />
 
     </div>
-    <div id="MainTabs" class="pull-right" style="width:76%">
-        <div style="padding: 5px; padding-right: 0px; margin-left: 10px;padding-right: 20px;" class="col-lg-12" id="homeNav">
+    <div id="MainTabs" class="pull-right" style="width: 76%">
+        <div style="padding: 5px; padding-right: 0px; margin-left: 10px; padding-right: 20px;" class="col-lg-12" id="homeNav">
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
@@ -219,7 +219,9 @@
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
-            InitChat(maxRooms,currentMemberID,currentMemberName);
+            var openedRooms=eval(<%=OpenedRooms %>);
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms);
+            
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
@@ -230,10 +232,10 @@
                 <b data-bind="text:FromName"></b>
             </div>
             <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
-            </div>            
+            </div>
             <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
-                <span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right:2px;"></span>
-                <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left:2px;"></span>
+                <span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>
+                <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left: 2px;"></span>
                 <span data-bind="date:MessageDate, format:'H:M '" class="pull-right"></span>
             </div>
             <!-- ko if:MemberLevel -->
@@ -244,17 +246,17 @@
                 <!-- ko if: MemberLevel == 3 -->
                 مدير
                 <!-- /ko -->
-                 <!-- ko if: MemberLevel == 2 -->
+                <!-- ko if: MemberLevel == 2 -->
                 مراقب
                 <!-- /ko -->
             </div>
-              <!-- /ko -->
+            <!-- /ko -->
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">
-        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">            
+        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">
             <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
-            <div class="clear" style="height: 1px;"></div>                        
+            <div class="clear" style="height: 1px;"></div>
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
@@ -280,7 +282,7 @@
                 </div>
                 <div class="MarkHolder">
                     <!-- ko if: IsMarked()-->
-                    <i class="icon-ban-circle" style="color:#f00;" ></i>
+                    <i class="icon-ban-circle" style="color: #f00;"></i>
                     <!-- /ko -->
                 </div>
             </div>
@@ -305,17 +307,17 @@
                             <span data-bind="text:$data.MemberName()"></span>
                         </div>
                     </div>
-                    <div class="col-lg-9 pull-right" style="padding:0 5px;">
-                        <div class="col-lg-6 pull-right"  style="padding:0 5px;">
+                    <div class="col-lg-9 pull-right" style="padding: 0 5px;">
+                        <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
                                 <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="text:IsFriend()?' حذف من ':'إضافة إلى'"></span> الأصدقاء</a></li>
-								<li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
                             </ul>
                         </div>
-                        <div class="col-lg-6 pull-right"  style="padding:0 5px;">
+                        <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
                                 <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
@@ -361,7 +363,7 @@
                 <img src="images/font-color-icon.png" style="width: 15px;" />
             </button>
             <ul id="colorsMenu" role="menu" class="dropdown-menu" style="width: 280px !important">
-                
+
                 <li class="itemColor"><a data-wysihtml5-command-value="IndianRed" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('IndianRed')" style="color: IndianRed;" href="javascript:;" unselectable="on">
                     <div style="background-color: IndianRed;" class="colorDiv"></div>
                 </a></li>
@@ -439,7 +441,7 @@
                 </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="MediumPurple" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('MediumPurple')" style="color: MediumPurple;" href="javascript:;" unselectable="on">
                     <div style="background-color: MediumPurple;" class="colorDiv"></div>
-                </a></li>               
+                </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="BlueViolet" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('BlueViolet')" style="color: BlueViolet;" href="javascript:;" unselectable="on">
                     <div style="background-color: BlueViolet;" class="colorDiv"></div>
                 </a></li>
@@ -505,7 +507,7 @@
                 </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="Teal" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Teal')" style="color: Teal;" href="javascript:;" unselectable="on">
                     <div style="background-color: Teal;" class="colorDiv"></div>
-                </a></li>                
+                </a></li>
                 <li class="itemColor"><a data-wysihtml5-command-value="Cyan" data-wysihtml5-command="foreColor" data-bind="click:setForeColor('Cyan')" style="color: Cyan;" href="javascript:;" unselectable="on">
                     <div style="background-color: Cyan;" class="colorDiv"></div>
                 </a></li>
@@ -1003,7 +1005,7 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                             <h3>تغيير صلاحيات <span data-bind="text:SelectedMember().MemberName"></span></h3>
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>الصلاحيات</label>
@@ -1031,7 +1033,7 @@
             </div>
         </div>
     </script>
-	<script id="hamsaModal" type="text/html">
+    <script id="hamsaModal" type="text/html">
         <div data-bind="attr:{id:'sendHamsaModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content hamsaModal">
@@ -1067,7 +1069,7 @@
                     <div>
                         <div class="pull-right ">
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
-                            <a id="uiLabelRoomName" data-bind="text:Name, click:showRoomInfo" style="font-weight:bold;text-decoration:none;cursor:pointer;"></a>
+                            <a id="uiLabelRoomName" data-bind="text:Name, click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;"></a>
                         </div>
                         <!-- ko if: Type()=="Room" -->
                         <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">
@@ -1144,7 +1146,7 @@
                                         <li><a href="#"><i class="icon-share-alt"></i>
                                             <label style="font-weight: normal;">
                                                 <input type="checkbox" data-bind="click:updateSetting.bind($data,'NotifyOnFriendsLogOff'),checked:CurrentMember().NotifyOnFriendsLogOff" />&nbsp;تنبيه عند خروح أشخاص&nbsp;</label></a></li>
-                                         <!-- /ko -->
+                                        <!-- /ko -->
                                         <li><a href="#"><i class="icon-eye-open"></i>
                                             <label style="font-weight: normal;">
                                                 <input type="checkbox" data-bind="click:updateSetting.bind($data,'NotifyOnOpenCam'),checked:CurrentMember().NotifyOnOpenCam" />&nbsp;تنبيه عند فتح كمراء&nbsp;</label></a></li>
@@ -1160,7 +1162,7 @@
                                     </ul>
 
                                 </div>
-                                
+
                                 <a download="room.html" data-bind="attr:{id:'SaveConv_' + ID()}" class="btn btn-main" href="#">حفظ النقاش</a>
                                 <a class="btn btn-main" href="#" data-bind="click: $parent.removeWindow">خروج</a>
                             </div>
@@ -1228,7 +1230,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                             </object>
 
                         </div>
@@ -1245,7 +1247,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
@@ -1513,7 +1515,7 @@
         </div>
         <div data-bind="template: { name: 'roomMemberLevel'}"></div>
         <!-- /ko -->
-		<!-- ko if:Type()=="Room" -->
+        <!-- ko if:Type()=="Room" -->
         <div data-bind="template: { name: 'hamsaModal'}"></div>
         <!-- /ko -->
         <!-- ko if:Type()=="Room" -->
@@ -1533,9 +1535,12 @@
                                     <label>إرسال دعوة إلى </label>
                                 </div>
                                 <div class="col-sm-8 pull-right bordered">
-                                    <div style="padding-right:15px;">
-                                        <ul class="giftMembers"><li style="width:100%; border-bottom:1px solid;"><input type="checkbox" data-bind="click:$parent.selectAllOnlineFriendsToInvite, checked:$parent.AllOnlineFriendsSelected" /><span style="padding-right:5px;">إختيار الكل</span></li></ul>
-                                        </div>
+                                    <div style="padding-right: 15px;">
+                                        <ul class="giftMembers">
+                                            <li style="width: 100%; border-bottom: 1px solid;">
+                                                <input type="checkbox" data-bind="click:$parent.selectAllOnlineFriendsToInvite, checked:$parent.AllOnlineFriendsSelected" /><span style="padding-right: 5px;">إختيار الكل</span></li>
+                                        </ul>
+                                    </div>
                                     <div class="clearfix"></div>
                                     <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
                                         <ul class="giftMembers" data-bind="foreach:$parent.OnlineFriends, attr:{id:'inviteMembers_' + uniqueID()}">
@@ -1561,7 +1566,7 @@
         </div>
         <!-- /ko -->
         <div data-bind="attr:{id:'giftModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
-            <div class="modal-dialog modal-lg"  style="width:700px;">
+            <div class="modal-dialog modal-lg" style="width: 700px;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
@@ -1637,8 +1642,7 @@
                                     <label>مقطع فيديو</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
-                                    <input type="text" class="form-control " data-bind="attr:{id:'videoURL_' + uniqueID()}">                                    
-                                    
+                                    <input type="text" class="form-control " data-bind="attr:{id:'videoURL_' + uniqueID()}">
                                 </div>
                                 <div class="col-sm-2 pull-right">
                                     <a style="cursor: pointer;" class="btn btn-default " data-bind="click:$parent.SendVideo($data)">إرسال</a>
@@ -1657,8 +1661,8 @@
                                         <input type="button" class="UploadButton pull-right" data-bind="attr:{id:'UploadButton_'+uniqueID()}" value="إختر صورة">
                                         <input type="hidden" data-bind="attr:{id:'UploadFileName_'+uniqueID()}" />
                                         <div data-bind="attr:{id:'UploadedFile_'+uniqueID()}">
-                                        </div>                                        
-                                       
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="col-sm-2 control-label pull-right">
@@ -1667,10 +1671,10 @@
                             </div>
                             <div style="height: 1px; background-color: #ccc; clear: both; width: 95%; margin: 5px auto;"></div>
 
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <div class="col-sm-3 control-label pull-right">
                                     سجل مقطع صوت
-                                </div>                                
+                                </div>
                                 <div class="col-sm-7 pull-right center">
                                     <object style="height: 138px;" data="testswf/recorder.swf" class="flashmovie" data-bind="attr:{id:'recorder_'+uniqueID(), name:'recorder_'+uniqueID()}" type="application/x-shockwave-flash">
                                         <param name="quality" value="high">
@@ -1679,8 +1683,8 @@
                                         <param data-bind="attr:{value:'roomId='+ ID() +'&amp;userId='+ $root.CurrentMemberID+'&amp;recordUrl=audioUploader.ashx'}" name="flashvars">
                                     </object>
                                 </div>
-                                
-                                
+
+
                                 <div class="col-sm-2 control-label pull-right">
                                     <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
                                 </div>
@@ -1701,8 +1705,8 @@
                         <h3 id="myModalLabel1" data-bind="text:Name"></h3>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal blockBox validationGroup">                           
-                            <div class="form-group" >
+                        <div class="form-horizontal blockBox validationGroup">
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>القسم</label>
                                 </div>
@@ -1710,7 +1714,7 @@
                                     <span data-bind="text:CategoryName"></span>
                                 </div>
                             </div>
-                             <div class="form-group" >
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>الفرع</label>
                                 </div>
@@ -1718,7 +1722,7 @@
                                     <span data-bind="text:SubCategoryName"></span>
                                 </div>
                             </div>
-                             <div class="form-group" >
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>تاريخ إنشائها</label>
                                 </div>
@@ -1726,7 +1730,7 @@
                                     <span data-bind="date:CreatedDate, format:' D-M-YYYY '"></span>
                                 </div>
                             </div>
-                             <div class="form-group" >
+                            <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>المالك</label>
                                 </div>
@@ -1738,22 +1742,22 @@
                             <div class="form-group">
                                 <div class="col-sm-6 control-label pull-right">
                                     <label>المدير</label>
-                                    <div class="col-sm-12 pull-right" style="border:1px solid #FEC200;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;min-height:30px;">
-                                         <ul data-bind="foreach:Admins">
+                                    <div class="col-sm-12 pull-right" style="border: 1px solid #FEC200; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; min-height: 30px;">
+                                        <ul data-bind="foreach:Admins">
                                             <!-- ko if:MemberLevelID() == 3 -->
                                             <li>
-                                             <span data-bind="text:MemberName()"></span></li>
+                                                <span data-bind="text:MemberName()"></span></li>
                                             <!-- /ko -->
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 control-label pull-right">
-                                   <label>مراقب</label>
-                                    <div class="col-sm-12 pull-right" style="border:1px solid #FEC200;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;min-height:30px;">
-                                         <ul data-bind="foreach:Admins">
+                                    <label>مراقب</label>
+                                    <div class="col-sm-12 pull-right" style="border: 1px solid #FEC200; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; min-height: 30px;">
+                                        <ul data-bind="foreach:Admins">
                                             <!-- ko if:MemberLevelID() == 2 -->
                                             <li>
-                                             <span data-bind="text:MemberName()"></span></li>
+                                                <span data-bind="text:MemberName()"></span></li>
                                             <!-- /ko -->
                                         </ul>
                                     </div>
@@ -1766,16 +1770,16 @@
                                 <div class="col-sm-7 control-label pull-right">
                                     <span data-bind="text:ExistingMembers().length"></span>
                                 </div>
-                                
+
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إستيعاب الغرفة</label>
                                 </div>
                                 <div class="col-sm-7 control-label pull-right">
-                                    <span >500</span>
+                                    <span>500</span>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -1788,48 +1792,52 @@
 
 
     <div id='GeneralGiftModal' class="modal fade " role="modal" aria-hidden="true">
-            <div class="modal-dialog modal-lg" style="width:700px;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
-                        <h3 id="myModalLabel1">أرسل هدية</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-horizontal blockBox validationGroup">
-                            <div class="form-group">
-                                <h4>لديك
+        <div class="modal-dialog modal-lg" style="width: 700px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                    <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                    <h3 id="myModalLabel1">أرسل هدية</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal blockBox validationGroup">
+                        <div class="form-group">
+                            <h4>لديك
                                     <label id="generalGiftPoints" data-bind="text:CreditPoints"></label>
-                                    نقطة
+                                نقطة
                                    
-                                </h4>
+                            </h4>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 control-label pull-right">
+                                <label>إرسال هدية إلى </label>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-2 control-label pull-right">
-                                    <label>إرسال هدية إلى </label>
-                                </div>
-                                <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
-                                    <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
-                                        <asp:Repeater ID="uiRepeaterGiftFriends" runat="server">
-                                            <HeaderTemplate><ul class="giftMembers" id='GeneralGiftMembers'></HeaderTemplate>
-                                            <ItemTemplate>
-                                                <li>
-                                                <input type="checkbox" class="checkboxes" value='<%#Eval("FriendID") %>' data-member-name ='<%# Eval("UserName") %>' />
+                            <div class="col-sm-9 pull-right bordered" style="padding: 3px;">
+                                <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
+                                    <asp:Repeater ID="uiRepeaterGiftFriends" runat="server">
+                                        <HeaderTemplate>
+                                            <ul class="giftMembers" id='GeneralGiftMembers'>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <li>
+                                                <input type="checkbox" class="checkboxes" value='<%#Eval("FriendID") %>' data-member-name='<%# Eval("UserName") %>' />
                                                 <span><%# Eval("UserName") %></span></li>
-                                            </ItemTemplate>
-                                            <FooterTemplate>
-                                                </ul>
-                                            </FooterTemplate>
-                                        </asp:Repeater>
-                                    </div>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </ul>
+                                        </FooterTemplate>
+                                    </asp:Repeater>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 control-label pull-right" id='GeneralGiftUL'>
-                                    <asp:Repeater ID="uiRepeaterGeneralGifts" runat="server">
-                                            <HeaderTemplate><ul class="gifts" ></HeaderTemplate>
-                                            <ItemTemplate>
-                                                <li data-cat='<%# Eval("Price_Point") %>'>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 control-label pull-right" id='GeneralGiftUL'>
+                                <asp:Repeater ID="uiRepeaterGeneralGifts" runat="server">
+                                    <HeaderTemplate>
+                                        <ul class="gifts">
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <li data-cat='<%# Eval("Price_Point") %>'>
                                             <input type="radio" name="gift" id='gift_<%# Eval("GiftID") %>' value='<%# Eval("GiftID") %>' class="input_hidden" />
                                             <label for='gift_<%# Eval("GiftID") %>' class="GiftLabel" data-giftid='<%# Eval("GiftID") %>' data-giftprice='<%# Eval("Price_Point")%>'>
                                                 <img src='<%# Eval("PicPath") %>' />
@@ -1839,28 +1847,28 @@
                                                 <span class="giftprice"><%# Eval("Price_Point") + " نقطة" %></span>
                                             </label>
                                         </li>
-                                            </ItemTemplate>
-                                            <FooterTemplate>
-                                                </ul>
-                                            </FooterTemplate>
-                                        </asp:Repeater>
-                                    
-                                    <div class="clearfix" style="height: 10px;"></div>
-                                </div>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </ul>
+                                    </FooterTemplate>
+                                </asp:Repeater>
 
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6 pull-left">
-                                    <input type="button" id="btnGeneralSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;"  />
-                                </div>
+                                <div class="clearfix" style="height: 10px;"></div>
                             </div>
 
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                <input type="button" id="btnGeneralSendGift" value="إرسال" class="btn btn-warning" style="width: 100px;" />
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
+
             </div>
         </div>
+    </div>
 
 
 

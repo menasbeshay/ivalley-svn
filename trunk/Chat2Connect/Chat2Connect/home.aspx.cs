@@ -14,14 +14,24 @@ namespace Chat2Connect
 {
     public partial class home : System.Web.UI.Page
     {
+        public string OpenedRooms
+        {
+            get
+            {
+                return Convert.ToString(ViewState["Rooms"]);
+            }
+            set
+            {
+                ViewState["Rooms"] = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.IsAuthenticated)
             {
                 if (!IsPostBack)
                 {
-                    Member member = new Member();
-                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+                    Member member = BLL.Member.CurrentMember;
                     uiHiddenFieldCurrent.Value = member.MemberID.ToString();
                     uiHiddenFieldCurrentName.Value = member.Name;
                     uiHiddenFieldCreditPoints.Value = (!member.IsColumnNull("Credit_Point")) ? member.Credit_Point.ToString() : "0";
@@ -29,6 +39,8 @@ namespace Chat2Connect
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
                     int membertype = 0;
                     membertype = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID;
+                    uiHiddenFieldMaxCams.Value = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.OpenedCamCount.ToString();
+                    uiHiddenFieldMaxNoOfRooms.Value = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.OpenRoomCount.ToString();
 
                     // init friends & gifts for general gift modal
                     MemberFriend friends = new MemberFriend();
@@ -39,35 +51,11 @@ namespace Chat2Connect
                     Gift gifts = new Gift();
                     gifts.LoadAll();
                     uiRepeaterGeneralGifts.DataSource = gifts.DefaultView;
-                    uiRepeaterGeneralGifts.DataBind(); 
+                    uiRepeaterGeneralGifts.DataBind();
 
-                    switch (membertype)
-                    {
-                        case 1: // black
-                            uiHiddenFieldMaxCams.Value = 1.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 2.ToString();
-                            break;
-                        case 2: // zety 
-                            uiHiddenFieldMaxCams.Value = 4.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 4.ToString();
-                            break;
-                        case 3: // purple
-                            uiHiddenFieldMaxCams.Value = 100.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 6.ToString();
-                            break;
-                        case 4: // premium 
-                            uiHiddenFieldMaxCams.Value = 100.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 8.ToString();
-                            break;
-                        default:
-                            uiHiddenFieldMaxCams.Value = 1.ToString();
-                            uiHiddenFieldMaxNoOfRooms.Value = 2.ToString();
-                            break;
-                    }
-
+                    Room room = new Room();
                     if (Session["TempRoomCreate"] != null)
                     {
-                        Room room = new Room ();
                         room.LoadByPrimaryKey(Convert.ToInt32(Session["TempRoomCreate"].ToString()));
                         ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},1500)}); ", true);
                         Session["TempRoomCreate"] = null;
@@ -78,7 +66,6 @@ namespace Chat2Connect
                     {
                         try
                         {
-                            Room room = new Room();
                             room.LoadByPrimaryKey(Convert.ToInt32(Request.QueryString["t"].ToString()));
                             ClientScript.RegisterStartupScript(this.GetType(), "temproom", "$(document).ready(function (){ setTimeout( function(){ addChatRoom(" + room.RoomID.ToString() + ", 'غرفة مؤقتة', 'Room', true);" + @"},1500)}); ", true);
 
@@ -88,21 +75,30 @@ namespace Chat2Connect
                         }
                     }
 
-                    if (Session["OpenedChatRooms"] != null)
+                    List<Helper.ChatRoom> openedRooms = new List<Helper.ChatRoom>();
+                    foreach (var sessionInfo in Helper.Sessions.OpenedRooms)
                     {
-                        List<int> rooms = (List<int>)Session["OpenedChatRooms"];
-                        string script = "";
-                        int time = 1000;
-                        foreach (var item in rooms)
+                        if (room.LoadByPrimaryKey(sessionInfo.ID))
                         {
-                            Room room = new Room();
-                            room.LoadByPrimaryKey(Convert.ToInt32(item));
-                            script += "setTimeout( function(){addChatRoom(" + room.RoomID.ToString() + ", '" + room.Name + "', 'Room', false); },"+time+");";
-                            time += 500;
-                            
+                            openedRooms.Add(Chat2Connect.services.Services.GetRoomInfo(sessionInfo.ID, sessionInfo.IsTemp, room));
                         }
-                        ClientScript.RegisterStartupScript(this.GetType(), "openrooms", "$(document).ready(function (){ "+ script + "}); ", true);    
                     }
+                    OpenedRooms = Helper.JsonConverter.Serialize(openedRooms);
+                    //if (Session["OpenedChatRooms"] != null)
+                    //{
+                    //    List<int> rooms = (List<int>)Session["OpenedChatRooms"];
+                    //    string script = "";
+                    //    int time = 1000;
+                    //    foreach (var item in rooms)
+                    //    {
+                    //        Room room = new Room();
+                    //        room.LoadByPrimaryKey(Convert.ToInt32(item));
+                    //        script += "setTimeout( function(){addChatRoom(" + room.RoomID.ToString() + ", '" + room.Name + "', 'Room', false); },"+time+");";
+                    //        time += 500;
+                            
+                    //    }
+                    //    ClientScript.RegisterStartupScript(this.GetType(), "openrooms", "$(document).ready(function (){ "+ script + "}); ", true);    
+                    //}
 
                 }
             }

@@ -106,7 +106,6 @@ namespace Chat2Connect.SRCustomHubs
 
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
-
               
             }
             catch (Exception ex)
