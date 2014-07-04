@@ -38,7 +38,7 @@ function Chat(maxWin, memberID, memberName) {
     self.OnlineFriends = ko.observableArray();
     self.AllOnlineFriendsSelected = ko.observable(false);
     self.selectAllOnlineFriendsToInvite = function () {
-        var newValue=!self.AllOnlineFriendsSelected();
+        var newValue = !self.AllOnlineFriendsSelected();
         ko.utils.arrayForEach(self.OnlineFriends(), function (friend) {
             friend.IsSelected(newValue);
         });
@@ -196,7 +196,7 @@ function Chat(maxWin, memberID, memberName) {
                 });
             }
             else {
-                notify('success', 'تم تغيير الإعدادات بنجاح');                
+                notify('success', 'تم تغيير الإعدادات بنجاح');
             }
             return true;
         }
@@ -779,23 +779,23 @@ function Chat(maxWin, memberID, memberName) {
                         notify('error', data.Data);
                         return;
                     }
-                    var win = ko.mapping.fromJS(data.Data, mapping);
-                    self.windows.push(win);
-                    self.changeCurrent(win.uniqueID());
-
-                    rHub.server.addToRoom(id, win.CurrentMember().InRoom());
-                    self.Init(win);
+                    self.pushWindow(data.Data);
                 });
 
-            // save opened rooms
-            $.post("../services/Services.asmx/SaveChatRoom", { id: id, add: true });
         }
     }
+    self.pushWindow = function (data) {
+        var win = ko.mapping.fromJS(data, mapping);
+        self.windows.push(win);
+        self.changeCurrent(win.uniqueID());
+        self.Init(win);
+
+        rHub.server.addToRoom(win.ID(), win.CurrentMember().InRoom());
+    };
     self.removeWindow = function () {
         if (this.Type() == "Room") {
             rHub.server.removeFromRoom(this.ID());
-            // save opened rooms
-            $.post("../services/Services.asmx/SaveChatRoom", { id: this.ID(), add: false });
+            $.post("../services/Services.asmx/closeChatRoom", { id: this.ID() });
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
@@ -1058,6 +1058,8 @@ function Chat(maxWin, memberID, memberName) {
         rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
+
+
 }
 
 function onCamClose(userId, roomId) {
@@ -1111,13 +1113,19 @@ function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
 }
-function InitChat(maxWinRooms, memberID, memberName) {
+function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
+    rHub = $.connection.chatRoomHub;
+    $.connection.hub.start();
     chatVM = new Chat(maxWinRooms, memberID, memberName);
     ko.applyBindings(chatVM);
+    $.connection.hub.start().done(function () {
+        ko.utils.arrayMap(openedWindows, function (item) {
+            chatVM.pushWindow(item);
+        })
+    });
 
     /****** signalR ********/
 
-    rHub = $.connection.chatRoomHub;
     rHub.client.getPrivateMessage = function (fromId, message) {
         var window = chatVM.getWindow(fromId, "Private", message.FromName);
         window.addMessage(message);
@@ -1270,7 +1278,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         var window = chatVM.getWindow(memberid, type);
         if (window == null)
             return;
-        window.startMic(memberid);        
+        window.startMic(memberid);
     };
     rHub.client.StopListenMic_Private = function (memberid) {
         var type = "Private";
@@ -1278,7 +1286,7 @@ function InitChat(maxWinRooms, memberID, memberName) {
         if (window == null)
             return;
 
-        window.stopMic(memberid);        
+        window.stopMic(memberid);
     };
 
 
@@ -1408,10 +1416,9 @@ function InitChat(maxWinRooms, memberID, memberName) {
             setTimeout(function () { receiverMember.HasGift(false); }, 60000);
         }
 
-        if (window.CurrentMemberID() == friendID)
-        {
+        if (window.CurrentMemberID() == friendID) {
             var modaldiv = "<div class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>هدية</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='" + giftpath + "' style='max-height:400px;'/></div></div></div></div></div></div>" + "<audio autoplay><source src='" + "files/sounds/invite.wav" + "'></audio>" + "</div>";
-            
+
             var $div = $(modaldiv);
             $("#" + window.uniqueID() + "").prepend($div);
             $div.modal('show');
