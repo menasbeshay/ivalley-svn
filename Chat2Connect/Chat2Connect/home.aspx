@@ -41,7 +41,7 @@
             }
             .hamsa
             {
-                bottom:0px;
+                /*bottom:0px;*/
             }
             .hamsaModal
             {
