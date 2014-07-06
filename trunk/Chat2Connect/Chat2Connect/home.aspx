@@ -137,7 +137,7 @@
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
-                <li class="pull-right"><a style="display: block; height: 28px;" data-toggle="tab" data-bind="attr: { href: '#' + Type() + '_' + ID() }, click: $parent.changeCurrent.bind($data, $data.Type() + '_' + $data.ID())">
+                <li class="pull-right"><a style="display: block; height: 28px;" data-toggle="tab" data-bind="attr: { href: '#' + uniqueID() }, click: $parent.changeCurrent.bind($data, $data.uniqueID())">
                     <span data-bind="text: Name" class="pull-right"></span>
                     <button type="button" class="close" data-bind="click: $parent.removeWindow">×</button></a></li>
                 <!-- /ko -->
@@ -1230,7 +1230,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                             </object>
 
                         </div>
@@ -1247,7 +1247,7 @@
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
                         </object>
 
                     </div>
@@ -1743,7 +1743,7 @@
                                 <div class="col-sm-6 control-label pull-right">
                                     <label>المدير</label>
                                     <div class="col-sm-12 pull-right" style="border: 1px solid #FEC200; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; min-height: 30px;">
-                                        <ul data-bind="foreach:Admins">
+                                        <ul data-bind="foreach:AdminMembers">
                                             <!-- ko if:MemberLevelID() == 3 -->
                                             <li>
                                                 <span data-bind="text:MemberName()"></span></li>
@@ -1754,7 +1754,7 @@
                                 <div class="col-sm-6 control-label pull-right">
                                     <label>مراقب</label>
                                     <div class="col-sm-12 pull-right" style="border: 1px solid #FEC200; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; min-height: 30px;">
-                                        <ul data-bind="foreach:Admins">
+                                        <ul data-bind="foreach:AdminMembers">
                                             <!-- ko if:MemberLevelID() == 2 -->
                                             <li>
                                                 <span data-bind="text:MemberName()"></span></li>

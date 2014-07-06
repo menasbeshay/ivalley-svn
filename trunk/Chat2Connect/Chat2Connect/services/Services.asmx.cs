@@ -593,7 +593,7 @@ namespace Chat2Connect.services
                 }
             }
             // load owner / admins 
-            roomObject.Admins = roomMember.GetAdminsMembersByRoomID(id);
+            //roomObject.Admins = roomMember.GetAdminsMembersByRoomID(id);
 
             // load cat & subcat
             Category cat = new Category();
@@ -852,6 +852,66 @@ namespace Chat2Connect.services
             var roomSession = Helper.Sessions.OpenedRooms.FirstOrDefault(r => r.ID == id);
             if (roomSession != null)
                 Helper.Sessions.OpenedRooms.Remove(roomSession);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetMemberNode(int mid)
+        {
+            
+            Member member = new Member();
+            member.LoadByPrimaryKey(mid);
+
+            string memberdiv = @"<div class='Altodd friend-link' id='usernode-{0}' data-name='{1}'>
+                                    <img src='images/defaultavatar.png' id='user-{0}' class='friendpic {5}'/>
+                                    <a href='#' class='type_{2}'>{1}
+                                    </a>
+                            <div class='clearfix' style='height: 1px;'></div>
+                            <span id='user-status-{0}'>
+                             {4}
+                                </span>
+                            <div class='clearfix' style='height: 1px;'></div>
+                                <div class='friendSubMenu' >
+                                <div class='popup-menu profileMenu' data-for='usernode-{0}' >
+                                        <div class='col-lg-3 pull-right'>
+                                        <div class=' thumbnail'>
+                                            <img src='{3}'/>
+                                            
+                                        </div>
+                                            <div class='clearfix' style='height:1px;'>
+                                            </div>
+                                            <div style='text-align:right;'>
+                                            {1}
+                                                </div>
+                                            </div>
+                                        <div class='col-lg-9 pull-right'>
+                                        <div class='col-lg-6 pull-right'>
+                                            <ul>
+                                                <li><a class='jslink' onclick=" + "\"addChatRoom({0}, " + "'{1}', 'Private');\"" + @"><span class='awesome'>&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class='jslink' href='userprofile.aspx?uid={0}' target='_blank'><span class='awesome'>&#xf08e;</span> عرض البروفايل</a></li>
+                                                <li><a class='jslink'><span class='awesome'>&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-lg-6 pull-right'>
+                                            <ul>
+                                                <li><a class='jslink openGiftModal' data-mid='{0}'><span class='awesome'>&#xf06b;</span> أرسل هدية</a></li>
+                                        <li><a href='Messages.aspx?t=createmsg&u={0}&un={1}' target='_blank'><span class='awesome'>&#xf003;</span> أرسل رسالة</a></li>
+                                        
+                                        <li><a class='jslink'><span class='awesome'>&#xf05e;</span> حجب</a></li>
+                                        
+                                            </ul>
+                                        </div>
+                                      </div>
+                                        <div class='clear' style='height: 1px;'></div>
+                                    </div>
+                                    </div>                                
+                                </div>";
+
+            string result = string.Format(memberdiv, member.MemberID, member.UserName, Helper.Defaults.MemberTypeSpecDurationID, member.ProfilePic, member.StatusMsg, (member.IsOnLine)? "online" : "offline");
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            result = Newtonsoft.Json.JsonConvert.SerializeObject(result);
+            HttpContext.Current.Response.Write(result);
+            //return result;
         }
 
     }

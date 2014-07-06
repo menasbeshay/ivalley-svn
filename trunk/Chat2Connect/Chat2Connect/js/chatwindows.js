@@ -92,6 +92,8 @@ function Chat(maxWin, memberID, memberName) {
     });
 
     self.addOnlineFriend = function (member) {
+        // update IsSelected prop
+        member.IsSelected = false;
         self.OnlineFriends.push(member);
     }
 
@@ -117,6 +119,12 @@ function Chat(maxWin, memberID, memberName) {
         var self = this;
 
         this.uniqueID = ko.computed(function () {
+            if (this.Type() == 'Private')
+            {
+                // generated id for private chat
+                var newroomid = (this.ID() < this.CurrentMemberID()) ? this.ID() + "_" + this.CurrentMemberID() : this.CurrentMemberID() + "_" + this.ID();
+                return this.Type() + '_' + newroomid;
+            }
             return this.Type() + '_' + this.ID();
         }, this);
 
@@ -214,6 +222,30 @@ function Chat(maxWin, memberID, memberName) {
                 success: function (result) {
                 }
             });
+
+            // update friend list
+            if (isFriend) {
+                $("#usernode-" + fid).remove();
+            }
+            else {
+                $.ajax({
+                    url: '../Services/Services.asmx/GetMemberNode',
+                    type: 'GET',
+                    data: { mid: fid },
+                    success: function (result) {                        
+                        $(result).appendTo("#onlinepeople");
+                        initPopupMenu();
+                        // init link in friends menu 
+                        $('.openGiftModal').click(function () {
+                            $('#GeneralGiftModal').modal('show');
+                            $('#GeneralGiftModal input.checkboxes').each(function () {
+                                $(this).attr('checked', false);
+                            });
+                            $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+                        });
+                    }
+                });
+            }
         };
         this.SelectedMember = ko.observable(this.CurrentMember());
         this.showRoomMemberLevelsPopup = function (mid) {
@@ -677,7 +709,16 @@ function Chat(maxWin, memberID, memberName) {
             member.IsCamOpened(true);
             if (window.Type() == 'Private') {
                 // show cam to friend 
-                return;
+                if (window.CurrentMember().MemberID() == memberID) {
+                    rHub.server.userStartCam_Private(window.ID(), memberID);
+                }
+                else {
+                    if (window.CurrentMember().NotifyOnOpenCam()) {
+                        var msg = member.MemberName() + ' قد بدأ فتح الكمراء';
+                        addMsgToWindow(window, msg, "joinalert");
+                    }
+                }
+                return;                
             }
             if (window.CurrentMember().MemberID() == memberID) {
                 rHub.server.userStartCam(window.ID(), window.CurrentMember().MemberID());
@@ -692,6 +733,15 @@ function Chat(maxWin, memberID, memberName) {
             member.IsCamOpened(false);
             if (window.Type() == 'Private') {
                 // close cam on friend
+                if (window.CurrentMember().MemberID() == memberID) {
+                    rHub.server.userStopCam_Private(window.ID(), memberID);
+                }
+                else {
+                    if (window.CurrentMember().NotifyOnCloseCam()) {
+                        var msg = member.MemberName() + ' أغلق الكمراء';
+                        addMsgToWindow(window, msg, "leftalert");
+                    }
+                }
                 return;
             }
             if (window.CurrentMember().MemberID() == memberID) {
@@ -760,7 +810,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
 
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -836,12 +886,12 @@ function Chat(maxWin, memberID, memberName) {
     // tooltips for toolbar
     // scroll bars
     self.Init = function (window) {
-        $(".emotionMenu > button.dropdown-toggle").click(function (e) {
+        $("#" + window.uniqueID() + " .emotionMenu > button.dropdown-toggle").click(function (e) {
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggle();
         });
 
-        $(".adminSettingsMenu > button.dropdown-toggle").click(function (e) {
+        $("#" + window.uniqueID() + " .adminSettingsMenu > button.dropdown-toggle").click(function (e) {
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggle();
         });
@@ -1287,6 +1337,22 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
             return;
 
         window.stopMic(memberid);
+    };
+
+    rHub.client.StartCam_Private = function (memberid) {
+        var type = "Private";
+        var window = chatVM.getWindow(memberid, type);
+        if (window == null)
+            return;
+        window.startCam(memberid);
+    };
+    rHub.client.StopCam_Private = function (memberid) {
+        var type = "Private";
+        var window = chatVM.getWindow(memberid, type);
+        if (window == null)
+            return;
+
+        window.stopCam(memberid);
     };
 
 
