@@ -1468,14 +1468,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
         var window = chatVM.getWindow(roomID, "Room");
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
-        $(".MsgHistroy").slimScroll({
-            railVisible: true,
-            height: $(".MsgHistroy", "#" + window.uniqueID()).attr('data-height'),
-            color: '#FEC401',
-            railColor: '#C7C5C0',
-            position: 'left',
-            scrollTo: $(".MsgHistroy", "#" + window.uniqueID()).height()
-        });
+        
         var receiverMember = window.getMember(friendID);
         if (receiverMember != null) {
             receiverMember.HasGift(true);
@@ -1486,7 +1479,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
             var modaldiv = "<div class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>هدية</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='" + giftpath + "' style='max-height:400px;'/></div></div></div></div></div></div>" + "<audio autoplay><source src='" + "files/sounds/invite.wav" + "'></audio>" + "</div>";
 
             var $div = $(modaldiv);
-            $("#" + window.uniqueID() + "").prepend($div);
+            $('#MainTabs').prepend($div);
             $div.modal('show');
         }
     };
