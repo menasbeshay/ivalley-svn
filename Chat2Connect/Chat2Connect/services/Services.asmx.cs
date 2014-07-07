@@ -622,7 +622,7 @@ namespace Chat2Connect.services
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
-            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"] }).ToList();
+            roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"], AudioPath = m["AudioPath"] }).ToList();
 
             return roomObject;
         }
@@ -723,7 +723,7 @@ namespace Chat2Connect.services
                 if (roomID != 0)
                 {
                     IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath);
+                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath);
                 }
 
             }
@@ -742,7 +742,7 @@ namespace Chat2Connect.services
             {
                 for (int i = 0; i < allgifts.RowCount; i++)
                 {
-                    gifts.Add(new { giftid = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString(), picPath = allgifts.PicPath });
+                    gifts.Add(new { giftid = allgifts.GiftID, name = allgifts.Name, price = allgifts.IsColumnNull("Price_Point") ? "0" : allgifts.Price_Point.ToString(), picPath = allgifts.PicPath, AudioPath = allgifts.AudioPath });
                     allgifts.MoveNext();
                 }
             }

@@ -67,7 +67,7 @@
                                         <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
-                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true);'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                                 <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                                 <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                                 <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
@@ -121,7 +121,7 @@
                                         <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
-                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true);'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                                 <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                                 <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                                 <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
@@ -187,7 +187,7 @@
                                         <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
-                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true);'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                                <%-- <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                                 <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                                 <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
@@ -241,7 +241,7 @@
                                         <div class="col-lg-9 pull-right">
                                         <div class="col-lg-6 pull-right">
                                             <ul>
-                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                                <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true);'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                                <%-- <li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                                 <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                                 <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>

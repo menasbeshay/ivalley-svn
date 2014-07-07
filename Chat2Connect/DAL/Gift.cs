@@ -131,6 +131,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter AudioPath
+			{
+				get
+				{
+					return new SqlParameter("@AudioPath", SqlDbType.NVarChar, 200);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +149,7 @@ namespace DAL
             public const string Name = "Name";
             public const string Price_Point = "Price_Point";
             public const string PicPath = "PicPath";
+            public const string AudioPath = "AudioPath";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +161,7 @@ namespace DAL
 					ht[Name] = _Gift.PropertyNames.Name;
 					ht[Price_Point] = _Gift.PropertyNames.Price_Point;
 					ht[PicPath] = _Gift.PropertyNames.PicPath;
+					ht[AudioPath] = _Gift.PropertyNames.AudioPath;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +178,7 @@ namespace DAL
             public const string Name = "Name";
             public const string Price_Point = "Price_Point";
             public const string PicPath = "PicPath";
+            public const string AudioPath = "AudioPath";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +190,7 @@ namespace DAL
 					ht[Name] = _Gift.ColumnNames.Name;
 					ht[Price_Point] = _Gift.ColumnNames.Price_Point;
 					ht[PicPath] = _Gift.ColumnNames.PicPath;
+					ht[AudioPath] = _Gift.ColumnNames.AudioPath;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +207,7 @@ namespace DAL
             public const string Name = "s_Name";
             public const string Price_Point = "s_Price_Point";
             public const string PicPath = "s_PicPath";
+            public const string AudioPath = "s_AudioPath";
 
 		}
 		#endregion		
@@ -246,6 +259,18 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.PicPath, value);
+			}
+		}
+
+		public virtual string AudioPath
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.AudioPath);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.AudioPath, value);
 			}
 		}
 
@@ -311,6 +336,21 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.PicPath);
 				else
 					this.PicPath = base.SetstringAsString(ColumnNames.PicPath, value);
+			}
+		}
+
+		public virtual string s_AudioPath
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.AudioPath) ? string.Empty : base.GetstringAsString(ColumnNames.AudioPath);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.AudioPath);
+				else
+					this.AudioPath = base.SetstringAsString(ColumnNames.AudioPath, value);
 			}
 		}
 
@@ -387,6 +427,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter AudioPath
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.AudioPath, Parameters.AudioPath);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +490,23 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter AudioPath
+		    {
+				get
+		        {
+					if(_AudioPath_W == null)
+	        	    {
+						_AudioPath_W = TearOff.AudioPath;
+					}
+					return _AudioPath_W;
+				}
+			}
+
 			private WhereParameter _GiftID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _Price_Point_W = null;
 			private WhereParameter _PicPath_W = null;
+			private WhereParameter _AudioPath_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +514,7 @@ namespace DAL
 				_Name_W = null;
 				_Price_Point_W = null;
 				_PicPath_W = null;
+				_AudioPath_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +611,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter AudioPath
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AudioPath, Parameters.AudioPath);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +674,23 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter AudioPath
+		    {
+				get
+		        {
+					if(_AudioPath_W == null)
+	        	    {
+						_AudioPath_W = TearOff.AudioPath;
+					}
+					return _AudioPath_W;
+				}
+			}
+
 			private AggregateParameter _GiftID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _Price_Point_W = null;
 			private AggregateParameter _PicPath_W = null;
+			private AggregateParameter _AudioPath_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +698,7 @@ namespace DAL
 				_Name_W = null;
 				_Price_Point_W = null;
 				_PicPath_W = null;
+				_AudioPath_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +787,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.PicPath);
 			p.SourceColumn = ColumnNames.PicPath;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.AudioPath);
+			p.SourceColumn = ColumnNames.AudioPath;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -545,10 +545,10 @@ function Chat(maxWin, memberID, memberName) {
         this.SaveConversation = function () {
             var str = "<link href='http://chat2connect.com/css/bootstrap.min.css' rel='stylesheet' /> <link href='http://chat2connect.com/css/main.css' rel='stylesheet' /> ";
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
-                str += msg.Message;
+                str += msg.FromName() + ":" + msg.Message();
             });
 
-            $('#SaveConv_' + self.ID()).attr("href", "data:text/plain;charset=UTF-8," + str);
+            $('#SaveConv_' + self.ID()).attr("href", "data:html/plain;charset=UTF-8," + str);
         };
         this.showOlderMessages = function () {
             var window = this;
@@ -785,15 +785,15 @@ function Chat(maxWin, memberID, memberName) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp, ishidden, levelid) {
+    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend) {
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend);
         }
         else
             self.changeCurrent(window.uniqueID());
     };
-    self.addWindow = function (id, name, type, istemp, isHidden, levelid) {
+    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend) {
         if (istemp == undefined)
             istemp = false;
         if (type == 'Private') {
@@ -810,7 +810,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
 
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend  }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -1149,10 +1149,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp, isHidden, levelid) {
+function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp, isHidden, levelid);
+    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend);
 }
 
 function getFlashMovie(movieName) {
@@ -1464,7 +1464,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
             });
         }
     };
-    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath) {
+    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath, audiopath) {
         var window = chatVM.getWindow(roomID, "Room");
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
@@ -1476,7 +1476,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
         }
 
         if (window.CurrentMemberID() == friendID) {
-            var modaldiv = "<div class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>هدية</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='" + giftpath + "' style='max-height:400px;'/></div></div></div></div></div></div>" + "<audio autoplay><source src='" + "files/sounds/invite.wav" + "'></audio>" + "</div>";
+            var modaldiv = "<div class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>هدية</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='" + giftpath + "' style='max-height:400px;'/></div></div></div></div></div></div>" + "<audio autoplay><source src='" + audiopath + "'></audio>" + "</div>";
 
             var $div = $(modaldiv);
             $('#MainTabs').prepend($div);
