@@ -310,7 +310,7 @@
                     <div class="col-lg-9 pull-right" style="padding: 0 5px;">
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
-                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private')"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend())"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
@@ -1131,6 +1131,21 @@
                                     </ul>
                                 </div>
                                 <!-- /ko -->
+                                 <!-- ko if: Type()=="Private" -->
+
+                                <div id="admin-menu" class="btn-group adminSettingsMenu">
+                                    <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
+                                        إجراءات  <span class="caret"></span>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu RoomAdminMenu">
+                                    <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+ID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>                    
+                                    <%--<li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.Members(1))"><span class="awesome">&#xf00d;</span> <span data-bind="    text:$data.Members(1).IsFriend?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>--%>
+                                    <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':ID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                                    <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+ID()+'&un='+Name()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <li><a href="#"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /ko -->
                                 <div class="btn-group adminSettingsMenu">
                                     <button style="position: relative;" data-toggle="dropdown" class="btn btn-main dropdown-toggle" type="button">
                                         إعدادت  <span class="caret"></span>
@@ -1320,7 +1335,7 @@
 
                         <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute; left: 0; width: 100%; height: 70px; z-index: 2; opacity: 0.4; filter: alpha(opacity = 50)"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;'></textarea>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;padding:10px;line-height:normal;'></textarea>
 
                         <div style="height: 20px;" class="clear"></div>
 
