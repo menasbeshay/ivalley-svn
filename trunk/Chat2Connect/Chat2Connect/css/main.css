@@ -1856,3 +1856,13 @@ li.g-dark-selected {
     font-size:12px;
     padding-right:10px;
 }
+
+input[type="text"], textarea {
+    resize:none;
+}
+
+.msgbody {
+    max-width:70%;
+    line-height:normal;
+    word-wrap: normal;
+}

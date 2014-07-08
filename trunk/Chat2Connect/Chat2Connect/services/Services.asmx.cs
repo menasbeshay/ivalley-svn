@@ -617,8 +617,10 @@ namespace Chat2Connect.services
                 ID = (int)l,
                 Name = Helper.StringEnum.GetStringValue(l)
             }).ToList();
+            
             //messages
-            roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);
+            //roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);            
+            roomObject.MessageHistory = new List<Helper.ChatMessage>();
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();

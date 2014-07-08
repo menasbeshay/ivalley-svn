@@ -134,7 +134,7 @@ function Chat(maxWin, memberID, memberName) {
         // default editor styles
         this.IsBold = false;
         this.IsItalic = false;
-        this.FontSize = 'small';
+        this.FontSize = 'medium';
         this.ForeColor = 'black';
 
         this.getMember = function (id) {
@@ -493,6 +493,30 @@ function Chat(maxWin, memberID, memberName) {
         }
         this.toggleAdminPart = function () {
             self.showAdminPart(!self.showAdminPart());
+            yscroll = $(".MsgHistroy", " #" + self.uniqueID()).prop('scrollHeight') + 'px';
+            if (self.showAdminPart()) {
+                $(".MsgHistroy", " #" + self.uniqueID()).slimScroll({
+                    railVisible: true,
+                    height: "250px",
+                    color: '#FEC401',
+                    railColor: '#C7C5C0',
+                    position: 'left',
+                    scrollTo: yscroll  //$(".MsgHistroy", " #" + this.uniqueID()).height()
+                });
+                $(".MsgHistroy", " #" + self.uniqueID()).parent().animate({ height: 250 }, 700);
+            }
+            else {
+                $(".MsgHistroy", " #" + self.uniqueID()).slimScroll({
+                    railVisible: true,
+                    height: "400px",
+                    color: '#FEC401',
+                    railColor: '#C7C5C0',
+                    position: 'left',
+                    scrollTo: yscroll  //$(".MsgHistroy", " #" + this.uniqueID()).height()
+                });
+                $(".MsgHistroy", " #" + self.uniqueID()).parent().animate({height:400},700);
+            }
+
         };
 
         // flash object 
@@ -574,6 +598,17 @@ function Chat(maxWin, memberID, memberName) {
             var newValue = !window.Settings[settingName]();
             rHub.server.updateRoomSetting(window.ID(), settingName, newValue);
             window.Settings[settingName](newValue);
+            // reverse settings
+            if (settingName == "MarkOnLoginWithWrite" && newValue)
+            {
+                rHub.server.updateRoomSetting(window.ID(), "MarkOnLoginWithoutWrite", !newValue);
+                window.Settings["MarkOnLoginWithoutWrite"](!newValue);
+            }
+
+            if (settingName == "MarkOnLoginWithoutWrite" && newValue) {
+                rHub.server.updateRoomSetting(window.ID(), "MarkOnLoginWithWrite", !newValue);
+                window.Settings["MarkOnLoginWithWrite"](!newValue);
+            }
             return true;
         }
         this.MarkAllWithWriteCheck = ko.observable(false);
@@ -582,6 +617,12 @@ function Chat(maxWin, memberID, memberName) {
             var newValue = !window.MarkAllWithWriteCheck();
             rHub.server.markAllWithWrite(window.ID(), newValue, window.CurrentMember().MemberID());
             window.MarkAllWithWriteCheck(newValue);
+
+            // reverse other settings
+            if (newValue) {
+                rHub.server.markAllWithoutWrite(window.ID(), !newValue, window.CurrentMember().MemberID());
+                window.MarkAllWithoutWriteCheck(!newValue);
+            }
             return true;
         };
         this.MarkAllWithoutWriteCheck = ko.observable(false);
@@ -590,6 +631,12 @@ function Chat(maxWin, memberID, memberName) {
             var newValue = !window.MarkAllWithoutWriteCheck();
             rHub.server.markAllWithoutWrite(window.ID(), newValue, window.CurrentMember().MemberID());
             window.MarkAllWithoutWriteCheck(newValue);
+
+            // reverse other settings
+            if (newValue) {
+                rHub.server.markAllWithWrite(window.ID(), !newValue, window.CurrentMember().MemberID());
+                window.MarkAllWithWriteCheck(!newValue);
+            }
             return true;
         };
 
@@ -1228,6 +1275,14 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
         }
         // init popover menu for new members
         initPopover(window);
+        // init send gift
+        $('.MemberSendGift').click(function () {
+            $("#giftModal_" + window.uniqueID()).modal('show');
+            $('#giftModal_' + window.uniqueID() + ' input.checkboxes').each(function () {
+                $(this).attr('checked', false);
+            });
+            $('#giftModal_' + window.uniqueID() + ' input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', true);
+        });
     };
     rHub.client.removeMember = function (mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
