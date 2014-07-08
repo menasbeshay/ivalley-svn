@@ -231,10 +231,10 @@
                 <b data-bind="if:FromName">:</b>
                 <b data-bind="text:FromName"></b>
             </div>
-            <div class='pull-left msgHolder' style='width: auto;' data-bind="html:Message">
+            <div class='pull-left msgHolder msgbody' style='width: auto;' data-bind="html:Message">
             </div>
             <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
-                <span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>
+                <%--<span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>--%>
                 <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left: 2px;"></span>
                 <span data-bind="date:MessageDate, format:'H:M '" class="pull-right"></span>
             </div>
@@ -353,8 +353,8 @@
                 <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xsmall')">صغير جداً</a></li>
                 <li><a data-wysihtml5-command-value="small" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('small')">صغير</a></li>
                 <li><a data-wysihtml5-command-value="medium" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('medium')">متوسط</a></li>
-                <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('large')">كبير</a></li>
-                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xlarge')">كبير جداً</a></li>
+               <%-- <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('large')">كبير</a></li>
+                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xlarge')">كبير جداً</a></li>--%>
             </ul>
         </div>
 
@@ -1047,7 +1047,7 @@
                             <h3>همسة إلى <span data-bind="text:SelectedMember().MemberName"></span></h3>
 
                             <div class="form-group">
-                                <textarea name="txtHamsa" data-bind="value:HamsaText" class="form-control"></textarea>
+                                <textarea name="txtHamsa" data-bind="value:HamsaText" class="form-control" maxlength="40"></textarea>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
@@ -1108,7 +1108,7 @@
                                                 <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'MarkOnLoginWithoutWrite'),checked:Settings.MarkOnLoginWithoutWrite">&nbsp;تنقيط عند الدخول وبدون كتابة&nbsp;
                                             </label>
                                         </li>
-                                        <li>
+                                        <%--<li>
                                             <label>
                                                 <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'EnableCam'),checked:Settings.EnableCam">&nbsp;مسموح الكمراء&nbsp;
                                             </label>
@@ -1122,7 +1122,7 @@
                                             <label>
                                                 <input type="checkbox" data-bind="click:updateRoomSetting.bind($data,'EnableMicForAdminsOnly'),checked:Settings.EnableMicForAdminsOnly">&nbsp;مسموح المكرفون للأدمنية فقط&nbsp;
                                             </label>
-                                        </li>
+                                        </li>--%>
                                         <li>
                                             <label>
                                                 <a style="cursor: pointer;" data-bind="click:showControlPanel" href="#"><i class=" icon-dashboard"></i>&nbsp;لوحة تحكم المشرف </a>
@@ -1326,7 +1326,7 @@
                         <!-- /ko -->
                         <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
                             <!-- ko if: Type()=="Room" -->
-                            <input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />
+                            <%--<input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />--%>
                             <!-- /ko -->
                             <!-- ko template: { name: 'chatMsgTemplate', foreach: MessageHistory }-->
                             <!-- /ko -->
@@ -1335,7 +1335,7 @@
 
                         <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute; left: 0; width: 100%; height: 70px; z-index: 2; opacity: 0.4; filter: alpha(opacity = 50)"></div>
                         <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;padding:10px;line-height:normal;'></textarea>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;line-height:normal;'></textarea>
 
                         <div style="height: 20px;" class="clear"></div>
 

@@ -121,9 +121,10 @@ var wysihtml5ParserRules = {
             "rename_tag": "span"
         },
         "br": {
-            "add_class": {
+            /*"add_class": {
                 "clear": "clear_br"
-            }
+            },*/
+            "remove" : 1
         },
         "details": {
             "rename_tag": "div"

@@ -218,6 +218,7 @@ namespace Chat2Connect.SRCustomHubs
         }
         public void sendToRoom(int roomid,int senderid, string sender, string msg, int MemberLevelID)
         {
+            msg = msg.Replace("<br>", "");
             RoomMessages messages = new RoomMessages();
             messages.AddNew();
             messages.RoomID = roomid;
@@ -251,6 +252,7 @@ namespace Chat2Connect.SRCustomHubs
         }
         public void sendToRoomAdmins(int roomid,int senderid, string sender, string msg)
         {
+            msg = msg.Replace("<br>", "");
             var resultMsg = new Helper.ChatMessage()
             {
                 FromID = senderid,
@@ -263,6 +265,7 @@ namespace Chat2Connect.SRCustomHubs
         }
         public void sendPrivateMessage(int toUserId, string message)
         {
+            message = message.Replace("<br>", "");
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == toUserId);
             var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
 
