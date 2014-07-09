@@ -1866,3 +1866,9 @@ input[type="text"], textarea {
     line-height:normal;
     word-wrap: normal;
 }
+
+.SendMsg {
+    text-decoration:underline !important;
+    font-weight:bold;
+    color:blue !important;
+}
