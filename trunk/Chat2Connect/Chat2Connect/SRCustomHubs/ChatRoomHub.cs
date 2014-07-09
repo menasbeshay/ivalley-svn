@@ -287,10 +287,12 @@ namespace Chat2Connect.SRCustomHubs
             }
             else
             {
+                Member friend = new Member();
+                friend.LoadByPrimaryKey(toUserId);
                 var resultMsg = new Helper.ChatMessage()
                 {
-                    FromName = "عفواً",
-                    Message = "الرسالة لم تصل. صديقك الأن غير متواجد.",
+                    FromName = "",
+                    Message = "  المستخدم الذى تحاول التحدث معه الان غير موجود اونلاين" + "&nbsp;<a href='Messages.aspx?t=createmsg&u=" + friend.MemberID.ToString() + "&un=" + friend.UserName + "' class='SendMsg' target='_blank'>يمكنك ان ترسل له رساله الان</a>",
                     MessageDate = DateTime.Now
                 };
                 Clients.Caller.getPrivateMessage(toUserId, resultMsg);
