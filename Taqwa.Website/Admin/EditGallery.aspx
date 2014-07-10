@@ -23,7 +23,7 @@
         </div>
         <div class="clear"></div>
 
-    <div style="display:none;">
+    <div >
         <div class="AdminLeft">
             <asp:Label ID="uiLabelEnglishTitle" runat="server" CssClass="Label" 
                 Text="العنوان بالإنجليزية :"></asp:Label>
@@ -35,13 +35,13 @@
         <div class="AdminRight">
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="uiTextBoxEnNewsTitle" ErrorMessage="*" 
-                ValidationGroup="UpdatePage" Enabled="false"></asp:RequiredFieldValidator>
+                ValidationGroup="UpdatePage" Enabled="true"></asp:RequiredFieldValidator>
         </div>
         <div class="clear"></div>
         </div>
          <div class="AdminLeft">
             <asp:Label ID="uiLabelArabicTitle" runat="server" CssClass="Label" 
-                Text="العنوان  :"></asp:Label>
+                Text="العنوان بالعربية :"></asp:Label>
         </div>
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxArNewsTitle" runat="server" ValidationGroup="UpdatePage" 

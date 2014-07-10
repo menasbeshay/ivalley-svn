@@ -15,6 +15,18 @@
         onclick="uiLinkButtonAdd_Click" style="font-size:15px;">إضافة سنة دراسية جديدة</asp:LinkButton>
     <br /><br />
 </div>
+
+
+<div class="AdminLeft"></div>
+        <div class="AdminMiddle">
+            <asp:Label ID="uiLabelError" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+
+        </div>
+        <div class="AdminRight">
+
+    
+        </div>
+        <div class="clear"></div>
 <div>
     <asp:GridView ID="uiGridViewSchoolYears" runat="server" AutoGenerateColumns="False" 
         CellPadding="1" CellSpacing="3" onrowcommand="uiGridViewSchoolYears_RowCommand" 

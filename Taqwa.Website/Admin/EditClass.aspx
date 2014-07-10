@@ -20,10 +20,20 @@
         onclick="uiLinkButtonAdd_Click" style="font-size:15px">إضافة صف جديد</asp:LinkButton>
     <br /><br />
 </div>
+<div class="AdminLeft"></div>
+        <div class="AdminMiddle">
+            <asp:Label ID="uiLabelError" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+
+        </div>
+        <div class="AdminRight">
+
+    
+        </div>
+        <div class="clear"></div>
 <div>
     <asp:GridView ID="uiGridViewClasses" runat="server" AutoGenerateColumns="False" 
         CellPadding="1" CellSpacing="3" onrowcommand="uiGridViewClasses_RowCommand" 
-        AllowPaging="true" onpageindexchanging="uiGridViewClasses_PageIndexChanging" >   
+        AllowPaging="false" onpageindexchanging="uiGridViewClasses_PageIndexChanging" >   
         <AlternatingRowStyle HorizontalAlign="Center" />     
     <Columns>
     

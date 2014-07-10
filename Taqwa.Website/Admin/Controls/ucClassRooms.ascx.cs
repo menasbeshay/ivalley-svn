@@ -91,7 +91,7 @@ namespace Taqwa.Website.Admin.Controls
             else if (e.CommandName == "DeleteClassRoom")
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
-                CurrentClassRoom = id;
+                //CurrentClassRoom = id;
                 DBLayer db = new DBLayer();
                 db.DeleteClassRoom(id);                
                 BindData();

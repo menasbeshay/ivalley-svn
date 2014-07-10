@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using Taqwa.BLL;
 using System.Data;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace Taqwa.Website
 {
@@ -30,8 +31,8 @@ namespace Taqwa.Website
             {
 
                 MailMessage msg = new MailMessage();
-                msg.To.Add("jobs@altaqwaschools.com");
-                msg.From = new MailAddress("jobs@altaqwaschools.com");
+                msg.To.Add(ConfigurationManager.AppSettings["careerMail"]);
+                msg.From = new MailAddress(ConfigurationManager.AppSettings["FromMail"]);
                 msg.Subject = " Email from jobs page";
                 msg.IsBodyHtml = true;
                 msg.BodyEncoding = System.Text.Encoding.Unicode;
@@ -43,12 +44,12 @@ namespace Taqwa.Website
                     msg.Attachments.Add(new Attachment(uiFileUpload.FileContent, uiFileUpload.FileName));
                 }
 
-                SmtpClient client = new SmtpClient("mail.altaqwaschools.com", 25);
+                SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["Server"], 25);
                 //SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 //client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
 
-                client.Credentials = new System.Net.NetworkCredential("jobs@altaqwaschools.com", "password");
+                client.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["FromMail"], ConfigurationManager.AppSettings["FromPass"]);   
                 client.Send(msg);
                 uiLabelMessage.Visible = true;
                 uiLabelMessage.Text = "تم إرسال سيرتك الذاتية بنجاح";

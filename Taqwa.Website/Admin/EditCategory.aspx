@@ -15,6 +15,18 @@
         onclick="uiLinkButtonAdd_Click" style="font-size:15px;">إضافة قسم جديد</asp:LinkButton>
     <br />
 </div>
+
+
+<div class="AdminLeft"></div>
+        <div class="AdminMiddle">
+            <asp:Label ID="uiLabelError" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+
+        </div>
+        <div class="AdminRight">
+
+    
+        </div>
+        <div class="clear"></div>
 <div>
     <asp:GridView ID="uiGridViewCategory" runat="server" AutoGenerateColumns="False" 
         CellPadding="1" CellSpacing="3" onrowcommand="uiGridViewCategory_RowCommand" 

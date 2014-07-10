@@ -35,7 +35,7 @@ namespace Taqwa.Website.Admin
             if (!IsPostBack)
             {
                 LoadDDLs();
-                if (CurrentClass != 0)
+                /*if (CurrentClass != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -56,13 +56,13 @@ namespace Taqwa.Website.Admin
                     uiPanelCourses.Visible = false;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentClasses.Visible = true;
                     uiPanelCurrent.Visible = false;
                     uiPanelClassRooms.Visible = false;
                     uiPanelCourses.Visible = false;
                     BindData();
-                }
+               // }
             }
         }
 
@@ -139,7 +139,13 @@ namespace Taqwa.Website.Admin
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
                 CurrentClass = id;
                 DBLayer db = new DBLayer();
-                db.DeleteClass(id);
+                if (!db.DeleteClass(id))
+                {
+                    uiLabelError.Visible = true;
+                    uiLabelError.Text = "لايمكن حذف الصف لوجود بيانات مربوطة بالسجل الخاص به.";
+                    return;
+                }
+                uiLabelError.Visible = false;
                 uiPanelCurrentClasses.Visible = true;
                 uiPanelCurrent.Visible = false;
                 uiPanelClassRooms.Visible = false;

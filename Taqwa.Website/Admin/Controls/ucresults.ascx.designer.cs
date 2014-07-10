@@ -40,6 +40,15 @@ namespace Taqwa.Website.Admin.Controls {
         protected global::System.Web.UI.WebControls.Label uiLabelClass;
         
         /// <summary>
+        /// uiHiddenFieldClassID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldClassID;
+        
+        /// <summary>
         /// Label14 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Taqwa.Website.Admin.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListSchoolYear;
+        
+        /// <summary>
+        /// uiLabelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelError;
         
         /// <summary>
         /// uiRepeaterResults control.

@@ -22,6 +22,15 @@ namespace Taqwa.Website.Admin.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lnkBackToAdminCP;
         
         /// <summary>
+        /// uiLabelMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelMsg;
+        
+        /// <summary>
         /// uiDropDownListSchoolYear control.
         /// </summary>
         /// <remarks>

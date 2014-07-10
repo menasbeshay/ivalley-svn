@@ -458,7 +458,7 @@ jQuery(document).ready(function ($) {
 	jQuery('.custom_block1_img .h_slider:first-child, .custom_block2_testimonial .h_slider:first-child').addClass('showme');
 	jQuery('.custom_block1 ul li a').mouseover(function (e) {
 		e.preventDefault();
-		var slide_id = jQuery(this).attr('href');
+		var slide_id = jQuery(this).attr('data-id');
 		var slide_post_id = slide_id.replace('#', '');
 		jQuery(this).closest('ul').find('li').removeClass('active');
 		jQuery(this).parent().addClass('active');

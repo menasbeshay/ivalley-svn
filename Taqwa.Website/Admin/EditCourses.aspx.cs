@@ -33,7 +33,7 @@ namespace Taqwa.Website.Admin
         {
             if (!IsPostBack)
             {
-                if (CurrentCourse != 0)
+               /* if (CurrentCourse != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -51,12 +51,12 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentCourses.Visible = true;
                     uiPanelCurrent.Visible = false;
                     LoadDDLs();
                     BindData();
-                }
+              //  }
             }
         }
 

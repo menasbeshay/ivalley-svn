@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditStudent.aspx.cs" Inherits="Taqwa.Website.Admin.EditStudent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" EnableEventValidation="false"  CodeBehind="EditStudent.aspx.cs" Inherits="Taqwa.Website.Admin.EditStudent" %>
 
 <%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI" TagPrefix="asp" %>
@@ -10,6 +10,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
     <link href="../css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function PrintGridData() {
+            var prtGrid = document.getElementById('<%=uiGridViewExported.ClientID %>');
+            prtGrid.border = 0;
+            var prtwin = window.open('', 'PrintGridViewData', 'left=100,top=100,width=1000,height=1000,toolbar=0,scrollbars=1,status=0,resizable=1');
+            prtwin.document.write(prtGrid.outerHTML);
+            prtwin.document.close();
+            prtwin.focus();
+            prtwin.print();
+            prtwin.close();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="BackDiv">
@@ -55,6 +68,11 @@
         <div class="AdminRight">
             &nbsp;<asp:Button ID="uiButtonSearch" runat="server" Text="بحث" 
                 onclick="uiButtonSearch_Click" />
+                &nbsp;
+                <asp:Button ID="uiButtonExport" runat="server" Text="حفظ ملف Excel" 
+                onclick="uiButtonExport_Click" />
+                <input type="button" onclick="PrintGridData();return false;" value="طباعة">
+
     </div>
         <div class="clear"></div>
         <div class="AdminLeft"></div>
@@ -69,30 +87,51 @@
         </div>
         <div class="clear"></div>
 
+        <div class="AdminLeft"></div>
+        <div class="AdminMiddle">
+            <asp:Label ID="uiLabelError" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+
+        </div>
+        <div class="AdminRight">
+
+    
+        </div>
+        <div class="clear"></div>
+
     <asp:GridView ID="uiGridViewStudents" runat="server" AutoGenerateColumns="False" 
         CellPadding="1" CellSpacing="3" 
-        onrowcommand="uiGridViewStudents_RowCommand" AllowPaging="True" 
+        onrowcommand="uiGridViewStudents_RowCommand" AllowPaging="false" 
         onpageindexchanging="uiGridViewStudents_PageIndexChanging" >
         <AlternatingRowStyle HorizontalAlign="Center" />
     <Columns>
+    <asp:TemplateField HeaderText="م" >
+    <ItemTemplate>
+        <%# Container.DataItemIndex + 1 %>
+    </ItemTemplate>
+    </asp:TemplateField>
+    <asp:BoundField  HeaderText="الصف الدراسى " DataField="ClassName" />
+    <asp:BoundField  HeaderText="الفصل " DataField="ClassRoomName" />
     
     <asp:BoundField  HeaderText="إسم الطالب " DataField="ArStudentName" />
     
     <asp:BoundField  HeaderText="إسم الأب " DataField="ArFatherName" />
     <asp:CheckBoxField HeaderText="نشط" DataField="IsActive" />
+    <asp:BoundField  HeaderText="إسم المستخدم " DataField="UserName" />
+    <asp:BoundField  HeaderText="كلمة المرور " DataField="SecretCode" />
     <asp:TemplateField HeaderText="إجراءات" ItemStyle-HorizontalAlign="Center">
     <ItemTemplate>
     
-    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditStudent" ToolTip="تعديل"><img src="../images/icons/edit.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonMonthlyReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditMonthlyReport" ToolTip="التقرير الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonAttendanceReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditAttedanceReport" ToolTip="تقرير الغياب الشهرى"><img src="../images/icons/reports.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonFees" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditFees" ToolTip="المصروفات الدراسية"><img src="../images/icons/fees.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img src="../images/icons/installment.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img src="../images/icons/natiga.gif" /></asp:LinkButton>
-    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img src="../images/icons/delete.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditStudent" ToolTip="تعديل"><img style="max-width:30px"  src="../images/icons/edit.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton6" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditPassword" ToolTip="تعديل الرقم السرى"><img style="max-width:30px"  src="../images/icons/edit.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonMonthlyReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditMonthlyReport" ToolTip="تقرير السلوك الشهرى"><img style="max-width:30px"  src="../images/icons/reports.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonAttendanceReport" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditAttedanceReport" ToolTip="تقرير الغياب الشهرى"><img style="max-width:30px"  src="../images/icons/reports.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonFees" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditFees" ToolTip="المصروفات الدراسية"><img style="max-width:30px"  src="../images/icons/fees.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditInstallments" ToolTip="أقساط المصروفات الدراسية"><img style="max-width:30px"  src="../images/icons/installment.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHMT" ToolTip="نتائج نصف الفصل الدراسى الأول "><img style="max-width:30px"  src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsFHF" ToolTip="نتائج نصف العام "><img style="max-width:30px"  src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton4" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHMT" ToolTip="نتائج نصف الفصل الدراسى الثانى "><img style="max-width:30px"  src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="EditResultsSHF" ToolTip="نتائج نهاية العام "><img style="max-width:30px"  src="../images/icons/natiga.gif" /></asp:LinkButton>
+    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("StudentID") %>' CommandName="DeleteStudent"  OnClientClick="return confirm('Are you want to delete this record?');" ToolTip="حذف"><img style="max-width:30px"  src="../images/icons/delete.gif" /></asp:LinkButton>
 
     </ItemTemplate>
     </asp:TemplateField>
@@ -102,6 +141,41 @@
     عفواً ، لا توجد بيانات .
     </EmptyDataTemplate>
     </asp:GridView>
+    <div style="display:none">
+      <asp:GridView ID="uiGridViewExported" runat="server" AutoGenerateColumns="False" 
+        CellPadding="5" CellSpacing="5" 
+        onrowcommand="uiGridViewStudents_RowCommand" AllowPaging="false" 
+        onpageindexchanging="uiGridViewStudents_PageIndexChanging" 
+        HorizontalAlign="Center" >
+        <AlternatingRowStyle HorizontalAlign="Center" />
+    <Columns>
+   
+   <asp:BoundField  HeaderText="كلمة المرور " DataField="SecretCode" HeaderStyle-HorizontalAlign="Center"/>
+   <asp:BoundField  HeaderText="إسم المستخدم " DataField="UserName" HeaderStyle-HorizontalAlign="Center"/>
+   <asp:CheckBoxField HeaderText="نشط" DataField="IsActive" HeaderStyle-HorizontalAlign="Center"/>
+   <asp:BoundField  HeaderText="الموبايل " DataField="Mobile" HeaderStyle-HorizontalAlign="Center"/>
+    <asp:BoundField  HeaderText="التليفون " DataField="Tele" HeaderStyle-HorizontalAlign="Center"/>
+    <asp:BoundField  HeaderText="إسم الأب " DataField="ArFatherName" HeaderStyle-HorizontalAlign="Center"/>
+   
+    <asp:BoundField  HeaderText="إسم الطالب " DataField="ArStudentName" HeaderStyle-HorizontalAlign="Center"/>
+    
+   
+     
+     <asp:BoundField  HeaderText="الفصل " DataField="ClassRoomName" HeaderStyle-HorizontalAlign="Center"/>
+     <asp:BoundField  HeaderText="الصف الدراسى " DataField="ClassName" HeaderStyle-HorizontalAlign="Center"/>
+     <asp:TemplateField HeaderText="م" HeaderStyle-HorizontalAlign="Center">
+    <ItemTemplate>
+        <%# Container.DataItemIndex + 1 %>
+    </ItemTemplate>
+    </asp:TemplateField>
+    </Columns>
+          <HeaderStyle HorizontalAlign="Center" />
+        <RowStyle HorizontalAlign="Center" />
+        <EmptyDataTemplate>
+    عفواً ، لا توجد بيانات .
+    </EmptyDataTemplate>
+    </asp:GridView>
+    </div>
     <div class="clear"></div>
     </div>
     </asp:Panel>
@@ -310,6 +384,7 @@
 
 
          <div class="AdminLeft" style="width: 195px">
+
         </div>
         <div class="AdminMiddle">
         </div>
@@ -549,6 +624,41 @@
             <uc5:ucresults ID="ucresults1" runat="server" />
         </div>
         </asp:Panel>
+
+        <asp:Panel ID="uiPanelPassword" runat="server" Visible="false">
+        <div class="dialog-modal" id="passdiag" title="تعديل الرقم السرى">            
+             <div class="AdminLeft" style="width: 200px">
+            <asp:Label ID="Label30" runat="server" CssClass="Label" 
+                Text="الرقم السرى الجديد  :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxPassword" runat="server" 
+                Width="200px" ></asp:TextBox>
+        </div>
+        <div class="AdminRight">
+           
+            &nbsp;</div>
+        <div class="clear"></div>
+       
+        <div class="AdminLeft" style="width: 250px">
+        </div>
+        <div class="AdminRight">
+            &nbsp;<asp:Label ID="uiLabelPassError" Visible="false" runat="server" Text="حدث خطأ. تأكد من كتابة كلمة المرور" ForeColor="Red"></asp:Label></div>
+        <div class="clear"></div>
+       <div class="AdminLeft" style="width: 150px;">
+        &nbsp;
+        </div>
+        <div class="AdminMiddle">
+            <asp:Button ID="uiButtonsavePassword" runat="server" onclick="uiButtonsavePassword_Click" 
+                Text=" تعديل" />            
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
+        </div>
+
+        </asp:Panel>
     
 
      <script type="text/javascript">
@@ -602,6 +712,17 @@
              });
 
              $("#resultsdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                 /* close: function (event, ui) {
+                 //this.html('');
+                 $(this).dialog('close');
+                 $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+             $("#passdiag").dialog({
                  modal: true,
                  width: 650,
                  open: function (type, data) { $(this).parent().appendTo("#Main"); }

@@ -36,7 +36,7 @@ namespace Taqwa.Website.Admin
             {
                 Session["FCKeditor:UserFilesPath"] = ConfigurationManager.AppSettings["UserFilePath"];
                 
-                if (CurrentNews != 0)
+               /* if (CurrentNews != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -53,11 +53,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentNews.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+               // }
             }
         }
 
@@ -104,13 +104,19 @@ namespace Taqwa.Website.Admin
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
         {
             DBLayer db = new DBLayer();
+            string filepath = "";
+            if (uiFileUploadImage.HasFile)
+            {
+                filepath = "/images/news/" + DateTime.Now.ToString("ddMMyyyyhhss_") + uiFileUploadImage.FileName;
+                uiFileUploadImage.SaveAs(Server.MapPath("~" + filepath));
+            }
             if (CurrentNews != 0)
             {
-                db.UpdateNews(CurrentNews, uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, Server.HtmlEncode(uiFCKeditorEnContent.Value), Server.HtmlEncode(uiFCKeditorArContent.Value),DateTime.Now);
+                db.UpdateNews(CurrentNews, uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, Server.HtmlEncode(uiFCKeditorEnContent.Value), Server.HtmlEncode(uiFCKeditorArContent.Value),DateTime.ParseExact(uiTextBoxDate.Text,"dd/MM/yyyy", null), filepath);
             }
             else
             {
-                db.AddNews(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, Server.HtmlEncode(uiFCKeditorEnContent.Value), Server.HtmlEncode(uiFCKeditorArContent.Value),DateTime.Now);
+                db.AddNews(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, Server.HtmlEncode(uiFCKeditorEnContent.Value), Server.HtmlEncode(uiFCKeditorArContent.Value), DateTime.ParseExact(uiTextBoxDate.Text, "dd/MM/yyyy", null), filepath);
             }
             uiPanelCurrentNews.Visible = true;
             uiPanelCurrent.Visible = false;

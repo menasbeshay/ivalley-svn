@@ -8,6 +8,7 @@
     <h4>الطالب الحالى : 
                         <asp:Label ID="uiLabelStudentName" runat="server"></asp:Label> 
                         <br /> الصف : <asp:Label ID="uiLabelClass" runat="server"></asp:Label>
+        <asp:HiddenField ID="uiHiddenFieldClassID" runat="server" />
                 </h4>
                 <div class="AdminLeft" style="width: 195px">
                 <asp:Label ID="Label14" runat="server" CssClass="Label" 
@@ -20,6 +21,11 @@
             <div class="AdminRight" style="width: 30%">
             &nbsp;</div>
             <div class="clear">
+            </div>    
+            <div class="AdminLeft" style="width: 100%">
+                <asp:Label ID="uiLabelError" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+            </div>
+            <div class="clear" style="height:10px;">
             </div>    
     <asp:Repeater ID="uiRepeaterResults" runat="server" 
         onitemdatabound="uiRepeaterResults_ItemDataBound">
@@ -46,11 +52,19 @@
                     <asp:TextBox ID="uiTextBoxGrade" runat="server" Width="100"> </asp:TextBox>
                 </td>
                 <td>
-                    <asp:TextBox ID="uiTextBoxEvalutaion" runat="server" Width="100"> </asp:TextBox>
+                    <asp:DropDownList ID="uiDropDownListEval" runat="server">
+                        <asp:ListItem Text="ضعيف جداً" />
+                        <asp:ListItem Text="ضعيف " />
+                        <asp:ListItem Text="جيد" />
+                        <asp:ListItem Text="جيد جداً" />
+                        <asp:ListItem Text="ممتاز" />
+                    </asp:DropDownList>                    
+                    <%--<asp:TextBox ID="uiTextBoxEvalutaion" runat="server" Width="100"> </asp:TextBox>--%>
                 </td>
-                <td>
+                <td>                    
                     <asp:HiddenField ID="uiHiddenFieldResultID" runat="server" />
                     <asp:HiddenField ID="uiHiddenFieldCourseID" runat="server" />
+                    <asp:HiddenField ID="uiHiddenFieldMaxGrade" runat="server" />
                 </td>
             </tr>
         </ItemTemplate>

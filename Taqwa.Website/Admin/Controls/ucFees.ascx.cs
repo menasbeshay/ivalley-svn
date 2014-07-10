@@ -60,7 +60,10 @@ namespace Taqwa.Website.Admin.Controls
             uiDropDownListSchoolYear.DataTextField = "ArName";
             uiDropDownListSchoolYear.DataValueField = "SchoolYearID";
             uiDropDownListSchoolYear.DataBind();
-            uiDropDownListSchoolYear.SelectedIndex = 0;
+            if (db.GetCurrentSchoolYear().Tables[0].Rows.Count > 0)
+                uiDropDownListSchoolYear.SelectedValue = db.GetCurrentSchoolYear().Tables[0].Rows[0]["SchoolYearID"].ToString();
+            else
+                uiDropDownListSchoolYear.SelectedIndex = 0;
         }
         public void BindData()
         {
@@ -78,13 +81,15 @@ namespace Taqwa.Website.Admin.Controls
             
             /*uiGridViewStudentsFees.DataSource = ds;
             uiGridViewStudentsFees.DataBind();*/
-
-            uiTextBoxRemainingFees.Text = ds.Tables[0].Rows[0]["RemainingFeesLastYear"].ToString();
-            uiTextBoxBooksFees.Text = ds.Tables[0].Rows[0]["BooksFees"].ToString();
-            uiTextBoxBusFees.Text = ds.Tables[0].Rows[0]["BusFees"].ToString();
-            uiTextBoxUniformFees.Text = ds.Tables[0].Rows[0]["UniformFees"].ToString();
-            uiTextBoxActFees.Text = ds.Tables[0].Rows[0]["ActivitiesFees"].ToString();
-            uiTextBoxOtherFees.Text = ds.Tables[0].Rows[0]["OtherFees"].ToString();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                uiTextBoxRemainingFees.Text = ds.Tables[0].Rows[0]["RemainingFeesLastYear"].ToString();
+                uiTextBoxBooksFees.Text = ds.Tables[0].Rows[0]["BooksFees"].ToString();
+                uiTextBoxBusFees.Text = ds.Tables[0].Rows[0]["BusFees"].ToString();
+                uiTextBoxUniformFees.Text = ds.Tables[0].Rows[0]["UniformFees"].ToString();
+                uiTextBoxActFees.Text = ds.Tables[0].Rows[0]["ActivitiesFees"].ToString();
+                uiTextBoxOtherFees.Text = ds.Tables[0].Rows[0]["OtherFees"].ToString();
+            }
         }
 
         protected void uiGridViewStudentsFees_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -126,14 +131,24 @@ namespace Taqwa.Website.Admin.Controls
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
         {
             DBLayer db = new DBLayer();
-            if (CurrentFees != 0)
+            DataSet ds = new DataSet();
+            ds = db.GetFeesByStudentIDAndSchoolYear(Convert.ToInt32(Session["CurrentStudentActive"]), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            //if (CurrentFees != 0)
+            //{
+            //    db.UpdateFees(CurrentFees, float.Parse(uiTextBoxRemainingFees.Text), float.Parse(uiTextBoxBooksFees.Text), float.Parse(uiTextBoxBusFees.Text), float.Parse(uiTextBoxUniformFees.Text), float.Parse(uiTextBoxOtherFees.Text), float.Parse(uiTextBoxActFees.Text), CurrentStudentActive, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            //}
+            //else
+            //{
+            //    db.AddFees(float.Parse(uiTextBoxRemainingFees.Text), float.Parse(uiTextBoxBooksFees.Text), float.Parse(uiTextBoxBusFees.Text), float.Parse(uiTextBoxUniformFees.Text), float.Parse(uiTextBoxOtherFees.Text), float.Parse(uiTextBoxActFees.Text), CurrentStudentActive, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            //}            
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                db.UpdateFees(CurrentFees, float.Parse(uiTextBoxRemainingFees.Text), float.Parse(uiTextBoxBooksFees.Text), float.Parse(uiTextBoxBusFees.Text), float.Parse(uiTextBoxUniformFees.Text), float.Parse(uiTextBoxOtherFees.Text), float.Parse(uiTextBoxActFees.Text), CurrentStudentActive, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                db.UpdateFees(Convert.ToInt32(ds.Tables[0].Rows[0]["FeesID"].ToString()), float.Parse(uiTextBoxRemainingFees.Text), float.Parse(uiTextBoxBooksFees.Text), float.Parse(uiTextBoxBusFees.Text), float.Parse(uiTextBoxUniformFees.Text), float.Parse(uiTextBoxOtherFees.Text), float.Parse(uiTextBoxActFees.Text), CurrentStudentActive, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
             }
             else
             {
                 db.AddFees(float.Parse(uiTextBoxRemainingFees.Text), float.Parse(uiTextBoxBooksFees.Text), float.Parse(uiTextBoxBusFees.Text), float.Parse(uiTextBoxUniformFees.Text), float.Parse(uiTextBoxOtherFees.Text), float.Parse(uiTextBoxActFees.Text), CurrentStudentActive, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-            }            
+            }
             ClearFields();
             BindData();
         }

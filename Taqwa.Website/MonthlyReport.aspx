@@ -104,7 +104,7 @@
             <asp:Panel ID="uiPanelReport" runat="server" Width="100%">
                 <div class="Right">
                 <h3>
-                التقرير الشهرى 
+                تقرير السلوك الشهرى
                 </h3>
                 </div>
                 <div class="Middle">

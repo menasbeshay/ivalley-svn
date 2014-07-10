@@ -14,6 +14,12 @@
 تحميل المصروفات الدراسية
 </h2></div>
 <div class="clearfix" style="height:5px;"></div>
+
+<div class="row" style="direction:rtl;">
+    <asp:Label ID="uiLabelMsg" runat="server" Text="تم تحميل المصروفات الدراسية" ForeColor="Green" Font-Bold="true" Visible="true"></asp:Label>
+</div>
+<div class="clearfix" style="height:5px;"></div>
+
 <div class="row" style="direction:rtl;">
     <div class="col-lg-3 pull-right ">
     السنة الدراسية

@@ -10,13 +10,12 @@ namespace Taqwa.Website
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            
+            if (Session["CurrentLoggedInStudent"] == null)
             {
-                if (Session["CurrentLoggedInStudent"] == null)
-                {
-                    Response.Redirect("~/Login.aspx");
-                }
+                Response.Redirect("~/Login.aspx");
             }
+            
         }
     }
 }

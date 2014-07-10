@@ -500,6 +500,20 @@ namespace Taqwa.BLL
             }
         }
 
+        public bool UpdateStudentPassword(int StudentID, string SecertCode)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateStudentPassword", StudentID, SecertCode);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public DataSet GetStudent(int StudentID)
         {
             return SqlHelper.ExecuteDataset(ConnectionString, "GetStudent", StudentID);
@@ -1141,12 +1155,12 @@ namespace Taqwa.BLL
         #endregion
 
         #region  News Methods
-        public bool AddNews(string EnTitle, string ArTitle, string EnBody, string ArBody, DateTime CreatedDate)
+        public bool AddNews(string EnTitle, string ArTitle, string EnBody, string ArBody, DateTime CreatedDate, string PicPath)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddNews", EnTitle, ArTitle, EnBody, ArBody, CreatedDate);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddNews", EnTitle, ArTitle, EnBody, ArBody, CreatedDate, PicPath);
                 return (rows > 0);
             }
             catch (Exception)
@@ -1155,12 +1169,12 @@ namespace Taqwa.BLL
             }
         }
 
-        public bool UpdateNews(int NewsID, string EnTitle, string ArTitle, string EnBody, string ArBody, DateTime CreatedDate)
+        public bool UpdateNews(int NewsID, string EnTitle, string ArTitle, string EnBody, string ArBody, DateTime CreatedDate, string PicPath)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateNews", NewsID, EnTitle, ArTitle, EnBody, ArBody, CreatedDate);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateNews", NewsID, EnTitle, ArTitle, EnBody, ArBody, CreatedDate, PicPath);
                 return (rows > 0);
             }
             catch (Exception)
@@ -1363,6 +1377,143 @@ namespace Taqwa.BLL
             try
             {
                 rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeleteCategory", CategoryID);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region  PageGalleryPhoto Methods
+        public bool AddPageGalleryPhoto(string EnTitle, string ArTitle, string PicPath, int PageID)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddPageGalleryPhoto", PageID, EnTitle, ArTitle, PicPath);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdatePageGalleryPhoto(int GalleryPhotoID, string EnTitle, string ArTitle, string PicPath, int PageID)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdatePageGalleryPhoto", GalleryPhotoID, PageID, EnTitle, ArTitle, PicPath);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public DataSet GetPageGalleryPhoto(int GalleryPhotoID)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetPageGalleryPhoto", GalleryPhotoID);
+        }
+
+        public DataSet GetPageGalleryPhotoByPageID(int PageID)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetPageGalleryPhotoByPageID", PageID);
+        }
+
+        public DataSet GetAllPageGalleryPhoto()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetAllPageGalleryPhoto");
+        }
+
+
+        public bool DeletePageGalleryPhoto(int GalleryPhotoID)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeletePageGalleryPhoto", GalleryPhotoID);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region  ClassRooms Methods
+        public bool AddClassAttachment(int ClassID, int SchoolYearID, int CourseID, string ArTitle, string ENTitle, string ArTeacherName, string EnTeacherName, DateTime CreatedDate, string FilePath, bool IsVideo)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddClassAttachment", ClassID,
+                            SchoolYearID,
+                            CourseID,
+                            ArTitle,
+                            ENTitle,
+                            ArTeacherName,
+                            EnTeacherName,
+                            CreatedDate,
+                            FilePath,
+                            IsVideo);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateClassAttachment(int ClassAttachmentID, int ClassID, int SchoolYearID, int CourseID, string ArTitle, string ENTitle, string ArTeacherName, string EnTeacherName, DateTime CreatedDate, string FilePath, bool IsVideo)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateClassAttachment", ClassAttachmentID, ClassID,
+                            SchoolYearID,
+                            CourseID,
+                            ArTitle,
+                            ENTitle,
+                            ArTeacherName,
+                            EnTeacherName,
+                            CreatedDate,
+                            FilePath,
+                            IsVideo);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public DataSet GetClassAttachment(int ClassAttachmentID)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetClassAttachment", ClassAttachmentID);
+        }
+
+        public DataSet GetAllClassAttachment()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetAllClassAttachment");
+        }
+
+        public DataSet GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndType(int ClassID, int SchoolYearID, int CourseID, bool IsVideo)
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndType", ClassID, SchoolYearID, CourseID, IsVideo);
+        }
+
+        public bool DeleteClassAttachment(int ClassAttachmentID)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeleteClassAttachment", ClassAttachmentID);
                 return (rows > 0);
             }
             catch (Exception)

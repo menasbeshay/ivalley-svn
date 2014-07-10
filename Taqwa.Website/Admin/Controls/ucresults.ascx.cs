@@ -102,7 +102,10 @@ namespace Taqwa.Website.Admin.Controls
             uiDropDownListSchoolYear.DataTextField = "ArName";
             uiDropDownListSchoolYear.DataValueField = "SchoolYearID";
             uiDropDownListSchoolYear.DataBind();
-            uiDropDownListSchoolYear.SelectedIndex = 0;
+            if (db.GetCurrentSchoolYear().Tables[0].Rows.Count > 0)
+                uiDropDownListSchoolYear.SelectedValue = db.GetCurrentSchoolYear().Tables[0].Rows[0]["SchoolYearID"].ToString();
+            else
+                uiDropDownListSchoolYear.SelectedIndex = 0;
         }
 
         public void BindData()
@@ -114,41 +117,62 @@ namespace Taqwa.Website.Admin.Controls
             {
                /* uiGridViewStudentResults.DataSource = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                 uiGridViewStudentResults.DataBind();*/
-                uiLabelStudentName.Text = ds.Tables[0].Rows[0]["ArStudentName"].ToString() + ds.Tables[0].Rows[0]["ArFatherName"].ToString();
+                uiLabelStudentName.Text = ds.Tables[0].Rows[0]["ArStudentName"].ToString() + " " +  ds.Tables[0].Rows[0]["ArFatherName"].ToString();
                 DataSet StudentClassRoom = new DataSet();
                 StudentClassRoom = db.GetClassRoom(Convert.ToInt32(ds.Tables[0].Rows[0]["ClassRoomID"].ToString()));
                 DataSet StudentClass = new DataSet();
                 StudentClass = db.GetClass(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
                 uiLabelClass.Text = StudentClass.Tables[0].Rows[0]["ArName"].ToString();
+                uiHiddenFieldClassID.Value = StudentClass.Tables[0].Rows[0]["ClassID"].ToString();
+               
 
-                CurrentStudentResults = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-
-                uiRepeaterResults.DataSource = db.GetAllCoursesByClass(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
-                uiRepeaterResults.DataBind();
+                BindResults(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
+                
             }            
         }
 
-        protected void uiButtonUpdate_Click(object sender, EventArgs e)
+        public void BindResults(int classID)
         {
-            System.Threading.Thread.Sleep(3000);
+            
+            DBLayer db = new DBLayer();
+            CurrentStudentResults = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            uiRepeaterResults.DataSource = db.GetAllCoursesByClass(classID);
+            uiRepeaterResults.DataBind();
+        }
+
+        protected void uiButtonUpdate_Click(object sender, EventArgs e)
+        {            
             DBLayer db = new DBLayer();
             foreach (RepeaterItem item in uiRepeaterResults.Items)
             {
                 TextBox grade = (TextBox)item.FindControl("uiTextBoxGrade");
-                TextBox eval = (TextBox)item.FindControl("uiTextBoxEvalutaion");
+                DropDownList eval = (DropDownList)item.FindControl("uiDropDownListEval");
                 HiddenField CourseId = (HiddenField)item.FindControl("uiHiddenFieldResultID");
                 HiddenField ResultId = (HiddenField)item.FindControl("uiHiddenFieldCourseID");
-                if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                HiddenField MaxGrade = (HiddenField)item.FindControl("uiHiddenFieldMaxGrade");
+                if (float.Parse(grade.Text) <= float.Parse(MaxGrade.Value))
                 {
-                    db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+
+                    if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                    {
+                        db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                    }
+                    else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                    {
+                        db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                    }
+
                 }
-                else if(!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                else
                 {
-                    db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                    uiLabelError.Visible = true;
+                    uiLabelError.Text += "<br/>لا يمكن إضافة نتيجة أعلى من النهاية العظمى";
                 }
+                
             }
                                   
-            BindData();
+            //BindData();
+            BindResults(Convert.ToInt32(uiHiddenFieldClassID.Value));
         }
 
         protected void uiButtonCancel_Click(object sender, EventArgs e)
@@ -171,15 +195,19 @@ namespace Taqwa.Website.Admin.Controls
             {
                 Label course = (Label)e.Item.FindControl("uiLabelCourseName");
                 TextBox grade = (TextBox)e.Item.FindControl("uiTextBoxGrade");
-                TextBox eval = (TextBox)e.Item.FindControl("uiTextBoxEvalutaion");
+                DropDownList eval = (DropDownList)e.Item.FindControl("uiDropDownListEval");
                 HiddenField CourseId = (HiddenField)e.Item.FindControl("uiHiddenFieldResultID");
                 HiddenField ResultId = (HiddenField)e.Item.FindControl("uiHiddenFieldCourseID");
+                HiddenField MaxGrade = (HiddenField)e.Item.FindControl("uiHiddenFieldMaxGrade");
+                
 
                 DataRowView row = (DataRowView)e.Item.DataItem;
 
                 ResultId.Value = "0";
                 course.Text = row["ArName"].ToString();
                 CourseId.Value = row["CourseID"].ToString();
+                MaxGrade.Value = row["MaxGrade"].ToString();
+
                 foreach (DataRow item in CurrentStudentResults.Tables[0].Rows)
 	            {
                     
@@ -189,8 +217,7 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();
-                            break;
+                            ResultId.Value = item["ResultID"].ToString();                            
                         }
                     }
                     else if (CurrentResultType == 2)
@@ -199,8 +226,7 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();
-                            break;
+                            ResultId.Value = item["ResultID"].ToString();                          
                         }
                     }
                     else if (CurrentResultType == 3)
@@ -209,8 +235,7 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();
-                            break;
+                            ResultId.Value = item["ResultID"].ToString();                            
                         }
                     }
                     else if (CurrentResultType == 4)
@@ -219,8 +244,7 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();
-                            break;
+                            ResultId.Value = item["ResultID"].ToString();                            
                         }
                     }
 	            }

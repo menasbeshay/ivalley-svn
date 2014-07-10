@@ -15,6 +15,7 @@ namespace Taqwa.Website.Admin.Controls
             if (!IsPostBack)
             {
                 LoadDDLs();
+                uiLabelMsg.Visible = false;
             }
         }
 
@@ -63,6 +64,7 @@ namespace Taqwa.Website.Admin.Controls
                     continue;
                 }
             }
+            uiLabelMsg.Visible = true;
         }
     }
 }

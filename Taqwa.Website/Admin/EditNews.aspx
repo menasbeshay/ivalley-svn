@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditNews.aspx.cs" Inherits="Taqwa.Website.Admin.EditNews" %>
 <%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -80,6 +81,34 @@
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 ControlToValidate="uiTextBoxArNewsTitle" ErrorMessage="*" 
                 ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+        </div>
+        <div class="clear"></div>
+        
+        
+         <div class="AdminLeft">
+            <asp:Label ID="Label1" runat="server" CssClass="Label" 
+                Text="صورة الخبر :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:FileUpload ID="uiFileUploadImage" runat="server" />
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
+
+         <div class="AdminLeft">
+            <asp:Label ID="Label2" runat="server" CssClass="Label" 
+                Text="تاريخ الخبر :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxDate" runat="server"></asp:TextBox>
+            <cc1:CalendarExtender ID="uiTextBoxDate_CalendarExtender" runat="server" 
+                Enabled="True" TargetControlID="uiTextBoxDate" Format="dd/MM/yyyy">
+            </cc1:CalendarExtender>
+        </div>
+        <div class="AdminRight">
+            &nbsp;
         </div>
         <div class="clear"></div>
 

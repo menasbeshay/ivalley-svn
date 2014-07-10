@@ -13,12 +13,21 @@ namespace Taqwa.Website.Controls {
     public partial class News {
         
         /// <summary>
-        /// uiRepeaterTopNews control.
+        /// uiRepeaterOne control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater uiRepeaterTopNews;
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterOne;
+        
+        /// <summary>
+        /// uiRepeaterTwo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterTwo;
     }
 }

@@ -1,10 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="OutStandings.aspx.cs" Inherits="Taqwa.Website.OutStandings" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="OutStandings.aspx.cs" Inherits="Taqwa.Website.OutStandings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent" style="background-color:#fff;width:980px;">
-<div class="style24" style="text-align:right;">
+<div style="clear:both; height:10px;"></div>
+<div class="mainContent col-lg-12 row" >
+<div style="text-align:right;">
+    <h3>
     أوائل الطلبة
+    </h3>
 </div>
 <div style="clear:both; height:10px;"></div>
 <div class="Content">
@@ -12,11 +15,11 @@
         RepeatLayout="Flow" onitemdatabound="uiDataListOutStanding_ItemDataBound">
     <ItemTemplate>
     <div style="width:100%;border:1px solid black;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;padding:5px;margin-right:-5px;">
-        <div style="float:right;width:19%;">
-            <img src='<%# Eval("PicturePath") %>' width="100px" />
+        <div style="float:right;width:21%;">
+            <img src='<%# Eval("PicturePath") %>' width="200px" />
         </div>
-        <div style="float:right;width:79%">
-            <div style="font-weight:bold;">
+        <div style="float:right;width:75%">
+            <div style="font-weight:bold;font-size:18px;">
             <%# Eval("ARName") %>
             </div>
             <div class="clear">
@@ -34,5 +37,6 @@
     </ItemTemplate>
     </asp:DataList>
 </div>
+<div style="clear:both; height:10px;"></div>
 </div>
 </asp:Content>
