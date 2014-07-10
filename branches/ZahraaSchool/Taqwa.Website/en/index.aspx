@@ -39,7 +39,7 @@
 
             <div class="ls-layer" style="slidedirection: right; transition2d: all; slidedelay: 4500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="../images/slides/4.jpg" alt="">		
-                <img class="ls-s2"  src="../images/slides/ip4.png" alt="" style="position: absolute; top: 110px; left: 340px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">				
+                <img class="ls-s2"  src="../images/slides/ip4.png" alt="" style="position: absolute; top: 110px; left: 460px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">				
 			</div>
 					</div>		
 				</div>
@@ -48,9 +48,9 @@
 
 			<div class="intro_p tac">
 				<div class="row inner clearfix">
-					<h2>Clean, Unique, Modern & Responsive HTML5 Template, Inspired iOS7 <small>Connect with us</small></h2>
-					<a href="#" class="tbutton large"><i class="icon_comment_alt"></i><span>Match Me To Advisors</span></a>
-					<a href="#" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>Do Your One Search</span></a>
+					<h2>Welcome at Al zahraa school website</h2>
+					<a href="Pages.aspx?PID=12" class="tbutton large"><i class="icon_comment_alt"></i><span>Joining terms</span></a>
+					<a href="Pages.aspx?PID=6" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>Careers</span></a>
 				</div><!-- End row -->
 			</div><!-- End intro p -->
 
@@ -73,9 +73,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5> </h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -83,9 +83,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5> </h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -93,9 +93,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5> </h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -105,9 +105,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5>  </h5>
 											</div>
 											</div>
 										</li><!-- portfolio item -->
@@ -116,9 +116,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -126,9 +126,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="../images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 									</ul>
@@ -148,17 +148,19 @@
 							<div class="h_slider"><img class="custom_3" src="../images/assets/t3.png" alt="tablet"></div>
 							<div class="h_slider"><img class="custom_4" src="../images/assets/t4.png" alt="tablet"></div>
 							<div class="h_slider"><img class="custom_5" src="../images/assets/t5.png" alt="tablet"></div>
+                            <div class="h_slider"><img class="custom_6" src="../images/assets/t6.png" alt="tablet"></div>
 						</div><!-- end grid6 -->
 
 						<div class="grid_6 custom_block1" data-gen="bigEntrance">
 							<div class="inner_list">
 								<h3>- Enjoy Al Zahraa school website services</h3>
 								<ul>
-									<li><a href="#custom_1"><i class="icon_box-checked"></i> School Timetable</a></li>
-									<li><a href="#custom_2"><i class="icon_box-checked"></i> Dates of School</a></li>
-									<li><a href="#custom_3"><i class="icon_box-checked"></i> Al Zahraa School Bus</a></li>
-									<li><a href="#custom_4"><i class="icon_box-checked"></i> Results </a></li>
-									<li><a href="#custom_5"><i class="icon_box-checked"></i> Top students</a></li>
+									<li><a href="../Schedule.aspx" data-id="#custom_1"><i class="icon_box-checked"></i> School Timetable</a></li>
+									<li><a href="Pages.aspx?PID=10" data-id="#custom_2"><i class="icon_box-checked"></i> Dates of School</a></li>
+									<li><a href="../SchoolBus.aspx" data-id="#custom_3"><i class="icon_box-checked"></i> Al Zahraa School Bus</a></li>
+									<li><a href="../Results.aspx" data-id="#custom_4"><i class="icon_box-checked"></i> Results </a></li>
+									<li><a href="../OutStandings.aspx" data-id="#custom_5"><i class="icon_box-checked"></i> Top students</a></li>
+                                    <li><a href="../ClassAttachment.aspx" data-id="#custom_6"><i class="icon_box-checked"></i> Files & videos </a></li>
 								</ul>
 							</div><!-- end inner -->
 						</div><!-- end grid6 -->
@@ -171,25 +173,25 @@
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="../images/assets/post_1.jpg" alt="#">
-							<div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+							<div class="f_hover"><a href="../HonorPanel.aspx"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">Honor board</a> </h4>
+						<h4> <a href="../HonorPanel.aspx">Honor board</a> </h4>
 					</div><!-- end grid3 -->
 
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="../images/assets/post_2.jpg" alt="#">
-							<div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+							<div class="f_hover"><a href="../gpage.aspx?PID=13"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">Art Work Activity</a> </h4>
+						<h4> <a href="../gpage.aspx?PID=13">Art Work Activity</a> </h4>
 					</div><!-- end grid3 -->
 
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="../images/assets/post_3.jpg" alt="#">
-                            <div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+                            <div class="f_hover"><a href="../gpage.aspx?PID=11"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">Visits and Trips</a> </h4>
+						<h4> <a href="../gpage.aspx?PID=11">Visits and Trips</a> </h4>
 					</div><!-- end grid3 -->
 
                     <div class="grid_3 f_blog">
@@ -200,7 +202,7 @@
 					</div><!-- end grid3 -->
 					
 				</div><!-- end row -->
-                
+                <%--
 				<div class="row clearfix mbs">
 					<div class="grid_6">
 						<ul class="tabs">
@@ -247,7 +249,7 @@
 								</li>
 							</ul><!-- end accordion -->
 					</div><!-- end grid6 -->
-				</div><!-- clearfix -->
+				</div>--%><!-- clearfix -->
 
 				
 			</div><!-- end page content -->

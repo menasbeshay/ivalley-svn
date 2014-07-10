@@ -33,7 +33,7 @@ namespace Taqwa.Website.Admin
         {
             if (!IsPostBack)
             {
-                if (CurrentCategory != 0)
+               /* if (CurrentCategory != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -48,11 +48,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentClassType.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+               // }
             }
         }
 
@@ -100,9 +100,16 @@ namespace Taqwa.Website.Admin
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
                 CurrentCategory = id;
                 DBLayer db = new DBLayer();
-                db.DeleteCategory(id);
+                
+                if (!db.DeleteCategory(id))
+                {
+                    uiLabelError.Visible = true;
+                    uiLabelError.Text = "لايمكن حذف القسم لوجود بيانات مربوطة بالسجل الخاص به.";
+                    return;
+                }
                 uiPanelCurrentClassType.Visible = true;
                 uiPanelCurrent.Visible = false;
+                uiLabelError.Visible = false;
                 BindData();
             }
         }

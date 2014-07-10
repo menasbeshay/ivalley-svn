@@ -35,7 +35,7 @@ namespace Taqwa.Website.Admin
             if (!IsPostBack)
             {               
                 
-                if (CurrentSchoolBus != 0)
+               /* if (CurrentSchoolBus != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -58,11 +58,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentSchoolBus.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+              //  }
             }
         }
 
@@ -160,7 +160,7 @@ namespace Taqwa.Website.Admin
         protected void uiButtonCancel_Click(object sender, EventArgs e)
         {
             ClearFields();
-            uiPanelCurrentSchoolBus.Visible = false;
+            uiPanelCurrentSchoolBus.Visible = true;
             uiPanelCurrent.Visible = false;
         }
 

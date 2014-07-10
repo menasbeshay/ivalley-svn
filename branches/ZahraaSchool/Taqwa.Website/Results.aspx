@@ -32,7 +32,7 @@
 					<div align="center">
 						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/shahada2.jpg">
+								<td background="images/shahada.jpg">
 								<table border="0" width="100%" cellspacing="0" cellpadding="0">
 									<tr>
 										<td>&nbsp;</td>
@@ -89,27 +89,27 @@
                                                 RepeatDirection="Horizontal" RepeatLayout="Flow">
                                                 <HeaderTemplate>
                                                 <div style="text-align:center;margin-right:110px;">
-                                                <div style="border: 1px solid #AC5155;float:right;">
-                                                <div style="border: 1px solid #AC5155;font-weight:bold;width:85px;">
+                                                <div style="border: 1px solid #aaa;float:right;">
+                                                <div style="border: 1px solid #aaa;font-weight:bold;width:85px;">
                                                 الدرجة
                                                 </div>
-                                                <div style="border: 1px solid #AC5155;font-weight:bold;height:20px;">
+                                                <div style="border: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 النهاية العظمى
                                                 </div>
-                                                <div style="border: 1px solid #AC5155;font-weight:bold;height:20px;">
+                                                <div style="border: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 درجات الطفل
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                 <div style="border: 1px solid #AC5155;float:right;">
-                                                <div style="border: 1px solid #AC5155;border-right:0;font-weight:bold;width:85px;">
+                                                 <div style="border: 1px solid #aaa;float:right;">
+                                                <div style="border: 1px solid #aaa;border-right:0;font-weight:bold;width:85px;">
                                                 <%# Eval("ArCourseName") %>
                                                 </div>
-                                                <div style="border: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("MaxGrade") %>
                                                 </div>
-                                                <div style="border: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("Grade") %>
                                                 </div>
                                                 </div>
@@ -181,7 +181,7 @@
 					<div align="center">
 						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/shahada2.jpg">
+								<td background="images/shahada.jpg">
 								<table border="0" width="100%" cellspacing="0" cellpadding="0">
 									<tr>
 										<td>
@@ -197,7 +197,7 @@
 												<tr>
 													<td style="text-align: right;direction:rtl">
 													&nbsp; 
-                                                        <asp:Label ID="uiLabelClassPrimary" runat="server" ></asp:Label></td>
+                                                        <asp:Label ID="uiLabelClassPrimary" runat="server" Visible="false"></asp:Label></td>
 													<td width="143">&nbsp;</td>
 												</tr>
 											</table>
@@ -249,20 +249,20 @@
                                                 RepeatDirection="Horizontal" RepeatLayout="Flow" style="float:right;direction:rtl;">
                                                 <HeaderTemplate>
                                                 <div style="text-align:center;margin-right:80px;">
-                                                <div style="border: 1px solid #AC5155;float:right;">
-                                                <div style="border-bottom: 1px solid #AC5155;font-weight:bold;width:85px;height:130px">
+                                                <div style="border: 1px solid #aaa;float:right;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;width:85px;height:130px">
                                                 المواد
                                                 </div>
-                                                <div style="border-bottom: 1px solid #AC5155;font-weight:bold;height:20px;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 النهاية العظمى
                                                 </div>
-                                                <div style="font-weight:bold;height:20px;">
+                                                <div style="font-weight:bold;height:30px;">
                                                 درجات الطالب
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                 <div style="border: 1px solid #AC5155;float:right;">
+                                                 <div style="border: 1px solid #aaa;float:right;">
                                                  <div style="position:relative; height:130px;padding-top:10px;vertical-align:middle;">
                                                 <div style=" direction:rtl; display:block; font-weight:bold;-ms-writing-mode: bt-rl;width:35px; overflow:visible;white-space:nowrap;
 		-webkit-transform: rotate(270deg);	
@@ -273,10 +273,10 @@
                                                 <%# Eval("ArCourseName") %>
                                                 </div>
                                                 </div>
-                                                <div style="border-top: 1px solid #AC5155;border-top: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border-top: 1px solid #aaa;border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("MaxGrade") %>
                                                 </div>
-                                                <div style="border-top: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("Grade") %>
                                                 </div>
                                                 </div>
@@ -300,7 +300,7 @@
 												<tr>
 													<td class="tittle_nepete">
 													<p align="center">
-													<span lang="ar-eg"><strong>وكيل شئون الطلبة</strong></span></td>
+													<span lang="ar-eg"></span></td>
 												</tr>
 												<tr>
 													<td class="tittle_nepete">
@@ -340,7 +340,7 @@
 					<div align="center">
 						<table border="0" width="700" cellspacing="0" cellpadding="0" height="471">
 							<tr>
-								<td background="images/shahada2.jpg">
+								<td background="images/shahada.jpg">
                                  <br />
                                             <br />
                                             <br /> 
@@ -353,7 +353,7 @@
 												<tr>
 													<td style="text-align: right">
 													
-													    <asp:Label ID="uiLabelClassPreparatory" runat="server"></asp:Label>
+													    <asp:Label ID="uiLabelClassPreparatory" runat="server" Visible="false"></asp:Label>
                                                     </td>
 													<td width="143">&nbsp;</td>
 												</tr>
@@ -406,20 +406,20 @@
                                                 RepeatDirection="Horizontal" RepeatLayout="Flow" style="float:right;direction:rtl;">
                                                 <HeaderTemplate>
                                                 <div style="text-align:center;margin-right:80px;">
-                                                <div style="border: 1px solid #AC5155;float:right;">
-                                                <div style="border-bottom: 1px solid #AC5155;font-weight:bold;width:85px;height:130px">
+                                                <div style="border: 1px solid #aaa;float:right;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;width:85px;height:130px">
                                                 المواد
                                                 </div>
-                                                <div style="border-bottom: 1px solid #AC5155;font-weight:bold;height:20px;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 النهاية العظمى
                                                 </div>
-                                                <div style="font-weight:bold;height:20px;">
+                                                <div style="font-weight:bold;height:30px;">
                                                 درجات الطالب
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                 <div style="border: 1px solid #AC5155;float:right;">
+                                                 <div style="border: 1px solid #aaa;float:right;">
                                                  <div style="position:relative; height:130px;padding-top:10px;vertical-align:middle;">
                                                 <div style=" direction:rtl; display:block; font-weight:bold;-ms-writing-mode: bt-rl;width:35px; overflow:visible;white-space:nowrap;
 		-webkit-transform: rotate(270deg);	
@@ -430,10 +430,10 @@
                                                 <%# Eval("ArCourseName") %>
                                                 </div>
                                                 </div>
-                                                <div style="border-top: 1px solid #AC5155;border-top: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border-top: 1px solid #aaa;border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("MaxGrade") %>
                                                 </div>
-                                                <div style="border-top: 1px solid #AC5155;border-right:0;height:20px;">
+                                                <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("Grade") %>
                                                 </div>
                                                 </div>
@@ -456,7 +456,7 @@
 												<tr>
 													<td class="tittle_nepete">
 													<p align="center">
-													<span lang="ar-eg"><strong>وكيل شئون الطلبة</strong></span></td>
+													<span lang="ar-eg"></span></td>
 												</tr>
 												<tr>
 													<td class="tittle_nepete">

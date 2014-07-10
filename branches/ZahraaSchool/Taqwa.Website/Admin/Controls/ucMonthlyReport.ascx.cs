@@ -49,7 +49,10 @@ namespace Taqwa.Website.Admin.Controls
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack) {
+                uiDropDownListYear.SelectedValue = DateTime.Now.Year.ToString();
+                uiDropDownListMonth.SelectedValue = DateTime.Now.Month.ToString();
+            }
         }
 
 
@@ -73,6 +76,8 @@ namespace Taqwa.Website.Admin.Controls
         {
             ClearFields();            
             BindData();
+            uiDropDownListYear.SelectedValue = DateTime.Now.Year.ToString();
+            uiDropDownListMonth.SelectedValue = DateTime.Now.Month.ToString();
         }
 
         protected void uiGridViewStudentsReports_PageIndexChanging(object sender, GridViewPageEventArgs e)

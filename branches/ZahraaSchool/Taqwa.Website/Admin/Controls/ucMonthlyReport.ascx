@@ -155,10 +155,10 @@
                         <ItemTemplate>
                             <asp:LinkButton ID="uiLinkButtonEdit" runat="server" 
                                 CommandArgument='<%# Eval("MonthlyReportID") %>' 
-                                CommandName="EditReports">تعديل التقرير الشهرى</asp:LinkButton>
+                                CommandName="EditReports">تعديل </asp:LinkButton>
                             &nbsp;
                             <asp:LinkButton ID="LinkButton1" runat="server" 
-                                CommandArgument='<%# Eval("MonthlyReportID") %>' CommandName="DeleteReports" OnClientClick="return confirm('Are you want to delete this record?');">حذف التقرير الشهرى</asp:LinkButton>
+                                CommandArgument='<%# Eval("MonthlyReportID") %>' CommandName="DeleteReports" OnClientClick="return confirm('Are you want to delete this record?');">حذف </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

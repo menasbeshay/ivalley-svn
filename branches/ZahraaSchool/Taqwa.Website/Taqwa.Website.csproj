@@ -52,6 +52,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\EditClassFiles.aspx" />
+    <Content Include="Admin\EditClassVideos.aspx" />
+    <Content Include="ClassAttachment.aspx" />
+    <Content Include="gpage.aspx" />
     <Content Include="Admin\AdminCP.aspx" />
     <Content Include="Admin\Controls\ucAttendanceReport.ascx" />
     <Content Include="Admin\Controls\ucClassRooms.ascx" />
@@ -60,6 +64,7 @@
     <Content Include="Admin\Controls\ucInstallment.ascx" />
     <Content Include="Admin\Controls\ucMonthlyReport.ascx" />
     <Content Include="Admin\Controls\ucresults.ascx" />
+    <Content Include="Admin\EditPageGallery.aspx" />
     <Content Include="Admin\UpdateFees.aspx" />
     <Content Include="Admin\EditCategory.aspx" />
     <Content Include="Admin\EditClassType.aspx" />
@@ -144,6 +149,7 @@
     <Content Include="Controls\HomeMain.ascx" />
     <Content Include="Controls\JoinTerms.ascx" />
     <Content Include="Controls\Login.ascx" />
+    <Content Include="Controls\LoginControl.ascx" />
     <Content Include="Controls\Mission.ascx" />
     <Content Include="Controls\TeamWork.ascx" />
     <Content Include="Controls\Vision.ascx" />
@@ -241,6 +247,7 @@
     <Content Include="images\1.jpg" />
     <Content Include="images\2.jpg" />
     <Content Include="images\3.jpg" />
+    <Content Include="images\4.png" />
     <Content Include="images\action_delete.gif" />
     <Content Include="images\ads1.gif" />
     <Content Include="images\ads2.jpg" />
@@ -295,6 +302,7 @@
     <Content Include="images\assets\logo4.jpg" />
     <Content Include="images\assets\logo5.jpg" />
     <Content Include="images\assets\logo6.jpg" />
+    <Content Include="images\assets\t6.png" />
     <Content Include="images\assets\parallax_1.jpg" />
     <Content Include="images\assets\portfolio1.jpg" />
     <Content Include="images\assets\portfolio10.jpg" />
@@ -331,7 +339,7 @@
     <Content Include="images\assets\t3.png" />
     <Content Include="images\assets\t4.png" />
     <Content Include="images\assets\t5.png" />
-    <Content Include="images\assets\t6.png" />
+    <Content Include="images\assets\t6_1.png" />
     <Content Include="images\assets\team21.jpg" />
     <Content Include="images\assets\team22.jpg" />
     <Content Include="images\assets\team23.jpg" />
@@ -1322,6 +1330,34 @@
     <Compile Include="AccountMatster.master.designer.cs">
       <DependentUpon>AccountMatster.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditClassFiles.aspx.cs">
+      <DependentUpon>EditClassFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditClassFiles.aspx.designer.cs">
+      <DependentUpon>EditClassFiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditClassVideos.aspx.cs">
+      <DependentUpon>EditClassVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditClassVideos.aspx.designer.cs">
+      <DependentUpon>EditClassVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClassAttachment.aspx.cs">
+      <DependentUpon>ClassAttachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassAttachment.aspx.designer.cs">
+      <DependentUpon>ClassAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gpage.aspx.cs">
+      <DependentUpon>gpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gpage.aspx.designer.cs">
+      <DependentUpon>gpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1384,6 +1420,13 @@
     </Compile>
     <Compile Include="Admin\Controls\ucresults.ascx.designer.cs">
       <DependentUpon>ucresults.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditPageGallery.aspx.cs">
+      <DependentUpon>EditPageGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditPageGallery.aspx.designer.cs">
+      <DependentUpon>EditPageGallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateFees.aspx.cs">
       <DependentUpon>UpdateFees.aspx</DependentUpon>
@@ -1587,6 +1630,13 @@
     </Compile>
     <Compile Include="Controls\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginControl.ascx.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginControl.ascx.designer.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\Mission.ascx.cs">
       <DependentUpon>Mission.ascx</DependentUpon>
@@ -1816,10 +1866,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\news\" />
+    <Folder Include="UserFiles\Attachment\" />
     <Folder Include="UserFiles\Careers\" />
     <Folder Include="UserFiles\Gallery\" />
     <Folder Include="UserFiles\HonorPanel\" />
     <Folder Include="UserFiles\Outstanding\" />
+    <Folder Include="UserFiles\PageGallery\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Taqwa.BLL\Taqwa.BLL.csproj">

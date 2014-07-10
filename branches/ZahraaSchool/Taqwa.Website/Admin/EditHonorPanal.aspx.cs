@@ -36,7 +36,7 @@ namespace Taqwa.Website.Admin
             {
                 Session["FCKeditor:UserFilesPath"] = ConfigurationManager.AppSettings["HonorPanelFilePath"];
                
-                if (CurrentHonorPanel != 0)
+                /*if (CurrentHonorPanel != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -54,11 +54,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentHonorPanel.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+               // }
             }
         }
 
@@ -111,7 +111,7 @@ namespace Taqwa.Website.Admin
             DataSet ds = new DataSet(); 
             if (uiFileUploadPicture.HasFile)
             {                               
-                uiFileUploadPicture.SaveAs(Server.MapPath(ConfigurationManager.AppSettings["HonorPanelFilePath"] + uiFileUploadPicture.FileName));
+                uiFileUploadPicture.SaveAs(Server.MapPath("~" + ConfigurationManager.AppSettings["HonorPanelFilePath"] + uiFileUploadPicture.FileName));
                 filepath = ConfigurationManager.AppSettings["HonorPanelFilePath"] + uiFileUploadPicture.FileName;                
             }
             ds = db.GetHonorPanel(CurrentHonorPanel);

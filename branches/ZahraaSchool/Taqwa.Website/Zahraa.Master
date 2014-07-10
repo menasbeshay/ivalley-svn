@@ -134,7 +134,9 @@
 						<img src="../images/logo.png" alt="logo title" class="mb">
 	
 						<div class="widget-content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>
+                                <asp:Literal ID="uiLiteralAbout" runat="server"></asp:Literal>
+                            </p>
 	
 							<div class="social">
 								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
@@ -153,7 +155,7 @@
 						<h3 class="col-title">Our Location</h3>
 	
 						<div class="widget-content">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d452069.7769902424!2d30.847549!3d27.723611!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1395950280844"  height="160" frameborder="0" style="border:0"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1753.1535902706005!2d30.80221903306446!3d28.50040435884695!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1404211470869" width="300" height="160" frameborder="0" style="border:0"></iframe>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 		

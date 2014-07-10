@@ -36,7 +36,7 @@ namespace Taqwa.Website.Admin
             {
                 Session["FCKeditor:UserFilesPath"] = ConfigurationManager.AppSettings["UserFilePath"];
                 
-                if (CurrentBlock != 0)
+              /*  if (CurrentBlock != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -53,11 +53,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentPages.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+               // }
             }
         }
 

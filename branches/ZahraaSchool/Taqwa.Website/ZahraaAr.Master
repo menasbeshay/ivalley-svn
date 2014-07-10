@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ZahraaAr.master.cs" Inherits="Taqwa.Website.ZahraaAr" %>
 
+<%@ Register src="Controls/LoginControl.ascx" tagname="LoginControl" tagprefix="uc1" %>
+
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
@@ -76,8 +78,9 @@
 			<header id="header">
 				<div class="head_up">
 					<div class="row clearfix">
-						<div class="l_ht">
-							<a href="Login.aspx">دخول الطلبة</a>
+						<div class="l_ht grid_6 pull-left">
+                            <uc1:LoginControl ID="LoginControl1" runat="server" />
+<%--<a href="Login.aspx">دخول الطلبة</a>--%>
 						</div><!-- end text left -->
 
 						<div class="r_ht">
@@ -136,12 +139,9 @@
 						<img src="images/logo.png" alt="logo title" class="mb">
 	
 						<div class="widget-content">
-							<p> تاسس هذا الصرح العلمي عام 1997 
-وتضم الهيئتين الادراية والتدريسية كفاءات عالية من المعلمين والادرايين من مختلف التخصصات .
-وتم تجهيز المدرسه بمعامل للحاسب مجهزة بافضل التقنيات الالكترونيه ومعمل للعلوم ويضم سلسه عديده من الادوات اللازمه 
-ويضم ايضا مكتبه ماهوله بعدد كبير من الكتب والمجلات والقصص القيمه.
-وتحتوى المدرسه على ساحات واسعه بالاضافه الى انها مجهزه بالتدفئه المركزيه.</p>
-	
+                        <p>
+                            <asp:Literal ID="uiLiteralAbout" runat="server"></asp:Literal>	
+                            </p>
 							<div class="social">
 								<a href="#" class="toptip" title="Twitter"><i class="fa-twitter"></i></a>
 								<a href="#" class="toptip" title="Facebook"><i class="fa-facebook"></i></a>
@@ -160,7 +160,7 @@
 						<h3 class="col-title">المدرسة</h3>
 	
 						<div class="widget-content">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d452069.7769902424!2d30.847549!3d27.723611!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1395950280844"  height="160" frameborder="0" style="border:0"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1753.1535902706005!2d30.80221903306446!3d28.50040435884695!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1404211470869" width="300" height="160" frameborder="0" style="border:0"></iframe>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 		

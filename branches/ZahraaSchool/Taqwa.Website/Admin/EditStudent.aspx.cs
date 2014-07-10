@@ -96,12 +96,16 @@ namespace Taqwa.Website.Admin
             if (ds.Tables.Count > 0)
             {
                 uiGridViewStudents.DataSource = ds;
+                uiGridViewExported.DataSource = ds;
             }
             else
             {
                 uiGridViewStudents.DataSource = null;
+                uiGridViewExported.DataSource = null;
             }
-            uiGridViewStudents.DataBind();           
+            uiGridViewStudents.DataBind();
+            uiGridViewExported.DataBind();
+            uiLabelError.Visible = false;
         }
 
         private void LoadDDLs()
@@ -149,6 +153,8 @@ namespace Taqwa.Website.Admin
             {
                 uiDropDownListClassRooms.SelectedIndex = 0;
             }
+            uiGridViewStudents.DataSource = null;
+            uiGridViewStudents.DataBind();
         }
 
         protected void uiDropDownListStudentClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,6 +168,8 @@ namespace Taqwa.Website.Admin
             {
                 uiDropDownListStudentClassRoom.SelectedIndex = 0;
             }
+            uiGridViewStudents.DataSource = null;
+            uiGridViewStudents.DataBind();
         }
         
         protected void uiButtonSearch_Click(object sender, EventArgs e)
@@ -220,13 +228,20 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
             }
             else if (e.CommandName == "DeleteStudent")
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
                 CurrentStudent = id;
                 DBLayer db = new DBLayer();
-                db.DeleteStudent(id);
+                if (!db.DeleteStudent(id))
+                {
+                    uiLabelError.Visible = true;
+                    uiLabelError.Text = "لايمكن حذف الطالب لوجود بيانات مربوطة بالسجل الخاص به.";
+                    return;
+                }
+                uiLabelError.Visible = false;
                 uiPanelCurrentStudents.Visible = true;
                 uiPanelCurrent.Visible = false;
                 uiPanelPrint.Visible = false;
@@ -236,6 +251,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
                 BindData();
             }
             else if (e.CommandName == "EditMonthlyReport")
@@ -248,6 +264,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
             }
 
             else if (e.CommandName == "EditAttedanceReport")
@@ -260,6 +277,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
             }
 
             else if (e.CommandName == "EditFees")
@@ -272,6 +290,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = true;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
             }
 
             else if (e.CommandName == "EditInstallments")
@@ -284,7 +303,9 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = true;
                 uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = false;
             }
+
             else if (e.CommandName == "EditResultsFHMT")
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
@@ -296,6 +317,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = true;
+                uiPanelPassword.Visible = false;
             }
             else if (e.CommandName == "EditResultsFHF")
             {
@@ -308,6 +330,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = true;
+                uiPanelPassword.Visible = false;
             }
             else if (e.CommandName == "EditResultsSHMT")
             {
@@ -320,6 +343,7 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = true;
+                uiPanelPassword.Visible = false;
             }
             else if (e.CommandName == "EditResultsSHF")
             {
@@ -332,6 +356,18 @@ namespace Taqwa.Website.Admin
                 uiPanelFees.Visible = false;
                 uiPanelInstallments.Visible = false;
                 uiPanelResults.Visible = true;
+                uiPanelPassword.Visible = false;
+            }
+            else if (e.CommandName == "EditPassword")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Session["CurrentPasswordStudent"] = id;                                
+                uiPanelAttendanceReport.Visible = false;
+                uiPanelMonthlyReport.Visible = false;
+                uiPanelFees.Visible = false;
+                uiPanelInstallments.Visible = false;
+                uiPanelResults.Visible = false;
+                uiPanelPassword.Visible = true;
             }
         }
 
@@ -444,6 +480,44 @@ namespace Taqwa.Website.Admin
             uiTextBoxAddress.Text = "";
             uiCheckBoxIsActive.Checked = false;
             uiTextBoxUsername.Text = "";            
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            
+        }
+        protected void uiButtonExport_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=Students.xls");
+            Response.ContentType = "application/vnd.xls";
+            Response.Write("<div style='direction:rtl;'>");
+            System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+            System.Web.UI.HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);            
+            uiGridViewExported.RenderControl(htmlWrite);            
+            Response.Write(stringWrite.ToString());
+            Response.Write("</div>");
+            Response.End();
+        }
+
+        protected void uiButtonsavePassword_Click(object sender, EventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            int id = 0;
+            
+            if (Session["CurrentPasswordStudent"] != null)
+            {
+                if (int.TryParse(Session["CurrentPasswordStudent"].ToString(), out id) && !string.IsNullOrEmpty(uiTextBoxPassword.Text))
+                {
+                    db.UpdateStudentPassword(id, uiTextBoxPassword.Text);
+                    uiPanelPassword.Visible = false;
+                    uiTextBoxPassword.Text = "";
+                    BindData();
+                }
+                else
+                    uiLabelPassError.Visible = true;
+                
+            }
         }
 
         

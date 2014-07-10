@@ -40,6 +40,15 @@ namespace Taqwa.Website {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// LoginControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Taqwa.Website.Controls.LoginControl LoginControl1;
+        
+        /// <summary>
         /// uiLinkButtonEnglish control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace Taqwa.Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        
+        /// <summary>
+        /// uiLiteralAbout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralAbout;
     }
 }

@@ -31,6 +31,7 @@
         &nbsp;</div>
     <div class="clear">
     </div>
+    <div style="display:none">
     <div class="Right" style="width: 110px">
         <asp:Label ID="Label2" runat="server" CssClass="Label">اليوم :</asp:Label>
     </div>
@@ -50,6 +51,7 @@
     <div class="Left">
         &nbsp;&nbsp;&nbsp;</div>
     <div class="clear"></div>
+    </div>
     <div class="Right" style="width: 110px">
         <asp:Label ID="Label1" runat="server" CssClass="Label">جدول الحصص :</asp:Label>
     </div>
@@ -84,6 +86,48 @@
     </EmptyDataTemplate>
             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
     </asp:GridView>
+
+
+        <asp:Repeater ID="uiRepeaterDays" runat="server" 
+        onitemdatabound="uiRepeaterDays_ItemDataBound">
+    <HeaderTemplate>
+    <table border="1" style="border-collapse:collapse;direction:rtl;width:80%;text-align:center;white-space:nowrap;" class="table table-bordered">
+    <tr>
+    <td>
+    اليوم / الحصة
+    </td>
+        <asp:Repeater ID="uiRepeaterSectionNames" runat="server">
+        <ItemTemplate>
+            <td>
+            <%# Eval("ArName") %>
+            </td>
+        </ItemTemplate>
+        </asp:Repeater>
+
+    </tr>
+    </HeaderTemplate>
+    <ItemTemplate>
+    <tr>
+    <td>
+    <%# Container.DataItem.ToString().Substring(0,Container.DataItem.ToString().LastIndexOf("#")) %>
+        <asp:HiddenField ID="uiHiddenFieldDayCode" runat="server" Value='<%# Container.DataItem.ToString().Substring(Container.DataItem.ToString().LastIndexOf("#")+1) %>' />
+    </td>
+    
+        <asp:Repeater ID="uiRepeaterSections2" runat="server" onitemdatabound="uiRepeaterSections2_ItemDataBound">
+        <ItemTemplate>
+        <td>            
+            <asp:Label ID="uiLabelCourse" runat="server" style="text-align:center;"></asp:Label>            
+        </td>
+        </ItemTemplate>
+        </asp:Repeater>
+
+    
+    </tr>
+    </ItemTemplate>
+    <FooterTemplate>
+    </table>
+    </FooterTemplate>
+    </asp:Repeater>
     </div>
     <div class="Left">
         &nbsp;</div>

@@ -17,8 +17,8 @@ namespace Taqwa.Website
                 DBLayer db = new DBLayer();
                 DataSet ds = new DataSet();
                 ds = db.GetAllHonorPanel();
-                uiDataListHonorPanel.DataSource = ds;
-                uiDataListHonorPanel.DataBind();
+                uiRepeaterPhoto.DataSource = ds;
+                uiRepeaterPhoto.DataBind();
             }
         }
     }

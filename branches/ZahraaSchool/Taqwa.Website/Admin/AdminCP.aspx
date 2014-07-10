@@ -6,8 +6,9 @@
 {
     display:block;width:195px;height:160px;margin:10px;padding:20px;text-align:center;border:1px solid black;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;float:right;
     font-weight:bold;
+    font-size:15px;
     }
-    .MainLink img{ width:120; }
+    .MainLink img{ width:110px; }
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -104,7 +105,7 @@
              الحصص "أنواعها ومدتها"
         </a>
         <a href="EditSchedule.aspx" class="MainLink" >
-            <img src="../images/icons/t1.jpg" />
+            <img src="../images/icons/t1.jpg" style="width:90px;" />
             <br />
              جدول الحصص
         </a>
@@ -122,13 +123,18 @@
         <a href="EditCategory.aspx" class="MainLink" >
             <img src="../images/icons/main2_4.jpg" />
             <br />
-            أقسام معرض الصور
+            أسماء ألبومات الصور
         </a>
 
         <a href="EditGallery.aspx" class="MainLink" >
             <img src="../images/icons/main2_4.jpg" />
             <br />
-            معرض الصور
+            رفع صور الألبومات
+        </a>
+         <a href="EditPageGallery.aspx" class="MainLink" >
+            <img src="../images/icons/main2_4.jpg" />
+            <br />
+             صور الصفحات
         </a>
         <a href="EditOutStanding.aspx" class="MainLink" >
             <img src="../images/icons/main3_2.jpg" />
@@ -147,7 +153,7 @@
             <br />
              بيانات الطلاب
         </a>
-        <a href="EditHomePageBlocks.aspx" class="MainLink" >
+        <a href="EditHomePageBlocks.aspx" class="MainLink" style="display:none">
             <img src="../images/icons/pages.jpg" />
             <br />
              أقسام الصفحة الرئيسية
@@ -161,6 +167,16 @@
             <img src="../images/icons/pages.jpg" />
             <br />
              الأخبار
+        </a>
+        <a href="EditClassVideos.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             فيديوهات
+        </a>
+        <a href="EditClassFiles.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             ملفات
         </a>
     </div>
 </div>

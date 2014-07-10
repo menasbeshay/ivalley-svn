@@ -36,7 +36,7 @@ namespace Taqwa.Website.Admin
             if (!IsPostBack)
             {
 
-                if (CurrentSchedule != 0)
+               /* if (CurrentSchedule != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -52,13 +52,13 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentSchedule.Visible = true;
                     uiPanelCurrent.Visible = false;
                     LoadDDLs();
                   //  DrawGrid();
                     BindData();
-                }
+               // }
             }
         }
 

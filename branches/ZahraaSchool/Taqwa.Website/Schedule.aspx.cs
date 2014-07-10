@@ -5,11 +5,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taqwa.BLL;
 using System.Data;
+using System.Collections;
 
 namespace Taqwa.Website
 {
     public partial class Schedule : System.Web.UI.Page
     {
+        public int DayCode { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -66,9 +68,70 @@ namespace Taqwa.Website
 
         private void BindData()
         {
+            ArrayList days = new ArrayList();
+            //  days.Add("اليوم / الحصة");
+            days.Add("الأحد#0");
+            days.Add("الأثنين#1");
+            days.Add("الثلاثاء#2");
+            days.Add("الأربعاء#3");
+            days.Add("الخميس#4");
+            days.Add("الجمعة#5");
+            days.Add("السبت#6");
+
+            uiRepeaterDays.DataSource = days;
+            uiRepeaterDays.DataBind();
+            /*
             DBLayer db = new DBLayer();
             uiGridViewSchedule.DataSource = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), Convert.ToInt32(uiDropDownListDay.SelectedValue));
-            uiGridViewSchedule.DataBind();
+            uiGridViewSchedule.DataBind();*/
+        }
+
+        protected void uiRepeaterDays_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DBLayer db = new DBLayer();
+                HiddenField code = (HiddenField)e.Item.FindControl("uiHiddenFieldDayCode");
+                Repeater r = (Repeater)e.Item.FindControl("uiRepeaterSections2");
+                DayCode = Convert.ToInt32(code.Value);
+                r.DataSource = db.GetAllSections();
+                r.DataBind();
+            }
+
+            if (e.Item.ItemType == ListItemType.Header)
+            {
+                DBLayer db = new DBLayer();
+                Repeater r = (Repeater)e.Item.FindControl("uiRepeaterSectionNames");
+                r.DataSource = db.GetAllSections();
+                r.DataBind();
+            }
+
+        }
+
+
+        protected void uiRepeaterSections2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+
+                DBLayer db = new DBLayer();
+                DataSet ds = new DataSet();
+                Label course = (Label)e.Item.FindControl("uiLabelCourse");
+                
+                ds = db.GetScheduleByClassRoomAndDay(Convert.ToInt32(uiDropDownListClassRooms.SelectedValue), DayCode);
+
+                DataRowView row = (DataRowView)e.Item.DataItem;
+
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    if (item["SectionID"].ToString() == row["SectionID"].ToString())
+                    {
+                        course.Text = item["ArDetails"].ToString();                        
+                        break;
+                    }
+                }
+            }
+
         }
 
         

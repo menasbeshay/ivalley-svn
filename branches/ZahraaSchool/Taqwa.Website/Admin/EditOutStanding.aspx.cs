@@ -36,7 +36,7 @@ namespace Taqwa.Website.Admin
             {
                 Session["FCKeditor:UserFilesPath"] = ConfigurationManager.AppSettings["OutstandingFilePath"];
                 
-                if (CurrentOutStanding != 0)
+             /*   if (CurrentOutStanding != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -56,12 +56,12 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentOutStanding.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
                     LoadDDLs();
-                }
+               // }
             }
         }
 
@@ -125,7 +125,7 @@ namespace Taqwa.Website.Admin
             DataSet ds = new DataSet();
             if (uiFileUploadPicture.HasFile)
             {
-                uiFileUploadPicture.SaveAs(Server.MapPath(ConfigurationManager.AppSettings["OutstandingFilePath"] + uiFileUploadPicture.FileName));
+                uiFileUploadPicture.SaveAs(Server.MapPath("~" + ConfigurationManager.AppSettings["OutstandingFilePath"] + uiFileUploadPicture.FileName));
                 filepath = ConfigurationManager.AppSettings["OutstandingFilePath"].Substring(1) + uiFileUploadPicture.FileName;
             }
             ds = db.GetOutstanding(CurrentOutStanding);
@@ -173,8 +173,8 @@ namespace Taqwa.Website.Admin
         protected void uiButtonCancel_Click(object sender, EventArgs e)
         {
             ClearFields();
-            uiPanelCurrentOutStanding.Visible = false;
-            uiPanelCurrent.Visible = true;
+            uiPanelCurrentOutStanding.Visible = true;
+            uiPanelCurrent.Visible = false;
         }
     }
 }

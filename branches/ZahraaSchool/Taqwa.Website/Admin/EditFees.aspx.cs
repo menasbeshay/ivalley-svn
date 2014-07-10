@@ -52,7 +52,7 @@ namespace Taqwa.Website.Admin
             if (!IsPostBack)
             {
                 LoadDDLs();
-                if (CurrentStudentActive != 0)
+              /*  if (CurrentStudentActive != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -71,11 +71,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentFees.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindStudentsData();
-                }
+               // }
             }
         }
 

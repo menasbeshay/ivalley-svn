@@ -34,7 +34,7 @@ namespace Taqwa.Website.Admin
         {
             if (!IsPostBack)
             {
-                if (CurrentSchoolYear != 0)
+               /* if (CurrentSchoolYear != 0)
                 {
                     //BindData();
                     DBLayer db = new DBLayer();
@@ -50,11 +50,11 @@ namespace Taqwa.Website.Admin
                     uiPanelCurrent.Visible = true;
                 }
                 else
-                {
+                {*/
                     uiPanelCurrentSchoolYear.Visible = true;
                     uiPanelCurrent.Visible = false;
                     BindData();
-                }
+                //}
             }
         }
 
@@ -98,8 +98,14 @@ namespace Taqwa.Website.Admin
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
                 CurrentSchoolYear = id;
-                DBLayer db = new DBLayer();
-                db.DeleteSchoolYear(id);
+                DBLayer db = new DBLayer();               
+                if (! db.DeleteSchoolYear(id))
+                {
+                    uiLabelError.Visible = true;
+                    uiLabelError.Text = "لايمكن حذف السنة الدراسية لوجود بيانات مربوطة بالسجل الخاص بها.";
+                    return;
+                }
+                uiLabelError.Visible = false;
                 uiPanelCurrentSchoolYear.Visible = true;
                 uiPanelCurrent.Visible = false;
                 BindData();

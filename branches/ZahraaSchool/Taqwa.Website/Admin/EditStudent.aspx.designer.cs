@@ -103,6 +103,15 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Button uiButtonSearch;
         
         /// <summary>
+        /// uiButtonExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uiButtonExport;
+        
+        /// <summary>
         /// uiLinkButtonAdd control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
+        /// uiLabelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelError;
+        
+        /// <summary>
         /// uiGridViewStudents control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace Taqwa.Website.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView uiGridViewStudents;
+        
+        /// <summary>
+        /// uiGridViewExported control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView uiGridViewExported;
         
         /// <summary>
         /// uiPanelCurrent control.
@@ -821,6 +848,51 @@ namespace Taqwa.Website.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Taqwa.Website.Admin.Controls.ucresults ucresults1;
+        
+        /// <summary>
+        /// uiPanelPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelPassword;
+        
+        /// <summary>
+        /// Label30 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label30;
+        
+        /// <summary>
+        /// uiTextBoxPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPassword;
+        
+        /// <summary>
+        /// uiLabelPassError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelPassError;
+        
+        /// <summary>
+        /// uiButtonsavePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uiButtonsavePassword;
         
         /// <summary>
         /// UpdateProgress1 control.

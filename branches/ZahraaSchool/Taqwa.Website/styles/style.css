@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
 /* 	Reset Styling
 ----------------------------------------------------------------------*/
 html, body, div, span, applet, object, iframe,
@@ -17,6 +18,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: 'Amiri', serif;
 	vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, 
@@ -25,6 +27,7 @@ footer, header, hgroup, menu, nav, section, img {
 }
 body {
 	line-height: 1;
+	
 }
 ol, ul {
 	list-style: none;
@@ -95,7 +98,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #484747;
 	padding: 0;
 	margin: 0 0 10px 0;
-	font-family: "Raleway", Helvetica, Tahoma, Arial;
+	font-family: 'Amiri', serif;
+	/*font-family: "Raleway", Helvetica, Tahoma, Arial;*/
 	font-weight: 700;
 	line-height: 20px
 }
@@ -904,7 +908,7 @@ textarea {
 .sf-menu a {
 	display: block;
 	position: relative;
-	color: #000;
+	color: #fff;
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 400;
@@ -914,15 +918,19 @@ textarea {
 	border: 1px solid transparent;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
+	border: 1px solid #006535;
+	background: #006535;
 }
 .sf-menu li li a {
 	margin: 0;
-	border:0
+	border:0;
+	
 }
-.sf-menu > li:hover > a, .sf-menu > li > a:hover {
-	color: #fff;
-	border: 1px solid #006535;
-	background: #006535;
+.sf-menu > li:hover > a, .sf-menu > li > a:hover
+{
+    color: #000000;
+    border: 1px solid #FCC507;
+    background: #FCC507;
 }
 .sfHover:hover > a {
 	border-top-left-radius: 6px;
@@ -931,9 +939,9 @@ textarea {
 	border-bottom-left-radius: 0;
 }
 .sf-menu li.current > a {
-	color: #fff;
-	border: 1px solid #006535;
-	background: #006535;
+	color: #000;
+	border: 1px solid #FCC507;
+	background: #FCC507;
 }
 .sf-menu li li:hover > a, .sf-menu li li > a:hover, .sf-menu li li.current > a {
 	border: 0;
@@ -1102,9 +1110,10 @@ li li a .sf-sub-indicator {
 .f_blog h4 {
 	border-bottom: 1px solid #E9E9E9;
 	padding: 0 0 10px 0;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 24px;
-	font-weight: 400;
+	font-weight: bold;
+	text-align:center;
 }
 .f_blog .f_meta span {
 	margin-right: 20px;
@@ -1468,15 +1477,18 @@ li li a .sf-sub-indicator {
 	padding: 10px 0 0 0;
 }
 .intro_p .tbutton {
-	background: none;
-	background-image: none;
+	/*background: none;
+	background-image: none;*/
 	text-shadow: none;
 	border: 1px solid #fff;
 	border-radius: 6px;
+	background-color:#006535;
 }
 .intro_p .tbutton:hover {
-	background: #DADADA;
-	background: rgba(255, 255, 255, 0.3);
+	/*background: #DADADA;*/
+	background:#FCC507;
+	/*background: rgba(255, 255, 255, 0.3);*/
+	background: rgba(252, 197, 7, 0.3);
 	border-color: #fff;
 	color: #fff;
 }
@@ -1610,6 +1622,7 @@ li li a .sf-sub-indicator {
 	line-height: 44px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
+	font-size:18px;
 }
 .custom_block1 ul li a:hover i {-webkit-animation: fadeInUp 1s;animation: fadeInUp 1s;}
 .custom_block1 ul li i {
@@ -2035,6 +2048,10 @@ li li a .sf-sub-indicator {
 	padding: 34px;
 	border: 0;
 }
+.f_portfolio .intro_content .inner p 
+{
+    font-size:16px;
+    }
 .f_portfolio .f_items {
 	width: 75%;
 	height: 100%;
@@ -2260,7 +2277,7 @@ li li a .sf-sub-indicator {
 	position: relative;
 	padding: 10px 0 10px 60px;
 	margin: 8px 0 0 0;
-	font-size: 14px;
+	font-size: 16px;
 	cursor: pointer;
 	border-bottom: 0;
 	color: #fff;
@@ -2294,6 +2311,7 @@ li li a .sf-sub-indicator {
 .toggle-content {
 	padding:16px;
 	overflow:hidden;
+	font-size:15px;
 }
 .accordion-head-sign,
 .toggle-head-sign {
@@ -4820,3 +4838,180 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 
 
 /********************************/
+
+.form-control
+{
+    padding-top:0px !important;
+    }
+    
+.ui-menu-item
+{
+    height:35px;
+    border-bottom:1px solid #ccc;
+    }    
+    
+.AdminMain
+{
+    width:100%;
+    padding: 10px;
+    padding-right:0px;
+    font-family: Verdana;
+}
+
+.AdminLeft
+{
+    float:right;
+    width:15%;  
+    text-align:right;
+    padding-right:15px;
+    direction:rtl;  
+}
+
+.AdminMiddle
+{
+    float:right;
+    direction:rtl;
+}
+
+.AdminRight
+{
+    float:right;
+    width:40%;   
+    direction:rtl;
+    text-align:right; 
+}
+
+.clear
+{
+    clear:both;
+    height:3px;
+}
+
+.Label
+{
+    font-family: Verdana;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0000FF;
+}
+
+.TitleLabel
+{
+    font-family: Times New Roman,Arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: #004080;
+}
+
+h3
+{
+    color:Green;
+    font-family:Verdana;
+}
+
+.BackDiv
+{
+    width:300px;
+    float:left;
+    text-align:left;
+    padding-left:15px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.NewsBlock
+{
+    /*border: 1px solid #C0C0C0;*/
+    direction: rtl;
+    float: left;
+    width: 310px; /*background: url(../images/box2.jpg) no-repeat center;      */
+}
+
+.NewsHeader
+{
+    background: url(../images/blue_news.jpg) no-repeat center;
+    width:313px;
+    height:33px;
+}
+
+.NewsBlock .NewsDate
+{
+    float:right;
+    color: #0E528F;
+	font-weight: bold;
+	width:100px;
+	font-size:15px;
+	/*padding-right: 20px;*/
+	
+}
+.NewsBlock .More a
+{
+    float:right;
+    color: #C3362D;
+	font-weight: bold;
+	/*width:95px;*/
+	font-size:15px;
+}
+
+.NewsBlock .NewsDetails
+{
+        
+    padding-left: 15px;   
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-align:right;
+	color: #606061; 
+}
+
+.TermsHeader
+{
+   /* background: url(../images/blue.jpg) no-repeat center;
+    width:313px;
+    height:33px;*/
+}
+
+.NewsBlock .TermsDetails
+{
+    width:283px;
+    padding-right:20px;
+    padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #fff; 
+	padding-top:10px;
+}
+
+.mainContent
+{
+    width:95%;
+    padding: 10px;    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    direction:rtl;
+}
+
+
+.Left
+{
+    float:right;
+    width:20%;    
+}
+
+.Middle
+{
+    float:right;
+}
+
+.Right
+{
+    float:right;
+    width:20%;    
+}
+
+.Right .Label
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0000FF;
+}

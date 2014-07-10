@@ -1,28 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="HonorPanel.aspx.cs" Inherits="Taqwa.Website.HonorPanel" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="HonorPanel.aspx.cs" Inherits="Taqwa.Website.HonorPanel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="mainContent" style="background-color:#fff;width:980px;">
-<div class="style24">
+<div style="clear:both; height:10px;"></div>
+    <div class="mainContent col-lg-12 row" >
+<h2>
     <asp:Literal ID="uiLiteralTitle" runat="server" Text="لوحة الشرف"></asp:Literal>
-</div>
+</h2>
 <div style="clear:both; height:10px;"></div>
 <div class="Content">
-    <asp:DataList ID="uiDataListHonorPanel" runat="server" HorizontalAlign="Center" 
-        RepeatLayout="Flow" Width="80%">
-    <ItemTemplate>
-    <div class="Right"></div>
-    <div class="Middle"><%# Server.HtmlDecode(Eval("ArComments").ToString()) %></div>
-    <div class="Left"></div>
-    <div class="clear"></div>
-    <div class="Right"><%# Eval("ArName") %></div>
-    <div class="Middle"></div>
-    <div class="Left">
-        <asp:Image ID="uiImage" runat="server" ImageUrl='<%# Eval("PicturePath") %>' Width="120px" /></div>
-    <div class="clear"></div>
     
+<div class="products shop clearfix mbf">
+    <asp:Repeater ID="uiRepeaterPhoto" runat="server">
+    <ItemTemplate>
+        <div class="product grid_3">
+		<img class="product_img" src='<%# Eval("PicturePath") %>' alt=""><!-- featured thumbnail -->
+		<img class="product_img_hover" src='<%# Eval("PicturePath") %>' alt=""><!-- featured thumbnail hover -->		
+		<div class="product_inner">
+			<h3> <a href="#"> <%# Eval("ArName") %></a> </h3>
+			<div class="clearfix">				
+				
+			</div>
+		</div>
+		
+	</div>
     </ItemTemplate>
-    </asp:DataList>
+    </asp:Repeater>
+    
+</div>
 </div>
 </div>
 </asp:Content>

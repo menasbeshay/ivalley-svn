@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Taqwa.Website.index" %>
+<%@ Register src="Controls/News.ascx" tagname="News" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     $(document).ready(function () {
@@ -39,7 +40,7 @@
 
             <div class="ls-layer" style="slidedirection: right; transition2d: all; slidedelay: 4500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="images/slides/4.jpg" alt="">		
-                <img class="ls-s2"  src="images/slides/ip4.png" alt="" style="position: absolute; top: 110px; left: 340px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">		
+                <img class="ls-s2"  src="images/slides/ip4.png" alt="" style="position: absolute; top: 110px; left: 460px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">		
 			</div>
 					</div>		
 				</div>
@@ -48,20 +49,24 @@
 
 			<div class="intro_p tac">
 				<div class="row inner clearfix">
-					<h2>Clean, Unique, Modern & Responsive HTML5 Template, Inspired iOS7 <small>Connect with us</small></h2>
-					<a href="#" class="tbutton large"><i class="icon_comment_alt"></i><span>Match Me To Advisors</span></a>
-					<a href="#" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>Do Your One Search</span></a>
+					<h2>مرحباً بكم فى موقع مدرسة الزهراء  الخاصة</h2>
+					<a href="Pages.aspx?PID=12" class="tbutton large"><i class="icon_comment_alt"></i><span>شروط الإلتحاق بالمدرسة</span></a>
+					<a href="Pages.aspx?PID=6" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>وظائف بالمدرسة</span></a>
 				</div><!-- End row -->
 			</div><!-- End intro p -->
 
 			<div class="page-content">
+
+                <div class="row mbs clearfix">                
+                    <uc1:News ID="News1" runat="server" />
+                </div>
 				
 				<div class="row mbs clearfix">
 					<div class="f_portfolio">
 						<div class="intro_content">
 							<div class="inner">
 								<h3> ألبوم الصور </h3>
-								<p> إستمتع بمشاهدة ألبوم الصور .. <a href="Gallery.aspx">مشاهدة الكل</a></p>
+								<p> إستمتع بمشاهدة ألبوم الصور .. <br /><a href="Gallery.aspx">مشاهدة الكل</a></p>
 							</div>
 						</div>
 						<div class="f_items">
@@ -73,9 +78,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -83,9 +88,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -93,9 +98,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -105,9 +110,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 											</div>
 										</li><!-- portfolio item -->
@@ -116,9 +121,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 										<li>
@@ -126,9 +131,9 @@
 											<div class="f_hover">
 												<div class="f_links">
 													<a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													<a class="tbutton small" href="#"><span>More Details</span></a>
+													
 												</div>
-												<h5> <a href="#">Portfolio Project Title Here</a> </h5>
+												<h5></h5>
 											</div>
 										</li><!-- portfolio item -->
 									</ul>
@@ -148,17 +153,19 @@
 							<div class="h_slider"><img class="custom_3" src="images/assets/t3.png" alt="tablet"></div>
 							<div class="h_slider"><img class="custom_4" src="images/assets/t4.png" alt="tablet"></div>
 							<div class="h_slider"><img class="custom_5" src="images/assets/t5.png" alt="tablet"></div>
+                            <div class="h_slider"><img class="custom_6" src="images/assets/t6.png" alt="tablet"></div>
 						</div><!-- end grid6 -->
 
 						<div class="grid_6 custom_block1 pull-left" data-gen="bigEntrance" >
 							<div class="inner_list">
 								<h3>- تمتع بإستخدام الخدمات المقدمة من موقع المدرسة</h3>
 								<ul>
-									<li><a href="#custom_1"><i class="icon_box-checked"></i> جدول الحصص</a></li>
-									<li><a href="#custom_2"><i class="icon_box-checked"></i> مواعيد المدرسة</a></li>
-									<li><a href="#custom_3"><i class="icon_box-checked"></i> سيارة المدرسة</a></li>
-									<li><a href="#custom_4"><i class="icon_box-checked"></i> النتائج</a></li>
-									<li><a href="#custom_5"><i class="icon_box-checked"></i> أوائل الطلبة</a></li>
+									<li><a href="Schedule.aspx" data-id="#custom_1"><i class="icon_box-checked"></i> جدول الحصص</a></li>
+									<li><a href="Pages.aspx?PID=10" data-id="#custom_2"><i class="icon_box-checked"></i> مواعيد المدرسة</a></li>
+									<li><a href="SchoolBus.aspx" data-id="#custom_3"><i class="icon_box-checked"></i> سيارة المدرسة</a></li>
+									<li><a href="Results.aspx" data-id="#custom_4"><i class="icon_box-checked"></i> النتائج</a></li>
+									<li><a href="OutStandings.aspx" data-id="#custom_5"><i class="icon_box-checked"></i> أوائل الطلبة</a></li>
+                                    <li><a href="ClassAttachment.aspx" data-id="#custom_6"><i class="icon_box-checked"></i> ملفات و فيديو </a></li>
 								</ul>
 							</div><!-- end inner -->
 						</div><!-- end grid6 -->
@@ -171,27 +178,27 @@
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="images/assets/post_1.jpg" alt="#">
-							<div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+							<div class="f_hover"><a href="HonorPanel.aspx"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">لوحة الشرف</a> </h4>
+						<h4> <a href="HonorPanel.aspx">لوحة الشرف</a> </h4>
 						
 					</div><!-- end grid3 -->
 
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="images/assets/post_2.jpg" alt="#">
-							<div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+							<div class="f_hover"><a href="gpage.aspx?PID=13"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">الأعمال الفنية</a> </h4>
+						<h4> <a href="gpage.aspx?PID=13">الأعمال الفنية</a> </h4>
 						
 					</div><!-- end grid3 -->
 
 					<div class="grid_3 f_blog">
 						<div class="f_thumb">
 							<img src="images/assets/post_3.jpg" alt="#">
-                            <div class="f_hover"><a href="#"><i class="icon_link_alt"></i></a></div>
+                            <div class="f_hover"><a href="gpage.aspx?PID=11"><i class="icon_link_alt"></i></a></div>
 						</div>
-						<h4> <a href="#">الزيارات والرحلات </a> </h4>
+						<h4> <a href="gpage.aspx?PID=11">الزيارات والرحلات </a> </h4>
 						
 					</div><!-- end grid3 -->
 
@@ -203,7 +210,7 @@
 					</div><!-- end grid3 -->
 					
 				</div><!-- end row -->
-                
+                <%--
 				<div class="row clearfix mbs">
 					<div class="grid_6">
 						<ul class="tabs">
@@ -251,7 +258,7 @@
 							</ul><!-- end accordion -->
 					</div><!-- end grid6 -->
 				</div><!-- clearfix -->
-
+--%>
 				
 			</div><!-- end page content -->
 </asp:Content>

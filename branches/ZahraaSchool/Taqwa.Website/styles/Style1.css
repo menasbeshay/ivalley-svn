@@ -1,4 +1,5 @@
-﻿fieldset{	color:#FFFFFF; 
+﻿
+fieldset{	color:#FFFFFF; 
                     border-radius: 8px;
                     -webkit-border-radius: 8px;
                     -moz-border-radius: 8px;
@@ -8,7 +9,7 @@
 		}
 
 body {
-	background-image: url(../images/bg-mona.jpg);
+	/*background-image: url(../images/bg-mona.jpg);*/
 	font-size: 13px;
 }
 a:link {
@@ -109,7 +110,8 @@ a:active {
     float:right;
     width:40%;   
     direction:rtl;
-    text-align:right; 
+    text-align:right;
+    height: 18px;
 }
 
 .clear
@@ -124,6 +126,14 @@ a:active {
     font-size: 16px;
     font-weight: bold;
     color: #0000FF;
+}
+
+.TitleLabel
+{
+    font-family: Times New Roman,Arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: #004080;
 }
 
 h3
@@ -498,3 +508,15 @@ background: url(../images/Button.gif) no-repeat center;
 
 
 /********************************/
+
+.addLink
+{
+    font-size:15px;
+    text-decoration:underline !important;
+    font-weight:bold;
+    }
+    
+th 
+{
+    text-align:center !important;
+    }    
