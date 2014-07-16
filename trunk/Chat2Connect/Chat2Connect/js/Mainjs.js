@@ -62,6 +62,8 @@ $(document).ready(function () {
 
     initGeneralGiftModal();
 
+    CountFriends();
+
     $(document).bind('keydown keyup', function (e) {
         if (e.which === 116) {
             inFormOrLink = true;
@@ -95,6 +97,12 @@ function HandleClose()
     }
 }
 
+
+function CountFriends()
+{
+    $('#OnlineFriendsCount').html($('#onlinepeople > div').length);
+    $('#OfflineFriendsCount').html($('#offlinepeople > div').length);
+}
 
 function textboxMultilineMaxNumber(txt,evt, maxLen) {
     try {
