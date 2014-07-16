@@ -103,7 +103,8 @@ namespace Chat2Connect
             Room room = new Room();
             room.LoadByPrimaryKey(CurrentRoom);
 
-            uiLabelCreatedDate_Edit.Text = room.CreatedDate.ToString("dd/MM/yyyy");
+            if (!room.IsColumnNull("CreatedDate"))
+                uiLabelCreatedDate_Edit.Text = room.CreatedDate.ToString("dd/MM/yyyy");
             uiLabelOwnerName.Text = Member.CurrentMember.Name;
             uiLabelRoomName.Text = room.Name;
             if (!room.IsColumnNull("CategoryID"))
@@ -168,10 +169,10 @@ namespace Chat2Connect
                 room.RoomPassword = uiTextBoxPassword.Text;
                 room.RoomAdminPassword = uiTextBoxAdminPass.Text;
                 room.RoomPasswordenabled = uiCheckBoxPasswordEnable.Checked;
-                room.EnableCam = uiCheckBoxEnableCam.Checked;
+               /* room.EnableCam = uiCheckBoxEnableCam.Checked;
                 room.EnableOneMic = uiCheckBoxEnableOneMic.Checked;
                 room.EnableTwoMic = uiCheckBoxEnableTwoMic.Checked;
-                room.EnableThreeMic = uiCheckBoxEnableThreeMic.Checked;
+                room.EnableThreeMic = uiCheckBoxEnableThreeMic.Checked;*/
                 room.RowStatusID = 1;
                 room.Save();
 
