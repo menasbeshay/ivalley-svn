@@ -57,18 +57,17 @@ namespace Chat2Connect
                 user.Save();
 
                 // remove user from rooms 
-                //RoomMember rooms = new RoomMember();
-                //rooms.GetAllRoomsByMemberID(user.MemberID);
-                //if (rooms.RowCount > 0)
-                //{
-                //    for (int i = 0; i < rooms.RowCount; i++)
-                //    {
-                //        _Rcontext.Clients.Group(rooms.RoomID.ToString()).removeMember(user.MemberID);
-                //        rooms.MarkAsDeleted();
-                //        rooms.MoveNext();
-                //    }
-                //    rooms.Save();
-                //}
+                RoomMember rooms = new RoomMember();
+                rooms.GetAllRoomsByMemberID(user.MemberID);
+                if (rooms.RowCount > 0)
+                {
+                    for (int i = 0; i < rooms.RowCount; i++)
+                    {
+                        _Rcontext.Clients.Group(rooms.RoomID.ToString()).removeMember(user.MemberID);                       
+                        rooms.MoveNext();
+                    }
+                    rooms.Save();
+                }
 
                 // notify friends with new status 
                 MemberFriend friends = new MemberFriend();

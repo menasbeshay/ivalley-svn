@@ -114,7 +114,12 @@
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
         });
-}
+    }
+
+    
+
+
+
     </script>
     <!-- stylesheets -->
     <style>
@@ -125,9 +130,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body >
     <form id="form1" runat="server">
-        <header class="row">
+        <header class="row navbar-fixed-top" role="navigation" >
             <div class="user">
                 <ul class="nav pull-right top-menu login-menu">
                     <!-- BEGIN USER LOGIN DROPDOWN -->
@@ -210,7 +215,7 @@
         </header>
         <%if (Helper.Admin.IsAdmin())
           { %>
-        <nav class="navbar navbar-inverse" role="navigation">
+        <nav class="navbar navbar-inverse adminmenu" role="navigation">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
@@ -263,11 +268,13 @@
                             <li><a href='<%=ResolveUrl("~/Admin/SiteMails.aspx?m="+Convert.ToString((int)m)) %>'><%= Helper.StringEnum.GetStringValue(m) %> <span class="badge" id="msgCount_<%= mid %>"></span></a></li>
                             <%} %>
                         </ul>
+                        </li>
                         <%} %>
+                    </ul>
             </div>
         </nav>
         <%} %>
-        <section class="MainContent row ">
+        <section class="MainContent row " style="margin-top:90px !important;">
             <div style="margin: 0 auto; width: 99.5%;">
                 <nav class="main_menu">
                     <ul>

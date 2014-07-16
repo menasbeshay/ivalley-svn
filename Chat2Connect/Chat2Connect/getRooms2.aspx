@@ -24,7 +24,7 @@
                     <div class="pull-right center" style="width: 21%; padding: 0 5px;">
                         <%# Eval("ExistingMembersCount") %>
                     </div>
-                    <div class="pull-right center" style="width: 15%; padding: 0 5px;"><%# string.IsNullOrEmpty(Eval("OpenCams").ToString()) || Eval("OpenCams").ToString() == "0" ? "لا يوجد" : Eval("OpenCams").ToString() %></div>
+                    <div class="pull-right center" style="width: 15%; padding: 0 5px;"><%# string.IsNullOrEmpty(Eval("OpenCams").ToString()) ? "0" : Eval("OpenCams").ToString() %></div>
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;">
                         <%# !string.IsNullOrEmpty(Eval("RoomRate").ToString()) ? GetRoomRate(Convert.ToInt32(Eval("RoomRate"))) : "<i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i>" %>
                     </div>

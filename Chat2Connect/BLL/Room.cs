@@ -33,7 +33,7 @@ namespace BLL
 
         public virtual bool GetPremiumRooms()
         {
-            return this.LoadFromRawSql(@"Select  R.RoomID,R.Name,R.OpenCams
+            return this.LoadFromRawSql(@"Select  R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                         ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                         ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                         from Room R
@@ -46,7 +46,7 @@ namespace BLL
 
         public virtual bool GetRoomsByCategoryID(int CategoryID)
         {
-            return LoadFromRawSql(@"select  R.RoomID,R.Name,R.OpenCams
+            return LoadFromRawSql(@"select  R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
 	                                ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
 	                                ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
@@ -62,7 +62,7 @@ namespace BLL
 
         public virtual bool GetRoomsBySubCategoryID(int SubCategoryID)
         {
-            return LoadFromRawSql(@"select R.RoomID,R.Name,R.OpenCams
+            return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                     ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                     ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R
@@ -79,7 +79,7 @@ namespace BLL
 
         public virtual bool GetFavoriteByMemberID(int memberID)
         {
-            return LoadFromRawSql(@"select R.RoomID,R.Name,R.OpenCams
+            return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                     ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                     ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
                                     from Room R

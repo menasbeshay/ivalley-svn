@@ -41,7 +41,7 @@ function CheckBoxRequired_ClientValidate(sender, e) {
     e.IsValid = jQuery(".AcceptedAgreement input:checkbox").is(':checked');
 }
 
-
+var inFormOrLink = false;
 $(document).ready(function () {
     $('.datecontrol').datepicker({
         format: 'yyyy/mm/dd'
@@ -62,7 +62,38 @@ $(document).ready(function () {
 
     initGeneralGiftModal();
 
+    $(document).bind('keydown keyup', function (e) {
+        if (e.which === 116) {
+            inFormOrLink = true;
+        }        
+    });
+
+    $('header a').bind('click', function () { inFormOrLink = true; });
+    $('.adminmenu a').bind('click', function () { inFormOrLink = true; });
+    $('.main_menu a').bind('click', function () { inFormOrLink = true; });
+    $('form').bind('submit', function () { inFormOrLink = true; });
+
+    $(window).bind("beforeunload", function () {        
+            HandleClose();
+    });
+
+
+
+
 });
+
+function HandleClose()
+{
+    if (!inFormOrLink)
+    {
+        $.ajax({
+            url: '../Services/Services.asmx/HandleClose',
+            dataType: 'json',
+            type: 'post',
+            async:false
+        });
+    }
+}
 
 
 function textboxMultilineMaxNumber(txt,evt, maxLen) {
@@ -120,6 +151,8 @@ function initPopupMenu() {
         }
     });
 }
+
+
 
 var generalSelectedGift;
 function initGeneralGiftModal() {

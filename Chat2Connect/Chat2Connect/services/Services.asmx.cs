@@ -620,7 +620,7 @@ namespace Chat2Connect.services
             
             //messages
             //roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);            
-            roomObject.MessageHistory = new List<Helper.ChatMessage>();
+            roomObject.MessageHistory = new List<Helper.ChatMessage>() { };
             ///////////////////////////
             Gift allgifts = new Gift();
             allgifts.LoadAll();
@@ -914,6 +914,52 @@ namespace Chat2Connect.services
             result = Newtonsoft.Json.JsonConvert.SerializeObject(result);
             HttpContext.Current.Response.Write(result);
             //return result;
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void HandleClose()
+        {
+            Member user = new Member();
+            user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            user.IsOnLine = false;
+            user.Status = 4;
+            user.Save();
+
+            RoomMember rooms = new RoomMember();
+            rooms.GetAllRoomsByMemberID(user.MemberID);
+            if (rooms.RowCount > 0)
+            {
+                rooms.InRoom = false;
+                if (rooms.HasCam)
+                {
+                    rooms.HasCam = false;
+                    Room room = new Room();
+                    room.LoadByPrimaryKey(rooms.RoomID);
+                    room.OpenCams -= 1;
+                    if (room.OpenCams < 0)
+                        room.OpenCams = 0;
+                    room.Save();
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(rooms.RoomID.ToString()).HideCamLink(rooms.MemberID, rooms.RoomID);
+                }
+                rooms.Save();
+
+                
+            }
+
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(user.MemberID);
+            for (int i = 0; i < friends.RowCount; i++)
+            {
+                Member temp = new Member();
+                temp.LoadByPrimaryKey(friends.FriendID);
+                MembershipUser u = Membership.GetUser(temp.UserID);
+                IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, "offline");
+            }
+
+            // clear all session vars
+            Session.Abandon();
         }
 
     }
