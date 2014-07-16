@@ -101,6 +101,7 @@ namespace Chat2Connect.SRCustomHubs
                 RoomMember roomMember = new RoomMember();
                 roomMember.LoadByPrimaryKey(memberID, roomid);
                 roomMember.InRoom = false;
+                roomMember.HasCam = false;
                 roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
                 roomMember.Save();
 
@@ -349,6 +350,8 @@ namespace Chat2Connect.SRCustomHubs
                 room.OpenCams = 0;
             else
                 room.OpenCams -= 1;
+            if (room.OpenCams < 0)
+                room.OpenCams = 0;
             RoomMember roomMember = new RoomMember();
             if (roomMember.LoadByPrimaryKey(memberid, rid))
             {
@@ -514,6 +517,14 @@ namespace Chat2Connect.SRCustomHubs
         {
             Clients.Group(rid.ToString()).markAllWithoutWrite(rid, isMarked,adminID);
         }
+
+        public void ToggleUserMark(int rid, bool isMarked, int memberid)
+        {
+            if(isMarked)
+                Clients.Group(rid.ToString()).UserMarked(rid, memberid);
+            else
+                Clients.Group(rid.ToString()).UserUnMarked(rid, memberid);
+        }        
         #endregion
     }
 }

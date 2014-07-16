@@ -36,7 +36,7 @@
                 <div style="height:5px;" class="clearfix"></div>
 
                 <div>
-                    <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#onlinepeople" >الأصدقاء المتواجدين</a></div>
+                    <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#onlinepeople" >الأصدقاء المتواجدين (<span id="OnlineFriendsCount"></span>)</a></div>
                     <div class="clearfix"></div>                    
                     <asp:Repeater ID="uiRepeaterOnline" runat="server">
                         <HeaderTemplate><div id="onlinepeople" class="panel-collapse collapse in " ></HeaderTemplate>
@@ -159,7 +159,7 @@
                 <div style="height:5px;" class="clearfix"></div>
 
                 <div>
-                    <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#offlinepeople" >الأصدقاء غير المتواجدين</a></div>
+                    <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#offlinepeople" >الأصدقاء غير المتواجدين (<span id="OfflineFriendsCount"></span>)</a></div>
                     <div class="clearfix"></div>                    
                     <asp:Repeater ID="uiRepeaterOffline" runat="server">
                         <HeaderTemplate><div id="offlinepeople" class="panel-collapse collapse in " ></HeaderTemplate>

@@ -227,7 +227,7 @@
     <script id="chatMsgTemplate" type="text/html">
         <div class="clear" style="height: 5px;"></div>
         <div class="row">
-            <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;'>
+            <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;padding-top:5px;'>
                 <b data-bind="if:FromName">:</b>
                 <b data-bind="text:FromName"></b>
             </div>
@@ -313,7 +313,7 @@
                                 <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend())"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
                             </ul>
                         </div>
@@ -321,6 +321,7 @@
                             <ul>
                                 <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                 <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.toggleMark.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="text:IsMarked() ?' إلغاء الإسكات ':'إسكات'"></span></a></li>
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
                                 <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
@@ -1195,7 +1196,7 @@
                     </div>
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label2">كاميرات</span></label>
-                        <span id="Label4" data-bind="text:OpenCams"></span>
+                        <span id="Label4" data-bind="text:OpenedCams().length"></span>
                         &nbsp;&nbsp;
                         <label><span id="Label3">متواجدين</span></label>
                         <span id="uiLabelMemberCount" data-bind="text:ExistingMembers().length"></span>

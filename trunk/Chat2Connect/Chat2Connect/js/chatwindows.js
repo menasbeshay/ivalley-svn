@@ -134,8 +134,8 @@ function Chat(maxWin, memberID, memberName) {
         // default editor styles
         this.IsBold = false;
         this.IsItalic = false;
-        this.FontSize = 'medium';
-        this.ForeColor = 'black';
+        this.FontSize = 'large';
+        this.ForeColor = 'Red';
 
         this.getMember = function (id) {
             return ko.utils.arrayFirst(self.Members(), function (mem) {
@@ -182,6 +182,13 @@ function Chat(maxWin, memberID, memberName) {
         }, this);
         //MicMember
         this.MicMember = ko.observable();
+
+        // openedCams
+        this.OpenedCams = ko.computed(function () {            
+            return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
+                return mem.IsCamOpened();
+            });
+        }, this);
 
         this.updateSetting = function (settingName) {
             var window = this;
@@ -246,7 +253,22 @@ function Chat(maxWin, memberID, memberName) {
                     }
                 });
             }
+
+            // update friend list counter
+            setTimeout(CountFriends, 1500);
         };
+        this.toggleMark = function (window, friend) {
+            var newvalue = !friend.IsMarked();
+            friend.IsMarked(newvalue);
+            friend.CanWrite(newvalue);
+            rHub.server.toggleUserMark(window.ID(), newvalue, friend.MemberID());
+            if (!newvalue) {                
+                window.stopMic(friend.MemberID());                
+            }
+        };
+
+
+
         this.SelectedMember = ko.observable(this.CurrentMember());
         this.showRoomMemberLevelsPopup = function (mid) {
             var member = self.getMember(mid);
@@ -596,11 +618,9 @@ function Chat(maxWin, memberID, memberName) {
         this.updateRoomSetting = function (settingName) {
             var window = this;
             var newValue = !window.Settings[settingName]();
-            rHub.server.updateRoomSetting(window.ID(), settingName, newValue);
-            window.Settings[settingName](newValue);
-            // reverse settings
-            if (settingName == "MarkOnLoginWithWrite" && newValue)
-            {
+
+            // change opposite settings
+            if (settingName == "MarkOnLoginWithWrite" && newValue) {
                 rHub.server.updateRoomSetting(window.ID(), "MarkOnLoginWithoutWrite", !newValue);
                 window.Settings["MarkOnLoginWithoutWrite"](!newValue);
             }
@@ -609,34 +629,45 @@ function Chat(maxWin, memberID, memberName) {
                 rHub.server.updateRoomSetting(window.ID(), "MarkOnLoginWithWrite", !newValue);
                 window.Settings["MarkOnLoginWithWrite"](!newValue);
             }
+
+            // apply new settings
+            rHub.server.updateRoomSetting(window.ID(), settingName, newValue);
+            window.Settings[settingName](newValue);
+            
             return true;
         }
         this.MarkAllWithWriteCheck = ko.observable(false);
         this.markAllWithWrite = function () {
             var window = this;
             var newValue = !window.MarkAllWithWriteCheck();
-            rHub.server.markAllWithWrite(window.ID(), newValue, window.CurrentMember().MemberID());
-            window.MarkAllWithWriteCheck(newValue);
-
-            // reverse other settings
+            // change opposite settings
             if (newValue) {
                 rHub.server.markAllWithoutWrite(window.ID(), !newValue, window.CurrentMember().MemberID());
                 window.MarkAllWithoutWriteCheck(!newValue);
             }
+
+            // apply new settings
+            rHub.server.markAllWithWrite(window.ID(), newValue, window.CurrentMember().MemberID());
+            window.MarkAllWithWriteCheck(newValue);
+
+           
             return true;
         };
         this.MarkAllWithoutWriteCheck = ko.observable(false);
         this.markAllWithoutWrite = function () {
             var window = this;
             var newValue = !window.MarkAllWithoutWriteCheck();
-            rHub.server.markAllWithoutWrite(window.ID(), newValue, window.CurrentMember().MemberID());
-            window.MarkAllWithoutWriteCheck(newValue);
-
-            // reverse other settings
+            // change opposite settings
             if (newValue) {
                 rHub.server.markAllWithWrite(window.ID(), !newValue, window.CurrentMember().MemberID());
                 window.MarkAllWithWriteCheck(!newValue);
             }
+
+            // apply new settings
+            rHub.server.markAllWithoutWrite(window.ID(), newValue, window.CurrentMember().MemberID());
+            window.MarkAllWithoutWriteCheck(newValue);
+
+           
             return true;
         };
 
@@ -798,14 +829,14 @@ function Chat(maxWin, memberID, memberName) {
 
         this.initEditor = function () {
             this.Editor.setValue("");
-            if (this.IsBold) {
-                this.Editor.composer.commands.exec("bold");
+            if (self.IsBold) {
+                self.Editor.composer.commands.exec("bold");
             }
-            if (this.IsItalic) {
-                this.Editor.composer.commands.exec("italic");
+            if (self.IsItalic) {
+                self.Editor.composer.commands.exec("italic");
             }
-            this.Editor.composer.commands.exec("fontSize", this.FontSize);
-            this.Editor.composer.commands.exec("foreColor", this.ForeColor);
+            self.Editor.composer.commands.exec("fontSize", self.FontSize);
+            self.Editor.composer.commands.exec("foreColor", self.ForeColor);
         }
 
         this.toggleBold = function () {
@@ -862,6 +893,7 @@ function Chat(maxWin, memberID, memberName) {
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
             self.Init(win);
+            setTimeout(function () { win.initEditor(); }, 1500);
             rHub.server.enterPrivateChatLog(id, name);
         }
         else {
@@ -886,15 +918,17 @@ function Chat(maxWin, memberID, memberName) {
         self.windows.push(win);
         self.changeCurrent(win.uniqueID());
         self.Init(win);
-
+        setTimeout(function () { win.initEditor(); }, 1500);
         rHub.server.addToRoom(win.ID(), win.CurrentMember().InRoom());
     };
     self.removeWindow = function () {
         if (this.Type() == "Room") {
+            if (this.CurrentMember().IsCamOpened())
+                this.stopCam(this.CurrentMemberID());
             rHub.server.removeFromRoom(this.ID());
             $.post("../services/Services.asmx/closeChatRoom", { id: this.ID() });
         }
-        self.windows.remove(this);
+        self.windows.remove(this);        
         $('.nav-tabs a:last').tab('show');
     }
     self.rateRoom = function (val) {
@@ -1079,9 +1113,11 @@ function Chat(maxWin, memberID, memberName) {
         if (window.Type() == "Room")
             addMsgToWindow(window, window.WelcomeMsg(), "welcomeText");
 
+        
+            
     };
 
-    self.removeMember = function (mid) { //remove member from rooms and private chate
+    self.removeMember = function (mid) { //remove member from rooms and private chat
         ko.utils.arrayForEach(self.windows(), function (room) {
             if (room.Type() == 'Private' && room.ID() == mid)
                 self.windows().remove(room);
@@ -1123,7 +1159,7 @@ function Chat(maxWin, memberID, memberName) {
         var hiddenfield = $('#UploadFileName_' + window.uniqueID());
         if (hiddenfield.val() != '') {
             var randomid = Math.floor((Math.random() * 100000) + 1);
-            var imageDiv = "<a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-width:100px;margin:0 !important;'/></a>";
+            var imageDiv = "<a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='images.aspx?Image=files/rooms/attachedimages/" + hiddenfield.val() + "' style='margin:0 !important;'/></a>";
 
             var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>صورة</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;max-width:450px;'/></div></div></div></div></div></div></div>";
 
@@ -1437,6 +1473,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
             var member = window.getMember(memberid);
             if (member != null) {
                 member.IsMarked(true);
+                member.CanWrite(false);
             }
         }
         //  $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
@@ -1447,6 +1484,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows) {
             var member = window.getMember(memberid);
             if (member != null) {
                 member.IsMarked(false);
+                member.CanWrite(true);
             }
         }
         //   $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
