@@ -355,6 +355,15 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
+        /// LocalTR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow LocalTR;
+        
+        /// <summary>
         /// Label11 control.
         /// </summary>
         /// <remarks>
@@ -373,13 +382,13 @@ namespace Pricing_GUI {
         protected global::System.Web.UI.WebControls.DropDownList ui_drpManufactures;
         
         /// <summary>
-        /// LocalTR control.
+        /// ImportedTR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow LocalTR;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow ImportedTR;
         
         /// <summary>
         /// Td1 control.
@@ -452,15 +461,6 @@ namespace Pricing_GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td6;
-        
-        /// <summary>
-        /// ImportedTR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow ImportedTR;
         
         /// <summary>
         /// Td7 control.

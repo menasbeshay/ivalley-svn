@@ -240,6 +240,14 @@ namespace View
 				}
 			}
 			
+			public static SqlParameter DiscussionDate
+			{
+				get
+				{
+					return new SqlParameter("@DiscussionDate", SqlDbType.NVarChar, 50);
+				}
+			}
+			
 		}
 		#endregion	
 	
@@ -270,6 +278,7 @@ namespace View
             public const string Mail2 = "Mail2";
             public const string Mail3 = "Mail3";
             public const string AssignedUserID = "AssignedUserID";
+            public const string DiscussionDate = "DiscussionDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -301,6 +310,7 @@ namespace View
 					ht[Mail2] = _v_PriceSchedual.PropertyNames.Mail2;
 					ht[Mail3] = _v_PriceSchedual.PropertyNames.Mail3;
 					ht[AssignedUserID] = _v_PriceSchedual.PropertyNames.AssignedUserID;
+					ht[DiscussionDate] = _v_PriceSchedual.PropertyNames.DiscussionDate;
 
 				}
 				return (string)ht[columnName];
@@ -337,6 +347,7 @@ namespace View
             public const string Mail2 = "Mail2";
             public const string Mail3 = "Mail3";
             public const string AssignedUserID = "AssignedUserID";
+            public const string DiscussionDate = "DiscussionDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -368,6 +379,7 @@ namespace View
 					ht[Mail2] = _v_PriceSchedual.ColumnNames.Mail2;
 					ht[Mail3] = _v_PriceSchedual.ColumnNames.Mail3;
 					ht[AssignedUserID] = _v_PriceSchedual.ColumnNames.AssignedUserID;
+					ht[DiscussionDate] = _v_PriceSchedual.ColumnNames.DiscussionDate;
 
 				}
 				return (string)ht[propertyName];
@@ -404,6 +416,7 @@ namespace View
             public const string Mail2 = "s_Mail2";
             public const string Mail3 = "s_Mail3";
             public const string AssignedUserID = "s_AssignedUserID";
+            public const string DiscussionDate = "s_DiscussionDate";
 
 		}
 		#endregion	
@@ -694,6 +707,18 @@ namespace View
 			set
 	        {
 				base.Setint(ColumnNames.AssignedUserID, value);
+			}
+		}
+
+		public virtual string DiscussionDate
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DiscussionDate);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DiscussionDate, value);
 			}
 		}
 
@@ -1062,6 +1087,21 @@ namespace View
 			}
 		}
 
+		public virtual string s_DiscussionDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DiscussionDate) ? string.Empty : base.GetstringAsString(ColumnNames.DiscussionDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DiscussionDate);
+				else
+					this.DiscussionDate = base.SetstringAsString(ColumnNames.DiscussionDate, value);
+			}
+		}
+
 
 		#endregion			
 	
@@ -1330,6 +1370,16 @@ namespace View
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DiscussionDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DiscussionDate, Parameters.DiscussionDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1628,6 +1678,18 @@ namespace View
 				}
 			}
 
+			public WhereParameter DiscussionDate
+		    {
+				get
+		        {
+					if(_DiscussionDate_W == null)
+	        	    {
+						_DiscussionDate_W = TearOff.DiscussionDate;
+					}
+					return _DiscussionDate_W;
+				}
+			}
+
 			private WhereParameter _CompNameEng_W = null;
 			private WhereParameter _Status_W = null;
 			private WhereParameter _CommitteType_W = null;
@@ -1652,6 +1714,7 @@ namespace View
 			private WhereParameter _Mail2_W = null;
 			private WhereParameter _Mail3_W = null;
 			private WhereParameter _AssignedUserID_W = null;
+			private WhereParameter _DiscussionDate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1679,6 +1742,7 @@ namespace View
 				_Mail2_W = null;
 				_Mail3_W = null;
 				_AssignedUserID_W = null;
+				_DiscussionDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1970,6 +2034,16 @@ namespace View
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AssignedUserID, Parameters.AssignedUserID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DiscussionDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DiscussionDate, Parameters.DiscussionDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2268,6 +2342,18 @@ namespace View
 				}
 			}
 
+			public AggregateParameter DiscussionDate
+		    {
+				get
+		        {
+					if(_DiscussionDate_W == null)
+	        	    {
+						_DiscussionDate_W = TearOff.DiscussionDate;
+					}
+					return _DiscussionDate_W;
+				}
+			}
+
 			private AggregateParameter _CompNameEng_W = null;
 			private AggregateParameter _Status_W = null;
 			private AggregateParameter _CommitteType_W = null;
@@ -2292,6 +2378,7 @@ namespace View
 			private AggregateParameter _Mail2_W = null;
 			private AggregateParameter _Mail3_W = null;
 			private AggregateParameter _AssignedUserID_W = null;
+			private AggregateParameter _DiscussionDate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2319,6 +2406,7 @@ namespace View
 				_Mail2_W = null;
 				_Mail3_W = null;
 				_AssignedUserID_W = null;
+				_DiscussionDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 

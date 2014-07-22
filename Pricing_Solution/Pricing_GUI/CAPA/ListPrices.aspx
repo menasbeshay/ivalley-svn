@@ -255,6 +255,11 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                             <ItemStyle HorizontalAlign="Center" />
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                         </asp:BoundField>
+
+                                                        <asp:BoundField HeaderText="Status" DataField="Status" NullDisplayText="-">
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                        </asp:BoundField>
                                                         
                                                         <asp:TemplateField HeaderText="Assigned to">
                                                             <ItemTemplate>

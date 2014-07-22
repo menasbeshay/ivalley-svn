@@ -77,6 +77,9 @@ namespace Pricing_GUI.CAPA
             uiDropDownListStatus.DataTextField = Pricing.BLL.TicketStatus.ColumnNames.Name;
             uiDropDownListStatus.DataValueField = Pricing.BLL.TicketStatus.ColumnNames.TicketStatusID;
             uiDropDownListStatus.DataBind();
+
+            ListItem item = new ListItem("-- All Status --", "-1");
+            uiDropDownListStatus.Items.Insert(0, item);
         }
         private void BindTickets()
         {

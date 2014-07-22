@@ -26,7 +26,7 @@ namespace Pricing.BLL
 
         public virtual bool GetTopPricingSchedual(int CompanyID)
         {
-            return LoadFromRawSql(@"Select top 5 * from v_PriceSchedual where CompanyID = {0}", CompanyID);
+            return LoadFromRawSql(@"Select top 5 * from v_PriceSchedual where CompanyID = {0} order by DiscussionDate Desc", CompanyID);
 
         }
 

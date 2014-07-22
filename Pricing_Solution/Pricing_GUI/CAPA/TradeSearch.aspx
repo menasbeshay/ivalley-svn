@@ -164,7 +164,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                     ValidationGroup="SaveMainPriceData"></asp:RequiredFieldValidator>
             </td>
         </tr>
-        <tr>
+        <tr  runat="server" id="LocalTR">
             <td>
                 <asp:Label ID="Label11" runat="server" Text="Local Manufacture"></asp:Label>
             </td>
@@ -181,7 +181,7 @@ TBODY TR.odd { background-color:#78a5d1; }
             <td>
                 &nbsp;</td>
         </tr>
-             <tr runat="server" id="LocalTR">
+             <tr runat="server" visible="False" id="ImportedTR">
             <td runat="server">
                 <asp:Label ID="Label12" runat="server" Text="Imported Manufacture"></asp:Label>
             </td>
@@ -203,7 +203,7 @@ TBODY TR.odd { background-color:#78a5d1; }
                 &nbsp;</td>
         </tr>
 
-        <tr runat="server" visible="False" id="ImportedTR">
+        <tr >
             <td runat="server">
                
                 &nbsp;</td>

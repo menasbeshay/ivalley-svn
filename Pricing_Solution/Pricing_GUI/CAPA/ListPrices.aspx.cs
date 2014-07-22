@@ -258,6 +258,8 @@ namespace WebGUI
             ui_drpStatus.DataTextField = PricingStatus.ColumnNames.Status;
             ui_drpStatus.DataValueField = PricingStatus.ColumnNames.PricingStatusID;
             ui_drpStatus.DataBind();
+            ListItem item_status = new ListItem("-- All Status -- ", "-1");
+            ui_drpStatus.Items.Insert(0, item_status);
            
         }
 
