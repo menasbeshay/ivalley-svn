@@ -243,6 +243,7 @@ namespace PricingGUI
                 objPricing.FileNo = ui_txtFileNo.Text;
                 objPricing.FileTypeID = Int32.Parse(ui_drpFileType.SelectedValue);
                 objPricing.PricingStatusID = 1;
+                objPricing.DiscussionDate = DateTime.Now.ToString(); // Save the date of status changing.
                 objPricing.ImportedManufacture = ui_txtImportedManufacture.Text;
                 //TODO: Save File to disk and save it's path.
                 objPricing.FilePath = "";
@@ -972,6 +973,7 @@ namespace PricingGUI
             TradePricing objTradePricing = new TradePricing();
             objTradePricing.LoadByPrimaryKey(TradePriceID);
             objTradePricing.PricingStatusID = objStatus.PricingStatusID;
+            objTradePricing.DiscussionDate = DateTime.Now.ToString();
             objTradePricing.Save();
         }
 

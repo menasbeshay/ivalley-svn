@@ -221,6 +221,7 @@ namespace Pricing_GUI
                 objPricing.FileNo = ui_txtFileNo.Text;
                 objPricing.FileTypeID = Int32.Parse(ui_drpFileType.SelectedValue);
                 objPricing.PricingStatusID = 1;
+                objPricing.DiscussionDate = DateTime.Now.ToString(); // Update the status changes date .
                 objPricing.ImportedManufacture = ui_txtImportedManufacture.Text;
                 //TODO: Save File to disk and save it's path.
                 objPricing.FilePath = "";
@@ -741,7 +742,7 @@ namespace Pricing_GUI
                     ui_drpTradeStatus.Items.Add(new ListItem("Price Review ", "14"));
                     break;
 
-                case 12: //Price Review 
+                case 14: //Price Review 
                     StatusHistoryEnable(true);
                     ui_drpTradeStatus.Items.Clear();
                     ui_drpTradeStatus.Items.Add(new ListItem("Choose Status", "-1"));
@@ -787,6 +788,7 @@ namespace Pricing_GUI
             TradePricing objTradePricing = new TradePricing();
             objTradePricing.LoadByPrimaryKey(TradePriceID);
             objTradePricing.PricingStatusID = objStatus.PricingStatusID;
+            objTradePricing.DiscussionDate = DateTime.Now.ToString(); // Record status change date.
             objTradePricing.Save();
         }
 
@@ -893,7 +895,7 @@ namespace Pricing_GUI
             //TODO: Handle add new status for the current Trade Pricing Product.
             AddNewStatusHistory();
 
-            if (ui_drpTradeStatus.SelectedValue != "12")
+            if (ui_drpTradeStatus.SelectedValue != "14")
             {
                 //disable status History 
                 StatusHistoryEnable(false);
