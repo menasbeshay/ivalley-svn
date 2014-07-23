@@ -19,6 +19,7 @@
     <link href="../css/skeleton_subject.css" rel="stylesheet" />
     <%--<link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link media="screen" href="http://openfontlibrary.org/face/kacstpen" rel="stylesheet" type="text/css"/>
     <link href="../js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="../css/main.css" rel="stylesheet" />
     <link href="../css/validationEngine.jquery.css" rel="stylesheet" />
@@ -141,7 +142,7 @@
                             <div class="arrow_menu"><i class="icon  icon-chevron-down"></i></div>
 
                         </a>
-                        <ul class="dropdown-menu extended logout" style="right: 0 !important;">
+                        <ul class="dropdown-menu extended logout" style="right: 0 !important;z-index:1040 !important;">
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx"><i class="icon-user"></i>  حسابى</asp:HyperLink></li>
                             <li>
@@ -162,7 +163,7 @@
                                 <asp:Image ID="uiImageUser" runat="server" ImageUrl="~/images/defaultavatar.png" />
                             </div>
                         </a>
-                        <ul class="dropdown-menu extended " style="right: 0 !important;">
+                        <ul class="dropdown-menu extended " style="right: 0 !important;z-index:1040 !important;">
                             <li>
                                 <a class="status" style="padding: 5px !important;" onclick="changeS(1);return false;">
                                     <asp:Image CssClass="online" ID="uiImageUser1" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;متصل</a>
@@ -215,7 +216,7 @@
         </header>
         <%if (Helper.Admin.IsAdmin())
           { %>
-        <nav class="navbar navbar-inverse adminmenu" role="navigation">
+        <nav class="navbar navbar-inverse adminmenu navbar-fixed-top" role="navigation" style="margin-top:87px !important;z-index:1029 !important;">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
@@ -274,7 +275,13 @@
             </div>
         </nav>
         <%} %>
-        <section class="MainContent row " style="margin-top:90px !important;">
+        <%if (Helper.Admin.IsAdmin())
+          { %>
+        <section class="MainContent row " style="margin-top:140px !important;">
+             <%} else 
+               {%>
+                    <section class="MainContent row " style="margin-top:90px !important;">
+            <%} %>
             <div style="margin: 0 auto; width: 99.5%;">
                 <nav class="main_menu">
                     <ul>

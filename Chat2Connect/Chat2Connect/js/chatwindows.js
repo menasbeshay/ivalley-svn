@@ -550,7 +550,7 @@ function Chat(maxWin, memberID, memberName) {
         this.AdminMessageHistory = ko.observableArray();
         this.toggleMessageTime = function () { };
         function chatMessage(msg) {
-            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1 };
+            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1, FromProfileImg: 'images/defaultavatar.png' };
             return ko.mapping.fromJS(msgData, {}, this);
         }
         this.oldestMsgID = function () {
@@ -888,7 +888,7 @@ function Chat(maxWin, memberID, memberName) {
                 }
             });
 
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend  }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID());
@@ -944,10 +944,10 @@ function Chat(maxWin, memberID, memberName) {
             if (!window.CurrentMember().InRoom()) {
                 rHub.server.showMemberInRoom(window.ID(), window.CurrentMember().MemberID());
             }
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg());
         }
         else {
-            rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue());
+            rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue(), window.CurrentMember().ProfileImg());
         }
         //window.Message("");
         window.initEditor();
@@ -958,7 +958,7 @@ function Chat(maxWin, memberID, memberName) {
         if (window == null)
             window = this;
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) {
-            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue());
+            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue(), window.CurrentMember().ProfileImg());
             window.AdminsEditor.setValue("");
         }
     };

@@ -84,6 +84,17 @@ $(document).ready(function () {
 
 });
 
+function scrollRooms()
+{
+    $('#roomsDiv').slimScroll({
+                    railVisible: true,
+                    height: $(this).attr('data-height'),
+                    color: '#FEC401',
+                    railColor: '#C7C5C0',
+                    position: 'left'
+                });
+}
+
 function HandleClose()
 {
     if (!inFormOrLink)

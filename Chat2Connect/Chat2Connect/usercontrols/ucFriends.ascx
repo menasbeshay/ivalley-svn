@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucFriends.ascx.cs" Inherits="Chat2Connect.usercontrols.ucFriends" %>
-<div class="SScroll" data-height="500px">
+<div class="SScroll" data-height="400px">
             <div class="panel-group" id="accordion1">
                 <div>
                 

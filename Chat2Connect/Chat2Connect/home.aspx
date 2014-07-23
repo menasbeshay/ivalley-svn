@@ -67,6 +67,8 @@
                         $(this).hide().fadeIn("slow");
                         return false;
                     });
+                scrollRooms();
+                
             });
             $(".subcatLink").click(function () {
                 $("#roomsDiv").load("getRooms2.aspx",
@@ -75,8 +77,24 @@
                         $(this).hide().fadeIn("slow");
                         return false;
                     });
+                scrollRooms();
             });
 
+            $("#SearchRooms").click(function () {
+                $("#roomsDiv").load("getRooms2.aspx",
+                    { data_related: "" + "s=1&st=" + $('#<%= uiTextBoxRoomSearch.ClientID %>').val()  + "" },
+                    function (content) {
+                        $(this).hide().fadeIn("slow");
+                        return false;
+                    });
+                scrollRooms();
+            });
+
+            $('#<%= uiTextBoxRoomSearch.ClientID %>').keyup(function(event){
+                if(event.keyCode == 13){
+                    $("#SearchRooms").click();
+                }
+            });
 
             $("#<%= uiTextBoxFriendSearch.ClientID %>").autocomplete({
                 source: function (request, response) {
@@ -115,7 +133,7 @@
     <link href="css/token-input-facebook.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="blockBoxshadow pull-right col-lg-2 margin20 " style="width: 21% !important;">
+    <div class="blockBoxshadow pull-right col-lg-2 margin20 " style="width: 21% !important;position:fixed;">
         <div style="border-bottom: 1px solid #FEC200">
             <div class="pull-right">
                 <i class="icon-2x modernicon iconmodern-friends"></i>
@@ -128,11 +146,11 @@
         </div>
 
         <div style="height: 5px;" class="clearfix"></div>
-
+        
         <uc2:ucFriends ID="ucFriends1" runat="server" />
-
+            
     </div>
-    <div id="MainTabs" class="pull-right" style="width: 76%">
+    <div id="MainTabs" class="pull-right" style="width: 76%;margin-right:23%;">
         <div style="padding: 5px; padding-right: 0px; margin-left: 10px; padding-right: 20px;" class="col-lg-12" id="homeNav">
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
@@ -157,7 +175,7 @@
 
                             <div class="form-group">
                                 <asp:TextBox ID="uiTextBoxRoomSearch" runat="server" placeholder="ابحث عن غرفة" Style="padding: 5px; padding-top: 7px;"></asp:TextBox>
-                                <a href="#" style="font-size: 20px; text-decoration: none;"><i class="icon icon-search"></i></a>
+                                <a href="#" style="font-size: 20px; text-decoration: none;" id="SearchRooms"><i class="icon icon-search"></i></a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -166,7 +184,10 @@
                     <div class="col-lg-3 pull-right" style="padding: 5px; border-left: 2px solid #FEC200; margin-top: 2px;">
                         <uc1:ucRooms ID="ucRooms1" runat="server" />
                     </div>
-                    <div class="col-lg-9 pull-left" style="padding: 5px;" id="roomsDiv">
+                    <div class="col-lg-9 pull-left " style="padding: 5px;"  >
+                        <div class="SScroll" data-height="500px" id="roomsDiv">
+
+                        </div>
                     </div>
                 </div>
                 <!-- ko template: { name: 'chatTemplate', foreach: windows } -->
@@ -226,7 +247,13 @@
     </script>
     <script id="chatMsgTemplate" type="text/html">
         <div class="clear" style="height: 5px;"></div>
-        <div class="row">
+        <div class="row">    
+            <div class="imgholder col-lg-1 pull-left">
+                <img data-bind="attr:{'src': (FromProfileImg != '') ? FromProfileImg : 'images/defaultavatar.png' }" class="thumbnail" style="max-width:40px;"/>
+            </div>
+            <div class="callout border-callout col-lg-11 pull-left">            
+             <b class="border-notch notch"></b>                
+                <b class="notch"></b>   
             <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;padding-top:5px;'>
                 <b data-bind="if:FromName">:</b>
                 <b data-bind="text:FromName"></b>
@@ -251,6 +278,7 @@
                 <!-- /ko -->
             </div>
             <!-- /ko -->
+                </div>
         </div>
     </script>
     <script id="adminMemberTemplate" type="text/html">
