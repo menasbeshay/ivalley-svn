@@ -140,11 +140,14 @@ namespace Helper
 
         public object FromName { get; set; }
 
+        public object FromProfileImg { get; set; }
+
         public object Message { get; set; }
 
         public object MessageDate { get; set; }
 
         public object MemberLevel { get; set; }
+
     }
 
 }

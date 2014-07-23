@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <asp:Repeater ID="uiRepeaterRooms" runat="server">
             <HeaderTemplate>
-                <div class="SScroll" data-height="500px">
+               
                     <div class="headerRow">
                         <div class="col-lg-4 pull-right">إسم الغرفة</div>
                         <div class="pull-right center" style="width: 21%; padding: 0 5px;">المتواجدين الأن</div>
@@ -31,7 +31,7 @@
                 </div>
             </ItemTemplate>
             <FooterTemplate>
-                </div>
+               
             </FooterTemplate>
         </asp:Repeater>
 
@@ -54,7 +54,7 @@
                     //}, 2000);
 
                     $("#pGeneral").css("display", "none");
-
+                    
                 });
             });
         </script>

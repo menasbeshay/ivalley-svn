@@ -217,10 +217,10 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
-        public void sendToRoom(int roomid,int senderid, string sender, string msg, int MemberLevelID)
+        public void sendToRoom(int roomid,int senderid, string sender, string msg, int MemberLevelID, string profileImg)
         {
             msg = msg.Replace("<br>", "");
-            RoomMessages messages = new RoomMessages();
+            /*RoomMessages messages = new RoomMessages();
             messages.AddNew();
             messages.RoomID = roomid;
             messages.Message = msg;
@@ -238,7 +238,20 @@ namespace Chat2Connect.SRCustomHubs
                 Message = messages.Message,
                 MessageDate = messages.MessageDate,
                 MemberLevel = MemberLevelID
+            };*/
+
+
+            var resultMsg = new Helper.ChatMessage()
+            {               
+                FromID = senderid,
+                ToID = roomid,
+                FromName = sender,
+                Message = msg,
+                MessageDate = DateTime.Now,
+                MemberLevel = MemberLevelID,
+                FromProfileImg = profileImg
             };
+
             Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg);
         }
         public void showMemberInRoom(int roomid, int memberid)
@@ -251,7 +264,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             Clients.Group(roomid.ToString()).showMemberInRoom(roomid, memberid);
         }
-        public void sendToRoomAdmins(int roomid,int senderid, string sender, string msg)
+        public void sendToRoomAdmins(int roomid,int senderid, string sender, string msg, string profileImg)
         {
             msg = msg.Replace("<br>", "");
             var resultMsg = new Helper.ChatMessage()
@@ -260,11 +273,12 @@ namespace Chat2Connect.SRCustomHubs
                 ToID = roomid,
                 FromName = sender,
                 Message = msg,
-                MessageDate = DateTime.Now
+                MessageDate = DateTime.Now,
+                FromProfileImg = profileImg
             };
             Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, resultMsg);
         }
-        public void sendPrivateMessage(int toUserId, string message)
+        public void sendPrivateMessage(int toUserId, string message, string profileImg)
         {
             message = message.Replace("<br>", "");
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == toUserId);
@@ -278,7 +292,8 @@ namespace Chat2Connect.SRCustomHubs
                     ToID = toUser.MemberID,
                     FromName = fromUser.MemberName,
                     Message = message,
-                    MessageDate = DateTime.Now
+                    MessageDate = DateTime.Now,
+                    FromProfileImg = profileImg
                 };
                 // send to 
                 Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, resultMsg);
@@ -294,7 +309,8 @@ namespace Chat2Connect.SRCustomHubs
                 {
                     FromName = "",
                     Message = "  المستخدم الذى تحاول التحدث معه الان غير موجود اونلاين" + "&nbsp;<a href='Messages.aspx?t=createmsg&u=" + friend.MemberID.ToString() + "&un=" + friend.UserName + "' class='SendMsg' target='_blank'>يمكنك ان ترسل له رساله الان</a>",
-                    MessageDate = DateTime.Now
+                    MessageDate = DateTime.Now,
+                    FromProfileImg = profileImg
                 };
                 Clients.Caller.getPrivateMessage(toUserId, resultMsg);
             }

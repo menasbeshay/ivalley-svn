@@ -74,6 +74,14 @@ namespace Chat2Connect
                     uiRepeaterRooms.DataSource = rooms.DefaultView;
                     uiRepeaterRooms.DataBind();
                 }
+                else if (myparams[0] == "s=1") // search rooms
+                {
+                    string filterText = myparams[1].Substring(3); // st=
+                    Room rooms = new Room();
+                    rooms.SearchRooms(filterText);
+                    uiRepeaterRooms.DataSource = rooms.DefaultView;
+                    uiRepeaterRooms.DataBind();
+                }
 
             }
         }
