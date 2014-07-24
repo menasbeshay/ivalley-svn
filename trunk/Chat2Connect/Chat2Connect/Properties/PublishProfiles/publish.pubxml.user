@@ -1792,7 +1792,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>07/24/2014 10:55:42</publishTime>
+      <publishTime>07/24/2014 15:24:04</publishTime>
     </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
