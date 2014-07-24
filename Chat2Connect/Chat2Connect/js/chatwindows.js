@@ -134,8 +134,9 @@ function Chat(maxWin, memberID, memberName) {
         // default editor styles
         this.IsBold = false;
         this.IsItalic = false;
-        this.FontSize = 'large';
-        this.ForeColor = 'Red';
+        this.FontSize = 'meduim';
+        this.ForeColor = 'black';
+        this.IsActive = false;
 
         this.getMember = function (id) {
             return ko.utils.arrayFirst(self.Members(), function (mem) {
@@ -574,8 +575,15 @@ function Chat(maxWin, memberID, memberName) {
                 position: 'left',
                 scrollTo: yscroll  //$(".MsgHistroy", " #" + this.uniqueID()).height()
             });
+           
+            if (!this.IsActive)
+            {
+                $('#MainTabs a[href="#' + this.uniqueID() + '"]').addClass('RoomAlertRed');
+            }
+
             // update save coversation link
             this.SaveConversation();
+
         };
         this.addAdminMessage = function (msg) {
             this.AdminMessageHistory.push(msg);
@@ -591,7 +599,8 @@ function Chat(maxWin, memberID, memberName) {
         this.SaveConversation = function () {
             var str = "<link href='http://chat2connect.com/css/bootstrap.min.css' rel='stylesheet' /> <link href='http://chat2connect.com/css/main.css' rel='stylesheet' /> ";
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
-                str += msg.FromName() + ":" + msg.Message();
+                if (msg.FromName() && msg.Message())
+                    str += msg.FromName() + ":" + msg.Message();
             });
 
             $('#SaveConv_' + self.ID()).attr("href", "data:html/plain;charset=UTF-8," + str);
@@ -855,11 +864,28 @@ function Chat(maxWin, memberID, memberName) {
         this.showRoomInfo = function () {
             $("#infoModal_" + self.uniqueID()).modal('show');
         };
+
+        
     }
 
-    self.changeCurrent = function (selctor) {
+    self.changeCurrent = function (selctor, id, type) {
         if (document.getElementById(selctor)) {
             $('#MainTabs a[href="#' + selctor + '"]').tab('show');
+            $('#MainTabs a[href="#' + selctor + '"]').removeClass('RoomAlertRed');
+            ko.utils.arrayForEach(self.windows(), function (window) {
+                window.IsActive = false;
+            });
+            if (id != undefined && type != undefined) {
+                var win = self.getWindow(id, type);
+                if (win != undefined)
+                    win.IsActive = true;
+            }
+            return;
+        }
+        else {
+            ko.utils.arrayForEach(self.windows(), function (window) {
+                window.IsActive = false;
+            });
             return;
         }
     };
@@ -868,8 +894,11 @@ function Chat(maxWin, memberID, memberName) {
         if (window == undefined) {
             self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend);
         }
-        else
-            self.changeCurrent(window.uniqueID());
+        else {
+            self.changeCurrent(window.uniqueID(), window.ID(), window.Type());
+                        
+        }
+
     };
     self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend) {
         if (istemp == undefined)
@@ -891,7 +920,8 @@ function Chat(maxWin, memberID, memberName) {
             var room = { ID: id, Name: name, Type: type, IsTemp: true, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
-            self.changeCurrent(win.uniqueID());
+            self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
+            
             self.Init(win);
             setTimeout(function () { win.initEditor(); }, 1500);
             rHub.server.enterPrivateChatLog(id, name);
@@ -916,7 +946,8 @@ function Chat(maxWin, memberID, memberName) {
     self.pushWindow = function (data) {
         var win = ko.mapping.fromJS(data, mapping);
         self.windows.push(win);
-        self.changeCurrent(win.uniqueID());
+        self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
+        
         self.Init(win);
         setTimeout(function () { win.initEditor(); }, 1500);
         rHub.server.addToRoom(win.ID(), win.CurrentMember().InRoom());

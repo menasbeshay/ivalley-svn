@@ -1910,3 +1910,7 @@ input[type="text"], textarea {
 }
 .border-callout { border: 1px solid #c5d9e8; padding: 17px 19px; }
 .border-callout .border-notch { border-right-color: #c5d9e8;  }
+
+.RoomAlertRed {
+    background-color:red !important;
+}

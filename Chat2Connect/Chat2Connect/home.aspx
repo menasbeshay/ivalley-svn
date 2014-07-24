@@ -155,7 +155,7 @@
             <ul class="nav nav-tabs">
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
-                <li class="pull-right"><a style="display: block; height: 28px;" data-toggle="tab" data-bind="attr: { href: '#' + uniqueID() }, click: $parent.changeCurrent.bind($data, $data.uniqueID())">
+                <li class="pull-right"><a style="display: block; height: 28px;" data-toggle="tab" data-bind="attr: { href: '#' + uniqueID() }, click: $parent.changeCurrent.bind($data, $data.uniqueID(), $data.ID(), $data.Type())">
                     <span data-bind="text: Name" class="pull-right"></span>
                     <button type="button" class="close" data-bind="click: $parent.removeWindow">×</button></a></li>
                 <!-- /ko -->
