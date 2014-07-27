@@ -217,7 +217,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
-        public void sendToRoom(int roomid,int senderid, string sender, string msg, int MemberLevelID, string profileImg)
+        public void sendToRoom(int roomid, int senderid, string sender, string msg, int MemberLevelID, string profileImg, int MemberTypeID)
         {
             msg = msg.Replace("<br>", "");
             /*RoomMessages messages = new RoomMessages();
@@ -249,7 +249,8 @@ namespace Chat2Connect.SRCustomHubs
                 Message = msg,
                 MessageDate = DateTime.Now,
                 MemberLevel = MemberLevelID,
-                FromProfileImg = profileImg
+                FromProfileImg = profileImg,
+                MemberTypeID = MemberTypeID
             };
 
             Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg);

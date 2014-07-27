@@ -148,6 +148,8 @@ namespace Helper
 
         public object MemberLevel { get; set; }
 
+        public object MemberTypeID { get; set; }
+
     }
 
 }

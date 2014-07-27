@@ -246,19 +246,19 @@
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
-        <div class="clear" style="height: 5px;"></div>
+        <div class="clear" style="height: 2px;"></div>
         <div class="row">    
             <div class="imgholder col-lg-1 pull-left">
-                <img data-bind="attr:{'src': (FromProfileImg != '') ? FromProfileImg : 'images/defaultavatar.png' }" class="thumbnail" style="max-width:40px;"/>
+                <img data-bind="attr:{'src': (FromProfileImg != '') ? FromProfileImg : 'images/defaultavatar.png' }" class="thumbnail" style="max-width:40px;margin-bottom:0px;"/>
             </div>
-            <div class="callout border-callout col-lg-11 pull-left">            
-             <b class="border-notch notch"></b>                
-                <b class="notch"></b>   
+            <div class="callout border-callout col-lg-11 pull-left" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''">            
+              <b class="border-notch notch" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''"></b>                
+              <b class="notch" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''"></b>                  
             <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 9px; font-family: tahoma;padding-top:5px;'>
                 <b data-bind="if:FromName">:</b>
-                <b data-bind="text:FromName"></b>
+                <b data-bind="text:FromName, css:'type_' + MemberTypeID"></b>
             </div>
-            <div class='pull-left msgHolder msgbody' style='width: auto;' data-bind="html:Message">
+            <div class='pull-left msgHolder msgbody' data-bind="html:Message">
             </div>
             <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
                 <%--<span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>--%>
@@ -374,7 +374,7 @@
         </div>
 
 
-        <div class="btn-group dropup">
+        <%--<div class="btn-group dropup">
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
                 <span class="icon-text-height" style="font-size: 17px;"></span>
             </button>
@@ -382,10 +382,10 @@
                 <li><a data-wysihtml5-command-value="xsmall" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xsmall')">صغير جداً</a></li>
                 <li><a data-wysihtml5-command-value="small" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('small')">صغير</a></li>
                 <li><a data-wysihtml5-command-value="medium" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('medium')">متوسط</a></li>
-               <%-- <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('large')">كبير</a></li>
-                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xlarge')">كبير جداً</a></li>--%>
+                <li><a data-wysihtml5-command-value="large" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('large')">كبير</a></li>
+                <li><a data-wysihtml5-command-value="xlarge" data-wysihtml5-command="fontSize" href="javascript:;" unselectable="on" data-bind="click:setFontSize('xlarge')">كبير جداً</a></li>
             </ul>
-        </div>
+        </div>--%>
 
         <div class="btn-group dropup">
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
@@ -1302,7 +1302,7 @@
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-bind="attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '580px' : '530px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '580px' : '530px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
+                        <div id="roomMembersDiv" data-bind="attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '550px' : '510px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '550px' : '510px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
                             <div id="MicDiv">
                             </div>
                             <div id="queueDiv">
@@ -1353,7 +1353,7 @@
                             <div style="height: 10px;" class="clear"></div>
                         </div>
                         <!-- /ko -->
-                        <div style="width: 100%; background-color: #D9D9D9; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
+                        <div style="width: 100%; background-color: #f2f2f2; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
                             <!-- ko if: Type()=="Room" -->
                             <%--<input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />--%>
                             <!-- /ko -->
@@ -1363,8 +1363,8 @@
                         <div style="height: 5px;" class="clearfix"></div>
 
                         <div data-bind="visible:!(Type()=='Private' || CurrentMember().CanWrite())" style="position: absolute; left: 0; width: 100%; height: 70px; z-index: 2; opacity: 0.4; filter: alpha(opacity = 50)"></div>
-                        <a style="width: 8%; height: 70px; padding-top: 25px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
-                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 70px; border: 0px; float: left;line-height:normal;'></textarea>
+                        <a style="width: 8%; height: 35px; padding-top: 7px; float: right;" class="btn btn-main" data-bind="click:$parent.sendMessage,attr:{id:'a_Send_'+uniqueID()}">إرسال</a>
+                        <textarea data-bind="value:Message, attr:{id:'uiTextMsg_'+uniqueID()}" type='text' style='width: 91.5%; background-color: #D9D9D9; height: 35px; border: 0px; float: left;line-height:normal;'></textarea>
 
                         <div style="height: 20px;" class="clear"></div>
 
@@ -1730,7 +1730,7 @@
 
 
                                 <div class="col-sm-2 control-label pull-right">
-                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:SendAudio">إرسال</a>
+                                    <a style="cursor: pointer;" class="btn btn-default" data-bind="click:$parent.SendAudio($data)">إرسال</a>
                                 </div>
                             </div>
                         </div>
