@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucFriends.ascx.cs" Inherits="Chat2Connect.usercontrols.ucFriends" %>
-<div class="SScroll" data-height="400px">
+<div class="SScroll" data-height="380px">
             <div class="panel-group" id="accordion1">
                 <div>
                 
@@ -166,7 +166,7 @@
                         <FooterTemplate></div></FooterTemplate>
                         <ItemTemplate> <div class="Altodd friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
                                     <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic offline"/>
-                                    <a href="#"><%# Eval("UserName") %>
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                                     </a>
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
@@ -220,7 +220,7 @@
                                 </div></ItemTemplate>
                         <AlternatingItemTemplate> <div class="Alteven friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
                                     <img src="images/defaultavatar.png"  id='user-<%# Eval("MemberID") %>' class="friendpic offline"/>
-                                    <a href="#"><%# Eval("UserName") %>
+                                    <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                                     </a>
                              <div class="clearfix" style="height: 1px;"></div>
                             <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
