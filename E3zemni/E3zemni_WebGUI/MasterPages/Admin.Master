@@ -111,7 +111,7 @@
 					</div><!-- row -->
 				</div><!-- head -->
 	
-				<div class="headdown my_sticky">
+				<div class="headdown ">
 					<div class="row clearfix">
 						<div class="logo">
 							<a href="../default.aspx" title="E3zemni"><img src="../images/logo.png" alt="E3zemni"></a>
@@ -173,7 +173,7 @@
 								
 								<li id="cardItem"><a href="../Admin/EditCards.aspx">Cards</a></li>
                                 <li id="ProdItem"><a href="../Admin/EditProducts.aspx">Products</a></li>
-                                <li id="orderItem"><a href="../Admin/UserOrders.aspx">Orders</a></li>
+                               <%-- <li id="orderItem"><a href="../Admin/UserOrders.aspx">Orders</a></li>--%>
                                 <li><a href="">Other</a>
                                 <ul>
                                    <li id="colorsItem"><a href="../Admin/EditColors.aspx">Colors</a>

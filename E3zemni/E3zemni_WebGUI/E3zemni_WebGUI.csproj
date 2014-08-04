@@ -83,6 +83,7 @@
     <Content Include="Admin\MainCat_ps.aspx" />
     <Content Include="Admin\UserOrders.aspx" />
     <Content Include="ar\browse.aspx" />
+    <Content Include="ar\browsec.aspx" />
     <Content Include="ar\checkout.aspx" />
     <Content Include="ar\controls\ucMenu.ascx" />
     <Content Include="ar\controls\ucsearch.ascx" />
@@ -105,6 +106,7 @@
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="Browse.aspx" />
+    <Content Include="Browsec.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="colors\alizarin.css" />
     <Content Include="colors\asphalt.css" />
@@ -1020,6 +1022,12 @@
     <Content Include="register.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\dark.css" />
+    <Content Include="Styles\font\AirStrip.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Styles\font\breeserif-regular-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Styles\font\durusans-regular-webfont.svg" />
     <Content Include="Styles\font\ElegantIcons.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1211,6 +1219,13 @@
     <Compile Include="ar\browse.aspx.designer.cs">
       <DependentUpon>browse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\browsec.aspx.cs">
+      <DependentUpon>browsec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\browsec.aspx.designer.cs">
+      <DependentUpon>browsec.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1301,6 +1316,13 @@
     </Compile>
     <Compile Include="Browse.aspx.designer.cs">
       <DependentUpon>Browse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Browsec.aspx.cs">
+      <DependentUpon>Browsec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Browsec.aspx.designer.cs">
+      <DependentUpon>Browsec.aspx</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -1576,6 +1598,24 @@
     <None Include="Modules\fckeditor\_samples\php\sampleposteddata.php" />
     <None Include="Modules\fckeditor\_samples\py\sample01.py" />
     <None Include="Modules\fckeditor\_samples\py\sampleposteddata.py" />
+    <None Include="Styles\font\AirStrip.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\font\AirStrip.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\font\AirStrip.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\font\breeserif-regular-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\font\breeserif-regular-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\font\breeserif-regular-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Styles\font\durusans-regular-webfont.eot" />
     <None Include="Styles\font\durusans-regular-webfont.ttf" />
     <None Include="Styles\font\durusans-regular-webfont.woff" />

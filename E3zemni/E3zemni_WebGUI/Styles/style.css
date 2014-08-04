@@ -1,5 +1,27 @@
 /* 	Reset Styling
 ----------------------------------------------------------------------*/
+@font-face {
+	font-family: 'AirStrip';
+	src:url('font/AirStrip.eot');
+	src:url('font/AirStrip.eot?#iefix') format('embedded-opentype'),
+		url('font/AirStrip.woff') format('woff'),
+		url('font/AirStrip.ttf') format('truetype'),
+		url('font/AirStrip.svg#ElegantIcons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'breeserif';
+	src:url('font/breeserif-regular-webfont.eot');
+	src:url('font/breeserif-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('font/breeserif-regular-webfont.woff') format('woff'),
+		url('font/breeserif-regular-webfont.ttf') format('truetype'),
+		url('font/breeserif-regular-webfont.svg#ElegantIcons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

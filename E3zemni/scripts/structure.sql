@@ -84,11 +84,16 @@ select D.* , Cast(D.Width as nvarchar(50)) + N' × ' + cast(D.Height as nvarchar(
 from Dimension D
 Go
 
-
+alter table cards 
+add GeneralPreviewPhoto nvarchar(500)
 
 
 alter table cards
 add IsPartySupplier bit
+
+alter table cards
+add DefaultFont nvarchar(100)
+
 
 alter table TopLevelCat
 add IsPartySupplier bit

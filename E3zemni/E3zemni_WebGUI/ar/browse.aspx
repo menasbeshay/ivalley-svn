@@ -35,14 +35,10 @@
                                 </div>
                                 <div class="clearfix" style="height:25px;padding-top:5px;">
                                     <div class="Share" style="direction:rtl;float:right;">
-                                        <!-- AddThis Button BEGIN -->
-                                        <div class="addthis_toolbox addthis_default_style ">
-                                            <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
-                                            </a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4">
-                                            </a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style">
-                                            </a>
-                                        </div>
-                                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ff5714055358f82"></script>
+                                          <!-- AddThis Button END -->
+                                        <div class="addthis_sharing_toolbox" data-url='http://e3zemni.com/ar/viewCard.aspx?cid=<%# Eval("CardID") %>' data-title='<%# Eval("CardNameAr")%>'></div>
+                                        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e63723e0ce3df50"></script>
+
                                         <!-- AddThis Button END -->
                                     </div>
                                 </div>

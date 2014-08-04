@@ -91,36 +91,60 @@ namespace E3zemni_WebGUI
                 if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
                 {
                     TextBox CQty = (TextBox)dli.FindControl("uiTextBoxQty");
-                    TextBox EQty = (TextBox)dli.FindControl("uiTextBoxQty");
+                    TextBox EQty = (TextBox)dli.FindControl("uiTextBoxEQty");
 
                     order.EnvelopCount = !string.IsNullOrEmpty(EQty.Text) ? Convert.ToInt32(EQty.Text) : 0;
                     order.CardCount = !string.IsNullOrEmpty(CQty.Text) ? Convert.ToInt32(CQty.Text) : 0;
                 }
             }
 
-            Session["UserPayment"] = order;
-
-            
+                      
 
            if (Session["CurrentUser"] != null)
             {
                 UserInfo user = (UserInfo)Session["CurrentUser"];
+                order.UserID = user.UserID;
+                order.Save();
 
                 MailMessage msg = new MailMessage();
                 if (Session["Order_Mail"] != null)
                 {
                     msg = (MailMessage)Session["Order_Mail"];
-                    msg.Body = " user name : " + user.UserName + " <br /> Email: " + user.Email + "<br />" + msg.Body;
+
+                    msg.Body = " Full Name : " + user.FullName + 
+                               "<br /> Address : " + user.UserAddress + 
+                               "<br /> Shipping Address : " + user.ShippingAddress +
+                               "<br /> Phone : " + user.LandLine +                               
+                               "<br /> Email: " + user.Email +
+                               "<br/> UserName : " + user.UserName + 
+                               "<br />" + msg.Body;
+
+                    msg.Body += "<br /> =========================================================== <br />";
+                    msg.Body += " ========================= Order info ================== <br />";
+
+                    msg.Body += " Order Number : " + order.PayementID.ToString();
+
+                    msg.Body += "<br /> Card Quantity : " + order.CardCount.ToString();
+
+                    if (order.EnvelopCount > 0 && !order.IsColumnNull("EnvelopID"))
+                    {
+                        Envelops env = new Envelops();
+                        env.LoadByPrimaryKey(order.EnvelopID);
+                        msg.Body += "<br /> Envelop count : " + order.EnvelopCount.ToString();
+                        msg.Attachments.Add(new Attachment(Server.MapPath("~" + env.ImagePath)));
+                    }
+
                     string mail = ConfigurationManager.AppSettings["mail"];
                     string mailto = ConfigurationManager.AppSettings["mailto"];
                     msg.To.Add(mailto);
                     msg.From = new MailAddress(mail);
-                    msg.Subject = " New order ";
+                    msg.Subject = " New order - order no. " + order.PayementID.ToString();
                     SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
                     client.UseDefaultCredentials = false;
 
                     client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["mailpass"]);
                     client.Send(msg);
+                    Session["UserPayment"] = null;
                     Response.Redirect("Success.aspx");
                 }
                 /*order.UserID = user.UserID;

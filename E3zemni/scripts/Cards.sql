@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CardsLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardsLoadByPrimaryKey]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsLoadByPrimaryKey];
 GO
@@ -26,7 +26,9 @@ BEGIN
 		[MainPhotoHover],
 		[UploadDate],
 		[DimensionID],
-		[IsPartySupplier]
+		[IsPartySupplier],
+		[DefaultFont],
+		[GeneralPreviewPhoto]
 	FROM [Cards]
 	WHERE
 		([CardID] = @CardID)
@@ -43,7 +45,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsLoadByPrimaryKey Succeeded
 ELSE PRINT 'Procedure Creation: proc_CardsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardsLoadAll]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsLoadAll];
 GO
@@ -68,7 +70,9 @@ BEGIN
 		[MainPhotoHover],
 		[UploadDate],
 		[DimensionID],
-		[IsPartySupplier]
+		[IsPartySupplier],
+		[DefaultFont],
+		[GeneralPreviewPhoto]
 	FROM [Cards]
 
 	SET @Err = @@Error
@@ -83,7 +87,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardsUpdate]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsUpdate];
 GO
@@ -102,7 +106,9 @@ CREATE PROCEDURE [proc_CardsUpdate]
 	@MainPhotoHover nvarchar(500) = NULL,
 	@UploadDate datetime = NULL,
 	@DimensionID int = NULL,
-	@IsPartySupplier bit = NULL
+	@IsPartySupplier bit = NULL,
+	@DefaultFont nvarchar(100) = NULL,
+	@GeneralPreviewPhoto nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -123,7 +129,9 @@ BEGIN
 		[MainPhotoHover] = @MainPhotoHover,
 		[UploadDate] = @UploadDate,
 		[DimensionID] = @DimensionID,
-		[IsPartySupplier] = @IsPartySupplier
+		[IsPartySupplier] = @IsPartySupplier,
+		[DefaultFont] = @DefaultFont,
+		[GeneralPreviewPhoto] = @GeneralPreviewPhoto
 	WHERE
 		[CardID] = @CardID
 
@@ -144,7 +152,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CardsInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardsInsert]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsInsert];
 GO
@@ -163,7 +171,9 @@ CREATE PROCEDURE [proc_CardsInsert]
 	@MainPhotoHover nvarchar(500) = NULL,
 	@UploadDate datetime = NULL,
 	@DimensionID int = NULL,
-	@IsPartySupplier bit = NULL
+	@IsPartySupplier bit = NULL,
+	@DefaultFont nvarchar(100) = NULL,
+	@GeneralPreviewPhoto nvarchar(500) = NULL
 )
 AS
 BEGIN
@@ -185,7 +195,9 @@ BEGIN
 		[MainPhotoHover],
 		[UploadDate],
 		[DimensionID],
-		[IsPartySupplier]
+		[IsPartySupplier],
+		[DefaultFont],
+		[GeneralPreviewPhoto]
 	)
 	VALUES
 	(
@@ -200,7 +212,9 @@ BEGIN
 		@MainPhotoHover,
 		@UploadDate,
 		@DimensionID,
-		@IsPartySupplier
+		@IsPartySupplier,
+		@DefaultFont,
+		@GeneralPreviewPhoto
 	)
 
 	SET @Err = @@Error
@@ -217,7 +231,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardsDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardsDelete]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardsDelete];
 GO

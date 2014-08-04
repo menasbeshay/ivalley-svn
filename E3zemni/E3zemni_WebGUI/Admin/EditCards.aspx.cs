@@ -103,6 +103,10 @@ namespace E3zemni_WebGUI.Admin
                 uiTextBoxCardNameAr.Text = objData.CardNameAr;
                 uiTextBoxDescEn.Text = objData.DescriptionEng;
                 uiTextBoxDescAr.Text = objData.DescriptionAr;
+                if (!objData.IsColumnNull("DefaultFont"))
+                {
+                    uiDropDownListFonts.SelectedValue = objData.DefaultFont;
+                }
 
                 if (!objData.IsColumnNull("DimensionID"))
                     uiDropDownListDim.SelectedValue = objData.DimensionID.ToString();
@@ -121,13 +125,61 @@ namespace E3zemni_WebGUI.Admin
                 BindCardLayout();
                 BindCardColors();
                 BindCardImages();
+
+                uiLabelCatName.Text = uiDropDownListCats.SelectedItem.Text;
+                uiLabelCardName.Text = objData.CardNameEng;
             }
             else if (e.CommandName == "DeleteCard")
             {
                 try
                 {
+                    int id = Convert.ToInt32(e.CommandArgument.ToString());
+                  
+                    CardImages images = new CardImages();
+                    images.GetCardImageByCardID(id);
+                    int irows = images.RowCount;
+                    for (int i = 0; i < irows; i++)
+                    {
+                        images.MarkAsDeleted();
+                        images.MoveNext();
+                    }
+                    images.Save();
+
+                    CardLayouts layouts = new CardLayouts();
+                    layouts.GetCardLayoutByCardID(id);
+                    int lrows = layouts.RowCount;
+                    for (int i = 0; i < lrows; i++)
+                    {
+                        layouts.MarkAsDeleted();
+                        layouts.MoveNext();
+                    }
+                    
+                    layouts.Save();
+
+                    CardText texts = new CardText();
+                    texts.GetCardTxtByCardID(id);
+                    int trows = texts.RowCount;
+                    for (int i = 0; i < trows; i++)
+                    {
+                        texts.MarkAsDeleted();
+                        texts.MoveNext();
+                    }
+                    
+                    texts.Save();
+
+                    CardColor colors = new CardColor();
+                    colors.GetCardColorsByCardID(id);
+                    int crows = colors.RowCount;
+                    for (int i = 0; i < crows; i++)
+                    {
+                        colors.MarkAsDeleted();
+                        colors.MoveNext();
+                    }
+                    
+                    colors.Save();
+
                     Cards objData = new Cards();
-                    objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                    objData.LoadByPrimaryKey(id);
                     objData.MarkAsDeleted();
                     objData.Save();
                     CurrentCard = null;
@@ -148,6 +200,8 @@ namespace E3zemni_WebGUI.Admin
             tabscontent.Visible = false;
             CurrentCard = null;
             ClearFields();
+            uiLabelCatName.Text = uiDropDownListCats.SelectedItem.Text;
+            uiLabelCardName.Text = "";
         }
 
 
@@ -172,11 +226,20 @@ namespace E3zemni_WebGUI.Admin
                 card.DescriptionEng = uiTextBoxDescEn.Text;
                 card.DescriptionAr = uiTextBoxDescAr.Text;
                 card.DimensionID = Convert.ToInt32(uiDropDownListDim.SelectedValue);
+                card.DefaultFont = uiDropDownListFonts.SelectedItem.Text;
+
                 double priceBefore, priceAfter = 0;
                 double.TryParse(uiTextBoxPriceAfter.Text, out priceAfter);
                 double.TryParse(uiTextBoxPriceBefore.Text, out priceBefore);
                 card.PriceNow = priceAfter;
                 card.PriceBefore = priceBefore;
+
+                if (uiFileUploadGeneral.HasFile)
+                {
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadGeneral.FileName;
+                    uiFileUploadGeneral.SaveAs(Server.MapPath("~" + filepath));
+                    card.GeneralPreviewPhoto = filepath;
+                }
 
                 if (uiFileUploadMainImage.HasFile)
                 {
@@ -199,6 +262,8 @@ namespace E3zemni_WebGUI.Admin
                 tabs.Visible = true;
                 tabscontent.Visible = true;
                 CurrentCard = card;
+
+                uiLabelCardName.Text = card.CardNameEng;
             }
             else
             {

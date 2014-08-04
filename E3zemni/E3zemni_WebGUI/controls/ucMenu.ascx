@@ -7,7 +7,7 @@
 
                                 <asp:Literal ID="uiLiteralmenu" runat="server"></asp:Literal>   								
 								
-                                <li id="Li1"><a href="#">About us</a></li>
-								<li id="contactItem"><a href="#">Contact</a></li>
+                                <li id="Li1"><a href="page.aspx?PID=1">About us</a></li>
+								<li id="contactItem"><a href="page.aspx?PID=2">Contact</a></li>
 							</ul><!-- end menu -->
 						</nav>

@@ -95,6 +95,8 @@
                             <asp:Label ID="uiLabelError" runat="server" Font-Bold="True" ForeColor="Red" Text="Error. please try again"
                                 Visible="False"></asp:Label>
                         </div>
+
+                         <div class="clear"></div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <asp:TextBox ID="uiTextBoxUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
@@ -138,7 +140,7 @@
     <div class="row clearfix mbs">
         <h3 class="col-title mb " style="text-align:center;">
             PARTY SUPPLIES</h3>
-            <a href="Browse.aspx?tcid=1" class="pull-right btn btn-default" style="position:absolute;margin-top:-40px;right:15px;">View more</a>
+            <a href="Browsec.aspx?tcid=1&ps=true" class="pull-right btn btn-default" style="position:absolute;margin-top:-60px;right:15px;">View more</a>
         <asp:Repeater ID="uiRepeaterPS" runat="server">
             <HeaderTemplate>
                 <div class="products shop clearfix">
@@ -148,13 +150,13 @@
             </FooterTemplate>
             <ItemTemplate>
                 <div class="product grid_3">
-                <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
+                <a href='Browsec.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
                     <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
                     <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
                     </a>
                     <div class="product_inner">
                         <h3>
-                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
+                            <a href='Browsec.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>&ps=true'>
                                 <%# Eval("NameEng")%>
                             </a>
                         </h3>
@@ -171,7 +173,7 @@
     <div class="row clearfix mbs">
         <h3 class="col-title mb " style="text-align:center;">
             INVITATIONS</h3>
-             <a href="Browse.aspx?tcid=2" class="pull-right btn btn-default" style="position:absolute;margin-top:-40px;right:15px;">View more</a>
+             <a href="Browsec.aspx?tcid=2" class="pull-right btn btn-default" style="position:absolute;margin-top:-60px;right:15px;">View more</a>
         <asp:Repeater ID="uiRepeaterCats" runat="server">
             <HeaderTemplate>
                 <div class="products shop clearfix">
@@ -181,13 +183,13 @@
             </FooterTemplate>
             <ItemTemplate>
                 <div class="product grid_3">
-                <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
+                <a href='Browsec.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
                     <img class="product_img" src='<%# Eval("ImagePath") %>' alt=""><!-- featured thumbnail -->
                     <img class="product_img_hover" src='<%# Eval("HoverImage") %>' alt=""><!-- featured thumbnail hover -->
                     </a>
                     <div class="product_inner">
                         <h3>
-                            <a href='Browse.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
+                            <a href='Browsec.aspx?tcid=<%# Eval("TopLevelCatID") %>&mcid=<%# Eval("MainCatID") %>'>
                                 <%# Eval("NameEng")%>
                             </a>
                         </h3>

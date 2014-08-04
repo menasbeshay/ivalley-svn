@@ -76,6 +76,24 @@ namespace E3zemni_WebGUI.Admin {
         protected global::System.Web.UI.WebControls.Panel uiPanelEdit;
         
         /// <summary>
+        /// uiLabelCatName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCatName;
+        
+        /// <summary>
+        /// uiLabelCardName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelCardName;
+        
+        /// <summary>
         /// tabs control.
         /// </summary>
         /// <remarks>
@@ -139,6 +157,15 @@ namespace E3zemni_WebGUI.Admin {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListDim;
         
         /// <summary>
+        /// uiDropDownListFonts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFonts;
+        
+        /// <summary>
         /// uiTextBoxPriceBefore control.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace E3zemni_WebGUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxPriceAfter;
+        
+        /// <summary>
+        /// uiFileUploadGeneral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadGeneral;
         
         /// <summary>
         /// uiFileUploadMainImage control.
