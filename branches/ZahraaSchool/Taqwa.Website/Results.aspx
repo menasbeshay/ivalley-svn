@@ -43,24 +43,16 @@
 									<tr>
 										<td>&nbsp;</td>
 									</tr>
-									<tr>
+																							
+                                   <tr>
 										<td>&nbsp;</td>
 									</tr>
-									<tr>
-										<td>&nbsp;</td>
-									</tr>														
-                                   
 									<tr>
 										<td>
 										<div align="center">
                                         
 											<table border="0" width="420" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                            <td></td>
-                                            <td>
-                                            <br /><br /><br />
-                                            </td>
-                                            </tr>
+                                            
 												<tr>
 													<td style="text-align:right">
                                                         <asp:Label ID="uiLabelKidName" runat="server"></asp:Label>
@@ -97,7 +89,7 @@
                                                 النهاية العظمى
                                                 </div>
                                                 <div style="border: 1px solid #aaa;font-weight:bold;height:30px;">
-                                                درجات الطفل
+                                                تقديرات الطفل
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
@@ -110,7 +102,7 @@
                                                 <%# Eval("MaxGrade") %>
                                                 </div>
                                                 <div style="border: 1px solid #aaa;border-right:0;height:30px;">
-                                                <%# Eval("Grade") %>
+                                                <%# Eval("Evaluation")%>
                                                 </div>
                                                 </div>
                                                 </ItemTemplate>
@@ -128,7 +120,7 @@
 									<tr>
 										<td>
 										<div align="center">
-											<table border="0" width="430" cellspacing="0" cellpadding="0">
+											<table border="0" width="430" cellspacing="0" cellpadding="0" style="display:none">
 												<tr>
 													<td class="tittle_nepete" dir="rtl" style="font-weight: bold;text-align:center">
 													
@@ -189,9 +181,7 @@
 											<table border="0" width="400" cellspacing="0" cellpadding="0" height="35">
                                             <tr>
                                             <td>
-                                            <br />
-                                            <br />
-                                            <div style="height:10px;">&nbsp;</div>
+                                            
                                             </td>
                                             </tr>
 												<tr>
@@ -256,8 +246,11 @@
                                                 <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 النهاية العظمى
                                                 </div>
-                                                <div style="font-weight:bold;height:30px;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 درجات الطالب
+                                                </div>
+                                                 <div style="font-weight:bold;height:30px;">
+                                                تقديرات الطالب
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
@@ -278,6 +271,9 @@
                                                 </div>
                                                 <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("Grade") %>
+                                                </div>
+                                                <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
+                                                <%# Eval("Evaluation")%>
                                                 </div>
                                                 </div>
                                                 </ItemTemplate>
@@ -413,8 +409,11 @@
                                                 <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 النهاية العظمى
                                                 </div>
-                                                <div style="font-weight:bold;height:30px;">
+                                                <div style="border-bottom: 1px solid #aaa;font-weight:bold;height:30px;">
                                                 درجات الطالب
+                                                </div>
+                                                <div style="font-weight:bold;height:30px;">
+                                                تقديرات الطالب
                                                 </div>
                                                 </div>
                                                 </HeaderTemplate>
@@ -435,6 +434,9 @@
                                                 </div>
                                                 <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
                                                 <%# Eval("Grade") %>
+                                                </div>
+                                                <div style="border-top: 1px solid #aaa;border-right:0;height:30px;">
+                                                <%# Eval("Evaluation")%>
                                                 </div>
                                                 </div>
                                                 </ItemTemplate>

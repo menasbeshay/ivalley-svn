@@ -454,3 +454,34 @@ Delete ClassAttachment
 Where ClassAttachmentID = @ClassAttachmentID
 
 Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'DeleteStudent' and
+		        xtype = 'P')
+Drop Procedure DeleteStudent
+Go
+Create Procedure DeleteStudent @StudentID int 
+as
+
+Delete Installments
+where StudentID = @StudentID
+
+Delete Fees
+where StudentID = @StudentID
+
+Delete MonthlyAttendanceReport
+where StudentID = @StudentID
+
+Delete MonthlyReport
+where StudentID = @StudentID
+
+Delete Results
+where StudentID = @StudentID
+
+Delete Students 
+where StudentID = @StudentID
+
+Go
