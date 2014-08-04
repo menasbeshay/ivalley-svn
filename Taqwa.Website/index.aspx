@@ -15,32 +15,39 @@
 
 			<div class="ls-layer" style="slidedirection: top; transition2d: all; slidedelay: 5000; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="images/slides/1.jpg" alt="">
+                
 				<img class="ls-s2"  src="images/slides/ip2.png" alt="" style="position: absolute; top: 100px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a1.png" alt="" style="position: absolute; top: 160px; left: 600px; slidedirection : top; slideoutdirection : top;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
+				
+                <%--<img class="ls-s2"  src="images/slides/cap_a1.png" alt="" style="position: absolute; top: 160px; left: 600px; slidedirection : top; slideoutdirection : top;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
 				<img class="ls-s2"  src="images/slides/cap_a2.png" alt="" style="position: absolute; top: 290px; left: 600px; slidedirection : right; slideoutdirection : right;  durationin : 2500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
 				<img class="ls-s2"  src="images/slides/cap_a3.png" alt="" style="position: absolute; top: 410px; left: 600px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 3000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_a3.png" alt="" style="position: absolute; top: 410px; left: 750px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 3500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
+				<img class="ls-s2"  src="images/slides/cap_a3.png" alt="" style="position: absolute; top: 410px; left: 750px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 3500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">--%>
 			</div>
 
 			<div class="ls-layer" style="slidedirection: bottom; transition2d: all; slidedelay: 5500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="images/slides/2.jpg" alt="">
-				<img class="ls-s2"  src="images/slides/cap_b1.png" alt="" style="position: absolute; top: 200px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b2.png" alt="" style="position: absolute; top: 270px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b5.png" alt="" style="position: absolute; top: 336px; left: 481px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 4500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 100; delayout : 0; showuntil : 0; ">
+                <div class="ls-s2"  style="position: absolute; top: 270px; left: 500px; slidedirection : right; slideoutdirection : right;  durationin : 2700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0;  color:#fff;font-size:40px;font-weight:bold;">مدارس الزهراء الخاصة<br /> نحن نبحث عن بناء قادة للمستقبل</div>
+				<%--<img class="ls-s2"  src="images/slides/cap_b1.png" alt="" style="position: absolute; top: 200px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">--%>
+				
+                <%--<img class="ls-s2"  src="images/slides/cap_b5.png" alt="" style="position: absolute; top: 336px; left: 530px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 4500; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 100; delayout : 0; showuntil : 0;z-index:10; ">--%>
+                <%--<img class="ls-s2"  src="images/slides/cap_b2.png" alt="" style="position: absolute; top: 270px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 2700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
+				
 				<img class="ls-s2"  src="images/slides/cap_b3.png" alt="" style="position: absolute; top: 340px; left: 520px; slidedirection : right; slideoutdirection : right;  durationin : 3400; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_b4.png" alt="" style="position: absolute; top: 410px; left: 525px; slidedirection : right; slideoutdirection : right;  durationin : 4100; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
+				<img class="ls-s2"  src="images/slides/cap_b4.png" alt="" style="position: absolute; top: 410px; left: 525px; slidedirection : right; slideoutdirection : right;  durationin : 4100; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">--%>
 				<img class="ls-s2"  src="images/slides/ip1.png" alt="" style="position: absolute; top: 82px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
 			</div>
 
 			<div class="ls-layer" style="slidedirection: right; transition2d: all; slidedelay: 4500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="images/slides/3.jpg" alt="">
+                <div class="ls-s2" style="position: absolute; top: 380px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; color:#fff;font-size:40px;font-weight:bold;z-index:11;">نحن نهتم بمتعة التعلم بجعل <br />التعليم متعة</div>
 				<img class="ls-s2"  src="images/slides/ip3.png" alt="" style="position: absolute; top: 53px; left: 500px; slidedirection : right; slideoutdirection : right;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
-				<img class="ls-s2"  src="images/slides/cap_c1.png" alt="" style="position: absolute; top: 380px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">
+				<%--<img class="ls-s2"  src="images/slides/cap_c1.png" alt="" style="position: absolute; top: 380px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">--%>
 			</div>
 
             <div class="ls-layer" style="slidedirection: right; transition2d: all; slidedelay: 4500; durationin: 1000; durationout: 1500; easingin: easeInQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">							
 				<img class="ls-bg" src="images/slides/4.jpg" alt="">		
                 <img class="ls-s2"  src="images/slides/ip4.png" alt="" style="position: absolute; top: 110px; left: 460px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1000; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; ">		
+                <div class="ls-s2" style="position: absolute; top: 380px; left: 60px; slidedirection : bottom; slideoutdirection : bottom;  durationin : 1700; durationout : 750; easingin : easeInOutQuint; easingout : easeInBack; delayin : 500; delayout : 0; showuntil : 0; color:#fff;font-size:40px;font-weight:bold;z-index:11;">جيل قادر على إتخاذ القرارات</div>
 			</div>
 					</div>		
 				</div>

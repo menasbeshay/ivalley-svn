@@ -142,7 +142,7 @@
 	.languages {margin: 0px 0 0 4px}
 	.header_bag span {display: none}
 	.intro_p h2 {font-size: 16px;color: #000;}
-	.intro_p .tbutton {border: 1px solid #646464;color: #646464;}
+	.intro_p .tbutton {border: 1px solid #646464;/*color: #646464;*/color: #fff;}
 	.intro_p .tbutton:hover {background: #DADADA;background: rgba(218, 218, 218, 0.3);border-color: #000;color: #000;}
 	.m_left {margin-left: 2px}
 	#header .search {margin: 24px 0 24px 20px}
@@ -238,7 +238,7 @@
 	.languages {margin: 0px 0 0 4px}
 	.header_bag span {display: none}
 	.intro_p h2 {font-size: 16px;color: #000;}
-	.intro_p .tbutton {border: 1px solid #646464;color: #646464;}
+	.intro_p .tbutton {border: 1px solid #646464;/*color: #646464;*/color: #fff;}
 	.intro_p .tbutton:hover {background: #DADADA;background: rgba(218, 218, 218, 0.3);border-color: #000;color: #000;}
 	.m_left {margin-left: 2px}
 	#header .search {margin: 24px 0 24px 20px}

@@ -160,7 +160,8 @@
 						<h3 class="col-title">المدرسة</h3>
 	
 						<div class="widget-content">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1753.1535902706005!2d30.80221903306446!3d28.50040435884695!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1404211470869" width="300" height="160" frameborder="0" style="border:0"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1753.1422488809994!2d30.8018188!3d28.501087!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2s!4v1407152596063" width="300" height="160" frameborder="0" style="border:0"></iframe>
+							<%--<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1753.1535902706005!2d30.80221903306446!3d28.50040435884695!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1404211470869" width="300" height="160" frameborder="0" style="border:0"></iframe>--%>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 		

@@ -46,6 +46,7 @@ namespace Taqwa.Website.Controls
             Session["CurrentLoggedInStudent"] = null;
             uiPanelLogin.Visible = true;
             uiPanelLogout.Visible = false;
+            Response.Redirect("index.aspx");
         }
     }
 }
