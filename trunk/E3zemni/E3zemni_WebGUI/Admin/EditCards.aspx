@@ -81,7 +81,17 @@
                     Add / Edit Cards
                 </h4>
                 <div class="clearfix"></div>
-
+                <div class="col-lg-4">
+                    <h5> Category : <asp:Label ID="uiLabelCatName" runat="server" ></asp:Label></h5>
+                </div>
+                <div class="col-lg-4">
+                <h5>
+                Card Name : 
+                    <asp:Label ID="uiLabelCardName" runat="server" ></asp:Label></h5>
+                </div>
+                <div class="col-lg-4">&nbsp;
+                </div>
+                <div class="clearfix"></div>
 
                 <ul class="tabs" id="myTab">
 					<li><a href="#t-1" class="active">Main Info</a></li>
@@ -130,6 +140,17 @@
                                         <div class="clear" style="height: 10px;">
                                         </div>
                                         <div class="col-lg-6">
+                                             Default font
+                                            <asp:DropDownList ID="uiDropDownListFonts" runat="server" CssClass="form-control">
+                                                <asp:ListItem>Comic Sans MS</asp:ListItem>
+                                                <asp:ListItem>Times New Roman</asp:ListItem>
+                                                <asp:ListItem>Tahoma</asp:ListItem>
+                                                <asp:ListItem>Verdana</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="clear" style="height: 10px;">
+                                        </div>
+                                        <div class="col-lg-6">
                                             <asp:TextBox ID="uiTextBoxPriceBefore" runat="server" CssClass="form-control" placeholder="Price before"></asp:TextBox>
                                         </div>
                                         <div class="clear" style="height: 10px;">
@@ -141,12 +162,18 @@
                                         </div>
                                         <div class="col-lg-6">
                                             Choose main image &nbsp;
+                                            <asp:FileUpload ID="uiFileUploadGeneral" runat="server" />
+                                        </div>
+                                        <div class="clear" style="height: 10px;">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            Choose card image &nbsp;
                                             <asp:FileUpload ID="uiFileUploadMainImage" runat="server" />
                                         </div>
                                         <div class="clear" style="height: 10px;">
                                         </div>
                                         <div class="col-lg-6">
-                                            Choose hover image &nbsp;
+                                            Choose card hover image &nbsp;
                                             <asp:FileUpload ID="uiFileUploadHoverImage" runat="server" />
                                         </div>
                                         <div class="clear" style="height: 10px;">

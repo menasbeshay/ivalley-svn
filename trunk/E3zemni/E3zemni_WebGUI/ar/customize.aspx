@@ -194,6 +194,7 @@
             </div>
             </div>
 
+            <div style="display:none">
             <div class="step_title">الخطوة رقم 3</div>
 
             <div class="grid_3 alpha fll">
@@ -211,9 +212,9 @@
 				</div>
 			</div>
                                  </div>
-
+                                 </div>
              <div style="clear:both;height:1px;"></div>  
-             <div class="step_title">الخطوة رقم 4</div>
+             <div class="step_title">الخطوة رقم 3</div>
             <asp:DataList ID="uiDataListImages" runat="server" Width="100%">
             
             <ItemTemplate>
@@ -256,10 +257,12 @@
                 </div>
             </ItemTemplate>
             </asp:DataList>
-
+            <asp:Panel runat="server" ID="uiPanelNoImages" Visible="false">
+                لا يوجد صور ليتم تحميلها على هذا الكارت.
+            </asp:Panel>
 
             <div style="clear:both;height:1px;"></div>  
-            <div class="step_title">الخطوة رقم 5</div>
+            <div class="step_title">الخطوة رقم 4</div>
             <div class="pull-right grid_12" >
                  
                <div class="grid_4 alpha fll pull-left">

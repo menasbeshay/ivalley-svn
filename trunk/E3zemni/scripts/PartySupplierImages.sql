@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_PartySupplierImagesLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_PartySupplierImagesLoadByPrimaryKey]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PartySupplierImagesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PartySupplierImagesLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PartySupplierImagesLoadByPrimar
 ELSE PRINT 'Procedure Creation: proc_PartySupplierImagesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PartySupplierImagesLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_PartySupplierImagesLoadAll]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PartySupplierImagesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PartySupplierImagesLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PartySupplierImagesLoadAll Succ
 ELSE PRINT 'Procedure Creation: proc_PartySupplierImagesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PartySupplierImagesUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_PartySupplierImagesUpdate]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PartySupplierImagesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PartySupplierImagesUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_PartySupplierImagesInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_PartySupplierImagesInsert]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PartySupplierImagesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PartySupplierImagesInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PartySupplierImagesInsert Succe
 ELSE PRINT 'Procedure Creation: proc_PartySupplierImagesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PartySupplierImagesDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_PartySupplierImagesDelete]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PartySupplierImagesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PartySupplierImagesDelete];
 GO

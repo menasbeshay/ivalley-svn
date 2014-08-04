@@ -6,14 +6,14 @@
                  var pfrom = $.url().param('pfrom');
                  var pto = $.url().param('pto');
                  if(pfrom == undefined)
-                    pfrom = 100;
+                    pfrom = 10;
                 if(pto == undefined)
-                    pto = 300;
+                    pto = 60;
 				$(function() {
 					$( "#price-range" ).slider({
 						range: true,
 						min: 1,
-						max: 500,
+						max: 100,
 						values: [ pfrom, pto],
 						slide: function( event, ui ) {
 							$( "#amount" ).val( ui.values[ 0 ] + "جنيه - " + ui.values[ 1 ]  + " جنيه");

@@ -83,7 +83,7 @@ namespace E3zemni_WebGUI.ar
                 if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
                 {                    
                     TextBox CQty = (TextBox)dli.FindControl("uiTextBoxQty");
-                    TextBox EQty = (TextBox)dli.FindControl("uiTextBoxQty");
+                    TextBox EQty = (TextBox)dli.FindControl("uiTextBoxEQty");
 
                     order.EnvelopCount =  !string.IsNullOrEmpty(EQty.Text) ? Convert.ToInt32(EQty.Text) : 0;
                     order.CardCount = !string.IsNullOrEmpty(CQty.Text) ? Convert.ToInt32(CQty.Text) : 0;                    
@@ -102,7 +102,28 @@ namespace E3zemni_WebGUI.ar
                 if (Session["Order_Mail"] != null)
                 {
                     msg = (MailMessage)Session["Order_Mail"];
-                    msg.Body = " user name : " + user.UserName + " <br /> Email: " + user.Email + "<br />" + msg.Body;
+                    msg.Body = " Full Name : " + user.FullName +
+                               "<br /> Address : " + user.UserAddress +
+                               "<br /> Shipping Address : " + user.ShippingAddress +
+                               "<br /> Phone : " + user.LandLine +
+                               "<br /> Email: " + user.Email +
+                               "<br/> UserName : " + user.UserName +
+                               "<br />" + msg.Body;
+
+                    msg.Body += "<br /> =========================================================== <br />";
+                    msg.Body += " ========================= Order info ================== <br />";
+
+                    msg.Body += " Order Number : " + order.PayementID.ToString();
+                    msg.Body += "<br /> Card Quantity : " + order.CardCount.ToString();
+
+                    if (order.EnvelopCount > 0 && !order.IsColumnNull("EnvelopID")) 
+                    {
+                        Envelops env = new Envelops();
+                        env.LoadByPrimaryKey(order.EnvelopID);
+                        msg.Body += "<br /> Envelop count : " + order.EnvelopCount.ToString();
+                        msg.Attachments.Add(new Attachment(Server.MapPath("~" + env.ImagePath)));
+                    }
+
                     string mail = ConfigurationManager.AppSettings["mail"];
                     string mailto = ConfigurationManager.AppSettings["mailto"];
                     msg.To.Add(mailto);

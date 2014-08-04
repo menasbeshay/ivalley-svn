@@ -203,6 +203,22 @@ namespace E3zmni.DAL
 				}
 			}
 			
+			public static SqlParameter DefaultFont
+			{
+				get
+				{
+					return new SqlParameter("@DefaultFont", SqlDbType.NVarChar, 100);
+				}
+			}
+			
+			public static SqlParameter GeneralPreviewPhoto
+			{
+				get
+				{
+					return new SqlParameter("@GeneralPreviewPhoto", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -222,6 +238,8 @@ namespace E3zmni.DAL
             public const string UploadDate = "UploadDate";
             public const string DimensionID = "DimensionID";
             public const string IsPartySupplier = "IsPartySupplier";
+            public const string DefaultFont = "DefaultFont";
+            public const string GeneralPreviewPhoto = "GeneralPreviewPhoto";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -242,6 +260,8 @@ namespace E3zmni.DAL
 					ht[UploadDate] = _Cards.PropertyNames.UploadDate;
 					ht[DimensionID] = _Cards.PropertyNames.DimensionID;
 					ht[IsPartySupplier] = _Cards.PropertyNames.IsPartySupplier;
+					ht[DefaultFont] = _Cards.PropertyNames.DefaultFont;
+					ht[GeneralPreviewPhoto] = _Cards.PropertyNames.GeneralPreviewPhoto;
 
 				}
 				return (string)ht[columnName];
@@ -267,6 +287,8 @@ namespace E3zmni.DAL
             public const string UploadDate = "UploadDate";
             public const string DimensionID = "DimensionID";
             public const string IsPartySupplier = "IsPartySupplier";
+            public const string DefaultFont = "DefaultFont";
+            public const string GeneralPreviewPhoto = "GeneralPreviewPhoto";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -287,6 +309,8 @@ namespace E3zmni.DAL
 					ht[UploadDate] = _Cards.ColumnNames.UploadDate;
 					ht[DimensionID] = _Cards.ColumnNames.DimensionID;
 					ht[IsPartySupplier] = _Cards.ColumnNames.IsPartySupplier;
+					ht[DefaultFont] = _Cards.ColumnNames.DefaultFont;
+					ht[GeneralPreviewPhoto] = _Cards.ColumnNames.GeneralPreviewPhoto;
 
 				}
 				return (string)ht[propertyName];
@@ -312,6 +336,8 @@ namespace E3zmni.DAL
             public const string UploadDate = "s_UploadDate";
             public const string DimensionID = "s_DimensionID";
             public const string IsPartySupplier = "s_IsPartySupplier";
+            public const string DefaultFont = "s_DefaultFont";
+            public const string GeneralPreviewPhoto = "s_GeneralPreviewPhoto";
 
 		}
 		#endregion		
@@ -471,6 +497,30 @@ namespace E3zmni.DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsPartySupplier, value);
+			}
+		}
+
+		public virtual string DefaultFont
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DefaultFont);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DefaultFont, value);
+			}
+		}
+
+		public virtual string GeneralPreviewPhoto
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.GeneralPreviewPhoto);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.GeneralPreviewPhoto, value);
 			}
 		}
 
@@ -674,6 +724,36 @@ namespace E3zmni.DAL
 			}
 		}
 
+		public virtual string s_DefaultFont
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DefaultFont) ? string.Empty : base.GetstringAsString(ColumnNames.DefaultFont);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DefaultFont);
+				else
+					this.DefaultFont = base.SetstringAsString(ColumnNames.DefaultFont, value);
+			}
+		}
+
+		public virtual string s_GeneralPreviewPhoto
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.GeneralPreviewPhoto) ? string.Empty : base.GetstringAsString(ColumnNames.GeneralPreviewPhoto);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.GeneralPreviewPhoto);
+				else
+					this.GeneralPreviewPhoto = base.SetstringAsString(ColumnNames.GeneralPreviewPhoto, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -832,6 +912,26 @@ namespace E3zmni.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.IsPartySupplier, Parameters.IsPartySupplier);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DefaultFont
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DefaultFont, Parameters.DefaultFont);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter GeneralPreviewPhoto
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.GeneralPreviewPhoto, Parameters.GeneralPreviewPhoto);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -998,6 +1098,30 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public WhereParameter DefaultFont
+		    {
+				get
+		        {
+					if(_DefaultFont_W == null)
+	        	    {
+						_DefaultFont_W = TearOff.DefaultFont;
+					}
+					return _DefaultFont_W;
+				}
+			}
+
+			public WhereParameter GeneralPreviewPhoto
+		    {
+				get
+		        {
+					if(_GeneralPreviewPhoto_W == null)
+	        	    {
+						_GeneralPreviewPhoto_W = TearOff.GeneralPreviewPhoto;
+					}
+					return _GeneralPreviewPhoto_W;
+				}
+			}
+
 			private WhereParameter _CardID_W = null;
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _CardNameAr_W = null;
@@ -1011,6 +1135,8 @@ namespace E3zmni.DAL
 			private WhereParameter _UploadDate_W = null;
 			private WhereParameter _DimensionID_W = null;
 			private WhereParameter _IsPartySupplier_W = null;
+			private WhereParameter _DefaultFont_W = null;
+			private WhereParameter _GeneralPreviewPhoto_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1027,6 +1153,8 @@ namespace E3zmni.DAL
 				_UploadDate_W = null;
 				_DimensionID_W = null;
 				_IsPartySupplier_W = null;
+				_DefaultFont_W = null;
+				_GeneralPreviewPhoto_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1213,6 +1341,26 @@ namespace E3zmni.DAL
 					}
 				}
 
+				public AggregateParameter DefaultFont
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DefaultFont, Parameters.DefaultFont);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter GeneralPreviewPhoto
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.GeneralPreviewPhoto, Parameters.GeneralPreviewPhoto);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1374,6 +1522,30 @@ namespace E3zmni.DAL
 				}
 			}
 
+			public AggregateParameter DefaultFont
+		    {
+				get
+		        {
+					if(_DefaultFont_W == null)
+	        	    {
+						_DefaultFont_W = TearOff.DefaultFont;
+					}
+					return _DefaultFont_W;
+				}
+			}
+
+			public AggregateParameter GeneralPreviewPhoto
+		    {
+				get
+		        {
+					if(_GeneralPreviewPhoto_W == null)
+	        	    {
+						_GeneralPreviewPhoto_W = TearOff.GeneralPreviewPhoto;
+					}
+					return _GeneralPreviewPhoto_W;
+				}
+			}
+
 			private AggregateParameter _CardID_W = null;
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _CardNameAr_W = null;
@@ -1387,6 +1559,8 @@ namespace E3zmni.DAL
 			private AggregateParameter _UploadDate_W = null;
 			private AggregateParameter _DimensionID_W = null;
 			private AggregateParameter _IsPartySupplier_W = null;
+			private AggregateParameter _DefaultFont_W = null;
+			private AggregateParameter _GeneralPreviewPhoto_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1403,6 +1577,8 @@ namespace E3zmni.DAL
 				_UploadDate_W = null;
 				_DimensionID_W = null;
 				_IsPartySupplier_W = null;
+				_DefaultFont_W = null;
+				_GeneralPreviewPhoto_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1527,6 +1703,14 @@ namespace E3zmni.DAL
 
 			p = cmd.Parameters.Add(Parameters.IsPartySupplier);
 			p.SourceColumn = ColumnNames.IsPartySupplier;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DefaultFont);
+			p.SourceColumn = ColumnNames.DefaultFont;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.GeneralPreviewPhoto);
+			p.SourceColumn = ColumnNames.GeneralPreviewPhoto;
 			p.SourceVersion = DataRowVersion.Current;
 
 

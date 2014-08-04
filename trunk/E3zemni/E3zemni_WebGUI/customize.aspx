@@ -175,7 +175,7 @@ Customize your invitation
             </div>
             
             <div style="clear:both;height:1px;"></div> 
-
+            <div style="display:none;">
             <div class="step_title">Step 3</div>
             <div class="grid_3 alpha fll">
              Print Size : </div>
@@ -192,9 +192,10 @@ Customize your invitation
 				</div>
 			</div>
                                  </div>
-            <div style="clear:both;height:1px;"></div>  
-            <div class="step_title">Step 4</div>
-            <asp:DataList ID="uiDataListImages" runat="server" Width="100%">
+            <div style="clear:both;height:1px;"></div> 
+            </div> 
+            <div class="step_title">Step 3</div>
+            <asp:DataList ID="uiDataListImages" runat="server" Width="100%" >
             
             <ItemTemplate>
             <div class="grid_12" style="width:100%;border:1px solid black;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;padding:10px;margin-bottom:10px;">
@@ -236,8 +237,10 @@ Customize your invitation
                 </div>
             </ItemTemplate>
             </asp:DataList>
-
-            <div class="step_title">Step 5</div>
+            <asp:Panel runat="server" ID="uiPanelNoImages" Visible="false">
+                No images to be uploaded on this card .
+            </asp:Panel>
+            <div class="step_title">Step 4</div>
             <div class="pull-right grid_12" >
                
                <div class="grid_4 alpha fll pull-left">

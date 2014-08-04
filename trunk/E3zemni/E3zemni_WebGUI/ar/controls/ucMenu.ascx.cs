@@ -25,7 +25,7 @@ namespace E3zemni_WebGUI.ar.controls
             cats.LoadAll();
             for (int i = 0; i < cats.RowCount; i++)
             {
-                menu += "<li><a href='browse.aspx?tcid=" + cats.TopLevelCatID.ToString() + "'>" + cats.NameAr + "</a> ";
+                menu += "<li><a href='browsec.aspx?tcid=" + cats.TopLevelCatID.ToString() + (cats.IsPartySupplier ? "&ps=true" : "") + "'>" + cats.NameAr + "</a> ";
                 menu += LoadMainCats(cats.TopLevelCatID);
                 menu += "</li>";
                 cats.MoveNext();
@@ -44,7 +44,7 @@ namespace E3zemni_WebGUI.ar.controls
                 submenu = "<ul>";
                 for (int i = 0; i < scat.RowCount; i++)
                 {
-                    submenu += "<li><a href='browse.aspx?tcid=" + scat.TopLevelCatID.ToString() + "&mcid=" + scat.MainCatID.ToString() + "'>" + scat.NameAr + "</a>";
+                    submenu += "<li><a href='browsec.aspx?tcid=" + scat.TopLevelCatID.ToString() + "&mcid=" + scat.MainCatID.ToString() + (scat.IsPartySupplier ? "&ps=true" : "") + "'>" + scat.NameAr + "</a>";
                     submenu += LoadCats(scat.MainCatID);
                     submenu += " </li>";
                     scat.MoveNext();
@@ -65,7 +65,7 @@ namespace E3zemni_WebGUI.ar.controls
                 submenu = "<ul>";
                 for (int i = 0; i < scat.RowCount; i++)
                 {
-                    submenu += "<li><a href='browse.aspx?catid=" + scat.CategoryID.ToString() + "'>" + scat.CatNameAr + "</a> </li>";
+                    submenu += "<li><a href='browse.aspx?catid=" + scat.CategoryID.ToString() + (scat.IsPartySupplier ? "&ps=true" : "") + "'>" + scat.CatNameAr + "</a> </li>";
                     scat.MoveNext();
                 }
                 submenu += "</ul>";

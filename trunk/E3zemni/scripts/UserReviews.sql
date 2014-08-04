@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_UserReviewsLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_UserReviewsLoadByPrimaryKey]    Script Date: 8/4/2014 1:27:57 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserReviewsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserReviewsLoadByPrimaryKey];
 GO
@@ -36,7 +36,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserReviewsLoadByPrimaryKey Suc
 ELSE PRINT 'Procedure Creation: proc_UserReviewsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserReviewsLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_UserReviewsLoadAll]    Script Date: 8/4/2014 1:27:57 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserReviewsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserReviewsLoadAll];
 GO
@@ -69,7 +69,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserReviewsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserReviewsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserReviewsUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_UserReviewsUpdate]    Script Date: 8/4/2014 1:27:57 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserReviewsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserReviewsUpdate];
 GO
@@ -116,7 +116,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_UserReviewsInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_UserReviewsInsert]    Script Date: 8/4/2014 1:27:57 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserReviewsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserReviewsInsert];
 GO
@@ -168,7 +168,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_UserReviewsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_UserReviewsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_UserReviewsDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_UserReviewsDelete]    Script Date: 8/4/2014 1:27:57 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_UserReviewsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_UserReviewsDelete];
 GO

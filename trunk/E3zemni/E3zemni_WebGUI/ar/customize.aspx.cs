@@ -16,6 +16,11 @@ namespace E3zemni_WebGUI.ar
 {
     public partial class customize : System.Web.UI.Page
     {
+        public string FullPath
+        {
+            get { return (ViewState["FullPath"] != null) ? ViewState["FullPath"].ToString() : ""; }
+            set { ViewState["FullPath"] = value; }
+        }
         public MailMessage OrderMail
         {
             get
@@ -90,14 +95,34 @@ namespace E3zemni_WebGUI.ar
 
             CardImages images = new CardImages();
             images.GetCardImageByCardID(CardID);
-            uiDataListImages.DataSource = images.DefaultView;
-            uiDataListImages.DataBind();
+            if (images.RowCount > 0)
+            {
+                uiDataListImages.DataSource = images.DefaultView;
+                uiDataListImages.DataBind();
+                uiPanelNoImages.Visible = false;
+            }
+            else
+            {
+                uiDataListImages.Visible = false;
+                uiPanelNoImages.Visible = true;
+            }
            
 
             Cards card = new Cards();
             card.LoadByPrimaryKey(CardID);
 
-            uiImageMain.ImageUrl = "../" + card.MainPhoto;
+
+            Categories cat = new Categories();
+            cat.LoadByPrimaryKey(card.CategoryID);
+
+            MainCat mcat = new MainCat();
+            mcat.LoadByPrimaryKey(cat.MainCatId);
+
+            TopLevelCat tcat = new TopLevelCat();
+            tcat.LoadByPrimaryKey(mcat.TopLevelCatID);
+
+            uiImageMain.ImageUrl = "../" + card.GeneralPreviewPhoto;
+            FullPath = tcat.NameEng + " > " + mcat.NameEng + " > " + cat.CatNameEng;
         }
 
         protected void uiButtonApply_Click(object sender, EventArgs e)
@@ -119,13 +144,24 @@ namespace E3zemni_WebGUI.ar
                 System.Drawing.Color backcolor = System.Drawing.ColorTranslator.FromHtml(uiHiddenFieldColor.Value);
                 System.Drawing.Brush b = new System.Drawing.SolidBrush(backcolor);
 
+
+                Cards card = new Cards();
+                card.LoadByPrimaryKey(CardID);
+
+                // add Main card info
+                msg.Body += "<br /> =========================================================== <br />";
+                msg.Body += " ========================= Card info ================== <br />";
+                msg.Body += " Card Name : " + card.CardNameEng;
+                msg.Body += "<br /> Card Price : " + card.PriceNow;
+                msg.Body += "<br /> Card Path : " + FullPath + " > " + card.CardNameEng;
+
                 // add background color
                 msg.Body += "<br /> =========================================================== <br />";
                 msg.Body += " ========================= Background color ================== <br />";
 
                 msg.Body += "Background Color : " + uiHiddenFieldColor.Value + "<br />";
 
-                System.Drawing.Bitmap backgroundcolor = new System.Drawing.Bitmap(imgSelectedLayout.Width, imgSelectedLayout.Height);
+                System.Drawing.Bitmap backgroundcolor = new System.Drawing.Bitmap(imgSelectedLayout);
                 System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(backgroundcolor);
                 g.FillRectangle(b, 0, 0, imgSelectedLayout.Width, imgSelectedLayout.Height);
                 g.Save();
@@ -134,11 +170,11 @@ namespace E3zemni_WebGUI.ar
 
 
                 System.Drawing.Image GeneratedImg;// =new Image.FromFile(ImageBack);
+
+                // draw background 
                 GeneratedImg = System.Drawing.Image.FromFile(Server.MapPath("~/images/UserOrders/" + backpath + "_1.jpeg"));
                 myGraphic = System.Drawing.Graphics.FromImage(GeneratedImg);
                 myGraphic.SmoothingMode = SmoothingMode.HighQuality;
-                // draw background 
-                myGraphic.DrawImageUnscaled(GeneratedImg, 0, 0);
 
                 msg.Body += "<br /> =========================================================== <br />";
                 msg.Body += " ========================= Images Info ================== <br />";
@@ -203,8 +239,11 @@ namespace E3zemni_WebGUI.ar
                     }
                 }
 
+                myGraphic.ResetTransform();
+
                 // draw layout 
-                myGraphic.DrawImageUnscaled(imgSelectedLayout, 0, 0, imgSelectedLayout.Width, imgSelectedLayout.Height);
+                //myGraphic.DrawImageUnscaled(imgSelectedLayout, 0, 0,imgSelectedLayout.Width, imgSelectedLayout.Height);
+                myGraphic.DrawImage(imgSelectedLayout, 0, 0, imgSelectedLayout.Width, imgSelectedLayout.Height);
                 myGraphic.Save();
 
                 // draw strings 
@@ -228,7 +267,10 @@ namespace E3zemni_WebGUI.ar
                         System.Drawing.Color fontcolor = System.Drawing.ColorTranslator.FromHtml(hfc.Value);
                         System.Drawing.Brush fontbrush = new System.Drawing.SolidBrush(fontcolor);
 
-                        myGraphic.DrawString(tb.Text, new Font(ddlfont.SelectedItem.Text, Convert.ToInt32(ddlfontsize.SelectedItem.Text), FontStyle.Italic), fontbrush, new RectangleF(text.PosX, text.PosY, text.Width, text.Height));
+                        FontFamily family = new FontFamily(ddlfont.SelectedItem.Text);
+                        float fontsize = (Convert.ToInt32(ddlfontsize.SelectedItem.Text) * family.GetEmHeight(FontStyle.Regular)) / family.GetCellDescent(FontStyle.Regular);
+
+                        myGraphic.DrawString(tb.Text, new Font(ddlfont.SelectedItem.Text, fontsize, FontStyle.Italic), fontbrush, new RectangleF(text.PosX, text.PosY, text.Width, text.Height));
 
                         msg.Body += text.TextLabel + " : " + tb.Text + "<br />";
                         msg.Body += "font :  " + ddlfont.SelectedItem.Text + "<br />";
@@ -300,13 +342,22 @@ namespace E3zemni_WebGUI.ar
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
+                Cards card = new Cards();
+                card.LoadByPrimaryKey(CardID);
                 TextBox textbox = (TextBox)e.Item.FindControl("uiTextBoxText");
+                DropDownList dlfonts = (DropDownList)e.Item.FindControl("uiDropDownListFonts");
                 DataRowView row = (DataRowView)e.Item.DataItem;
                 if (row["IsMultiLine"] != null)
                 {
                     if ((bool)row["IsMultiLine"] == true)
                         textbox.TextMode = TextBoxMode.MultiLine;
                 }
+
+                if (!card.IsColumnNull("DefaultFont"))
+                {
+                    dlfonts.SelectedValue = card.DefaultFont;
+                }
+
             }
 
         }

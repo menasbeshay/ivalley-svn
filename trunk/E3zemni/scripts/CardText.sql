@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_CardTextLoadByPrimaryKey]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardTextLoadByPrimaryKey]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardTextLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardTextLoadByPrimaryKey];
 GO
@@ -38,7 +38,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardTextLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_CardTextLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardTextLoadAll]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardTextLoadAll]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardTextLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardTextLoadAll];
 GO
@@ -73,7 +73,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardTextLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardTextLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardTextUpdate]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardTextUpdate]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardTextUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardTextUpdate];
 GO
@@ -124,7 +124,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CardTextInsert]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardTextInsert]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardTextInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardTextInsert];
 GO
@@ -182,7 +182,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CardTextInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CardTextInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CardTextDelete]    Script Date: 6/28/2014 3:09:10 PM ******/
+/****** Object:  StoredProcedure [proc_CardTextDelete]    Script Date: 8/4/2014 1:27:56 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CardTextDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CardTextDelete];
 GO
