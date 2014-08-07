@@ -55,6 +55,9 @@ namespace Pricing_GUI
         {
             if (!Page.IsPostBack)
             {
+                // solve refresh postback action
+                Session["RefreshHit"] = Server.UrlEncode(System.DateTime.Now.ToString());
+
                 TradePriceID = 0;
                 BindDropDownListsData();
                 ui_lblResult.Text = "";
@@ -100,6 +103,9 @@ namespace Pricing_GUI
              //    BindStatusHistory();
              //    Session["UpdateStatus"] = null;
              //}
+
+             // solve refresh postback action
+             ViewState["RefreshHit"] = Session["RefreshHit"];
          }
 
       #endregion 
@@ -892,28 +898,34 @@ namespace Pricing_GUI
 
         protected void uiLinkButtonAddStatus_Click(object sender, EventArgs e)
         {
-            //TODO: Handle add new status for the current Trade Pricing Product.
-            AddNewStatusHistory();
-
-            if (ui_drpTradeStatus.SelectedValue != "14")
+            // condition added to solve refresh postback action            
+            if (Session["RefreshHit"].ToString() == ViewState["RefreshHit"].ToString())
             {
-                //disable status History 
-                StatusHistoryEnable(false);
-                lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now CAPA only can modify status - you couldn't to do it again at the moment.";
-            }
-            else
-            {
-                // Company still can control the status in case of Price review only 
-                StatusHistoryEnable(true);
-                ValidateAndBindStatus();
-            }
+                //TODO: Handle add new status for the current Trade Pricing Product.
+                AddNewStatusHistory();
 
-            // disable Page Content.
-            pnl_MainData_Content.Enabled = false;
-            pnl_Generic_Contenets.Enabled = false;
+                if (ui_drpTradeStatus.SelectedValue != "14")
+                {
+                    //disable status History 
+                    StatusHistoryEnable(false);
+                    lblCouldNotchangeStatus.Text = "<p style=\"color:green;\">Your status changed successfully ...</p> <br> Now CAPA only can modify status - you couldn't to do it again at the moment.";
+                }
+                else
+                {
+                    // Company still can control the status in case of Price review only 
+                    StatusHistoryEnable(true);
+                    ValidateAndBindStatus();
+                }
 
+                // disable Page Content.
+                pnl_MainData_Content.Enabled = false;
+                pnl_Generic_Contenets.Enabled = false;
+
+                //solve refresh postback action       
+                Session["RefreshHit"] = Server.UrlEncode(System.DateTime.Now.ToString());
+
+            }
             BindStatusHistory();
-         
             ScriptManager.RegisterStartupScript(uiLinkButtonAddStatus, this.GetType(), "opentab", "$(document).ready(function(){ $('.nav-tabs a[href=\"#tab_1_3\"]').tab('show'); });", true);
         }
 

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true"
-    CodeBehind="New_Request.aspx.cs" Inherits="Pricing_GUI.New_Request" %>
+    CodeBehind="New_Request.aspx.cs" Inherits="Pricing_GUI.New_Request" EnableViewState="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
