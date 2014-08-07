@@ -4,7 +4,7 @@
 using System;
 using Pricing.DAL;
 
-namespace BLL
+namespace Pricing.BLL
 {
 	public class userLogin : _userLogin
 	{

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BLL;
+using Pricing.BLL;
 
 namespace Pricing_GUI
 {
@@ -23,7 +23,7 @@ namespace Pricing_GUI
             userLogin objData = new userLogin();
             if (objData.CheckUser(ui_txtUserName.Text, ui_txtPassword.Text))
             {
-                Session["adminUser"] = objData;
+                CodeGlobal.LogedInUser = objData;
                 Response.Redirect("Home.aspx");
             }
             else

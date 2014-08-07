@@ -56,6 +56,7 @@
                     <div class="span2">
                         <br />
                         <asp:LinkButton ID="uiLinkButtonReply" runat="server" class="btn btn-primary" OnClick="uiLinkButtonReply_Click"> Reply</asp:LinkButton>
+                        <asp:Label runat="server" ID="lblCloseTicketValidation" Text="" ForeColor="Brown"></asp:Label>
                     </div>
                 </div>
             </asp:Panel>

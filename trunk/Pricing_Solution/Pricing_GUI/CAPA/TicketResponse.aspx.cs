@@ -87,6 +87,7 @@ namespace Pricing_GUI.CAPA
                     BindHistory();
                 }
             }
+            lblCloseTicketValidation.Text = "";
         }
 
 
@@ -98,6 +99,21 @@ namespace Pricing_GUI.CAPA
 
         protected void uiLinkButtonReply_Click(object sender, EventArgs e)
         {
+            if (uiDropDownListStatus.SelectedItem.Text == "Closed" && uiTextBoxResponse.Text=="")
+            {
+                lblCloseTicketValidation.Text = "You must write a comment before close the ticket !";
+                return;
+            }
+
+            // Admin only can change the status if it was closed 
+            Pricing.BLL.Tickets objTicket = new Pricing.BLL.Tickets();
+            objTicket.LoadByPrimaryKey(TicketID);
+            if (CodeGlobal.LogedInUser.s_Privaledge != "admin" && objTicket.TicketStatusID == 2)
+            {
+                lblCloseTicketValidation.Text = "System Admin only who can change the status now !";
+                return;
+            }
+
             TicketHistory history = new TicketHistory();
             history.AddNew();
             history.TicketID = TicketID;
@@ -132,6 +148,7 @@ namespace Pricing_GUI.CAPA
             uiDropDownListStatus.SelectedIndex = 0;
 
             BindHistory();
+            LoadDDl();
         }
         #endregion
 
@@ -154,6 +171,13 @@ namespace Pricing_GUI.CAPA
             uiDropDownListStatus.DataTextField = Pricing.BLL.TicketStatus.ColumnNames.Name;
             uiDropDownListStatus.DataValueField = Pricing.BLL.TicketStatus.ColumnNames.TicketStatusID;
             uiDropDownListStatus.DataBind();
+
+            // Remove from the status list - the last status for the current ticket - to prevent status duplication .
+            Pricing.BLL.Tickets obj = new Pricing.BLL.Tickets();
+            obj.LoadByPrimaryKey(TicketID);
+
+            ListItem item = uiDropDownListStatus.Items.FindByValue(obj.TicketStatusID.ToString());
+            uiDropDownListStatus.Items.Remove(item);
         }
         #endregion
 
