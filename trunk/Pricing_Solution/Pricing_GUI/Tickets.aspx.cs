@@ -18,10 +18,17 @@ namespace Pricing_GUI
 
             if (!IsPostBack)
             {
-               
+                // solve refresh postback action
+                Session["RefreshHit_tic"] = Server.UrlEncode(System.DateTime.Now.ToString());
                 BindTickets();
-                LoadDDls();
+                LoadDDls();                
             }
+        }
+
+        void Page_PreRender(object sender, EventArgs e)
+        {
+            // solve refresh postback action
+            ViewState["RefreshHit_tic"] = Session["RefreshHit_tic"];
         }
 
 
@@ -103,65 +110,71 @@ namespace Pricing_GUI
 
         protected void uiLinkButtonAddTicket_Click(object sender, EventArgs e)
         {
-            Pricing.BLL.Tickets companyTickets = new Pricing.BLL.Tickets();
-            companyTickets.AddNew();
-            companyTickets.CompanyID = CodeGlobal.LogedInCompany.CompanyID;
-            companyTickets.TicketTypeID = Convert.ToInt32(uiDropDownListType.SelectedValue);
-            companyTickets.TicketStatusID = 1; // open
-            if (uiDropDownListDrugs.SelectedValue != "0")
+             // condition added to solve refresh postback action            
+            if (Session["RefreshHit_tic"].ToString() == ViewState["RefreshHit_tic"].ToString())
             {
-                companyTickets.TradePricingID = Convert.ToInt32(uiDropDownListDrugs.SelectedValue);
-            }
-            else 
-            {
-                companyTickets.TradeName = uiTextBoxTradeName.Text;
-            
-            }
+                Pricing.BLL.Tickets companyTickets = new Pricing.BLL.Tickets();
+                companyTickets.AddNew();
+                companyTickets.CompanyID = CodeGlobal.LogedInCompany.CompanyID;
+                companyTickets.TicketTypeID = Convert.ToInt32(uiDropDownListType.SelectedValue);
+                companyTickets.TicketStatusID = 1; // open
+                if (uiDropDownListDrugs.SelectedValue != "0")
+                {
+                    companyTickets.TradePricingID = Convert.ToInt32(uiDropDownListDrugs.SelectedValue);
+                }
+                else
+                {
+                    companyTickets.TradeName = uiTextBoxTradeName.Text;
 
-            companyTickets.TextRequest = uiTextBoxRequestText.Text;
-            DirectoryInfo dir = new DirectoryInfo(Server.MapPath("~/Attachments/Tickets"));
-            if (!dir.Exists)
-                dir.Create();
-            string filepath = "";
-            if (uiFileUploadAttach.HasFile)
-            {
-                
-                filepath = "/Attachments/Tickets/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadAttach.FileName;
-                uiFileUploadAttach.SaveAs(Server.MapPath("~"+filepath));
-                companyTickets.FileAttachement = filepath;
-            }
-            companyTickets.InitiateDate = DateTime.Now;
-            switch (uiDropDownListType.SelectedValue)
-            {
-                case "1":
-                    if (!string.IsNullOrEmpty(uiTextBoxCommittedDate.Text))
-                    {
-                        DateTime d;
-                        DateTime.TryParseExact(uiTextBoxCommittedDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out d);
-                        if (d != null && d != DateTime.MinValue)
+                }
+
+                companyTickets.TextRequest = uiTextBoxRequestText.Text;
+                DirectoryInfo dir = new DirectoryInfo(Server.MapPath("~/Attachments/Tickets"));
+                if (!dir.Exists)
+                    dir.Create();
+                string filepath = "";
+                if (uiFileUploadAttach.HasFile)
+                {
+
+                    filepath = "/Attachments/Tickets/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadAttach.FileName;
+                    uiFileUploadAttach.SaveAs(Server.MapPath("~" + filepath));
+                    companyTickets.FileAttachement = filepath;
+                }
+                companyTickets.InitiateDate = DateTime.Now;
+                switch (uiDropDownListType.SelectedValue)
+                {
+                    case "1":
+                        if (!string.IsNullOrEmpty(uiTextBoxCommittedDate.Text))
                         {
-                            companyTickets.LastCommitteeDate = d;
+                            DateTime d;
+                            DateTime.TryParseExact(uiTextBoxCommittedDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out d);
+                            if (d != null && d != DateTime.MinValue)
+                            {
+                                companyTickets.LastCommitteeDate = d;
+                            }
                         }
-                    }
-                    companyTickets.LastDescision = uiTextBoxCommittedDecision.Text;
-                    double price = 0;
-                    double.TryParse(uiTextBoxCommittedPrice.Text, out price);
-                    companyTickets.CurrentPrice = price;
-                    break;
-                case "2":
-                case "3":
-                    double currentprice = 0;
-                    double.TryParse(uiTextBoxCurrentPrice.Text, out currentprice);
-                    companyTickets.CurrentPrice = currentprice;
+                        companyTickets.LastDescision = uiTextBoxCommittedDecision.Text;
+                        double price = 0;
+                        double.TryParse(uiTextBoxCommittedPrice.Text, out price);
+                        companyTickets.CurrentPrice = price;
+                        break;
+                    case "2":
+                    case "3":
+                        double currentprice = 0;
+                        double.TryParse(uiTextBoxCurrentPrice.Text, out currentprice);
+                        companyTickets.CurrentPrice = currentprice;
 
-                    double suggestprice = 0;
-                    double.TryParse(uiTextBoxSuggestedPrice.Text, out suggestprice);
-                    companyTickets.CurrentPrice = suggestprice;
-                    break;
-                default:
-                    break;
+                        double suggestprice = 0;
+                        double.TryParse(uiTextBoxSuggestedPrice.Text, out suggestprice);
+                        companyTickets.CurrentPrice = suggestprice;
+                        break;
+                    default:
+                        break;
+                }
+                companyTickets.Save();
+                //solve refresh postback action       
+                Session["RefreshHit_tic"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
-            companyTickets.Save();
             BindTickets();
             
 
