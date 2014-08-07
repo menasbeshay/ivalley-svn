@@ -12,6 +12,7 @@ using System.IO;
 using System.Drawing;
 using BLL;
 using System.Threading;
+using Pricing_GUI;
 
 
 namespace WebGUI
@@ -436,13 +437,13 @@ namespace WebGUI
             ui_drpAssignedUser.DataBind();
             ui_drpAssignedUser.Items.Insert(0, item);
 
-            userLogin currentUser = (userLogin)(Session["adminUser"]);
-            if (currentUser.Privaledge == "user")
+
+            if (CodeGlobal.LogedInUser.Privaledge == "user")
             {
-                ui_drpAssignedUser.SelectedValue = currentUser.s_AdminID;
+                ui_drpAssignedUser.SelectedValue = CodeGlobal.LogedInUser.s_AdminID;
                 ui_drpAssignedUser.Enabled = false;
             }
-            else if (currentUser.Privaledge == "admin")
+            else if (CodeGlobal.LogedInUser.Privaledge == "admin")
             {
                 ui_drpAssignedUser.SelectedValue = "-1";
                 ui_drpAssignedUser.Enabled = true;

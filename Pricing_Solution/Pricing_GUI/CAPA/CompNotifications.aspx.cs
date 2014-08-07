@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Pricing.BLL;
 using System.Configuration;
 using BLL;
+using Pricing_GUI;
 
 namespace PricingGUI
 {
@@ -68,20 +69,22 @@ namespace PricingGUI
         {
             try
             {
-                if (Session["adminUser"] != null)
-                {
-                    userLogin objUser = (userLogin)Session["adminUser"];
-                    
-                    Notifications objData = new Notifications();
+
+                Pricing.BLL.Notifications objData = new Pricing.BLL.Notifications();
                     objData.AddNew();
 
-                    objData.NotifierID = objUser.AdminID;
+                    objData.NotifierID = CodeGlobal.LogedInUser.AdminID;
                     objData.NotificationText = ui_txtNotification.Text;
                     objData.Subject = ui_txtSubject.Text;
 
                     DateTime _notifyDate = ConvertDate.ConvertStringToDateCulture(ui_txtDate.Text);
                     objData.NotifyDate = _notifyDate;
                     //objData.NotifyDate = Convert.ToDateTime(ui_txtDate.Text);
+
+                    if (ui_drpCompanies.SelectedValue != "-1")
+                    {
+                        objData.CompanyID = Int32.Parse(ui_drpCompanies.SelectedValue.ToString());
+                    }
 
                     objData.Save();
 
@@ -96,7 +99,7 @@ namespace PricingGUI
                     ui_lb_msg.Text = "The new record added successfully";
 
                     ResetFields();
-                }
+              
             }
             catch
             {
