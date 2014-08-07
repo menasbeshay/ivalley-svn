@@ -56,7 +56,7 @@ namespace Pricing_GUI
             if (!Page.IsPostBack)
             {
                 // solve refresh postback action
-                Session["RefreshHit"] = Server.UrlEncode(System.DateTime.Now.ToString());
+                Session["RefreshHit_req"] = Server.UrlEncode(System.DateTime.Now.ToString());
 
                 TradePriceID = 0;
                 BindDropDownListsData();
@@ -105,7 +105,7 @@ namespace Pricing_GUI
              //}
 
              // solve refresh postback action
-             ViewState["RefreshHit"] = Session["RefreshHit"];
+             ViewState["RefreshHit_req"] = Session["RefreshHit_req"];
          }
 
       #endregion 
@@ -899,7 +899,7 @@ namespace Pricing_GUI
         protected void uiLinkButtonAddStatus_Click(object sender, EventArgs e)
         {
             // condition added to solve refresh postback action            
-            if (Session["RefreshHit"].ToString() == ViewState["RefreshHit"].ToString())
+            if (Session["RefreshHit_req"].ToString() == ViewState["RefreshHit_req"].ToString())
             {
                 //TODO: Handle add new status for the current Trade Pricing Product.
                 AddNewStatusHistory();
@@ -922,7 +922,7 @@ namespace Pricing_GUI
                 pnl_Generic_Contenets.Enabled = false;
 
                 //solve refresh postback action       
-                Session["RefreshHit"] = Server.UrlEncode(System.DateTime.Now.ToString());
+                Session["RefreshHit_req"] = Server.UrlEncode(System.DateTime.Now.ToString());
 
             }
             BindStatusHistory();
