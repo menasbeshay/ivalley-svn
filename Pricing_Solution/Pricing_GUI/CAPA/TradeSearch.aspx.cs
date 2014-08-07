@@ -73,6 +73,9 @@ namespace PricingGUI
 
                 if (IsUpdateMode)
                 {
+                    // solve refresh postback action
+                    Session["RefreshHit_Capa_ts"] = Server.UrlEncode(System.DateTime.Now.ToString());
+
                     ui_TabGenericInfo.Enabled = true;
                     uiTabBeforeCommitte.Enabled = true;
                     uiTabPanelAfterCommitte.Enabled = true;
@@ -97,6 +100,13 @@ namespace PricingGUI
                 }
             }
             
+        }
+
+        void Page_PreRender(object sender, EventArgs e)
+        {
+            // solve refresh postback action
+            if(Session["RefreshHit_Capa_ts"] !=null)
+                ViewState["RefreshHit_Capa_ts"] = Session["RefreshHit_Capa_ts"];
         }
 
         protected void ui_btnSave_Click(object sender, EventArgs e)
@@ -945,36 +955,43 @@ namespace PricingGUI
 
         private void AddNewStatusHistory()
         {
-            StatusHistory objStatus = new StatusHistory();
-            objStatus.AddNew();
-
-            objStatus.PricingStatusID = int.Parse(ui_drpTradeStatus.SelectedValue);
-            objStatus.StatusDate = DateTime.Now;
-            objStatus.Comment = ui_txtStatusComment.Text;
-            objStatus.TradePricingID = TradePriceID;
-            objStatus.AttachementPath = "";
-
-            if (ui_drpTradeStatus.SelectedValue == "5")
+             // condition added to solve refresh postback action            
+            if (Session["RefreshHit_Capa_ts"].ToString() == ViewState["RefreshHit_Capa_ts"].ToString())
             {
-                objStatus.CommitteeTypeID = int.Parse(ui_drpCommitteeTypes.SelectedValue);
-                DateTime comDate = DateTime.Parse(ui_txtCommitteeDate.Text + " " + drpCommitteeHours.SelectedItem.Text + ":" + drpCommitteeMinutes.SelectedItem.Text + ":00");
-                objStatus.CommitteDate = comDate;
-            }
-            objStatus.Save();
+                StatusHistory objStatus = new StatusHistory();
+                objStatus.AddNew();
 
-            // if file exist - save it with the current record 
-            if (ui_fileStatusUpload.HasFile)
-            {
-                objStatus.AttachementPath = SaveStatusFile(objStatus.StatusHistoryID);
+                objStatus.PricingStatusID = int.Parse(ui_drpTradeStatus.SelectedValue);
+                objStatus.StatusDate = DateTime.Now;
+                objStatus.Comment = ui_txtStatusComment.Text;
+                objStatus.TradePricingID = TradePriceID;
+                objStatus.AttachementPath = "";
+
+                if (ui_drpTradeStatus.SelectedValue == "5")
+                {
+                    objStatus.CommitteeTypeID = int.Parse(ui_drpCommitteeTypes.SelectedValue);
+                    DateTime comDate = DateTime.Parse(ui_txtCommitteeDate.Text + " " + drpCommitteeHours.SelectedItem.Text + ":" + drpCommitteeMinutes.SelectedItem.Text + ":00");
+                    objStatus.CommitteDate = comDate;
+                }
                 objStatus.Save();
-            }
 
-            // Upate the Trade Pricing Record with the last status we have .
-            TradePricing objTradePricing = new TradePricing();
-            objTradePricing.LoadByPrimaryKey(TradePriceID);
-            objTradePricing.PricingStatusID = objStatus.PricingStatusID;
-            objTradePricing.DiscussionDate = DateTime.Now.ToString();
-            objTradePricing.Save();
+                // if file exist - save it with the current record 
+                if (ui_fileStatusUpload.HasFile)
+                {
+                    objStatus.AttachementPath = SaveStatusFile(objStatus.StatusHistoryID);
+                    objStatus.Save();
+                }
+
+                // Upate the Trade Pricing Record with the last status we have .
+                TradePricing objTradePricing = new TradePricing();
+                objTradePricing.LoadByPrimaryKey(TradePriceID);
+                objTradePricing.PricingStatusID = objStatus.PricingStatusID;
+                objTradePricing.DiscussionDate = DateTime.Now.ToString();
+                objTradePricing.Save();
+
+                //solve refresh postback action       
+                Session["RefreshHit_Capa_ts"] = Server.UrlEncode(System.DateTime.Now.ToString());
+            }
         }
 
         private string SaveStatusFile(int statusHistoryID)
