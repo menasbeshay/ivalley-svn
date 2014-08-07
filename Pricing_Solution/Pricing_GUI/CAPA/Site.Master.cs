@@ -24,7 +24,7 @@ namespace Pricing_GUI
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            if (Session["adminUser"] == null)
+            if (CodeGlobal.LogedInUser == null)
             {
                 Response.Redirect("Default.aspx");
             }
@@ -34,15 +34,13 @@ namespace Pricing_GUI
         {
                 if (!Page.IsPostBack)
                 {
-                    userLogin obj = (userLogin)Session["adminUser"];
-
-                    ui_lblWelcome.Text = "Welcome " + obj.s_UserName;
+                  ui_lblWelcome.Text = "Welcome " + CodeGlobal.LogedInUser.s_UserName;
                 }
         }
 
         protected void ui_lnkLogout_Click(object sender, EventArgs e)
         {
-            Session["adminUser"] = null;
+            CodeGlobal.LogedInUser = null;
             Response.Redirect("Default.aspx");
         }
     }

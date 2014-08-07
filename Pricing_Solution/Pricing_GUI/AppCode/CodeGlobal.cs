@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Pricing.BLL;
 
+
 namespace Pricing_GUI
 {
     public class CodeGlobal
@@ -24,6 +25,25 @@ namespace Pricing_GUI
             set
             {
                 HttpContext.Current.Session["LoggedInCompany"] = value;
+            }
+        }
+
+        public static userLogin LogedInUser
+        {
+            get
+            {
+                if (HttpContext.Current.Session["LogedInUser"] != null)
+                {
+                    return (userLogin)HttpContext.Current.Session["LogedInUser"];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session["LogedInUser"] = value;
             }
         }
 
