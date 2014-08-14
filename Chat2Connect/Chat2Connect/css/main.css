@@ -109,6 +109,7 @@ margin:0 !important;
 }
 
 
+
 .login-menu li a {
     padding:0 !important;    
 }
@@ -133,6 +134,28 @@ margin:0 !important;
     margin:5px;
     text-decoration:none;
 }
+
+.AccountMenu a {
+    color:#fff;
+    text-decoration:none;
+    margin:3px;
+    display:block;
+    width:15px;
+    text-align:center;
+}
+.AccountMenu {
+    max-width:20px;
+    float:right;
+}
+
+#StatusCount {
+    display:block;
+    color:#ccc;
+    float:left;
+    margin-left:8px;
+    padding-top:16px;
+}
+
 .user {
     padding-top:18px;
     padding-bottom:15px;
@@ -172,15 +195,16 @@ margin:0 !important;
 }
 
 .status img {
-    width:28px !important;
-    height:28px !important;
+    width:18px !important;
+    height:18px !important;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -ms-border-radius: 50%;
 }
-.status {
-    padding:5px !important;
+.login-menu li a.status {
+    padding:2px !important;
+    padding-right:5px !important;
 }
 
 
@@ -188,7 +212,7 @@ margin:0 !important;
     margin-right:11px;
     display: inline-block;
     vertical-align: top;
-    padding-top: 30px;
+    padding-top: 18px;
     color:#fff;
 }
 .user span {
@@ -200,25 +224,25 @@ margin:0 !important;
 
 .user .statusbox {    
     position:absolute;    
-    right:130px;
-    width:250px;
+    right:140px;
+    width:300px;
     background-color:#fff;
     border:1px solid #ccc;
     border-radius:4px;
-    height:28px;
+    height:32px;
     margin-top:3px;
     }
 .user .statusbox input[type="text"] {
-    height:25px;
+    height:29px;
     font-size:13px;    
     border:0px !important;
-    width:210px;
+    width:260px;
     color:#555;
     }
 
 .input-ok {
     position:absolute;
-    top:9px;
+    top:3px;
     left:5px;
     text-decoration:none !important;
     cursor:pointer;
@@ -226,7 +250,7 @@ margin:0 !important;
 
 .input-cancel {
     position:absolute;
-    top:9px;
+    top:3px;
     left:20px;
     text-decoration:none !important;
     cursor:pointer;
@@ -443,7 +467,7 @@ margin-left: 6%;
 
 .inner_main {
     width:95%;
-    padding-bottom:25px;
+    padding-bottom:10px;
     float:right;
     border:none;
     background: #f4f4f4;
@@ -451,7 +475,7 @@ margin-left: 6%;
     border-radius: 5px 0 0 5px;
     z-index:1;    
     margin-top:.5%;
-    min-height:610px;
+    min-height:490px;
     margin-bottom:10px;
     margin-left:.3%;
     margin-right:4.5%;

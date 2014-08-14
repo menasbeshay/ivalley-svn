@@ -80,8 +80,7 @@ namespace Chat2Connect
                 uiLabelBestFood.Text = member.BestFood;
                 uiLabelBestCar.Text = member.BestCar;
                 uiLabelBestTeam.Text = member.BestTeam;
-                uiLabelBestCountry.Text = member.BestCounrty;
-                uiLabelMail.Text = Membership.GetUser(member.UserID).Email;
+                uiLabelBestCountry.Text = member.BestCounrty;                
                 uiHyperLinkFb.NavigateUrl = member.FbURL;
                 uiHyperLinktwitter.NavigateUrl = member.TURL;
                 uiHyperLinkyt.NavigateUrl = member.YtURL;

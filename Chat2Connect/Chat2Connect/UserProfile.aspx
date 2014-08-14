@@ -75,7 +75,7 @@
             </div>            
         </div>
             
-        <div class="blockBoxshadow pull-left margin20" style="width:30%;">
+        <div class="blockBoxshadow pull-left margin20" style="width:30%;height:235px;max-height:235px;">
              <asp:Label ID="Label10" runat="server" Text="معلومات عن الحساب"></asp:Label>
             <hr style="background:#ffd800;width:100%;margin:5px auto;"/>
             <div class="clearfix"></div>
@@ -86,19 +86,12 @@
                         <asp:Label ID="uiLabelAccountType" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>            
-            <div class="col-lg-12" style="width:100%;margin:8px 0px;padding-right:0px;">
-                <div class="pull-right" style="width:87%">
-                    البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" ></asp:Label>
-                </div>                
-                <div class="clearfix" style="height:2px;"></div>
-            </div>
-                                  
-            <div class="clearfix"></div>
+            
             
         </div>
         
         <div class="clearfix"></div>
-        <div class="blockBoxshadow pull-right col-lg-3 margin20 ">
+        <div class="blockBoxshadow pull-right col-lg-3 margin20 " style="height:210px;max-height:210px;">
             <div style="padding:5px 0px;">
                 <div class="pull-right">الغرف</div>
                 <div class="pull-left"></div>
@@ -122,7 +115,7 @@
             <div class="clearfix"></div>
 
         </div>
-        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;" id="uiPanelPics" runat="server">
+        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;height:210px;max-height:210px;" id="uiPanelPics" runat="server">
             <div>
                 <div class="pull-right">صورى</div>
                 
@@ -142,7 +135,7 @@
 
             </div>
         </div>
-        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;">
+        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;height:210px;max-height:210px;">
             <div>
                 <div class="pull-right">حائط البروفايل</div>
                

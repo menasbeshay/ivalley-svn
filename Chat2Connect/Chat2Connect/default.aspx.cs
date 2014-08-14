@@ -72,7 +72,7 @@ namespace Chat2Connect
         protected void uiButtonRegister_Click(object sender, EventArgs e)
         {
             MembershipUser[] users = Membership.GetAllUsers().Cast<MembershipUser>().Where(m => m.Email == Email.Text).ToArray();
-            if (users.Length == 15)
+            if (users.Length >= 3)
             {
                 ErrorMessage.Text = GetLocalResourceObject("maxMailAccount").ToString();
                 ErrorMessage.Visible = true;

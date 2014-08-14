@@ -135,7 +135,12 @@
     <form id="form1" runat="server">
         <header class="row navbar-fixed-top" role="navigation" >
             <div class="user">
-                <ul class="nav pull-right top-menu login-menu">
+                <div class="AccountMenu">
+                    <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx" data-toggle="tooltip" title="حسابى" data-placement="left"><i class="icon-user"></i></asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left"><i class="entypoicon iconentypo-help" style="font-size:25px;"></i></asp:HyperLink>
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج"/>
+                </div>
+                <%--<ul class="nav pull-right top-menu login-menu">
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -144,40 +149,41 @@
                         </a>
                         <ul class="dropdown-menu extended logout" style="right: 0 !important;z-index:1040 !important;">
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx"><i class="icon-user"></i>  حسابى</asp:HyperLink></li>
+                                </li>
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="#"><i class="entypoicon iconentypo-help" style="font-size:25px;"></i> مساعدة</asp:HyperLink></li>
+                                </li>
                             <li>
-                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج" OnLoggingOut="LoginStatus1_LoggingOut" />
+                               
                             </li>
                         </ul>
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->
 
-                </ul>
+                </ul>--%>
                 <div class="vl pull-right"></div>
                 <ul class="nav pull-right top-menu login-menu">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle statusimg" data-toggle="dropdown" >
                             <div class="user_img">
                                 <asp:Image ID="uiImageUser" runat="server" ImageUrl="~/images/defaultavatar.png" />
                             </div>
                         </a>
                         <ul class="dropdown-menu extended " style="right: 0 !important;z-index:1040 !important;">
                             <li>
-                                <a class="status" style="padding: 5px !important;" onclick="changeS(1);return false;">
+                                <a class="status"  onclick="changeS(1);return false;">
                                     <asp:Image CssClass="online" ID="uiImageUser1" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;متصل</a>
                             </li>
-                            <li>
-                                <a class="status" style="padding: 5px !important;" onclick="changeS(2);return false;">
-                                    <asp:Image CssClass="busy" ID="uiImageUser2" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مشغول</a>
-                            </li>
-                            <li>
-                                <a class="status" style="padding: 5px !important;" onclick="changeS(3);return false;">
+                             <li>
+                                <a class="status"  onclick="changeS(3);return false;">
                                     <asp:Image CssClass="away" ID="uiImageUser3" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;بعيد</a>
                             </li>
                             <li>
-                                <a class="status" style="padding: 5px !important;" onclick="changeS(4);return false;">
+                                <a class="status"  onclick="changeS(2);return false;">
+                                    <asp:Image CssClass="busy" ID="uiImageUser2" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مشغول</a>
+                            </li>
+                           
+                            <li>
+                                <a class="status"  onclick="changeS(4);return false;">
                                     <asp:Image CssClass="offline" ID="uiImageUser4" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مخفى</a>
                             </li>
                         </ul>
@@ -189,13 +195,14 @@
                     </span>
                 </p>
                 <div class="statusbox">
-                    <asp:TextBox ID="uiTextBoxStatus" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="uiTextBoxStatus" runat="server" MaxLength="70" CssClass="statustextbox"></asp:TextBox>
                     <a class="input-ok" data-placement="top" title="حفظ" onclick="changeStatus();">
                         <i class="icon-ok"></i>
                     </a>
                     <a class="input-cancel" data-placement="top" title="حذف" onclick="clearStatus();">
                         <i class="icon-remove"></i>
                     </a>
+                    <div id="StatusCount" ></div>
                 </div>
             </div>
             <div id="help" class="help">

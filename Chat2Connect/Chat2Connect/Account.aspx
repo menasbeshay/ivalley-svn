@@ -237,6 +237,7 @@
                         <asp:Label ID="uiLabelTypeExpiry" runat="server" ></asp:Label>                 
             </div>
             <div class="clearfix"></div>
+            
             <div class="col-lg-12" style="width:100%;margin:8px 0px;padding-right:0px;">
                 <div class="pull-right" style="width:87%">
                     البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" ></asp:Label>
@@ -264,7 +265,7 @@
         </div>
         
         <div class="clearfix"></div>
-        <div class="blockBoxshadow pull-right col-lg-3 margin20 ">
+        <div class="blockBoxshadow pull-right col-lg-3 margin20 " style="height:210px;max-height:210px;">
             <div style="padding:5px 0px;">
                 <div class="pull-right">الغرف</div>
                 <div class="pull-left"></div>
@@ -288,7 +289,7 @@
             <div class="clearfix"></div>
 
         </div>
-        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;">
+        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;height:210px;max-height:210px;">
             <div>
                 <div class="pull-right">صورى</div>
                 <div class="pull-left">
@@ -312,7 +313,7 @@
 
             </div>
         </div>
-        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;">
+        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;height:210px;max-height:210px;">
             <div>
                 <div class="pull-right">حائط البروفايل</div>
                 <div class="pull-left">
@@ -481,7 +482,7 @@
                                         <label>حائط البروفايل</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="200"></asp:TextBox>
                                         
                                     </div>
                                 </div>                                
@@ -509,10 +510,10 @@
                             <div class="form-horizontal blockBox">
                                 
                                 <div class="form-group">
-                                    <div class="col-sm-12 control-label pull-right">
+                                    <div class="col-sm-12 control-label pull-right" style="display:none;">
                                         <asp:CheckBox ID="uiCheckBoxHidePics" runat="server" CssClass="checkbox-main pull-right" Text="إخفاء صور الأصدقاء من قائمة الأصدقاء"/>                                        
                                     </div>                                   
-                                    <div class="col-sm-12 control-label pull-right">
+                                    <div class="col-sm-12 control-label pull-right" style="display:none;"> 
                                         <asp:CheckBox ID="uiCheckBoxHideRoomPics" runat="server" CssClass="checkbox-main pull-right" Text=" إخفاء صور المتواجدين بالغرف"/>                                        
                                     </div>                                   
                                     <div class="col-sm-12 control-label pull-right">
@@ -530,7 +531,7 @@
                                     <div class="col-sm-12 control-label pull-right">
                                         <asp:CheckBox ID="uiCheckBoxNotifyOnGetMsg" runat="server" CssClass="checkbox-main pull-right" Text=" تنبيه عند استلامى رسالة على صندوق البريد"/>                                        
                                     </div>                                   
-                                    <div class="col-sm-12 control-label pull-right">
+                                    <div class="col-sm-12 control-label pull-right" style="display:none;">
                                         <asp:CheckBox ID="uiCheckBoxNotifyOnVoiceMail" runat="server" CssClass="checkbox-main pull-right" Text=" تنبيه عند استلامى بريد صوتى"/>                                        
                                     </div>                                   
                                     <div class="col-sm-12 control-label pull-right">
@@ -568,10 +569,10 @@
                                             <asp:ListItem Value="1" class="radio-inlineMain">الجميع</asp:ListItem>                                            
                                         </asp:RadioButtonList>
                                     </div>   
-                                     <div class="col-sm-4 control-label pull-right">
+                                     <div class="col-sm-4 control-label pull-right" style="display:none;">
                                         <asp:Label runat="server" Text="قبول رسالة صوتية من" style="font-weight:normal;font-size:13px;"></asp:Label>
                                          </div>
-                                    <div class="col-sm-5 control-label pull-right">
+                                    <div class="col-sm-5 control-label pull-right" style="display:none;">
                                         <asp:RadioButtonList ID="uiRadioButtonListAcceptVoiceMail" runat="server" RepeatColumns="2" RepeatLayout="Flow" RepeatDirection="Horizontal" >
                                             <asp:ListItem Value="0" class="radio-inlineMain">الأصدقاء</asp:ListItem>
                                             <asp:ListItem Value="1" class="radio-inlineMain">الجميع</asp:ListItem>                                            

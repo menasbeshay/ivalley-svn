@@ -130,7 +130,7 @@
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="UserName" runat="server" onkeypress="return validChars(event);" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="من فضلك أدخل إسم المستخدم ." ToolTip="من فضلك أدخل إسم المستخدم ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 5 إلى 17 حرف." ValidationExpression=".{5,17}.*" Display="Dynamic" ForeColor="Red" />
+                                        <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
                                         <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="إسم المستخدم غير مطابق للشروط" ClientValidationFunction="isValid" ControlToValidate="UserName" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
                                     </div>
                                 </div>
@@ -142,6 +142,7 @@
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="من فضلك أدخل كلمة المرور." ToolTip="من فضلك أدخل كلمة المرور." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Password" ErrorMessage="يجب أن تكون كلمة المرور مكونة من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
                                     </div>
                                 </div>
                                 <div class="form-group">

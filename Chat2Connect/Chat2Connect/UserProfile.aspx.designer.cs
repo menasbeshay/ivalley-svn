@@ -238,15 +238,6 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label uiLabelAccountType;
         
         /// <summary>
-        /// uiLabelMail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelMail;
-        
-        /// <summary>
         /// uiRepeaterMyRooms control.
         /// </summary>
         /// <remarks>
