@@ -67,15 +67,6 @@ namespace Chat2Connect.MasterPages {
         protected global::System.Web.UI.WebControls.Image uiImageUser1;
         
         /// <summary>
-        /// uiImageUser2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image uiImageUser2;
-        
-        /// <summary>
         /// uiImageUser3 control.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace Chat2Connect.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image uiImageUser3;
+        
+        /// <summary>
+        /// uiImageUser2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image uiImageUser2;
         
         /// <summary>
         /// uiImageUser4 control.

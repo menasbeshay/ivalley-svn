@@ -27,8 +27,10 @@ function validChars(evt) {
 
 function isValid(source, arguments) {
     var username = arguments.Value;
-    var arabicnospaces = new RegExp("^[\u0621-\u064A0-9-_]+$");
-    var englishspaces = new RegExp("^[a-zA-z0-9-_\040]+$");
+    //var arabicnospaces = new RegExp("^[\u0621-\u064A0-9-_]+$");
+    //var englishspaces = new RegExp("^[a-zA-z0-9-_\040]+$");
+    var arabicnospaces = new RegExp("^[\u0621-\u064A0-9][^\u0640]+$");
+    var englishspaces = new RegExp("^[a-zA-z0-9]+$");
     //var arabicenglish = new RegExp("[a-zA-Z0-9-_\u0621-\u064A]");
     //if (!arabicenglish.test(username) && ( englishspaces.test(username) || arabicnospaces.test(username)))
     if (englishspaces.test(username) || arabicnospaces.test(username))
@@ -47,6 +49,7 @@ $(document).ready(function () {
         format: 'yyyy/mm/dd'
     });
     
+    $('.AccountMenu a').tooltip();
 
     $('.SScroll').each(function () {
         $(this).slimScroll({
@@ -74,6 +77,10 @@ $(document).ready(function () {
     $('.adminmenu a').bind('click', function () { inFormOrLink = true; });
     $('.main_menu a').bind('click', function () { inFormOrLink = true; });
     $('form').bind('submit', function () { inFormOrLink = true; });
+
+    $(".statustextbox").on('change keyup paste', function () {
+        $('#StatusCount').html(70 - $(this).val().length);
+    });
 
     $(window).bind("beforeunload", function () {        
             HandleClose();
