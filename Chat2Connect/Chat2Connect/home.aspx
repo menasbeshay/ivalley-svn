@@ -1322,7 +1322,7 @@
                         <div>
                             <div data-bind="slideVisible:showAdminPart">
                                 <div style="width: 20%; padding: 5px; padding-top: 0px; position: relative;" class="pull-left">
-                                    <div id="roomAdminMembersDiv" data-height="155px" class="SScroll" style="overflow-y: hidden; width: auto; height: 155px; overflow-x: visible; background-color: #D9D9D9;">
+                                    <div id="roomAdminMembersDiv" data-height="140px" class="SScroll" style="overflow-y: hidden; width: auto; height: 140px; overflow-x: visible; background-color: #D9D9D9;">
                                         <div id="regular">
                                             <!-- ko template: { name: 'adminMemberTemplate', foreach: AdminMembers } -->
                                             <!-- /ko -->
@@ -1333,8 +1333,8 @@
 
                                 <div style="height: 5px;" class="clearfix"></div>
 
-                                <a style="width: 8%; height: 50px; padding-top: 15px; float: right;" class="btn btn-main" data-bind="click:$parent.sendAdminMessage">إرسال</a>
-                                <textarea data-bind="value:AdminMessage, attr:{id:'uiTextAdminMsg_'+uniqueID()}" type='text' style='width: 71.5%; background-color: #D9D9D9; height: 50px; border: 0px; float: right; margin-right: 3px;'></textarea>
+                                <a style="width: 8%; height: 35px; padding-top: 7px; float: right;" class="btn btn-main" data-bind="click:$parent.sendAdminMessage">إرسال</a>
+                                <textarea data-bind="value:AdminMessage, attr:{id:'uiTextAdminMsg_'+uniqueID()}" type='text' style='width: 71.5%; background-color: #D9D9D9; height: 35px; border: 0px; float: right; margin-right: 3px;'></textarea>
 
                                 <div style="height: 5px;" class="clearfix"></div>
                             </div>
@@ -1353,7 +1353,7 @@
                             <div style="height: 10px;" class="clear"></div>
                         </div>
                         <!-- /ko -->
-                        <div style="width: 100%; background-color: #f2f2f2; padding: 5px; direction: rtl;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
+                        <div style="width: 100%; background-color: #fff; padding: 5px; direction: rtl;border:1px solid #ccc;border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-webkit-border-radius:5px;" class="MsgHistroy SScroll" data-bind="style:{minHeight:(showAdminPart()==true?'250px':'400px')},attr:{'data-height':(showAdminPart()==true?'250px':'400px'),id:'MsgHistroy_'+uniqueID()}">
                             <!-- ko if: Type()=="Room" -->
                             <%--<input type="button" class="pull-left btn btn-link" data-bind="click:showOlderMessages" value="عرض رسائل أقدم" />--%>
                             <!-- /ko -->
