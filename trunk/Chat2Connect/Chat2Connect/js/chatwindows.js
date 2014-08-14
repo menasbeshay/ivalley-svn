@@ -989,7 +989,7 @@ function Chat(maxWin, memberID, memberName) {
         if (window == null)
             window = this;
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) {
-            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue(), window.CurrentMember().ProfileImg());
+            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberLevelID());
             window.AdminsEditor.setValue("");
         }
     };
