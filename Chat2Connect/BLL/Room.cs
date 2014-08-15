@@ -8,12 +8,12 @@ using System.Data.SqlClient;
 using DAL;
 namespace BLL
 {
-	public class Room : _Room
-	{
-		public Room()
-		{
-		
-		}
+    public class Room : _Room
+    {
+        public Room()
+        {
+
+        }
 
         public virtual bool GetRoomsByCreatorID(int CreatedBy)
         {
@@ -172,7 +172,7 @@ namespace BLL
                 base.MarkOnLoginWithWrite = value;
             }
         }
-        
+
         public override short OpenCams
         {
             get
@@ -220,5 +220,18 @@ namespace BLL
             }
         }
 
+
+        public bool Search(DateTime? dateFrom, DateTime? dateTo, int? status)
+        {
+            ListDictionary parameters = new ListDictionary();
+            if (dateFrom.HasValue)
+                parameters.Add(new SqlParameter("@CreatedDateFrom", SqlDbType.DateTime), dateFrom);
+            if (dateTo.HasValue)
+                parameters.Add(new SqlParameter("@CreatedDateTo", SqlDbType.DateTime), dateTo);
+            if (status.HasValue)
+                parameters.Add(new SqlParameter("@RoomStatus", SqlDbType.TinyInt), status);
+
+            return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomSearch]", parameters);
+        }
     }
 }
