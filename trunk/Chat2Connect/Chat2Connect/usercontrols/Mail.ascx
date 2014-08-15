@@ -9,7 +9,6 @@
     }
 
     #dvMessageDetails {
-        border: 1px solid #DDDDDD;
         background-color: white;
     }
 </style>
@@ -55,66 +54,76 @@
     </div>
     <div class="pull-right form-group" style="width: 85%">
         <asp:Panel ID="pnlViewMessages" runat="server">
-            <div style="padding: 10px;">
-                <div class="btn-group">
-                    <asp:LinkButton ID="btnDeleteMessages" runat="server" OnClick="btnDeleteMessages_Click" CssClass="btn btn-default">
+            <div style="padding: 0px;">
+                <div class="row">
+                    <div class="btn-group" style="padding-right: 20px;">
+                        <asp:LinkButton ID="btnDeleteMessages" runat="server" OnClick="btnDeleteMessages_Click" CssClass="btn btn-default">
                     حذف
                             <div class="icon-trash">
                                 </div>
-                    </asp:LinkButton>
-                    <asp:Repeater ID="rptFoldersMove" runat="server">
-                        <HeaderTemplate>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    نقل إلى
+                        </asp:LinkButton>
+                        <asp:Repeater ID="rptFoldersMove" runat="server">
+                            <HeaderTemplate>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        نقل إلى
                                     <i class="entypoicon iconentypo-folder pull-left" style="font-size: 40px;"></i>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <li>
-                                <asp:LinkButton ID="lnkMoveMessagesToFolder" runat="server" OnClick="lnkMoveMessagesToFolder_Click" CommandArgument='<%# Eval("MessageFolderID") %>'>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <li>
+                                    <asp:LinkButton ID="lnkMoveMessagesToFolder" runat="server" OnClick="lnkMoveMessagesToFolder_Click" CommandArgument='<%# Eval("MessageFolderID") %>'>
                 <%# Eval("Name") %>
                        <i class="entypoicon pull-left" style="font-size: 40px;"></i>
-                                </asp:LinkButton>
-                            </li>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </ul>
+                                    </asp:LinkButton>
+                                </li>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </ul>
                 </div>
-                        </FooterTemplate>
-                    </asp:Repeater>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                    </div>
                 </div>
-                <div class="SScroll" data-height="250px" style="border: 1px solid #DDDDDD; background-color: white;">
-                    <asp:GridView ID="grdMessages" runat="server" CssClass="table table-hover" EmptyDataText="لا توجد رسائل فى هذا المجلد" AutoGenerateColumns="False" AllowPaging="true" PageSize="25" OnPageIndexChanging="grdMessages_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
-                        <Columns>
-                            <asp:TemplateField>
-                                <HeaderTemplate>
-                                    <asp:CheckBox ID="chkSelectAll" runat="server" ClientIDMode="Static" />
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="chkSelect" runat="server" data-id='<%# Eval("ID") %>' />
-                                </ItemTemplate>
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
-                            </asp:TemplateField>
-                            <asp:BoundField HeaderText="الراسل" DataField="SenderName" ItemStyle-HorizontalAlign="Center" />
-                            
-                            <asp:TemplateField HeaderText="العنوان">
-                                <ItemTemplate>
-                                    <a href="#" class='<%# (Eval("IsRead")==DBNull.Value || Convert.ToBoolean(Eval("IsRead"))==false)? "message un-read" : "message" %>' data-message='<%# Eval("ID") %>'>
-                                        <%# Eval("Subject") %>
-                                    </a>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Right" />
-                            </asp:TemplateField>
-                            <asp:BoundField HeaderText="التاريخ والوقت" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HtmlEncode="false" />
-                        </Columns>
+                <div class="row">
+                    <div class="col-lg-5 pull-right" style="padding-left:0px;">
+                        <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
+                            <asp:GridView ID="grdMessages" runat="server" CssClass="table table-hover" EmptyDataText="لا توجد رسائل فى هذا المجلد" AutoGenerateColumns="False" AllowPaging="true" PageSize="25" OnPageIndexChanging="grdMessages_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:CheckBox ID="chkSelectAll" runat="server" ClientIDMode="Static" />
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkSelect" runat="server" data-id='<%# Eval("ID") %>' />
+                                        </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="الراسل" DataField="SenderName" ItemStyle-HorizontalAlign="Center" />
 
-                    </asp:GridView>
+                                    <asp:TemplateField HeaderText="العنوان">
+                                        <ItemTemplate>
+                                            <a href="#" class='<%# (Eval("IsRead")==DBNull.Value || Convert.ToBoolean(Eval("IsRead"))==false)? "message un-read" : "message" %>' data-message='<%# Eval("ID") %>'>
+                                                <%# Eval("Subject") %>
+                                            </a>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Right" />
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="التاريخ والوقت" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HtmlEncode="false" />
+                                </Columns>
+
+                            </asp:GridView>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 pull-right">
+                        <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
+                            <div id="dvMessageDetails" width="100%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div id="dvMessageDetails" width="100%"></div>
             </div>
             <script>
                 function ActiviateFolder(folder) {
