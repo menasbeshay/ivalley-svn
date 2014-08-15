@@ -23,6 +23,17 @@ namespace Chat2Connect.Admin
                 lstRoles.DataValueField = "RoleName";
                 lstRoles.DataSource = roles;
                 lstRoles.DataBind();
+
+                var lstStatus = Helper.EnumUtil.GetValues<Helper.Enums.RowStatus>().Select(r => new
+                {
+                    ID = (int)r,
+                    Name = Helper.StringEnum.GetStringValue(r)
+                }).ToList();
+                lstAccountStatus.DataValueField = "ID";
+                lstAccountStatus.DataTextField = "Name";
+                lstAccountStatus.DataSource = lstStatus;
+                lstAccountStatus.DataBind();
+                lstAccountStatus.Items.Insert(0, new ListItem("", ""));
             }
         }
 
@@ -49,7 +60,10 @@ namespace Chat2Connect.Admin
             {
                 dateTo = Helper.Date.ToDate(txtCreatedTo.Text);
             }
-            account.Search(txtEmail.Text, dateFrom, dateTo, lstRoles.SelectedValue);
+            int? status = null;
+            if (!String.IsNullOrEmpty(lstAccountStatus.SelectedValue))
+                status = Helper.TypeConverter.ToInt32(lstAccountStatus.SelectedValue);
+            account.Search(txtEmail.Text, dateFrom, dateTo, lstRoles.SelectedValue,status);
             
             grdMemberResult.DataSource = account.DefaultView;
             grdMemberResult.DataBind();
