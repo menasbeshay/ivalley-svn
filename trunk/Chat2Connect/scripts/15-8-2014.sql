@@ -7,7 +7,8 @@ CREATE PROCEDURE [proc_MembershipSearch]
 	@Email VARCHAR(256) = NULL,
 	@CreatedDateFrom DATETIME = NULL,
 	@CreatedDateTo DATETIME = NULL,
-	@RoleName VARCHAR(256) = NULL
+	@RoleName VARCHAR(256) = NULL,
+	@AccountStatus INT = NULL
 )
 AS
 BEGIN
@@ -16,11 +17,13 @@ BEGIN
 	INNER JOIN aspnet_Users u on m.UserId=u.UserId
 	LEFT JOIN aspnet_UsersInRoles ur on ur.UserId=u.UserId
 	LEFT JOIN aspnet_Roles r on r.RoleId=ur.RoleId
+	LEFT JOIN Member a on a.UserID=u.UserId
 	
 	WHERE (@Email IS NULL OR m.Email=@Email)
 	AND (@CreatedDateFrom IS NULL OR CONVERT(date, m.CreateDate)>=@CreatedDateFrom)
 	AND (@CreatedDateTo IS NULL OR CONVERT(date, m.CreateDate)<=@CreatedDateTo)
 	AND (@RoleName IS NULL OR r.RoleName=@RoleName)
+	AND (@AccountStatus IS NULL OR a.RowStatusID=@AccountStatus)
 	
 	ORDER BY m.CreateDate DESC 
 	
