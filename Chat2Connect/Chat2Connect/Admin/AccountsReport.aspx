@@ -14,7 +14,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <hr style="background: #ffd800; width: 100%; margin: 5px auto;" />
                 </td>
             </tr>
@@ -29,18 +29,18 @@
                         <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </td>
-                <td style="width: 30%; vertical-align: top" rowspan="4">
+                <td style="vertical-align: top;">
                     <div class="control-label pull-right">
                         <label>الصلاحيات </label>
                     </div>
+                </td>
+                <td style="width: 30%; vertical-align: top" rowspan="2">
+                    
                     <div class="form-group">
                         <asp:ListBox runat="server" CssClass="form-control" ID="lstRoles"></asp:ListBox>
                     </div>
                 </td>
-                <td rowspan="4" style="vertical-align: bottom">
-                    <input type="button" id="btnClearForm" class="btn btn-warning" Style="text-decoration: none;" value="مسح" />
-                    <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonSearch" Style="text-decoration: none;" OnClick="uiLinkButtonSearch_Click">بحث</asp:LinkButton>
-                </td>
+
             </tr>
             <tr>
                 <td style="vertical-align: top;">
@@ -48,7 +48,7 @@
                         <label>تاريخ التسجيل من </label>
                     </div>
                 </td>
-                <td>
+                <td style="vertical-align: top;">
                     <div class="form-group">
                         <div class="input-group">
                             <asp:TextBox ID="txtCreatedFrom" runat="server" CssClass="form-control datecontrol"></asp:TextBox>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td style="vertical-align: top;">
-                    <div class="control-label pull-left">
+                    <div class="control-label pull-right">
                         <label>إلى </label>
                     </div>
                 </td>
@@ -74,6 +74,21 @@
                             </span>
                         </div>
                     </div>
+                </td>
+                <td style="vertical-align: top;">
+                    <div class="control-label pull-right">
+                        <label>حالة الحساب </label>
+                    </div>
+                </td>
+                <td style="vertical-align: top">
+                    <div class="form-group">
+                        <asp:DropDownList ID="lstAccountStatus" CssClass="form-control" runat="server">
+                        </asp:DropDownList>
+                    </div>
+                </td>
+                <td style="vertical-align: top;">
+                    <input type="button" id="btnClearForm" class="btn btn-warning" style="text-decoration: none;" value="مسح" />
+                    <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonSearch" Style="text-decoration: none;" OnClick="uiLinkButtonSearch_Click">بحث</asp:LinkButton>
                 </td>
             </tr>
         </table>
@@ -97,7 +112,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('.clearInput').click(function(){
+            $('.clearInput').click(function () {
                 var input = $(this).data("control");
                 $('#' + input).val("");
             });

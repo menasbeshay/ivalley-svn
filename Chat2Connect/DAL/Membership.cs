@@ -49,7 +49,7 @@ namespace DAL
             return (returnValue == 0 ? true : false);
         }
 
-        public bool Search(string email, DateTime? dateFrom, DateTime? dateTo, string roleName)
+        public bool Search(string email, DateTime? dateFrom, DateTime? dateTo, string roleName,int? status)
         {
             ListDictionary parameters = new ListDictionary();
             if (!String.IsNullOrEmpty(email))
@@ -60,6 +60,8 @@ namespace DAL
                 parameters.Add(new SqlParameter("@CreatedDateTo", SqlDbType.DateTime), dateTo);
             if (!String.IsNullOrEmpty(roleName))
                 parameters.Add(new SqlParameter("@RoleName", SqlDbType.NVarChar), roleName);
+            if(status.HasValue)
+                parameters.Add(new SqlParameter("@AccountStatus", SqlDbType.TinyInt), status);
 
             return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MembershipSearch]", parameters);
         }

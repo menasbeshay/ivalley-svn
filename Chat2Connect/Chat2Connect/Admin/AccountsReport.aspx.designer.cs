@@ -31,15 +31,6 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.ListBox lstRoles;
         
         /// <summary>
-        /// uiLinkButtonSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSearch;
-        
-        /// <summary>
         /// txtCreatedFrom control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,24 @@ namespace Chat2Connect.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCreatedTo;
+        
+        /// <summary>
+        /// lstAccountStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lstAccountStatus;
+        
+        /// <summary>
+        /// uiLinkButtonSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSearch;
         
         /// <summary>
         /// grdMemberResult control.
