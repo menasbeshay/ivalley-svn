@@ -97,6 +97,7 @@
     <Content Include="AddPhoto.aspx" />
     <Content Include="Admin\AccountHistory.aspx" />
     <Content Include="Admin\Accounts.aspx" />
+    <Content Include="Admin\AccountsReport.aspx" />
     <Content Include="Admin\AccountType.aspx" />
     <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
@@ -195,7 +196,6 @@
     <Content Include="home.aspx" />
     <Content Include="Home2.aspx" />
     <Content Include="HtmlPage1.html" />
-    <Content Include="images.aspx" />
     <Content Include="images\0.png" />
     <Content Include="images\1.png" />
     <Content Include="images\2.png" />
@@ -766,6 +766,13 @@
     <Compile Include="Admin\Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AccountsReport.aspx.cs">
+      <DependentUpon>AccountsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountsReport.aspx.designer.cs">
+      <DependentUpon>AccountsReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AccountType.aspx.cs">
       <DependentUpon>AccountType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -967,13 +974,6 @@
     </Compile>
     <Compile Include="Home2.aspx.designer.cs">
       <DependentUpon>Home2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="images.aspx.cs">
-      <DependentUpon>images.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="images.aspx.designer.cs">
-      <DependentUpon>images.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoadMessage.aspx.cs">
       <DependentUpon>LoadMessage.aspx</DependentUpon>

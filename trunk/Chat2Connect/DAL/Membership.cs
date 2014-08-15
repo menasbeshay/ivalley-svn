@@ -48,5 +48,20 @@ namespace DAL
 
             return (returnValue == 0 ? true : false);
         }
+
+        public bool Search(string email, DateTime? dateFrom, DateTime? dateTo, string roleName)
+        {
+            ListDictionary parameters = new ListDictionary();
+            if (!String.IsNullOrEmpty(email))
+                parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar), email);
+            if (dateFrom.HasValue)
+                parameters.Add(new SqlParameter("@CreatedDateFrom", SqlDbType.DateTime), dateFrom);
+            if (dateTo.HasValue)
+                parameters.Add(new SqlParameter("@CreatedDateTo", SqlDbType.DateTime), dateTo);
+            if (!String.IsNullOrEmpty(roleName))
+                parameters.Add(new SqlParameter("@RoleName", SqlDbType.NVarChar), roleName);
+
+            return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MembershipSearch]", parameters);
+        }
     }
 }

@@ -241,6 +241,7 @@
                         <ul class="dropdown-menu">
                             <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.Accounts.PageRoles))
                               {%>
+                            <li><a href='<%=ResolveUrl("~/Admin/AccountsReport.aspx") %>'>تقرير الحسابات</a></li>
                             <li><a href='<%=ResolveUrl("~/Admin/Accounts.aspx") %>'>بحث فى الحسابات</a></li>
                             <%} %>
                             <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageAccount.PageRoles))
