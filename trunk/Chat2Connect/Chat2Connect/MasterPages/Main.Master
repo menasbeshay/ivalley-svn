@@ -19,19 +19,19 @@
     <link href="../css/skeleton_subject.css" rel="stylesheet" />
     <%--<link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link media="screen" href="http://openfontlibrary.org/face/kacstpen" rel="stylesheet" type="text/css"/>
+    <link media="screen" href="http://openfontlibrary.org/face/kacstpen" rel="stylesheet" type="text/css" />
     <link href="../js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="../css/main.css" rel="stylesheet" />
     <link href="../css/validationEngine.jquery.css" rel="stylesheet" />
     <link href="../css/bootstrap-tagsinput.css" rel="stylesheet" />
     <!-- end stylesheets -->
-    
+
     <%--<script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>--%>
     <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="../js/html5shiv-printshiv.js"></script>
     <script src="../js/jquery.pnotify.js"></script>
-    <link href="../css/jquery.pnotify.default.css" rel="stylesheet" />    
+    <link href="../css/jquery.pnotify.default.css" rel="stylesheet" />
     <script src="../Scripts/jquery.signalR-2.0.1.js"></script>
     <script src="../js/fileupload/ajaxupload.js"></script>
     <script src="/signalr/hubs"></script>
@@ -55,11 +55,11 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     if (data.d == false) {
-                        notify('error','حدث خطأ . من فضلك أعد المحاولة.' );                        
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                     }
                     else if (data.d == true) {
                         notify('success', 'تم التحديث بنجاح.');
-                        
+
                         sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
                     }
                 },
@@ -115,9 +115,9 @@
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
         });
-    }
+}
 
-    
+
 
 
 
@@ -131,14 +131,14 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body >
+<body>
     <form id="form1" runat="server">
-        <header class="row navbar-fixed-top" role="navigation" >
+        <header class="row navbar-fixed-top" role="navigation">
             <div class="user">
                 <div class="AccountMenu">
                     <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx" data-toggle="tooltip" title="حسابى" data-placement="left"><i class="icon-user"></i></asp:HyperLink>
                     <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left"><i class="entypoicon iconentypo-help" style="font-size:25px;"></i></asp:HyperLink>
-                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج"/>
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج" />
                 </div>
                 <%--<ul class="nav pull-right top-menu login-menu">
                     <!-- BEGIN USER LOGIN DROPDOWN -->
@@ -163,27 +163,27 @@
                 <div class="vl pull-right"></div>
                 <ul class="nav pull-right top-menu login-menu">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle statusimg" data-toggle="dropdown" >
+                        <a href="#" class="dropdown-toggle statusimg" data-toggle="dropdown">
                             <div class="user_img">
                                 <asp:Image ID="uiImageUser" runat="server" ImageUrl="~/images/defaultavatar.png" />
                             </div>
                         </a>
-                        <ul class="dropdown-menu extended " style="right: 0 !important;z-index:1040 !important;">
+                        <ul class="dropdown-menu extended " style="right: 0 !important; z-index: 1040 !important;">
                             <li>
-                                <a class="status"  onclick="changeS(1);return false;">
+                                <a class="status" onclick="changeS(1);return false;">
                                     <asp:Image CssClass="online" ID="uiImageUser1" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;متصل</a>
                             </li>
-                             <li>
-                                <a class="status"  onclick="changeS(3);return false;">
+                            <li>
+                                <a class="status" onclick="changeS(3);return false;">
                                     <asp:Image CssClass="away" ID="uiImageUser3" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;بعيد</a>
                             </li>
                             <li>
-                                <a class="status"  onclick="changeS(2);return false;">
+                                <a class="status" onclick="changeS(2);return false;">
                                     <asp:Image CssClass="busy" ID="uiImageUser2" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مشغول</a>
                             </li>
-                           
+
                             <li>
-                                <a class="status"  onclick="changeS(4);return false;">
+                                <a class="status" onclick="changeS(4);return false;">
                                     <asp:Image CssClass="offline" ID="uiImageUser4" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مخفى</a>
                             </li>
                         </ul>
@@ -202,7 +202,7 @@
                     <a class="input-cancel" data-placement="top" title="حذف" onclick="clearStatus();">
                         <i class="icon-remove"></i>
                     </a>
-                    <div id="StatusCount" ></div>
+                    <div id="StatusCount"></div>
                 </div>
             </div>
             <div id="help" class="help">
@@ -215,15 +215,15 @@
                     <i class="modernicon iconmodern-createroom" style="font-size: 25px;"></i>
                     <a href="../createRoom.aspx">إنشاء غرفة</a>
                 </div>
-                <div style="color: #FEC200;display:none;">
+                <div style="color: #FEC200; display: none;">
                     <i class="icon icon-off" style="font-size: 25px;"></i>
-                    <asp:LinkButton ID="uiLinkButtonLock" runat="server" style="color: #FEC200">سكون</asp:LinkButton>                    
+                    <asp:LinkButton ID="uiLinkButtonLock" runat="server" Style="color: #FEC200">سكون</asp:LinkButton>
                 </div>
             </div>
         </header>
         <%if (Helper.Admin.IsAdmin())
           { %>
-        <nav class="navbar navbar-inverse adminmenu navbar-fixed-top" role="navigation" style="margin-top:87px !important;z-index:1029 !important;">
+        <nav class="navbar navbar-inverse adminmenu navbar-fixed-top" role="navigation" style="margin-top: 87px !important; z-index: 1029 !important;">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
@@ -232,7 +232,13 @@
                     <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageRoom.PageRoles))
                       {%>
-                    <li><a href='<%=ResolveUrl("~/Admin/ManageRoom.aspx") %>'>إدارة غرفة</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">الغرف <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href='<%=ResolveUrl("~/Admin/ManageRoom.aspx") %>'>إدارة غرفة</a></li>
+                            <li><a href='<%=ResolveUrl("~/Admin/RoomsReport.aspx") %>'>تقرير الغرف</a></li>
+                        </ul>
+                    </li>
                     <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AccountHistory.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.Accounts.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.AddAccount.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageAccount.PageRoles) || Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SendMessage.PageRoles))
                       {%>
@@ -273,96 +279,97 @@
                             <%foreach (var m in Helper.EnumUtil.GetValues<Helper.Enums.SiteMembers>())
                               {
                                   int mid = BLL.Member.SiteMembers.Where(s => String.Equals(s.Name, Helper.StringEnum.GetStringValue(m))).FirstOrDefault().MemberID;
-                                  %>
+                            %>
                             <li><a href='<%=ResolveUrl("~/Admin/SiteMails.aspx?m="+Convert.ToString((int)m)) %>'><%= Helper.StringEnum.GetStringValue(m) %> <span class="badge" id="msgCount_<%= mid %>"></span></a></li>
                             <%} %>
                         </ul>
-                        </li>
-                        <%} %>
-                    </ul>
+                    </li>
+                    <%} %>
+                </ul>
             </div>
         </nav>
         <%} %>
         <%if (Helper.Admin.IsAdmin())
           { %>
-        <section class="MainContent row " style="margin-top:140px !important;">
-             <%} else 
-               {%>
-                    <section class="MainContent row " style="margin-top:90px !important;">
-            <%} %>
-            <div style="margin: 0 auto; width: 99.5%;">
-                <nav class="main_menu">
-                    <ul>
-                        <li id="cpmain" class="MenuItem" title="الرئيسية" data-placement="left">
-                            <i class="icon-home" style="font-size: 36px;"></i>
-                            <a href="../home.aspx" style="opacity: 0;">الرئيسية</a>
-                        </li>
-                        <li id="msgmain" class="MenuItem" title="رسائلى" data-placement="left">
-                            <i class="icon icon-envelope-alt" style="font-size: 25px;"><span class="badge" id="msgCount_<%= MemberID%>"></span></i>
-                            <a href="../Messages.aspx" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
-                        </li>
-                        <li id="actionsmain" class="MenuItem" title="إجراءات" data-placement="left">
-                            <i class="icon icon-cogs" style="font-size: 36px;"></i>
-                            <a href="../actions.aspx" style="opacity: 0;">إجراءات</a>
-                        </li>
-                        <li id="profilemain" class="MenuItem" title="تواصل" data-placement="left">
-                            <i class="icon-globe" style="font-size: 36px;"></i>
-                            <a href="#" style="opacity: 0;">تواصل</a>
-                        </li>
+        <section class="MainContent row " style="margin-top: 140px !important;">
+            <%}
+          else
+          {%>
+            <section class="MainContent row " style="margin-top: 90px !important;">
+                <%} %>
+                <div style="margin: 0 auto; width: 99.5%;">
+                    <nav class="main_menu">
+                        <ul>
+                            <li id="cpmain" class="MenuItem" title="الرئيسية" data-placement="left">
+                                <i class="icon-home" style="font-size: 36px;"></i>
+                                <a href="../home.aspx" style="opacity: 0;">الرئيسية</a>
+                            </li>
+                            <li id="msgmain" class="MenuItem" title="رسائلى" data-placement="left">
+                                <i class="icon icon-envelope-alt" style="font-size: 25px;"><span class="badge" id="msgCount_<%= MemberID%>"></span></i>
+                                <a href="../Messages.aspx" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
+                            </li>
+                            <li id="actionsmain" class="MenuItem" title="إجراءات" data-placement="left">
+                                <i class="icon icon-cogs" style="font-size: 36px;"></i>
+                                <a href="../actions.aspx" style="opacity: 0;">إجراءات</a>
+                            </li>
+                            <li id="profilemain" class="MenuItem" title="تواصل" data-placement="left">
+                                <i class="icon-globe" style="font-size: 36px;"></i>
+                                <a href="#" style="opacity: 0;">تواصل</a>
+                            </li>
 
-                        <li id="balancemain" class="MenuItem" title="رصيدى" data-placement="left">
-                            <i class="modernicon iconmodern-credit" style="font-size: 52px;"></i>
-                            <a href="../MyBalance.aspx" style="opacity: 0;">رصيدى</a>
-                        </li>
+                            <li id="balancemain" class="MenuItem" title="رصيدى" data-placement="left">
+                                <i class="modernicon iconmodern-credit" style="font-size: 52px;"></i>
+                                <a href="../MyBalance.aspx" style="opacity: 0;">رصيدى</a>
+                            </li>
 
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
 
-                <div class="inner_main">
+                    <div class="inner_main">
 
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
 
+                    </div>
+
+                    <div class="clearfix" style="height: 1px;"></div>
                 </div>
-
-                <div class="clearfix" style="height: 1px;"></div>
-            </div>
-        </section>
-        <footer class="row">
-            &copy;
+            </section>
+            <footer class="row">
+                &copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
-            Dardashet Tawasol. All rights reserved.
+                Dardashet Tawasol. All rights reserved.
             <div style="float: right; padding-right: 10px; width: 15%; padding: 0px; margin-top: -5px;">
                 Powered by &nbsp; <a href="http://I-valley.com">
                     <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
                         alt="I-VALLEY software solutions" /></a>
 
             </div>
-        </footer>
-        <div id="pGeneral" style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom; display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999; background: url(images/loading.GIF) no-repeat center center rgba(254,194,0,0.65); position: fixed; top: 0; left: 0; display: none;">
-            <div style="margin: auto; width: 120px; height: 60px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; font-size: 20px; font-weight: bold;">
-                جارى التحميل
+            </footer>
+            <div id="pGeneral" style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom; display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999; background: url(images/loading.GIF) no-repeat center center rgba(254,194,0,0.65); position: fixed; top: 0; left: 0; display: none;">
+                <div style="margin: auto; width: 120px; height: 60px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; font-size: 20px; font-weight: bold;">
+                    جارى التحميل
+                </div>
+
             </div>
 
-        </div>
 
+            <!-- All js -->
+            <script src="../js/trmix.js"></script>
 
-        <!-- All js -->
-        <script src="../js/trmix.js"></script>
-
-        <script src="../js/jquery.slimscroll.min.js"></script>
-        <script src="../js/jquery.nicescroll.js"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script src="../js/Mainjs.js" type="text/javascript"></script>
-        <script src="../js/jquery.validationEngine-en.js"></script>
-        <script src="../js/jquery.validationEngine.js"></script>
-        <script src="../js/group_validation.js"></script>
-        <script src="../js/bootstrap-tagsinput.min.js"></script>
-        <%--<script src="../js/typeahead.bundle.js"></script>--%>
-        <script src="../js/bootstrap-typeahead.js"></script>
-        <!-- End js -->
-        <asp:HiddenField ID="uiHiddenFieldClientID" runat="server" />
+            <script src="../js/jquery.slimscroll.min.js"></script>
+            <script src="../js/jquery.nicescroll.js"></script>
+            <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="../js/Mainjs.js" type="text/javascript"></script>
+            <script src="../js/jquery.validationEngine-en.js"></script>
+            <script src="../js/jquery.validationEngine.js"></script>
+            <script src="../js/group_validation.js"></script>
+            <script src="../js/bootstrap-tagsinput.min.js"></script>
+            <%--<script src="../js/typeahead.bundle.js"></script>--%>
+            <script src="../js/bootstrap-typeahead.js"></script>
+            <!-- End js -->
+            <asp:HiddenField ID="uiHiddenFieldClientID" runat="server" />
     </form>
 </body>
 </html>
