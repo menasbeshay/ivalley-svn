@@ -26,11 +26,12 @@
         <link id="pFontName" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
         <link id="Link1" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Duru Sans">
         <link id="Link2" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Duru Sans">
+        <link id="Link3" rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Spinnaker">
         <link href="../colors/E3zemni.css" rel="stylesheet" type="text/css" />
 
 	<!-- CustomStyles -->
 		<style>body{background: url(images/bg.png) fixed}</style>
-        <style id="gFontStyles" type="text/css">h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h5 a, h6 a, .sf-menu a, .tbutton, .foot-menu, .event-timer  { font-family:"breeserif", sans-serif !important; }</style>
+        <style id="gFontStyles" type="text/css">h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h5 a, h6 a, .sf-menu a, .tbutton, .foot-menu, .event-timer  { font-family:"Spinnaker", sans-serif !important; }</style>
         <style id="pFontStyles" type="text/css">body, p, .sf-menu li a span, small { font-family:"breeserif", sans-serif !important; }</style>
 	<!-- Favicon -->
 		<%--<link rel="shortcut icon" href="images/favicon.ico">

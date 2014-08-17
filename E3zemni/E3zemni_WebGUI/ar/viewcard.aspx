@@ -48,10 +48,14 @@
                         <div class="grid_4">
 						<h3> 
                             <asp:Label ID="uiLabelName" runat="server" ></asp:Label> </h3>
-						<p class="item_price"><span class="from">السعر: </span><del> <asp:Label ID="uiLabelPriceFrom" runat="server" ></asp:Label> جنيه 
-                            </del> <span class="amount"> 
+						<p class="item_price"><span class="from">السعر: </span>
+                          <asp:PlaceHolder runat="server" ID="uiPlaceholderPriceFrom" Visible="false">
+                        <del> <asp:Label ID="uiLabelPriceFrom" runat="server" ></asp:Label> جنيه 
+                            </del> 
+                            </asp:PlaceHolder>
+                            <span class="amount"> 
                                 <asp:Label ID="uiLabelPriceTo" runat="server" ></asp:Label> جنيه</span></p>
-                                <p>
+                                <p style="display:none">
                                 تاريخ التصميم : 
                                     <asp:Label ID="uiLabelDate" runat="server" ></asp:Label>
                                 </p>
@@ -151,4 +155,21 @@
 						</ul><!-- end tabs -->
 					</div><!-- grid10 -->
 				</div>
+
+                <div class="modal fade" id="ViewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-left" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">إغلاق</span></button>
+        <h4 class="modal-title">تم إضافة صنف لسلة المشتريات</h4>
+      </div>
+      <div class="modal-body">
+        <p> تم إضافة صنف جديد إلى سلة مشترياتك</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 </asp:Content>

@@ -215,6 +215,11 @@ namespace E3zemni_WebGUI.ar
         {
             if (!IsPostBack)
             {
+                if (IsPartySupplier)
+                {
+                    ucSearch1.Visible = false;
+                }
+
                 BindData();
                 if (CatID != 0)
                 {
@@ -320,7 +325,8 @@ namespace E3zemni_WebGUI.ar
                 DataRowView row = (DataRowView)e.Item.DataItem;
                 Color c = new Color();
                 c.LoadByPrimaryKey(Convert.ToInt32(row["ColorID"].ToString()));
-                l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
+                if (c.RowCount > 0)
+                    l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
             }
         }
 

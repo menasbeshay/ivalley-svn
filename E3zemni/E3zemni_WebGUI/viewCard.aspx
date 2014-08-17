@@ -49,10 +49,14 @@
                         <div class="grid_4">
 						<h3> 
                             <asp:Label ID="uiLabelName" runat="server" ></asp:Label> </h3>
-						<p class="item_price"><span class="from">From: </span><del>EGP 
-                            <asp:Label ID="uiLabelPriceFrom" runat="server" ></asp:Label></del> <span class="amount">EGP 
+						<p class="item_price">
+                            <asp:PlaceHolder runat="server" ID="uiPlaceholderPriceFrom" Visible="false">
+                        <span class="from">From: </span><del>EGP 
+                            <asp:Label ID="uiLabelPriceFrom" runat="server" ></asp:Label></del>
+                        </asp:PlaceHolder>
+                             <span class="amount">EGP 
                                 <asp:Label ID="uiLabelPriceTo" runat="server" ></asp:Label></span></p>
-                                <p>
+                                <p style="display:none;">
                                 Uploaded from : 
                                     <asp:Label ID="uiLabelDate" runat="server" ></asp:Label>
                                 </p>
@@ -152,4 +156,24 @@
 						</ul><!-- end tabs -->
 					</div><!-- grid10 -->
 				</div>
+
+                <div class="modal fade" id="ViewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">New Item added to cart</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+            Item has been added to your cart
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
 </asp:Content>

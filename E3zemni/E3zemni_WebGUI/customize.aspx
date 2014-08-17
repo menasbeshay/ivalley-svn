@@ -244,12 +244,10 @@ Customize your invitation
             <div class="pull-right grid_12" >
                
                <div class="grid_4 alpha fll pull-left">
-                    <a href="" class="btn btn-success pull-right" data-toggle="modal" data-target="#ViewModal">Card size chart ?</a>
+                    <a href="" class="pull-right" data-toggle="modal" data-target="#ViewModal">Card size chart ?</a>
                 </div>
 
-                <div class="grid_5 alpha fll pull-right">
-                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">choose envelopes</a>
-                </div>
+                
 
                 <div class="grid_3 alpha fll pull-right">
             <asp:Button ID="uiButtonApply" runat="server" Text="preview" 
@@ -257,6 +255,14 @@ Customize your invitation
                 </div>
 
                 </div>
+                <div style="clear:both;height:5px;"></div>
+                <div class="step_title">Step 5</div>
+            <div class="pull-right grid_12" >
+                <div class="grid_5 alpha fll pull-right">
+                    <a href="ViewEnvelops.aspx" class="btn btn-success pull-right">Checkout >></a>
+                </div>
+            </div>
+            
         <div style="clear:both;height:1px;"></div>
         </div>
         <div style="clear:both;height:1px;"></div>
@@ -284,7 +290,9 @@ Customize your invitation
         <h4 class="modal-title">Card size chart</h4>
       </div>
       <div class="modal-body">
-        <p>One fine body</p>
+        <p>
+            <img src="images/ps.jpg" />
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        

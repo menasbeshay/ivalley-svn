@@ -266,12 +266,10 @@
             <div class="pull-right grid_12" >
                  
                <div class="grid_4 alpha fll pull-left">
-                    <a href="" class="btn btn-success pull-right" data-toggle="modal" data-target="#ViewModal">تعرف على مقاسات الكروت ؟</a>
+                    <a href="" class="pull-right" data-toggle="modal" data-target="#ViewModal">تعرف على مقاسات الكروت ؟</a>
                 </div>
                
-                <div class="grid_3 alpha fll pull-right">
-                    <a href="viewenvelops.aspx" class="btn btn-success pull-right">أطلب</a>
-                </div>
+              
 
                 <div class="grid_3 alpha fll pull-right">
             <asp:Button ID="uiButtonApply" runat="server" Text="عرض" 
@@ -279,6 +277,13 @@
                 </div>
 
                 </div>
+                <div style="clear:both;height:1px;"></div>  
+            <div class="step_title">الخطوة رقم 5</div>
+            <div class="pull-right grid_12" >
+              <div class="grid_3 alpha fll pull-right">
+                    <a href="viewenvelops.aspx" class="btn btn-success pull-right">أطلب >></a>
+                </div>
+            </div>
         <div style="clear:both;height:1px;"></div>
         </div>
         <div style="clear:both;height:1px;"></div>
@@ -307,7 +312,7 @@
         <h4 class="modal-title">مقاسات الكروت</h4>
       </div>
       <div class="modal-body">
-        <p>مقاسات الكروت</p>
+        <p> <img src="../images/ps.jpg" /></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>        
