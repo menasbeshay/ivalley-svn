@@ -33,6 +33,16 @@ namespace Chat2Connect.MasterPages
                 if (!IsPostBack)
                 {
                     loadUserInfo();
+
+                    var mails = Helper.EnumUtil.GetValues<Helper.Enums.SiteMembers>().Select(m => new
+                    {
+                        ID = (int)m,
+                        Name = Helper.StringEnum.GetStringValue(m),
+                    }).ToList();
+                    lstHelpRequests.DataTextField = "Name";
+                    lstHelpRequests.DataValueField = "ID";
+                    lstHelpRequests.DataSource = mails;
+                    lstHelpRequests.DataBind();
                 }
             }
             else
@@ -91,6 +101,29 @@ namespace Chat2Connect.MasterPages
 
             // clear all session vars
             Session.Abandon();
+        }
+
+        protected void btnSaveHelpRequest_Click(object sender, EventArgs e)
+        {
+            BLL.Message msg = new BLL.Message();
+            msg.AddNew();
+            msg.Body = txtBody.Text;
+            msg.SenderID = BLL.Member.CurrentMemberID;
+            msg.Subject = txtSubject.Text;
+            msg.ToMembers = lstHelpRequests.SelectedItem.Text;
+            msg.Save();
+            MemberMessage memberMsg = new MemberMessage();
+            //add to member sent items
+            memberMsg.AddNew();
+            memberMsg.MessageID = msg.ID;
+            memberMsg.IsRead = true;
+            //add to receipent folder
+            Helper.Enums.SiteMembers siteMember = Helper.EnumUtil.ParseEnum<Helper.Enums.SiteMembers>(Convert.ToInt32(lstHelpRequests.SelectedValue));
+            int recipientID = BLL.Member.SiteMembers.Where(s => String.Equals(s.Name, Helper.StringEnum.GetStringValue(siteMember))).FirstOrDefault().MemberID;
+            memberMsg.AddNew();
+            memberMsg.MemberID = recipientID;
+            memberMsg.MessageID = msg.ID;
+            memberMsg.Save();
         }
     }
 }

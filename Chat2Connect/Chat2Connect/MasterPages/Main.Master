@@ -137,7 +137,7 @@
             <div class="user">
                 <div class="AccountMenu">
                     <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx" data-toggle="tooltip" title="حسابى" data-placement="left"><i class="icon-user"></i></asp:HyperLink>
-                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left"><i class="entypoicon iconentypo-help" style="font-size:25px;"></i></asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left"><i data-toggle="modal" data-target="#helpModal" class="entypoicon iconentypo-help" style="font-size:25px;"></i></asp:HyperLink>
                     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج" />
                 </div>
                 <%--<ul class="nav pull-right top-menu login-menu">
@@ -370,6 +370,53 @@
             <script src="../js/bootstrap-typeahead.js"></script>
             <!-- End js -->
             <asp:HiddenField ID="uiHiddenFieldClientID" runat="server" />
+
+            <div id="helpModal" class="modal fade" role="modal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                            <i class="icon-3x entypoicon iconentypo-addfriend" style="float: left; margin-left: 10px;"></i>
+                            <h3>المساعدة</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal blockBox">
+
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>نوع الرسالة</label>
+                                    </div>
+                                    <div class="col-sm-7 pull-right">
+                                        <asp:DropDownList ID="lstHelpRequests" runat="server" CssClass="form-control"></asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>عنوان الرسالة</label>
+                                    </div>
+                                    <div class="col-sm-7 pull-right">
+                                        <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="req1" runat="server" Display="Dynamic" Text="*" ForeColor="Red" ControlToValidate="txtSubject" ValidationGroup="validateHelp"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>الرسالة</label>
+                                    </div>
+                                    <div class="col-sm-7 pull-right">
+                                        <asp:TextBox ID="txtBody" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ForeColor="Red" Text="*" ControlToValidate="txtBody" ValidationGroup="validateHelp"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer center">
+                            <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="btnSaveHelpRequest" ValidationGroup="validateHelp" Style="text-decoration: none;" OnClick="btnSaveHelpRequest_Click">إرسال</asp:LinkButton>
+                            <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </form>
 </body>
 </html>
