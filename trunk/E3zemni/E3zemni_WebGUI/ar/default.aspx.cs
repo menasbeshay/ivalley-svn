@@ -39,7 +39,7 @@ namespace E3zemni_WebGUI.ar
             PScats.Where.IsPartySupplier.Value = true;
             PScats.Where.IsPartySupplier.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             PScats.Sort = "NameAr";
-            Invcats.Query.Top = 4;
+            PScats.Query.Top = 4;
             PScats.Query.Load();
             uiRepeaterPS.DataSource = PScats.DefaultView;
             uiRepeaterPS.DataBind();

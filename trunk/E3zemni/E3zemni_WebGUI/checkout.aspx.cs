@@ -67,14 +67,38 @@ namespace E3zemni_WebGUI
         protected void uiRepeaterOrder_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
+            {                
                 Image envelop = (Image)e.Item.FindControl("uiImageEnvelop");
+                Label maxQty = (Label)e.Item.FindControl("uiLabelMaxQty");
+                Label Envdash = (Label)e.Item.FindControl("uiLabelEnvDash");
                 DataRowView row = (DataRowView)e.Item.DataItem;
+
+                Cards card = new Cards();
+                card.LoadByPrimaryKey(Convert.ToInt32(row["CardID"]));
+                if (card.IsColumnNull("IsPartySupplier"))
+                {
+                    maxQty.Visible = true;
+                }
+                else if (card.IsPartySupplier)
+                {
+                    maxQty.Visible = false;
+                }
+                else if (!card.IsPartySupplier)
+                {
+                    maxQty.Visible = true;
+                }
+
+
                 if (EnverlopID != 0)
                 {
                     Envelops envelopTemp = new Envelops();
                     envelopTemp.LoadByPrimaryKey(Convert.ToInt32(row["EnvelopID"].ToString()));
                     envelop.ImageUrl = envelopTemp.ImagePath;
+                    Envdash.Visible = false;
+                }
+                else
+                {
+                    Envdash.Visible = true;
                 }
 
 
@@ -144,7 +168,7 @@ namespace E3zemni_WebGUI
 
                     client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["mailpass"]);
                     client.Send(msg);
-                    Session["UserPayment"] = null;
+                    Session["UserPayment"] = order;
                     Response.Redirect("Success.aspx");
                 }
                 /*order.UserID = user.UserID;

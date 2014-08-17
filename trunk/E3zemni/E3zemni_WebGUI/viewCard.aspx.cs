@@ -43,8 +43,12 @@ namespace E3zemni_WebGUI
                     card.LoadByPrimaryKey(CardID);
                     uiLabelName.Text = card.CardNameEng;
                     uiLabelPriceFrom.Text = card.PriceBefore.ToString();
+                    if (card.PriceBefore == 0 || (card.PriceBefore <= card.PriceNow))
+                        uiPlaceholderPriceFrom.Visible = false;
+                    else
+                        uiPlaceholderPriceFrom.Visible = true;
                     uiLabelPriceTo.Text = card.PriceNow.ToString();
-                    uiImagemain.ImageUrl = card.MainPhoto;
+                    uiImagemain.ImageUrl = card.GeneralPreviewPhoto;
                     uiLabelDate.Text = card.UploadDate.ToString("dd/MM/yyyy");
                     uiLiteralDesc.Text = card.DescriptionEng;
                     if (card.IsPartySupplier)
@@ -61,7 +65,7 @@ namespace E3zemni_WebGUI
                         images.Query.Load();
                         images.AddNew();
                         images.CardID = card.CardID;
-                        images.ImagePath = card.MainPhoto;
+                        images.ImagePath = card.GeneralPreviewPhoto;
                         uiRepeaterImages.DataSource = images.DefaultView;
                         uiRepeaterImages.DataBind();
 
@@ -155,7 +159,18 @@ namespace E3zemni_WebGUI
             temp.CardID = card.CardID;
             temp.CardDesign = card.MainPhoto;
             temp.CardCount = 1;
+            try
+            {
+                temp.GetColumn("ItemPrice");
+            }
+            catch (Exception)
+            {
+                temp.AddColumn("ItemPrice", Type.GetType("System.Double"));
+            }
+            temp.SetColumn("ItemPrice", card.PriceNow);
             Session["UserPayment"] = temp;
+            Master.UpdateCart();
+            ClientScript.RegisterStartupScript(this.GetType(), "showmodal", "$(document).ready(function(){ $('#ViewModal').modal('show'); });", true);
         }
     }
 }

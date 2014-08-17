@@ -55,11 +55,7 @@ namespace E3zemni_WebGUI.MasterPages
 
             }
 
-            UserPayement temp = (UserPayement)Session["UserPayment"];
-            if (temp == null)
-                uiLabelItemsCount.Text = "0";
-            else
-                uiLabelItemsCount.Text = temp.RowCount.ToString();
+           
 
             SitePages page = new SitePages();
             page.LoadByPrimaryKey(1);
@@ -70,6 +66,15 @@ namespace E3zemni_WebGUI.MasterPages
                 uiLiteralAbout.Text = noHTMLNormalised.Substring(0, 250) + " ...";
             else
                 uiLiteralAbout.Text = noHTMLNormalised;
+        }
+
+        public void UpdateCart()
+        {
+            UserPayement temp = (UserPayement)Session["UserPayment"];
+            if (temp == null)
+                uiLabelItemsCount.Text = "0";
+            else
+                uiLabelItemsCount.Text = temp.RowCount.ToString();
         }
 
         protected void uiLinkButtonEn_Click(object sender, EventArgs e)

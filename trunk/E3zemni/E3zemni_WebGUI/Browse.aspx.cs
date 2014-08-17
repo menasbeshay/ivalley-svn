@@ -216,6 +216,11 @@ namespace E3zemni_WebGUI
             {
                 BindData();
 
+                if (IsPartySupplier)
+                {
+                    ucSearch1.Visible = false;
+                }
+
                 if (CatID != 0)
                 {
                     Categories cat = new Categories();
@@ -317,9 +322,10 @@ namespace E3zemni_WebGUI
             {
                 Literal l = (Literal)e.Item.FindControl("uiLiteralColor");
                 DataRowView row = (DataRowView)e.Item.DataItem;
-                Color c = new Color();
+                Color c = new Color();                
                 c.LoadByPrimaryKey(Convert.ToInt32(row["ColorID"].ToString()));
-                l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
+                if(c.RowCount > 0)
+                    l.Text = "<label style='background-color: #" + c.ColorCode + ";width:20px;height:20px;'></label>";
             }
         }
 

@@ -236,21 +236,21 @@ namespace E3zemni_WebGUI.Admin
 
                 if (uiFileUploadGeneral.HasFile)
                 {
-                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadGeneral.FileName;
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_General_" + uiFileUploadGeneral.FileName;
                     uiFileUploadGeneral.SaveAs(Server.MapPath("~" + filepath));
                     card.GeneralPreviewPhoto = filepath;
                 }
 
                 if (uiFileUploadMainImage.HasFile)
                 {
-                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadMainImage.FileName;
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_Main_" + uiFileUploadMainImage.FileName;
                     uiFileUploadMainImage.SaveAs(Server.MapPath("~" + filepath));
                     card.MainPhoto = filepath;
                 }
 
                 if (uiFileUploadHoverImage.HasFile)
                 {
-                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadHoverImage.FileName;
+                    string filepath = "/images/Card/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_Hover_" + uiFileUploadHoverImage.FileName;
                     uiFileUploadHoverImage.SaveAs(Server.MapPath("~" + filepath));
                     card.MainPhotoHover = filepath;
                 }

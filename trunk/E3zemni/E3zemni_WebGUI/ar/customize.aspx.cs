@@ -297,6 +297,15 @@ namespace E3zemni_WebGUI.ar
                 temp.CardID = CardID;
                 temp.CardDesign = "images/UserOrders/" + newpath + "_2.jpeg";
                 temp.CardCount = 1;
+                try
+                {
+                    temp.GetColumn("ItemPrice");
+                }
+                catch (Exception)
+                {
+                    temp.AddColumn("ItemPrice", Type.GetType("System.Double"));
+                }                
+                temp.SetColumn("ItemPrice", card.PriceNow);
                 Session["UserPayment"] = temp;
                 uipanelError.Visible = false;
 
