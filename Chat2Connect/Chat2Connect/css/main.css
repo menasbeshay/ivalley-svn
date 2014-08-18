@@ -1984,3 +1984,22 @@ input[type="text"], textarea {
 .border-callout.msgFromMe { border: 1px solid #fbc914; padding: 17px 19px; }
 .border-callout.msgFromMe .border-notch.msgFromMe { border-right-color: #fbc914;left: -11px;}
 
+
+
+.findFriends {
+    list-style:none;
+    width:100%;
+}
+
+.findFriends li{
+    float:left;
+    width:32.5%;
+    margin:2px;
+    padding:5px;
+    font-size:13px; !important;
+}
+
+.smallbtn {
+    padding:3px 6px !important;
+    font-size:12px !important;
+}

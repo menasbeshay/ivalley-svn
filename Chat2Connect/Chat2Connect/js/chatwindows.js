@@ -1232,6 +1232,81 @@ function Chat(maxWin, memberID, memberName) {
     };
 
 
+    /************ add friends logic *****************/
+    self.SearchText = ko.observable('');
+    self.SearchText.subscribe(function (newValue) {
+        self.SearchPeople();
+    });
+    self.People = ko.observableArray();
+
+    self.SearchPeople = function () {
+        $('#loadingAddFriends').css('display', 'block');
+        $('#noFriendsAddFriends').css('display', 'none');
+        $('#errorAddFriends').css('display', 'none');
+        $.ajax({
+            url: '../Services/Services.asmx/SearchMembers_AddFriends',
+            dataType: 'json',
+            type: 'post',
+            data: "{'mid':'" + self.CurrentMemberID + "', 'stext' : '" + self.SearchText() + "' }",
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.d != null || data.d != undefined) {
+                    self.People.removeAll();
+                    ko.utils.arrayMap(data.d, function (item) {
+                        self.People.push(item);
+                    })                    
+                }
+                else {
+                    self.People.removeAll();
+                    $('#noFriendsAddFriends').css('display', 'block');
+                }
+                $('#loadingAddFriends').css('display', 'none');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $('#errorAddFriends').css('display', 'block');
+            }
+        });
+    }
+
+    self.AddNewFriend = function (fid) {
+        $.ajax({
+            url: '../Services/Services.asmx/AddRemoveFriend',
+            type: 'GET',
+            data: { mid: self.CurrentMemberID, fid: fid, isFriend: false },
+            success: function (result) {
+                $.each(self.People, function () {
+                    if (this.MemberID == fid) {
+                        self.People.destroy(this);
+                        return;
+                    }
+                });
+            }
+        });
+
+        
+        $.ajax({
+            url: '../Services/Services.asmx/GetMemberNode',
+            type: 'GET',
+            data: { mid: fid },
+            success: function (result) {
+                $(result).appendTo("#onlinepeople");
+                initPopupMenu();
+                // init link in friends menu 
+                $('.openGiftModal').click(function () {
+                    $('#GeneralGiftModal').modal('show');
+                    $('#GeneralGiftModal input.checkboxes').each(function () {
+                        $(this).attr('checked', false);
+                    });
+                    $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+                });
+            }
+        });
+        
+
+        // update friend list counter
+        setTimeout(CountFriends, 1500);
+    }
+
 }
 
 function onCamClose(userId, roomId) {
@@ -1661,3 +1736,9 @@ function createHamsaWindow(hamsa, sender) {
         }
     });
 }
+
+
+
+
+
+

@@ -152,4 +152,12 @@ namespace Helper
 
     }
 
+    public class People
+    {
+        public int MemberID { get; set; }
+        public object MemberName { get; set; }        
+        public string ProfileImg { get; set; }
+        public int FriendsCount { get; set; }
+    }
+
 }
