@@ -234,6 +234,17 @@ namespace BLL
 
         }
 
+        public virtual bool Proc_SearchMembers( int MemberID ,string query)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
+            parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar, 256), query);
+            parameters.Add(new SqlParameter("@UserName", SqlDbType.NVarChar, 256), query);
+
+            return LoadFromSql("Proc_AddFriends_SearchMembers", parameters);
+
+        }
+
         public virtual bool SearchMembersExceptFriends(string query, int MemberID)
         {
             ListDictionary parameters = new ListDictionary();

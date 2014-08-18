@@ -96,7 +96,7 @@
                 }
             });
 
-            $("#<%= uiTextBoxFriendSearch.ClientID %>").autocomplete({
+            <%--$("#<%= uiTextBoxFriendSearch.ClientID %>").autocomplete({
                 source: function (request, response) {
                     $.ajax({
                         url: "../Services/Services.asmx/SearchMembersExceptFriends",
@@ -122,7 +122,9 @@
                     $("#<%=uiHiddenFieldFriendID.ClientID %>").val(i.item.val);
                 },
                 minLength: 1
-            });
+            });--%>
+
+           
 
         });
 
@@ -206,19 +208,54 @@
                 <div class="modal-body">
                     <div class="form-horizontal blockBox">
 
-                        <div class="form-group">
+                        <div class="form-group" >
                             <div class="col-sm-4 control-label pull-right">
                                 <label>بحث</label>
                             </div>
                             <div class="col-sm-7 pull-right">
-                                <asp:TextBox ID="uiTextBoxFriendSearch" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="uiTextBoxFriendSearch" runat="server" CssClass="form-control" data-bind="value:SearchText, valueUpdate: 'afterkeydown'" ></asp:TextBox>                                
                             </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <div id="loadingAddFriends" class="col-lg-11" style="text-align:center;display:none;text-align:center;position:fixed;z-index:2000;background:#fff;width:100%;height:100%;top:0;left:0; opacity:.7;" >
+                                <img src="images/addfriend_loadinf.gif" style="margin:0 auto;padding-top:20px;"/>
+                                
+                            </div>
+                            <div id="errorAddFriends" class="col-lg-12" style="text-align:center;display:none;text-align:center;" >
+                                حدث خطأ من فضلك أعد المحاولة
+                            </div>
+                            <div id="noFriendsAddFriends" class="col-lg-12" style="text-align:center;display:none;text-align:center;" >
+                                لا يوجد                          
+
+                            </div>
+                            <ul class="findFriends">
+                            <!-- ko foreach:People -->
+                            <li >
+                                <div style="width:27%;float:left;margin-right:3px;">
+                                    <img style="width:50px;" data-bind="attr:{src:ProfileImg}" />
+                                </div>
+                                <div style="width:70%;float:left;text-align:left;">
+                                    <span data-bind="text:MemberName"></span>
+                                    <div class="clear" style="height:2px;"></div>
+                                    <a href="#" data-bind="click:$parent.AddNewFriend.bind($data,$data.MemberID)" class="btn btn-main smallbtn">أضف صديق</a>
+                                    &nbsp;<span style="font-family:Arial !important;" data-bind="text:FriendsCount"></span>  
+                                    &nbsp;<i class="icon icon-group"></i> 
+                                    
+                                    
+                                </div>
+                                <div class="clear" style="height:2px;"></div>
+                            </li>
+
+                            <!-- /ko -->
+                                </ul>
+                            <div class="clear" style="height:2px;"></div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>
-                    <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonAddFriend" Style="text-decoration: none;" OnClick="uiLinkButtonAddFriend_Click">حفظ</asp:LinkButton>
+                    <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonAddFriend" Style="text-decoration: none;display:none;" OnClick="uiLinkButtonAddFriend_Click">حفظ</asp:LinkButton>
                 </div>
             </div>
         </div>
@@ -235,6 +272,7 @@
 
     <script src="Scripts/knockout.mapping-latest.js"></script>
     <script src="js/chatwindows.js"></script>
+    <script src="js/friends.js"></script>
     <script>
         $(document).ready(function () {
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
@@ -242,7 +280,12 @@
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
             var openedRooms=eval(<%=OpenedRooms %>);
             InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms);
+            initPeople(currentMemberID, '');
             
+            $("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
+                AllPeople.SearchText = $("#<%= uiTextBoxFriendSearch.ClientID %>").val();
+             });
+
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
