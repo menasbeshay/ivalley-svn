@@ -339,6 +339,22 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter IsMailActivated
+			{
+				get
+				{
+					return new SqlParameter("@IsMailActivated", SqlDbType.Bit, 0);
+				}
+			}
+			
+			public static SqlParameter ActivationCode
+			{
+				get
+				{
+					return new SqlParameter("@ActivationCode", SqlDbType.UniqueIdentifier, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -375,6 +391,8 @@ namespace DAL
             public const string Status = "Status";
             public const string IP = "IP";
             public const string RowStatusID = "RowStatusID";
+            public const string IsMailActivated = "IsMailActivated";
+            public const string ActivationCode = "ActivationCode";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -412,6 +430,8 @@ namespace DAL
 					ht[Status] = _Member.PropertyNames.Status;
 					ht[IP] = _Member.PropertyNames.IP;
 					ht[RowStatusID] = _Member.PropertyNames.RowStatusID;
+					ht[IsMailActivated] = _Member.PropertyNames.IsMailActivated;
+					ht[ActivationCode] = _Member.PropertyNames.ActivationCode;
 
 				}
 				return (string)ht[columnName];
@@ -454,6 +474,8 @@ namespace DAL
             public const string Status = "Status";
             public const string IP = "IP";
             public const string RowStatusID = "RowStatusID";
+            public const string IsMailActivated = "IsMailActivated";
+            public const string ActivationCode = "ActivationCode";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -491,6 +513,8 @@ namespace DAL
 					ht[Status] = _Member.ColumnNames.Status;
 					ht[IP] = _Member.ColumnNames.IP;
 					ht[RowStatusID] = _Member.ColumnNames.RowStatusID;
+					ht[IsMailActivated] = _Member.ColumnNames.IsMailActivated;
+					ht[ActivationCode] = _Member.ColumnNames.ActivationCode;
 
 				}
 				return (string)ht[propertyName];
@@ -533,6 +557,8 @@ namespace DAL
             public const string Status = "s_Status";
             public const string IP = "s_IP";
             public const string RowStatusID = "s_RowStatusID";
+            public const string IsMailActivated = "s_IsMailActivated";
+            public const string ActivationCode = "s_ActivationCode";
 
 		}
 		#endregion		
@@ -896,6 +922,30 @@ namespace DAL
 			set
 	        {
 				base.Setbyte(ColumnNames.RowStatusID, value);
+			}
+		}
+
+		public virtual bool IsMailActivated
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsMailActivated);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsMailActivated, value);
+			}
+		}
+
+		public virtual Guid ActivationCode
+	    {
+			get
+	        {
+				return base.GetGuid(ColumnNames.ActivationCode);
+			}
+			set
+	        {
+				base.SetGuid(ColumnNames.ActivationCode, value);
 			}
 		}
 
@@ -1354,6 +1404,36 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_IsMailActivated
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsMailActivated) ? string.Empty : base.GetboolAsString(ColumnNames.IsMailActivated);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsMailActivated);
+				else
+					this.IsMailActivated = base.SetboolAsString(ColumnNames.IsMailActivated, value);
+			}
+		}
+
+		public virtual string s_ActivationCode
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ActivationCode) ? string.Empty : base.GetGuidAsString(ColumnNames.ActivationCode);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ActivationCode);
+				else
+					this.ActivationCode = base.SetGuidAsString(ColumnNames.ActivationCode, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1682,6 +1762,26 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsMailActivated
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsMailActivated, Parameters.IsMailActivated);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ActivationCode
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ActivationCode, Parameters.ActivationCode);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2052,6 +2152,30 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter IsMailActivated
+		    {
+				get
+		        {
+					if(_IsMailActivated_W == null)
+	        	    {
+						_IsMailActivated_W = TearOff.IsMailActivated;
+					}
+					return _IsMailActivated_W;
+				}
+			}
+
+			public WhereParameter ActivationCode
+		    {
+				get
+		        {
+					if(_ActivationCode_W == null)
+	        	    {
+						_ActivationCode_W = TearOff.ActivationCode;
+					}
+					return _ActivationCode_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _IsOnLine_W = null;
@@ -2082,6 +2206,8 @@ namespace DAL
 			private WhereParameter _Status_W = null;
 			private WhereParameter _IP_W = null;
 			private WhereParameter _RowStatusID_W = null;
+			private WhereParameter _IsMailActivated_W = null;
+			private WhereParameter _ActivationCode_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2115,6 +2241,8 @@ namespace DAL
 				_Status_W = null;
 				_IP_W = null;
 				_RowStatusID_W = null;
+				_IsMailActivated_W = null;
+				_ActivationCode_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2466,6 +2594,26 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsMailActivated
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsMailActivated, Parameters.IsMailActivated);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ActivationCode
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ActivationCode, Parameters.ActivationCode);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2836,6 +2984,30 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter IsMailActivated
+		    {
+				get
+		        {
+					if(_IsMailActivated_W == null)
+	        	    {
+						_IsMailActivated_W = TearOff.IsMailActivated;
+					}
+					return _IsMailActivated_W;
+				}
+			}
+
+			public AggregateParameter ActivationCode
+		    {
+				get
+		        {
+					if(_ActivationCode_W == null)
+	        	    {
+						_ActivationCode_W = TearOff.ActivationCode;
+					}
+					return _ActivationCode_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _IsOnLine_W = null;
@@ -2866,6 +3038,8 @@ namespace DAL
 			private AggregateParameter _Status_W = null;
 			private AggregateParameter _IP_W = null;
 			private AggregateParameter _RowStatusID_W = null;
+			private AggregateParameter _IsMailActivated_W = null;
+			private AggregateParameter _ActivationCode_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2899,6 +3073,8 @@ namespace DAL
 				_Status_W = null;
 				_IP_W = null;
 				_RowStatusID_W = null;
+				_IsMailActivated_W = null;
+				_ActivationCode_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -3091,6 +3267,14 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.RowStatusID);
 			p.SourceColumn = ColumnNames.RowStatusID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsMailActivated);
+			p.SourceColumn = ColumnNames.IsMailActivated;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ActivationCode);
+			p.SourceColumn = ColumnNames.ActivationCode;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -376,7 +376,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                            <i class="icon-3x entypoicon iconentypo-addfriend" style="float: left; margin-left: 10px;"></i>
+                            <i class="icon-2x icon-question-sign" style="float: left; margin-left: 10px;"></i>
                             <h3>المساعدة</h3>
                         </div>
                         <div class="modal-body">

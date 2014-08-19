@@ -94,6 +94,7 @@
     <Content Include="AccountLog.aspx" />
     <Content Include="AccTypes.aspx" />
     <Content Include="actions.aspx" />
+    <Content Include="activate.aspx" />
     <Content Include="AddPhoto.aspx" />
     <Content Include="Admin\AccountHistory.aspx" />
     <Content Include="Admin\Accounts.aspx" />
@@ -747,6 +748,13 @@
     <Compile Include="actions.aspx.designer.cs">
       <DependentUpon>actions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="activate.aspx.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="activate.aspx.designer.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddPhoto.aspx.cs">
       <DependentUpon>AddPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1317,6 +1325,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\App_LocalResources\StatsReport.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\activate.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

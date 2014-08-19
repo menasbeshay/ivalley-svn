@@ -1,5 +1,8 @@
 
-/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 5/8/2014 1:38:50 PM ******/
+USE [chat2connect]
+GO
+
+/****** Object:  StoredProcedure [proc_MemberLoadByPrimaryKey]    Script Date: 8/19/2014 3:33:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadByPrimaryKey];
 GO
@@ -21,7 +24,6 @@ BEGIN
 		[Credit_Point],
 		[Credit_Money],
 		[PicPath],
-		[MemberTypeID],
 		[BirthDate],
 		[ReligionID],
 		[CountryID],
@@ -44,7 +46,9 @@ BEGIN
 		[ytURL],
 		[Status],
 		[IP],
-		[RowStatusID]
+		[RowStatusID],
+		[IsMailActivated],
+		[ActivationCode]
 	FROM [Member]
 	WHERE
 		([MemberID] = @MemberID)
@@ -61,7 +65,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Succeede
 ELSE PRINT 'Procedure Creation: proc_MemberLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 5/8/2014 1:38:50 PM ******/
+/****** Object:  StoredProcedure [proc_MemberLoadAll]    Script Date: 8/19/2014 3:33:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberLoadAll];
 GO
@@ -81,7 +85,6 @@ BEGIN
 		[Credit_Point],
 		[Credit_Money],
 		[PicPath],
-		[MemberTypeID],
 		[BirthDate],
 		[ReligionID],
 		[CountryID],
@@ -104,7 +107,9 @@ BEGIN
 		[ytURL],
 		[Status],
 		[IP],
-		[RowStatusID]
+		[RowStatusID],
+		[IsMailActivated],
+		[ActivationCode]
 	FROM [Member]
 
 	SET @Err = @@Error
@@ -119,7 +124,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberUpdate]    Script Date: 5/8/2014 1:38:50 PM ******/
+/****** Object:  StoredProcedure [proc_MemberUpdate]    Script Date: 8/19/2014 3:33:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberUpdate];
 GO
@@ -133,7 +138,6 @@ CREATE PROCEDURE [proc_MemberUpdate]
 	@Credit_Point int = NULL,
 	@Credit_Money decimal(8,4) = NULL,
 	@PicPath nvarchar(200) = NULL,
-	@MemberTypeID int = NULL,
 	@BirthDate datetime = NULL,
 	@ReligionID int = NULL,
 	@CountryID int = NULL,
@@ -156,7 +160,9 @@ CREATE PROCEDURE [proc_MemberUpdate]
 	@ytURL nvarchar(400) = NULL,
 	@Status int = NULL,
 	@IP varchar(50) = NULL,
-	@RowStatusID tinyint
+	@RowStatusID tinyint,
+	@IsMailActivated bit = NULL,
+	@ActivationCode uniqueidentifier = NULL
 )
 AS
 BEGIN
@@ -172,7 +178,6 @@ BEGIN
 		[Credit_Point] = @Credit_Point,
 		[Credit_Money] = @Credit_Money,
 		[PicPath] = @PicPath,
-		[MemberTypeID] = @MemberTypeID,
 		[BirthDate] = @BirthDate,
 		[ReligionID] = @ReligionID,
 		[CountryID] = @CountryID,
@@ -195,7 +200,9 @@ BEGIN
 		[ytURL] = @ytURL,
 		[Status] = @Status,
 		[IP] = @IP,
-		[RowStatusID] = @RowStatusID
+		[RowStatusID] = @RowStatusID,
+		[IsMailActivated] = @IsMailActivated,
+		[ActivationCode] = @ActivationCode
 	WHERE
 		[MemberID] = @MemberID
 
@@ -216,7 +223,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 5/8/2014 1:38:50 PM ******/
+/****** Object:  StoredProcedure [proc_MemberInsert]    Script Date: 8/19/2014 3:33:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberInsert];
 GO
@@ -230,7 +237,6 @@ CREATE PROCEDURE [proc_MemberInsert]
 	@Credit_Point int = NULL,
 	@Credit_Money decimal(8,4) = NULL,
 	@PicPath nvarchar(200) = NULL,
-	@MemberTypeID int = NULL,
 	@BirthDate datetime = NULL,
 	@ReligionID int = NULL,
 	@CountryID int = NULL,
@@ -253,7 +259,9 @@ CREATE PROCEDURE [proc_MemberInsert]
 	@ytURL nvarchar(400) = NULL,
 	@Status int = NULL,
 	@IP varchar(50) = NULL,
-	@RowStatusID tinyint
+	@RowStatusID tinyint,
+	@IsMailActivated bit = NULL,
+	@ActivationCode uniqueidentifier = NULL
 )
 AS
 BEGIN
@@ -270,7 +278,6 @@ BEGIN
 		[Credit_Point],
 		[Credit_Money],
 		[PicPath],
-		[MemberTypeID],
 		[BirthDate],
 		[ReligionID],
 		[CountryID],
@@ -293,7 +300,9 @@ BEGIN
 		[ytURL],
 		[Status],
 		[IP],
-		[RowStatusID]
+		[RowStatusID],
+		[IsMailActivated],
+		[ActivationCode]
 	)
 	VALUES
 	(
@@ -303,7 +312,6 @@ BEGIN
 		@Credit_Point,
 		@Credit_Money,
 		@PicPath,
-		@MemberTypeID,
 		@BirthDate,
 		@ReligionID,
 		@CountryID,
@@ -326,7 +334,9 @@ BEGIN
 		@ytURL,
 		@Status,
 		@IP,
-		@RowStatusID
+		@RowStatusID,
+		@IsMailActivated,
+		@ActivationCode
 	)
 
 	SET @Err = @@Error
@@ -343,7 +353,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_MemberInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_MemberInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 5/8/2014 1:38:50 PM ******/
+/****** Object:  StoredProcedure [proc_MemberDelete]    Script Date: 8/19/2014 3:33:16 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_MemberDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_MemberDelete];
 GO
