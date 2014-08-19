@@ -206,6 +206,14 @@ namespace BLL
 
         }
 
+        public virtual bool GetMemberByActivationCode(Guid ac)
+        {
+            this.Where.ActivationCode.Value = ac;
+            this.Where.ActivationCode.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();            
+
+        }
+
         public virtual bool GetMemberFriendsByStatus(int MemberID, bool Status)
         {
             ListDictionary parameters = new ListDictionary();

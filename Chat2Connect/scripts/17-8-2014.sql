@@ -26,4 +26,7 @@ Group by M.MemberId, U.UserName , Mem.Email, M.ProfilePic
 Order by U.UserName
 Go
 
-Proc_AddFriends_SearchMembers 'a','a',5
+
+alter table member 
+add IsMailActivated bit ,
+add ActivationCode uniqueidentifier 
