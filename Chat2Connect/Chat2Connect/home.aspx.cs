@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BLL;
-using Chat2Connect.SRCustomHubs;
-using Microsoft.AspNet.SignalR;
 
 namespace Chat2Connect
 {
@@ -71,7 +66,7 @@ namespace Chat2Connect
 
                         }
                         catch (Exception ex)
-                        {                            
+                        {
                         }
                     }
 
@@ -84,22 +79,13 @@ namespace Chat2Connect
                         }
                     }
                     OpenedRooms = Helper.JsonConverter.Serialize(openedRooms);
-                    //if (Session["OpenedChatRooms"] != null)
-                    //{
-                    //    List<int> rooms = (List<int>)Session["OpenedChatRooms"];
-                    //    string script = "";
-                    //    int time = 1000;
-                    //    foreach (var item in rooms)
-                    //    {
-                    //        Room room = new Room();
-                    //        room.LoadByPrimaryKey(Convert.ToInt32(item));
-                    //        script += "setTimeout( function(){addChatRoom(" + room.RoomID.ToString() + ", '" + room.Name + "', 'Room', false); },"+time+");";
-                    //        time += 500;
-                            
-                    //    }
-                    //    ClientScript.RegisterStartupScript(this.GetType(), "openrooms", "$(document).ready(function (){ "+ script + "}); ", true);    
-                    //}
 
+                    BLL.Member helpMembers = new Member();
+                    helpMembers.LoadHelpMembers();
+
+                    HelpMembers = Helper.JsonConverter.Serialize(
+                        helpMembers.DefaultView.Table.AsEnumerable().Select(m => new { ID = m[BLL.Member.ColumnNames.MemberID], Name = m[BLL.Member.ColumnNames.Name], IsOnline = m[BLL.Member.ColumnNames.IsOnLine] }).ToList()
+                        );
                 }
             }
             else
@@ -133,5 +119,7 @@ namespace Chat2Connect
                 ClientScript.RegisterStartupScript(this.GetType(), "ErrorAddingFriend", "$(document).ready(function (){ notify('error','خطأ. حدث خطأ . من فضلك أعد المحاولة مرة أخرى أو تأكد من وجود الصديق فى قائمة الأصدقاء.');}); ", true);
             }
         }
+
+        public string HelpMembers { get; set; }
     }
 }
