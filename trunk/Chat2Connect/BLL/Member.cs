@@ -335,5 +335,12 @@ namespace BLL
             }
             return member;
         }
+
+        public bool LoadHelpMembers()
+        {
+            return LoadFromRawSql(String.Format(@"SELECT m.*
+                                    FROM Member m INNER JOIN aspnet_UsersInRoles ur on ur.UserId=m.UserID
+	                                    INNER JOIN aspnet_Roles r ON r.RoleId=ur.RoleId AND r.RoleName='{0}'", Helper.Enums.AdminRoles.Admin_SiteHelper.ToString()));
+        }
     }
 }

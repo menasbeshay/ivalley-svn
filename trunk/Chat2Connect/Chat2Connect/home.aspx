@@ -279,7 +279,8 @@
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
             var openedRooms=eval(<%=OpenedRooms %>);
-            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms);
+            var helpMembers=eval(<%=HelpMembers %>);
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers);
             initPeople(currentMemberID, '');
             
             $("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
@@ -1324,7 +1325,7 @@
                     </div>
                 </div>
                 <!-- /ko -->
-                <!-- ko if: Type()=="Private" -->
+                <!-- ko if: Type()=="Private" && (!$data.hasOwnProperty('IsHelp') || !IsHelp())-->
                 <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
 
@@ -1418,21 +1419,24 @@
                                     <img src="images/hand-icon.png" style="width: 15px;">
                                 </a>
                                 <!-- /ko -->
+                                <!-- ko if:(!$data.hasOwnProperty('IsHelp') || !IsHelp()) -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1)), click:toggleMic" data-original-title="تحدث">
                                     <i class="icon-microphone" style="font-size: 17px;"></i>
                                 </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableCam()), click:toggleCam" data-original-title="تشغيل/ إيقاف الكاميرا">
                                     <i class="icon-camera" style="font-size: 17px;"></i>
                                 </a>
+                                <!-- /ko -->
                             </div>
                             <div class="pull-right" style="margin-right: 3px;" data-bind="visible:(Type()=='Private' || CurrentMember().CanWrite())">
                                 <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'toolbar'+uniqueID()}">
                                 </div>
                             </div>
                             <div class="pull-right" style="margin-right: 3px;">
-
+                                <!-- ko if:(!$data.hasOwnProperty('IsHelp') || !IsHelp()) -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift">
                                     <img src="images/gift-icon.png" style="width: 15px;" /></a>
+                                <!-- /ko -->
                                 <!-- ko if: Type()=="Room" -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends">
                                     <img src="images/friends-icon.png" style="width: 15px;" /></a>
@@ -1440,6 +1444,7 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
+                                <!-- ko if:(!$data.hasOwnProperty('IsHelp') || !IsHelp()) -->
                             <div class="pull-right btn-group" style="margin-right: 3px;" data-toggle="buttons-checkbox">
                                 <button class="btn btn-default" data-bind="attr:{id:'mute_'+uniqueID()}, click:$parent.MuteRoom.bind($data)" data-mute='false'>×<i class="icon-volume-off" style="font-size: 17px;"></i></button>
                             </div>
@@ -1457,6 +1462,7 @@
                                     <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">
                                 </div>
                             </div>
+                                <!-- /ko -->
 
 
                         </div>
