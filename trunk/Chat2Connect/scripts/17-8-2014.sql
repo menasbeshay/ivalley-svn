@@ -30,3 +30,24 @@ Go
 alter table member 
 add IsMailActivated bit ,
 add ActivationCode uniqueidentifier 
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'Proc_SearchMembersByMail' and
+		        xtype = 'P')
+Drop Procedure Proc_SearchMembersByMail
+Go
+Create Procedure Proc_SearchMembersByMail @Email nvarchar(256)
+												
+as
+
+select M.MemberID, U.UserName , Mem.Email, isnull(M.ProfilePic,'/images/defaultavatar.png') ProfilePic 
+from Member M 
+Inner join dbo.aspnet_Users U on M.UserID = U.UserID
+Inner join dbo.aspnet_Membership Mem on U.UserID = Mem.UserID
+where Mem.Email = @Email 
+Order by U.UserName
+Go
+
+Proc_SearchMembersByMail 'mena.samy@gmail.com'

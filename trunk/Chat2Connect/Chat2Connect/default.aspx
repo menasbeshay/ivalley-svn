@@ -19,6 +19,7 @@
     <link href="css/validationEngine.jquery.css" rel="stylesheet" />
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
     <link href="css/main.css" rel="stylesheet" />
+   
 </head>
 <body >
     <form id="form1" runat="server">
@@ -53,7 +54,7 @@
                             <div class="form-group">
                                 
                                 <div class="col-sm-9">                
-                                    <a href="#" style="color:#fff;text-decoration:none;font-size:12px;" class="pull-right">نسيت كلمة السر ؟</a><span class="pull-right">&nbsp;&nbsp;</span>    
+                                    <a style="color:#fff;text-decoration:none;font-size:12px;" class="pull-right" href="#resetPassModal" data-toggle="modal">نسيت كلمة السر ؟</a><span class="pull-right">&nbsp;&nbsp;</span>    
                                 <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="دخول" ValidationGroup="Login1" CssClass="pull-left btn"  />
                                             
                                 </div>
@@ -209,6 +210,66 @@
                 </div>
             </div>
         </div>
+
+        <div id="resetPassModal"  class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
+                            ×</a>
+                        <i class="icon-4x" style="float:left;font-family:'entypo';margin-left:10px;">-</i>
+                        <h3 >
+                            إستعادة كلمة المرور</h3>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-horizontal blockBox validationGroup">                                                              
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>البريد الإلكترونى</label>
+                                    </div>
+                                    <div class="col-sm-8 pull-right">
+                                        <asp:TextBox ID="uiTextBoxReset_Mail" runat="server" CssClass="form-control" data-bind="value:email"></asp:TextBox>                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                            <div id="loadingResetPass" class="col-lg-11" style="text-align:center;display:none;text-align:center;position:fixed;z-index:2000;background:#fff;width:100%;height:100%;top:0;left:0; opacity:.7;" >
+                                <img src="images/addfriend_loadinf.gif" style="margin:0 auto;padding-top:20px;"/>
+                                
+                            </div>
+                            <div id="error" class="col-lg-12" style="text-align:center;display:none;text-align:center;" >
+                                حدث خطأ من فضلك أعد المحاولة
+                            </div>
+                            <div id="noAccounts" class="col-lg-12" style="text-align:center;display:none;text-align:center;" >
+                                لا يوجد حسابات مرتبطة بهذا البريد الإلكترونى
+
+                            </div>
+                            <ul class="findFriends">
+                            <!-- ko foreach:accounts -->
+                            <li >
+                                <div style="width:27%;float:left;margin-right:3px;">
+                                    <img style="width:50px;" data-bind="attr: { src: ProfileImg }" />
+                                </div>
+                                <div style="width:70%;float:left;text-align:left;">
+                                    <span data-bind="text: MemberName"></span>
+                                    <div class="clear" style="height:2px;"></div>
+                                    <a href="#" data-bind="click: $parent.Resetpass.bind($data, $data.MemberID)" class="btn btn-main smallbtn">إستعادة كلمة المرور</a>                                   
+                                    
+                                </div>
+                                <div class="clear" style="height:2px;"></div>
+                            </li>
+
+                            <!-- /ko -->
+                                </ul>
+                            <div class="clear" style="height:2px;"></div>
+                        </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
     <footer class="row" >
         &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Dardashet Tawasol. All rights reserved.
         <div style="float:right;padding-right:10px;width:15%;padding:0px;margin-top:-5px;">
@@ -225,10 +286,19 @@
     <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script src="js/Mainjs.js" type="text/javascript"></script>
+   <%-- <script src="js/Mainjs.js" type="text/javascript"></script>--%>
     <script src="js/jquery.validationEngine-en.js"></script>        
     <script src="js/jquery.validationEngine.js"></script>
     <script src="js/group_validation.js"></script>
+    <script src="Scripts/knockout-3.1.0.js"></script>
+    <script src="Scripts/knockout.mapping-latest.js"></script>
+        <script src="js/resetpass.js"></script>
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 initaccount();
+             });
+
+    </script>
     </form>
 </body>
 </html>

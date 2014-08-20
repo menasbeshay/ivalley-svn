@@ -632,7 +632,7 @@ namespace Chat2Connect.services
         [WebMethod]        
         public List<dynamic> SearchMembers_AddFriends(int mid, string stext)
         {
-            System.Threading.Thread.Sleep(3000);
+            
             List<dynamic> people = new List<dynamic>();
             Member members = new Member();
 
@@ -656,6 +656,34 @@ namespace Chat2Connect.services
                     
 
         }
+
+        [WebMethod]
+        public List<dynamic> SearchAccountsByMail(string email)
+        {
+            System.Threading.Thread.Sleep(3000);
+            List<dynamic> people = new List<dynamic>();
+            Member members = new Member();
+            members.Proc_SearchMembersByMail(email);
+
+            for (int i = 0; i < members.RowCount; i++)
+            {
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic });
+                members.MoveNext();
+            }
+            //HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            if (people.Count > 0)
+            {
+                //string result = Newtonsoft.Json.JsonConvert.SerializeObject(people);
+                //HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
+                return people;
+            }
+            else
+                // HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":null}");
+                return null;
+
+
+        }
+
         [WebMethod]
         public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {

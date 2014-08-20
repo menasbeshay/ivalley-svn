@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -114,6 +115,35 @@ namespace Chat2Connect
                 member.Status = 1;
                 member.Save();
                 FormsAuthentication.SetAuthCookie(objUser.UserName, false);
+                try
+                {
+                    MailMessage msg = new MailMessage();
+                    string body = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "body").ToString();
+                    string mail = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "mail").ToString();
+                    
+                    member.ActivationCode = Guid.NewGuid();
+                    member.Save();
+                    string mailto = objUser.Email;
+                    msg.To.Add(mailto);
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "subject").ToString();
+                    msg.IsBodyHtml = true;
+                    msg.BodyEncoding = System.Text.Encoding.Unicode;
+
+                    msg.Body = string.Format(body, objUser.UserName, member.ActivationCode.ToString());
+
+                    SmtpClient client = new SmtpClient(HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "mailserver").ToString(), 25);
+
+                    client.UseDefaultCredentials = false;
+
+                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
+                    client.Send(msg);                    
+                }
+                catch (Exception)
+                {
+
+                }
+                
                 Response.Redirect("home.aspx");
             }
         }
