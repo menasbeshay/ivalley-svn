@@ -616,6 +616,7 @@
     <Content Include="js\fileupload\main.js" />
     <Content Include="images\Upload.png" />
     <Content Include="js\fileupload\vendor\jquery.ui.widget.js" />
+    <Content Include="js\resetpass.js" />
     <Content Include="js\tags\tag-it.js" />
     <Content Include="js\tags\textext.core.js" />
     <Content Include="js\tags\textext.plugin.ajax.js" />
