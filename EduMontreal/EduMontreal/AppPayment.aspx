@@ -56,6 +56,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
     <section class="span12 col-left">
+        <asp:LinkButton ID="uiLinkButtonByPass" runat="server" OnClick="uiLinkButtonByPass_Click" CssClass="btn btn-primary">Pass to next status</asp:LinkButton>
         <h4>Please choose one of the following payment methods
 
         </h4>
