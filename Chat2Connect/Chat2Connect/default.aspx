@@ -252,9 +252,9 @@
                                 </div>
                                 <div style="width:70%;float:left;text-align:left;">
                                     <span data-bind="text: MemberName"></span>
-                                    <div class="clear" style="height:2px;"></div>
-                                    <a href="#" data-bind="click: $parent.Resetpass.bind($data, $data.MemberID)" class="btn btn-main smallbtn">إستعادة كلمة المرور</a>                                   
-                                    
+                                    <div class="clear" style="height:2px;"></div>                                    
+                                    <a href="#" data-bind="click: $parent.Resetpass.bind($data, $data.MemberID), visible:IsPassReseted != true" class="btn btn-main smallbtn">إستعادة كلمة المرور</a>                                   
+                                    <span class="btn btn-success smallbtn" data-bind="visible:IsPassReseted == true">تم الإرسال لبريدك الإلكترونى</span>
                                 </div>
                                 <div class="clear" style="height:2px;"></div>
                             </li>

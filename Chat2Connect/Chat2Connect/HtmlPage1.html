@@ -2,18 +2,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <script src="js/advanced.js"></script>
-    <script src="js/wysihtml5-0.4.0pre.js"></script>
+    
 </head>
-<body>
-    <div id='toolbar' style='display: none;'>
-        <a data-wysihtml5-command='bold' title='CTRL+B'>B</a> | 
-        <a data-wysihtml5-command='italic' title='CTRL+I'>I</a> | 
-        <a data-wysihtml5-command='underline' title='CTRL+U'>U</a>
-    </div>
-    <textarea id='uiTextMsg_1' style='width:91.5%;background-color:#D9D9D9;height:70px;border:0px;'></textarea>
-    <script type='text/javascript'>
-        var editor = new wysihtml5.Editor('uiTextMsg_1', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false });
-        </script>
+<body> 
+    <header style="width:100%;">
+            
+            <div >
+                <a href="http://chat2connect.com">
+                    <img src="http://chat2connect.com/images/mailbg.jpg"></a>                
+
+            </div>
+        </header>
+
+     <section class="MainContent row " style="margin-top: 90px !important;direction:rtl">
+         <p>
+         عزيزي {0}،
+
+         </p>
+         <p>
+             لتغيير كلمة المرور الخاصة بك من فضلك قم بالنقر (أو نسخ ولصق إلى المتصفح) على الرابط أدناه:</p>
+         <p>
+         &nbsp;<a href="http://chatconnect.com/resetpass.aspx?rc={1}">http://chatconnect.com/resetpass.aspx?rc={1}</a>
+
+         </p>
+         <p>
+             شكرا لكم وحظا سعيدا،
+         </p>
+         <p>
+             إدارة موقع دردشة تواصل
+         </p>
+     </section>
+    <footer style="width:100%;background-image:url('http://chat2connect.com/images/mailbgfoot.jpg')">
+                &copy;
+           
+            <div style="float: right; padding-right: 10px; width: 15%; padding: 0px; margin-top: -5px;">
+                <a href="http://I-valley.com" style="width: 15%; padding: 0px; margin-top: -5px;">&nbsp;
+                    </a>
+
+            </div>
+            </footer>
 </body>
 </html>

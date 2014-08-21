@@ -355,6 +355,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter PassResetCode
+			{
+				get
+				{
+					return new SqlParameter("@PassResetCode", SqlDbType.UniqueIdentifier, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -393,6 +401,7 @@ namespace DAL
             public const string RowStatusID = "RowStatusID";
             public const string IsMailActivated = "IsMailActivated";
             public const string ActivationCode = "ActivationCode";
+            public const string PassResetCode = "PassResetCode";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -432,6 +441,7 @@ namespace DAL
 					ht[RowStatusID] = _Member.PropertyNames.RowStatusID;
 					ht[IsMailActivated] = _Member.PropertyNames.IsMailActivated;
 					ht[ActivationCode] = _Member.PropertyNames.ActivationCode;
+					ht[PassResetCode] = _Member.PropertyNames.PassResetCode;
 
 				}
 				return (string)ht[columnName];
@@ -476,6 +486,7 @@ namespace DAL
             public const string RowStatusID = "RowStatusID";
             public const string IsMailActivated = "IsMailActivated";
             public const string ActivationCode = "ActivationCode";
+            public const string PassResetCode = "PassResetCode";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -515,6 +526,7 @@ namespace DAL
 					ht[RowStatusID] = _Member.ColumnNames.RowStatusID;
 					ht[IsMailActivated] = _Member.ColumnNames.IsMailActivated;
 					ht[ActivationCode] = _Member.ColumnNames.ActivationCode;
+					ht[PassResetCode] = _Member.ColumnNames.PassResetCode;
 
 				}
 				return (string)ht[propertyName];
@@ -559,6 +571,7 @@ namespace DAL
             public const string RowStatusID = "s_RowStatusID";
             public const string IsMailActivated = "s_IsMailActivated";
             public const string ActivationCode = "s_ActivationCode";
+            public const string PassResetCode = "s_PassResetCode";
 
 		}
 		#endregion		
@@ -946,6 +959,18 @@ namespace DAL
 			set
 	        {
 				base.SetGuid(ColumnNames.ActivationCode, value);
+			}
+		}
+
+		public virtual Guid PassResetCode
+	    {
+			get
+	        {
+				return base.GetGuid(ColumnNames.PassResetCode);
+			}
+			set
+	        {
+				base.SetGuid(ColumnNames.PassResetCode, value);
 			}
 		}
 
@@ -1434,6 +1459,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_PassResetCode
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PassResetCode) ? string.Empty : base.GetGuidAsString(ColumnNames.PassResetCode);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PassResetCode);
+				else
+					this.PassResetCode = base.SetGuidAsString(ColumnNames.PassResetCode, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1782,6 +1822,16 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.ActivationCode, Parameters.ActivationCode);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PassResetCode
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PassResetCode, Parameters.PassResetCode);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2176,6 +2226,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter PassResetCode
+		    {
+				get
+		        {
+					if(_PassResetCode_W == null)
+	        	    {
+						_PassResetCode_W = TearOff.PassResetCode;
+					}
+					return _PassResetCode_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _IsOnLine_W = null;
@@ -2208,6 +2270,7 @@ namespace DAL
 			private WhereParameter _RowStatusID_W = null;
 			private WhereParameter _IsMailActivated_W = null;
 			private WhereParameter _ActivationCode_W = null;
+			private WhereParameter _PassResetCode_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2243,6 +2306,7 @@ namespace DAL
 				_RowStatusID_W = null;
 				_IsMailActivated_W = null;
 				_ActivationCode_W = null;
+				_PassResetCode_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2614,6 +2678,16 @@ namespace DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ActivationCode, Parameters.ActivationCode);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PassResetCode
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PassResetCode, Parameters.PassResetCode);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -3008,6 +3082,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter PassResetCode
+		    {
+				get
+		        {
+					if(_PassResetCode_W == null)
+	        	    {
+						_PassResetCode_W = TearOff.PassResetCode;
+					}
+					return _PassResetCode_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _IsOnLine_W = null;
@@ -3040,6 +3126,7 @@ namespace DAL
 			private AggregateParameter _RowStatusID_W = null;
 			private AggregateParameter _IsMailActivated_W = null;
 			private AggregateParameter _ActivationCode_W = null;
+			private AggregateParameter _PassResetCode_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -3075,6 +3162,7 @@ namespace DAL
 				_RowStatusID_W = null;
 				_IsMailActivated_W = null;
 				_ActivationCode_W = null;
+				_PassResetCode_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -3275,6 +3363,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.ActivationCode);
 			p.SourceColumn = ColumnNames.ActivationCode;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PassResetCode);
+			p.SourceColumn = ColumnNames.PassResetCode;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -208,6 +208,7 @@
     <Content Include="images\7.png" />
     <Content Include="images\8.png" />
     <Content Include="images\9.png" />
+    <Content Include="images\addfriend_loadinf.gif" />
     <Content Include="images\backgrounds\bg-asfalt.png" />
     <Content Include="images\backgrounds\bg-brick.png" />
     <Content Include="images\backgrounds\bg-burried.png" />
@@ -531,7 +532,6 @@
     <Content Include="images\home\Login.png" />
     <Content Include="images\home\txt.png" />
     <Content Include="images\IValley.png" />
-    <Content Include="images\loading.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\microphone_1.png" />
     <Content Include="images\minutes.png" />
@@ -916,6 +916,11 @@
     </Compile>
     <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
       <DependentUpon>RoomType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
     </Compile>
     <Compile Include="audioUploader.ashx.cs">
       <DependentUpon>audioUploader.ashx</DependentUpon>
@@ -1329,6 +1334,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\activate.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
