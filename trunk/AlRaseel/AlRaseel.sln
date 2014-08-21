@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlRaseel.Web.UI", "AlRaseel.Web.UI\AlRaseel.Web.UI.csproj", "{96DCA1C9-0C65-463F-B682-61C41F23DAAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlRaseel.Data.DAL", "AlRaseel.Data.DAL\AlRaseel.Data.DAL.csproj", "{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		WPSToolKitDebug|Any CPU = WPSToolKitDebug|Any CPU
+		WPSToolKitRelease|Any CPU = WPSToolKitRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.WPSToolKitDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DCA1C9-0C65-463F-B682-61C41F23DAAD}.WPSToolKitRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.WPSToolKitDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD54D5C0-20FE-43E0-9AA0-5146C65A922C}.WPSToolKitRelease|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
