@@ -50,4 +50,5 @@ where Mem.Email = @Email
 Order by U.UserName
 Go
 
-Proc_SearchMembersByMail 'mena.samy@gmail.com'
+alter table member 
+add	PassResetCode UniqueIdentifier 

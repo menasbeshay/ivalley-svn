@@ -12,6 +12,7 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Dynamic;
 using System.Collections;
+using System.Net.Mail;
 
 namespace Chat2Connect.services
 {
@@ -643,15 +644,11 @@ namespace Chat2Connect.services
                 people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount") });                
                 members.MoveNext();
             }             
-            //HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             if (people.Count > 0)
             {
-                //string result = Newtonsoft.Json.JsonConvert.SerializeObject(people);
-                //HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
                 return people;
             }
             else
-                // HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":null}");
                 return null;
                     
 
@@ -660,27 +657,61 @@ namespace Chat2Connect.services
         [WebMethod]
         public List<dynamic> SearchAccountsByMail(string email)
         {
-            System.Threading.Thread.Sleep(3000);
+            
             List<dynamic> people = new List<dynamic>();
             Member members = new Member();
             members.Proc_SearchMembersByMail(email);
 
             for (int i = 0; i < members.RowCount; i++)
             {
-                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic });
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, IsPassReseted = false });
                 members.MoveNext();
             }
-            //HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             if (people.Count > 0)
             {
-                //string result = Newtonsoft.Json.JsonConvert.SerializeObject(people);
-                //HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
                 return people;
             }
             else
-                // HttpContext.Current.Response.Write("{\"Status\":0,\"Data\":null}");
                 return null;
 
+
+        }
+
+        [WebMethod]        
+        public bool ResetPass(int MemberID)
+        {            
+            
+            Member member = new Member();
+            member.LoadByPrimaryKey(MemberID);
+            member.PassResetCode = Guid.NewGuid();
+            member.Save();
+
+            //try
+            //{
+            //    MailMessage msg = new MailMessage();
+            //    string mail = HttpContext.GetGlobalResourceObject("Global","Mail").ToString();
+            //    string mailto = member.Email;
+            //    msg.To.Add(mailto);
+            //    msg.From = new MailAddress(mail);
+            //    msg.Subject = HttpContext.GetGlobalResourceObject("Global", "ResetSubject").ToString();
+            //    msg.IsBodyHtml = true;
+            //    msg.BodyEncoding = System.Text.Encoding.Unicode;
+
+            //    msg.Body = string.Format(HttpContext.GetGlobalResourceObject("Global", "ResetPassBody").ToString(), member.UserName, member.PassResetCode.ToString());
+
+            //    SmtpClient client = new SmtpClient(HttpContext.GetGlobalResourceObject("Global", "server").ToString(), 25);
+
+            //    client.UseDefaultCredentials = false;
+
+            //    client.Credentials = new System.Net.NetworkCredential(mail, HttpContext.GetGlobalResourceObject("Global", "Password").ToString());
+            //    client.Send(msg);
+                
+            //}
+            //catch (Exception)
+            //{
+
+            //}
+            return true;
 
         }
 

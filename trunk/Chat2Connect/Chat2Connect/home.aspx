@@ -271,8 +271,7 @@
     <asp:HiddenField ID="uiHiddenFieldCreditPoints" ClientIDMode="Static" runat="server" />
 
     <script src="Scripts/knockout.mapping-latest.js"></script>
-    <script src="js/chatwindows.js"></script>
-    <script src="js/friends.js"></script>
+    <script src="js/chatwindows.js"></script>    
     <script>
         $(document).ready(function () {
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
@@ -280,8 +279,7 @@
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
             var openedRooms=eval(<%=OpenedRooms %>);
             var helpMembers=eval(<%=HelpMembers %>);
-            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers);
-            initPeople(currentMemberID, '');
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers);            
             
             $("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
                 AllPeople.SearchText = $("#<%= uiTextBoxFriendSearch.ClientID %>").val();

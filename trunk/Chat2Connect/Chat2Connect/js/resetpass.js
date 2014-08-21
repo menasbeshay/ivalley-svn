@@ -4,9 +4,19 @@ function account()
     var self = this;
     self.accounts = ko.observableArray();
     self.email = ko.observable();
+    self.IsPassReseted = ko.observable();
     self.email.subscribe(function (newValue) {
         self.SearchAccounts();
     });
+
+    self.getAccount = function (id) {
+        var Account = ko.utils.arrayFirst(self.accounts(), function (acc) {
+            return acc.MemberID == id ;
+        });
+        
+        return Account;
+    }
+
     self.SearchAccounts = function () {
         $('#loadingResetPass').css('display', 'block');
         $('#noAccounts').css('display', 'none');
@@ -37,12 +47,24 @@ function account()
     }
 
     self.Resetpass = function (mid) {
+        $('#loadingResetPass').css('display', 'block');
         $.ajax({
             url: '../Services/Services.asmx/ResetPass',
-            type: 'GET',
-            data: { mid: mid},
-            success: function (result) {
-                
+            type: 'post',
+            data: "{'MemberID':'" + mid + "' }",            
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {                
+                if (result.d == true)
+                {
+                    var acc = self.getAccount(mid);
+                    acc.IsPassReseted = ko.observable(true);
+                    $('#loadingResetPass').css('display', 'none');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {               
+                $('#loadingResetPass').css('display', 'none');
+
             }
         });
     }
