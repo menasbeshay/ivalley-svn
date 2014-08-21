@@ -1,0 +1,36 @@
+
+
+	#about-brooklyn { background-color: #FFF; }
+	#about-brooklyn .section-title { color: #000; }
+    #about-brooklyn .section-title:after { background-color: #000; }
+	
+    #our-service { background-color: #F5F5F5; }
+    #our-service .section-title { color: #000; }
+    #our-service .section-title:after { background-color: #000; }
+    
+    #work { background-color: #FFF; }
+    #work .section-title { color: #000; }
+    #work .section-title:after { background-color: #000; }
+    #work .parallax-overlay-pattern { background: none !important; }   
+    
+    #our-team { background: #FFF; }
+    .member-clone { background: #111 !important; }
+    #our-team .parallax-overlay-pattern { background: none !important; }    
+    #our-team .section-title { color: #000; }
+    #our-team .section-title:after { background-color: #000; }
+    
+    #call-to-action2 { background-color: #F5F5F5; }
+    #call-to-action2 .section-title { color: #000; }
+    #call-to-action2 .section-title:after { background-color: #000; }
+        
+    #ut-portfolio-details-45 h2.ut-portfolio-title { color: #222 !important; }
+    
+
+#about-brooklyn .democolor .fa-circle { color: # !important; }
+#our-service .democolor .fa-circle { color: # !important; }
+
+.ut-hover-layer { background-color: rgba(, 0.9) !important; }
+
+#qLpercentage { color:# !important; }
+#qLbar { background: # !important; }
+

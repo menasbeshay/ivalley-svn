@@ -1,0 +1,1268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96DCA1C9-0C65-463F-B682-61C41F23DAAD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web.UI</RootNamespace>
+    <AssemblyName>AlRaseel.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OmidID.Web.Security.EFMembershipProvider">
+      <HintPath>..\packages\EFMembership.3.1\lib\net451\OmidID.Web.Security.EFMembershipProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminPanel\assets\img\delete.png" />
+    <Content Include="AdminPanel\assets\img\edit.png" />
+    <Content Include="AdminPanel\assets\img\info.png" />
+    <Content Include="AdminPanel\assets\img\ivallryLogo.png" />
+    <Content Include="AdminPanel\lib\css\admin.css" />
+    <Content Include="AdminPanel\lib\css\boo-coloring.css" />
+    <Content Include="AdminPanel\lib\css\boo-utility.css" />
+    <Content Include="AdminPanel\lib\css\boo.css" />
+    <Content Include="AdminPanel\lib\css\extension.css" />
+    <Content Include="AdminPanel\lib\css\gridview.css" />
+    <Content Include="AdminPanel\lib\css\img\dt-arrow-dn.png" />
+    <Content Include="AdminPanel\lib\css\img\dt-arrow-up.png" />
+    <Content Include="AdminPanel\lib\css\img\glyphicons-halflings-white.html" />
+    <Content Include="AdminPanel\lib\css\img\glyphicons-halflings.html" />
+    <Content Include="AdminPanel\lib\css\img\sprite.png" />
+    <Content Include="AdminPanel\lib\css\lib\bootstrap-responsive.css" />
+    <Content Include="AdminPanel\lib\css\lib\bootstrap.css" />
+    <Content Include="AdminPanel\lib\css\Report.css" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\ajax.html" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\daisy%402x.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\daisy.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\homer.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\marylou.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\ohoopee1.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\ohoopee2.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\content\ohoopee3.jpg" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\colorbox.css" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\images\border.png" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\images\controls.png" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\images\loading.gif" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\images\loading_background.png" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\images\overlay.png" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\example1\index.html" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-ar.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-bg.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-cs.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-da.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-de.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-es.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-et.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-fa.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-fi.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-fr.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-hr.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-hu.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-it.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-ja.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-kr.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-lv.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-nl.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-no.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-pl.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-pt-br.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-ro.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-ru.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-sk.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-sv.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-tr.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\i18n\jquery.colorbox-zh-CN.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\jquery.colorbox-min.js" />
+    <Content Include="AdminPanel\lib\GallaryLightBox\jquery.colorbox.js" />
+    <Content Include="AdminPanel\lib\tooltip\jquery.tipTip.js" />
+    <Content Include="AdminPanel\lib\tooltip\jquery.tipTip.minified.js" />
+    <Content Include="AdminPanel\lib\tooltip\tipTip.css" />
+    <Content Include="AdminPanel\MainPages\AboutUsList.aspx" />
+    <Content Include="AdminPanel\MainPages\AboutUsManagement.aspx" />
+    <Content Include="AdminPanel\MainPages\AlbumImagesGallery.aspx" />
+    <Content Include="AdminPanel\MainPages\ContactList.aspx" />
+    <Content Include="AdminPanel\MainPages\ContactManagement.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductAlbumsList.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductAlbumsManagement.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductImagesGallery.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductImagesGalleryMaster.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductList.aspx" />
+    <Content Include="AdminPanel\MainPages\ProductManagement.aspx" />
+    <Content Include="AdminPanel\MainPages\SocialLinkList.aspx" />
+    <Content Include="AdminPanel\MainPages\SocialLinkManagement.aspx" />
+    <Content Include="AdminPanel\MainPages\Test.aspx" />
+    <Content Include="assets\css\Alraseel_ar.css" />
+    <Content Include="assets\css\Alraseel_en.css" />
+    <Content Include="assets\css\style7e2e.css" />
+    <Content Include="assets\fonts\aljazeera-webfont.svg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\Logo-ar.png" />
+    <Content Include="assets\img\Logo-en.png" />
+    <Content Include="assets\img\Logo-en-lead.png" />
+    <Content Include="assets\js\FWDInfiniteGrid.js" />
+    <Content Include="css\boutique.css" />
+    <Content Include="css\jquery.fancygallery.css" />
+    <Content Include="css\prettyPhoto.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="blog\index.html" />
+    <Content Include="blog\index7f4f.html" />
+    <Content Include="blog\page\22a99.html" />
+    <Content Include="blog\page\234f1.html" />
+    <Content Include="blog\page\249ce.html" />
+    <Content Include="blog\page\24b57.html" />
+    <Content Include="blog\page\26e3c.html" />
+    <Content Include="blog\page\27554.html" />
+    <Content Include="blog\page\2881a.html" />
+    <Content Include="blog\page\2969f.html" />
+    <Content Include="blog\page\2a35a.html" />
+    <Content Include="blog\page\2b3a5.html" />
+    <Content Include="blog\page\2cea4.html" />
+    <Content Include="blog\page\2d0c8.html" />
+    <Content Include="blog\page\2d0d1.html" />
+    <Content Include="blog\page\2d515.html" />
+    <Content Include="blog\page\2e023.html" />
+    <Content Include="blog\page\2e2f9.html" />
+    <Content Include="blog\page\2\index.html" />
+    <Content Include="blog\page\2\index7f4f.html" />
+    <Content Include="blog\page\2\_m.html" />
+    <Content Include="blog\page\2\_s.html" />
+    <Content Include="blog\_m.html" />
+    <Content Include="blog\_s.html" />
+    <Content Include="assets\img\Logo-02.png" />
+    <Content Include="demo_files\demo2.css" />
+    <Content Include="demo_files\demo3.css" />
+    <Content Include="demo_files\demos.css" />
+    <Content Include="demo_files\demos.js" />
+    <Content Include="demo_files\images\bg.jpg" />
+    <Content Include="demo_files\images\bg2.gif" />
+    <Content Include="demo_files\images\image1.jpg" />
+    <Content Include="demo_files\images\image2.jpg" />
+    <Content Include="demo_files\images\image3.jpg" />
+    <Content Include="demo_files\images\image4.jpg" />
+    <Content Include="demo_files\images\image5.jpg" />
+    <Content Include="demo_files\images\image6.jpg" />
+    <Content Include="demo_files\images\image7.jpg" />
+    <Content Include="demo_files\images\image8.jpg" />
+    <Content Include="demo_files\images\image9.jpg" />
+    <Content Include="demo_files\images\loading.gif" />
+    <Content Include="demo_files\images\loading2.gif" />
+    <Content Include="demo_files\images\next.gif" />
+    <Content Include="demo_files\images\previous.gif" />
+    <Content Include="demo_files\_fancybox_plugin\blank.gif" />
+    <Content Include="demo_files\_fancybox_plugin\fancybox-x.png" />
+    <Content Include="demo_files\_fancybox_plugin\fancybox-y.png" />
+    <Content Include="demo_files\_fancybox_plugin\fancybox.png" />
+    <Content Include="demo_files\_fancybox_plugin\jquery.fancybox-1.3.4.css" />
+    <Content Include="demo_files\_fancybox_plugin\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="demo_files\_fancybox_plugin\_Readme.txt" />
+    <Content Include="en\Default_en.aspx" />
+    <Content Include="en\ProductDetails_en.aspx" />
+    <Content Include="fancybox\blank.gif" />
+    <Content Include="fancybox\fancybox_loading.gif" />
+    <Content Include="fancybox\fancybox_overlay.png" />
+    <Content Include="fancybox\fancybox_sprite.png" />
+    <Content Include="fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="fancybox\jquery.fancybox.css" />
+    <Content Include="fancybox\jquery.fancybox.pack.js" />
+    <Content Include="images\fancygallery\hover_icons\circle-magnifier.png" />
+    <Content Include="images\fancygallery\hover_icons\circle-plus.png" />
+    <Content Include="images\fancygallery\hover_icons\magnifier-plus.png" />
+    <Content Include="images\fancygallery\hover_icons\magnifier.png" />
+    <Content Include="images\fancygallery\hover_icon_cm_white.png" />
+    <Content Include="images\fancygallery\hover_icon_cp_white.png" />
+    <Content Include="images\fancygallery\hover_icon_mag_white.png" />
+    <Content Include="images\fancygallery\inline-preloader.gif" />
+    <Content Include="images\fancygallery\polaroids.png" />
+    <Content Include="images\fancygallery\shadow.png" />
+    <Content Include="images\fancygallery\shadows\shadow1.png" />
+    <Content Include="images\fancygallery\shadows\shadow2.png" />
+    <Content Include="images\fancygallery\shadows\shadow3.png" />
+    <Content Include="images\fancygallery\thumbnail-preloader.gif" />
+    <Content Include="images\fullscreen\1.jpg" />
+    <Content Include="images\fullscreen\2.jpg" />
+    <Content Include="images\fullscreen\3.jpg" />
+    <Content Include="images\fullscreen\4.jpg" />
+    <Content Include="images\fullscreen\5.jpg" />
+    <Content Include="images\fullscreen\6.jpg" />
+    <Content Include="images\fullscreen\high.gif" />
+    <Content Include="images\fullscreen\huge.gif" />
+    <Content Include="images\fullscreen\wide.gif" />
+    <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="images\prettyPhoto\default\loader.gif" />
+    <Content Include="images\prettyPhoto\default\sprite.png" />
+    <Content Include="images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="images\thumbnails\flash-logo.png" />
+    <Content Include="images\thumbnails\quicktime-logo.gif" />
+    <Content Include="images\thumbnails\t_1.jpg" />
+    <Content Include="images\thumbnails\t_2.jpg" />
+    <Content Include="images\thumbnails\t_3.jpg" />
+    <Content Include="images\thumbnails\t_4.jpg" />
+    <Content Include="images\thumbnails\t_5.jpg" />
+    <Content Include="js\jquery-1.3.2.min.js" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\jquery-1.6.1.min.js" />
+    <Content Include="js\jquery.boutique.js" />
+    <Content Include="js\jquery.boutique.min.js" />
+    <Content Include="js\jquery.fancygallery.js" />
+    <Content Include="js\jquery.fancygallery.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="mejs\background.png" />
+    <Content Include="mejs\background_yellow.png" />
+    <Content Include="mejs\bigplay copy.png" />
+    <Content Include="mejs\bigplay.png" />
+    <Content Include="mejs\bigplay.svg" />
+    <Content Include="mejs\bigplay_yellow.png" />
+    <Content Include="mejs\controls-ted.png" />
+    <Content Include="mejs\controls-wmp-bg.png" />
+    <Content Include="mejs\controls-wmp.png" />
+    <Content Include="mejs\controls.png" />
+    <Content Include="mejs\controls.svg" />
+    <Content Include="mejs\controls_yellow.png" />
+    <Content Include="mejs\flashmediaelement.swf" />
+    <Content Include="mejs\loading.gif" />
+    <Content Include="mejs\loading_yellow.gif" />
+    <Content Include="mejs\mediaelement-and-player.min.js" />
+    <Content Include="mejs\mediaelementplayer.css" />
+    <Content Include="mejs\mejs-skins.css" />
+    <Content Include="mejs\sep_yellow.png" />
+    <Content Include="packages.config" />
+    <Content Include="EFMembership\Web_sample3.config" />
+    <Content Include="EFMembership\Web_sample2.config" />
+    <Content Include="EFMembership\Web_sample1.config" />
+    <Content Include="EFMembership\README" />
+    <Content Include="AdminPanel\Accounts\Web.config" />
+    <Content Include="AdminPanel\assets\css\icons\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\flaticons\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\flaticons\flaticon.eot" />
+    <Content Include="AdminPanel\assets\css\icons\flaticons\flaticon.ttf" />
+    <Content Include="AdminPanel\assets\css\icons\flaticons\flaticon.woff" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfont.eot%40" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfont.eot%40v=4.0.3" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfont.svg%40v=4.0.3" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfont.ttf%40v=4.0.3" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfont.woff%40v=4.0.3" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfontba72.ttf" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regular.eot" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regular.eot%40" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regular.ttf" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regular.woff" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regulard41d.eot" />
+    <Content Include="AdminPanel\assets\css\icons\weather\artill_clean_icons-webfont.eot" />
+    <Content Include="AdminPanel\assets\css\icons\weather\artill_clean_icons-webfont.eot%40" />
+    <Content Include="AdminPanel\assets\css\icons\weather\artill_clean_icons-webfont.ttf" />
+    <Content Include="AdminPanel\assets\css\icons\weather\artill_clean_icons-webfont.woff" />
+    <Content Include="AdminPanel\assets\css\icons\weather\artill_clean_icons-webfontd41d.eot" />
+    <Content Include="AdminPanel\assets\css\icons\weather\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\zocial\Descr.WD3" />
+    <Content Include="AdminPanel\assets\css\icons\zocial\zocial-regular-webfont.eot" />
+    <Content Include="AdminPanel\assets\css\icons\zocial\zocial-regular-webfont.ttf" />
+    <Content Include="AdminPanel\assets\fonts\carrois.woff" />
+    <Content Include="AdminPanel\assets\fonts\Descr.WD3" />
+    <Content Include="AdminPanel\assets\fonts\opensans-bold.woff" />
+    <Content Include="AdminPanel\assets\fonts\opensans-light.woff" />
+    <Content Include="AdminPanel\assets\fonts\opensans-semibold.woff" />
+    <Content Include="AdminPanel\assets\fonts\opensans.woff" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-progressbar\bootstrap-progressbar.js.readme" />
+    <Content Include="AdminPanel\assets\Web.config" />
+    <Content Include="AdminPanel\MainPages\Web.config" />
+    <Content Include="AdminPanel\MasterPages\Web.config" />
+    <Content Include="AdminPanel\Web.config" />
+    <Content Include="MasterPages\WebUi.Master" />
+    <Content Include="MasterPages\WebUi_Ar.Master" />
+    <Content Include="assets\css\stylese248.css" />
+    <Content Include="assets\js\jquery.form.mina207.js" />
+    <Content Include="assets\js\scriptse248.js" />
+    <Content Include="assets\css\prettyphoto\prettyPhoto7e2e.css" />
+    <Content Include="assets\img\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="assets\img\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="assets\img\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="assets\img\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\loader.gif" />
+    <Content Include="assets\img\images\prettyPhoto\default\sprite.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="assets\img\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="assets\img\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="assets\img\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="assets\img\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="assets\js\jquery.isotope.min4b1d.js" />
+    <Content Include="assets\js\jquery.isotope.perfectmasonry.min7e2e.js" />
+    <Content Include="assets\js\jquery.lazy.load3109.js" />
+    <Content Include="assets\js\jquery.scrollTo.min5f04.js" />
+    <Content Include="assets\js\jquery.utmasonry4b1d.js" />
+    <Content Include="assets\js\plugins\prettyphoto\jquery.prettyPhoto.minc6bd.js" />
+    <Content Include="assets\js\ut.effects7e2e.js" />
+    <Content Include="assets\css\font-awesome7e2e.css" />
+    <Content Include="assets\fonts\fontawesome-webfont1fc6.svg" />
+    <Content Include="assets\css\ut-responsive-grid7e2e.css" />
+    <Content Include="assets\css\ut.animate7e2e.css" />
+    <Content Include="assets\js\jquery.appear5152.js" />
+    <Content Include="assets\js\jquery.fitvids4bf4.js" />
+    <Content Include="assets\js\jquery.visible.min5152.js" />
+    <Content Include="assets\js\plugins\jquery.flexslider-min7e2e.js" />
+    <Content Include="assets\js\tabs.collapse.min5152.js" />
+    <Content Include="assets\js\ut.scplugin5152.js" />
+    <Content Include="assets\css\flexslider7e2e.css" />
+    <Content Include="assets\css\ut-fontface7e2e.css" />
+    <Content Include="assets\css\ut-superfish7e2e.css" />
+    <Content Include="assets\css\ut.portfolio.style7e2e.css" />
+    <Content Include="assets\css\ut.shortcode7e2e.css" />
+    <Content Include="assets\js\jquery.easing.min4e44.js" />
+    <Content Include="assets\js\jquery.fittext.min4963.js" />
+    <Content Include="assets\js\jquery.mb.YTPlayer.min5152.js" />
+    <Content Include="assets\js\jquery.parallax.minc358.js" />
+    <Content Include="assets\js\jquery.queryloader2.minfc99.js" />
+    <Content Include="assets\js\jquery.waypoints.min4c56.js" />
+    <Content Include="assets\js\modernizr.min61da.js" />
+    <Content Include="assets\js\retina.min4963.js" />
+    <Content Include="assets\js\superfish.minb34d.js" />
+    <Content Include="assets\js\toucheffects.min5152.js" />
+    <Content Include="assets\js\ut-initb2da.js" />
+    <Content Include="prettyphoto\css\prettyPhoto.css" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\sprite.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="prettyphoto\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="prettyphoto\jquery.prettyPhoto.js" />
+    <Content Include="ProductDetails.aspx" />
+    <Content Include="wp-content\themes\brooklyn\style7e2e.css" />
+    <Content Include="assets\js\comment-reply.min7e2e.js" />
+    <Content Include="assets\js\jquery\jquery-migrate.min1576.js" />
+    <Content Include="assets\js\jquery\jquery3e5a.js" />
+    <Content Include="assets\js\mediaelement\background.png" />
+    <Content Include="assets\js\mediaelement\bigplay.png" />
+    <Content Include="assets\js\mediaelement\bigplay.svg" />
+    <Content Include="assets\js\mediaelement\controls.png" />
+    <Content Include="assets\js\mediaelement\controls.svg" />
+    <Content Include="assets\js\mediaelement\loading.gif" />
+    <Content Include="assets\js\mediaelement\mediaelement-and-player.min80e2.js" />
+    <Content Include="assets\js\mediaelement\mediaelementplayer.min80e2.css" />
+    <Content Include="assets\js\mediaelement\wp-mediaelement7e2e.css" />
+    <Content Include="assets\js\mediaelement\wp-mediaelement7e2e.js" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\css\stylese248.css" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\js\jquery.form.mina207.js" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\js\scriptse248.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\css\plugins\prettyphoto\prettyPhoto7e2e.css" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\loader.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\jquery.isotope.min4b1d.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\jquery.isotope.perfectmasonry.min7e2e.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\jquery.lazy.load3109.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\jquery.scrollTo.min5f04.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\jquery.utmasonry4b1d.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\plugins\prettyphoto\jquery.prettyPhoto.minc6bd.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\assets\js\ut.effects7e2e.js" />
+    <Content Include="wp-content\plugins\ut-portfolio\i\indexbb14.html" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\font-awesome7e2e.css" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\fonts\fontawesome-webfont1fc6.svg" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\ut-responsive-grid7e2e.css" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\ut.animate7e2e.css" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\jquery.appear5152.js" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\jquery.fitvids4bf4.js" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\jquery.visible.min5152.js" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\plugins\flexslider\jquery.flexslider-min7e2e.js" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\tabs.collapse.min5152.js" />
+    <Content Include="wp-content\plugins\ut-shortcodes\js\ut.scplugin5152.js" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\colord35b.css" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\colorfa51.css" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Light-webfont.svg" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Regular-webfont.svg" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Thin-webfont.svg" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\styleswitcher5152.css" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\ut-fontface5152.css" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\js\styleswitcher5152.js" />
+    <Content Include="wp-content\plugins\ut-twitter\css\ut.twitter7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn.html" />
+    <Content Include="wp-content\themes\brooklyn\css\flexslider7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\flexslider-icon.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-bold-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-extralight-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-light-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-medium-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-regular-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-semibold-webfont.svg" />
+    <Content Include="wp-content\themes\brooklyn\css\ut-fontface7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn\css\ut-superfish7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn\css\ut.portfolio.style7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn\css\ut.shortcode7e2e.css" />
+    <Content Include="wp-content\themes\brooklyn\images\dark-arrows.png" />
+    <Content Include="wp-content\themes\brooklyn\images\divider.png" />
+    <Content Include="wp-content\themes\brooklyn\images\light-arrows.png" />
+    <Content Include="wp-content\themes\brooklyn\images\overlay-pattern.png" />
+    <Content Include="wp-content\themes\brooklyn\images\placeholder\team-member.png" />
+    <Content Include="wp-content\themes\brooklyn\images\ut-mute.png" />
+    <Content Include="wp-content\themes\brooklyn\images\ut-unmute.png" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.easing.min4e44.js" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.fittext.min4963.js" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.mb.YTPlayer.min5152.js" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.parallax.minc358.js" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.queryloader2.minfc99.js" />
+    <Content Include="wp-content\themes\brooklyn\js\jquery.waypoints.min4c56.js" />
+    <Content Include="wp-content\themes\brooklyn\js\modernizr.min61da.js" />
+    <Content Include="wp-content\themes\brooklyn\js\retina.min4963.js" />
+    <Content Include="wp-content\themes\brooklyn\js\superfish.minb34d.js" />
+    <Content Include="wp-content\themes\brooklyn\js\toucheffects.min5152.js" />
+    <Content Include="wp-content\themes\brooklyn\js\ut-initb2da.js" />
+    <Content Include="wp-content\themes\images\loaders\ajax-loader.html" />
+    <Content Include="wp-content\uploads\2013\10\4460269061_8362d93359_z-w200h200.jpg" />
+    <Content Include="wp-content\uploads\2013\10\4460269061_8362d93359_z-w560h420.jpg" />
+    <Content Include="wp-content\uploads\2013\10\4460269061_8362d93359_z.jpg" />
+    <Content Include="wp-content\uploads\2013\10\4460269637_df95de8800_z-w560h420.jpg" />
+    <Content Include="wp-content\uploads\2013\10\4460269637_df95de8800_z.jpg" />
+    <Content Include="wp-content\uploads\2013\10\5475339965_1b042ee67b_z-w200h200.jpg" />
+    <Content Include="wp-content\uploads\2013\10\5475339965_1b042ee67b_z-w560h420.jpg" />
+    <Content Include="wp-content\uploads\2013\10\5475339965_1b042ee67b_z.jpg" />
+    <Content Include="wp-content\uploads\2013\10\6087408780_3b05b8068d_b-w855h425.jpg" />
+    <Content Include="wp-content\uploads\2013\10\6087408780_3b05b8068d_b.jpg" />
+    <Content Include="wp-content\uploads\2013\10\logo1.png" />
+    <Content Include="wp-content\uploads\2013\10\logo2.png" />
+    <Content Include="wp-content\uploads\2013\10\logo3.png" />
+    <Content Include="wp-content\uploads\2013\10\logo4.png" />
+    <Content Include="wp-content\uploads\2013\10\logo5.png" />
+    <Content Include="wp-content\uploads\2013\10\Smart-Computer-Front.png" />
+    <Content Include="wp-content\uploads\2013\11\4877217086_e3fe60fa29_b-w855h425.jpg" />
+    <Content Include="wp-content\uploads\2013\11\5812686238_579c215e66_b-300x201.jpg" />
+    <Content Include="wp-content\uploads\2013\11\5812686238_579c215e66_b.jpg" />
+    <Content Include="wp-content\uploads\2013\11\6192158335_b8df98f254_b-300x201.jpg" />
+    <Content Include="wp-content\uploads\2013\11\6192158335_b8df98f254_b.jpg" />
+    <Content Include="wp-content\uploads\2013\11\brooklyn-logo-light1.png" />
+    <Content Include="wp-content\uploads\2013\11\iMac-Flat-Mockup-300x242.png" />
+    <Content Include="wp-content\uploads\2013\11\iMac-Flat-Mockup.png" />
+    <Content Include="wp-content\uploads\2013\11\originaldixielandjazzbandwithalbernard-stlouisblues.mp3" />
+    <Content Include="wp-content\uploads\2013\12\brooklyn-dark-31.png" />
+    <Content Include="wp-includes\images\smilies\icon_smile.gif" />
+    <Content Include="wp-includes\js\comment-reply.min7e2e.js" />
+    <Content Include="wp-includes\js\jquery\jquery-migrate.min1576.js" />
+    <Content Include="wp-includes\js\jquery\jquery3e5a.js" />
+    <Content Include="wp-includes\js\mediaelement\background.png" />
+    <Content Include="wp-includes\js\mediaelement\bigplay.png" />
+    <Content Include="wp-includes\js\mediaelement\bigplay.svg" />
+    <Content Include="wp-includes\js\mediaelement\controls.png" />
+    <Content Include="wp-includes\js\mediaelement\controls.svg" />
+    <Content Include="wp-includes\js\mediaelement\loading.gif" />
+    <Content Include="wp-includes\js\mediaelement\mediaelement-and-player.min80e2.js" />
+    <Content Include="wp-includes\js\mediaelement\mediaelementplayer.min80e2.css" />
+    <Content Include="wp-includes\js\mediaelement\wp-mediaelement7e2e.css" />
+    <Content Include="wp-includes\js\mediaelement\wp-mediaelement7e2e.js" />
+    <Content Include="wp-includes\wlwmanifest.xml" />
+    <Content Include="assets\fonts\aljazeera-webfont.eot" />
+    <Content Include="assets\fonts\aljazeera-webfont.ttf" />
+    <Content Include="assets\fonts\aljazeera-webfont.woff" />
+    <Content Include="assets\fonts\Al-Jazeera-Arabic-Regular.eot" />
+    <Content Include="assets\fonts\Al-Jazeera-Arabic-Regular.ttf" />
+    <Content Include="assets\fonts\Al-Jazeera-Arabic-Regular.woff" />
+    <Content Include="AdminPanel\MasterPages\Admin.Master" />
+    <Content Include="AdminPanel\MasterPages\AdminDefault.Master" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="fancybox\helpers\Thumbs.db" />
+    <Content Include="fancybox\Thumbs.db" />
+    <Content Include="images\.DS_Store" />
+    <Content Include="images\fancygallery\.DS_Store" />
+    <Content Include="images\fancygallery\hover_icons\Thumbs.db" />
+    <Content Include="images\fancygallery\shadows\Thumbs.db" />
+    <Content Include="js\.DS_Store" />
+    <Content Include="mejs\.DS_Store" />
+    <Content Include="mejs\Thumbs.db" />
+    <Content Include="prettyphoto\images\.DS_Store" />
+    <None Include="Properties\PublishProfiles\alraseelpub.pubxml" />
+    <None Include="Properties\PublishProfiles\alraseelpub_2.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="assets\fonts\fontawesome-webfont1fc6.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont1fc6.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont1fc6.woff" />
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\fonts\fontawesome-webfont1fc6.eot" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\fonts\fontawesome-webfont1fc6.ttf" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\fonts\fontawesome-webfont1fc6.woff" />
+    <Content Include="wp-content\plugins\ut-shortcodes\css\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Light-webfont.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Light-webfont.ttf" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Light-webfont.woff" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Light-webfontd41d.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Regular-webfont.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Regular-webfont.ttf" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Regular-webfont.woff" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Regular-webfontd41d.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Thin-webfont.eot" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Thin-webfont.ttf" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Thin-webfont.woff" />
+    <Content Include="wp-content\plugins\ut-styleswitcher\assets\css\fonts\Roboto-Thin-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\flexslider-icon.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\flexslider-icon.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\flexslider-icon.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\flexslider-icond41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-bold-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-bold-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-bold-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-bold-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-extralight-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-extralight-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-extralight-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-extralight-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-light-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-light-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-light-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-light-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-medium-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-medium-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-medium-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-medium-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-regular-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-regular-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-regular-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-regular-webfontd41d.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-semibold-webfont.eot" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-semibold-webfont.ttf" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-semibold-webfont.woff" />
+    <Content Include="wp-content\themes\brooklyn\css\fonts\raleway-semibold-webfontd41d.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminPanel\404.html" />
+    <Content Include="AdminPanel\500.html" />
+    <Content Include="AdminPanel\Accounts\LogIn.aspx" />
+    <Content Include="AdminPanel\animations.html" />
+    <Content Include="AdminPanel\assets\css\animate-custom.css" />
+    <Content Include="AdminPanel\assets\css\bootstrap.min.css" />
+    <Content Include="AdminPanel\assets\css\icons\flaticons\flaticon.svg" />
+    <Content Include="AdminPanel\assets\css\icons\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="AdminPanel\assets\css\icons\glyphicons\glyphicons_halflings\font\glyphiconshalflings-regular.svg" />
+    <Content Include="AdminPanel\assets\css\icons\icons.min.css" />
+    <Content Include="AdminPanel\assets\css\icons\weather\weatherfont\artill_clean_icons-webfont.html" />
+    <Content Include="AdminPanel\assets\css\icons\zocial\zocial-regular-webfont.svg" />
+    <Content Include="AdminPanel\assets\css\plugins.min.css" />
+    <Content Include="AdminPanel\assets\css\style.min.css" />
+    <Content Include="AdminPanel\assets\img\account\login-logo.png" />
+    <Content Include="AdminPanel\assets\img\account\login-questionmark-icon.png" />
+    <Content Include="AdminPanel\assets\img\account\register-icon.png" />
+    <Content Include="AdminPanel\assets\img\account\user-icon.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar1.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar10.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar10_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar11.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar11_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar12.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar12_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar13.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar13_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar1_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar2.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar2_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar3.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar3_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar4.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar4_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar5.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar5_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar6.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar6_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar7.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar7_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar8.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar8_big.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar9.png" />
+    <Content Include="AdminPanel\assets\img\avatars\avatar9_big.png" />
+    <Content Include="AdminPanel\assets\img\favicon.png" />
+    <Content Include="AdminPanel\assets\img\gallery\animal1.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\animal2.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\animal3.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\animal4.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature1.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature2.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature3.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature4.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature5.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\nature6.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\transport1.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\transport2.jpg" />
+    <Content Include="AdminPanel\assets\img\gallery\transport3.jpg" />
+    <Content Include="AdminPanel\assets\img\gradient-big.png" />
+    <Content Include="AdminPanel\assets\img\gradient.png" />
+    <Content Include="AdminPanel\assets\img\logo.png" />
+    <Content Include="AdminPanel\assets\img\profil_page\construction1.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\construction2.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\construction3.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\construction4.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\me.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\more.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\nature1.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\nature2.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\nature3.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\nature4.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\pics1.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\pics2.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\pics3.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\pics4.jpg" />
+    <Content Include="AdminPanel\assets\img\profil_page\review1.png" />
+    <Content Include="AdminPanel\assets\img\profil_page\review2.png" />
+    <Content Include="AdminPanel\assets\img\small\bars.png" />
+    <Content Include="AdminPanel\assets\img\small\bars_active.png" />
+    <Content Include="AdminPanel\assets\img\small\key_small.png" />
+    <Content Include="AdminPanel\assets\img\small\lines.png" />
+    <Content Include="AdminPanel\assets\img\small\lines_active.png" />
+    <Content Include="AdminPanel\assets\img\small\user_small.png" />
+    <Content Include="AdminPanel\assets\img\various\image_crop1.jpg" />
+    <Content Include="AdminPanel\assets\img\various\image_crop2.jpg" />
+    <Content Include="AdminPanel\assets\img\various\timeline1.jpg" />
+    <Content Include="AdminPanel\assets\img\various\timeline2.jpg" />
+    <Content Include="AdminPanel\assets\img\widgets\compas.png" />
+    <Content Include="AdminPanel\assets\img\widgets\logo-nike.png" />
+    <Content Include="AdminPanel\assets\img\widgets\mountain.jpg" />
+    <Content Include="AdminPanel\assets\img\widgets\pensils.png" />
+    <Content Include="AdminPanel\assets\img\widgets\profil2.jpg" />
+    <Content Include="AdminPanel\assets\img\widgets\profil3.jpg" />
+    <Content Include="AdminPanel\assets\js\account.js" />
+    <Content Include="AdminPanel\assets\js\application.js" />
+    <Content Include="AdminPanel\assets\js\calendar.js" />
+    <Content Include="AdminPanel\assets\js\charts.js" />
+    <Content Include="AdminPanel\assets\js\dashboard.js" />
+    <Content Include="AdminPanel\assets\js\editor.js" />
+    <Content Include="AdminPanel\assets\js\form.js" />
+    <Content Include="AdminPanel\assets\js\form_wizard.js" />
+    <Content Include="AdminPanel\assets\js\gallery.js" />
+    <Content Include="AdminPanel\assets\js\icons.js" />
+    <Content Include="AdminPanel\assets\js\image_croping.js" />
+    <Content Include="AdminPanel\assets\js\mailbox.js" />
+    <Content Include="AdminPanel\assets\js\maps-google.js" />
+    <Content Include="AdminPanel\assets\js\notifications.js" />
+    <Content Include="AdminPanel\assets\js\session_timeout.js" />
+    <Content Include="AdminPanel\assets\js\slider.js" />
+    <Content Include="AdminPanel\assets\js\table_dynamic.js" />
+    <Content Include="AdminPanel\assets\js\table_editable.js" />
+    <Content Include="AdminPanel\assets\js\timeline.js" />
+    <Content Include="AdminPanel\assets\js\tree_view.js" />
+    <Content Include="AdminPanel\assets\js\widgets.js" />
+    <Content Include="AdminPanel\assets\plugins\backstretch\backstretch.min.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-dropdown\bootstrap-hover-dropdown.min.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-progressbar\bootstrap-progressbar.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-select\bootstrap-select.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-slider\bootstrap-slider.css" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-slider\bootstrap-slider.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap-switch\bootstrap-switch.js" />
+    <Content Include="AdminPanel\assets\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="AdminPanel\assets\plugins\breakpoints\breakpoints.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-circliful\css\jquery.circliful.css" />
+    <Content Include="AdminPanel\assets\plugins\charts-circliful\js\jquery.circliful.min.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-d3\d3.v3.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-d3\nv.d3.css" />
+    <Content Include="AdminPanel\assets\plugins\charts-d3\nv.d3.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-flot\jquery.flot.animator.min.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-flot\jquery.flot.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-flot\jquery.flot.resize.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-flot\jquery.flot.time.min.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-morris\morris.min.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-morris\raphael.min.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\css\extensions5e1f.css" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\interp_cardinal.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\interp_linear.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\interp_step.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\offset_pct.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\offset_stack.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\offset_stream.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\offset_value.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\om_bar.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\om_lines.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\om_scatter.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\images\om_stack.png" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\examples\js\extensions.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\rickshaw.css" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Class.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Color.Palette.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Compat.ClassList.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Fixtures.Color.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Fixtures.Number.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Fixtures.RandomData.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Fixtures.Time.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Fixtures.Time.Local.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Annotate.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Axis.Time.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Axis.Y.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Behavior.Series.Highlight.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Behavior.Series.Order.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Behavior.Series.Toggle.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.HoverDetail.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Legend.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.RangeSlider.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.RangeSlider.Preview.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.Area.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.Bar.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.Line.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.ScatterPlot.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Renderer.Stack.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.Graph.Smoother.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\src\js\Rickshaw.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-rickshaw\vendor\d3.v3.js" />
+    <Content Include="AdminPanel\assets\plugins\charts-sparkline\sparkline.min.js" />
+    <Content Include="AdminPanel\assets\plugins\cke-editor\adapters\jquery.js" />
+    <Content Include="AdminPanel\assets\plugins\cke-editor\ckeditor.js" />
+    <Content Include="AdminPanel\assets\plugins\cke-editor\sample.jpg" />
+    <Content Include="AdminPanel\assets\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="AdminPanel\assets\plugins\datatables\dataTables.css" />
+    <Content Include="AdminPanel\assets\plugins\datatables\dataTables.tableTools.css" />
+    <Content Include="AdminPanel\assets\plugins\datatables\dataTables.tableTools.js" />
+    <Content Include="AdminPanel\assets\plugins\datatables\dynamic\jquery.dataTables.min.js" />
+    <Content Include="AdminPanel\assets\plugins\datatables\sort_asc_disabled.png" />
+    <Content Include="AdminPanel\assets\plugins\datatables\sort_desc_disabled.png" />
+    <Content Include="AdminPanel\assets\plugins\datatables\table.editable.html" />
+    <Content Include="AdminPanel\assets\plugins\datetimepicker\jquery.datetimepicker.css" />
+    <Content Include="AdminPanel\assets\plugins\datetimepicker\jquery.datetimepicker.js" />
+    <Content Include="AdminPanel\assets\plugins\dropzone\dropzone.css" />
+    <Content Include="AdminPanel\assets\plugins\dropzone\dropzone.min.js" />
+    <Content Include="AdminPanel\assets\plugins\dropzone\spritemap%402x.png" />
+    <Content Include="AdminPanel\assets\plugins\dropzone\spritemap.png" />
+    <Content Include="AdminPanel\assets\plugins\font-awesome-animation\font-awesome-animation.min.html" />
+    <Content Include="AdminPanel\assets\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="AdminPanel\assets\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="AdminPanel\assets\plugins\fullcalendar\moment.min.js" />
+    <Content Include="AdminPanel\assets\plugins\gallery-mixitup\jquery.mixitup.js" />
+    <Content Include="AdminPanel\assets\plugins\google-maps\gmaps.js" />
+    <Content Include="AdminPanel\assets\plugins\google-maps\markerclusterer.js" />
+    <Content Include="AdminPanel\assets\plugins\icheck\custom.js" />
+    <Content Include="AdminPanel\assets\plugins\icheck\icheck.js" />
+    <Content Include="AdminPanel\assets\plugins\idle-timeout\jquery.idletimeout.js" />
+    <Content Include="AdminPanel\assets\plugins\idle-timeout\jquery.idletimer.js" />
+    <Content Include="AdminPanel\assets\plugins\jcrop\Jcrop.gif" />
+    <Content Include="AdminPanel\assets\plugins\jcrop\jquery.Jcrop.min.css" />
+    <Content Include="AdminPanel\assets\plugins\jcrop\jquery.Jcrop.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jnotify\jNotify.jquery.css" />
+    <Content Include="AdminPanel\assets\plugins\jnotify\jNotify.jquery.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jQRangeSliders\iThing.css" />
+    <Content Include="AdminPanel\assets\plugins\jQRangeSliders\jQAllRangeSliders-min.js" />
+    <Content Include="AdminPanel\assets\plugins\jQRangeSliders\jQAllRangeSliders-withRuler-min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-1.11.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\canvas-to-blob.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\css\jquery.fileupload.css" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\img\loading.gif" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\jquery.blueimp-gallery.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\main.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\load-image.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-file-upload\tmpl.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-migrate-1.2.1.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-steps\jquery.steps.css" />
+    <Content Include="AdminPanel\assets\plugins\jquery-steps\jquery.steps.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-ui-touch-punch\jquery.ui.touch-punch.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-ui\jquery-ui-1.10.4.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-validation\additional-methods.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jquery-validation\jquery.validate.min.js" />
+    <Content Include="AdminPanel\assets\plugins\jstree\jstree.dnd.js" />
+    <Content Include="AdminPanel\assets\plugins\jstree\jstree.js" />
+    <Content Include="AdminPanel\assets\plugins\jstree\jstree.types.js" />
+    <Content Include="AdminPanel\assets\plugins\jstree\src\themes\default\32px.png" />
+    <Content Include="AdminPanel\assets\plugins\jstree\src\themes\default\40px.png" />
+    <Content Include="AdminPanel\assets\plugins\jstree\src\themes\default\style.css" />
+    <Content Include="AdminPanel\assets\plugins\jstree\src\themes\default\throbber.gif" />
+    <Content Include="AdminPanel\assets\plugins\magnific\jquery.magnific-popup.min.js" />
+    <Content Include="AdminPanel\assets\plugins\magnific\magnific-popup.css" />
+    <Content Include="AdminPanel\assets\plugins\mcustom-scrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="AdminPanel\assets\plugins\metrojs\images\metroIcons.jpg" />
+    <Content Include="AdminPanel\assets\plugins\metrojs\images\metroIcons_light.jpg" />
+    <Content Include="AdminPanel\assets\plugins\metrojs\metrojs.css" />
+    <Content Include="AdminPanel\assets\plugins\metrojs\metrojs.min.js" />
+    <Content Include="AdminPanel\assets\plugins\mmenu\js\jquery.mmenu.min.all.js" />
+    <Content Include="AdminPanel\assets\plugins\modal\css\component.css" />
+    <Content Include="AdminPanel\assets\plugins\modal\js\classie.js" />
+    <Content Include="AdminPanel\assets\plugins\modal\js\modalEffects.js" />
+    <Content Include="AdminPanel\assets\plugins\modernizr\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="AdminPanel\assets\plugins\nestable\jquery.nestable.js" />
+    <Content Include="AdminPanel\assets\plugins\nprogress\nprogress.js" />
+    <Content Include="AdminPanel\assets\plugins\numerator\jquery-numerator.js" />
+    <Content Include="AdminPanel\assets\plugins\parsley\parsley.extend.js" />
+    <Content Include="AdminPanel\assets\plugins\parsley\parsley.js" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\picker.date.js" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\picker.js" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\picker.time.js" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\themes\default.css" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\themes\default.date.css" />
+    <Content Include="AdminPanel\assets\plugins\pickadate\themes\default.time.css" />
+    <Content Include="AdminPanel\assets\plugins\quicksearch\jquery.quicksearch.js" />
+    <Content Include="AdminPanel\assets\plugins\simple-weather\jquery.simpleWeather.min.js" />
+    <Content Include="AdminPanel\assets\plugins\sortable\jquery-sortable.js" />
+    <Content Include="AdminPanel\assets\plugins\summernote\summernote.css" />
+    <Content Include="AdminPanel\assets\plugins\summernote\summernote.min.js" />
+    <Content Include="AdminPanel\assets\plugins\visible\jquery.visible.js" />
+    <Content Include="AdminPanel\assets\plugins\wizard\folder.png" />
+    <Content Include="AdminPanel\assets\plugins\wizard\groups.png" />
+    <Content Include="AdminPanel\assets\plugins\wizard\server_new.png" />
+    <Content Include="AdminPanel\assets\plugins\wizard\wizard.css" />
+    <Content Include="AdminPanel\assets\plugins\wizard\wizard.js" />
+    <Content Include="AdminPanel\blank_page.html" />
+    <Content Include="AdminPanel\blog-list.html" />
+    <Content Include="AdminPanel\blog-single-2.html" />
+    <Content Include="AdminPanel\blog-single.html" />
+    <Content Include="AdminPanel\buttons.html" />
+    <Content Include="AdminPanel\calendar.html" />
+    <Content Include="AdminPanel\charts.html" />
+    <Content Include="AdminPanel\components.html" />
+    <Content Include="AdminPanel\Default.aspx" />
+    <Content Include="AdminPanel\email_compose.html" />
+    <Content Include="AdminPanel\extra_profile.html" />
+    <Content Include="AdminPanel\file_upload.html" />
+    <Content Include="AdminPanel\forms.html" />
+    <Content Include="AdminPanel\form_validation.html" />
+    <Content Include="AdminPanel\form_wizards.html" />
+    <Content Include="AdminPanel\gallery.html" />
+    <Content Include="AdminPanel\icons.html" />
+    <Content Include="AdminPanel\image_croping.html" />
+    <Content Include="AdminPanel\index_.html" />
+    <Content Include="AdminPanel\lockscreen.html" />
+    <Content Include="AdminPanel\login.html" />
+    <Content Include="AdminPanel\mailbox.html" />
+    <Content Include="AdminPanel\maps.html" />
+    <Content Include="AdminPanel\medias.html" />
+    <Content Include="AdminPanel\modals.html" />
+    <Content Include="AdminPanel\nestable-list.html" />
+    <Content Include="AdminPanel\notifications.html" />
+    <Content Include="AdminPanel\panels.html" />
+    <Content Include="AdminPanel\panels_draggable.html" />
+    <Content Include="AdminPanel\password_forgot.html" />
+    <Content Include="AdminPanel\PHPArab.Net.txt" />
+    <Content Include="AdminPanel\profil.html" />
+    <Content Include="AdminPanel\session_timeout.html" />
+    <Content Include="AdminPanel\signup.html" />
+    <Content Include="AdminPanel\sliders.html" />
+    <Content Include="AdminPanel\tables.html" />
+    <Content Include="AdminPanel\tables_dynamic.html" />
+    <Content Include="AdminPanel\tables_editable.html" />
+    <Content Include="AdminPanel\tabs_accordion.html" />
+    <Content Include="AdminPanel\timeline.html" />
+    <Content Include="AdminPanel\tree.html" />
+    <Content Include="AdminPanel\typography.html" />
+    <Content Include="AdminPanel\widgets.html" />
+    <Content Include="AdminPanel\wysiwyg.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminPanel\Accounts\LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\Accounts\LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AboutUsList.aspx.cs">
+      <DependentUpon>AboutUsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AboutUsList.aspx.designer.cs">
+      <DependentUpon>AboutUsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AboutUsManagement.aspx.cs">
+      <DependentUpon>AboutUsManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AboutUsManagement.aspx.designer.cs">
+      <DependentUpon>AboutUsManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AlbumImagesGallery.aspx.cs">
+      <DependentUpon>AlbumImagesGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\AlbumImagesGallery.aspx.designer.cs">
+      <DependentUpon>AlbumImagesGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ContactList.aspx.cs">
+      <DependentUpon>ContactList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ContactList.aspx.designer.cs">
+      <DependentUpon>ContactList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ContactManagement.aspx.cs">
+      <DependentUpon>ContactManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ContactManagement.aspx.designer.cs">
+      <DependentUpon>ContactManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductAlbumsList.aspx.cs">
+      <DependentUpon>ProductAlbumsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductAlbumsList.aspx.designer.cs">
+      <DependentUpon>ProductAlbumsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductAlbumsManagement.aspx.cs">
+      <DependentUpon>ProductAlbumsManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductAlbumsManagement.aspx.designer.cs">
+      <DependentUpon>ProductAlbumsManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductImagesGallery.aspx.cs">
+      <DependentUpon>ProductImagesGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductImagesGallery.aspx.designer.cs">
+      <DependentUpon>ProductImagesGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductImagesGalleryMaster.aspx.cs">
+      <DependentUpon>ProductImagesGalleryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductImagesGalleryMaster.aspx.designer.cs">
+      <DependentUpon>ProductImagesGalleryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductManagement.aspx.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\ProductManagement.aspx.designer.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\SocialLinkList.aspx.cs">
+      <DependentUpon>SocialLinkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\SocialLinkList.aspx.designer.cs">
+      <DependentUpon>SocialLinkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\SocialLinkManagement.aspx.cs">
+      <DependentUpon>SocialLinkManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\SocialLinkManagement.aspx.designer.cs">
+      <DependentUpon>SocialLinkManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainPages\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MasterPages\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MasterPages\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MasterPages\AdminDefault.Master.cs">
+      <DependentUpon>AdminDefault.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MasterPages\AdminDefault.Master.designer.cs">
+      <DependentUpon>AdminDefault.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\Programatics\MangeBackend.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\Default_en.aspx.cs">
+      <DependentUpon>Default_en.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\Default_en.aspx.designer.cs">
+      <DependentUpon>Default_en.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\ProductDetails_en.aspx.cs">
+      <DependentUpon>ProductDetails_en.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\ProductDetails_en.aspx.designer.cs">
+      <DependentUpon>ProductDetails_en.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\WebUi.Master.cs">
+      <DependentUpon>WebUi.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\WebUi.Master.designer.cs">
+      <DependentUpon>WebUi.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\WebUi_Ar.Master.cs">
+      <DependentUpon>WebUi_Ar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\WebUi_Ar.Master.designer.cs">
+      <DependentUpon>WebUi_Ar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="en\Pages_ar\" />
+    <Folder Include="Files\Pages\" />
+    <Folder Include="Files\ProductAlbums\" />
+    <Folder Include="Files\Products\" />
+    <Folder Include="Models\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlRaseel.Data.DAL\AlRaseel.Data.DAL.csproj">
+      <Project>{fd54d5c0-20fe-43e0-9aa0-5146c65a922c}</Project>
+      <Name>AlRaseel.Data.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20060</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20091/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

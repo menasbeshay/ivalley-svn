@@ -1,0 +1,96 @@
+﻿body
+{
+    font-family: Arial;
+    font-size: 14px;
+}
+#dvMain
+{
+    width: 800px;
+    margin: auto;
+}
+.tdData
+{
+    font-weight: normal;
+}
+.tdTitle
+{
+    font-weight: bold;
+    font-size: 13px;
+}
+.tdsubTitle
+{
+    font-weight: bold;
+    font-size: 11px;
+}
+.dvTest
+{
+    float: left;
+    width: 700px;
+    text-align: justify;
+    padding-right: 10px;
+}
+.lblTitle
+{
+    font-weight: bold;
+    font-size: 13px;
+    display: block;
+    float: left;
+}
+.lbldata
+{
+    display: block;
+    float: left;
+    width: 550PX;
+}
+
+.csshr
+{
+    width: 100%;
+    height: 1px;
+    background-color: Gray;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.tblReport
+{
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #989898;
+    line-height: 20px;
+}
+.tblReport td
+{
+    padding: 4px 10px 4px 10px;
+    border-right: solid 1px #cbcbcb;
+}
+td.Name
+{
+    width: 85px;
+    display: block;
+}
+.headerstyle
+{
+    background: url(img/sprite.png) repeat-x 0px 0px;
+    border-color: #989898 #cbcbcb #989898 #989898;
+    border-style: solid solid solid solid;
+    border-width: 1px 1px 1px 1px;
+    color: #000;
+    padding: 4px 5px 4px 10px;
+    text-align: center;
+    vertical-align: bottom;
+}
+.footerstyle
+{
+    background: url(img/sprite.png) repeat-x 0px 0px;
+    border-color: #989898 #cbcbcb #989898 #989898;
+    border-style: solid solid solid solid;
+    border-width: 1px 1px 1px 1px;
+    color: #000;
+    padding: 4px 5px 4px 10px;
+    text-align: center;
+    vertical-align: bottom;
+    border-top: 1px solid #989898;
+}
+

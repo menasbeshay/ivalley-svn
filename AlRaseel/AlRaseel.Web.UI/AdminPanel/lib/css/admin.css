@@ -1,0 +1,1179 @@
+﻿body
+{
+    background-color: #333 font-size: .80em;
+    font-family: "Helvetica Nueu" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    color: #696969;
+}
+
+
+.tablepadding
+{
+    padding-top: 10px;
+}
+
+.tbltab
+{
+    padding: 20px;
+    padding-bottom: 15px;
+}
+.tblInsidetab
+{
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+.dvtabPageContent
+{
+    margin-top: 5px;
+}
+.tableLogin td
+{
+    padding-bottom: 5px;
+}
+.reqstar
+{
+    color: Red;
+}
+.ajax__validatorcallout_error_message_cell
+{
+    font-weight: normal;
+}
+.rad label
+{
+    padding: 3px;
+    font-size: 12px;
+}
+.Check label
+{
+    padding: 3px;
+    font-size: 12px;
+}
+.rdbtn label
+{
+    padding: 4px;
+    font-size: 12px;
+}
+.tdbtns input
+{
+    float: right;
+    margin-left: 1px;
+}
+.tblMain
+{
+    width: 100%;
+    color: #333333;
+    font-weight: bold;
+    font-size: 13px;
+}
+.tblMain td
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.tblwithoutborder
+{
+    width: 100%;
+    color: #333333;
+    font-weight: bold;
+    font-size: 13px;
+}
+.tblwithoutborder td
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.ajax__fileupload_selectFileButton
+{
+    font-size: 12px;
+}
+.tblMain tr
+{
+    border-bottom: 1px dotted #c8ccce;
+}
+.tblMain tr:last-child
+{
+    border-bottom: 0px;
+}
+.tblMain tr:last-child td
+{
+    padding-top: 5px;
+}
+.text
+{
+    width: 300px;
+    height: 13px;
+    margin-bottom: 2px;
+    color: #555555;
+    border: 1px solid #a8abba;
+    padding: 9px 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    background-color: #dddde0;
+}
+.textSmall
+{
+    width: 100px;
+    height: 15px;
+    margin-bottom: 2px;
+    color: #555555;
+    border: 1px solid #a8abba;
+    padding: 2px 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    background-color: #dddde0;
+}
+.drpBunding
+{
+    width: 212px;
+}
+.txtmult
+{
+    width: 200px;
+    height: 80px;
+    margin-bottom: 2px;
+    color: #555555;
+    border: 1px solid #a8abba;
+    padding: 9px 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    background-color: #dddde0;
+}
+.highlight
+{
+    border: 2px solid #b94a48;
+    border-color: #b94a48;
+    background-color: White;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+.msg-success
+{
+    background-position: 5px center;
+    width: 100%;
+    display: block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #fbeed5 display: block;
+    margin-bottom: 10px;
+    background-color: #dff0d8;
+    background-position: 5px center;
+    border-color: #d6e9c6;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-image: url('../img/icon-success.png');
+    background-repeat: no-repeat;
+}
+.msg-success span
+{
+    color: #468847;
+    display: block;
+    padding: 4px 0px 4px 40px;
+}
+.msg-error
+{
+    width: 100%;
+    display: block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #fbeed5 display: block;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    background-image: url('../img/ErrorIcon.png');
+    background-repeat: no-repeat;
+    background-position: 5px center;
+}
+.msg-error span
+{
+    color: #b94a48;
+    display: block;
+    padding: 4px 0px 4px 40px;
+}
+.drplist
+{
+    float: left;
+    width: 105px;
+    background-color: #fff; /*   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));     background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);     background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 50%);     background-image: -o-linear-gradient(bottom, #eeeeee 0%, #ffffff 50%);     background-image: -ms-linear-gradient(top, #eeeeee 0%, #ffffff 50%);     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#ffffff', GradientType = 0);     background-image: linear-gradient(top, #eeeeee 0%, #ffffff 50%);     -webkit-border-radius: 4px;     -moz-border-radius: 4px;     border-radius: 4px;*/
+    border: 1px solid;
+    border-color: #a8abba #a8abba #c5c7d2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    display: block;
+    margin-right: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+    padding: 3px 3px 3px 3px;
+    color: #555;
+    text-decoration: none;
+}
+.drpRecords
+{
+    width: 170px;
+    margin-left: 10px;
+}
+.lblSearch
+{
+    float: right;
+    padding-right: 10px;
+    line-height: 25px;
+    color: #333333;
+    font-size: 13px;
+    font-weight: normal;
+}
+.txtSearch
+{
+    display: inline-block;
+    height: 13px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 150px;
+    color: #555555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    float: right;
+}
+.btnpatient
+{
+    display: inline-block;
+    height: 24px;
+    padding: 0px 20px 0px 20px;
+    margin: 0px 10px 0px 10px;
+    font-size: 13px;
+    color: White;
+    background-color: #6cc8bd;
+    vertical-align: middle;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btnNext
+{
+    height: 24px;
+    margin: 0px 10px 0px 0px;
+    font-size: 13px;
+    width: 100px;
+    color: White;
+    float: right;
+    cursor: pointer;
+    background-image: url('../img/btnNext.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: middle;
+}
+.btnPrev
+{
+    height: 24px;
+    margin: 0px 0px 0px 10px;
+    font-size: 13px;
+    width: 100px;
+    color: White;
+    float: left;
+    cursor: pointer;
+    background-image: url('../img/btnprev.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: middle;
+}
+.btnpatient:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: #296025;
+    text-decoration: none;
+}
+.btnNext:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: #296025;
+}
+.btnPrev:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: #296025;
+}
+.GridHeaderCell
+{
+    background-color: Red;
+}
+.drp
+{
+    width: 240px;
+    height: 34px;
+    overflow: hidden;
+    background: url(new_arrow.png) no-repeat right #ddd;
+    border: 1px solid #ccc;
+}
+
+.dvPageContent
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 18px;
+    padding: 15px;
+    overflow-x: hidden;
+    border-radius: 15px;
+    background-color: #F5F6F9;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border: 1px solid #FFFFFF;
+}
+
+.tdMainTitle
+{
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 28px;
+    display: block;
+    float: left;
+}
+.tdPageTitle
+{
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    display: block;
+    float: left;
+}
+.tdPageSubTitle
+{
+    color: #3399ff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    display: block;
+    float: left;
+}
+.imgIcon
+{
+    padding-right: 10px;
+    float: left;
+}
+.section-Header
+{
+    padding: 9px 0;
+    margin: 0;
+    font-size: 18px;
+    line-height: 20px;
+    color: #3399ff;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 10px;
+}
+.secDes
+{
+    color: #75788b;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    font-size: 14px;
+    line-height: 15px;
+    margin-bottom: 10px;
+}
+.original-title
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    color: #222;
+    cursor: help;
+}
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background: #4b6c9e;
+    width: 100%;
+}
+
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color: #3a4f63;
+    width: 100%;
+}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline
+{
+    display: inline;
+}
+
+legend
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.drplst
+{
+    width: 130px;
+    vertical-align: middle;
+    background-color: #F5F5F5; /* background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);*/
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #A2A2A2;
+    border-image: none;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+}
+.TitlePragragh
+{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333;
+    border: 0;
+}
+.TitleDesc
+{
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #999999;
+    font-size: 13px;
+}
+.logintxt
+{
+    color: #bbb;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 1);
+}
+#dvTableCountry
+{
+    padding-top: 15px;
+    background-color: White;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#dvChangePassword
+{
+    padding-top: 150px;
+    padding-left: 300px;
+}
+.ErrorControl
+{
+    background-color: #FBE3E4;
+    border: solid 1px Red;
+}
+.tbPassword
+{
+    background-color: #f6f7fe;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.lblcontrol
+{
+    display: block;
+    min-height: 17px;
+    font-weight: bold;
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+}
+.txtError
+{
+    min-height: 15px;
+    padding: 9px 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 18px;
+    padding-left: 10px;
+    color: #3399ff;
+}
+.trbordersolid
+{
+    margin-bottom: 8PX;
+    border-bottom: 1px solid #c8ccce;
+}
+.trborderdotted
+{
+    margin-bottom: 8PX;
+    border-bottom: 1px dotted #c8ccce;
+}
+#dvLogin
+{
+    background: #e3e3e3;
+    border: 8px solid #f1efef;
+    box-shadow: 4px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    -moz-box-shadow: 1px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    -webkit-box-shadow: 1px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    width: 340px;
+    margin: 100px auto 0;
+    padding: 20px;
+}
+#dvforgetpassword
+{
+    background: #e3e3e3;
+    border: 8px solid #f1efef;
+    box-shadow: 4px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    -moz-box-shadow: 1px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    -webkit-box-shadow: 1px 0 1px #fff,0 0 3px rgba(0,0,0,0.2) inset;
+    width: 350px;
+    margin: 100px auto 0;
+    padding: 20px;
+}
+.tdLogin
+{
+    color: #868686;
+    font-size: 12px;
+}
+a.btnlogin
+{
+    color: White;
+}
+.addnew
+{
+    height: 28px;
+    display: block;
+    cursor: pointer;
+    float: right;
+    text-align: center;
+    color: White;
+    line-height: 28px;
+    font-size: 13px;
+    vertical-align: middle;
+    border-bottom: 1px solid #64be5a;
+    background-color: #3b4042;
+    background-repeat: repeat-x;
+    z-index: 1000;
+    color: White;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: linear-gradient(to bottom, #88b6b0, #a5dad2);
+}
+a.addnew:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: White;
+}
+
+.btncss
+{
+    vertical-align: middle;
+    display: block;
+    cursor: pointer;
+    float: right;
+    text-align: center;
+    color: White;
+    font-size: 13px;
+    border-bottom: 1px solid #64be5a;
+    background-color: #3b4042;
+    background-repeat: repeat-x;
+    z-index: 1000;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    background-image: linear-gradient(to bottom, #88b6b0, #a5dad2);
+}
+.btncss:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: #296025;
+}
+
+a.btnLogin:hover
+{
+    opacity: .8;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: #fff;
+}
+
+.btnLogin
+{
+    height: 34px;
+    display: block;
+    text-align: center;
+    color: White;
+    line-height: 30px;
+    font-size: 13px;
+    vertical-align: middle;
+    width: 100%;
+    border-bottom: 1px solid #64be5a;
+    background-color: #3b4042;
+    background-repeat: repeat-x;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: White;
+    background-image: linear-gradient(to bottom, #88b6b0, #a5dad2);
+}
+.btnLogin:hover
+{
+    opacity: .8;
+    color: #fff;
+}
+.txtLogin
+{
+    border: 1px solid #ddd;
+    box-shadow: 0 0 3px rgba(0,0,0,0.17) inset;
+    transition: border .2s linear 0s,box-shadow .2s linear 0s;
+    border-radius: 0 !important;
+    padding: 4px 5px;
+    width: 150px;
+    line-height: 30px;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}
+.loginIcon
+{
+    width: 16px;
+    height: 18px;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+.dvBtnSave
+{
+    padding-right: 30px;
+    padding-top: 10px;
+    height: 50px;
+    background-color: #F5F6F9;
+}
+.textforget
+{
+   border: 1px solid #ddd;
+    box-shadow: 0 0 3px rgba(0,0,0,0.17) inset;
+    transition: border .2s linear 0s,box-shadow .2s linear 0s;
+    border-radius: 0 !important;
+    padding: 4px 5px;
+    width: 175px;
+    line-height: 30px;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}
+/* Tab Ajax Theme*/
+.ajax__tab_container ajax__tab_default
+{
+    padding-right: 10px;
+}
+.ajax__tab_default .ajax__tab_header span
+{
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.ajax__tab_header .ajax__tab_outer
+{
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-left: -2px;
+    margin-right: -3px;
+    padding-bottom: 5px;
+    color: #333;
+}
+.ajax__tab_header .ajax__tab_inner
+{
+    border-color: transparent;
+    color: #333;
+    padding: 10px 10px 2px 0px;
+}
+.ajax__tab_active span
+{
+    color: #3399ff;
+}
+.ajax__tab_panel
+{
+    padding-bottom: 15px;
+}
+.ajax__tab_hover .ajax__tab_outer
+{
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #F5F6F9;
+}
+.ajax__tab_hover .ajax__tab_inner
+{
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #F5F6F9;
+}
+.ajax__tab_active .ajax__tab_outer
+{
+    color: #3399ff;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #F5F6F9;
+    border-bottom-color: transparent;
+}
+.ajax__tab_active .ajax__tab_inner
+{
+    color: #3399ff;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #F5F6F9;
+}
+.ajax__tab_body
+{
+    background-color: #F5F6F9;
+    border-width: 0 1px 1px 1px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+}
+/*End Tab Ajax Theme*/
+
+/*Calender*/
+.ajax__calendar_container TR
+{
+    border-bottom: 0px dotted #c8ccce;
+    font-size: 11px;
+}
+.ajax__calendar_container TD
+{
+    padding: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    font-size: 11px;
+}
+.ajax__calendar .ajax__calendar_day
+{
+    border: 0px solid #ffffff;
+}
+.ajax__calendar .ajax__calendar_dayname
+{
+    border-bottom: 0px solid #f5f5f5;
+}
+/*End Calender*/
+#dvlock
+{
+    width: 100px;
+    float: left;
+    margin-top: 28px;
+    font-size: 110px;
+    vertical-align: middle;
+}
+a, a:hover
+{
+    text-shadow: none !important;
+    color: #22878E;
+}
+.tdHeader
+{
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 10px;
+    height: 30px;
+    display: block;
+    color: #868686;
+    font-size: 17.5px;
+}
+.tdHeader2
+{
+    margin-bottom: 10px;
+    height: 25px;
+    display: block;
+    border-bottom: 1px solid #bbb;
+    font-size: 17.5px;
+    text-align:right;
+}
+#dvLoginControls
+{
+}
+.icon-user
+{
+    background-position: -168px 0;
+}
+.icon-key:before
+{
+    content: "\f084";
+}
+.Check tr
+{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+.Check td
+{
+    padding: 5px;
+    margin: 0px;
+    border: 0px;
+}
+.Check tr:last-child td
+{
+    padding: 5px;
+}
+.txteditor
+{
+    width: 500px;
+    height: 300px;
+}
+.moBeBrand.DataBackground
+{
+    background-color: gray;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+.lnkpopup
+{
+    margin-right: 10px;
+    padding: 0px;
+    cursor: pointer;
+}
+.dvNames
+{
+    position: absolute;
+    z-index: -10px;
+}
+.aligncenter
+{
+    text-align:center;
+}
+.TapContent
+{
+    background-color:transparent;
+}

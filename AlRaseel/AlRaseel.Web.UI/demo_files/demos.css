@@ -1,0 +1,54 @@
+/*
+ * This CSS is only used for the demo pages.
+ * This is not a requirement for Boutique work
+ */
+
+body{ margin:0; background:#dccfc4 url(images/bg.jpg); font:14px sans-serif; color:#444; text-shadow:0 0 1px #dccfc4; line-height:21px }
+body.two{ background:#f5f5f5 url(images/bg2.gif) }
+#content, .content{ width:800px; margin:0 auto; padding:10px 0 100px; position:relative }
+h1{ font:normal 112px 'Josefin Sans Std Light',serif; margin:20px 0 30px; white-space:nowrap; text-align:center }
+.two h1{ color:#ccc }
+h2{ font:normal 28px sans-serif; margin:30px 0 10px }
+.two h2{ margin-bottom:5px }
+#right{ float:right; width:380px; margin-left:40px; margin-bottom:30px }
+.code{ font:13px monospace; background:#eee3db; padding:10px 15px; white-space:nowrap }
+.tab{ margin-left:30px }
+.comment{ font-weight:bold; color:#bf2323 }
+#noscript, #alert{ padding:10px 15px; border:2px solid #444 }
+#alert{ border:0; background:#fff; color:#000; opacity:0.4; filter:alpha(opacity=40); display:none }
+#alert0{ margin:10px 0 10px }
+#footer{ border-top:1px solid #444; margin-top:50px; padding-top:20px; clear:both; font-style:italic }
+a{ color:#bf2323; text-decoration:none }
+a:hover{ text-decoration:underline }
+a.backtotop{ display:block; text-align:right }
+
+a.tab_out, span.tab_act, label.tab_inactive{ float:left; display:block; border:1px solid #444; border-bottom:0; margin:30px 0 0 10px; padding:6px 12px; position:relative; bottom:-1px;
+	-moz-border-radius:8px 8px 0 0; -webkit-border-radius:8px 8px 0 0; border-radius:6px 6px 0 0 }
+.two a.tab_out, .two span.tab_act, .two label.tab_inactive, .two div#undertabs{ border-color:#ccc }
+span.tab_act{ border-bottom:1px solid #dccfc4; background:none }
+label.tab_inactive{ background:none; opacity:0.3; filter:alpha(opacity=30) }
+div#undertabs{ border-top:1px solid #444; clear:both; margin:0 }
+body.two span.tab_act{ border-bottom-color:#efefef }
+body.two a{ color:#3e83c9 }
+
+.list{ margin:15px 0 0; border-collapse:collapse; width:100% }
+.list th{ font-style:italic; font-weight:normal; text-align:left }
+.list td{ vertical-align:top; padding:5px 20px 5px 10px; border:1px solid #999; background:#eee3db }
+.list .option{ font-weight:bold }
+.list .default{ padding-right:0 }
+.list tr:hover td{ background:#fff }
+
+#controls{ display:none; position:absolute; right:0; top:150px; width:200px; background:#ece0d9 }
+#controls h3{ margin-top:0 }
+#controls_inner{ padding:15px 18px }
+#controls_button{ position:absolute; left:-20px; width:20px; height:50px; background:#ece0d9; cursor:pointer;
+	-webkit-border-radius: 6px 0 0 6px; -moz-border-radius: 6px 0 0 6px; border-radius: 6px 0 0 6px }
+#controls_button div{ padding:14px 0 0 7px; color:#b9a79d }
+
+#contentdiv{ background:#fff; border:1px solid #d5d5d5; border-width:0 1px 1px 0 }
+#contentdiv h2{ margin-top:0 }
+#contentdiv div{ padding:30px }
+
+#prev, #next{ position:absolute; top:125px; cursor:pointer }
+#prev{ left:-50px }
+#next{ right:-50px }
