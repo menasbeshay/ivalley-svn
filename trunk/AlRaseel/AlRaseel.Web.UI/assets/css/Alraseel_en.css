@@ -1,0 +1,819 @@
+﻿
+::-moz-selection {
+    background: #7e2e30;
+}
+
+::selection {
+    background: #7e2e30;
+}
+
+a, .ha-transparent #navigation ul li a:hover {
+    color: #7e2e30;
+}
+
+.ut-language-selector a:hover {
+    color: #7e2e30;
+}
+
+.ut-custom-icon-link:hover i {
+    color: #7e2e30 !important;
+}
+
+.ut-hide-member-details:hover, #ut-blog-navigation a:hover, .light .ut-hide-member-details, .ut-mm-button:hover:before, .ut-mm-trigger.active .ut-mm-button:before, .ut-mobile-menu a:after {
+    color: #7e2e30;
+}
+
+p.lead span, .entry-title span, #cancel-comment-reply-link, .member-description-style-3 .ut-member-title, .ut-twitter-rotator h2 a, .themecolor {
+    color: #7e2e30;
+}
+
+.icons-ul i, .comments-title span, .member-social a:hover, .ut-parallax-quote-title span, .ut-member-style-2 .member-description .ut-member-title {
+    color: #7e2e30;
+}
+
+.about-icon, .ut-skill-overlay, .ut-dropcap-one, .ut-dropcap-two, .ut-mobile-menu a:hover, .themecolor-bg, .ut-btn.ut-pt-btn:hover, .ut-btn.dark:hover {
+    background: #7e2e30;
+}
+
+blockquote, div.wpcf7-validation-errors, .ut-hero-style-5 .hero-description, #navigation ul.sub-menu, .ut-member-style-3 .member-social a:hover {
+    border-color: #7e2e30;
+}
+
+.cta-section, .ut-btn.theme-btn, .ut-social-link:hover .ut-social-icon, .ut-member-style-2 .ut-so-link:hover {
+    background: #7e2e30 !important;
+}
+
+.ut-social-title, .ut-service-column h3 span, .ut-rq-icon {
+    color: #7e2e30;
+}
+
+.count, .ut-icon-list i {
+    color: #7e2e30;
+}
+
+.client-section, .ut-portfolio-pagination.style_two a.selected:hover, .ut-portfolio-pagination.style_two a.selected, .ut-portfolio-pagination.style_two a:hover, .ut-pt-featured {
+    background: #7e2e30 !important;
+}
+
+ins, mark, .ut-alert.themecolor, .ut-portfolio-menu.style_two li a:hover, .ut-portfolio-menu.style_two li a.selected {
+    background: #7e2e30;
+}
+
+.footer-content i {
+    color: #7e2e30;
+}
+
+.copyright a:hover, .footer-content a:hover, .toTop:hover, .ut-footer-dark a.toTop:hover, .hero-title span {
+    color: #7e2e30;
+}
+
+blockquote span {
+    color: #7e2e30;
+}
+
+.entry-meta a:hover, #secondary a:hover, .page-template-templatestemplate-archive-php a:hover {
+    color: #7e2e30;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .ut-header-dark .site-logo .logo a:hover {
+    color: #7e2e30;
+}
+
+a.more-link:hover, .fa-ul li .fa {
+    color: #7e2e30;
+}
+
+.ut-pt-featured-table .ut-pt-info .fa-li {
+    color: #7e2e30 !important;
+}
+
+.button, input[type="submit"], input[type="button"], .dark button, .dark input[type="submit"], .dark input[type="button"], .light .button, .light input[type="submit"], .light input[type="button"] {
+    background: #7e2e30;
+}
+
+.img-hover {
+    background: rgb(255,110,0);
+    background: rgba(255,110,0, 0.85);
+}
+
+.portfolio-caption {
+    background: rgb(255,110,0);
+    background: rgba(255,110,0, 0.85);
+}
+
+.team-member-details {
+    background: rgba(255,110,0, 0.85 );
+}
+
+.ut-avatar-overlay {
+    background: rgb(255,110,0);
+    background: rgba(255,110,0, 0.85 );
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-current, .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current, .format-link .entry-header a {
+    background: #7e2e30 !important;
+}
+
+.light .ut-portfolio-menu li a:hover, .light .ut-portfolio-pagination a:hover, .light .ut-nav-tabs li a:hover, .light .ut-accordion-heading a:hover {
+    border-color: #7e2e30 !important;
+}
+
+.light .ut-portfolio-menu li a:hover, .light .ut-portfolio-pagination a:hover, .ut-portfolio-list li strong, .light .ut-nav-tabs li a:hover, .light .ut-accordion-heading a:hover, .ut-custom-icon a:hover i:first-child {
+    color: #7e2e30 !important;
+}
+
+.ut-portfolio-gallery-slider .flex-direction-nav a, .ut-gallery-slider .flex-direction-nav a, .ut-rotate-quote-alt .flex-direction-nav a, .ut-rotate-quote .flex-direction-nav a {
+    background: rgb(255,110,0);
+    background: rgba(255,110,0, 0.85);
+}
+
+.light .ut-bs-wrap .entry-title a:hover, .light .ut-bs-wrap a:hover .entry-title {
+    color: #7e2e30;
+}
+
+.js #main-content section .section-content, .js #main-content section .section-header-holder {
+    opacity: 0;
+}
+
+#navigation {
+    font-family: "ralewaysemibold", Helvetica, Arial, sans-serif !important;
+}
+
+    #navigation li a:hover {
+        color: #7e2e30;
+    }
+
+    #navigation .selected, #navigation ul li.current_page_parent a.active, #navigation ul li.current-menu-ancestor a.active {
+        color: #7e2e30;
+    }
+
+    #navigation ul li a:hover, #navigation ul.sub-menu li a:hover {
+        color: #7e2e30;
+    }
+
+    #navigation ul.sub-menu li > a {
+        color: #999999;
+    }
+
+    #navigation ul li.current-menu-item:not(.current_page_parent) a, #navigation ul li.current_page_item:not(.current_page_parent) a {
+        color: #7e2e30;
+    }
+
+    #navigation ul li.current-menu-item:not(.current_page_parent) .sub-menu li a {
+        color: #999999;
+    }
+
+.ut-header-dark #navigation li a:hover {
+    color: #7e2e30;
+}
+
+.ut-header-dark #navigation .selected, .ut-header-dark #navigation ul li.current_page_parent a.active, .ut-header-dark #navigation ul li.current-menu-ancestor a.active {
+    color: #7e2e30;
+}
+
+.ut-header-dark #navigation ul li a:hover, .ut-header-dark #navigation ul.sub-menu li a:hover {
+    color: #7e2e30;
+}
+
+.ut-header-dark #navigation ul.sub-menu li > a {
+    color: #999999;
+}
+
+.ut-header-dark #navigation ul li.current-menu-item:not(.current_page_parent) a, .ut-header-dark #navigation ul li.current_page_item:not(.current_page_parent) a {
+    color: #7e2e30;
+}
+
+.ut-header-dark #navigation ul li.current-menu-item:not(.current_page_parent) .sub-menu li a {
+    color: #999999;
+}
+
+.ut-loader-overlay {
+    background: #7e2e30;
+}
+
+body {
+    font-family: ralewayregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h2 {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+    font-family: ralewayregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h4 {
+    font-family: ralewayregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h5 {
+    font-family: ralewayregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h6 {
+    font-family: ralewayregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.page-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hero-title {
+    font-family: ralewaysemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ut-tablets-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hero .parallax-overlay {
+    /*background-color: rgba(44,62,80, 0.2 );*/
+    /*background-color:#7e2e30;*/
+    background-color: rgba(253, 251, 231, 0.4);
+}
+
+#contact-section .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#contact-section .parallax-overlay {
+    background: rgba(44,62,80,0.5);
+}
+
+#contact-section .parallax-overlay {
+    background: rgba(44,62,80,0.5);
+}
+
+#contact-section .parallax-overlay {
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+
+blockquote {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p.lead, .taxonomy-description {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#ut-loader-logo {
+    background-color: #e5c593;
+    background-image: url(../img/Logo-en-lead.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 320px, 350px;
+}
+
+#about-brooklyn {
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+    #about-brooklyn .ut-offset-anchor {
+        top: -159px;
+    }
+
+    #about-brooklyn .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    #about-brooklyn .section-header {
+        padding-bottom: 30px;
+    }
+
+    #about-brooklyn .parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #about-brooklyn .section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#about-brooklyn {
+    background-color: #7e2e30;
+}
+
+    #about-brooklyn .section-header.pt-style-1 .section-title span {
+        background-color: #161616;
+    }
+
+    #about-brooklyn .section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+        #about-brooklyn .section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+        #about-brooklyn .section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+        #about-brooklyn .section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+        #about-brooklyn .section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+        #about-brooklyn .section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+        #about-brooklyn .section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+    #about-brooklyn p.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+#drop-us-a-line {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+    #drop-us-a-line .ut-offset-anchor {
+        top: -119px;
+    }
+
+    #drop-us-a-line .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    #drop-us-a-line .section-header {
+        padding-bottom: 30px;
+    }
+
+    #drop-us-a-line .parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #drop-us-a-line .section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#drop-us-a-line {
+    background-image: url();
+}
+
+#drop-us-a-line {
+    background-color: #7e2e30;
+}
+
+    #drop-us-a-line .section-header.pt-style-1 .section-title span {
+        background-color: #121212;
+    }
+
+#our-philosophy-is .parallax-overlay {
+    padding-top: 160px;
+    padding-bottom: 120px;
+}
+
+#our-philosophy-is .parallax-header {
+    padding-bottom: 30px;
+}
+
+#our-philosophy-is .section-header {
+    padding-bottom: 30px;
+}
+
+#our-philosophy-is .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#our-philosophy-is .section-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#our-philosophy-is.parallax-section {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-image: url("../wp-content/uploads/2013/10/6305518892_ea411e81e2_b.jpg");
+}
+
+#our-philosophy-is {
+    background-color:;
+}
+
+    #our-philosophy-is .section-header.pt-style-1 .section-title span {
+        background-color:;
+    }
+
+    #our-philosophy-is .parallax-overlay {
+        background-color: rgb(44,62,80);
+    }
+
+    #our-philosophy-is .parallax-overlay {
+        background-color: rgba(44,62,80, 0.5 );
+    }
+
+#our-service {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+    #our-service .ut-offset-anchor {
+        top: -159px;
+    }
+
+    #our-service .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    #our-service .section-header {
+        padding-bottom: 30px;
+    }
+
+    #our-service .parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #our-service .section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#our-service {
+    background-color: #7e2e30;
+}
+
+    #our-service .section-header.pt-style-1 .section-title span {
+        background-color: #121212;
+    }
+
+    #our-service .section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+        #our-service .section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+        #our-service .section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+        #our-service .section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+        #our-service .section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+        #our-service .section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+        #our-service .section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+    #our-service p.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+#work .parallax-overlay {
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+#work .parallax-header {
+    padding-bottom: 30px;
+}
+
+#work .section-header {
+    padding-bottom: 30px;
+}
+
+#work .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#work .section-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#work {
+    background-color: #7e2e30;
+}
+
+    #work .section-header.pt-style-1 .section-title span {
+        background-color: #111111;
+    }
+
+    #work .section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+        #work .section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+        #work .section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+        #work .section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+        #work .section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+        #work .section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+        #work .section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+    #work p.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+    #work .parallax-overlay {
+        background-color: rgb();
+    }
+
+    #work .parallax-overlay {
+        background-color: rgba(, 0.5 );
+    }
+
+#brands {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+    #brands .ut-offset-anchor {
+        top: -99px;
+    }
+
+    #brands .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    #brands .section-header {
+        padding-bottom: 30px;
+    }
+
+    #brands .parallax-title {
+        font-family: ralewayextralight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #brands .section-title {
+        font-family: ralewayextralight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#brands {
+    background-image: url();
+}
+
+#brands {
+    background-color: #7e2e30;
+}
+
+    #brands .section-header.pt-style-1 .section-title span {
+        background-color: #0D0D0D;
+    }
+
+#some-of-the-clients-we-work-with .parallax-overlay {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+#some-of-the-clients-we-work-with .parallax-header {
+    padding-bottom: 30px;
+}
+
+#some-of-the-clients-we-work-with .section-header {
+    padding-bottom: 30px;
+}
+
+#some-of-the-clients-we-work-with .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#some-of-the-clients-we-work-with .section-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#some-of-the-clients-we-work-with {
+    background-color:;
+}
+
+    #some-of-the-clients-we-work-with .section-header.pt-style-1 .section-title span {
+        background-color:;
+    }
+
+    #some-of-the-clients-we-work-with .parallax-overlay {
+        background-color: rgb(44,62,80);
+    }
+
+    #some-of-the-clients-we-work-with .parallax-overlay {
+        background-color: rgba(44,62,80, 0.2 );
+    }
+
+#our-team .parallax-overlay {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+#our-team .parallax-header {
+    padding-bottom: 30px;
+}
+
+#our-team .section-header {
+    padding-bottom: 30px;
+}
+
+#our-team .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#our-team .section-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#our-team {
+    background-color: #7e2e30;
+}
+
+    #our-team .section-header.pt-style-1 .section-title span {
+        background-color: #111111;
+    }
+
+    #our-team .section-content {
+        color: #606060;
+    }
+
+    #our-team p.lead {
+        color: #707070;
+    }
+
+    #our-team .parallax-overlay {
+        background-color: rgb();
+    }
+
+    #our-team .parallax-overlay {
+        background-color: rgba(, 0.2 );
+    }
+
+#we-are-good-at .parallax-overlay {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+#we-are-good-at .parallax-header {
+    padding-bottom: 30px;
+}
+
+#we-are-good-at .section-header {
+    padding-bottom: 30px;
+}
+
+#we-are-good-at .parallax-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#we-are-good-at .section-title {
+    font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#we-are-good-at.parallax-section {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-image: url("../wp-content/uploads/2013/11/8403991984_2fa0f7f314_b.jpg");
+}
+
+#we-are-good-at {
+    background-color:;
+}
+
+    #we-are-good-at .section-header.pt-style-1 .section-title span {
+        background-color:;
+    }
+
+    #we-are-good-at .parallax-overlay {
+        background-color: rgb(44,62,80);
+    }
+
+    #we-are-good-at .parallax-overlay {
+        background-color: rgba(44,62,80, 0.5 );
+    }
+
+#call-to-action2 {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+    #call-to-action2 .ut-offset-anchor {
+        top: -159px;
+    }
+
+    #call-to-action2 .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    #call-to-action2 .section-header {
+        padding-bottom: 30px;
+    }
+
+    #call-to-action2 .parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #call-to-action2 .section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#call-to-action2 {
+    background-color: #7e2e30;
+}
+
+    #call-to-action2 .section-header.pt-style-1 .section-title span {
+        background-color: #111111;
+    }
+
+    #call-to-action2 .section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+        #call-to-action2 .section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+        #call-to-action2 .section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+        #call-to-action2 .section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+        #call-to-action2 .section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+        #call-to-action2 .section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+        #call-to-action2 .section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+    #call-to-action2 p.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+.parallax-overlay-pattern.style_one {
+    /*background-image: url(" ../wp-content/themes/brooklyn/images/overlay-pattern.png") !important;*/
+}
+
+.parallax-overlay-pattern.style_two {
+    background-image: url(" ../wp-content/themes/brooklyn/images/overlay-pattern2.png") !important;
+}
+
+
+/*_______________________*/
+
+
+#slogan {
+    font-size: 22px;
+    margin-top: -50px;
+    margin-left: -25px;
+}
+
+    #slogan:hover {
+        color: #7e2e30;
+    }
+
+#navigation ul li a {
+    font-size: 13px !important;
+}
+
+#navigation ul li {
+
+float: left !important;
+}
+
+/*________________________*/
+

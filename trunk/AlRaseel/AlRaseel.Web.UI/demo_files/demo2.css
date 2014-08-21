@@ -1,0 +1,76 @@
+/* See boutique.css for complete comments */
+/* SETTINGS */
+
+/* Start invisible until the plugin is loaded */
+#demo2{
+	display: none;
+}
+
+/* The frames */
+#demo2 li{
+	background: #fff url(images/loading2.gif) center no-repeat;
+	border: 1px solid;
+	border-color: #eaeaea #ccc #ccc #eaeaea;
+}
+
+/* Headers of all frames */
+#demo2 h6{
+	margin: 0 0 5px;
+	font-family: sans-serif;
+	line-height: 100%;
+	font-weight: normal;
+	color: #222;
+}
+
+/* Description text of all frames */
+#demo2 span{
+	font-family: sans-serif;
+	padding: 15px 25px 20px;
+	margin: 0;
+	color: #444;
+	background: #fff;
+}
+
+/* The most frontal item */
+#demo2 .front img{
+	margin: 10px;
+}
+#demo2 .front h6{
+	font-size: 30px;
+}
+#demo2 .front span{
+	font-size: 15px;
+}
+
+/* The further back items */
+#demo2 .behind img{
+	margin: 6px;
+}
+#demo2 .behind h6{
+	font-size: 26px;
+}
+#demo2 .behind span{
+	font-size: 10px;
+}
+
+/* The furthest back items */
+#demo2 img{
+	margin: 4px;
+}
+#demo2 .back h6{
+	font-size: 12px;
+}
+#demo2 .back span{
+	font-size: 7px;
+}
+
+/* That's it for the settings */
+
+.boutique{ margin:0; padding:0; position:relative; z-index:1 }
+.boutique li{ margin:0; padding:0; list-style:none; position:absolute; z-index:1; display:none; border-width:0 }
+.boutique img{ border:0; vertical-align:bottom }
+.boutique span{ display:block; position:absolute; left:0; right:0; bottom:0; text-align:left; cursor:default; margin:0 }
+.boutique h6{ cursor:default }
+.boutique a, .boutique a:hover{ cursor:default; text-decoration:none; outline:none }
+.boutique img, .boutique li, .boutique a{ -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; -webkit-user-drag:none; -moz-user-drag:none; user-drag:none }
+.boutique.rtl h6, .boutique.rtl span{ text-align:right }

@@ -1,0 +1,47 @@
+/* See boutique.css for complete comments */
+/* SETTINGS */
+
+#demo3{
+	display: none;
+}
+#demo3 li{
+	background: #fff;
+	border: 0;
+	border-right: 1px solid #d5d5d5;
+}
+#demo3 .behind img,
+#demo3 .back img{
+	margin: 0;
+}
+#demo3 .front img{
+	margin: 15px;
+	margin-bottom: 0;
+}
+#demo3 h6,
+#demo3 .front h6,
+#demo3 .behind h6,
+#demo3 .back h6{
+	color: white;
+	font-size: 28px;
+	font-weight: normal;
+	text-align: center;
+	margin: 0 0 20px;
+}
+#demo3 span,
+#demo3 .front span,
+#demo3 .behind span,
+#demo3 .back span{
+	padding: 0;
+	text-shadow: 0 0 15px black;
+}
+
+/* That's it for the settings */
+
+.boutique{ margin:0; padding:0; position:relative; z-index:1 }
+.boutique li{ margin:0; padding:0; list-style:none; position:absolute; z-index:1; display:none; border-width:0 }
+.boutique img{ border:0; vertical-align:bottom }
+.boutique span{ display:block; position:absolute; left:0; right:0; bottom:0; text-align:left; cursor:default; margin:0 }
+.boutique h6{ cursor:default }
+.boutique a, .boutique a:hover{ cursor:default; text-decoration:none; outline:none }
+.boutique img, .boutique li, .boutique a{ -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; -webkit-user-drag:none; -moz-user-drag:none; user-drag:none }
+.boutique.rtl h6, .boutique.rtl span{ text-align:right }

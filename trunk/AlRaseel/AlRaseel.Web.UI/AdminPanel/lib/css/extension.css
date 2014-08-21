@@ -1,0 +1,37 @@
+/*** -----------------------------------------------------------------------------------------------
+
+	ADMIN TEMPLATE | BOO Admin Template
+	----------------------------------------
+
+	EXTENSION STYLE - External stylesheed
+	
+	filename			:	asset/css/extension.css
+	version				:	16.11.2012
+	copyright			:	(c) 2012 Petr Marasek
+	contact				:	gootoboo@gmail.com
+	
+	-------------------------------------------------------------------------------------------- ***/
+
+/* FONTS */
+/* Picto font & Icon */
+@import "../fonts/fontello/css/fontello.css";
+@import "../fonts/awesome/css/font-awesome.css";
+
+/**/@import "icon-fugue.min.css";
+
+/* PLUGINS */ 
+@import "../plugins/qtip2/dist/jquery.qtip.css";
+@import "../plugins/uniform/css/uniform-theme.css";
+@import "../plugins/select2/select-theme.css";
+@import "../plugins/fullcalendar/fullcalendar-theme.css";
+@import "../plugins/google-code-prettify/prettify.css";
+@import "../plugins/bootstrap-datepicker/css/datepicker-theme.css";
+@import "../plugins/bootstrap-colorpicker/css/colorpicker-theme.css";
+@import "../plugins/bootstrap-daterangepicker/css/daterangepicker-theme.css";
+@import "../plugins/bootstrap-timepicker/css/timepicker.css";
+@import "../plugins/bootstrap-progressbar/css/bootstrap-progressbar.css";
+@import "../plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css";
+@import "../plugins/bootstrap-fileupload/css/bootstrap-fileupload.css";
+@import "../plugins/bootstrap-moBeBrand.Data/css/bootstrap-moBeBrand.Data-bootheme.css";
+@import "../plugins/bootstrap-toggle-buttons/css/bootstrap-toggle-buttons-theme.css";
+
