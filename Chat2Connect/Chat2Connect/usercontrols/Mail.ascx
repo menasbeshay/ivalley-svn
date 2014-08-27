@@ -57,6 +57,11 @@
             <div style="padding: 0px;">
                 <div class="row">
                     <div class="btn-group" style="padding-right: 20px;">
+                        <a id="lnkReply" data-message="" href="#" class="btn btn-default">
+                    رد
+                            <div class="icon-reply">
+                                </div>
+                        </a>
                         <asp:LinkButton ID="btnDeleteMessages" runat="server" OnClick="btnDeleteMessages_Click" CssClass="btn btn-default">
                     حذف
                             <div class="icon-trash">
@@ -112,7 +117,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <asp:BoundField HeaderText="التاريخ والوقت" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HtmlEncode="false" />
+                                    <asp:BoundField HeaderText="التاريخ" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy}" HtmlEncode="false" />
                                 </Columns>
 
                             </asp:GridView>
@@ -137,6 +142,7 @@
                 $(document).ready(function () {
                     $(".message").click(function () {
                         var self = this;
+                        $("#lnkReply").data("message",$(this).data("message"));
                         $("#dvMessageDetails").load('<%=ResolveUrl("~/LoadMessage.aspx") %>',
                 { message: $(this).data("message"), operation: "" + $(this).data("operation") + "" },
                 function (content) {
@@ -146,6 +152,16 @@
 
                     return false;
                 });
+                    });
+                    $('#lnkReply').click(function () {
+                        if($("#lnkReply").data("message")!="")
+                        {
+                            document.location.href = '<%=ResolveUrl("~/Messages.aspx") %>?reply=' + $("#lnkReply").data("message");
+                        }
+                        else
+                        {
+                            alert('يجب إحتيار رسالة أولا بالضغط على عنوان الرسالة');
+                        }
                     });
                     $('#chkSelectAll').click(
         function () {
