@@ -35,6 +35,28 @@ namespace Chat2Connect.usercontrols
             }
         }
 
+        public string MessageSubject
+        {
+            get
+            {
+                return txtSubject.Text;
+            }
+            set
+            {
+                txtSubject.Text = value;
+            }
+        }
+        public string MessageBody
+        {
+            get
+            {
+                return Convert.ToString(ViewState["MsgBody"]);
+            }
+            set
+            {
+                ViewState["MsgBody"] = value;
+            }
+        }
         
         protected void Page_Load(object sender, EventArgs e)
         {

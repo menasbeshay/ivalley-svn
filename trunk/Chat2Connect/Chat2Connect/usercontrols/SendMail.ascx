@@ -620,6 +620,7 @@
         
 
         Msgeditor = new wysihtml5.Editor('txtBody', { toolbar: 'toolbar', parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: '../css/main.css' });
+        Msgeditor.setValue('<br><br><%= MessageBody%>', false);
     });
     function joinObj(a, attr) {
         var out = [];
@@ -659,7 +660,7 @@
                         sticker: false
                     });
                     setTimeout(function () {
-                        document.location.href = document.location.href + "?t=inbox";
+                        document.location.href = '<%=ResolveUrl("~/Messages.aspx") %>?t=inbox';
                     }, 3000);
 
 

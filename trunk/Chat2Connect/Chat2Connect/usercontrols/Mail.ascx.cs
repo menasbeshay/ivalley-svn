@@ -88,6 +88,20 @@ namespace Chat2Connect.usercontrols
                     pnlViewMessages.Visible = false;
                     Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + friendId + ", name: '" + friendname + "' }); });", true);
                 }
+                if (!String.IsNullOrEmpty(Request.QueryString["reply"]))
+                {
+                    int msgID = Convert.ToInt32(Request.QueryString["reply"]);
+                    pnlSendMessage.Visible = true;
+                    pnlCreateFolder.Visible = false;
+                    pnlViewMessages.Visible = false;
+                    BLL.MemberMessage msg = new BLL.MemberMessage();
+                    if (msg.LoadFullInfoByID(msgID))
+                    {
+                        ctrlSendMail.MessageBody = Helper.TypeConverter.ToString(msg.GetColumn("Body"));
+                        ctrlSendMail.MessageSubject = "رد " + Helper.TypeConverter.ToString(msg.GetColumn("Subject"));
+                    }
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + Helper.TypeConverter.ToString(msg.GetColumn("SenderID")) + ", name: '" + Helper.TypeConverter.ToString(msg.GetColumn("FromMember")) + "' }); });", true);
+                }
             }
         }
 
