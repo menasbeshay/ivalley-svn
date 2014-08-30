@@ -41,10 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="BotPoints.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="EmailOwnerBot.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="InviteFriendBanBoot.cs" />
+    <Compile Include="LoginMembersBot.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberFriend.cs" />
     <Compile Include="MemberGift.cs" />
@@ -75,6 +79,7 @@
     <Compile Include="TypeDuration.cs" />
     <Compile Include="UserTransLog.cs" />
     <Compile Include="Membership.cs" />
+    <Compile Include="WelcomBot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">

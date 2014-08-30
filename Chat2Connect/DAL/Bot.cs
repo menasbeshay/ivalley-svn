@@ -86,10 +86,10 @@ namespace DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int BotID)
+		public virtual bool LoadByPrimaryKey(int ID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.BotID, BotID);
+			parameters.Add(Parameters.ID, ID);
 
 		
 			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_BotLoadByPrimaryKey]", parameters);
@@ -99,11 +99,11 @@ namespace DAL
 		protected class Parameters
 		{
 			
-			public static SqlParameter BotID
+			public static SqlParameter ID
 			{
 				get
 				{
-					return new SqlParameter("@BotID", SqlDbType.Int, 0);
+					return new SqlParameter("@ID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -111,151 +111,47 @@ namespace DAL
 			{
 				get
 				{
-					return new SqlParameter("@Name", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@Name", SqlDbType.VarChar, 50);
 				}
 			}
 			
-			public static SqlParameter Price_Point
+			public static SqlParameter Title
 			{
 				get
 				{
-					return new SqlParameter("@Price_Point", SqlDbType.Int, 0);
+					return new SqlParameter("@Title", SqlDbType.NVarChar, 500);
 				}
 			}
 			
-			public static SqlParameter Price_Money
+			public static SqlParameter Description
 			{
 				get
 				{
-					return new SqlParameter("@Price_Money", SqlDbType.Decimal, 0);
+					return new SqlParameter("@Description", SqlDbType.NVarChar, 1073741823);
 				}
 			}
 			
-			public static SqlParameter Period
+			public static SqlParameter IconPath
 			{
 				get
 				{
-					return new SqlParameter("@Period", SqlDbType.Int, 0);
+					return new SqlParameter("@IconPath", SqlDbType.VarChar, 250);
 				}
 			}
 			
-			public static SqlParameter PicPath
+			public static SqlParameter IsOptional
 			{
 				get
 				{
-					return new SqlParameter("@PicPath", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@IsOptional", SqlDbType.NChar, 10);
 				}
 			}
 			
-			public static SqlParameter WelcomeMsg
+			public static SqlParameter RowStatusID
 			{
 				get
 				{
-					return new SqlParameter("@WelcomeMsg", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter WelcomeMsgText
-			{
-				get
-				{
-					return new SqlParameter("@WelcomeMsgText", SqlDbType.NVarChar, 1000);
-				}
-			}
-			
-			public static SqlParameter ByeMsg
-			{
-				get
-				{
-					return new SqlParameter("@ByeMsg", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter ByeMsgText
-			{
-				get
-				{
-					return new SqlParameter("@ByeMsgText", SqlDbType.NVarChar, 1000);
-				}
-			}
-			
-			public static SqlParameter DisableRepeat
-			{
-				get
-				{
-					return new SqlParameter("@DisableRepeat", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter DisableLinks
-			{
-				get
-				{
-					return new SqlParameter("@DisableLinks", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter RoomLaw
-			{
-				get
-				{
-					return new SqlParameter("@RoomLaw", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter Poetry
-			{
-				get
-				{
-					return new SqlParameter("@Poetry", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter Qoutes
-			{
-				get
-				{
-					return new SqlParameter("@Qoutes", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter ReligionAlerts
-			{
-				get
-				{
-					return new SqlParameter("@ReligionAlerts", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter Ads
-			{
-				get
-				{
-					return new SqlParameter("@Ads", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter Voting
-			{
-				get
-				{
-					return new SqlParameter("@Voting", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter AbuseWords
-			{
-				get
-				{
-					return new SqlParameter("@AbuseWords", SqlDbType.NVarChar, 1073741823);
-				}
-			}
-			
-			public static SqlParameter MarkMembers
-			{
-				get
-				{
-					return new SqlParameter("@MarkMembers", SqlDbType.Bit, 0);
+					return new SqlParameter("@RowStatusID", SqlDbType.TinyInt, 0);
 				}
 			}
 			
@@ -265,26 +161,13 @@ namespace DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string BotID = "BotID";
+            public const string ID = "ID";
             public const string Name = "Name";
-            public const string Price_Point = "Price_Point";
-            public const string Price_Money = "Price_Money";
-            public const string Period = "Period";
-            public const string PicPath = "PicPath";
-            public const string WelcomeMsg = "WelcomeMsg";
-            public const string WelcomeMsgText = "WelcomeMsgText";
-            public const string ByeMsg = "ByeMsg";
-            public const string ByeMsgText = "ByeMsgText";
-            public const string DisableRepeat = "DisableRepeat";
-            public const string DisableLinks = "DisableLinks";
-            public const string RoomLaw = "RoomLaw";
-            public const string Poetry = "Poetry";
-            public const string Qoutes = "Qoutes";
-            public const string ReligionAlerts = "ReligionAlerts";
-            public const string Ads = "Ads";
-            public const string Voting = "Voting";
-            public const string AbuseWords = "AbuseWords";
-            public const string MarkMembers = "MarkMembers";
+            public const string Title = "Title";
+            public const string Description = "Description";
+            public const string IconPath = "IconPath";
+            public const string IsOptional = "IsOptional";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -292,26 +175,13 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[BotID] = _Bot.PropertyNames.BotID;
+					ht[ID] = _Bot.PropertyNames.ID;
 					ht[Name] = _Bot.PropertyNames.Name;
-					ht[Price_Point] = _Bot.PropertyNames.Price_Point;
-					ht[Price_Money] = _Bot.PropertyNames.Price_Money;
-					ht[Period] = _Bot.PropertyNames.Period;
-					ht[PicPath] = _Bot.PropertyNames.PicPath;
-					ht[WelcomeMsg] = _Bot.PropertyNames.WelcomeMsg;
-					ht[WelcomeMsgText] = _Bot.PropertyNames.WelcomeMsgText;
-					ht[ByeMsg] = _Bot.PropertyNames.ByeMsg;
-					ht[ByeMsgText] = _Bot.PropertyNames.ByeMsgText;
-					ht[DisableRepeat] = _Bot.PropertyNames.DisableRepeat;
-					ht[DisableLinks] = _Bot.PropertyNames.DisableLinks;
-					ht[RoomLaw] = _Bot.PropertyNames.RoomLaw;
-					ht[Poetry] = _Bot.PropertyNames.Poetry;
-					ht[Qoutes] = _Bot.PropertyNames.Qoutes;
-					ht[ReligionAlerts] = _Bot.PropertyNames.ReligionAlerts;
-					ht[Ads] = _Bot.PropertyNames.Ads;
-					ht[Voting] = _Bot.PropertyNames.Voting;
-					ht[AbuseWords] = _Bot.PropertyNames.AbuseWords;
-					ht[MarkMembers] = _Bot.PropertyNames.MarkMembers;
+					ht[Title] = _Bot.PropertyNames.Title;
+					ht[Description] = _Bot.PropertyNames.Description;
+					ht[IconPath] = _Bot.PropertyNames.IconPath;
+					ht[IsOptional] = _Bot.PropertyNames.IsOptional;
+					ht[RowStatusID] = _Bot.PropertyNames.RowStatusID;
 
 				}
 				return (string)ht[columnName];
@@ -324,26 +194,13 @@ namespace DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string BotID = "BotID";
+            public const string ID = "ID";
             public const string Name = "Name";
-            public const string Price_Point = "Price_Point";
-            public const string Price_Money = "Price_Money";
-            public const string Period = "Period";
-            public const string PicPath = "PicPath";
-            public const string WelcomeMsg = "WelcomeMsg";
-            public const string WelcomeMsgText = "WelcomeMsgText";
-            public const string ByeMsg = "ByeMsg";
-            public const string ByeMsgText = "ByeMsgText";
-            public const string DisableRepeat = "DisableRepeat";
-            public const string DisableLinks = "DisableLinks";
-            public const string RoomLaw = "RoomLaw";
-            public const string Poetry = "Poetry";
-            public const string Qoutes = "Qoutes";
-            public const string ReligionAlerts = "ReligionAlerts";
-            public const string Ads = "Ads";
-            public const string Voting = "Voting";
-            public const string AbuseWords = "AbuseWords";
-            public const string MarkMembers = "MarkMembers";
+            public const string Title = "Title";
+            public const string Description = "Description";
+            public const string IconPath = "IconPath";
+            public const string IsOptional = "IsOptional";
+            public const string RowStatusID = "RowStatusID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -351,26 +208,13 @@ namespace DAL
 				{
 					ht = new Hashtable();
 					
-					ht[BotID] = _Bot.ColumnNames.BotID;
+					ht[ID] = _Bot.ColumnNames.ID;
 					ht[Name] = _Bot.ColumnNames.Name;
-					ht[Price_Point] = _Bot.ColumnNames.Price_Point;
-					ht[Price_Money] = _Bot.ColumnNames.Price_Money;
-					ht[Period] = _Bot.ColumnNames.Period;
-					ht[PicPath] = _Bot.ColumnNames.PicPath;
-					ht[WelcomeMsg] = _Bot.ColumnNames.WelcomeMsg;
-					ht[WelcomeMsgText] = _Bot.ColumnNames.WelcomeMsgText;
-					ht[ByeMsg] = _Bot.ColumnNames.ByeMsg;
-					ht[ByeMsgText] = _Bot.ColumnNames.ByeMsgText;
-					ht[DisableRepeat] = _Bot.ColumnNames.DisableRepeat;
-					ht[DisableLinks] = _Bot.ColumnNames.DisableLinks;
-					ht[RoomLaw] = _Bot.ColumnNames.RoomLaw;
-					ht[Poetry] = _Bot.ColumnNames.Poetry;
-					ht[Qoutes] = _Bot.ColumnNames.Qoutes;
-					ht[ReligionAlerts] = _Bot.ColumnNames.ReligionAlerts;
-					ht[Ads] = _Bot.ColumnNames.Ads;
-					ht[Voting] = _Bot.ColumnNames.Voting;
-					ht[AbuseWords] = _Bot.ColumnNames.AbuseWords;
-					ht[MarkMembers] = _Bot.ColumnNames.MarkMembers;
+					ht[Title] = _Bot.ColumnNames.Title;
+					ht[Description] = _Bot.ColumnNames.Description;
+					ht[IconPath] = _Bot.ColumnNames.IconPath;
+					ht[IsOptional] = _Bot.ColumnNames.IsOptional;
+					ht[RowStatusID] = _Bot.ColumnNames.RowStatusID;
 
 				}
 				return (string)ht[propertyName];
@@ -383,41 +227,28 @@ namespace DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string BotID = "s_BotID";
+            public const string ID = "s_ID";
             public const string Name = "s_Name";
-            public const string Price_Point = "s_Price_Point";
-            public const string Price_Money = "s_Price_Money";
-            public const string Period = "s_Period";
-            public const string PicPath = "s_PicPath";
-            public const string WelcomeMsg = "s_WelcomeMsg";
-            public const string WelcomeMsgText = "s_WelcomeMsgText";
-            public const string ByeMsg = "s_ByeMsg";
-            public const string ByeMsgText = "s_ByeMsgText";
-            public const string DisableRepeat = "s_DisableRepeat";
-            public const string DisableLinks = "s_DisableLinks";
-            public const string RoomLaw = "s_RoomLaw";
-            public const string Poetry = "s_Poetry";
-            public const string Qoutes = "s_Qoutes";
-            public const string ReligionAlerts = "s_ReligionAlerts";
-            public const string Ads = "s_Ads";
-            public const string Voting = "s_Voting";
-            public const string AbuseWords = "s_AbuseWords";
-            public const string MarkMembers = "s_MarkMembers";
+            public const string Title = "s_Title";
+            public const string Description = "s_Description";
+            public const string IconPath = "s_IconPath";
+            public const string IsOptional = "s_IsOptional";
+            public const string RowStatusID = "s_RowStatusID";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int BotID
+		public virtual int ID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.BotID);
+				return base.Getint(ColumnNames.ID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.BotID, value);
+				base.Setint(ColumnNames.ID, value);
 			}
 		}
 
@@ -433,219 +264,63 @@ namespace DAL
 			}
 		}
 
-		public virtual int Price_Point
+		public virtual string Title
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Price_Point);
+				return base.Getstring(ColumnNames.Title);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Price_Point, value);
+				base.Setstring(ColumnNames.Title, value);
 			}
 		}
 
-		public virtual decimal Price_Money
+		public virtual string Description
 	    {
 			get
 	        {
-				return base.Getdecimal(ColumnNames.Price_Money);
+				return base.Getstring(ColumnNames.Description);
 			}
 			set
 	        {
-				base.Setdecimal(ColumnNames.Price_Money, value);
+				base.Setstring(ColumnNames.Description, value);
 			}
 		}
 
-		public virtual int Period
+		public virtual string IconPath
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.Period);
+				return base.Getstring(ColumnNames.IconPath);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.Period, value);
+				base.Setstring(ColumnNames.IconPath, value);
 			}
 		}
 
-		public virtual string PicPath
+		public virtual string IsOptional
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.PicPath);
+				return base.Getstring(ColumnNames.IsOptional);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.PicPath, value);
+				base.Setstring(ColumnNames.IsOptional, value);
 			}
 		}
 
-		public virtual bool WelcomeMsg
+		public virtual byte RowStatusID
 	    {
 			get
 	        {
-				return base.Getbool(ColumnNames.WelcomeMsg);
+				return base.Getbyte(ColumnNames.RowStatusID);
 			}
 			set
 	        {
-				base.Setbool(ColumnNames.WelcomeMsg, value);
-			}
-		}
-
-		public virtual string WelcomeMsgText
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.WelcomeMsgText);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.WelcomeMsgText, value);
-			}
-		}
-
-		public virtual bool ByeMsg
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.ByeMsg);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.ByeMsg, value);
-			}
-		}
-
-		public virtual string ByeMsgText
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.ByeMsgText);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.ByeMsgText, value);
-			}
-		}
-
-		public virtual bool DisableRepeat
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.DisableRepeat);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.DisableRepeat, value);
-			}
-		}
-
-		public virtual bool DisableLinks
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.DisableLinks);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.DisableLinks, value);
-			}
-		}
-
-		public virtual string RoomLaw
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.RoomLaw);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.RoomLaw, value);
-			}
-		}
-
-		public virtual string Poetry
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.Poetry);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.Poetry, value);
-			}
-		}
-
-		public virtual string Qoutes
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.Qoutes);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.Qoutes, value);
-			}
-		}
-
-		public virtual string ReligionAlerts
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.ReligionAlerts);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.ReligionAlerts, value);
-			}
-		}
-
-		public virtual string Ads
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.Ads);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.Ads, value);
-			}
-		}
-
-		public virtual string Voting
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.Voting);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.Voting, value);
-			}
-		}
-
-		public virtual string AbuseWords
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.AbuseWords);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.AbuseWords, value);
-			}
-		}
-
-		public virtual bool MarkMembers
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.MarkMembers);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.MarkMembers, value);
+				base.Setbyte(ColumnNames.RowStatusID, value);
 			}
 		}
 
@@ -654,18 +329,18 @@ namespace DAL
 		
 		#region String Properties
 	
-		public virtual string s_BotID
+		public virtual string s_ID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.BotID) ? string.Empty : base.GetintAsString(ColumnNames.BotID);
+				return this.IsColumnNull(ColumnNames.ID) ? string.Empty : base.GetintAsString(ColumnNames.ID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.BotID);
+					this.SetColumnNull(ColumnNames.ID);
 				else
-					this.BotID = base.SetintAsString(ColumnNames.BotID, value);
+					this.ID = base.SetintAsString(ColumnNames.ID, value);
 			}
 		}
 
@@ -684,273 +359,78 @@ namespace DAL
 			}
 		}
 
-		public virtual string s_Price_Point
+		public virtual string s_Title
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price_Point) ? string.Empty : base.GetintAsString(ColumnNames.Price_Point);
+				return this.IsColumnNull(ColumnNames.Title) ? string.Empty : base.GetstringAsString(ColumnNames.Title);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price_Point);
+					this.SetColumnNull(ColumnNames.Title);
 				else
-					this.Price_Point = base.SetintAsString(ColumnNames.Price_Point, value);
+					this.Title = base.SetstringAsString(ColumnNames.Title, value);
 			}
 		}
 
-		public virtual string s_Price_Money
+		public virtual string s_Description
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price_Money) ? string.Empty : base.GetdecimalAsString(ColumnNames.Price_Money);
+				return this.IsColumnNull(ColumnNames.Description) ? string.Empty : base.GetstringAsString(ColumnNames.Description);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price_Money);
+					this.SetColumnNull(ColumnNames.Description);
 				else
-					this.Price_Money = base.SetdecimalAsString(ColumnNames.Price_Money, value);
+					this.Description = base.SetstringAsString(ColumnNames.Description, value);
 			}
 		}
 
-		public virtual string s_Period
+		public virtual string s_IconPath
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Period) ? string.Empty : base.GetintAsString(ColumnNames.Period);
+				return this.IsColumnNull(ColumnNames.IconPath) ? string.Empty : base.GetstringAsString(ColumnNames.IconPath);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Period);
+					this.SetColumnNull(ColumnNames.IconPath);
 				else
-					this.Period = base.SetintAsString(ColumnNames.Period, value);
+					this.IconPath = base.SetstringAsString(ColumnNames.IconPath, value);
 			}
 		}
 
-		public virtual string s_PicPath
+		public virtual string s_IsOptional
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.PicPath) ? string.Empty : base.GetstringAsString(ColumnNames.PicPath);
+				return this.IsColumnNull(ColumnNames.IsOptional) ? string.Empty : base.GetstringAsString(ColumnNames.IsOptional);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.PicPath);
+					this.SetColumnNull(ColumnNames.IsOptional);
 				else
-					this.PicPath = base.SetstringAsString(ColumnNames.PicPath, value);
+					this.IsOptional = base.SetstringAsString(ColumnNames.IsOptional, value);
 			}
 		}
 
-		public virtual string s_WelcomeMsg
+		public virtual string s_RowStatusID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.WelcomeMsg) ? string.Empty : base.GetboolAsString(ColumnNames.WelcomeMsg);
+				return this.IsColumnNull(ColumnNames.RowStatusID) ? string.Empty : base.GetbyteAsString(ColumnNames.RowStatusID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.WelcomeMsg);
+					this.SetColumnNull(ColumnNames.RowStatusID);
 				else
-					this.WelcomeMsg = base.SetboolAsString(ColumnNames.WelcomeMsg, value);
-			}
-		}
-
-		public virtual string s_WelcomeMsgText
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.WelcomeMsgText) ? string.Empty : base.GetstringAsString(ColumnNames.WelcomeMsgText);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.WelcomeMsgText);
-				else
-					this.WelcomeMsgText = base.SetstringAsString(ColumnNames.WelcomeMsgText, value);
-			}
-		}
-
-		public virtual string s_ByeMsg
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ByeMsg) ? string.Empty : base.GetboolAsString(ColumnNames.ByeMsg);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ByeMsg);
-				else
-					this.ByeMsg = base.SetboolAsString(ColumnNames.ByeMsg, value);
-			}
-		}
-
-		public virtual string s_ByeMsgText
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ByeMsgText) ? string.Empty : base.GetstringAsString(ColumnNames.ByeMsgText);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ByeMsgText);
-				else
-					this.ByeMsgText = base.SetstringAsString(ColumnNames.ByeMsgText, value);
-			}
-		}
-
-		public virtual string s_DisableRepeat
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.DisableRepeat) ? string.Empty : base.GetboolAsString(ColumnNames.DisableRepeat);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.DisableRepeat);
-				else
-					this.DisableRepeat = base.SetboolAsString(ColumnNames.DisableRepeat, value);
-			}
-		}
-
-		public virtual string s_DisableLinks
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.DisableLinks) ? string.Empty : base.GetboolAsString(ColumnNames.DisableLinks);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.DisableLinks);
-				else
-					this.DisableLinks = base.SetboolAsString(ColumnNames.DisableLinks, value);
-			}
-		}
-
-		public virtual string s_RoomLaw
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.RoomLaw) ? string.Empty : base.GetstringAsString(ColumnNames.RoomLaw);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.RoomLaw);
-				else
-					this.RoomLaw = base.SetstringAsString(ColumnNames.RoomLaw, value);
-			}
-		}
-
-		public virtual string s_Poetry
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.Poetry) ? string.Empty : base.GetstringAsString(ColumnNames.Poetry);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Poetry);
-				else
-					this.Poetry = base.SetstringAsString(ColumnNames.Poetry, value);
-			}
-		}
-
-		public virtual string s_Qoutes
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.Qoutes) ? string.Empty : base.GetstringAsString(ColumnNames.Qoutes);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Qoutes);
-				else
-					this.Qoutes = base.SetstringAsString(ColumnNames.Qoutes, value);
-			}
-		}
-
-		public virtual string s_ReligionAlerts
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ReligionAlerts) ? string.Empty : base.GetstringAsString(ColumnNames.ReligionAlerts);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ReligionAlerts);
-				else
-					this.ReligionAlerts = base.SetstringAsString(ColumnNames.ReligionAlerts, value);
-			}
-		}
-
-		public virtual string s_Ads
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.Ads) ? string.Empty : base.GetstringAsString(ColumnNames.Ads);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Ads);
-				else
-					this.Ads = base.SetstringAsString(ColumnNames.Ads, value);
-			}
-		}
-
-		public virtual string s_Voting
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.Voting) ? string.Empty : base.GetstringAsString(ColumnNames.Voting);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Voting);
-				else
-					this.Voting = base.SetstringAsString(ColumnNames.Voting, value);
-			}
-		}
-
-		public virtual string s_AbuseWords
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.AbuseWords) ? string.Empty : base.GetstringAsString(ColumnNames.AbuseWords);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.AbuseWords);
-				else
-					this.AbuseWords = base.SetstringAsString(ColumnNames.AbuseWords, value);
-			}
-		}
-
-		public virtual string s_MarkMembers
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.MarkMembers) ? string.Empty : base.GetboolAsString(ColumnNames.MarkMembers);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MarkMembers);
-				else
-					this.MarkMembers = base.SetboolAsString(ColumnNames.MarkMembers, value);
+					this.RowStatusID = base.SetbyteAsString(ColumnNames.RowStatusID, value);
 			}
 		}
 
@@ -987,11 +467,11 @@ namespace DAL
 				}
 				
 				
-				public WhereParameter BotID
+				public WhereParameter ID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.BotID, Parameters.BotID);
+							WhereParameter where = new WhereParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1007,181 +487,51 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter Price_Point
+				public WhereParameter Title
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price_Point, Parameters.Price_Point);
+							WhereParameter where = new WhereParameter(ColumnNames.Title, Parameters.Title);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Price_Money
+				public WhereParameter Description
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price_Money, Parameters.Price_Money);
+							WhereParameter where = new WhereParameter(ColumnNames.Description, Parameters.Description);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Period
+				public WhereParameter IconPath
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Period, Parameters.Period);
+							WhereParameter where = new WhereParameter(ColumnNames.IconPath, Parameters.IconPath);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter PicPath
+				public WhereParameter IsOptional
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.PicPath, Parameters.PicPath);
+							WhereParameter where = new WhereParameter(ColumnNames.IsOptional, Parameters.IsOptional);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter WelcomeMsg
+				public WhereParameter RowStatusID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.WelcomeMsg, Parameters.WelcomeMsg);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter WelcomeMsgText
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.WelcomeMsgText, Parameters.WelcomeMsgText);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter ByeMsg
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ByeMsg, Parameters.ByeMsg);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter ByeMsgText
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ByeMsgText, Parameters.ByeMsgText);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter DisableRepeat
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.DisableRepeat, Parameters.DisableRepeat);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter DisableLinks
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.DisableLinks, Parameters.DisableLinks);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter RoomLaw
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.RoomLaw, Parameters.RoomLaw);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter Poetry
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.Poetry, Parameters.Poetry);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter Qoutes
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.Qoutes, Parameters.Qoutes);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter ReligionAlerts
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ReligionAlerts, Parameters.ReligionAlerts);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter Ads
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.Ads, Parameters.Ads);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter Voting
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.Voting, Parameters.Voting);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter AbuseWords
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.AbuseWords, Parameters.AbuseWords);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter MarkMembers
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.MarkMembers, Parameters.MarkMembers);
+							WhereParameter where = new WhereParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1192,15 +542,15 @@ namespace DAL
 			}
 			#endregion
 		
-			public WhereParameter BotID
+			public WhereParameter ID
 		    {
 				get
 		        {
-					if(_BotID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_BotID_W = TearOff.BotID;
+						_ID_W = TearOff.ID;
 					}
-					return _BotID_W;
+					return _ID_W;
 				}
 			}
 
@@ -1216,265 +566,83 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter Price_Point
+			public WhereParameter Title
 		    {
 				get
 		        {
-					if(_Price_Point_W == null)
+					if(_Title_W == null)
 	        	    {
-						_Price_Point_W = TearOff.Price_Point;
+						_Title_W = TearOff.Title;
 					}
-					return _Price_Point_W;
+					return _Title_W;
 				}
 			}
 
-			public WhereParameter Price_Money
+			public WhereParameter Description
 		    {
 				get
 		        {
-					if(_Price_Money_W == null)
+					if(_Description_W == null)
 	        	    {
-						_Price_Money_W = TearOff.Price_Money;
+						_Description_W = TearOff.Description;
 					}
-					return _Price_Money_W;
+					return _Description_W;
 				}
 			}
 
-			public WhereParameter Period
+			public WhereParameter IconPath
 		    {
 				get
 		        {
-					if(_Period_W == null)
+					if(_IconPath_W == null)
 	        	    {
-						_Period_W = TearOff.Period;
+						_IconPath_W = TearOff.IconPath;
 					}
-					return _Period_W;
+					return _IconPath_W;
 				}
 			}
 
-			public WhereParameter PicPath
+			public WhereParameter IsOptional
 		    {
 				get
 		        {
-					if(_PicPath_W == null)
+					if(_IsOptional_W == null)
 	        	    {
-						_PicPath_W = TearOff.PicPath;
+						_IsOptional_W = TearOff.IsOptional;
 					}
-					return _PicPath_W;
+					return _IsOptional_W;
 				}
 			}
 
-			public WhereParameter WelcomeMsg
+			public WhereParameter RowStatusID
 		    {
 				get
 		        {
-					if(_WelcomeMsg_W == null)
+					if(_RowStatusID_W == null)
 	        	    {
-						_WelcomeMsg_W = TearOff.WelcomeMsg;
+						_RowStatusID_W = TearOff.RowStatusID;
 					}
-					return _WelcomeMsg_W;
+					return _RowStatusID_W;
 				}
 			}
 
-			public WhereParameter WelcomeMsgText
-		    {
-				get
-		        {
-					if(_WelcomeMsgText_W == null)
-	        	    {
-						_WelcomeMsgText_W = TearOff.WelcomeMsgText;
-					}
-					return _WelcomeMsgText_W;
-				}
-			}
-
-			public WhereParameter ByeMsg
-		    {
-				get
-		        {
-					if(_ByeMsg_W == null)
-	        	    {
-						_ByeMsg_W = TearOff.ByeMsg;
-					}
-					return _ByeMsg_W;
-				}
-			}
-
-			public WhereParameter ByeMsgText
-		    {
-				get
-		        {
-					if(_ByeMsgText_W == null)
-	        	    {
-						_ByeMsgText_W = TearOff.ByeMsgText;
-					}
-					return _ByeMsgText_W;
-				}
-			}
-
-			public WhereParameter DisableRepeat
-		    {
-				get
-		        {
-					if(_DisableRepeat_W == null)
-	        	    {
-						_DisableRepeat_W = TearOff.DisableRepeat;
-					}
-					return _DisableRepeat_W;
-				}
-			}
-
-			public WhereParameter DisableLinks
-		    {
-				get
-		        {
-					if(_DisableLinks_W == null)
-	        	    {
-						_DisableLinks_W = TearOff.DisableLinks;
-					}
-					return _DisableLinks_W;
-				}
-			}
-
-			public WhereParameter RoomLaw
-		    {
-				get
-		        {
-					if(_RoomLaw_W == null)
-	        	    {
-						_RoomLaw_W = TearOff.RoomLaw;
-					}
-					return _RoomLaw_W;
-				}
-			}
-
-			public WhereParameter Poetry
-		    {
-				get
-		        {
-					if(_Poetry_W == null)
-	        	    {
-						_Poetry_W = TearOff.Poetry;
-					}
-					return _Poetry_W;
-				}
-			}
-
-			public WhereParameter Qoutes
-		    {
-				get
-		        {
-					if(_Qoutes_W == null)
-	        	    {
-						_Qoutes_W = TearOff.Qoutes;
-					}
-					return _Qoutes_W;
-				}
-			}
-
-			public WhereParameter ReligionAlerts
-		    {
-				get
-		        {
-					if(_ReligionAlerts_W == null)
-	        	    {
-						_ReligionAlerts_W = TearOff.ReligionAlerts;
-					}
-					return _ReligionAlerts_W;
-				}
-			}
-
-			public WhereParameter Ads
-		    {
-				get
-		        {
-					if(_Ads_W == null)
-	        	    {
-						_Ads_W = TearOff.Ads;
-					}
-					return _Ads_W;
-				}
-			}
-
-			public WhereParameter Voting
-		    {
-				get
-		        {
-					if(_Voting_W == null)
-	        	    {
-						_Voting_W = TearOff.Voting;
-					}
-					return _Voting_W;
-				}
-			}
-
-			public WhereParameter AbuseWords
-		    {
-				get
-		        {
-					if(_AbuseWords_W == null)
-	        	    {
-						_AbuseWords_W = TearOff.AbuseWords;
-					}
-					return _AbuseWords_W;
-				}
-			}
-
-			public WhereParameter MarkMembers
-		    {
-				get
-		        {
-					if(_MarkMembers_W == null)
-	        	    {
-						_MarkMembers_W = TearOff.MarkMembers;
-					}
-					return _MarkMembers_W;
-				}
-			}
-
-			private WhereParameter _BotID_W = null;
+			private WhereParameter _ID_W = null;
 			private WhereParameter _Name_W = null;
-			private WhereParameter _Price_Point_W = null;
-			private WhereParameter _Price_Money_W = null;
-			private WhereParameter _Period_W = null;
-			private WhereParameter _PicPath_W = null;
-			private WhereParameter _WelcomeMsg_W = null;
-			private WhereParameter _WelcomeMsgText_W = null;
-			private WhereParameter _ByeMsg_W = null;
-			private WhereParameter _ByeMsgText_W = null;
-			private WhereParameter _DisableRepeat_W = null;
-			private WhereParameter _DisableLinks_W = null;
-			private WhereParameter _RoomLaw_W = null;
-			private WhereParameter _Poetry_W = null;
-			private WhereParameter _Qoutes_W = null;
-			private WhereParameter _ReligionAlerts_W = null;
-			private WhereParameter _Ads_W = null;
-			private WhereParameter _Voting_W = null;
-			private WhereParameter _AbuseWords_W = null;
-			private WhereParameter _MarkMembers_W = null;
+			private WhereParameter _Title_W = null;
+			private WhereParameter _Description_W = null;
+			private WhereParameter _IconPath_W = null;
+			private WhereParameter _IsOptional_W = null;
+			private WhereParameter _RowStatusID_W = null;
 
 			public void WhereClauseReset()
 			{
-				_BotID_W = null;
+				_ID_W = null;
 				_Name_W = null;
-				_Price_Point_W = null;
-				_Price_Money_W = null;
-				_Period_W = null;
-				_PicPath_W = null;
-				_WelcomeMsg_W = null;
-				_WelcomeMsgText_W = null;
-				_ByeMsg_W = null;
-				_ByeMsgText_W = null;
-				_DisableRepeat_W = null;
-				_DisableLinks_W = null;
-				_RoomLaw_W = null;
-				_Poetry_W = null;
-				_Qoutes_W = null;
-				_ReligionAlerts_W = null;
-				_Ads_W = null;
-				_Voting_W = null;
-				_AbuseWords_W = null;
-				_MarkMembers_W = null;
+				_Title_W = null;
+				_Description_W = null;
+				_IconPath_W = null;
+				_IsOptional_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1531,11 +699,11 @@ namespace DAL
 				}
 				
 				
-				public AggregateParameter BotID
+				public AggregateParameter ID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BotID, Parameters.BotID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1551,181 +719,51 @@ namespace DAL
 					}
 				}
 
-				public AggregateParameter Price_Point
+				public AggregateParameter Title
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price_Point, Parameters.Price_Point);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Title, Parameters.Title);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Price_Money
+				public AggregateParameter Description
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price_Money, Parameters.Price_Money);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Description, Parameters.Description);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Period
+				public AggregateParameter IconPath
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Period, Parameters.Period);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IconPath, Parameters.IconPath);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter PicPath
+				public AggregateParameter IsOptional
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PicPath, Parameters.PicPath);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsOptional, Parameters.IsOptional);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter WelcomeMsg
+				public AggregateParameter RowStatusID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.WelcomeMsg, Parameters.WelcomeMsg);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter WelcomeMsgText
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.WelcomeMsgText, Parameters.WelcomeMsgText);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter ByeMsg
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ByeMsg, Parameters.ByeMsg);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter ByeMsgText
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ByeMsgText, Parameters.ByeMsgText);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter DisableRepeat
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DisableRepeat, Parameters.DisableRepeat);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter DisableLinks
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DisableLinks, Parameters.DisableLinks);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter RoomLaw
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RoomLaw, Parameters.RoomLaw);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter Poetry
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Poetry, Parameters.Poetry);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter Qoutes
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Qoutes, Parameters.Qoutes);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter ReligionAlerts
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReligionAlerts, Parameters.ReligionAlerts);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter Ads
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Ads, Parameters.Ads);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter Voting
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Voting, Parameters.Voting);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter AbuseWords
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AbuseWords, Parameters.AbuseWords);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter MarkMembers
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MarkMembers, Parameters.MarkMembers);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RowStatusID, Parameters.RowStatusID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1736,15 +774,15 @@ namespace DAL
 			}
 			#endregion
 		
-			public AggregateParameter BotID
+			public AggregateParameter ID
 		    {
 				get
 		        {
-					if(_BotID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_BotID_W = TearOff.BotID;
+						_ID_W = TearOff.ID;
 					}
-					return _BotID_W;
+					return _ID_W;
 				}
 			}
 
@@ -1760,265 +798,83 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter Price_Point
+			public AggregateParameter Title
 		    {
 				get
 		        {
-					if(_Price_Point_W == null)
+					if(_Title_W == null)
 	        	    {
-						_Price_Point_W = TearOff.Price_Point;
+						_Title_W = TearOff.Title;
 					}
-					return _Price_Point_W;
+					return _Title_W;
 				}
 			}
 
-			public AggregateParameter Price_Money
+			public AggregateParameter Description
 		    {
 				get
 		        {
-					if(_Price_Money_W == null)
+					if(_Description_W == null)
 	        	    {
-						_Price_Money_W = TearOff.Price_Money;
+						_Description_W = TearOff.Description;
 					}
-					return _Price_Money_W;
+					return _Description_W;
 				}
 			}
 
-			public AggregateParameter Period
+			public AggregateParameter IconPath
 		    {
 				get
 		        {
-					if(_Period_W == null)
+					if(_IconPath_W == null)
 	        	    {
-						_Period_W = TearOff.Period;
+						_IconPath_W = TearOff.IconPath;
 					}
-					return _Period_W;
+					return _IconPath_W;
 				}
 			}
 
-			public AggregateParameter PicPath
+			public AggregateParameter IsOptional
 		    {
 				get
 		        {
-					if(_PicPath_W == null)
+					if(_IsOptional_W == null)
 	        	    {
-						_PicPath_W = TearOff.PicPath;
+						_IsOptional_W = TearOff.IsOptional;
 					}
-					return _PicPath_W;
+					return _IsOptional_W;
 				}
 			}
 
-			public AggregateParameter WelcomeMsg
+			public AggregateParameter RowStatusID
 		    {
 				get
 		        {
-					if(_WelcomeMsg_W == null)
+					if(_RowStatusID_W == null)
 	        	    {
-						_WelcomeMsg_W = TearOff.WelcomeMsg;
+						_RowStatusID_W = TearOff.RowStatusID;
 					}
-					return _WelcomeMsg_W;
+					return _RowStatusID_W;
 				}
 			}
 
-			public AggregateParameter WelcomeMsgText
-		    {
-				get
-		        {
-					if(_WelcomeMsgText_W == null)
-	        	    {
-						_WelcomeMsgText_W = TearOff.WelcomeMsgText;
-					}
-					return _WelcomeMsgText_W;
-				}
-			}
-
-			public AggregateParameter ByeMsg
-		    {
-				get
-		        {
-					if(_ByeMsg_W == null)
-	        	    {
-						_ByeMsg_W = TearOff.ByeMsg;
-					}
-					return _ByeMsg_W;
-				}
-			}
-
-			public AggregateParameter ByeMsgText
-		    {
-				get
-		        {
-					if(_ByeMsgText_W == null)
-	        	    {
-						_ByeMsgText_W = TearOff.ByeMsgText;
-					}
-					return _ByeMsgText_W;
-				}
-			}
-
-			public AggregateParameter DisableRepeat
-		    {
-				get
-		        {
-					if(_DisableRepeat_W == null)
-	        	    {
-						_DisableRepeat_W = TearOff.DisableRepeat;
-					}
-					return _DisableRepeat_W;
-				}
-			}
-
-			public AggregateParameter DisableLinks
-		    {
-				get
-		        {
-					if(_DisableLinks_W == null)
-	        	    {
-						_DisableLinks_W = TearOff.DisableLinks;
-					}
-					return _DisableLinks_W;
-				}
-			}
-
-			public AggregateParameter RoomLaw
-		    {
-				get
-		        {
-					if(_RoomLaw_W == null)
-	        	    {
-						_RoomLaw_W = TearOff.RoomLaw;
-					}
-					return _RoomLaw_W;
-				}
-			}
-
-			public AggregateParameter Poetry
-		    {
-				get
-		        {
-					if(_Poetry_W == null)
-	        	    {
-						_Poetry_W = TearOff.Poetry;
-					}
-					return _Poetry_W;
-				}
-			}
-
-			public AggregateParameter Qoutes
-		    {
-				get
-		        {
-					if(_Qoutes_W == null)
-	        	    {
-						_Qoutes_W = TearOff.Qoutes;
-					}
-					return _Qoutes_W;
-				}
-			}
-
-			public AggregateParameter ReligionAlerts
-		    {
-				get
-		        {
-					if(_ReligionAlerts_W == null)
-	        	    {
-						_ReligionAlerts_W = TearOff.ReligionAlerts;
-					}
-					return _ReligionAlerts_W;
-				}
-			}
-
-			public AggregateParameter Ads
-		    {
-				get
-		        {
-					if(_Ads_W == null)
-	        	    {
-						_Ads_W = TearOff.Ads;
-					}
-					return _Ads_W;
-				}
-			}
-
-			public AggregateParameter Voting
-		    {
-				get
-		        {
-					if(_Voting_W == null)
-	        	    {
-						_Voting_W = TearOff.Voting;
-					}
-					return _Voting_W;
-				}
-			}
-
-			public AggregateParameter AbuseWords
-		    {
-				get
-		        {
-					if(_AbuseWords_W == null)
-	        	    {
-						_AbuseWords_W = TearOff.AbuseWords;
-					}
-					return _AbuseWords_W;
-				}
-			}
-
-			public AggregateParameter MarkMembers
-		    {
-				get
-		        {
-					if(_MarkMembers_W == null)
-	        	    {
-						_MarkMembers_W = TearOff.MarkMembers;
-					}
-					return _MarkMembers_W;
-				}
-			}
-
-			private AggregateParameter _BotID_W = null;
+			private AggregateParameter _ID_W = null;
 			private AggregateParameter _Name_W = null;
-			private AggregateParameter _Price_Point_W = null;
-			private AggregateParameter _Price_Money_W = null;
-			private AggregateParameter _Period_W = null;
-			private AggregateParameter _PicPath_W = null;
-			private AggregateParameter _WelcomeMsg_W = null;
-			private AggregateParameter _WelcomeMsgText_W = null;
-			private AggregateParameter _ByeMsg_W = null;
-			private AggregateParameter _ByeMsgText_W = null;
-			private AggregateParameter _DisableRepeat_W = null;
-			private AggregateParameter _DisableLinks_W = null;
-			private AggregateParameter _RoomLaw_W = null;
-			private AggregateParameter _Poetry_W = null;
-			private AggregateParameter _Qoutes_W = null;
-			private AggregateParameter _ReligionAlerts_W = null;
-			private AggregateParameter _Ads_W = null;
-			private AggregateParameter _Voting_W = null;
-			private AggregateParameter _AbuseWords_W = null;
-			private AggregateParameter _MarkMembers_W = null;
+			private AggregateParameter _Title_W = null;
+			private AggregateParameter _Description_W = null;
+			private AggregateParameter _IconPath_W = null;
+			private AggregateParameter _IsOptional_W = null;
+			private AggregateParameter _RowStatusID_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_BotID_W = null;
+				_ID_W = null;
 				_Name_W = null;
-				_Price_Point_W = null;
-				_Price_Money_W = null;
-				_Period_W = null;
-				_PicPath_W = null;
-				_WelcomeMsg_W = null;
-				_WelcomeMsgText_W = null;
-				_ByeMsg_W = null;
-				_ByeMsgText_W = null;
-				_DisableRepeat_W = null;
-				_DisableLinks_W = null;
-				_RoomLaw_W = null;
-				_Poetry_W = null;
-				_Qoutes_W = null;
-				_ReligionAlerts_W = null;
-				_Ads_W = null;
-				_Voting_W = null;
-				_AbuseWords_W = null;
-				_MarkMembers_W = null;
+				_Title_W = null;
+				_Description_W = null;
+				_IconPath_W = null;
+				_IsOptional_W = null;
+				_RowStatusID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2053,11 +909,7 @@ namespace DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_BotInsert]";
 	
 			CreateParameters(cmd);
-			
-			SqlParameter p;
-			p = cmd.Parameters[Parameters.BotID.ParameterName];
-			p.Direction = ParameterDirection.Output;
-    
+			    
 			return cmd;
 		}
 	
@@ -2081,8 +933,8 @@ namespace DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_BotDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.BotID);
-			p.SourceColumn = ColumnNames.BotID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -2093,84 +945,32 @@ namespace DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.BotID);
-			p.SourceColumn = ColumnNames.BotID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.Name);
 			p.SourceColumn = ColumnNames.Name;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price_Point);
-			p.SourceColumn = ColumnNames.Price_Point;
+			p = cmd.Parameters.Add(Parameters.Title);
+			p.SourceColumn = ColumnNames.Title;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price_Money);
-			p.SourceColumn = ColumnNames.Price_Money;
+			p = cmd.Parameters.Add(Parameters.Description);
+			p.SourceColumn = ColumnNames.Description;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Period);
-			p.SourceColumn = ColumnNames.Period;
+			p = cmd.Parameters.Add(Parameters.IconPath);
+			p.SourceColumn = ColumnNames.IconPath;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.PicPath);
-			p.SourceColumn = ColumnNames.PicPath;
+			p = cmd.Parameters.Add(Parameters.IsOptional);
+			p.SourceColumn = ColumnNames.IsOptional;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.WelcomeMsg);
-			p.SourceColumn = ColumnNames.WelcomeMsg;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.WelcomeMsgText);
-			p.SourceColumn = ColumnNames.WelcomeMsgText;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ByeMsg);
-			p.SourceColumn = ColumnNames.ByeMsg;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ByeMsgText);
-			p.SourceColumn = ColumnNames.ByeMsgText;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.DisableRepeat);
-			p.SourceColumn = ColumnNames.DisableRepeat;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.DisableLinks);
-			p.SourceColumn = ColumnNames.DisableLinks;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.RoomLaw);
-			p.SourceColumn = ColumnNames.RoomLaw;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.Poetry);
-			p.SourceColumn = ColumnNames.Poetry;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.Qoutes);
-			p.SourceColumn = ColumnNames.Qoutes;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ReligionAlerts);
-			p.SourceColumn = ColumnNames.ReligionAlerts;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.Ads);
-			p.SourceColumn = ColumnNames.Ads;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.Voting);
-			p.SourceColumn = ColumnNames.Voting;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.AbuseWords);
-			p.SourceColumn = ColumnNames.AbuseWords;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.MarkMembers);
-			p.SourceColumn = ColumnNames.MarkMembers;
+			p = cmd.Parameters.Add(Parameters.RowStatusID);
+			p.SourceColumn = ColumnNames.RowStatusID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

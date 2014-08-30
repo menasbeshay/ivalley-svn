@@ -6,9 +6,9 @@ using System;
 
 namespace BLL
 {
-	public class RoomBot : _RoomBot
+	public class LoginMembersBot : _LoginMembersBot
 	{
-		public RoomBot()
+		public LoginMembersBot()
 		{
 		
 		}

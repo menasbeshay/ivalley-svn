@@ -86,12 +86,10 @@ namespace DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int BotID, int RoomID)
+		public virtual bool LoadByPrimaryKey(int ID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.BotID, BotID);
-
-parameters.Add(Parameters.RoomID, RoomID);
+			parameters.Add(Parameters.ID, ID);
 
 		
 			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomBotLoadByPrimaryKey]", parameters);
@@ -101,11 +99,11 @@ parameters.Add(Parameters.RoomID, RoomID);
 		protected class Parameters
 		{
 			
-			public static SqlParameter BotID
+			public static SqlParameter ID
 			{
 				get
 				{
-					return new SqlParameter("@BotID", SqlDbType.Int, 0);
+					return new SqlParameter("@ID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -117,11 +115,59 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
-			public static SqlParameter ExpiryDate
+			public static SqlParameter BotID
 			{
 				get
 				{
-					return new SqlParameter("@ExpiryDate", SqlDbType.DateTime, 0);
+					return new SqlParameter("@BotID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter ShortcutKey
+			{
+				get
+				{
+					return new SqlParameter("@ShortcutKey", SqlDbType.VarChar, 50);
+				}
+			}
+			
+			public static SqlParameter CreatedByMemberID
+			{
+				get
+				{
+					return new SqlParameter("@CreatedByMemberID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter IsEnabled
+			{
+				get
+				{
+					return new SqlParameter("@IsEnabled", SqlDbType.NChar, 10);
+				}
+			}
+			
+			public static SqlParameter StartDate
+			{
+				get
+				{
+					return new SqlParameter("@StartDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter EndDate
+			{
+				get
+				{
+					return new SqlParameter("@EndDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter TimeStamp
+			{
+				get
+				{
+					return new SqlParameter("@TimeStamp", SqlDbType.DateTime, 0);
 				}
 			}
 			
@@ -131,9 +177,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string BotID = "BotID";
+            public const string ID = "ID";
             public const string RoomID = "RoomID";
-            public const string ExpiryDate = "ExpiryDate";
+            public const string BotID = "BotID";
+            public const string ShortcutKey = "ShortcutKey";
+            public const string CreatedByMemberID = "CreatedByMemberID";
+            public const string IsEnabled = "IsEnabled";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string TimeStamp = "TimeStamp";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -141,9 +193,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 				{
 					ht = new Hashtable();
 					
-					ht[BotID] = _RoomBot.PropertyNames.BotID;
+					ht[ID] = _RoomBot.PropertyNames.ID;
 					ht[RoomID] = _RoomBot.PropertyNames.RoomID;
-					ht[ExpiryDate] = _RoomBot.PropertyNames.ExpiryDate;
+					ht[BotID] = _RoomBot.PropertyNames.BotID;
+					ht[ShortcutKey] = _RoomBot.PropertyNames.ShortcutKey;
+					ht[CreatedByMemberID] = _RoomBot.PropertyNames.CreatedByMemberID;
+					ht[IsEnabled] = _RoomBot.PropertyNames.IsEnabled;
+					ht[StartDate] = _RoomBot.PropertyNames.StartDate;
+					ht[EndDate] = _RoomBot.PropertyNames.EndDate;
+					ht[TimeStamp] = _RoomBot.PropertyNames.TimeStamp;
 
 				}
 				return (string)ht[columnName];
@@ -156,9 +214,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string BotID = "BotID";
+            public const string ID = "ID";
             public const string RoomID = "RoomID";
-            public const string ExpiryDate = "ExpiryDate";
+            public const string BotID = "BotID";
+            public const string ShortcutKey = "ShortcutKey";
+            public const string CreatedByMemberID = "CreatedByMemberID";
+            public const string IsEnabled = "IsEnabled";
+            public const string StartDate = "StartDate";
+            public const string EndDate = "EndDate";
+            public const string TimeStamp = "TimeStamp";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -166,9 +230,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 				{
 					ht = new Hashtable();
 					
-					ht[BotID] = _RoomBot.ColumnNames.BotID;
+					ht[ID] = _RoomBot.ColumnNames.ID;
 					ht[RoomID] = _RoomBot.ColumnNames.RoomID;
-					ht[ExpiryDate] = _RoomBot.ColumnNames.ExpiryDate;
+					ht[BotID] = _RoomBot.ColumnNames.BotID;
+					ht[ShortcutKey] = _RoomBot.ColumnNames.ShortcutKey;
+					ht[CreatedByMemberID] = _RoomBot.ColumnNames.CreatedByMemberID;
+					ht[IsEnabled] = _RoomBot.ColumnNames.IsEnabled;
+					ht[StartDate] = _RoomBot.ColumnNames.StartDate;
+					ht[EndDate] = _RoomBot.ColumnNames.EndDate;
+					ht[TimeStamp] = _RoomBot.ColumnNames.TimeStamp;
 
 				}
 				return (string)ht[propertyName];
@@ -181,24 +251,30 @@ parameters.Add(Parameters.RoomID, RoomID);
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string BotID = "s_BotID";
+            public const string ID = "s_ID";
             public const string RoomID = "s_RoomID";
-            public const string ExpiryDate = "s_ExpiryDate";
+            public const string BotID = "s_BotID";
+            public const string ShortcutKey = "s_ShortcutKey";
+            public const string CreatedByMemberID = "s_CreatedByMemberID";
+            public const string IsEnabled = "s_IsEnabled";
+            public const string StartDate = "s_StartDate";
+            public const string EndDate = "s_EndDate";
+            public const string TimeStamp = "s_TimeStamp";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int BotID
+		public virtual int ID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.BotID);
+				return base.Getint(ColumnNames.ID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.BotID, value);
+				base.Setint(ColumnNames.ID, value);
 			}
 		}
 
@@ -214,15 +290,87 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
-		public virtual DateTime ExpiryDate
+		public virtual int BotID
 	    {
 			get
 	        {
-				return base.GetDateTime(ColumnNames.ExpiryDate);
+				return base.Getint(ColumnNames.BotID);
 			}
 			set
 	        {
-				base.SetDateTime(ColumnNames.ExpiryDate, value);
+				base.Setint(ColumnNames.BotID, value);
+			}
+		}
+
+		public virtual string ShortcutKey
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.ShortcutKey);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.ShortcutKey, value);
+			}
+		}
+
+		public virtual int CreatedByMemberID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.CreatedByMemberID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.CreatedByMemberID, value);
+			}
+		}
+
+		public virtual string IsEnabled
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.IsEnabled);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.IsEnabled, value);
+			}
+		}
+
+		public virtual DateTime StartDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.StartDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.StartDate, value);
+			}
+		}
+
+		public virtual DateTime EndDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.EndDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.EndDate, value);
+			}
+		}
+
+		public virtual DateTime TimeStamp
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.TimeStamp);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.TimeStamp, value);
 			}
 		}
 
@@ -231,18 +379,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 		
 		#region String Properties
 	
-		public virtual string s_BotID
+		public virtual string s_ID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.BotID) ? string.Empty : base.GetintAsString(ColumnNames.BotID);
+				return this.IsColumnNull(ColumnNames.ID) ? string.Empty : base.GetintAsString(ColumnNames.ID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.BotID);
+					this.SetColumnNull(ColumnNames.ID);
 				else
-					this.BotID = base.SetintAsString(ColumnNames.BotID, value);
+					this.ID = base.SetintAsString(ColumnNames.ID, value);
 			}
 		}
 
@@ -261,18 +409,108 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
-		public virtual string s_ExpiryDate
+		public virtual string s_BotID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ExpiryDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.ExpiryDate);
+				return this.IsColumnNull(ColumnNames.BotID) ? string.Empty : base.GetintAsString(ColumnNames.BotID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ExpiryDate);
+					this.SetColumnNull(ColumnNames.BotID);
 				else
-					this.ExpiryDate = base.SetDateTimeAsString(ColumnNames.ExpiryDate, value);
+					this.BotID = base.SetintAsString(ColumnNames.BotID, value);
+			}
+		}
+
+		public virtual string s_ShortcutKey
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ShortcutKey) ? string.Empty : base.GetstringAsString(ColumnNames.ShortcutKey);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ShortcutKey);
+				else
+					this.ShortcutKey = base.SetstringAsString(ColumnNames.ShortcutKey, value);
+			}
+		}
+
+		public virtual string s_CreatedByMemberID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CreatedByMemberID) ? string.Empty : base.GetintAsString(ColumnNames.CreatedByMemberID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CreatedByMemberID);
+				else
+					this.CreatedByMemberID = base.SetintAsString(ColumnNames.CreatedByMemberID, value);
+			}
+		}
+
+		public virtual string s_IsEnabled
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsEnabled) ? string.Empty : base.GetstringAsString(ColumnNames.IsEnabled);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsEnabled);
+				else
+					this.IsEnabled = base.SetstringAsString(ColumnNames.IsEnabled, value);
+			}
+		}
+
+		public virtual string s_StartDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StartDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.StartDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StartDate);
+				else
+					this.StartDate = base.SetDateTimeAsString(ColumnNames.StartDate, value);
+			}
+		}
+
+		public virtual string s_EndDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EndDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.EndDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EndDate);
+				else
+					this.EndDate = base.SetDateTimeAsString(ColumnNames.EndDate, value);
+			}
+		}
+
+		public virtual string s_TimeStamp
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TimeStamp) ? string.Empty : base.GetDateTimeAsString(ColumnNames.TimeStamp);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TimeStamp);
+				else
+					this.TimeStamp = base.SetDateTimeAsString(ColumnNames.TimeStamp, value);
 			}
 		}
 
@@ -309,11 +547,11 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 				
 				
-				public WhereParameter BotID
+				public WhereParameter ID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.BotID, Parameters.BotID);
+							WhereParameter where = new WhereParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -329,11 +567,71 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
-				public WhereParameter ExpiryDate
+				public WhereParameter BotID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ExpiryDate, Parameters.ExpiryDate);
+							WhereParameter where = new WhereParameter(ColumnNames.BotID, Parameters.BotID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ShortcutKey
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ShortcutKey, Parameters.ShortcutKey);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CreatedByMemberID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CreatedByMemberID, Parameters.CreatedByMemberID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsEnabled
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsEnabled, Parameters.IsEnabled);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter StartDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StartDate, Parameters.StartDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter EndDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EndDate, Parameters.EndDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TimeStamp
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TimeStamp, Parameters.TimeStamp);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -344,15 +642,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 			#endregion
 		
-			public WhereParameter BotID
+			public WhereParameter ID
 		    {
 				get
 		        {
-					if(_BotID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_BotID_W = TearOff.BotID;
+						_ID_W = TearOff.ID;
 					}
-					return _BotID_W;
+					return _ID_W;
 				}
 			}
 
@@ -368,27 +666,111 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
-			public WhereParameter ExpiryDate
+			public WhereParameter BotID
 		    {
 				get
 		        {
-					if(_ExpiryDate_W == null)
+					if(_BotID_W == null)
 	        	    {
-						_ExpiryDate_W = TearOff.ExpiryDate;
+						_BotID_W = TearOff.BotID;
 					}
-					return _ExpiryDate_W;
+					return _BotID_W;
 				}
 			}
 
-			private WhereParameter _BotID_W = null;
+			public WhereParameter ShortcutKey
+		    {
+				get
+		        {
+					if(_ShortcutKey_W == null)
+	        	    {
+						_ShortcutKey_W = TearOff.ShortcutKey;
+					}
+					return _ShortcutKey_W;
+				}
+			}
+
+			public WhereParameter CreatedByMemberID
+		    {
+				get
+		        {
+					if(_CreatedByMemberID_W == null)
+	        	    {
+						_CreatedByMemberID_W = TearOff.CreatedByMemberID;
+					}
+					return _CreatedByMemberID_W;
+				}
+			}
+
+			public WhereParameter IsEnabled
+		    {
+				get
+		        {
+					if(_IsEnabled_W == null)
+	        	    {
+						_IsEnabled_W = TearOff.IsEnabled;
+					}
+					return _IsEnabled_W;
+				}
+			}
+
+			public WhereParameter StartDate
+		    {
+				get
+		        {
+					if(_StartDate_W == null)
+	        	    {
+						_StartDate_W = TearOff.StartDate;
+					}
+					return _StartDate_W;
+				}
+			}
+
+			public WhereParameter EndDate
+		    {
+				get
+		        {
+					if(_EndDate_W == null)
+	        	    {
+						_EndDate_W = TearOff.EndDate;
+					}
+					return _EndDate_W;
+				}
+			}
+
+			public WhereParameter TimeStamp
+		    {
+				get
+		        {
+					if(_TimeStamp_W == null)
+	        	    {
+						_TimeStamp_W = TearOff.TimeStamp;
+					}
+					return _TimeStamp_W;
+				}
+			}
+
+			private WhereParameter _ID_W = null;
 			private WhereParameter _RoomID_W = null;
-			private WhereParameter _ExpiryDate_W = null;
+			private WhereParameter _BotID_W = null;
+			private WhereParameter _ShortcutKey_W = null;
+			private WhereParameter _CreatedByMemberID_W = null;
+			private WhereParameter _IsEnabled_W = null;
+			private WhereParameter _StartDate_W = null;
+			private WhereParameter _EndDate_W = null;
+			private WhereParameter _TimeStamp_W = null;
 
 			public void WhereClauseReset()
 			{
-				_BotID_W = null;
+				_ID_W = null;
 				_RoomID_W = null;
-				_ExpiryDate_W = null;
+				_BotID_W = null;
+				_ShortcutKey_W = null;
+				_CreatedByMemberID_W = null;
+				_IsEnabled_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_TimeStamp_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -445,11 +827,11 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 				
 				
-				public AggregateParameter BotID
+				public AggregateParameter ID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BotID, Parameters.BotID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ID, Parameters.ID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -465,11 +847,71 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
-				public AggregateParameter ExpiryDate
+				public AggregateParameter BotID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ExpiryDate, Parameters.ExpiryDate);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BotID, Parameters.BotID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ShortcutKey
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ShortcutKey, Parameters.ShortcutKey);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CreatedByMemberID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CreatedByMemberID, Parameters.CreatedByMemberID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsEnabled
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsEnabled, Parameters.IsEnabled);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter StartDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StartDate, Parameters.StartDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter EndDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EndDate, Parameters.EndDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TimeStamp
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TimeStamp, Parameters.TimeStamp);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -480,15 +922,15 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 			#endregion
 		
-			public AggregateParameter BotID
+			public AggregateParameter ID
 		    {
 				get
 		        {
-					if(_BotID_W == null)
+					if(_ID_W == null)
 	        	    {
-						_BotID_W = TearOff.BotID;
+						_ID_W = TearOff.ID;
 					}
-					return _BotID_W;
+					return _ID_W;
 				}
 			}
 
@@ -504,27 +946,111 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
-			public AggregateParameter ExpiryDate
+			public AggregateParameter BotID
 		    {
 				get
 		        {
-					if(_ExpiryDate_W == null)
+					if(_BotID_W == null)
 	        	    {
-						_ExpiryDate_W = TearOff.ExpiryDate;
+						_BotID_W = TearOff.BotID;
 					}
-					return _ExpiryDate_W;
+					return _BotID_W;
 				}
 			}
 
-			private AggregateParameter _BotID_W = null;
+			public AggregateParameter ShortcutKey
+		    {
+				get
+		        {
+					if(_ShortcutKey_W == null)
+	        	    {
+						_ShortcutKey_W = TearOff.ShortcutKey;
+					}
+					return _ShortcutKey_W;
+				}
+			}
+
+			public AggregateParameter CreatedByMemberID
+		    {
+				get
+		        {
+					if(_CreatedByMemberID_W == null)
+	        	    {
+						_CreatedByMemberID_W = TearOff.CreatedByMemberID;
+					}
+					return _CreatedByMemberID_W;
+				}
+			}
+
+			public AggregateParameter IsEnabled
+		    {
+				get
+		        {
+					if(_IsEnabled_W == null)
+	        	    {
+						_IsEnabled_W = TearOff.IsEnabled;
+					}
+					return _IsEnabled_W;
+				}
+			}
+
+			public AggregateParameter StartDate
+		    {
+				get
+		        {
+					if(_StartDate_W == null)
+	        	    {
+						_StartDate_W = TearOff.StartDate;
+					}
+					return _StartDate_W;
+				}
+			}
+
+			public AggregateParameter EndDate
+		    {
+				get
+		        {
+					if(_EndDate_W == null)
+	        	    {
+						_EndDate_W = TearOff.EndDate;
+					}
+					return _EndDate_W;
+				}
+			}
+
+			public AggregateParameter TimeStamp
+		    {
+				get
+		        {
+					if(_TimeStamp_W == null)
+	        	    {
+						_TimeStamp_W = TearOff.TimeStamp;
+					}
+					return _TimeStamp_W;
+				}
+			}
+
+			private AggregateParameter _ID_W = null;
 			private AggregateParameter _RoomID_W = null;
-			private AggregateParameter _ExpiryDate_W = null;
+			private AggregateParameter _BotID_W = null;
+			private AggregateParameter _ShortcutKey_W = null;
+			private AggregateParameter _CreatedByMemberID_W = null;
+			private AggregateParameter _IsEnabled_W = null;
+			private AggregateParameter _StartDate_W = null;
+			private AggregateParameter _EndDate_W = null;
+			private AggregateParameter _TimeStamp_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_BotID_W = null;
+				_ID_W = null;
 				_RoomID_W = null;
-				_ExpiryDate_W = null;
+				_BotID_W = null;
+				_ShortcutKey_W = null;
+				_CreatedByMemberID_W = null;
+				_IsEnabled_W = null;
+				_StartDate_W = null;
+				_EndDate_W = null;
+				_TimeStamp_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -559,7 +1085,11 @@ parameters.Add(Parameters.RoomID, RoomID);
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomBotInsert]";
 	
 			CreateParameters(cmd);
-			    
+			
+			SqlParameter p;
+			p = cmd.Parameters[Parameters.ID.ParameterName];
+			p.Direction = ParameterDirection.Output;
+    
 			return cmd;
 		}
 	
@@ -583,12 +1113,8 @@ parameters.Add(Parameters.RoomID, RoomID);
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_RoomBotDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.BotID);
-			p.SourceColumn = ColumnNames.BotID;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.RoomID);
-			p.SourceColumn = ColumnNames.RoomID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -599,16 +1125,40 @@ parameters.Add(Parameters.RoomID, RoomID);
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.BotID);
-			p.SourceColumn = ColumnNames.BotID;
+			p = cmd.Parameters.Add(Parameters.ID);
+			p.SourceColumn = ColumnNames.ID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.RoomID);
 			p.SourceColumn = ColumnNames.RoomID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ExpiryDate);
-			p.SourceColumn = ColumnNames.ExpiryDate;
+			p = cmd.Parameters.Add(Parameters.BotID);
+			p.SourceColumn = ColumnNames.BotID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ShortcutKey);
+			p.SourceColumn = ColumnNames.ShortcutKey;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CreatedByMemberID);
+			p.SourceColumn = ColumnNames.CreatedByMemberID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsEnabled);
+			p.SourceColumn = ColumnNames.IsEnabled;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StartDate);
+			p.SourceColumn = ColumnNames.StartDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EndDate);
+			p.SourceColumn = ColumnNames.EndDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TimeStamp);
+			p.SourceColumn = ColumnNames.TimeStamp;
 			p.SourceVersion = DataRowVersion.Current;
 
 
