@@ -1,0 +1,8 @@
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\UploadedFiles\pages\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\UploadedFiles\products\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\UploadedFiles\projects\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\archiplan.dll.config
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\archiplan.dll
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\bin\archiplan.pdb
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\obj\Release\archiplan.dll
+D:\Web Projects\I-valley Projects\archiplan\archiplan-cms\archiplan\Sherifadel\obj\Release\archiplan.pdb
