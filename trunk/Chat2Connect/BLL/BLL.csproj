@@ -44,10 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="BotPoints.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="EmailOwnerBot.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="InviteFriendBanBoot.cs" />
+    <Compile Include="LoginMembersBot.cs" />
     <Compile Include="Log\DeleteFriend.cs" />
     <Compile Include="Log\AddFriend.cs" />
     <Compile Include="Log\ChangeMemberType.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="SubCategory.cs" />
     <Compile Include="TypeDuration.cs" />
     <Compile Include="UserTransLog.cs" />
+    <Compile Include="WelcomBot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -99,6 +104,10 @@
     <ProjectReference Include="..\Helper\Helper.csproj">
       <Project>{6b88438e-3e36-4d16-824c-4fb7fb8460e2}</Project>
       <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Info\Info.csproj">
+      <Project>{2a944a3b-3405-4210-8d88-35d20f8a9853}</Project>
+      <Name>Info</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>

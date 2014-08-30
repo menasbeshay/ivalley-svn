@@ -630,6 +630,7 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
+    <Content Include="Roombots.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -647,6 +648,7 @@
     <Content Include="testswf\chat2connect4.swf" />
     <Content Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
+    <Content Include="usercontrols\bot\WelcomeBot.ascx" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\MemberTypes.ascx" />
     <Content Include="usercontrols\RoomTypes.ascx" />
@@ -917,11 +919,6 @@
     <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
       <DependentUpon>RoomType.ascx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Global.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Global.resx</DependentUpon>
-    </Compile>
     <Compile Include="audioUploader.ashx.cs">
       <DependentUpon>audioUploader.ashx</DependentUpon>
     </Compile>
@@ -1083,6 +1080,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Roombots.aspx.cs">
+      <DependentUpon>Roombots.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roombots.aspx.designer.cs">
+      <DependentUpon>Roombots.aspx</DependentUpon>
+    </Compile>
     <Compile Include="roomtypes.aspx.cs">
       <DependentUpon>roomtypes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1114,6 +1118,13 @@
     <Compile Include="SRCustomHubs\PMHub.cs" />
     <Compile Include="Startup.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="usercontrols\bot\WelcomeBot.ascx.cs">
+      <DependentUpon>WelcomeBot.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\bot\WelcomeBot.ascx.designer.cs">
+      <DependentUpon>WelcomeBot.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
@@ -1191,6 +1202,10 @@
     <ProjectReference Include="..\Helper\Helper.csproj">
       <Project>{6b88438e-3e36-4d16-824c-4fb7fb8460e2}</Project>
       <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Info\Info.csproj">
+      <Project>{2a944a3b-3405-4210-8d88-35d20f8a9853}</Project>
+      <Name>Info</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
@@ -1319,6 +1334,7 @@
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_GlobalResources\" />
     <Folder Include="files\rooms\attacheaudio\" />
     <Folder Include="files\rooms\attachedimages\" />
     <Folder Include="files\users\accountpics\" />
@@ -1334,12 +1350,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\activate.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Global.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Global.Designer.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
