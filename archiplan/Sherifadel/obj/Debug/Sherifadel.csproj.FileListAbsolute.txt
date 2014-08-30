@@ -1,0 +1,25 @@
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\pages\txt.txt
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\products\txt.txt
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\UploadedFiles\projects\txt.txt
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\Sherifadel.dll
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\bin\Sherifadel.pdb
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.csprojResolveAssemblyReference.cache
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.dll
+D:\SmartValley\sherifadel.com\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.pdb
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.dll
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\bin\UploadedFiles\pages\txt.txt
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\bin\UploadedFiles\products\txt.txt
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\bin\UploadedFiles\projects\txt.txt
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\bin\Sherifadel.dll
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\bin\Sherifadel.pdb
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.pdb
+D:\SmartValley\trust-cons\website\Sherifadel\Sherifadel\obj\Debug\Sherifadel.csprojResolveAssemblyReference.cache
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\UploadedFiles\pages\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\UploadedFiles\products\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\UploadedFiles\projects\txt.txt
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\Sherifadel.dll.config
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\Sherifadel.dll
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\bin\Sherifadel.pdb
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\obj\Debug\Sherifadel.csprojResolveAssemblyReference.cache
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\obj\Debug\Sherifadel.dll
+D:\Web Projects\I-valley Projects\archiplan\Trust-cons\Sherifadel\obj\Debug\Sherifadel.pdb

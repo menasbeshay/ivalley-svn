@@ -1,0 +1,225 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default_.aspx.cs" Inherits="archiplan.Default" %>
+
+<%--<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>--%>
+
+
+
+<html dir="ltr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../../../../menu_assets/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="menu_source/styles.css">
+    <title>ARCHIPLAN</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+
+    <style type="text/css">
+        /*Make sure your page contains a valid doctype at the top*/
+        #simplegallery1 {
+            //CSS for Simple Gallery Example 1 position: relative; /*keep this intact*/
+            visibility: hidden; /*keep this intact*/
+            border: 5px;
+        }
+
+            #simplegallery1 .gallerydesctext {
+                //CSS for description DIV of Example 1 (if defined) text-align: left;
+                padding: 2px 5px;
+            }
+    </style>
+
+    <script type="text/javascript" src="simplegallery.js">
+
+/***********************************************
+* Simple Controls Gallery- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+***********************************************/
+
+    </script>
+
+    <script type="text/javascript">
+
+        var mygallery = new simpleGallery({
+            wrapperid: "simplegallery1", //ID of main gallery container,
+            dimensions: [720, 500], //width/height of gallery in pixels. Should reflect dimensions of the images exactly
+            imagearray: [
+                ["home_gallery/1p.jpg", "about1.htm", "", ""],
+                ["home_gallery/2p.jpg", "about1.htm", "", ""],
+                ["home_gallery/3p.jpg", "about1.htm", "", ""],
+                ["home_gallery/4p.jpg", "about1.htm", "", ""],
+                ["home_gallery/5p.jpg", "about1.htm", "", ""],
+                ["home_gallery/6p.jpg", "about1.htm", "", ""],
+                ["home_gallery/7p.jpg", "about1.htm", "", ""]
+            ],
+            autoplay: [true, 2500, 2], //[auto_play_boolean, delay_btw_slide_millisec, cycles_before_stopping_int]
+            persist: false, //remember last viewed slide and recall within same session?
+            fadeduration: 500, //transition duration (milliseconds)
+            oninit: function () { //event that fires when gallery has initialized/ ready to run
+                //Keyword "this": references current gallery instance (ie: try this.navigate("play/pause"))
+            },
+            onslide: function (curslide, i) { //event that fires after each slide is shown
+                //Keyword "this": references current gallery instance
+                //curslide: returns DOM reference to current slide's DIV (ie: try alert(curslide.innerHTML)
+                //i: integer reflecting current image within collection being shown (0=1st image, 1=2nd etc)
+            }
+        })
+
+    </script>
+
+
+
+    <script type="text/javascript" src="_pgtres/stmenu.js"></script>
+
+
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" background="images/img2.jpg">
+    <form id="form1" runat="server">
+        <div>
+            <div align="center">
+                <table border="0" width="940" cellspacing="0" cellpadding="0" height="942">
+                    <tr>
+                        <td valign="top">
+                            <div align="center">
+                                <table border="0" width="950" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <div align="center">
+                                                <table border="0" width="720" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td height="20">
+
+
+                                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <img border="0" src="images/face-icon.jpg"></td>
+                                                                                <td>
+                                                                                    <img border="0" src="images/googl-icon.jpg"></td>
+                                                                                <td>
+                                                                                    <img border="0" src="images/youtupe-icon.jpg"></td>
+                                                                                <td>
+                                                                                    <img border="0" src="images/tweeter-icon.jpg"></td>
+                                                                                <td>&nbsp;</td>
+                                                                                <td>&nbsp;</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td>
+
+
+                                                                        <p align="center" class="tittle_wight">
+                                                                            &#1605;&#1603;&#1578;&#1576; &#1575;&#1604;&#1583;&#1603;&#1578;&#1608;&#1585; &#1593;&#1576;&#1583; &#1575;&#1604;&#1604;&#1607; &#1610;&#1581;&#1610;&#1609; &#1576;&#1582;&#1575;&#1585;&#1609; ( &#1570;&#1585;&#1603;&#1609; 
+										&#1576;&#1604;&#1575;&#1606; ) &#1604;&#1604;&#1593;&#1605;&#1575;&#1585;&#1577; &#1608;&#1575;&#1604;&#1575;&#1587;&#1578;&#1588;&#1575;&#1585;&#1575;&#1578; &#1575;&#1604;&#1607;&#1606;&#1583;&#1587;&#1610;&#1577;</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="86">
+
+                                                            <center>
+										<div id="simplegallery1" align="center"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div align="center">
+                                                <table border="0" width="100" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            <a class="butt" href="Pages.aspx?PID=14">&#1593;&#1585;&#1576;&#1609;</a></td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            <a class="butt" href="about1_en.htm">English</a></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td valign="top">
+
+                                                        <div align="center">
+                                                            <table border="0" width="365" cellspacing="0" cellpadding="0">
+                                                                <tr>
+                                                                    <td width="341">
+                                                                        <p class="content_wight" align="center">
+                                                                            <font color="#F28F2C" face="Tahoma" style="font-size: 9pt">
+							Copyright 2014 © ARCHIPLAN CO , Powered 
+							By </font>
+                                                                    </td>
+                                                                    <td width="79">
+                                                                        <a target="_blank" href="http://www.mtg-eg.com/">
+                                                                            <img border="0" src="images/logo_nobackgroung.jpg" width="84" height="37"></a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div align="center">
+                <table border="0" width="365" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="341">
+                            <p class="content_wight" align="center">
+                                <font color="#F28F2C" face="Tahoma" style="font-size: 9pt">
+							Copyright 2014 © ARCHIPLAN CO , Powered 
+							By </font>
+                        </td>
+                        <td width="79">
+                            <a target="_blank" href="http://www.mtg-eg.com/">
+                                <img border="0" src="images/logo_nobackgroung.jpg" width="84" height="37"></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

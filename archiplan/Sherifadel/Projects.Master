@@ -1,0 +1,267 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Projects.master.cs" Inherits="archiplan.Projects" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="../../../../menu_assets/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="menu_source/styles.css" />
+    <title>ARCHIPLAN</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+
+<%--    <style type="text/css">
+        /*Make sure your page contains a valid doctype at the top*/
+        #simplegallery1 {
+            //CSS for Simple Gallery Example 1 position: relative; /*keep this intact*/
+            visibility: hidden; /*keep this intact*/
+            border: 5px;
+        }
+
+            #simplegallery1 .gallerydesctext {
+                //CSS for description DIV of Example 1 (if defined) text-align: left;
+                padding: 2px 5px;
+            }
+    </style>
+
+    <script type="text/javascript" src="simplegallery.js">
+
+        /***********************************************
+        * Simple Controls Gallery- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+        * This notice MUST stay intact for legal use
+        * Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+        ***********************************************/
+
+    </script>
+
+    <script type="text/javascript">
+
+        var mygallery = new simpleGallery({
+            wrapperid: "simplegallery1", //ID of main gallery container,
+            dimensions: [950, 202], //width/height of gallery in pixels. Should reflect dimensions of the images exactly
+            imagearray: [
+                ["home_gallery/1.jpg", "pro1.htm", "", ""],
+                ["home_gallery/2.jpg", "pro2.htm", "", ""],
+                ["home_gallery/3.jpg", "pro3.htm", "", ""],
+                ["home_gallery/4.jpg", "pro12.htm", "", ""]
+            ],
+            autoplay: [true, 2500, 2], //[auto_play_boolean, delay_btw_slide_millisec, cycles_before_stopping_int]
+            persist: false, //remember last viewed slide and recall within same session?
+            fadeduration: 500, //transition duration (milliseconds)
+            oninit: function () { //event that fires when gallery has initialized/ ready to run
+                //Keyword "this": references current gallery instance (ie: try this.navigate("play/pause"))
+            },
+            onslide: function (curslide, i) { //event that fires after each slide is shown
+                //Keyword "this": references current gallery instance
+                //curslide: returns DOM reference to current slide's DIV (ie: try alert(curslide.innerHTML)
+                //i: integer reflecting current image within collection being shown (0=1st image, 1=2nd etc)
+            }
+        })
+
+    </script>
+--%>
+
+
+    <script type="text/javascript" src="_pgtres/stmenu.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<%--<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>--%>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" background="images/img2.jpg">
+    <form id="form1" runat="server">
+        <div>
+            <div align="center">
+                <table border="0" width="940" cellspacing="0" cellpadding="0" height="596">
+                    <tr>
+                        <td valign="top">
+                            <div align="center">
+                                <table border="0" width="950" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="20">
+
+
+                                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td>&nbsp;
+                                                                </td>
+                                                                <td>&nbsp;
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <img border="0" src="images/face-icon.jpg">
+                                                                            </td>
+                                                                            <td>
+                                                                                <img border="0" src="images/googl-icon.jpg">
+                                                                            </td>
+                                                                            <td>
+                                                                                <img border="0" src="images/youtupe-icon.jpg">
+                                                                            </td>
+                                                                            <td>
+                                                                                <img border="0" src="images/tweeter-icon.jpg">
+                                                                            </td>
+                                                                            <td>&nbsp;
+                                                                            </td>
+                                                                            <td>
+                                                                                <a class="butt" href="Pages_en.aspx?PID=14">English</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td>
+
+
+                                                                    <p align="center" class="tittle_wight">
+                                                                    &#1605;&#1603;&#1578;&#1576; &#1575;&#1604;&#1583;&#1603;&#1578;&#1608;&#1585; &#1593;&#1576;&#1583; &#1575;&#1604;&#1604;&#1607; &#1610;&#1581;&#1610;&#1609; &#1576;&#1582;&#1575;&#1585;&#1609; ( &#1570;&#1585;&#1603;&#1609;
+                                                                &#1576;&#1604;&#1575;&#1606; ) &#1604;&#1604;&#1593;&#1605;&#1575;&#1585;&#1577; &#1608;&#1575;&#1604;&#1575;&#1587;&#1578;&#1588;&#1575;&#1585;&#1575;&#1578; &#1575;&#1604;&#1607;&#1606;&#1583;&#1587;&#1610;&#1577;
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="86">
+
+
+                                                        <%--<div id="simplegallery1"></div>--%>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id='cssmenu' align="right" dir="rtl">
+                                                <ul>
+                                                    <li id="liContact" runat="server"><span><a href='Pages.aspx?PID=23'>&#1575;&#1578;&#1589;&#1600;&#1600;&#1600;&#1600;&#1600;&#1604; &#1576;&#1606;&#1600;&#1600;&#1600;&#1600;&#1575;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></li>
+                                                    <li id="liProjects" runat="server" class='has-sub'>
+                                                        <a href='Projects.aspx?CID=1'><span>&#1575;&#1604;&#1605;&#1588;&#1575;&#1585;&#1610;&#1593;</span></a>
+                                                        <ul>
+                                                            <li><a href='Projects.aspx?CID=1'><span>&#1575;&#1604;&#1578;&#1582;&#1591;&#1610;&#1591;</span></a></li>
+                                                            <li><a href='Projects.aspx?CID=7'><span>&#1575;&#1604;&#1578;&#1589;&#1605;&#1610;&#1605; &#1575;&#1604;&#1605;&#1593;&#1605;&#1575;&#1585;&#1609;</span></a></li>
+                                                            <li><a href='Projects.aspx?CID=8'><span>&#1575;&#1604;&#1575;&#1588;&#1585;&#1575;&#1601; &#1593;&#1604;&#1609; &#1575;&#1604;&#1578;&#1606;&#1601;&#1610;&#1584;</span></a></li>
+                                                            <li><a href='Projects.aspx?CID=9'><span>&#1575;&#1604;&#1578;&#1589;&#1605;&#1610;&#1605; &#1575;&#1604;&#1583;&#1575;&#1582;&#1604;&#1609;</span></a></li>
+                                                            <li class='last'><a href='Projects.aspx?CID=10'><span>&#1575;&#1583;&#1575;&#1585;&#1577; &#1575;&#1604;&#1605;&#1588;&#1575;&#1585;&#1610;&#1593;</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li id="liServices" runat="server" class='has-sub'>
+                                                        <a href='Pages.aspx?PID=17'><span>&#1582;&#1583;&#1605;&#1578;&#1606;&#1575;</span></a>
+                                                        <ul>
+                                                            <li><a href='Pages.aspx?PID=17'><span>&#1575;&#1604;&#1578;&#1582;&#1591;&#1610;&#1591;</span></a></li>
+                                                            <li><a href='Pages.aspx?PID=18'><span>&#1575;&#1604;&#1578;&#1589;&#1605;&#1610;&#1605; &#1575;&#1604;&#1605;&#1593;&#1605;&#1575;&#1585;&#1609;</span></a></li>
+                                                            <li><a href='Pages.aspx?PID=19'><span>&#1575;&#1604;&#1575;&#1588;&#1585;&#1575;&#1601; &#1593;&#1604;&#1609; &#1575;&#1604;&#1578;&#1606;&#1601;&#1610;&#1584;</span></a></li>
+                                                            <li><a href='Pages.aspx?PID=20'><span>&#1573;&#1583;&#1575;&#1585;&#1577; &#1575;&#1604;&#1605;&#1588;&#1575;&#1585;&#1610;&#1593;</span></a></li>
+                                                            <li><a href='Pages.aspx?PID=21'><span>&#1575;&#1604;&#1605;&#1587;&#1575;&#1581;&#1577;</span></a></li>
+                                                            <li class='last'><a href='Pages.aspx?PID=22'><span>&#1575;&#1576;&#1581;&#1575;&#1579; &#1575;&#1604;&#1578;&#1585;&#1576;&#1577;</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li id="liAbout" runat="server" class='has-sub'>
+                                                        <a href='Pages.aspx?PID=14'><span>&#1605;&#1606; &#1606;&#1581;&#1606;</span></a>
+                                                        <ul>
+                                                            <li><a href='Pages.aspx?PID=14'><span>&#1606;&#1576;&#1584;&#1577; &#1593;&#1606; &#1575;&#1604;&#1605;&#1603;&#1578;&#1576;</span></a></li>
+                                                            <li><a href='Pages.aspx?PID=15'><span>&#1606;&#1576;&#1584;&#1577; &#1593;&#1606; &#1575;&#1604;&#1605;&#1572;&#1587;&#1587; </span></a></li>
+                                                            <li  class='last'><a href='Pages.aspx?PID=16'><span>&#1575;&#1604;&#1607;&#1610;&#1603;&#1604; &#1575;&#1604;&#1578;&#1606;&#1592;&#1610;&#1605;</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li id="liHome" runat="server" class='last'><a href='index.htm'><span>&#1575;&#1604;&#1585;&#1574;&#1610;&#1587;&#1610;&#1577;</span></a></li>
+                                                </ul>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td valign="top">
+                                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td background="images/home1.jpg" height="596" valign="top">
+                                                                    <blockquote>
+
+                                                                        <p dir="rtl" class="tittle_blue" align="justify">
+                                                                            <br>
+                                                                            <span lang="ar-eg">
+
+                                                                                <asp:Literal ID="lblPageTitle" runat="server" />
+                                                                            </span>
+                                                                        </p>
+
+                                                                        <div class="tittle_black" style="text-align: justify;">
+
+                                                                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                                            </asp:ContentPlaceHolder>
+
+
+                                                                        </div>
+
+                                                                        <p dir="rtl" class="tittle_blue" align="center">
+                                                                            <%-- <img border="0" src="images/underconstruction.jpg" width="300" height="300">--%>
+                                                                        </p>
+                                                                    </blockquote>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div align="center">
+                <table border="0" width="365" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="341">
+                            <p class="content_wight" align="center">
+                                <font color="#F28F2C" face="Tahoma" style="font-size: 9pt">
+                            Copyright 2014 © ARCHIPLAN CO , Powered
+                            By
+                        </font>
+                        </td>
+                        <td width="79">
+                            <a target="_blank" href="http://www.mtg-eg.com/">
+                                <img border="0" src="images/logo_nobackgroung.jpg" width="84" height="37">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</body>
+
+
+
+</html>

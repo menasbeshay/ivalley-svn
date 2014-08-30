@@ -1,0 +1,185 @@
+/* CSS Document */
+body{margin:0; background:url(../images/bg-all-01.jpg);}
+h1,h2,h3,h4,h5,h6 {text-align:left;padding:10px;}
+img
+{
+border:0;
+}
+
+.sara{
+
+font-family: Thuluth Arabic; color: #FF0000; font-style: oblique; 
+               background-image: url('../images/images/fotter_b4.jpg')
+               }
+
+
+/*
+.tittle_wight 
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12 px; font-weight:bold 
+}
+
+.tittle_blue 
+{
+	font-family: Tahoma;
+	color: #0372B8;
+	font-size: 13 px; font-weight:bold
+}
+
+.tittle_dina
+{
+	font-family: Tahoma;
+	color: #0372B8;
+	font-size: 13 px; font-weight:bold
+}
+
+
+.tittle_black
+{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 12px; font-weight:bold
+}
+
+
+
+
+.content_wight 
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12;
+}
+
+.content_black 
+{
+	font-family: Tahoma;
+	color: #333333;
+	font-size: 12
+}
+
+.content_gray
+{
+	font-family: Tahoma;
+	color: #232323;
+	font-size: 12; background-image:url('../images/images/B_menu_up.jpg');
+	height:20px; font-weight:bold; margin-left:10; margin-right:10
+}
+.content_grayOver
+{
+	font-family: Tahoma;
+	color: #FFFFFF;
+	font-size: 12; background-image:url('../images/images/B_menu_over.jpg');
+	height:20px; font-weight:bold
+}
+
+.content_red
+{
+	font-family: Tahoma;
+	color: #BF0000;
+	font-size: 12
+}
+
+
+*/
+
+.tittle 
+{
+	font-family: Tahoma;
+	font-size: 13; font-weight:bold
+}
+
+/*
+a:link{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 12 px;font-weight:bold; text-decoration:none
+}
+a:visited{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 12 px;font-weight:bold; text-decoration:none
+}
+a:hover{
+	font-family: Tahoma;
+	color: #DA3860;
+	font-size: 12 px; font-weight:bold
+}
+*/
+
+.SearchBtn {width:58px;display:block; float:left; height:18px; margin:10px; }
+
+.SearchBtn a { display:block; float:left; background-image: url(../images/GrayMedBtnUp.png); background-position: center top; background-repeat: no-repeat; width:58px; height:18px; padding:3px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SearchBtn a:hover { background-image: url(../images/GrayMedBtnOver.png); background-position: center top; background-repeat: no-repeat; }
+
+.SmallBtn a { display:block; float:left; background-image: url(../images/GrayBtnUp.png); background-position: center top; background-repeat: no-repeat; width:28px; height:12px; padding:6px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.SmallBtn a:hover { background-image: url(../images/GrayBtnOver.png); background-position: center top; background-repeat: no-repeat; }
+
+.AdminMore {width:105px;display:block; float:left; height:18px; margin:10px; }
+.AdminMore a { display:block; float:left; background-image: url(../images/GrayBigBtnUp.png); background-position: center top; background-repeat: no-repeat; width:115px; height:16px; padding:4px 5px; color:#FFF; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;}
+.AdminMore a:hover { background-image: url(../images/GrayBigBtnOver.png); background-position: center top; background-repeat: no-repeat; color:#fff; }
+
+.formBtn {width:58px;display:block; float:left; height:18px; margin-top:10px; border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+
+.formBtn a { display:block; float:left; background-color: #ECECEA;width:58px; padding:5px; color:#77767C; text-transform:uppercase; text-decoration:none; font-size:9px; text-align:center; font-family:Tahoma, Geneva, sans-serif;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-weight:bold;}
+.formBtn a:hover { color:#E71181 }
+
+
+.ContentLeftDiv { margin-bottom:20px; }
+
+
+.AdminLeft
+{
+    float: left;        
+    padding-left: 15px;
+    
+}
+
+.AdminMiddle
+{
+    float: left;    
+    width:510px;
+}
+
+.AdminRight
+{
+    float: left;
+    width: 15%;        
+}
+
+
+.smallleft
+{
+    float: left;        
+    padding-left: 15px;
+    width: 15%;
+    text-align:left;
+}
+
+.smallrightHeight
+{
+    float: left;
+    width: 75%;
+    text-align:left;
+}
+
+.clear5
+{
+    clear: both;
+    height: 5px;
+}
+
+.Label
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+}
+
+.AdminMain {text-align:left;padding:20px;}
+.tittle_kreem {color:#fff;font-size:12px;}
+.tittle_kreem a{font-size:12px;font-weight:bold;font-family:Tahoma;color:#fff;}
+.tittle_kreem a:hover{font-size:12px;color:#33CC33;}
