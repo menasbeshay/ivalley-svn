@@ -299,6 +299,20 @@
                 </div>
 
                 <div class="clear"></div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+
+                <div class="clear"></div>
+
                 <div class="grid-container section-content">
 
                     <div class="grid-100 mobile-grid-100 tablet-grid-100">
@@ -348,7 +362,7 @@
                 <div class="grid-container section-header-holder">
 
                     <!-- section header -->
-                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100" style="margin-top: -45px;">
 
                         <header class="section-header pt-style-2">
                             <h2 class="section-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>المنتجات</span></h2>
@@ -360,7 +374,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="grid-container section-content">
-                    <div class="grid-100 mobile-grid-100 tablet-grid-100">
+                    <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -20px;">
                         <div class="" style="width: 100%;">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
@@ -379,7 +393,7 @@
                                             <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>">
 
                                                 <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />--%>
-                                                <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="150px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
+                                                <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="140px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
                                             </a>
                                         </div>
                                     </div>
@@ -795,7 +809,29 @@
                             </div>
                             <!-- close contact message -->
 
+                            <div class="prefix-15">
 
+                                <div>
+                                    <form id="contactForm" runat="server">
+                                        <div style="width: 793px; margin: 0 auto; margin-left: 10px;">
+                                            <div>
+                                                <asp:TextBox ID="txtName" placeholder="الاسم" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:Button ID="btnSend" Text="ارسال" runat="server" />
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
 
 
                         </div>
