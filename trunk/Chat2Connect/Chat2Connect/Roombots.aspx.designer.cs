@@ -58,13 +58,13 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Panel pnlStep2;
         
         /// <summary>
-        /// plcControls control.
+        /// grdUC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder plcControls;
+        protected global::System.Web.UI.WebControls.GridView grdUC;
         
         /// <summary>
         /// btnSaveBots control.

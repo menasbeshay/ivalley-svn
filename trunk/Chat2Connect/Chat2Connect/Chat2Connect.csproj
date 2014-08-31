@@ -1119,6 +1119,7 @@
     <Compile Include="Startup.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="usercontrols\bot\IBotUserControl.cs" />
     <Compile Include="usercontrols\bot\WelcomeBot.ascx.cs">
       <DependentUpon>WelcomeBot.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

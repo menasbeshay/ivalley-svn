@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/createMaster.master" AutoEventWireup="true" CodeBehind="Roombots.aspx.cs" Inherits="Chat2Connect.Roombots" %>
 
+<%@ Register Src="~/usercontrols/bot/WelcomeBot.ascx" TagPrefix="uc1" TagName="WelcomeBot" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -18,7 +19,7 @@
                         <ItemTemplate>
                         </ItemTemplate>
                         <ItemTemplate>
-                            <%# Eval("Title") %>
+                            <%# Eval("Bot.Title") %>
                         </ItemTemplate>
                     </asp:Repeater>
                 </tbody>
@@ -31,31 +32,40 @@
                     <tr>
                         <th></th>
                         <th>البوت</th>
-                        <th>النقاط المطلوبة
-                        </th>
+                        <%--<th>النقاط المطلوبة
+                        </th>--%>
                     </tr>
                 </thead>
                 <tbody>
                     <asp:Repeater ID="repAllBots" runat="server">
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkSelectBot" runat="server" />
+                            <tr>
+                                <td>
+                                    <asp:HiddenField ID="hdnBotID" runat="server" Value='<%# Eval("ID") %>' />
+                                    <asp:CheckBox ID="chkSelectBot" CssClass="form-control" Text='<%# Eval("Title") %>' runat="server" />
+                                </td>
+                            </tr>
                         </ItemTemplate>
-                        <ItemTemplate>
-                            <%# Eval("Title") %>
-                        </ItemTemplate>
-                        <ItemTemplate>
+
+                        <%--<ItemTemplate>
                             <%# Eval("Points") %>
-                        </ItemTemplate>
+                        </ItemTemplate>--%>
                     </asp:Repeater>
                 </tbody>
             </table>
         </div>
-        <asp:Button ID="btnNext" runat="server" CssClass="btn btn-warning" Text="التالى" />
+        <asp:Button ID="btnNext" runat="server" CssClass="btn btn-warning" Text="التالى" OnClick="btnNext_Click" />
     </asp:Panel>
     <asp:Panel ID="pnlStep2" runat="server" Visible="false">
-        <asp:PlaceHolder ID="plcControls" runat="server">
-
-        </asp:PlaceHolder>
-        <asp:Button ID="btnSaveBots" runat="server" Text="حفظ" CssClass="btn btn-warning" />
+        <asp:GridView ID="grdUC" runat="server" ShowHeader="false" AutoGenerateColumns="false" OnRowDataBound="grdUC_RowDataBound">
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <uc1:WelcomeBot ID="ucWelcome" runat="server" Visible='<%# Helper.TypeConverter.ToInt32(Eval("BotID")) == (int)Helper.Enums.Bot.Welcome %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        <asp:Button ID="btnSaveBots" runat="server" Text="حفظ" CssClass="btn btn-warning" OnClick="btnSaveBots_Click" />
     </asp:Panel>
 </asp:Content>

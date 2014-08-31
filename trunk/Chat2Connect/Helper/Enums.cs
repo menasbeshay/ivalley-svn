@@ -185,5 +185,13 @@ namespace Helper
             [StringValue("مالك")]
             Owner = 4
         }
+
+        public enum Bot
+        {
+            Welcome=1,
+            InviteFriendsBan=2,
+            FollowAdmin=3,
+            MembersLogin=4
+        }
     }
 }

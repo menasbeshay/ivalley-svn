@@ -12,5 +12,16 @@ namespace BLL
 		{
 		
 		}
-	}
+
+        public void FillInfoObjectFromRoomBotID(Info.WelcomeBot infoWelcomeBot, int roomBotID)
+        {
+            Where.RoomBotID.Value = roomBotID;
+            if (Query.Load())
+            {
+                infoWelcomeBot.WelcomeBotID = ID;
+                infoWelcomeBot.LoginMessage = LoginMessage;
+                infoWelcomeBot.LogoutMessage = LogoutMessage;
+            }
+        }
+    }
 }

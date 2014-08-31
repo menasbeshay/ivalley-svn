@@ -12,5 +12,17 @@ namespace BLL
 		{
 		
 		}
-	}
+
+        public Info.Bot GetInfoByPrimaryKey(int botID)
+        {
+            Info.Bot infoBot = new Info.Bot();
+            if (LoadByPrimaryKey(botID))
+            {
+                infoBot.Title = Title;
+                infoBot.IconPath = IconPath;
+            }
+
+            return infoBot;
+        }
+    }
 }
