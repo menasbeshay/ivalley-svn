@@ -1669,10 +1669,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:27</publishTime>
     </File>
     <File Include="bin/AlRaseel.Web.UI.dll">
-      <publishTime>08/31/2014 13:05:13</publishTime>
+      <publishTime>08/31/2014 15:37:35</publishTime>
     </File>
     <File Include="bin/Data.DAL.dll">
-      <publishTime>08/31/2014 12:24:15</publishTime>
+      <publishTime>08/31/2014 15:37:34</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/31/2014 10:17:14</publishTime>
@@ -1885,7 +1885,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:10:38</publishTime>
     </File>
     <File Include="en/getproductdetails.aspx">
-      <publishTime>08/31/2014 12:53:52</publishTime>
+      <publishTime>08/31/2014 15:37:19</publishTime>
     </File>
     <File Include="en/ProductDetails.aspx">
       <publishTime>08/31/2014 10:23:06</publishTime>

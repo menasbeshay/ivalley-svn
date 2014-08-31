@@ -22,7 +22,7 @@
                     <!-- close parallax header -->
                     <div class="clear"></div>
                 </div>
-                <div class="grid-container section-content">
+                <div class="grid-container parallax-content">
                     <!-- contact wrap -->
                     <div class="grid-100 mobile-grid-100 tablet-grid-100">
                         <div class="contact-wrap">
