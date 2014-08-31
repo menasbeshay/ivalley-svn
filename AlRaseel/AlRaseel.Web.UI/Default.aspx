@@ -35,7 +35,7 @@
 <!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:27:39 GMT -->
 <!-- Added by HTTrack -->
 <!-- /Added by HTTrack -->
-<head runat="server">
+<head id="Head1" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <!-- Title -->
@@ -85,15 +85,6 @@
             font-weight: normal;
             font-style: normal;
         }
-
-        .imgProduct {
-            margin-right: 100px;
-        }
-
-        /*_________*/
-
-
-        /*_________*/
     </style>
 
 </head>
@@ -163,7 +154,7 @@
 
                     <nav id="navigation" class="grid-50 hide-on-tablet hide-on-mobile ">
                         <ul id="menu-main" class="menu" style="font-family: 'Droid Arabic Kufi'!important;">
-                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../en/Default_en.aspx" class="">EN</a></li>
+                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../en/Default.aspx" class="">EN</a></li>
 
                             <li class="ut-home-link"><a href="#top" class="">الرئيسية</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
@@ -179,7 +170,7 @@
                     <nav id="ut-mobile-nav" class="ut-mobile-menu mobile-grid-100 tablet-grid-100 hide-on-desktop">
                         <div class="ut-scroll-pane">
                             <ul id="ut-mobile-menu" class="ut-mobile-menu" style="font-family: 'Droid Arabic Kufi'!important;">
-                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../en/Default_en.aspx" class="">EN</a></li>
+                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../en/Default.aspx" class="">EN</a></li>
 
                                 <li class="ut-home-link"><a href="#top" class="">الرئيسية</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
@@ -346,111 +337,14 @@
                 </div>
 
 
-
-
-
-
                 <div class="ut-scroll-up-waypoint" data-section="section-about-brooklyn"></div>
 
             </section>
 
             <div class="clear"></div>
 
-            <%--                <section id="drop-us-a-line" data-effect="fadeIn" data-width="centered" class="page-id-1951 entry-content normal-background  light  ">
-
-                    <a class="ut-offset-anchor" data-parent="section-about-brooklyn" id="section-drop-us-a-line"></a>
-
-
-
-                    <div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-
-                            <span class="cta-btn cl-effect-18 "><a class="cl-effect-18" href="http://themeforest.net/user/UnitedThemes/portfolio">What Could Be Better Than Brooklyn? </a></span>
-
-
-
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                    <div class="ut-scroll-up-waypoint" data-section="section-drop-us-a-line" data-parent="section-about-brooklyn"></div>
-
-                </section>
-
-                <div class="clear"></div>
-            --%>
-
-            <%--            <section id="our-philosophy-is" data-effect="fadeIn" data-width="centered" class="page-id-1889 entry-content parallax-background parallax-banner parallax-section  light  ">
-
-                <a class="ut-offset-anchor" data-parent="section-about-brooklyn" id="section-our-philosophy-is"></a>
-
-
-
-                <div class="parallax-overlay parallax-overlay-pattern style_one">
-
-
-
-
-
-
-
-
-
-                    <div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-                            <div class="ut-parallax-quote">
-                                <h2 class="ut-parallax-quote-title "><i class="fa fa-quote-left"></i>PASSION LEADS TO DESIGN, DESIGN LEADS TO PERFORMANCE, PERFORMANCE LEADS TO <span>SUCCESS</span>! <i class="fa fa-quote-right"></i></h2>
-                                <span class="ut-parallax-quote-name">United Themes – Theme Development Brooklyn</span>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                </div>
-
-
-                <div class="ut-scroll-up-waypoint" data-section="section-our-philosophy-is" data-parent="section-about-brooklyn"></div>
-
-            </section>
-
-            <div class="clear"></div>
-
-
-            --%>
-
-
-
-
-
-
             <section id="our-service" data-effect="fadeIn" data-width="centered" class="page-id-1936 entry-content normal-background  light  ">
-
                 <a class="ut-offset-anchor" id="section-our-service"></a>
-
-
-
-
-
-
                 <div class="grid-container section-header-holder">
 
                     <!-- section header -->
@@ -459,164 +353,49 @@
                         <header class="section-header pt-style-2">
                             <h2 class="section-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>المنتجات</span></h2>
 
-
                             <%--                            <p class="lead" style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.بعض بيانات المنتجات هنا.</p>--%>
                         </header>
                     </div>
                     <!-- close section header -->
-
                 </div>
-
                 <div class="clear"></div>
-
                 <div class="grid-container section-content">
-
                     <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
                         <div class="" style="width: 100%;">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="  " style="width: 50%; float: left">
+                                    <div class="" style="width: 50%; float: left; margin-bottom: 20px;">
                                         <div style="text-align: right;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                                <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
-                                                    <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>">
-                                                        <h3 style="font-family: 'Droid Arabic Kufi'!important;"><%#Eval("ProductTitle") %></h3>
-                                                    </a>
+                                                <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
+                                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">
+                                                        <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>" style="color: #e5c593 !important;">
+                                                            <%#Eval("ProductTitle") %>
+                                                        </a>
+                                                    </h3>
                                                     <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;"><%#Eval("ShortDescription") %> </p>
                                                 </div>
                                             </div>
                                             <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>">
 
                                                 <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />--%>
-                                                <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="200px" Height="150px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
-                                                <br />
-                                                <br />
+                                                <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="150px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
                                             </a>
                                         </div>
                                     </div>
 
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <%--<div class="  " style="width: 50%; float: left">
-                                <div style="text-align: right;">
-                                    <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                        <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
-                                            <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                            <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                        </div>
-                                    </div>
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>
-                            <div class="  " style="width: 50%; float: left">
-                                <div style="text-align: right;">
-                                    <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                        <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
-                                            <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                            <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                        </div>
-                                    </div>
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>
-                            <div class="  " style="width: 50%; float: left">
-                                <div style="text-align: right;">
-                                    <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                        <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
-                                            <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                            <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                        </div>
-                                    </div>
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>--%>
-
-
-                            <%--<div class="" style="width: 45%;">
-                                <div style="text-align: left;">
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInRight" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>
-                            <div class="" style="width: 45%;">
-                                <div style="text-align: right;">
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInRight" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>
-                            <div class="" style="width: 45%;">
-                                <div style="text-align: left;">
-                                    <img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />
-                                </div>
-                            </div>--%>
-
-
-                            <%--                            <div data-effect="fadeInRight" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                <figure class="ut-service-icon fa-stack fa-lg " style="line-height: 60px;"><i class="fa fa-circle fa-stack-2x" style="color: #7e2e30"></i><i style="color: #e5c593" class="fa fa-stack-1x fa-tablet"></i></figure>
-                                <div class="ut-service-column">
-                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                </div>
-                            </div>
-                            <div data-effect="fadeInRight" class="clearfix  ut-column-last ut-animate-element animated">
-                                <figure class="ut-service-icon fa-stack fa-lg " style="line-height: 60px;"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i style="color: #e5c593" class="fa fa-stack-1x fa-sitemap"></i></figure>
-                                <div class="ut-service-column">
-                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                </div>
-                            </div>
-                            <div data-effect="fadeInRight" class="clearfix democolor ut-column-last ut-animate-element animated">
-                                <figure class="ut-service-icon fa-stack fa-lg " style="line-height: 60px;"><i class="fa fa-circle fa-stack-2x" style="color: #7e2e30"></i><i style="color: #e5c593" class="fa fa-stack-1x fa-globe"></i></figure>
-                                <div class="ut-service-column">
-                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                </div>
-                            </div>
-                            <div data-effect="fadeInRight" class="clearfix  ut-column-last ut-animate-element animated">
-                                <figure class="ut-service-icon fa-stack fa-lg " style="line-height: 60px;"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i style="color: #e5c593" class="fa fa-stack-1x fa-comments"></i></figure>
-                                <div class="ut-service-column">
-                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">عنوان هنا</h3>
-                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . بعض البيانات هنا . </p>
-                                </div>
-                            </div>--%>
                         </div>
                         <div class="clear"></div>
-
-
-
                     </div>
-
                 </div>
-
-
-
-
-
-
                 <div class="ut-scroll-up-waypoint" data-section="section-our-service"></div>
-
             </section>
-
             <div class="clear"></div>
-
-
-
-
-
-
-
-
             <section id="work" data-effect="fadeIn" data-width="fullwidth" class="page-id-1943 entry-content normal-background  light  ">
-
                 <a class="ut-offset-anchor" id="section-work"></a>
-
-
-
                 <div class="parallax-overlay parallax-overlay-pattern style_one">
-
-
-
-
 
 
                     <div class="grid-container section-header-holder">
@@ -909,16 +688,7 @@
                             </div>
                         </div>
                         <!-- end ut_masonry_45-->
-
-
-
                     </div>
-
-
-
-
-
-
                 </div>
 
 
@@ -929,80 +699,6 @@
             <div class="clear"></div>
 
 
-
-
-            <%--
-                <section id="brands" data-effect="fadeIn" data-width="centered" class="page-id-2088 entry-content normal-background  light  ">
-
-                    <a class="ut-offset-anchor" data-parent="section-work" id="section-brands"></a>
-
-
-
-
-
-
-
-
-
-
-                    <div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-
-                            <div class="ut-brands ">
-                                <div class="grid-20 tablet-grid-20 mobile-grid-50 ">
-                                    <a target="_blank" href="#">
-                                        <img alt="Canon" src="wp-content/uploads/2013/10/logo1.png">
-                                    </a>
-                                </div>
-                                <div class="grid-20 tablet-grid-20 mobile-grid-50 ">
-                                    <a target="_blank" href="#">
-                                        <img alt="Microsoft" src="wp-content/uploads/2013/10/logo2.png">
-                                    </a>
-                                </div>
-                                <div class="grid-20 tablet-grid-20 mobile-grid-50 ">
-                                    <a target="_blank" href="#">
-                                        <img alt="Samsung" src="wp-content/uploads/2013/10/logo3.png">
-                                    </a>
-                                </div>
-                                <div class="grid-20 tablet-grid-20 mobile-grid-50 ">
-                                    <a target="_blank" href="#">
-                                        <img alt="Kodak" src="wp-content/uploads/2013/10/logo4.png">
-                                    </a>
-                                </div>
-                                <div class="grid-20 tablet-grid-20 mobile-grid-50 ">
-                                    <a target="_blank" href="#">
-                                        <img alt="Sony" src="wp-content/uploads/2013/10/logo5.png">
-                                    </a>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                    <div class="ut-scroll-up-waypoint" data-section="section-brands" data-parent="section-work"></div>
-
-                </section>
-
-                <div class="clear"></div>
-
-
-            --%>
-
-
-
-
-
             <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
 
                 <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
@@ -1010,64 +706,6 @@
 
 
                 <div class="parallax-overlay parallax-overlay-pattern ">
-
-
-                    <%--<div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-
-
-                            <script type="text/javascript">
-                                /* <![CDATA[ */
-
-                                (function ($) {
-
-                                    $(document).ready(function () {
-
-                                        $("#quoteSlider_utquote_53d536887a5ac").flexslider({
-                                            useCSS: false,
-                                            animation: "slide",
-
-
-                                            directionNav: true,
-                                            controlNav: false,
-                                            smoothHeight: true,
-                                            animationLoop: true,
-                                            slideshowSpeed: 9000,
-                                            prevText: "",
-                                            nextText: ""
-                                        });
-
-                                    });
-
-                                })(jQuery);
-
-                                /* ]]&gt; */
-                            </script>
-                            <div class="ut-testimonials  ut-column-last">
-                                <div class="ut-rotate-quote-alt flexslider" id="quoteSlider_utquote_53d536887a5ac">
-                                    <ul class="slides">
-                                        <li>
-                                            <i class="ut-rq-icon fa fa-quote-right"></i>
-                                            <h2 class="ut-quote-comment">Just a huge thanks to the United Themes team for being so helpful in their forums. </h2>
-                                            <span class="ut-quote-name">Tara Knowles-Teller via Twitter</span>
-                                        </li>
-                                        <li>
-                                            <i class="ut-rq-icon fa fa-quote-right"></i>
-                                            <h2 class="ut-quote-comment">Five stars for this theme. Awesome design and great, quick support. </h2>
-                                            <span class="ut-quote-name">Jax Teller via Facebook</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>--%>
                 </div>
 
 
@@ -1080,542 +718,6 @@
 
 
 
-            <%--            <section id="our-team" data-effect="fadeIn" data-width="centered" class="page-id-1893 entry-content normal-background  light  ">
-
-                <a class="ut-offset-anchor" id="section-our-team"></a>
-
-
-
-                <div class="parallax-overlay parallax-overlay-pattern style_one">
-
-
-
-
-
-
-                    <div class="grid-container section-header-holder">
-
-                        <!-- section header -->
-                        <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-
-                            <header class="section-header pt-style-2">
-                                <h2 class="section-title"><span>3 GUYS ONE MISSION</span></h2>
-
-
-                                <p class="lead">We believe in a <span>diverse</span> range of personel to bring creative skills, thoughts, and <span>ideas</span> to the table.</p>
-
-
-                            </header>
-                        </div>
-                        <!-- close section header -->
-
-                    </div>
-
-                    <div class="clear"></div>
-
-
-
-
-
-
-                    <div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-
-
-
-
-
-
-
-                            <div class="member-wrap">
-
-
-
-
-                                <div class="member-box ut-member-style-1  grid-33 tablet-grid-33 mobile-grid-100">
-
-
-                                    <div class="mp-holder">
-
-
-                                        <figure class="member-photo">
-
-
-                                            <img class="utlazy" src="wp-content/themes/brooklyn/images/placeholder/team-member.png" alt="Marcel M." data-original="http://themeforest.unitedthemes.com/wpversions/brooklyn/extended/wp-content/uploads/2013/10/4460269637_df95de8800_z-w560h420.jpg">
-
-                                            <figcaption class="member-description">
-                                                <h3>Marcel M.</h3>
-                                                <span>Co-Founder</span>
-                                                <a data-member="1" href="#" class="ut-member-details ut-show-member-details ut-square">View Details<i class="fa fa-arrow-circle-right"></i></a>
-                                            </figcaption>
-
-                                        </figure>
-
-
-
-                                    </div>
-                                    <!-- close mp-holder -->
-
-                                </div>
-
-
-                                <div class="member-box ut-member-style-1  grid-33 tablet-grid-33 mobile-grid-100">
-
-
-                                    <div class="mp-holder">
-
-
-                                        <figure class="member-photo">
-
-
-                                            <img class="utlazy" src="wp-content/themes/brooklyn/images/placeholder/team-member.png" alt="Matthias N." data-original="http://themeforest.unitedthemes.com/wpversions/brooklyn/extended/wp-content/uploads/2013/10/4460269061_8362d93359_z-w560h420.jpg">
-
-                                            <figcaption class="member-description">
-                                                <h3>Matthias N.</h3>
-                                                <span>Co-Founder</span>
-                                                <a data-member="2" href="#" class="ut-member-details ut-show-member-details ut-square">View Details<i class="fa fa-arrow-circle-right"></i></a>
-                                            </figcaption>
-
-                                        </figure>
-
-
-
-                                    </div>
-                                    <!-- close mp-holder -->
-
-                                </div>
-
-
-                                <div class="member-box ut-member-style-1  grid-33 tablet-grid-33 mobile-grid-100">
-
-
-                                    <div class="mp-holder">
-
-
-                                        <figure class="member-photo">
-
-
-                                            <img class="utlazy" src="wp-content/themes/brooklyn/images/placeholder/team-member.png" alt="Gabriela T." data-original="http://themeforest.unitedthemes.com/wpversions/brooklyn/extended/wp-content/uploads/2013/10/5475339965_1b042ee67b_z-w560h420.jpg">
-
-                                            <figcaption class="member-description">
-                                                <h3>Gabriela T.</h3>
-                                                <span>Support Guru</span>
-                                                <a data-member="3" href="#" class="ut-member-details ut-show-member-details ut-square">View Details<i class="fa fa-arrow-circle-right"></i></a>
-                                            </figcaption>
-
-                                        </figure>
-
-
-
-                                    </div>
-                                    <!-- close mp-holder -->
-
-                                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            </div>
-
-
-
-
-                            <div id="member_1" class="ut-modal-box ut-modal-box-effect light" data-id="our-team">
-
-                                <div class="member-detail-box grid-parent grid-100 mobile-grid-100 tablet-grid-100 section-content">
-
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100 add-bottom">
-                                        <a class="ut-hide-member-details" href="#"><i class="fa fa-times-circle  fa-large"></i></a>
-                                    </div>
-
-                                    <div class="clear"></div>
-
-
-
-                                    <!-- member photo -->
-                                    <div class="ut-mfh grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <figure class="member-photo-large ut-square">
-                                            <img class="ut-square" alt="Marcel M." src="wp-content/uploads/2013/10/4460269637_df95de8800_z.jpg">
-                                        </figure>
-
-                                        <!-- member social -->
-
-                                        <div class="member-social">
-
-
-                                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-
-
-                                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-
-
-                                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        </div>
-                                        <!-- close member social -->
-
-                                    </div>
-                                    <!-- close member photo -->
-                                    <!-- memeber box -->
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <div class="member-box">
-                                            <h3 class="ut-member-name">Marcel M.</h3>
-                                            <span class="ut-member-title">Co-Founder</span>
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                                        </div>
-                                    </div>
-                                    <!-- close member box -->
-
-                                    <div class="clear"></div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="member_2" class="ut-modal-box ut-modal-box-effect light" data-id="our-team">
-
-                                <div class="member-detail-box grid-parent grid-100 mobile-grid-100 tablet-grid-100 section-content">
-
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100 add-bottom">
-                                        <a class="ut-hide-member-details" href="#"><i class="fa fa-times-circle  fa-large"></i></a>
-                                    </div>
-
-                                    <div class="clear"></div>
-
-
-
-                                    <!-- member photo -->
-                                    <div class="ut-mfh grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <figure class="member-photo-large ut-square">
-                                            <img class="ut-square" alt="Matthias N." src="wp-content/uploads/2013/10/4460269061_8362d93359_z.jpg">
-                                        </figure>
-
-                                        <!-- member social -->
-
-                                        <div class="member-social">
-
-
-
-
-
-                                            <a href="#"><i class="fa fa-github fa-lg"></i></a>
-
-
-
-                                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
-
-
-
-
-
-                                            <a href="#"><i class="fa fa-xing fa-lg"></i></a>
-
-
-
-
-
-
-
-                                        </div>
-                                        <!-- close member social -->
-
-                                    </div>
-                                    <!-- close member photo -->
-                                    <!-- memeber box -->
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <div class="member-box">
-                                            <h3 class="ut-member-name">Matthias N.</h3>
-                                            <span class="ut-member-title">Co-Founder</span>
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                                        </div>
-                                    </div>
-                                    <!-- close member box -->
-
-                                    <div class="clear"></div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="member_3" class="ut-modal-box ut-modal-box-effect light" data-id="our-team">
-
-                                <div class="member-detail-box grid-parent grid-100 mobile-grid-100 tablet-grid-100 section-content">
-
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100 add-bottom">
-                                        <a class="ut-hide-member-details" href="#"><i class="fa fa-times-circle  fa-large"></i></a>
-                                    </div>
-
-                                    <div class="clear"></div>
-
-
-
-                                    <!-- member photo -->
-                                    <div class="ut-mfh grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <figure class="member-photo-large ut-square">
-                                            <img class="ut-square" alt="Gabriela T." src="wp-content/uploads/2013/10/5475339965_1b042ee67b_z.jpg">
-                                        </figure>
-
-                                        <!-- member social -->
-
-                                        <div class="member-social">
-
-
-                                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-
-
-
-                                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-
-
-
-
-
-
-
-                                            <a href="#"><i class="fa fa-flickr fa-lg"></i></a>
-
-
-
-
-
-
-
-
-                                        </div>
-                                        <!-- close member social -->
-
-                                    </div>
-                                    <!-- close member photo -->
-                                    <!-- memeber box -->
-                                    <div class="grid-70 prefix-15 tablet-grid-100 mobile-grid-100">
-                                        <div class="member-box">
-                                            <h3 class="ut-member-name">Gabriela T.</h3>
-                                            <span class="ut-member-title">Support Guru</span>
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                                        </div>
-                                    </div>
-                                    <!-- close member box -->
-
-                                    <div class="clear"></div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="ut-overlay"></div>
-
-
-
-
-
-
-
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                </div>
-
-
-                <div class="ut-scroll-up-waypoint" data-section="section-our-team"></div>
-
-            </section>
-
-            <div class="clear"></div>
-            --%>
-
-
-
-
-            <%--                <section id="we-are-good-at" data-effect="fadeIn" data-width="centered" class="page-id-2887 entry-content parallax-background parallax-banner parallax-section  light  ">
-
-                    <a class="ut-offset-anchor" data-parent="section-our-team" id="section-we-are-good-at"></a>
-
-
-
-                    <div class="parallax-overlay parallax-overlay-pattern style_one">
-
-
-
-
-                        <div class="grid-container parallax-content section-header-holder">
-
-                            <!-- parallax header -->
-                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-                                <header class="parallax-header pt-style-2">
-                                    <h2 class="parallax-title"><span>WE ARE GOOD AT</span></h2>
-
-
-                                    <p class="lead">Each completed project makes us even more hungry, hungry for more designs, more code and at least some more twinkies. <span>As a result we deliver a better web experience.</span></p>
-
-
-                                </header>
-                            </div>
-                            <!-- close parallax header -->
-
-                        </div>
-
-                        <div class="clear"></div>
-
-
-
-
-                        <div class="grid-container section-content">
-
-                            <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-                                <div class="ut-one-half  ">
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">Web Design</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="80"><span class="ut-skill-percent">80%</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">WordPress Development</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="90"><span class="ut-skill-percent">90%</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">PHP</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="90"><span class="ut-skill-percent">90%</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ut-one-half ut-column-last  ">
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">HTML/CSS</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="85"><span class="ut-skill-percent">85%</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">Logo Design</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="70"><span class="ut-skill-percent">70%</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="ut-skill ">
-                                        <span class="ut-skill-name">We can't stop working</span><div class="ut-skill-bar">
-                                            <div class="ut-skill-overlay ut-skill-active" data-effecttype="skillbar" data-width="100"><span class="ut-skill-percent">100%</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clear"></div>
-
-
-
-                            </div>
-
-                        </div>
-
-
-
-
-
-
-                    </div>
-
-
-                    <div class="ut-scroll-up-waypoint" data-section="section-we-are-good-at" data-parent="section-our-team"></div>
-
-                </section>
-
-                <div class="clear"></div>--%>
-
-
-
-
-            <%--                <section id="call-to-action2" data-effect="fadeIn" data-width="centered" class="page-id-2902 entry-content normal-background  light  ">
-
-                    <a class="ut-offset-anchor" data-parent="section-our-team" id="section-call-to-action2"></a>
-
-
-
-
-
-
-                    <div class="grid-container section-header-holder">
-
-                        <!-- section header -->
-                        <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-
-                            <header class="section-header pt-style-2">
-                                <h2 class="section-title"><span>GET BROOKLYN NOW</span></h2>
-
-
-                                <p class="lead">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, <span>sed diam voluptua</span>.</p>
-
-
-                            </header>
-                        </div>
-                        <!-- close section header -->
-
-                    </div>
-
-                    <div class="clear"></div>
-
-
-
-
-
-
-                    <div class="grid-container section-content">
-
-                        <div class="grid-100 mobile-grid-100 tablet-grid-100">
-
-
-
-                            <p style="text-align: center;">
-                                <span class="alignnone ut-custom-icon"><i class="fa fa-cloud-download fa-5x" style="color: #444444"></i></span>
-                                <p style="text-align: center;">
-                                    <a target="_self" class="ut-btn  theme-btn medium round" href="http://themeforest.net/item/brooklyn-creative-one-page-multipurpose-theme/6221179?ref=UnitedThemes">Purchase Brooklyn</a>
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                    <div class="ut-scroll-up-waypoint" data-section="section-call-to-action2" data-parent="section-our-team"></div>
-
-                </section>
-
-                <div class="clear"></div>
-
-            --%>
         </div>
         <!-- close main-content-background -->
 
@@ -1687,7 +789,7 @@
                                 </div>
                                 <div>
                                     <label>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="450" frameborder="0" style="border: 0"></iframe>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="478" frameborder="0" style="border: 0"></iframe>
                                     </label>
                                 </div>
                             </div>
@@ -1705,12 +807,13 @@
                 <!-- close container -->
 
 
-
             </div>
+
             <!-- parallax overlay -->
 
 
         </section>
+
 
         <div class="clear"></div>
 
@@ -1754,7 +857,6 @@
         <script type='text/javascript' src='wp-content/themes/brooklyn/js/ut-initb2da.js?ver=2.4.3'></script>
         <script type='text/javascript' src='wp-content/plugins/ut-portfolio/assets/js/jquery.isotope.perfectmasonry.min7e2e.js?ver=3.8.1'></script>
         <script type='text/javascript' src='wp-content/plugins/ut-portfolio/assets/js/jquery.utmasonry4b1d.js?ver=1.8'></script>
-
         <script type='text/javascript'>
             /* <![CDATA[ */
             var utPortfolio = { "ajaxurl": "http:\/\/themeforest.unitedthemes.com\/wpversions\/brooklyn\/extended\/wp-admin\/admin-ajax.php" };
@@ -1765,57 +867,7 @@
         <script type="text/javascript">
             /* <![CDATA[ */
 
-            (function ($) {
-                "use strict"; $(document).ready(function () {
-                    $("body").queryLoader2({
-                        showbar: "on", barColor: "#e5c593", textColor: "#7e2e30", backgroundColor: "#7e2e30", barHeight: 6, percentage: true, completeAnimation: "fade", minimumTime: 500, onComplete: function () {
-                            $(".ut-loader-overlay").fadeOut(600, "easeInOutExpo", function () {
-                                $(this).remove();
-                            });
-                        }
-                    }); $(window).load(function () {
-                        function show_slogan() {
-                            $(".hero-holder").animate({ opacity: 1 });
-                        } var execute_slogan = setTimeout(show_slogan, 800);
-                    });
-                    $(".cta-btn a").click(function (event) {
-                        if (this.hash) {
-                            $.scrollTo(this.hash, 650, { easing: "easeInOutExpo", offset: -79, "axis": "y" }); event.preventDefault();
-                        }
-                    }); var $header = $("#header-section"),
-                        $logo = $(".site-logo img"), logo =
-                        $logo.attr("src"), logoalt =
-                        $logo.data("altlogo");
-                    $("#main-content").waypoint(function (direction) {
-                        if (direction === "down") {
-                            $header.attr("class", "ha-header ut-header-dark ");
-                            $logo.attr("src", logoalt);
-                        } else if (direction === "up") {
-                            $header.attr("class", "ha-header ha-transparent");
-                            $logo.attr("src", logo);
-                        }
-                    }, { offset: 80 }); if (
-                        $(".ut-video-player").length) {
-                        $(".ut-video-player").mb_YTPlayer();
-                        $(".ut-video-control").click(function (event) {
-                            event.preventDefault(); if (
-                                $(".ut-video-control").hasClass("ut-unmute")) {
-                                $(this).removeClass("ut-unmute").addClass("ut-mute").text("MUTE");
-                                $(".ut-video-player").unmuteYTPVolume();
-                                $(".ut-video-player").setYTPVolume(100);
-                            } else {
-                                $(this).removeClass("ut-mute").addClass("ut-unmute").text("UNMUTE");
-                                $(".ut-video-player").muteYTPVolume();
-                            }
-                        });
-                    } $(".parallax-banner").addClass("fixed").each(function () {
-                        $(this).parallax("50%", 0.6);
-                    }); $("section").each(function () {
-                        var outerHeight = $(this).outerHeight(), offset = "90%", effect = $(this).data("effect"); if (outerHeight > $(window).height() / 2) { offset = "70%"; }
-                        $(this).waypoint(function (direction) { var $this = $(this); if (direction === "down" && !$(this).hasClass(effect)) { $this.find(".section-content").animate({ opacity: 1 }, 1600); $this.find(".section-header-holder").animate({ opacity: 1 }, 1600); } }, { offset: offset });
-                    });
-                });
-            })(jQuery);
+            (function ($) { "use strict"; $(document).ready(function () { $("body").queryLoader2({ showbar: "on", barColor: "#e5c593", textColor: "#7e2e30", backgroundColor: "#7e2e30", barHeight: 6, percentage: true, completeAnimation: "fade", minimumTime: 500, onComplete: function () { $(".ut-loader-overlay").fadeOut(600, "easeInOutExpo", function () { $(this).remove(); }); } }); $(window).load(function () { function show_slogan() { $(".hero-holder").animate({ opacity: 1 }); } var execute_slogan = setTimeout(show_slogan, 800); }); $(".cta-btn a").click(function (event) { if (this.hash) { $.scrollTo(this.hash, 650, { easing: "easeInOutExpo", offset: -79, "axis": "y" }); event.preventDefault(); } }); var $header = $("#header-section"), $logo = $(".site-logo img"), logo = $logo.attr("src"), logoalt = $logo.data("altlogo"); $("#main-content").waypoint(function (direction) { if (direction === "down") { $header.attr("class", "ha-header ut-header-dark "); $logo.attr("src", logoalt); } else if (direction === "up") { $header.attr("class", "ha-header ha-transparent"); $logo.attr("src", logo); } }, { offset: 80 }); if ($(".ut-video-player").length) { $(".ut-video-player").mb_YTPlayer(); $(".ut-video-control").click(function (event) { event.preventDefault(); if ($(".ut-video-control").hasClass("ut-unmute")) { $(this).removeClass("ut-unmute").addClass("ut-mute").text("MUTE"); $(".ut-video-player").unmuteYTPVolume(); $(".ut-video-player").setYTPVolume(100); } else { $(this).removeClass("ut-mute").addClass("ut-unmute").text("UNMUTE"); $(".ut-video-player").muteYTPVolume(); } }); } $(".parallax-banner").addClass("fixed").each(function () { $(this).parallax("50%", 0.6); }); $("section").each(function () { var outerHeight = $(this).outerHeight(), offset = "90%", effect = $(this).data("effect"); if (outerHeight > $(window).height() / 2) { offset = "70%"; } $(this).waypoint(function (direction) { var $this = $(this); if (direction === "down" && !$(this).hasClass(effect)) { $this.find(".section-content").animate({ opacity: 1 }, 1600); $this.find(".section-header-holder").animate({ opacity: 1 }, 1600); } }, { offset: offset }); }); }); })(jQuery);
 
 
             /* ]]> */
@@ -1824,7 +876,9 @@
     </div>
     <!-- close #main-content -->
     <!--http://youtu.be/b62B4IDUUpE-->
- <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/b62B4IDUUpE' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>  </body>
+    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/b62B4IDUUpE' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
+
+</body>
 
 <!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:28:39 GMT -->
 </html>

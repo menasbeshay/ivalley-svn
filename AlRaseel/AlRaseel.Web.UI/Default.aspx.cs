@@ -41,30 +41,40 @@ namespace Web.UI
         private void LoadProducts()
         {
             ProductRepository _ProRepo = new ProductRepository();
-            rptProducts.DataSource = _ProRepo.LoadByActiveState();
+            rptProducts.DataSource = _ProRepo.LoadByLanguageId("b5c66d73-b2fa-436d-817a-e5332af83934");
             rptProducts.DataBind();
         }
 
         private void LoadAboutUS()
         {
 
-            PageSectionsRepository _rpoObj = new PageSectionsRepository();
-            PageSection _PageSectionObjDefault = new PageSection();
-            _PageSectionObjDefault = _rpoObj.LoadByLanguageIdAndIsDefault(true, "b5c66d73-b2fa-436d-817a-e5332af83934");
+            try
+            {
+                PageSectionsRepository _rpoObj = new PageSectionsRepository();
+                PageSection _PageSectionObjDefault = new PageSection();
+                _PageSectionObjDefault = _rpoObj.LoadByLanguageIdAndIsDefault(true, "b5c66d73-b2fa-436d-817a-e5332af83934");
 
-            lblAboutTitleDefault.Text = _PageSectionObjDefault.SectionTitle;
-            lblAboutContentDefault.Text = _PageSectionObjDefault.SectionContent;
-            //imgAboutDefault.ImageUrl = ConfigurationManager.AppSettings["Pages"].ToString() + _PageSectionObjDefault.ImageFile;
+                lblAboutTitleDefault.Text = _PageSectionObjDefault.SectionTitle;
+                lblAboutContentDefault.Text = _PageSectionObjDefault.SectionContent;
+                //imgAboutDefault.ImageUrl = ConfigurationManager.AppSettings["Pages"].ToString() + _PageSectionObjDefault.ImageFile;
 
-            //_PageSectionObjDefault = new PageSection();
-            //_PageSectionObjDefault = _rpoObj.LoadById("8dd20d86-fdec-4c73-aab6-681a450d5057");
-            //lblAboutTitle1.Text = _PageSectionObjDefault.SectionTitle;
-            //lblAboutContent1.Text = _PageSectionObjDefault.SectionContent;
+                //_PageSectionObjDefault = new PageSection();
+                //_PageSectionObjDefault = _rpoObj.LoadById("8dd20d86-fdec-4c73-aab6-681a450d5057");
+                //lblAboutTitle1.Text = _PageSectionObjDefault.SectionTitle;
+                //lblAboutContent1.Text = _PageSectionObjDefault.SectionContent;
 
-            //_PageSectionObjDefault = new PageSection();
-            //_PageSectionObjDefault = _rpoObj.LoadById("f22f80bd-eb48-4dc7-b7f7-73b37ee1135c");
-            //lblAboutTitle2.Text = _PageSectionObjDefault.SectionTitle;
-            //lblAboutContent2.Text = _PageSectionObjDefault.SectionContent;
+                //_PageSectionObjDefault = new PageSection();
+                //_PageSectionObjDefault = _rpoObj.LoadById("f22f80bd-eb48-4dc7-b7f7-73b37ee1135c");
+                //lblAboutTitle2.Text = _PageSectionObjDefault.SectionTitle;
+                //lblAboutContent2.Text = _PageSectionObjDefault.SectionContent;
+
+
+            }
+            catch (Exception)
+            {
+
+            }
+
 
 
         }
