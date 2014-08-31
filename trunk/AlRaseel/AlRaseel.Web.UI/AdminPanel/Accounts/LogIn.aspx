@@ -37,6 +37,17 @@
     <link href="../assets/css/animate-custom.css" rel="stylesheet">
     <!-- END PAGE LEVEL STYLE -->
     <script src="../assets/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <style>
+        .chekremmeberme {
+            float: left;
+            width: 15px;
+            margin-top: 5px;
+        }
+
+        .btnlogin {
+            margin-left: 185px;
+        }
+    </style>
 </head>
 
 <body class="login fade-in" data-page="login">
@@ -54,7 +65,7 @@
                             <a href="#">
                                 <img src="../assets/img/ivallryLogo.png" alt="Company Logo">
                             </a>
-                           
+
                         </div>
                         <hr>
                         <div class="login-form">
@@ -70,10 +81,19 @@
                             <%--<input type="text" placeholder="Username" class="input-field form-control user" />--%>
                             <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" CssClass="input-field form-control password" runat="server" />
                             <%--<input type="password" placeholder="Password" class="input-field form-control password" />--%>
-                            <div class="">   
-                             <asp:CheckBox id="chkRememberMe" CssClass="checkbox right" Text="Remember Me" runat="server" />
-                            <asp:Button ID="btnLogin" Text="Login" CssClass="btn btn-login left" runat="server" OnClick="btnLogin_Click" />
-                             </div>
+                            <div class="">
+                                <div style="margin-left: 50px;">
+                                    <div style="width: 20px; float: left; margin-top: 30px;">
+                                        <asp:CheckBox ID="chkRememberMe" CssClass="cheremmeberme checkbox" runat="server" />
+                                    </div>
+                                    <label style="float: left; margin-top: 25px;">
+                                        Remember Me
+                                    </label>
+                                </div>
+                                <div style="float: right; margin-right: 55px;">
+                                    <asp:Button ID="btnLogin" Text="Login" CssClass=" btn btn-login left btnlogin" runat="server" OnClick="btnLogin_Click" />
+                                </div>
+                            </div>
                             <%--<button type="submit" class="btn btn-login">Login</button>--%>
                             <%--<div class="login-links">
                                 <a href="password_forgot.html">Forgot password?</a>

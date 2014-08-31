@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default_en.aspx.cs" Inherits="Web.UI.en.Default_en" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default_en.aspx.cs" Inherits="Web.UI.en.Default_en" %>
 
 
 
@@ -113,7 +113,7 @@
 
                         <div class="site-logo">
                             <a href="../index.html" title="Al Raseel - Flooring with unique concepts" rel="home">
-                                <img data-altlogo="../assets/img/logo-en.png" src="../../assets/img/logo-en.png" alt="Al Raseel">
+                                <img data-altlogo="../assets/img/logo-en.png" src="../assets/img/logo-en.png" alt="Al Raseel">
                                 <%--<div id="slogan"><span>Flooring with unique concepts</span> </div>--%>
                             </a>
                         </div>
@@ -418,10 +418,10 @@
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
 
                         <header class="section-header pt-style-2">
-                            <h2 class="section-title"><span>products</span></h2>
+                            <h2 class="section-title"><span>Colors</span></h2>
 
 
-                            <p class="lead">some data about products here.some data about products here.some data about products here.some data about products here.some data about products here.some data about products here.some data about products here.</p>
+                            <p class="lead">some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.</p>
 
 
                         </header>

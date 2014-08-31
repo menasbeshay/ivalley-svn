@@ -162,7 +162,7 @@
 
 
                         <div class="site-logo">
-                            <a href="index.html" title="الرسيل - أرضيات بمفاهيم متميّزة" rel="home">
+                            <a href="Default.aspx" title="الرسيل - أرضيات بمفاهيم متميّزة" rel="home">
                                 <img data-altlogo="../assets/img/logo-ar.png" src="../assets/img/logo-ar.png" alt="Al Raseel">
                                 <%--<div id="slogan"><span>أرضيات بمفاهيم متميّزة</span> </div>--%>
                             </a>

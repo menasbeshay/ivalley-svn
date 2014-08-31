@@ -156,13 +156,13 @@ namespace Data.Repositories
             }
 
         }
-        public DataTable LoadByLanguageId(String LanguageId,Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
+        public DataTable LoadByLanguageId(String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
         {
             try
             {
 
                 var Query = (from pram in db.PageSections
-                             where pram.Active == ActiveState  &&  pram.LanguageId == (new Guid(LanguageId))
+                             where pram.Active == ActiveState && pram.LanguageId == (new Guid(LanguageId))
                              select pram);
                 return Query.ToDataTable(SortField, SortType);
 
@@ -192,13 +192,13 @@ namespace Data.Repositories
             }
 
         }
-        public DataTable LoadByLanguageIdAndPageId(String PageId,String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
+        public DataTable LoadByLanguageIdAndPageId(String PageId, String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
         {
             try
             {
 
                 var Query = (from pram in db.PageSections
-                             where pram.Active == ActiveState 
+                             where pram.Active == ActiveState
                              && pram.LanguageId == new Guid(LanguageId)
                              && pram.PageId == new Guid(PageId)
                              select pram);
@@ -217,7 +217,7 @@ namespace Data.Repositories
             try
             {
 
-                _Obj = db.PageSections.FirstOrDefault(pram => pram.Active == ActiveState  && pram.LanguageId == new Guid(LanguageId) && pram.IsDefault == isdefault);
+                _Obj = db.PageSections.FirstOrDefault(pram => pram.Active == ActiveState && pram.LanguageId == new Guid(LanguageId) && pram.IsDefault == isdefault);
                 return _Obj;
 
             }
@@ -228,6 +228,23 @@ namespace Data.Repositories
             }
 
         }
+        public PageSection LoadByLanguageIdPram(String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
+        {
+            try
+            {
+
+                _Obj = db.PageSections.FirstOrDefault(pram => pram.Active == ActiveState && pram.LanguageId == new Guid(LanguageId));
+                return _Obj;
+
+            }
+
+            catch (Exception Ex)
+            {
+                return null;
+            }
+
+        }
+
         public DataTable LoadByLanguageIdAndIsDefaultDataDable(Boolean isdefault, String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
         {
             try
