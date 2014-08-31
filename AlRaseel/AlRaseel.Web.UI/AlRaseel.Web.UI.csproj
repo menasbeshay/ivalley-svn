@@ -235,6 +235,8 @@
     <Content Include="fancybox\helpers\jquery.fancybox-thumbs.js" />
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
+    <Content Include="GetProductDetails.aspx" />
+    <Content Include="images\loading.GIF" />
     <Content Include="images\fancygallery\hover_icons\circle-magnifier.png" />
     <Content Include="images\fancygallery\hover_icons\circle-plus.png" />
     <Content Include="images\fancygallery\hover_icons\magnifier-plus.png" />
@@ -1211,6 +1213,13 @@
     </Compile>
     <Compile Include="en\ProductDetails_en.aspx.designer.cs">
       <DependentUpon>ProductDetails_en.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetProductDetails.aspx.cs">
+      <DependentUpon>GetProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetProductDetails.aspx.designer.cs">
+      <DependentUpon>GetProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\WebUi.Master.cs">
       <DependentUpon>WebUi.Master</DependentUpon>
