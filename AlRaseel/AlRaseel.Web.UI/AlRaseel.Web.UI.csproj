@@ -221,6 +221,7 @@
     <Content Include="demo_files\_fancybox_plugin\_Readme.txt" />
     <Content Include="en\Default.aspx" />
     <Content Include="en\Default_en.aspx" />
+    <Content Include="en\getproductdetails.aspx" />
     <Content Include="en\ProductDetails.aspx" />
     <Content Include="en\ProductDetails_en.aspx" />
     <Content Include="fancybox\blank.gif" />
@@ -1199,6 +1200,13 @@
     </Compile>
     <Compile Include="en\Default_en.aspx.designer.cs">
       <DependentUpon>Default_en.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="en\getproductdetails.aspx.cs">
+      <DependentUpon>getproductdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\getproductdetails.aspx.designer.cs">
+      <DependentUpon>getproductdetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="en\ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
