@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Chat2Connect.usercontrols.bot
 {
-    public partial class WelcomeBot : System.Web.UI.UserControl
+    public partial class WelcomeBot : System.Web.UI.UserControl,IBotUserControl
     {
         private Info.WelcomeBot DataSource
         {
@@ -20,9 +20,9 @@ namespace Chat2Connect.usercontrols.bot
                 ViewState["Source"] = value;
             }
         }
-        public void DataBind(Info.WelcomeBot infoSource)
+        public void DataBind(Info.RoomBot infoSource)
         {
-            DataSource = infoSource;
+            DataSource = (Info.WelcomeBot)infoSource;
             string[] messages = DataSource.LoginMessage.Split(new string[] { "$Member$" }, StringSplitOptions.RemoveEmptyEntries);
             if (messages!=null && messages.Length > 0)
             {
@@ -37,12 +37,14 @@ namespace Chat2Connect.usercontrols.bot
             }
         }
 
-        public Info.WelcomeBot GetInfoObject()
+        public Info.RoomBot GetDataObject()
         {
             Info.WelcomeBot info = DataSource;
             info.LoginMessage = String.Format("{0}$Member${1}", txtLoginMessagePart1.Text, txtLoginMessagePart2.Text);
             info.LogoutMessage = String.Format("{0}$Member${1}", txtLogoutMessagePart1.Text, txtLogoutMessagePart2.Text);
             return info;
         }
+
+
     }
 }

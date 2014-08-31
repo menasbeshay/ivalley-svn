@@ -24,9 +24,4 @@
             <asp:TextBox ID="txtLogoutMessagePart2" runat="server" Width="100px"></asp:TextBox>
         </td>
     </tr>
-    <tr>
-        <td colspan="2">
-            <asp:HiddenField ID="hdnID" runat="server" Value="0" />
-        </td>
-    </tr>
 </table>

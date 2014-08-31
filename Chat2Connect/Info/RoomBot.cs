@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Info
 {
+    [Serializable]
     public class RoomBot
     {
-        public int ID
+        public int RoomBotID
         {
             get;
             set;
@@ -31,6 +32,24 @@ namespace Info
         }
 
         public string ShortcutKey
+        {
+            get;
+            set;
+        }
+
+        public RoomBot(int roomID, int botID)
+        {
+            RoomID = roomID;
+            BotID = BotID;
+            ShortcutKey = "";
+        }
+
+        public RoomBot()
+        {
+            ShortcutKey = "";
+        }
+
+        public Info.Bot Bot
         {
             get;
             set;
