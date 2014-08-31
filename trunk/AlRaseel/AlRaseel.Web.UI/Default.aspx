@@ -79,11 +79,26 @@
     <link href="assets/css/Alraseel_ar.css" rel="stylesheet" />
     <link href="../assets/css/Alraseel_ar.css" rel="stylesheet" />
     <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/droid-arabic-kufi" type="text/css" />
+
+
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancygallery.css" />    
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css?v=2.1.1" type="text/css" media="screen" />   
+     <link rel="stylesheet" href="prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" /> 
+
+    <script src="prettyphoto/jquery.prettyPhoto.js" type="text/javascript"></script>
+    <script src="fancybox/jquery.fancybox.pack.js?v=2.1.1" type="text/javascript"></script>
+    <script src="js/jquery.fancygallery.min.js" type="text/javascript"></script>
+
     <style>
         body {
             font-family: 'Al-Jazeera-Arabic-Regular' !important;
             font-weight: normal;
             font-style: normal;
+        }
+
+        div.pp_pic_holder {
+            direction:ltr !important;
         }
     </style>
 
@@ -280,7 +295,7 @@
 
                 <a class="ut-offset-anchor" id="section-about-brooklyn"></a>
 
-                <div class="grid-container section-header-holder">
+                <div class="grid-container section-header-holder" style="min-height:400px;">
 
                     <!-- section header -->
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
@@ -296,22 +311,12 @@
                     </div>
                     <!-- close section header -->
 
+
                 </div>
+                
 
                 <div class="clear"></div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-
-
-                <div class="clear"></div>
+                
 
                 <div class="grid-container section-content">
 
@@ -375,7 +380,7 @@
                 <div class="clear"></div>
                 <div class="grid-container section-content">
                     <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -20px;">
-                        <div class="" style="width: 100%;">
+                        <div class="" style="width: 100%;" id="AllProds" >
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
                                     <div class="" style="width: 50%; float: left; margin-bottom: 20px;">
@@ -383,14 +388,14 @@
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
                                                     <h3 style="font-family: 'Droid Arabic Kufi'!important;">
-                                                        <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>" style="color: #e5c593 !important;">
+                                                        <a class="ProductLink" data-id='<%# Eval("Id") %>' data-lang='<%# Eval("LanguageId") %>' style="color: #e5c593 !important;">
                                                             <%#Eval("ProductTitle") %>
                                                         </a>
                                                     </h3>
                                                     <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;"><%#Eval("ShortDescription") %> </p>
                                                 </div>
                                             </div>
-                                            <a href="ProductDetails.aspx?ProductId=<%#Eval("Id") + "&LanguageId=" + Eval("LanguageId") %>">
+                                            <a class="ProductLink" data-id='<%# Eval("Id") %>' data-lang='<%# Eval("LanguageId") %>' >
 
                                                 <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />--%>
                                                 <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="140px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
@@ -401,9 +406,19 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
+                        <div id="prod_details_back" style="display:none">
+                            <a id="backLink" class="cta-btn theme-btn" style="border:1px solid #e5c593;border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-webkit-border-radius:5px;background-color:#e5c593;padding:10px; float:right;clear:both;display:block;"> عودة إلى المنتجات</a>
+                            <div class="clear clearfix" style="height:5px;width:100%"></div>
+                            
+                        <div class="prod_details" id="prodetails">
+
+                        </div>
+                            </div>
                         <div class="clear"></div>
                     </div>
                 </div>
+
+                
                 <div class="ut-scroll-up-waypoint" data-section="section-our-service"></div>
             </section>
             <div class="clear"></div>
@@ -907,6 +922,33 @@
 
 
             /* ]]> */
+        </script>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                jQuery(".ProductLink").click(function () {
+                    jQuery('#AllProds').slideToggle("left");
+                    jQuery('#prodetails').html('<div style="width:15%;margin:0 auto;"><img src="images/loading.gif" /></div>');
+                    jQuery('#prod_details_back').hide().slideToggle("left");
+
+                    jQuery("#prodetails").load("getproductdetails.aspx",
+                        {
+                            ProductId: "" + jQuery(this).attr("data-id") + "",
+                            LanguageId: "" + jQuery(this).attr("data-lang") + "",
+                        },
+                        function (content) {
+                            jQuery(this).hide().slideToggle("left");
+                            return false;
+                        });                    
+
+                });
+
+                jQuery('#backLink').click(function () {
+                    jQuery('#AllProds').hide().slideToggle("right");
+                    jQuery('#prod_details_back').slideToggle("left");;
+                });
+            });
+
         </script>
 
     </div>
