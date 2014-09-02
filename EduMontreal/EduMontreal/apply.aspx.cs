@@ -73,6 +73,7 @@ namespace EduMontreal
             uiRadioButtonListGender.DataTextField = Gender.ColumnNames.GenderType;
             uiRadioButtonListGender.DataValueField = Gender.ColumnNames.GenderID;
             uiRadioButtonListGender.DataBind();
+            uiRadioButtonListGender.SelectedIndex = 0;
         }
 
         protected void uiLinkButtonFinish_Click(object sender, EventArgs e)
