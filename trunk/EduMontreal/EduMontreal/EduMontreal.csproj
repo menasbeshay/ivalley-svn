@@ -41,7 +41,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MyGeneration.dOOdads, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\MyGeneration13\Architectures\dOOdads\CSharp\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll</HintPath>
+      <HintPath>..\lib\MyGeneration.dOOdads.dll</HintPath>
     </Reference>
     <Reference Include="Recaptcha">
       <HintPath>..\..\..\..\..\sources\recaptcha-dotnet-1.0.5.0-binary\Recaptcha.dll</HintPath>
@@ -1866,6 +1866,8 @@
     <Content Include="Images\status\9.jpg" />
     <Content Include="img\loading.gif" />
     <Content Include="img\mailLogo.png" />
+    <Content Include="js\additional-methods.min.js" />
+    <Content Include="js\app.js" />
     <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -1887,6 +1889,7 @@
     <Content Include="js\fancybox\source\jquery.fancybox.js" />
     <Content Include="js\fancybox\source\jquery.fancybox.pack.js" />
     <Content Include="js\fancy_func.js" />
+    <Content Include="js\form-wizard.js" />
     <Content Include="js\functions.js" />
     <Content Include="js\jquery.bootstrap.wizard.min.js" />
     <Content Include="js\jquery.easing.js" />
@@ -1902,6 +1905,7 @@
     <Content Include="js\jquery.iframe-transport.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.validate.js" />
+    <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\megamenu.js" />
     <Content Include="js\modernizr.custom.17475.js" />
@@ -2147,6 +2151,7 @@
     <Content Include="js\fancybox\.DS_Store" />
     <Content Include="js\fancybox\source\.DS_Store" />
     <Content Include="MasterPages\AREduMaster.Master" />
+    <None Include="Properties\PublishProfiles\EduMontreal-SVN.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="sale.aspx" />
