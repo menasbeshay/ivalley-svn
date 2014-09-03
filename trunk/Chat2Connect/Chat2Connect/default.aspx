@@ -17,7 +17,7 @@
     <link href="css/base.css" rel="stylesheet" />    
     <link href="css/skeleton_subject.css" rel="stylesheet" />
     <link href="css/validationEngine.jquery.css" rel="stylesheet" />
-    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />        
     <link href="css/main.css" rel="stylesheet" />
    
 </head>
@@ -132,7 +132,7 @@
                                         <asp:TextBox ID="UserName" runat="server" onkeypress="return validChars(event);" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="من فضلك أدخل إسم المستخدم ." ToolTip="من فضلك أدخل إسم المستخدم ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
-                                        <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="إسم المستخدم غير مطابق للشروط" ClientValidationFunction="isValid" ControlToValidate="UserName" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
+                                        <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="إسم المستخدم غير مطابق للشروط" ClientValidationFunction="isValid" ControlToValidate="UserName" Display="Dynamic" ForeColor="Red" ValidationGroup="CreateUserWizard1"></asp:CustomValidator>
                                     </div>
                                 </div>
 
@@ -161,7 +161,7 @@
                                         <label>البريد الإلكترونى</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:TextBox ID="Email" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="Email" runat="server" CssClass="form-control" style="font-family:Arial"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="من فضلك أدخل البريد الإلكترونى." ToolTip="من فضلك أدخل البريد الإلكترونى." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -224,11 +224,14 @@
                     <div class="modal-body">
                             <div class="form-horizontal blockBox validationGroup">                                                              
                                 <div class="form-group">
-                                    <div class="col-sm-4 control-label pull-right">
+                                    <div class="col-sm-3 control-label pull-right">
                                         <label>البريد الإلكترونى</label>
                                     </div>
-                                    <div class="col-sm-8 pull-right">
+                                    <div class="col-sm-7 pull-right">
                                         <asp:TextBox ID="uiTextBoxReset_Mail" runat="server" CssClass="form-control" data-bind="value:email"></asp:TextBox>                                        
+                                    </div>
+                                    <div class="col-sm-1 pull-right">
+                                        <a data-bind="click:SearchAccounts.bind()" class="btn btn-main">بحث</a>
                                     </div>
                                 </div>
                                 
@@ -244,7 +247,14 @@
                                 لا يوجد حسابات مرتبطة بهذا البريد الإلكترونى
 
                             </div>
-                            <ul class="findFriends">
+                            <div id="hasAccounts" class="col-lg-12" style="text-align:center;display:none;text-align:center;" >
+                                <a href="#" data-bind="click: Resetpass.bind()" class="btn btn-main smallbtn">إضغط هنا لإستعادة كلمة المرور</a>                                   
+
+                            </div>
+                                     <div id="mailsent" class="col-lg-12" style="text-align:center;display:none;text-align:center;margin:20px;" >
+                              <span class="alert alert-success" >تم الإرسال لبريدك الإلكترونى</span>
+                                         </div>
+                            <%--<ul class="findFriends">
                             <!-- ko foreach:accounts -->
                             <li >
                                 <div style="width:27%;float:left;margin-right:3px;">
@@ -260,7 +270,7 @@
                             </li>
 
                             <!-- /ko -->
-                                </ul>
+                                </ul>--%>
                             <div class="clear" style="height:2px;"></div>
                         </div>
                                 
@@ -270,15 +280,45 @@
                 </div>
             </div>
         </div>
-    <footer class="row" >
-        &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Dardashet Tawasol. All rights reserved.
-        <div style="float:right;padding-right:10px;width:15%;padding:0px;margin-top:-5px;">
-            Powered by &nbsp; <a href="http://I-valley.com">
-                <img src="images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
-                    alt="I-VALLEY software solutions" /></a>
+    <footer class="row">
+                <div class="col-lg-4">
+                    <asp:HyperLink ID="uiHyperLinkFB" runat="server">
+                        <i class="icon-facebook-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkTwitter" runat="server">
+                        <i class="icon-twitter-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkYoutube" runat="server">
+                        <i class="icon-youtube-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkGp" runat="server">
+                        <i class="icon-google-plus-sign icon-2x"></i>
+                    </asp:HyperLink>
+                     <div class="clear" style="height:5px;"></div>
+                    <div>
+                Powered by &nbsp; <a href="http://I-valley.com">
+                    <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
+                        alt="I-VALLEY software solutions" /></a>
 
-        </div>
-    </footer>
+            </div>
+                </div>
+                
+                <div class="col-lg-4 pull-right" style="text-align:right;margin-top:5px;direction:rtl;">
+                    <a href="viewnode.aspx?node=privacy">سياسة الخصوصية</a>
+                    &nbsp;
+                    | &nbsp;
+                    <a href="viewnode.aspx?node=terms">الشروط والأحكام</a>
+                    <div class="clear" style="height:10px;"></div>
+                &copy;
+            <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                جميع الحقوق محفوظة لموقع دردشة تواصل.&nbsp;
+                    
+                    </div>
+            
+            </footer>
     
     <!-- All js -->
     <script src="js/trmix.js"></script>
@@ -286,7 +326,7 @@
     <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-   <%-- <script src="js/Mainjs.js" type="text/javascript"></script>--%>
+    <script src="js/commonfunc.js" type="text/javascript"></script>
     <script src="js/jquery.validationEngine-en.js"></script>        
     <script src="js/jquery.validationEngine.js"></script>
     <script src="js/group_validation.js"></script>

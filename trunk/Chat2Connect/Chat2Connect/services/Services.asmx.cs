@@ -654,67 +654,7 @@ namespace Chat2Connect.services
 
         }
 
-        [WebMethod]
-        public List<dynamic> SearchAccountsByMail(string email)
-        {
-            
-            List<dynamic> people = new List<dynamic>();
-            Member members = new Member();
-            members.Proc_SearchMembersByMail(email);
-
-            for (int i = 0; i < members.RowCount; i++)
-            {
-                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, IsPassReseted = false });
-                members.MoveNext();
-            }
-            if (people.Count > 0)
-            {
-                return people;
-            }
-            else
-                return null;
-
-
-        }
-
-        [WebMethod]        
-        public bool ResetPass(int MemberID)
-        {            
-            
-            Member member = new Member();
-            member.LoadByPrimaryKey(MemberID);
-            member.PassResetCode = Guid.NewGuid();
-            member.Save();
-
-            //try
-            //{
-            //    MailMessage msg = new MailMessage();
-            //    string mail = HttpContext.GetGlobalResourceObject("Global","Mail").ToString();
-            //    string mailto = member.Email;
-            //    msg.To.Add(mailto);
-            //    msg.From = new MailAddress(mail);
-            //    msg.Subject = HttpContext.GetGlobalResourceObject("Global", "ResetSubject").ToString();
-            //    msg.IsBodyHtml = true;
-            //    msg.BodyEncoding = System.Text.Encoding.Unicode;
-
-            //    msg.Body = string.Format(HttpContext.GetGlobalResourceObject("Global", "ResetPassBody").ToString(), member.UserName, member.PassResetCode.ToString());
-
-            //    SmtpClient client = new SmtpClient(HttpContext.GetGlobalResourceObject("Global", "server").ToString(), 25);
-
-            //    client.UseDefaultCredentials = false;
-
-            //    client.Credentials = new System.Net.NetworkCredential(mail, HttpContext.GetGlobalResourceObject("Global", "Password").ToString());
-            //    client.Send(msg);
-                
-            //}
-            //catch (Exception)
-            //{
-
-            //}
-            return true;
-
-        }
-
+        
         [WebMethod]
         public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {
@@ -1048,5 +988,182 @@ namespace Chat2Connect.services
             Session.Abandon();
         }
 
+
+        /************* profile functions ***********************/
+        #region Profile
+        [WebMethod]
+        public bool ClearProfileImg(int mid)
+        {
+
+            Member member = new Member();
+            member.LoadByPrimaryKey(mid);
+            member.ProfilePic = "/images/defaultavatar.png";
+            member.Save();
+            return true;
+
+        }
+
+        [WebMethod]
+        public bool SelectProfileImg(int mid, int pid)
+        {
+
+            Member member = new Member();
+            member.LoadByPrimaryKey(mid);
+
+            MemberPic pic = new MemberPic();
+            pic.LoadByPrimaryKey(pid);
+            member.ProfilePic = pic.PicPath;
+            member.Save();
+            return true;
+
+        }
+        #endregion
+
+        #region Admin
+        [WebMethod]
+        public bool SaveSocials(string fb, string tw, string gp, string yt)
+        {
+            try
+            {
+                SiteSettings setting = new SiteSettings();
+                setting.LoadByPrimaryKey(1); // fb
+                setting.URL = fb;
+                setting.Save();
+
+                setting.LoadByPrimaryKey(2); // TWITTER
+                setting.URL = tw;
+                setting.Save();
+
+                setting.LoadByPrimaryKey(3); // youtube
+                setting.URL = yt;
+                setting.Save();
+
+                setting.LoadByPrimaryKey(4); // google
+                setting.URL = gp;
+                setting.Save();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        [WebMethod]
+        public bool SavePrivacy(string privacy)
+        {
+            try
+            {
+                SiteSettings setting = new SiteSettings();
+                setting.LoadByPrimaryKey(6); // privacy
+                setting.Content = Server.HtmlEncode(privacy);
+                setting.Save();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        [WebMethod]
+        public bool SaveTerms(string terms)
+        {
+            try
+            {
+                SiteSettings setting = new SiteSettings();
+                setting.LoadByPrimaryKey(5); // terms
+                setting.Content = Server.HtmlEncode(terms);
+                setting.Save();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+        #endregion 
+
+        #region resetPass
+
+        [WebMethod]
+        public List<dynamic> SearchAccountsByMail(string email)
+        {
+
+            List<dynamic> people = new List<dynamic>();
+            Member members = new Member();
+            members.Proc_SearchMembersByMail(email);
+
+            for (int i = 0; i < members.RowCount; i++)
+            {
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, IsPassReseted = false });
+                members.MoveNext();
+            }
+            if (people.Count > 0)
+            {
+                return people;
+            }
+            else
+                return null;
+
+
+        }
+
+        [WebMethod]
+        public bool ResetPass(string Email)
+        {
+
+            Member members = new Member();
+            members.Proc_SearchMembersByMail(Email);
+
+            if (members.RowCount == 0)
+                return false;
+
+            string accounts = "";
+            for (int i = 0; i < members.RowCount; i++)
+            {
+                accounts += string.Format("<li><a href='http://chatconnect.com/resetpass.aspx?rc={0}'>{1}</a></li>", Helper.General.EncryptString("mid=" + members.MemberID.ToString() + "&email=" + members.Email), members.GetColumn("UserName"));
+                members.MoveNext();                
+            }
+
+
+            try
+            {
+                MailMessage msg = new MailMessage();
+                string mail = HttpContext.GetGlobalResourceObject("Global", "Mail").ToString();
+                string mailto = Email;
+                msg.To.Add(mailto);
+                msg.From = new MailAddress(mail);
+                msg.Subject = HttpContext.GetGlobalResourceObject("Global", "ResetSubject").ToString();
+                msg.IsBodyHtml = true;
+                msg.BodyEncoding = System.Text.Encoding.Unicode;
+
+                msg.Body = string.Format(HttpContext.GetGlobalResourceObject("Global", "ResetPassBody").ToString(), accounts);
+
+                SmtpClient client = new SmtpClient(HttpContext.GetGlobalResourceObject("Global", "server").ToString(), 25);
+
+                client.UseDefaultCredentials = false;
+
+                client.Credentials = new System.Net.NetworkCredential(mail, HttpContext.GetGlobalResourceObject("Global", "Password").ToString());
+                client.Send(msg);
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+                return true;
+
+        }
+
+        #endregion
     }
 }

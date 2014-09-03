@@ -141,7 +141,7 @@
     
 
 
-    <table role="presentation" class="mceColorSplitMenu">
+<%--    <table role="presentation" class="mceColorSplitMenu">
         <tbody>
             <tr>
                 <td><a role="option" href="javascript:;" title="Black" data-mce-color="#000000" id="_mce_item_31" tabindex="0" style="background-color: rgb(0, 0, 0);"></a></td>
@@ -627,6 +627,6 @@
 <div class="socialsprite" style="background-position: -0px -34px; width: 24px; height: 24px">&nbsp;</div>
 </a>
 </div>
-	</div>
+	</div>--%>
 </body>
 </html>

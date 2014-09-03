@@ -20,6 +20,7 @@ namespace Chat2Connect
                 LoadDDls();
                 LoadProfile();
                 LoadRooms();
+                LoadPics();
             }
         }
 
@@ -48,7 +49,7 @@ namespace Chat2Connect
                 Member member = new Member();
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 uiLabelName.Text = uiTextBoxName.Text = member.Name;
-
+                uiHiddenFieldCID_profile.Value = member.MemberID.ToString();
                 if (!member.IsColumnNull("ReligionID"))
                 {
                     Religion religion = new Religion();
@@ -257,16 +258,48 @@ namespace Chat2Connect
                 uiFileUploadAddImage.SaveAs(Server.MapPath(path));
                 MemberPic pic = new MemberPic();
                 pic.AddNew();
-                pic.Description = path.Substring(1);
+                pic.Description = uiTextBoxPhotoDesc.Text;
+                pic.PicPath = path.Substring(1);
                 pic.MemberID = member.MemberID;
                 pic.Save();
             }
             LoadPics();
         }
 
+        protected void uiLinkButtonAddProfilePhoto_Click(object sender, EventArgs e)
+        {
+            string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
+            DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
+            if (!dir.Exists)
+                dir.Create();
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            path += "/" + Membership.GetUser().ProviderUserKey.ToString();
+            if (uiFileUploadAddProfileImage.HasFile)
+            {
+                path = path + "/" + DateTime.Now.ToString("ddMMyyyy_hhmmss_") + uiFileUploadAddProfileImage.FileName;
+                uiFileUploadAddProfileImage.SaveAs(Server.MapPath(path));
+                MemberPic pic = new MemberPic();
+                pic.AddNew();                
+                pic.PicPath = path.Substring(1);
+                pic.MemberID = member.MemberID;
+                pic.Save();
+                member.ProfilePic = path.Substring(1);
+                member.Save();
+            }
+            LoadPics();
+            LoadProfile();
+        }
+
         private void LoadPics()
         {
+            MemberPic pics = new MemberPic();
+            pics.GetMemberPicsByMemberID(Member.CurrentMemberID);
+            uiRepeaterPhotos.DataSource = pics.DefaultView;
+            uiRepeaterPhotos.DataBind();
 
+            uiRepeaterProfilePics.DataSource = pics.DefaultView;
+            uiRepeaterProfilePics.DataBind();
         }
 
         private void LoadRooms()

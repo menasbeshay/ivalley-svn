@@ -123,6 +123,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter PicPath
+			{
+				get
+				{
+					return new SqlParameter("@PicPath", SqlDbType.NVarChar, 400);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -132,6 +140,7 @@ namespace DAL
             public const string MemberPicID = "MemberPicID";
             public const string MemberID = "MemberID";
             public const string Description = "Description";
+            public const string PicPath = "PicPath";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -142,6 +151,7 @@ namespace DAL
 					ht[MemberPicID] = _MemberPic.PropertyNames.MemberPicID;
 					ht[MemberID] = _MemberPic.PropertyNames.MemberID;
 					ht[Description] = _MemberPic.PropertyNames.Description;
+					ht[PicPath] = _MemberPic.PropertyNames.PicPath;
 
 				}
 				return (string)ht[columnName];
@@ -157,6 +167,7 @@ namespace DAL
             public const string MemberPicID = "MemberPicID";
             public const string MemberID = "MemberID";
             public const string Description = "Description";
+            public const string PicPath = "PicPath";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -167,6 +178,7 @@ namespace DAL
 					ht[MemberPicID] = _MemberPic.ColumnNames.MemberPicID;
 					ht[MemberID] = _MemberPic.ColumnNames.MemberID;
 					ht[Description] = _MemberPic.ColumnNames.Description;
+					ht[PicPath] = _MemberPic.ColumnNames.PicPath;
 
 				}
 				return (string)ht[propertyName];
@@ -182,6 +194,7 @@ namespace DAL
             public const string MemberPicID = "s_MemberPicID";
             public const string MemberID = "s_MemberID";
             public const string Description = "s_Description";
+            public const string PicPath = "s_PicPath";
 
 		}
 		#endregion		
@@ -221,6 +234,18 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Description, value);
+			}
+		}
+
+		public virtual string PicPath
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PicPath);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PicPath, value);
 			}
 		}
 
@@ -271,6 +296,21 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.Description);
 				else
 					this.Description = base.SetstringAsString(ColumnNames.Description, value);
+			}
+		}
+
+		public virtual string s_PicPath
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PicPath) ? string.Empty : base.GetstringAsString(ColumnNames.PicPath);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PicPath);
+				else
+					this.PicPath = base.SetstringAsString(ColumnNames.PicPath, value);
 			}
 		}
 
@@ -337,6 +377,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter PicPath
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PicPath, Parameters.PicPath);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -378,15 +428,29 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter PicPath
+		    {
+				get
+		        {
+					if(_PicPath_W == null)
+	        	    {
+						_PicPath_W = TearOff.PicPath;
+					}
+					return _PicPath_W;
+				}
+			}
+
 			private WhereParameter _MemberPicID_W = null;
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _Description_W = null;
+			private WhereParameter _PicPath_W = null;
 
 			public void WhereClauseReset()
 			{
 				_MemberPicID_W = null;
 				_MemberID_W = null;
 				_Description_W = null;
+				_PicPath_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -473,6 +537,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter PicPath
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PicPath, Parameters.PicPath);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -514,15 +588,29 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter PicPath
+		    {
+				get
+		        {
+					if(_PicPath_W == null)
+	        	    {
+						_PicPath_W = TearOff.PicPath;
+					}
+					return _PicPath_W;
+				}
+			}
+
 			private AggregateParameter _MemberPicID_W = null;
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _Description_W = null;
+			private AggregateParameter _PicPath_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_MemberPicID_W = null;
 				_MemberID_W = null;
 				_Description_W = null;
+				_PicPath_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -607,6 +695,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.Description);
 			p.SourceColumn = ColumnNames.Description;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PicPath);
+			p.SourceColumn = ColumnNames.PicPath;
 			p.SourceVersion = DataRowVersion.Current;
 
 

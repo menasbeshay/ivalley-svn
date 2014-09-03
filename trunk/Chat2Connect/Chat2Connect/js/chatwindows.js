@@ -1252,12 +1252,14 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
 
     /************ add friends logic *****************/
     self.SearchText = ko.observable('');
-    self.SearchText.subscribe(function (newValue) {
+    /*self.SearchText.subscribe(function (newValue) {
         self.SearchPeople();
-    });
+    });*/
     self.People = ko.observableArray();
 
     self.SearchPeople = function () {
+        if (self.SearchText() == '')
+            return;
         $('#loadingAddFriends').css('display', 'block');
         $('#noFriendsAddFriends').css('display', 'none');
         $('#errorAddFriends').css('display', 'none');

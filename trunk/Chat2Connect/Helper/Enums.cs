@@ -84,7 +84,9 @@ namespace Helper
             [StringValue("إحصائيات")]
             Admin_StatsReport,
             [StringValue("Help")]
-            Admin_SiteHelper
+            Admin_SiteHelper,
+            [StringValue("إعدادات عامة")]
+            Admin_GeneralSettings,
 
         }
 

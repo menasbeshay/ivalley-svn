@@ -43,6 +43,19 @@ namespace Chat2Connect.MasterPages
                     lstHelpRequests.DataValueField = "ID";
                     lstHelpRequests.DataSource = mails;
                     lstHelpRequests.DataBind();
+
+                    SiteSettings settings = new SiteSettings();
+                    settings.LoadByPrimaryKey(1); //fb
+                    uiHyperLinkFB.NavigateUrl= settings.URL;
+
+                    settings.LoadByPrimaryKey(2); //twitter
+                    uiHyperLinkTwitter.NavigateUrl = settings.URL;
+
+                    settings.LoadByPrimaryKey(3); //youtube
+                    uiHyperLinkYoutube.NavigateUrl = settings.URL;
+
+                    settings.LoadByPrimaryKey(4); //google
+                    uiHyperLinkGp.NavigateUrl = settings.URL;
                 }
             }
             else

@@ -209,12 +209,16 @@
                     <div class="form-horizontal blockBox">
 
                         <div class="form-group" >
-                            <div class="col-sm-4 control-label pull-right">
+                            <div class="col-sm-3 control-label pull-right">
                                 <label>بحث</label>
                             </div>
-                            <div class="col-sm-7 pull-right">
-                                <asp:TextBox ID="uiTextBoxFriendSearch" runat="server" CssClass="form-control" data-bind="value:SearchText, valueUpdate: 'afterkeydown'" ></asp:TextBox>                                
+                            <div class="col-sm-6 pull-right">
+                                <asp:TextBox ID="uiTextBoxFriendSearch" runat="server" CssClass="form-control " data-bind="value:SearchText" ></asp:TextBox>  
+                                
                             </div>
+                            <div class="col-sm-1 pull-right">
+                                <a data-bind="click:SearchPeople()" class="btn btn-small btn-main">بحث</a>
+                                </div>
                             
                         </div>
                         <div class="form-group">
@@ -229,7 +233,7 @@
                                 لا يوجد                          
 
                             </div>
-                            <ul class="findFriends">
+                            <ul class="findFriends SScroll" data-height="400px">
                             <!-- ko foreach:People -->
                             <li >
                                 <div style="width:27%;float:left;margin-right:3px;">

@@ -107,6 +107,7 @@
     <Content Include="Admin\RoomsReport.aspx" />
     <Content Include="Admin\SendMessage.aspx" />
     <Content Include="Admin\SiteMails.aspx" />
+    <Content Include="Admin\SiteSettings.aspx" />
     <Content Include="Admin\StatsReport.aspx" />
     <Content Include="Admin\UserControls\AccountInfo.ascx" />
     <Content Include="Admin\UserControls\AccountRoles.ascx" />
@@ -594,6 +595,7 @@
     <Content Include="images\backgrounds\.DS_Store" />
     <Content Include="js\bootstrap-tagsinput.min.js.map" />
     <Content Include="js\chatwindows.js" />
+    <Content Include="js\commonfunc.js" />
     <Content Include="js\fileupload\ajaxupload.js" />
     <Content Include="js\jquery-1.11.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -630,6 +632,7 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
+    <Content Include="resetpass.aspx" />
     <Content Include="Roombots.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
@@ -654,6 +657,7 @@
     <Content Include="usercontrols\RoomTypes.ascx" />
     <Content Include="usercontrols\SendMail.ascx" />
     <Content Include="UserProfile.aspx" />
+    <Content Include="viewnode.aspx" />
     <Content Include="VIPPrices.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Admin.master" />
@@ -849,6 +853,13 @@
     <Compile Include="Admin\SiteMails.aspx.designer.cs">
       <DependentUpon>SiteMails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\SiteSettings.aspx.cs">
+      <DependentUpon>SiteSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SiteSettings.aspx.designer.cs">
+      <DependentUpon>SiteSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\StatsReport.aspx.cs">
       <DependentUpon>StatsReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -918,6 +929,11 @@
     </Compile>
     <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
       <DependentUpon>RoomType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
     </Compile>
     <Compile Include="audioUploader.ashx.cs">
       <DependentUpon>audioUploader.ashx</DependentUpon>
@@ -1080,6 +1096,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="resetpass.aspx.cs">
+      <DependentUpon>resetpass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resetpass.aspx.designer.cs">
+      <DependentUpon>resetpass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Roombots.aspx.cs">
       <DependentUpon>Roombots.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1175,6 +1198,13 @@
     </Compile>
     <Compile Include="UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewnode.aspx.cs">
+      <DependentUpon>viewnode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewnode.aspx.designer.cs">
+      <DependentUpon>viewnode.aspx</DependentUpon>
     </Compile>
     <Compile Include="VIPPrices.aspx.cs">
       <DependentUpon>VIPPrices.aspx</DependentUpon>
@@ -1335,7 +1365,6 @@
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_GlobalResources\" />
     <Folder Include="files\rooms\attacheaudio\" />
     <Folder Include="files\rooms\attachedimages\" />
     <Folder Include="files\users\accountpics\" />
@@ -1351,6 +1380,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\activate.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\default.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\AddAccount.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
