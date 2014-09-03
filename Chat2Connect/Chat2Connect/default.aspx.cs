@@ -16,7 +16,21 @@ namespace Chat2Connect
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!IsPostBack)
+            {
+                SiteSettings settings = new SiteSettings();
+                settings.LoadByPrimaryKey(1); //fb
+                uiHyperLinkFB.NavigateUrl = settings.URL;
+
+                settings.LoadByPrimaryKey(2); //twitter
+                uiHyperLinkTwitter.NavigateUrl = settings.URL;
+
+                settings.LoadByPrimaryKey(3); //youtube
+                uiHyperLinkYoutube.NavigateUrl = settings.URL;
+
+                settings.LoadByPrimaryKey(4); //google
+                uiHyperLinkGp.NavigateUrl = settings.URL;
+            }
         }
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
@@ -72,11 +86,13 @@ namespace Chat2Connect
 
         protected void uiButtonRegister_Click(object sender, EventArgs e)
         {
+            
             MembershipUser[] users = Membership.GetAllUsers().Cast<MembershipUser>().Where(m => m.Email == Email.Text).ToArray();
             if (users.Length >= 3)
             {
                 ErrorMessage.Text = GetLocalResourceObject("maxMailAccount").ToString();
                 ErrorMessage.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "openpopoup", "$(document).ready(function (){ $('#registerModal').modal('show'); });", true);
                 return;
             }
 
@@ -118,34 +134,39 @@ namespace Chat2Connect
                 try
                 {
                     MailMessage msg = new MailMessage();
-                    string body = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "body").ToString();
-                    string mail = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "mail").ToString();
-                    
+                    string body = GetLocalResourceObject("body").ToString();
+                    string mail = GetLocalResourceObject("mail").ToString();
+
                     member.ActivationCode = Guid.NewGuid();
                     member.Save();
                     string mailto = objUser.Email;
                     msg.To.Add(mailto);
                     msg.From = new MailAddress(mail);
-                    msg.Subject = HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "subject").ToString();
+                    msg.Subject = GetLocalResourceObject("subject").ToString();
                     msg.IsBodyHtml = true;
                     msg.BodyEncoding = System.Text.Encoding.Unicode;
 
                     msg.Body = string.Format(body, objUser.UserName, member.ActivationCode.ToString());
 
-                    SmtpClient client = new SmtpClient(HttpContext.GetLocalResourceObject("/App_LocalResources/activate.aspx.resx", "mailserver").ToString(), 25);
+                    SmtpClient client = new SmtpClient(GetLocalResourceObject("mailserver").ToString(), 25);
 
                     client.UseDefaultCredentials = false;
 
                     client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
-                    client.Send(msg);                    
+                    client.Send(msg);
                 }
                 catch (Exception)
                 {
 
                 }
-                
+
                 Response.Redirect("home.aspx");
             }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "openpopoup", "$(document).ready(function (){ $('#registerModal').modal('show'); });", true);
+            }
+
         }
     }
 }

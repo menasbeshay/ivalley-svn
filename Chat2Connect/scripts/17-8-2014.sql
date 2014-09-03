@@ -18,8 +18,8 @@ Inner join dbo.aspnet_Membership Mem on U.UserID = Mem.UserID
 Left join MemberSetting MS on M.MemberID = MS.MemberID 
 left Join MemberFriend MF on M.MemberID = MF.MemberID
 where M.MemberID not in (select FriendID from MemberFriend where MemberId = @MemberID) and 
-	  U.UserName like N'%' + @UserName + N'%' and 
-	  Mem.Email like N'%' + @Email + N'%' and 
+	  (U.UserName like N'%' + @UserName + N'%' OR 
+	  Mem.Email like N'%' + @Email + N'%') and 
 	  (Ms.SearchMeByMail = 1 OR Ms.SearchMeByMail is null) and 
 	  M.MemberId <> @MemberID
 Group by M.MemberId, U.UserName , Mem.Email, M.ProfilePic	  
@@ -42,7 +42,7 @@ Create Procedure Proc_SearchMembersByMail @Email nvarchar(256)
 												
 as
 
-select M.MemberID, U.UserName , Mem.Email, isnull(M.ProfilePic,'/images/defaultavatar.png') ProfilePic 
+select M.MemberID, U.UserName , Mem.Email, isnull(M.ProfilePic,'/images/defaultavatar.png') ProfilePic , Mem.UserID, M.Answer
 from Member M 
 Inner join dbo.aspnet_Users U on M.UserID = U.UserID
 Inner join dbo.aspnet_Membership Mem on U.UserID = Mem.UserID

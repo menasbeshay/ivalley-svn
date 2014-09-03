@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Chat2Connect.Admin {
+namespace Chat2Connect {
     
     
-    public partial class AddAccount {
+    public partial class resetpass {
         
         /// <summary>
-        /// uiPanelRegister control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelRegister;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// ErrorMessage control.
@@ -29,24 +29,6 @@ namespace Chat2Connect.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ErrorMessage;
-        
-        /// <summary>
-        /// UserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
-        
-        /// <summary>
-        /// UserNameRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
         
         /// <summary>
         /// Password control.
@@ -65,6 +47,15 @@ namespace Chat2Connect.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// ConfirmPassword control.
@@ -94,75 +85,48 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.CompareValidator PasswordCompare;
         
         /// <summary>
-        /// Email control.
+        /// uiButtonChangePass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.Button uiButtonChangePass;
         
         /// <summary>
-        /// EmailRequired control.
+        /// uiHyperLinkFB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequired;
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkFB;
         
         /// <summary>
-        /// Question control.
+        /// uiHyperLinkTwitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Question;
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkTwitter;
         
         /// <summary>
-        /// Answer control.
+        /// uiHyperLinkYoutube control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Answer;
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkYoutube;
         
         /// <summary>
-        /// AnswerRequired control.
+        /// uiHyperLinkGp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnswerRequired;
-        
-        /// <summary>
-        /// btnRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
-        
-        /// <summary>
-        /// uiPanelDone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelDone;
-        
-        /// <summary>
-        /// uiLinkButtonCreateNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCreateNew;
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkGp;
     }
 }

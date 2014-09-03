@@ -92,7 +92,7 @@ footer  {
      width:100%;
     background-color:#333333;
     color:#fff;
-    height:40px;
+    height:70px;
     padding:10px !important;
     font-size:12px !important;    
     direction:ltr;
@@ -100,6 +100,11 @@ footer  {
     font-family:Tahoma;
      font-weight:bold;
         }
+footer a,  footer a:hover {
+    color:#fff !important;
+    text-decoration:none;
+}
+    
 .row {
 margin:0 !important;
 }
@@ -144,6 +149,7 @@ margin:0 !important;
     text-align:center;
 }
 .AccountMenu {
+    
     max-width:20px;
     float:right;
 }
@@ -231,6 +237,11 @@ margin:0 !important;
     border-radius:4px;
     height:32px;
     margin-top:3px;
+     -webkit-transition: width 1s ease;  
+    -moz-transition: width 1s ease;  
+    -o-transition: width 1s ease;  
+    -ms-transition: width 1s ease;  
+    transition: width 1s ease; 
     }
 .user .statusbox input[type="text"] {
     height:29px;
@@ -238,6 +249,21 @@ margin:0 !important;
     border:0px !important;
     width:260px;
     color:#555;
+    -webkit-transition: width 1s ease;  
+    -moz-transition: width 1s ease;  
+    -o-transition: width 1s ease;  
+    -ms-transition: width 1s ease;  
+    transition: width 1s ease;  
+    }
+    .user .statusbox input[type="text"]:focus {
+        border:0 !important;
+    }
+
+.user .statusbox input[type="text"]:hover {
+    width: 340px; 
+    }
+.user .statusbox:hover {
+    width:380px; 
     }
 
 .input-ok {
@@ -620,10 +646,17 @@ margin-left: 6%;
 .btn-group .btn {
     z-index:100 !important;
 }
+.profileImageEdit {
+    position:relative;
+}
+#EditProfilePic a {
+    cursor:pointer;
+}
+
 #EditProfilePic {
     display:none;
     position:absolute;
-    top:90px;  
+    bottom:10px;  
     right:15px;  
 }
 
@@ -1848,6 +1881,47 @@ li.g-dark-selected {
 .giftmsg {
     font-weight:bold;
     color:#9E0399;
+}
+
+/* profile pics */
+.ProfilePics li {
+    float:right;    
+    margin:5px;
+    }
+
+.ProfilePics li label {
+    display:block;
+    width:110px;
+    height:110px;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    text-align:center;
+    cursor:pointer;
+    padding:5px;
+    }
+
+.ProfilePics li label:hover {
+    background-color: #efefef;
+}
+.ProfilePics li label img {
+    max-width:100px;
+    max-height:100px;
+    margin:auto;
+    }
+
+
+.ProfilePics .input_hidden {
+    position: absolute;
+    width:0px;
+    height:0px;
+    z-index:-1;
+}
+
+.ProfilePics label.selected {
+    background-color: #ccc;
 }
 
 .joinalert {

@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account.aspx">
-      <publishTime>08/14/2014 16:41:46</publishTime>
+      <publishTime>09/03/2014 13:17:01</publishTime>
     </File>
     <File Include="AccountLog.aspx">
       <publishTime>03/09/2014 11:52:50</publishTime>
@@ -40,10 +40,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2014 15:36:38</publishTime>
     </File>
     <File Include="Admin/AddAccount.aspx">
-      <publishTime>04/08/2014 10:56:23</publishTime>
+      <publishTime>09/02/2014 14:52:47</publishTime>
     </File>
     <File Include="Admin/Admin.master">
       <publishTime>04/13/2014 13:05:34</publishTime>
+    </File>
+    <File Include="Admin/App_LocalResources/AddAccount.aspx.resx">
+      <publishTime>09/02/2014 14:20:49</publishTime>
     </File>
     <File Include="Admin/App_LocalResources/StatsReport.aspx.resx">
       <publishTime>04/13/2014 13:05:34</publishTime>
@@ -65,6 +68,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Admin/SiteMails.aspx">
       <publishTime>04/24/2014 10:05:52</publishTime>
+    </File>
+    <File Include="Admin/SiteSettings.aspx">
+      <publishTime>09/02/2014 13:13:18</publishTime>
     </File>
     <File Include="Admin/StatsReport.aspx">
       <publishTime>04/13/2014 13:05:36</publishTime>
@@ -97,13 +103,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2014 13:01:34</publishTime>
     </File>
     <File Include="App_GlobalResources/Global.resx">
-      <publishTime>08/21/2014 15:37:56</publishTime>
+      <publishTime>09/03/2014 15:45:25</publishTime>
     </File>
     <File Include="App_LocalResources/activate.aspx.resx">
       <publishTime>08/19/2014 17:01:19</publishTime>
     </File>
     <File Include="App_LocalResources/createRoom.aspx.resx">
       <publishTime>12/25/2013 11:34:48</publishTime>
+    </File>
+    <File Include="App_LocalResources/default.aspx.resx">
+      <publishTime>09/02/2014 11:19:54</publishTime>
     </File>
     <File Include="App_LocalResources/LoadRoom.aspx.resx">
       <publishTime>01/30/2014 16:21:10</publishTime>
@@ -115,10 +124,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2014 20:28:17</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>08/21/2014 16:24:01</publishTime>
+      <publishTime>09/03/2014 15:58:47</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>08/21/2014 16:32:33</publishTime>
+      <publishTime>09/03/2014 15:58:48</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>03/18/2014 10:44:29</publishTime>
@@ -139,7 +148,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2013 14:18:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>08/21/2014 16:24:00</publishTime>
+      <publishTime>09/03/2014 13:18:23</publishTime>
     </File>
     <File Include="bin/fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -232,7 +241,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2013 16:30:52</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>08/21/2014 16:24:00</publishTime>
+      <publishTime>09/03/2014 15:58:46</publishTime>
+    </File>
+    <File Include="bin/Info.dll">
+      <publishTime>09/03/2014 15:58:47</publishTime>
     </File>
     <File Include="bin/js/jquery-1.11.1.min.js">
       <publishTime>07/02/2014 17:26:15</publishTime>
@@ -298,7 +310,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/23/2013 11:14:16</publishTime>
     </File>
     <File Include="css/bootstrap-image-gallery.css">
-      <publishTime>12/23/2013 11:14:03</publishTime>
+      <publishTime>09/01/2014 11:47:03</publishTime>
     </File>
     <File Include="css/bootstrap-switch.css">
       <publishTime>04/08/2014 10:56:22</publishTime>
@@ -427,7 +439,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/02/2014 16:33:35</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>08/18/2014 14:15:32</publishTime>
+      <publishTime>09/03/2014 13:18:07</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>12/22/2013 16:10:22</publishTime>
@@ -496,7 +508,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:07:34</publishTime>
     </File>
     <File Include="default.aspx">
-      <publishTime>08/21/2014 16:23:38</publishTime>
+      <publishTime>09/03/2014 12:50:42</publishTime>
     </File>
     <File Include="fonts/cocon-next-arabic-light.eot">
       <publishTime>12/11/2013 15:27:00</publishTime>
@@ -607,13 +619,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 14:06:28</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>08/21/2014 16:37:32</publishTime>
+      <publishTime>09/01/2014 16:32:05</publishTime>
     </File>
     <File Include="Home2.aspx">
       <publishTime>05/07/2014 15:36:21</publishTime>
     </File>
     <File Include="HtmlPage1.html">
-      <publishTime>08/21/2014 15:36:03</publishTime>
+      <publishTime>09/03/2014 11:52:29</publishTime>
     </File>
     <File Include="images.aspx">
       <publishTime>07/07/2014 20:42:26</publishTime>
@@ -1810,7 +1822,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 15:42:03</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>08/20/2014 14:17:20</publishTime>
+      <publishTime>09/01/2014 15:44:36</publishTime>
+    </File>
+    <File Include="js/commonfunc.js">
+      <publishTime>09/02/2014 14:24:07</publishTime>
     </File>
     <File Include="js/dreamcodes.js">
       <publishTime>03/06/2014 16:07:05</publishTime>
@@ -1921,10 +1936,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2013 17:06:51</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>08/14/2014 15:46:33</publishTime>
+      <publishTime>09/01/2014 14:28:12</publishTime>
     </File>
     <File Include="js/resetpass.js">
-      <publishTime>08/21/2014 16:22:06</publishTime>
+      <publishTime>09/03/2014 14:24:30</publishTime>
     </File>
     <File Include="js/style.js">
       <publishTime>03/10/2014 14:06:24</publishTime>
@@ -2002,7 +2017,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2014 12:10:52</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>08/19/2014 15:07:27</publishTime>
+      <publishTime>09/02/2014 16:31:03</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>03/13/2014 16:36:48</publishTime>
@@ -2018,6 +2033,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Register.aspx">
       <publishTime>12/16/2013 13:37:41</publishTime>
+    </File>
+    <File Include="resetpass.aspx">
+      <publishTime>09/03/2014 13:56:41</publishTime>
+    </File>
+    <File Include="Roombots.aspx">
+      <publishTime>09/01/2014 10:47:04</publishTime>
     </File>
     <File Include="roomtypes.aspx">
       <publishTime>05/21/2014 12:44:45</publishTime>
@@ -2109,8 +2130,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="testswf/recorder.swf">
       <publishTime>05/23/2014 21:42:15</publishTime>
     </File>
+    <File Include="usercontrols/bot/WelcomeBot.ascx">
+      <publishTime>09/01/2014 10:47:04</publishTime>
+    </File>
     <File Include="usercontrols/Mail.ascx">
-      <publishTime>08/17/2014 11:11:51</publishTime>
+      <publishTime>08/31/2014 15:24:00</publishTime>
     </File>
     <File Include="usercontrols/MemberTypes.ascx">
       <publishTime>05/20/2014 09:52:13</publishTime>
@@ -2119,7 +2143,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2014 12:44:45</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>06/03/2014 12:38:01</publishTime>
+      <publishTime>08/31/2014 15:24:01</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>08/20/2014 14:17:20</publishTime>
@@ -2130,14 +2154,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="UserProfile.aspx">
       <publishTime>08/14/2014 16:39:57</publishTime>
     </File>
+    <File Include="viewnode.aspx">
+      <publishTime>09/03/2014 13:40:23</publishTime>
+    </File>
     <File Include="VIPPrices.aspx">
       <publishTime>03/11/2014 16:39:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/21/2014 16:24:05</publishTime>
+      <publishTime>09/03/2014 13:18:31</publishTime>
     </File>
     <File Include="WebForm1.aspx">
-      <publishTime>06/19/2014 16:34:04</publishTime>
+      <publishTime>09/03/2014 10:51:45</publishTime>
     </File>
   </ItemGroup>
 </Project>

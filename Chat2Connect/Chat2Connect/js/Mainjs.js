@@ -86,10 +86,73 @@ $(document).ready(function () {
             HandleClose();
     });
 
+    ///////////////////////// profile functions ///////////////////////////////////
+
+    $('#clearCurrentProfilePic').click(function () {
+        $.ajax({
+            url: "../Services/Services.asmx/ClearProfileImg",
+            dataType: "json",
+            type: "post",
+            data: "{'mid':'" + $('#uiHiddenFieldCID_profile').val() + "'}",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data.d == false) {                    
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                }
+                else if (data.d == true) {                    
+                    notify('success', 'تم حذف الصورة بنجاح.');
+                    setTimeout(function () { window.location.replace(window.location.href); }, 2000);                    
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {                
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+        });
+    });
+
+
+    $('.ProfilePics .profileselect').click(function () {        
+        $('.ProfilePics').find('label').removeClass('selected');
+        $('.ProfilePics' + ' #profile_' + $(this).attr('data-Picid')).next('label').addClass('selected');
+    });
+
+    $('#LinkSelectProfilePhoto').click(function () {
+        var pid = $('.ProfilePics').find('label.selected').attr('data-Picid');
+        if (pid != undefined) {
+            $.ajax({
+                url: "../Services/Services.asmx/SelectProfileImg",
+                dataType: "json",
+                type: "post",
+                data: "{'mid':'" + $('#uiHiddenFieldCID_profile').val() + "', 'pid':'" + pid + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == false) {
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                    else if (data.d == true) {
+                        notify('success', 'تم تغيير الصورة بنجاح.');
+                        setTimeout(function () { window.location.replace(window.location.href); }, 2000);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                }
+            });
+        }
+        else {
+            notify('error', ' خطأ . من فضلك اختر صورة.');
+        }
+    });
+
 
 
 
 });
+
+/* validate profile wall */
+function validateLength(oSrc, args) {
+    args.IsValid = (args.Value.length <= 300);
+}
 
 function scrollRooms()
 {

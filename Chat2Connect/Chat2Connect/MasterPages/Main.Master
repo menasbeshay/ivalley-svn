@@ -137,7 +137,7 @@
             <div class="user">
                 <div class="AccountMenu">
                     <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx" data-toggle="tooltip" title="حسابى" data-placement="left"><i class="icon-user"></i></asp:HyperLink>
-                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left"><i data-toggle="modal" data-target="#helpModal" class="entypoicon iconentypo-help" style="font-size:25px;"></i></asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left" style="height:16px;"><i data-toggle="modal" data-target="#helpModal" class="icon-question-sign" ></i></asp:HyperLink>
                     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج" />
                 </div>
                 <%--<ul class="nav pull-right top-menu login-menu">
@@ -226,6 +226,10 @@
         <nav class="navbar navbar-inverse adminmenu navbar-fixed-top" role="navigation" style="margin-top: 87px !important; z-index: 1029 !important;">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
+                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SiteSettings.PageRoles))
+                        {%>                            
+                    <li><a href='<%=ResolveUrl("~/Admin/SiteSettings.aspx") %>'>إعدادات عامة</a></li>
+                    <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
                       {%>
                     <li><a href='<%=ResolveUrl("~/Admin/StatsReport.aspx") %>'>إحصائيات</a></li>
@@ -268,6 +272,7 @@
                             <li class="divider"></li>
                             <li><a href='<%=ResolveUrl("~/Admin/SendMessage.aspx") %>'>إرسال رسالة</a></li>
                             <%} %>
+                           
                         </ul>
                     </li>
                     <%} %>
@@ -285,6 +290,7 @@
                         </ul>
                     </li>
                     <%} %>
+                     
                 </ul>
             </div>
         </nav>
@@ -336,15 +342,43 @@
                 </div>
             </section>
             <footer class="row">
-                &copy;
-            <script type="text/javascript">document.write(new Date().getFullYear());</script>
-                Dardashet Tawasol. All rights reserved.
-            <div style="float: right; padding-right: 10px; width: 15%; padding: 0px; margin-top: -5px;">
+                <div class="col-lg-4">
+                    <asp:HyperLink ID="uiHyperLinkFB" runat="server">
+                        <i class="icon-facebook-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkTwitter" runat="server">
+                        <i class="icon-twitter-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkYoutube" runat="server">
+                        <i class="icon-youtube-sign icon-2x"></i>
+                    </asp:HyperLink>
+                    &nbsp;
+                    <asp:HyperLink ID="uiHyperLinkGp" runat="server">
+                        <i class="icon-google-plus-sign icon-2x"></i>
+                    </asp:HyperLink>
+                     <div class="clear" style="height:5px;"></div>
+                    <div>
                 Powered by &nbsp; <a href="http://I-valley.com">
                     <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
                         alt="I-VALLEY software solutions" /></a>
 
             </div>
+                </div>
+                
+                <div class="col-lg-4 pull-right" style="text-align:right;margin-top:5px;direction:rtl;">
+                    <a href="viewnode.aspx?node=privacy">سياسة الخصوصية</a>
+                    &nbsp;
+                    | &nbsp;
+                    <a href="viewnode.aspx?node=terms">الشروط والأحكام</a>
+                    <div class="clear" style="height:10px;"></div>
+                &copy;
+            <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                جميع الحقوق محفوظة لموقع دردشة تواصل.&nbsp;
+                    
+                    </div>
+            
             </footer>
             <div id="pGeneral" style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom; display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999; background: url(images/loading.GIF) no-repeat center center rgba(254,194,0,0.65); position: fixed; top: 0; left: 0; display: none;">
                 <div style="margin: auto; width: 120px; height: 60px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; font-size: 20px; font-weight: bold;">

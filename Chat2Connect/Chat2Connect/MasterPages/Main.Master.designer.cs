@@ -130,6 +130,42 @@ namespace Chat2Connect.MasterPages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
         
         /// <summary>
+        /// uiHyperLinkFB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkFB;
+        
+        /// <summary>
+        /// uiHyperLinkTwitter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkTwitter;
+        
+        /// <summary>
+        /// uiHyperLinkYoutube control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkYoutube;
+        
+        /// <summary>
+        /// uiHyperLinkGp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink uiHyperLinkGp;
+        
+        /// <summary>
         /// uiHiddenFieldClientID control.
         /// </summary>
         /// <remarks>

@@ -1,13 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="AddAccount.aspx.cs" Inherits="Chat2Connect.Admin.AddAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
+    <script src="../js/commonfunc.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div class="modal-content">
+    
+        <div class="modal-content">
         <div class="modal-header">
             <h3 id="myModalLabel1">حساب مميز</h3>
         </div>
         <div class="modal-body">
+            <asp:Panel runat="server" ID="uiPanelRegister">
             <div class="form-horizontal blockBox validationGroup">
                 <div class="form-group">
                     <div class="col-sm-12 control-label pull-right">
@@ -20,9 +23,7 @@
                     </div>
                     <div class="col-sm-8 pull-right">
                         <asp:TextBox ID="UserName" runat="server" onkeypress="return validChars(event);" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="من فضلك أدخل إسم المستخدم ." ToolTip="من فضلك أدخل إسم المستخدم ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 5 إلى 17 حرف." ValidationExpression=".{5,17}.*" Display="Dynamic" ForeColor="Red" />
-                        <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="إسم المستخدم غير مطابق للشروط" ClientValidationFunction="isValid" ControlToValidate="UserName" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
+                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="من فضلك أدخل إسم المستخدم ." ToolTip="من فضلك أدخل إسم المستخدم ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                                                
                     </div>
                 </div>
 
@@ -85,7 +86,21 @@
                 </div>
 
             </div>
+                 </asp:Panel>
+    <asp:Panel runat="server" ID="uiPanelDone">
+        <div class="form-horizontal">
+                    <div class="col-sm-12 control-label pull-right alert alert-success">
+                        تم إنشاء الحساب بنجاح
+                        <br />
+                        <asp:LinkButton Text="إنشاء حساب أخر" runat="server" CssClass="btn btn-main" ID="uiLinkButtonCreateNew" OnClick="uiLinkButtonCreateNew_Click"/>
+                    </div>
+                </div>
+
+    </asp:Panel>
+            <div class="clear"></div>
         </div>
 
     </div>
+   
+    
 </asp:Content>

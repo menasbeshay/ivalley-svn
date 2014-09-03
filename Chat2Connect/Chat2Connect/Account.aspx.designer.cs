@@ -292,6 +292,15 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Repeater uiRepeaterMyRooms;
         
         /// <summary>
+        /// uiRepeaterPhotos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterPhotos;
+        
+        /// <summary>
         /// uiLabelInterests control.
         /// </summary>
         /// <remarks>
@@ -299,6 +308,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label uiLabelInterests;
+        
+        /// <summary>
+        /// uiHiddenFieldCID_profile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldCID_profile;
         
         /// <summary>
         /// uiTextBoxName control.
@@ -434,6 +452,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxInterests;
+        
+        /// <summary>
+        /// CustomValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
         /// uiLinkButtonSaveInterests control.
@@ -776,5 +803,41 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddPhoto;
+        
+        /// <summary>
+        /// uiFileUploadAddProfileImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadAddProfileImage;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
+        /// uiLinkButtonAddProfilePhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddProfilePhoto;
+        
+        /// <summary>
+        /// uiRepeaterProfilePics control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterProfilePics;
     }
 }

@@ -5,69 +5,71 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace Chat2Connect
+namespace Helper
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public class General
     {
-        protected void Page_Load(object sender, EventArgs e)
+        #region encryptio_and_decription
+
+        public static string EncryptString(string needToEncrypt)
         {
-         /*   string htmltemplate = "<li class='itemColor'><a data-wysihtml5-command-value='{0}' data-wysihtml5-command='foreColor' data-bind=\"click:setForeColor('{0}')\"  style='color: {0};' href='javascript:;' unselectable='on'><div style='background-color: {0};' class='colorDiv'></div></a></li>";
-            string csstemplate = "color: {0};";
-            string line;
-            string fullhtml = "";
-            string fullcss = "";
-            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("colors.txt"));
-            while ((line = file.ReadLine()) != null)
-            {
-                fullhtml += string.Format(htmltemplate, line.Trim());
-                fullcss += ".wysiwyg-color-" + line.Trim() + "{" + string.Format(csstemplate, line.Trim()) + "}";
-            }
-
-            file.Close();
-
-            Response.Write("css : <br />" + fullcss);
-            Response.Write("html : <br /><code>" + fullhtml + "</code>");*/
-
+            string encryptedstring;
             try
             {
+               
+                // Create a new instance of the TripleDESCryptoServiceProvider 
+                // class.  This generates a new key and initialization  
+                // vector (IV). 
+                using (TripleDESCryptoServiceProvider myTripleDES = new TripleDESCryptoServiceProvider())
+                {
+                    myTripleDES.Key = StringToByteArray(HttpContext.GetGlobalResourceObject("Global", "Key").ToString());
+                    myTripleDES.IV = StringToByteArray(HttpContext.GetGlobalResourceObject("Global", "IV").ToString());
+                    // Encrypt the string to an array of bytes. 
+                    byte[] encrypted = EncryptStringToBytes(needToEncrypt, myTripleDES.Key, myTripleDES.IV);
+                    encryptedstring = ByteArrayToString(encrypted);
+                    
+                    // Decrypt the bytes to a string. 
+                    
+                    string roundtrip2 = DecryptStringFromBytes(StringToByteArray(encryptedstring), myTripleDES.Key, myTripleDES.IV);
 
-                string original = "mid=12&email=mena.samy@gmail.com";
+                }
+                return encryptedstring;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public static string DecryptString(string needToDecrypt)
+        {
+            string decryptedstring;
+            try
+            {
 
                 // Create a new instance of the TripleDESCryptoServiceProvider 
                 // class.  This generates a new key and initialization  
                 // vector (IV). 
                 using (TripleDESCryptoServiceProvider myTripleDES = new TripleDESCryptoServiceProvider())
                 {
-                    // Encrypt the string to an array of bytes. 
-                    byte[] encrypted = EncryptStringToBytes(original, myTripleDES.Key, myTripleDES.IV);
-
+                    myTripleDES.Key = StringToByteArray(HttpContext.GetGlobalResourceObject("Global", "Key").ToString());
+                    myTripleDES.IV = StringToByteArray(HttpContext.GetGlobalResourceObject("Global", "IV").ToString());
                     // Decrypt the bytes to a string. 
-                    string roundtrip = DecryptStringFromBytes(encrypted, myTripleDES.Key, myTripleDES.IV);
+                    decryptedstring = DecryptStringFromBytes(StringToByteArray(needToDecrypt), myTripleDES.Key, myTripleDES.IV);
 
-                    string encryptedstring = ByteArrayToString(encrypted);
-
-                    string roundtrip2 = DecryptStringFromBytes(StringToByteArray(encryptedstring), myTripleDES.Key, myTripleDES.IV);
-
-                    //Display the original data and the decrypted data.
-                    Response.Write("Original:   "+ original+ "<br />");
-                    Response.Write("Encrypted as string:   " + encryptedstring + "<br />");
-                    Response.Write("Round Trip: " + roundtrip + "<br />");
-                    Response.Write("round trip 2:   " + roundtrip2 + "<br />");
-                    Response.Write("key : " + ByteArrayToString(myTripleDES.Key) + "<br />");
-                    Response.Write("IV : " + ByteArrayToString(myTripleDES.IV) + "<br />");
                 }
+                return decryptedstring;
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: {0}", ex.Message);
+                return null;
             }
         }
 
-        public static string ByteArrayToString(byte[] ba)
+        static string ByteArrayToString(byte[] ba)
         {
             StringBuilder hex = new StringBuilder(ba.Length * 2);
             foreach (byte b in ba)
@@ -75,7 +77,7 @@ namespace Chat2Connect
             return hex.ToString();
         }
 
-        public static byte[] StringToByteArray(String hex)
+        static byte[] StringToByteArray(String hex)
         {
             int NumberChars = hex.Length;
             byte[] bytes = new byte[NumberChars / 2];
@@ -170,5 +172,6 @@ namespace Chat2Connect
             return plaintext;
 
         }
+        #endregion
     }
 }

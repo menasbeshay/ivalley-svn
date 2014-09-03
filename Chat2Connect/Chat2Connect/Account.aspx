@@ -130,7 +130,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-        <div class="blockBoxshadow pull-right margin20" style="width:66.5%;padding:13px;"> 
+        <div class="blockBoxshadow pull-right margin20" style="width:66.5%;padding:13px;min-height:235px;"> 
             <div style="width:16%;float:right;position:relative;">
                 <div class="profileImageEdit">
                 <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="width:130px;" CssClass="img-thumbnail"/>
@@ -139,9 +139,9 @@
                     تعديل الصورة  <span class="caret"></span> 
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><i class="icon-picture"></i>&nbsp;إختر من صورك الخاصة</a></li>
-                    <li><a href="#"><i class="icon-plus"></i>&nbsp;تحميل صورة جديدة</a></li>
-                    <li><a href="#"><i class="icon-remove"></i>&nbsp;حذف الصورة الحالية</a></li>                    
+                    <li><a id="selectProfilePic" href="#selectprofilephoto" data-toggle="modal" style="text-decoration:none;"><i class="icon-picture"></i>&nbsp;إختر من صورك الخاصة</a></li>
+                    <li><a id="addProfilePic"  href="#addprofilephoto" data-toggle="modal" style="text-decoration:none;"><i class="icon-plus"></i>&nbsp;تحميل صورة جديدة</a></li>
+                    <li><a id="clearCurrentProfilePic"><i class="icon-remove"></i>&nbsp;حذف الصورة الحالية</a></li>                    
                   </ul>
                     
                 </div>
@@ -240,7 +240,7 @@
             
             <div class="col-lg-12" style="width:100%;margin:8px 0px;padding-right:0px;">
                 <div class="pull-right" style="width:87%">
-                    البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" ></asp:Label>
+                    البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" style="font-family:Arial;font-weight:bold;font-size:13px;"></asp:Label>
                 </div>
                 <div class="pull-left" style="width:10%">
                    <a href="#accountmail" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;">تعديل</a>
@@ -299,11 +299,15 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12">
-                     <div id="links">
-                         <a href="images/defaultavatar.png" data-gallery title="صورة رقم 1" data-description="صورة رقم 1"><img src="images/defaultavatar.png" class="img-thumbnail" style="width:100px;"/>                             
-                         </a>                         
-                         <a href="images/defaultavatar.png" data-gallery title="صورة رقم 2" data-description="صورة رقم 2"><img src="images/defaultavatar.png" class="img-thumbnail" style="width:100px;"/>                             
-                         </a>                         
+                     <div id="links" class="SScroll" data-height="170px">
+                         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
+                             <ItemTemplate>
+                                 <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>'> 
+                                     <img src="<%# Eval("PicPath") %>" class="img-thumbnail" style="width:100px;" alt='<%# Eval("Description") %>'/>                             
+                                </a>              
+                             </ItemTemplate>
+
+                         </asp:Repeater>                         
                      </div>
                 </div>
             </div>
@@ -323,12 +327,12 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div class="col-lg-12" style="margin:15px 0px;">
+            <div class="col-lg-12" style="margin:15px 0px;word-break:break-all;">
                 <asp:Label ID="uiLabelInterests" runat="server" ></asp:Label>
             </div>
         </div>        
         <div class="clearfix"></div>
-    
+    <asp:HiddenField ID="uiHiddenFieldCID_profile" runat="server" ClientIDMode="Static" />
 
     <!-- popups -->
     <div id="mainprofile" class="modal fade" role="modal" aria-hidden="true">
@@ -482,7 +486,12 @@
                                         <label>حائط البروفايل</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="200"></asp:TextBox>
+                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="300"></asp:TextBox><br />
+                                        <asp:CustomValidator id="CustomValidator2" runat="server" 
+                                          ControlToValidate = "uiTextBoxInterests" Display="Dynamic"
+                                          ErrorMessage = "أقصى عدد 300 حرف" ValidationGroup="wallValidation"
+                                          ClientValidationFunction="validateLength" ForeColor="Red">
+                                        </asp:CustomValidator>
                                         
                                     </div>
                                 </div>                                
@@ -490,7 +499,7 @@
                    </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>
-                        <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonSaveInterests" style="text-decoration:none;" OnClick="uiLinkButtonSaveInterests_Click">حفظ</asp:LinkButton>
+                        <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonSaveInterests" style="text-decoration:none;" OnClick="uiLinkButtonSaveInterests_Click" ValidationGroup="wallValidation">حفظ</asp:LinkButton>
                     </div>
                     </div>
             </div>
@@ -791,6 +800,80 @@
             </div>
     </div>
 
+
+    <div id="addprofilephoto" class="modal fade" role="modal" aria-hidden="true">
+        <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
+                            ×</a>
+                        <i class="icon-2x icon-camera" style="float:left;margin-left:10px;"></i>
+                        <h3 >
+                            إضافة صورة لحسابك</h3>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-horizontal blockBox">
+                                
+                                <div class="form-group">
+                                    <div class="col-sm-4 control-label pull-right">
+                                        <label>إختر الصورة</label>
+                                    </div>
+                                    <div class="col-sm-8 pull-right">
+                                        <asp:FileUpload ID="uiFileUploadAddProfileImage" runat="server" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddProfileImage" ValidationGroup="addProfilePhoto" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>                                                                  
+                            </div>
+                   </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>
+                        <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonAddProfilePhoto" style="text-decoration:none;" OnClick="uiLinkButtonAddProfilePhoto_Click" ValidationGroup="addProfilePhoto">حفظ</asp:LinkButton>
+                    </div>
+                    </div>
+            </div>
+    </div>
+
+    <div id="selectprofilephoto" class="modal fade" role="modal" aria-hidden="true">
+        <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
+                            ×</a>
+                        <i class="icon-2x icon-camera" style="float:left;margin-left:10px;"></i>
+                        <h3 >
+                            إختر صورة لحسابك</h3>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-horizontal blockBox">
+                                
+                                <div class="form-group">
+                                    <asp:Repeater ID="uiRepeaterProfilePics" runat="server">
+                                        <HeaderTemplate>
+                                             <ul class="ProfilePics">                                                                            
+                                        </HeaderTemplate>
+                                        <FooterTemplate>
+                                            </ul>
+                                    <div class="clearfix" style="height: 10px;"></div>
+                                        </FooterTemplate>
+                                        <ItemTemplate>
+                                            <li>
+                                            <input type="radio" name="profilePic" class="input_hidden" value="<%# Eval("MemberPicID") %>" id="profile_<%# Eval("MemberPicID")  %>" />
+                                            <label class="profileselect" data-Picid='<%# Eval("MemberPicID") %>'>
+                                                <img src="<%# Eval("PicPath")%>" />                                                
+                                            </label>
+                                        </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>                                                                  
+                            </div>
+                   </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>
+                        <a class="btn btn-warning" ID="LinkSelectProfilePhoto" style="text-decoration:none;" >حفظ</a>
+                    </div>
+                    </div>
+            </div>
+    </div>
 
     <!-- gallery popup -->
     <div id="blueimp-gallery" class="blueimp-gallery">
