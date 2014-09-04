@@ -71,6 +71,7 @@ namespace EduMontreal.ar
                         }
                         uiPanelReActivate.Visible = false;
                         uiPanelActivated.Visible = true;
+                        Session["CurrentUser"] = student;
                     }
                     else
                     {

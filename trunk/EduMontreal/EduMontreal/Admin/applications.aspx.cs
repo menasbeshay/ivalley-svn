@@ -171,7 +171,7 @@ namespace WebApplication.Admin
                 history.StatusDate = DateTime.Now;
                 history.StatusComment = uiTextBoxComment.Text;
                 history.ApplicationStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
-                if (uiDropDownListStatus.SelectedValue == "8") // Tuition  Fees
+                if (uiDropDownListStatus.SelectedValue == "7") // Tuition  Fees
                 {
                     decimal fees = 0;
                     decimal.TryParse(uiTextBoxFees.Text, out fees);
@@ -181,6 +181,9 @@ namespace WebApplication.Admin
 
                 EmailTemplates template = new EmailTemplates();
                 template.GetTemplateByStatusID(history.ApplicationStatusID); 
+
+                Student student = new Student ();
+                student.LoadByPrimaryKey(app.StudentID);
                 if (template.RowCount > 0)
                 {
                     try
@@ -194,7 +197,7 @@ namespace WebApplication.Admin
                         msg.IsBodyHtml = true;
                         msg.BodyEncoding = System.Text.Encoding.Unicode;
 
-                        msg.Body = Server.HtmlDecode(template.Body);
+                        msg.Body = string.Format(Server.HtmlDecode(template.Body), student.FirstName + " " + student.FamilyName, student.Email);
 
                         // attachments
                         if (Session["CurrentUploadedFiles"] != null)

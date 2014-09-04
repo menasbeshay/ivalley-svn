@@ -1866,8 +1866,6 @@
     <Content Include="Images\status\9.jpg" />
     <Content Include="img\loading.gif" />
     <Content Include="img\mailLogo.png" />
-    <Content Include="js\additional-methods.min.js" />
-    <Content Include="js\app.js" />
     <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -1889,7 +1887,6 @@
     <Content Include="js\fancybox\source\jquery.fancybox.js" />
     <Content Include="js\fancybox\source\jquery.fancybox.pack.js" />
     <Content Include="js\fancy_func.js" />
-    <Content Include="js\form-wizard.js" />
     <Content Include="js\functions.js" />
     <Content Include="js\jquery.bootstrap.wizard.min.js" />
     <Content Include="js\jquery.easing.js" />
@@ -1905,7 +1902,6 @@
     <Content Include="js\jquery.iframe-transport.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.validate.js" />
-    <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\megamenu.js" />
     <Content Include="js\modernizr.custom.17475.js" />
