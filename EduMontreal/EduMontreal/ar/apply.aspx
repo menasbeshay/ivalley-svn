@@ -12,16 +12,16 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#rootwizard').bootstrapWizard({
-                /* onTabClick: function (tab, navigation, index) {                   
+                 onTabClick: function (tab, navigation, index) {                   
                      return false;
                  }
-             , */
+             , 
 
                 onTabShow: function (tab, navigation, index) {
                     var $total = navigation.find('li').length;
                     var $current = index + 1;
                     var $percent = ($current / $total) * 100;
-                    $('#rootwizard').find('.bar').css({ width: $percent + '%' });
+                    $('#rootwizard').find('.progress-bar').css({ width: $percent + '%' });
 
                     if ($current >= $total) {
                         $('#rootwizard').find('.pager .next').hide();
@@ -31,6 +31,9 @@
                         $('#rootwizard').find('.pager .next').show();
                         $('#rootwizard').find('.pager .finish').hide();
                     }
+                },
+                onNext: function (tab, navigation, index) {
+                    return validateStep(index);
                 }
             });
 
@@ -63,6 +66,46 @@
         });
         function CheckBoxRequired_ClientValidate(sender, e) {
             e.IsValid = $(".ApproveCheck input:checkbox").is(':checked');
+        }
+
+        function validateStep(index) {
+            var isvalid = true;
+
+            var tabid = 'tab' + index;
+            $('#' + tabid + " .field input[type=text]").each(function () {
+                if (!$(this).val()) {
+                    isvalid = false;
+                    $(this).closest('.field').removeClass('has-success').addClass('has-error');
+                }
+                else {
+                    $(this).closest('.field').removeClass('has-error').addClass('has-success');
+                }
+
+            });
+
+            $('#' + tabid + " .field select").each(function () {
+                if ($(this).val() == 0) {
+                    isvalid = false;
+                    $(this).closest('.field').removeClass('has-success').addClass('has-error');
+                }
+                else {
+                    $(this).closest('.field').removeClass('has-error').addClass('has-success');
+                }
+
+            });
+
+            $('#' + tabid + " .field input[type=file]").each(function () {
+                if (!$(this).val()) {
+                    isvalid = false;
+                    $(this).closest('.field').removeClass('has-success').addClass('has-error');
+                }
+                else {
+                    $(this).closest('.field').removeClass('has-error').addClass('has-success');
+                }
+
+            });
+
+            return isvalid;
         }
     </script>
 
@@ -191,102 +234,99 @@
                                 <div class="tab-pane" id="tab1">
                                     
                                         <div class="form-group">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">اللقب <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFamilyName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">الإسم الأول <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFirstName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">الإسم الأخير <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxMiddleName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMiddleName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMiddleName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
-                                        <div class="form-group row" style="padding-left:0 !important;">
-                                            <div class="col-md-4">
+                                        <div class="form-group " style="padding-left:0 !important;width:100%;clear:both;">
+                                            <div class="col-md-4 field">
                                                 <div class="input-append datetimepicker">
                                                     <label class="control-label ">تاريخ الميلاد  <span class="required">* </span></label>
                                                     <div class="input-group">
                                                     <asp:TextBox ID="uiTextBoxDOB" runat="server" CssClass="form-control dateinput" ></asp:TextBox>
                                                     <span class="input-group-addon add-on"><i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="fa fa-calendar"></i></span>
                                                         </div>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxDOB" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxDOB" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                                 </div>
                                                 </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                             
                                                 <label class="control-label ">مكان الميلاد<span class="required">* </span></label>
                                                 <asp:DropDownList ID="uiDropDownListPOB" runat="server" CssClass="form-control" Style="width: 256px;"></asp:DropDownList>
                                             </div>
                                             <div class="col-md-4">&nbsp;</div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="padding-left:0 !important;width:100%;clear:both;">
                                             <div class="col-md-4">
                                                 <label class="control-label ">الطول<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxHeight" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxHeight" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label ">الوزن<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxWeight" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxWeight" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">النوع <span class="required">* </span></label>
                                                 <div class="separator"></div>
                                                 <asp:RadioButtonList ID="uiRadioButtonListGender" runat="server" CssClass="radio" RepeatColumns="2" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
-                                         <div class="form-group row" style="padding-left:0 !important;">
+                                         <div class="form-group " style="padding-left:0 !important;width:100%;clear:both;">
                                             <div class="col-md-4">
                                                 <label class="control-label ">لون الشعر<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxHairColor" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxHairColor" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label ">لون العين<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxEyeColor" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxEyeColor" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
                                             </div>                                            
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
+                                        <div class="form-group" style="padding-left:0 !important;width:100%;clear:both;">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">الجنسية <span class="required">* </span></label>
                                                 <asp:DropDownList ID="uiDropDownListCountry" runat="server" CssClass="form-control" Style="width: 256px;"></asp:DropDownList>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">رقم الباسبور <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxPassNo" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxPassNo" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
-                                                    runat="server" Display="Dynamic" ErrorMessage="أرقام فقط"
-                                                    ValidationGroup="signup" ValidationExpression="^[-+]?(\d)+$" ControlToValidate="uiTextBoxPassNo"
-                                                    ForeColor="Red"></asp:RegularExpressionValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxPassNo" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                               
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <div class="input-append datetimepicker">
                                                     <label class="control-label ">تاريخ إنتهاء الباسبور  <span class="required">* </span></label>
                                                     <div class="input-group">
                                                     <asp:TextBox ID="uiTextBoxPassExp" runat="server" CssClass="form-control dateinput"></asp:TextBox>
                                                     <span class="input-group-addon add-on"><i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="fa fa-calendar"></i></span>
                                                         </div>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxPassExp" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxPassExp" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                                 </div>
 
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">البلد<span class="required">* </span></label>
                                                 <asp:DropDownList ID="uiDropDownListCOI" runat="server" CssClass="form-control" Style="width: 256px;"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 field">
                                                 <label class="control-label ">صورة شخصية 4×6 بجودة عالية<span class="required">* </span></label>
                                                 <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiFileUploadRecentPhoto" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -300,54 +340,54 @@
                                 <div class="tab-pane" id="tab2">
                                   
                                         <div class="form-group">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">لقب الأب<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaFamilyName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">إسم الأب الأول<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaFirstName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">مهنة الأب  <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaOccupation" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaOccupation" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaOccupation" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label "> تليفون منزل الأب<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaHomePhone" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaHomePhone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaHomePhone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">تليفون العمل للأب<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaBusPhone" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaBusPhone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaBusPhone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">موبايل الأب<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxFaMobile" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaMobile" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxFaMobile" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">لقب الأم<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxMoFamilyName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoFamilyName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">الإسم الأول للأم<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxMoFirstName" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoFirstName" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 field">
                                                 <label class="control-label ">مهنة الأم <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxMoOccupation" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoOccupation" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxMoOccupation" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
 
@@ -359,27 +399,27 @@
                                             <h4> العنوان البريدي الحالي. وسوف تذهب جميع المراسلات إلى هذا العنوان</h4>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">الشارع <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxStreetAddress" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxStreetAddress" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxStreetAddress" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">البلد <span class="required">* </span></label>
                                                 <asp:DropDownList ID="uiDropDownListAddressCountry" runat="server" CssClass="form-control" Style="width: 256px;"></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiDropDownListAddressCountry" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiDropDownListAddressCountry" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">المدينة <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxCity" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxCity" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxCity" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">رقم التليفون <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxAddTele" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxAddTele" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxAddTele" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="control-label ">رقم الفاكس </label>
@@ -387,16 +427,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">البريد الإلكترونى <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxEmail" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxEmail" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ErrorMessage="invalid email format" ValidationGroup="signup" ForeColor="Red" ControlToValidate="uiTextBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxEmail" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" Text="البريد الإلكترونى غير صحيح" ErrorMessage="البريد الإلكترونى غير صحيح" ValidationGroup="signup" ForeColor="Red" ControlToValidate="uiTextBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 field">
                                                 <label class="control-label ">الموبايل <span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxCellphone" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxCellphone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxCellphone" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                    
@@ -584,7 +624,7 @@
 
                                         <hr />
                                         <div class="form-group">
-                                            <div class="col-md-11">
+                                            <div class="col-md-11" style="background-color:#72ddfa;padding-bottom:10px;">
                                                 <h4>أرغب فى الإشتراك :</h4>
                                                 <asp:UpdatePanel ID="uiUpdatePanelCourses" runat="server">
                                                     <ContentTemplate>
@@ -614,14 +654,15 @@
                                     <div class="separator" style="height:10px;"></div>
                                         <div class="form-group">
                                             <div class="col-md-11">
+                                                <p style="display:none">
                                                أقر بأنني قد أجبت على جميع الأسئلة المطلوبة في هذا الطلب بشكل كامل والحقيقة بالكامل.<br />
 
                                                 <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;أوافق على سياسة رد. من خلال توقيع هذا الطلب، و موافق على سياسة رد المحددة للطلاب الدوليين.                          
                                                     <br />
                                                 <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true"
-                                                    ValidationGroup="signup" ForeColor="Red" Display="Dynamic" Font-Bold="true"
+                                                    ValidationGroup="signup" ForeColor="Red" Display="Dynamic" Font-Bold="true" Enabled="false"
                                                     ClientValidationFunction="CheckBoxRequired_ClientValidate">يجب أن توافق</asp:CustomValidator>
-                                                <br />
+                                                </p>
                                                 <span class="label big">مرفقات مطلوبة: </span>
                                                 <ul class="list_1">
                                                     <li>Signed refund and cancellation policy for International studies ( 2 documents) 
@@ -638,7 +679,9 @@
 
 
                                                 <br />
+                                                <div style="color:red;font-weight:bold;padding-bottom:10px;">
                                                الرجاء ملاحظة أن التطبيق لم يكتمل إلا إذا تم تأكيد دفع الرسوم  .
+                                                    </div>
 
                                             </div>
                                         </div>

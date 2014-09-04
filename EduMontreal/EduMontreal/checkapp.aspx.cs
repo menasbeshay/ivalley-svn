@@ -44,7 +44,7 @@ namespace EduMontreal
                 uiGridViewStatusHistory.DataSource = Apphistroy.DefaultView;
                 uiGridViewStatusHistory.DataBind();
 
-                if (status.ApplicationStatusID == 8) // Tuition  Fees
+                if (status.ApplicationStatusID == 7) // Tuition  Fees
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }

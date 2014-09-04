@@ -143,18 +143,27 @@
 						<a href="checkapp"><i class="fa fa-edit"></i> <span class="title">
                             <asp:Label ID="uiLabelApplication" runat="server" ></asp:Label></span></a>
 					</li>
-                	<li>
+                <li class="last ">
+                     <a href="#"><i class="fa fa-cogs"></i> <span class="title">إعدادات</span>
+                         <span class="arrow ">
+					</span>
+                    </a>
+                    
+                    <ul class="sub-menu" style="display: none;">
+						<li>
 						<a href="changepassword"><i class="fa fa-lock"></i> <span class="title">تغيير كلمة المرور</span></a>
 					</li>
-				
-				<li class="last ">
-					<a href="userlogin">
-					<i class="fa fa-user"></i>
-					<span class="title">
-						الدخول
-					</span>
-					</a>
-				</li>
+				    <li >
+					    <a href="userlogin">
+					    <i class="fa fa-user"></i>
+					    <span class="title">
+						    الدخول
+					    </span>
+					    </a>
+				    </li>
+					</ul>
+                    </li>
+                	
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>

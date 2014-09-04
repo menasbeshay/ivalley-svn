@@ -52,7 +52,7 @@ namespace EduMontreal
                     data["last_name"] = Request["last_name"];
                     data["currency"] = "US$";
                     data["test_mode"] = "true";
-                    string url = "https://ecom.payfirma.com/sale?key=d12336b277dc7dd42119a8745adeab14a08ea113&merchant_id=dd19a290a5&test_mode=true";
+                    string url = "https://ecom.payfirma.com/sale";
 
                     byte[] ServerResponse = wb.UploadValues(url, "POST", data);
                     string responsetext = Encoding.ASCII.GetString(ServerResponse);
