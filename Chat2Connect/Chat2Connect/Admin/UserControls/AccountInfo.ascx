@@ -43,7 +43,8 @@
                         <asp:TemplateField Visible="false">
                             <HeaderTemplate>الإيميل</HeaderTemplate>
                             <ItemTemplate>
-                                <%# Eval("Email") %>
+                                <span style="font-family:Tahoma">
+                                <%# Eval("Email") %></span>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField Visible="false">

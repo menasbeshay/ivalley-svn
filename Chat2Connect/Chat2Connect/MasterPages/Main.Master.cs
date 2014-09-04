@@ -77,6 +77,24 @@ namespace Chat2Connect.MasterPages
             MemberID = user.MemberID;
             if (!user.IsColumnNull("ProfilePic"))
                 uiImageUser.ImageUrl = user.ProfilePic;
+            switch (user.Status)
+            {
+                case 1: // online
+                    uiImageUser.CssClass = "online";
+                    break;
+                case 2: // busy
+                    uiImageUser.CssClass = "busy";
+                    break;
+                case 3: // away
+                    uiImageUser.CssClass = "away";
+                    break;
+                case 4 : // offline
+                    uiImageUser.CssClass = "offline";
+                    break;
+                default:
+                break;
+            }
+            
             uiLabelName.Text = Membership.GetUser().UserName;
             uiLinkButtonLock.PostBackUrl = "../lock.aspx?u=" + Membership.GetUser().UserName;
             uiTextBoxStatus.Text = user.StatusMsg;

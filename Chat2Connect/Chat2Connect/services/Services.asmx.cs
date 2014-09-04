@@ -1130,7 +1130,7 @@ namespace Chat2Connect.services
             string accounts = "";
             for (int i = 0; i < members.RowCount; i++)
             {
-                accounts += string.Format("<li><a href='http://chatconnect.com/resetpass.aspx?rc={0}'>{1}</a></li>", Helper.General.EncryptString("mid=" + members.MemberID.ToString() + "&email=" + members.Email), members.GetColumn("UserName"));
+                accounts += string.Format("<li><a href='http://chat2connect.com/resetpass.aspx?rc={0}'>{1}</a></li>", Helper.General.EncryptString("mid=" + members.MemberID.ToString() + "&email=" + members.Email), members.GetColumn("UserName"));
                 members.MoveNext();                
             }
 

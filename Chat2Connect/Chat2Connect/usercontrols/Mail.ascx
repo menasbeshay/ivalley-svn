@@ -107,7 +107,7 @@
                                         <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
                                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
                                     </asp:TemplateField>
-                                    <asp:BoundField HeaderText="الراسل" DataField="SenderName" ItemStyle-HorizontalAlign="Center" />
+                                    <asp:BoundField HeaderText="الراسل" DataField="SenderName" />
 
                                     <asp:TemplateField HeaderText="العنوان">
                                         <ItemTemplate>
@@ -117,7 +117,8 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <asp:BoundField HeaderText="التاريخ" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy}" HtmlEncode="false" />
+                                    <asp:BoundField HeaderText="التاريخ" DataField="CreateDate" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:dd / MM / yyyy}" HtmlEncode="false"  />
+                                    
                                 </Columns>
 
                             </asp:GridView>
@@ -142,11 +143,12 @@
                 $(document).ready(function () {
                     $(".message").click(function () {
                         var self = this;
-                        $("#lnkReply").data("message",$(this).data("message"));
+                        $("#lnkReply").data("message", $(this).data("message"));
                         $("#dvMessageDetails").load('<%=ResolveUrl("~/LoadMessage.aspx") %>',
                 { message: $(this).data("message"), operation: "" + $(this).data("operation") + "" },
                 function (content) {
                     $(self).removeClass("un-read");
+                    $(self).parent().parent('tr').removeClass('un-readRow');
                     $(this).hide().fadeIn("slow");
                     $(this).removeAttr('style');
 
@@ -154,12 +156,10 @@
                 });
                     });
                     $('#lnkReply').click(function () {
-                        if($("#lnkReply").data("message")!="")
-                        {
+                        if ($("#lnkReply").data("message") != "") {
                             document.location.href = '<%=ResolveUrl("~/Messages.aspx") %>?reply=' + $("#lnkReply").data("message");
                         }
-                        else
-                        {
+                        else {
                             alert('يجب إحتيار رسالة أولا بالضغط على عنوان الرسالة');
                         }
                     });
@@ -190,6 +190,8 @@
                                 }
                             }
                         });
+
+                    $('.un-read').parent().parent('tr').addClass('un-readRow');
                 });
             </script>
         </asp:Panel>
