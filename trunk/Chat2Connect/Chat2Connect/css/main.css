@@ -92,13 +92,14 @@ footer  {
      width:100%;
     background-color:#333333;
     color:#fff;
-    height:70px;
+    height:55px;
     padding:10px !important;
     font-size:12px !important;    
     direction:ltr;
     text-align:left;   
     font-family:Tahoma;
      font-weight:bold;
+     position:absolute;
         }
 footer a,  footer a:hover {
     color:#fff !important;
@@ -185,20 +186,27 @@ margin:0 !important;
     display: inline-block;
 }
 .user .user_img {
-    width:56px;
-    height:56px;
+    width:58px;
+    height:58px;
     margin-right: 14px;
-    display: inline-block;
+    display: inline-block;'
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border:1px solid #ccc;
 }
 .user .user_img img {
     width:56px;
     height:56px;
+    margin:auto;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -ms-border-radius: 50%;
     border:3px solid #2CCE01;
 }
+
 
 .status img {
     width:18px !important;
@@ -1788,7 +1796,11 @@ li.g-dark-selected {
 /**/
 .un-read
 {
-    font-weight:bold;
+    font-weight:bold;    
+}
+
+.un-readRow {
+    background-color:#ccc;
 }
 
 #msgmain .badge {

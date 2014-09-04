@@ -80,7 +80,25 @@
             success: function (data) {
                 if (data.d == true) {
                     sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
+                    $('.user_img img').removeClass("online offline away busy");
+                    switch (x) {
+                        case 1:
+                            $('.user_img img').addClass("online");
+                            break;
+                        case 2:
+                            $('.user_img img').addClass("busy");
+                            break;
+                        case 3:
+                            $('.user_img img').addClass("away");
+                            break;
+                        case 4:
+                            $('.user_img img').addClass("offline");
+                            break;
+                        default:
+                            $('.user_img img').addClass("online");
+                            break;
 
+                    }
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -344,39 +362,42 @@
             <footer class="row">
                 <div class="col-lg-4">
                     <asp:HyperLink ID="uiHyperLinkFB" runat="server">
-                        <i class="icon-facebook-sign icon-2x"></i>
+                        <i class="icon-facebook-sign " style="font-size:20px;"></i>
                     </asp:HyperLink>
                     &nbsp;
                     <asp:HyperLink ID="uiHyperLinkTwitter" runat="server">
-                        <i class="icon-twitter-sign icon-2x"></i>
+                        <i class="icon-twitter-sign " style="font-size:20px;"></i>
                     </asp:HyperLink>
                     &nbsp;
                     <asp:HyperLink ID="uiHyperLinkYoutube" runat="server">
-                        <i class="icon-youtube-sign icon-2x"></i>
+                        <i class="icon-youtube-sign " style="font-size:20px;"></i>
                     </asp:HyperLink>
                     &nbsp;
                     <asp:HyperLink ID="uiHyperLinkGp" runat="server">
-                        <i class="icon-google-plus-sign icon-2x"></i>
+                        <i class="icon-google-plus-sign " style="font-size:20px;"></i>
                     </asp:HyperLink>
+                      
+                    <a href="viewnode.aspx?node=privacy" style="font-size:10px;margin:0 5px;">سياسة الخصوصية</a>
+                    
+                    | 
+                    <a href="viewnode.aspx?node=terms" style="font-size:10px;margin:0 5px;">الشروط والأحكام</a>
                      <div class="clear" style="height:5px;"></div>
-                    <div>
-                Powered by &nbsp; <a href="http://I-valley.com">
-                    <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;"
-                        alt="I-VALLEY software solutions" /></a>
-
-            </div>
-                </div>
-                
-                <div class="col-lg-4 pull-right" style="text-align:right;margin-top:5px;direction:rtl;">
-                    <a href="viewnode.aspx?node=privacy">سياسة الخصوصية</a>
-                    &nbsp;
-                    | &nbsp;
-                    <a href="viewnode.aspx?node=terms">الشروط والأحكام</a>
-                    <div class="clear" style="height:10px;"></div>
-                &copy;
+                     &copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
                 جميع الحقوق محفوظة لموقع دردشة تواصل.&nbsp;
                     
+                </div>
+                
+                <div class="col-lg-4 pull-right" style="text-align:right;margin-top:5px;">
+                    
+                    <div class="clear" style="height:10px;"></div>
+                    <div>
+                Powered by &nbsp; <a href="http://I-valley.com">
+                    <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;max-width:50px;"
+                        alt="I-VALLEY software solutions" /></a>
+
+            </div>
+               
                     </div>
             
             </footer>

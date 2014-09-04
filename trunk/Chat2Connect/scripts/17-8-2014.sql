@@ -18,14 +18,17 @@ Inner join dbo.aspnet_Membership Mem on U.UserID = Mem.UserID
 Left join MemberSetting MS on M.MemberID = MS.MemberID 
 left Join MemberFriend MF on M.MemberID = MF.MemberID
 where M.MemberID not in (select FriendID from MemberFriend where MemberId = @MemberID) and 
-	  (U.UserName like N'%' + @UserName + N'%' OR 
-	  Mem.Email like N'%' + @Email + N'%') and 
+	  (U.UserName like @UserName + N'%'  OR 
+	  Mem.Email like @Email + N'%' ) and 
 	  (Ms.SearchMeByMail = 1 OR Ms.SearchMeByMail is null) and 
 	  M.MemberId <> @MemberID
 Group by M.MemberId, U.UserName , Mem.Email, M.ProfilePic	  
 Order by U.UserName
 Go
 
+Proc_AddFriends_SearchMembers N'k', N'k', 5
+
+select * from member
 
 alter table member 
 add IsMailActivated bit ,

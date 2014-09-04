@@ -83,7 +83,7 @@ namespace Helper
             Admin_SendMessgae,
             [StringValue("إحصائيات")]
             Admin_StatsReport,
-            [StringValue("Help")]
+            [StringValue("المساعدة")]
             Admin_SiteHelper,
             [StringValue("إعدادات عامة")]
             Admin_GeneralSettings,
