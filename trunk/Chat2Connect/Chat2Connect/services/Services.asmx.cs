@@ -1090,6 +1090,26 @@ namespace Chat2Connect.services
             return true;
 
         }
+
+        [WebMethod]
+        public bool SaveFaq(string Faq)
+        {
+            try
+            {
+                SiteSettings setting = new SiteSettings();
+                setting.LoadByPrimaryKey(7); // faq
+                setting.Content = Server.HtmlEncode(Faq);
+                setting.Save();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
         #endregion 
 
         #region resetPass

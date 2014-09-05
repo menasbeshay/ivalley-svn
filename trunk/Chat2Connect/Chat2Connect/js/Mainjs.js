@@ -82,6 +82,8 @@ $(document).ready(function () {
         $('#StatusCount').html(70 - $(this).val().length);
     });
 
+   
+
     $(window).bind("beforeunload", function () {        
             HandleClose();
     });

@@ -132,36 +132,37 @@ namespace Chat2Connect
                 member.Name = objUser.UserName;
                 member.IsOnLine = true;
                 member.Status = 1;
+                member.IsMailActivated = true;                
                 member.Save();
                 FormsAuthentication.SetAuthCookie(objUser.UserName, false);
-                try
-                {
-                    MailMessage msg = new MailMessage();
-                    string body = GetLocalResourceObject("body").ToString();
-                    string mail = GetLocalResourceObject("mail").ToString();
+                //try
+                //{
+                //    MailMessage msg = new MailMessage();
+                //    string body = GetLocalResourceObject("body").ToString();
+                //    string mail = GetLocalResourceObject("mail").ToString();
 
-                    member.ActivationCode = Guid.NewGuid();
-                    member.Save();
-                    string mailto = objUser.Email;
-                    msg.To.Add(mailto);
-                    msg.From = new MailAddress(mail);
-                    msg.Subject = GetLocalResourceObject("subject").ToString();
-                    msg.IsBodyHtml = true;
-                    msg.BodyEncoding = System.Text.Encoding.Unicode;
+                //    member.ActivationCode = Guid.NewGuid();
+                //    member.Save();
+                //    string mailto = objUser.Email;
+                //    msg.To.Add(mailto);
+                //    msg.From = new MailAddress(mail);
+                //    msg.Subject = GetLocalResourceObject("subject").ToString();
+                //    msg.IsBodyHtml = true;
+                //    msg.BodyEncoding = System.Text.Encoding.Unicode;
 
-                    msg.Body = string.Format(body, objUser.UserName, member.ActivationCode.ToString());
+                //    msg.Body = string.Format(body, objUser.UserName, member.ActivationCode.ToString());
 
-                    SmtpClient client = new SmtpClient(GetLocalResourceObject("mailserver").ToString(), 25);
+                //    SmtpClient client = new SmtpClient(GetLocalResourceObject("mailserver").ToString(), 25);
 
-                    client.UseDefaultCredentials = false;
+                //    client.UseDefaultCredentials = false;
 
-                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
-                    client.Send(msg);
-                }
-                catch (Exception)
-                {
+                //    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
+                //    client.Send(msg);
+                //}
+                //catch (Exception)
+                //{
 
-                }
+                //}
 
                 Response.Redirect("home.aspx");
             }

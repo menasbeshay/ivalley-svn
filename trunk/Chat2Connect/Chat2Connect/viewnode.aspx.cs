@@ -28,6 +28,11 @@ namespace Chat2Connect
                             uiLabelTitle.Text = settings.Name;
                             uiLiteralContent.Text = Server.HtmlDecode(settings.Content);
                             break;
+                        case "faq":
+                            settings.LoadByPrimaryKey(7);
+                            uiLabelTitle.Text = settings.Name;
+                            uiLiteralContent.Text = Server.HtmlDecode(settings.Content);
+                            break;
                         default:
                             Response.Redirect("home.aspx");
                             break;

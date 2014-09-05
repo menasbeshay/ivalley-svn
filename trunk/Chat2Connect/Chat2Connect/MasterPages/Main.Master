@@ -381,6 +381,8 @@
                     
                     | 
                     <a href="viewnode.aspx?node=terms" style="font-size:10px;margin:0 5px;">الشروط والأحكام</a>
+                     | 
+                    <a href="viewnode.aspx?node=faq" style="font-size:10px;margin:0 5px;">أسئلة شائعة</a>
                      <div class="clear" style="height:5px;"></div>
                      &copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
