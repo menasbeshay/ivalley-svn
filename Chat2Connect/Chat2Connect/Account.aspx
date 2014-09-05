@@ -9,6 +9,10 @@
             $('.iconentypo-menu').tooltip()
             $('.icon-plus').tooltip();
 
+            $("#<%= uiTextBoxInterests.ClientID %>").on('change keyup paste', function () {
+                $('#WallCount').html(300 - $(this).val().length);
+            });
+
         });
 
         blueimp.Gallery(document.getElementById('links'),
@@ -300,11 +304,15 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12">
                      <div id="links" class="SScroll" data-height="170px">
-                         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
+                         <asp:Repeater ID="uiRepeaterPhotos" runat="server" OnItemCommand="uiRepeaterPhotos_ItemCommand">
                              <ItemTemplate>
-                                 <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>'> 
-                                     <img src="<%# Eval("PicPath") %>" class="img-thumbnail" style="width:100px;" alt='<%# Eval("Description") %>'/>                             
-                                </a>              
+                                 <div style="position:relative;" class="col-lg-3">
+                                 <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>' > 
+                                     <img src="images.aspx?Image=<%# Eval("PicPath") %>&profile=1" class="img-thumbnail" style="width:100px;" alt='<%# Eval("Description") %>'/>                             
+                                     
+                                </a>          
+                                 <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("MemberPicID") %>' Text="Delete" OnClientClick="return confirm('هل تريد حذف هذه الصورة؟');" CommandName="Delete" ForeColor="#000099" style="position:absolute;top:0;right:0;text-decoration:none;color:#ccc;" >  <i class="icon-remove"></i>  </asp:LinkButton>
+                                 </div>
                              </ItemTemplate>
 
                          </asp:Repeater>                         
@@ -486,13 +494,13 @@
                                         <label>حائط البروفايل</label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="300"></asp:TextBox><br />
+                                        <asp:TextBox ID="uiTextBoxInterests" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="300" Rows="10"></asp:TextBox><br />
                                         <asp:CustomValidator id="CustomValidator2" runat="server" 
                                           ControlToValidate = "uiTextBoxInterests" Display="Dynamic"
                                           ErrorMessage = "أقصى عدد 300 حرف" ValidationGroup="wallValidation"
                                           ClientValidationFunction="validateLength" ForeColor="Red">
                                         </asp:CustomValidator>
-                                        
+                                        <span id="WallCount" style="position:absolute;left:40px;bottom:25px;color:#ccc;"></span>
                                     </div>
                                 </div>                                
                             </div>

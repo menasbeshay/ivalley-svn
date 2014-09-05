@@ -312,5 +312,17 @@ namespace Chat2Connect
             uiRepeaterMyRooms.DataSource = myrooms.DefaultView;
             uiRepeaterMyRooms.DataBind();
         }
+
+        protected void uiRepeaterPhotos_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Delete")
+            {
+                MemberPic pic = new MemberPic();
+                pic.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                pic.MarkAsDeleted();
+                pic.Save();
+                LoadPics();
+            }
+        }
     }
 }

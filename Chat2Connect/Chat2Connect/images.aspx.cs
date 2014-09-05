@@ -28,6 +28,22 @@ namespace Chat2Connect
             string Path = Server.MapPath(Request.ApplicationPath) + "\\" + Image;
             //Bitmap bmp = CreateThumbnail(Path, 130, 127);
             //System.Drawing.Image bmp = FixedSize(Path, 130, 130);
+
+            if (Request.QueryString["profile"] != null)
+            {
+                System.Drawing.Image pic = FixedSize(Path, 110, 110);
+                if (pic == null)
+                {
+                    this.ErrorResult();
+                    return;
+                }
+                Response.ContentType = "image/jpeg";
+                pic.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pic.Dispose();
+                return;
+
+            }
+
             System.Drawing.Image bmp = CreateThumbnail(Path, 160, 160);
 
             if (bmp == null)
