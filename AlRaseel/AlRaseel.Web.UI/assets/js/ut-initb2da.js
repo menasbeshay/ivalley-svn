@@ -286,6 +286,20 @@
 			}
 			
 		});
+
+
+		$('.prodnav').click(function (event) {
+		    $.scrollTo(this.hash, ut_scrollspeed, { easing: ut_scrolleffect, offset: 0, 'axis': 'y' });
+		    event.preventDefault();
+		});
+
+
+		//$('.pronav a').click(function (event) {
+
+		//    $.scrollTo( this.hash , ut_scrollspeed, { easing: ut_scrolleffect , offset: 0 , 'axis':'y' } );			
+		//    event.preventDefault();				
+
+		//});
 		
 		/* Scroll to Sections / Mobile Menu
 		================================================== */

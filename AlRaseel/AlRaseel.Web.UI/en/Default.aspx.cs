@@ -8,17 +8,26 @@ using Data.DataModels;
 using Data.Extensions;
 using Data.Repositories;
 using System.Configuration;
+using System.Data;
 
 namespace Web.UI.en
 {
     public partial class Default : System.Web.UI.Page
     {
+
+
+        public String LandId { get; set; }
+        public String ProId { get; set; }
+        AlbumImagesRepository _rpoAlbumImages;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadAboutUS();
                 LoadProducts();
+                LoadProductsSections();
                 LoadContact();
             }
         }
@@ -44,6 +53,12 @@ namespace Web.UI.en
             rptProducts.DataSource = _ProRepo.LoadByLanguageId("097BE02E-A019-4853-AD50-F22EF5F0BF0F");
             rptProducts.DataBind();
         }
+        private void LoadProductsSections()
+        {
+            ProductRepository _ProRepo = new ProductRepository();
+            rptrProductsSections.DataSource = _ProRepo.LoadByLanguageId("097BE02E-A019-4853-AD50-F22EF5F0BF0F");
+            rptrProductsSections.DataBind();
+        }
 
         private void LoadAboutUS()
         {
@@ -55,17 +70,6 @@ namespace Web.UI.en
             {
                 lblAboutTitleDefault.Text = _PageSectionObjDefault.SectionTitle;
                 lblAboutContentDefault.Text = _PageSectionObjDefault.SectionContent;
-                //imgAboutDefault.ImageUrl = ConfigurationManager.AppSettings["Pages"].ToString() + _PageSectionObjDefault.ImageFile;
-
-                //_PageSectionObjDefault = new PageSection();
-                //_PageSectionObjDefault = _rpoObj.LoadById("8dd20d86-fdec-4c73-aab6-681a450d5057");
-                //lblAboutTitle1.Text = _PageSectionObjDefault.SectionTitle;
-                //lblAboutContent1.Text = _PageSectionObjDefault.SectionContent;
-
-                //_PageSectionObjDefault = new PageSection();
-                //_PageSectionObjDefault = _rpoObj.LoadById("f22f80bd-eb48-4dc7-b7f7-73b37ee1135c");
-                //lblAboutTitle2.Text = _PageSectionObjDefault.SectionTitle;
-                //lblAboutContent2.Text = _PageSectionObjDefault.SectionContent;
 
             }
             catch (Exception)
@@ -75,6 +79,80 @@ namespace Web.UI.en
             }
 
 
+        }
+
+
+        private void LoadAlbums()
+        {
+
+            if (!string.IsNullOrEmpty(Request.Form["LanguageId"]))
+            {
+                LandId = Request.Form["LanguageId"].ToString();
+            }
+
+            if (!string.IsNullOrEmpty(Request.Form["ProductId"]))
+            {
+                ProId = Request.Form["ProductId"].ToString();
+            }
+
+            ProductAlbumRepository _rpoObj = new ProductAlbumRepository();
+            //dlAlbums.DataSource = _rpoObj.LoadByProductIdAndLanguageId(LandId, ProId);
+            //dlAlbums.DataBind();
+
+
+        }
+
+        private void LoadPRoducrData()
+        {
+            if (!string.IsNullOrEmpty(Request.Form["ProductId"]))
+            {
+                ProId = Request.Form["ProductId"].ToString();
+            }
+            ProductRepository _prorpoObj = new ProductRepository();
+            Product _pro = new Product();
+            _pro = _prorpoObj.LoadById(ProId);
+            //lblProductTitle.Text = _pro.ProductTitle;
+            //lblProductFullDescrition.Text = _pro.FullDescription;
+        }
+
+
+
+
+        protected void dlAlbums_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                AlbumImagesRepository _rpoAlbumImages= new AlbumImagesRepository();
+
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                //tring varAlbumId = ((Label)e.Item.FindControl("lblAlbumId")).Text;
+                Repeater images = (Repeater)e.Item.FindControl("dlImages");
+                images.DataSource = _rpoAlbumImages.LoadByAlbumId(row["Id"].ToString());
+                images.DataBind();
+            }
+
+        }
+
+
+        protected void rptrProductsSections_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ProductRepository _prorpoObj = new ProductRepository();
+                ProductAlbumRepository _rpoProAlbumObj = new ProductAlbumRepository();
+
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                //tring varAlbumId = ((Label)e.Item.FindControl("lblAlbumId")).Text;
+                Literal lbltitle = (Literal)e.Item.FindControl("lblProductTitle");
+                Literal lblFullDesc = (Literal)e.Item.FindControl("lblProductFullDescrition");
+                lbltitle.Text = row["ProductTitle"].ToString();
+                lblFullDesc.Text = row["FullDescription"].ToString();
+
+                Repeater albums = (Repeater)e.Item.FindControl("dlAlbums");
+                albums.DataSource = _rpoProAlbumObj.LoadByProductIdAndLanguageId((row["LanguageId"].ToString()), (row["Id"].ToString()));
+                albums.DataBind();
+
+            }
         }
     }
 }
