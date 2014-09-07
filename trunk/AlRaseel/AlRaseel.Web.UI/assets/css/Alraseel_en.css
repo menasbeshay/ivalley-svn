@@ -237,7 +237,7 @@ h6 {
     background-color: rgba(253, 251, 231, 0.4);
 }
 
-#contact-section .parallax-title {
+/*#contact-section .parallax-title {
     font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -252,7 +252,7 @@ h6 {
 #contact-section .parallax-overlay {
     padding-top: 80px;
     padding-bottom: 120px;
-}
+}*/
 
 blockquote {
     font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -336,6 +336,159 @@ p.lead, .taxonomy-description {
         /*color: #707070;*/
         color: #e5c593;
     }
+
+
+
+
+
+
+
+   #contact-section{
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+   #contact-section.ut-offset-anchor {
+        top: -159px;
+    }
+
+   #contact-section.parallax-header {
+        padding-bottom: 30px;
+    }
+
+   #contact-section.section-header {
+        padding-bottom: 30px;
+    }
+
+   #contact-section.parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+   #contact-section.section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#about-brooklyn {
+    background-color: #7e2e30;
+}
+
+   #contact-section.section-header.pt-style-1 .section-title span {
+        background-color: #161616;
+    }
+
+   #contact-section.section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+       #contact-section.section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+       #contact-section.section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+       #contact-section.section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+       #contact-section.section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+       #contact-section.section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+       #contact-section.section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+   #contact-sectionp.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+
+
+
+
+
+    /*___________prosuct section_______________*/
+
+
+    
+.prod {
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+    .prod .ut-offset-anchor {
+        top: -159px;
+    }
+
+    .prod .parallax-header {
+        padding-bottom: 30px;
+    }
+
+    .prod .section-header {
+        padding-bottom: 30px;
+    }
+
+    .prod .parallax-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .prod .section-title {
+        font-family: ralewaylight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+.prod {
+    background-color: #7e2e30;
+}
+
+    .prod .section-header.pt-style-1 .section-title span {
+        background-color: #161616;
+    }
+
+    .prod .section-content {
+        /*color: #606060;*/
+        color: #e5c593;
+    }
+
+        .prod .section-content h1 {
+            /*color: #505050 !important;*/
+        }
+
+        .prod .section-content h2 {
+            /*color: #505050 !important;*/
+        }
+
+        .prod .section-content h3 {
+            /*color: #505050 !important;*/
+        }
+
+        .prod .section-content h4 {
+            /*color: #505050 !important;*/
+        }
+
+        .prod .section-content h5 {
+            /*color: #505050 !important;*/
+        }
+
+        .prod .section-content h6 {
+            /*color: #505050 !important;*/
+        }
+
+    .prod p.lead {
+        /*color: #707070;*/
+        color: #e5c593;
+    }
+
+
+
+    /*___________end product section___________*/
 
 #drop-us-a-line {
     padding-top: 40px;

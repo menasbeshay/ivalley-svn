@@ -77,14 +77,14 @@
     <script type='text/javascript' src='wp-content/themes/brooklyn/js/jquery.queryloader2.minfc99.js?ver=2.6'></script>
     <script type='text/javascript' src='wp-content/themes/brooklyn/js/modernizr.min61da.js?ver=2.6.2'></script>
     <link href="assets/css/Alraseel_ar.css" rel="stylesheet" />
-    <link href="../assets/css/Alraseel_ar.css" rel="stylesheet" />
+<%--    <link href="../assets/css/Alraseel_ar.css" rel="stylesheet" />--%>
     <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/droid-arabic-kufi" type="text/css" />
 
 
-    
-    <link rel="stylesheet" type="text/css" href="css/jquery.fancygallery.css" />    
-    <link rel="stylesheet" href="fancybox/jquery.fancybox.css?v=2.1.1" type="text/css" media="screen" />   
-     <link rel="stylesheet" href="prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" /> 
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancygallery.css" />
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css?v=2.1.1" type="text/css" media="screen" />
+    <link rel="stylesheet" href="prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" />
 
     <script src="prettyphoto/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="fancybox/jquery.fancybox.pack.js?v=2.1.1" type="text/javascript"></script>
@@ -98,7 +98,21 @@
         }
 
         div.pp_pic_holder {
-            direction:ltr !important;
+            direction: ltr !important;
+        }
+
+        .imgProduct {
+            margin-top: -20px;
+        }
+
+        .pp_expand {
+            display: none !important;
+        }
+
+        .pp_details {
+            background: #a4a4a4;
+            margin: 0px !important;
+            padding-bottom: 7px;
         }
     </style>
 
@@ -150,7 +164,9 @@
                             <div style="max-height: 30px; float: left;" class="">
                                 <p>
                                     <i class="fa fa-phone">
-                                        <asp:Literal ID="lblPhoneMenue" runat="server" /></i>
+                                        <a href="#">
+                                            <asp:Literal ID="lblPhoneMenue" runat="server" />
+                                        </a></i>
                                 </p>
                             </div>
                             <div style="max-height: 30px;" class="">
@@ -291,11 +307,11 @@
 
         <div class="main-content-background">
 
-            <section id="about-brooklyn" data-effect="fadeIn" data-width="centered" class="page-id-1777 entry-content normal-background  light  ">
+            <section id="about-brooklyn" data-effect="fadeIn" data-width="centered" class="page-id-1777 entry-content normal-background  light  " style="min-height:700px;">
 
                 <a class="ut-offset-anchor" id="section-about-brooklyn"></a>
 
-                <div class="grid-container section-header-holder" style="min-height:400px;">
+                <div class="grid-container section-header-holder" style="min-height: 400px;">
 
                     <!-- section header -->
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
@@ -313,10 +329,10 @@
 
 
                 </div>
-                
+
 
                 <div class="clear"></div>
-                
+
 
                 <div class="grid-container section-content">
 
@@ -358,6 +374,9 @@
 
                 <div class="ut-scroll-up-waypoint" data-section="section-about-brooklyn"></div>
 
+
+
+
             </section>
 
             <div class="clear"></div>
@@ -379,23 +398,23 @@
                 </div>
                 <div class="clear"></div>
                 <div class="grid-container section-content">
-                    <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -20px;">
-                        <div class="" style="width: 100%;" id="AllProds" >
+                    <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -30px;">
+                        <div class="" style="width: 100%;" id="AllProds">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="" style="width: 50%; float: left; margin-bottom: 20px;">
+                                    <div class="" style="width: 50%; float: left; margin-bottom: 20px; margin-right: -50px;margin-left: -50px;">
                                         <div style="text-align: right;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
-                                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">
-                                                        <a class="ProductLink" data-id='<%# Eval("Id") %>' data-lang='<%# Eval("LanguageId") %>' style="color: #e5c593 !important;">
+                                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;" >
+                                                        <a href='#section-Product-Section_<%# Eval("Id") %>' style="color: #e5c593 !important;" class="prodnav">
                                                             <%#Eval("ProductTitle") %>
                                                         </a>
                                                     </h3>
                                                     <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;"><%#Eval("ShortDescription") %> </p>
                                                 </div>
                                             </div>
-                                            <a class="ProductLink" data-id='<%# Eval("Id") %>' data-lang='<%# Eval("LanguageId") %>' >
+                                            <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav">
 
                                                 <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="wp-content/uploads/2013/10/Smart-Computer-Front.png" />--%>
                                                 <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="140px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
@@ -406,22 +425,103 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
-                        <div id="prod_details_back" style="display:none">
-                            <a id="backLink" class="cta-btn theme-btn" style="border:1px solid #e5c593;border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-webkit-border-radius:5px;background-color:#e5c593;padding:10px; float:right;clear:both;display:block;"> عودة إلى المنتجات</a>
-                            <div class="clear clearfix" style="height:5px;width:100%"></div>
-                            
-                        <div class="prod_details" id="prodetails">
+                        <div id="prod_details_back" style="display: none; margin-top: -80px;">
+                            <a id="backLink" class="cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: right; clear: both; display: block;">عودة إلى المنتجات</a>
+                            <div class="clear clearfix" style="height: 5px; width: 100%"></div>
 
-                        </div>
+                            <div class="prod_details" id="prodetails" style="">
                             </div>
+                        </div>
                         <div class="clear"></div>
                     </div>
                 </div>
 
-                
+
                 <div class="ut-scroll-up-waypoint" data-section="section-our-service"></div>
             </section>
-            <div class="clear"></div>
+
+
+            <asp:Repeater ID="rptrProductsSections" runat="server" OnItemDataBound="rptrProductsSections_ItemDataBound">
+                <ItemTemplate>
+
+
+
+                    <section id='Product-Section_<%# Eval("Id") %>' data-effect="fadeIn" data-width="centered" class="prod page-id-1777 entry-content normal-background  light " style="min-height:700px;">
+
+                        <a class="ut-offset-anchor" id='section-Product-Section_<%# Eval("Id") %>' ></a>
+
+                        <div class="grid-container section-header-holder" style="min-height: 400px;">
+
+                            <!-- section header -->
+                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+
+                                <header class="parallax-header pt-style-2">
+
+                                    <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important; background: #7e2e30;"><span>
+                                        <asp:Literal ID="lblProductTitle" runat="server" /></span></h2>
+
+                                    <p class="parallax-content" style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">
+                                        <asp:Literal ID="lblProductFullDescrition" runat="server" />
+                                    </p>
+                                </header>
+                            </div>
+                            <!-- close section header -->
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid-container section-content">
+                            <asp:Repeater ID="dlAlbums" runat="server" OnItemDataBound="dlAlbums_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <div class="grid-22 mobile-grid-100 tablet-grid-100 " style="float: left; margin-bottom: 15px;">
+                                        <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; width: 100%;">
+
+                                            <div id="divAlbumImages">
+                                                <header class="parallax-header pt-style-2">
+                                                    <h3 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>
+                                                        <asp:Literal ID="lblAlbumTitle" Text='<%# Eval("Title") %>' runat="server" /></span></h3>
+
+                                                    <p class="parallax-content" style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">
+                                                        <asp:Literal ID="lblAlbumDescription" Text='<%# Eval("AlbumDescription") %>' runat="server" />
+                                                    </p>
+                                                </header>
+                                                <asp:Label ID="lblAlbumId" Text='<%# Eval("Id") %>' Visible="false" runat="server" />
+                                                <div id="divAlbums_<%# Container.ItemIndex  %>" style="margin: 0 auto; text-align: center; width: 85%; direction: ltr;">
+                                                    <div title='<%# Eval("Title") %>'>
+                                                        <asp:Repeater ID="dlImages" runat="server">
+                                                            <ItemTemplate>
+                                                                <%--                                                                    <a class="fancy" rel="galleryname" href="Files/Products/<%# Eval("ImageFile") %>">
+                                                                    <img src="Files/Products/<%# Eval("ImageFile") %>" width="450" height="450">
+                                                                </a>--%>
+                                                                <a href="Files/Products/<%# Eval("ImageFile") %>" data-thumbnail="Files/Products/<%# Eval("ImageFile") %>" data-description="" title=""></a>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </div>
+                                                </div>
+
+                                                <script type="text/javascript">
+                                                    jQuery(document).ready(function () {
+                                                        jQuery('#divAlbums_<%# Container.ItemIndex  %>').fancygallery({
+                                                            navigation: 'pagination',
+                                                            albumSelection: 'thumbnails',
+                                                            thumbnailSelectionOptions: { layout: 'polaroid' },
+                                                            showOnlyFirstThumbnail: true
+                                                        });
+                                                    });
+
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <div class="ut-scroll-up-waypoint" data-section='section-Product-Section_<%# Eval("Id") %>'></div>
+                    </section>
+                    <div class="clear"></div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+
             <section id="work" data-effect="fadeIn" data-width="fullwidth" class="page-id-1943 entry-content normal-background  light  ">
                 <a class="ut-offset-anchor" id="section-work"></a>
                 <div class="parallax-overlay parallax-overlay-pattern style_one">
@@ -728,7 +828,7 @@
             <div class="clear"></div>
 
 
-            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
+<%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
 
                 <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
 
@@ -740,7 +840,7 @@
 
                 <div class="ut-scroll-up-waypoint" data-section="section-some-of-the-clients-we-work-with" data-parent="section-work"></div>
 
-            </section>
+            </section>--%>
 
             <div class="clear"></div>
 
@@ -753,13 +853,13 @@
 
 
 
-        <section id="contact-section" data-effect="fadeIn" class="animated contact-section  light ">
+        <section id="contact-section" data-effect="fadeIn" class="contact-section  prod entry-content normal-background  light prod ">
 
             <a class="ut-offset-anchor" id="section-contact"></a>
 
 
 
-            <div class="parallax-overlay parallax-overlay-pattern style_one">
+            <div class="">
 
 
                 <div class="grid-container parallax-content">
@@ -792,7 +892,8 @@
                                 <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; float: left; width: 350px;">
 
                                     <h2 style="text-align: center; direction: ltr">
-                                        <asp:Literal ID="lblContactPhone" runat="server" /></h2>
+                                        <a href="#">
+                                            <asp:Literal ID="lblContactPhone" runat="server" /></a></h2>
                                     <p style="text-align: center;">
                                         <asp:Literal ID="lblcontactWorkHours" runat="server" />
                                     </p>
@@ -824,34 +925,41 @@
                             </div>
                             <!-- close contact message -->
 
-                            <div class="prefix-15">
-
-                                <div>
-                                    <form id="contactForm" runat="server">
-                                        <div style="width: 793px; margin: 0 auto; margin-left: 10px;">
-                                            <div>
-                                                <asp:TextBox ID="txtName" placeholder="الاسم" runat="server" />
-                                            </div>
-                                            <div>
-                                                <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
-                                            </div>
-                                            <div>
-                                                <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
-                                            </div>
-                                            <div>
-                                                <asp:Button ID="btnSend" Text="ارسال" runat="server" />
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-
-                            </div>
 
 
                         </div>
+
                     </div>
                     <!-- close contact wrap -->
+                    <div class="prefix-15">
+
+                        <div>
+                            <form id="contactForm" runat="server">
+                                <div style="width: 793px; margin: 0 auto; margin-left: 10px; font-family: 'Droid Arabic Kufi'!important;">
+                                    <div>
+                                        <asp:TextBox ID="txtName" placeholder="الاسم" runat="server" />
+                                    </div>
+                                    <div>
+                                        <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
+                                    </div>
+                                    <div>
+                                        <asp:TextBox ID="txtEmail" placeholder="البريد الاكلترونى" runat="server" />
+                                    </div>
+                                    <div>
+                                        <asp:TextBox ID="txtMobile" placeholder="الموبايل" runat="server" />
+                                    </div>
+                                    <div>
+                                        <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
+                                    </div>
+                                    <div>
+                                        <asp:Button ID="btnSend" Text="ارسال" runat="server" />
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
 
 
                 </div>
@@ -923,29 +1031,12 @@
 
             /* ]]> */
         </script>
-        
+
         <script type="text/javascript">
             jQuery(document).ready(function () {
-                jQuery(".ProductLink").click(function () {
-                    jQuery('#AllProds').slideToggle("left");
-                    jQuery('#prodetails').html('<div style="width:15%;margin:0 auto;"><img src="images/loading.gif" /></div>');
-                    jQuery('#prod_details_back').hide().slideToggle("left");
-
-                    jQuery("#prodetails").load("getproductdetails.aspx",
-                        {
-                            ProductId: "" + jQuery(this).attr("data-id") + "",
-                            LanguageId: "" + jQuery(this).attr("data-lang") + "",
-                        },
-                        function (content) {
-                            jQuery(this).hide().slideToggle("left");
-                            return false;
-                        });                    
-
-                });
-
-                jQuery('#backLink').click(function () {
-                    jQuery('#AllProds').hide().slideToggle("right");
-                    jQuery('#prod_details_back').slideToggle("left");;
+                $('.prodnav').click(function (event) {
+                    $.scrollTo(this.hash, ut_scrollspeed, { easing: ut_scrolleffect, offset: 0, 'axis': 'y' });
+                    event.preventDefault();
                 });
             });
 

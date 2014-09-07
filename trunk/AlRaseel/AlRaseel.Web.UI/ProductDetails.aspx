@@ -271,7 +271,7 @@
 
 
                     <!-- parallax header -->
-                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100" style="margin-top: 65px;">
+                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100" style="margin-top: -65px;">
                         <header class="parallax-header pt-style-2">
 
                             <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>
@@ -293,7 +293,7 @@
 
                     <!-- contact wrap -->
                     <div class="grid-100 mobile-grid-100 tablet-grid-100">
-                        <div class="contact-wrap">
+                        <div class="contact-wrap" style="margin-top: -40px;">
 
                             <!-- contact message -->
                             <asp:Repeater ID="dlAlbums" runat="server" OnItemDataBound="dlAlbums_ItemDataBound">
