@@ -399,10 +399,10 @@
                 <div class="clear"></div>
                 <div class="grid-container section-content">
                     <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -30px;">
-                        <div class="" style="width: 100%;" id="AllProds">
+                        <div class="" style="width: 100%;margin:0 auto;" id="AllProds">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="" style="width: 50%; float: left; margin-bottom: 20px; margin-right: -50px;margin-left: -50px;">
+                                    <div class="" style="width: 45%; float: left; margin-bottom: 20px; ">
                                         <div style="text-align: right;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
@@ -943,7 +943,7 @@
                                         <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
                                     </div>
                                     <div>
-                                        <asp:TextBox ID="txtEmail" placeholder="البريد الاكلترونى" runat="server" />
+                                        <asp:TextBox ID="txtEmail" placeholder="البريد الالكترونى" runat="server" />
                                     </div>
                                     <div>
                                         <asp:TextBox ID="txtMobile" placeholder="الموبايل" runat="server" />
@@ -1034,8 +1034,8 @@
 
         <script type="text/javascript">
             jQuery(document).ready(function () {
-                $('.prodnav').click(function (event) {
-                    $.scrollTo(this.hash, ut_scrollspeed, { easing: ut_scrolleffect, offset: 0, 'axis': 'y' });
+                jQuery('.prodnav').click(function (event) {
+                    jQuery.scrollTo(this.hash, 1300, { easing: 'easeInOutExpo', offset: 0, 'axis': 'y' });
                     event.preventDefault();
                 });
             });

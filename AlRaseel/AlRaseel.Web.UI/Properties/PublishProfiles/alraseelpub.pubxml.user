@@ -1360,10 +1360,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2014 21:32:38</publishTime>
     </File>
     <File Include="assets/css/Alraseel_ar.css">
-      <publishTime>08/31/2014 11:07:07</publishTime>
+      <publishTime>09/08/2014 00:38:05</publishTime>
     </File>
     <File Include="assets/css/Alraseel_en.css">
-      <publishTime>08/31/2014 10:09:10</publishTime>
+      <publishTime>09/08/2014 00:38:05</publishTime>
     </File>
     <File Include="assets/css/flexslider7e2e.css">
       <publishTime>08/31/2014 10:09:10</publishTime>
@@ -1657,7 +1657,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:13</publishTime>
     </File>
     <File Include="assets/js/ut-initb2da.js">
-      <publishTime>08/31/2014 10:09:13</publishTime>
+      <publishTime>09/08/2014 00:38:05</publishTime>
     </File>
     <File Include="assets/js/ut.effects7e2e.js">
       <publishTime>08/31/2014 10:09:13</publishTime>
@@ -1669,7 +1669,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:27</publishTime>
     </File>
     <File Include="bin/AlRaseel.Web.UI.dll">
-      <publishTime>08/31/2014 15:37:35</publishTime>
+      <publishTime>09/08/2014 00:46:04</publishTime>
     </File>
     <File Include="bin/Data.DAL.dll">
       <publishTime>08/31/2014 15:37:34</publishTime>
@@ -1771,7 +1771,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:57</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>08/31/2014 12:39:56</publishTime>
+      <publishTime>09/08/2014 00:56:36</publishTime>
     </File>
     <File Include="Default_1.aspx">
       <publishTime>08/10/2014 05:32:44</publishTime>
@@ -1876,7 +1876,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:17</publishTime>
     </File>
     <File Include="en/Default.aspx">
-      <publishTime>08/31/2014 13:03:14</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="en/Default_Ar.aspx">
       <publishTime>08/03/2014 21:32:38</publishTime>
@@ -1885,7 +1885,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:10:38</publishTime>
     </File>
     <File Include="en/getproductdetails.aspx">
-      <publishTime>08/31/2014 15:37:19</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="en/ProductDetails.aspx">
       <publishTime>08/31/2014 10:23:06</publishTime>
@@ -1936,7 +1936,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:09:56</publishTime>
     </File>
     <File Include="GetProductDetails.aspx">
-      <publishTime>08/31/2014 11:43:08</publishTime>
+      <publishTime>09/08/2014 00:38:05</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>08/03/2014 21:27:18</publishTime>
@@ -2326,7 +2326,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:10:38</publishTime>
     </File>
     <File Include="prettyphoto/images/prettyPhoto/default/sprite.png">
-      <publishTime>08/31/2014 10:10:38</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="prettyphoto/images/prettyPhoto/default/sprite_next.png">
       <publishTime>08/31/2014 10:10:38</publishTime>
@@ -2335,10 +2335,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:10:38</publishTime>
     </File>
     <File Include="prettyphoto/images/prettyPhoto/default/sprite_x.png">
-      <publishTime>08/31/2014 10:10:38</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="prettyphoto/images/prettyPhoto/default/sprite_y.png">
-      <publishTime>08/31/2014 10:10:38</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="prettyphoto/images/prettyPhoto/facebook/btnNext.png">
       <publishTime>08/31/2014 10:10:38</publishTime>
@@ -2401,7 +2401,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2014 10:10:38</publishTime>
     </File>
     <File Include="ProductDetails.aspx">
-      <publishTime>08/31/2014 10:09:10</publishTime>
+      <publishTime>09/08/2014 00:38:06</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>08/31/2014 12:24:29</publishTime>
