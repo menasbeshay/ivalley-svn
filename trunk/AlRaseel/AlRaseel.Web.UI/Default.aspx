@@ -77,7 +77,7 @@
     <script type='text/javascript' src='wp-content/themes/brooklyn/js/jquery.queryloader2.minfc99.js?ver=2.6'></script>
     <script type='text/javascript' src='wp-content/themes/brooklyn/js/modernizr.min61da.js?ver=2.6.2'></script>
     <link href="assets/css/Alraseel_ar.css" rel="stylesheet" />
-<%--    <link href="../assets/css/Alraseel_ar.css" rel="stylesheet" />--%>
+    <%--    <link href="../assets/css/Alraseel_ar.css" rel="stylesheet" />--%>
     <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/droid-arabic-kufi" type="text/css" />
 
 
@@ -307,7 +307,7 @@
 
         <div class="main-content-background">
 
-            <section id="about-brooklyn" data-effect="fadeIn" data-width="centered" class="page-id-1777 entry-content normal-background  light  " style="min-height:700px;">
+            <section id="about-brooklyn" data-effect="fadeIn" data-width="centered" class="page-id-1777 entry-content normal-background  light  " style="min-height: 700px;">
 
                 <a class="ut-offset-anchor" id="section-about-brooklyn"></a>
 
@@ -399,14 +399,14 @@
                 <div class="clear"></div>
                 <div class="grid-container section-content">
                     <div class="grid-100 mobile-grid-100 tablet-grid-100" style="margin-top: -30px;">
-                        <div class="" style="width: 100%;margin:0 auto;" id="AllProds">
+                        <div class="" style="width: 100%; margin: 0 auto;" id="AllProds">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="" style="width: 45%; float: left; margin-bottom: 20px; ">
+                                    <div class="" style="width: 45%; float: left; margin-bottom: 20px;">
                                         <div style="text-align: right;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
-                                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;" >
+                                                    <h3 style="font-family: 'Droid Arabic Kufi'!important;">
                                                         <a href='#section-Product-Section_<%# Eval("Id") %>' style="color: #e5c593 !important;" class="prodnav">
                                                             <%#Eval("ProductTitle") %>
                                                         </a>
@@ -425,14 +425,12 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
-                        <div id="prod_details_back" style="display: none; margin-top: -80px;">
+                        <%--  <div id="prod_details_back" style="margin-top: -80px;">
                             <a id="backLink" class="cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: right; clear: both; display: block;">عودة إلى المنتجات</a>
                             <div class="clear clearfix" style="height: 5px; width: 100%"></div>
 
-                            <div class="prod_details" id="prodetails" style="">
-                            </div>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear"></div>--%>
                     </div>
                 </div>
 
@@ -446,14 +444,19 @@
 
 
 
-                    <section id='Product-Section_<%# Eval("Id") %>' data-effect="fadeIn" data-width="centered" class="prod page-id-1777 entry-content normal-background  light " style="min-height:700px;">
+                    <section id='Product-Section_<%# Eval("Id") %>' data-effect="fadeIn" data-width="centered" class="prod page-id-1777 entry-content normal-background  light " style="min-height: 700px;">
 
-                        <a class="ut-offset-anchor" id='section-Product-Section_<%# Eval("Id") %>' ></a>
+                        <a class="ut-offset-anchor" id='section-Product-Section_<%# Eval("Id") %>'></a>
 
                         <div class="grid-container section-header-holder" style="min-height: 400px;">
 
                             <!-- section header -->
                             <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                                <div id="prod_details_back" style="margin-top: -30px; position: absolute; z-index: 100;">
+                                    <a id="backLink" class=" prodnav cta-btn theme-btn" href="#section-our-service" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: right; clear: both; display: block;">عودة إلى المنتجات</a>
+                                    <div class="clear clearfix" style="height: 5px; width: 100%"></div>
+                                </div>
+                                <div class="clear"></div>
 
                                 <header class="parallax-header pt-style-2">
 
@@ -828,7 +831,7 @@
             <div class="clear"></div>
 
 
-<%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
+            <%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
 
                 <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
 
@@ -946,7 +949,7 @@
                                         <asp:TextBox ID="txtEmail" placeholder="البريد الالكترونى" runat="server" />
                                     </div>
                                     <div>
-                                        <asp:TextBox ID="txtMobile" placeholder="الموبايل" runat="server" />
+                                        <asp:TextBox ID="txtMobile" placeholder="رقم الجوال" runat="server" />
                                     </div>
                                     <div>
                                         <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
@@ -1039,7 +1042,6 @@
                     event.preventDefault();
                 });
             });
-
         </script>
 
     </div>
