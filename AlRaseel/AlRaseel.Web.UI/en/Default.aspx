@@ -410,13 +410,13 @@
                                         <div style="text-align: left;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
-                                                    <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav ProductLink">
+                                                    <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav">
                                                         <h3 style=""><%#Eval("ProductTitle") %></h3>
                                                     </a>
                                                     <p style=""><%#Eval("ShortDescription") %> </p>
                                                 </div>
                                             </div>
-                                            <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav ProductLink">
+                                            <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav">
 
                                                 <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="slideInLeft" src="../wp-content/uploads/2013/10/Smart-Computer-Front.png" />--%>
                                                 <asp:Image ID="imgProduct" CssClass="ut-animate-image animated imgProduct" data-effecttype="image" data-effect="slideInLeft" Width="250px" Height="140px" ImageUrl=' <%#"~/Files/Products/" + Eval("ImageFile") %>' runat="server" />
@@ -458,6 +458,11 @@
                         <div class="grid-container section-header-holder" style="min-height: 400px;">
                             <!-- section header -->
                             <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+
+                                <div id="prod_details_back" style="margin-top: -30px; position: absolute; z-index: 100;">
+                            <a id="backLink" href="#section-our-service" class=" prodnav cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: left; clear: both; display: block;">Back to products</a>
+                            <div class="clear clearfix" style="height: 5px; width: 100%"></div>
+                        </div>
 
                                 <header class="parallax-header pt-style-2">
                                     <h2 class="parallax-title" style="background: #7e2e30;"><span>
@@ -808,15 +813,7 @@
                         </div>
                         <!-- end ut_masonry_45-->
 
-
-
                     </div>
-
-
-
-
-
-
                 </div>
 
 
@@ -826,13 +823,7 @@
 
             <div class="clear"></div>
 
-            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
-                <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
-                <div class="parallax-overlay parallax-overlay-pattern ">
-                </div>
-                <div class="ut-scroll-up-waypoint" data-section="section-some-of-the-clients-we-work-with" data-parent="section-work"></div>
-            </section>
-            <div class="clear"></div>
+
         </div>
         <!-- close main-content-background -->
 
@@ -1057,18 +1048,17 @@
 
         <script type="text/javascript">
             jQuery(document).ready(function () {
-                $('.prodnav').click(function (event) {
-                    $.scrollTo(this.hash, ut_scrollspeed, { easing: ut_scrolleffect, offset: 0, 'axis': 'y' });
+                jQuery('.prodnav').click(function (event) {
+                    jQuery.scrollTo(this.hash, 1300, { easing: 'easeInOutExpo', offset: 0, 'axis': 'y' });
                     event.preventDefault();
                 });
             });
-
         </script>
 
     </div>
     <!-- close #main-content -->
     <!--http://youtu.be/b62B4IDUUpE-->
-    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/b62B4IDUUpE' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
+    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : '' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
 </body>
 
 <!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:28:39 GMT -->
