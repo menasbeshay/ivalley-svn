@@ -10,8 +10,17 @@
                 </div>
                 <div class="clearfix" style="height:15px;"></div>
                 <div style="width:80%;" class="center-block">
+                    <asp:LinkButton ID="uiLinkButtonLike" runat="server" CssClass="btn" ClientIDMode="Static">
+                    <i class="icon icon-thumbs-up-alt" style="border:1px solid #808080;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;padding:5px;"></i>
+                        </asp:LinkButton>
+
+                    <asp:LinkButton ID="uiLinkButtonUnLike" runat="server" CssClass="btn"  ClientIDMode="Static">
                     <i class="icon icon-thumbs-up" style="border:1px solid #808080;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;padding:5px;"></i>
-                    &nbsp;<span style="color:#ffd800">112</span>&nbsp;
+                        </asp:LinkButton>
+
+                    &nbsp;<span style="color:#ffd800">
+                         <asp:Label ID="uiLabelLikeCount" runat="server" ClientIDMode="Static"/>
+                          </span>&nbsp;
                     أعجبنى
                 </div>
                 <div class="clearfix"  style="height:15px;"></div>

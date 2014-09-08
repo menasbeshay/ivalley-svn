@@ -554,6 +554,42 @@ function SaveConversation(rid) {
     $('#SaveConv_' + rid).attr("href", "data:text/plain;charset=UTF-8," + $('<span>' + str + '</span>').text());
 }
 
+function ToggleProfileLike(mid, pid) {
+    //$('#pGeneral').css('display', 'block');
+    $.ajax({
+        url: "../Services/Services.asmx/ToggleProfileLike",
+        dataType: "json",
+        type: "post",
+        data: "{'mid':'" + mid + "', 'pid':'"+pid+"'}",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data.d == 0) {
+                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+            }
+            else if (data.d == 1) {
+                var count = $('#uiLabelLikeCount').text();
+                count++;
+                $('#uiLabelLikeCount').text(count);
+                $('#uiLinkButtonLike').css('display', 'none');
+                $('#uiLinkButtonUnLike').css('display', 'inline');
+            }
+            else if (data.d == 2) {
+                var count = $('#uiLabelLikeCount').text();
+                count--;
+                $('#uiLabelLikeCount').text(count);
+                $('#uiLinkButtonLike').css('display', 'inline');
+                $('#uiLinkButtonUnLike').css('display', 'none');
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //$('#pGeneral').css('display', 'none');
+            $("#favlink_" + rid).css('display', 'block');
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+    return false;
+}
+
 /************ signalr ********************/
 $(document).ready(function () {
     

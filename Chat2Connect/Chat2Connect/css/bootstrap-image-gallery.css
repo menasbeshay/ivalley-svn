@@ -24,7 +24,7 @@
 .blueimp-gallery .modal-body .video-content video,
 .blueimp-gallery .modal-body .video-content iframe,
 .blueimp-gallery .modal-body .video-content a {
-	max-width: 100%;
+	max-width: 70%;
 	max-height: 100%;
 	margin: auto;
 	/*position: absolute;*/

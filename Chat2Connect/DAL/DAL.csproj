@@ -61,6 +61,7 @@
     <Compile Include="MemberTypeSpecDuration.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageFolder.cs" />
+    <Compile Include="ProfileLike.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Religion.cs" />
     <Compile Include="RestrictedNames.cs" />

@@ -1017,6 +1017,31 @@ namespace Chat2Connect.services
             return true;
 
         }
+
+
+        [WebMethod]
+        public int ToggleProfileLike(int mid, int pid)
+        {
+            ProfileLike like = new ProfileLike();
+            like.LoadByPrimaryKey(mid, pid);
+            if (like.RowCount > 0)
+            {
+                like.MarkAsDeleted();
+                like.Save();
+                return 2;
+            }
+            else
+            {
+                like.AddNew();
+                like.MemberID = mid;
+                like.ProfileMemberID = pid;
+                like.Save();
+                return 1;
+            }
+            
+            return 0;
+
+        }
         #endregion
 
         #region Admin
