@@ -22,6 +22,33 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Image uiImageMain;
         
         /// <summary>
+        /// uiLinkButtonLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonLike;
+        
+        /// <summary>
+        /// uiLinkButtonUnLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonUnLike;
+        
+        /// <summary>
+        /// uiLabelLikeCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelLikeCount;
+        
+        /// <summary>
         /// uiHyperLinkFb control.
         /// </summary>
         /// <remarks>

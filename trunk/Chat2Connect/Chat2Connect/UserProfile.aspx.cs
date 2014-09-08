@@ -97,11 +97,31 @@ namespace Chat2Connect
                 ///////////////////////////////
                 uiLabelInterests.Text = member.Interests;
 
+                ProfileLike likes = new ProfileLike();
+                likes.GetLikeCount(member.MemberID);
+                uiLabelLikeCount.Text = likes.RowCount.ToString();
+
+                likes.LoadByPrimaryKey(Member.CurrentMemberID, member.MemberID);
+                uiLinkButtonLike.OnClientClick = "return ToggleProfileLike(" + Member.CurrentMemberID.ToString() + ", " + member.MemberID + ")";
+                uiLinkButtonUnLike.OnClientClick = "return ToggleProfileLike(" + Member.CurrentMemberID.ToString() + ", " + member.MemberID + ")";
+                if (likes.RowCount > 0)
+                {
+                    uiLinkButtonUnLike.Attributes.Add("style","display:inline;padding:0px;");
+                    uiLinkButtonLike.Attributes.Add("style", "display:none;padding:0px;");
+                    
+                }
+                else
+                {
+                    uiLinkButtonUnLike.Attributes.Add("style", "display:none;padding:0px;");
+                    uiLinkButtonLike.Attributes.Add("style", "display:inline;padding:0px;");
+                }
+
             }
             else
             {
                 Response.Redirect("home.aspx");
             }
         }
+
     }
 }

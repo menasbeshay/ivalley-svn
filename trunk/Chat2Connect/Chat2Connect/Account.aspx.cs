@@ -93,6 +93,10 @@ namespace Chat2Connect
                 ///////////////////////////////
                 uiLabelInterests.Text = uiTextBoxInterests.Text = member.Interests;
 
+                ProfileLike likes = new ProfileLike();
+                likes.GetLikeCount(member.MemberID);
+                uiLabelLikeCount.Text = likes.RowCount.ToString();
+
 
                 // load settings 
                 MemberSetting setting = new MemberSetting();

@@ -8,7 +8,7 @@
             <div id="helpcontact" class="panel-collapse collapse in" style="font-weight: bold;">
                 <!-- ko foreach: OnlineHelpMembers -->
                 <div class="Altodd">
-                    <img data-bind="attr: { 'src': (ProfilePic != '') ? ProfilePic : 'images/defaultavatar.png' }" class='friendpic online' style="display:block" />
+                    <img data-bind="attr: { 'src': (ProfilePic != '') ? ProfilePic : 'images/defaultavatar.png' }, css:IsOnline == true?'online' : 'offline'" class='friendpic ' style="display:block" />
                     <a href="#" data-bind="click:$root.openWindow.bind($data,$data.ID(),$data.Name(),'Private', false, false, 1, false,true)" style="margin:5px;display:block">
                         <span data-bind="text:Name"></span> 
                     </a>

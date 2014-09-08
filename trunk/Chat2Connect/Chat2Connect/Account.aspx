@@ -137,7 +137,7 @@
         <div class="blockBoxshadow pull-right margin20" style="width:66.5%;padding:13px;min-height:235px;"> 
             <div style="width:16%;float:right;position:relative;">
                 <div class="profileImageEdit">
-                <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="width:130px;" CssClass="img-thumbnail"/>
+                <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="height:100px;" CssClass="img-thumbnail"/>
                 <div class="btn-group" id="EditProfilePic">                    
                   <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="font-size:12px;">
                     تعديل الصورة  <span class="caret"></span> 
@@ -153,7 +153,9 @@
                 <div class="clearfix" style="height:15px;"></div>
                 <div style="width:80%;" class="center-block">
                     <i class="icon icon-thumbs-up" style="border:1px solid #808080;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-ms-border-radius:5px;padding:5px;"></i>
-                    &nbsp;<span style="color:#ffd800">112</span>&nbsp;
+                    &nbsp;<span style="color:#ffd800">
+                        <asp:Label ID="uiLabelLikeCount" runat="server" />
+                          </span>&nbsp;
                     أعجبنى
                 </div>
                 <div class="clearfix"  style="height:15px;"></div>
@@ -903,7 +905,7 @@
                     <button type="button" class="close" aria-hidden="true">&times;</button>
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body next">
+                <div class="modal-body next ">
                 <div class="description"></div>
                 </div>
                 <div class="modal-footer">

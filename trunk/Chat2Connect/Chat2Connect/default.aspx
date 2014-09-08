@@ -228,7 +228,7 @@
                                         <label>البريد الإلكترونى</label>
                                     </div>
                                     <div class="col-sm-7 pull-right">
-                                        <asp:TextBox ID="uiTextBoxReset_Mail" runat="server" CssClass="form-control" data-bind="value:email" autocomplete="off"></asp:TextBox>                                        
+                                        <asp:TextBox ID="uiTextBoxReset_Mail" runat="server" CssClass="form-control" data-bind="value:email" autocomplete="off" style="font-family:Arial;"></asp:TextBox>                                        
                                     </div>
                                     <div class="col-sm-1 pull-right">
                                         <a data-bind="click:SearchAccounts.bind()" class="btn btn-main">إرسال</a>
