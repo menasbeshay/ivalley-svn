@@ -695,7 +695,8 @@
                                         <!--
                                     I declare that I have answered all required questions in this application fully and truth fully.<br />
                                         -->
-
+                                        <a href="files/Refund_Policy_Agreement.pdf">Refund Policy Agreement</a>
+                                        <br />
                                     <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;I approve the refund policy. By signing this application, I do approve the refund policy set for the international students. Please read                          
                                                     <br />
                                     <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true" Enabled="true"

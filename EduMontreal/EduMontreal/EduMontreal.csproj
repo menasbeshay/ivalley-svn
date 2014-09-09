@@ -2153,6 +2153,9 @@
     <Content Include="js\fancybox\.DS_Store" />
     <Content Include="js\fancybox\source\.DS_Store" />
     <Content Include="MasterPages\AREduMaster.Master" />
+    <Content Include="files\Refund Policy Agreement.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\EduMontreal-SVN.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -2461,7 +2464,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
