@@ -90,6 +90,28 @@
     <script src="fancybox/jquery.fancybox.pack.js?v=2.1.1" type="text/javascript"></script>
     <script src="js/jquery.fancygallery.min.js" type="text/javascript"></script>
 
+
+    <%--<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>--%>
+
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+    <!-- Add Button helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+    <!-- Add Thumbnail helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+    <!-- Add Media helper (this is optional) -->
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+
     <style>
         body {
             font-family: 'Al-Jazeera-Arabic-Regular' !important;
@@ -113,6 +135,27 @@
             background: #a4a4a4;
             margin: 0px !important;
             padding-bottom: 7px;
+        }
+
+        .porimg {
+            width: 150px;
+            height: 150px;
+            margin-top: -45px;
+        }
+
+        .sendbtn {
+            border: 1px solid #e5c593 !important;
+            border-radius: 5px !important;
+            -moz-border-radius: 5px !important;
+            -ms-border-radius: 5px !important;
+            -webkit-border-radius: 5px !important;
+            background-color: #e5c593 !important;
+            padding: 10px !important;
+            float: right !important;
+            clear: both !important;
+            display: block !important;
+            color: #7e2e30 !important;
+            width: 100px !important;
         }
     </style>
 
@@ -191,7 +234,7 @@
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">المنتجات</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">الالوان </a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-contact" class="">اتصل بنا</a></li>
+                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">اتصل بنا</a></li>
 
                         </ul>
                     </nav>
@@ -207,7 +250,7 @@
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">المنتجات</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">الالوان </a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-contact" class="">اتصل بنا</a></li>
+                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">اتصل بنا</a></li>
 
                             </ul>
                         </div>
@@ -326,8 +369,28 @@
                         </header>
                     </div>
                     <!-- close section header -->
-
-
+                    <%--                    <div>
+                        <div>
+                            <a class="fancybox" href="demo_files/images/image1.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+                                <img src="demo_files/images/image1.jpg" alt="" /></a>
+                            <a class="fancybox" href="demo_files/images/image2.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"></a>
+                            <a class="fancybox" href="demo_files/images/image3.jpg" data-fancybox-group="gallery1" title="Cras neque mi, semper leon"></a>
+                            <a class="fancybox" href="demo_files/images/image4.jpg" data-fancybox-group="gallery1" title="Sed vel sapien vel sem uno"></a>
+                            <script type="text/javascript">
+                                jQuery(document).ready(function () {
+                                    jQuery('.fancybox').fancybox({
+                                        padding: 0,
+                                        helpers: {
+                                            overlay: {
+                                                locked: false
+                                            }
+                                        },
+                                        nextClick: true
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>--%>
                 </div>
 
 
@@ -490,27 +553,38 @@
                                                 <asp:Label ID="lblAlbumId" Text='<%# Eval("Id") %>' Visible="false" runat="server" />
                                                 <div id="divAlbums_<%# Container.ItemIndex  %>" style="margin: 0 auto; text-align: center; width: 85%; direction: ltr;">
                                                     <div title='<%# Eval("Title") %>'>
-                                                        <asp:Repeater ID="dlImages" runat="server">
+                                                        <asp:Repeater ID="dlImages" runat="server" OnItemDataBound="dlImages_ItemDataBound">
                                                             <ItemTemplate>
                                                                 <%--                                                                    <a class="fancy" rel="galleryname" href="Files/Products/<%# Eval("ImageFile") %>">
                                                                     <img src="Files/Products/<%# Eval("ImageFile") %>" width="450" height="450">
                                                                 </a>--%>
                                                                 <a href="Files/Products/<%# Eval("ImageFile") %>" data-thumbnail="Files/Products/<%# Eval("ImageFile") %>" data-description="" title=""></a>
+                                                                <a class="<%# Eval("ProductAlbumId") %>" href="Files/Products/<%# Eval("ImageFile") %>" data-fancybox-group="gallery_<%# Eval("ProductAlbumId") %>">
+                                                                    <%--<img   src="Files/Products/<%# Eval("ImageFile") %>" />--%>
+                                                                    <asp:Image ID="imgAlbum" runat="server" CssClass="porimg" />
+                                                                </a>
+
+
                                                             </ItemTemplate>
                                                         </asp:Repeater>
                                                     </div>
                                                 </div>
-
                                                 <script type="text/javascript">
                                                     jQuery(document).ready(function () {
-                                                        jQuery('#divAlbums_<%# Container.ItemIndex  %>').fancygallery({
-                                                            navigation: 'pagination',
-                                                            albumSelection: 'thumbnails',
-                                                            thumbnailSelectionOptions: { layout: 'polaroid' },
-                                                            showOnlyFirstThumbnail: true
+                                                        jQuery('.<%# Eval("Id") %>').fancybox({
+                                                            padding: 0,
+                                                            helpers: {
+                                                                thumbs: {
+                                                                    width: 50,
+                                                                    height: 50
+                                                                },
+                                                                overlay: {
+                                                                    locked: false
+                                                                }
+                                                            },
+                                                            nextClick: true
                                                         });
                                                     });
-
                                                 </script>
                                             </div>
                                         </div>
@@ -856,9 +930,15 @@
 
 
 
-        <section id="contact-section" data-effect="fadeIn" class="parallax-content  prod entry-content normal-background  light">
+        <section id="contact-section" data-effect="fadeIn" class="parallax-content  prod entry-content normal-background  light contact-section">
 
             <a class="ut-offset-anchor" id="section-contact"></a>
+
+
+
+            <div class="">
+
+
                 <div class="grid-container parallax-content">
 
 
@@ -866,7 +946,7 @@
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
                         <header class="parallax-header pt-style-2">
 
-                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span> تواصل مع الرسيل </span></h2>
+                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>الرسيل - أرضيات بمفاهيم متميّزة</span></h2>
 
 
                         </header>
@@ -949,7 +1029,7 @@
                                         <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
                                     </div>
                                     <div>
-                                        <asp:Button ID="btnSend" Text="ارسال" runat="server" />
+                                        <asp:Button ID="btnSend" Text="ارسال" CssClass="sendbtn" runat="server" />
                                     </div>
                                 </div>
                             </form>
@@ -961,7 +1041,12 @@
 
                 </div>
                 <!-- close container -->
+
+
+            </div>
+
             <!-- parallax overlay -->
+
 
         </section>
 
