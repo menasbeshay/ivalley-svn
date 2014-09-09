@@ -3339,3 +3339,19 @@ Responsive Flip Scroll Tables
   .flip-scroll th:last-child,
   .flip-scroll td:last-child { border-bottom: 1px solid #ddd; }
 }
+
+
+.paymentlink {
+    text-decoration:none;
+    border:0;
+    display:block;
+    width:100%;
+}
+.paymentlink img{
+    max-width:200px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    border:2px solid #ccc;
+}

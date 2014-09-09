@@ -54,7 +54,7 @@ namespace EduMontreal
                             msg.From = new MailAddress(mail);
                             msg.Subject = template.Subject;
                             msg.IsBodyHtml = true;
-                            msg.BodyEncoding = System.Text.Encoding.Unicode;
+                            msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                             msg.Body = string.Format(Server.HtmlDecode(template.Body), student.FirstName + " " + student.FamilyName);
 

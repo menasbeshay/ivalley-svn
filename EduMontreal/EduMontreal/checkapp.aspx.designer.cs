@@ -13,6 +13,15 @@ namespace EduMontreal {
     public partial class checkapp {
         
         /// <summary>
+        /// uiLabelStatusName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelStatusName;
+        
+        /// <summary>
         /// uiImageCurrentStatus control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,14 @@ namespace EduMontreal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView uiGridViewStatusHistory;
+        
+        /// <summary>
+        /// uiLabelAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelAmount;
     }
 }

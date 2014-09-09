@@ -52,6 +52,7 @@ namespace EduMontreal
                     student.Email = uiTextBoxEmail.Text;
                     student.UserPassword = uiTextBoxPassword.Text;
                     student.ActivationCode = Guid.NewGuid();
+                    student.GenderID = Convert.ToInt32(uiRadioButtonListGender.SelectedValue);
                     student.IsActive = false;
                     student.Save();
 
@@ -66,7 +67,7 @@ namespace EduMontreal
                         msg.From = new MailAddress(mail);
                         msg.Subject = template.Subject;
                         msg.IsBodyHtml = true;
-                        msg.BodyEncoding = System.Text.Encoding.Unicode;
+                        msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                         msg.Body = string.Format(Server.HtmlDecode(template.Body), ConfigurationManager.AppSettings["ActivationURL"] + student.ActivationCode.ToString());
 

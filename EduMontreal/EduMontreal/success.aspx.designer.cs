@@ -10,24 +10,15 @@
 namespace EduMontreal {
     
     
-    public partial class _Default {
+    public partial class success {
         
         /// <summary>
-        /// startPanel control.
+        /// uiLabeltrx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel startPanel;
-        
-        /// <summary>
-        /// uiPanelfollow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelfollow;
+        protected global::System.Web.UI.WebControls.Label uiLabeltrx;
     }
 }

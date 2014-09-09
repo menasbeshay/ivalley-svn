@@ -77,6 +77,7 @@ namespace WebApplication.Admin
             course.LoadByPrimaryKey(app.SelectedCourseID);
             lang.LoadByPrimaryKey(course.CourseLangaugeID);
 
+            uiImageMain.ImageUrl = ".." + app.RecentPhotoPath;
             uiLabelName.Text = app.FirstName + " " + app.FamilyName;
             uiLabelMail.Text = app.Email;
             uiLabelCourse.Text = course.CourseName;
@@ -85,7 +86,7 @@ namespace WebApplication.Admin
             ApplicationStatusHistory history = new ApplicationStatusHistory();
             history.GetApplicationStatusHistorybyApplicationDataID(CurrentApp);
 
-            if (history.ApplicationStatusID == 7) // Tuition  Fees
+            if (history.ApplicationStatusID == 4) // Tuition  Fees
             {
                 uiPanelFees.Visible = true;
             }
@@ -195,7 +196,7 @@ namespace WebApplication.Admin
                         msg.From = new MailAddress(mail);
                         msg.Subject = template.Subject;
                         msg.IsBodyHtml = true;
-                        msg.BodyEncoding = System.Text.Encoding.Unicode;
+                        msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                         msg.Body = string.Format(Server.HtmlDecode(template.Body), student.FirstName + " " + student.FamilyName, student.Email);
 
@@ -227,10 +228,12 @@ namespace WebApplication.Admin
                     }
                     catch (Exception)
                     {
-
+                        throw;
                     }
                 }
-                BindHistory();
+                //BindHistory();
+                BindApplicationData();
+                BindData();
             }
 
         }

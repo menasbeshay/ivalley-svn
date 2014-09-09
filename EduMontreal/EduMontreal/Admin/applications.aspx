@@ -22,34 +22,41 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                 <asp:LinkButton runat="server" CommandName="EditApp" CommandArgument='<%# Eval("ApplicationDataID") %>' CssClass="btn btn-primary">Update application</asp:LinkButton>
+                                    <div class="clearfix" style="height:2px;"></div>
+                                    <a href='appdata?sid=<%# Eval("StudentID") %>' class="btn btn-sm btn-primary">Update application data</a>
                                     </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
-                <asp:Panel runat="server" ID="uiPanelApplicationDetails">
-                    <h4>
+                <asp:Panel runat="server" ID="uiPanelApplicationDetails" style="position:relative;">
+                    <h4 class="bold" style="color:#428bca">
                         Applicant Data
                     </h4>
                     <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn btn-primary pull-right" OnClick="uiLinkButtonBack_Click">Back to applications</asp:LinkButton>
-                    <div class="col-lg-12">
+                    <div class="col-lg-2 pull-right" style="position:absolute;top:20px;right:14%;">
+                        
+                            <asp:Image ID="uiImageMain" runat="server" CssClass="thumbnail" style="max-height:100px;"/>
+                         
+                    </div>
+                    <div class="col-lg-8">
                         <div class="col-lg-11">
                             <div class="col-lg-2"><label style="font-weight:bold">Name</label></div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-4">
                                 <asp:Label ID="uiLabelName" runat="server" ></asp:Label></div>
                             <div class="col-lg-2"><label style="font-weight:bold">Email</label></div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-4">
                                 <asp:Label ID="uiLabelMail" runat="server" ></asp:Label>
                             </div>
                         </div>                       
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <div class="col-lg-11">
                             <div class="col-lg-2"><label style="font-weight:bold">Language</label></div>
-                            <div class="col-lg-2"><asp:Label ID="uiLabelLang" runat="server" ></asp:Label></div>
+                            <div class="col-lg-4"><asp:Label ID="uiLabelLang" runat="server" ></asp:Label></div>
                             <div class="col-lg-2"><label style="font-weight:bold">Course</label></div>
-                            <div class="col-lg-2"><asp:Label ID="uiLabelCourse" runat="server" ></asp:Label></div>
+                            <div class="col-lg-4"><asp:Label ID="uiLabelCourse" runat="server" ></asp:Label></div>
                         </div>                       
                     </div>
                     <div class="clearfix" style="clear:both;height:5px;"></div>
@@ -94,7 +101,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <div class="col-lg-2">
+                                
+                                <div class="col-lg-2 col-lg-offset-7">
                                     <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn btn-default" OnClick="uiLinkButtonCancel_Click">Cancel</asp:LinkButton>
                                     </div>
                                 <div class="col-lg-2">
@@ -106,7 +114,7 @@
 
                     <div class="col-lg-12">
                         <div class="col-lg-11">
-                            <h4>
+                            <h4 class="bold " style="color:#428bca">
                                 Update History
                             </h4>
                             <asp:GridView ID="uiGridViewStatusHistory" runat="server"  AutoGenerateColumns="False" HorizontalAlign="Center"  Width="100%" CssClass="table table-hover " OnRowDataBound="uiGridViewStatusHistory_RowDataBound" >

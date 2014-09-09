@@ -10,7 +10,7 @@
                 
 					<div class="col-md-12 note note-success">	
                         <h4 class="has-success">Thanks</h4>					
-                        your account has been activated successfully. please go to login page to access your account.                        
+                        your account has been activated successfully. <a href="Default.aspx" class="btn btn-primary">Continue</a>
 					</div>                     
 				</div>
         </asp:Panel>

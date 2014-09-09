@@ -515,6 +515,14 @@ namespace EDU.DAL
 				}
 			}
 			
+			public static SqlParameter IsSubmit
+			{
+				get
+				{
+					return new SqlParameter("@IsSubmit", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -573,6 +581,7 @@ namespace EDU.DAL
             public const string EnglishWritten = "EnglishWritten";
             public const string FrenchSpeak = "FrenchSpeak";
             public const string FrenshWritten = "FrenshWritten";
+            public const string IsSubmit = "IsSubmit";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -632,6 +641,7 @@ namespace EDU.DAL
 					ht[EnglishWritten] = _ApplicationData.PropertyNames.EnglishWritten;
 					ht[FrenchSpeak] = _ApplicationData.PropertyNames.FrenchSpeak;
 					ht[FrenshWritten] = _ApplicationData.PropertyNames.FrenshWritten;
+					ht[IsSubmit] = _ApplicationData.PropertyNames.IsSubmit;
 
 				}
 				return (string)ht[columnName];
@@ -696,6 +706,7 @@ namespace EDU.DAL
             public const string EnglishWritten = "EnglishWritten";
             public const string FrenchSpeak = "FrenchSpeak";
             public const string FrenshWritten = "FrenshWritten";
+            public const string IsSubmit = "IsSubmit";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -755,6 +766,7 @@ namespace EDU.DAL
 					ht[EnglishWritten] = _ApplicationData.ColumnNames.EnglishWritten;
 					ht[FrenchSpeak] = _ApplicationData.ColumnNames.FrenchSpeak;
 					ht[FrenshWritten] = _ApplicationData.ColumnNames.FrenshWritten;
+					ht[IsSubmit] = _ApplicationData.ColumnNames.IsSubmit;
 
 				}
 				return (string)ht[propertyName];
@@ -819,6 +831,7 @@ namespace EDU.DAL
             public const string EnglishWritten = "s_EnglishWritten";
             public const string FrenchSpeak = "s_FrenchSpeak";
             public const string FrenshWritten = "s_FrenshWritten";
+            public const string IsSubmit = "s_IsSubmit";
 
 		}
 		#endregion		
@@ -1446,6 +1459,18 @@ namespace EDU.DAL
 			set
 	        {
 				base.Setshort(ColumnNames.FrenshWritten, value);
+			}
+		}
+
+		public virtual bool IsSubmit
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsSubmit);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsSubmit, value);
 			}
 		}
 
@@ -2234,6 +2259,21 @@ namespace EDU.DAL
 			}
 		}
 
+		public virtual string s_IsSubmit
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsSubmit) ? string.Empty : base.GetboolAsString(ColumnNames.IsSubmit);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsSubmit);
+				else
+					this.IsSubmit = base.SetboolAsString(ColumnNames.IsSubmit, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2782,6 +2822,16 @@ namespace EDU.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.FrenshWritten, Parameters.FrenshWritten);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsSubmit
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsSubmit, Parameters.IsSubmit);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -3416,6 +3466,18 @@ namespace EDU.DAL
 				}
 			}
 
+			public WhereParameter IsSubmit
+		    {
+				get
+		        {
+					if(_IsSubmit_W == null)
+	        	    {
+						_IsSubmit_W = TearOff.IsSubmit;
+					}
+					return _IsSubmit_W;
+				}
+			}
+
 			private WhereParameter _ApplicationDataID_W = null;
 			private WhereParameter _StudentID_W = null;
 			private WhereParameter _SelectedCourseID_W = null;
@@ -3468,6 +3530,7 @@ namespace EDU.DAL
 			private WhereParameter _EnglishWritten_W = null;
 			private WhereParameter _FrenchSpeak_W = null;
 			private WhereParameter _FrenshWritten_W = null;
+			private WhereParameter _IsSubmit_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -3523,6 +3586,7 @@ namespace EDU.DAL
 				_EnglishWritten_W = null;
 				_FrenchSpeak_W = null;
 				_FrenshWritten_W = null;
+				_IsSubmit_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -4094,6 +4158,16 @@ namespace EDU.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FrenshWritten, Parameters.FrenshWritten);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsSubmit
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsSubmit, Parameters.IsSubmit);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -4728,6 +4802,18 @@ namespace EDU.DAL
 				}
 			}
 
+			public AggregateParameter IsSubmit
+		    {
+				get
+		        {
+					if(_IsSubmit_W == null)
+	        	    {
+						_IsSubmit_W = TearOff.IsSubmit;
+					}
+					return _IsSubmit_W;
+				}
+			}
+
 			private AggregateParameter _ApplicationDataID_W = null;
 			private AggregateParameter _StudentID_W = null;
 			private AggregateParameter _SelectedCourseID_W = null;
@@ -4780,6 +4866,7 @@ namespace EDU.DAL
 			private AggregateParameter _EnglishWritten_W = null;
 			private AggregateParameter _FrenchSpeak_W = null;
 			private AggregateParameter _FrenshWritten_W = null;
+			private AggregateParameter _IsSubmit_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -4835,6 +4922,7 @@ namespace EDU.DAL
 				_EnglishWritten_W = null;
 				_FrenchSpeak_W = null;
 				_FrenshWritten_W = null;
+				_IsSubmit_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -5115,6 +5203,10 @@ namespace EDU.DAL
 
 			p = cmd.Parameters.Add(Parameters.FrenshWritten);
 			p.SourceColumn = ColumnNames.FrenshWritten;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsSubmit);
+			p.SourceColumn = ColumnNames.IsSubmit;
 			p.SourceVersion = DataRowVersion.Current;
 
 
