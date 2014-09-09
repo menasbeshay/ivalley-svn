@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EduMontreal {
+namespace EduMontreal.Admin {
     
     
-    public partial class apply {
+    public partial class appdata {
         
         /// <summary>
         /// uiLabelError control.
@@ -182,15 +182,6 @@ namespace EduMontreal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload uiFileUploadRecentPhoto;
-        
-        /// <summary>
-        /// RequiredFieldValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// uiTextBoxFaFamilyName control.
@@ -544,24 +535,6 @@ namespace EduMontreal {
         protected global::System.Web.UI.UpdateProgress UpdateProgress1;
         
         /// <summary>
-        /// uiCheckBoxIApproved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxIApproved;
-        
-        /// <summary>
-        /// CheckBoxRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CheckBoxRequired;
-        
-        /// <summary>
         /// uiLinkButtonFinish control.
         /// </summary>
         /// <remarks>
@@ -569,35 +542,5 @@ namespace EduMontreal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonFinish;
-        
-        /// <summary>
-        /// uiLinkButtonSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSave;
-        
-        /// <summary>
-        /// uiLabelSaved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelSaved;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new EduMontreal.MasterPages.EduMaster Master {
-            get {
-                return ((EduMontreal.MasterPages.EduMaster)(base.Master));
-            }
-        }
     }
 }

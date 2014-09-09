@@ -6,6 +6,8 @@
          <h4>
              Current Status
          </h4>
+         <asp:Label ID="uiLabelStatusName" runat="server"></asp:Label>
+         <br />
          <asp:Image ID="uiImageCurrentStatus" runat="server" />
      </section>
     <div style="clear:both;height:10px;"></div>
@@ -30,12 +32,33 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h3>Go to payment</h3>
+                    <h3>Tuition Fees Payment</h3>
                 </div>
                 <div class="modal-body">
-                    <h3>Please proceed with the payment
-                    </h3>
-                    <a href="AppPayment" class="btn btn-primary">Proceed to payment</a>
+                     <h5>
+                        In order to finalize your tuition fees payment please choose one from the following payment methods :
+                    </h5>
+                     <div class="clearfix" style="height:20px;"></div>
+                    <div class="col-11">
+                        You're going to pay : <asp:Label ID="uiLabelAmount" runat="server" ></asp:Label> USD
+                    </div>
+                     <div class="clearfix" style="height:10px;"></div>
+                     <div class="col-lg-4">
+                         <a href="AppPayment" class="paymentlink">
+                         <img src="Images/visamaster.jpg" style="max-width:150px;"/>
+                             </a>
+                     </div>
+                     <div class="col-lg-4">
+                         <a href="#" class="paymentlink">
+                         <img src="Images/paypal-logo.png" style="max-width:150px;"/>
+                             </a>
+                     </div>
+                     <div class="col-lg-4">
+                         <a href="#" class="paymentlink">
+                         <img src="Images/direct-bank-transfer.jpg" style="max-width:150px;"/>
+                            </a>
+                     </div>
+                    <div class="clearfix" style="height:20px;"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -28,7 +28,7 @@ namespace EduMontreal
             Student student = (Student)Session["CurrentUser"];
             ApplicationData app = new ApplicationData();
             app.GetApplicationByStudentID(student.StudentID);
-            if (app.RowCount > 0)
+            if (app.RowCount > 0 && app.IsSubmit == true)
             {
                 ApplicationStatusHistory Apphistroy = new ApplicationStatusHistory();
                 Apphistroy.GetApplicationStatusHistorybyApplicationDataID(app.ApplicationDataID);
@@ -36,8 +36,8 @@ namespace EduMontreal
                 ApplicationStatus status = new ApplicationStatus();
                 status.LoadByPrimaryKey(Apphistroy.ApplicationStatusID);
 
-                
 
+                uiLabelStatusName.Text = status.Status;
                 uiImageCurrentStatus.ImageUrl = status.StatusImg;
                 uiImageCurrentStatus.AlternateText = status.Status;
 
@@ -46,6 +46,7 @@ namespace EduMontreal
 
                 if (status.ApplicationStatusID == 7) // Tuition  Fees
                 {
+                    uiLabelAmount.Text = Apphistroy.TuitionFees.ToString();
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }
             }

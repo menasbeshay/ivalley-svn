@@ -1,24 +1,22 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/EduMaster.Master" AutoEventWireup="true" CodeBehind="apply.aspx.cs" Inherits="EduMontreal.apply" %>
-
-<%@ MasterType VirtualPath="~/MasterPages/EduMaster.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/EduMaster.Master" AutoEventWireup="true" CodeBehind="appdata.aspx.cs" Inherits="EduMontreal.Admin.appdata" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="js/prettify.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <link href="js/prettify.css" rel="stylesheet" />
-    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+     <script src="../js/prettify.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <link href="../js/prettify.css" rel="stylesheet" />
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
     <%--<script src="js/jquery.validate.min.js"></script>
     <script src="js/additional-methods.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/form-wizard.js"></script>--%>
-    <script src="assets/plugins/select2/select2.min.js"></script>
+    <script src="../assets/plugins/select2/select2.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#rootwizard').bootstrapWizard({
-                 onTabClick: function (tab, navigation, index) {                   
-                     return false;
-                 }
-             , 
+                onTabClick: function (tab, navigation, index) {
+                    return false;
+                }
+             ,
 
                 onTabShow: function (tab, navigation, index) {
                     var $total = navigation.find('li').length;
@@ -95,32 +93,20 @@
 
             });
 
-            $('#' + tabid + " .field input[type=file]").each(function () {
-                if (!$(this).val() ) {
-                    isvalid = false;
-                    $(this).closest('.field').removeClass('has-success').addClass('has-error');
-                }
-                else {
-                    $(this).closest('.field').removeClass('has-error').addClass('has-success');
-                }
-
-            });
-
-            if (index == 6)
-            {
+           
+            if (index == 6) {
                 if ($('#<%= uiDropDownListLanguage.ClientID %>').val() == 0) {
                     isvalid = false;
                     $('#<%= uiDropDownListLanguage.ClientID %>').closest('.field').removeClass('has-success').addClass('has-error');
                 }
             }
-            
-            if (index == 6 && $(".ApproveCheck input:checkbox").is(':checked') && isvalid) 
-            {
+
+            if (index == 6 && $(".ApproveCheck input:checkbox").is(':checked') && isvalid) {
                 $('#progressModal').modal('show');
             }
             return isvalid;
         }
-        
+
     </script>
 
 
@@ -197,23 +183,17 @@
         list-style:decimal;
         }
     </style>
-   <%-- <script>
-        jQuery(document).ready(function () {
-            // initiate layout and plugins
-            FormWizard.init();
-        });
-    </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="row">
 
         <section class="col-md-12 col-left" style="padding-left: 0px;">
 
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <asp:Label ID="uiLabelError" runat="server" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
                     <asp:ValidationSummary ID="uiValidationSummary" ValidationGroup="signup" runat="server" HeaderText="Please make sure that you correctly fill out the items bellow:" />
+                    <a href="applications" class="btn btn-primary" style="float:right;">Back to applications</a>
                 </div>
             </div>
 
@@ -365,8 +345,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 field">
                                     <label class="control-label ">Please upload a recent Photo of you size 4x6 with high resolution<span class="required">* </span></label>
-                                    <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="Country of issue Is Required" ControlToValidate="uiFileUploadRecentPhoto" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />                                    
                                 </div>
 
                             </div>
@@ -688,53 +667,13 @@
                                     </asp:UpdatePanel>
                                 </div>
                             </div>
-                            <div class="separator" style="height: 10px;"></div>
-                            <div class="form-group">
-                                <div class="col-md-11">
-                                    <p class="field">
-                                        <!--
-                                    I declare that I have answered all required questions in this application fully and truth fully.<br />
-                                        -->
-
-                                    <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;I approve the refund policy. By signing this application, I do approve the refund policy set for the international students. Please read                          
-                                                    <br />
-                                    <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true" Enabled="true"
-                                        Text="*"  ValidationGroup="signup" ForeColor="Red" Display="Dynamic" Font-Bold="true"
-                                        ClientValidationFunction="CheckBoxRequired_ClientValidate">You must approve to proceed.</asp:CustomValidator>
-                                    </p>
-                                    <span class="label big">Please attach: </span>
-                                    <ul class="list_1">
-                                        <li>Signed refund and cancellation policy for International studies ( 2 documents) 
-                                        </li>
-                                        <li>Photocopies of Certificate/Diploma/Degree of the highest level of education achieved (documents should be in English/French or translated to English)
-                                        </li>
-                                        <li>Photocopy of the proof of English proficiency (valid IELTS or School certificate proving English is the main language (or 75%) as a language of instructions) (not required in case of taking language classes)</li>
-                                        <li>Photocopy of the transcripts (documents should be in English/French or translated to English)</li>
-                                        <li>Documents supporting work experience, if any</li>
-                                        <li>Photocopy of the passport's bio-data page (passport should be valid)</li>
-
-                                    </ul>
-
-
-
-                                    <br />
-                                    <div style="color:red;font-weight:bold;padding-bottom:10px;">
-                                    PLEASE NOTE THE APPLICATION IS NOT COMPLETED UNLESS PAYMENT OF FILLING FEES IS CONFIRMED.
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="separator" style="height: 10px;"></div>
-                            <div class="form-group col-md-12">
-
-
-                                <iframe src="upload.html" style="border: 0; width: 100%;"></iframe>
-
-
-                            </div>
+                            <div class="separator" style="height: 10px;clear:both"></div>
+                            
+                            
 
 
                         </div>
-
+                        
                         <ul class="pager wizard">
                             <div class="separator" style="height: 10px;"></div>
                             <li class="previous first" style="display: none;"><a href="#">First</a></li>
@@ -743,12 +682,7 @@
                             <li class="next finish" style="display: none;">
                                 <asp:LinkButton ID="uiLinkButtonFinish" runat="server" OnClick="uiLinkButtonFinish_Click" ValidationGroup="signup">Finish</asp:LinkButton></li>
                             
-                            
-                                
                         </ul>
-
-                        <asp:LinkButton ID="uiLinkButtonSave" runat="server" OnClick="uiLinkButtonSave_Click" CssClass="btn btn-primary">Save application</asp:LinkButton>
-                        <asp:Label ID="uiLabelSaved" runat="server" Text="Application saved successfully.You can continue later or now." ForeColor="Green" Font-Bold="true" Visible="false"> </asp:Label>
                     </div>
                 </div>
             </div>
@@ -764,7 +698,7 @@
                 </div>
                 <div class="modal-body">
                     Your request is processing. Please wait...
-                    <img src="assets/img/loading.gif" />
+                    <img src="../assets/img/loading.gif" />
                     </div>
             </div>
             <!-- /.modal-content -->
@@ -772,6 +706,4 @@
         <!-- /.modal-dialog -->
     </div>
     </div>
-
-
 </asp:Content>

@@ -12,6 +12,14 @@ namespace EDU.BLL
 		
 		}
 
+        public virtual bool GetAttachmentsForNotSubmittedApplication(int applicationid)
+        {            
+            this.Where.ApplicationStatusID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNull;
+            this.Where.ApplicationDataID.Value = applicationid;
+            this.Where.ApplicationDataID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();            
+        }
+
 
 	}
 }

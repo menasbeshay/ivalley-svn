@@ -26,8 +26,101 @@ namespace EduMontreal
                         Response.Redirect("activate");
                     }
                     LoadDDls();
+                    BindFields();
                 }
                 Master.PageTitle = "Fill an Application";
+            }
+        }
+
+        private void BindFields()
+        {
+            Student student = (Student)Session["CurrentUser"];
+            ApplicationData app = new ApplicationData();
+            app.GetApplicationByStudentID(student.StudentID);
+            if (app.RowCount > 0 && app.IsSubmit == false)
+            {
+                uiTextBoxFamilyName.Text = app.FamilyName;
+                uiTextBoxFirstName.Text = app.FirstName;
+                uiTextBoxMiddleName.Text = app.MiddleName;
+                if(!(app.IsColumnNull("DateOfBirth")))
+                    uiTextBoxDOB.Text = app.DateOfBirth.ToString("dd/MM/yyyy");
+                if (!app.IsColumnNull("CountryOfBirthID"))
+                    uiDropDownListPOB.SelectedValue = app.CountryOfBirthID.ToString(); 
+                
+                uiTextBoxHeight.Text = app.Hieght.ToString();
+                uiTextBoxWeight.Text = app.Weight.ToString();
+
+                uiRadioButtonListGender.SelectedValue = app.GenderID.ToString();
+                if (!(app.IsColumnNull("CitizenShipID")))
+                    uiDropDownListCountry.SelectedValue = app.CitizenShipID.ToString();
+                uiTextBoxPassNo.Text = app.PassportNo ;
+                if(!app.IsColumnNull("PassportExpiryDate"))
+                    uiTextBoxPassExp.Text = app.PassportExpiryDate.ToString("dd/MM/yyyy");
+                if (!app.IsColumnNull("CountryOfIssueID"))
+                    uiDropDownListCOI.SelectedValue = app.CountryOfIssueID.ToString();
+
+                uiTextBoxFaFamilyName.Text = app.FatherFamilyName;
+                uiTextBoxFaFirstName.Text = app.FatherFirstName;
+                uiTextBoxFaOccupation.Text = app.FatherOccupation;
+                uiTextBoxFaHomePhone.Text = app.FatherHomePhone;
+                uiTextBoxFaBusPhone.Text = app.FatherBusinessPhone;
+                uiTextBoxFaMobile.Text = app.FatherCellPhone;
+                uiTextBoxMoFamilyName.Text = app.MotherFamilyName;
+                uiTextBoxMoFirstName.Text = app.MotherFirstName;
+                uiTextBoxMoOccupation.Text = app.MotherOccupation;
+
+                uiTextBoxStreetAddress.Text = app.StreetAddress;
+                if (!app.IsColumnNull("CountryID"))
+                    uiDropDownListAddressCountry.SelectedValue = app.CountryID.ToString();
+                uiTextBoxCity.Text = app.City;
+                uiTextBoxAddTele.Text = app.TelephoneNumber;
+                uiTextBoxAddFax.Text = app.FaxNumber;
+                uiTextBoxEmail.Text = app.Email;
+                uiTextBoxCellphone.Text = app.CellPhone;
+
+                uiTextBoxResAddress.Text = app.ResidentAddress;
+
+                uiTextBoxMDS.Text = app.MasterDegree;
+                uiTextBoxMDUniversity.Text = app.University;
+                if(!app.IsColumnNull("DateOfGraduation"))
+                    uiTextBoxMDDate.Text = app.DateOfGraduation.ToString("dd/MM/yyyy");
+
+                uiTextBoxBach.Text = app.BachelorDegree;
+                uiTextBoxBachUni.Text = app.BachelorUniversity;
+                if (!app.IsColumnNull("BachelorGraduationDate"))
+                    uiTextBoxBachDate.Text = app.BachelorGraduationDate.ToString("dd/MM/yyyy");
+
+                uiTextBoxHighSchool.Text = app.HighScool;
+                uiTextBoxHighCollege.Text = app.HighSchoolCollege;
+                if (!app.IsColumnNull("HighSchoolGradDate"))
+                    uiTextBoxHighDate.Text = app.HighSchoolGradDate.ToString("dd/MM/yyyy");
+
+                uiTextBoxDS.Text = app.DegreeSpecialization;
+                uiTextBoxKOD.Text = app.KindOfDegree;
+                uiTextBoxCS.Text = app.College;
+                if (!app.IsColumnNull("DegreeDateOfGraduation"))
+                    uiTextBoxDDOG.Text = app.DegreeDateOfGraduation.ToString("dd/MM/yyyy");
+
+                if (!app.IsColumnNull("SelectedCourseID"))
+                {
+                    Course course = new Course();
+                    course.LoadByPrimaryKey(app.SelectedCourseID);
+
+                    uiDropDownListLanguage.SelectedValue = course.CourseLangaugeID.ToString();
+
+                    Course courses = new Course();
+                    courses.GetCourseByLanguageID(Convert.ToInt32(uiDropDownListLanguage.SelectedValue));
+                    if (courses.RowCount > 0)
+                        uiDropDownListCourses.DataSource = courses.DefaultView;
+                    else
+                        uiDropDownListCourses.DataSource = null;
+                    uiDropDownListCourses.DataTextField = "DisplayName";
+                    uiDropDownListCourses.DataValueField = Course.ColumnNames.CourseID;
+                    uiDropDownListCourses.DataBind();
+
+                    uiDropDownListCourses.SelectedValue = app.SelectedCourseID.ToString();
+                }
+                
             }
         }
 
@@ -119,15 +212,20 @@ namespace EduMontreal
             Student student = (Student)Session["CurrentUser"];
 
             ApplicationData application = new ApplicationData();
-            application.AddNew();
+            application.GetApplicationByStudentID(student.StudentID);
+            if(application.RowCount == 0)
+                application.AddNew();
 
             application.FamilyName = uiTextBoxFamilyName.Text;
             application.FirstName = uiTextBoxFirstName.Text;
             application.MiddleName = uiTextBoxMiddleName.Text;
             application.DateOfBirth = DateTime.ParseExact(uiTextBoxDOB.Text, "dd/MM/yyyy", null);
             application.CountryOfBirthID = Convert.ToInt32(uiDropDownListPOB.SelectedValue);
-            application.Hieght = double.Parse(uiTextBoxHeight.Text);
-            application.Weight = double.Parse(uiTextBoxWeight.Text);
+            double height, weight = 0;
+            double.TryParse(uiTextBoxHeight.Text, out height);
+            double.TryParse(uiTextBoxWeight.Text, out weight);
+            application.Hieght = height;
+            application.Weight = weight;
             application.GenderID = Convert.ToInt32(uiRadioButtonListGender.SelectedValue);
             application.CitizenShipID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);
             application.PassportNo = uiTextBoxPassNo.Text;
@@ -198,6 +296,7 @@ namespace EduMontreal
             application.EnglishSpeak = Convert.ToInt16(uiHiddenFieldFrenchWritten.Value);
             application.StudentID = student.StudentID;
             application.SelectedCourseID = Convert.ToInt32(uiDropDownListCourses.SelectedValue);
+            application.IsSubmit = true;
             application.Save();
 
 
@@ -217,6 +316,17 @@ namespace EduMontreal
                         attachments.FilePath = item.Value.ToString();
                     }
                     attachments.Save();
+                    attachments.GetAttachmentsForNotSubmittedApplication(application.ApplicationDataID);
+                    if (attachments.RowCount > 0)
+                    {
+                        for (int i = 0; i < attachments.RowCount; i++)
+                        {
+                            attachments.ApplicationStatusID = 3;
+                            attachments.MoveNext();
+                        }
+                        attachments.Save();
+                    }
+                    
                     Session["CurrentUploadedFiles"] = null;
                 }
 
@@ -232,7 +342,7 @@ namespace EduMontreal
             history.ApplicationStatusID = 3; 
             history.Save();
 
-            Response.Redirect("apppayment");
+            Response.Redirect("paymentmethod?start=1");
 
             
         }
@@ -249,6 +359,137 @@ namespace EduMontreal
             uiDropDownListCourses.DataTextField = "DisplayName";
             uiDropDownListCourses.DataValueField = Course.ColumnNames.CourseID;
             uiDropDownListCourses.DataBind();
+        }
+
+        protected void uiLinkButtonSave_Click(object sender, EventArgs e)
+        {
+            Student student = (Student)Session["CurrentUser"];
+
+            ApplicationData application = new ApplicationData();
+            application.GetApplicationByStudentID(student.StudentID);
+            if (application.RowCount == 0)
+                application.AddNew();
+
+            application.FamilyName = uiTextBoxFamilyName.Text;
+            application.FirstName = uiTextBoxFirstName.Text;
+            application.MiddleName = uiTextBoxMiddleName.Text;
+            
+            DateTime DOB;
+            DateTime.TryParseExact(uiTextBoxDOB.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DOB);
+            if (DOB != DateTime.MinValue)
+                application.DateOfBirth = DOB;
+
+            if (uiDropDownListPOB.SelectedIndex != 0)
+                application.CountryOfBirthID = Convert.ToInt32(uiDropDownListPOB.SelectedValue);
+            double height, weight = 0;
+            double.TryParse(uiTextBoxHeight.Text, out height);
+            double.TryParse(uiTextBoxWeight.Text, out weight);
+            application.Hieght = height;
+            application.Weight = weight;
+            application.GenderID = Convert.ToInt32(uiRadioButtonListGender.SelectedValue);
+            if (uiDropDownListCountry.SelectedIndex != 0 )
+                application.CitizenShipID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);
+            application.PassportNo = uiTextBoxPassNo.Text;
+            DateTime PassExp;
+            DateTime.TryParseExact(uiTextBoxPassExp.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out PassExp);
+            if (PassExp != DateTime.MinValue)
+                application.PassportExpiryDate = PassExp;            
+            
+            if (uiDropDownListCOI.SelectedIndex != 0)
+                application.CountryOfIssueID = Convert.ToInt32(uiDropDownListCOI.SelectedValue);
+
+            if (uiFileUploadRecentPhoto.HasFile)
+            {
+                string path = "/files/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadRecentPhoto.FileName;
+                uiFileUploadRecentPhoto.SaveAs(Server.MapPath("~" + path));
+                application.RecentPhotoPath = path;
+            }
+
+            application.FatherFamilyName = uiTextBoxFaFamilyName.Text;
+            application.FatherFirstName = uiTextBoxFaFirstName.Text;
+            application.FatherOccupation = uiTextBoxFaOccupation.Text;
+            application.FatherHomePhone = uiTextBoxFaHomePhone.Text;
+            application.FatherBusinessPhone = uiTextBoxFaBusPhone.Text;
+            application.FatherCellPhone = uiTextBoxFaMobile.Text;
+            application.MotherFamilyName = uiTextBoxMoFamilyName.Text;
+            application.MotherFirstName = uiTextBoxMoFirstName.Text;
+            application.MotherOccupation = uiTextBoxMoOccupation.Text;
+
+            application.StreetAddress = uiTextBoxStreetAddress.Text;
+            if (uiDropDownListAddressCountry.SelectedIndex != 0)
+                application.CountryID = Convert.ToInt32(uiDropDownListAddressCountry.SelectedValue);
+            application.City = uiTextBoxCity.Text;
+            application.TelephoneNumber = uiTextBoxAddTele.Text;
+            application.FaxNumber = uiTextBoxAddFax.Text;
+            application.Email = uiTextBoxEmail.Text;
+            application.CellPhone = uiTextBoxCellphone.Text;
+
+            application.ResidentAddress = uiTextBoxResAddress.Text;
+
+            application.MasterDegree = uiTextBoxMDS.Text;
+            application.University = uiTextBoxMDUniversity.Text;
+            DateTime mdDate;
+            DateTime.TryParseExact(uiTextBoxMDDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out mdDate);
+            if (mdDate != DateTime.MinValue)
+                application.DateOfGraduation = mdDate;
+
+
+            application.BachelorDegree = uiTextBoxBach.Text;
+            application.BachelorUniversity = uiTextBoxBachUni.Text;
+            DateTime baDate;
+            DateTime.TryParseExact(uiTextBoxBachDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out baDate);
+            if (baDate != DateTime.MinValue)
+                application.BachelorGraduationDate = baDate;
+
+            application.HighScool = uiTextBoxHighSchool.Text;
+            application.HighSchoolCollege = uiTextBoxHighCollege.Text;
+            DateTime hDate;
+            DateTime.TryParseExact(uiTextBoxHighDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out hDate);
+            if (hDate != DateTime.MinValue)
+                application.HighSchoolGradDate = hDate;
+
+
+            application.DegreeSpecialization = uiTextBoxDS.Text;
+            application.KindOfDegree = uiTextBoxKOD.Text;
+            application.College = uiTextBoxCS.Text;
+            DateTime dsDate;
+            DateTime.TryParseExact(uiTextBoxDDOG.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dsDate);
+            if (dsDate != DateTime.MinValue)
+                application.DegreeDateOfGraduation = dsDate;
+
+            application.EnglishSpeak = Convert.ToInt16(uiHiddenFieldEnglishSpoken.Value);
+            application.EnglishWritten = Convert.ToInt16(uiHiddenFieldEnglishWritten.Value);
+            application.FrenchSpeak = Convert.ToInt16(uiHiddenFieldFrenchSpoken.Value);
+            application.EnglishSpeak = Convert.ToInt16(uiHiddenFieldFrenchWritten.Value);
+            application.StudentID = student.StudentID;
+            if (uiDropDownListCourses.SelectedIndex != -1)
+                application.SelectedCourseID = Convert.ToInt32(uiDropDownListCourses.SelectedValue);
+            application.IsSubmit = false;
+            application.Save();
+
+
+            if (Session["CurrentUploadedFiles"] != null)
+            {
+                Hashtable Files;
+                Files = (Hashtable)Session["CurrentUploadedFiles"];
+
+                if (Files.Count > 0)
+                {
+                    ApplicationAttachment attachments = new ApplicationAttachment();
+                    foreach (DictionaryEntry item in Files)
+                    {
+                        attachments.AddNew();
+                        attachments.ApplicationDataID = application.ApplicationDataID;                        
+                        attachments.FilePath = item.Value.ToString();
+                    }
+                    attachments.Save();
+                    Session["CurrentUploadedFiles"] = null;
+                }
+
+            }
+
+            uiLabelSaved.Visible = true;
+            
         }
     }
 }

@@ -8,8 +8,10 @@
             var objData = JSON.parse(response);
             if (objData.error == undefined) {
                 if (objData.result == 'approved') {
-                    $('#ResponseSuccess').css('display', 'block');
-                    $('#trxid').html(objData.transaction_id);
+                    /*$('#ResponseSuccess').css('display', 'block');
+                    $('#trxid').html(objData.transaction_id);*/
+                    window.location.href = "http://application.edumontreal.ca/success?trx=" + objData.transaction_id;
+                    //window.location.href = "http://localhost:2158/success?trx=" + objData.transaction_id;
                 }
                 else if (objData.result == 'declined' || objData.result_bool == false) {
                     $('#ResponseFail').css('display', 'block');
@@ -79,12 +81,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">1-	By Credit Card </a>
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">	By Credit Card </a>
                         </h4>
                     </div>
                     <div id="collapse_1" class="panel-collapse in">
                         <div class="panel-body">
-                            <section class="form-horizontal">
+                            <section class="form-horizontal" style="position:relative;">
 
                                 <div class="form-body">
 
@@ -206,13 +208,14 @@
                                     </div>
                                 </div>
 
+                                <img src="Images/CreditCardSecurity_43.jpg" style="position:absolute;right:10%;max-width:200px;top:30px;" />
                             </section>
 
                             
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <%--<div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">2-	By Wire Transfer from your local bank  </a>
@@ -255,7 +258,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </div>
         </div>
 
