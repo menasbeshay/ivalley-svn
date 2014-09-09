@@ -152,7 +152,7 @@
             -webkit-border-radius: 5px !important;
             background-color: #e5c593 !important;
             padding: 10px !important;
-            float: right !important;
+            
             clear: both !important;
             display: block !important;
             color: #7e2e30 !important;
@@ -544,8 +544,8 @@
 
                                                             <asp:Repeater ID="dlImages" runat="server" OnItemDataBound="dlImages_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a href="Files/Products/<%# Eval("ImageFile") %>" data-thumbnail="Files/Products/<%# Eval("ImageFile") %>" data-description="" title=""></a>
-                                                                    <a class="<%# Eval("ProductAlbumId") %>" href="Files/Products/<%# Eval("ImageFile") %>" data-fancybox-group="gallery_<%# Eval("ProductAlbumId") %>">
+                                                                    <a href="../Files/Products/<%# Eval("ImageFile") %>" data-thumbnail="../Files/Products/<%# Eval("ImageFile") %>" data-description="" title=""></a>
+                                                                    <a class="<%# Eval("ProductAlbumId") %>" href="../Files/Products/<%# Eval("ImageFile") %>" data-fancybox-group="gallery_<%# Eval("ProductAlbumId") %>">
                                                                         <asp:Image ID="imgAlbum" CssClass="porimg" runat="server" />
                                                                     </a>
                                                                 </ItemTemplate>
@@ -978,7 +978,7 @@
                                         <asp:TextBox ID="txtMessage" placeholder="Message Content" TextMode="MultiLine" Rows="5" runat="server" />
                                     </div>
                                     <div>
-                                        <asp:Button ID="btnSend" Text="Send" runat="server" />
+                                        <asp:Button ID="btnSend" Text="Send" CssClass="sendbtn" runat="server" />
                                     </div>
                                 </div>
                             </form>
