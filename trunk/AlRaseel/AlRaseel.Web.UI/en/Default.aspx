@@ -460,9 +460,9 @@
                             <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
 
                                 <div id="prod_details_back" style="margin-top: -30px; position: absolute; z-index: 100;">
-                            <a id="backLink" href="#section-our-service" class=" prodnav cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: left; clear: both; display: block;">Back to products</a>
-                            <div class="clear clearfix" style="height: 5px; width: 100%"></div>
-                        </div>
+                                    <a id="backLink" href="#section-our-service" class=" prodnav cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: left; clear: both; display: block;">Back to products</a>
+                                    <div class="clear clearfix" style="height: 5px; width: 100%"></div>
+                                </div>
 
                                 <header class="parallax-header pt-style-2">
                                     <h2 class="parallax-title" style="background: #7e2e30;"><span>
@@ -827,117 +827,113 @@
         </div>
         <!-- close main-content-background -->
 
-        <section id="contact-section" data-effect="fadeIn" class="contact-section  prod entry-content normal-background  light prod ">
+        <section id="contact-section" data-effect="fadeIn" class="parallax-content  prod entry-content normal-background  light ">
 
             <a class="ut-offset-anchor" id="section-contact"></a>
 
+            <div class="grid-container parallax-content">
 
 
-            <div class="">
+                <!-- parallax header -->
+                <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                    <header class="parallax-header pt-style-2">
+
+                        <h2 class="parallax-title" style=""><span> Contact With Al Raseel </span></h2>
 
 
-                <div class="grid-container parallax-content">
-
-
-                    <!-- parallax header -->
-                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-                        <header class="parallax-header pt-style-2">
-
-                            <h2 class="parallax-title" style=""><span>Al Raseel - Flooring with unique concepts</span></h2>
-
-
-                        </header>
-                    </div>
-                    <!-- close parallax header -->
-
-                    <div class="clear"></div>
-
-
+                    </header>
                 </div>
-                <div class="grid-container section-content">
+                <!-- close parallax header -->
 
-                    <!-- contact wrap -->
-                    <div class="grid-100 mobile-grid-100 tablet-grid-100">
-                        <div class="contact-wrap">
+                <div class="clear"></div>
 
 
-                            <!-- contact message -->
-                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-                                <div class="ut-left-footer-area clearfix" style="float: left; width: 350px;">
+            </div>
+            <div class="grid-container parallax-content">
 
-                                    <h2 style="text-align: center;">
-                                        <a href="#">
-                                            <asp:Literal ID="lblContactPhone" runat="server" />
-                                        </a></h2>
-                                    <p style="text-align: center;">
-                                        <asp:Literal ID="lblcontactWorkHours" runat="server" />
-                                    </p>
-                                    <h2 style="text-align: center;">Email Us </h2>
-                                    <p style="text-align: center;">
-                                        <a href="../mailto:#">
-                                            <asp:Literal ID="lblContactEmail" runat="server" /></a>
-                                    </p>
+                <!-- contact wrap -->
+                <div class="grid-100 mobile-grid-100 tablet-grid-100">
+                    <div class="contact-wrap">
 
-                                    <h2 style="text-align: center;">Fax </h2>
-                                    <h2 style="text-align: center; direction: ltr">
-                                        <asp:Literal ID="lblContactFax" runat="server" /></h2>
 
-                                    <h2 style="text-align: center;">Visit Us</h2>
-                                    <p style="text-align: center;">
-                                        <asp:Literal ID="lblContactAddress" runat="server" />
-                                    </p>
-                                    <h2 style="text-align: center;">Get Connected</h2>
-                                    <p style="text-align: center;">You can find us at</p>
-                                    <p style="text-align: center;">
-                                        <span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-twitter fa-stack-1x" style="color: #e5c593"></i></a></span><span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-facebook fa-stack-1x" style="color: #e5c593"></i></a></span>
+                        <!-- contact message -->
+                        <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                            <div class="ut-left-footer-area clearfix" style="float: left; width: 350px;">
 
-                                </div>
-                                <div>
-                                    <label style="float: right;">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="478" frameborder="0" style="border: 0"></iframe>
-                                    </label>
-                                </div>
+                                <h2 style="text-align: center;">
+                                    <a href="#">
+                                        <asp:Literal ID="lblContactPhone" runat="server" />
+                                    </a></h2>
+                                <p style="text-align: center;">
+                                    <asp:Literal ID="lblcontactWorkHours" runat="server" />
+                                </p>
+                                <h2 style="text-align: center;">Email Us </h2>
+                                <p style="text-align: center;">
+                                    <a href="../mailto:#">
+                                        <asp:Literal ID="lblContactEmail" runat="server" /></a>
+                                </p>
 
+                                <h2 style="text-align: center;">Fax </h2>
+                                <h2 style="text-align: center; direction: ltr">
+                                    <asp:Literal ID="lblContactFax" runat="server" /></h2>
+
+                                <h2 style="text-align: center;">Visit Us</h2>
+                                <p style="text-align: center;">
+                                    <asp:Literal ID="lblContactAddress" runat="server" />
+                                </p>
+                                <h2 style="text-align: center;">Get Connected</h2>
+                                <p style="text-align: center;">You can find us at</p>
+                                <p style="text-align: center;">
+                                    <span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-twitter fa-stack-1x" style="color: #e5c593"></i></a></span><span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-facebook fa-stack-1x" style="color: #e5c593"></i></a></span>
 
                             </div>
-                            <!-- close contact message -->
+                            <div>
+                                <label style="float: right;">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="478" frameborder="0" style="border: 0"></iframe>
+                                </label>
+                            </div>
+
+
                         </div>
+                        <!-- close contact message -->
                     </div>
-                    <!-- close contact wrap -->
-                    <div class="prefix-15">
+                </div>
+                <!-- close contact wrap -->
+                <div class="prefix-15">
 
-                        <div>
-                            <form id="contactForm" runat="server">
-                                <div style="width: 793px; margin: 0 auto; margin-left: 17px;">
-                                    <div>
-                                        <asp:TextBox ID="txtName" placeholder="Name" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtSubject" placeholder="Subject" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtEmail" placeholder="E-mail" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtMobile" placeholder="Mobile" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtMessage" placeholder="Message Content" TextMode="MultiLine" Rows="5" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:Button ID="btnSend" Text="Send" runat="server" />
-                                    </div>
+                    <div>
+                        <form id="contactForm" runat="server">
+                            <div style="width: 793px; margin: 0 auto; margin-left: 17px;">
+                                <div>
+                                    <asp:TextBox ID="txtName" placeholder="Name" runat="server" />
                                 </div>
-                            </form>
-
-                        </div>
+                                <div>
+                                    <asp:TextBox ID="txtSubject" placeholder="Subject" runat="server" />
+                                </div>
+                                <div>
+                                    <asp:TextBox ID="txtEmail" placeholder="E-mail" runat="server" />
+                                </div>
+                                <div>
+                                    <asp:TextBox ID="txtMobile" placeholder="Mobile" runat="server" />
+                                </div>
+                                <div>
+                                    <asp:TextBox ID="txtMessage" placeholder="Message Content" TextMode="MultiLine" Rows="5" runat="server" />
+                                </div>
+                                <div>
+                                    <asp:Button ID="btnSend" Text="Send" runat="server" />
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
 
                 </div>
-                <!-- close container -->
+
             </div>
+            <!-- close container -->
             <!-- parallax overlay -->
+            <div class="ut-scroll-up-waypoint" data-section="section-contact"></div>
+
         </section>
         <div class="clear"></div>
         <!-- Footer Section -->

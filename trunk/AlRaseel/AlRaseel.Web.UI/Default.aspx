@@ -191,7 +191,7 @@
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">المنتجات</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">الالوان </a></li>
-                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">اتصل بنا</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-contact" class="">اتصل بنا</a></li>
 
                         </ul>
                     </nav>
@@ -207,7 +207,7 @@
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">عن الرسيل</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">المنتجات</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">الالوان </a></li>
-                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">اتصل بنا</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-contact" class="">اتصل بنا</a></li>
 
                             </ul>
                         </div>
@@ -856,15 +856,9 @@
 
 
 
-        <section id="contact-section" data-effect="fadeIn" class="contact-section  prod entry-content normal-background  light prod ">
+        <section id="contact-section" data-effect="fadeIn" class="parallax-content  prod entry-content normal-background  light">
 
             <a class="ut-offset-anchor" id="section-contact"></a>
-
-
-
-            <div class="">
-
-
                 <div class="grid-container parallax-content">
 
 
@@ -872,7 +866,7 @@
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
                         <header class="parallax-header pt-style-2">
 
-                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>الرسيل - أرضيات بمفاهيم متميّزة</span></h2>
+                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span> تواصل مع الرسيل </span></h2>
 
 
                         </header>
@@ -883,7 +877,7 @@
 
 
                 </div>
-                <div class="grid-container section-content">
+                <div class="grid-container parallax-content">
 
                     <!-- contact wrap -->
                     <div class="grid-100 mobile-grid-100 tablet-grid-100">
@@ -967,12 +961,7 @@
 
                 </div>
                 <!-- close container -->
-
-
-            </div>
-
             <!-- parallax overlay -->
-
 
         </section>
 
