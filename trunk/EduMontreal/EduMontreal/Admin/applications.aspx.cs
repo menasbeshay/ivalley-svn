@@ -86,7 +86,7 @@ namespace WebApplication.Admin
             ApplicationStatusHistory history = new ApplicationStatusHistory();
             history.GetApplicationStatusHistorybyApplicationDataID(CurrentApp);
 
-            if (history.ApplicationStatusID == 4) // Tuition  Fees
+            if (history.ApplicationStatusID == 4 || history.ApplicationStatusID == 5) // Tuition  Fees
             {
                 uiPanelFees.Visible = true;
             }
@@ -185,6 +185,12 @@ namespace WebApplication.Admin
 
                 Student student = new Student ();
                 student.LoadByPrimaryKey(app.StudentID);
+
+                Course course = new Course();
+                course.LoadByPrimaryKey(app.SelectedCourseID);
+
+                CourseLangauge lang = new CourseLangauge();
+                lang.LoadByPrimaryKey(course.CourseLangaugeID);
                 if (template.RowCount > 0)
                 {
                     try
@@ -194,11 +200,11 @@ namespace WebApplication.Admin
                         string mailto = app.Email;
                         msg.To.Add(mailto);
                         msg.From = new MailAddress(mail);
-                        msg.Subject = template.Subject;
+                        msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' '); 
                         msg.IsBodyHtml = true;
                         msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                        msg.Body = string.Format(Server.HtmlDecode(template.Body), student.FirstName + " " + student.FamilyName, student.Email);
+                        msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge);
 
                         // attachments
                         if (Session["CurrentUploadedFiles"] != null)

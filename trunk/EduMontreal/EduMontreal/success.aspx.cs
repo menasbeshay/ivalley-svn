@@ -20,7 +20,7 @@ namespace EduMontreal
                 {
                     uiLabeltrx.Text = Request.QueryString["trx"].ToString();
 
-                    Student student = (Student)Session["CurrentStudent"];
+                    Student student = (Student)Session["CurrentUser"];
 
                     ApplicationData app = new ApplicationData();
                     app.GetApplicationByStudentID(student.StudentID);
@@ -40,11 +40,11 @@ namespace EduMontreal
                             string mailto = app.Email;
                             msg.To.Add(mailto);
                             msg.From = new MailAddress(mail);
-                            msg.Subject = template.Subject;
+                            msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' '); 
                             msg.IsBodyHtml = true;
                             msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                            msg.Body = string.Format(Server.HtmlDecode(template.Body), student.FirstName + " " + student.FamilyName, student.Email);
+                            msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email);
                             
                             SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
 
