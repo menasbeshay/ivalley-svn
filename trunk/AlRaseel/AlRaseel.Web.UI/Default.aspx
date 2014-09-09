@@ -156,6 +156,7 @@
             display: block !important;
             color: #7e2e30 !important;
             width: 100px !important;
+            font-family: 'Al-Jazeera-Arabic-Regular' !important;
         }
     </style>
 
@@ -905,15 +906,12 @@
             <div class="clear"></div>
 
 
-            <%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class="page-id-2879 entry-content normal-background  light  ">
+<%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class=" prod page-id-2879 entry-content normal-background  light  ">
 
                 <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
 
-
-
                 <div class="parallax-overlay parallax-overlay-pattern ">
                 </div>
-
 
                 <div class="ut-scroll-up-waypoint" data-section="section-some-of-the-clients-we-work-with" data-parent="section-work"></div>
 

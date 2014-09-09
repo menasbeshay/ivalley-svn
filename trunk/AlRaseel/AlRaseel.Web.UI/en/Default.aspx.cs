@@ -141,7 +141,7 @@ namespace Web.UI.en
                 if (e.Item.ItemIndex == 0)
                 {
 
-                    imgs.ImageUrl = "Files/Products/" + row["ImageFile"].ToString();
+                    imgs.ImageUrl = "../Files/Products/" + row["ImageFile"].ToString();
                     imgs.Visible = true;
                 }
                 else
