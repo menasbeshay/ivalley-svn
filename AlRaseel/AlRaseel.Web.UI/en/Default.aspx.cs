@@ -122,7 +122,7 @@ namespace Web.UI.en
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                AlbumImagesRepository _rpoAlbumImages= new AlbumImagesRepository();
+                AlbumImagesRepository _rpoAlbumImages = new AlbumImagesRepository();
 
                 DataRowView row = (DataRowView)e.Item.DataItem;
                 //tring varAlbumId = ((Label)e.Item.FindControl("lblAlbumId")).Text;
@@ -132,6 +132,27 @@ namespace Web.UI.en
             }
 
         }
+        protected void dlImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                Image imgs = (Image)e.Item.FindControl("imgAlbum");
+                if (e.Item.ItemIndex == 0)
+                {
+
+                    imgs.ImageUrl = "Files/Products/" + row["ImageFile"].ToString();
+                    imgs.Visible = true;
+                }
+                else
+                {
+                    imgs.Visible = false;
+                }
+
+            }
+
+        }
+
 
 
         protected void rptrProductsSections_ItemDataBound(object sender, RepeaterItemEventArgs e)
