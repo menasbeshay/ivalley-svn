@@ -25,12 +25,24 @@ namespace EduMontreal.Admin
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (AppDataID != 0)
+            if (!IsPostBack)
             {
-                ApplicationData app = new ApplicationData ();
-                app.GetApplication_print(AppDataID);
-                uiReportViewer.LocalReport.DataSources.Add(app.DefaultView);
-                uiReportViewer.LocalReport.Refresh();
+                if (AppDataID != 0)
+                {
+                    ApplicationData app = new ApplicationData();
+                    app.GetApplication_print(AppDataID);
+
+                    uiReportViewer.LocalReport.ReportPath = "admin/application.rdlc";
+                    uiReportViewer.LocalReport.EnableExternalImages = true;
+
+                    uiReportViewer.LocalReport.DataSources.Clear();
+
+                    uiReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AppDataSet", app.DefaultView));
+
+                    string path = "file:///" + Server.MapPath("~" + app.RecentPhotoPath);
+                    uiReportViewer.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("ImagePath", path));
+                    uiReportViewer.LocalReport.Refresh();
+                }
             }
         }
     }

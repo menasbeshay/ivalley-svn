@@ -24,7 +24,7 @@ namespace EDU.BLL
         public virtual bool GetApplication_print(int ApplicationDataID)
         {
             ListDictionary parameters = new ListDictionary();
-            parameters.Add(new SqlParameter("@ApplicationDataID", SqlDbType.UniqueIdentifier, 0), ApplicationDataID);
+            parameters.Add(new SqlParameter("@ApplicationDataID", SqlDbType.Int, 0), ApplicationDataID);
             return LoadFromSql("GetApplication_print", parameters);
         }
 
