@@ -330,7 +330,7 @@
                             </li>
                             <li id="msgmain" class="MenuItem" title="رسائلى" data-placement="left">
                                 <i class="icon icon-envelope-alt" style="font-size: 25px;"><span class="badge" id="msgCount_<%= MemberID%>"></span></i>
-                                <a href="../Messages.aspx" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
+                                <a onclick="OpenPopup('Messages_popup.aspx','رسائلى');" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
                             </li>
                             <li id="actionsmain" class="MenuItem" title="إجراءات" data-placement="left">
                                 <i class="icon icon-cogs" style="font-size: 36px;"></i>
@@ -425,6 +425,7 @@
             <script src="../js/bootstrap-tagsinput.min.js"></script>
             <%--<script src="../js/typeahead.bundle.js"></script>--%>
             <script src="../js/bootstrap-typeahead.js"></script>
+            <script src="../js/popups.js"></script>
             <!-- End js -->
             <asp:HiddenField ID="uiHiddenFieldClientID" runat="server" />
 
@@ -469,6 +470,23 @@
                         </div>
                         <div class="modal-footer center">
                             <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="btnSaveHelpRequest" ValidationGroup="validateHelp" Style="text-decoration: none;" OnClick="btnSaveHelpRequest_Click">إرسال</asp:LinkButton>
+                            <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="GeneralModalPage" class="modal fade " role="modal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style="height:35px">
+                            <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                            <span id="GMP_Title"></span>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="GMP_Content" style="width:100%;min-height:450px;"></iframe>
+                        </div>
+                        <div class="modal-footer center">                            
                             <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>
                         </div>
                     </div>

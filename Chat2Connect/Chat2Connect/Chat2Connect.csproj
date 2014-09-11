@@ -123,6 +123,7 @@
     </Content>
     <Content Include="createRoom.aspx" />
     <Content Include="createTempRoom.aspx" />
+    <Content Include="css\base_popup.css" />
     <Content Include="css\base - Copy.css" />
     <Content Include="css\base.css" />
     <Content Include="css\blueimp-gallery.min.css" />
@@ -619,6 +620,7 @@
     <Content Include="js\fileupload\main.js" />
     <Content Include="images\Upload.png" />
     <Content Include="js\fileupload\vendor\jquery.ui.widget.js" />
+    <Content Include="js\popups.js" />
     <Content Include="js\resetpass.js" />
     <Content Include="js\tags\tag-it.js" />
     <Content Include="js\tags\textext.core.js" />
@@ -633,6 +635,7 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
+    <Content Include="PopupPages\Messages_popup.aspx" />
     <Content Include="resetpass.aspx" />
     <Content Include="Roombots.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
@@ -1082,6 +1085,13 @@
     <Compile Include="MasterPages\MessageMaster.master.designer.cs">
       <DependentUpon>MessageMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\Popup.Master.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Popup.Master.designer.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+    </Compile>
     <Compile Include="Messages.aspx.cs">
       <DependentUpon>Messages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1095,6 +1105,13 @@
     </Compile>
     <Compile Include="MyBalance.aspx.designer.cs">
       <DependentUpon>MyBalance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupPages\Messages_popup.aspx.cs">
+      <DependentUpon>Messages_popup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupPages\Messages_popup.aspx.designer.cs">
+      <DependentUpon>Messages_popup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -1370,6 +1387,7 @@
     <Content Include="js\jquery-1.11.1.min.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MasterPages\Popup.Master" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
