@@ -34,6 +34,8 @@
                         Applicant Data
                     </h4>
                     <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn btn-primary pull-right" OnClick="uiLinkButtonBack_Click">Back to applications</asp:LinkButton>
+                    <div class="clearfix" style="height:1px;clear:both;"></div>
+                    <asp:LinkButton ID="uiLinkButtonPrint" runat="server" CssClass="btn btn-primary pull-right" OnClick="uiLinkButtonPrint_Click">Print applications</asp:LinkButton>
                     <div class="col-lg-2 pull-right" style="position:absolute;top:20px;right:14%;">
                         
                             <asp:Image ID="uiImageMain" runat="server" CssClass="thumbnail" style="max-height:100px;"/>

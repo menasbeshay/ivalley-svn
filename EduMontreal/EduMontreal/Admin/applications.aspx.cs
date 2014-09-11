@@ -158,6 +158,11 @@ namespace WebApplication.Admin
             uiPanelApplicationDetails.Visible = false;
         }
 
+        protected void uiLinkButtonPrint_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("printapplication?AppDataID=" + CurrentApp.ToString());
+        }
+
         protected void uiLinkButtonUpdate_Click(object sender, EventArgs e)
         {
             if (uiDropDownListStatus.SelectedIndex != 0 || uiDropDownListStatus.SelectedIndex != -1)

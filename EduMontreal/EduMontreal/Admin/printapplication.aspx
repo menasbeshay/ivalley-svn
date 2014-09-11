@@ -4,12 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <rsweb:ReportViewer ID="uiReportViewer" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="600px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="95%">
-        <LocalReport ReportEmbeddedResource="EduMontreal.Admin.application.rdlc">
-            <DataSources>
-                <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="AppDataSet" />
-            </DataSources>
-        </LocalReport>
-    </rsweb:ReportViewer>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData" TypeName="EduMontrealDataSetTableAdapters.GetApplication_printTableAdapter"></asp:ObjectDataSource>
+    <rsweb:ReportViewer ID="uiReportViewer" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="600px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="95%" >       
+    </rsweb:ReportViewer>    
 </asp:Content>

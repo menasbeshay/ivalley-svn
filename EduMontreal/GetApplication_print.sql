@@ -17,3 +17,4 @@ Left Join Country Ciz on A.CitizenShipID = Ciz.CountryID
 Left Join Country COI on A.CountryOfIssueID = COI.CountryID
 Left Join Country CO on A.CountryID = CO.CountryID		
 Where ApplicationDataId = @ApplicationDataID
+
