@@ -31,7 +31,7 @@
     </div>
 </div>
 <div class="row">
-    <div class=" pull-right" style="width: 15%;">
+    <div class=" pull-right col-lg-2" >
         <asp:Repeater ID="repMemberFolders" runat="server">
             <ItemTemplate>
                 <div class="clearfix" style="height: 5px;"></div>
@@ -52,10 +52,10 @@
         </div>
         <div class="clearfix" style="height: 5px;"></div>
     </div>
-    <div class="pull-right form-group" style="width: 85%">
+    <div class="pull-right col-sm-9" >
         <asp:Panel ID="pnlViewMessages" runat="server">
             <div style="padding: 0px;">
-                <div class="row">
+                <div class="col-sm-12">
                     <div class="btn-group" style="padding-right: 20px;">
                         <a id="lnkReply" data-message="" href="#" class="btn btn-default">
                     رد
@@ -92,7 +92,7 @@
                         </asp:Repeater>
                     </div>
                 </div>
-                <div class="row">
+                <div class="col-lg-12">
                     <div class="col-lg-5 pull-right" style="padding-left:0px;">
                         <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
                             <asp:GridView ID="grdMessages" runat="server" CssClass="table table-hover" EmptyDataText="لا توجد رسائل فى هذا المجلد" AutoGenerateColumns="False" AllowPaging="true" PageSize="25" OnPageIndexChanging="grdMessages_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
@@ -124,9 +124,9 @@
                             </asp:GridView>
                         </div>
                     </div>
-                    <div class="col-lg-7 pull-right">
+                    <div class="col-sm-6 pull-right">
                         <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
-                            <div id="dvMessageDetails" width="100%"></div>
+                            <div id="dvMessageDetails" style="width:100%"></div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 <script src="../js/advanced.js"></script>
 <link href="../css/token-input-facebook.css" rel="stylesheet" />
 <div class="form-horizontal blockBox">
-    <div class="row">
+    <div class="col-sm-11">
         <div class="col-sm-2 pull-right">
             <label>من </label>
         </div>
@@ -14,7 +14,7 @@
 
     </div>
     <div class="clearfix" style="height: 10px;"></div>
-    <div class="row">
+    <div class="col-sm-11">
         <div class="col-sm-2 pull-right">
             <label>إرسال إلى </label>
         </div>
@@ -26,7 +26,7 @@
 
     <div class="clearfix" style="height: 10px;"></div>
 
-    <div class="row">
+    <div class="col-sm-11">
         <div class="col-sm-2 pull-right">
             <label>عنوان الرسالة</label>
         </div>
@@ -38,7 +38,7 @@
 
     <div class="clearfix" style="height: 10px;"></div>
 
-    <div class="row">
+    <div class="col-sm-11">
         <div class="col-sm-2 pull-right">
             <label>المحتوى </label>
         </div>
@@ -592,7 +592,7 @@
         </div>
     </div>
     <div class="clearfix" style="height: 10px;"></div>
-    <div class="row">
+    <div class="col-sm-11">
         <div class="col-sm-2 pull-right">
         </div>
         <div class="col-sm-8 pull-right">
