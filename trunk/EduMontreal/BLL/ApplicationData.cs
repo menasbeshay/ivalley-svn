@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Specialized;
+using System.Data;
+using System.Data.SqlClient;
 using EDU.DAL;
 namespace EDU.BLL
 {
@@ -17,6 +19,13 @@ namespace EDU.BLL
         {
             ListDictionary parameters = new ListDictionary();
             return LoadFromSql("GetAllApplications", parameters);
+        }
+
+        public virtual bool GetApplication_print(int ApplicationDataID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ApplicationDataID", SqlDbType.UniqueIdentifier, 0), ApplicationDataID);
+            return LoadFromSql("GetApplication_print", parameters);
         }
 
         public virtual bool GetApplicationByStudentID(int studentId)

@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MyGeneration.dOOdads, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\MyGeneration.dOOdads.dll</HintPath>
@@ -123,6 +124,7 @@
     <Content Include="Admin\assets\img\flags\us.png" />
     <Content Include="Admin\assets\img\logo.png" />
     <Content Include="Admin\assets\img\menu-toggler.png" />
+    <Content Include="Admin\printapplication.aspx" />
     <Content Include="apply.aspx" />
     <Content Include="AppPayment.aspx" />
     <Content Include="ar\activate.aspx" />
@@ -2156,6 +2158,17 @@
     <Content Include="files\Refund Policy Agreement.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="EduMontrealDataSet.xsc">
+      <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="EduMontrealDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EduMontrealDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="EduMontrealDataSet.xss">
+      <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\EduMontreal-SVN.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -2209,6 +2222,13 @@
     </Compile>
     <Compile Include="Admin\applications.aspx.designer.cs">
       <DependentUpon>applications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\printapplication.aspx.cs">
+      <DependentUpon>printapplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\printapplication.aspx.designer.cs">
+      <DependentUpon>printapplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="apply.aspx.cs">
       <DependentUpon>apply.aspx</DependentUpon>
@@ -2366,6 +2386,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EduMontrealDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FileUploader.ashx.cs">
       <DependentUpon>FileUploader.ashx</DependentUpon>
     </Compile>
@@ -2478,6 +2503,9 @@
       <Project>{ecfb6d53-875c-491d-ba22-54d77d672ab8}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Admin\application.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
