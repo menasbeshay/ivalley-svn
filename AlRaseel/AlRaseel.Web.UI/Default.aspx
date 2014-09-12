@@ -906,7 +906,7 @@
             <div class="clear"></div>
 
 
-<%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class=" prod page-id-2879 entry-content normal-background  light  ">
+            <%--            <section id="some-of-the-clients-we-work-with" data-effect="fadeIn" data-width="centered" class=" prod page-id-2879 entry-content normal-background  light  ">
 
                 <a class="ut-offset-anchor" data-parent="section-work" id="section-some-of-the-clients-we-work-with"></a>
 
@@ -944,7 +944,7 @@
                     <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
                         <header class="parallax-header pt-style-2">
 
-                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>الرسيل - أرضيات بمفاهيم متميّزة</span></h2>
+                            <h2 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>تواصل مع الرسيل </span></h2>
 
 
                         </header>
@@ -963,11 +963,11 @@
 
 
                             <!-- contact message -->
-                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
-                                <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; float: left; width: 350px;">
+                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100" style="width:1100px;margin-bottom: 75px;margin-top: -40px;">
+                                <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; float: left; width: 350px; margin-left: -130px;margin-right: 20px;">
 
                                     <h2 style="text-align: center; direction: ltr">
-                                        <a href="#">
+                                       <a href="#" style="color: #e5c593; text-decoration:underline;">
                                             <asp:Literal ID="lblContactPhone" runat="server" /></a></h2>
                                     <p style="text-align: center;">
                                         <asp:Literal ID="lblcontactWorkHours" runat="server" />
@@ -980,7 +980,9 @@
 
                                     <h2 style="text-align: center; font-family: 'Droid Arabic Kufi'!important;">فاكس </h2>
                                     <h2 style="text-align: center; direction: ltr">
-                                        <asp:Literal ID="lblContactFax" runat="server" /></h2>
+                                       <a href="#" style="color: #e5c593; text-decoration:underline;">
+                                            <asp:Literal ID="lblContactFax" runat="server" />
+                                        </a></h2>
 
                                     <h2 style="text-align: center; font-family: 'Droid Arabic Kufi'!important;">العنوان</h2>
                                     <p style="text-align: center;">
@@ -992,11 +994,37 @@
                                         <span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-twitter fa-stack-1x" style="color: #e5c593"></i></a></span><span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-facebook fa-stack-1x" style="color: #e5c593"></i></a></span>
 
                                 </div>
-                                <div>
+                                <div style="float: left;margin-right: 20px;">
                                     <label>
                                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="478" frameborder="0" style="border: 0"></iframe>
                                     </label>
                                 </div>
+                                <div style="float: left;width: 350px;">
+                                    <form id="contactForm" runat="server">
+                                        <div style="font-family: 'Droid Arabic Kufi'!important;">
+                                            <div>
+                                                <asp:TextBox ID="txtName" placeholder="الاسم" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtEmail" placeholder="البريد الالكترونى" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtMobile" placeholder="رقم الجوال" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="12" runat="server" />
+                                            </div>
+                                            <div>
+                                                <asp:Button ID="btnSend" Text="ارسال" CssClass="sendbtn" runat="server" />
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
                             </div>
                             <!-- close contact message -->
 
@@ -1006,37 +1034,10 @@
 
                     </div>
                     <!-- close contact wrap -->
-                    <div class="prefix-15">
-
-                        <div>
-                            <form id="contactForm" runat="server">
-                                <div style="width: 793px; margin: 0 auto; margin-left: 10px; font-family: 'Droid Arabic Kufi'!important;">
-                                    <div>
-                                        <asp:TextBox ID="txtName" placeholder="الاسم" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtSubject" placeholder="الموضوع" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtEmail" placeholder="البريد الالكترونى" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtMobile" placeholder="رقم الجوال" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:TextBox ID="txtMessage" placeholder="الرسالة" TextMode="MultiLine" Rows="5" runat="server" />
-                                    </div>
-                                    <div>
-                                        <asp:Button ID="btnSend" Text="ارسال" CssClass="sendbtn" runat="server" />
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-
-                    </div>
+                    <%--                    <div class="prefix-15">
 
 
+                    </div>--%>
                 </div>
                 <!-- close container -->
 
