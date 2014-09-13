@@ -143,7 +143,7 @@ namespace DAL
 			{
 				get
 				{
-					return new SqlParameter("@IsEnabled", SqlDbType.NChar, 10);
+					return new SqlParameter("@IsEnabled", SqlDbType.Bit, 0);
 				}
 			}
 			
@@ -326,15 +326,15 @@ namespace DAL
 			}
 		}
 
-		public virtual string IsEnabled
+		public virtual bool IsEnabled
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.IsEnabled);
+				return base.Getbool(ColumnNames.IsEnabled);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.IsEnabled, value);
+				base.Setbool(ColumnNames.IsEnabled, value);
 			}
 		}
 
@@ -458,14 +458,14 @@ namespace DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IsEnabled) ? string.Empty : base.GetstringAsString(ColumnNames.IsEnabled);
+				return this.IsColumnNull(ColumnNames.IsEnabled) ? string.Empty : base.GetboolAsString(ColumnNames.IsEnabled);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.IsEnabled);
 				else
-					this.IsEnabled = base.SetstringAsString(ColumnNames.IsEnabled, value);
+					this.IsEnabled = base.SetboolAsString(ColumnNames.IsEnabled, value);
 			}
 		}
 

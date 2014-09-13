@@ -13,6 +13,14 @@ namespace BLL
 		
 		}
 
+        public bool LoadAllWithPoints()
+        {
+            return LoadFromRawSql(String.Format(@"select Bot.*,BotPoints.Points
+                                                  From Bot
+	                                                    INNER JOIN BotPoints ON Bot.ID=BotPoints.BotID
+                                                  WHERE Bot.RowStatusID={0}", (int)Helper.Enums.RowStatus.Enabled));
+        }
+
         public Info.Bot GetInfoByPrimaryKey(int botID)
         {
             Info.Bot infoBot = new Info.Bot();

@@ -43,7 +43,7 @@ namespace BLL
             infoRoomBot.RoomBotID = ID;
             infoRoomBot.RoomID = RoomID;
             infoRoomBot.BotID = BotID;
-            //infoRoomBot.IsActive=IsEnabled;
+            infoRoomBot.IsActive=IsEnabled;
             infoRoomBot.ShortcutKey = ShortcutKey;
 
             infoRoomBot.Bot = new BLL.Bot().GetInfoByPrimaryKey(BotID);
@@ -67,7 +67,7 @@ namespace BLL
                             BLL.WelcomBot bllWelcomeBot = new WelcomBot();
                             if (bllWelcomeBot.LoadByPrimaryKey(infoWelcomeBot.WelcomeBotID))
                             {
-                                FillWelcomeBot(bllWelcomeBot, infoWelcomeBot);
+                               bllWelcomeBot.FillFromInfoObject(infoWelcomeBot);
                                 bllWelcomeBot.Save();
                             }
                         }
@@ -87,8 +87,7 @@ namespace BLL
                         BLL.WelcomBot bllWelcomeBot = new WelcomBot();
                         Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)roomBot;
                         bllWelcomeBot.AddNew();
-                        bllWelcomeBot.RoomBotID = infoWelcomeBot.RoomBotID;
-                        FillWelcomeBot(bllWelcomeBot, infoWelcomeBot);
+                        bllWelcomeBot.FillFromInfoObject(infoWelcomeBot);
                         bllWelcomeBot.Save();
 
                         infoWelcomeBot.WelcomeBotID = bllWelcomeBot.ID;
@@ -97,14 +96,11 @@ namespace BLL
             }
         }
 
-        private static void FillWelcomeBot(BLL.WelcomBot bllWelcomeBot, Info.WelcomeBot infoWelcomeBot)
-        {
-            bllWelcomeBot.LoginMessage = infoWelcomeBot.LoginMessage;
-            bllWelcomeBot.LogoutMessage = infoWelcomeBot.LogoutMessage;
-        }
+        
 
         private static void FillRoomBot(BLL.RoomBot bllRoomBot, Info.RoomBot roomBot)
         {
+            bllRoomBot.IsEnabled = roomBot.IsActive;
             bllRoomBot.RoomID = roomBot.RoomID;
             bllRoomBot.BotID = roomBot.BotID;
             bllRoomBot.ShortcutKey = roomBot.ShortcutKey;
