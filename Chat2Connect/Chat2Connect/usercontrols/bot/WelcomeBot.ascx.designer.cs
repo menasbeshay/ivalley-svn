@@ -31,6 +31,15 @@ namespace Chat2Connect.usercontrols.bot {
         protected global::System.Web.UI.WebControls.TextBox txtLoginMessagePart1;
         
         /// <summary>
+        /// req1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator req1;
+        
+        /// <summary>
         /// txtLoginMessagePart2 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace Chat2Connect.usercontrols.bot {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLoginMessagePart2;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtLogoutMessagePart1 control.
@@ -49,6 +67,15 @@ namespace Chat2Connect.usercontrols.bot {
         protected global::System.Web.UI.WebControls.TextBox txtLogoutMessagePart1;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// txtLogoutMessagePart2 control.
         /// </summary>
         /// <remarks>
@@ -56,5 +83,14 @@ namespace Chat2Connect.usercontrols.bot {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLogoutMessagePart2;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
     }
 }

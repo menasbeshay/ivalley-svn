@@ -9,6 +9,7 @@ namespace Chat2Connect
 {
     public partial class Roombots : System.Web.UI.Page
     {
+        public string pageValidationGroup="RoomBotsValidationGroup";
         public int RoomID
         {
             get
@@ -35,26 +36,16 @@ namespace Chat2Connect
         {
             if (!IsPostBack)
             {
-                if (!String.IsNullOrEmpty(Request.QueryString["rid"]))
-                {
-                    this.RoomID=Helper.TypeConverter.ToInt32(Request.QueryString["rid"]);
+                pnlStep1.Visible = false;
+                BLL.Room myrooms = new BLL.Room();
+                myrooms.GetRoomsByCreatorID(BLL.Member.CurrentMemberID);
+                uiDropDownListMyRooms.DataSource = myrooms.DefaultView;
+                uiDropDownListMyRooms.DataTextField = "Name";
+                uiDropDownListMyRooms.DataValueField = "RoomID";
+                uiDropDownListMyRooms.DataBind();
+                uiDropDownListMyRooms.Items.Insert(0, new ListItem("إختر غرفة. . . .",""));
 
-                    BLL.RoomBot roomBot = new BLL.RoomBot();
-                    this.RoomBots=roomBot.GetByRoomID(this.RoomID);
-
-                    repExistingBots.DataSource = this.RoomBots;
-                    repExistingBots.DataBind();
-
-                    BLL.Bot bot = new BLL.Bot();
-                    bot.LoadAll();
-
-                    repAllBots.DataSource = bot.DefaultView;
-                    repAllBots.DataBind();
-                }
-                else
-                {
-                    Response.Redirect("CreateRoom.aspx");
-                }
+                txtMemberPoints.Text = Convert.ToString(BLL.Member.CurrentMember.Credit_Point);
             }
         }
 
@@ -94,10 +85,12 @@ namespace Chat2Connect
 
         private void AddNewSelectedBots()
         {
+            int newBotsPoints = 0;
             foreach (RepeaterItem bot in repAllBots.Items)
             {
                 CheckBox chkBot = (CheckBox)bot.FindControl("chkSelectBot");
                 HiddenField hdnBotID = (HiddenField)bot.FindControl("hdnBotID");
+                Label lblPoints = (Label)bot.FindControl("lblPoints");
                 if (chkBot.Checked)
                 {
                     System.Data.DataRowView dr = (System.Data.DataRowView)bot.DataItem;
@@ -111,9 +104,23 @@ namespace Chat2Connect
                     }
                     if (newRoomBot != null)
                     {
+                        newBotsPoints += Helper.TypeConverter.ToInt32(lblPoints.Text);
                         this.RoomBots.Add(newRoomBot);
                     }
                 }
+            }
+            NewPoints = newBotsPoints;
+        }
+
+        public int NewPoints
+        {
+            get
+            {
+                return Convert.ToInt32(ViewState["NewPoints"]);
+            }
+            set
+            {
+                ViewState["NewPoints"] = value;
             }
         }
 
@@ -134,8 +141,27 @@ namespace Chat2Connect
                     }
                 }
             }
-            BLL.RoomBot roomBot = new BLL.RoomBot();
-            roomBot.Save(this.RoomBots);
+            MyGeneration.dOOdads.TransactionMgr tx = MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr();
+            try
+            {
+                tx.BeginTransaction();
+
+                BLL.RoomBot roomBot = new BLL.RoomBot();
+                roomBot.Save(this.RoomBots);
+                //update member points
+                BLL.Member currentMember = BLL.Member.CurrentMember;
+                currentMember.Credit_Point -= NewPoints;
+                currentMember.Save();
+
+                tx.CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                tx.RollbackTransaction();
+            }
+            
+
+            Response.Redirect("Roombots.aspx");
         }
 
         protected void grdUC_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -143,14 +169,48 @@ namespace Chat2Connect
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 Info.RoomBot infoBot = (Info.RoomBot)e.Row.DataItem;
-                foreach (Control botControl in e.Row.Cells[0].Controls)
+                foreach (Control control in e.Row.Cells[0].Controls)
                 {
-                    if (botControl is Chat2Connect.usercontrols.bot.IBotUserControl)
+                    if (control is Chat2Connect.usercontrols.bot.IBotUserControl)
                     {
-                        ((Chat2Connect.usercontrols.bot.IBotUserControl)botControl).DataBind(infoBot);
-                        break;
+                        Chat2Connect.usercontrols.bot.IBotUserControl  botControl= ((Chat2Connect.usercontrols.bot.IBotUserControl)control);
+                        if (infoBot.BotID == botControl.BotID)
+                        {
+                            botControl.ValidationGroup = pageValidationGroup;
+                            botControl.DataBind(infoBot);
+                            control.Visible = true;
+                            break;
+                        }
                     }
                 }
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Roombots.aspx");
+        }
+
+        protected void btnEditBots_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(uiDropDownListMyRooms.SelectedValue))
+            {
+                this.RoomID = Helper.TypeConverter.ToInt32(uiDropDownListMyRooms.SelectedValue);
+
+                BLL.RoomBot roomBot = new BLL.RoomBot();
+                this.RoomBots = roomBot.GetByRoomID(this.RoomID);
+
+                repExistingBots.DataSource = this.RoomBots;
+                repExistingBots.DataBind();
+
+                BLL.Bot bot = new BLL.Bot();
+                bot.LoadAllWithPoints();
+
+                repAllBots.DataSource = bot.DefaultView;
+                repAllBots.DataBind();
+
+                pnlStep1.Visible = true;
+                pnlStep2.Visible = false;
             }
         }
     }

@@ -546,7 +546,13 @@ namespace Chat2Connect.services
             roomObject.OpenCams = room.OpenCams;
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
-            roomObject.WelcomeMsg = room.WelcomeText;
+
+            WelcomBot wlcmBot = new WelcomBot();
+            if (wlcmBot.LoadByRoomID(id))
+            {
+                roomObject.LoginMsg = wlcmBot.LoginMessage;
+                roomObject.LogoutMsg = wlcmBot.LogoutMessage;
+            }
 
             if (!room.IsColumnNull("CreatedDate"))
                 roomObject.CreatedDate = room.CreatedDate;

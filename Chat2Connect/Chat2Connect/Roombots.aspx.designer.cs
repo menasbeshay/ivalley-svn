@@ -13,6 +13,24 @@ namespace Chat2Connect {
     public partial class Roombots {
         
         /// <summary>
+        /// uiDropDownListMyRooms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListMyRooms;
+        
+        /// <summary>
+        /// btnEditBots control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditBots;
+        
+        /// <summary>
         /// pnlStep1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,24 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Repeater repAllBots;
         
         /// <summary>
+        /// txtRequiredPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRequiredPoints;
+        
+        /// <summary>
+        /// txtMemberPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMemberPoints;
+        
+        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
@@ -65,6 +101,15 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdUC;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
         /// btnSaveBots control.

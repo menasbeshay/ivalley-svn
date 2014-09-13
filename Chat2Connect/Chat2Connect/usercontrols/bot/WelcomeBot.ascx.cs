@@ -35,6 +35,10 @@ namespace Chat2Connect.usercontrols.bot
                 txtLogoutMessagePart1.Text = messages[0];
                 txtLogoutMessagePart2.Text = messages[1];
             }
+            if (DataSource.IsActive)
+                rdStatus.SelectedValue = "1";
+            else
+                rdStatus.SelectedValue = "0";
         }
 
         public Info.RoomBot GetDataObject()
@@ -42,9 +46,22 @@ namespace Chat2Connect.usercontrols.bot
             Info.WelcomeBot info = DataSource;
             info.LoginMessage = String.Format("{0}$Member${1}", txtLoginMessagePart1.Text, txtLoginMessagePart2.Text);
             info.LogoutMessage = String.Format("{0}$Member${1}", txtLogoutMessagePart1.Text, txtLogoutMessagePart2.Text);
+            info.IsActive = (rdStatus.SelectedValue == "1" ? true : false);
             return info;
         }
 
+        public int BotID
+        {
+            get
+            {
+                return (int)Helper.Enums.Bot.Welcome;
+            }
+        }
 
+        public string ValidationGroup
+        {
+            get;
+            set;
+        }
     }
 }

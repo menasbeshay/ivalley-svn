@@ -6,12 +6,30 @@ using System;
 
 namespace BLL
 {
-	public class WelcomBot : _WelcomBot
-	{
-		public WelcomBot()
-		{
-		
-		}
+    public class WelcomBot : _WelcomBot
+    {
+        public WelcomBot()
+        {
+
+        }
+
+        public bool LoadByRoomID(int roomID)
+        {
+            return LoadFromRawSql(@"SELECT
+                                        WelcomBot.*
+                                        FROM WelcomBot 
+	                                        INNER JOIN RoomBot ON WelcomBot.RoomBotID=RoomBot.ID
+                                        WHERE RoomBot.RoomID={0}
+	                                        AND (RoomBot.EndDate IS NULL OR RoomBot.EndDate<=GETDATE())
+                                        ORDER BY StartDate DESC",
+                                        roomID, DateTime.Now.Date);
+        }
+        public void FillFromInfoObject(Info.WelcomeBot infoWelcomeBot)
+        {
+            RoomBotID = infoWelcomeBot.RoomBotID;
+            LoginMessage = infoWelcomeBot.LoginMessage;
+            LogoutMessage = infoWelcomeBot.LogoutMessage;
+        }
 
         public void FillInfoObjectFromRoomBotID(Info.WelcomeBot infoWelcomeBot, int roomBotID)
         {
