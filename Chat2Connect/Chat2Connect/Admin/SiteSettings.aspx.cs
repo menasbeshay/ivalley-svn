@@ -14,7 +14,7 @@ namespace Chat2Connect.Admin
             get
             {
                 List<string> lstRoles = new List<string>();
-                lstRoles.Add(Helper.Enums.AdminRoles.Admin_GeneralSettings.ToString());                
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_GeneralSettings.ToString());
                 return lstRoles;
             }
         }
@@ -23,7 +23,7 @@ namespace Chat2Connect.Admin
             if (!IsPostBack)
             {
                 BLL.SiteSettings settings = new BLL.SiteSettings();
-                settings.LoadByPrimaryKey(1); //facebook
+                settings.LoadByPrimaryKey(1); //fb
                 uiTextBoxFbURL.Text = settings.URL;
 
                 settings.LoadByPrimaryKey(2); //twitter
@@ -35,15 +35,14 @@ namespace Chat2Connect.Admin
                 settings.LoadByPrimaryKey(4); //google
                 uiTextBoxGURL.Text = settings.URL;
 
+                settings.LoadByPrimaryKey(5); // terms
+                ClientScript.RegisterStartupScript(this.GetType(), "addterms", "$(document).ready(function (){ setTimeout(function () { Termseditor.setValue('" + Server.HtmlDecode(settings.Content) + "'); }, 1500); });", true);
+                 
+                settings.LoadByPrimaryKey(6);  // privacy
+                ClientScript.RegisterStartupScript(this.GetType(), "addprivacy", "$(document).ready(function (){ setTimeout(function () { Privacyeditor.setValue('" + Server.HtmlDecode(settings.Content) + "'); }, 1500); });", true);
 
-                settings.LoadByPrimaryKey(5); //terms
-                ClientScript.RegisterStartupScript(this.GetType(), "addterms", "$(document).ready(function (){ setTimeout( function () { Termseditor.setValue('"+ Server.HtmlDecode(settings.Content) +"'); }, 1500); });", true);
-
-                settings.LoadByPrimaryKey(6); //privacy
-                ClientScript.RegisterStartupScript(this.GetType(), "addPrivacy", "$(document).ready(function (){ setTimeout( function () { Privacyeditor.setValue('" + Server.HtmlDecode(settings.Content) + "'); }, 1500); });", true);
-
-                settings.LoadByPrimaryKey(7); //faq
-                ClientScript.RegisterStartupScript(this.GetType(), "addFaq", "$(document).ready(function (){ setTimeout( function () { Faqeditor.setValue('" + Server.HtmlDecode(settings.Content) + "'); }, 1500); });", true);
+                settings.LoadByPrimaryKey(7);  // faq
+                ClientScript.RegisterStartupScript(this.GetType(), "addfaq", "$(document).ready(function (){ setTimeout(function () { Faqeditor.setValue('" + Server.HtmlDecode(settings.Content) + "'); }, 1500); });", true);
 
             }
         }

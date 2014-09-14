@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="SiteSettings.aspx.cs" Inherits="Chat2Connect.Admin.SiteSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
-      <script src="../js/wysihtml5-0.3.0.js"></script>
-    <script src="../js/advanced.js"></script>
+    <script src="../js/wysihtml5-0.3.0.js"></script>
+<script src="../js/advanced.js"></script>
     <script type="text/javascript">
         var Termseditor;
         var Privacyeditor;
@@ -19,14 +19,14 @@
                     data: "{'fb':'" + $('#<%= uiTextBoxFbURL.ClientID %>').val() + "', 'tw':'" + $('#<%= uiTextBoxTwitterURL.ClientID %>').val() + "', 'gp':'" + $('#<%= uiTextBoxGURL.ClientID %>').val() + "', 'yt':'" + $('#<%= uiTextBoxYtURL.ClientID %>').val() + "'}",
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
-                        if (data.d == false) {
+                        if (data.d == false) {                                       
                             notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                         }
-                        else if (data.d == true) {
+                        else if (data.d == true) {                            
                             notify('success', 'تم الحفظ بنجاح.');
                         }
                     },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {                                 
                         notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                     }
                 });
@@ -95,7 +95,6 @@
                 });
             });
         });
-        
 
     </script>
 </asp:Content>
