@@ -142,14 +142,13 @@ namespace PricingGUI
 
         private void BindNotifications()
         {
-            if (Session["adminUser"] != null)
-            {
-                userLogin objUser = (userLogin)Session["adminUser"];
+           
+                
                 v_GetAllNotifications objData = new v_GetAllNotifications();
-                objData.GetNotificationsByUser(objUser.AdminID);
+                objData.GetNotificationsByUser(CodeGlobal.LogedInUser.AdminID);
                 ui_GvData.DataSource = objData.DefaultView;
                 ui_GvData.DataBind();
-            }
+            
         }
 
         private void BindCompanies()
