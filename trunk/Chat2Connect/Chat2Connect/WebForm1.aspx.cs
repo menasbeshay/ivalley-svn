@@ -31,40 +31,40 @@ namespace Chat2Connect
             Response.Write("css : <br />" + fullcss);
             Response.Write("html : <br /><code>" + fullhtml + "</code>");*/
 
-            try
-            {
+            //try
+            //{
 
-                string original = "mid=12&email=mena.samy@gmail.com";
+            //    string original = "mid=12&email=mena.samy@gmail.com";
 
-                // Create a new instance of the TripleDESCryptoServiceProvider 
-                // class.  This generates a new key and initialization  
-                // vector (IV). 
-                using (TripleDESCryptoServiceProvider myTripleDES = new TripleDESCryptoServiceProvider())
-                {
-                    // Encrypt the string to an array of bytes. 
-                    byte[] encrypted = EncryptStringToBytes(original, myTripleDES.Key, myTripleDES.IV);
+            //    // Create a new instance of the TripleDESCryptoServiceProvider 
+            //    // class.  This generates a new key and initialization  
+            //    // vector (IV). 
+            //    using (TripleDESCryptoServiceProvider myTripleDES = new TripleDESCryptoServiceProvider())
+            //    {
+            //        // Encrypt the string to an array of bytes. 
+            //        byte[] encrypted = EncryptStringToBytes(original, myTripleDES.Key, myTripleDES.IV);
 
-                    // Decrypt the bytes to a string. 
-                    string roundtrip = DecryptStringFromBytes(encrypted, myTripleDES.Key, myTripleDES.IV);
+            //        // Decrypt the bytes to a string. 
+            //        string roundtrip = DecryptStringFromBytes(encrypted, myTripleDES.Key, myTripleDES.IV);
 
-                    string encryptedstring = ByteArrayToString(encrypted);
+            //        string encryptedstring = ByteArrayToString(encrypted);
 
-                    string roundtrip2 = DecryptStringFromBytes(StringToByteArray(encryptedstring), myTripleDES.Key, myTripleDES.IV);
+            //        string roundtrip2 = DecryptStringFromBytes(StringToByteArray(encryptedstring), myTripleDES.Key, myTripleDES.IV);
 
-                    //Display the original data and the decrypted data.
-                    Response.Write("Original:   "+ original+ "<br />");
-                    Response.Write("Encrypted as string:   " + encryptedstring + "<br />");
-                    Response.Write("Round Trip: " + roundtrip + "<br />");
-                    Response.Write("round trip 2:   " + roundtrip2 + "<br />");
-                    Response.Write("key : " + ByteArrayToString(myTripleDES.Key) + "<br />");
-                    Response.Write("IV : " + ByteArrayToString(myTripleDES.IV) + "<br />");
-                }
+            //        //Display the original data and the decrypted data.
+            //        Response.Write("Original:   "+ original+ "<br />");
+            //        Response.Write("Encrypted as string:   " + encryptedstring + "<br />");
+            //        Response.Write("Round Trip: " + roundtrip + "<br />");
+            //        Response.Write("round trip 2:   " + roundtrip2 + "<br />");
+            //        Response.Write("key : " + ByteArrayToString(myTripleDES.Key) + "<br />");
+            //        Response.Write("IV : " + ByteArrayToString(myTripleDES.IV) + "<br />");
+            //    }
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: {0}", ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Error: {0}", ex.Message);
+            //}
         }
 
         public static string ByteArrayToString(byte[] ba)
