@@ -93,71 +93,9 @@ namespace WebGUI
 
         protected void ui_LB_Excel_Click(object sender, EventArgs e)
         {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
-            Response.Charset = "";
-            Response.ContentType = "application/vnd.ms-excel";
-            using (StringWriter sw = new StringWriter())
-            {
-                HtmlTextWriter hw = new HtmlTextWriter(sw);
-
-                //To Export all pages
-                ui_gv_Export.AllowPaging = false;
-                SearchCases();
-
-                ui_gv_Export.HeaderRow.BackColor = Color.White;
-                foreach (TableCell cell in ui_gv_Export.HeaderRow.Cells)
-                {
-                    cell.BackColor = ui_gv_Export.HeaderStyle.BackColor;
-                }
-                foreach (GridViewRow row in ui_gv_Export.Rows)
-                {
-                    row.BackColor = Color.White;
-                    foreach (TableCell cell in row.Cells)
-                    {
-                        if (row.RowIndex % 2 == 0)
-                        {
-                            cell.BackColor = ui_gv_Export.AlternatingRowStyle.BackColor;
-                        }
-                        else
-                        {
-                            cell.BackColor = ui_gv_Export.RowStyle.BackColor;
-                        }
-                        cell.CssClass = "textmode";
-                    }
-                }
-
-                ui_gv_Export.RenderControl(hw);
-
-                //style to format numbers to string
-                string style = @"<style> .textmode { mso-number-format:\@; } </style>";
-                Response.Write(style);
-                Response.Output.Write(sw.ToString());
-                Response.Flush();
-                Response.End();
-            }
-
-
-            //Response.ClearContent();
-            //Response.Buffer = true;
-            //Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", "Customers.xls"));
-            //Response.ContentType = "application/ms-excel";
-            //StringWriter sw = new StringWriter();
-            //HtmlTextWriter htw = new HtmlTextWriter(sw);
-            //ui_gvSearchResults.AllowPaging = false; 
-            ////ui_gvSearchResults.DataBind();
-            ////ui_gvSearchResults.HeaderRow.Style.Add("background-color", "#FFFFFF");
-            //ui_gvSearchResults.RenderControl(htw);
-            //Response.Write(sw.ToString());
-            //Response.End();
-        }
-
-        public override void VerifyRenderingInServerForm(Control control)
-        {
-            /* Verifies that the control is rendered */
-
-            return;
+            DataTable dt = SearchCases();
+            CreateExcelFile.CreateExcelDocument(dt, "D:\\Drugs.xlsx");
+            ui_lblDone.Text = "Excel Sheet Created .. " + "<a href='D:\\Drugs.xlsx' >" + "Open here" + "</a>";
         }
 
         protected void ui_LB_Assign_Click(object sender, EventArgs e)
@@ -264,7 +202,7 @@ namespace WebGUI
            
         }
 
-        private void SearchCases()
+        private DataTable SearchCases()
         {
             System.Data.DataTable dtResult = new System.Data.DataTable();
 
@@ -275,8 +213,27 @@ namespace WebGUI
             ui_gvSearchResults.DataSource = dtResult;
             ui_gvSearchResults.DataBind();
 
-            ui_gv_Export.DataSource = dtResult;
-            ui_gv_Export.DataBind();
+            DataTable dt_Result = dtResult;
+            DataTable dt_Generic;
+            string Generics;
+            DataColumn dc = new DataColumn("Generics");
+            dt_Result.Columns.Add(dc);
+            
+            foreach (DataRow dr in dt_Result.Rows)
+            {
+                v_GetAllGenericInfoByDrugID objData = new Pricing.BLL.v_GetAllGenericInfoByDrugID();
+                Generics = "";
+                objData.GetGenericsInfo(int.Parse(dr["TradePricingID"].ToString()));
+                dt_Generic = objData.DefaultView.Table;
+                foreach (DataRow drGeneric in dt_Generic.Rows)
+                {
+                    Generics += @" "" " + drGeneric["Active"] + @" "" ";
+                }
+                dr["Generics"] = Generics;
+            }
+            return dt_Result;
+            //ui_gv_Export.DataSource = dt_Result;
+            //ui_gv_Export.DataBind();
             
         }
 
@@ -453,7 +410,6 @@ namespace WebGUI
 
         #endregion
 
-       
 
     }
 }

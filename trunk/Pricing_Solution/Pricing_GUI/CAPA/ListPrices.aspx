@@ -170,13 +170,17 @@ TBODY TR.odd { background-color:#78a5d1; }
                             <td>
                                 &nbsp;&nbsp;
                                 <asp:LinkButton ID="ui_LB_Excel" runat="server" OnClick="ui_LB_Excel_Click">Export to Excel here</asp:LinkButton>
+                                
                             </td>
                         </tr>
                     </table>
                 </td>
-                <td > <asp:Button runat="server" class="btn btn-default" Font-Bold="true" Font-Size="20px" ID="ui_btnSearch" Text="Search ..." OnClick="ui_btnSearch_Click" /> </td>
+                <td > <asp:Button runat="server" class="btn btn-default" Font-Bold="true" Font-Size="20px" ID="ui_btnSearch" Text="Search ..." OnClick="ui_btnSearch_Click" /> 
+
+                </td>
                 </tr>
                 </table>
+                
                   
                   
                    
@@ -573,6 +577,11 @@ TBODY TR.odd { background-color:#78a5d1; }
                                                             <ItemStyle HorizontalAlign="Center" />
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                         </asp:BoundField>
+
+                                                        <asp:BoundField HeaderText="Generics" DataField="Generics" NullDisplayText="-">
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                        </asp:BoundField>
                                                         
                                                     </Columns>
                                                     <FooterStyle BackColor="White" ForeColor="#000066" />
@@ -592,5 +601,4 @@ TBODY TR.odd { background-color:#78a5d1; }
 
 </ContentTemplate>
 </asp:UpdatePanel>
-
 </asp:Content>
