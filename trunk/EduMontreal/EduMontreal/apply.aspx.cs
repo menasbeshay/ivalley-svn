@@ -80,6 +80,15 @@ namespace EduMontreal
 
                 uiTextBoxResAddress.Text = app.ResidentAddress;
 
+                if (!string.IsNullOrEmpty(app.RecentPhotoPath))
+                {
+                    uiHiddenFieldRecentPhoto.Value = app.RecentPhotoPath;
+                }
+                else
+                {
+                    uiHiddenFieldRecentPhoto.Value = "";
+                }
+
                 uiTextBoxMDS.Text = app.MasterDegree;
                 uiTextBoxMDUniversity.Text = app.University;
                 if(!app.IsColumnNull("DateOfGraduation"))
@@ -234,7 +243,7 @@ namespace EduMontreal
 
             if (uiFileUploadRecentPhoto.HasFile)
             {
-                string path = "/files/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadRecentPhoto.FileName;
+                string path = "/files/" + Guid.NewGuid() + "_" + uiFileUploadRecentPhoto.FileName;
                 uiFileUploadRecentPhoto.SaveAs(Server.MapPath("~" + path));
                 application.RecentPhotoPath = path;
             }
@@ -400,7 +409,7 @@ namespace EduMontreal
 
             if (uiFileUploadRecentPhoto.HasFile)
             {
-                string path = "/files/" + DateTime.Now.ToString("ddMMyyyyhhmmss_") + uiFileUploadRecentPhoto.FileName;
+                string path = "/files/" + Guid.NewGuid() + "_" + uiFileUploadRecentPhoto.FileName;
                 uiFileUploadRecentPhoto.SaveAs(Server.MapPath("~" + path));
                 application.RecentPhotoPath = path;
             }

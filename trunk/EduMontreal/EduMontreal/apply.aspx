@@ -96,7 +96,7 @@
             });
 
             $('#' + tabid + " .field input[type=file]").each(function () {
-                if (!$(this).val() ) {
+                if (!$(this).val() && $('#<%# uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
                     isvalid = false;
                     $(this).closest('.field').removeClass('has-success').addClass('has-error');
                 }
@@ -367,6 +367,7 @@
                                     <label class="control-label ">Please upload a recent Photo of you size 4x6 with high resolution<span class="required">* </span></label>
                                     <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="Country of issue Is Required" ControlToValidate="uiFileUploadRecentPhoto" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
                                 </div>
 
                             </div>

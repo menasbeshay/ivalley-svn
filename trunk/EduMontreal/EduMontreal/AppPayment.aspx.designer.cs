@@ -13,15 +13,6 @@ namespace EduMontreal {
     public partial class AppPayment {
         
         /// <summary>
-        /// uiLinkButtonByPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonByPass;
-        
-        /// <summary>
         /// uiPanelError control.
         /// </summary>
         /// <remarks>

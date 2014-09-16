@@ -2,30 +2,49 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <section class="col-md-12 col-left">
-         <h4>
-             Current Status
-         </h4>
-         <asp:Label ID="uiLabelStatusName" runat="server"></asp:Label>
-         <br />
-         <asp:Image ID="uiImageCurrentStatus" runat="server" />
-     </section>
-    <div style="clear:both;height:10px;"></div>
-     <section class="col-md-12 col-left">
-                            <h4>
-                                Update History
-                            </h4>
-                            <asp:GridView ID="uiGridViewStatusHistory" runat="server"  AutoGenerateColumns="False" HorizontalAlign="Center"  Width="100%" CssClass="table table-hover "  >
-                                <AlternatingRowStyle HorizontalAlign="Center" />
-                        <RowStyle HorizontalAlign="Center" />                    
-                        <Columns>                                                        
-                            <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Width="30%"/>
-                            <asp:BoundField DataField="StatusComment" HeaderText="Comment" ItemStyle-Width="40%"/>
-                            <asp:BoundField DataField="StatusDate" HeaderText="Last Updated Date" DataFormatString="{0:dd/MM/yyyy}" />     
-                            
-                        </Columns>
-                            </asp:GridView>
-     </section>
+    <section class="col-md-12 col-left">
+        <h4>Current Status
+        </h4>
+        <asp:Label ID="uiLabelStatusName" runat="server"></asp:Label>
+        <br />
+        <asp:Image ID="uiImageCurrentStatus" runat="server" />
+    </section>
+    <div style="clear: both; height: 10px;"></div>
+    <asp:Panel runat="server" ID="uiPanelVisaResult">
+        <section class="col-md-12 col-left">
+            <div class="control-label">Visa Result : </div>
+            <div class="form-control">
+                <asp:FileUpload ID="uiFileUploadVisaResult" runat="server" />
+                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click">Upload</asp:LinkButton>
+            </div>
+            <asp:Panel runat="server" ID="uiPanelVisaSucc">
+            <div class="alert-success">
+                Visa result uploaded successfully.
+            </div>
+                </asp:Panel>
+            <asp:Panel runat="server" ID="uiPanelVisaFail">
+            <div class="alert-danger">
+                Visa result uploaded failed. Try again please.
+            </div>
+                </asp:Panel>
+        </section>
+    </asp:Panel>
+    
+    <div style="clear: both; height: 10px;"></div>
+    <section class="col-md-12 col-left">
+        <h4>Update History
+        </h4>
+        <asp:GridView ID="uiGridViewStatusHistory" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" Width="100%" CssClass="table table-hover ">
+            <AlternatingRowStyle HorizontalAlign="Center" />
+            <RowStyle HorizontalAlign="Center" />
+            <Columns>
+                <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Width="30%" />
+                <asp:BoundField DataField="StatusComment" HeaderText="Comment" ItemStyle-Width="40%" />
+                <asp:BoundField DataField="StatusDate" HeaderText="Last Updated Date" DataFormatString="{0:dd/MM/yyyy}" />
+
+            </Columns>
+        </asp:GridView>
+    </section>
 
     <div class="modal fade" id="paymentPopup">
         <div class="modal-dialog">
@@ -40,7 +59,7 @@
                     </h5>
                      <div class="clearfix" style="height:20px;"></div>
                     <div class="col-11">
-                        You're going to pay : <asp:Label ID="uiLabelAmount" runat="server" ></asp:Label> USD
+                        You're going to pay : <asp:Label ID="uiLabelAmount" runat="server" ></asp:Label> CAD
                     </div>
                      <div class="clearfix" style="height:10px;"></div>
                      <div class="col-lg-4">

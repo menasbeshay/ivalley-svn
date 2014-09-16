@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDU.BLL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -6,15 +7,14 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using EDU.BLL;
 
-namespace EduMontreal
+namespace EduMontreal.ar
 {
-    public partial class success : System.Web.UI.Page
+    public partial class Success : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Request.QueryString["trx"] != null)
                 {
@@ -40,14 +40,14 @@ namespace EduMontreal
                             string mailto = app.Email;
                             msg.To.Add(mailto);
                             msg.From = new MailAddress(mail);
-                            msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' '); 
+                            msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' ');
                             msg.IsBodyHtml = true;
                             msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                            msg.Attachments.Add(new Attachment(Server.MapPath("~/files/Refund_Policy_Agreement.pdf")));  
+                            msg.Attachments.Add(new Attachment(Server.MapPath("~/files/Refund_Policy_Agreement.pdf")));
 
                             msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email);
-                            
+
                             SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
 
                             client.UseDefaultCredentials = false;

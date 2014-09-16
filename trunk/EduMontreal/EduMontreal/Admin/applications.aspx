@@ -94,6 +94,28 @@
                             </div>  
                             </asp:Panel>
 
+                             <asp:Panel runat="server" ID="uiPanelMissingDocs" Visible="false">
+                                <div class="clearfix" style="clear: both; height: 5px;"></div>                            
+                            <div class="col-lg-12">
+                                <div class="col-lg-2">
+                                    <label>Select missing documents</label></div>
+                                <div class="col-lg-8">
+                                    <asp:CheckBoxList ID="uiCheckBoxListMissingDocs" runat="server"></asp:CheckBoxList>
+                                </div>
+                            </div>  
+                            </asp:Panel>
+
+                            <asp:Panel runat="server" ID="uiPanelRefusalReasons" Visible="false">
+                                <div class="clearfix" style="clear: both; height: 5px;"></div>                            
+                            <div class="col-lg-12">
+                                <div class="col-lg-2">
+                                    <label>Select refusal reasons :</label></div>
+                                <div class="col-lg-8">
+                                    <asp:CheckBoxList ID="uiCheckBoxListRefusalReason" runat="server"></asp:CheckBoxList>
+                                </div>
+                            </div>  
+                            </asp:Panel>
+
                             <div class="clearfix" style="height:10px;"></div>
                             <div class="col-lg-12">
                                 <div class="col-lg-2">
@@ -148,6 +170,44 @@
                                                                 <asp:TemplateField HeaderText="Download">
                                                                     <ItemTemplate>
                                                                         <a href='<%# Eval("FilePath").ToString()%>' class="btn btn-primary">Download</a>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        
+                                                    </div>
+                                                </div>                                               
+                                                <div class="modal-footer">
+                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                             <asp:TemplateField HeaderText="Admin Attachments">
+                                <ItemTemplate>
+                                     <a href='#adminattachModal_<%# Container.DataItemIndex %>' data-toggle="modal" class="btn btn-primary" style="text-decoration:none;">Check admin attachments</a>
+                                    <div id='adminattachModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
+                                                    <h3>Attachments</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal blockBox">
+                                                        <asp:GridView ID="uiGridViewAdminAttachments" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center">
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="Name">
+                                                                    <ItemTemplate>
+                                                                        <%# Eval("AttachmentPath").ToString().Substring(Eval("AttachmentPath").ToString().LastIndexOf("/") + 1) %>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Download">
+                                                                    <ItemTemplate>
+                                                                        <a href='<%# Eval("AttachmentPath").ToString()%>' class="btn btn-primary">Download</a>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 

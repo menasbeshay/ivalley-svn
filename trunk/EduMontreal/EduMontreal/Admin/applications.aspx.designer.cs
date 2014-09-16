@@ -139,6 +139,42 @@ namespace WebApplication.Admin {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxFees;
         
         /// <summary>
+        /// uiPanelMissingDocs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelMissingDocs;
+        
+        /// <summary>
+        /// uiCheckBoxListMissingDocs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListMissingDocs;
+        
+        /// <summary>
+        /// uiPanelRefusalReasons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelRefusalReasons;
+        
+        /// <summary>
+        /// uiCheckBoxListRefusalReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListRefusalReason;
+        
+        /// <summary>
         /// uiLinkButtonCancel control.
         /// </summary>
         /// <remarks>
