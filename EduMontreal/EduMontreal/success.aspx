@@ -10,6 +10,6 @@
                                 <div class="clearfix" style="clear:both;height:10px;"></div>
                                 <a href="checkapp" class="btn btn-primary" style="margin:0 auto;">Proceed to next step</a>
 
-                                <i class="fa fa-check pull-right" style="color:green;font-size:5em;position:absolute;top:30px;right:45%;"></i>
+                                <i class="fa fa-check pull-right" style="color:green;font-size:6em;position:absolute;top:30px;right:30%;"></i>
                             </div>
 </asp:Content>

@@ -50,7 +50,7 @@ namespace EduMontreal
                     data["token"] = Request["token"];
                     data["first_name"] = Request["first_name"];
                     data["last_name"] = Request["last_name"];
-                    data["currency"] = "US$";
+                    data["currency"] = "CA$";
                     data["test_mode"] = "true";
                     string url = "https://ecom.payfirma.com/sale";
 

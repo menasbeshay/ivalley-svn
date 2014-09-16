@@ -31,6 +31,51 @@ namespace EduMontreal {
         protected global::System.Web.UI.WebControls.Image uiImageCurrentStatus;
         
         /// <summary>
+        /// uiPanelVisaResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVisaResult;
+        
+        /// <summary>
+        /// uiFileUploadVisaResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadVisaResult;
+        
+        /// <summary>
+        /// uiLinkButtonUploadVisaResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonUploadVisaResult;
+        
+        /// <summary>
+        /// uiPanelVisaSucc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVisaSucc;
+        
+        /// <summary>
+        /// uiPanelVisaFail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVisaFail;
+        
+        /// <summary>
         /// uiGridViewStatusHistory control.
         /// </summary>
         /// <remarks>

@@ -95,7 +95,7 @@
             });
 
             $('#' + tabid + " .field input[type=file]").each(function () {
-                if (!$(this).val()) {
+                if (!$(this).val() && $('#<%# uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
                     isvalid = false;
                     $(this).closest('.field').removeClass('has-success').addClass('has-error');
                 }
@@ -104,6 +104,17 @@
                 }
 
             });
+
+            if (index == 6) {
+                if ($('#<%= uiDropDownListLanguage.ClientID %>').val() == 0) {
+                     isvalid = false;
+                     $('#<%= uiDropDownListLanguage.ClientID %>').closest('.field').removeClass('has-success').addClass('has-error');
+                }
+            }
+
+            if (index == 6 && $(".ApproveCheck input:checkbox").is(':checked') && isvalid) {
+                $('#progressModal').modal('show');
+            }
 
             return isvalid;
         }
@@ -330,6 +341,7 @@
                                                 <label class="control-label ">صورة شخصية 4×6 بجودة عالية<span class="required">* </span></label>
                                                 <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiFileUploadRecentPhoto" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
                                             </div>
 
                                         </div>
@@ -654,8 +666,10 @@
                                     <div class="separator" style="height:10px;"></div>
                                         <div class="form-group">
                                             <div class="col-md-11">
-                                                <p style="display:none">
-                                               أقر بأنني قد أجبت على جميع الأسئلة المطلوبة في هذا الطلب بشكل كامل والحقيقة بالكامل.<br />
+                                                <p class="field">
+                                              <%-- أقر بأنني قد أجبت على جميع الأسئلة المطلوبة في هذا الطلب بشكل كامل والحقيقة بالكامل.<br />--%>
+                                                    <a href="../files/Refund_Policy_Agreement.pdf">سياسة إسترجاع المال</a>
+                                        <br />
 
                                                 <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;أوافق على سياسة رد. من خلال توقيع هذا الطلب، و موافق على سياسة رد المحددة للطلاب الدوليين.                          
                                                     <br />
@@ -705,10 +719,29 @@
                                     <li class="next finish  pull-left" style="display: none;">
                                         <asp:LinkButton ID="uiLinkButtonFinish" runat="server" OnClick="uiLinkButtonFinish_Click" ValidationGroup="signup">إنهاء</asp:LinkButton></li>
                                 </ul>
+
+                                <asp:LinkButton ID="uiLinkButtonSave" runat="server" OnClick="uiLinkButtonSave_Click" CssClass="btn btn-primary">حفظ الطلب</asp:LinkButton>
+                        <asp:Label ID="uiLabelSaved" runat="server" Text="تم حفظ طلبك بنجاح. يمكنك إكمال الطلب الأن أو فى وقت لاحق" ForeColor="Green" Font-Bold="true" Visible="false"> </asp:Label>
                             </div>
                                 </div>
                         </div>                    
                 
             </section>
+
+        <div class="modal fade" id="progressModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <h3>رجاء الإنتظار... </h3>
+                </div>
+                <div class="modal-body">
+                    جارى العمل على طلبك . برجاء الإنتظار...
+                    <img src="../assets/img/loading.gif" />
+                    </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
         </div>
 </asp:Content>

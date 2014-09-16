@@ -49,9 +49,39 @@ namespace EduMontreal
                     uiLabelAmount.Text = Apphistroy.TuitionFees.ToString();
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }
+
+                // visa result
+                uiPanelVisaResult.Visible = (status.ApplicationStatusID == 14);
+                
             }
             else
                 Response.Redirect("apply");
+        }
+
+        protected void uiLinkButtonUploadVisaResult_Click(object sender, EventArgs e)
+        {
+            Student student = (Student)Session["CurrentUser"];
+            ApplicationData app = new ApplicationData();
+            app.GetApplicationByStudentID(student.StudentID);
+
+            ApplicationStatusHistory Apphistroy = new ApplicationStatusHistory();
+            Apphistroy.GetApplicationStatusHistorybyApplicationDataID(app.ApplicationDataID);
+
+            if (uiFileUploadVisaResult.HasFile)
+            {
+
+                string path = "/files/" + Guid.NewGuid() + "_" + uiFileUploadVisaResult.FileName;
+                uiFileUploadVisaResult.SaveAs(Server.MapPath("~" + path));
+                Apphistroy.VisaResult = path;
+                Apphistroy.Save();
+                uiPanelVisaSucc.Visible = true;
+                uiPanelVisaFail.Visible = false;
+            }
+            else
+            {
+                uiPanelVisaSucc.Visible = false;
+                uiPanelVisaFail.Visible = true;
+            }
         }
     }
 }

@@ -166,6 +166,15 @@ namespace EduMontreal.ar {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
+        /// uiHiddenFieldRecentPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldRecentPhoto;
+        
+        /// <summary>
         /// uiTextBoxFaFamilyName control.
         /// </summary>
         /// <remarks>
@@ -542,6 +551,24 @@ namespace EduMontreal.ar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonFinish;
+        
+        /// <summary>
+        /// uiLinkButtonSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSave;
+        
+        /// <summary>
+        /// uiLabelSaved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelSaved;
         
         /// <summary>
         /// Master property.

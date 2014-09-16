@@ -155,6 +155,22 @@ namespace EDU.DAL
 				}
 			}
 			
+			public static SqlParameter WireTranseferReceipt
+			{
+				get
+				{
+					return new SqlParameter("@WireTranseferReceipt", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter VisaResult
+			{
+				get
+				{
+					return new SqlParameter("@VisaResult", SqlDbType.NVarChar, 300);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +184,8 @@ namespace EDU.DAL
             public const string StatusComment = "StatusComment";
             public const string ApplicationDataID = "ApplicationDataID";
             public const string TuitionFees = "TuitionFees";
+            public const string WireTranseferReceipt = "WireTranseferReceipt";
+            public const string VisaResult = "VisaResult";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +200,8 @@ namespace EDU.DAL
 					ht[StatusComment] = _ApplicationStatusHistory.PropertyNames.StatusComment;
 					ht[ApplicationDataID] = _ApplicationStatusHistory.PropertyNames.ApplicationDataID;
 					ht[TuitionFees] = _ApplicationStatusHistory.PropertyNames.TuitionFees;
+					ht[WireTranseferReceipt] = _ApplicationStatusHistory.PropertyNames.WireTranseferReceipt;
+					ht[VisaResult] = _ApplicationStatusHistory.PropertyNames.VisaResult;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +221,8 @@ namespace EDU.DAL
             public const string StatusComment = "StatusComment";
             public const string ApplicationDataID = "ApplicationDataID";
             public const string TuitionFees = "TuitionFees";
+            public const string WireTranseferReceipt = "WireTranseferReceipt";
+            public const string VisaResult = "VisaResult";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +237,8 @@ namespace EDU.DAL
 					ht[StatusComment] = _ApplicationStatusHistory.ColumnNames.StatusComment;
 					ht[ApplicationDataID] = _ApplicationStatusHistory.ColumnNames.ApplicationDataID;
 					ht[TuitionFees] = _ApplicationStatusHistory.ColumnNames.TuitionFees;
+					ht[WireTranseferReceipt] = _ApplicationStatusHistory.ColumnNames.WireTranseferReceipt;
+					ht[VisaResult] = _ApplicationStatusHistory.ColumnNames.VisaResult;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +258,8 @@ namespace EDU.DAL
             public const string StatusComment = "s_StatusComment";
             public const string ApplicationDataID = "s_ApplicationDataID";
             public const string TuitionFees = "s_TuitionFees";
+            public const string WireTranseferReceipt = "s_WireTranseferReceipt";
+            public const string VisaResult = "s_VisaResult";
 
 		}
 		#endregion		
@@ -321,6 +347,30 @@ namespace EDU.DAL
 			set
 	        {
 				base.Setdecimal(ColumnNames.TuitionFees, value);
+			}
+		}
+
+		public virtual string WireTranseferReceipt
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.WireTranseferReceipt);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.WireTranseferReceipt, value);
+			}
+		}
+
+		public virtual string VisaResult
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.VisaResult);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.VisaResult, value);
 			}
 		}
 
@@ -434,6 +484,36 @@ namespace EDU.DAL
 			}
 		}
 
+		public virtual string s_WireTranseferReceipt
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.WireTranseferReceipt) ? string.Empty : base.GetstringAsString(ColumnNames.WireTranseferReceipt);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.WireTranseferReceipt);
+				else
+					this.WireTranseferReceipt = base.SetstringAsString(ColumnNames.WireTranseferReceipt, value);
+			}
+		}
+
+		public virtual string s_VisaResult
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.VisaResult) ? string.Empty : base.GetstringAsString(ColumnNames.VisaResult);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.VisaResult);
+				else
+					this.VisaResult = base.SetstringAsString(ColumnNames.VisaResult, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +617,26 @@ namespace EDU.DAL
 					}
 				}
 
+				public WhereParameter WireTranseferReceipt
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.WireTranseferReceipt, Parameters.WireTranseferReceipt);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter VisaResult
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.VisaResult, Parameters.VisaResult);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +726,30 @@ namespace EDU.DAL
 				}
 			}
 
+			public WhereParameter WireTranseferReceipt
+		    {
+				get
+		        {
+					if(_WireTranseferReceipt_W == null)
+	        	    {
+						_WireTranseferReceipt_W = TearOff.WireTranseferReceipt;
+					}
+					return _WireTranseferReceipt_W;
+				}
+			}
+
+			public WhereParameter VisaResult
+		    {
+				get
+		        {
+					if(_VisaResult_W == null)
+	        	    {
+						_VisaResult_W = TearOff.VisaResult;
+					}
+					return _VisaResult_W;
+				}
+			}
+
 			private WhereParameter _StatusHistoryID_W = null;
 			private WhereParameter _ApplicationStatusID_W = null;
 			private WhereParameter _StudentID_W = null;
@@ -633,6 +757,8 @@ namespace EDU.DAL
 			private WhereParameter _StatusComment_W = null;
 			private WhereParameter _ApplicationDataID_W = null;
 			private WhereParameter _TuitionFees_W = null;
+			private WhereParameter _WireTranseferReceipt_W = null;
+			private WhereParameter _VisaResult_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +769,8 @@ namespace EDU.DAL
 				_StatusComment_W = null;
 				_ApplicationDataID_W = null;
 				_TuitionFees_W = null;
+				_WireTranseferReceipt_W = null;
+				_VisaResult_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +897,26 @@ namespace EDU.DAL
 					}
 				}
 
+				public AggregateParameter WireTranseferReceipt
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.WireTranseferReceipt, Parameters.WireTranseferReceipt);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter VisaResult
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.VisaResult, Parameters.VisaResult);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +1006,30 @@ namespace EDU.DAL
 				}
 			}
 
+			public AggregateParameter WireTranseferReceipt
+		    {
+				get
+		        {
+					if(_WireTranseferReceipt_W == null)
+	        	    {
+						_WireTranseferReceipt_W = TearOff.WireTranseferReceipt;
+					}
+					return _WireTranseferReceipt_W;
+				}
+			}
+
+			public AggregateParameter VisaResult
+		    {
+				get
+		        {
+					if(_VisaResult_W == null)
+	        	    {
+						_VisaResult_W = TearOff.VisaResult;
+					}
+					return _VisaResult_W;
+				}
+			}
+
 			private AggregateParameter _StatusHistoryID_W = null;
 			private AggregateParameter _ApplicationStatusID_W = null;
 			private AggregateParameter _StudentID_W = null;
@@ -865,6 +1037,8 @@ namespace EDU.DAL
 			private AggregateParameter _StatusComment_W = null;
 			private AggregateParameter _ApplicationDataID_W = null;
 			private AggregateParameter _TuitionFees_W = null;
+			private AggregateParameter _WireTranseferReceipt_W = null;
+			private AggregateParameter _VisaResult_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +1049,8 @@ namespace EDU.DAL
 				_StatusComment_W = null;
 				_ApplicationDataID_W = null;
 				_TuitionFees_W = null;
+				_WireTranseferReceipt_W = null;
+				_VisaResult_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1151,14 @@ namespace EDU.DAL
 
 			p = cmd.Parameters.Add(Parameters.TuitionFees);
 			p.SourceColumn = ColumnNames.TuitionFees;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.WireTranseferReceipt);
+			p.SourceColumn = ColumnNames.WireTranseferReceipt;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.VisaResult);
+			p.SourceColumn = ColumnNames.VisaResult;
 			p.SourceVersion = DataRowVersion.Current;
 
 

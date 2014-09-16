@@ -6,8 +6,10 @@
             var objData = JSON.parse(response);
             if (objData.error == undefined) {
                 if (objData.result == 'approved') {
-                    $('#ResponseSuccess').css('display', 'block');
-                    $('#trxid').html(objData.transaction_id);
+                    //$('#ResponseSuccess').css('display', 'block');
+                    //$('#trxid').html(objData.transaction_id);
+                    window.location.href = "http://application.edumontreal.ca/ar/success?trx=" + objData.transaction_id;
+                    //window.location.href = "http://localhost:2158/ar/success?trx=" + objData.transaction_id;
                 }
                 else if (objData.result == 'declined' || objData.result_bool == false) {
                     $('#ResponseFail').css('display', 'block');
@@ -52,7 +54,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="span12 col-left">
-        <asp:LinkButton ID="uiLinkButtonByPass" runat="server" OnClick="uiLinkButtonByPass_Click" CssClass="btn btn-primary">تخطى للمرحلة المقبلة</asp:LinkButton>
+        <%--<asp:LinkButton ID="uiLinkButtonByPass" runat="server" OnClick="uiLinkButtonByPass_Click" CssClass="btn btn-primary">تخطى للمرحلة المقبلة</asp:LinkButton>--%>
         <h4>
             من فضلك إختر أحد بدائل الدفع الآتية :
         </h4>
@@ -197,50 +199,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">2-	بواسطة حوالة مصرفية من مصرفك المحلي </a>
-                        </h4>
-                    </div>
-                    <div id="collapse_2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="col-lg-12">
-                                <h4>المعلومات الخاصة بحسابنا المصرفى :</h4>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Account Name: </b></label>
-                                Institut Éducatif de Montréal</div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Bank: </b></label>
-                                Canadian Imperial Bank of Commerce (CIBC)</div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Address: </b></label>
-                                1155 René-Levesque Blvd West, Montréal QC H3B 3Z4 Canada </div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Transit number :</b></label>
-                                00001 </div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Institution Number:</b></label>
-                                010</div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Account number: </b></label>
-                                1307312 </div>
-                            <div class="col-lg-12">
-                                <label class="col-lg-2"><b>Swift Code:</b></label>
-                                CIBCCATT</div>
-                            <div class="clearfix" style="height: 10px;"></div>
-                            <div class="col-lg-12">
-                                <div class="note note-info">
-                                    يرجى كتابة إسمك الأول والأخير ورقم البطاقة الشخصية فى ملاحظات التحويل
-
+                    <%--<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">2-	بواسطة حوالة مصرفية من مصرفك المحلي </a>
+                            </h4>
+                        </div>
+                        <div id="collapse_2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-lg-12">
+                                    <h4>المعلومات الخاصة بحسابنا المصرفى :</h4>
                                 </div>
 
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Account Name: </b></label>
+                                    Institut Éducatif de Montréal</div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Bank: </b></label>
+                                    Canadian Imperial Bank of Commerce (CIBC)</div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Address: </b></label>
+                                    1155 René-Levesque Blvd West, Montréal QC H3B 3Z4 Canada </div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Transit number :</b></label>
+                                    00001 </div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Institution Number:</b></label>
+                                    010</div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Account number: </b></label>
+                                    1307312 </div>
+                                <div class="col-lg-12">
+                                    <label class="col-lg-2"><b>Swift Code:</b></label>
+                                    CIBCCATT</div>
+                                <div class="clearfix" style="height: 10px;"></div>
+                                <div class="col-lg-12">
+                                    <div class="note note-info">
+                                        يرجى كتابة إسمك الأول والأخير ورقم البطاقة الشخصية فى ملاحظات التحويل
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>--%>
             </div>
         </div>
 

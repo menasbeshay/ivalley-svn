@@ -135,8 +135,11 @@
     <Content Include="ar\default.aspx" />
     <Content Include="ar\logout.aspx" />
     <Content Include="ar\myaccount.aspx" />
+    <Content Include="ar\paymentmethod.aspx" />
     <Content Include="ar\signup.aspx" />
+    <Content Include="ar\Success.aspx" />
     <Content Include="ar\userlogin.aspx" />
+    <Content Include="ar\wireTransefer.aspx" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\custom.css" />
     <Content Include="assets\css\pages\about-us.css" />
@@ -2155,12 +2158,13 @@
     <Content Include="js\fancybox\.DS_Store" />
     <Content Include="js\fancybox\source\.DS_Store" />
     <Content Include="MasterPages\AREduMaster.Master" />
-    <Content Include="files\Refund Policy Agreement.pdf">
+    <Content Include="files\Refund_Policy_Agreement.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="EduMontrealDataSet.xsc">
       <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="wireTransefer.aspx" />
     <None Include="EduMontrealDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EduMontrealDataSet.Designer.cs</LastGenOutput>
@@ -2344,6 +2348,13 @@
     <Compile Include="ar\myaccount.aspx.designer.cs">
       <DependentUpon>myaccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\paymentmethod.aspx.cs">
+      <DependentUpon>paymentmethod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\paymentmethod.aspx.designer.cs">
+      <DependentUpon>paymentmethod.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\signup.aspx.cs">
       <DependentUpon>signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2351,12 +2362,26 @@
     <Compile Include="ar\signup.aspx.designer.cs">
       <DependentUpon>signup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\Success.aspx.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Success.aspx.designer.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\userlogin.aspx.cs">
       <DependentUpon>userlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ar\userlogin.aspx.designer.cs">
       <DependentUpon>userlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\wireTransefer.aspx.cs">
+      <DependentUpon>wireTransefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\wireTransefer.aspx.designer.cs">
+      <DependentUpon>wireTransefer.aspx</DependentUpon>
     </Compile>
     <Compile Include="changepassword.aspx.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
@@ -2485,6 +2510,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wireTransefer.aspx.cs">
+      <DependentUpon>wireTransefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wireTransefer.aspx.designer.cs">
+      <DependentUpon>wireTransefer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

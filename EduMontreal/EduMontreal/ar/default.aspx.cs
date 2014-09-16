@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDU.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,28 @@ namespace EduMontreal.ar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["CurrentUser"] != null)
+            {
+                Student student = (Student)Session["CurrentUser"];
 
+                ApplicationData app = new ApplicationData();
+                app.GetApplicationByStudentID(student.StudentID);
+                if (app.RowCount > 0)
+                {
+                    startPanel.Visible = false;
+                    uiPanelfollow.Visible = true;
+                }
+                else
+                {
+                    startPanel.Visible = true;
+                    uiPanelfollow.Visible = false;
+                }
+            }
+            else
+            {
+                startPanel.Visible = true;
+                uiPanelfollow.Visible = false;
+            }
         }
     }
 }

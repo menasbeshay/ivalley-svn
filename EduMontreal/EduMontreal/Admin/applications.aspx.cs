@@ -34,9 +34,27 @@ namespace WebApplication.Admin
             if (!IsPostBack)
             {
                 BindData();
+                BindCheckBoxs();
                 uiPanelAllApplications.Visible = true;
                 uiPanelApplicationDetails.Visible = false;
             }
+        }
+
+        private void BindCheckBoxs()
+        {
+            TextItems docs = new TextItems();
+            docs.Where.ItemType.Value = 1; // docs
+            docs.Where.ItemType.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            docs.Query.Load();
+            uiCheckBoxListMissingDocs.DataSource = docs.DefaultView;
+            uiCheckBoxListMissingDocs.DataBind();
+
+            TextItems reasons = new TextItems();
+            reasons.Where.ItemType.Value = 2; // reasons
+            reasons.Where.ItemType.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            reasons.Query.Load();
+            uiCheckBoxListRefusalReason.DataSource = reasons.DefaultView;
+            uiCheckBoxListRefusalReason.DataBind();
         }
 
 
@@ -86,13 +104,17 @@ namespace WebApplication.Admin
             ApplicationStatusHistory history = new ApplicationStatusHistory();
             history.GetApplicationStatusHistorybyApplicationDataID(CurrentApp);
 
-            if (history.ApplicationStatusID == 4 || history.ApplicationStatusID == 5) // Tuition  Fees
+            if (history.ApplicationStatusID == 4 || history.ApplicationStatusID == 5) // Tuition  Fees - missing docs - refusal reasons
             {
                 uiPanelFees.Visible = true;
+                uiPanelMissingDocs.Visible = true;
+                uiPanelRefusalReasons.Visible = true;
             }
             else
             {
                 uiPanelFees.Visible = false;
+                uiPanelMissingDocs.Visible = false;
+                uiPanelRefusalReasons.Visible = false;
             }
 
             BindHistory();
@@ -148,6 +170,17 @@ namespace WebApplication.Admin
 
                 gvattachments.DataSource = attachments.DefaultView;
                 gvattachments.DataBind();
+
+                GridView gvadminattachments = (GridView)e.Row.FindControl("uiGridViewAdminAttachments");
+                AdminAttachment adminattachments = new AdminAttachment();
+                adminattachments.Where.ApplicationStatusID.Value = Convert.ToInt32(row["ApplicationStatusID"]);
+                adminattachments.Where.ApplicationStatusID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                adminattachments.Where.ApplicationDataID.Value = Convert.ToInt32(row["ApplicationDataID"]);
+                adminattachments.Where.ApplicationDataID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                adminattachments.Query.Load();
+
+                gvadminattachments.DataSource = adminattachments.DefaultView;
+                gvadminattachments.DataBind();
             }
         }
 
@@ -209,7 +242,25 @@ namespace WebApplication.Admin
                         msg.IsBodyHtml = true;
                         msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                        msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge);
+                        string missingDocs = "";
+                        for (int i = 0; i < uiCheckBoxListMissingDocs.Items.Count; i++)
+                        {
+                            if (uiCheckBoxListMissingDocs.Items[i].Selected)
+                            {
+                                missingDocs += "<li>" + uiCheckBoxListMissingDocs.Items[i].Text + "</li>";
+                            }
+                        }
+
+                        string refusalReasons = "";
+                        for (int i = 0; i < uiCheckBoxListRefusalReason.Items.Count; i++)
+                        {
+                            if (uiCheckBoxListRefusalReason.Items[i].Selected)
+                            {
+                                refusalReasons += "<li>" + uiCheckBoxListRefusalReason.Items[i].Text + "</li>";
+                            }
+                        }
+
+                        msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge, missingDocs , refusalReasons);
 
                         // attachments
                         if (Session["CurrentUploadedFiles"] != null)
@@ -218,14 +269,24 @@ namespace WebApplication.Admin
                             Files = (Hashtable)Session["CurrentUploadedFiles"];
 
                             if (Files.Count > 0)
-                            {                                
+                            {
+                                AdminAttachment attachment = new AdminAttachment();
                                 foreach (DictionaryEntry item in Files)
                                 {
                                     msg.Attachments.Add(new Attachment(Server.MapPath("~" + item.Value.ToString())));                                    
-                                }                                
+                                    attachment.AddNew();
+                                    attachment.ApplicationDataID = history.ApplicationDataID;
+                                    attachment.ApplicationStatusID = history.ApplicationStatusID;
+                                }
+                                attachment.Save();
                                 Session["CurrentUploadedFiles"] = null;
                             }
 
+                        }
+
+                        if (history.ApplicationStatusID == 16 || history.ApplicationStatusID == 6) // application refused - refund policy attached 
+                        {
+                            msg.Attachments.Add(new Attachment(Server.MapPath("~/files/Refund_Policy_Agreement.pdf")));
                         }
 
 

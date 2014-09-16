@@ -7,8 +7,30 @@
         <h4>
              الحالة الحالية
          </h4>
+        <asp:Label ID="uiLabelStatusName" runat="server"></asp:Label>
+         <br />
          <asp:Image ID="uiImageCurrentStatus" runat="server" />
      </section>
+    <div style="clear: both; height: 10px;"></div>
+    <asp:Panel runat="server" ID="uiPanelVisaResult">
+        <section class="col-md-12 col-left">
+            <div class="control-label">نتيجة الفيزا : </div>
+            <div class="form-control">
+                <asp:FileUpload ID="uiFileUploadVisaResult" runat="server" />
+                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click">إرسال</asp:LinkButton>
+            </div>
+            <asp:Panel runat="server" ID="uiPanelVisaSucc">
+            <div class="alert-success">
+                تم إرسال الملف بنجاح.
+            </div>
+                </asp:Panel>
+            <asp:Panel runat="server" ID="uiPanelVisaFail">
+            <div class="alert-danger">
+                حدث خطأ . من فضلك حاول مرة أخرى 
+            </div>
+                </asp:Panel>
+        </section>
+    </asp:Panel>
     <div style="clear:both;height:10px;"></div>
      <section class="col-md-12 col-left">
        
@@ -29,24 +51,43 @@
      </section>
 
     <div id='paymentPopup' class="modal fade" role="modal" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
-                                                    <h3>الدفع</h3>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-horizontal blockBox">
-                                                        <h3>
-                                                            برجاء الاستمرار لدفع المصاريف الدراسية 
-                                                        </h3>
-                                                        <a href="AppPayment" class="btn btn-primary"> الاستمرار لدفع المصاريف الدراسية </a>
-                                                    </div>
-                                                </div>                                               
-                                                <div class="modal-footer">
-                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                    <h3>دفع الرسوم الدراسية</h3>
+                </div>
+                <div class="modal-body">
+                    <h5>من أجل دفع الرسوم الدراسية يرجى اختيار واحدة من وسائل الدفع التالية:
+                    </h5>
+                    <div class="clearfix" style="height: 20px;"></div>
+                    <div class="col-11">
+                        سوف تقوم بدفع :
+                        <asp:Label ID="uiLabelAmount" runat="server"></asp:Label>
+                        CAD
+                    </div>
+                    <div class="clearfix" style="height: 10px;"></div>
+                    <div class="col-lg-4">
+                        <a href="AppPayment" class="paymentlink">
+                            <img src="../Images/visamaster.jpg" style="max-width: 150px;" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <a href="#" class="paymentlink">
+                            <img src="../Images/paypal-logo.png" style="max-width: 150px;" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <a href="wireTransefer" class="paymentlink">
+                            <img src="../Images/direct-bank-transfer.jpg" style="max-width: 150px;" />
+                        </a>
+                    </div>
+                    <div class="clearfix" style="height: 20px;"></div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
