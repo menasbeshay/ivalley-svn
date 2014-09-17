@@ -340,7 +340,7 @@
                                             <div class="col-md-12 field">
                                                 <label class="control-label ">صورة شخصية 4×6 بجودة عالية<span class="required">* </span></label>
                                                 <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiFileUploadRecentPhoto" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="يجب رفع صورة شخصية" ControlToValidate="uiFileUploadRecentPhoto" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                                 <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
                                             </div>
 

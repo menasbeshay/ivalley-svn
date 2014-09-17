@@ -366,7 +366,7 @@
                                 <div class="col-md-12 field">
                                     <label class="control-label ">Please upload a recent Photo of you size 4x6 with high resolution<span class="required">* </span></label>
                                     <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="Country of issue Is Required" ControlToValidate="uiFileUploadRecentPhoto" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="Recent Photo Is Required" ControlToValidate="uiFileUploadRecentPhoto" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                     <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
                                 </div>
 

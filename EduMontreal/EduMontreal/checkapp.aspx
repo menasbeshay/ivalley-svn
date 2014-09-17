@@ -51,10 +51,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h3>Tuition Fees Payment</h3>
+                    <asp:Panel runat="server" ID="TuitionFeesTitle">
+                        <h3>Tuition Fees Payment</h3>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="AppPaymentTitle">
+                        <h3>Fill Application Payment</h3>
+                    </asp:Panel>
                 </div>
                 <div class="modal-body">
-                     <h5>
+                    <asp:Panel runat="server" ID="uiPanelTuitionFeesBody">
+                        <h5>
                         In order to finalize your tuition fees payment please choose one from the following payment methods :
                     </h5>
                      <div class="clearfix" style="height:20px;"></div>
@@ -62,6 +68,17 @@
                         You're going to pay : <asp:Label ID="uiLabelAmount" runat="server" ></asp:Label> CAD
                     </div>
                      <div class="clearfix" style="height:10px;"></div>
+                    </asp:Panel>
+                     <asp:Panel runat="server" ID="uiPanelAppPayment">
+                        <h5>
+                        In order to finalize your application please choose one from the following payment methods :
+                    </h5>
+                     <div class="clearfix" style="height:20px;"></div>
+                    <div class="col-11">
+                        You're going to pay : <asp:Label ID="uiLabelAppAmount" runat="server" ></asp:Label> CAD
+                    </div>
+                     <div class="clearfix" style="height:10px;"></div>
+                    </asp:Panel>
                      <div class="col-lg-4">
                          <a href="AppPayment" class="paymentlink">
                          <img src="Images/visamaster.jpg" style="max-width:150px;"/>
@@ -73,7 +90,7 @@
                              </a>
                      </div>
                      <div class="col-lg-4">
-                         <a href="#" class="paymentlink">
+                         <a href="wireTransefer" class="paymentlink">
                          <img src="Images/direct-bank-transfer.jpg" style="max-width:150px;"/>
                             </a>
                      </div>

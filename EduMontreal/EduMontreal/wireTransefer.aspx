@@ -27,7 +27,7 @@
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2"> Wire Transfer from your local bank  </a>
                         </h4>
                     </div>
-                    <div id="collapse_2" class="panel-collapse collapse">
+                    <div id="collapse_2" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="col-lg-12">
                                 <h4>Check our bank info below :</h4>

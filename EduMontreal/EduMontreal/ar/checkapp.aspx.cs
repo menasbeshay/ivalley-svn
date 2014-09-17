@@ -44,8 +44,22 @@ namespace EduMontreal.ar
                 uiGridViewStatusHistory.DataSource = Apphistroy.DefaultView;
                 uiGridViewStatusHistory.DataBind();
 
+                if (status.ApplicationStatusID == 3) // application fees
+                {
+                    TuitionFeesTitle.Visible = false;
+                    uiPanelTuitionFeesBody.Visible = false;
+                    AppPaymentTitle.Visible = true;
+                    uiPanelAppPayment.Visible = true;
+                    uiLabelAppAmount.Text = "1500";
+                    ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
+                }
+
                 if (status.ApplicationStatusID == 7) // Tuition  Fees
                 {
+                    TuitionFeesTitle.Visible = true;
+                    uiPanelTuitionFeesBody.Visible = true;
+                    AppPaymentTitle.Visible = false;
+                    uiPanelAppPayment.Visible = false;
                     uiLabelAmount.Text = Apphistroy.TuitionFees.ToString();
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }
