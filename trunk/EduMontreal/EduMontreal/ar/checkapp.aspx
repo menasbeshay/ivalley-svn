@@ -55,10 +55,19 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                    <h3>دفع الرسوم الدراسية</h3>
+                    
+                    <asp:Panel runat="server" ID="TuitionFeesTitle">
+                       <h3>دفع الرسوم الدراسية</h3>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="AppPaymentTitle">
+                        <h3>رسوم ملء الطلب</h3>
+                    </asp:Panel>
                 </div>
                 <div class="modal-body">
-                    <h5>من أجل دفع الرسوم الدراسية يرجى اختيار واحدة من وسائل الدفع التالية:
+                    
+
+                    <asp:Panel runat="server" ID="uiPanelTuitionFeesBody">
+                       <h5>من أجل دفع الرسوم الدراسية يرجى اختيار واحدة من وسائل الدفع التالية:
                     </h5>
                     <div class="clearfix" style="height: 20px;"></div>
                     <div class="col-11">
@@ -67,6 +76,18 @@
                         CAD
                     </div>
                     <div class="clearfix" style="height: 10px;"></div>
+                    </asp:Panel>
+                     <asp:Panel runat="server" ID="uiPanelAppPayment">
+                        <h5>
+                        من أجل دفع رسوم ملء الطلب يرجى اختيار واحدة من وسائل الدفع التالية:
+                    </h5>
+                     <div class="clearfix" style="height:20px;"></div>
+                    <div class="col-11">
+                       سوف تقوم بدفع : <asp:Label ID="uiLabelAppAmount" runat="server" ></asp:Label> CAD
+                    </div>
+                     <div class="clearfix" style="height:10px;"></div>
+                    </asp:Panel>
+
                     <div class="col-lg-4">
                         <a href="AppPayment" class="paymentlink">
                             <img src="../Images/visamaster.jpg" style="max-width: 150px;" />

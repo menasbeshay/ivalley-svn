@@ -47,6 +47,8 @@ namespace WebApplication.Admin
             docs.Where.ItemType.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             docs.Query.Load();
             uiCheckBoxListMissingDocs.DataSource = docs.DefaultView;
+            uiCheckBoxListMissingDocs.DataTextField = TextItems.ColumnNames.EnName;
+            uiCheckBoxListMissingDocs.DataValueField = TextItems.ColumnNames.TextItemsID;
             uiCheckBoxListMissingDocs.DataBind();
 
             TextItems reasons = new TextItems();
@@ -54,6 +56,8 @@ namespace WebApplication.Admin
             reasons.Where.ItemType.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             reasons.Query.Load();
             uiCheckBoxListRefusalReason.DataSource = reasons.DefaultView;
+            uiCheckBoxListRefusalReason.DataTextField = TextItems.ColumnNames.EnName;
+            uiCheckBoxListRefusalReason.DataValueField = TextItems.ColumnNames.TextItemsID;
             uiCheckBoxListRefusalReason.DataBind();
         }
 

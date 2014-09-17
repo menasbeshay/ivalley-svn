@@ -95,31 +95,36 @@
                             </asp:Panel>
 
                              <asp:Panel runat="server" ID="uiPanelMissingDocs" Visible="false">
-                                <div class="clearfix" style="clear: both; height: 5px;"></div>                            
+                                <div class="clearfix" style="clear: both; height: 5px;"></div>
+                                 <hr style="width:70%" />
                             <div class="col-lg-12">
-                                <div class="col-lg-2">
-                                    <label>Select missing documents</label></div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-5">
+                                    <label class="bold">Select missing documents</label></div>
+                                <div class="clearfix" style="clear: both; height: 5px;"></div>
+                                <div class="col-lg-12">
                                     <asp:CheckBoxList ID="uiCheckBoxListMissingDocs" runat="server"></asp:CheckBoxList>
                                 </div>
                             </div>  
                             </asp:Panel>
 
                             <asp:Panel runat="server" ID="uiPanelRefusalReasons" Visible="false">
-                                <div class="clearfix" style="clear: both; height: 5px;"></div>                            
+                                <div class="clearfix" style="clear: both; height: 5px;"></div> 
+                                <hr style="width:70%" />                           
                             <div class="col-lg-12">
-                                <div class="col-lg-2">
-                                    <label>Select refusal reasons :</label></div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-5">
+                                    <label class="bold">Select refusal reasons :</label></div>
+                                <div class="clearfix" style="clear: both; height: 5px;"></div>
+                                <div class="col-lg-12">
                                     <asp:CheckBoxList ID="uiCheckBoxListRefusalReason" runat="server"></asp:CheckBoxList>
                                 </div>
                             </div>  
                             </asp:Panel>
 
                             <div class="clearfix" style="height:10px;"></div>
+                             <hr style="width:70%" />
                             <div class="col-lg-12">
                                 <div class="col-lg-2">
-                                    <label>Attachments</label></div>
+                                    <label class="bold">Attachments</label></div>
                                 <div class="col-lg-12">
                                       <iframe src="../upload.html" style="border:0;width:100%"></iframe>
                                 </div>
@@ -137,20 +142,20 @@
                     
 
                     <div class="col-lg-12">
-                        <div class="col-lg-11">
+                        <div class="col-lg-12">
                             <h4 class="bold " style="color:#428bca">
                                 Update History
                             </h4>
                             <asp:GridView ID="uiGridViewStatusHistory" runat="server"  AutoGenerateColumns="False" HorizontalAlign="Center"  Width="100%" CssClass="table table-hover " OnRowDataBound="uiGridViewStatusHistory_RowDataBound" >
                                 <AlternatingRowStyle HorizontalAlign="Center" />
-                        <RowStyle HorizontalAlign="Center" />                    
+                        <RowStyle HorizontalAlign="Center" />                     
                         <Columns>                                                        
                             <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Width="30%"/>
                             <asp:BoundField DataField="StatusComment" HeaderText="Comment" ItemStyle-Width="40%"/>
                             <asp:BoundField DataField="StatusDate" HeaderText="Last Updated Date" DataFormatString="{0:dd/MM/yyyy}" />     
-                            <asp:TemplateField HeaderText="Attachments">
+                            <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                     <a href='#attachModal_<%# Container.DataItemIndex %>' data-toggle="modal" class="btn btn-primary" style="text-decoration:none;">Check attachments</a>
+                                     <a href='#attachModal_<%# Container.DataItemIndex %>' data-toggle="modal" class="btn btn-primary btn-sm" style="text-decoration:none;">Check attachments</a> &nbsp;
                                     <div id='attachModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -188,7 +193,7 @@
                             </asp:TemplateField>
                              <asp:TemplateField HeaderText="Admin Attachments">
                                 <ItemTemplate>
-                                     <a href='#adminattachModal_<%# Container.DataItemIndex %>' data-toggle="modal" class="btn btn-primary" style="text-decoration:none;">Check admin attachments</a>
+                                     <a href='#adminattachModal_<%# Container.DataItemIndex %>' data-toggle="modal" class="btn btn-primary btn-sm" style="text-decoration:none;">Check admin attachments</a>&nbsp;
                                     <div id='adminattachModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -214,6 +219,54 @@
                                                             </Columns>
                                                         </asp:GridView>
                                                         
+                                                    </div>
+                                                </div>                                               
+                                                <div class="modal-footer">
+                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Payment receipt">
+                                <ItemTemplate>
+                                   
+                                    <a href='#paymentModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Payment receipt</a>&nbsp;
+                                    <div id='paymentModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
+                                                    <h3>Wire Transefer Receipt</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal blockBox">                                                        
+                                                        <img src=' <%# Eval("WireTranseferReceipt") %>' style="max-width:90%"/>
+                                                    </div>
+                                                </div>                                               
+                                                <div class="modal-footer">
+                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Visa result">
+                                <ItemTemplate>
+                                   
+                                    <a href='#visaModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Visa result</a>
+                                    <div id='visaModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
+                                                    <h3>Visa result</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal blockBox">                                                        
+                                                        <img src=' <%# Eval("VisaResult") %>' style="max-width:90%"/>
                                                     </div>
                                                 </div>                                               
                                                 <div class="modal-footer">

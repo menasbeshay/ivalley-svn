@@ -85,6 +85,33 @@ namespace EduMontreal {
         protected global::System.Web.UI.WebControls.GridView uiGridViewStatusHistory;
         
         /// <summary>
+        /// TuitionFeesTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel TuitionFeesTitle;
+        
+        /// <summary>
+        /// AppPaymentTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AppPaymentTitle;
+        
+        /// <summary>
+        /// uiPanelTuitionFeesBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelTuitionFeesBody;
+        
+        /// <summary>
         /// uiLabelAmount control.
         /// </summary>
         /// <remarks>
@@ -92,5 +119,23 @@ namespace EduMontreal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label uiLabelAmount;
+        
+        /// <summary>
+        /// uiPanelAppPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAppPayment;
+        
+        /// <summary>
+        /// uiLabelAppAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelAppAmount;
     }
 }
