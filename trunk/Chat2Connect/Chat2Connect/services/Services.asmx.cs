@@ -482,15 +482,16 @@ namespace Chat2Connect.services
             Room room;
             if(!IsValideRoom(id,isTemp,out room,out error))
             {
-                HttpContext.Current.Response.Write(String.Format("{\"Status\":0,\"Data\":\"{0}\"}",error));
+                var errorResult = new { Status = 0, Data = error };
+                HttpContext.Current.Response.Write(Helper.JsonConverter.Serialize(errorResult));
                 return;
             }
 
             Helper.ChatRoom roomObject = GetRoomInfo(id, isTemp, room);
             Helper.Sessions.OpenedRooms.Add(new Helper.Sessions.RoomSession() { ID = id, IsTemp = isTemp });
 
-            string result = Helper.JsonConverter.Serialize(roomObject);
-            HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
+            var successResult = new { Status = 1, Data = roomObject };
+            HttpContext.Current.Response.Write(Helper.JsonConverter.Serialize(successResult));
             //return result;
         }
 
@@ -527,7 +528,49 @@ namespace Chat2Connect.services
                 return false;
             }
 
+            if (room.CreatedBy != BLL.Member.CurrentMember.MemberID)
+            {
+                //check member type bot
+                string acceptedType;
+                if (!ValidateMemberLoginTypeBot(id, out acceptedType))
+                {
+                    message = "عفوا هذه الغرفة تقبل الأعضاء من الفئات (" + acceptedType + ") فقط";
+                    return false;
+                }
+            }
             return true;
+        }
+
+        private static bool ValidateMemberLoginTypeBot(int id,out string acceptedTypes)
+        {
+            bool isValidMemberType = true;
+            acceptedTypes = "";
+            BLL.RoomBot bllbot = new RoomBot();
+            List<Info.RoomBot> lstBots = bllbot.GetByRoomIDandBotID(id, Helper.Enums.Bot.MemberTypeLogin);
+            if (lstBots.Count > 0)
+            {
+                Info.MemberTypeLogin infoBot = lstBots.FirstOrDefault().Settings as Info.MemberTypeLogin;
+                if (infoBot != null)
+                {
+                    List<string> typeNames = (from s in infoBot.AcceptedMemberTypes
+                                                      select Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.MemberType>(Convert.ToInt32(s)))).ToList();
+                    acceptedTypes = String.Join(",", typeNames);
+                    switch (BLL.Member.CurrentMember.MemberType.MemberTypeSpecDuration.MemberTypeSpecID)
+                    {
+                        case (int)Helper.Enums.MemberTypeSpec.Free:
+                            isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.Free));
+                            break;
+                        case (int)Helper.Enums.MemberTypeSpec.Pink1:
+                        case (int)Helper.Enums.MemberTypeSpec.Pink2:
+                            isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.Upgraded));
+                            break;
+                        case (int)Helper.Enums.MemberTypeSpec.VIP:
+                            isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.VIP));
+                            break;
+                    }
+                }
+            }
+            return isValidMemberType;
         }
         public static Helper.ChatRoom GetRoomInfo(int id, bool isTemp, Room room)
         {
