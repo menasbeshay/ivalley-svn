@@ -48,6 +48,14 @@ namespace Helper
             VIP = 3
         }
 
+        public enum MemberTypeSpec
+        {
+            Free=1,
+            Pink1=2,
+            Pink2=3,
+            VIP=4
+        }
+
         public enum MemberRoles
         {
             [StringValue("المحادثة الخاصة")]
