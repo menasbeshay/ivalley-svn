@@ -637,7 +637,6 @@
     <Content Include="MyBalance.aspx" />
     <Content Include="PopupPages\Messages_popup.aspx" />
     <Content Include="resetpass.aspx" />
-    <Content Include="Roombots.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -655,7 +654,6 @@
     <Content Include="testswf\chat2connect4.swf" />
     <Content Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
-    <Content Include="usercontrols\bot\WelcomeBot.ascx" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\MemberTypes.ascx" />
     <Content Include="usercontrols\RoomTypes.ascx" />
@@ -1128,13 +1126,6 @@
     <Compile Include="resetpass.aspx.designer.cs">
       <DependentUpon>resetpass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Roombots.aspx.cs">
-      <DependentUpon>Roombots.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Roombots.aspx.designer.cs">
-      <DependentUpon>Roombots.aspx</DependentUpon>
-    </Compile>
     <Compile Include="roomtypes.aspx.cs">
       <DependentUpon>roomtypes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1166,14 +1157,6 @@
     <Compile Include="SRCustomHubs\PMHub.cs" />
     <Compile Include="Startup.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="usercontrols\bot\IBotUserControl.cs" />
-    <Compile Include="usercontrols\bot\WelcomeBot.ascx.cs">
-      <DependentUpon>WelcomeBot.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="usercontrols\bot\WelcomeBot.ascx.designer.cs">
-      <DependentUpon>WelcomeBot.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.cs">
       <DependentUpon>Mail.ascx</DependentUpon>

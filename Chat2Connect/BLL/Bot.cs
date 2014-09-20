@@ -3,6 +3,7 @@
 
 using DAL;
 using System;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -21,16 +22,49 @@ namespace BLL
                                                   WHERE Bot.RowStatusID={0}", (int)Helper.Enums.RowStatus.Enabled));
         }
 
-        public Info.Bot GetInfoByPrimaryKey(int botID)
+        public List<Info.Bot> GetAll()
         {
-            Info.Bot infoBot = new Info.Bot();
-            if (LoadByPrimaryKey(botID))
+            List<Info.Bot> result = new List<Info.Bot>();
+            if (LoadAllWithPoints())
             {
-                infoBot.Title = Title;
-                infoBot.IconPath = IconPath;
+                do
+                {
+                    Info.Bot bot = GetInfoObject();
+
+                    result.Add(bot);
+                } while (MoveNext());
+            }
+            return result;
+        }
+
+        private Info.Bot GetInfoObject()
+        {
+            Info.Bot bot = new Info.Bot();
+            bot.ID = ID;
+            bot.Title = Title;
+            bot.IconPath = IconPath;
+            bot.Points = Helper.TypeConverter.ToInt32(GetColumn(BotPoints.ColumnNames.Points));
+            bot.SettingObject = GetSettingObject(ID,"{}");
+            return bot;
+        }
+
+        public static Info.BotSettings GetSettingObject(int botID, string settingString)
+        {
+            Info.BotSettings botSetting;
+            switch (botID)
+            {
+                case (int)Helper.Enums.Bot.Welcome:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.WelcomeBot>(settingString);
+                    break;
+                case (int)Helper.Enums.Bot.InviteFriendsBan:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.InviteFriendBan>(settingString);
+                    break;
+                default:
+                    botSetting = new Info.BotSettings(botID);
+                    break;
             }
 
-            return infoBot;
+            return botSetting;
         }
     }
 }

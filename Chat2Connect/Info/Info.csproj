@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="BotSettings.cs" />
+    <Compile Include="InviteFriendBan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomBot.cs" />
     <Compile Include="WelcomeBot.cs" />
@@ -50,6 +55,9 @@
       <Project>{6b88438e-3e36-4d16-824c-4fb7fb8460e2}</Project>
       <Name>Helper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

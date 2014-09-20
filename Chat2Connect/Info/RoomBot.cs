@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Info
 {
-    [Serializable]
     public class RoomBot
     {
-        public int RoomBotID
+        public int ID
         {
             get;
             set;
@@ -25,7 +25,7 @@ namespace Info
             set;
         }
 
-        public bool IsActive
+        public bool IsEnabled
         {
             get;
             set;
@@ -37,16 +37,16 @@ namespace Info
             set;
         }
 
-        public RoomBot(int roomID, int botID)
-        {
-            RoomID = roomID;
-            BotID = BotID;
-            ShortcutKey = "";
-        }
-
         public RoomBot()
         {
             ShortcutKey = "";
+        }
+
+        [JsonProperty(TypeNameHandling = TypeNameHandling.Objects)]
+        public Info.BotSettings Settings
+        {
+            get;
+            set;
         }
 
         public Info.Bot Bot

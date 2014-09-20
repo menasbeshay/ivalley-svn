@@ -1670,6 +1670,12 @@ width:230px;
 .popover.left > .arrow:after {
     border-left-color:#000;
     }
+.popover.top > .arrow {
+    border-top-color:#000;
+    }
+.popover.top > .arrow:after {
+    display:none;
+    }
 
 .popover-title {
     padding:5px;
@@ -2097,6 +2103,161 @@ input[type="text"], textarea {
     -webkit-border-radius:5px;
     -ms-border-radius:5px;
     padding:5px;
-    max-width:850px;
-    width:850px;
+  
+}
+
+.botIcon img {
+    max-width:40px;
+}
+
+.botIcon .botInfo
+{
+    display:none;
+    width:150px;
+}
+
+  .mailbtn {
+        font-size: 14px;        
+        margin:0px 5px        
+    }
+
+  /*Wizard CSS*/
+  .hiddenStepInfo {
+    display: none;
+}
+
+.activeStepInfo {
+    display: block !important;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.step {
+    margin-top: 27px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step .col-md-3 {
+    background-color: #fff;
+    border: 1px solid #C0C0C0;
+    border-right: none;
+}
+
+.step .col-md-3:last-child {
+    border: 1px solid #C0C0C0;
+}
+
+.step .col-md-3:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.step .col-md-3:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.step .col-md-3:hover {
+    color: #F58723;
+    cursor: pointer;
+}
+
+.step .activestep {
+    color: #F58723;
+    /*height: 100px;
+    margin-top: -7px;
+    padding-top: 7px;*/
+    border-left: 6px solid #5CB85C !important;
+    border-right: 6px solid #5CB85C !important;
+    border-top: 3px solid #5CB85C !important;
+    border-bottom: 3px solid #5CB85C !important;
+    vertical-align: central;
+}
+
+.step .fa {
+    padding-top: 15px;
+    font-size: 40px;
+}
+/*Bot*/
+.white {
+    color: white;
+}
+
+.btn-lg {
+    font-size: 38px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+
+.box > .icon {
+    text-align: center;
+    position: relative;
+}
+
+.box > .icon > .image {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 88px;
+    height: 88px;
+    border: 7px solid white;
+    line-height: 88px;
+    border-radius: 50%;
+    background: #63B76C;
+    vertical-align: middle;
+}
+
+.box > .icon:hover > .image {
+    border: 4px solid black;
+}
+
+.box > .icon > .image > i {
+    font-size: 40px !important;
+    color: #fff !important;
+}
+
+.box > .icon:hover > .image > i {
+    color: white !important;
+}
+
+.box > .icon > .info {
+    margin-top: -24px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid #e0e0e0;
+    padding: 15px 0 10px 0;
+}
+
+    .box > .icon > .info > h3.title {
+        color: #222;
+        font-weight: 500;
+    }
+
+    .box > .icon > .info > p {
+        color: #666;
+        line-height: 1.5em;
+        margin: 20px;
+    }
+
+.box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a {
+    color: #222;
+}
+
+.box > .icon > .info > .more a {
+    color: #222;
+    line-height: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.box > .icon:hover > .info > .more > a {
+    color: #000;
+    padding: 6px 8px;
+    border-bottom: 4px solid black;
+}
+
+.box .space {
+    height: 30px;
 }

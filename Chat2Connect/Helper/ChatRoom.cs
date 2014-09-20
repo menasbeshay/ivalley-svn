@@ -75,6 +75,8 @@ namespace Helper
         public DateTime CreatedDate { get; set; }
 
         public string LogoutMsg { get; set; }
+
+        public object RoomBots { get; set; }
     }
 
     public class ChatMember

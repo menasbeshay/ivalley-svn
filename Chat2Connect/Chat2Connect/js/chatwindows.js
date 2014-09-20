@@ -1,4 +1,33 @@
-﻿
+﻿ko.onDemandObservable = function (callback, target) {
+    var _value = ko.observable();  //private observable
+
+    var result = ko.dependentObservable({
+        read: function () {
+            //if it has not been loaded, execute the supplied function
+            if (!result.loaded()) {
+                callback.call(target);
+            }
+            //always return the current value
+            return _value();
+        },
+        write: function (newValue) {
+            //indicate that the value is now loaded and set it
+            result.loaded(true);
+            _value(newValue);
+        },
+        deferEvaluation: true  //do not evaluate immediately when created
+    });
+
+    //expose the current state, which can be bound against
+    result.loaded = ko.observable();
+    //load it again
+    result.refresh = function () {
+        result.loaded(false);
+    };
+
+    return result;
+};
+
 ko.bindingHandlers.slideVisible = {
     init: function (element, valueAccessor) {
         var value = valueAccessor();
@@ -278,8 +307,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 window.stopMic(friend.MemberID());
             }
         };
-
-
 
         this.SelectedMember = ko.observable(this.CurrentMember());
         this.showRoomMemberLevelsPopup = function (mid) {
@@ -875,10 +902,49 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             $("#infoModal_" + self.uniqueID()).modal('show');
         };
 
-
+        this.RoomBots = ko.observableArray([]);
+        $.ajax({
+            url: '../Services/Services.asmx/LoadRoomBots?roomID=' + this.ID(),
+            success: function (data) {
+                ko.utils.arrayMap(data, function (item) {
+                    self.RoomBots.push(item);
+                })
+                //this.RoomBots = ko.mapping.fromJS(data);
+                //ko.mapping.fromJS(data, {}, this.RoomBots);
+            }
+        });
+        this.roomBotsModalID = "roomBotModal_" + this.uniqueID();
+        this.showRoomBots = function () {
+            var window = this;
+            $("#" + this.roomBotsModalID).modal('show');
+        };
+        this.saveRoomBots = function () {
+            var window = this;
+            $.ajax({
+                url: '../Services/Services.asmx/SaveRoomBots',
+                data: "{'roomBots':'" + ko.toJSON(window.RoomBots) + "'}",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة');
+                }
+            });
+            $("#" + window.roomBotsModalID).modal('hide');
+        };
+        this.addRoomBot = function (bot) {
+            var roomBot = {
+                ID: 0, RoomID: this.ID(), BotID: bot.ID, IsEnabled: true, ShortcutKey: "",
+                Bot: { ID: bot.ID, Title: bot.Title, IconPath: bot.IconPath, Points: bot.Points },
+                Settings: bot.SettingObject
+            };
+            this.RoomBots.push(roomBot);
+        };
     }
 
     self.changeCurrent = function (selctor, id, type) {
+        self.ActivWindow();
         if (document.getElementById(selctor)) {
             $('#MainTabs a[href="#' + selctor + '"]').tab('show');
             $('#MainTabs a[href="#' + selctor + '"]').removeClass('RoomAlertRed');
@@ -888,7 +954,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             if (id != undefined && type != undefined) {
                 var win = self.getWindow(id, type);
                 if (win != undefined)
+                {
+                    self.ActivWindow(win);
                     win.IsActive = true;
+                }
             }
             return;
         }
@@ -1334,6 +1403,29 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         setTimeout(CountFriends, 1500);
     }
 
+    self.ActivWindow = ko.observable();
+    self.Bots = ko.onDemandObservable(getBots, this);
+    function getBots()
+    {
+        $.ajax({
+            url: '../Services/Services.asmx/LoadBots',
+            context: this,
+            success: function (data) {
+                this.Bots(data);
+            }
+        });
+    }
+    self.getBotTemplate = function (id) {
+        return 'bot_template_' + id;
+    };
+    self.AddRoomBot = function (bot)
+    {
+        if (self.CreditPoints() < bot.Points) {
+            alert('رصيد نقاطك لا يكفى لإضافة هذا البوت');
+            return;
+        }
+        self.ActivWindow().addRoomBot(bot);
+    };
 }
 
 function onCamClose(userId, roomId) {
