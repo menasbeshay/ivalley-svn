@@ -1055,8 +1055,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
-        if (this.LogoutMsgPart1() != '' || this.LogoutMsgPart2()!='') {
-            notify('success', this.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.LogoutMsgPart2());
+        if (this.WelcomeBot != null) {
+            notify('success', this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2());
         }
     }
     self.rateRoom = function (val) {
@@ -1223,8 +1223,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             }
         });
 
-
-
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) //MemberLevelID>1>>> Admin
         {
             var names = ko.utils.arrayMap(window.Members(), function (item) {
@@ -1236,15 +1234,12 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             });
         }
 
-
         // add welcome message
         if (window.Type() == "Room")
         {
-            if (window.LoginMsgPart1() != '' || window.LoginMsgPart2()!='')
-                addMsgToWindow(window, window.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.LoginMsgPart2(), "welcomeText");
+            if (window.WelcomeBot != null)
+                addMsgToWindow(window, window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2(), "welcomeText");
         }
-
-
 
     };
 

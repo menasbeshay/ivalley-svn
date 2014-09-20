@@ -2060,7 +2060,7 @@
                                         <h3 class="underline">تعديل بيانات البوتات</h3>
                                         <!-- ko with:RoomBots-->
                                         <div class="row" data-bind="foreach:$data">
-                                            <div data-bind="template: { name: $root.getBotTemplate.bind($data,$data.BotID)}"></div>
+                                            <div data-bind="template: { name: 'bot_editTemplate'}"></div>
                                         </div>
                                         <!-- /ko -->
                                     </div>
@@ -2076,7 +2076,7 @@
             </div>
         </div>
     </script>
-    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.Welcome %>">
+    <script type="text/html" id="bot_editTemplate">
         <div class="box">
             <div class="icon">
                 <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
@@ -2085,8 +2085,8 @@
                     <div class="more">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label for="rdStatus" class="col-sm-2 control-label pull-right">حالة البوت</label>
-                                <div class="col-sm-10 pull-right">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
+                                <div class="col-md-4 pull-right">
                                     <label>
                                         <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
                                         <span>فعال</span>
@@ -2098,170 +2098,89 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="form-group">
-                                <div class="col-sm-2 control-label pull-right">
-                                    <label>عند الدخول</label>
-                                </div>
-                                <div class="col-sm-4 pull-right">
-                                    <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart1" />
-                                </div>
-                                <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
-                                <div class="col-sm-4 pull-right">
-                                    <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart2" />
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label pull-right">عند الخروج</label>
-                                <div class="col-sm-4 pull-right">
-                                    <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart1" />
-                                </div>
-
-                                <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
-                                <div class="col-sm-4 pull-right">
-                                    <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart2" />
-                                </div>
-                            </div>
+                            <div data-bind="template: { name: $root.getBotTemplate.bind($data,$data.BotID)}"></div>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="space"></div>
+        </div>
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.Welcome %>">
+        <div class="form-group">
+            <div class="col-sm-2 control-label pull-right">
+                <label>عند الدخول</label>
+            </div>
+            <div class="col-sm-4 pull-right">
+                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart1" />
+            </div>
+            <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
+            <div class="col-sm-4 pull-right">
+                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart2" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label pull-right">عند الخروج</label>
+            <div class="col-sm-4 pull-right">
+                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart1" />
+            </div>
+
+            <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
+            <div class="col-sm-4 pull-right">
+                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart2" />
+            </div>
         </div>
     </script>
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.InviteFriendsBan %>">
-        <div class="box">
-            <div class="icon">
-                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
-                <div class="info">
-                    <h3 class="title" data-bind="text:Bot.Title"></h3>
-                    <div class="more">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
-                                <div class="col-md-4 pull-right">
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
-                                        <span>فعال</span>
-                                    </label>
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
-                                        <span>معطل</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
-                                <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
-                                    <li class="pull-right">
-                                        <label>
-                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.BannedMemberLevels" />
-                                            <span data-bind="text: Name"></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="space"></div>
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+            <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.BannedMemberLevels" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
         </div>
     </script>
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.MemberTypeLogin %>">
-        <div class="box">
-            <div class="icon">
-                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
-                <div class="info">
-                    <h3 class="title" data-bind="text:Bot.Title"></h3>
-                    <div class="more">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
-                                <div class="col-md-4 pull-right">
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
-                                        <span>فعال</span>
-                                    </label>
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
-                                        <span>معطل</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
-                                <ul data-bind="foreach: Settings.MemberTypes" class="col-md-8 pull-right">
-                                    <li class="pull-right">
-                                        <label>
-                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.AcceptedMemberTypes" />
-                                            <span data-bind="text: Name"></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="space"></div>
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+            <ul data-bind="foreach: Settings.MemberTypes" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.AcceptedMemberTypes" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
         </div>
     </script>
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.FollowAdmin %>">
-        <div class="box">
-            <div class="icon">
-                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
-                <div class="info">
-                    <h3 class="title" data-bind="text:Bot.Title"></h3>
-                    <div class="more">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
-                                <div class="col-md-4 pull-right">
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
-                                        <span>فعال</span>
-                                    </label>
-                                    <label>
-                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
-                                        <span>معطل</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
-                                <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
-                                    <li class="pull-right">
-                                        <label>
-                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.FollowMemberLevels" />
-                                            <span data-bind="text: Name"></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="form-group">
-                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
-                                <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
-                                    <li class="pull-right">
-                                        <label>
-                                            <input type="radio" data-bind="value: ID, checked: $parent.Settings.FollowSchedule" />
-                                            <span data-bind="text: Name"></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="space"></div>
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+            <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.FollowMemberLevels" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.FollowSchedule" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
         </div>
     </script>
     <script type="text/javascript">
