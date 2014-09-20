@@ -1048,9 +1048,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
-        var logoutMsg = this.LogoutMsg();
-        if (logoutMsg != '') {
-            notify('success', logoutMsg.replace("$Member$", ' ' + this.CurrentMember().MemberName() + ' '));
+        if (this.LogoutMsgPart1() != '' || this.LogoutMsgPart2()!='') {
+            notify('success', this.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.LogoutMsgPart2());
         }
     }
     self.rateRoom = function (val) {
@@ -1234,8 +1233,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         // add welcome message
         if (window.Type() == "Room")
         {
-            if (window.LoginMsg() != '')
-                addMsgToWindow(window, window.LoginMsg().replace("$Member$", ' ' + window.CurrentMember().MemberName() + ' '), "welcomeText");
+            if (window.LoginMsgPart1() != '' || window.LoginMsgPart2()!='')
+                addMsgToWindow(window, window.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.LoginMsgPart2(), "welcomeText");
         }
 
 

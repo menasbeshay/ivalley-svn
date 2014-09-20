@@ -1350,7 +1350,7 @@
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko with:RoomBots-->
                 <div class=" clearfix bordered round center-block" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
-                    <div data-bind="attr:{id:'b_'+ID}" class="col-lg-1 botIcon" data-original-title="" title="">
+                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon" data-original-title="" title="">
                         <img data-bind="attr:{'src' : Bot.IconPath + '_1.png', 'alt': Bot.Title, 'title' : Bot.Title }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
@@ -2087,11 +2087,11 @@
                                 <label for="rdStatus" class="col-sm-2 control-label pull-right">حالة البوت</label>
                                 <div class="col-sm-10 pull-right">
                                     <label>
-                                        <input name="status" type="radio" data-bind="value: true,checked: IsEnabled" />
+                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
                                         <span>فعال</span>
                                     </label>
                                     <label>
-                                        <input name="status" type="radio" data-bind="value: false,checked: IsEnabled" />
+                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
                                         <span>معطل</span>
                                     </label>
                                 </div>
