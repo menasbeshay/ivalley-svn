@@ -68,19 +68,14 @@ namespace Helper
 
         public object MemberLevels { get; set; }
 
-        public string LoginMsgPart1 { get; set; }
         public string CategoryName { get; set; }
         public string SubCategoryName { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
-        public string LogoutMsgPart1 { get; set; }
-
         public object RoomBots { get; set; }
 
-        public string LoginMsgPart2 { get; set; }
-
-        public string LogoutMsgPart2 { get; set; }
+        public object WelcomeBot { get; set; }
     }
 
     public class ChatMember

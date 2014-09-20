@@ -3,7 +3,7 @@ GO
 IF NOT EXISTS(SELECT * FROM sys.columns 
         WHERE [name] = N'SettingString' AND [object_id] = OBJECT_ID(N'RoomBot'))
 BEGIN
-    ALTER TABLE RoomBot ADD SettingString VARCHAR(MAX)
+    ALTER TABLE RoomBot ADD SettingString NVARCHAR(MAX)
 END
 GO
 /****** Object:  StoredProcedure [proc_RoomBotLoadByPrimaryKey]    Script Date: 19/9/2014 11:34:42 AM ******/
@@ -90,7 +90,7 @@ CREATE PROCEDURE [proc_RoomBotUpdate]
 	@StartDate datetime,
 	@EndDate datetime = NULL,
 	@TimeStamp datetime,
-	@SettingString varchar(MAX) = NULL
+	@SettingString nvarchar(MAX) = NULL
 )
 AS
 BEGIN
@@ -139,7 +139,7 @@ CREATE PROCEDURE [proc_RoomBotInsert]
 	@StartDate datetime,
 	@EndDate datetime = NULL,
 	@TimeStamp datetime,
-	@SettingString varchar(MAX) = NULL
+	@SettingString nvarchar(MAX) = NULL
 )
 AS
 BEGIN
@@ -217,3 +217,4 @@ DROP TABLE EmailOwnerBot
 GO
 
 DELETE FROM RoomBot
+GO

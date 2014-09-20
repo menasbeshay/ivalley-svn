@@ -175,7 +175,7 @@ namespace DAL
 			{
 				get
 				{
-					return new SqlParameter("@SettingString", SqlDbType.VarChar, 2147483647);
+					return new SqlParameter("@SettingString", SqlDbType.NVarChar, 2147483647);
 				}
 			}
 			
