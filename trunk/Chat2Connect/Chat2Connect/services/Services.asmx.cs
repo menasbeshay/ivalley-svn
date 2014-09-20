@@ -553,8 +553,13 @@ namespace Chat2Connect.services
             if (bots.Count>0)
             {
                 Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
-                roomObject.LoginMsg = infoWelcomeBot.LoginMsgPart1;
-                roomObject.LogoutMsg = infoWelcomeBot.LogoutMsgPart1;
+                if (infoWelcomeBot != null)
+                {
+                    roomObject.LoginMsgPart1 = infoWelcomeBot.LoginMsgPart1;
+                    roomObject.LoginMsgPart2 = infoWelcomeBot.LoginMsgPart2;
+                    roomObject.LogoutMsgPart1 = infoWelcomeBot.LogoutMsgPart1;
+                    roomObject.LogoutMsgPart2 = infoWelcomeBot.LogoutMsgPart2;
+                }
             }
 
             if (!room.IsColumnNull("CreatedDate"))

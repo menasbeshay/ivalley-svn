@@ -47,7 +47,7 @@ namespace BLL
             List<Info.RoomBot> result = new List<Info.RoomBot>();
             if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
 	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
-                                WHERE RoomBot.RoomID={0} AND BotID={1}", roomID,(int)botType))
+                                WHERE RoomBot.RoomID={0} AND BotID={1} AND IsEnabled=1", roomID,(int)botType))
             {
                 do
                 {
