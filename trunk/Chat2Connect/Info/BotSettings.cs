@@ -7,17 +7,6 @@ namespace Info
 {
     public class BotSettings
     {
-        public int BotID
-        {
-            get;
-            set;
-        }
-
-        public BotSettings(int botID)
-        {
-            BotID = BotID;
-        }
-
         public BotSettings()
         {
         }

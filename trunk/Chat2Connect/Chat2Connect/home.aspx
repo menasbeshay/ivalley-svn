@@ -1903,7 +1903,6 @@
         <!-- /ko -->
     </script>
 
-
     <div id='GeneralGiftModal' class="modal fade " role="modal" aria-hidden="true">
         <div class="modal-dialog modal-lg" style="width: 700px;">
             <div class="modal-content">
@@ -2010,22 +2009,24 @@
                                 <div class="col-xs-12">
                                     <div class="col-md-12 well text-center">
                                         <h3>البوتات المضافة على الغرفة</h3>
-                                        <!-- ko with:RoomBots-->
                                         <table class="table  table-condensed right">
                                             <thead>
                                                 <tr>
                                                     <th></th>
                                                     <th>البوت</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
-                                            <tbody data-bind="foreach:$data">
+                                            <tbody data-bind="foreach:RoomBots">
                                                 <tr>
                                                     <td></td>
                                                     <td data-bind="text:Bot.Title"></td>
+                                                    <td>
+                                                        <a href="#" data-bind="if:ID==0,click:$parent.removeRoomBot">حذف</a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <!-- /ko -->
                                         <h3>إضافة بوت جديد</h3>
                                         <table class="table">
                                             <thead>
@@ -2044,7 +2045,7 @@
                                                     <td data-bind="text:Title"></td>
                                                     <td data-bind="text:Points"></td>
                                                     <td>
-                                                        <a data-bind="click:$root.AddRoomBot.bind($data,$data)">Add</a>
+                                                        <a href="#" data-bind="click:$root.AddRoomBot.bind($data,$data)">أضف</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -2120,6 +2121,140 @@
                                 <div class="col-sm-4 pull-right">
                                     <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart2" />
                                 </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.InviteFriendsBan %>">
+        <div class="box">
+            <div class="icon">
+                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
+                <div class="info">
+                    <h3 class="title" data-bind="text:Bot.Title"></h3>
+                    <div class="more">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
+                                <div class="col-md-4 pull-right">
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
+                                        <span>فعال</span>
+                                    </label>
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
+                                        <span>معطل</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+                                <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
+                                    <li class="pull-right">
+                                        <label>
+                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.BannedMemberLevels" />
+                                            <span data-bind="text: Name"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.MemberTypeLogin %>">
+        <div class="box">
+            <div class="icon">
+                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
+                <div class="info">
+                    <h3 class="title" data-bind="text:Bot.Title"></h3>
+                    <div class="more">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
+                                <div class="col-md-4 pull-right">
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
+                                        <span>فعال</span>
+                                    </label>
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
+                                        <span>معطل</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+                                <ul data-bind="foreach: Settings.MemberTypes" class="col-md-8 pull-right">
+                                    <li class="pull-right">
+                                        <label>
+                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.AcceptedMemberTypes" />
+                                            <span data-bind="text: Name"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.FollowAdmin %>">
+        <div class="box">
+            <div class="icon">
+                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
+                <div class="info">
+                    <h3 class="title" data-bind="text:Bot.Title"></h3>
+                    <div class="more">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right">حالة البوت</label>
+                                <div class="col-md-4 pull-right">
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: true,checked: IsEnabled" />
+                                        <span>فعال</span>
+                                    </label>
+                                    <label>
+                                        <input name="status" type="radio" data-bind="checkedValue: false,checked: IsEnabled" />
+                                        <span>معطل</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+                                <ul data-bind="foreach: Settings.MemberLevels" class="col-md-8 pull-right">
+                                    <li class="pull-right">
+                                        <label>
+                                            <input type="checkbox" data-bind="value: ID, checked: $parent.Settings.FollowMemberLevels" />
+                                            <span data-bind="text: Name"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
+                                <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
+                                    <li class="pull-right">
+                                        <label>
+                                            <input type="radio" data-bind="value: ID, checked: $parent.Settings.FollowSchedule" />
+                                            <span data-bind="text: Name"></span>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="clearfix"></div>
                         </form>

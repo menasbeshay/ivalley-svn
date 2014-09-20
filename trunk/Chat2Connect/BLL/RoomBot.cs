@@ -97,6 +97,7 @@ namespace BLL
                         bllRoomBot.ShortcutKey = bot.ShortcutKey;
                         bllRoomBot.SettingString = Helper.JsonConverter.Serialize(bot.Settings);
                         bllRoomBot.Save();
+                        bot.ID = bllRoomBot.ID;
                         //update member points
                         BLL.Member currentMember = BLL.Member.CurrentMember;
                         if (currentMember.Credit_Point < bot.Bot.Points)

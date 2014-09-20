@@ -1256,9 +1256,19 @@ namespace Chat2Connect.services
         public void SaveRoomBots(string roomBots)
         {
             BLL.RoomBot rmBots = new RoomBot();
-            List<Info.RoomBot> lst = Helper.JsonConverter.Deserialize<List<Info.RoomBot>>(roomBots);
-            rmBots.Save(lst);
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            string result = "";
+            try
+            {
+                List<Info.RoomBot> lst = Helper.JsonConverter.Deserialize<List<Info.RoomBot>>(roomBots);
+                rmBots.Save(lst);
+                var resultObj = new { status = true, error = "", bots = lst };
+                result = Newtonsoft.Json.JsonConvert.SerializeObject(resultObj);
+            }
+            catch (Exception ex)
+            {
+                var resultObj = new { status = false, error = ex.Message };
+                result = Newtonsoft.Json.JsonConvert.SerializeObject(resultObj);
+            }
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
         }

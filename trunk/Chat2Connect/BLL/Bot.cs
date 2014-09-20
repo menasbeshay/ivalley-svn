@@ -59,8 +59,14 @@ namespace BLL
                 case (int)Helper.Enums.Bot.InviteFriendsBan:
                     botSetting = Helper.JsonConverter.Deserialize<Info.InviteFriendBan>(settingString);
                     break;
+                case (int)Helper.Enums.Bot.FollowAdmin:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.FollowAdmin>(settingString);
+                    break;
+                case (int)Helper.Enums.Bot.MemberTypeLogin:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.MemberTypeLogin>(settingString);
+                    break;
                 default:
-                    botSetting = new Info.BotSettings(botID);
+                    botSetting = new Info.BotSettings();
                     break;
             }
 
