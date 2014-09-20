@@ -13,6 +13,7 @@ using Microsoft.AspNet.SignalR.Hubs;
 using System.Dynamic;
 using System.Collections;
 using System.Net.Mail;
+using Newtonsoft.Json;
 
 namespace Chat2Connect.services
 {
@@ -488,7 +489,7 @@ namespace Chat2Connect.services
             Helper.ChatRoom roomObject = GetRoomInfo(id, isTemp, room);
             Helper.Sessions.OpenedRooms.Add(new Helper.Sessions.RoomSession() { ID = id, IsTemp = isTemp });
 
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(roomObject);
+            string result = Helper.JsonConverter.Serialize(roomObject);
             HttpContext.Current.Response.Write("{\"Status\":1,\"Data\":" + result + "}");
             //return result;
         }
@@ -547,11 +548,13 @@ namespace Chat2Connect.services
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
 
-            WelcomBot wlcmBot = new WelcomBot();
-            if (wlcmBot.LoadByRoomID(id))
+            RoomBot bllRoomBot = new RoomBot();
+            List<Info.RoomBot> bots=bllRoomBot.GetByRoomIDandBotID(id,Helper.Enums.Bot.Welcome);
+            if (bots.Count>0)
             {
-                roomObject.LoginMsg = wlcmBot.LoginMessage;
-                roomObject.LogoutMsg = wlcmBot.LogoutMessage;
+                Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
+                roomObject.LoginMsg = infoWelcomeBot.LoginMsgPart1;
+                roomObject.LogoutMsg = infoWelcomeBot.LogoutMsgPart1;
             }
 
             if (!room.IsColumnNull("CreatedDate"))
@@ -1215,6 +1218,45 @@ namespace Chat2Connect.services
 
         }
 
+        #endregion
+
+        #region Bots
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void LoadBots()
+        {
+            BLL.Bot bot = new Bot();
+            var lst= bot.GetAll();
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void LoadRoomBots(int roomId)
+        {
+            BLL.RoomBot rmBots = new RoomBot();
+            List<Info.RoomBot> lst= rmBots.GetByRoomID(roomId);
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SaveRoomBots(string roomBots)
+        {
+            BLL.RoomBot rmBots = new RoomBot();
+            List<Info.RoomBot> lst = Helper.JsonConverter.Deserialize<List<Info.RoomBot>>(roomBots);
+            rmBots.Save(lst);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
         #endregion
     }
 }

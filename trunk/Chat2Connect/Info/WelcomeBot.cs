@@ -6,38 +6,35 @@ using System.Threading.Tasks;
 
 namespace Info
 {
-    [Serializable]
-    public class WelcomeBot:RoomBot
+    public class WelcomeBot : BotSettings
     {
-        public int WelcomeBotID
+        public string LoginMsgPart1
         {
             get;
             set;
         }
-
-        public string LoginMessage
+        public string LoginMsgPart2
         {
             get;
             set;
         }
-
-        public string LogoutMessage
+        public string LogoutMsgPart1
         {
             get;
             set;
         }
-
-        public WelcomeBot(int roomID):base(roomID,(int)Helper.Enums.Bot.Welcome)
+        public string LogoutMsgPart2
         {
-            BotID = (int)Helper.Enums.Bot.Welcome;
-            LoginMessage = "";
-            LogoutMessage = "";
+            get;
+            set;
         }
-
         public WelcomeBot()
+            : base((int)Helper.Enums.Bot.Welcome)
         {
-            LoginMessage = "";
-            LogoutMessage = "";
+            LoginMsgPart1 = "";
+            LoginMsgPart2 = "";
+            LogoutMsgPart1 = "";
+            LogoutMsgPart2 = "";
         }
     }
 }

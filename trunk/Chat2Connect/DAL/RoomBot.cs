@@ -171,6 +171,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter SettingString
+			{
+				get
+				{
+					return new SqlParameter("@SettingString", SqlDbType.VarChar, 2147483647);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -186,6 +194,7 @@ namespace DAL
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
             public const string TimeStamp = "TimeStamp";
+            public const string SettingString = "SettingString";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -202,6 +211,7 @@ namespace DAL
 					ht[StartDate] = _RoomBot.PropertyNames.StartDate;
 					ht[EndDate] = _RoomBot.PropertyNames.EndDate;
 					ht[TimeStamp] = _RoomBot.PropertyNames.TimeStamp;
+					ht[SettingString] = _RoomBot.PropertyNames.SettingString;
 
 				}
 				return (string)ht[columnName];
@@ -223,6 +233,7 @@ namespace DAL
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
             public const string TimeStamp = "TimeStamp";
+            public const string SettingString = "SettingString";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -239,6 +250,7 @@ namespace DAL
 					ht[StartDate] = _RoomBot.ColumnNames.StartDate;
 					ht[EndDate] = _RoomBot.ColumnNames.EndDate;
 					ht[TimeStamp] = _RoomBot.ColumnNames.TimeStamp;
+					ht[SettingString] = _RoomBot.ColumnNames.SettingString;
 
 				}
 				return (string)ht[propertyName];
@@ -260,6 +272,7 @@ namespace DAL
             public const string StartDate = "s_StartDate";
             public const string EndDate = "s_EndDate";
             public const string TimeStamp = "s_TimeStamp";
+            public const string SettingString = "s_SettingString";
 
 		}
 		#endregion		
@@ -371,6 +384,18 @@ namespace DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.TimeStamp, value);
+			}
+		}
+
+		public virtual string SettingString
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.SettingString);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.SettingString, value);
 			}
 		}
 
@@ -514,6 +539,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_SettingString
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SettingString) ? string.Empty : base.GetstringAsString(ColumnNames.SettingString);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SettingString);
+				else
+					this.SettingString = base.SetstringAsString(ColumnNames.SettingString, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -637,6 +677,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter SettingString
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SettingString, Parameters.SettingString);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -750,6 +800,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter SettingString
+		    {
+				get
+		        {
+					if(_SettingString_W == null)
+	        	    {
+						_SettingString_W = TearOff.SettingString;
+					}
+					return _SettingString_W;
+				}
+			}
+
 			private WhereParameter _ID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _BotID_W = null;
@@ -759,6 +821,7 @@ namespace DAL
 			private WhereParameter _StartDate_W = null;
 			private WhereParameter _EndDate_W = null;
 			private WhereParameter _TimeStamp_W = null;
+			private WhereParameter _SettingString_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -771,6 +834,7 @@ namespace DAL
 				_StartDate_W = null;
 				_EndDate_W = null;
 				_TimeStamp_W = null;
+				_SettingString_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -917,6 +981,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter SettingString
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SettingString, Parameters.SettingString);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1030,6 +1104,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter SettingString
+		    {
+				get
+		        {
+					if(_SettingString_W == null)
+	        	    {
+						_SettingString_W = TearOff.SettingString;
+					}
+					return _SettingString_W;
+				}
+			}
+
 			private AggregateParameter _ID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _BotID_W = null;
@@ -1039,6 +1125,7 @@ namespace DAL
 			private AggregateParameter _StartDate_W = null;
 			private AggregateParameter _EndDate_W = null;
 			private AggregateParameter _TimeStamp_W = null;
+			private AggregateParameter _SettingString_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1051,6 +1138,7 @@ namespace DAL
 				_StartDate_W = null;
 				_EndDate_W = null;
 				_TimeStamp_W = null;
+				_SettingString_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1159,6 +1247,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.TimeStamp);
 			p.SourceColumn = ColumnNames.TimeStamp;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SettingString);
+			p.SourceColumn = ColumnNames.SettingString;
 			p.SourceVersion = DataRowVersion.Current;
 
 

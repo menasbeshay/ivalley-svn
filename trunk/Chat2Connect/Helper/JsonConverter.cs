@@ -12,6 +12,11 @@ namespace Helper
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(stringValue);
         }
 
+        public static T Deserialize<T>(string stringValue,Newtonsoft.Json.JsonSerializerSettings settings)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(stringValue,settings);
+        }
+
         public static string Serialize(object instance)
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(instance);

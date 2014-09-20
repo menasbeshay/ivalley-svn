@@ -47,11 +47,8 @@
     <Compile Include="BotPoints.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
-    <Compile Include="EmailOwnerBot.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
-    <Compile Include="InviteFriendBanBoot.cs" />
-    <Compile Include="LoginMembersBot.cs" />
     <Compile Include="Log\DeleteFriend.cs" />
     <Compile Include="Log\AddFriend.cs" />
     <Compile Include="Log\ChangeMemberType.cs" />
@@ -96,7 +93,6 @@
     <Compile Include="SubCategory.cs" />
     <Compile Include="TypeDuration.cs" />
     <Compile Include="UserTransLog.cs" />
-    <Compile Include="WelcomBot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
