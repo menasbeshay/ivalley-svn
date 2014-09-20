@@ -591,14 +591,6 @@ namespace Chat2Connect.services
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
 
-            RoomBot bllRoomBot = new RoomBot();
-            List<Info.RoomBot> bots=bllRoomBot.GetByRoomIDandBotID(id,Helper.Enums.Bot.Welcome);
-            if (bots.Count>0)
-            {
-                Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
-                roomObject.WelcomeBot = infoWelcomeBot;
-            }
-
             if (!room.IsColumnNull("CreatedDate"))
                 roomObject.CreatedDate = room.CreatedDate;
 
@@ -677,6 +669,18 @@ namespace Chat2Connect.services
             Gift allgifts = new Gift();
             allgifts.LoadAll();
             roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"], AudioPath = m["AudioPath"] }).ToList();
+
+            //bots
+            RoomBot bllRoomBot = new RoomBot();
+            //welcome bot
+            List<Info.RoomBot> bots = bllRoomBot.GetByRoomIDandBotID(id, Helper.Enums.Bot.Welcome);
+            if (bots.Count > 0)
+            {
+                Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
+                roomObject.WelcomeBot = infoWelcomeBot;
+            }
+            //invite friends bot
+            roomObject.InviteFriendBanBotID = (int)Helper.Enums.Bot.InviteFriendsBan;
 
             return roomObject;
         }

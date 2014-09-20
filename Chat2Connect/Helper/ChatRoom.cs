@@ -76,6 +76,8 @@ namespace Helper
         public object RoomBots { get; set; }
 
         public object WelcomeBot { get; set; }
+
+        public int InviteFriendBanBotID { get; set; }
     }
 
     public class ChatMember

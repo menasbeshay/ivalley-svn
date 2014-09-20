@@ -1456,8 +1456,8 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'gift_'+uniqueID()}" data-original-title="إرسال هدايا" data-bind="click:ShowSendGift">
                                     <img src="images/gift-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
-                                <!-- ko if: Type()=="Room" -->
-                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()}" data-original-title="دعوة أصدقاء" data-bind="click:ShowInviteFriends">
+                                <!-- ko if: Type()=="Room" && allowInviteFriends -->
+                                <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()},click:ShowInviteFriends" data-original-title="دعوة أصدقاء">
                                     <img src="images/friends-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>

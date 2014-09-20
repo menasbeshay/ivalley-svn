@@ -901,16 +901,18 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.showRoomInfo = function () {
             $("#infoModal_" + self.uniqueID()).modal('show');
         };
-
+        
         this.RoomBots = ko.observableArray([]);
-        $.ajax({
-            url: '../Services/Services.asmx/LoadRoomBots?roomID=' + this.ID(),
-            success: function (data) {
-                ko.utils.arrayMap(data, function (item) {
-                    self.RoomBots.push(item);
-                })
-            }
-        });
+        if (this.Type() == 'Room') {
+            $.ajax({
+                url: '../Services/Services.asmx/LoadRoomBots?roomID=' + this.ID(),
+                success: function (data) {
+                    ko.utils.arrayMap(data, function (item) {
+                        self.RoomBots.push(item);
+                    })
+                }
+            });
+        }
         this.roomBotsModalID = "roomBotModal_" + this.uniqueID();
         this.showRoomBots = function () {
             var window = this;
@@ -948,6 +950,21 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 return;
             self.RoomBots.remove(bot);
         };
+        this.allowInviteFriends = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            var inviteBanBot= ko.utils.arrayFirst(self.RoomBots(), function (bot) {
+                return bot.IsEnabled && bot.BotID == self.InviteFriendBanBotID();
+            });
+            if(inviteBanBot!=null && inviteBanBot!=undefined)
+            {
+                var currentMemberBan = ko.utils.arrayFirst(inviteBanBot.Settings.BannedMemberLevels, function (bannedLevel) {
+                    return bannedLevel == self.CurrentMember().MemberLevelID();
+                });
+                return currentMemberBan == null;
+            }
+            return true;
+        }, this);
     }
 
     self.changeCurrent = function (selctor, id, type) {
