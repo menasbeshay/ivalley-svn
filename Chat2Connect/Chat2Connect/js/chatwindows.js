@@ -909,8 +909,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 ko.utils.arrayMap(data, function (item) {
                     self.RoomBots.push(item);
                 })
-                //this.RoomBots = ko.mapping.fromJS(data);
-                //ko.mapping.fromJS(data, {}, this.RoomBots);
             }
         });
         this.roomBotsModalID = "roomBotModal_" + this.uniqueID();
@@ -920,17 +918,20 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         };
         this.saveRoomBots = function () {
             var window = this;
-            $.ajax({
-                url: '../Services/Services.asmx/SaveRoomBots',
-                data: "{'roomBots':'" + ko.toJSON(window.RoomBots) + "'}",
-                success: function (data) {
-                    alert(data);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(errorThrown);
-                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة');
-                }
-            });
+            $.post("../Services/Services.asmx/SaveRoomBots", { roomBots: ko.toJSON(window.RoomBots) })
+                .done(function (data) {
+                    if (data.status)
+                    {
+                        window.RoomBots([]);
+                        ko.utils.arrayMap(data.bots, function (item) {
+                            window.RoomBots.push(item);
+                        })
+                    }
+                    else
+                    {
+                        alert(data.error);
+                    }
+                });
             $("#" + window.roomBotsModalID).modal('hide');
         };
         this.addRoomBot = function (bot) {
@@ -940,6 +941,12 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 Settings: bot.SettingObject
             };
             this.RoomBots.push(roomBot);
+        };
+        this.removeRoomBot = function () {
+            var bot = this;
+            if (bot.ID > 0)
+                return;
+            self.RoomBots.remove(bot);
         };
     }
 

@@ -37,6 +37,17 @@ namespace Helper
             [StringValue("غير متصل")]
             Offline=4
         }
+
+        public enum MemberType
+        {
+            [StringValue("مجانى")]
+            Free = 1,
+            [StringValue("ترقية")]
+            Upgraded = 2,
+            [StringValue("مميز")]
+            VIP = 3
+        }
+
         public enum MemberRoles
         {
             [StringValue("المحادثة الخاصة")]
@@ -193,7 +204,17 @@ namespace Helper
             Welcome=1,
             InviteFriendsBan=2,
             FollowAdmin=3,
-            MembersLogin=4
+            MemberTypeLogin=4
+        }
+
+        public enum FollowAdminBotSchedule
+        {
+            [StringValue("يومى")]
+            Daily = 1,
+            [StringValue("أسبوع")]
+            Week = 2,
+            [StringValue("شهر")]
+            Month = 3
         }
     }
 }

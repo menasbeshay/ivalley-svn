@@ -29,7 +29,7 @@ namespace Info
             set;
         }
         public WelcomeBot()
-            : base((int)Helper.Enums.Bot.Welcome)
+            : base()
         {
             LoginMsgPart1 = "";
             LoginMsgPart2 = "";

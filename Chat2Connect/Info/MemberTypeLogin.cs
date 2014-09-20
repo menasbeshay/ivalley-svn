@@ -6,25 +6,25 @@ using System.Text;
 namespace Info
 {
     [Serializable]
-    public class InviteFriendBan : BotSettings
+    public class MemberTypeLogin : BotSettings
     {
-        public List<string> BannedMemberLevels
+        public List<string> AcceptedMemberTypes
         {
             get;
             set;
         }
 
-        public InviteFriendBan()
+        public MemberTypeLogin()
             : base()
         {
-            BannedMemberLevels = new List<string>();
+            AcceptedMemberTypes = new List<string>();
         }
 
-        public object MemberLevels
+        public object MemberTypes
         {
             get
             {
-                return Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Select(r => new
+                return Helper.EnumUtil.GetValues<Helper.Enums.MemberType>().Select(r => new
                 {
                     ID = (int)r,
                     Name = Helper.StringEnum.GetStringValue(r)
