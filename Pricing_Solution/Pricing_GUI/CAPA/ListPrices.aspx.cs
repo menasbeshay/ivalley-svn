@@ -93,9 +93,11 @@ namespace WebGUI
 
         protected void ui_LB_Excel_Click(object sender, EventArgs e)
         {
+            string filepath = Server.MapPath(ConfigurationManager.AppSettings["AttachementPath"].ToString()) + "ExportList.xlsx";
+            
             DataTable dt = SearchCases();
-            CreateExcelFile.CreateExcelDocument(dt, "D:\\Drugs.xlsx");
-            ui_lblDone.Text = "Excel Sheet Created .. " + "<a href='D:\\Drugs.xlsx' >" + "Open here" + "</a>";
+            CreateExcelFile.CreateExcelDocument(dt, filepath);
+            ui_lblDone.Text = "To open the Excel Sheet  .. " + "<a href='../Attachments/ExportList.xlsx' > click here </a>";
         }
 
         protected void ui_LB_Assign_Click(object sender, EventArgs e)
