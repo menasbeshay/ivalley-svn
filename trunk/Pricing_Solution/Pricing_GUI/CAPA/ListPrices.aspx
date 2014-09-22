@@ -161,19 +161,8 @@ TBODY TR.odd { background-color:#78a5d1; }
                 <td colspan="2">
                 <table width="100%">
                 <tr>
-                <td > 
-                 <table>
-                        <tr>
-                            <td>
-                                <img alt="" class="style4" src="../Images/Excel-icon.png" />
-                            </td>
-                            <td>
-                                &nbsp;&nbsp;
-                                <asp:LinkButton ID="ui_LB_Excel" runat="server" OnClick="ui_LB_Excel_Click">Export to Excel here</asp:LinkButton>
-                                
-                            </td>
-                        </tr>
-                    </table>
+                <td width="50%"> 
+                 
                 </td>
                 <td > <asp:Button runat="server" class="btn btn-default" Font-Bold="true" Font-Size="20px" ID="ui_btnSearch" Text="Search ..." OnClick="ui_btnSearch_Click" /> 
 
@@ -601,4 +590,17 @@ TBODY TR.odd { background-color:#78a5d1; }
 
 </ContentTemplate>
 </asp:UpdatePanel>
+
+<table runat="server" id="tb_export">
+                        <tr>
+                            <td>
+                                <img alt="" class="style4" src="../Images/Excel-icon.png" />
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;
+                                <asp:LinkButton ID="ui_LB_Excel" runat="server" OnClick="ui_LB_Excel_Click">Export to Excel</asp:LinkButton>
+                                
+                            </td>
+                        </tr>
+                    </table>
 </asp:Content>

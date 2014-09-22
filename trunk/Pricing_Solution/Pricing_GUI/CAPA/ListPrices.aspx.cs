@@ -24,7 +24,7 @@ namespace WebGUI
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.ChildPageTitle = "Pricing Requests Search";
-
+            
             if (!IsPostBack)
             {
                 BindCompanies();
@@ -33,12 +33,17 @@ namespace WebGUI
                 BindStatus();
                 BindAssignedUser();
                 ui_lblDone.Text = "";
+                tb_export.Visible = false;
             }
         }
                 
         protected void ui_btnSearch_Click(object sender, EventArgs e)
         {
-            SearchCases();
+            DataTable dt_Result = SearchCases();
+            if (dt_Result.Rows.Count > 0)
+            {
+                tb_export.Visible = true;
+            }
             ui_lblDone.Text = "";
         }
 
@@ -243,6 +248,7 @@ namespace WebGUI
                 }
                 dr["Generics"] = Generics;
             }
+            
             return dt_Result;
             //ui_gv_Export.DataSource = dt_Result;
             //ui_gv_Export.DataBind();
