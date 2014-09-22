@@ -73,11 +73,13 @@ namespace Helper
 
         public DateTime CreatedDate { get; set; }
 
-        public object RoomBots { get; set; }
+        //public object RoomBots { get; set; }
 
         public object WelcomeBot { get; set; }
 
         public int InviteFriendBanBotID { get; set; }
+
+        public object RoomBots { get; set; }
     }
 
     public class ChatMember
@@ -164,5 +166,7 @@ namespace Helper
         public string ProfileImg { get; set; }
         public int FriendsCount { get; set; }
     }
+
+ 
 
 }

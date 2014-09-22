@@ -927,7 +927,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                         window.RoomBots([]);
                         ko.utils.arrayMap(data.bots, function (item) {
                             window.RoomBots.push(item);
-                        })
+                        });
+                        initPopover(window);
                     }
                     else
                     {
@@ -1254,7 +1255,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         // add welcome message
         if (window.Type() == "Room")
         {
-            if (window.WelcomeBot != null)
+            if (window.WelcomeBot() != null)
                 addMsgToWindow(window, window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2(), "welcomeText");
         }
 
@@ -1855,6 +1856,28 @@ function initPopover(window) {
             });
         }
     });
+
+
+    // init popover for bots 
+    $('.botIcon').each(function () {
+        var $this = $(this);
+        var popoverContent = $this.find('.botInfo');
+        // check if popover content exists
+        if (popoverContent.length > 0) {
+            $this.popover({
+                trigger: 'hover',
+                placement: 'top',
+                html: true,
+                content: popoverContent,
+                template: '<div class="popover awesome-popover-class"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
+                title: '<a class="close pull-left closepopover" style="color:#fff;" onclick="$(&#39;#' + $this.attr('id') + '&#39;).popover(&#39;hide&#39;);">&times;</a>',
+                container: '#' + window.uniqueID()
+            }).on('hidden.bs.popover', function () {
+                $this.append(popoverContent);
+            });
+        }
+    });
+
 }
 function createHamsaWindow(hamsa, sender) {
 

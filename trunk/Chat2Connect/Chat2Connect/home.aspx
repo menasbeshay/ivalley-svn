@@ -1349,9 +1349,9 @@
                 <!-- /ko -->
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko with:RoomBots-->
-                <div class=" clearfix bordered round center-block" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
-                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon" data-original-title="" title="">
-                        <img data-bind="attr:{'src' : Bot.IconPath + '_1.png', 'alt': Bot.Title, 'title' : Bot.Title }">
+                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
+                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon" >
+                        <img data-bind="attr:{'src' : Bot.IconPath + '_'+ '1' +'.png', 'alt': Bot.Title, 'title' : Bot.Title }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
                                 <span data-bind="text: 'بوت : ' + Bot.Title"></span>
@@ -1988,25 +1988,26 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon-2x icon-cogs" style="float: left;"></i>
                         <h3>إضافة أو تعديل بوت</h3>
                     </div>
                     <div class="modal-body">
                         <div>
                             <div class="row">
                                 <div class="row step">
-                                    <div id="div1" class="col-md-3 activestep" onclick="javascript: resetActive(event, 'step-1');">
-                                        <span class="fa fa icon-list"></span>
-                                        <p>البوتات</p>
-                                    </div>
-                                    <div class="col-md-3" onclick="javascript: resetActive(event, 'step-2');">
+                                    
+                                    <div class="col-md-6" onclick="javascript: resetActive(event, 'step-2');">
                                         <span class="fa icon-pencil"></span>
                                         <p>تعديل</p>
+                                    </div>
+                                    <div id="div1" class="col-md-6 activestep" onclick="javascript: resetActive(event, 'step-1');">
+                                        <span class="fa fa icon-list"></span>
+                                        <p>البوتات</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row setup-content step activeStepInfo" id="step-1">
-                                <div class="col-xs-12">
+                                
                                     <div class="col-md-12 well text-center">
                                         <h3>البوتات المضافة على الغرفة</h3>
                                         <table class="table  table-condensed right">
@@ -2052,10 +2053,10 @@
                                             <!-- /ko -->
                                         </table>
                                     </div>
-                                </div>
+                               
                             </div>
                             <div class="row setup-content step hiddenStepInfo" id="step-2">
-                                <div class="col-xs-12">
+                                
                                     <div class="col-md-12 well text-center">
                                         <h3 class="underline">تعديل بيانات البوتات</h3>
                                         <!-- ko with:RoomBots-->
@@ -2064,7 +2065,7 @@
                                         </div>
                                         <!-- /ko -->
                                     </div>
-                                </div>
+                                
                             </div>
                             <div class="row">
                                 <input type="button" class="btn btn-warning" value="حفظ" data-bind="click:saveRoomBots" />
@@ -2191,7 +2192,7 @@
                 }
             });
 
-            if (event.target.className == "col-md-3") {
+            if (event.target.className == "col-md-6") {
                 $(event.target).addClass("activestep");
             }
             else {

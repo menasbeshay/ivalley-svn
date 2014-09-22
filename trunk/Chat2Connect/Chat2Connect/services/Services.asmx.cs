@@ -591,6 +591,9 @@ namespace Chat2Connect.services
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
 
+            RoomBot Allbots = new RoomBot();
+            roomObject.RoomBots = Allbots.GetByRoomID(id);
+
             if (!room.IsColumnNull("CreatedDate"))
                 roomObject.CreatedDate = room.CreatedDate;
 
@@ -666,6 +669,9 @@ namespace Chat2Connect.services
             //roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);            
             roomObject.MessageHistory = new List<Helper.ChatMessage>() { };
             ///////////////////////////
+
+            
+
             Gift allgifts = new Gift();
             allgifts.LoadAll();
             roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"], AudioPath = m["AudioPath"] }).ToList();

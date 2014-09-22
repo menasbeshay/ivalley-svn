@@ -2,60 +2,52 @@
 <%@ Register Src="~/usercontrols/SendMail.ascx" TagPrefix="uc1" TagName="SendMail" %>
 
 <style>
-    .mailbtn {
-        font-size: 18px;
-        padding: 3px;
-        width: 100%;
-    }
+  
 
     #dvMessageDetails {
         background-color: white;
     }
 </style>
-<div class="clearfix" style="height: 5px;"></div>
-<div class="row">
+<div class="clear" style="height: 5px;"></div>
+<div class="col-sm-12 clearfix">
     <div class="pull-right">
 
         <h3>
             <i class="icon icon-envelope-alt"></i>
             <%= MemberName %></h3>
     </div>
-    <div class=" pull-left" style="width: 15%;">
-        <div class="clearfix" style="height: 5px;"></div>
-        <div class="center-block" style="width: 100%;">
+    <div class=" pull-left">        
+        
             <asp:LinkButton ID="lnkSendMessage" runat="server" OnClick="lnkSendMessage_Click" CssClass="btn btn-main mailbtn" role="button">
                 إرسال رسالة
                        <i class="entypoicon iconentypo-newmsg pull-left" style="font-size:40px;"></i>
             </asp:LinkButton>
-        </div>
+        
     </div>
 </div>
-<div class="row">
-    <div class=" pull-right col-lg-2" >
-        <asp:Repeater ID="repMemberFolders" runat="server">
-            <ItemTemplate>
-                <div class="clearfix" style="height: 5px;"></div>
-                <div class="center-block" style="width: 100%;">
+ <div class="clear" style="height: 5px;"></div>
+<div class="col-sm-12 clearfix">
+    <asp:Repeater ID="repMemberFolders" runat="server">
+            <ItemTemplate>                
+                <div class="pull-right mailbtn" >
                     <asp:LinkButton ID="lnkCustomeFolderMessages" runat="server" OnClick="lnkCustomeFolderMessages_Click" CommandArgument='<%# Eval("MessageFolderID") %>' data-folder='<%# Eval("MessageFolderID") %>' CssClass='<%# ((int)Eval("MessageFolderID") == CurrentFolder) ? "btn btn-main mailbtn folder active" : "btn btn-main mailbtn folder" %>' role="button">
-                <%# Eval("Name") %>
-                       <i class="entypoicon pull-left" style="font-size: 40px;"></i>
+                <%# Eval("Name") %>                       
                     </asp:LinkButton>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-        <div class="clearfix" style="height: 5px;"></div>
-        <div class="center-block" style="width: 100%;">
+    <div class="pull-right" >
             <asp:LinkButton ID="lnkCreateFolder" runat="server" OnClick="lnkCreateFolder_Click" CssClass="btn btn-main mailbtn" role="button">
                 إنشاء تصنيف جديد
                        <i class="entypoicon iconentypo-newfolder pull-left" style="font-size:40px;"></i>
             </asp:LinkButton>
         </div>
-        <div class="clearfix" style="height: 5px;"></div>
-    </div>
-    <div class="pull-right col-sm-9" >
-        <asp:Panel ID="pnlViewMessages" runat="server">
-            <div style="padding: 0px;">
-                <div class="col-sm-12">
+</div>
+<div class="clear" style="height: 5px;"></div>
+<div class="pull-right col-sm-12" >
+        <asp:Panel ID="pnlViewMessages" runat="server" CssClass="pull-right col-sm-12" style="padding:0px;">
+            
+                <div class="col-sm-12" style="padding:0px;">
                     <div class="btn-group" style="padding-right: 20px;">
                         <a id="lnkReply" data-message="" href="#" class="btn btn-default">
                     رد
@@ -75,7 +67,7 @@
                                     <i class="entypoicon iconentypo-folder pull-left" style="font-size: 40px;"></i>
                                         <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" style="left:initial !important;;right:0 !important;">
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <li>
@@ -92,8 +84,8 @@
                         </asp:Repeater>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="col-lg-5 pull-right" style="padding-left:0px;">
+                <div class="col-sm-12" style="padding:0px;">
+                    <div class="col-sm-5 pull-right" style="padding-left:0px;">
                         <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
                             <asp:GridView ID="grdMessages" runat="server" CssClass="table table-hover" EmptyDataText="لا توجد رسائل فى هذا المجلد" AutoGenerateColumns="False" AllowPaging="true" PageSize="25" OnPageIndexChanging="grdMessages_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
                                 <Columns>
@@ -124,13 +116,13 @@
                             </asp:GridView>
                         </div>
                     </div>
-                    <div class="col-sm-6 pull-right">
+                    <div class="col-sm-7 pull-right">
                         <div class="SScroll" data-height="350px" style="border: 1px solid #DDDDDD; background-color: white;">
                             <div id="dvMessageDetails" style="width:100%"></div>
                         </div>
                     </div>
                 </div>
-            </div>
+            
             <script>
                 function ActiviateFolder(folder) {
                     $(".folder").removeClass("active");
@@ -235,6 +227,6 @@
                 </div>
             </div>
         </asp:Panel>
-    </div>
-
+    
 </div>
+<div class="clear" style="height: 5px;"></div>
