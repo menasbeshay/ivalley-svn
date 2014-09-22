@@ -191,15 +191,15 @@ namespace BLL
         /// <returns>True if successful, false if something went wrong.</returns>
         public static bool CreateExcelDocument(DataSet ds, string excelFilename)
         {
-            try
-            {
+           
                 using (SpreadsheetDocument document = SpreadsheetDocument.Create(excelFilename, SpreadsheetDocumentType.Workbook))
                 {
                     WriteExcelFile(ds, document);
                 }
                 Trace.WriteLine("Successfully created: " + excelFilename);
                 return true;
-            }
+            try
+            { }
             catch (Exception ex)
             {
                 Trace.WriteLine("Failed, exception thrown: " + ex.Message);
