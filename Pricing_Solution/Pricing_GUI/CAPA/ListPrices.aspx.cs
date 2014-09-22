@@ -96,11 +96,13 @@ namespace WebGUI
             DateTime dtime = DateTime.Now;
             string fileName = "ExportList_" + dtime.Day.ToString() + "_" + dtime.Month.ToString() + "_" + dtime.Year.ToString() + "_"
                 + dtime.Hour.ToString() + "_" + dtime.Minute.ToString() + "_" + dtime.Second.ToString() + ".xlsx";
-            string filepath = Server.MapPath(ConfigurationManager.AppSettings["AttachementPath"].ToString()) + fileName;
+            //string filepath = Server.MapPath(ConfigurationManager.AppSettings["AttachementPath"].ToString()) + fileName;
             
             DataTable dt = SearchCases();
-            CreateExcelFile.CreateExcelDocument(dt, filepath);
-            ui_lblDone.Text = "To open the Excel Sheet  .. " + "<a href='../Attachments/" + fileName + "'> click here </a>";
+            //CreateExcelFile.CreateExcelDocument(dt, filepath);
+            //ui_lblDone.Text = "To open the Excel Sheet  .. " + "<a href='../Attachments/" + fileName + "'> click here </a>";
+
+            ExportDataToExcel(dt, fileName);
         }
 
         protected void ui_LB_Assign_Click(object sender, EventArgs e)
@@ -152,6 +154,11 @@ namespace WebGUI
             }
             
         }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        } 
 
         #endregion
 
@@ -411,6 +418,31 @@ namespace WebGUI
                 ui_drpAssignedUser.Enabled = true;
             }
 
+        }
+
+        private void ExportDataToExcel(DataTable dt,string fileName)
+        {
+
+            if (dt.Rows.Count > 0)
+            {
+               // string filename = "DownloadMobileNoExcel.xls";
+                System.IO.StringWriter tw = new System.IO.StringWriter();
+                System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(tw);
+                DataGrid dgGrid = new DataGrid();
+                dgGrid.DataSource = dt;
+                dgGrid.DataBind();
+
+                //Get the HTML for the control.
+                dgGrid.RenderControl(hw);
+                //Write the HTML back to the browser.
+                //Response.ContentType = application/vnd.ms-excel;
+                Response.ContentType = "application/vnd.ms-excel";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName + "");
+                this.EnableViewState = false;
+                Response.Write(tw.ToString());
+                Response.End();
+                Response.Flush();
+            }
         }
 
         #endregion
