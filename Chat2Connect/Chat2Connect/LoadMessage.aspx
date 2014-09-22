@@ -14,16 +14,16 @@
                 <ItemTemplate>
                     <div class="form-horizontal blockBox">
                         <div class="row">
-                            <div class="col-sm-2 pull-right">
+                            <div class="col-sm-4 pull-right">
                                 <label>من </label>
                             </div>
                             <div class="col-sm-8 pull-right">
                                 <%#Eval("FromMember") %>
                             </div>
                         </div>
-                        <div class="clearfix" style="height: 10px;"></div>
+                        <div class="clear" style="height: 10px;"></div>
                         <div class="row">
-                            <div class="col-sm-2 pull-right">
+                            <div class="col-sm-4 pull-right">
                                 <label> إلى </label>
                             </div>
                             <div class="col-sm-8 pull-right">
@@ -31,21 +31,26 @@
                             </div>
 
                         </div>
-                        <div class="clearfix" style="height: 10px;"></div>
+                        <div class="clear" style="height: 10px;"></div>
                         <div class="row">
-                            <div class="col-sm-2 pull-right">
+                            <div class="col-sm-4 pull-right">
                                 <label>عنوان الرسالة</label>
                             </div>
                             <div class="col-sm-8 pull-right">
                                 <%#Eval("Subject") %>
                             </div>
                         </div>
-                        <div class="clearfix" style="height: 10px;"></div>
+                        <div class="clear" style="height: 10px;"></div>
                         <div class="row">
-                            <div class="col-sm-2 pull-right">
+                            <div class="col-sm-3 pull-right">
                                 <label>المحتوى </label>
                             </div>
-                            <div class="col-sm-8 pull-right">
+                           
+                        </div>
+                        <div class="clear" style="height: 10px;"></div>
+                         <div class="row">
+                           
+                            <div class="col-sm-12 pull-right">
                                 <%#Eval("Body") %>
                             </div>
                         </div>
