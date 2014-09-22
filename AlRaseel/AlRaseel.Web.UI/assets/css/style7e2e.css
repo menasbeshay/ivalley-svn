@@ -751,6 +751,7 @@ embed, iframe, object {
     margin: 15px auto 0;
 }
 
+
 .light .pt-style-2 .page-title:after, .light .pt-style-2 .parallax-title:after, .light .pt-style-2 .section-title:after {
     content: "";
     display: block;

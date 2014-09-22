@@ -138,8 +138,8 @@
         }
 
         .porimg {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             margin-top: -45px;
         }
 
@@ -426,7 +426,7 @@
                         </div>
                         <div style="text-align: center;">
                             <%--<img alt="" class="ut-animate-image animated " data-effecttype="image" data-effect="fadeIn" id="imgAboutDefault" runat="server" />--%>
-                            <asp:Image CssClass="ut-animate-image animated " data-effecttype="image" data-effect="fadeIn" ID="imgAboutDefault" ImageUrl="" runat="server" />
+                            <%--<asp:Image CssClass="ut-animate-image animated " data-effecttype="image" data-effect="fadeIn" ID="imgAboutDefault" ImageUrl="" runat="server" />--%>
                         </div>
 
 
@@ -512,7 +512,7 @@
 
                         <a class="ut-offset-anchor" id='section-Product-Section_<%# Eval("Id") %>'></a>
 
-                        <div class="grid-container section-header-holder" style="min-height: 400px;">
+                        <div class="grid-container section-header-holder" >
 
                             <!-- section header -->
                             <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
@@ -535,24 +535,25 @@
                             <!-- close section header -->
                         </div>
                         <div class="clear"></div>
-                        <div class="grid-container section-content">
+                        <div class="grid-container section-content" style="min-height:440px;">
+
                             <asp:Repeater ID="dlAlbums" runat="server" OnItemDataBound="dlAlbums_ItemDataBound">
                                 <ItemTemplate>
 
-                                    <div class="grid-22 mobile-grid-100 tablet-grid-100 " style="float: left; margin-bottom: 15px;">
+                                    <div class="grid-25 mobile-grid-100 tablet-grid-100 " style="float: left; margin-bottom: 15px;">
                                         <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; width: 100%;">
 
                                             <div id="divAlbumImages">
-                                                <header class="parallax-header pt-style-2">
-                                                    <h3 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;"><span>
+                                                <header class="parallax-header ">
+                                                    <h3 class="parallax-title" style="font-family: 'Droid Arabic Kufi'!important;font-size:25px;"><span>
                                                         <asp:Literal ID="lblAlbumTitle" Text='<%# Eval("Title") %>' runat="server" /></span></h3>
 
-                                                    <p class="parallax-content" style="font-family: 'Al-Jazeera-Arabic-Regular' !important;">
+                                                    <p class="parallax-content" style="font-family: 'Al-Jazeera-Arabic-Regular' !important;display:none">
                                                         <asp:Literal ID="lblAlbumDescription" Text='<%# Eval("AlbumDescription") %>' runat="server" />
                                                     </p>
                                                 </header>
                                                 <asp:Label ID="lblAlbumId" Text='<%# Eval("Id") %>' Visible="false" runat="server" />
-                                                <div id="divAlbums_<%# Container.ItemIndex  %>" style="margin: 0 auto; text-align: center; width: 85%; direction: ltr;">
+                                                <div id="divAlbums_<%# Container.ItemIndex  %>" style="margin: 0 auto; text-align: center; width: 95%; direction: ltr;">
                                                     <div title='<%# Eval("Title") %>'>
                                                         <asp:Repeater ID="dlImages" runat="server" OnItemDataBound="dlImages_ItemDataBound">
                                                             <ItemTemplate>
