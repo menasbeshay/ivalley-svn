@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITravel", "ITravel\ITravel.csproj", "{04EE2AAE-D316-4536-AB76-D5E38FD35CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITravel.BLL", "ITravel.BLL\ITravel.BLL.csproj", "{A19A9D49-F60E-4150-BD81-03CCADF44363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITravel.DAL", "ITravel.DAL\ITravel.DAL.csproj", "{C82EDD12-FA6B-45B1-95B8-A5432560A66D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04EE2AAE-D316-4536-AB76-D5E38FD35CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04EE2AAE-D316-4536-AB76-D5E38FD35CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04EE2AAE-D316-4536-AB76-D5E38FD35CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EE2AAE-D316-4536-AB76-D5E38FD35CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19A9D49-F60E-4150-BD81-03CCADF44363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19A9D49-F60E-4150-BD81-03CCADF44363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19A9D49-F60E-4150-BD81-03CCADF44363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19A9D49-F60E-4150-BD81-03CCADF44363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82EDD12-FA6B-45B1-95B8-A5432560A66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82EDD12-FA6B-45B1-95B8-A5432560A66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82EDD12-FA6B-45B1-95B8-A5432560A66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82EDD12-FA6B-45B1-95B8-A5432560A66D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
