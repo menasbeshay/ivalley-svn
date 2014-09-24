@@ -33,17 +33,17 @@ namespace WebGUI
                 BindStatus();
                 BindAssignedUser();
                 ui_lblDone.Text = "";
-                tb_export.Visible = false;
+                //tb_export.Visible = false;
             }
         }
                 
         protected void ui_btnSearch_Click(object sender, EventArgs e)
         {
             DataTable dt_Result = SearchCases();
-            if (dt_Result.Rows.Count > 0)
-            {
-                tb_export.Visible = true;
-            }
+            //if (dt_Result.Rows.Count > 0)
+            //{
+            //    tb_export.Visible = true;
+            //}
             ui_lblDone.Text = "";
         }
 
@@ -100,7 +100,7 @@ namespace WebGUI
         {
             DateTime dtime = DateTime.Now;
             string fileName = "ExportList_" + dtime.Day.ToString() + "_" + dtime.Month.ToString() + "_" + dtime.Year.ToString() + "_"
-                + dtime.Hour.ToString() + "_" + dtime.Minute.ToString() + "_" + dtime.Second.ToString() + ".xlsx";
+                + dtime.Hour.ToString() + "_" + dtime.Minute.ToString() + "_" + dtime.Second.ToString() + ".xls";
             //string filepath = Server.MapPath(ConfigurationManager.AppSettings["AttachementPath"].ToString()) + fileName;
             
             DataTable dt = SearchCases();
@@ -248,10 +248,10 @@ namespace WebGUI
                 }
                 dr["Generics"] = Generics;
             }
-            
+            ui_gv_Export.DataSource = dt_Result;
+            ui_gv_Export.DataBind();
             return dt_Result;
-            //ui_gv_Export.DataSource = dt_Result;
-            //ui_gv_Export.DataBind();
+           
             
         }
 
@@ -434,12 +434,12 @@ namespace WebGUI
                // string filename = "DownloadMobileNoExcel.xls";
                 System.IO.StringWriter tw = new System.IO.StringWriter();
                 System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(tw);
-                DataGrid dgGrid = new DataGrid();
-                dgGrid.DataSource = dt;
-                dgGrid.DataBind();
+                //DataGrid dgGrid = new DataGrid();
+                //dgGrid.DataSource = dt;
+                //dgGrid.DataBind();
 
-                //Get the HTML for the control.
-                dgGrid.RenderControl(hw);
+                ////Get the HTML for the control.
+                ui_gv_Export.RenderControl(hw);
                 //Write the HTML back to the browser.
                 //Response.ContentType = application/vnd.ms-excel;
                 Response.ContentType = "application/vnd.ms-excel";
