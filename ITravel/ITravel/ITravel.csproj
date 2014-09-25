@@ -154,16 +154,479 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="App_Themes\ar-EG\main_rtl.css" />
+    <Content Include="App_Themes\en-US\main.css" />
+    <Content Include="App_Themes\images\buttone539.html" />
+    <Content Include="App_Themes\images\select_arrow6be4.html" />
+    <Content Include="App_Themes\img\ajax-loader.gif" />
+    <Content Include="App_Themes\img\bg-pattern-2.png" />
+    <Content Include="App_Themes\img\bg-pattern-3.png" />
+    <Content Include="App_Themes\img\bg-pattern-4.png" />
+    <Content Include="App_Themes\img\bg-pattern-5.png" />
+    <Content Include="App_Themes\img\bg-pattern-6.png" />
+    <Content Include="App_Themes\img\bg-pattern-7.png" />
+    <Content Include="App_Themes\img\bg-pattern-8.png" />
+    <Content Include="App_Themes\img\bg-pattern-line.png" />
+    <Content Include="App_Themes\img\bg-pattern-nav.png" />
+    <Content Include="App_Themes\img\bg-pattern-tab.png" />
+    <Content Include="App_Themes\img\bg-pattern.png" />
+    <Content Include="App_Themes\img\bg-progress-blue.png" />
+    <Content Include="App_Themes\img\bg-progress-green.png" />
+    <Content Include="App_Themes\img\bg-progress-red.png" />
+    <Content Include="App_Themes\img\ellipse.png" />
+    <Content Include="App_Themes\img\elrte-toolbar.png" />
+    <Content Include="App_Themes\img\google-maps.png" />
+    <Content Include="App_Themes\img\icons-big.png" />
+    <Content Include="App_Themes\img\icons-small.png" />
+    <Content Include="App_Themes\img\iframe.png" />
+    <Content Include="App_Themes\img\loading.gif" />
+    <Content Include="App_Themes\img\logo.png" />
+    <Content Include="App_Themes\img\media-director.png" />
+    <Content Include="App_Themes\img\media-flash.png" />
+    <Content Include="App_Themes\img\media-quicktime.png" />
+    <Content Include="App_Themes\img\media-realaudio.png" />
+    <Content Include="App_Themes\img\media-rutube.png" />
+    <Content Include="App_Themes\img\media-vimeo.png" />
+    <Content Include="App_Themes\img\media-winmedia.png" />
+    <Content Include="App_Themes\img\media-youtube.png" />
+    <Content Include="App_Themes\img\outline-div.png" />
+    <Content Include="App_Themes\img\outline-p.png" />
+    <Content Include="App_Themes\img\pagebreak.gif" />
+    <Content Include="App_Themes\img\pixel.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\default\sprite.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="App_Themes\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="App_Themes\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="App_Themes\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="App_Themes\img\ql.png" />
+    <Content Include="App_Themes\img\smileys\evilgrin.png" />
+    <Content Include="App_Themes\img\smileys\grin.png" />
+    <Content Include="App_Themes\img\smileys\happy.png" />
+    <Content Include="App_Themes\img\smileys\smile.png" />
+    <Content Include="App_Themes\img\smileys\surprised.png" />
+    <Content Include="App_Themes\img\smileys\tongue.png" />
+    <Content Include="App_Themes\img\smileys\unhappy.png" />
+    <Content Include="App_Themes\img\smileys\waii.png" />
+    <Content Include="App_Themes\img\smileys\wink.png" />
+    <Content Include="App_Themes\img\spinner.gif" />
+    <Content Include="App_Themes\img\sprites.png" />
+    <Content Include="App_Themes\img\swf.html" />
+    <Content Include="App_Themes\img\thumb.png" />
+    <Content Include="App_Themes\img\thumbs\book01.jpg" />
+    <Content Include="App_Themes\img\thumbs\book02.jpg" />
+    <Content Include="App_Themes\img\thumbs\book03.jpg" />
+    <Content Include="App_Themes\img\thumbs\book04.jpg" />
+    <Content Include="App_Themes\img\thumbs\card01.jpg" />
+    <Content Include="App_Themes\img\thumbs\card02.jpg" />
+    <Content Include="App_Themes\img\thumbs\card03.jpg" />
+    <Content Include="App_Themes\img\thumbs\card04.jpg" />
+    <Content Include="App_Themes\img\thumbs\leaflet01.jpg" />
+    <Content Include="App_Themes\img\thumbs\leaflet02.jpg" />
+    <Content Include="App_Themes\img\thumbs\leaflet03.jpg" />
+    <Content Include="App_Themes\img\thumbs\leaflet04.jpg" />
+    <Content Include="App_Themes\img\thumbs\media1.jpg" />
+    <Content Include="App_Themes\img\thumbs\media2.jpg" />
+    <Content Include="App_Themes\img\thumbs\media3.jpg" />
+    <Content Include="App_Themes\img\thumbs\media4.jpg" />
+    <Content Include="App_Themes\img\thumbs\media5.jpg" />
+    <Content Include="App_Themes\img\thumbs\media6.jpg" />
+    <Content Include="App_Themes\img\thumbs\media7.jpg" />
+    <Content Include="App_Themes\img\toolbar.png" />
+    <Content Include="App_Themes\img\user.jpg" />
+    <Content Include="App_Themes\img\yandex-maps.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\960.css" />
+    <Content Include="css\chosen.css" />
+    <Content Include="css\elfinder.css" />
+    <Content Include="css\elrte.min.css" />
+    <Content Include="css\formalize.css" />
+    <Content Include="css\fullcalendar.css" />
+    <Content Include="css\icons.css" />
+    <Content Include="css\images\chosen-sprite.png" />
+    <Content Include="css\images\circle.gif" />
+    <Content Include="css\images\gradient.png" />
+    <Content Include="css\images\header-bg.gif" />
+    <Content Include="css\images\line.gif" />
+    <Content Include="css\images\rainbow.png" />
+    <Content Include="css\images\resize.gif" />
+    <Content Include="css\images\trigger.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="css\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="css\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="css\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui-1.8.18.custom.css" />
+    <Content Include="css\jquery.jqplot.min.css" />
+    <Content Include="css\jquery.miniColors.css" />
+    <Content Include="css\main_rtl.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\tipsy.css" />
+    <Content Include="css\ui.spinner.css" />
+    <Content Include="css\websymbols\websymbols-regular-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="en\home.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="home.aspx" />
+    <Content Include="images\buttone539.html" />
+    <Content Include="images\select_arrow6be4.html" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\bg-pattern-2.png" />
+    <Content Include="img\bg-pattern-3.png" />
+    <Content Include="img\bg-pattern-4.png" />
+    <Content Include="img\bg-pattern-5.png" />
+    <Content Include="img\bg-pattern-6.png" />
+    <Content Include="img\bg-pattern-7.png" />
+    <Content Include="img\bg-pattern-8.png" />
+    <Content Include="img\bg-pattern-line.png" />
+    <Content Include="img\bg-pattern-nav.png" />
+    <Content Include="img\bg-pattern-tab.png" />
+    <Content Include="img\bg-pattern.png" />
+    <Content Include="img\bg-progress-blue.png" />
+    <Content Include="img\bg-progress-green.png" />
+    <Content Include="img\bg-progress-red.png" />
+    <Content Include="img\ellipse.png" />
+    <Content Include="img\elrte-toolbar.png" />
+    <Content Include="img\google-maps.png" />
+    <Content Include="img\icons-big.png" />
+    <Content Include="img\icons-small.png" />
+    <Content Include="img\iframe.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\media-director.png" />
+    <Content Include="img\media-flash.png" />
+    <Content Include="img\media-quicktime.png" />
+    <Content Include="img\media-realaudio.png" />
+    <Content Include="img\media-rutube.png" />
+    <Content Include="img\media-vimeo.png" />
+    <Content Include="img\media-winmedia.png" />
+    <Content Include="img\media-youtube.png" />
+    <Content Include="img\outline-div.png" />
+    <Content Include="img\outline-p.png" />
+    <Content Include="img\pagebreak.gif" />
+    <Content Include="img\pixel.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="img\prettyPhoto\default\loader.gif" />
+    <Content Include="img\prettyPhoto\default\sprite.png" />
+    <Content Include="img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="img\ql.png" />
+    <Content Include="img\smileys\evilgrin.png" />
+    <Content Include="img\smileys\grin.png" />
+    <Content Include="img\smileys\happy.png" />
+    <Content Include="img\smileys\smile.png" />
+    <Content Include="img\smileys\surprised.png" />
+    <Content Include="img\smileys\tongue.png" />
+    <Content Include="img\smileys\unhappy.png" />
+    <Content Include="img\smileys\waii.png" />
+    <Content Include="img\smileys\wink.png" />
+    <Content Include="img\spinner.gif" />
+    <Content Include="img\sprites.png" />
+    <Content Include="img\swf.html" />
+    <Content Include="img\thumb.png" />
+    <Content Include="img\thumbs\book01.jpg" />
+    <Content Include="img\thumbs\book02.jpg" />
+    <Content Include="img\thumbs\book03.jpg" />
+    <Content Include="img\thumbs\book04.jpg" />
+    <Content Include="img\thumbs\card01.jpg" />
+    <Content Include="img\thumbs\card02.jpg" />
+    <Content Include="img\thumbs\card03.jpg" />
+    <Content Include="img\thumbs\card04.jpg" />
+    <Content Include="img\thumbs\leaflet01.jpg" />
+    <Content Include="img\thumbs\leaflet02.jpg" />
+    <Content Include="img\thumbs\leaflet03.jpg" />
+    <Content Include="img\thumbs\leaflet04.jpg" />
+    <Content Include="img\thumbs\media1.jpg" />
+    <Content Include="img\thumbs\media2.jpg" />
+    <Content Include="img\thumbs\media3.jpg" />
+    <Content Include="img\thumbs\media4.jpg" />
+    <Content Include="img\thumbs\media5.jpg" />
+    <Content Include="img\thumbs\media6.jpg" />
+    <Content Include="img\thumbs\media7.jpg" />
+    <Content Include="img\toolbar.png" />
+    <Content Include="img\user.jpg" />
+    <Content Include="img\yandex-maps.png" />
+    <Content Include="js\chosen.jquery.min.js" />
+    <Content Include="js\datables\css\demo_page.css" />
+    <Content Include="js\datables\css\demo_table.css" />
+    <Content Include="js\datables\css\demo_table_jui.css" />
+    <Content Include="js\datables\css\index.html" />
+    <Content Include="js\datables\css\jquery.dataTables.css" />
+    <Content Include="js\datables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="js\datables\images\back_disabled.png" />
+    <Content Include="js\datables\images\back_enabled.png" />
+    <Content Include="js\datables\images\back_enabled_hover.png" />
+    <Content Include="js\datables\images\favicon.ico" />
+    <Content Include="js\datables\images\forward_disabled.png" />
+    <Content Include="js\datables\images\forward_enabled.png" />
+    <Content Include="js\datables\images\forward_enabled_hover.png" />
+    <Content Include="js\datables\images\index.html" />
+    <Content Include="js\datables\images\sort_asc.png" />
+    <Content Include="js\datables\images\sort_asc_disabled.png" />
+    <Content Include="js\datables\images\sort_both.png" />
+    <Content Include="js\datables\images\sort_desc.png" />
+    <Content Include="js\datables\images\sort_desc_disabled.png" />
+    <Content Include="js\datables\jquery.autogrowtextarea.js" />
+    <Content Include="js\datables\js\jquery.dataTables.js" />
+    <Content Include="js\datables\js\jquery.dataTables.min.js" />
+    <Content Include="js\datables\js\jquery.js" />
+    <Content Include="js\datables\src\api\api.internal.js" />
+    <Content Include="js\datables\src\api\api.methods.js" />
+    <Content Include="js\datables\src\api\index.html" />
+    <Content Include="js\datables\src\core\core.ajax.js" />
+    <Content Include="js\datables\src\core\core.columns.js" />
+    <Content Include="js\datables\src\core\core.constructor.js" />
+    <Content Include="js\datables\src\core\core.data.js" />
+    <Content Include="js\datables\src\core\core.draw.js" />
+    <Content Include="js\datables\src\core\core.filter.js" />
+    <Content Include="js\datables\src\core\core.info.js" />
+    <Content Include="js\datables\src\core\core.init.js" />
+    <Content Include="js\datables\src\core\core.length.js" />
+    <Content Include="js\datables\src\core\core.page.js" />
+    <Content Include="js\datables\src\core\core.processing.js" />
+    <Content Include="js\datables\src\core\core.scrolling.js" />
+    <Content Include="js\datables\src\core\core.sizing.js" />
+    <Content Include="js\datables\src\core\core.sort.js" />
+    <Content Include="js\datables\src\core\core.state.js" />
+    <Content Include="js\datables\src\core\core.support.js" />
+    <Content Include="js\datables\src\core\index.html" />
+    <Content Include="js\datables\src\DataTables.js" />
+    <Content Include="js\datables\src\ext\ext.classes.js" />
+    <Content Include="js\datables\src\ext\ext.paging.js" />
+    <Content Include="js\datables\src\ext\ext.sorting.js" />
+    <Content Include="js\datables\src\ext\ext.types.js" />
+    <Content Include="js\datables\src\ext\index.html" />
+    <Content Include="js\datables\src\index.html" />
+    <Content Include="js\datables\src\model\index.html" />
+    <Content Include="js\datables\src\model\model.column.js" />
+    <Content Include="js\datables\src\model\model.defaults.columns.js" />
+    <Content Include="js\datables\src\model\model.defaults.js" />
+    <Content Include="js\datables\src\model\model.ext.js" />
+    <Content Include="js\datables\src\model\model.row.js" />
+    <Content Include="js\datables\src\model\model.search.js" />
+    <Content Include="js\datables\src\model\model.settings.js" />
+    <Content Include="js\demo.js" />
+    <Content Include="js\elfinder.min.js" />
+    <Content Include="js\elrte.min.js" />
+    <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jqPlot\excanvas.min.js" />
+    <Content Include="js\jqPlot\jquery.jqplot.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.barRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.barRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.BezierCurveRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.BezierCurveRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.blockRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.blockRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.bubbleRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.bubbleRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasAxisTickRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasAxisTickRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasOverlay.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasOverlay.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.categoryAxisRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.ciParser.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.ciParser.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.cursor.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.cursor.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.dateAxisRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.donutRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.donutRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.dragable.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.dragable.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.enhancedLegendRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.enhancedLegendRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.funnelRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.funnelRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.highlighter.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.highlighter.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.json2.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.json2.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.logAxisRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.logAxisRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.mekkoAxisRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.mekkoAxisRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.mekkoRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.mekkoRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.meterGaugeRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.meterGaugeRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.ohlcRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.ohlcRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pieRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pointLabels.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pointLabels.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidAxisRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidAxisRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidGridRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidGridRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidRenderer.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.pyramidRenderer.min.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.trendline.js" />
+    <Content Include="js\jqPlot\plugins\jqplot.trendline.min.js" />
+    <Content Include="js\jquery-ui-1.8.18.custom.min.js" />
+    <Content Include="js\jquery-ui-timepicker-addon.js" />
+    <Content Include="js\jquery.autogrowtextarea.js" />
+    <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\jquery.fileinput.js" />
+    <Content Include="js\jquery.formalize.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.loading.js" />
+    <Content Include="js\jquery.maskedinput-1.3.min.js" />
+    <Content Include="js\jquery.metadata.js" />
+    <Content Include="js\jquery.miniColors.min.js" />
+    <Content Include="js\jquery.modal.js" />
+    <Content Include="js\jquery.path.js" />
+    <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\jquery.tipsy.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\less.js" />
+    <Content Include="js\login.php.html" />
+    <Content Include="js\main.js" />
+    <Content Include="js\prefixfree.min.js" />
+    <Content Include="js\ui.checkBox.js" />
+    <Content Include="js\ui.spinner.min.js" />
+    <Content Include="login.aspx" />
+    <Content Include="login.html" />
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Account\Web.config" />
+    <Content Include="css\websymbols\websymbols-regular-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\websymbols\websymbols-regular-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\websymbols\websymbols-regular-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\websymbols\websymbols-regular-webfontd41d.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\prettyPhoto\.DS_Store" />
+    <Content Include="js\datables\images\Sorting icons.psd" />
+    <Content Include="MasterPages\Main.Master" />
+    <Content Include="MasterPages\ArMain.Master" />
+    <Content Include="App_Themes\img\prettyPhoto\.DS_Store" />
+    <Content Include="LoginHandler.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -257,6 +720,9 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,8 +737,46 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="en\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHandler.ashx.cs">
+      <DependentUpon>LoginHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ArMain.Master.cs">
+      <DependentUpon>ArMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ArMain.Master.designer.cs">
+      <DependentUpon>ArMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -311,6 +815,15 @@
       <Project>{c82edd12-fa6b-45b1-95b8-a5432560a66d}</Project>
       <Name>ITravel.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\login.aspx.ar-EG.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\login.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\login.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
