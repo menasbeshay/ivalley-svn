@@ -23,7 +23,7 @@ namespace Taqwa.Website
                     uiLiteralTitle.Text = ds.Tables[0].Rows[0]["ArPageTitle"].ToString();
                     uiLiteralContent.Text = Server.HtmlDecode(ds.Tables[0].Rows[0]["ArPageContent"].ToString());
 
-                    uiRepeaterPhoto.DataSource = db.GetPageGalleryPhotoByPageID(2);
+                    uiRepeaterPhoto.DataSource = db.GetPageGalleryPhotoByPageID(id);
                     uiRepeaterPhoto.DataBind();
                 }
                 else
