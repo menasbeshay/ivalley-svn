@@ -33,11 +33,14 @@ namespace Taqwa.Website.Controls
             DataSet ds = new DataSet();
             ds = db.GetStudentByUserNameAndSecertCode(uiTextBoxUsername.Text, uiTextBoxPassword.Text);
 
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0 )
             {
-                Session["CurrentLoggedInStudent"] = ds.Tables[0].Rows[0]["StudentID"].ToString();
-                uiPanelLogin.Visible = false;
-                uiPanelLogout.Visible = true;
+                if (ds.Tables[0].Rows[0]["IsActive"] != "0")
+                {
+                    Session["CurrentLoggedInStudent"] = ds.Tables[0].Rows[0]["StudentID"].ToString();
+                    uiPanelLogin.Visible = false;
+                    uiPanelLogout.Visible = true;
+                }
             }
         }
 
