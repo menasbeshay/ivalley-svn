@@ -69,11 +69,12 @@ jQuery(function($){
             $('.editor').html('Content');
             $('html').addClass('ie');
         }
+        /*
         $('.editor').elrte({
             toolbar: 'normal',
             styleWithCSS : false,
             height: 300
-        });
+        });*/
 
         // validation
         $('.validate').validate({
@@ -89,7 +90,7 @@ jQuery(function($){
         });
 
         // filemanger
-	    $('.filemanager').elfinder({
+	   /* $('.filemanager').elfinder({
             url : 'connectors/php/connector.php',
             toolbar : [
                 ['back', 'reload'],
@@ -101,10 +102,10 @@ jQuery(function($){
                 cwd : ['reload', 'delim', 'info'], 
                 file : ['select', 'open', 'rename'], 
             }
-	    });
+	    });*/
 
         // masks
-        $.mask.definitions['~']='[+-]';
+        /*$.mask.definitions['~']='[+-]';
         $('.mask-date').mask('99/99/9999');
         $('.mask-phone').mask('(999) 999-9999');
         $('.mask-phoneext').mask("(999) 999-9999? x99999");
@@ -112,9 +113,9 @@ jQuery(function($){
         $(".mask-ssn").mask("999-99-9999");
         $(".mask-product").mask("a*-999-a999",{placeholder:" ",completed:function(){alert("You typed the following: "+this.val());}});
         $(".mask-eyescript").mask("~9.99 ~9.99 999");
-
+        */
         // colorpicker
-        $('.colorpicker').miniColors();
+       // $('.colorpicker').miniColors();
 
         // datepicker
         $('.datepicker').datepicker();
@@ -123,7 +124,7 @@ jQuery(function($){
         $('.datetimepicker').datetimepicker();
 
         // full calendar
-        $('.fullcalendar').fullCalendar({
+        /*$('.fullcalendar').fullCalendar({
             editable: true,
 		    header: {
 			    left: 'prev,next',
@@ -131,15 +132,15 @@ jQuery(function($){
 			    right: 'month,basicWeek,basicDay'
 	        }
         });
-
+        */
         // textarea
-        $('.autogrow').autoGrow();
+        //$('.autogrow').autoGrow();
 
         // custom file input
         $('.custom-file-input').customFileInput();
 
         // chosen select
-        $('.chosen').chosen();
+        //$('.chosen').chosen();
 
         // custom checkboxes and radios
         $('input').checkBox();
@@ -228,8 +229,9 @@ jQuery(function($){
                 e.preventDefault();
             });
 
-            $('.compact-page form.jmenu').bind('submit.jmenu', function(e){
-                var $this = $(this);
+            // $('.compact-page form.jmenu').bind('submit.jmenu', function(e){
+            $('a.login').bind('click', function (e) {
+                var $this = $(this).parents('form');
 
                 ajaxOptions.data = $this.serialize();
                 ajaxOptions.type = $this.attr('method') ? $this.attr('method') : 'GET';
@@ -375,7 +377,7 @@ jQuery(function($){
                     }
                 }
 
-                $.ajax($this.attr('action'), ajaxOptions);
+                $.ajax($this.attr('data-action'), ajaxOptions);
 
                 e.preventDefault();
             });
@@ -596,7 +598,7 @@ jQuery(function($){
 });
 
 $(window).load(function(){
-    setTimeout($.loading().dismiss, 500);
+    //setTimeout($.loading().dismiss, 500);
 });
 
 var eventHistory = (function(){

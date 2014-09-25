@@ -8,9 +8,10 @@ body {
   color: #666;
   line-height: 150%;
   overflow-y: visible;
+  direction:rtl;
 }
 body, #loading {
-  background: url(../img/bg-pattern-5.png);
+  background: url(/img/bg-pattern-5.png);
 }
 #main {
   padding-bottom: 50px;
@@ -31,7 +32,7 @@ body, #loading {
   border-left: 1px solid #121212;
   height: 63px;
   display: block;
-  float: left;
+  float: right;
   position: relative;
   letter-spacing: 1px;
   z-index: 99;
