@@ -686,7 +686,7 @@ namespace Chat2Connect.services
                 roomObject.WelcomeBot = infoWelcomeBot;
             }
             //invite friends bot
-            roomObject.InviteFriendBanBotID = (int)Helper.Enums.Bot.InviteFriendsBan;
+            //roomObject.InviteFriendBanBotID = (int)Helper.Enums.Bot.InviteFriendsBan;
 
             return roomObject;
         }

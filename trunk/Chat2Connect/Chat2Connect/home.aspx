@@ -277,6 +277,10 @@
     <script src="js/chatwindows.js"></script>
     <script>
         $(document).ready(function () {
+            emailOwnerBotID=<%= (int)Helper.Enums.Bot.EmailOwner%>;
+            inviteFriendBanBotID=<%= (int)Helper.Enums.Bot.InviteFriendsBan%>;
+            roomFriendsBotID=<%= (int)Helper.Enums.Bot.RoomFriends%>;
+
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
@@ -1350,13 +1354,13 @@
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko with:RoomBots-->
                 <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
-                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon">
-                        <img data-bind="attr:{'src' : Bot.IconPath + '_'+ '1' +'.png', 'alt': Bot.Title, 'title' : Bot.Title }">
+                    <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
+                        <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ '1' +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
-                                <span data-bind="text: 'بوت : ' + Bot.Title"></span>
+                                <span data-bind="text: 'بوت : ' + Bot.Title()"></span>
                                 <div style="clear: both; height: 3px"></div>
-                                <span data-bind="text: (IsEnabled == true) ? 'الحالة : فعال' : 'الحالة : معطل'"></span>
+                                <span data-bind="text: (IsEnabled() == true) ? 'الحالة : فعال' : 'الحالة : معطل'"></span>
                             </div>
                         </div>
                     </div>
@@ -1402,10 +1406,11 @@
                                 <div style="height: 5px;" class="clearfix"></div>
                             </div>
                             <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
-                                <%--<div  data-bind="visible:showAdminPart" class="pull-right" style="margin-right: 3px;">
-                                    <div data-bind="template:{ name: 'editorToolbarTemplate'},attr:{id: 'admintoolbar'+uniqueID()}">
-                                    </div>
-                                </div>--%>
+                                <div class="pull-right">
+                                    <a title="أصدقاء الغرفة" data-bind="if:hasRoomFriendsBot,click:showRoomFriendsBot" data-placement="top" class="btn btn-default roomMenuItem">
+                                    <span>أصدقاء الغرفة</span>
+                                </a>
+                                </div>
                                 <div class="pull-left" style="padding: 5px;">
                                     <a href="#" data-bind="click:toggleAdminPart" style="text-decoration: none;">
                                         <i class="icon-arrow-down" data-bind="click:toggleAdminPart, css:{ 'icon-arrow-up' :showAdminPart, 'icon-arrow-down': showAdminPart()==false},"></i>
@@ -1460,6 +1465,9 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()},click:ShowInviteFriends" data-original-title="دعوة أصدقاء">
                                     <img src="images/friends-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
+                                <a title="بريد المالك" data-bind="if:hasEmailOwnerBot,click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem">
+                                    <span>مراسلة المالك</span>
+                                </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
