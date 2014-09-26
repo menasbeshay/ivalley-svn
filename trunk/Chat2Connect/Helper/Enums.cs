@@ -212,7 +212,11 @@ namespace Helper
             Welcome=1,
             InviteFriendsBan=2,
             FollowAdmin=3,
-            MemberTypeLogin=4
+            MemberTypeLogin=4,
+            EmailOwner=5,
+            RoomFriends=6,
+            RoomLaw=7,
+            RoomProgram=8
         }
 
         public enum FollowAdminBotSchedule
@@ -223,6 +227,20 @@ namespace Helper
             Week = 2,
             [StringValue("شهر")]
             Month = 3
+        }
+
+        public enum RoomBotSchedule
+        {
+            [StringValue("5 دقيقة")]
+            FiveMinutes = 1,
+            [StringValue("10 دقيقة")]
+            TenMinutes = 2,
+            [StringValue("15 دقيقة")]
+            FifteenMinutes = 3,
+            [StringValue("30 دقيقة")]
+            ThirtyMinutes = 4,
+            [StringValue("ساعة")]
+            OneHoure = 5
         }
     }
 }

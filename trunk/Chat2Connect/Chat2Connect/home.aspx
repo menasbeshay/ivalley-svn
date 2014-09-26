@@ -1350,7 +1350,7 @@
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko with:RoomBots-->
                 <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
-                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon" >
+                    <div data-bind="if:ID>0,attr:{id:'b_'+ID}" class="col-lg-1 botIcon">
                         <img data-bind="attr:{'src' : Bot.IconPath + '_'+ '1' +'.png', 'alt': Bot.Title, 'title' : Bot.Title }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
@@ -1995,7 +1995,7 @@
                         <div>
                             <div class="row">
                                 <div class="row step">
-                                    
+
                                     <div class="col-md-6" onclick="javascript: resetActive(event, 'step-2');">
                                         <span class="fa icon-pencil"></span>
                                         <p>تعديل</p>
@@ -2007,65 +2007,65 @@
                                 </div>
                             </div>
                             <div class="row setup-content step activeStepInfo" id="step-1">
-                                
-                                    <div class="col-md-12 well text-center">
-                                        <h3>البوتات المضافة على الغرفة</h3>
-                                        <table class="table  table-condensed right">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>البوت</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="foreach:RoomBots">
-                                                <tr>
-                                                    <td></td>
-                                                    <td data-bind="text:Bot.Title"></td>
-                                                    <td>
-                                                        <a href="#" data-bind="if:ID==0,click:$parent.removeRoomBot">حذف</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <h3>إضافة بوت جديد</h3>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>البوت</th>
-                                                    <th>النقاط المطلوبة
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <!-- ko with:$root.Bots-->
-                                            <tbody data-bind="foreach:$data">
-                                                <tr>
-                                                    <td></td>
-                                                    <td data-bind="text:Title"></td>
-                                                    <td data-bind="text:Points"></td>
-                                                    <td>
-                                                        <a href="#" data-bind="click:$root.AddRoomBot.bind($data,$data)">أضف</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                            <!-- /ko -->
-                                        </table>
-                                    </div>
-                               
+
+                                <div class="col-md-12 well text-center">
+                                    <h3>البوتات المضافة على الغرفة</h3>
+                                    <table class="table  table-condensed right">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>البوت</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="foreach:RoomBots">
+                                            <tr>
+                                                <td></td>
+                                                <td data-bind="text:Bot.Title"></td>
+                                                <td>
+                                                    <a href="#" data-bind="if:ID==0,click:$parent.removeRoomBot">حذف</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <h3>إضافة بوت جديد</h3>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>البوت</th>
+                                                <th>النقاط المطلوبة
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <!-- ko with:$root.Bots-->
+                                        <tbody data-bind="foreach:$data">
+                                            <tr>
+                                                <td></td>
+                                                <td data-bind="text:Title"></td>
+                                                <td data-bind="text:Points"></td>
+                                                <td>
+                                                    <a href="#" data-bind="click:$root.AddRoomBot.bind($data,$data)">أضف</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <!-- /ko -->
+                                    </table>
+                                </div>
+
                             </div>
                             <div class="row setup-content step hiddenStepInfo" id="step-2">
-                                
-                                    <div class="col-md-12 well text-center">
-                                        <h3 class="underline">تعديل بيانات البوتات</h3>
-                                        <!-- ko with:RoomBots-->
-                                        <div class="row" data-bind="foreach:$data">
-                                            <div data-bind="template: { name: 'bot_editTemplate'}"></div>
-                                        </div>
-                                        <!-- /ko -->
+
+                                <div class="col-md-12 well text-center">
+                                    <h3 class="underline">تعديل بيانات البوتات</h3>
+                                    <!-- ko with:RoomBots-->
+                                    <div class="row" data-bind="foreach:$data">
+                                        <div data-bind="template: { name: 'bot_editTemplate'}"></div>
                                     </div>
-                                
+                                    <!-- /ko -->
+                                </div>
+
                             </div>
                             <div class="row">
                                 <input type="button" class="btn btn-warning" value="حفظ" data-bind="click:saveRoomBots" />
@@ -2080,7 +2080,7 @@
     <script type="text/html" id="bot_editTemplate">
         <div class="box">
             <div class="icon">
-                <img class="image" data-bind="attr:{'src' : Bot.IconPath + '_1.png'}" />
+                <img class="image" data-bind="attr:{'src' : Bot.IconPath() + '_1.png'}" />
                 <div class="info">
                     <h3 class="title" data-bind="text:Bot.Title"></h3>
                     <div class="more">
@@ -2099,7 +2099,7 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div data-bind="template: { name: $root.getBotTemplate.bind($data,$data.BotID)}"></div>
+                            <div data-bind="template: { name: $root.getBotTemplate.bind($data,$data.BotID())}"></div>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -2184,7 +2184,98 @@
             </ul>
         </div>
     </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.EmailOwner %>">
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.RoomFriends %>">
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.RoomLaw %>">
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right">الوقت</label>
+            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.LawScheduleString" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="4" class="center">
+                            قوانين الغرفة
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:Settings.Laws">
+                <tr>
+                    <td data-bind="text:$index()+1"></td>
+                    <td><input type="text" class="form-control" data-bind="value:Law" /></td>
+                    <td><input type="checkbox" data-bind="checked:IsActive" />
+                    </td>
+                    <td><a href="#" data-bind="click:function(){$parent.Settings.Laws.remove(this);}">حذف</a></td>
+                    </tr>
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.LawItemObject),Settings.Laws);}">إضافة</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </script>
+    <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.RoomProgram %>">
+        <div class="form-group">
+            <label for="rdStatus" class="col-md-4 control-label pull-right">الوقت</label>
+            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
+                <li class="pull-right">
+                    <label>
+                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.ProgramScheduleString" />
+                        <span data-bind="text: Name"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="4" class="center">
+                            البرنامج
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:Settings.Programms">
+                <tr>
+                    <td data-bind="text:$index()+1"></td>
+                    <td><input type="text" class="form-control" data-bind="value:Program" /></td>
+                    <td><input type="checkbox" data-bind="checked:IsActive" />
+                    </td>
+                    <td><a href="#" data-bind="click:function(){$parent.Settings.Programms.remove(this);}">حذف</a></td>
+                    </tr>
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.ProgramItemObject),Settings.Programms);}">إضافة</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </script>
     <script type="text/javascript">
+        function copyObjectToarray(obj,arr)
+        {
+            var newObject = jQuery.extend({}, obj);
+            arr.push(newObject);
+        }
         function resetActive(event, step) {
             $("div").each(function () {
                 if ($(this).hasClass("activestep")) {
