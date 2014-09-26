@@ -20,8 +20,101 @@ namespace Chat2Connect
                 MembershipCreateStatus objStatus;
                 memberShip.RegisterMember(Helper.Admin.Defaults.UserName, Helper.Admin.Defaults.Password, Helper.Admin.Defaults.Email, Helper.Admin.Defaults.Question, Helper.Admin.Defaults.Answer, out objStatus);
             }
+
+            timerTricks = 0;
+            System.Timers.Timer scheduleTimer = new System.Timers.Timer();
+            scheduleTimer.Interval = 1000 * 60 * 2; //5 minutes
+            scheduleTimer.AutoReset = true;
+            scheduleTimer.Elapsed += new System.Timers.ElapsedEventHandler(scheduleTimer_Elapsed);
+            scheduleTimer.Enabled = true; 
         }
 
+        public int timerTricks;
+        public void scheduleTimer_Elapsed(object source, System.Timers.ElapsedEventArgs e)
+        {
+            timerTricks++;
+            SubmitRoomLawBotSchedule();
+            SubmitRoomProgramBotSchedule();
+        }
+
+        private void SubmitRoomLawBotSchedule()
+        {
+            BLL.RoomBot bllRoomBot = new RoomBot();
+            List<Info.RoomBot> lstBots = bllRoomBot.GetByBotID(Helper.Enums.Bot.RoomLaw);
+            Info.RoomLaw infoSetting;
+            bool isSend;
+            string msg = "";
+            foreach (var infoBot in lstBots)
+            {
+                isSend = false;
+                infoSetting = (Info.RoomLaw)infoBot.Settings;
+                if (infoSetting.LawSchedule == Helper.Enums.RoomBotSchedule.FiveMinutes)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.LawSchedule == Helper.Enums.RoomBotSchedule.TenMinutes && timerTricks % 2 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.LawSchedule == Helper.Enums.RoomBotSchedule.FifteenMinutes && timerTricks % 3 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.LawSchedule == Helper.Enums.RoomBotSchedule.ThirtyMinutes && timerTricks % 6 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.LawSchedule == Helper.Enums.RoomBotSchedule.FifteenMinutes && timerTricks % 12 == 0)
+                {
+                    isSend = true;
+                }
+                if (isSend)
+                {
+                    msg = String.Join("</br>", infoSetting.Laws.Where(l => l.IsActive).Select(l=>l.Law).ToList());
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+                }
+            }
+        }
+        private void SubmitRoomProgramBotSchedule()
+        {
+            BLL.RoomBot bllRoomBot = new RoomBot();
+            List<Info.RoomBot> lstBots = bllRoomBot.GetByBotID(Helper.Enums.Bot.RoomProgram);
+            Info.RoomProgram infoSetting;
+            bool isSend;
+            string msg = "";
+            foreach (var infoBot in lstBots)
+            {
+                isSend = false;
+                infoSetting = (Info.RoomProgram)infoBot.Settings;
+                if (infoSetting.ProgramSchedule == Helper.Enums.RoomBotSchedule.FiveMinutes)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.ProgramSchedule == Helper.Enums.RoomBotSchedule.TenMinutes && timerTricks % 2 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.ProgramSchedule == Helper.Enums.RoomBotSchedule.FifteenMinutes && timerTricks % 3 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.ProgramSchedule == Helper.Enums.RoomBotSchedule.ThirtyMinutes && timerTricks % 6 == 0)
+                {
+                    isSend = true;
+                }
+                else if (infoSetting.ProgramSchedule == Helper.Enums.RoomBotSchedule.FifteenMinutes && timerTricks % 12 == 0)
+                {
+                    isSend = true;
+                }
+                if (isSend)
+                {
+                    msg = String.Join("</br>", infoSetting.Programms.Where(l => l.IsActive).Select(p=>p.Program).ToList());
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+                }
+            }
+        }
         protected void Session_Start(object sender, EventArgs e)
         {
 
