@@ -952,16 +952,44 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             if (self.Type() == 'Private')
                 return null;
             var inviteBanBot = ko.utils.arrayFirst(self.RoomBots(), function (bot) {
-                return bot.IsEnabled && bot.BotID == self.InviteFriendBanBotID();
+                return bot.IsEnabled() && bot.BotID() == inviteFriendBanBotID;
             });
             if (inviteBanBot != null && inviteBanBot != undefined) {
-                var currentMemberBan = ko.utils.arrayFirst(inviteBanBot.Settings.BannedMemberLevels, function (bannedLevel) {
+                var currentMemberBan = ko.utils.arrayFirst(inviteBanBot.Settings.BannedMemberLevels(), function (bannedLevel) {
                     return bannedLevel == self.CurrentMember().MemberLevelID();
                 });
                 return currentMemberBan == null;
             }
             return true;
         }, this);
+        this.hasEmailOwnerBot = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            var emailOwnerBot = ko.utils.arrayFirst(self.RoomBots(), function (bot) {
+                return bot.IsEnabled() && bot.BotID() == emailOwnerBot;
+            });
+            if (emailOwnerBot != null && emailOwnerBot != undefined) {
+                return true;
+            }
+            return false;
+        }, this);
+        this.showEmailOwnerBot = function () {
+            alert('Hi');
+        };
+        this.hasRoomFriendsBot = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            var bot = ko.utils.arrayFirst(self.RoomBots(), function (item) {
+                return item.IsEnabled() && item.BotID() == roomFriendsBotID;
+            });
+            if (bot != null && bot != undefined) {
+                return true;
+            }
+            return false;
+        }, this);
+        this.showRoomFriendsBot = function () {
+            alert('Hi');
+        };
     }
 
     self.changeCurrent = function (selctor, id, type) {
@@ -1068,7 +1096,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
-        if (this.WelcomeBot != null) {
+        if (this.WelcomeBot.hasOwnProperty("LogoutMsgPart1")) {
             notify('success', this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2());
         }
     }
@@ -1249,7 +1277,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
 
         // add welcome message
         if (window.Type() == "Room") {
-            if (window.WelcomeBot != null)
+            if (window.WelcomeBot.hasOwnProperty("LoginMsgPart1"))
                 addMsgToWindow(window, window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2(), "welcomeText");
         }
 
@@ -1486,6 +1514,8 @@ function getFlashMovie(movieName) {
     return document[movieName] || window[movieName];
 }
 var chatVM;
+var roomFriendsBotID, emailOwnerBotID, inviteFriendBanBotID;
+
 function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
