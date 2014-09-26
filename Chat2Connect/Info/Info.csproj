@@ -45,11 +45,15 @@
   <ItemGroup>
     <Compile Include="Bot.cs" />
     <Compile Include="BotSettings.cs" />
+    <Compile Include="EmailOwner.cs" />
     <Compile Include="FollowAdmin.cs" />
     <Compile Include="MemberTypeLogin.cs" />
     <Compile Include="InviteFriendBan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomBot.cs" />
+    <Compile Include="RoomFriend.cs" />
+    <Compile Include="RoomLaw.cs" />
+    <Compile Include="RoomProgram.cs" />
     <Compile Include="WelcomeBot.cs" />
   </ItemGroup>
   <ItemGroup>

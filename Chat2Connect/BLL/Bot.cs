@@ -65,6 +65,18 @@ namespace BLL
                 case (int)Helper.Enums.Bot.MemberTypeLogin:
                     botSetting = Helper.JsonConverter.Deserialize<Info.MemberTypeLogin>(settingString);
                     break;
+                case (int)Helper.Enums.Bot.EmailOwner:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.EmailOwner>(settingString);
+                    break;
+                case (int)Helper.Enums.Bot.RoomFriends:
+                    botSetting=Helper.JsonConverter.Deserialize<Info.RoomFriend>(settingString);
+                    break;
+                case (int)Helper.Enums.Bot.RoomLaw:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.RoomLaw>(settingString);
+                    break;
+                case (int)Helper.Enums.Bot.RoomProgram:
+                    botSetting = Helper.JsonConverter.Deserialize<Info.RoomProgram>(settingString);
+                    break;
                 default:
                     botSetting = new Info.BotSettings();
                     break;

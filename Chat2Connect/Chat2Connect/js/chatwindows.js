@@ -27,7 +27,6 @@
 
     return result;
 };
-
 ko.bindingHandlers.slideVisible = {
     init: function (element, valueAccessor) {
         var value = valueAccessor();
@@ -901,14 +900,14 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.showRoomInfo = function () {
             $("#infoModal_" + self.uniqueID()).modal('show');
         };
-        
+
         this.RoomBots = ko.observableArray([]);
         if (this.Type() == 'Room') {
             $.ajax({
                 url: '../Services/Services.asmx/LoadRoomBots?roomID=' + this.ID(),
                 success: function (data) {
                     ko.utils.arrayMap(data, function (item) {
-                        self.RoomBots.push(item);
+                        self.RoomBots.push(ko.mapping.fromJS(item));
                     })
                 }
             });
@@ -922,16 +921,14 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             var window = this;
             $.post("../Services/Services.asmx/SaveRoomBots", { roomBots: ko.toJSON(window.RoomBots) })
                 .done(function (data) {
-                    if (data.status)
-                    {
+                    if (data.status) {
                         window.RoomBots([]);
                         ko.utils.arrayMap(data.bots, function (item) {
                             window.RoomBots.push(item);
                         });
                         initPopover(window);
                     }
-                    else
-                    {
+                    else {
                         alert(data.error);
                     }
                 });
@@ -943,7 +940,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 Bot: { ID: bot.ID, Title: bot.Title, IconPath: bot.IconPath, Points: bot.Points },
                 Settings: bot.SettingObject
             };
-            this.RoomBots.push(roomBot);
+            this.RoomBots.push(ko.mapping.fromJS(roomBot));
         };
         this.removeRoomBot = function () {
             var bot = this;
@@ -954,11 +951,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.allowInviteFriends = ko.computed(function () {
             if (self.Type() == 'Private')
                 return null;
-            var inviteBanBot= ko.utils.arrayFirst(self.RoomBots(), function (bot) {
+            var inviteBanBot = ko.utils.arrayFirst(self.RoomBots(), function (bot) {
                 return bot.IsEnabled && bot.BotID == self.InviteFriendBanBotID();
             });
-            if(inviteBanBot!=null && inviteBanBot!=undefined)
-            {
+            if (inviteBanBot != null && inviteBanBot != undefined) {
                 var currentMemberBan = ko.utils.arrayFirst(inviteBanBot.Settings.BannedMemberLevels, function (bannedLevel) {
                     return bannedLevel == self.CurrentMember().MemberLevelID();
                 });
@@ -978,8 +974,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             });
             if (id != undefined && type != undefined) {
                 var win = self.getWindow(id, type);
-                if (win != undefined)
-                {
+                if (win != undefined) {
                     self.ActivWindow(win);
                     win.IsActive = true;
                 }
@@ -998,7 +993,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return;
         var window = self.getWindow(id, type, name);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend,isHelp);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp);
         }
         else {
             if (type != 'Room')
@@ -1008,7 +1003,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
 
     };
-    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend,isHelp) {
+    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend, isHelp) {
         if (istemp == undefined)
             istemp = false;
         if (isHelp == undefined)
@@ -1028,7 +1023,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true,IsHelp:isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1253,9 +1248,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
 
         // add welcome message
-        if (window.Type() == "Room")
-        {
-            if (window.WelcomeBot() != null)
+        if (window.Type() == "Room") {
+            if (window.WelcomeBot != null)
                 addMsgToWindow(window, window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2(), "welcomeText");
         }
 
@@ -1424,8 +1418,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
 
     self.ActivWindow = ko.observable();
     self.Bots = ko.onDemandObservable(getBots, this);
-    function getBots()
-    {
+    function getBots() {
         $.ajax({
             url: '../Services/Services.asmx/LoadBots',
             context: this,
@@ -1437,8 +1430,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
     self.getBotTemplate = function (id) {
         return 'bot_template_' + id;
     };
-    self.AddRoomBot = function (bot)
-    {
+    self.AddRoomBot = function (bot) {
         if (self.CreditPoints() < bot.Points) {
             alert('رصيد نقاطك لا يكفى لإضافة هذا البوت');
             return;
@@ -1501,7 +1493,7 @@ function addMsgToWindow(window, msg, css) {
 function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers) {
     rHub = $.connection.chatRoomHub;
     $.connection.hub.start();
-    chatVM = new Chat(maxWinRooms, memberID, memberName,helpMembers);
+    chatVM = new Chat(maxWinRooms, memberID, memberName, helpMembers);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
         ko.utils.arrayMap(openedWindows, function (item) {
