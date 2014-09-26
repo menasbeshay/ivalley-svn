@@ -76,6 +76,14 @@ namespace BLL
         }
         #endregion
 
+        public override void AddNew()
+        {
+            base.AddNew();
+            StartDate = DateTime.Now;
+            TimeStamp = DateTime.Now;
+            IsEnabled = false;
+            SettingString = "{}";
+        }
         public void Save(List<Info.RoomBot> lst)
         {
             MyGeneration.dOOdads.TransactionMgr tx = MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr();

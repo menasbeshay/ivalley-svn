@@ -545,7 +545,7 @@ namespace Chat2Connect.services
         {
             bool isValidMemberType = true;
             acceptedTypes = "";
-            BLL.RoomBot bllbot = new RoomBot();
+            BLL.RoomBot bllbot = new BLL.RoomBot();
             List<Info.RoomBot> lstBots = bllbot.GetByRoomIDandBotID(id, Helper.Enums.Bot.MemberTypeLogin);
             if (lstBots.Count > 0)
             {
@@ -677,7 +677,7 @@ namespace Chat2Connect.services
             roomObject.Gifts = allgifts.DefaultView.Table.AsEnumerable().Select(m => new { giftid = m["GiftID"], name = m["Name"], price = m["Price_Point"], picPath = m["PicPath"], AudioPath = m["AudioPath"] }).ToList();
 
             //bots
-            RoomBot bllRoomBot = new RoomBot();
+            RoomBot bllRoomBot = new BLL.RoomBot();
             //welcome bot
             List<Info.RoomBot> bots = bllRoomBot.GetByRoomIDandBotID(id, Helper.Enums.Bot.Welcome);
             if (bots.Count > 0)
@@ -685,9 +685,7 @@ namespace Chat2Connect.services
                 Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
                 roomObject.WelcomeBot = infoWelcomeBot;
             }
-            //invite friends bot
-            //roomObject.InviteFriendBanBotID = (int)Helper.Enums.Bot.InviteFriendsBan;
-
+            
             return roomObject;
         }
 
@@ -1290,7 +1288,7 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void LoadRoomBots(int roomId)
         {
-            BLL.RoomBot rmBots = new RoomBot();
+            BLL.RoomBot rmBots = new BLL.RoomBot();
             List<Info.RoomBot> lst= rmBots.GetByRoomID(roomId);
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
@@ -1302,7 +1300,7 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void SaveRoomBots(string roomBots)
         {
-            BLL.RoomBot rmBots = new RoomBot();
+            BLL.RoomBot rmBots = new BLL.RoomBot();
             string result = "";
             try
             {

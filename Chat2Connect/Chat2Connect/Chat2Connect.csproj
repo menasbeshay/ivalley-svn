@@ -650,6 +650,7 @@
     <Content Include="MyBalance.aspx" />
     <Content Include="PopupPages\Messages_popup.aspx" />
     <Content Include="resetpass.aspx" />
+    <Content Include="Bots.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -1138,6 +1139,13 @@
     </Compile>
     <Compile Include="resetpass.aspx.designer.cs">
       <DependentUpon>resetpass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bots.aspx.cs">
+      <DependentUpon>Bots.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bots.aspx.designer.cs">
+      <DependentUpon>Bots.aspx</DependentUpon>
     </Compile>
     <Compile Include="roomtypes.aspx.cs">
       <DependentUpon>roomtypes.aspx</DependentUpon>

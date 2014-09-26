@@ -51,7 +51,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
-                <a href="#" id="bots" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">بوتات</a>
+                <a href="../Bots.aspx" id="bots" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">بوتات</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
