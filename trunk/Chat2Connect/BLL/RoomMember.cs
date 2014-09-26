@@ -388,5 +388,13 @@ namespace BLL
 	                                    AND RM.RoomMemberLevelID > (SELECT RoomMemberLevelID FROM RoomMember WHERE  RoomID={0} AND MemberID={1})", 
                                   roomID, adminID);
         }
+
+        public bool GetRoomFriends(int roomID)
+        {
+            return LoadFromRawSql(@"select RM.MemberID
+                                    FROM RoomMember  RM 
+                                    WHERE RM.IsFavorite=1 AND RM.RoomID={0}",
+                                  roomID);
+        }
     }
 }

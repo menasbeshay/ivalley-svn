@@ -2010,7 +2010,7 @@
                             <h3>رسالة أصدقاء الغرفة</h3>
 
                             <div class="form-group">
-                                <textarea data-bind="value:roomFriendsBotMsg" class="form-control" maxlength="40"></textarea>
+                                <textarea data-bind="value:roomFriendsBotMsg" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
@@ -2039,7 +2039,7 @@
                             <h3>رسالة لمالك الغرفة</h3>
 
                             <div class="form-group">
-                                <textarea data-bind="value:roomEmailOwnerBotMsg" class="form-control" maxlength="40"></textarea>
+                                <textarea data-bind="value:roomEmailOwnerBotMsg" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
