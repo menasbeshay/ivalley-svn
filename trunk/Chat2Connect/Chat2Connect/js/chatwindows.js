@@ -921,16 +921,16 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             var window = this;
             $.post("../Services/Services.asmx/SaveRoomBots", { roomBots: ko.toJSON(window.RoomBots) })
                 .done(function (data) {
-                    if (data.status) {
-                        window.RoomBots([]);
-                        ko.utils.arrayMap(data.bots, function (item) {
-                            window.RoomBots.push(item);
-                        });
-                        initPopover(window);
-                    }
-                    else {
-                        alert(data.error);
-                    }
+                    //if (data.status) {
+                    //    window.RoomBots([]);
+                    //    ko.utils.arrayMap(data.bots, function (item) {
+                    //        window.RoomBots.push(ko.mapping.fromJS(item));
+                    //    });
+                    //    initPopover(window);
+                    //}
+                    //else {
+                    //    alert(data.error);
+                    //}
                 });
             $("#" + window.roomBotsModalID).modal('hide');
         };
@@ -966,16 +966,23 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             if (self.Type() == 'Private')
                 return null;
             var emailOwnerBot = ko.utils.arrayFirst(self.RoomBots(), function (bot) {
-                return bot.IsEnabled() && bot.BotID() == emailOwnerBot;
+                return bot.IsEnabled() && bot.BotID() == emailOwnerBotID;
             });
             if (emailOwnerBot != null && emailOwnerBot != undefined) {
                 return true;
             }
             return false;
         }, this);
+        this.roomEmailOwnerBotMsg = ko.observable();
+        this.roomEmailOwnerBotModal = "roomEmailOwnerBotModal_" + this.uniqueID();
         this.showEmailOwnerBot = function () {
-            alert('Hi');
+            $("#" + self.roomEmailOwnerBotModal).modal('show');
         };
+        this.sendRoomEmailOwnerBotMsg = function () {
+            alert(this.roomEmailOwnerBotMsg());
+        };
+        this.roomFriendsBotMsg = ko.observable();
+        this.roomFriendsBotModalID = "roomFriendsBotModal_" + this.uniqueID();
         this.hasRoomFriendsBot = ko.computed(function () {
             if (self.Type() == 'Private')
                 return null;
@@ -988,7 +995,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return false;
         }, this);
         this.showRoomFriendsBot = function () {
-            alert('Hi');
+            $("#" + self.roomFriendsBotModalID).modal('show');
+        };
+        this.sendRoomFriendsBotMsg = function () {
+            alert(this.roomFriendsBotMsg());
         };
     }
 

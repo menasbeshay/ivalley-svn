@@ -1407,9 +1407,11 @@
                             </div>
                             <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
                                 <div class="pull-right">
-                                    <a title="أصدقاء الغرفة" data-bind="if:hasRoomFriendsBot,click:showRoomFriendsBot" data-placement="top" class="btn btn-default roomMenuItem">
-                                    <span>أصدقاء الغرفة</span>
-                                </a>
+                                    <!-- ko if: Type()=="Room" && hasRoomFriendsBot -->
+                                    <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-default roomMenuItem">
+                                        <span class="icon icon-male"></span>
+                                    </a>
+                                    <!-- /ko -->
                                 </div>
                                 <div class="pull-left" style="padding: 5px;">
                                     <a href="#" data-bind="click:toggleAdminPart" style="text-decoration: none;">
@@ -1465,9 +1467,11 @@
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'invite_'+uniqueID()},click:ShowInviteFriends" data-original-title="دعوة أصدقاء">
                                     <img src="images/friends-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
-                                <a title="بريد المالك" data-bind="if:hasEmailOwnerBot,click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem">
-                                    <span>مراسلة المالك</span>
+                                <!-- ko if: Type()=="Room" && hasEmailOwnerBot -->
+                                <a title="بريد المالك" data-bind="click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem">
+                                    <i class="icon-mail-forward" style="font-size: 17px;"></i>
                                 </a>
+                                <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
 
                             </div>
@@ -1638,6 +1642,8 @@
         <!-- /ko -->
         <!-- ko if:Type()=="Room" -->
         <div data-bind="template: { name: 'hamsaModal'}"></div>
+        <div data-bind="template: { name: 'roomFriendsBotModal'}"></div>
+        <div data-bind="template: { name: 'roomEmailOwnerBotModal'}"></div>
         <!-- /ko -->
         <!-- ko if:Type()=="Room" -->
         <div data-bind="attr:{id:'inviteModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
@@ -1990,6 +1996,64 @@
         </div>
     </div>
 
+    <script id="roomFriendsBotModal" type="text/html">
+        <div data-bind="attr:{id:roomFriendsBotModalID}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content hamsaModal">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3>بوت أصدقاء الغرفة</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h3>رسالة أصدقاء الغرفة</h3>
+
+                            <div class="form-group">
+                                <textarea data-bind="value:roomFriendsBotMsg" class="form-control" maxlength="40"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:sendRoomFriendsBotMsg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="roomEmailOwnerBotModal" type="text/html">
+        <div data-bind="attr:{id:roomEmailOwnerBotModal}" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content hamsaModal">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <h3>بوت بريد المالك</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h3>رسالة لمالك الغرفة</h3>
+
+                            <div class="form-group">
+                                <textarea data-bind="value:roomEmailOwnerBotMsg" class="form-control" maxlength="40"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <input type="button" value="إرسال" class="btn btn-warning" style="width: 100px;" data-bind="click:sendRoomEmailOwnerBotMsg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </script>
     <script id="roomBotsModal" type="text/html">
         <div data-bind="attr:{id:roomBotsModalID}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -1997,20 +2061,20 @@
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                         <i class="icon-2x icon-cogs" style="float: left;"></i>
-                        <h3> تعديل بوت الغرفة</h3>
+                        <h3>تعديل بوت الغرفة</h3>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                                <!-- ko with:RoomBots-->
-                                <div class="row" data-bind="foreach:$data">
-                                    <div data-bind="template: { name: 'bot_editTemplate'}"></div>
-                                </div>
-                                <!-- /ko -->
+                            <!-- ko with:RoomBots-->
+                            <div class="row" data-bind="foreach:$data">
+                                <div data-bind="template: { name: 'bot_editTemplate'}"></div>
                             </div>
-                            <div class="row">
-                                <input type="button" class="btn btn-warning" value="حفظ" data-bind="click:saveRoomBots" />
-                                <input type="button" class="btn btn-warning" value="غلق" data-dismiss="modal" />
-                            </div>
+                            <!-- /ko -->
+                        </div>
+                        <div class="row">
+                            <input type="button" class="btn btn-warning" value="حفظ" data-bind="click:saveRoomBots" />
+                            <input type="button" class="btn btn-warning" value="غلق" data-dismiss="modal" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2218,6 +2282,7 @@
             arr.push(newObject);
         }
     </script>
+
 </asp:Content>
 
 
