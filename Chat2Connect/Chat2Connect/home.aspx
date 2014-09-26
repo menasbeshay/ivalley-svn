@@ -1989,89 +1989,20 @@
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                         <i class="icon-2x icon-cogs" style="float: left;"></i>
-                        <h3>إضافة أو تعديل بوت</h3>
+                        <h3> تعديل بوت الغرفة</h3>
                     </div>
                     <div class="modal-body">
-                        <div>
-                            <div class="row">
-                                <div class="row step">
-
-                                    <div class="col-md-6" onclick="javascript: resetActive(event, 'step-2');">
-                                        <span class="fa icon-pencil"></span>
-                                        <p>تعديل</p>
-                                    </div>
-                                    <div id="div1" class="col-md-6 activestep" onclick="javascript: resetActive(event, 'step-1');">
-                                        <span class="fa fa icon-list"></span>
-                                        <p>البوتات</p>
-                                    </div>
+                        <div class="row">
+                                <!-- ko with:RoomBots-->
+                                <div class="row" data-bind="foreach:$data">
+                                    <div data-bind="template: { name: 'bot_editTemplate'}"></div>
                                 </div>
-                            </div>
-                            <div class="row setup-content step activeStepInfo" id="step-1">
-
-                                <div class="col-md-12 well text-center">
-                                    <h3>البوتات المضافة على الغرفة</h3>
-                                    <table class="table  table-condensed right">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>البوت</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody data-bind="foreach:RoomBots">
-                                            <tr>
-                                                <td></td>
-                                                <td data-bind="text:Bot.Title"></td>
-                                                <td>
-                                                    <a href="#" data-bind="if:ID==0,click:$parent.removeRoomBot">حذف</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <h3>إضافة بوت جديد</h3>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>البوت</th>
-                                                <th>النقاط المطلوبة
-                                                </th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <!-- ko with:$root.Bots-->
-                                        <tbody data-bind="foreach:$data">
-                                            <tr>
-                                                <td></td>
-                                                <td data-bind="text:Title"></td>
-                                                <td data-bind="text:Points"></td>
-                                                <td>
-                                                    <a href="#" data-bind="click:$root.AddRoomBot.bind($data,$data)">أضف</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <!-- /ko -->
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div class="row setup-content step hiddenStepInfo" id="step-2">
-
-                                <div class="col-md-12 well text-center">
-                                    <h3 class="underline">تعديل بيانات البوتات</h3>
-                                    <!-- ko with:RoomBots-->
-                                    <div class="row" data-bind="foreach:$data">
-                                        <div data-bind="template: { name: 'bot_editTemplate'}"></div>
-                                    </div>
-                                    <!-- /ko -->
-                                </div>
-
+                                <!-- /ko -->
                             </div>
                             <div class="row">
                                 <input type="button" class="btn btn-warning" value="حفظ" data-bind="click:saveRoomBots" />
                                 <input type="button" class="btn btn-warning" value="غلق" data-dismiss="modal" />
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2204,20 +2135,21 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th colspan="4" class="center">
-                            قوانين الغرفة
+                        <th colspan="4" class="center">قوانين الغرفة
                         </th>
                     </tr>
                 </thead>
                 <tbody data-bind="foreach:Settings.Laws">
-                <tr>
-                    <td data-bind="text:$index()+1"></td>
-                    <td><input type="text" class="form-control" data-bind="value:Law" /></td>
-                    <td><input type="checkbox" data-bind="checked:IsActive" />
-                    </td>
-                    <td><a href="#" data-bind="click:function(){$parent.Settings.Laws.remove(this);}">حذف</a></td>
+                    <tr>
+                        <td data-bind="text:$index()+1"></td>
+                        <td>
+                            <input type="text" class="form-control" data-bind="value:Law" /></td>
+                        <td>
+                            <input type="checkbox" data-bind="checked:IsActive" />
+                        </td>
+                        <td><a href="#" data-bind="click:function(){$parent.Settings.Laws.remove(this);}">حذف</a></td>
                     </tr>
-                    </tbody>
+                </tbody>
                 <tfoot>
                     <tr>
                         <td></td>
@@ -2245,20 +2177,21 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th colspan="4" class="center">
-                            البرنامج
+                        <th colspan="4" class="center">البرنامج
                         </th>
                     </tr>
                 </thead>
                 <tbody data-bind="foreach:Settings.Programms">
-                <tr>
-                    <td data-bind="text:$index()+1"></td>
-                    <td><input type="text" class="form-control" data-bind="value:Program" /></td>
-                    <td><input type="checkbox" data-bind="checked:IsActive" />
-                    </td>
-                    <td><a href="#" data-bind="click:function(){$parent.Settings.Programms.remove(this);}">حذف</a></td>
+                    <tr>
+                        <td data-bind="text:$index()+1"></td>
+                        <td>
+                            <input type="text" class="form-control" data-bind="value:Program" /></td>
+                        <td>
+                            <input type="checkbox" data-bind="checked:IsActive" />
+                        </td>
+                        <td><a href="#" data-bind="click:function(){$parent.Settings.Programms.remove(this);}">حذف</a></td>
                     </tr>
-                    </tbody>
+                </tbody>
                 <tfoot>
                     <tr>
                         <td></td>
@@ -2275,37 +2208,6 @@
         {
             var newObject = jQuery.extend({}, obj);
             arr.push(newObject);
-        }
-        function resetActive(event, step) {
-            $("div").each(function () {
-                if ($(this).hasClass("activestep")) {
-                    $(this).removeClass("activestep");
-                }
-            });
-
-            if (event.target.className == "col-md-6") {
-                $(event.target).addClass("activestep");
-            }
-            else {
-                $(event.target.parentNode).addClass("activestep");
-            }
-
-            hideSteps();
-            showCurrentStepInfo(step);
-        }
-
-        function hideSteps() {
-            $("div").each(function () {
-                if ($(this).hasClass("activeStepInfo")) {
-                    $(this).removeClass("activeStepInfo");
-                    $(this).addClass("hiddenStepInfo");
-                }
-            });
-        }
-
-        function showCurrentStepInfo(step) {        
-            var id = "#" + step;
-            $(id).addClass("activeStepInfo");
         }
     </script>
 </asp:Content>
