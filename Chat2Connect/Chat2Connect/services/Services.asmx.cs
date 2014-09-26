@@ -173,6 +173,59 @@ namespace Chat2Connect.services
             }
             return true;
         }
+        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool SendRoomFriendsBotMsg(int roomID, string message)
+        {
+            BLL.Room bllRoom = new Room();
+            if (!bllRoom.LoadByPrimaryKey(roomID))
+                return false;
+            BLL.RoomMember bllRoomMember = new RoomMember();
+            if (!bllRoomMember.GetRoomFriends(roomID))
+                return false;
+            message.Replace("\r\n", "</br>");
+            List<int> recipients = bllRoomMember.DefaultView.Table.AsEnumerable().Select(m =>Helper.TypeConverter.ToInt32(m[BLL.RoomMember.ColumnNames.MemberID])).ToList();
+            BLL.Message msg = new BLL.Message();
+            msg.AddNew();
+            msg.Body = message;
+            msg.SenderID = BLL.Member.CurrentMemberID;
+            msg.Subject = "بوت أصدقاء الغرفة";
+            msg.ToMembers = "أصدقاء غرفة -"+bllRoom.Name;
+            msg.Save();
+            MemberMessage memberMsg = new MemberMessage();
+            //add to member sent items
+            memberMsg.AddNew();
+            memberMsg.MessageID = msg.ID;
+            memberMsg.IsRead = true;
+            foreach (int recipientID in recipients)
+            {
+                memberMsg.AddNew();
+                memberMsg.MemberID = recipientID;
+                memberMsg.MessageID = msg.ID;
+            }
+            memberMsg.Save();
+            
+            //send mail notifications
+            NotificationHub notifications = new NotificationHub();
+            for (int i = 0; i < recipients.Count; i++)
+            {
+                notifications.SendMailNotifications(recipients[i]);
+            }
+
+            return true;
+        }
+        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool SendEmailOwnerBotMsg(int roomID, string message)
+        {
+            BLL.Room bllRoom = new Room();
+            if (!bllRoom.LoadByPrimaryKey(roomID))
+                return false;
+            message = message.Replace("\r\n", "</br>");
+            return SendMsg(BLL.Member.CurrentMemberID, bllRoom.s_CreatedBy, "بوت بريد المالك", "مالك الغرفة", message);
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

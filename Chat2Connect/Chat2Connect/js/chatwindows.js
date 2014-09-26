@@ -979,7 +979,25 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             $("#" + self.roomEmailOwnerBotModal).modal('show');
         };
         this.sendRoomEmailOwnerBotMsg = function () {
-            alert(this.roomEmailOwnerBotMsg());
+            $.ajax({
+                url: "../Services/Services.asmx/SendEmailOwnerBotMsg",
+                dataType: "json",
+                type: "post",
+                data: JSON.stringify({ roomID: self.ID(), message: self.roomEmailOwnerBotMsg() }),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == false) {
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                    else if (data.d == true) {
+                        notify('success', 'تم الإرسال بنجاح.');
+                    }
+                    $("#" + self.roomEmailOwnerBotModal).modal('hide');
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                }
+            });
         };
         this.roomFriendsBotMsg = ko.observable();
         this.roomFriendsBotModalID = "roomFriendsBotModal_" + this.uniqueID();
@@ -998,8 +1016,28 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             $("#" + self.roomFriendsBotModalID).modal('show');
         };
         this.sendRoomFriendsBotMsg = function () {
-            alert(this.roomFriendsBotMsg());
+            var msg=this.roomFriendsBotMsg();
+            $.ajax({
+                url: "../Services/Services.asmx/SendRoomFriendsBotMsg",
+                dataType: "json",
+                type: "post",
+                data: JSON.stringify({roomID:self.ID(),message:msg}),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == false) {
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                    else if (data.d == true) {
+                        notify('success', 'تم الإرسال بنجاح.');
+                    }
+                    $("#" + self.roomFriendsBotModalID).modal('hide');
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                }
+            });
         };
+
     }
 
     self.changeCurrent = function (selctor, id, type) {
