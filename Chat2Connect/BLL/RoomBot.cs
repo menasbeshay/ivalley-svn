@@ -132,5 +132,23 @@ namespace BLL
                 throw;
             }
         }
+
+        public List<Info.RoomBot> GetByBotID(Helper.Enums.Bot bot)
+        {
+            List<Info.RoomBot> result = new List<Info.RoomBot>();
+            if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
+	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
+                                WHERE BotID={0} AND IsEnabled=1", (int)bot))
+            {
+                do
+                {
+                    result.Add(
+                        GetInfoObject()
+                        );
+
+                } while (MoveNext());
+            }
+            return result;
+        }
     }
 }

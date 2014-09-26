@@ -587,8 +587,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         //messages
         this.AdminMessageHistory = ko.observableArray();
         this.toggleMessageTime = function () { };
-        function chatMessage(msg) {
-            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1, FromProfileImg: 'images/defaultavatar.png', FromID: 0, MemberTypeID: 1 };
+        function chatMessage(msg,senderImg) {
+            if (senderImg == null)
+                senderImg = 'images/defaultavatar.png';
+            var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1, FromProfileImg: senderImg, FromID: 0, MemberTypeID: 1 };
             return ko.mapping.fromJS(msgData, {}, this);
         }
         this.oldestMsgID = function () {
@@ -599,6 +601,11 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         };
         this.addNotificationMessage = function (msg) {
             var message = new chatMessage(msg);
+            this.addMessage(message);
+        };
+        this.addBotMsg = function (msg, botImg) {
+            botImg = botImg + '_1.png';
+            var message = new chatMessage(msg, botImg);
             this.addMessage(message);
         };
         this.addMessage = function (msg) {
@@ -1903,6 +1910,12 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers)
         createHamsaWindow(hamsa, fromMember);
     };
     /*****************************************/
+    rHub.client.getBotMsg = function (rid,msg,botImg) {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            window.addBotMsg(msg, botImg);
+        }
+    };
 }
 
 
