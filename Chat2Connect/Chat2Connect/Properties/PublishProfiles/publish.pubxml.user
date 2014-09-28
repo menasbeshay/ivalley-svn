@@ -124,10 +124,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>09/21/2014 15:48:24</publishTime>
+      <publishTime>09/28/2014 12:08:07</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>09/21/2014 15:48:25</publishTime>
+      <publishTime>09/28/2014 12:08:09</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -241,10 +241,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:53</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>09/21/2014 15:48:24</publishTime>
+      <publishTime>09/28/2014 12:08:07</publishTime>
     </File>
     <File Include="bin/Info.dll">
-      <publishTime>09/21/2014 15:48:24</publishTime>
+      <publishTime>09/28/2014 12:08:07</publishTime>
     </File>
     <File Include="bin/js/jquery-1.11.1.min.js">
       <publishTime>09/11/2014 12:24:47</publishTime>
@@ -290,6 +290,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Startup.cs">
       <publishTime>09/11/2014 12:24:47</publishTime>
+    </File>
+    <File Include="Bots.aspx">
+      <publishTime>09/28/2014 10:41:03</publishTime>
     </File>
     <File Include="coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -622,7 +625,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:02</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>09/21/2014 15:32:29</publishTime>
+      <publishTime>09/28/2014 10:41:03</publishTime>
     </File>
     <File Include="Home2.aspx">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -771,6 +774,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/bg-denim.png">
       <publishTime>12/30/2013 16:49:01</publishTime>
     </File>
+    <File Include="images/bots/EmailOwner_1.png">
+      <publishTime>09/15/2014 00:28:12</publishTime>
+    </File>
+    <File Include="images/bots/EmailOwner_2.png">
+      <publishTime>09/15/2014 00:27:48</publishTime>
+    </File>
+    <File Include="images/bots/EmailOwner_3.png">
+      <publishTime>09/15/2014 00:27:58</publishTime>
+    </File>
     <File Include="images/bots/FollowAdmin_1.png">
       <publishTime>09/15/2014 00:10:24</publishTime>
     </File>
@@ -800,6 +812,33 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/bots/MembersLogin_3.png">
       <publishTime>09/15/2014 00:24:00</publishTime>
+    </File>
+    <File Include="images/bots/RoomFriends_1.png">
+      <publishTime>09/15/2014 00:27:38</publishTime>
+    </File>
+    <File Include="images/bots/RoomFriends_2.png">
+      <publishTime>09/15/2014 00:27:16</publishTime>
+    </File>
+    <File Include="images/bots/RoomFriends_3.png">
+      <publishTime>09/15/2014 00:27:28</publishTime>
+    </File>
+    <File Include="images/bots/RoomLaw_1.png">
+      <publishTime>09/15/2014 00:22:08</publishTime>
+    </File>
+    <File Include="images/bots/RoomLaw_2.png">
+      <publishTime>09/15/2014 00:21:44</publishTime>
+    </File>
+    <File Include="images/bots/RoomLaw_3.png">
+      <publishTime>09/15/2014 00:21:56</publishTime>
+    </File>
+    <File Include="images/bots/RoomProgram_1.png">
+      <publishTime>09/15/2014 00:22:48</publishTime>
+    </File>
+    <File Include="images/bots/RoomProgram_2.png">
+      <publishTime>09/15/2014 00:22:24</publishTime>
+    </File>
+    <File Include="images/bots/RoomProgram_3.png">
+      <publishTime>09/15/2014 00:22:34</publishTime>
     </File>
     <File Include="images/bots/welcome_1.png">
       <publishTime>09/14/2014 00:10:44</publishTime>
@@ -1864,7 +1903,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>09/21/2014 15:46:21</publishTime>
+      <publishTime>09/28/2014 10:41:03</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>09/11/2014 12:24:47</publishTime>
@@ -2053,7 +2092,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="MasterPages/Balance.master">
-      <publishTime>09/11/2014 12:25:04</publishTime>
+      <publishTime>09/28/2014 10:41:03</publishTime>
     </File>
     <File Include="MasterPages/createMaster.master">
       <publishTime>09/21/2014 14:26:11</publishTime>
