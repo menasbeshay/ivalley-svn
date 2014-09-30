@@ -69,6 +69,11 @@ namespace BLL
             infoBot.BotID = BotID;
             infoBot.IsEnabled = IsEnabled;
             infoBot.ShortcutKey = ShortcutKey;
+            infoBot.StartDate = StartDate;
+            if (!String.IsNullOrEmpty(s_EndDate))
+            {
+                infoBot.EndDate = EndDate;
+            }
             infoBot.Settings = Settings;
             infoBot.Bot = new Info.Bot() { ID = this.BotID, Title = Helper.TypeConverter.ToString(GetColumn(Bot.ColumnNames.Title)), IconPath = Helper.TypeConverter.ToString(GetColumn(Bot.ColumnNames.IconPath)) };
 
