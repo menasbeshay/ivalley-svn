@@ -2061,7 +2061,7 @@
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                         <i class="icon-2x icon-cogs" style="float: left;"></i>
-                        <h3>تعديل بوت الغرفة</h3>
+                        <h3>إعدادات البوت</h3>
                     </div>
                     <div class="modal-body">
                         <div class="panel-group" data-bind="attr{id:'accordion_'+ID()}">
@@ -2070,7 +2070,6 @@
                                 <div class="panel-heading" style="padding: 0 15px;">
                                     <h4 class="panel-title">
                                     <a data-toggle="collapse" data-bind="text:Bot.Title,attr:{'data-parent':'#accordion_'+RoomID(),'href':'#collapse_'+ID()}">
-          
                                     </a>
                                     </h4>
                                 </div>
@@ -2096,7 +2095,19 @@
             <div class="icon">
                 <img class="image" data-bind="attr:{'src' : Bot.IconPath() + '_1.png'}" />
                 <div class="info">
-                    <h3 class="title" data-bind="text:Bot.Title"></h3>
+                    <span class="title" data-bind="text:Bot.Title"></span>
+                        <div>
+                        <span style="color:green;" class="col-lg-2" data-bind="date:StartDate, format: 'YYYY/MM/DD'"></span>
+                        <span style="color:green;" class="col-lg-2">شراء</span>
+                        <br />
+                        <span style="color:red;" class="col-lg-2">
+                            <!--ko if:EndDate()>moment()-->
+                            <span data-bind="date:EndDate, format: 'YYYY/MM/DD'"></span>
+                            <!-- /ko-->
+                        </span>
+                        <span style="color:red;" class="col-lg-2">إنتهاء</span>
+                    </div>
+                    
                     <div class="more">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">

@@ -37,6 +37,17 @@ namespace Info
             set;
         }
 
+        public DateTime StartDate
+        {
+            get;
+            set;
+        }
+
+        public DateTime EndDate
+        {
+            get;
+            set;
+        }
         public RoomBot()
         {
             ShortcutKey = "";
