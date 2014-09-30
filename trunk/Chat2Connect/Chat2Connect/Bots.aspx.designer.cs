@@ -40,13 +40,13 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label lblPointsBalance;
         
         /// <summary>
-        /// repBots control.
+        /// lstRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repBots;
+        protected global::System.Web.UI.WebControls.DropDownList lstRooms;
         
         /// <summary>
         /// totalSelectedPoints control.
@@ -67,15 +67,6 @@ namespace Chat2Connect {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedCount;
         
         /// <summary>
-        /// lstRooms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstRooms;
-        
-        /// <summary>
         /// btnSaveBots control.
         /// </summary>
         /// <remarks>
@@ -83,5 +74,14 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveBots;
+        
+        /// <summary>
+        /// repBots control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repBots;
     }
 }

@@ -19,28 +19,53 @@
             <div class="col-lg-2 control-label pull-right">
                 رصيد نقاطى
             </div>
-            <div class="col-lg-6 pull-right">
+            <div class="col-lg-4 pull-right">
                 <asp:Label ID="lblPointsBalance" runat="server"></asp:Label>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-lg-2 control-label pull-right">
+                إختر الغرفة
+            </div>
+            <div class="col-lg-4 pull-right">
+                <asp:DropDownList ID="lstRooms" CssClass="form-control" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 control-label pull-right">
+                مجموع المشتريات
+            </div>
+            <div class="col-lg-4 pull-right">
+                <input runat="server" type="text" disabled="disabled" value="0" id="totalSelectedPoints" />
+                <input type="hidden" id="selectedCount" runat="server" value="0" />
+            </div>
+            <div class="col-lg-2 pull-right">
+                <asp:Button ID="btnSaveBots" runat="server" CssClass="btn btn-warning" Text="حفظ" OnClick="btnSaveBots_Click" disabled="disabled" />
+            </div>
+        </div>
+
         <div class="from-group">
-            <table dir="rtl" class="table table-bordered">
+            <table dir="rtl" class="table">
                 <tr>
-                    <th></th>
-                    <th>البوت</th>
-                    <th>تفاصيل</th>
-                    <th>النقاط</th>
+                    <th width="20%" class="text-right" colspan="2">إختر البوت المراد شرائه</th>
+                    <th width="25%" class="text-right">البوت</th>
+                    <th width="45%" class="text-right">تفاصيل</th>
+                    <th width="10%" class="text-right">النقاط</th>
                 </tr>
                 <asp:Repeater ID="repBots" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td>
-                                <label>
+                                <span width="40px" id='<%# Eval(BLL.Bot.ColumnNames.ID,"select_{0}") %>'>
                                     <asp:CheckBox ID="chkSelect" runat="server" onclick='<%# Eval(BLL.BotPoints.ColumnNames.Points,"calcPoints(this,{0})") %>' />
-                                    <img width="35px" height="35px" src='<%# Eval(BLL.Bot.ColumnNames.IconPath,"{0}_1.png") %>' />
-                                </label>
+                                </span>
+                                <span class="has-success" width="40px" id='<%# Eval(BLL.Bot.ColumnNames.ID,"take_{0}") %>'>
+                                    <label class="control-label">تم الشراء</label>
+                                </span>
+                            </td>
+                            <td>
+                                <img width="35px" height="35px" src='<%# Eval(BLL.Bot.ColumnNames.IconPath,"{0}_1.png") %>' />
                                 <asp:HiddenField ID="hdnBotID" runat="server" Value='<%# Eval(BLL.Bot.ColumnNames.ID) %>' />
-
                             </td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Title) %></td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Description) %></td>
@@ -52,21 +77,10 @@
                 </asp:Repeater>
             </table>
         </div>
-        <div class="form-group">
-            <div class="col-lg-2 pull-right">
-                <input runat="server" type="text" disabled="disabled" id="totalSelectedPoints" />
-                <input type="hidden" id="selectedCount" runat="server" value="0" />
-            </div>
-            <div class="col-lg-4 pull-right">
-                <asp:DropDownList ID="lstRooms" runat="server"></asp:DropDownList>
-            </div>
-            <div class="col-lg-2 pull-right">
-                <asp:Button ID="btnSaveBots" runat="server" CssClass="btn btn-warning" Text="حفظ" OnClick="btnSaveBots_Click" disabled="disabled" />
 
-            </div>
-        </div>
     </div>
     <script>
+        var roomsBots =<%= Helper.JsonConverter.Serialize(this.RoomsBots)%>;
         function calcPoints(chkbox, value) {
             var total = Number($('#<%= totalSelectedPoints.ClientID%>').val());
             var selectedCount = Number($('#<%= selectedCount.ClientID%>').val());;
@@ -79,6 +93,7 @@
                 total = total - Number(value);
             }
             $('#<%= totalSelectedPoints.ClientID%>').val(total);
+            $('#<%= selectedCount.ClientID%>').val(selectedCount);
             var balance = Number($('#<%= lblPointsBalance.ClientID%>').text());
             if (selectedCount == 0 || total > balance) {
                 $('#<%= btnSaveBots.ClientID%>').attr('disabled', 'disabled');
@@ -86,6 +101,26 @@
             else {
                 $('#<%= btnSaveBots.ClientID%>').removeAttr('disabled');
             }
+        }
+        $().ready(function(){
+            updateBots();
+            $("#<%= lstRooms.ClientID%>").on("change",updateBots);
+        });
+        function updateBots(){
+            var roomID=$("#<%= lstRooms.ClientID%>").val();
+            $('#<%= totalSelectedPoints.ClientID%>').val("0");
+            $('#<%= selectedCount.ClientID%>').val("0");
+            $('#<%= btnSaveBots.ClientID%>').attr('disabled', 'disabled');
+            $("[id^=select_]").attr('checked', false); 
+            $("[id^=select_]").show();
+            $("[id^=take_]").hide();
+            $.each(roomsBots, function(index, element) {
+                if(element.RoomID==roomID)
+                {
+                    $("#select_"+element.BotID).hide();
+                    $("#take_"+element.BotID).show();
+                }
+            });
         }
     </script>
 </asp:Content>

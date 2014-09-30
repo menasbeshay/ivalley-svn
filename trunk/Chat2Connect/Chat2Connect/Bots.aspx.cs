@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Chat2Connect
 {
     public partial class Bots : System.Web.UI.Page
     {
+        private object _dicRoomsBots;
+        public object RoomsBots
+        {
+            get
+            {
+                return _dicRoomsBots;
+            }
+            set
+            {
+                _dicRoomsBots = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,6 +37,19 @@ namespace Chat2Connect
                 lstRooms.DataBind();
 
                 lblPointsBalance.Text = BLL.Member.CurrentMember.s_Credit_Point;
+
+                BindRoomsBots();
+                
+            }
+        }
+
+        private void BindRoomsBots()
+        {
+            BLL.RoomBot bllRoomBot = new BLL.RoomBot();
+            _dicRoomsBots = new List<object>();
+            if (bllRoomBot.GetAllRoomsBots())
+            {
+                _dicRoomsBots = bllRoomBot.DefaultView.Table.AsEnumerable().Select(m => new { RoomID = m[BLL.RoomBot.ColumnNames.RoomID], BotID = m[BLL.RoomBot.ColumnNames.BotID] }).ToList();
             }
         }
 

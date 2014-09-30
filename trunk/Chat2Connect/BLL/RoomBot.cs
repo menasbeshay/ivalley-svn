@@ -29,7 +29,7 @@ namespace BLL
             List<Info.RoomBot> result = new List<Info.RoomBot>();
             if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
 	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
-                                WHERE RoomBot.RoomID={0}", roomID))
+                                WHERE RoomBot.RoomID={0} AND (EndDate IS NULL OR EndDate>=GETDATE())", roomID))
             {
                 do
                 {
@@ -47,7 +47,7 @@ namespace BLL
             List<Info.RoomBot> result = new List<Info.RoomBot>();
             if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
 	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
-                                WHERE RoomBot.RoomID={0} AND BotID={1} AND IsEnabled=1", roomID,(int)botType))
+                                WHERE RoomBot.RoomID={0} AND BotID={1} AND IsEnabled=1 AND (EndDate IS NULL OR EndDate>=GETDATE())", roomID, (int)botType))
             {
                 do
                 {
@@ -138,7 +138,7 @@ namespace BLL
             List<Info.RoomBot> result = new List<Info.RoomBot>();
             if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
 	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
-                                WHERE BotID={0} AND IsEnabled=1", (int)bot))
+                                WHERE BotID={0} AND IsEnabled=1 AND (EndDate IS NULL OR EndDate>=GETDATE())", (int)bot))
             {
                 do
                 {
@@ -149,6 +149,13 @@ namespace BLL
                 } while (MoveNext());
             }
             return result;
+        }
+
+        public bool GetAllRoomsBots()
+        {
+            return LoadFromRawSql(@"SELECT RoomBot.*
+                                    FROM RoomBot
+                                    WHERE EndDate IS NULL OR EndDate>=GETDATE()");
         }
     }
 }
