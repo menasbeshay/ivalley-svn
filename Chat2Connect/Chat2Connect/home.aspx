@@ -2010,7 +2010,13 @@
                             <h3>رسالة أصدقاء الغرفة</h3>
 
                             <div class="form-group">
-                                <textarea data-bind="value:roomFriendsBotMsg" class="form-control"></textarea>
+                                <textarea data-bind="value:roomFriendsBotMsg, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" maxlength="500"></textarea>
+                                <!-- ko if:roomFriendsBotMsg-->
+                                <span data-bind="text:500-roomFriendsBotMsg().length"></span>
+                                <!-- /ko -->
+                                <!-- ko ifnot:roomFriendsBotMsg-->
+                                <span>500</span>
+                                <!-- /ko -->
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
@@ -2039,7 +2045,13 @@
                             <h3>رسالة لمالك الغرفة</h3>
 
                             <div class="form-group">
-                                <textarea data-bind="value:roomEmailOwnerBotMsg" class="form-control"></textarea>
+                                <textarea data-bind="value:roomEmailOwnerBotMsg, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" maxlength="500"></textarea>
+                                <!-- ko if:roomEmailOwnerBotMsg-->
+                                <span data-bind="text:500-roomEmailOwnerBotMsg().length"></span>
+                                <!-- /ko -->
+                                <!-- ko ifnot:roomEmailOwnerBotMsg-->
+                                <span>500</span>
+                                <!-- /ko -->
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6 pull-left">
