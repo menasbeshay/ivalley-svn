@@ -2064,10 +2064,21 @@
                         <h3>تعديل بوت الغرفة</h3>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
+                        <div class="panel-group" data-bind="attr{id:'accordion_'+ID()}">
                             <!-- ko with:RoomBots-->
-                            <div class="row" data-bind="foreach:$data">
-                                <div data-bind="template: { name: 'bot_editTemplate'}"></div>
+                            <div class="panel panel-default" data-bind="foreach:$data">
+                                <div class="panel-heading" style="padding: 0 15px;">
+                                    <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-bind="text:Bot.Title,attr:{'data-parent':'#accordion_'+RoomID(),'href':'#collapse_'+ID()}">
+          
+                                    </a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" data-bind="attr:{id:'collapse_'+ID()}">
+                                    <div class="panel-body" data-bind="template: { name: 'bot_editTemplate'}">
+        
+                                    </div>
+                                </div>
                             </div>
                             <!-- /ko -->
                         </div>
@@ -2117,23 +2128,23 @@
                 <label>عند الدخول</label>
             </div>
             <div class="col-sm-4 pull-right">
-                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart1" />
+                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart1" maxlength="20" />
             </div>
             <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
             <div class="col-sm-4 pull-right">
-                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart2" />
+                <input type="text" class="form-control" data-bind="value:Settings.LoginMsgPart2" maxlength="20" />
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label pull-right">عند الخروج</label>
             <div class="col-sm-4 pull-right">
-                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart1" />
+                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart1" maxlength="20" />
             </div>
 
             <label class="col-sm-2 control-label pull-right">(إسم الحساب)</label>
             <div class="col-sm-4 pull-right">
-                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart2" />
+                <input type="text" class="form-control" data-bind="value:Settings.LogoutMsgPart2" maxlength="20" />
             </div>
         </div>
     </script>
@@ -2215,7 +2226,7 @@
                     <tr>
                         <td data-bind="text:$index()+1"></td>
                         <td>
-                            <input type="text" class="form-control" data-bind="value:Law" /></td>
+                            <input type="text" class="form-control" data-bind="value:Law" maxlength="45" /></td>
                         <td>
                             <input type="checkbox" data-bind="checked:IsActive" />
                         </td>
@@ -2227,7 +2238,14 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.LawItemObject),Settings.Laws);}">إضافة</a></td>
+                        <td>
+                            <!-- ko if:Settings.Laws().length<10-->
+                            <a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.LawItemObject),Settings.Laws);}">إضافة</a>
+                            <!--/ko-->
+                            <!-- ko if:Settings.Laws().length==10-->
+                            <span>حد أقصى 10</span>
+                            <!--/ko-->
+                        </td>
                     </tr>
                 </tfoot>
             </table>
@@ -2249,7 +2267,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th colspan="4" class="center">البرنامج
+                        <th colspan="4" class="center">برامج الغرفة
                         </th>
                     </tr>
                 </thead>
@@ -2257,7 +2275,7 @@
                     <tr>
                         <td data-bind="text:$index()+1"></td>
                         <td>
-                            <input type="text" class="form-control" data-bind="value:Program" /></td>
+                            <input type="text" class="form-control" data-bind="value:Program" maxlength="45" /></td>
                         <td>
                             <input type="checkbox" data-bind="checked:IsActive" />
                         </td>
@@ -2269,7 +2287,15 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.ProgramItemObject),Settings.Programms);}">إضافة</a></td>
+                        <td>
+
+                            <!-- ko if:Settings.Programms().length<10-->
+                            <a href="#" data-bind="click:function(){copyObjectToarray(ko.toJS(Settings.ProgramItemObject),Settings.Programms);}">إضافة</a>
+                            <!--/ko-->
+                            <!-- ko if:Settings.Programms().length==10-->
+                            <span>حد أقصى 10</span>
+                            <!--/ko-->
+                        </td>
                     </tr>
                 </tfoot>
             </table>
