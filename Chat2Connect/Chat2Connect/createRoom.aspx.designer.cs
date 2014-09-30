@@ -112,24 +112,6 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListADD_SubCategory;
         
         /// <summary>
-        /// uiTextBoxADD_Welcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxADD_Welcome;
-        
-        /// <summary>
-        /// valInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valInput;
-        
-        /// <summary>
         /// uiFileUploadRoomPic control.
         /// </summary>
         /// <remarks>
@@ -191,24 +173,6 @@ namespace Chat2Connect {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListEditSubCat;
-        
-        /// <summary>
-        /// uiTextBoxEditWelcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEditWelcome;
-        
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// uiGridViewAdmins control.

@@ -112,19 +112,6 @@
 
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 control-label pull-right">
-                            <label>كلمة ترحيب عند الدخول </label>
-                        </div>
-                        <div class="col-sm-8 pull-right">
-                            <asp:TextBox ID="uiTextBoxADD_Welcome" TextMode="MultiLine" Rows="3" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RegularExpressionValidator runat="server" ID="valInput"
-    ControlToValidate="uiTextBoxADD_Welcome"
-    ValidationExpression="^[\s\S]{0,100}$"
-    ErrorMessage="لا يمكن إدخال أكثر من 100 حرف"
-    Display="Dynamic" ForeColor="Red" Font-Bold="true"></asp:RegularExpressionValidator>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-5 pull-right" style="display:none;">
                     <div class="form-group">
@@ -177,19 +164,6 @@
                         <div class="col-sm-8 pull-right">
                             <asp:DropDownList ID="uiDropDownListEditSubCat" runat="server" CssClass="form-control"></asp:DropDownList>
 
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 control-label pull-right">
-                            <label>كلمة ترحيب عند الدخول </label>
-                        </div>
-                        <div class="col-sm-8 pull-right">
-                            <asp:TextBox ID="uiTextBoxEditWelcome" MaxLength="70" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1"
-    ControlToValidate="uiTextBoxADD_Welcome"
-    ValidationExpression="^[\s\S]{0,100}$"
-    ErrorMessage="لا يمكن إدخال أكثر من 100 حرف"
-    Display="Dynamic" ForeColor="Red" Font-Bold="true"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                   <div class="form-group">

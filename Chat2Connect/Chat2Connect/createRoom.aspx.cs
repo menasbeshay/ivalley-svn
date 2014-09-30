@@ -165,7 +165,6 @@ namespace Chat2Connect
                     room.IconPath = path;
                 }
 
-                room.WelcomeText = uiTextBoxADD_Welcome.Text;
                 room.RoomPassword = uiTextBoxPassword.Text;
                 room.RoomAdminPassword = uiTextBoxAdminPass.Text;
                 room.RoomPasswordenabled = uiCheckBoxPasswordEnable.Checked;
