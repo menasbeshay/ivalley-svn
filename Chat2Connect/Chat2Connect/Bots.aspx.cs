@@ -76,6 +76,8 @@ namespace Chat2Connect
                     bllRoomBot.AddNew();
                     bllRoomBot.BotID = botID;
                     bllRoomBot.RoomID = roomID;
+                    bllRoomBot.StartDate = DateTime.Now;
+                    bllRoomBot.EndDate = DateTime.Now.AddMonths(1);
                 }
             }
 
