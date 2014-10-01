@@ -47,6 +47,9 @@
         .hamsaModal {
             width: 400px;
         }
+        .list-group-item {
+            display: list-item;
+        }
     </style>
     <script src="js/bootstrap-slider.js"></script>
     <link href="css/slider.css" rel="stylesheet" />
@@ -280,6 +283,8 @@
             emailOwnerBotID=<%= (int)Helper.Enums.Bot.EmailOwner%>;
             inviteFriendBanBotID=<%= (int)Helper.Enums.Bot.InviteFriendsBan%>;
             roomFriendsBotID=<%= (int)Helper.Enums.Bot.RoomFriends%>;
+            roomLawBotID=<%= (int)Helper.Enums.Bot.RoomLaw%>;
+            roomProgramBotID=<%= (int)Helper.Enums.Bot.RoomProgram%>;
 
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
@@ -1410,6 +1415,16 @@
                                     <!-- ko if: Type()=="Room" && hasRoomFriendsBot -->
                                     <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-default roomMenuItem">
                                         <span class="icon icon-male"></span>
+                                    </a>
+                                    <!-- /ko -->
+                                    <!-- ko if: Type()=="Room" && hasRoomProgramBot -->
+                                    <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top" class="btn btn-default roomMenuItem">
+                                        <span class="icon icon-calendar"></span>
+                                    </a>
+                                    <!-- /ko -->
+                                    <!-- ko if: Type()=="Room" && hasRoomLawBot -->
+                                    <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top" class="btn btn-default roomMenuItem">
+                                        <span class="icon icon-bookmark"></span>
                                     </a>
                                     <!-- /ko -->
                                 </div>
