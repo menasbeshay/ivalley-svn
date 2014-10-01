@@ -35,7 +35,7 @@ namespace Chat2Connect
                 lstRooms.DataValueField = BLL.Room.ColumnNames.RoomID;
                 lstRooms.DataSource = bllRooms.DefaultView;
                 lstRooms.DataBind();
-
+                
                 lblPointsBalance.Text = BLL.Member.CurrentMember.s_Credit_Point;
 
                 BindRoomsBots();
@@ -47,7 +47,7 @@ namespace Chat2Connect
         {
             BLL.RoomBot bllRoomBot = new BLL.RoomBot();
             _dicRoomsBots = new List<object>();
-            if (bllRoomBot.GetAllRoomsBots())
+            if (bllRoomBot.GetRoomsBotsByCreatorID(BLL.Member.CurrentMemberID))
             {
                 _dicRoomsBots = bllRoomBot.DefaultView.Table.AsEnumerable().Select(m => new { RoomID = m[BLL.RoomBot.ColumnNames.RoomID], BotID = m[BLL.RoomBot.ColumnNames.BotID] }).ToList();
             }
@@ -76,6 +76,7 @@ namespace Chat2Connect
                     bllRoomBot.AddNew();
                     bllRoomBot.BotID = botID;
                     bllRoomBot.RoomID = roomID;
+                    bllRoomBot.CreatedByMemberID = BLL.Member.CurrentMemberID;
                     bllRoomBot.StartDate = DateTime.Now;
                     bllRoomBot.EndDate = DateTime.Now.AddMonths(1);
                 }

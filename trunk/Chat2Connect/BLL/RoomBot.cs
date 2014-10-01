@@ -156,11 +156,12 @@ namespace BLL
             return result;
         }
 
-        public bool GetAllRoomsBots()
+        public bool GetRoomsBotsByCreatorID(int mid)
         {
             return LoadFromRawSql(@"SELECT RoomBot.*
                                     FROM RoomBot
-                                    WHERE EndDate IS NULL OR EndDate>=GETDATE()");
+                                    INNER JOIN Room on Room.RoomID=RoomBot.RoomID
+                                    WHERE EndDate IS NULL OR EndDate>=GETDATE() AND Room.CreatedBy={0}",mid);
         }
     }
 }

@@ -121,6 +121,10 @@
                     $("#take_"+element.BotID).show();
                 }
             });
+            $("#select_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
+            $("#take_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
+            $("#select_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();
+            $("#take_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show().html("<a href='roomtypes.aspx'>ترقية</a>");
         }
     </script>
 </asp:Content>
