@@ -1370,6 +1370,59 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
         }
+
+        [System.Web.Services.WebMethod]
+        public void ShowRoomLaw(int roomId)
+        {
+            BLL.RoomBot rmBots = new BLL.RoomBot();
+            List<Info.RoomBot> lst = rmBots.GetByRoomIDandBotID(roomId,Helper.Enums.Bot.RoomLaw);
+            if (lst.Count == 0)
+                return;
+
+            SubmitLaw(lst.FirstOrDefault());
+        }
+
+        public static void SubmitLaw(Info.RoomBot infoBot)
+        {
+            Info.RoomLaw infoSetting = infoBot.Settings as Info.RoomLaw;
+            string msg = "<ol dir='rtl' class='list-group'>";
+            foreach (var p in infoSetting.Laws)
+            {
+                if (p.IsActive)
+                {
+                    msg += "<li class='list-group-item'>" + p.Law + "</li>";
+                }
+            }
+            msg += "</ol>";
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+        }
+
+        [System.Web.Services.WebMethod]
+        public void ShowRoomProgram(int roomId)
+        {
+            BLL.RoomBot rmBots = new BLL.RoomBot();
+            List<Info.RoomBot> lst = rmBots.GetByRoomIDandBotID(roomId, Helper.Enums.Bot.RoomProgram);
+            if (lst.Count == 0)
+                return;
+
+            SubmitProgram(lst.FirstOrDefault());
+        }
+        public static void SubmitProgram(Info.RoomBot infoBot)
+        {
+            Info.RoomProgram infoSetting = infoBot.Settings as Info.RoomProgram;
+            string msg = "<ol dir='rtl' class='list-group'>";
+            foreach (var p in infoSetting.Programms)
+            {
+                if (p.IsActive)
+                {
+                    msg += "<li class='list-group-item'>" + p.Program + "</li>";
+                }
+            }
+            msg += "</ol>";
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+        }
         #endregion
     }
 }

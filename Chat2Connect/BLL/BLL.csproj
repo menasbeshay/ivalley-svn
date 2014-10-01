@@ -59,6 +59,7 @@
     <Compile Include="Log\EnterRoom.cs" />
     <Compile Include="Log\Log.cs" />
     <Compile Include="Log\RechargeBalance.cs" />
+    <Compile Include="Log\AddRoomBot.cs" />
     <Compile Include="Log\TransferBalance.cs" />
     <Compile Include="Log\ViewBalancePage.cs" />
     <Compile Include="Log\ViewMailPage.cs" />

@@ -43,7 +43,6 @@ namespace Chat2Connect
             List<Info.RoomBot> lstBots = bllRoomBot.GetByBotID(Helper.Enums.Bot.RoomLaw);
             Info.RoomLaw infoSetting;
             bool isSend;
-            string msg = "";
             foreach (var infoBot in lstBots)
             {
                 isSend = false;
@@ -70,9 +69,7 @@ namespace Chat2Connect
                 }
                 if (isSend)
                 {
-                    msg = String.Join("</br>", infoSetting.Laws.Where(l => l.IsActive).Select(l=>l.Law).ToList());
-                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+                    Chat2Connect.services.Services.SubmitLaw(infoBot);
                 }
             }
         }
@@ -82,7 +79,6 @@ namespace Chat2Connect
             List<Info.RoomBot> lstBots = bllRoomBot.GetByBotID(Helper.Enums.Bot.RoomProgram);
             Info.RoomProgram infoSetting;
             bool isSend;
-            string msg = "";
             foreach (var infoBot in lstBots)
             {
                 isSend = false;
@@ -109,9 +105,7 @@ namespace Chat2Connect
                 }
                 if (isSend)
                 {
-                    msg = String.Join("</br>", infoSetting.Programms.Where(l => l.IsActive).Select(p=>p.Program).ToList());
-                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
+                    Chat2Connect.services.Services.SubmitProgram(infoBot);
                 }
             }
         }

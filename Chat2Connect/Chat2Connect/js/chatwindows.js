@@ -1044,7 +1044,39 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 }
             });
         };
+        this.hasRoomLawBot = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            var bot = ko.utils.arrayFirst(self.RoomBots(), function (item) {
+                return item.IsEnabled() && item.BotID() == roomLawBotID;
+            });
+            if (bot != null && bot != undefined) {
+                return true;
+            }
+            return false;
+        }, this);
+        this.hasRoomProgramBot = ko.computed(function () {
+            if (self.Type() == 'Private')
+                return null;
+            var bot = ko.utils.arrayFirst(self.RoomBots(), function (item) {
+                return item.IsEnabled() && item.BotID() == roomProgramBotID;
+            });
+            if (bot != null && bot != undefined) {
+                return true;
+            }
+            return false;
+        }, this);
 
+        this.showRoomLaw = function () {
+            $.post("../Services/Services.asmx/ShowRoomLaw", { roomID: this.ID() })
+                .done(function (data) {
+                });
+        };
+        this.showRoomProgram = function () {
+            $.post("../Services/Services.asmx/ShowRoomProgram", { roomID: this.ID() })
+                .done(function (data) {
+                });
+        };
     }
 
     self.changeCurrent = function (selctor, id, type) {
