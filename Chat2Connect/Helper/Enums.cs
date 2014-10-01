@@ -216,7 +216,9 @@ namespace Helper
             EmailOwner=5,
             RoomFriends=6,
             RoomLaw=7,
-            RoomProgram=8
+            RoomProgram=8,
+            FreeRoom=9,
+            UpgradedRoom=10
         }
 
         public enum FollowAdminBotSchedule
