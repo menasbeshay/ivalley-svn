@@ -180,7 +180,9 @@ namespace Helper
             [StringValue("دخول غرفة مخفى")]
             EnterRoomHidden = 13,
             [StringValue("حذف صديق")]
-            DeleteFriend = 14
+            DeleteFriend = 14,
+            [StringValue("إضافة بوت")]
+            AddRoomBot = 15
         }
 
         public enum BanningType
@@ -209,15 +211,25 @@ namespace Helper
 
         public enum Bot
         {
+            [StringValue("بوت الترحيب")]
             Welcome=1,
+            [StringValue("حظر دعوة الأصدقاء")]
             InviteFriendsBan=2,
+            [StringValue("متابعة الإدارة")]
             FollowAdmin=3,
+            [StringValue("فئات الدخول")]
             MemberTypeLogin=4,
+            [StringValue("بريد المالك")]
             EmailOwner=5,
+            [StringValue("أصدقاء الغرفة")]
             RoomFriends=6,
+            [StringValue("قانون الغرفة")]
             RoomLaw=7,
+            [StringValue("برامج الغرفة")]
             RoomProgram=8,
+            [StringValue("غرفة مجانية")]
             FreeRoom=9,
+            [StringValue("ترقية غرفة")]
             UpgradedRoom=10
         }
 

@@ -80,6 +80,9 @@ namespace Chat2Connect.Admin.UserControls
                     case (int)Helper.Enums.LogType.TransferBalance:
                         logDetails = BLL.Log.TransferBalance.FromString(DataSource);
                         break;
+                    case (int)Helper.Enums.LogType.AddRoomBot:
+                        logDetails = BLL.Log.AddRoomBot.FromString(DataSource);
+                        break;
                     default:
                         logDetails = BLL.Log.Log.FromString(DataSource);
                         break;

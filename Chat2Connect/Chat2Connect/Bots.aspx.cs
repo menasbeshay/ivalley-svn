@@ -35,11 +35,11 @@ namespace Chat2Connect
                 lstRooms.DataValueField = BLL.Room.ColumnNames.RoomID;
                 lstRooms.DataSource = bllRooms.DefaultView;
                 lstRooms.DataBind();
-                
+
                 lblPointsBalance.Text = BLL.Member.CurrentMember.s_Credit_Point;
 
                 BindRoomsBots();
-                
+
             }
         }
 
@@ -61,6 +61,10 @@ namespace Chat2Connect
                 lblError.Text = "يرجى إختيار الغرفة";
                 return;
             }
+
+            List<BLL.Log.AddRoomBot> lstLogs=new List<BLL.Log.AddRoomBot>();
+            BLL.MemberLog bllLog = new BLL.MemberLog();
+
             int totalPoint = 0;
             int roomID = Convert.ToInt32(lstRooms.SelectedValue);
             BLL.RoomBot bllRoomBot = new BLL.RoomBot();
@@ -72,13 +76,16 @@ namespace Chat2Connect
                 if (chkBot.Checked)
                 {
                     int botID = Helper.TypeConverter.ToInt32(hdnBotID.Value);
-                    totalPoint += Helper.TypeConverter.ToInt32(lblPoints.Text);
+                    int points=Helper.TypeConverter.ToInt32(lblPoints.Text);
+                    totalPoint += points;
                     bllRoomBot.AddNew();
                     bllRoomBot.BotID = botID;
                     bllRoomBot.RoomID = roomID;
                     bllRoomBot.CreatedByMemberID = BLL.Member.CurrentMemberID;
                     bllRoomBot.StartDate = DateTime.Now;
                     bllRoomBot.EndDate = DateTime.Now.AddMonths(1);
+
+                    lstLogs.Add(new BLL.Log.AddRoomBot(){RoomID=roomID,RoomName=lstRooms.SelectedItem.Text,BotID=botID,BotPoints=points});
                 }
             }
 
@@ -92,6 +99,11 @@ namespace Chat2Connect
                     BLL.Member.CurrentMember.Save();
 
                     bllRoomBot.Save();
+
+                    foreach(var log in lstLogs)
+                    {
+                        bllLog.AddNew(BLL.Member.CurrentMemberID, log, null, roomID);
+                    }
                     tx.CommitTransaction();
 
                     Response.Redirect("Bots.aspx");
