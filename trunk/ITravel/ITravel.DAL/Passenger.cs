@@ -147,11 +147,19 @@ namespace ITravel.DAL
 				}
 			}
 			
-			public static SqlParameter TicketID
+			public static SqlParameter Email
 			{
 				get
 				{
-					return new SqlParameter("@TicketID", SqlDbType.Int, 0);
+					return new SqlParameter("@Email", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter Mobile
+			{
+				get
+				{
+					return new SqlParameter("@Mobile", SqlDbType.NVarChar, 15);
 				}
 			}
 			
@@ -167,7 +175,8 @@ namespace ITravel.DAL
             public const string LastName = "LastName";
             public const string DateOfBirth = "DateOfBirth";
             public const string IsChild = "IsChild";
-            public const string TicketID = "TicketID";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -181,7 +190,8 @@ namespace ITravel.DAL
 					ht[LastName] = _Passenger.PropertyNames.LastName;
 					ht[DateOfBirth] = _Passenger.PropertyNames.DateOfBirth;
 					ht[IsChild] = _Passenger.PropertyNames.IsChild;
-					ht[TicketID] = _Passenger.PropertyNames.TicketID;
+					ht[Email] = _Passenger.PropertyNames.Email;
+					ht[Mobile] = _Passenger.PropertyNames.Mobile;
 
 				}
 				return (string)ht[columnName];
@@ -200,7 +210,8 @@ namespace ITravel.DAL
             public const string LastName = "LastName";
             public const string DateOfBirth = "DateOfBirth";
             public const string IsChild = "IsChild";
-            public const string TicketID = "TicketID";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -214,7 +225,8 @@ namespace ITravel.DAL
 					ht[LastName] = _Passenger.ColumnNames.LastName;
 					ht[DateOfBirth] = _Passenger.ColumnNames.DateOfBirth;
 					ht[IsChild] = _Passenger.ColumnNames.IsChild;
-					ht[TicketID] = _Passenger.ColumnNames.TicketID;
+					ht[Email] = _Passenger.ColumnNames.Email;
+					ht[Mobile] = _Passenger.ColumnNames.Mobile;
 
 				}
 				return (string)ht[propertyName];
@@ -233,7 +245,8 @@ namespace ITravel.DAL
             public const string LastName = "s_LastName";
             public const string DateOfBirth = "s_DateOfBirth";
             public const string IsChild = "s_IsChild";
-            public const string TicketID = "s_TicketID";
+            public const string Email = "s_Email";
+            public const string Mobile = "s_Mobile";
 
 		}
 		#endregion		
@@ -312,15 +325,27 @@ namespace ITravel.DAL
 			}
 		}
 
-		public virtual int TicketID
+		public virtual string Email
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.TicketID);
+				return base.Getstring(ColumnNames.Email);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.TicketID, value);
+				base.Setstring(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string Mobile
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Mobile);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Mobile, value);
 			}
 		}
 
@@ -419,18 +444,33 @@ namespace ITravel.DAL
 			}
 		}
 
-		public virtual string s_TicketID
+		public virtual string s_Email
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.TicketID) ? string.Empty : base.GetintAsString(ColumnNames.TicketID);
+				return this.IsColumnNull(ColumnNames.Email) ? string.Empty : base.GetstringAsString(ColumnNames.Email);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.TicketID);
+					this.SetColumnNull(ColumnNames.Email);
 				else
-					this.TicketID = base.SetintAsString(ColumnNames.TicketID, value);
+					this.Email = base.SetstringAsString(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string s_Mobile
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Mobile) ? string.Empty : base.GetstringAsString(ColumnNames.Mobile);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Mobile);
+				else
+					this.Mobile = base.SetstringAsString(ColumnNames.Mobile, value);
 			}
 		}
 
@@ -527,11 +567,21 @@ namespace ITravel.DAL
 					}
 				}
 
-				public WhereParameter TicketID
+				public WhereParameter Email
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.TicketID, Parameters.TicketID);
+							WhereParameter where = new WhereParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Mobile
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Mobile, Parameters.Mobile);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -614,15 +664,27 @@ namespace ITravel.DAL
 				}
 			}
 
-			public WhereParameter TicketID
+			public WhereParameter Email
 		    {
 				get
 		        {
-					if(_TicketID_W == null)
+					if(_Email_W == null)
 	        	    {
-						_TicketID_W = TearOff.TicketID;
+						_Email_W = TearOff.Email;
 					}
-					return _TicketID_W;
+					return _Email_W;
+				}
+			}
+
+			public WhereParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
 				}
 			}
 
@@ -632,7 +694,8 @@ namespace ITravel.DAL
 			private WhereParameter _LastName_W = null;
 			private WhereParameter _DateOfBirth_W = null;
 			private WhereParameter _IsChild_W = null;
-			private WhereParameter _TicketID_W = null;
+			private WhereParameter _Email_W = null;
+			private WhereParameter _Mobile_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -642,7 +705,8 @@ namespace ITravel.DAL
 				_LastName_W = null;
 				_DateOfBirth_W = null;
 				_IsChild_W = null;
-				_TicketID_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -759,11 +823,21 @@ namespace ITravel.DAL
 					}
 				}
 
-				public AggregateParameter TicketID
+				public AggregateParameter Email
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TicketID, Parameters.TicketID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Mobile
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Mobile, Parameters.Mobile);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -846,15 +920,27 @@ namespace ITravel.DAL
 				}
 			}
 
-			public AggregateParameter TicketID
+			public AggregateParameter Email
 		    {
 				get
 		        {
-					if(_TicketID_W == null)
+					if(_Email_W == null)
 	        	    {
-						_TicketID_W = TearOff.TicketID;
+						_Email_W = TearOff.Email;
 					}
-					return _TicketID_W;
+					return _Email_W;
+				}
+			}
+
+			public AggregateParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
 				}
 			}
 
@@ -864,7 +950,8 @@ namespace ITravel.DAL
 			private AggregateParameter _LastName_W = null;
 			private AggregateParameter _DateOfBirth_W = null;
 			private AggregateParameter _IsChild_W = null;
-			private AggregateParameter _TicketID_W = null;
+			private AggregateParameter _Email_W = null;
+			private AggregateParameter _Mobile_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -874,7 +961,8 @@ namespace ITravel.DAL
 				_LastName_W = null;
 				_DateOfBirth_W = null;
 				_IsChild_W = null;
-				_TicketID_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -973,8 +1061,12 @@ namespace ITravel.DAL
 			p.SourceColumn = ColumnNames.IsChild;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.TicketID);
-			p.SourceColumn = ColumnNames.TicketID;
+			p = cmd.Parameters.Add(Parameters.Email);
+			p.SourceColumn = ColumnNames.Email;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Mobile);
+			p.SourceColumn = ColumnNames.Mobile;
 			p.SourceVersion = DataRowVersion.Current;
 
 

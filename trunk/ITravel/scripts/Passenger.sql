@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_PassengerLoadByPrimaryKey]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_PassengerLoadByPrimaryKey]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PassengerLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PassengerLoadByPrimaryKey];
 GO
@@ -20,7 +20,8 @@ BEGIN
 		[LastName],
 		[DateOfBirth],
 		[IsChild],
-		[TicketID]
+		[Email],
+		[Mobile]
 	FROM [Passenger]
 	WHERE
 		([PassengerID] = @PassengerID)
@@ -37,7 +38,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PassengerLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_PassengerLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PassengerLoadAll]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_PassengerLoadAll]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PassengerLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PassengerLoadAll];
 GO
@@ -56,7 +57,8 @@ BEGIN
 		[LastName],
 		[DateOfBirth],
 		[IsChild],
-		[TicketID]
+		[Email],
+		[Mobile]
 	FROM [Passenger]
 
 	SET @Err = @@Error
@@ -71,7 +73,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PassengerLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PassengerLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PassengerUpdate]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_PassengerUpdate]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PassengerUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PassengerUpdate];
 GO
@@ -84,7 +86,8 @@ CREATE PROCEDURE [proc_PassengerUpdate]
 	@LastName nvarchar(200) = NULL,
 	@DateOfBirth datetime = NULL,
 	@IsChild bit = NULL,
-	@TicketID int = NULL
+	@Email nvarchar(200) = NULL,
+	@Mobile nvarchar(15) = NULL
 )
 AS
 BEGIN
@@ -99,7 +102,8 @@ BEGIN
 		[LastName] = @LastName,
 		[DateOfBirth] = @DateOfBirth,
 		[IsChild] = @IsChild,
-		[TicketID] = @TicketID
+		[Email] = @Email,
+		[Mobile] = @Mobile
 	WHERE
 		[PassengerID] = @PassengerID
 
@@ -120,7 +124,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_PassengerInsert]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_PassengerInsert]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PassengerInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PassengerInsert];
 GO
@@ -133,7 +137,8 @@ CREATE PROCEDURE [proc_PassengerInsert]
 	@LastName nvarchar(200) = NULL,
 	@DateOfBirth datetime = NULL,
 	@IsChild bit = NULL,
-	@TicketID int = NULL
+	@Email nvarchar(200) = NULL,
+	@Mobile nvarchar(15) = NULL
 )
 AS
 BEGIN
@@ -149,7 +154,8 @@ BEGIN
 		[LastName],
 		[DateOfBirth],
 		[IsChild],
-		[TicketID]
+		[Email],
+		[Mobile]
 	)
 	VALUES
 	(
@@ -158,7 +164,8 @@ BEGIN
 		@LastName,
 		@DateOfBirth,
 		@IsChild,
-		@TicketID
+		@Email,
+		@Mobile
 	)
 
 	SET @Err = @@Error
@@ -175,7 +182,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PassengerInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PassengerInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PassengerDelete]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_PassengerDelete]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PassengerDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PassengerDelete];
 GO

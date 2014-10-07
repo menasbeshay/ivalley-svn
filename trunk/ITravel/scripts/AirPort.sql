@@ -1,8 +1,5 @@
 
-USE [ITravel]
-GO
-
-/****** Object:  StoredProcedure [proc_AirPortLoadByPrimaryKey]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_AirPortLoadByPrimaryKey]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AirPortLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AirPortLoadByPrimaryKey];
 GO
@@ -43,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AirPortLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_AirPortLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AirPortLoadAll]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_AirPortLoadAll]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AirPortLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AirPortLoadAll];
 GO
@@ -80,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AirPortLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AirPortLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AirPortUpdate]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_AirPortUpdate]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AirPortUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AirPortUpdate];
 GO
@@ -135,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_AirPortInsert]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_AirPortInsert]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AirPortInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AirPortInsert];
 GO
@@ -199,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AirPortInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AirPortInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AirPortDelete]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_AirPortDelete]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AirPortDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AirPortDelete];
 GO

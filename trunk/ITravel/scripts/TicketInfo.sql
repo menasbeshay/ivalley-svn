@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TicketInfoLoadByPrimaryKey]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_TicketInfoLoadByPrimaryKey]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketInfoLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketInfoLoadByPrimaryKey];
 GO
@@ -30,7 +30,9 @@ BEGIN
 		[CreatedDate],
 		[CreatedBy],
 		[LastUpdatedDate],
-		[LastUpdatedBy]
+		[LastUpdatedBy],
+		[TicketNo],
+		[PassengerID]
 	FROM [TicketInfo]
 	WHERE
 		([TicketID] = @TicketID)
@@ -47,7 +49,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketInfoLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_TicketInfoLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketInfoLoadAll]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_TicketInfoLoadAll]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketInfoLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketInfoLoadAll];
 GO
@@ -76,7 +78,9 @@ BEGIN
 		[CreatedDate],
 		[CreatedBy],
 		[LastUpdatedDate],
-		[LastUpdatedBy]
+		[LastUpdatedBy],
+		[TicketNo],
+		[PassengerID]
 	FROM [TicketInfo]
 
 	SET @Err = @@Error
@@ -91,7 +95,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketInfoLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketInfoLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketInfoUpdate]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_TicketInfoUpdate]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketInfoUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketInfoUpdate];
 GO
@@ -114,7 +118,9 @@ CREATE PROCEDURE [proc_TicketInfoUpdate]
 	@CreatedDate datetime = NULL,
 	@CreatedBy uniqueidentifier = NULL,
 	@LastUpdatedDate datetime = NULL,
-	@LastUpdatedBy uniqueidentifier = NULL
+	@LastUpdatedBy uniqueidentifier = NULL,
+	@TicketNo nvarchar(20) = NULL,
+	@PassengerID int = NULL
 )
 AS
 BEGIN
@@ -139,7 +145,9 @@ BEGIN
 		[CreatedDate] = @CreatedDate,
 		[CreatedBy] = @CreatedBy,
 		[LastUpdatedDate] = @LastUpdatedDate,
-		[LastUpdatedBy] = @LastUpdatedBy
+		[LastUpdatedBy] = @LastUpdatedBy,
+		[TicketNo] = @TicketNo,
+		[PassengerID] = @PassengerID
 	WHERE
 		[TicketID] = @TicketID
 
@@ -160,7 +168,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketInfoInsert]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_TicketInfoInsert]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketInfoInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketInfoInsert];
 GO
@@ -183,7 +191,9 @@ CREATE PROCEDURE [proc_TicketInfoInsert]
 	@CreatedDate datetime = NULL,
 	@CreatedBy uniqueidentifier = NULL,
 	@LastUpdatedDate datetime = NULL,
-	@LastUpdatedBy uniqueidentifier = NULL
+	@LastUpdatedBy uniqueidentifier = NULL,
+	@TicketNo nvarchar(20) = NULL,
+	@PassengerID int = NULL
 )
 AS
 BEGIN
@@ -209,7 +219,9 @@ BEGIN
 		[CreatedDate],
 		[CreatedBy],
 		[LastUpdatedDate],
-		[LastUpdatedBy]
+		[LastUpdatedBy],
+		[TicketNo],
+		[PassengerID]
 	)
 	VALUES
 	(
@@ -228,7 +240,9 @@ BEGIN
 		@CreatedDate,
 		@CreatedBy,
 		@LastUpdatedDate,
-		@LastUpdatedBy
+		@LastUpdatedBy,
+		@TicketNo,
+		@PassengerID
 	)
 
 	SET @Err = @@Error
@@ -245,7 +259,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketInfoInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketInfoInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketInfoDelete]    Script Date: 9/23/2014 12:16:48 PM ******/
+/****** Object:  StoredProcedure [proc_TicketInfoDelete]    Script Date: 10/2/2014 1:05:14 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketInfoDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketInfoDelete];
 GO
