@@ -3,7 +3,7 @@
     
     <head>
         <meta charset="UTF-8" />
-        <title>Admantium - Admin Control Panel</title>
+        <title>إمتياز السفر</title>
         
         <!-- CSSs -->
         <link rel="stylesheet" href="css/reset.css">
@@ -93,7 +93,7 @@
                                 <!-- If you don't want that the theme opens that fancy menu through ajax, remove "jmenu" class -->
                                 <!-- If you want the fancy menu, the "action" must return the dashboard html (or similar page), so that we can extract menu informations. A AJAX request will be made
                                      with the form data (without the X-Request-With header), if the response is a valid successfully logged-user page, the fancy menu will appear, otherwise the form will procced normally -->
-                                <form action="/home.aspx" class="jmenu">
+                                <form action="loginhandler.ashx" class="jmenu" method="post">
                                     <header class="head">
                                         <h1>Login</h1>
 
@@ -104,21 +104,21 @@
                                         </div>
                                         <span class="divider"></span>
                                     </header>
-                                    <div class="alert grey air">
+                                    <!--<div class="alert grey air">
                                         <p><strong>No password needed!</strong> Just click login.</p>
                                         <a class="close" href="#">close</a>
+                                    </div>-->
+                                    <div class="field fullwidth">
+                                        <input type="text" placeholder="Login" data-icon="user" name="Username" />
                                     </div>
                                     <div class="field fullwidth">
-                                        <input type="text" placeholder="Login" data-icon="user" />
-                                    </div>
-                                    <div class="field fullwidth">
-                                        <input type="password" placeholder="Password" data-icon="closed-lock" />
+                                        <input type="password" placeholder="Password" data-icon="closed-lock"  name="Password"/>
                                     </div>
 
                                     <span class="divider"></span>
 
                                     <div class="field fullwidth last">
-                                        <input type="submit" class="bt blue large" value="Login" />
+                                        <input type="submit" class="bt blue large" value="Login" />                                        
                                     </div>
                                 </form>
                             </div>

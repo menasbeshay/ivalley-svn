@@ -229,9 +229,10 @@ jQuery(function($){
                 e.preventDefault();
             });
 
-            // $('.compact-page form.jmenu').bind('submit.jmenu', function(e){
-            $('a.login').bind('click', function (e) {
-                var $this = $(this).parents('form');
+             $('.compact-page form.jmenu').bind('submit.jmenu', function(e){
+            //$('a.login').bind('click', function (e) {
+                 //var $this = $(this).parents('form');
+                 var $this = $(this);
 
                 ajaxOptions.data = $this.serialize();
                 ajaxOptions.type = $this.attr('method') ? $this.attr('method') : 'GET';
@@ -377,7 +378,7 @@ jQuery(function($){
                     }
                 }
 
-                $.ajax($this.attr('data-action'), ajaxOptions);
+                $.ajax($this.attr('action'), ajaxOptions);
 
                 e.preventDefault();
             });
@@ -598,7 +599,7 @@ jQuery(function($){
 });
 
 $(window).load(function(){
-    //setTimeout($.loading().dismiss, 500);
+    setTimeout($.loading().dismiss, 500);
 });
 
 var eventHistory = (function(){
