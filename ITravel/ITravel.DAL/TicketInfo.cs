@@ -235,6 +235,22 @@ namespace ITravel.DAL
 				}
 			}
 			
+			public static SqlParameter TicketNo
+			{
+				get
+				{
+					return new SqlParameter("@TicketNo", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter PassengerID
+			{
+				get
+				{
+					return new SqlParameter("@PassengerID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -258,6 +274,8 @@ namespace ITravel.DAL
             public const string CreatedBy = "CreatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
             public const string LastUpdatedBy = "LastUpdatedBy";
+            public const string TicketNo = "TicketNo";
+            public const string PassengerID = "PassengerID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -282,6 +300,8 @@ namespace ITravel.DAL
 					ht[CreatedBy] = _TicketInfo.PropertyNames.CreatedBy;
 					ht[LastUpdatedDate] = _TicketInfo.PropertyNames.LastUpdatedDate;
 					ht[LastUpdatedBy] = _TicketInfo.PropertyNames.LastUpdatedBy;
+					ht[TicketNo] = _TicketInfo.PropertyNames.TicketNo;
+					ht[PassengerID] = _TicketInfo.PropertyNames.PassengerID;
 
 				}
 				return (string)ht[columnName];
@@ -311,6 +331,8 @@ namespace ITravel.DAL
             public const string CreatedBy = "CreatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
             public const string LastUpdatedBy = "LastUpdatedBy";
+            public const string TicketNo = "TicketNo";
+            public const string PassengerID = "PassengerID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -335,6 +357,8 @@ namespace ITravel.DAL
 					ht[CreatedBy] = _TicketInfo.ColumnNames.CreatedBy;
 					ht[LastUpdatedDate] = _TicketInfo.ColumnNames.LastUpdatedDate;
 					ht[LastUpdatedBy] = _TicketInfo.ColumnNames.LastUpdatedBy;
+					ht[TicketNo] = _TicketInfo.ColumnNames.TicketNo;
+					ht[PassengerID] = _TicketInfo.ColumnNames.PassengerID;
 
 				}
 				return (string)ht[propertyName];
@@ -364,6 +388,8 @@ namespace ITravel.DAL
             public const string CreatedBy = "s_CreatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
             public const string LastUpdatedBy = "s_LastUpdatedBy";
+            public const string TicketNo = "s_TicketNo";
+            public const string PassengerID = "s_PassengerID";
 
 		}
 		#endregion		
@@ -571,6 +597,30 @@ namespace ITravel.DAL
 			set
 	        {
 				base.SetGuid(ColumnNames.LastUpdatedBy, value);
+			}
+		}
+
+		public virtual string TicketNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TicketNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TicketNo, value);
+			}
+		}
+
+		public virtual int PassengerID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PassengerID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PassengerID, value);
 			}
 		}
 
@@ -834,6 +884,36 @@ namespace ITravel.DAL
 			}
 		}
 
+		public virtual string s_TicketNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TicketNo) ? string.Empty : base.GetstringAsString(ColumnNames.TicketNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TicketNo);
+				else
+					this.TicketNo = base.SetstringAsString(ColumnNames.TicketNo, value);
+			}
+		}
+
+		public virtual string s_PassengerID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PassengerID) ? string.Empty : base.GetintAsString(ColumnNames.PassengerID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PassengerID);
+				else
+					this.PassengerID = base.SetintAsString(ColumnNames.PassengerID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1032,6 +1112,26 @@ namespace ITravel.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.LastUpdatedBy, Parameters.LastUpdatedBy);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TicketNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TicketNo, Parameters.TicketNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PassengerID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PassengerID, Parameters.PassengerID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1246,6 +1346,30 @@ namespace ITravel.DAL
 				}
 			}
 
+			public WhereParameter TicketNo
+		    {
+				get
+		        {
+					if(_TicketNo_W == null)
+	        	    {
+						_TicketNo_W = TearOff.TicketNo;
+					}
+					return _TicketNo_W;
+				}
+			}
+
+			public WhereParameter PassengerID
+		    {
+				get
+		        {
+					if(_PassengerID_W == null)
+	        	    {
+						_PassengerID_W = TearOff.PassengerID;
+					}
+					return _PassengerID_W;
+				}
+			}
+
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _From_AirportID_W = null;
 			private WhereParameter _To_AirportID_W = null;
@@ -1263,6 +1387,8 @@ namespace ITravel.DAL
 			private WhereParameter _CreatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
 			private WhereParameter _LastUpdatedBy_W = null;
+			private WhereParameter _TicketNo_W = null;
+			private WhereParameter _PassengerID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1283,6 +1409,8 @@ namespace ITravel.DAL
 				_CreatedBy_W = null;
 				_LastUpdatedDate_W = null;
 				_LastUpdatedBy_W = null;
+				_TicketNo_W = null;
+				_PassengerID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1509,6 +1637,26 @@ namespace ITravel.DAL
 					}
 				}
 
+				public AggregateParameter TicketNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TicketNo, Parameters.TicketNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PassengerID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PassengerID, Parameters.PassengerID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1718,6 +1866,30 @@ namespace ITravel.DAL
 				}
 			}
 
+			public AggregateParameter TicketNo
+		    {
+				get
+		        {
+					if(_TicketNo_W == null)
+	        	    {
+						_TicketNo_W = TearOff.TicketNo;
+					}
+					return _TicketNo_W;
+				}
+			}
+
+			public AggregateParameter PassengerID
+		    {
+				get
+		        {
+					if(_PassengerID_W == null)
+	        	    {
+						_PassengerID_W = TearOff.PassengerID;
+					}
+					return _PassengerID_W;
+				}
+			}
+
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
 			private AggregateParameter _To_AirportID_W = null;
@@ -1735,6 +1907,8 @@ namespace ITravel.DAL
 			private AggregateParameter _CreatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
 			private AggregateParameter _LastUpdatedBy_W = null;
+			private AggregateParameter _TicketNo_W = null;
+			private AggregateParameter _PassengerID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1755,6 +1929,8 @@ namespace ITravel.DAL
 				_CreatedBy_W = null;
 				_LastUpdatedDate_W = null;
 				_LastUpdatedBy_W = null;
+				_TicketNo_W = null;
+				_PassengerID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1895,6 +2071,14 @@ namespace ITravel.DAL
 
 			p = cmd.Parameters.Add(Parameters.LastUpdatedBy);
 			p.SourceColumn = ColumnNames.LastUpdatedBy;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TicketNo);
+			p.SourceColumn = ColumnNames.TicketNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PassengerID);
+			p.SourceColumn = ColumnNames.PassengerID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -41,6 +41,25 @@ Go
 
 If Exists (select Name 
 		   from sysobjects 
+		   where name = 'AirLine' and
+		        xtype = 'U')
+Drop Table AirLine
+Go
+
+CREATE TABLE AirLine(
+	AirLineID int IDENTITY(1,1) NOT NULL primary key,
+	Name nvarchar(100) NULL,	
+	Description nvarchar(2000) NULL,
+	Notes nvarchar(max) NULL,
+	CreatedBy uniqueidentifier NULL,
+	UpdatedBy uniqueidentifier NULL,
+	CreatedDate datetime NULL,
+	LastUpdatedDate datetime NULL
+)
+Go
+
+If Exists (select Name 
+		   from sysobjects 
 		   where name = 'TicketInfo' and
 		        xtype = 'U')
 Drop Table TicketInfo
@@ -69,6 +88,10 @@ Create Table TicketInfo
 	
 )
 Go
+
+alter table TicketInfo
+add TicketNo nvarchar(20),
+	PassengerID int foreign key references Passenger(PassengerID)
 
 
 If Exists (select Name 
@@ -122,6 +145,15 @@ Create Table Passenger
 	
 )
 
+alter table Passenger
+drop column TicketID
+
+alter table Passenger
+add Email nvarchar(200),
+    Mobile nvarchar(15)
+    
+drop table ContactInfo    
+
 If Exists (select Name 
 		   from sysobjects 
 		   where name = 'ContactInfo' and
@@ -140,3 +172,44 @@ ContactInfoID int not null identity (1,1) primary key,
 	Mobile nvarchar(10)
 	
 )
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchCustomers' and
+		        xtype = 'P')
+Drop Procedure SearchCustomers
+Go
+Create Procedure SearchCustomers @FilterText nvarchar(200)
+as
+
+select * 
+from Passenger 
+where FirstName like @FilterText + N'%' OR 
+	  LastName like @FilterText + N'%' OR 
+	  Email like @FilterText + N'%' OR 
+	  @FilterText = ''
+Go
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchTickets' and
+		        xtype = 'P')
+Drop Procedure SearchTickets
+Go
+Create Procedure SearchTickets @FilterText nvarchar(200)
+as
+
+select * 
+from TicketInfo TI
+Left Join Passenger P on TI.PassengerID = P.PassengerID
+where TI.TicketNo like @FilterText + N'%' OR 
+	  P.LastName like @FilterText + N'%' OR 
+	  P.FirstName like @FilterText + N'%' OR 
+	  @FilterText = ''
+Go
