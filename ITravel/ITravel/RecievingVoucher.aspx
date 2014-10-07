@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="BookTicket.aspx.cs" Inherits="ITravel.BookTicket" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="RecievingVoucher.aspx.cs" Inherits="ITravel.RecievingVoucher" %>
 <%@ MasterType VirtualPath="~/MasterPages/Main.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -33,22 +33,13 @@
             </div>
             <div class="clear"></div>
             <div class="grid_11 table">
-                <asp:GridView ID="uiGridViewTickets" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewTickets_PageIndexChanging" OnRowCommand="uiGridViewTickets_RowCommand" AutoGenerateColumns="false" OnRowDataBound="uiGridViewTickets_RowDataBound">
+                <asp:GridView ID="uiGridViewVouchers" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewVouchers_PageIndexChanging" OnRowCommand="uiGridViewVouchers_RowCommand" AutoGenerateColumns="false" OnRowDataBound="uiGridViewVouchers_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="TicketNo" HeaderText="<%$ Resources:TicketNo %>" />
-                        <asp:BoundField DataField="FromDate" HeaderText="<%$ Resources:Date %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
-                       <asp:TemplateField HeaderText="<%$ Resources:From %>">
-                           <ItemTemplate>
-                               <asp:Label ID="uiLabelFrom" runat="server" ></asp:Label>
-                           </ItemTemplate>
-                       </asp:TemplateField>
-                        <asp:TemplateField HeaderText="<%$ Resources:To %>">
-                           <ItemTemplate>
-                               <asp:Label ID="uiLabelTo" runat="server" ></asp:Label>
-                           </ItemTemplate>  
-                       </asp:TemplateField>
-                        <asp:CheckBoxField DataField="IsCanceled" HeaderText="<%$ Resources:Canceled %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsConfirmed" HeaderText="<%$ Resources:Confirmed %>" ReadOnly="true"/>
+                        <asp:BoundField DataField="VoucherNo" HeaderText="<%$ Resources:VouchertNo %>" />
+                        <asp:BoundField DataField="VoucherDate" HeaderText="<%$ Resources:VoucherDate %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
+                        <asp:BoundField DataField="Reason" HeaderText="<%$ Resources:Reason %>" />
+                        <asp:CheckBoxField DataField="IsChuque" HeaderText="<%$ Resources:Chuque %>" ReadOnly="true"/>
+                        <asp:BoundField DataField="Amount" HeaderText="<%$ Resources:Amount %>" />
                         <asp:TemplateField HeaderText="<%$ Resources:Actions %>">
                             <ItemTemplate>
                                 <asp:LinkButton ID="LinkButton1" runat="server" CommandName="EditR" CommandArgument='<%# Eval("TicketID") %>'>

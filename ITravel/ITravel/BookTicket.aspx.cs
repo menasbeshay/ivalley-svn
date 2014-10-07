@@ -129,6 +129,8 @@ namespace ITravel
         {
             TicketInfo Ticket = new TicketInfo();
             TicketHistory History = new TicketHistory();
+            int seatno = 0;
+            decimal actualprice, finalprice, addedvalue, addedpercentage = 0;
             History.AddNew();
             if (CurrentTicket == null)
             {
@@ -144,10 +146,18 @@ namespace ITravel
             Ticket.AirLineID = History.AirLineID = Convert.ToInt32(uiDropDownListAirLine.SelectedValue);
             Ticket.PassengerID = Convert.ToInt32(uiDropDownListCustomer.SelectedValue);
             Ticket.TicketNo = uiTextBoxTicketNo.Text;
-            Ticket.ActualPrice = History.ActualPrice = decimal.Parse( uiTextBoxActualPrice.Text);
-            Ticket.FinalPrice = History.FinalPrice = decimal.Parse(uiTextBoxFinalPrice.Text);
-            Ticket.AddedValue = History.AddedValue = decimal.Parse(uiTextBoxAddedValue.Text);
-            Ticket.AddedPercentage = History.AddedPercentage = decimal.Parse(uiTextBoxAddedPercentage.Text);
+            Ticket.FlightNo = History.FlightNo = uiTextBoxFlightNo.Text;
+            int.TryParse(uiTextBoxSeatNo.Text, out seatno);
+            Ticket.SeatNo = History.SeatNo = seatno;
+            Ticket.Cabin_type = History.Cabin_type = uiDropDownListCabinType.SelectedItem.Text;
+            decimal.TryParse(uiTextBoxFinalPrice.Text, out finalprice);
+            decimal.TryParse(uiTextBoxActualPrice.Text, out actualprice);
+            decimal.TryParse(uiTextBoxAddedValue.Text, out addedvalue);
+            decimal.TryParse(uiTextBoxAddedPercentage.Text, out addedpercentage);
+            Ticket.ActualPrice = History.ActualPrice = actualprice;
+            Ticket.FinalPrice = History.FinalPrice = finalprice;
+            Ticket.AddedValue = History.AddedValue = addedvalue;
+            Ticket.AddedPercentage = History.AddedPercentage = addedpercentage;
             Ticket.IsCanceled = History.IsCanceled = uiCheckBoxIsCanceld.Checked;
             Ticket.IsRefunded = History.IsRefunded = uiCheckBoxIsRefunded.Checked;
             Ticket.IsConfirmed = History.IsConfirmed = uiCheckBoxIsConfirmed.Checked;
@@ -208,8 +218,8 @@ namespace ITravel
 
         private void ClearFields()
         {
-            uiDropDownListCustomer.SelectedIndex = uiDropDownListAirLine.SelectedIndex = uiDropDownListTo.SelectedIndex = uiDropDownListFrom.SelectedIndex = -1;
-            uiTextBoxActualPrice.Text = uiTextBoxAddedPercentage.Text = uiTextBoxAddedValue.Text = uiTextBoxFinalPrice.Text = uiTextBoxTicketNo.Text = "";
+            uiDropDownListCustomer.SelectedIndex = uiDropDownListAirLine.SelectedIndex = uiDropDownListTo.SelectedIndex = uiDropDownListFrom.SelectedIndex = uiDropDownListCabinType.SelectedIndex = -1;
+            uiTextBoxActualPrice.Text = uiTextBoxAddedPercentage.Text = uiTextBoxAddedValue.Text = uiTextBoxFinalPrice.Text = uiTextBoxTicketNo.Text = uiTextBoxFlightNo.Text = uiTextBoxSeatNo.Text = "";
         }
 
         private void LoadAllTickets()

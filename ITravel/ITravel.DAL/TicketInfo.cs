@@ -251,6 +251,30 @@ namespace ITravel.DAL
 				}
 			}
 			
+			public static SqlParameter FlightNo
+			{
+				get
+				{
+					return new SqlParameter("@FlightNo", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter SeatNo
+			{
+				get
+				{
+					return new SqlParameter("@SeatNo", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Cabin_type
+			{
+				get
+				{
+					return new SqlParameter("@Cabin_type", SqlDbType.NVarChar, 30);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -276,6 +300,9 @@ namespace ITravel.DAL
             public const string LastUpdatedBy = "LastUpdatedBy";
             public const string TicketNo = "TicketNo";
             public const string PassengerID = "PassengerID";
+            public const string FlightNo = "FlightNo";
+            public const string SeatNo = "SeatNo";
+            public const string Cabin_type = "cabin_type";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -302,6 +329,9 @@ namespace ITravel.DAL
 					ht[LastUpdatedBy] = _TicketInfo.PropertyNames.LastUpdatedBy;
 					ht[TicketNo] = _TicketInfo.PropertyNames.TicketNo;
 					ht[PassengerID] = _TicketInfo.PropertyNames.PassengerID;
+					ht[FlightNo] = _TicketInfo.PropertyNames.FlightNo;
+					ht[SeatNo] = _TicketInfo.PropertyNames.SeatNo;
+					ht[Cabin_type] = _TicketInfo.PropertyNames.Cabin_type;
 
 				}
 				return (string)ht[columnName];
@@ -333,6 +363,9 @@ namespace ITravel.DAL
             public const string LastUpdatedBy = "LastUpdatedBy";
             public const string TicketNo = "TicketNo";
             public const string PassengerID = "PassengerID";
+            public const string FlightNo = "FlightNo";
+            public const string SeatNo = "SeatNo";
+            public const string Cabin_type = "Cabin_type";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -359,6 +392,9 @@ namespace ITravel.DAL
 					ht[LastUpdatedBy] = _TicketInfo.ColumnNames.LastUpdatedBy;
 					ht[TicketNo] = _TicketInfo.ColumnNames.TicketNo;
 					ht[PassengerID] = _TicketInfo.ColumnNames.PassengerID;
+					ht[FlightNo] = _TicketInfo.ColumnNames.FlightNo;
+					ht[SeatNo] = _TicketInfo.ColumnNames.SeatNo;
+					ht[Cabin_type] = _TicketInfo.ColumnNames.Cabin_type;
 
 				}
 				return (string)ht[propertyName];
@@ -390,6 +426,9 @@ namespace ITravel.DAL
             public const string LastUpdatedBy = "s_LastUpdatedBy";
             public const string TicketNo = "s_TicketNo";
             public const string PassengerID = "s_PassengerID";
+            public const string FlightNo = "s_FlightNo";
+            public const string SeatNo = "s_SeatNo";
+            public const string Cabin_type = "s_Cabin_type";
 
 		}
 		#endregion		
@@ -621,6 +660,42 @@ namespace ITravel.DAL
 			set
 	        {
 				base.Setint(ColumnNames.PassengerID, value);
+			}
+		}
+
+		public virtual string FlightNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FlightNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FlightNo, value);
+			}
+		}
+
+		public virtual int SeatNo
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SeatNo);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SeatNo, value);
+			}
+		}
+
+		public virtual string Cabin_type
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Cabin_type);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Cabin_type, value);
 			}
 		}
 
@@ -914,6 +989,51 @@ namespace ITravel.DAL
 			}
 		}
 
+		public virtual string s_FlightNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FlightNo) ? string.Empty : base.GetstringAsString(ColumnNames.FlightNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FlightNo);
+				else
+					this.FlightNo = base.SetstringAsString(ColumnNames.FlightNo, value);
+			}
+		}
+
+		public virtual string s_SeatNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SeatNo) ? string.Empty : base.GetintAsString(ColumnNames.SeatNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SeatNo);
+				else
+					this.SeatNo = base.SetintAsString(ColumnNames.SeatNo, value);
+			}
+		}
+
+		public virtual string s_Cabin_type
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Cabin_type) ? string.Empty : base.GetstringAsString(ColumnNames.Cabin_type);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Cabin_type);
+				else
+					this.Cabin_type = base.SetstringAsString(ColumnNames.Cabin_type, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1132,6 +1252,36 @@ namespace ITravel.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.PassengerID, Parameters.PassengerID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FlightNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FlightNo, Parameters.FlightNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SeatNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SeatNo, Parameters.SeatNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Cabin_type
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Cabin_type, Parameters.Cabin_type);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1370,6 +1520,42 @@ namespace ITravel.DAL
 				}
 			}
 
+			public WhereParameter FlightNo
+		    {
+				get
+		        {
+					if(_FlightNo_W == null)
+	        	    {
+						_FlightNo_W = TearOff.FlightNo;
+					}
+					return _FlightNo_W;
+				}
+			}
+
+			public WhereParameter SeatNo
+		    {
+				get
+		        {
+					if(_SeatNo_W == null)
+	        	    {
+						_SeatNo_W = TearOff.SeatNo;
+					}
+					return _SeatNo_W;
+				}
+			}
+
+			public WhereParameter Cabin_type
+		    {
+				get
+		        {
+					if(_Cabin_type_W == null)
+	        	    {
+						_Cabin_type_W = TearOff.Cabin_type;
+					}
+					return _Cabin_type_W;
+				}
+			}
+
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _From_AirportID_W = null;
 			private WhereParameter _To_AirportID_W = null;
@@ -1389,6 +1575,9 @@ namespace ITravel.DAL
 			private WhereParameter _LastUpdatedBy_W = null;
 			private WhereParameter _TicketNo_W = null;
 			private WhereParameter _PassengerID_W = null;
+			private WhereParameter _FlightNo_W = null;
+			private WhereParameter _SeatNo_W = null;
+			private WhereParameter _Cabin_type_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1411,6 +1600,9 @@ namespace ITravel.DAL
 				_LastUpdatedBy_W = null;
 				_TicketNo_W = null;
 				_PassengerID_W = null;
+				_FlightNo_W = null;
+				_SeatNo_W = null;
+				_Cabin_type_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1657,6 +1849,36 @@ namespace ITravel.DAL
 					}
 				}
 
+				public AggregateParameter FlightNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightNo, Parameters.FlightNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SeatNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SeatNo, Parameters.SeatNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Cabin_type
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Cabin_type, Parameters.Cabin_type);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1890,6 +2112,42 @@ namespace ITravel.DAL
 				}
 			}
 
+			public AggregateParameter FlightNo
+		    {
+				get
+		        {
+					if(_FlightNo_W == null)
+	        	    {
+						_FlightNo_W = TearOff.FlightNo;
+					}
+					return _FlightNo_W;
+				}
+			}
+
+			public AggregateParameter SeatNo
+		    {
+				get
+		        {
+					if(_SeatNo_W == null)
+	        	    {
+						_SeatNo_W = TearOff.SeatNo;
+					}
+					return _SeatNo_W;
+				}
+			}
+
+			public AggregateParameter Cabin_type
+		    {
+				get
+		        {
+					if(_Cabin_type_W == null)
+	        	    {
+						_Cabin_type_W = TearOff.Cabin_type;
+					}
+					return _Cabin_type_W;
+				}
+			}
+
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
 			private AggregateParameter _To_AirportID_W = null;
@@ -1909,6 +2167,9 @@ namespace ITravel.DAL
 			private AggregateParameter _LastUpdatedBy_W = null;
 			private AggregateParameter _TicketNo_W = null;
 			private AggregateParameter _PassengerID_W = null;
+			private AggregateParameter _FlightNo_W = null;
+			private AggregateParameter _SeatNo_W = null;
+			private AggregateParameter _Cabin_type_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1931,6 +2192,9 @@ namespace ITravel.DAL
 				_LastUpdatedBy_W = null;
 				_TicketNo_W = null;
 				_PassengerID_W = null;
+				_FlightNo_W = null;
+				_SeatNo_W = null;
+				_Cabin_type_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2079,6 +2343,18 @@ namespace ITravel.DAL
 
 			p = cmd.Parameters.Add(Parameters.PassengerID);
 			p.SourceColumn = ColumnNames.PassengerID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FlightNo);
+			p.SourceColumn = ColumnNames.FlightNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SeatNo);
+			p.SourceColumn = ColumnNames.SeatNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Cabin_type);
+			p.SourceColumn = ColumnNames.Cabin_type;
 			p.SourceVersion = DataRowVersion.Current;
 
 
