@@ -5,16 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ITravel
+namespace ITravel.UserControls
 {
-    public partial class home : ITravel.BasePage
+    public partial class ucSearch : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Master.PageTitle = GetLocalResourceObject("PageTitle").ToString();
-            }
+
         }
     }
 }

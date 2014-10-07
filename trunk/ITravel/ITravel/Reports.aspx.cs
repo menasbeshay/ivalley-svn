@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ITravel
 {
-    public partial class home : ITravel.BasePage
+    public partial class Reports : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

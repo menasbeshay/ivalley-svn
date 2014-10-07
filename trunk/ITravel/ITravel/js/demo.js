@@ -46,14 +46,14 @@ jQuery(function ($) {
             }
         }
 
-        $('body').unbind('jcomplete').bind('jcomplete', function(){
-            var $a = $('<div>').html('<div class="alert grey air"><p><strong>Don’t worry!!</strong></p><p>This page is optional and created automatically, so you don’t have to create two menus.</p><a href="#" class="close">close</a></div>');
-            $(this).append($a); $a.css('opacity', 0).animate({opacity: 1});
-            var a = $('.menu li:has(.submenu):first a').attr({title: 'Try this one', 'data-position': 's'}).addClass('tooltip');
-            setTimeout(function(){
-                a.mouseenter().removeAttr('title').removeAttr('original-title');
-            }, 100);
-        });
+        //$('body').unbind('jcomplete').bind('jcomplete', function(){
+        //    var $a = $('<div>').html('<div class="alert grey air"><p><strong>Don’t worry!!</strong></p><p>This page is optional and created automatically, so you don’t have to create two menus.</p><a href="#" class="close">close</a></div>');
+        //    $(this).append($a); $a.css('opacity', 0).animate({opacity: 1});
+        //    var a = $('.menu li:has(.submenu):first a').attr({title: 'Try this one', 'data-position': 's'}).addClass('tooltip');
+        //    setTimeout(function(){
+        //        a.mouseenter().removeAttr('title').removeAttr('original-title');
+        //    }, 100);
+        //});
 
         $('.slider').each(function(){
             var $this = $(this);

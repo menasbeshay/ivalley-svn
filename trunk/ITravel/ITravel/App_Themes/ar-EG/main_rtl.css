@@ -1,9 +1,17 @@
 /* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+@font-face {
+    font-family: 'Al-Jazeera-Arabic-Regular';
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot');
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Al-Jazeera-Arabic-Regular.woff') format('woff'), url('../fonts/Al-Jazeera-Arabic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 html, body {
   height: 100%;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: 'Al-Jazeera-Arabic-Regular', Arial, Helvetica, sans-serif;
   font-size: 13px;
   color: #666;
   line-height: 150%;
@@ -38,7 +46,7 @@ body, #loading {
   z-index: 99;
 }
 #wrapper > header nav li a {
-  font-size: 12px;
+  font-size: 15px;
   border-left: 1px solid #333;
   border-right: 1px solid #333;
   height: 63px;
@@ -277,16 +285,16 @@ blockquote {
     miscellaneous
 ================== */
 .left {
-  float: left;
-}
-.alignleft {
-  text-align: left;
-}
-.right {
   float: right;
 }
-.alignright {
+.alignleft {
   text-align: right;
+}
+.right {
+  float: left;
+}
+.alignright {
+  text-align: left;
 }
 .center, .aligncenter {
   text-align: center;
@@ -330,12 +338,14 @@ em {
   padding: 10px 15px;
 }
 #content-top {
-  overflow: hiddden;
+  overflow: hidden;
 }
 #content-top #logo {
   width: 35%;
   overflow: hidden;
   float: left;
+  text-align:left;
+  padding-top:5px;
 }
 #content-top nav {
   float: right;
@@ -354,7 +364,7 @@ em {
 #content-top nav li span, ul.iconlist li span {
   display: block !important;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 8px;
   margin-top: 8px;
 }
@@ -365,7 +375,7 @@ em {
 #content-top nav li a, ul.iconlist li a {
   display: block;
   padding: 5px;
-  width: 70px;
+  /*width: 70px;*/
   font-size: 12px;
   color: #767676;
   padding-bottom: 5px;
@@ -431,6 +441,9 @@ ul.iconlist li {
 .extension .dataTables_filter input[type=text] {
   margin-right: 0;
 }
+    .extension.breadcrumbs {
+    display:none;
+    }
 .extension.breadcrumbs li {
   display: inline;
   margin-right: 30px;
@@ -446,6 +459,11 @@ ul.iconlist li {
   margin-top: -8px;
   background: url(../img/sprites.png) 0 0 no-repeat;
   background-position: 0 -42px;
+  -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .extension.breadcrumbs li.last {
   margin-right: 0;
@@ -527,11 +545,11 @@ ul.iconlist li {
   text-decoration: none;
 }
 .extension.inleft {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 .extension.inright {
-  float: right;
-  margin-right: 20px;
+  float: left;
+  margin-left: 20px;
 }
 .extension.top {
   box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.12);
@@ -576,6 +594,7 @@ ul.iconlist li {
   border-radius: 10px;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2), inset 2px -2px 0 #ffffff, inset -2px 2px 0 #ffffff;
   text-shadow: 0 1px 0 #ffffff;
+  min-height:380px;
 }
 .main-box .divider {
   display: block;
@@ -592,7 +611,7 @@ ul.iconlist li {
 }
 .main-box .head h1 {
   display: inline;
-  float: left;
+  float: right;
   margin: 0;
   margin-right: 20px;
   margin-bottom: 5px;
@@ -639,7 +658,7 @@ ul.iconlist li {
 .box header h1 {
   display: inline;
   color: #eee;
-  font-size: 16px;
+  font-size: 20px;
   text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.7);
   letter-spacing: 1px;
 }
@@ -683,7 +702,7 @@ ul.iconlist li {
   overflow: hidden;
   display: block;
   position: absolute;
-  right: 12px;
+  left: 12px;
   top: 13px;
   background: url(../img/sprites.png) 0 0 no-repeat;
 }
@@ -1536,7 +1555,7 @@ table.statistics .bar .progressbar {
   margin-bottom: 5px;
 }
 .field label span {
-  font-size: 11px;
+  font-size: 16px;
   color: #999;
 }
 .field.iconized input[type=text], .field.iconized input[type=password], .field.iconized textarea {
@@ -2196,4 +2215,70 @@ nav.jsubmenu .submenu li.last a {
 }
 .glyph.closed-lock, .glyph.opened-lock {
   font-size: 17px;
+}
+
+
+
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  
+  text-align: right;
+  font-size: 14px;
+  
+}
+
+
+div.table table tbody th {
+  color: #fff;
+  text-shadow: 0 1px 0 #000000;
+}
+div.table table tbody th {
+  text-align: center;
+  vertical-align: middle;
+  padding: 9.5px 12px 6px;
+  border-left: 1px solid #4B4B4B;
+  background: #222;
+  background: linear-gradient(top, #363636, #222222);
+  font-size:16px;
+}
+div.table table tbody th.first {
+  border-top-right-radius: 9px;
+}
+div.table table tbody th.last {
+  border-left: none;
+  border-top-left-radius: 9px;
+}
+div.table table tbody th.sorting_asc .sorticon, div.table table tbody th.sorting_desc .sorticon {
+  height: 12px;
+  top: 3px;
+}
+div.table table tbody th.sorting_desc .sorticon {
+  background-position: -26px -54px;
+}
+div.table table tbody th .sorticon {
+  background: url(../img/sprites.png) 0 0 no-repeat;
+  background-position: -26px -42px;
+  width: 14px;
+  height: 24px;
+  right: 0;
+  top: -3px;
+}
+div.table table tbody th:hover .sorticon {
+  background-position: -40px -42px;
+}
+div.table table tbody th:hover.sorting_desc .sorticon {
+  background-position: -40px -54px;
 }
