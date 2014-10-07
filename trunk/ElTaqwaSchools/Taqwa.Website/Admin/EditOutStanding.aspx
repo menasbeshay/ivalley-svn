@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="EditOutStanding.aspx.cs" Inherits="Taqwa.Website.Admin.EditOutStanding" %>
+<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -90,12 +91,42 @@
             <asp:Image ID="uiImagePic" runat="server" Width="50px" ImageAlign="AbsBottom" />
         </div>
         <div class="AdminRight">
-            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                ControlToValidate="uiFileUploadPicture" ErrorMessage="*" 
-                ValidationGroup="UpdatePage"></asp:RequiredFieldValidator>
+           
         </div>
         <div class="clear"></div>
+        <div class="AdminMiddle">
+        <asp:Label ID="uiLabelEnContent" runat="server" CssClass="Label" 
+                Text="التعليق بالإنجليزية :"></asp:Label>
+        </div>
+        <div class="AdminRight">
+            &nbsp;</div>
+        <div class="clear"></div>
 
+         <div class="AdminMiddle">
+        <FCKeditorV2:FCKeditor ID="uiFCKeditorEnComment" runat="server" BasePath="~/modules/fckeditor/" Height="300px" Width="750px">
+            </FCKeditorV2:FCKeditor>
+        </div>
+        <div class="AdminRight">
+            &nbsp;</div>
+        <div class="clear"></div>
+
+        
+        <div class="AdminMiddle">
+        <asp:Label ID="uiLabelArContent" runat="server" CssClass="Label" 
+                Text="التعليق بالعربية :"></asp:Label>
+        </div>
+        <div class="AdminRight">
+            &nbsp;</div>
+        <div class="clear"></div>
+
+        <div class="AdminMiddle">
+        <FCKeditorV2:FCKeditor ID="uiFCKeditorArComment" runat="server" BasePath="~/modules/fckeditor/" Height="300px" Width="750px">
+            </FCKeditorV2:FCKeditor>
+        </div>
+        <div class="AdminRight">
+            &nbsp;</div>
+        <div class="clear"></div>
+        
         <div class="AdminLeft">
          <asp:Label ID="uiLabelYear" runat="server" CssClass="Label" 
                 Text="السنة الدراسية :"></asp:Label>

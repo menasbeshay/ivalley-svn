@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Suggestions.aspx.cs" Inherits="Taqwa.Website.Suggestions" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="Suggestions.aspx.cs" Inherits="Taqwa.Website.Suggestions" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent">
+<div class="mainContent" style="background:#fff;width:980px;">
 <div class="style24">
     <asp:Literal ID="uiLiteralTitle" runat="server"></asp:Literal>
 </div>

@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taqwa.BLL;
+using System.Data;
 
 namespace Taqwa.Website.Admin
 {
@@ -13,14 +14,27 @@ namespace Taqwa.Website.Admin
         {
             if (!IsPostBack)
             {
+                LoadDDL();
                 BindData();
             }
+        }
+
+        private void LoadDDL()
+        {
+            DBLayer db = new DBLayer();
+            DataSet ds = new DataSet();
+            ds = db.GetAllCategory();
+            uiDropDownListCat.DataSource = ds;
+            uiDropDownListCat.DataTextField = "ArTitle";
+            uiDropDownListCat.DataValueField = "CategoryID";
+            uiDropDownListCat.DataBind();
         }
 
         private void BindData()
         {
             DBLayer db = new DBLayer();
-            uiDataListPhotos.DataSource = db.GetAllGalleryPhoto();
+            if (!string.IsNullOrEmpty( uiDropDownListCat.SelectedValue) && uiDropDownListCat.SelectedValue != "0")
+                uiDataListPhotos.DataSource = db.GetGalleryPhotoByCategoryID(Convert.ToInt32(uiDropDownListCat.SelectedValue));
             uiDataListPhotos.DataBind();
         }
 
@@ -30,9 +44,9 @@ namespace Taqwa.Website.Admin
             string path = "";
             if (uiFileUploadPhoto.HasFile)
             {
-                path = "/UserFiles/Gallery/" + uiFileUploadPhoto.FileName;
+                path = "/UserFiles/Gallery/" + uiDropDownListCat.SelectedValue+ "_"+DateTime.Now.ToString("ddMMhhmmss")+"_"+uiFileUploadPhoto.FileName;
                 uiFileUploadPhoto.SaveAs(Server.MapPath("~" + path));
-                db.AddGalleryPhoto(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, path);
+                db.AddGalleryPhoto(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, path, Convert.ToInt32(uiDropDownListCat.SelectedValue));
                 BindData();
             }
         }
@@ -45,6 +59,11 @@ namespace Taqwa.Website.Admin
                 db.DeleteGalleryPhoto(Convert.ToInt32(e.CommandArgument.ToString()));
                 BindData();
             }
+        }
+
+        protected void uiDropDownListCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
         }
     }
 }

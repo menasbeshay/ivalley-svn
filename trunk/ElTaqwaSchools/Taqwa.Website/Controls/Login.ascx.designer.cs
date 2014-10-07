@@ -58,15 +58,6 @@ namespace Taqwa.Website.Controls {
         protected global::System.Web.UI.WebControls.Panel uiPanelAccount;
         
         /// <summary>
-        /// uiImageButtonMyAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton uiImageButtonMyAccount;
-        
-        /// <summary>
         /// uiImageButtonLogout control.
         /// </summary>
         /// <remarks>
@@ -74,5 +65,14 @@ namespace Taqwa.Website.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton uiImageButtonLogout;
+        
+        /// <summary>
+        /// uiImageButtonMyAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton uiImageButtonMyAccount;
     }
 }

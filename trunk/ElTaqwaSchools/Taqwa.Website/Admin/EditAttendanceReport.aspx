@@ -114,7 +114,7 @@
         <div class="AdminMiddle">
             <asp:TextBox ID="uiTextBoxDay" runat="server"></asp:TextBox>
             <cc1:CalendarExtender ID="uiTextBoxDay_CalendarExtender" runat="server" 
-                TargetControlID="uiTextBoxDay" Format="dd/MM/yyyy">
+                Enabled="True" TargetControlID="uiTextBoxDay" Format="dd/MM/yyyy">
             </cc1:CalendarExtender>
         </div>
         <div class="AdminRight">

@@ -54,7 +54,7 @@ namespace Taqwa.Website.Controls
             Session["CurrentLoggedInStudent"] = null;
             uiPanelLogin.Visible = true;
             uiPanelAccount.Visible = false;
-            Response.Redirect("Default.aspx");
+            Response.Redirect("home.aspx");
         }
 
         protected void uiImageButtonMyAccount_Click(object sender, ImageClickEventArgs e)

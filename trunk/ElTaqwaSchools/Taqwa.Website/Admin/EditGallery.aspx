@@ -9,6 +9,19 @@
 <asp:Panel ID="uiPanel" runat="server" style="padding-right:5px;direction:rtl;">
     <div class="AdminMain" style="direction:rtl;">
     <div><h3>الصور الحالية</h3></div>
+    <div class="AdminLeft">
+            <asp:Label ID="Label2" runat="server" CssClass="Label" 
+                Text="القسم الحالى :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:DropDownList ID="uiDropDownListCat" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="uiDropDownListCat_SelectedIndexChanged" Width="400px">
+            </asp:DropDownList>
+        </div>
+        <div class="AdminRight">
+            &nbsp;
+        </div>
+        <div class="clear"></div>
 
     
         <div class="AdminLeft">
