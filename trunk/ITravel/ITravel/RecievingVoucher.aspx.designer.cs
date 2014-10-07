@@ -10,7 +10,7 @@
 namespace ITravel {
     
     
-    public partial class BookTicket {
+    public partial class RecievingVoucher {
         
         /// <summary>
         /// uiPanelAll control.
@@ -85,13 +85,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// uiGridViewTickets control.
+        /// uiGridViewVouchers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewTickets;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewVouchers;
         
         /// <summary>
         /// uiPanelEdit control.

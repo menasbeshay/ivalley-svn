@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 10/2/2014 1:05:14 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 10/7/2014 4:05:05 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadByPrimaryKey];
 GO
@@ -29,7 +29,11 @@ BEGIN
 		[IsRefunded],
 		[IsConfirmed],
 		[UpdatedDate],
-		[UpdatedBy]
+		[UpdatedBy],
+		[TicketNo],
+		[FlightNo],
+		[SeatNo],
+		[cabin_type]
 	FROM [TicketHistory]
 	WHERE
 		([TicketHistoryID] = @TicketHistoryID)
@@ -46,7 +50,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 10/2/2014 1:05:14 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 10/7/2014 4:05:05 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadAll];
 GO
@@ -74,7 +78,11 @@ BEGIN
 		[IsRefunded],
 		[IsConfirmed],
 		[UpdatedDate],
-		[UpdatedBy]
+		[UpdatedBy],
+		[TicketNo],
+		[FlightNo],
+		[SeatNo],
+		[cabin_type]
 	FROM [TicketHistory]
 
 	SET @Err = @@Error
@@ -89,7 +97,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 10/2/2014 1:05:14 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 10/7/2014 4:05:05 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryUpdate];
 GO
@@ -111,7 +119,11 @@ CREATE PROCEDURE [proc_TicketHistoryUpdate]
 	@IsRefunded bit = NULL,
 	@IsConfirmed bit = NULL,
 	@UpdatedDate datetime = NULL,
-	@UpdatedBy uniqueidentifier = NULL
+	@UpdatedBy uniqueidentifier = NULL,
+	@TicketNo nvarchar(20) = NULL,
+	@FlightNo nvarchar(20) = NULL,
+	@SeatNo int = NULL,
+	@cabin_type nvarchar(30) = NULL
 )
 AS
 BEGIN
@@ -135,7 +147,11 @@ BEGIN
 		[IsRefunded] = @IsRefunded,
 		[IsConfirmed] = @IsConfirmed,
 		[UpdatedDate] = @UpdatedDate,
-		[UpdatedBy] = @UpdatedBy
+		[UpdatedBy] = @UpdatedBy,
+		[TicketNo] = @TicketNo,
+		[FlightNo] = @FlightNo,
+		[SeatNo] = @SeatNo,
+		[cabin_type] = @cabin_type
 	WHERE
 		[TicketHistoryID] = @TicketHistoryID
 
@@ -156,7 +172,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 10/2/2014 1:05:14 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 10/7/2014 4:05:05 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryInsert];
 GO
@@ -178,7 +194,11 @@ CREATE PROCEDURE [proc_TicketHistoryInsert]
 	@IsRefunded bit = NULL,
 	@IsConfirmed bit = NULL,
 	@UpdatedDate datetime = NULL,
-	@UpdatedBy uniqueidentifier = NULL
+	@UpdatedBy uniqueidentifier = NULL,
+	@TicketNo nvarchar(20) = NULL,
+	@FlightNo nvarchar(20) = NULL,
+	@SeatNo int = NULL,
+	@cabin_type nvarchar(30) = NULL
 )
 AS
 BEGIN
@@ -203,7 +223,11 @@ BEGIN
 		[IsRefunded],
 		[IsConfirmed],
 		[UpdatedDate],
-		[UpdatedBy]
+		[UpdatedBy],
+		[TicketNo],
+		[FlightNo],
+		[SeatNo],
+		[cabin_type]
 	)
 	VALUES
 	(
@@ -221,7 +245,11 @@ BEGIN
 		@IsRefunded,
 		@IsConfirmed,
 		@UpdatedDate,
-		@UpdatedBy
+		@UpdatedBy,
+		@TicketNo,
+		@FlightNo,
+		@SeatNo,
+		@cabin_type
 	)
 
 	SET @Err = @@Error
@@ -238,7 +266,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 10/2/2014 1:05:14 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 10/7/2014 4:05:05 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryDelete];
 GO

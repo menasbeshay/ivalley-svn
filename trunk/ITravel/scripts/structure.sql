@@ -91,7 +91,13 @@ Go
 
 alter table TicketInfo
 add TicketNo nvarchar(20),
-	PassengerID int foreign key references Passenger(PassengerID)
+	PassengerID int foreign key references Passenger(PassengerID),
+	FlightNo nvarchar(20),
+	SeatNo int,
+	cabin_type nvarchar(30)
+	
+	
+	
 
 
 If Exists (select Name 
@@ -173,6 +179,61 @@ ContactInfoID int not null identity (1,1) primary key,
 	
 )
 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'PaymentVoucher' and
+		        xtype = 'U')
+Drop Table PaymentVoucher
+Go
+Create Table PaymentVoucher
+(
+	PaymentVoucherID int not null
+			identity(1,1)
+			Primary Key,
+	VoucherNumber nvarchar(10),	
+	Amount decimal(10,3),
+	PaidFor nvarchar(200),
+	PassengerId int foreign key references Passenger(PassengerID),
+	IsCheque bit, 
+	BankName nvarchar(200),
+	ChuqueDate DateTime, 
+	Reason nvarchar(400),
+	VoucherDate DateTime ,
+	CreatedBy UniqueIdentifier,
+	LastUpdatedDate DateTime,
+	LastUpdatedBy UniqueIdentifier
+	
+)
+Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ReceivingVoucher' and
+		        xtype = 'U')
+Drop Table ReceivingVoucher
+Go
+Create Table ReceivingVoucher
+(
+	ReceivingVoucherID int not null
+			identity(1,1)
+			Primary Key,
+	VoucherNumber nvarchar(10),	
+	Amount decimal(10,3),
+	PaidFor nvarchar(200),
+	PassengerId int foreign key references Passenger(PassengerID),
+	IsCheque bit, 
+	BankName nvarchar(200),
+	ChuqueDate DateTime, 
+	Reason nvarchar(400),
+	VoucherDate DateTime ,
+	CreatedBy UniqueIdentifier,
+	LastUpdatedDate DateTime,
+	LastUpdatedBy UniqueIdentifier
+	
+)
+Go
 
 
 

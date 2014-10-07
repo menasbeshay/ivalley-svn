@@ -227,6 +227,38 @@ namespace ITravel.DAL
 				}
 			}
 			
+			public static SqlParameter TicketNo
+			{
+				get
+				{
+					return new SqlParameter("@TicketNo", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter FlightNo
+			{
+				get
+				{
+					return new SqlParameter("@FlightNo", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter SeatNo
+			{
+				get
+				{
+					return new SqlParameter("@SeatNo", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Cabin_type
+			{
+				get
+				{
+					return new SqlParameter("@Cabin_type", SqlDbType.NVarChar, 30);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -249,6 +281,10 @@ namespace ITravel.DAL
             public const string IsConfirmed = "IsConfirmed";
             public const string UpdatedDate = "UpdatedDate";
             public const string UpdatedBy = "UpdatedBy";
+            public const string TicketNo = "TicketNo";
+            public const string FlightNo = "FlightNo";
+            public const string SeatNo = "SeatNo";
+            public const string Cabin_type = "cabin_type";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -272,6 +308,10 @@ namespace ITravel.DAL
 					ht[IsConfirmed] = _TicketHistory.PropertyNames.IsConfirmed;
 					ht[UpdatedDate] = _TicketHistory.PropertyNames.UpdatedDate;
 					ht[UpdatedBy] = _TicketHistory.PropertyNames.UpdatedBy;
+					ht[TicketNo] = _TicketHistory.PropertyNames.TicketNo;
+					ht[FlightNo] = _TicketHistory.PropertyNames.FlightNo;
+					ht[SeatNo] = _TicketHistory.PropertyNames.SeatNo;
+					ht[Cabin_type] = _TicketHistory.PropertyNames.Cabin_type;
 
 				}
 				return (string)ht[columnName];
@@ -300,6 +340,10 @@ namespace ITravel.DAL
             public const string IsConfirmed = "IsConfirmed";
             public const string UpdatedDate = "UpdatedDate";
             public const string UpdatedBy = "UpdatedBy";
+            public const string TicketNo = "TicketNo";
+            public const string FlightNo = "FlightNo";
+            public const string SeatNo = "SeatNo";
+            public const string Cabin_type = "Cabin_type";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -323,6 +367,10 @@ namespace ITravel.DAL
 					ht[IsConfirmed] = _TicketHistory.ColumnNames.IsConfirmed;
 					ht[UpdatedDate] = _TicketHistory.ColumnNames.UpdatedDate;
 					ht[UpdatedBy] = _TicketHistory.ColumnNames.UpdatedBy;
+					ht[TicketNo] = _TicketHistory.ColumnNames.TicketNo;
+					ht[FlightNo] = _TicketHistory.ColumnNames.FlightNo;
+					ht[SeatNo] = _TicketHistory.ColumnNames.SeatNo;
+					ht[Cabin_type] = _TicketHistory.ColumnNames.Cabin_type;
 
 				}
 				return (string)ht[propertyName];
@@ -351,6 +399,10 @@ namespace ITravel.DAL
             public const string IsConfirmed = "s_IsConfirmed";
             public const string UpdatedDate = "s_UpdatedDate";
             public const string UpdatedBy = "s_UpdatedBy";
+            public const string TicketNo = "s_TicketNo";
+            public const string FlightNo = "s_FlightNo";
+            public const string SeatNo = "s_SeatNo";
+            public const string Cabin_type = "s_Cabin_type";
 
 		}
 		#endregion		
@@ -546,6 +598,54 @@ namespace ITravel.DAL
 			set
 	        {
 				base.SetGuid(ColumnNames.UpdatedBy, value);
+			}
+		}
+
+		public virtual string TicketNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TicketNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TicketNo, value);
+			}
+		}
+
+		public virtual string FlightNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.FlightNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.FlightNo, value);
+			}
+		}
+
+		public virtual int SeatNo
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SeatNo);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SeatNo, value);
+			}
+		}
+
+		public virtual string Cabin_type
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Cabin_type);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Cabin_type, value);
 			}
 		}
 
@@ -794,6 +894,66 @@ namespace ITravel.DAL
 			}
 		}
 
+		public virtual string s_TicketNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TicketNo) ? string.Empty : base.GetstringAsString(ColumnNames.TicketNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TicketNo);
+				else
+					this.TicketNo = base.SetstringAsString(ColumnNames.TicketNo, value);
+			}
+		}
+
+		public virtual string s_FlightNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FlightNo) ? string.Empty : base.GetstringAsString(ColumnNames.FlightNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FlightNo);
+				else
+					this.FlightNo = base.SetstringAsString(ColumnNames.FlightNo, value);
+			}
+		}
+
+		public virtual string s_SeatNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SeatNo) ? string.Empty : base.GetintAsString(ColumnNames.SeatNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SeatNo);
+				else
+					this.SeatNo = base.SetintAsString(ColumnNames.SeatNo, value);
+			}
+		}
+
+		public virtual string s_Cabin_type
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Cabin_type) ? string.Empty : base.GetstringAsString(ColumnNames.Cabin_type);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Cabin_type);
+				else
+					this.Cabin_type = base.SetstringAsString(ColumnNames.Cabin_type, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -982,6 +1142,46 @@ namespace ITravel.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.UpdatedBy, Parameters.UpdatedBy);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TicketNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TicketNo, Parameters.TicketNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FlightNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FlightNo, Parameters.FlightNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SeatNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SeatNo, Parameters.SeatNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Cabin_type
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Cabin_type, Parameters.Cabin_type);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1184,6 +1384,54 @@ namespace ITravel.DAL
 				}
 			}
 
+			public WhereParameter TicketNo
+		    {
+				get
+		        {
+					if(_TicketNo_W == null)
+	        	    {
+						_TicketNo_W = TearOff.TicketNo;
+					}
+					return _TicketNo_W;
+				}
+			}
+
+			public WhereParameter FlightNo
+		    {
+				get
+		        {
+					if(_FlightNo_W == null)
+	        	    {
+						_FlightNo_W = TearOff.FlightNo;
+					}
+					return _FlightNo_W;
+				}
+			}
+
+			public WhereParameter SeatNo
+		    {
+				get
+		        {
+					if(_SeatNo_W == null)
+	        	    {
+						_SeatNo_W = TearOff.SeatNo;
+					}
+					return _SeatNo_W;
+				}
+			}
+
+			public WhereParameter Cabin_type
+		    {
+				get
+		        {
+					if(_Cabin_type_W == null)
+	        	    {
+						_Cabin_type_W = TearOff.Cabin_type;
+					}
+					return _Cabin_type_W;
+				}
+			}
+
 			private WhereParameter _TicketHistoryID_W = null;
 			private WhereParameter _TicketID_W = null;
 			private WhereParameter _From_AirportID_W = null;
@@ -1200,6 +1448,10 @@ namespace ITravel.DAL
 			private WhereParameter _IsConfirmed_W = null;
 			private WhereParameter _UpdatedDate_W = null;
 			private WhereParameter _UpdatedBy_W = null;
+			private WhereParameter _TicketNo_W = null;
+			private WhereParameter _FlightNo_W = null;
+			private WhereParameter _SeatNo_W = null;
+			private WhereParameter _Cabin_type_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1219,6 +1471,10 @@ namespace ITravel.DAL
 				_IsConfirmed_W = null;
 				_UpdatedDate_W = null;
 				_UpdatedBy_W = null;
+				_TicketNo_W = null;
+				_FlightNo_W = null;
+				_SeatNo_W = null;
+				_Cabin_type_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1435,6 +1691,46 @@ namespace ITravel.DAL
 					}
 				}
 
+				public AggregateParameter TicketNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TicketNo, Parameters.TicketNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FlightNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightNo, Parameters.FlightNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SeatNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SeatNo, Parameters.SeatNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Cabin_type
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Cabin_type, Parameters.Cabin_type);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1632,6 +1928,54 @@ namespace ITravel.DAL
 				}
 			}
 
+			public AggregateParameter TicketNo
+		    {
+				get
+		        {
+					if(_TicketNo_W == null)
+	        	    {
+						_TicketNo_W = TearOff.TicketNo;
+					}
+					return _TicketNo_W;
+				}
+			}
+
+			public AggregateParameter FlightNo
+		    {
+				get
+		        {
+					if(_FlightNo_W == null)
+	        	    {
+						_FlightNo_W = TearOff.FlightNo;
+					}
+					return _FlightNo_W;
+				}
+			}
+
+			public AggregateParameter SeatNo
+		    {
+				get
+		        {
+					if(_SeatNo_W == null)
+	        	    {
+						_SeatNo_W = TearOff.SeatNo;
+					}
+					return _SeatNo_W;
+				}
+			}
+
+			public AggregateParameter Cabin_type
+		    {
+				get
+		        {
+					if(_Cabin_type_W == null)
+	        	    {
+						_Cabin_type_W = TearOff.Cabin_type;
+					}
+					return _Cabin_type_W;
+				}
+			}
+
 			private AggregateParameter _TicketHistoryID_W = null;
 			private AggregateParameter _TicketID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
@@ -1648,6 +1992,10 @@ namespace ITravel.DAL
 			private AggregateParameter _IsConfirmed_W = null;
 			private AggregateParameter _UpdatedDate_W = null;
 			private AggregateParameter _UpdatedBy_W = null;
+			private AggregateParameter _TicketNo_W = null;
+			private AggregateParameter _FlightNo_W = null;
+			private AggregateParameter _SeatNo_W = null;
+			private AggregateParameter _Cabin_type_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1667,6 +2015,10 @@ namespace ITravel.DAL
 				_IsConfirmed_W = null;
 				_UpdatedDate_W = null;
 				_UpdatedBy_W = null;
+				_TicketNo_W = null;
+				_FlightNo_W = null;
+				_SeatNo_W = null;
+				_Cabin_type_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1803,6 +2155,22 @@ namespace ITravel.DAL
 
 			p = cmd.Parameters.Add(Parameters.UpdatedBy);
 			p.SourceColumn = ColumnNames.UpdatedBy;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TicketNo);
+			p.SourceColumn = ColumnNames.TicketNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FlightNo);
+			p.SourceColumn = ColumnNames.FlightNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SeatNo);
+			p.SourceColumn = ColumnNames.SeatNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Cabin_type);
+			p.SourceColumn = ColumnNames.Cabin_type;
 			p.SourceVersion = DataRowVersion.Current;
 
 

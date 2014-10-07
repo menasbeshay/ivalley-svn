@@ -189,4 +189,25 @@
   <data name="UpdatedDate" xml:space="preserve">
     <value>Updated Date</value>
   </data>
+  <data name="BussinessClass" xml:space="preserve">
+    <value>Bussiness Class</value>
+  </data>
+  <data name="CabinTypes" xml:space="preserve">
+    <value>Booking Type</value>
+  </data>
+  <data name="EconomyClass" xml:space="preserve">
+    <value>Economy Class</value>
+  </data>
+  <data name="FirstClass" xml:space="preserve">
+    <value>First Class</value>
+  </data>
+  <data name="FlightNo" xml:space="preserve">
+    <value>Flight No.</value>
+  </data>
+  <data name="PremuimEconomy" xml:space="preserve">
+    <value>Premuim Economy</value>
+  </data>
+  <data name="SeatNo" xml:space="preserve">
+    <value>Seat No.</value>
+  </data>
 </root>
