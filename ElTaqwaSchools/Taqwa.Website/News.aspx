@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="Taqwa.Website.News" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="Taqwa.Website.News" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent">
+<div class="mainContent" style="background-color:#fff;width:980px;">
 <div class="style24">
     أخر الأخبار 
 </div>
@@ -47,5 +47,6 @@
    
     </asp:Panel>
 </div>
+<div style="clear:both; height:10px;"></div>
 </div>
 </asp:Content>

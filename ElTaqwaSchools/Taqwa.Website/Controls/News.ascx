@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="News.ascx.cs" Inherits="Taqwa.Website.Controls.News" %>
-<div class="NewsHeader">
-    </div>
+<%--<div class="NewsHeader">
+    </div>--%>
     <div style="clear:both;height:1px;"></div>
 <div class="NewsBlock">    
     <asp:Repeater ID="uiRepeaterTopNews" runat="server">
@@ -18,7 +18,7 @@
             </div>
         </ItemTemplate>
         <SeparatorTemplate>
-        <div align="center" style="height:13px;padding-top:14px;">
+        <div align="center" >
         <img src="images/line.jpg" width="272" height="9">
         </div>        
         </SeparatorTemplate>

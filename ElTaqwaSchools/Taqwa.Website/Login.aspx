@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Taqwa.Website.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewDesign.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Taqwa.Website.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="mainContent">
+<div class="mainContent" style="background-color:#fff;width:980px;">
 <table width="509" border="0" cellspacing="0" cellpadding="0" dir="ltr">
                         <tr>
                             <td>

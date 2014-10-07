@@ -148,13 +148,40 @@ namespace Taqwa.Website.Admin {
         protected global::System.Web.UI.WebControls.Image uiImagePic;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// uiLabelEnContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label uiLabelEnContent;
+        
+        /// <summary>
+        /// uiFCKeditorEnComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FredCK.FCKeditorV2.FCKeditor uiFCKeditorEnComment;
+        
+        /// <summary>
+        /// uiLabelArContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelArContent;
+        
+        /// <summary>
+        /// uiFCKeditorArComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FredCK.FCKeditorV2.FCKeditor uiFCKeditorArComment;
         
         /// <summary>
         /// uiLabelYear control.

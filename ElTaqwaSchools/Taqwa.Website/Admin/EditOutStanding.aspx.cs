@@ -48,6 +48,8 @@ namespace Taqwa.Website.Admin
                         uiTextBoxArName.Text = ds.Tables[0].Rows[0]["ArName"].ToString();
                         uiImagePic.ImageUrl = ds.Tables[0].Rows[0]["PicturePath"].ToString();
                         uiTextBoxYear.Text = ds.Tables[0].Rows[0]["Date"].ToString();
+                        uiFCKeditorEnComment.Value = Server.HtmlDecode(ds.Tables[0].Rows[0]["ENComments"].ToString());
+                        uiFCKeditorArComment.Value = Server.HtmlDecode(ds.Tables[0].Rows[0]["ARComments"].ToString());
                         uiDropDownListClass.SelectedValue = ds.Tables[0].Rows[0]["ClassID"].ToString();
                     }
                     uiPanelCurrentOutStanding.Visible = false;
@@ -96,6 +98,8 @@ namespace Taqwa.Website.Admin
                     uiTextBoxArName.Text = ds.Tables[0].Rows[0]["ArName"].ToString();
                     uiImagePic.ImageUrl = ds.Tables[0].Rows[0]["PicturePath"].ToString();
                     uiTextBoxYear.Text = ds.Tables[0].Rows[0]["Date"].ToString();
+                    uiFCKeditorEnComment.Value = Server.HtmlDecode(ds.Tables[0].Rows[0]["ENComments"].ToString());
+                    uiFCKeditorArComment.Value = Server.HtmlDecode(ds.Tables[0].Rows[0]["ARComments"].ToString());
                     uiDropDownListClass.SelectedValue = ds.Tables[0].Rows[0]["ClassID"].ToString();
                 }
                 uiPanelCurrentOutStanding.Visible = false;
@@ -122,7 +126,7 @@ namespace Taqwa.Website.Admin
             if (uiFileUploadPicture.HasFile)
             {
                 uiFileUploadPicture.SaveAs(Server.MapPath(ConfigurationManager.AppSettings["OutstandingFilePath"] + uiFileUploadPicture.FileName));
-                filepath = ConfigurationManager.AppSettings["OutstandingFilePath"] + uiFileUploadPicture.FileName;
+                filepath = ConfigurationManager.AppSettings["OutstandingFilePath"].Substring(1) + uiFileUploadPicture.FileName;
             }
             ds = db.GetOutstanding(CurrentOutStanding);
             if (ds.Tables[0].Rows.Count > 0)
@@ -132,13 +136,13 @@ namespace Taqwa.Website.Admin
             if (CurrentOutStanding != 0)
             {
                 if (temp != filepath && string.IsNullOrEmpty(filepath))
-                    db.UpdateOutstanding(CurrentOutStanding, uiTextBoxEnName.Text, uiTextBoxArName.Text, temp, DateTime.Parse(uiTextBoxYear.Text),Convert.ToInt32(uiDropDownListClass.SelectedValue));
+                    db.UpdateOutstanding(CurrentOutStanding, uiTextBoxEnName.Text, uiTextBoxArName.Text, temp, DateTime.Now, Convert.ToInt32(uiDropDownListClass.SelectedValue), Server.HtmlEncode(uiFCKeditorEnComment.Value), Server.HtmlEncode(uiFCKeditorArComment.Value));
                 else
-                    db.UpdateOutstanding(CurrentOutStanding, uiTextBoxEnName.Text, uiTextBoxArName.Text, filepath, DateTime.Parse(uiTextBoxYear.Text), Convert.ToInt32(uiDropDownListClass.SelectedValue));
+                    db.UpdateOutstanding(CurrentOutStanding, uiTextBoxEnName.Text, uiTextBoxArName.Text, filepath, DateTime.Now, Convert.ToInt32(uiDropDownListClass.SelectedValue), Server.HtmlEncode(uiFCKeditorEnComment.Value), Server.HtmlEncode(uiFCKeditorArComment.Value));
             }
             else
             {
-                db.AddOutStanding(uiTextBoxEnName.Text, uiTextBoxArName.Text, filepath, DateTime.Parse(uiTextBoxYear.Text), Convert.ToInt32(uiDropDownListClass.SelectedValue));
+                db.AddOutStanding(uiTextBoxEnName.Text, uiTextBoxArName.Text, filepath, DateTime.Now, Convert.ToInt32(uiDropDownListClass.SelectedValue), Server.HtmlEncode(uiFCKeditorEnComment.Value), Server.HtmlEncode(uiFCKeditorArComment.Value));
             }
             CurrentOutStanding = 0;
             uiPanelCurrentOutStanding.Visible = true;
@@ -160,6 +164,8 @@ namespace Taqwa.Website.Admin
             uiTextBoxEnName.Text = "";
             uiImagePic.ImageUrl = "";
             uiTextBoxYear.Text = "";
+            uiFCKeditorArComment.Value = "";
+            uiFCKeditorEnComment.Value = "";
             uiDropDownListClass.SelectedIndex = -1;
 
         }

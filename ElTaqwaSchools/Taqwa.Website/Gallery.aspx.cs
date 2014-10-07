@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taqwa.BLL;
+using System.Data;
 
 namespace Taqwa.Website
 {
@@ -13,10 +14,33 @@ namespace Taqwa.Website
         {
             if (!IsPostBack)
             {
-                DBLayer db = new DBLayer();
-                uiRepeaterPhotos.DataSource = db.GetAllGalleryPhoto();
-                uiRepeaterPhotos.DataBind();
+                LoadDDL();
+                BindData();
             }
+        }
+
+        private void LoadDDL()
+        {
+            DBLayer db = new DBLayer();
+            DataSet ds = new DataSet();
+            ds = db.GetAllCategory();
+            uiDropDownListCat.DataSource = ds;
+            uiDropDownListCat.DataTextField = "ArTitle";
+            uiDropDownListCat.DataValueField = "CategoryID";
+            uiDropDownListCat.DataBind();
+        }
+
+        private void BindData()
+        {
+            DBLayer db = new DBLayer();
+            if (!string.IsNullOrEmpty(uiDropDownListCat.SelectedValue) && uiDropDownListCat.SelectedValue != "0")
+                uiRepeaterPhotos.DataSource = db.GetGalleryPhotoByCategoryID(Convert.ToInt32(uiDropDownListCat.SelectedValue));
+            uiRepeaterPhotos.DataBind();
+        }
+
+        protected void uiDropDownListCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
         }
     }
 }
