@@ -1413,17 +1413,17 @@
                             <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
                                 <div class="pull-right">
                                     <!-- ko if: Type()=="Room" && hasRoomFriendsBot -->
-                                    <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                    <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-default" style="max-height: 35px;padding: 3px;">
                                         <img src="/images/bots/RoomFriends_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomProgramBot -->
-                                    <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top"  class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                    <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top"  class="btn btn-default" style="max-height: 35px;padding: 3px;">
                                         <img src="/images/bots/RoomProgram_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomLawBot -->
-                                    <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top"  class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                    <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top"  class="btn btn-default" style="max-height: 35px;padding: 3px;">
                                         <img src="/images/bots/RoomLaw_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
@@ -1483,8 +1483,8 @@
                                     <img src="images/friends-icon.png" style="width: 15px;" /></a>
                                 <!-- /ko -->
                                 <!-- ko if: Type()=="Room" && hasEmailOwnerBot -->
-                                <a title="بريد المالك" data-bind="click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem">
-                                    <i class="icon-mail-forward" style="font-size: 17px;"></i>
+                                <a title="بريد المالك" data-bind="click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem" style="padding:5px;max-height:35px;">
+                                    <img src="/images/bots/EmailOwner_1.png" width=30 height=30>
                                 </a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
