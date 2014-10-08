@@ -2128,9 +2128,7 @@
                         <span style="color:green;" class="col-lg-2">شراء</span>
                         <br />
                         <span style="color:red;" class="col-lg-2">
-                            <!--ko if:EndDate()>moment()-->
                             <span data-bind="date:EndDate, format: 'YYYY/MM/DD'"></span>
-                            <!-- /ko-->
                         </span>
                         <span style="color:red;" class="col-lg-2">إنتهاء</span>
                     </div>
