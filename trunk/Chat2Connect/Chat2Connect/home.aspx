@@ -1413,18 +1413,18 @@
                             <div class="col-lg-12" style="padding: 0px; padding-bottom: 5px; border-bottom: 1px solid #FEC200;">
                                 <div class="pull-right">
                                     <!-- ko if: Type()=="Room" && hasRoomFriendsBot -->
-                                    <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-default roomMenuItem">
-                                        <span class="icon icon-male"></span>
+                                    <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                        <img src="/images/bots/RoomFriends_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomProgramBot -->
-                                    <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top" class="btn btn-default roomMenuItem">
-                                        <span class="icon icon-calendar"></span>
+                                    <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top"  class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                        <img src="/images/bots/RoomProgram_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomLawBot -->
-                                    <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top" class="btn btn-default roomMenuItem">
-                                        <span class="icon icon-bookmark"></span>
+                                    <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top"  class="btn btn-main" style="max-height: 35px;padding: 3px;">
+                                        <img src="/images/bots/RoomLaw_1.png" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                 </div>
@@ -2096,11 +2096,11 @@
                             <div class="panel panel-default" data-bind="foreach:$data">
                                 <div class="panel-heading" style="padding: 0 15px;">
                                     <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-bind="text:Bot.Title,attr:{'data-parent':'#accordion_'+RoomID(),'href':'#collapse_'+ID()}">
+                                    <a data-toggle="collapse" data-bind="text:Bot.Title,attr:{'data-parent':'#accordion_'+RoomID(),'href':'#cp_'+ID()}">
                                     </a>
                                     </h4>
                                 </div>
-                                <div class="panel-collapse collapse" data-bind="attr:{id:'collapse_'+ID()}">
+                                <div class="panel-collapse collapse" data-bind="attr:{id:'cp_'+ID()}">
                                     <div class="panel-body" data-bind="template: { name: 'bot_editTemplate'}">
         
                                     </div>
