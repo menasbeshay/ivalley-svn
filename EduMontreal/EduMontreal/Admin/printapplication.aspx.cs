@@ -27,6 +27,11 @@ namespace EduMontreal.Admin
         {
             if (!IsPostBack)
             {
+                if (Session["CurrentAdminUser"] == null)
+                {
+                    Response.Redirect("adminlogin");
+                }
+
                 if (AppDataID != 0)
                 {
                     ApplicationData app = new ApplicationData();

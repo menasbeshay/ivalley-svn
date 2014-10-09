@@ -51,6 +51,7 @@ namespace EduMontreal
                     AppPaymentTitle.Visible = true;
                     uiPanelAppPayment.Visible = true;
                     uiLabelAppAmount.Text = "1500";
+                    Session["CurrentPaymentAmount"] = "1500";
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }
 
@@ -61,6 +62,7 @@ namespace EduMontreal
                     AppPaymentTitle.Visible = false;
                     uiPanelAppPayment.Visible = false;
                     uiLabelAmount.Text = Apphistroy.TuitionFees.ToString();
+                    Session["CurrentPaymentAmount"] = Apphistroy.TuitionFees.ToString();
                     ClientScript.RegisterStartupScript(this.GetType(), "openPayment", "$(document).ready(function(){ $('#paymentPopup').modal('show'); });", true);
                 }
 

@@ -61,8 +61,8 @@
 	<!-- BEGIN TOP NAVIGATION BAR -->
 	<div class="header-inner">
 		<!-- BEGIN LOGO -->
-		<a class="navbar-brand" href="index.html">
-		<img src="../assets/img/logo.png" alt="logo" class="img-responsive"/>
+		<a class="navbar-brand pull-right" href="default">
+		<img src="../images/logo.png" alt="logo" class="img-responsive"/>
 		</a>
 		
 		<!-- END LOGO -->
@@ -72,7 +72,7 @@
 		</a>
 		<!-- END RESPONSIVE MENU TOGGLER -->
 		<!-- BEGIN TOP NAVIGATION MENU -->
-		<ul class="nav navbar-nav pull-right">
+		<ul class="nav navbar-nav pull-left">
 			
             <li class="dropdown language">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -153,11 +153,14 @@
 						<li>
 						<a href="changepassword"><i class="fa fa-lock"></i> <span class="title">تغيير كلمة المرور</span></a>
 					</li>
+                        <li>
+						<a href="myaccount"><i class="fa fa-user"></i> حسابى</a>
+					</li>
 				    <li >
 					    <a href="userlogin">
 					    <i class="fa fa-user"></i>
 					    <span class="title">
-						    الدخول
+						    خروج
 					    </span>
 					    </a>
 				    </li>

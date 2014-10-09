@@ -10,7 +10,7 @@
                 if (objData.result == 'approved') {
                     /*$('#ResponseSuccess').css('display', 'block');
                     $('#trxid').html(objData.transaction_id);*/
-                    window.location.href = "http://application.edumontreal.ca/success?trx=" + objData.transaction_id;
+                    window.location.href = "http://application.edumontreal.ca/success?trx=" + objData.transaction_id + "&a=" + objData.amount + " CAD" + "&d=" + new Date().getDate() + "&ct=" + objData.card_type + "&cn=" + "********" + objData.suffix;
                     //window.location.href = "http://localhost:2158/success?trx=" + objData.transaction_id;
                 }
                 else if (objData.result == 'declined' || objData.result_bool == false) {
@@ -65,6 +65,13 @@
         <h4>Please choose one of the following payment methods
 
         </h4>
+        <asp:Panel runat="server" ID="uiPanelAmount" CssClass="span12">
+        
+            you're going to pay <asp:Label ID="uiLabelAmount" runat="server"></asp:Label> CAD.
+        
+        </asp:Panel>
+        
+        <div class="clearfix" style="clear:both;height:10px;"></div>
         <div class="span12">
             <div class="note note-success" id="ResponseSuccess" style="display: none;">
                                 Your payment has been approved with transaction id :

@@ -33,11 +33,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="activate.aspx">
       <publishTime>09/09/2014 17:03:01</publishTime>
     </File>
+    <File Include="Admin/adminlogin.aspx">
+      <publishTime>10/09/2014 19:32:55</publishTime>
+    </File>
     <File Include="Admin/appdata.aspx">
       <publishTime>09/09/2014 17:03:06</publishTime>
     </File>
     <File Include="Admin/applications.aspx">
-      <publishTime>09/17/2014 13:06:20</publishTime>
+      <publishTime>10/09/2014 19:54:23</publishTime>
     </File>
     <File Include="Admin/assets/img/flags/eg.png">
       <publishTime>09/09/2014 17:03:06</publishTime>
@@ -51,23 +54,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/assets/img/menu-toggler.png">
       <publishTime>09/09/2014 17:03:06</publishTime>
     </File>
+    <File Include="Admin/changepassword.aspx">
+      <publishTime>10/09/2014 19:33:49</publishTime>
+    </File>
+    <File Include="Admin/logout.aspx">
+      <publishTime>10/09/2014 19:35:19</publishTime>
+    </File>
     <File Include="Admin/printapplication.aspx">
       <publishTime>09/11/2014 09:34:03</publishTime>
     </File>
     <File Include="apply.aspx">
-      <publishTime>09/17/2014 11:48:17</publishTime>
+      <publishTime>10/09/2014 18:13:02</publishTime>
     </File>
     <File Include="AppPayment.aspx">
-      <publishTime>09/15/2014 14:42:22</publishTime>
+      <publishTime>10/09/2014 19:23:11</publishTime>
     </File>
     <File Include="ar/activate.aspx">
       <publishTime>09/09/2014 17:03:20</publishTime>
     </File>
     <File Include="ar/apply.aspx">
-      <publishTime>09/17/2014 11:47:08</publishTime>
+      <publishTime>10/09/2014 18:13:36</publishTime>
     </File>
     <File Include="ar/apppayment.aspx">
-      <publishTime>09/15/2014 14:49:47</publishTime>
+      <publishTime>10/09/2014 19:25:25</publishTime>
     </File>
     <File Include="ar/changepassword.aspx">
       <publishTime>09/09/2014 17:03:20</publishTime>
@@ -82,7 +91,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:03:20</publishTime>
     </File>
     <File Include="ar/myaccount.aspx">
-      <publishTime>09/09/2014 17:03:20</publishTime>
+      <publishTime>10/09/2014 15:06:57</publishTime>
     </File>
     <File Include="ar/paymentmethod.aspx">
       <publishTime>09/15/2014 14:39:35</publishTime>
@@ -91,7 +100,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:03:20</publishTime>
     </File>
     <File Include="ar/Success.aspx">
-      <publishTime>09/16/2014 11:28:33</publishTime>
+      <publishTime>09/22/2014 15:31:31</publishTime>
     </File>
     <File Include="ar/userlogin.aspx">
       <publishTime>09/09/2014 17:03:20</publishTime>
@@ -100,7 +109,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/17/2014 12:10:51</publishTime>
     </File>
     <File Include="Arupload.html">
-      <publishTime>09/09/2014 17:03:01</publishTime>
+      <publishTime>09/22/2014 14:00:16</publishTime>
     </File>
     <File Include="assets/css/animate.css">
       <publishTime>09/09/2014 17:02:21</publishTime>
@@ -163,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:02:21</publishTime>
     </File>
     <File Include="assets/css/style.css">
-      <publishTime>09/09/2014 17:02:21</publishTime>
+      <publishTime>10/09/2014 16:08:56</publishTime>
     </File>
     <File Include="assets/css/themes/blue.css">
       <publishTime>09/09/2014 17:02:21</publishTime>
@@ -5686,10 +5695,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:35:51</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>09/16/2014 13:55:08</publishTime>
+      <publishTime>09/22/2014 14:00:25</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>09/16/2014 13:55:07</publishTime>
+      <publishTime>09/22/2014 14:00:25</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>09/09/2014 17:36:23</publishTime>
@@ -5710,7 +5719,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:38:43</publishTime>
     </File>
     <File Include="bin/EduMontreal.dll">
-      <publishTime>09/17/2014 12:56:23</publishTime>
+      <publishTime>10/09/2014 19:48:53</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/09/2014 17:40:16</publishTime>
@@ -5720,6 +5729,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/files/Refund_Policy_Agreement.pdf">
       <publishTime>09/09/2014 18:02:52</publishTime>
+    </File>
+    <File Include="bin/js/jquery.min.map">
+      <publishTime>09/22/2014 13:58:12</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>09/09/2014 17:42:07</publishTime>
@@ -5741,6 +5753,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Recaptcha.dll">
       <publishTime>09/09/2014 17:03:16</publishTime>
+    </File>
+    <File Include="bin/Receipt.rdlc">
+      <publishTime>09/22/2014 15:36:41</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/09/2013 21:04:48</publishTime>
@@ -6006,6 +6021,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/heroAccent.png">
       <publishTime>09/09/2014 17:03:05</publishTime>
     </File>
+    <File Include="Images/Logo.png">
+      <publishTime>10/09/2014 15:41:31</publishTime>
+    </File>
     <File Include="Images/orderedList0.png">
       <publishTime>09/09/2014 17:03:05</publishTime>
     </File>
@@ -6195,8 +6213,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/jquery.js">
       <publishTime>09/09/2014 17:03:02</publishTime>
     </File>
+    <File Include="js/jquery.min.map">
+      <publishTime>09/22/2014 13:58:12</publishTime>
+    </File>
     <File Include="js/jquery.validate.js">
       <publishTime>09/09/2014 17:03:01</publishTime>
+    </File>
+    <File Include="js/load-image.min.js">
+      <publishTime>08/07/2014 17:01:34</publishTime>
     </File>
     <File Include="js/main.js">
       <publishTime>09/09/2014 17:03:02</publishTime>
@@ -6229,19 +6253,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:03:19</publishTime>
     </File>
     <File Include="MasterPages/AREduMaster.Master">
-      <publishTime>09/09/2014 17:03:21</publishTime>
+      <publishTime>10/09/2014 16:12:55</publishTime>
     </File>
     <File Include="MasterPages/EduMaster.Master">
-      <publishTime>09/09/2014 17:03:21</publishTime>
+      <publishTime>10/09/2014 15:05:53</publishTime>
     </File>
     <File Include="myaccount.aspx">
-      <publishTime>09/09/2014 17:03:19</publishTime>
+      <publishTime>10/09/2014 15:06:41</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>09/09/2014 17:03:05</publishTime>
     </File>
     <File Include="paymentmethod.aspx">
       <publishTime>09/15/2014 14:37:39</publishTime>
+    </File>
+    <File Include="Receipt.rdlc">
+      <publishTime>09/22/2014 15:36:41</publishTime>
     </File>
     <File Include="sale.aspx">
       <publishTime>09/09/2014 17:03:05</publishTime>
@@ -6274,13 +6301,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:03:01</publishTime>
     </File>
     <File Include="success.aspx">
-      <publishTime>09/16/2014 11:28:30</publishTime>
+      <publishTime>09/22/2014 15:16:37</publishTime>
     </File>
     <File Include="templates.html">
-      <publishTime>09/16/2014 11:01:48</publishTime>
+      <publishTime>10/09/2014 18:07:14</publishTime>
     </File>
     <File Include="upload.html">
-      <publishTime>09/09/2014 17:03:05</publishTime>
+      <publishTime>09/22/2014 13:48:35</publishTime>
     </File>
     <File Include="userlogin.aspx">
       <publishTime>09/09/2014 17:01:24</publishTime>
@@ -6289,7 +6316,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2014 17:03:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/11/2014 11:56:32</publishTime>
+      <publishTime>10/09/2014 19:37:09</publishTime>
     </File>
     <File Include="wireTransefer.aspx">
       <publishTime>09/17/2014 12:10:39</publishTime>

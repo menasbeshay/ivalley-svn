@@ -333,7 +333,7 @@ namespace EduMontreal.ar
             // Payment of International Student Filing Fees
             history.ApplicationStatusID = 3;
             history.Save();
-
+            Session["CurrentPaymentAmount"] = "1500";
             Response.Redirect("paymentmethod?start=1");
 
 

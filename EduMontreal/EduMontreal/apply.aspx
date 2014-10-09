@@ -64,6 +64,12 @@
             });
 
             $.uniform.restore(".noUniform");
+
+            if ($('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val() != "") {
+                $('#RecentPhoto').attr('src', $('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val());
+                $('#RecentPhoto').css('display', 'block');
+            }
+            
         });
         function CheckBoxRequired_ClientValidate(sender, e) {
             e.IsValid = $(".ApproveCheck input:checkbox").is(':checked');
@@ -96,7 +102,7 @@
             });
 
             $('#' + tabid + " .field input[type=file]").each(function () {
-                if (!$(this).val() && $('#<%# uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
+                if (!$(this).val() && $('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
                     isvalid = false;
                     $(this).closest('.field').removeClass('has-success').addClass('has-error');
                 }
@@ -300,7 +306,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-4 ">
-                                    <label class="control-label ">Height</label>
+                                    <label class="control-label ">Height (in cm)</label>
                                     <asp:TextBox ID="uiTextBoxHeight" runat="server" CssClass="form-control"></asp:TextBox>
                                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Display="Dynamic" ErrorMessage="Height Is Required" ControlToValidate="uiTextBoxHeight" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
@@ -309,7 +315,7 @@
                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="col-md-4 ">
-                                    <label class="control-label ">Weight</label>
+                                    <label class="control-label ">Weight (in kg)</label>
                                     <asp:TextBox ID="uiTextBoxWeight" runat="server" CssClass="form-control"></asp:TextBox>
                                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" Display="Dynamic" ErrorMessage="Weight Is Required" ControlToValidate="uiTextBoxWeight" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
@@ -328,11 +334,31 @@
                             <div class="form-group col-md-12" style="padding-left: 0 !important;">
                                 <div class="col-md-4 ">
                                     <label class="control-label ">Hair Color</label>
-                                    <asp:TextBox ID="uiTextBoxHairColor" runat="server" CssClass="form-control"></asp:TextBox>                                    
+                                    <asp:DropDownList ID="uiDropDownListHairColor" runat="server">
+                                        <asp:ListItem Text="Black" Value="Black"></asp:ListItem>
+                                        <asp:ListItem Text="Brown" Value="Brown"></asp:ListItem>
+                                        <asp:ListItem Text="Blond" Value="Blond"></asp:ListItem>
+                                        
+                                        <asp:ListItem Text="Chestnut" Value="Chestnut"></asp:ListItem>
+                                        <asp:ListItem Text="Red" Value="Red"></asp:ListItem>
+                                        <asp:ListItem Text="Gray" Value="Gray"></asp:ListItem>
+                                        <asp:ListItem Text="White" Value="White"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <%--<asp:TextBox ID="uiTextBoxHairColor" runat="server" CssClass="form-control"></asp:TextBox>                                    --%>
                                 </div>
                                 <div class="col-md-4 ">
                                     <label class="control-label ">Eye Color</label>
-                                    <asp:TextBox ID="uiTextBoxEyeColor" runat="server" CssClass="form-control"></asp:TextBox>                                    
+                                    <asp:DropDownList ID="uiDropDownListEyeColor" runat="server">
+                                        <asp:ListItem Text="Black" Value="Black"></asp:ListItem>
+                                        <asp:ListItem Text="Brown" Value="Brown"></asp:ListItem>
+                                        <asp:ListItem Text="Hazel" Value="Hazel"></asp:ListItem>
+                                        <asp:ListItem Text="Blue" Value="Blue"></asp:ListItem>
+                                        <asp:ListItem Text="Green" Value="Green"></asp:ListItem>
+                                        <asp:ListItem Text="Red" Value="Red"></asp:ListItem>
+                                        <asp:ListItem Text="Gray" Value="Gray"></asp:ListItem>
+                                        
+                                    </asp:DropDownList>
+                                    <%--<asp:TextBox ID="uiTextBoxEyeColor" runat="server" CssClass="form-control"></asp:TextBox>                                    --%>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -368,6 +394,7 @@
                                     <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
                                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="Recent Photo Is Required" ControlToValidate="uiFileUploadRecentPhoto" Text="*"  ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                     <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
+                                    <img id="RecentPhoto" style="display:none; width:80px;" />
                                 </div>
 
                             </div>
@@ -581,7 +608,9 @@
                         </div>
                         <div class="tab-pane" id="tab6">
 
-
+                            <div class="col-md-12">
+                                <h4>Language skills :</h4>
+                            </div>
                             <div class="form-group col-md-12">
                                 <div class="col-md-5">
                                     <label class="control-label ">English Spoken ( 1 weak - 5 excellent)</label>
@@ -667,13 +696,13 @@
                                     <asp:UpdatePanel ID="uiUpdatePanelCourses" runat="server">
                                         <ContentTemplate>
                                             <div class="col-md-5">
-                                                <label class="control-label ">Language</label>
+                                                <label class="control-label ">Program Language</label>
                                                 <asp:DropDownList ID="uiDropDownListLanguage" runat="server" CssClass="form-control" Style="width: 256px;" OnSelectedIndexChanged="uiDropDownListLanguage_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 
                                             </div>
 
                                             <div class="col-md-5">
-                                                <label class="control-label ">Course</label>
+                                                <label class="control-label ">Program "Diploma"</label>
                                                 <asp:DropDownList ID="uiDropDownListCourses" runat="server" CssClass="form-control" Style="width: 300px;"></asp:DropDownList>
 
                                             </div>
@@ -706,15 +735,25 @@
                                     </p>
                                     <span class="label big">Please attach: </span>
                                     <ul class="list_1">
-                                        <li>Signed refund and cancellation policy for International studies ( 2 documents) 
-                                        </li>
-                                        <li>Photocopies of Certificate/Diploma/Degree of the highest level of education achieved (documents should be in English/French or translated to English)
-                                        </li>
-                                        <li>Photocopy of the proof of English proficiency (valid IELTS or School certificate proving English is the main language (or 75%) as a language of instructions) (not required in case of taking language classes)</li>
-                                        <li>Photocopy of the transcripts (documents should be in English/French or translated to English)</li>
-                                        <li>Documents supporting work experience, if any</li>
-                                        <li>Photocopy of the passport's bio-data page (passport should be valid)</li>
-
+                                       <li>Completed and signed for refund and cancellation policy for International studies</li>
+            <li>
+                Completed and signed for international student remedial contract (
+                <a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>download</a> )
+            </li>
+            <li>
+                Completed and signed for international student insurance contract (
+                <a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>download</a> )
+            </li>
+            <li>
+                Completed and signed for  international student attendance policy (
+                <a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>download</a> )
+            </li>
+            <li>Bank statement (must be translated into English)</li>
+            <li>Original Certificate/Diploma/Degree of the highest level of education achieved (documents should be in English/French or translated to English)</li>
+            <li>Original School or university transcripts (documents should be in English/French or translated to English)</li>
+            <li>Documents supporting work experience, if any</li>
+            <li>Photocopy of the passport's bio-data page (passport should be valid)</li>
+            <li>2 recent photos.</li>
                                     </ul>
 
 

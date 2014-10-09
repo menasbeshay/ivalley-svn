@@ -59,6 +59,11 @@ namespace EduMontreal
                 if (!app.IsColumnNull("CountryOfIssueID"))
                     uiDropDownListCOI.SelectedValue = app.CountryOfIssueID.ToString();
 
+                if (!app.IsColumnNull("HairColor"))
+                    uiDropDownListHairColor.SelectedValue = app.HairColor;
+                if (!app.IsColumnNull("EyeColor"))
+                    uiDropDownListEyeColor.SelectedValue = app.EyeColor;
+
                 uiTextBoxFaFamilyName.Text = app.FatherFamilyName;
                 uiTextBoxFaFirstName.Text = app.FatherFirstName;
                 uiTextBoxFaOccupation.Text = app.FatherOccupation;
@@ -235,6 +240,8 @@ namespace EduMontreal
             double.TryParse(uiTextBoxWeight.Text, out weight);
             application.Hieght = height;
             application.Weight = weight;
+            application.HairColor = uiDropDownListHairColor.SelectedValue;
+            application.EyeColor = uiDropDownListEyeColor.SelectedValue;
             application.GenderID = Convert.ToInt32(uiRadioButtonListGender.SelectedValue);
             application.CitizenShipID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);
             application.PassportNo = uiTextBoxPassNo.Text;
@@ -350,7 +357,7 @@ namespace EduMontreal
             // Payment of International Student Filing Fees
             history.ApplicationStatusID = 3; 
             history.Save();
-
+            Session["CurrentPaymentAmount"] = "1500";
             Response.Redirect("paymentmethod?start=1");
 
             
@@ -395,6 +402,10 @@ namespace EduMontreal
             double.TryParse(uiTextBoxWeight.Text, out weight);
             application.Hieght = height;
             application.Weight = weight;
+
+            application.HairColor = uiDropDownListHairColor.SelectedValue;
+            application.EyeColor = uiDropDownListEyeColor.SelectedValue;
+
             application.GenderID = Convert.ToInt32(uiRadioButtonListGender.SelectedValue);
             if (uiDropDownListCountry.SelectedIndex != 0 )
                 application.CitizenShipID = Convert.ToInt32(uiDropDownListCountry.SelectedValue);

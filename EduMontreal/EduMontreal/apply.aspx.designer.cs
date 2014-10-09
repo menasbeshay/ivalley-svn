@@ -121,22 +121,22 @@ namespace EduMontreal {
         protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListGender;
         
         /// <summary>
-        /// uiTextBoxHairColor control.
+        /// uiDropDownListHairColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxHairColor;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListHairColor;
         
         /// <summary>
-        /// uiTextBoxEyeColor control.
+        /// uiDropDownListEyeColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxEyeColor;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListEyeColor;
         
         /// <summary>
         /// uiDropDownListCountry control.

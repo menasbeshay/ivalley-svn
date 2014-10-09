@@ -118,12 +118,15 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="activate.aspx" />
+    <Content Include="Admin\adminlogin.aspx" />
     <Content Include="Admin\appdata.aspx" />
     <Content Include="Admin\applications.aspx" />
     <Content Include="Admin\assets\img\flags\eg.png" />
     <Content Include="Admin\assets\img\flags\us.png" />
     <Content Include="Admin\assets\img\logo.png" />
     <Content Include="Admin\assets\img\menu-toggler.png" />
+    <Content Include="Admin\changepassword.aspx" />
+    <Content Include="Admin\logout.aspx" />
     <Content Include="Admin\printapplication.aspx" />
     <Content Include="apply.aspx" />
     <Content Include="AppPayment.aspx" />
@@ -1849,6 +1852,7 @@
     <Content Include="Images\CreditCardSecurity_43.jpg" />
     <Content Include="Images\direct-bank-transfer.jpg" />
     <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
     <Content Include="Images\orderedList2.png" />
@@ -1913,6 +1917,7 @@
     <Content Include="js\jquery.iframe-transport.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.validate.js" />
+    <Content Include="js\load-image.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\megamenu.js" />
     <Content Include="js\modernizr.custom.17475.js" />
@@ -2173,6 +2178,9 @@
     <Content Include="EduMontrealDataSet.xss">
       <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="js\jquery.min.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\EduMontreal-SVN.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -2213,6 +2221,13 @@
     <Compile Include="activate.aspx.designer.cs">
       <DependentUpon>activate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\adminlogin.aspx.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\adminlogin.aspx.designer.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\appdata.aspx.cs">
       <DependentUpon>appdata.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2226,6 +2241,20 @@
     </Compile>
     <Compile Include="Admin\applications.aspx.designer.cs">
       <DependentUpon>applications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\changepassword.aspx.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\changepassword.aspx.designer.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\printapplication.aspx.cs">
       <DependentUpon>printapplication.aspx</DependentUpon>
@@ -2540,6 +2569,9 @@
     <EmbeddedResource Include="Admin\application.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="Receipt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

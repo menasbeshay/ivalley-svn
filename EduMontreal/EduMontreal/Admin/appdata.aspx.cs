@@ -27,6 +27,11 @@ namespace EduMontreal.Admin
         {
             if (!IsPostBack)
             {
+                if (Session["CurrentAdminUser"] == null)
+                {
+                    Response.Redirect("adminlogin");
+                }
+
                 if (StudentID != 0)
                 {
                     LoadDDls();
