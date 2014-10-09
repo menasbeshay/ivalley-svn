@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EDU.BLL;
+using Microsoft.Reporting.WebForms;
 
 namespace EduMontreal
 {
@@ -31,6 +32,26 @@ namespace EduMontreal
                     EmailTemplates template = new EmailTemplates();
                     template.GetTemplateByStatusID(history.ApplicationStatusID);
 
+                    Course course = new Course();
+                    course.LoadByPrimaryKey(app.SelectedCourseID);
+
+                    CourseLangauge lang = new CourseLangauge();
+                    lang.LoadByPrimaryKey(course.CourseLangaugeID);
+
+                    ReportParameter[] parameters = new ReportParameter[5];
+                    parameters[0] = new ReportParameter("TrxID", Request.QueryString["trx"].ToString());
+                    parameters[1] = new ReportParameter("Amount", Request.QueryString["a"].ToString());
+                    parameters[2] = new ReportParameter("Date", Request.QueryString["d"].ToString());
+                    parameters[3] = new ReportParameter("CardType", Request.QueryString["ct"].ToString());
+                    parameters[4] = new ReportParameter("CardNo", Request.QueryString["cn"].ToString());
+                    ReportViewer1.LocalReport.ReportPath = "Receipt.rdlc";
+                    /*ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource());*/
+
+                    ReportViewer1.LocalReport.SetParameters(parameters);
+                   
+                    ReportViewer1.LocalReport.Refresh();
+
                     if (template.RowCount > 0)
                     {
                         try
@@ -46,7 +67,7 @@ namespace EduMontreal
 
                             msg.Attachments.Add(new Attachment(Server.MapPath("~/files/Refund_Policy_Agreement.pdf")));  
 
-                            msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email);
+                            msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge);
                             
                             SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["mailserver"], 25);
 

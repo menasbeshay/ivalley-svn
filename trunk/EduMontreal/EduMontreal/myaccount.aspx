@@ -113,7 +113,7 @@
         
          <div class="form-actions fluid">					
 					<div class="col-md-3">						
-                        <asp:LinkButton ID="uiLinkButtonSignUp" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonSignUp_Click" ValidationGroup="signup">Sign up</asp:LinkButton>
+                        <asp:LinkButton ID="uiLinkButtonSignUp" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonSignUp_Click" ValidationGroup="signup">Save</asp:LinkButton>
 					</div>                     
 				</div>
             </div>

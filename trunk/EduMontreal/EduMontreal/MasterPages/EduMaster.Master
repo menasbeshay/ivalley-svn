@@ -65,7 +65,7 @@
 	<div class="header-inner">
 		<!-- BEGIN LOGO -->
 		<a class="navbar-brand" href="default">
-		<img src="assets/img/logo.png" alt="logo" class="img-responsive"/>
+		<img src="/images/logo.png" alt="logo" class="img-responsive"/>
 		</a>
 		
 		<!-- END LOGO -->
@@ -549,11 +549,14 @@
 						<li>
 						<a href="changepassword"><i class="fa fa-lock"></i> <span class="title">Change password</span></a>
 					</li>
+                        <li>
+						<a href="myaccount"><i class="fa fa-user"></i> <span class="title">My profile</span></a>
+					</li>
 				    <li >
 					    <a href="userlogin">
 					    <i class="fa fa-user"></i>
 					    <span class="title">
-						    Login
+						    Log out
 					    </span>
 					    </a>
 				    </li>

@@ -24,16 +24,16 @@ namespace EduMontreal.MasterPages
                     app.GetApplicationByStudentID(student.StudentID);
                     if (app.RowCount > 0)
                     {
-                        uiLabelApplication.Text = "Follow your application";
+                        uiLabelApplication.Text = "Follow my application";
                     }
                     else
                     {
-                        uiLabelApplication.Text = "Start your application";
+                        uiLabelApplication.Text = "Start my application";
                     }
                 }
                 else
                 {
-                    uiLabelApplication.Text = "Start your application";
+                    uiLabelApplication.Text = "Start my application";
                 }
 
             }

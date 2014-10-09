@@ -18,6 +18,16 @@ namespace EduMontreal
                 {
                     Response.Redirect("userlogin");
                 }
+
+                if (Session["CurrentPaymentAmount"] != null)
+                {
+                    uiPanelAmount.Visible = true;
+                    uiLabelAmount.Text = Session["CurrentPaymentAmount"].ToString();
+                }
+                else
+                {
+                    uiPanelAmount.Visible = false;
+                }
                 Master.PageTitle = "Payment";
 
 

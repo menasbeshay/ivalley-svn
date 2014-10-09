@@ -231,8 +231,10 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Payment receipt">
                                 <ItemTemplate>
-                                   
+                                     <%# string.IsNullOrEmpty(Eval("WireTranseferReceipt").ToString()) ? "<div style='display:none;'>" : "" %>
+                                    
                                     <a href='#paymentModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Payment receipt</a>&nbsp;
+                                      <%# string.IsNullOrEmpty(Eval("WireTranseferReceipt").ToString()) ? "</div>" : "" %>
                                     <div id='paymentModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -255,8 +257,10 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Visa result">
                                 <ItemTemplate>
-                                   
+                                   <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "<div style='display:none;'>" : "" %>
+                                     
                                     <a href='#visaModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Visa result</a>
+                                    <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "</div>" : "" %>
                                     <div id='visaModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

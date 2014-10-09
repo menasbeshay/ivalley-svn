@@ -62,6 +62,10 @@
                 $('#<%= uiHiddenFieldFrenchWritten.ClientID %>').val($(this).val());
             });
 
+            if ($('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val() != "") {
+                $('#RecentPhoto').attr('src', $('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val());
+                $('#RecentPhoto').css('display', 'block');
+            }
             
         });
         function CheckBoxRequired_ClientValidate(sender, e) {
@@ -95,7 +99,7 @@
             });
 
             $('#' + tabid + " .field input[type=file]").each(function () {
-                if (!$(this).val() && $('#<%# uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
+                if (!$(this).val() && $('#<%= uiHiddenFieldRecentPhoto.ClientID %>').val() == "") {
                     isvalid = false;
                     $(this).closest('.field').removeClass('has-success').addClass('has-error');
                 }
@@ -281,12 +285,12 @@
                                         </div>
                                         <div class="form-group" style="padding-left:0 !important;width:100%;clear:both;">
                                             <div class="col-md-4">
-                                                <label class="control-label ">الطول<span class="required">* </span></label>
+                                                <label class="control-label ">الطول (سم)<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxHeight" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="control-label ">الوزن<span class="required">* </span></label>
+                                                <label class="control-label ">الوزن )كجم(<span class="required">* </span></label>
                                                 <asp:TextBox ID="uiTextBoxWeight" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
                                             </div>
@@ -300,12 +304,32 @@
                                          <div class="form-group " style="padding-left:0 !important;width:100%;clear:both;">
                                             <div class="col-md-4">
                                                 <label class="control-label ">لون الشعر<span class="required">* </span></label>
-                                                <asp:TextBox ID="uiTextBoxHairColor" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:DropDownList ID="uiDropDownListHairColor" runat="server">
+                                        <asp:ListItem Text="أسود" Value="Black"></asp:ListItem>
+                                        <asp:ListItem Text="بنى" Value="Brown"></asp:ListItem>
+                                        <asp:ListItem Text="أشقر" Value="Blond"></asp:ListItem>
+                                        
+                                        <asp:ListItem Text="بنى محمر" Value="Chestnut"></asp:ListItem>
+                                        <asp:ListItem Text="أحمر" Value="Red"></asp:ListItem>
+                                        <asp:ListItem Text="رمادى" Value="Gray"></asp:ListItem>
+                                        <asp:ListItem Text="أبيض" Value="White"></asp:ListItem>
+                                    </asp:DropDownList>
+                                                <%--<asp:TextBox ID="uiTextBoxHairColor" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                                 
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label ">لون العين<span class="required">* </span></label>
-                                                <asp:TextBox ID="uiTextBoxEyeColor" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:DropDownList ID="uiDropDownListEyeColor" runat="server">
+                                        <asp:ListItem Text="أسود" Value="Black"></asp:ListItem>
+                                        <asp:ListItem Text="بنى" Value="Brown"></asp:ListItem>
+                                        <asp:ListItem Text="عسلى" Value="Hazel"></asp:ListItem>
+                                        <asp:ListItem Text="أزرق" Value="Blue"></asp:ListItem>
+                                        <asp:ListItem Text="أخضر" Value="Green"></asp:ListItem>
+                                        <asp:ListItem Text="أحمر" Value="Red"></asp:ListItem>
+                                        <asp:ListItem Text="رمادى" Value="Gray"></asp:ListItem>
+                                        
+                                    </asp:DropDownList>
+                                               <%-- <asp:TextBox ID="uiTextBoxEyeColor" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                                 
                                             </div>                                            
                                         </div>
@@ -342,6 +366,7 @@
                                                 <asp:FileUpload ID="uiFileUploadRecentPhoto" runat="server" />
                                                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Display="Dynamic" ErrorMessage="يجب رفع صورة شخصية" ControlToValidate="uiFileUploadRecentPhoto" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                                 <asp:HiddenField ID="uiHiddenFieldRecentPhoto" runat="server" />
+                                                <img id="RecentPhoto" style="display:none; width:80px;" />
                                             </div>
 
                                         </div>
@@ -554,7 +579,9 @@
                                    
                                 </div>
                                 <div class="tab-pane" id="tab6">
-                                    
+                                    <div class="col-md-12">
+                                <h4>المهارات اللغوية :</h4>
+                            </div>
 
                                         <div class="form-group col-md-12">
                                             <div class="col-md-5">
@@ -641,13 +668,13 @@
                                                 <asp:UpdatePanel ID="uiUpdatePanelCourses" runat="server">
                                                     <ContentTemplate>
                                                         <div class="col-md-5">
-                                                            <label class="control-label ">اللغة</label>
+                                                            <label class="control-label ">لغة البرنامج</label>
                                                             <asp:DropDownList ID="uiDropDownListLanguage" runat="server" CssClass="form-control" Style="width: 256px;" OnSelectedIndexChanged="uiDropDownListLanguage_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 
                                                         </div>
                                                         
                                                         <div class="col-md-5">
-                                                            <label class="control-label ">الكورس</label>
+                                                            <label class="control-label ">البرنامح (الدبلومة)</label>
                                                             <asp:DropDownList ID="uiDropDownListCourses" runat="server" CssClass="form-control" Style="width: 300px;"></asp:DropDownList>
 
                                                         </div>
@@ -679,14 +706,16 @@
                                                 </p>
                                                 <span class="label big">مرفقات مطلوبة: </span>
                                                 <ul class="list_1">
-                                                    <li>Signed refund and cancellation policy for International studies ( 2 documents) 
-                                                    </li>
-                                                    <li>Photocopies of Certificate/Diploma/Degree of the highest level of education achieved (documents should be in English/French or translated to English)
-                                                    </li>
-                                                    <li>Photocopy of the proof of English proficiency (valid IELTS or School certificate proving English is the main language (or 75%) as a language of instructions) (not required in case of taking language classes)</li>
-                                                    <li>Photocopy of the transcripts (documents should be in English/French or translated to English)</li>
-                                                    <li>Documents supporting work experience, if any</li>
-                                                    <li>Photocopy of the passport's bio-data page (passport should be valid)</li>
+                                                    <li>بيان موقع من الطالب لسياسة الإلغاء و ترجيع النقود للدراسات الدولية</li>
+            <li> بيان موقع من الطالب لقواعد اعادة الامتحان للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>تحميل</a> )</li>
+            <li>بيان موقع من الطالب لعقد التأمين للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>تحميل</a> )</li>
+            <li>بيان موقع من الطالب لقواعد حضور الطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>تحميل</a> )</li>
+            <li>شهادة أصلية / دبلوم / درجة أعلى مستوى من التعليم حققها الطالب (ينبغي أن تكون الوثائق باللغة الإنجليزية / الفرنسية أو مترجمة ترجمة معتمدة إلى الإنجليزية).</li>
+            <li>بيان درجات أصلى من المدرسة  أو الجامعه (ينبغي أن تكون الوثائق باللغة الإنجليزية / الفرنسية أو مترجمة إلى الإنجليزية).</li>
+            <li>المستندات المؤيدة للخبرة في العمل، إن وجدت .</li>
+            <li>صورة من صفحة البيانات في جواز السفر (يجب أن يكون جواز السفر ساري المفعول).</li>
+            <li>عدد 2 صورة شخصية حديثه.</li>
+            <li>تفاصيل الحساب البنكى الخاص بالطالب او ولى الأمر (يجب ان يكون مترجما للإنجليزية).</li>
 
                                                 </ul>
 
