@@ -1358,10 +1358,10 @@
 
                 <!-- /ko -->
                 <div style="height: 5px;" class="clear"></div>
-                <!-- ko with:RoomBots-->
-                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: $data,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
+                <!-- ko -->
+                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: RoomBots,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
                     <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
-                        <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ '1' +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
+                        <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $root.ActivWindow().Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
                                 <span data-bind="text: 'بوت : ' + Bot.Title()"></span>
@@ -1415,17 +1415,17 @@
                                 <div class="pull-right">
                                     <!-- ko if: Type()=="Room" && hasRoomFriendsBot -->
                                     <a title="أصدقاء الغرفة" data-bind="click:showRoomFriendsBot" data-placement="top" class="btn btn-default" style="max-height: 35px;padding: 3px;">
-                                        <img src="/images/bots/RoomFriends_1.png" width=30 height=30>
+                                        <img data-bind="attr:{src:'/images/bots/RoomFriends_'+Settings.TypeID()+'.png'}" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomProgramBot -->
                                     <a title="برامج الغرفة" data-bind="click:showRoomProgram" data-placement="top"  class="btn btn-default" style="max-height: 35px;padding: 3px;">
-                                        <img src="/images/bots/RoomProgram_1.png" width=30 height=30>
+                                        <img data-bind="attr:{src:'/images/bots/RoomProgram_'+Settings.TypeID()+'.png'}" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                     <!-- ko if: Type()=="Room" && hasRoomLawBot -->
                                     <a title="قانون الغرفة" data-bind="click:showRoomLaw" data-placement="top"  class="btn btn-default" style="max-height: 35px;padding: 3px;">
-                                        <img src="/images/bots/RoomLaw_1.png" width=30 height=30>
+                                        <img data-bind="attr:{src:'/images/bots/RoomLaw_'+Settings.TypeID()+'.png'}" width=30 height=30>
                                     </a>
                                     <!-- /ko -->
                                 </div>
@@ -2121,7 +2121,7 @@
     <script type="text/html" id="bot_editTemplate">
         <div class="box">
             <div class="icon">
-                <img class="image" data-bind="attr:{'src' : Bot.IconPath() + '_1.png'}" />
+                <img class="image" data-bind="attr:{'src' : Bot.IconPath() +'_'+$root.ActivWindow().Settings.TypeID()+'.png'}" />
                 <div class="info">
                     <span class="title" data-bind="text:Bot.Title"></span>
                         <div>

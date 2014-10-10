@@ -42,6 +42,7 @@ namespace Chat2Connect.usercontrols
             repRoomTypeSpecs.DataSource = roomTypeSpec.DefaultView;
             repRoomTypeSpecs.DataBind();
 
+            lblPoints.Text = BLL.Member.CurrentMember.s_Credit_Point;
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
@@ -57,15 +58,15 @@ namespace Chat2Connect.usercontrols
                     try
                     {
                         int type = Convert.ToInt32(selectedTypeSpecDurationID.Value);
-                        decimal val = Convert.ToDecimal(selectedTypeSpecDurationPrice.Value);
+                        int val = Convert.ToInt32(selectedTypeSpecDurationPrice.Value);
 
-                        if (BLL.Member.CurrentMember.Credit_Money < val)
+                        if (BLL.Member.CurrentMember.Credit_Point < val)
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
                             return;
                         }
 
-                        BLL.Member.CurrentMember.Credit_Money -= val;
+                        BLL.Member.CurrentMember.Credit_Point -= val;
                         BLL.Member.CurrentMember.Save();
 
                         room.RoomType.RoomTypeSpecDurationID = type;
@@ -112,13 +113,13 @@ namespace Chat2Connect.usercontrols
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DataRowView row = (DataRowView)e.Item.DataItem;
-                Repeater repDurations = (Repeater)e.Item.FindControl("repDurations");
+                GridView grdDurationTypespec = (GridView)e.Item.FindControl("grdDurationTypespec");
                 roomTypespecID = Convert.ToInt32(row["ID"]);
 
-                TypeDuration duration = new TypeDuration();
-                duration.LoadOfRoomTypeSpecID(roomTypespecID);
-                repDurations.DataSource = duration.DefaultView;
-                repDurations.DataBind();
+                RoomTypeSpecDuration specDurations = new RoomTypeSpecDuration();
+                specDurations.LoadByRoomTypeSpecID(roomTypespecID);
+                grdDurationTypespec.DataSource = specDurations.DefaultView;
+                grdDurationTypespec.DataBind();
 
             }
         }
@@ -129,38 +130,16 @@ namespace Chat2Connect.usercontrols
             switch (order)
             {
                 case 1:
-                    orderString = "تظهر فى الغرف VIP &nbsp;&nbsp;&nbsp;&nbsp;<br />وتظهر فى أعلى القائمة";
+                    orderString = "فى أعلى الغرف";
                     break;
                 case 2:
-                    orderString = "فى أعلى القائمة";
-                    break;
-                case 3:
-                    orderString = "قبل الغرف الغير ملونة";
-                    break;
-                case 4:
-                    orderString = "بعد الغرف الملونة";
+                    orderString = "بعد الغرف المميزة";
                     break;
             }
 
             return orderString;
         }
 
-        protected void repDurations_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                DataRowView row = (DataRowView)e.Item.DataItem;
-                GridView grdDurationTypespec = (GridView)e.Item.FindControl("grdDurationTypespec");
-                int durationID = 0;
-                if (row["ID"]!=DBNull.Value) 
-                    durationID=Convert.ToInt32(row["ID"]);
-
-                RoomTypeSpecDuration specDurations = new RoomTypeSpecDuration();
-                specDurations.LoadByRoomTypeSpecIDAndDurationID(roomTypespecID, durationID);
-                grdDurationTypespec.DataSource = specDurations.DefaultView;
-                grdDurationTypespec.DataBind();
-
-            }
-        }
+        
     }
 }

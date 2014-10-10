@@ -658,6 +658,8 @@ namespace Chat2Connect.services
             roomObject.Settings.EnableMicForAdminsOnly = room.EnableMicForAdminsOnly;
             roomObject.Settings.CamCount = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.MaxMic = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            roomObject.Settings.TypeID = room.RoomType.RoomTypeSpecDuration.RoomTypeSpecID;
+            roomObject.Settings.Color = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Color;
             //Room Members
             RoomMember roomMember = new RoomMember();
             if (!roomMember.LoadByPrimaryKey(BLL.Member.CurrentMember.MemberID, id))
