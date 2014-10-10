@@ -604,7 +604,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             this.addMessage(message);
         };
         this.addBotMsg = function (msg, botImg) {
-            botImg = botImg + '_1.png';
+            botImg = botImg + '_' + this.Settings.TypeID() + '.png';
+            msg = '<span class="botMsg" style="color:'+this.Settings.Color()+'">' + msg + '</span>';
             var message = new chatMessage(msg, botImg);
             this.addMessage(message);
         };
