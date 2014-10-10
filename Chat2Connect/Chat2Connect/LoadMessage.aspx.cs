@@ -28,10 +28,12 @@ namespace Chat2Connect
                             Chat2Connect.SRCustomHubs.NotificationHub notification = new SRCustomHubs.NotificationHub();
                             notification.SendMailNotifications(msg.MemberID);
                         }
-                    }
 
-                    dtlMessage.DataSource = msg.DefaultView;
-                    dtlMessage.DataBind();
+                        dvFrom.InnerHtml = Helper.TypeConverter.ToString(msg.GetColumn("FromMember"));
+                        dvToMembers.InnerHtml = Helper.TypeConverter.ToString(msg.GetColumn("ToMembers"));
+                        dvSubject.InnerHtml = Helper.TypeConverter.ToString(msg.GetColumn("Subject"));
+                        dvBody.InnerHtml = Helper.TypeConverter.ToString(msg.GetColumn("Body"));
+                    }
                 }
             }
         }

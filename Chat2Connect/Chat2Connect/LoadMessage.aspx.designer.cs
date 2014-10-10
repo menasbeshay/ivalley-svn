@@ -13,12 +13,39 @@ namespace Chat2Connect {
     public partial class LoadMessage {
         
         /// <summary>
-        /// dtlMessage control.
+        /// dvFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dtlMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvFrom;
+        
+        /// <summary>
+        /// dvToMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvToMembers;
+        
+        /// <summary>
+        /// dvSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvSubject;
+        
+        /// <summary>
+        /// dvBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvBody;
     }
 }
