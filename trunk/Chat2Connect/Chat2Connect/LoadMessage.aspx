@@ -8,57 +8,42 @@
 </head>
 <body>
     <form runat="server">
-    <asp:DetailsView ID="dtlMessage" runat="server" AutoGenerateRows="false" Width="100%">
-        <Fields>
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <div class="form-horizontal blockBox">
-                        <div class="row">
-                            <div class="col-sm-4 pull-right">
-                                <label>من </label>
-                            </div>
-                            <div class="col-sm-8 pull-right">
-                                <%#Eval("FromMember") %>
-                            </div>
-                        </div>
-                        <div class="clear" style="height: 10px;"></div>
-                        <div class="row">
-                            <div class="col-sm-4 pull-right">
-                                <label> إلى </label>
-                            </div>
-                            <div class="col-sm-8 pull-right">
-                                <%#Eval("ToMembers") %>
-                            </div>
-
-                        </div>
-                        <div class="clear" style="height: 10px;"></div>
-                        <div class="row">
-                            <div class="col-sm-4 pull-right">
-                                <label>عنوان الرسالة</label>
-                            </div>
-                            <div class="col-sm-8 pull-right">
-                                <%#Eval("Subject") %>
-                            </div>
-                        </div>
-                        <div class="clear" style="height: 10px;"></div>
-                        <div class="row">
-                            <div class="col-sm-3 pull-right">
-                                <label>المحتوى </label>
-                            </div>
-                           
-                        </div>
-                        <div class="clear" style="height: 10px;"></div>
-                         <div class="row">
-                           
-                            <div class="col-sm-12 pull-right">
-                                <%#Eval("Body") %>
-                            </div>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Fields>
-    </asp:DetailsView>
+        <div class="form-horizontal blockBox">
+            <div class="row">
+                <div class="col-sm-4 pull-right">
+                    <label>من </label>
+                </div>
+                <div class="col-sm-8 pull-right" runat="server" id="dvFrom">
+                </div>
+            </div>
+            <div class="clear" style="height: 10px;"></div>
+            <div class="row">
+                <div class="col-sm-4 pull-right">
+                    <label>إلى </label>
+                </div>
+                <div class="col-sm-8 pull-right" runat="server" id="dvToMembers">
+                </div>
+            </div>
+            <div class="clear" style="height: 10px;"></div>
+            <div class="row">
+                <div class="col-sm-4 pull-right">
+                    <label>عنوان الرسالة</label>
+                </div>
+                <div class="col-sm-8 pull-right" runat="server" id="dvSubject">
+                </div>
+            </div>
+            <div class="clear" style="height: 10px;"></div>
+            <div class="row">
+                <div class="col-sm-3 pull-right">
+                    <label>المحتوى </label>
+                </div>
+            </div>
+            <div class="clear" style="height: 10px;"></div>
+            <div class="row">
+                <div class="col-sm-12 pull-right" style="word-wrap: break-word;" runat="server" id="dvBody">
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>

@@ -149,7 +149,7 @@
                     });
                     $('#lnkReply').click(function () {
                         if ($("#lnkReply").data("message") != "") {
-                            document.location.href = '<%=ResolveUrl("~/Messages.aspx") %>?reply=' + $("#lnkReply").data("message");
+                            document.location.href = '<%=ResolveUrl("~/popuppages/Messages_popup.aspx") %>?reply=' + $("#lnkReply").data("message");
                         }
                         else {
                             alert('يجب إحتيار رسالة أولا بالضغط على عنوان الرسالة');
