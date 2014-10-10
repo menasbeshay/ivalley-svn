@@ -47,6 +47,7 @@
         .hamsaModal {
             width: 400px;
         }
+
         .list-group-item {
             display: list-item;
         }
@@ -2224,14 +2225,9 @@
         </div>
         <div class="form-group">
             <label for="rdStatus" class="col-md-4 control-label pull-right"></label>
-            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
-                <li class="pull-right">
-                    <label>
-                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.FollowSchedule" />
-                        <span data-bind="text: Name"></span>
-                    </label>
-                </li>
-            </ul>
+            <div class="col-md-4 pull-right">
+                <select class="form-control" data-bind="options: Settings.Schedule,optionsText: 'Name',optionsValue:'ID',value: Settings.FollowSchedule"></select>
+            </div>
         </div>
     </script>
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.EmailOwner %>">
@@ -2241,14 +2237,9 @@
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.RoomLaw %>">
         <div class="form-group">
             <label for="rdStatus" class="col-md-4 control-label pull-right">الوقت</label>
-            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
-                <li class="pull-right">
-                    <label>
-                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.LawScheduleString" />
-                        <span data-bind="text: Name"></span>
-                    </label>
-                </li>
-            </ul>
+            <div class="col-md-4 pull-right">
+                <select class="form-control" data-bind="options: Settings.Schedule,optionsText: 'Name',optionsValue:'ID',value: Settings.LawScheduleString"></select>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table">
@@ -2290,14 +2281,9 @@
     <script type="text/html" id="bot_template_<%= (int)Helper.Enums.Bot.RoomProgram %>">
         <div class="form-group">
             <label for="rdStatus" class="col-md-4 control-label pull-right">الوقت</label>
-            <ul data-bind="foreach: Settings.Schedule" class="col-md-8 pull-right">
-                <li class="pull-right">
-                    <label>
-                        <input type="radio" data-bind="value: ID, checked: $parent.Settings.ProgramScheduleString" />
-                        <span data-bind="text: Name"></span>
-                    </label>
-                </li>
-            </ul>
+            <div class="col-md-4 pull-right">
+                <select class="form-control" data-bind="options: Settings.Schedule,optionsText: 'Name',optionsValue:'ID',value: Settings.ProgramScheduleString"></select>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table">
