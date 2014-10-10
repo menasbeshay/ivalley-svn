@@ -1161,9 +1161,16 @@
                     <div>
                         <div class="pull-right ">
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
-                            <a id="uiLabelRoomName" data-bind="click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;">
+                            <!-- ko if: Type()=="Room" -->
+                            <a data-bind="click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;">
                                 <span data-bind="text:Name, attr:{style:'color:'+Settings.Color()}"></span>
                             </a>
+                            <!-- /ko -->
+                            <!-- ko if: Type()!="Room" -->
+                            <a style="font-weight: bold; text-decoration: none; cursor: pointer;">
+                                <span data-bind="text:Name"></span>
+                            </a>
+                            <!-- /ko -->
                         </div>
                         <!-- ko if: Type()=="Room" -->
                         <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">
@@ -1366,10 +1373,10 @@
 
                     </div>
                 </div>
-
                 <!-- /ko -->
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko -->
+                <!-- ko if: Type()=="Room" -->
                 <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: RoomBots,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
                     <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
                         <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $root.ActivWindow().Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
@@ -1382,6 +1389,7 @@
                         </div>
                     </div>
                 </div>
+                <!--/ko -->
                 <!--/ko -->
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
