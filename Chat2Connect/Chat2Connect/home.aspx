@@ -51,6 +51,15 @@
         .list-group-item {
             display: list-item;
         }
+        .botMsg ol
+        {
+            margin:0px;
+        }
+        .botMsg li
+        {
+            display:list-item;
+            font-size:90%;
+        }
     </style>
     <script src="js/bootstrap-slider.js"></script>
     <link href="css/slider.css" rel="stylesheet" />
@@ -1152,7 +1161,9 @@
                     <div>
                         <div class="pull-right ">
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
-                            <a id="uiLabelRoomName" data-bind="text:Name, click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;"></a>
+                            <a id="uiLabelRoomName" data-bind="click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;">
+                                <span data-bind="text:Name, attr:{style:'color:'+Settings.Color()}"></span>
+                            </a>
                         </div>
                         <!-- ko if: Type()=="Room" -->
                         <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">
