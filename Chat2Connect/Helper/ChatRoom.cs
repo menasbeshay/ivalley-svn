@@ -135,6 +135,9 @@ namespace Helper
         public bool MarkOnLoginWithoutWrite { get; set; }
 
         public bool EnableMicForAdminsOnly { get; set; }
+
+        public int TypeID { get; set; }
+        public string Color { get; set; }
     }
 
     public class ChatMessage
