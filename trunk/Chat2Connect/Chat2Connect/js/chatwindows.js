@@ -1078,6 +1078,35 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 .done(function (data) {
                 });
         };
+
+        this.ToggleFav = function () {
+            var window = this;
+            $.ajax({
+                url: "../Services/Services.asmx/ToggleFav",
+                dataType: "json",
+                type: "post",
+                data: "{'rid':'" + window.ID() + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == false) {                        
+                        notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                    }
+                    else if (data.d == true) {
+                        var oldvalue = window.CurrentMember().IsFavorite();
+                        window.CurrentMember().IsFavorite(!oldvalue);
+                        if(oldvalue)
+                            notify('success', 'تم حذف الغرفة من المفضلة بنجاح.');
+                        else
+                            notify('success', 'تم إضافة الغرفة إلى المفضلة بنجاح.');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    //$('#pGeneral').css('display', 'none');
+                    $("#favlink_" + rid).css('display', 'block');
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+                }
+            });
+        };
     }
 
     self.changeCurrent = function (selctor, id, type) {

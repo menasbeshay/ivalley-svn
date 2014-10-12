@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Info
 {
-    public class RoomFriend:BotSettings
+    public class RoomFriend : BotSettings
     {
     }
 }

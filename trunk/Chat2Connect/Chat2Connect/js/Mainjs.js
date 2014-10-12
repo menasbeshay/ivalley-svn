@@ -344,10 +344,10 @@ function notify(type, msg)
 
 /* room functions */
 
-function addtoFav(rid) {
+function ToggleFav(rid, isfav) {
     //$('#pGeneral').css('display', 'block');
     $.ajax({
-        url: "../Services/Services.asmx/AddRoomToFav",
+        url: "../Services/Services.asmx/ToggleFav",
         dataType: "json",
         type: "post",
         data: "{'rid':'" + rid + "'}",
@@ -355,13 +355,15 @@ function addtoFav(rid) {
         success: function (data) {
             if (data.d == false) {
                 //$('#pGeneral').css('display', 'none');
-                $("#favlink_" + rid).css('display', 'block');
+                //$("#favlink_" + rid).css('display', 'block');
                 notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
             }
             else if (data.d == true) {
                 //$('#pGeneral').css('display', 'none');
-                $("#favlink_" + rid).css('display', 'none');
-                notify('success', 'تم إضافة الغرفة إلى المفضلة بنجاح.');                
+                //$("#favlink_" + rid).css('display', 'none');
+                var window = chatVM.getwindow(rid, "Room");
+                window.CurrentMember().IsFavorite(!isfav);
+                notify('success', 'تم التحديث بنجاح.');                
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
