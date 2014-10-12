@@ -111,13 +111,13 @@
 						<nav>
 							<ul class="sf-menu">
 								<li id="menuItemHome"><a href="index.aspx">Home</a></li>
-                                <li id="menuItemAbout"><a href="Pages.aspx?PID=5">About us</a></li>
-                                <li id="menuItemAct"><a href="Pages.aspx?PID=2">Activities</a></li>
+                                <li id="menuItemAbout"><a href="gPage.aspx?PID=5">About us</a></li>
+                                <li id="menuItemAct"><a href="gPage.aspx?PID=2">Activities</a></li>
                                 <li id="menuItemNews"><a href="News.aspx">News</a></li>
                                 <li id="menuItemGallery"><a href="Gallery.aspx">Gallery</a></li>
-                                <li id="menuItemTW"><a href="Pages.aspx?PID=3">Team work</a></li>	
+                                <li id="menuItemTW"><a href="gPage.aspx?PID=3">Team work</a></li>	
                                 <li id="menuItemSugg"><a href="Suggestions.aspx">Suggestions</a></li>								
-								<li id="menuItemContact"><a href="Pages.aspx?PID=7">Contact us</a></li>
+								<li id="menuItemContact"><a href="gPage.aspx?PID=7">Contact us</a></li>
 							</ul><!-- end menu -->
 						</nav><!-- end nav -->
 					</div><!-- row -->
@@ -177,13 +177,13 @@
 						<div class="foot-menu">
 							<ul>
 								<li><a href="index.aspx">Home</a></li>
-								<li><a href="Pages.aspx?PID=5">About us</a></li>
-								<li><a href="Pages.aspx?PID=2">Activities</a></li>
+								<li><a href="gPage.aspx?PID=5">About us</a></li>
+								<li><a href="gPage.aspx?PID=2">Activities</a></li>
                                 <li><a href="News.aspx">News</a></li>
                                 <li><a href="Gallery.aspx">Gallery</a></li>
-                                <li><a href="Pages.aspx?PID=3">Team work</a></li>	
+                                <li><a href="gPage.aspx?PID=3">Team work</a></li>	
                                 <li><a href="Suggestions.aspx">Suggestions</a></li>								
-								<li><a href="Pages.aspx?PID=7">Contact us</a></li>
+								<li><a href="gPage.aspx?PID=7">Contact us</a></li>
 							</ul><!-- end links -->
 						</div><!-- end foot menu -->
 					</div><!-- end row -->

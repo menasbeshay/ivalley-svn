@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -2000,6 +2004,7 @@
     <None Include="Modules\fckeditor\_samples\py\sample01.py" />
     <None Include="Modules\fckeditor\_samples\py\sampleposteddata.py" />
     <Content Include="NewDesign.Master" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="styles\font\ElegantIcons.eot" />
     <None Include="styles\font\ElegantIcons.ttf" />
     <None Include="styles\font\ElegantIcons.woff" />

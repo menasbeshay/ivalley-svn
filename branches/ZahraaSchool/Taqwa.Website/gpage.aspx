@@ -1,5 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ZahraaAr.Master" AutoEventWireup="true" CodeBehind="gpage.aspx.cs" Inherits="Taqwa.Website.gpage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="js/purl.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Tabs
+            var pid = $.url().param('PID');
+            if (pid != "undefined") {
+                switch (pid) {
+                    case '2':
+                        $("#menuItemAct").addClass("current");
+                        break;
+                    case '3':
+                        $("#menuItemTW").addClass("current");
+                        break;
+                    case '5':
+                        $("#menuItemAbout").addClass("current");
+                        break;
+                    case '7':
+                        $("#menuItemContact").addClass("current");
+                        break;
+
+                }
+            }
+
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div style="clear:both; height:10px;"></div>
