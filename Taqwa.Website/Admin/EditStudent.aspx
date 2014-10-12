@@ -23,6 +23,12 @@
             prtwin.close();
         }
     </script>
+    <style type="text/css">
+        .radio label {
+            padding-right:25px !important;
+            margin-top:-2px !important;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="BackDiv">
@@ -71,7 +77,9 @@
                 &nbsp;
                 <asp:Button ID="uiButtonExport" runat="server" Text="حفظ ملف Excel" 
                 onclick="uiButtonExport_Click" />
-                <input type="button" onclick="PrintGridData();return false;" value="طباعة">
+                <input type="button" onclick="PrintGridData();return false;" value="طباعة" />
+            <input type="button" onclick="$('#removeresultsdiag').dialog('open');" value="حذف النتائج">
+
 
     </div>
         <div class="clear"></div>
@@ -659,6 +667,50 @@
         </div>
 
         </asp:Panel>
+
+
+        <div class="dialog-modal" id="removeresultsdiag" title="حذف النتائج ">                                    
+           <div class="AdminMain" style="direction:rtl;">
+                <div class="AdminLeft" style="width: 195px">
+                <asp:Label ID="Label31" runat="server" CssClass="Label" 
+                Text="السنة الدراسية :"></asp:Label>
+            </div>
+            <div class="AdminMiddle">
+                <asp:DropDownList ID="uiDropDownListSchoolYear_RemoveResults" runat="server" Width="400px">
+                </asp:DropDownList>
+            </div>
+            <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+            <div class="clear">
+            </div>    
+
+                <div class="AdminLeft" style="width: 195px">
+                إختر الترم
+            </div>
+            <div class="AdminMiddle">
+                <asp:RadioButtonList ID="uiRadioButtonListSelectTerm" runat="server" RepeatDirection="Vertical" RepeatLayout="Table" CssClass="radio">
+                    <asp:ListItem Selected="True" Value="1">الترم الأول </asp:ListItem>
+                    <asp:ListItem Value="2">الترم الثانى</asp:ListItem>                    
+                </asp:RadioButtonList>
+            </div>
+            <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+            <div class="clear">
+            </div>    
+
+                <div class="AdminLeft" style="width: 195px">
+                
+            </div>
+            <div class="AdminMiddle">
+                <asp:Button ID="uiButtonRemoveResult" runat="server" Text="حذف النتيجة" OnClick="uiButtonRemoveResult_Click" />
+            </div>
+            <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+            <div class="clear">
+            </div>    
+
+           </div>
+        </div>
     
 
      <script type="text/javascript">
@@ -726,6 +778,19 @@
                  modal: true,
                  width: 650,
                  open: function (type, data) { $(this).parent().appendTo("#Main"); }
+                 /* close: function (event, ui) {
+                 //this.html('');
+                 $(this).dialog('close');
+                 $('.ui-widget-overlay').remove();
+                 }*/
+             });
+
+
+             $("#removeresultsdiag").dialog({
+                 modal: true,
+                 width: 650,
+                 open: function (type, data) { $(this).parent().appendTo("#Main"); },
+                 autoOpen: false
                  /* close: function (event, ui) {
                  //this.html('');
                  $(this).dialog('close');

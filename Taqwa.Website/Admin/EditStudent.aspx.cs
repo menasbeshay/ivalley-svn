@@ -117,6 +117,12 @@ namespace Taqwa.Website.Admin
             uiDropDownListClasses.DataBind();
             uiDropDownListClasses.SelectedIndex = 0;
 
+            uiDropDownListSchoolYear_RemoveResults.DataSource = db.GetAllSchoolYear();
+            uiDropDownListSchoolYear_RemoveResults.DataTextField = "ArName";
+            uiDropDownListSchoolYear_RemoveResults.DataValueField = "SchoolYearID";
+            uiDropDownListSchoolYear_RemoveResults.DataBind();
+            uiDropDownListSchoolYear_RemoveResults.SelectedIndex = 0;
+
             uiDropDownListClassRooms.DataSource = db.GetAllClassRoomsByClassID(Convert.ToInt32(uiDropDownListClasses.SelectedValue));
             uiDropDownListClassRooms.DataTextField = "ArName";
             uiDropDownListClassRooms.DataValueField = "ClassRoomID";
@@ -518,6 +524,12 @@ namespace Taqwa.Website.Admin
                     uiLabelPassError.Visible = true;
                 
             }
+        }
+
+        protected void uiButtonRemoveResult_Click(object sender, EventArgs e)
+        {
+            DBLayer db = new DBLayer();
+            db.DeleteTermResult(Convert.ToInt32(uiDropDownListSchoolYear_RemoveResults.SelectedValue), (uiRadioButtonListSelectTerm.SelectedValue == "1"), (uiRadioButtonListSelectTerm.SelectedValue == "2"));
         }
 
         
