@@ -1307,11 +1307,11 @@
                         <span id="uiLabelMemberCount" data-bind="text:ExistingMembers().length"></span>
                     </div>
 
-                    <!-- ko if: !CurrentMember().IsFavorite() -->
+                    
                     <div style="padding: 5px;" class="pull-right col-lg-2">
-                        <a style="cursor: pointer;" data-bind="attr:{onclick:'addtoFav('+ID()+');',id:'favlink_'+uniqueID()}"><i style="color: #FEC200;" class="icon-star"></i>أضف إلى المفضلة</a>
+                        <a style="cursor: pointer;" data-bind="attr:{id:'favlink_'+uniqueID()},click:ToggleFav.bind($data)"><i style="color: #FEC200;" class="icon-star"></i><span data-bind="text:CurrentMember().IsFavorite() ? 'حذف من' : 'أضف إلى'"></span> المفضلة</a>
                     </div>
-                    <!-- /ko -->
+                    
                     <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
                             <a data-bind="attr:{href:fbURL}" target="_blank" id="uiHyperLinkFb">
@@ -1377,7 +1377,7 @@
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko -->
                 <!-- ko if: Type()=="Room" -->
-                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: RoomBots,attr:{'style' : $data.length == 0 ? 'display:none;' : ''}" style="">
+                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: RoomBots,style:{'display' : $data.length == 0 ? 'none;' : 'block'}">
                     <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
                         <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $root.ActivWindow().Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
                         <div class="botInfo">

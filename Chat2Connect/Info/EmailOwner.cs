@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Info
 {
-    public class EmailOwner:BotSettings
+    public class EmailOwner : BotSettings
     {
     }
 }

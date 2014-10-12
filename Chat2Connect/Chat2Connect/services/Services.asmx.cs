@@ -373,6 +373,36 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public bool ToggleFav(string rid)
+        {
+
+            try
+            {
+                BLL.Member member = BLL.Member.CurrentMember;
+                RoomMember rm = new RoomMember();
+                if (!rm.LoadByPrimaryKey(member.MemberID, Convert.ToInt32(rid)))
+                {
+                    rm.AddNew();
+                    rm.MemberID = member.MemberID;
+                    rm.RoomID = Convert.ToInt32(rid);
+                }
+
+                if (rm.IsFavorite == true)
+                    rm.IsFavorite = false;
+                else
+                    rm.IsFavorite = true;
+                rm.Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool MarkMembers(string rid, bool CanWrite, bool mark)
         {
 
