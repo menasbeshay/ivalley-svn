@@ -102,6 +102,7 @@
     <Content Include="Admin\AccountType.aspx" />
     <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\MailAds.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
     <Content Include="Admin\ManageRoom.aspx" />
     <Content Include="Admin\RoomsReport.aspx" />
@@ -849,6 +850,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MailAds.aspx.cs">
+      <DependentUpon>MailAds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MailAds.aspx.designer.cs">
+      <DependentUpon>MailAds.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageAccount.aspx.cs">
       <DependentUpon>ManageAccount.aspx</DependentUpon>

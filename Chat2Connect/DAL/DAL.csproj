@@ -46,6 +46,7 @@
     <Compile Include="Country.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="MailAds.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberFriend.cs" />
     <Compile Include="MemberGift.cs" />

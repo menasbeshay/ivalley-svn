@@ -106,7 +106,8 @@ namespace Helper
             Admin_SiteHelper,
             [StringValue("إعدادات عامة")]
             Admin_GeneralSettings,
-
+            [StringValue("إعدادات إعلانات البريد")]
+            Admin_MailAds,
         }
 
         public enum SiteMembers
