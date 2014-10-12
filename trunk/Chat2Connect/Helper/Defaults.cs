@@ -38,5 +38,18 @@ namespace Helper
                 return id;
             }
         }
+
+        public static string AdsPicFolder
+        {
+            get
+            {
+                string path = "files/ads";
+                if (System.Configuration.ConfigurationManager.AppSettings["mailadpics"] != null)
+                {
+                    path = System.Configuration.ConfigurationManager.AppSettings["mailadpics"].ToString();
+                }
+                return path;
+            }
+        }
     }
 }

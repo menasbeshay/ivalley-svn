@@ -63,6 +63,7 @@
     <Compile Include="Log\TransferBalance.cs" />
     <Compile Include="Log\ViewBalancePage.cs" />
     <Compile Include="Log\ViewMailPage.cs" />
+    <Compile Include="MailAds.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberFriend.cs" />
     <Compile Include="MemberGift.cs" />

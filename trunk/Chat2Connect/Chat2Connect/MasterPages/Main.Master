@@ -248,6 +248,10 @@
                         {%>                            
                     <li><a href='<%=ResolveUrl("~/Admin/SiteSettings.aspx") %>'>إعدادات عامة</a></li>
                     <%} %>
+                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.MailAds.PageRoles))
+                        {%>                            
+                    <li><a href='<%=ResolveUrl("~/Admin/MailAds.aspx") %>'>إعدادات إعلانات البريد</a></li>
+                    <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
                       {%>
                     <li><a href='<%=ResolveUrl("~/Admin/StatsReport.aspx") %>'>إحصائيات</a></li>
