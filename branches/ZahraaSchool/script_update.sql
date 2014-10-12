@@ -485,3 +485,24 @@ Delete Students
 where StudentID = @StudentID
 
 Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'DeleteTermResult' and
+		        xtype = 'P')
+Drop Procedure DeleteTermResult
+Go
+Create Procedure DeleteTermResult @FirstTerm bit,
+								  @SecondTerm bit ,
+								  @ScholYearID int
+as
+
+Delete Results
+where (FirstHalfMidTerm = @FirstTerm OR 
+	   FirstHalfFinal = @FirstTerm ) And
+	  (SecondHalfMidTerm = @SecondTerm OR 
+	   SecondHalfFinal = @SecondTerm) And 
+	   SchoolYearID = @ScholYearID
+
+Go

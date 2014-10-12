@@ -1024,6 +1024,20 @@ namespace Taqwa.BLL
                 return false;
             }
         }
+
+        public bool DeleteTermResult(int SchoolYearID, bool FH, bool SH)
+        {
+            int rows = 0;
+            try
+            {
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "DeleteTermResult", FH, SH, SchoolYearID);
+                return (rows > 0);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         #endregion
 
         #region  Fees Methods
