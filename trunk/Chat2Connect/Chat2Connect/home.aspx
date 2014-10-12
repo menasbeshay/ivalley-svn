@@ -1377,7 +1377,20 @@
                 <div style="height: 5px;" class="clear"></div>
                 <!-- ko -->
                 <!-- ko if: Type()=="Room" -->
-                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="foreach: RoomBots,style:{'display' : $data.length == 0 ? 'none;' : 'block'}">
+                <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="style:{'display' : RoomBots.length == 0 ? 'none;' : 'block'}">
+                    <!-- ko if: $root.ActivWindow() -->
+                    <div class="col-lg-1 botIcon">
+                        <img data-bind="attr:{'src' : 'images/bots/Room_'+ $root.ActivWindow().Settings.TypeID() +'.png','title':$root.ActivWindow().Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية' }">
+                        <div class="botInfo">
+                            <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
+                                <span data-bind="text: 'بوت : ' + ($root.ActivWindow().Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية')"></span>
+                                <div style="clear: both; height: 3px"></div>
+                                <%--<span data-bind="text: 'الحالة : فعال'"></span>--%>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ko -->
+                    <!-- ko foreach: RoomBots -->
                     <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
                         <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $root.ActivWindow().Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
                         <div class="botInfo">
@@ -1388,6 +1401,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ko -->
                 </div>
                 <!--/ko -->
                 <!--/ko -->
