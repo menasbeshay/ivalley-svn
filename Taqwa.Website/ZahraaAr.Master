@@ -116,13 +116,13 @@
 						<nav>
 							<ul class="sf-menu" >
 								<li id="menuItemHome"><a style="font-size:16px;"  href="index.aspx">الرئيسية</a></li>
-                                <li id="menuItemAbout"><a style="font-size:16px;"  href="Pages.aspx?PID=5">عن المدرسة</a></li>
-                                <li id="menuItemAct"><a style="font-size:16px;"  href="Pages.aspx?PID=2">الأنشطة</a></li>
+                                <li id="menuItemAbout"><a style="font-size:16px;"  href="gPage.aspx?PID=5">عن المدرسة</a></li>
+                                <li id="menuItemAct"><a style="font-size:16px;"  href="gPage.aspx?PID=2">الأنشطة</a></li>
                                 <li id="menuItemNews"><a style="font-size:16px;"  href="News.aspx">الأخبار</a></li>
                                 <li id="menuItemGallery"><a style="font-size:16px;"  href="Gallery.aspx">ألبوم الصور</a></li>
-                                <li id="menuItemTW"><a style="font-size:16px;"  href="Pages.aspx?PID=3">فريق العمل</a></li>	
+                                <li id="menuItemTW"><a style="font-size:16px;"  href="gPage.aspx?PID=3">فريق العمل</a></li>	
                                 <li id="menuItemSugg"><a style="font-size:16px;"  href="Suggestions.aspx">إقتراحات</a></li>								
-								<li id="menuItemContact"><a style="font-size:16px;"  href="Pages.aspx?PID=7">اتصل بنا</a></li>
+								<li id="menuItemContact"><a style="font-size:16px;"  href="gPage.aspx?PID=7">اتصل بنا</a></li>
 							</ul><!-- end menu -->
 						</nav><!-- end nav -->
 					</div><!-- row -->
@@ -184,13 +184,13 @@
 						<div class="foot-menu">
 							<ul>
 								<li><a href="index.aspx">الرئيسية</a></li>
-								<li><a href="Pages.aspx?PID=5">عن المدرسة</a></li>
-								<li><a href="Pages.aspx?PID=2">الأنشطة</a></li>
+								<li><a href="gPage.aspx?PID=5">عن المدرسة</a></li>
+								<li><a href="gPage.aspx?PID=2">الأنشطة</a></li>
                                 <li><a href="News.aspx">الأخبار</a></li>
                                 <li><a href="Gallery.aspx">معرض الصور</a></li>
-                                <li><a href="Pages.aspx?PID=3">فريق العمل</a></li>	
+                                <li><a href="gPage.aspx?PID=3">فريق العمل</a></li>	
                                 <li><a href="Suggestions.aspx">إقتراحات</a></li>								
-								<li><a href="Pages.aspx?PID=7">اتصل بنا</a></li>
+								<li><a href="gPage.aspx?PID=7">اتصل بنا</a></li>
 							</ul><!-- end links -->
 						</div><!-- end foot menu -->
 					</div><!-- end row -->
