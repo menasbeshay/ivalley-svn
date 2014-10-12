@@ -55,7 +55,7 @@
                             <li class="header_row_1 align_center radius5_topleft" style="background-color:<%# Eval("Color") %>">
                                 <h2 class="col4"><%# Eval("Name") %></h2>
                             </li>
-                            <li class="header_row_2 align_center" style="background-repeat:no-repeat;background-position:center;background-color:<%# Eval("Color") %>;background-image:url('images/bots/RoomFriends_<%# Eval("ID") %>.png')">
+                            <li class="header_row_2 align_center" style="background-repeat:no-repeat;background-position:center;background-color:<%# Eval("Color") %>;background-image:url('images/bots/Room_<%# Eval("ID") %>.png')">
                             </li>
                             <li class="row_style_4 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("MicQuality") %></a></span></li>
                             <li class="row_style_2 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("CamQuality") %></a></span></li>
