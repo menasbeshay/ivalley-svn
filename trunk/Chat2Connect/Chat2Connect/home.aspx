@@ -1648,7 +1648,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <lablel class="col-lg-2 pull-right">فيسبوك</lablel>
+                                            <label class="col-lg-2 pull-right">فيسبوك</label>
                                         </td>
                                         <td>
                                             <input type="text" data-bind="value:fbURL" style="width: 400px" />
@@ -1659,7 +1659,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <lablel class="col-lg-2 pull-right">تويتر</lablel>
+                                            <label class="col-lg-2 pull-right">تويتر</label>
                                         </td>
                                         <td>
                                             <input type="text" data-bind="value:tURL" style="width: 400px" />
@@ -1667,7 +1667,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <lablel class="col-lg-2 pull-right">يوتيوب</lablel>
+                                            <label class="col-lg-2 pull-right">يوتيوب</label>
                                         </td>
                                         <td>
                                             <input type="text" data-bind="value:utURL" style="width: 400px" />
@@ -1700,7 +1700,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon icon-group" style="float: left;  margin-left: 10px;"></i>
                         <h3 id="myModalLabel1">دعوة أصدقاء</h3>
                     </div>
                     <div class="modal-body">
@@ -1746,7 +1746,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon icon-gift" style="float: left;  margin-left: 10px;"></i>
                         <h3 id="myModalLabel1">أرسل هدية</h3>
                     </div>
                     <div class="modal-body">
@@ -1808,7 +1808,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon icon-paperclip" style="float: left; margin-left: 10px;"></i>
                         <h3 id="myModalLabel1">إرسال ملفات</h3>
                     </div>
                     <div class="modal-body">
@@ -1971,7 +1971,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                    <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                    <i class="icon icon-gift" style="float: left; margin-left: 10px;"></i>
                     <h3 id="myModalLabel1">أرسل هدية</h3>
                 </div>
                 <div class="modal-body">
@@ -2051,7 +2051,7 @@
                 <div class="modal-content hamsaModal">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon icon-group" style="float: left;  margin-left: 10px;"></i>
                         <h3>بوت أصدقاء الغرفة</h3>
                     </div>
                     <div class="modal-body">
@@ -2086,7 +2086,7 @@
                 <div class="modal-content hamsaModal">
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
-                        <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
+                        <i class="icon  icon-envelope" style="float: left; margin-left: 10px;"></i>
                         <h3>بوت بريد المالك</h3>
                     </div>
                     <div class="modal-body">

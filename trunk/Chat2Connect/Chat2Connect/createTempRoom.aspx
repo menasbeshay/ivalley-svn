@@ -19,8 +19,14 @@
                         إختر الأصدقاء 
                     </h5>
                     <div class="form-control SScroll" data-height="400px">
-                    <asp:CheckBoxList ID="uiCheckBoxListFriends" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%" CssClass="checkbox-main">
+                    <asp:CheckBoxList ID="uiCheckBoxListFriends" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%" CssClass="checkbox-main" >
                     </asp:CheckBoxList>
+                        <asp:Panel runat="server" ID="uiPanelNoFriendsFound" Visible="false">
+                            <div class="alert alert-danger">
+                                عفواً . لا يوجد أصدقاء متواجدين حالياً. من فضلك حاول فى وقت لاحق.
+                            </div>
+                        </asp:Panel>
+                        
                         </div>
                     <div class="clearfix" style="height:10px;"></div>
                 </div>

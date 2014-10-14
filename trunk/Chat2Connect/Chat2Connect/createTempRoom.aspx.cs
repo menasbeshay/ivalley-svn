@@ -21,11 +21,18 @@ namespace Chat2Connect
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 MemberFriend friends = new MemberFriend();
                 friends.GetAllMemberFriends(member.MemberID);
-
-                uiCheckBoxListFriends.DataSource = friends.DefaultView;
-                uiCheckBoxListFriends.DataTextField = "UserName";
-                uiCheckBoxListFriends.DataValueField = "FriendID";
-                uiCheckBoxListFriends.DataBind();
+                if (friends.RowCount > 0)
+                {
+                    uiCheckBoxListFriends.DataSource = friends.DefaultView;
+                    uiCheckBoxListFriends.DataTextField = "UserName";
+                    uiCheckBoxListFriends.DataValueField = "FriendID";
+                    uiCheckBoxListFriends.DataBind();
+                }
+                else
+                {
+                    uiPanelNoFriendsFound.Visible = true;
+                    uiCheckBoxListFriends.Visible = false;
+                }
             }
         }
 
@@ -33,35 +40,42 @@ namespace Chat2Connect
         {
             if (Request.IsAuthenticated)
             {
-                IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
-                Member member = new Member();
-                member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));                
-                Room room = new Room();
-                room.AddNew();
-                
-                room.EnableCam = true;
-                room.EnableOneMic = true;
-                room.RowStatusID = 1;
-                room.Save();
-
-                room.Name = room.RoomID.ToString();
-                room.Save();
-
-                Session["TempRoomCreate"] = room.RoomID;
-
-                // notify friends with new temp room 
-                
-                for (int i = 0; i < uiCheckBoxListFriends.Items.Count; i++)
+                if (uiCheckBoxListFriends.Items.Cast<ListItem>().Where(i => i.Selected).Count() > 0)
                 {
-                    if (uiCheckBoxListFriends.Items[i].Selected)
+                    IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+                    Member member = new Member();
+                    member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+                    Room room = new Room();
+                    room.AddNew();
+
+                    room.EnableCam = true;
+                    room.EnableOneMic = true;
+                    room.RowStatusID = 1;
+                    room.Save();
+
+                    room.Name = room.RoomID.ToString();
+                    room.Save();
+
+                    Session["TempRoomCreate"] = room.RoomID;
+
+                    // notify friends with new temp room 
+
+                    for (int i = 0; i < uiCheckBoxListFriends.Items.Count; i++)
                     {
-                        Member temp = new Member();
-                        temp.LoadByPrimaryKey(Convert.ToInt32(uiCheckBoxListFriends.Items[i].Value));
-                        MembershipUser u = Membership.GetUser(temp.UserID);
-                        _Ncontext.Clients.Group(u.UserName).inviteToTempRoom(room.RoomID, member.Name);
-                    }                   
-                }                
-                Response.Redirect("home.aspx");
+                        if (uiCheckBoxListFriends.Items[i].Selected)
+                        {
+                            Member temp = new Member();
+                            temp.LoadByPrimaryKey(Convert.ToInt32(uiCheckBoxListFriends.Items[i].Value));
+                            MembershipUser u = Membership.GetUser(temp.UserID);
+                            _Ncontext.Clients.Group(u.UserName).inviteToTempRoom(room.RoomID, member.Name);
+                        }
+                    }
+                    Response.Redirect("home.aspx");
+                }
+                else
+                {
+ 
+                }
             }
         }
     }

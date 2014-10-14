@@ -67,24 +67,40 @@ $(document).ready(function () {
 
     CountFriends();
 
-    $(document).bind('keydown keyup', function (e) {
-        if (e.which === 116) {
+    //$(window).bind('keydown keyup', function (e) {
+    //    if (e.which === 116) {
+    //        inFormOrLink = true;
+    //    }        
+    //});
+
+    function isF5(e) {
+        return e.which == 116;
+    }
+    function isCtrlR(e) {
+        return e.ctrlKey && e.which == 82;
+    }
+
+    function triggerReloadKeys(e) {
+        if (isF5(e) || isCtrlR(e)) {
             inFormOrLink = true;
-        }        
-    });
+        }
+    }
+    $(document).bind("keydown", triggerReloadKeys);
+
 
     $('header a').bind('click', function () { inFormOrLink = true; });
     $('.adminmenu a').bind('click', function () { inFormOrLink = true; });
     $('.main_menu a').bind('click', function () { inFormOrLink = true; });
     $('form').bind('submit', function () { inFormOrLink = true; });
-
+    $('body a').bind('click', function () { inFormOrLink = true; });
     $(".statustextbox").on('change keyup paste', function () {
         $('#StatusCount').html(70 - $(this).val().length);
     });
 
    
 
-    $(window).bind("beforeunload", function () {        
+    $(window).bind("beforeunload", function () {
+        if(!inFormOrLink)
             HandleClose();
     });
 

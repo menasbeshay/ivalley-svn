@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using System.Web.Security;
 
 namespace Chat2Connect
 {
@@ -14,7 +15,27 @@ namespace Chat2Connect
         {
             if (!IsPostBack)
             {
-                txtFrom.Text = Member.CurrentMember.UserName;
+                LoadFriends();
+            }
+        }
+
+        private void LoadFriends()
+        {
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(member.MemberID);
+            if (friends.RowCount > 0)
+            {
+                uiCheckBoxListFriends.DataSource = friends.DefaultView;
+                uiCheckBoxListFriends.DataTextField = "UserName";
+                uiCheckBoxListFriends.DataValueField = "FriendID";
+                uiCheckBoxListFriends.DataBind();
+            }
+            else
+            {
+                uiPanelNoFriendsFound.Visible = true;
+                uiCheckBoxListFriends.Visible = false;
             }
         }
     }
