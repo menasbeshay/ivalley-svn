@@ -92,7 +92,7 @@ namespace Chat2Connect.Admin.UserControls
                 {
                     BoundField field = new BoundField();
                     field.HeaderText = column.HeaderText;
-                    field.DataFormatString = column.DataFormat;
+                    field.DataFormatString = "{0:" + column.DataFormat + "}";
                     field.DataField = column.PropertyName;
 
                     dtlLog.Columns.Add(field);

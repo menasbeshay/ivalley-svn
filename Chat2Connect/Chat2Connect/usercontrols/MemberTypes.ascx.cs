@@ -45,6 +45,7 @@ namespace Chat2Connect.usercontrols
             uiDropDownListFriends.DataTextField = "MemberName";
             uiDropDownListFriends.DataValueField = "FriendID";
             uiDropDownListFriends.DataBind();
+            uiDropDownListFriends.Items.Insert(0, new ListItem(BLL.Member.CurrentMember.Name, BLL.Member.CurrentMemberID.ToString()));
 
             MemberTypeSpec memberTypeSpec = new MemberTypeSpec();
             memberTypeSpec.LoadAll();

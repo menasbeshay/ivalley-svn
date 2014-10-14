@@ -140,10 +140,6 @@ namespace BLL
         {
             get
             {
-                if (HttpContext.Current.Items["CurrentMember"] == null)                
-                    return 0;
-
-                currentMember = (BLL.Member)HttpContext.Current.Items["CurrentMember"];
                 return CurrentMember.MemberID;
             }
         }
