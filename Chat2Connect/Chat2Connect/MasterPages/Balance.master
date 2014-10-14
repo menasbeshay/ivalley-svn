@@ -14,35 +14,43 @@
      <div style="padding:10px;">
     <div class=" pull-right" style="width:15%;">
         <div class="center-block" style="width:100%;">
-                   <a href="../mybalance.aspx" id="mybalance" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">رصيدى
-                       <i class="modernicon iconmodern-balance pull-left" style="font-size:30px;"></i>
+                   <a href="../mybalance.aspx" id="mybalance" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                       
+                       <i class="modernicon iconmodern-balance col-md-1 " style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                       <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">رصيدى</span>
                    </a>                
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../AccountLog.aspx" id="userlog" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">كشف الحساب
-                    <i class="modernicon iconmodern-statement pull-left" style="font-size:30px;"></i>
+                <a href="../AccountLog.aspx" id="userlog" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                    <i class="modernicon iconmodern-statement pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                    <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">كشف الحساب</span>
+
                 </a>
         </div>
         
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../AccTypes.aspx" id="acctypes" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">تلوين حساب
-                    <i class="modernicon iconmodern-acctype pull-left" style="font-size:30px;"></i>
+                <a href="../AccTypes.aspx" id="acctypes" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                    
+                    <i class="modernicon iconmodern-acctype pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                    <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">تلوين حساب</span>
                 </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
                 <a href="../roomtypes.aspx" id="roomtypes" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
-                    تلوين غرفة
-                    <i class="modernicon iconmodern-roomtype pull-left" style="font-size:30px;"></i>
+                    
+                    <i class="modernicon iconmodern-roomtype pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                    <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">تلوين غرفة</span>
                 </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
                 <a href="../VIPPrices.aspx" id="vipaccounts" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
-                    أسعار الحسابات <br />والغرف المميزة
-                    <i class="modernicon iconmodern-premium pull-left" style="font-size:30px;margin-top:-15px;"></i>
+                    
+                    <i class="modernicon iconmodern-premium pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                    <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">أسعار الحسابات <br />والغرف المميزة</span>
                 </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        

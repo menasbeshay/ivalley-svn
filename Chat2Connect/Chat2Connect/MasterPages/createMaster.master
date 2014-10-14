@@ -20,31 +20,66 @@
                 <a href="../createTempRoom.aspx" id="createTempRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة مؤقتة</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
-        <div class="center-block" style="width:100%;">
+        <%--<div class="center-block" style="width:100%;">
                 <a href="#" id="createFriendGroup" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء مجموعة فى قائمة الأصدقاء</a>
         </div>
-        <div class="clearfix"></div>
+        <div class="clearfix"></div>--%>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
                 <a href="../GroupMsg.aspx" id="sendmsgtoall" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إرسال رسالة جماعية على الخاص</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="#" id="invitefriend" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">دعوة صديق</a>
+                <a href="#inviteNewFriends" data-toggle="modal" id="invitefriend" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">دعوة صديق</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
                 <a href="../giftbox.aspx" id="giftbox" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">صندوق الهدايا</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
-        <div class="center-block" style="width:100%;">
+        <%--<div class="center-block" style="width:100%;">
                 <a href="#" id="games" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">ألعاب</a>
         </div>
-        <div class="clearfix" style="height:5px;"></div>
+        <div class="clearfix" style="height:5px;"></div>--%>
     </div>
     <div class="col-lg-9 pull-right ">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+
+        <div id="inviteNewFriends" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content hamsaModal">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon  icon-group" style="float: left; margin-left: 10px;"></i>
+                        <h3>دعوة أصدقاء جدد</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                           <div class="form-group">
+                                <label class="col-sm-2 control-label pull-right">البريد الإلكترونى لصديقك</label>
+                                <asp:TextBox ID="uiTextBoxMail" CssClass="form-control col-sm-8" runat="server" TextMode="Email" ValidationGroup="invite_friends"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="invite_friends" ControlToValidate="uiTextBoxMail" Font-Bold="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                               <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="البريد الإلكترونى غير صحيح" ValidationGroup="invite_friends" ControlToValidate="uiTextBoxMail" Font-Bold="true" ForeColor="Red" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            </div>
+                            <div class="clear" style="height:10px;"></div>
+                            <div class="form-group">
+                                 
+                                <asp:TextBox ID="uiTextBoxBody" CssClass="form-control" maxlength="500" runat="server" TextMode="MultiLine" Rows="5" ValidationGroup="invite_friends"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ValidationGroup="invite_friends" ControlToValidate="uiTextBoxBody" Font-Bold="true" ForeColor="Red" ></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6 pull-left">
+                                    <asp:LinkButton ID="uiLinkButtonSend" runat="server" CssClass="btn btn-main" OnClick="uiLinkButtonSend_Click" ValidationGroup="invite_friends">إرسال</asp:LinkButton>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         </div>
 </asp:Content>

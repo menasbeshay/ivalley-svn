@@ -85,7 +85,7 @@ namespace Chat2Connect
                 msg.From = new MailAddress(mail);
                 msg.Subject = GetLocalResourceObject("subject").ToString();
                 msg.IsBodyHtml = true;
-                msg.BodyEncoding = System.Text.Encoding.Unicode;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                 msg.Body = string.Format(GetLocalResourceObject("body").ToString(), currentmember.UserName , currentmember.ActivationCode.ToString());
 

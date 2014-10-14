@@ -2018,12 +2018,12 @@ input[type="text"], textarea {
 .callout .notch {
     position: absolute;
     top: 10px;
-    left: -10px;
+    left: -7px;
     margin: 0;
-    border-top: 10px solid transparent;
+    border-top: 7px solid transparent;
     border-left: 0;
-    border-right: 10px solid #eef4f9;
-    border-bottom: 10px solid transparent;
+    border-right: 7px solid #eef4f9;
+    border-bottom: 7px solid transparent;
     padding: 0;
     width: 0;
     height: 0;
@@ -2035,8 +2035,8 @@ input[type="text"], textarea {
     _border-left-color: pink;
     _filter: chroma(color=pink);
 }
-.border-callout { border: 1px solid #c5d9e8; padding: 17px 19px; }
-.border-callout .border-notch { border-right-color: #c5d9e8;left: -11px;}
+.border-callout { border: 1px solid #c5d9e8; padding: 10px 19px; }
+.border-callout .border-notch { border-right-color: #c5d9e8;left: -8px;}
 
 .RoomAlertRed {
     background-color:red !important;
@@ -2056,12 +2056,12 @@ input[type="text"], textarea {
 .callout .notch.msgFromMe {
     position: absolute;
     top: 10px;
-    left: -10px;
+    left: -7px;
     margin: 0;
-    border-top: 10px solid transparent;
+    border-top: 7px solid transparent;
     border-left: 0;
-    border-right: 10px solid #f5d974;
-    border-bottom: 10px solid transparent;
+    border-right: 7px solid #f5d974;
+    border-bottom: 7px solid transparent;
     padding: 0;
     width: 0;
     height: 0;
@@ -2073,8 +2073,8 @@ input[type="text"], textarea {
     _border-left-color: pink;
     _filter: chroma(color=pink);
 }
-.border-callout.msgFromMe { border: 1px solid #fbc914; padding: 17px 19px; }
-.border-callout.msgFromMe .border-notch.msgFromMe { border-right-color: #fbc914;left: -11px;}
+.border-callout.msgFromMe { border: 1px solid #fbc914; padding: 10px 19px; }
+.border-callout.msgFromMe .border-notch.msgFromMe { border-right-color: #fbc914;left: -8px;}
 
 
 

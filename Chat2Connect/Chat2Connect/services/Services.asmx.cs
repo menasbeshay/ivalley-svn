@@ -958,7 +958,7 @@ namespace Chat2Connect.services
         {
             string[] ToMembers = toIds.Split(',');
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-
+            
             try
             {
                 for (int i = 0; i < ToMembers.Length; i++)
@@ -966,7 +966,16 @@ namespace Chat2Connect.services
                     Member m = new Member();
                     m.LoadByPrimaryKey(Convert.ToInt32(ToMembers[i]));
                     MembershipUser user = Membership.GetUser(m.UserID);
-                    _Rcontext.Clients.Group(user.UserName).getPrivateMessage(Member.CurrentMemberID, Member.CurrentMember.UserName, msg);
+                    var resultMsg = new Helper.ChatMessage()
+                    {
+                        FromID = Member.CurrentMemberID,
+                        ToID = m.MemberID,
+                        FromName = Member.CurrentMember.UserName,
+                        Message = msg,
+                        MessageDate = DateTime.Now,
+                        FromProfileImg = Member.CurrentMember.ProfilePic
+                    };
+                    _Rcontext.Clients.Group(user.UserName).getPrivateMessage(Member.CurrentMemberID, resultMsg);
                 }
             }
             catch (Exception ex)

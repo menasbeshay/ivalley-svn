@@ -140,9 +140,10 @@ namespace BLL
         {
             get
             {
-                if (CurrentMember == null)
+                if (HttpContext.Current.Items["CurrentMember"] == null)                
                     return 0;
 
+                currentMember = (BLL.Member)HttpContext.Current.Items["CurrentMember"];
                 return CurrentMember.MemberID;
             }
         }
@@ -152,12 +153,18 @@ namespace BLL
         {
             get
             {
-                if (currentMember == null)
+                if (HttpContext.Current.Items["CurrentMember"] == null)
                 {
                     currentMember = new Member();
                     currentMember.LoadCurrentMember();
+                    HttpContext.Current.Items["CurrentMember"] = currentMember;
+                    return currentMember;
                 }
-                return currentMember;
+                else
+                {
+                    return (BLL.Member)HttpContext.Current.Items["CurrentMember"];
+                }
+                
                 
             }
         }
