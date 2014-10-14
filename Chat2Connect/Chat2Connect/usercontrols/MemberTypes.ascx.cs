@@ -38,8 +38,6 @@ namespace Chat2Connect.usercontrols
 
         private void BindPage()
         {
-            
-            
             MemberFriend friends = new MemberFriend();
             friends.GetAllMemberFriendsAndMember(MemberID);
 
@@ -50,23 +48,27 @@ namespace Chat2Connect.usercontrols
 
             MemberTypeSpec memberTypeSpec = new MemberTypeSpec();
             memberTypeSpec.LoadAll();
+            memberTypeSpec.Filter = String.Format("{0}<>{1}",MemberTypeSpec.ColumnNames.ID,4);
             repMemberTypeSpecs.DataSource = memberTypeSpec.DefaultView;
             repMemberTypeSpecs.DataBind();
+
+            lblPoints.Text = BLL.Member.CurrentMember.s_Credit_Point;
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(uiDropDownListFriends.SelectedValue))
+                return;
             Member upgrademember = new Member();
             upgrademember.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListFriends.SelectedValue));
 
             MembershipUser user = Membership.GetUser();
-
             if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
             {
                 if (uiDropDownListFriends.SelectedIndex != -1)
                 {
 
-                    if (BLL.Member.CurrentMember.IsColumnNull("Credit_Money"))
+                    if (BLL.Member.CurrentMember.IsColumnNull(BLL.Member.ColumnNames.Credit_Point))
                     {
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Error1", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
                         return;
@@ -75,15 +77,15 @@ namespace Chat2Connect.usercontrols
                     try
                     {
                         int type = Convert.ToInt32(selectedTypeSpecDurationID.Value);
-                        decimal val = Convert.ToDecimal(selectedTypeSpecDurationPrice.Value);
+                        int val = Convert.ToInt32(selectedTypeSpecDurationPoints.Value);
 
-                        if (BLL.Member.CurrentMember.Credit_Money < val)
+                        if (BLL.Member.CurrentMember.Credit_Point < val)
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
                             return;
                         }
 
-                        BLL.Member.CurrentMember.Credit_Money -= val;
+                        BLL.Member.CurrentMember.Credit_Point -= val;
                         BLL.Member.CurrentMember.Save();
 
                         //upgrademember.MemberTypeID = type;
@@ -115,6 +117,26 @@ namespace Chat2Connect.usercontrols
             }
         }
 
+        public string GetMailSize(object size)
+        {
+            if (size == DBNull.Value)
+                return "غير محدود";
+            double val = Helper.TypeConverter.ToInt32(size);
+            int unit = 0;
+            while (val >= 1024)
+            {
+                val = val / 1024;
+                unit++;
+            }
+            if (unit < 1)
+                return String.Format("{0} كيلو بايت",val);
+            if (unit < 2)
+                return String.Format("{0} ميجا بايت", val);
+            if (unit < 3)
+                return String.Format("{0} جيجا بايت", val);
+            
+            return String.Format("{0} كيلو بايت", val);
+        }
         protected void repMemberTypeSpecs_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

@@ -123,11 +123,11 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter Price
+			public static SqlParameter Points
 			{
 				get
 				{
-					return new SqlParameter("@Price", SqlDbType.Decimal, 0);
+					return new SqlParameter("@Points", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -140,7 +140,7 @@ namespace DAL
             public const string ID = "ID";
             public const string MemberTypeSpecID = "MemberTypeSpecID";
             public const string TypeDurationID = "TypeDurationID";
-            public const string Price = "Price";
+            public const string Points = "Points";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -151,7 +151,7 @@ namespace DAL
 					ht[ID] = _MemberTypeSpecDuration.PropertyNames.ID;
 					ht[MemberTypeSpecID] = _MemberTypeSpecDuration.PropertyNames.MemberTypeSpecID;
 					ht[TypeDurationID] = _MemberTypeSpecDuration.PropertyNames.TypeDurationID;
-					ht[Price] = _MemberTypeSpecDuration.PropertyNames.Price;
+					ht[Points] = _MemberTypeSpecDuration.PropertyNames.Points;
 
 				}
 				return (string)ht[columnName];
@@ -167,7 +167,7 @@ namespace DAL
             public const string ID = "ID";
             public const string MemberTypeSpecID = "MemberTypeSpecID";
             public const string TypeDurationID = "TypeDurationID";
-            public const string Price = "Price";
+            public const string Points = "Points";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -178,7 +178,7 @@ namespace DAL
 					ht[ID] = _MemberTypeSpecDuration.ColumnNames.ID;
 					ht[MemberTypeSpecID] = _MemberTypeSpecDuration.ColumnNames.MemberTypeSpecID;
 					ht[TypeDurationID] = _MemberTypeSpecDuration.ColumnNames.TypeDurationID;
-					ht[Price] = _MemberTypeSpecDuration.ColumnNames.Price;
+					ht[Points] = _MemberTypeSpecDuration.ColumnNames.Points;
 
 				}
 				return (string)ht[propertyName];
@@ -194,7 +194,7 @@ namespace DAL
             public const string ID = "s_ID";
             public const string MemberTypeSpecID = "s_MemberTypeSpecID";
             public const string TypeDurationID = "s_TypeDurationID";
-            public const string Price = "s_Price";
+            public const string Points = "s_Points";
 
 		}
 		#endregion		
@@ -237,15 +237,15 @@ namespace DAL
 			}
 		}
 
-		public virtual decimal Price
+		public virtual int Points
 	    {
 			get
 	        {
-				return base.Getdecimal(ColumnNames.Price);
+				return base.Getint(ColumnNames.Points);
 			}
 			set
 	        {
-				base.Setdecimal(ColumnNames.Price, value);
+				base.Setint(ColumnNames.Points, value);
 			}
 		}
 
@@ -299,18 +299,18 @@ namespace DAL
 			}
 		}
 
-		public virtual string s_Price
+		public virtual string s_Points
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Price) ? string.Empty : base.GetdecimalAsString(ColumnNames.Price);
+				return this.IsColumnNull(ColumnNames.Points) ? string.Empty : base.GetintAsString(ColumnNames.Points);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Price);
+					this.SetColumnNull(ColumnNames.Points);
 				else
-					this.Price = base.SetdecimalAsString(ColumnNames.Price, value);
+					this.Points = base.SetintAsString(ColumnNames.Points, value);
 			}
 		}
 
@@ -377,11 +377,11 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter Price
+				public WhereParameter Points
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Price, Parameters.Price);
+							WhereParameter where = new WhereParameter(ColumnNames.Points, Parameters.Points);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -428,29 +428,29 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter Price
+			public WhereParameter Points
 		    {
 				get
 		        {
-					if(_Price_W == null)
+					if(_Points_W == null)
 	        	    {
-						_Price_W = TearOff.Price;
+						_Points_W = TearOff.Points;
 					}
-					return _Price_W;
+					return _Points_W;
 				}
 			}
 
 			private WhereParameter _ID_W = null;
 			private WhereParameter _MemberTypeSpecID_W = null;
 			private WhereParameter _TypeDurationID_W = null;
-			private WhereParameter _Price_W = null;
+			private WhereParameter _Points_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ID_W = null;
 				_MemberTypeSpecID_W = null;
 				_TypeDurationID_W = null;
-				_Price_W = null;
+				_Points_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -537,11 +537,11 @@ namespace DAL
 					}
 				}
 
-				public AggregateParameter Price
+				public AggregateParameter Points
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Price, Parameters.Price);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Points, Parameters.Points);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -588,29 +588,29 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter Price
+			public AggregateParameter Points
 		    {
 				get
 		        {
-					if(_Price_W == null)
+					if(_Points_W == null)
 	        	    {
-						_Price_W = TearOff.Price;
+						_Points_W = TearOff.Points;
 					}
-					return _Price_W;
+					return _Points_W;
 				}
 			}
 
 			private AggregateParameter _ID_W = null;
 			private AggregateParameter _MemberTypeSpecID_W = null;
 			private AggregateParameter _TypeDurationID_W = null;
-			private AggregateParameter _Price_W = null;
+			private AggregateParameter _Points_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ID_W = null;
 				_MemberTypeSpecID_W = null;
 				_TypeDurationID_W = null;
-				_Price_W = null;
+				_Points_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -697,8 +697,8 @@ namespace DAL
 			p.SourceColumn = ColumnNames.TypeDurationID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Price);
-			p.SourceColumn = ColumnNames.Price;
+			p = cmd.Parameters.Add(Parameters.Points);
+			p.SourceColumn = ColumnNames.Points;
 			p.SourceVersion = DataRowVersion.Current;
 
 

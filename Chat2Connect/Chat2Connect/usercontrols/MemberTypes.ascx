@@ -7,7 +7,7 @@
 
         $("input[name='MemberTypeSpecDurationID']").change(function () {
             $("#<%=selectedTypeSpecDurationID.ClientID%>").val($(this).data("id"));
-            $("#<%=selectedTypeSpecDurationPrice.ClientID%>").val($(this).data("price"));
+            $("#<%=selectedTypeSpecDurationPoints.ClientID%>").val($(this).data("points"));
         });
 
     });
@@ -23,9 +23,18 @@
             <asp:DropDownList ID="uiDropDownListFriends" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
     </div>
-
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-4 pull-right control-label">
+                رصيد النقاط
+            </div>
+            <div class="col-lg-4 pull-right">
+                <asp:Label ID="lblPoints" runat="server"></asp:Label>
+            </div>
+        </div>
+    </div>
     <div class="form-group">
-        <div class="col-lg-11 control-label center-block" style="float: none !important;">
+        <div class="col-lg-12 control-label center-block" style="float: none !important;">
 
             <!-- DC Pricing Tables:3 Start -->
             <div class="tsc_pricingtable03 tsc_pt3_style1">
@@ -52,11 +61,11 @@
                     <ItemTemplate>
                         <div class="column_<%# Eval("ID") %>">
                             <ul>
-                                <li class="header_row_1 align_center">
+                                <li class="header_row_1 align_center" style="background-color: <%# Eval("Color") %>">
                                     <h2 class="col1"></h2>
                                 </li>
-                                <li class="header_row_2 align_center">
-                                    <h1 class="col1"><%# Eval("Name") %></h1>
+                                <li class="header_row_2 align_center" style="background-color: <%# Eval("Color") %>">
+                                    <h2 class="col1"><%# Eval("Name") %></h2>
                                     <h3 class="col1"></h3>
                                 </li>
                                 <li class="row_style_3 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("OpenRoomCount") %>	</a></span></li>
@@ -64,28 +73,27 @@
                                 <li class="row_style_3 align_center"><span><a href="#" class="" rel=" info."><%# Eval("FriendsCount") %><br />
                                 </a></span></li>
                                 <li class="row_style_1 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-                                    <%# (Convert.ToString(Eval("MailSize"))=="")?"غير محدود" :Eval("MailSize")+" كيلو بايت" %> 
+                                    <%# GetMailSize(Eval("MailSize")) %> 
                                 </a></span></li>
                                 <li class="row_style_3 align_center"><%# Eval("CreatePrivateRoomCount") %></li>
                                 <li class="row_style_1 align_center"><%# Eval("CreateTempRoomCount") %><br />
                                 </li>
-                                <li class="row_style_3 align_center"><%# Eval("CreateTempRoomCount")=="True"?"نعم":"لا" %></li>
-                                <li class="row_style_1 align_center"><%# Eval("CreateTempRoomCount")=="True"?"نعم":"لا" %><br />
+                                <li class="row_style_3 align_center"><%# (Helper.TypeConverter.ToBoolean(Eval("CanOpenFullRoom"))?"نعم":"لا") %></li>
+                                <li class="row_style_1 align_center"><%# Helper.TypeConverter.ToBoolean(Eval("IsMemberOfConnectionClup"))?"نعم":"لا" %><br />
                                 </li>
                                 <li class="row_style_3 align_center" style="height: 100px !important;">
                                     <asp:GridView ID="grdDurations" runat="server" AutoGenerateColumns="false" ShowHeader="false">
                                         <Columns>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <input type="radio" name="MemberTypeSpecDurationID" id='MemberTypeSpecDurationID_<%# Eval("ID") %>' data-id='<%# Eval("ID") %>' data-price='<%# Eval("Price") %>' />
+                                                    <input type="radio" name="MemberTypeSpecDurationID" id='MemberTypeSpecDurationID_<%# Eval("ID") %>' data-id='<%# Eval("ID") %>' data-points='<%# Eval("Points") %>' />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <label for="MemberTypeSpecDurationID_<%# Eval("ID") %>">
                                                         <%# Eval("DurationName") %>
-                                                        /
-                                                        <%# Convert.ToDouble(Eval("Price")).ToString("0") %> ريال
+                                                        <%# Eval("Points"," ({0} نقطة)") %>
                                                     </label>
 
                                                 </ItemTemplate>
@@ -101,20 +109,20 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <input type="hidden" runat="server" id="selectedTypeSpecDurationID" value="0" />
-                <input type="hidden" runat="server" id="selectedTypeSpecDurationPrice" value="0" />
+                <input type="hidden" runat="server" id="selectedTypeSpecDurationPoints" value="0" />
             </div>
-            <div class="tsc_pricingtable03 tsc_pt3_style1">
-                <center>
-            <a href="#confirm" class="tsc_buttons2 grey" data-toggle="modal" >تنفيذ</a>
-                    </center>
-                </div>
+
             <!-- DC Pricing Tables:3 End -->
             <div class="tsc_clear"></div>
             <!-- line break/clear line -->
         </div>
-        
-    </div>
 
+    </div>
+    <div class="form-group">
+        <center>
+            <a href="#confirm" class="tsc_buttons2 grey" data-toggle="modal" >تنفيذ</a>
+                    </center>
+    </div>
 
 </div>
 

@@ -22,6 +22,15 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFriends;
         
         /// <summary>
+        /// lblPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPoints;
+        
+        /// <summary>
         /// repMemberTypeSpecs control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationID;
         
         /// <summary>
-        /// selectedTypeSpecDurationPrice control.
+        /// selectedTypeSpecDurationPoints control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationPoints;
         
         /// <summary>
         /// uiDropDownListQuestion control.
