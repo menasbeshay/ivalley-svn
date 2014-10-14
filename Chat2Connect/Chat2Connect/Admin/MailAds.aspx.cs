@@ -67,18 +67,27 @@ namespace Chat2Connect.Admin
         {
             try
             {
+                int adId = Helper.TypeConverter.ToInt32(hdnAdID.Value);
+                BLL.MailAds bllMailAd = new BLL.MailAds();
+                if (adId > 0)
+                {
+                    bllMailAd.LoadByPrimaryKey(adId);
+                }
+                else
+                {
+                    bllMailAd.AddNew();
+                    bllMailAd.Timestamp = DateTime.Now;
+                }
+
                 string path = "~/" + Helper.Defaults.AdsPicFolder;
                 if (uiFileUploadAddImage.HasFile)
                 {
                     path = path + "/" + DateTime.Now.ToString("ddMMyyyy_hhmmss_") + uiFileUploadAddImage.FileName;
                     uiFileUploadAddImage.SaveAs(Server.MapPath(path));
+                    bllMailAd.AdImage = path.Substring(1);
                 }
-
-                BLL.MailAds bllMailAd = new BLL.MailAds();
-                bllMailAd.AddNew();
-                bllMailAd.Timestamp = DateTime.Now;
+                
                 bllMailAd.AdText = txtAdText.Text;
-                bllMailAd.AdImage = path.Substring(1);
                 bllMailAd.RowStatusID = Convert.ToInt32(rdStatus.SelectedValue);
                 bllMailAd.NumOfDays = Convert.ToInt32(lstDays.SelectedValue);
                 bllMailAd.NuOfHours = Convert.ToInt32(lstHours.SelectedValue);
@@ -93,6 +102,8 @@ namespace Chat2Connect.Admin
                 }
                 bllMailAd.MemberTypes = strMembers;
                 bllMailAd.Save();
+
+                Response.Redirect("MailAds.aspx");
             }
             catch (Exception ex)
             {
@@ -101,7 +112,27 @@ namespace Chat2Connect.Admin
 
         protected void lnkEdit_Click(object sender, EventArgs e)
         {
+            LinkButton lnkBtn = (LinkButton)sender;
+                
+            int adId=Helper.TypeConverter.ToInt32(lnkBtn.CommandArgument);
+            BLL.MailAds bllMailAds = new BLL.MailAds();
+            if (bllMailAds.LoadByPrimaryKey(adId))
+            {
+                hdnAdID.Value = adId.ToString();
+                txtAdText.Text = bllMailAds.AdText;
+                lstDays.SelectedValue=bllMailAds.s_NumOfDays;
+                lstHours.SelectedValue = bllMailAds.s_NuOfHours;
+                txtStartDate.Text = Helper.Date.ToString(bllMailAds.StartDate);
+                string[] memberTypes = bllMailAds.MemberTypes.Split(new string[] { "," },StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < chkMemberTypes.Items.Count; i++)
+                {
+                    chkMemberTypes.Items[i].Selected = memberTypes.Contains(chkMemberTypes.Items[i].Value);
+                }
 
+                rdStatus.SelectedValue = bllMailAds.s_RowStatusID;
+
+                lblTitle.Text = "تعديل الإعلان";
+            }
         }
 
 

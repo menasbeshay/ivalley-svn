@@ -3,6 +3,7 @@
 
 using DAL;
 using System;
+using System.Collections.Specialized;
 
 namespace BLL
 {
@@ -12,5 +13,10 @@ namespace BLL
 		{
 		
 		}
+
+        public bool SendScheduledAds()
+        {
+            return LoadFromSqlNoExec("proc_MailAdsSend")>0;
+        }
 	}
 }
