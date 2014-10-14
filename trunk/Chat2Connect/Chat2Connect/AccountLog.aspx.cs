@@ -60,6 +60,7 @@ namespace Chat2Connect
             log.Where.MemberID.Value = BLL.Member.CurrentMemberID;
             log.Where.LogTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
             log.Where.LogTypeID.Value = String.Join(",", Helper.Enums.GetAccountingLogTypes().Select(r => (int)r));
+            log.Query.AddOrderBy(BLL.MemberLog.ColumnNames.CreateDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
             log.Query.Load();
 
             grdLog.DataSource = log.DefaultView;
