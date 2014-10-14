@@ -13,13 +13,13 @@ namespace Chat2Connect.Admin {
     public partial class MailAds {
         
         /// <summary>
-        /// adID control.
+        /// hdnAdID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden adID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnAdID;
         
         /// <summary>
         /// lblTitle control.

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <input type="hidden" runat="server" id="adID" value="0" />
+    <input type="hidden" runat="server" id="hdnAdID" value="0" />
     <h1>الإعلانات فى صندوق البريد</h1>
     <div class="form-group pull-right">
         <asp:Label ID="lblTitle" runat="server" CssClass="form-control" Text="إعلان جديد"></asp:Label>
@@ -75,7 +75,7 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="lnkEdit_Click"></asp:LinkButton></td>
+                        <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="lnkEdit_Click"><%# Eval("ID") %></asp:LinkButton></td>
                     <td><%# GetStatusName(Eval("RowStatusID")) %></td>
                     <td>
                         <%# GetAdContent(Eval("AdText"),Eval("AdImage")) %>
