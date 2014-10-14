@@ -77,17 +77,8 @@ namespace Chat2Connect.usercontrols
 
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الغرفة بنجاح.'); });", true);
 
-                        UserTransLog log2 = new UserTransLog();
-                        log2.AddNew();
-                        log2.MemberID = BLL.Member.CurrentMember.MemberID;
-                        log2.Value = val;
-                        log2.TransType = 2;
-                        log2.TransDate = DateTime.Now;
-                        log2.PaymentMethod = Helper.StringEnum.GetStringValue(Helper.Enums.PaymentMethod.UpgradeRoom);
-                        log2.Save();
-
                         BLL.MemberLog log = new BLL.MemberLog();
-                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName=room.Name, NewTypeName=room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name,NewTypeExpiryDate=room.RoomType.EndDate}, null, room.RoomID);
+                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName=room.Name, NewTypeName=room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name,NewTypeExpiryDate=room.RoomType.EndDate,Points=val}, null, room.RoomID);
 
                     }
                     catch (Exception ex)

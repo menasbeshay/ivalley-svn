@@ -112,10 +112,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('.clearInput').click(function () {
-                var input = $(this).data("control");
-                $('#' + input).val("");
-            });
+            
             $('#btnClearForm').click(function () {
                 $(<%= lstRoles.ClientID%>).val("");
                 $(<%= txtEmail.ClientID%>).val("");

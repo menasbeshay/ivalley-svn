@@ -3,6 +3,7 @@
 <%@ Register Src="~/Admin/UserControls/MemberLogDetails.ascx" TagPrefix="uc1" TagName="MemberLogDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="form-group">

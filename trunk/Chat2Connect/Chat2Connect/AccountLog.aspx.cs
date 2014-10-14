@@ -22,55 +22,48 @@ namespace Chat2Connect
             base.InitializeCulture();
 
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+        }
+
+        protected void grdLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdLog.PageIndex = e.NewPageIndex;
+            BindReport();
+        }
+
+        protected void lnkBtnLoadReport_Click(object sender, EventArgs e)
+        {
+            BindReport();
+        }
+
+        private void BindReport()
+        {
+            BLL.MemberLog log = new BLL.MemberLog();
+            if (!String.IsNullOrEmpty(txtStartDate.Text) && !String.IsNullOrEmpty(txtEndDate.Text))
             {
-                LoadLog();
+                log.Where.CreateDate.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Between;
+                log.Where.CreateDate.BetweenBeginValue = Helper.Date.ToDate(txtStartDate.Text);
+                log.Where.CreateDate.BetweenEndValue = Helper.Date.ToDate(txtEndDate.Text).AddHours(DateTime.Now.Hour);
             }
-        }
-
-        private void LoadLog()
-        {
-            Member member = new Member();
-            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-
-            UserTransLog log = new UserTransLog();
-            log.GetLogByMemberID(member.MemberID);
-
-            uiGridViewLog.DataSource = log.DefaultView;
-            uiGridViewLog.DataBind();
-        }
-
-        protected void uiGridViewLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            uiGridViewLog.PageIndex = e.NewPageIndex;
-            LoadLog();
-        }
-
-        protected void uiGridViewLog_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            else if (!String.IsNullOrEmpty(txtStartDate.Text))
             {
-                Label label = (Label)e.Row.FindControl("uiLabelSenderName"); 
-                Label labelto = (Label)e.Row.FindControl("uiLabelToName");
-                DataRowView row = (DataRowView)e.Row.DataItem;
-                
-                if (!string.IsNullOrEmpty(row["AddedFrom"].ToString()))
-                {
-                    Member member = new Member();
-                    member.LoadByPrimaryKey(Convert.ToInt32(row["AddedFrom"].ToString()));
-                    label.Text = member.Name;
-                }
-
-                if (!string.IsNullOrEmpty(row["AddedTo"].ToString()))
-                {
-                    Member member = new Member();
-                    member.LoadByPrimaryKey(Convert.ToInt32(row["AddedTo"].ToString()));
-                    labelto.Text = member.Name;
-                }
-
+                log.Where.CreateDate.Value = Helper.Date.ToDate(txtStartDate.Text);
+                log.Where.CreateDate.Operator = MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual;
             }
+            else if (!String.IsNullOrEmpty(txtEndDate.Text))
+            {
+                log.Where.CreateDate.Value = Helper.Date.ToDate(txtStartDate.Text);
+                log.Where.CreateDate.Operator=MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual;
+            }
+            log.Where.MemberID.Value = BLL.Member.CurrentMemberID;
+            log.Where.LogTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
+            log.Where.LogTypeID.Value = String.Join(",", Helper.Enums.GetAccountingLogTypes().Select(r => (int)r));
+            log.Query.Load();
+
+            grdLog.DataSource = log.DefaultView;
+            grdLog.DataBind();
         }
     }
 }
