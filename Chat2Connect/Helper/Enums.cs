@@ -186,6 +186,21 @@ namespace Helper
             AddRoomBot = 15
         }
 
+        /// <summary>
+        /// List of logs related to member points or credits
+        /// </summary>
+        /// <returns></returns>
+        public static List<Enums.LogType> GetAccountingLogTypes()
+        {
+            return new List<LogType>() 
+            {
+                Helper.Enums.LogType.AddRoomBot,
+                Helper.Enums.LogType.ChangeMemberType,
+                Helper.Enums.LogType.ChangeRoomType,
+                Helper.Enums.LogType.RechargeBalance,
+                Helper.Enums.LogType.TransferBalance
+            };
+        }
         public enum BanningType
         {
             [StringValue("نهائى")]

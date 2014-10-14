@@ -1,41 +1,69 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Balance.master" AutoEventWireup="true" CodeBehind="AccountLog.aspx.cs" Inherits="Chat2Connect.AccountLog" %>
+
+<%@ Register Src="~/Admin/UserControls/MemberLogDetails.ascx" TagPrefix="uc1" TagName="MemberLogDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="BHead" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
             $('#userlog').addClass('active');
+            $('.clearInput').click(function () {
+                var input = $(this).data("control");
+                $('#' + input).val("");
+            });
         });
 
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div class="form-horizontal blockBoxshadow">
-        <h2>
-            كشف الحساب
-        </h2>
-        <div class="clearfix" style="height:10px;"></div>
-        <div class="col-lg-12" style="float:none;">
-             <asp:GridView ID="uiGridViewLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" OnPageIndexChanging="uiGridViewLog_PageIndexChanging" OnRowDataBound="uiGridViewLog_RowDataBound" HeaderStyle-CssClass="MsgHeader">
-                 <RowStyle HorizontalAlign="Center" />
+    <div class="form-group">
+        <div class="col-lg-12 control-label pull-right">
+            <h3>كشف الحساب</h3>
+        </div>
+    </div>
+    <div class="form-horizontal blockBox">
+        <div class="form-group">
+            <div class="col-md-2 control-label pull-right">
+                <label>فى الفترة من </label>
+            </div>
+            <div class="col-md-2 pull-right">
+                <div class="input-group">
+                    <asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control datecontrol"></asp:TextBox>
+                    <span class="input-group-btn">
+                        <button class="btn bg-warning clearInput icon icon-remove" data-control="<%= txtStartDate.ClientID %>" type="button"></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-1 control-label pull-right">
+                <label>إلى </label>
+            </div>
+            <div class="col-md-2 pull-right">
+                <div class="input-group">
+                    <asp:TextBox ID="txtEndDate" runat="server" CssClass="form-control datecontrol"></asp:TextBox>
+                    <span class="input-group-btn">
+                        <button class="btn bg-warning clearInput icon icon-remove" data-control="<%= txtEndDate.ClientID %>" type="button"></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-1 pull-right">
+                <asp:LinkButton ID="lnkBtnLoadReport" runat="server" class="btn btn-main" OnClick="lnkBtnLoadReport_Click">عرض</asp:LinkButton>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 pull-right">
+        <asp:GridView ID="grdLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
+            <RowStyle HorizontalAlign="Center" />
             <Columns>
-                <asp:BoundField DataField="TransDate" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HeaderText="التاريخ والوقت"/>
-                <asp:BoundField DataField="PaymentMethod"  HeaderText="نوع الحركة"/>
-                
-                <asp:TemplateField HeaderText="مصدر التحويل" ItemStyle-HorizontalAlign="Center">
+                <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HeaderText="التاريخ والوقت" />
+                <asp:TemplateField HeaderText="نوع الحركة" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="uiLabelSenderName"></asp:Label>                        
-                    </ItemTemplate>                    
-                </asp:TemplateField>  
-                <asp:TemplateField HeaderText="تحويل إلى" ItemStyle-HorizontalAlign="Center">
+                        <%# Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.LogType>((int)Eval("LogTypeID"))) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="تفاصيل" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="uiLabelToName"></asp:Label>                        
-                    </ItemTemplate>                    
-                </asp:TemplateField>  
-                <asp:BoundField DataField="Value"  HeaderText="قيمة التحويل" DataFormatString="{0:0.0#}&nbsp;ريال"/>             
-                
+                        <uc1:MemberLogDetails runat="server" ID="ctrlMemberLogDetails" DataSource='<%# Eval("LogDetails") %>' Type='<%# Eval("LogTypeID") %>' AutoBind="true" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
-            <div class="clearfix" style="height:5px;"></div>
-        </div>
-        <div class="clearfix" style="height:5px;"></div>
     </div>
 </asp:Content>

@@ -25,5 +25,8 @@ namespace BLL.Log
 
         [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
         public string NewTypeName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 4)]
+        public int Points { get; set; }
     }
 }
