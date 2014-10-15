@@ -45,7 +45,7 @@
                     <li class="row_style_2"><span>كاميرا</span></li>
                     <li class="row_style_4"><span style="font-size: 14px;">ظهورها فى القائمة</span><br />
                     </li>
-                    <li class="row_style_4" style="height: 100px !important;"><span>العدد المسموح فى الغرفة</span></li>
+                    <li class="row_style_4" style="height: 100px !important;"><span>مدة الإشتراك</span></li>
                 </ul>
             </div>
             <asp:Repeater ID="repRoomTypeSpecs" runat="server" OnItemDataBound="repRoomTypeSpecs_ItemDataBound">

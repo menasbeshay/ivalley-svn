@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Security;
@@ -28,12 +29,33 @@ namespace Chat2Connect.Admin
                 ClearFields();
                 uiPanelDone.Visible = false;
                 uiPanelRegister.Visible = true;
+
+                BLL.MemberTypeSpecDuration bllMemberTypes = new MemberTypeSpecDuration();
+                bllMemberTypes.LoadByMemberTypeSpecID((int)Helper.Enums.MemberTypeSpec.VIP);
+                var lstDurations = bllMemberTypes.DefaultView.Table.AsEnumerable().Select(m => new 
+                { 
+                    ID = m[BLL.MemberTypeSpecDuration.ColumnNames.ID] ,
+                    Value = String.Format("{0} ({1})", m["DurationName"], m[BLL.MemberTypeSpecDuration.ColumnNames.Points])
+                }).ToList();
+                lstTypeDuration.DataSource = lstDurations;
+                lstTypeDuration.DataValueField="ID";
+                lstTypeDuration.DataTextField="Value";
+                lstTypeDuration.DataBind();
             }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            
+            int type = Convert.ToInt32(lstTypeDuration.SelectedValue);
+            BLL.MemberTypeSpecDuration bllSpec = new MemberTypeSpecDuration();
+            if (bllSpec.LoadByPrimaryKey(type))
+                return;
+            int val = Convert.ToInt32(bllSpec.Points);
+            if (BLL.Member.CurrentMember.Credit_Point < val)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
+                return;
+            }
             MembershipCreateStatus objstatus;
             MembershipUser objUser = Membership.CreateUser(UserName.Text, Password.Text, Email.Text, Question.Text, Answer.Text, true, out objstatus);
             bool success = true;
@@ -91,6 +113,22 @@ namespace Chat2Connect.Admin
 
                     client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
                     client.Send(msg);
+
+                    //member type
+                    BLL.Member.CurrentMember.Credit_Point -= val;
+                    BLL.Member.CurrentMember.Save();
+
+                    //upgrademember.MemberTypeID = type;
+                    member.MemberType.MemberTypeSpecDurationID = type;
+                    member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
+                    member.MemberType.StartDate = DateTime.Now;
+                    member.MemberType.EndDate = DateTime.Now.AddMonths(bllSpec.TypeDuration.MonthesNumber);
+                    member.MemberType.Save();
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الإسم بنجاح.'); });", true);
+
+                    BLL.MemberLog log = new BLL.MemberLog();
+                    log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
                 }
                 catch (Exception)
                 {

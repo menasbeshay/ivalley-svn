@@ -614,6 +614,7 @@
     <Content Include="images\video_camera.png" />
     <None Include="images\youtube.png" />
     <Content Include="Jobs\MailAds.aspx" />
+    <Content Include="Jobs\Types.aspx" />
     <Content Include="js\advanced.js" />
     <Content Include="js\bootstrap-datepicker\css\datepicker.css" />
     <Content Include="js\bootstrap-datepicker\js\bootstrap-datepicker.js" />
@@ -1065,6 +1066,13 @@
     </Compile>
     <Compile Include="Jobs\MailAds.aspx.designer.cs">
       <DependentUpon>MailAds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jobs\Types.aspx.cs">
+      <DependentUpon>Types.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jobs\Types.aspx.designer.cs">
+      <DependentUpon>Types.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoadMessage.aspx.cs">
       <DependentUpon>LoadMessage.aspx</DependentUpon>
