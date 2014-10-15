@@ -49,7 +49,10 @@ namespace Chat2Connect.usercontrols
 
             MemberTypeSpec memberTypeSpec = new MemberTypeSpec();
             memberTypeSpec.LoadAll();
-            memberTypeSpec.Filter = String.Format("{0}<>{1}",MemberTypeSpec.ColumnNames.ID,4);
+            if (!Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AddVIPAccount.ToString()))
+            {
+                memberTypeSpec.Filter = String.Format("{0}<>{1}", MemberTypeSpec.ColumnNames.ID, (int)Helper.Enums.MemberTypeSpec.VIP);
+            }
             repMemberTypeSpecs.DataSource = memberTypeSpec.DefaultView;
             repMemberTypeSpecs.DataBind();
 

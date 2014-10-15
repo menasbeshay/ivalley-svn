@@ -80,6 +80,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="col-sm-4 control-label pull-right">
+                        <label>مدة الصبغة</label>
+                    </div>
+                    <div class="col-sm-8 pull-right">
+                        <asp:RadioButtonList ID="lstTypeDuration" runat="server" RepeatDirection="Horizontal" CssClass="form-control" RepeatLayout="Table"></asp:RadioButtonList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lstTypeDuration" ErrorMessage="من فضلك إختار مدة الصبغة ." ToolTip="من فضلك إختار مدة الصبغة ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                                                
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6 pull-left">
                         <asp:Button ID="btnRegister" runat="server" Text="إشترك" CssClass="btn btn-warning " ValidationGroup="CreateUserWizard1" Style="width: 100px;" OnClick="btnRegister_Click" />
                     </div>

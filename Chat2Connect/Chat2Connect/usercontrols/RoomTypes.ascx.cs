@@ -39,6 +39,10 @@ namespace Chat2Connect.usercontrols
 
             RoomTypeSpec roomTypeSpec = new RoomTypeSpec();
             roomTypeSpec.LoadAll();
+            if (!Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AddVIPAccount.ToString()))
+            {
+                roomTypeSpec.Filter = String.Format("{0}<>{1}", RoomTypeSpec.ColumnNames.ID, (int)Helper.Enums.MemberTypeSpec.VIP);
+            }
             repRoomTypeSpecs.DataSource = roomTypeSpec.DefaultView;
             repRoomTypeSpecs.DataBind();
 
