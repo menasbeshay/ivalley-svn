@@ -20,7 +20,7 @@ namespace Chat2Connect
                 Member member = new Member();
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 MemberFriend friends = new MemberFriend();
-                friends.GetAllMemberFriends(member.MemberID);
+                friends.GetAllMemberOnlineFriends(member.MemberID);
                 if (friends.RowCount > 0)
                 {
                     uiCheckBoxListFriends.DataSource = friends.DefaultView;

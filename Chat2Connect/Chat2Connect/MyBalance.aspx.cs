@@ -29,8 +29,8 @@ namespace Chat2Connect
         {
             Member member = new Member();
             member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            if (!member.IsColumnNull("Credit_Money"))
-                uiLabelBalance.Text = member.Credit_Money.ToString("0.0#") + " ريال";
+            if (!member.IsColumnNull("Credit_Point"))
+                uiLabelBalance.Text = member.Credit_Point.ToString() + " نقطة";
             else
                 uiLabelBalance.Text = "لا يوجد رصيد";
         }
@@ -43,10 +43,10 @@ namespace Chat2Connect
             MemberFriend friends = new MemberFriend();
             friends.GetAllMemberFriends(member.MemberID);
 
-            uiDropDownListFriends.DataSource = friends.DefaultView;
-            uiDropDownListFriends.DataTextField = "MemberName";
-            uiDropDownListFriends.DataValueField = "FriendID";
-            uiDropDownListFriends.DataBind();
+            uiRadioButtonListFriends.DataSource = friends.DefaultView;
+            uiRadioButtonListFriends.DataTextField = "MemberName";
+            uiRadioButtonListFriends.DataValueField = "FriendID";
+            uiRadioButtonListFriends.DataBind();
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
@@ -57,10 +57,10 @@ namespace Chat2Connect
 
             if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && member.Answer == uiTextBoxAnswer.Text)
             {
-                if (uiDropDownListFriends.SelectedIndex != -1)
+                if (uiRadioButtonListFriends.SelectedIndex != -1)
                 {
 
-                    if (member.IsColumnNull("Credit_Money"))
+                    if (member.IsColumnNull("Credit_Point"))
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "Error1", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
                         return;
@@ -74,7 +74,7 @@ namespace Chat2Connect
                     {
                         try
                         {
-                            if (member.Credit_Money < Convert.ToDecimal(uiTextBoxAmount.Text))
+                            if (member.Credit_Point < Convert.ToDecimal(uiTextBoxAmount.Text))
                             {
                                 ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
                                 return;
@@ -91,18 +91,18 @@ namespace Chat2Connect
                     try
                     {
                         Member ToMember = new Member();
-                        ToMember.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListFriends.SelectedValue));
+                        ToMember.LoadByPrimaryKey(Convert.ToInt32(uiRadioButtonListFriends.SelectedValue));
 
-                        if (!ToMember.IsColumnNull("Credit_Money"))
-                            ToMember.Credit_Money += Convert.ToDecimal(uiTextBoxAmount.Text);
+                        if (!ToMember.IsColumnNull("Credit_Point"))
+                            ToMember.Credit_Point += Convert.ToInt32(uiTextBoxAmount.Text);
                         else
-                            ToMember.Credit_Money = Convert.ToDecimal(uiTextBoxAmount.Text);
+                            ToMember.Credit_Point = Convert.ToInt32(uiTextBoxAmount.Text);
 
-                        member.Credit_Money -= Convert.ToDecimal(uiTextBoxAmount.Text);
+                        member.Credit_Point -= Convert.ToInt32(uiTextBoxAmount.Text);
                         ToMember.Save();
                         member.Save();
 
-                        ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل الرصيد بنجاح.'); });", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل النقاط بنجاح.'); });", true);
 
                         // logging
                         BLL.MemberLog log = new BLL.MemberLog();

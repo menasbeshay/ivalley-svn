@@ -22,13 +22,13 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.Label uiLabelBalance;
         
         /// <summary>
-        /// uiDropDownListFriends control.
+        /// uiRadioButtonListFriends control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFriends;
+        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListFriends;
         
         /// <summary>
         /// uiTextBoxAmount control.

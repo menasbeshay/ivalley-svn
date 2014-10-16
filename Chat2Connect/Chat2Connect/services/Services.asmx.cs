@@ -1426,13 +1426,13 @@ namespace Chat2Connect.services
         public static void SubmitLaw(Info.RoomBot infoBot)
         {
             Info.RoomLaw infoSetting = infoBot.Settings as Info.RoomLaw;
-            string msg = "<ul>";
+            string msg = "<h4 class='listInRoom'>قانون الغرفة</h4><ul class='listInRoom'>";
             int i = 1;
             foreach (var p in infoSetting.Laws)
             {
                 if (p.IsActive)
                 {
-                    msg += string.Format("<li>{0}/{1}</li>", i, p.Law);
+                    msg += string.Format("<li>{0} - {1}</li>", i, p.Law);
                     i++;
                 }
             }
@@ -1454,13 +1454,13 @@ namespace Chat2Connect.services
         public static void SubmitProgram(Info.RoomBot infoBot)
         {
             Info.RoomProgram infoSetting = infoBot.Settings as Info.RoomProgram;
-            string msg = "<ul>";
+            string msg = "<h4 class='listInRoom'>برنامج الغرفة</h4><ul class='listInRoom'>";
             int i = 1;
             foreach (var p in infoSetting.Programms)
             {
                 if (p.IsActive)
                 {
-                    msg += string.Format("<li>{0}/{1}</li>", i, p.Program);
+                    msg += string.Format("<li>{0} - {1}</li>", i, p.Program);
                     i++;
                 }
             }

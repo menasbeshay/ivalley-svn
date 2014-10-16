@@ -303,9 +303,9 @@
             var helpMembers=eval(<%=HelpMembers %>);
             InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers);            
             
-            $("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
+            <%--$("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
                 AllPeople.SearchText = $("#<%= uiTextBoxFriendSearch.ClientID %>").val();
-            });
+            });--%>
         });
     </script>
     <script id="chatMsgTemplate" type="text/html">
