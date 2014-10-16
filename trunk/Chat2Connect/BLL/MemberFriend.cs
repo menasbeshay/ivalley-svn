@@ -23,6 +23,14 @@ namespace BLL
 
         }
 
+        public virtual bool GetAllMemberOnlineFriends(int MemberID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
+            return LoadFromSql("GetAllMemberFriends", parameters);
+
+        }
+
         public virtual bool GetAllMemberFriendsAndMember(int MemberID)
         {
             ListDictionary parameters = new ListDictionary();

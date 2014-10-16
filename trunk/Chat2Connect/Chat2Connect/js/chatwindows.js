@@ -1168,7 +1168,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: [{ TypeID: 1 }] };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1517,6 +1517,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 $('#loadingAddFriends').css('display', 'none');
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $('#loadingAddFriends').css('display', 'none');
                 $('#errorAddFriends').css('display', 'block');
             }
         });

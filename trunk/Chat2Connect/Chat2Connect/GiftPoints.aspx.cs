@@ -28,8 +28,8 @@ namespace Chat2Connect
 
         private void LoadBalance()
         {
-            if (!Member.CurrentMember.IsColumnNull("Credit_Money"))
-                uiLabelBalance.Text = Member.CurrentMember.Credit_Money.ToString("0.0#") + " ريال";
+            if (!Member.CurrentMember.IsColumnNull("Credit_Point"))
+                uiLabelBalance.Text = Member.CurrentMember.Credit_Point.ToString() + " نقطة";
             else
                 uiLabelBalance.Text = "لا يوجد رصيد";
         }
@@ -43,7 +43,7 @@ namespace Chat2Connect
                 if (!string.IsNullOrEmpty(uiHiddenFieldFriendID.Value))
                 {
 
-                    if (Member.CurrentMember.IsColumnNull("Credit_Money"))
+                    if (Member.CurrentMember.IsColumnNull("Credit_Point"))
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "Error1", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام الشحن.'); });", true);
                         return;
@@ -52,7 +52,7 @@ namespace Chat2Connect
                     {
                         try
                         {
-                            if (Member.CurrentMember.Credit_Money < Convert.ToDecimal(uiHiddenFieldPrice.Value))
+                            if (Member.CurrentMember.Credit_Point < Convert.ToInt32(uiHiddenFieldPoints.Value))
                             {
                                 ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام الشحن.'); });", true);
                                 return;
@@ -78,7 +78,7 @@ namespace Chat2Connect
 
                         Member currentmember = new Member();
                         currentmember.LoadByPrimaryKey(Member.CurrentMemberID);
-                        currentmember.Credit_Money = Member.CurrentMember.Credit_Money - Convert.ToDecimal(uiHiddenFieldPrice.Value); ;
+                        currentmember.Credit_Point = Member.CurrentMember.Credit_Point - Convert.ToInt32(uiHiddenFieldPoints.Value); ;
                         ToMember.Save();
                         currentmember.Save();
 

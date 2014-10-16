@@ -11,7 +11,7 @@
     <div class="form-horizontal blockBoxshadow">
         <div class="form-group">
         <div class="col-lg-2 control-label pull-right">
-            الرصيد المالى
+            رصيد النقاط
         </div>
         <div class="col-lg-6 pull-right">
             <asp:Label ID="uiLabelBalance" runat="server" ></asp:Label>
@@ -20,22 +20,25 @@
 
          <div class="form-group">
         <div class="col-lg-12 control-label pull-right">
-           <h3> تحويل رصيد مالى</h3>
+           <h3> تحويل رصيد نقاط</h3>
         </div>
         
             </div>
 
-         <div class="form-group">
-        <div class="col-lg-2 control-label pull-right">
-            تحويل رصيد مالى إلى     </div>
-        <div class="col-lg-6 pull-right">
-            <asp:DropDownList ID="uiDropDownListFriends" runat="server" CssClass="form-control"></asp:DropDownList>
-        </div>
-            </div>
+          <div class="form-group col-lg-12" style="padding-right:0px;">
+                    <h5>
+                        إختر الأصدقاء 
+                    </h5>
+                    <div class=" form-control SScroll" data-height="350px">
+                    <asp:RadioButtonList ID="uiRadioButtonListFriends" runat="server" RepeatColumns="5" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%"  >
+                    </asp:RadioButtonList>                        
+                        </div>
+                    <div class="clearfix" style="height:10px;"></div>
+                </div>
 
         <div class="form-group">
         <div class="col-lg-2 control-label pull-right">
-            المبلغ</div>
+            عدد النقاط</div>
         <div class="col-lg-6 pull-right">
             <asp:TextBox ID="uiTextBoxAmount" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="uiTextBoxAmount" ErrorMessage="من فضلك أدخل القيمة." ToolTip="من فضلك أدخل القيمة." ValidationGroup="confirm_start" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>

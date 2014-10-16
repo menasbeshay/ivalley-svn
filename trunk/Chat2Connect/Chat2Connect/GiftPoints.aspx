@@ -20,7 +20,7 @@
 
              $("input[name='points']").change(function () {
                  $("#<%=uiHiddenFieldPoints.ClientID%>").val($(this).data("points"));
-                 $("#<%=uiHiddenFieldPrice.ClientID%>").val($(this).data("price"));
+                 //$("#<%=uiHiddenFieldPrice.ClientID%>").val($(this).data("price"));
              });
          });
 
@@ -30,7 +30,7 @@
      <div class="form-horizontal blockBoxshadow">
         <div class="form-group">
         <div class="col-lg-2 control-label pull-right">
-            الرصيد المالى
+            رصيد النقاط
         </div>
         <div class="col-lg-6 pull-right">
             <asp:Label ID="uiLabelBalance" runat="server" ></asp:Label>
@@ -59,36 +59,36 @@
             <table class="table table-bordered ">
 		<tbody><tr>
 	    	<th class="center" >عدد النقاط</th>
-	    	<th class="center">السعر</th>
+	    	
 		</tr>
 	    <tr>
-			<td><label><input type="radio" name="points" data-points="100" data-price="10"> 100 نقطة </label></td>
-			<td>10 ريال</td>
+			<td><label><input type="radio" name="points" data-points="100" data-price="10" > 100 نقطة </label></td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="200" data-price="20"> 200 نقطة </label></td>
-			<td>20 ريال</td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="500" data-price="45"> 500 نقطة </label></td>
-			<td>45 ريال</td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="1000" data-price="80"> 1000 نقطة </label>
                 </td>
-			<td>80 ريال</td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="2000" data-price="140"> 2000 نقطة </label></td>
-			<td>140 ريال</td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="5000" data-price="300"> 5000 نقطة </label></td>
-			<td>300 ريال</td>
+			
 		</tr>
 	    <tr>
 			<td><label><input type="radio" name="points" data-points="10000" data-price="500"> 10000 نقطة </label></td>
-			<td>500 ريال</td>
+			
 		</tr>
 		</tbody></table>
         </div>
