@@ -1380,10 +1380,10 @@
                 <div class="clearfix bordered round center-block botholder col-lg-12" data-bind="style:{'display' : RoomBots.length == 0 ? 'none;' : 'block'}">
                     <!-- ko if: $root.ActivWindow() -->
                     <div class="col-lg-1 botIcon">
-                        <img data-bind="attr:{'src' : 'images/bots/Room_'+ $root.ActivWindow().Settings.TypeID() +'.png','title':$root.ActivWindow().Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية' }">
+                        <img data-bind="attr:{'src' : 'images/bots/Room_'+ Settings.TypeID() +'.png','title':Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية' }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
-                                <span data-bind="text: 'بوت : ' + ($root.ActivWindow().Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية')"></span>
+                                <span data-bind="text: 'بوت : ' + (Settings.TypeID()==1?'غرفة مجانية':'غرفة ترقية')"></span>
                                 <div style="clear: both; height: 3px"></div>
                                 <%--<span data-bind="text: 'الحالة : فعال'"></span>--%>
                             </div>
@@ -1392,7 +1392,7 @@
                     <!--/ko -->
                     <!-- ko foreach: RoomBots -->
                     <div data-bind="if:ID()>0,attr:{id:'b_'+ID()}" class="col-lg-1 botIcon">
-                        <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $root.ActivWindow().Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
+                        <img data-bind="attr:{'src' : Bot.IconPath() + '_'+ $parent.Settings.TypeID() +'.png', 'alt': Bot.Title(), 'title' : Bot.Title() }">
                         <div class="botInfo">
                             <div style="direction: rtl; text-align: right; color: #fff; min-width: 160px;">
                                 <span data-bind="text: 'بوت : ' + Bot.Title()"></span>
