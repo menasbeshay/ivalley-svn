@@ -155,8 +155,8 @@ namespace Chat2Connect
             {
 
             }
-            /*if(!string.IsNullOrEmpty( uiDropDownListReligion.SelectedValue))
-                member.ReligionID = Convert.ToInt32(uiDropDownListReligion.SelectedValue);*/
+            if(!string.IsNullOrEmpty( uiDropDownListReligion.SelectedValue))
+                member.ReligionID = Convert.ToInt32(uiDropDownListReligion.SelectedValue);
             if (!string.IsNullOrEmpty(uiTextBoxReligion.Text))
                 member.Religion = uiTextBoxReligion.Text;
             if (!string.IsNullOrEmpty(uiDropDownListCountry.SelectedValue) && uiDropDownListCountry.SelectedValue != "0")

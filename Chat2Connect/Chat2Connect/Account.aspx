@@ -170,47 +170,47 @@
             <div style="width:81%;float:right;">
                 <div>
                     <div class="col-lg-4 pull-right" >
-                        <asp:Label ID="Label1" runat="server" Text="الإسم :"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="الإسم :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelName" runat="server"></asp:Label>
                     </div>
                     <div class="col-lg-4 pull-right" >
-                        <asp:Label ID="Label2" runat="server" Text="تاريخ الميلاد :"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="تاريخ الميلاد :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelDOP" runat="server" ></asp:Label>
                     </div>
                     <div class="col-lg-3 pull-right" >
-                        <asp:Label ID="Label3" runat="server" Text="الديانة :"></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text="الديانة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelReligion" runat="server" ></asp:Label>
                     </div>
                     
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12 " style="margin:5px 0px;">
-                        <asp:Label ID="Label4" runat="server" Text="المهنة :"></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text="المهنة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelJob" runat="server" ></asp:Label>
                     </div>
                 <div class="clearfix"></div>
                 <div  class="col-lg-12" style="margin:5px 0px;">
-                    <asp:Label ID="Label5" runat="server" Text="البلد :"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text="البلد :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelCountry" runat="server" ></asp:Label>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12" style="margin:5px 0px;">
-                    <asp:Label ID="Label6" runat="server" Text="أفضل فريق :"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="أفضل فريق :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelBestTeam" runat="server" ></asp:Label>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12" style="margin:5px 0px;">
-                    <asp:Label ID="Label7" runat="server" Text="أفضل أكلة :"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="أفضل أكلة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelBestFood" runat="server" ></asp:Label>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12" style="margin:5px 0px;">
-                    <asp:Label ID="Label8" runat="server" Text="السيارة المفضلة :"></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text="السيارة المفضلة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelBestCar" runat="server" ></asp:Label>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-10 pull-right" style="margin:5px 0px;">
-                    <asp:Label ID="Label9" runat="server" Text="البلد المفضلة للسياحة :"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="البلد المفضلة للسياحة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelBestCountry" runat="server" ></asp:Label>
                 </div>
                
@@ -225,28 +225,28 @@
         </div>
             
         <div class="blockBoxshadow pull-left margin20" style="width:30%;">
-             <asp:Label ID="Label10" runat="server" Text="معلومات عن الحساب"></asp:Label>
+             <asp:Label ID="Label10" runat="server" Text="معلومات عن الحساب" Font-Bold="true"></asp:Label>
             <hr style="background:#ffd800;width:100%;margin:5px auto;"/>
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label11" runat="server" Text="تاريخ الإنشاء :"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="تاريخ الإنشاء :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelCreatedDate" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label13" runat="server" Text="لون الصبغة :"></asp:Label>
+                    <asp:Label ID="Label13" runat="server" Text="لون الصبغة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelAccountType" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label15" runat="server" Text="تاريخ إنتهاء الصبغة :"></asp:Label>
+                    <asp:Label ID="Label15" runat="server" Text="تاريخ إنتهاء الصبغة :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelTypeExpiry" runat="server" ></asp:Label>                 
             </div>
             <div class="clearfix"></div>
             
             <div class="col-lg-12" style="width:100%;margin:8px 0px;padding-right:0px;">
                 <div class="pull-right" style="width:87%">
-                    البريد الإلكترونى : <asp:Label ID="uiLabelMail" runat="server" style="font-family:Arial;font-weight:bold;font-size:13px;"></asp:Label>
+                   <asp:Label ID="Label16" runat="server" Text=" البريد الإلكترونى :" Font-Bold="true"></asp:Label> <asp:Label ID="uiLabelMail" runat="server" style="font-family:Arial;font-weight:bold;font-size:13px;"></asp:Label>
                 </div>
                 <div class="pull-left" style="width:10%">
                    <a href="#accountmail" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;">تعديل</a>
@@ -256,7 +256,7 @@
             
             <div class="col-lg-12" style="width:100%;margin:7px 0px;padding-right:0px;">
                 <div class="pull-right" style="width:87%">
-                    كلمة المرور : ************
+                   <asp:Label ID="Label17" runat="server" Text=" كلمة المرور : " Font-Bold="true"></asp:Label> ************
                     </div>
                 <div class="pull-left" style="width:10%">
                    <a href="#accountPass" class="btn btn-main" data-toggle="modal" role="button" style="font-size:11px;padding:3px;">تعديل</a>
@@ -273,7 +273,7 @@
         <div class="clearfix"></div>
         <div class="blockBoxshadow pull-right col-lg-3 margin20 " style="height:210px;max-height:210px;">
             <div style="padding:5px 0px;">
-                <div class="pull-right">الغرف</div>
+                <div class="pull-right"><asp:Label ID="Label18" runat="server" Text=" الغرف" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left"></div>
                 <div class="clearfix"></div>
             </div>
@@ -297,7 +297,7 @@
         </div>
         <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;height:210px;max-height:210px;">
             <div>
-                <div class="pull-right">صورى</div>
+                <div class="pull-right"><asp:Label ID="Label12" runat="server" Text=" صورى" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left">
                     <a href="#addphoto" data-toggle="modal" style="text-decoration:none;">
                         <i class="icon icon-plus"  data-toggle="tooltip" title="إضافة"></i>
@@ -329,7 +329,7 @@
         </div>
         <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;height:210px;max-height:210px;">
             <div>
-                <div class="pull-right">حائط البروفايل</div>
+                <div class="pull-right"><asp:Label ID="Label14" runat="server" Text=" حائط البروفايل" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left">
                     <a href="#interest" data-toggle="modal" style="text-decoration:none;">
                         <i class="icon-3x entypoicon iconentypo-menu"  data-toggle="tooltip" title="تعديل"></i>

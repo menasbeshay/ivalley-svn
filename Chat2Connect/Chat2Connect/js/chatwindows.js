@@ -1110,7 +1110,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
     }
 
     self.changeCurrent = function (selctor, id, type) {
-        self.ActivWindow();
+        //self.ActivWindow();
         if (document.getElementById(selctor)) {
             $('#MainTabs a[href="#' + selctor + '"]').tab('show');
             $('#MainTabs a[href="#' + selctor + '"]').removeClass('RoomAlertRed');
@@ -1213,8 +1213,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');
-        if (this.WelcomeBot.hasOwnProperty("LogoutMsgPart1")) {
-            notify('success', this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2());
+        if (this.Type() == "Room") {
+            if (this.WelcomeBot.hasOwnProperty("LogoutMsgPart1")) {
+                notify('success', this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2());
+            }
         }
     }
     self.rateRoom = function (val) {
