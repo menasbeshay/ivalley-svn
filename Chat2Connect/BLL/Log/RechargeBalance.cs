@@ -16,10 +16,13 @@ namespace BLL.Log
             return Helper.JsonConverter.Deserialize<RechargePoints>(stringValue);
         }
 
-        [Helper.BoundProperty(HeaderText = "إسم العضو", DisplayOrder = 1)]
-        public string MemberName { get; set; }
+        [Helper.BoundProperty(HeaderText = "من العضو", DisplayOrder = 1)]
+        public string FromMemberName { get; set; }
 
-        [Helper.BoundProperty(HeaderText = "عدد النقاط", DisplayOrder = 2)]
+        [Helper.BoundProperty(HeaderText = "إلى العضو", DisplayOrder = 2)]
+        public string ToMemberName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 3)]
         public int Points { get; set; }
 
 
