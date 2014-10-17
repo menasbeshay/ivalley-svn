@@ -20,6 +20,7 @@ namespace BLL
             return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1) , C.Name CategoryName , SC.Name SubCategoryName
 	                                    ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
 	                                    ,[RoomRate]=isnull((select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID),0)
+                                        ,[RoomTypeSpecID]=ISNULL(RoomTypeSpec.ID,{2})
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
@@ -27,7 +28,7 @@ namespace BLL
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
                                     where R.CreatedBy = {0} --AND ISNULL(R.RowStatusID,{1})={1} 
-                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled);
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled,(int)Helper.Enums.MemberTypeSpec.Free);
 
         }
 

@@ -47,30 +47,37 @@
         <div class="from-group">
             <table dir="rtl" class="table">
                 <tr>
-                    <th width="20%" class="text-right" colspan="2">إختر البوت المراد شرائه</th>
-                    <th width="25%" class="text-right">البوت</th>
-                    <th width="45%" class="text-right">تفاصيل</th>
+                    <th width="10%" class="text-right" colspan="2">إختر البوت المراد شرائه</th>
+                    <th width="20%" class="text-right">البوت</th>
+                    <th width="50%" class="text-right">تفاصيل</th>
                     <th width="10%" class="text-right">النقاط</th>
+                    <th width="10%" class="text-right">الحالة</th>
                 </tr>
                 <asp:Repeater ID="repBots" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td>
-                                <span width="40px" id='<%# Eval(BLL.Bot.ColumnNames.ID,"select_{0}") %>'>
+                                <span id='<%# Eval(BLL.Bot.ColumnNames.ID,"select_{0}") %>'>
                                     <asp:CheckBox ID="chkSelect" runat="server" onclick='<%# Eval(BLL.BotPoints.ColumnNames.Points,"calcPoints(this,{0})") %>' />
-                                </span>
-                                <span class="has-success" width="40px" id='<%# Eval(BLL.Bot.ColumnNames.ID,"take_{0}") %>'>
-                                    <label class="control-label">تم الشراء</label>
                                 </span>
                             </td>
                             <td>
                                 <img width="35px" height="35px" src='<%# Eval(BLL.Bot.ColumnNames.IconPath,"{0}_1.png") %>' />
+                                <asp:HiddenField ID="hdnBotPoints" runat="server" Value='<%# Eval(BLL.BotPoints.ColumnNames.Points) %>' />
                                 <asp:HiddenField ID="hdnBotID" runat="server" Value='<%# Eval(BLL.Bot.ColumnNames.ID) %>' />
                             </td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Title) %></td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Description) %></td>
                             <td>
-                                <asp:Label ID="lblPoints" runat="server" Text='<%# Eval(BLL.BotPoints.ColumnNames.Points) %>'></asp:Label>
+                                <%# Helper.TypeConverter.ToInt32(Eval(BLL.BotPoints.ColumnNames.Points))>0?Eval(BLL.BotPoints.ColumnNames.Points):"عرض مجانا" %>
+                            </td>
+                            <td>
+                                <span class="has-success">
+                                    <label class="control-label" id='<%# Eval(BLL.Bot.ColumnNames.ID,"take_{0}") %>'>تم الشراء</label>
+                                </span>
+                                <span class="has-error">
+                                    <label class="control-label" id='<%# Eval(BLL.Bot.ColumnNames.ID,"lblSelect_{0}") %>'>شراء</label>
+                                </span>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -81,6 +88,7 @@
     </div>
     <script>
         var roomsBots =<%= Helper.JsonConverter.Serialize(this.RoomsBots)%>;
+        var roomsSpecs =<%= Helper.JsonConverter.Serialize(this.RoomsSpecs)%>;
         function calcPoints(chkbox, value) {
             var total = Number($('#<%= totalSelectedPoints.ClientID%>').val());
             var selectedCount = Number($('#<%= selectedCount.ClientID%>').val());;
@@ -113,18 +121,38 @@
             $('#<%= btnSaveBots.ClientID%>').attr('disabled', 'disabled');
             $("[id^=select_]").attr('checked', false); 
             $("[id^=select_]").show();
+            $("[id^=lblSelect_]").show();
             $("[id^=take_]").hide();
             $.each(roomsBots, function(index, element) {
                 if(element.RoomID==roomID)
                 {
                     $("#select_"+element.BotID).hide();
+                    $("#lblSelect_"+element.BotID).hide();
                     $("#take_"+element.BotID).show();
                 }
             });
+            var specID;
+            $.each(roomsSpecs, function(index, element) {
+                if(element.RoomID==roomID)
+                {
+                    specID=element.SpecID;
+                }
+            });
             $("#select_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
+            $("#lblSelect_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
             $("#take_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
             $("#select_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();
-            $("#take_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show().html("<a href='roomtypes.aspx'>ترقية</a>");
+            if(specID=='<%= (int)Helper.Enums.MemberTypeSpec.Pink1%>' || specID=='<%= (int)Helper.Enums.MemberTypeSpec.Pink2%>')
+            {
+                $("#take_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show().html("تم الترقية");
+                $("#lblSelect_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();
+            }
+            else
+            {
+                $("#take_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();
+                $("#lblSelect_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show();
+                $("#select_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show().html("<a href='roomtypes.aspx'>ترقية</a>");
+            }
         }
     </script>
 </asp:Content>
