@@ -38,11 +38,6 @@ namespace Chat2Connect.Admin
         {
             if (!string.IsNullOrEmpty(drpRooms.SelectedValue))
             {
-                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()))
-                {
-                    ctrlRoomType.Visible = true;
-                    ctrlRoomType.RoomID = Convert.ToInt32(drpRooms.SelectedValue);
-                }
                 if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomStatus.ToString()))
                 {
                     ctrlRoomStatus.Visible = true;

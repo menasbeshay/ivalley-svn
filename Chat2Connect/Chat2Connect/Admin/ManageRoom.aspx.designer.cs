@@ -47,14 +47,5 @@ namespace Chat2Connect.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Chat2Connect.Admin.UserControls.Room.RoomStatus ctrlRoomStatus;
-        
-        /// <summary>
-        /// ctrlRoomType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Chat2Connect.Admin.UserControls.Room.RoomType ctrlRoomType;
     }
 }

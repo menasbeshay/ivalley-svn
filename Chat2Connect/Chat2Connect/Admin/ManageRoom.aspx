@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="ManageRoom.aspx.cs" Inherits="Chat2Connect.Admin.ManageRoom" %>
-
 <%@ Register Src="~/Admin/UserControls/Room/RoomStatus.ascx" TagPrefix="uc1" TagName="RoomStatus" %>
-<%@ Register Src="~/Admin/UserControls/Room/RoomType.ascx" TagPrefix="uc1" TagName="RoomType" %>
-
- 
-  
 <%@ Register src="UserControls/Room/RoomInfo.ascx" tagname="RoomInfo" tagprefix="uc2" %>
+<%@ Register Src="~/usercontrols/RoomTypes.ascx" TagPrefix="uc1" TagName="RoomTypes" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
@@ -39,13 +35,4 @@
        
     </div>
     <div class="clear" style="height:10px;"></div>
-    <div class="row">
-         <%if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()))
-          {%>
-        <div class="col-xs-12">
-            <uc1:RoomType runat="server" ID="ctrlRoomType" Visible="false" />
-        </div>
-        <%} %>
-
-    </div>
 </asp:Content>
