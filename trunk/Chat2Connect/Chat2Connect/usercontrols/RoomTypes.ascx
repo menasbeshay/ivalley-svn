@@ -202,7 +202,7 @@
     $(document).ready(function () {
         $("#<%= hdnSpec.ClientID%>").val($("[name=rdSpec]:checked").val());
         $("#<%= hdnDuration.ClientID%>").val($("[name=rdDuration]:checked").val());
-        $("#<%= txtRoom.ClientID%>").tokenInput("../Services/Services.asmx/SearchRooms", {
+        $("#<%= txtRoom.ClientID%>").tokenInput("../Services/Services.asmx/SearchRoomsForTypes", {
             theme: "facebook",
             preventDuplicates: true,
             hintText: "",
