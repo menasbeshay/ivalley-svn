@@ -20,7 +20,7 @@ namespace Chat2Connect
                     LoadBalance();
                 }
             }
-            else 
+            else
             {
                 Response.Redirect("default.aspx");
             }
@@ -42,53 +42,29 @@ namespace Chat2Connect
             {
                 if (!string.IsNullOrEmpty(uiHiddenFieldFriendID.Value))
                 {
-
-                    if (Member.CurrentMember.IsColumnNull("Credit_Point"))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "Error1", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام الشحن.'); });", true);
-                        return;
-                    }                    
-                    else
-                    {
-                        try
-                        {
-                            if (Member.CurrentMember.Credit_Point < Convert.ToInt32(uiHiddenFieldPoints.Value))
-                            {
-                                ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام الشحن.'); });", true);
-                                return;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            ClientScript.RegisterStartupScript(this.GetType(), "Error10", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أعد المحاولة.'); });", true);
-                        }
-                    }
-
-
-
                     try
                     {
-                        Member ToMember = new Member();                        
+                        int points = Convert.ToInt32(uiHiddenFieldPoints.Value);
+                        if (Member.CurrentMember.Credit_Point < points)
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام الشحن.'); });", true);
+                            return;
+                        }
+
+                        Member ToMember = new Member();
                         ToMember.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldFriendID.Value));
 
-                        if (!ToMember.IsColumnNull("Credit_Point"))
-                            ToMember.Credit_Point += Convert.ToInt32(uiHiddenFieldPoints.Value);
-                        else
-                            ToMember.Credit_Point = Convert.ToInt32(uiHiddenFieldPoints.Value);
-
-                        Member currentmember = new Member();
-                        currentmember.LoadByPrimaryKey(Member.CurrentMemberID);
-                        currentmember.Credit_Point = Member.CurrentMember.Credit_Point - Convert.ToInt32(uiHiddenFieldPoints.Value); ;
+                        ToMember.Credit_Point = ToMember.Credit_Point + points;
+                        Member.CurrentMember.Credit_Point -= points;
                         ToMember.Save();
-                        currentmember.Save();
+                        Member.CurrentMember.Save();
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل النقاط بنجاح.'); });", true);
 
                         // logging
-                        //BLL.MemberLog log = new BLL.MemberLog();
-                        //log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferBalance() { FriendID = ToMember.MemberID, FriendName = ToMember.Name, TranseferAmount = Convert.ToDecimal(uiTextBoxAmount.Text) }, ToMember.MemberID, null);
+                        BLL.MemberLog log = new BLL.MemberLog();
+                        log.AddNew(Member.CurrentMemberID, new BLL.Log.RechargePoints() { MemberName = ToMember.Name, Points = points }, ToMember.MemberID, null);
 
-                        
                         LoadBalance();
                         uiHiddenFieldPrice.Value = "";
                         uiHiddenFieldPoints.Value = "";

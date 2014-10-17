@@ -5,23 +5,22 @@ using System.Text;
 
 namespace BLL.Log
 {
-    public class TransferBalance : Log
+    public class TransferPoints : Log
     {
-        public TransferBalance()
+        public TransferPoints()
         {
-            Type = Helper.Enums.LogType.TransferBalance;
+            Type = Helper.Enums.LogType.TransferPoints;
         }
 
-        public static TransferBalance FromString(string stringValue)
+        public static TransferPoints FromString(string stringValue)
         {
-            return Helper.JsonConverter.Deserialize<TransferBalance>(stringValue);
+            return Helper.JsonConverter.Deserialize<TransferPoints>(stringValue);
         }
 
-        public int FriendID { get; set; }
-        [Helper.BoundProperty(HeaderText = "تحويل إلى", DisplayOrder = 1)]
-        public string FriendName { get; set; }
+        [Helper.BoundProperty(HeaderText = "إسم العضو", DisplayOrder = 1)]
+        public string MemberName { get; set; }
 
-        [Helper.BoundProperty(HeaderText = "قيمة التحويل", DisplayOrder = 2, DataFormat = "{0:0.0#}&nbsp;ريال")]
-        public decimal TranseferAmount { get; set; }
+        [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 2)]
+        public int Points { get; set; }
     }
 }

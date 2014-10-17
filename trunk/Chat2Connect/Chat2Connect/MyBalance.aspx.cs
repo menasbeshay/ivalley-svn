@@ -27,21 +27,16 @@ namespace Chat2Connect
 
         private void LoadBalance()
         {
-            Member member = new Member();
-            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            if (!member.IsColumnNull("Credit_Point"))
-                uiLabelBalance.Text = member.Credit_Point.ToString() + " نقطة";
+            if (BLL.Member.CurrentMember.Credit_Point > 0)
+                uiLabelBalance.Text = BLL.Member.CurrentMember.Credit_Point.ToString() + " نقطة";
             else
                 uiLabelBalance.Text = "لا يوجد رصيد";
         }
 
         private void LoadFriends()
         {
-            Member member = new Member();
-            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-
             MemberFriend friends = new MemberFriend();
-            friends.GetAllMemberFriends(member.MemberID);
+            friends.GetAllMemberFriends(BLL.Member.CurrentMember.MemberID);
 
             uiRadioButtonListFriends.DataSource = friends.DefaultView;
             uiRadioButtonListFriends.DataTextField = "MemberName";
@@ -51,83 +46,40 @@ namespace Chat2Connect
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
         {
-            Member member = new Member();
-            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
             MembershipUser user = Membership.GetUser();
 
-            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && member.Answer == uiTextBoxAnswer.Text)
+            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
             {
                 if (uiRadioButtonListFriends.SelectedIndex != -1)
                 {
 
-                    if (member.IsColumnNull("Credit_Point"))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "Error1", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
-                        return;
-                    }
-                    else if (string.IsNullOrEmpty(uiTextBoxAmount.Text))
+                    if (string.IsNullOrEmpty(uiTextBoxAmount.Text))
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "Error2", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أدخل قيمة التحويل.'); });", true);
                         return;
                     }
-                    else
-                    {
-                        try
-                        {
-                            if (member.Credit_Point < Convert.ToDecimal(uiTextBoxAmount.Text))
-                            {
-                                ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
-                                return;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            ClientScript.RegisterStartupScript(this.GetType(), "Error10", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أعد المحاولة.'); });", true);
-                        }
-                    }
-
-
-
                     try
                     {
+                        int points = Convert.ToInt32(uiTextBoxAmount.Text);
+                        if (BLL.Member.CurrentMember.Credit_Point < points)
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
+                            return;
+                        }
                         Member ToMember = new Member();
                         ToMember.LoadByPrimaryKey(Convert.ToInt32(uiRadioButtonListFriends.SelectedValue));
 
-                        if (!ToMember.IsColumnNull("Credit_Point"))
-                            ToMember.Credit_Point += Convert.ToInt32(uiTextBoxAmount.Text);
-                        else
-                            ToMember.Credit_Point = Convert.ToInt32(uiTextBoxAmount.Text);
-
-                        member.Credit_Point -= Convert.ToInt32(uiTextBoxAmount.Text);
+                        ToMember.Credit_Point += points;
+                        BLL.Member.CurrentMember.Credit_Point -= points;
                         ToMember.Save();
-                        member.Save();
+                        BLL.Member.CurrentMember.Save();
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل النقاط بنجاح.'); });", true);
 
                         // logging
                         BLL.MemberLog log = new BLL.MemberLog();
-                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferBalance() { FriendID = ToMember.MemberID, FriendName = ToMember.Name, TranseferAmount = Convert.ToDecimal(uiTextBoxAmount.Text) }, ToMember.MemberID, null);
+                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferPoints() { MemberName = ToMember.Name, Points = points }, ToMember.MemberID, null);
 
-                        /*
-                        UserTransLog log = new UserTransLog();
-                        log.AddNew();
-                        log.MemberID = ToMember.MemberID;
-                        log.AddedFrom = member.MemberID;
-                        log.Value = Convert.ToDecimal(uiTextBoxAmount.Text);
-                        log.TransType = 1;
-                        log.TransDate = DateTime.Now;
-                        log.PaymentMethod = StringEnum.GetStringValue(Enums.PaymentMethod.FriendTransefer);
-                        log.Save();
-
-                        UserTransLog log2 = new UserTransLog();
-                        log2.AddNew();
-                        log2.MemberID = member.MemberID;
-                        log2.AddedTo = ToMember.MemberID;
-                        log2.Value = Convert.ToDecimal(uiTextBoxAmount.Text);
-                        log2.TransType = 2;
-                        log2.TransDate = DateTime.Now;
-                        log2.PaymentMethod = StringEnum.GetStringValue(Enums.PaymentMethod.TranseferToFriend);
-                        log2.Save();*/
                         LoadBalance();
                         uiTextBoxAmount.Text = "";
                     }

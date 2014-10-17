@@ -3,6 +3,10 @@
 
 using DAL;
 using System;
+using System.Collections.Specialized;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace BLL
 {
@@ -30,6 +34,21 @@ namespace BLL
                 this.RelatedRoomID = relatedRoomID.Value;
 
             this.Save();
+        }
+
+        public bool GetPointsReport(int memberID,string startDate,string endDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(Parameters.MemberID, memberID);
+            //@PointsLogTypes
+            parameters.Add(new SqlParameter("@PointsLogTypes", SqlDbType.VarChar, 1073741823), String.Join(",",Helper.Enums.GetAccountingLogTypes().Select(l=>(int)l)));
+
+            if (!String.IsNullOrEmpty(startDate))
+                parameters.Add(new SqlParameter("@StartDate", SqlDbType.DateTime, 0), Helper.Date.ToDate(startDate));
+            if (!String.IsNullOrEmpty(endDate))
+                parameters.Add(new SqlParameter("@EndDate", SqlDbType.DateTime, 0), Helper.Date.ToDate(endDate));
+
+            return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MemberLogGetPointsReport]", parameters);   
         }
     }
 }

@@ -170,10 +170,10 @@ namespace Helper
             ChangeRoomType = 7,
             [StringValue("صبغ حساب")]
             ChangeMemberType = 8,
-            [StringValue("شحن رصيد")]
-            RechargeBalance = 9,
-            [StringValue("تحويل رصيد")]
-            TransferBalance = 10,
+            [StringValue("شحن نقاط")]
+            RechargePoints = 9,
+            [StringValue("تحويل نقاط")]
+            TransferPoints = 10,
             [StringValue("دخول محادثة خاصة")]
             EnterPrivateChate = 11,
             [StringValue("تغيير كلمة السر")]
@@ -197,8 +197,8 @@ namespace Helper
                 Helper.Enums.LogType.AddRoomBot,
                 Helper.Enums.LogType.ChangeMemberType,
                 Helper.Enums.LogType.ChangeRoomType,
-                Helper.Enums.LogType.RechargeBalance,
-                Helper.Enums.LogType.TransferBalance
+                Helper.Enums.LogType.RechargePoints,
+                Helper.Enums.LogType.TransferPoints
             };
         }
         public enum BanningType
