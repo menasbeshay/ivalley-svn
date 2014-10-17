@@ -41,27 +41,7 @@ namespace Chat2Connect
         private void BindReport()
         {
             BLL.MemberLog log = new BLL.MemberLog();
-            if (!String.IsNullOrEmpty(txtStartDate.Text) && !String.IsNullOrEmpty(txtEndDate.Text))
-            {
-                log.Where.CreateDate.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Between;
-                log.Where.CreateDate.BetweenBeginValue = Helper.Date.ToDate(txtStartDate.Text);
-                log.Where.CreateDate.BetweenEndValue = Helper.Date.ToDate(txtEndDate.Text).AddHours(DateTime.Now.Hour);
-            }
-            else if (!String.IsNullOrEmpty(txtStartDate.Text))
-            {
-                log.Where.CreateDate.Value = Helper.Date.ToDate(txtStartDate.Text);
-                log.Where.CreateDate.Operator = MyGeneration.dOOdads.WhereParameter.Operand.GreaterThanOrEqual;
-            }
-            else if (!String.IsNullOrEmpty(txtEndDate.Text))
-            {
-                log.Where.CreateDate.Value = Helper.Date.ToDate(txtStartDate.Text);
-                log.Where.CreateDate.Operator=MyGeneration.dOOdads.WhereParameter.Operand.LessThanOrEqual;
-            }
-            log.Where.MemberID.Value = BLL.Member.CurrentMemberID;
-            log.Where.LogTypeID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.In;
-            log.Where.LogTypeID.Value = String.Join(",", Helper.Enums.GetAccountingLogTypes().Select(r => (int)r));
-            log.Query.AddOrderBy(BLL.MemberLog.ColumnNames.CreateDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
-            log.Query.Load();
+            log.GetPointsReport(BLL.Member.CurrentMemberID, txtStartDate.Text, txtEndDate.Text);
 
             grdLog.DataSource = log.DefaultView;
             grdLog.DataBind();

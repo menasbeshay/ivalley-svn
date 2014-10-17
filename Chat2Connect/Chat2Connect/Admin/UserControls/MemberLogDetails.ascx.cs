@@ -74,11 +74,11 @@ namespace Chat2Connect.Admin.UserControls
                     case (int)Helper.Enums.LogType.EnterRoom:
                         logDetails = BLL.Log.EnterRoom.FromString(DataSource);
                         break;
-                    case (int)Helper.Enums.LogType.RechargeBalance:
-                        logDetails = BLL.Log.RechargeBalance.FromString(DataSource);
+                    case (int)Helper.Enums.LogType.RechargePoints:
+                        logDetails = BLL.Log.RechargePoints.FromString(DataSource);
                         break;
-                    case (int)Helper.Enums.LogType.TransferBalance:
-                        logDetails = BLL.Log.TransferBalance.FromString(DataSource);
+                    case (int)Helper.Enums.LogType.TransferPoints:
+                        logDetails = BLL.Log.TransferPoints.FromString(DataSource);
                         break;
                     case (int)Helper.Enums.LogType.AddRoomBot:
                         logDetails = BLL.Log.AddRoomBot.FromString(DataSource);

@@ -5,18 +5,23 @@ using System.Text;
 
 namespace BLL.Log
 {
-    public class RechargeBalance:Log
+    public class RechargePoints:Log
     {
-        public RechargeBalance()
+        public RechargePoints()
         {
-            Type = Helper.Enums.LogType.RechargeBalance;
+            Type = Helper.Enums.LogType.RechargePoints;
         }
-        public static RechargeBalance FromString(string stringValue)
+        public static RechargePoints FromString(string stringValue)
         {
-            return Helper.JsonConverter.Deserialize<RechargeBalance>(stringValue);
+            return Helper.JsonConverter.Deserialize<RechargePoints>(stringValue);
         }
 
-        [Helper.BoundProperty(HeaderText = "قيمة الشحن", DisplayOrder = 1, DataFormat="{0:0.0#}&nbsp;ريال")]
-        public decimal RechargeAmount { get; set; }
+        [Helper.BoundProperty(HeaderText = "إسم العضو", DisplayOrder = 1)]
+        public string MemberName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "عدد النقاط", DisplayOrder = 2)]
+        public int Points { get; set; }
+
+
     }
 }

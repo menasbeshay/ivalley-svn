@@ -28,6 +28,20 @@ namespace BLL
             }
         }
 
+        public override int Credit_Point
+        {
+            get
+            {
+                if (IsColumnNull(Member.ColumnNames.Credit_Point))
+                    return 0;
+                return base.Credit_Point;
+            }
+            set
+            {
+                base.Credit_Point = value;
+            }
+        }
+
         #region Extended Properties
         private System.Web.Security.MembershipUser _membershipUser;
         private bool isLoaded;
