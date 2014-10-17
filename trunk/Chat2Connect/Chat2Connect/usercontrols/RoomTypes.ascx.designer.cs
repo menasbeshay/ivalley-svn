@@ -31,31 +31,31 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.WebControls.Label lblPoints;
         
         /// <summary>
-        /// repRoomTypeSpecs control.
+        /// txtRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repRoomTypeSpecs;
+        protected global::System.Web.UI.WebControls.TextBox txtRoom;
         
         /// <summary>
-        /// selectedTypeSpecDurationID control.
+        /// hdnSpec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnSpec;
         
         /// <summary>
-        /// selectedTypeSpecDurationPrice control.
+        /// hdnDuration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnDuration;
         
         /// <summary>
         /// uiDropDownListQuestion control.

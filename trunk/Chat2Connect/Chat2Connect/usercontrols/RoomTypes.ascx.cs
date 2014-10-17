@@ -16,7 +16,7 @@ namespace Chat2Connect.usercontrols
         {
             if (!IsPostBack)
             {
-                BindPage();
+                lblPoints.Text = BLL.Member.CurrentMember.s_Credit_Point;
             }
         }
 
@@ -32,21 +32,6 @@ namespace Chat2Connect.usercontrols
                 rooms.GetRoomsByCreatorID(BLL.Member.CurrentMemberID);
             }
 
-            uiDropDownListMyRooms.DataSource = rooms.DefaultView;
-            uiDropDownListMyRooms.DataValueField = "RoomID";
-            uiDropDownListMyRooms.DataTextField = "Name";
-            uiDropDownListMyRooms.DataBind();
-
-            RoomTypeSpec roomTypeSpec = new RoomTypeSpec();
-            roomTypeSpec.LoadAll();
-            if (!Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AddVIPAccount.ToString()))
-            {
-                roomTypeSpec.Filter = String.Format("{0}<>{1}", RoomTypeSpec.ColumnNames.ID, (int)Helper.Enums.MemberTypeSpec.VIP);
-            }
-            repRoomTypeSpecs.DataSource = roomTypeSpec.DefaultView;
-            repRoomTypeSpecs.DataBind();
-
-            lblPoints.Text = BLL.Member.CurrentMember.s_Credit_Point;
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
@@ -54,35 +39,39 @@ namespace Chat2Connect.usercontrols
             MembershipUser user = Membership.GetUser();
             if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
             {
-                if (!String.IsNullOrEmpty(uiDropDownListMyRooms.SelectedValue))
+                if (!String.IsNullOrEmpty(txtRoom.Text))
                 {
                     Room room = new Room();
-                    room.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListMyRooms.SelectedValue));
+                    room.LoadByPrimaryKey(Convert.ToInt32(txtRoom.Text));
 
                     try
                     {
-                        int type = Convert.ToInt32(selectedTypeSpecDurationID.Value);
-                        int val = Convert.ToInt32(selectedTypeSpecDurationPrice.Value);
-
-                        if (BLL.Member.CurrentMember.Credit_Point < val)
+                        int durationID = Convert.ToInt32(hdnDuration.Value);
+                        int specID = Convert.ToInt32(hdnSpec.Value);
+                        BLL.RoomTypeSpecDuration bllRoomTypeSpecDuration = new RoomTypeSpecDuration();
+                        bllRoomTypeSpecDuration.Where.TypeDurationID.Value = durationID;
+                        bllRoomTypeSpecDuration.Where.RoomTypeSpecID.Value = specID;
+                        bllRoomTypeSpecDuration.Query.Load();
+                        int points = bllRoomTypeSpecDuration.Points;
+                        if (BLL.Member.CurrentMember.Credit_Point < points)
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
                             return;
                         }
 
-                        BLL.Member.CurrentMember.Credit_Point -= val;
+                        BLL.Member.CurrentMember.Credit_Point -= points;
                         BLL.Member.CurrentMember.Save();
 
-                        room.RoomType.RoomTypeSpecDurationID = type;
+                        room.RoomType.RoomTypeSpecDurationID = bllRoomTypeSpecDuration.ID;
                         room.RoomType.CreateBy = BLL.Member.CurrentMember.MemberID;
                         room.RoomType.StartDate = DateTime.Now;
-                        room.RoomType.EndDate = DateTime.Now.AddMonths(room.RoomType.RoomTypeSpecDuration.TypeDuration.MonthesNumber);
+                        room.RoomType.EndDate = DateTime.Now.AddMonths(bllRoomTypeSpecDuration.TypeDuration.MonthesNumber);
                         room.RoomType.Save();
 
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الغرفة بنجاح.'); });", true);
 
                         BLL.MemberLog log = new BLL.MemberLog();
-                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName=room.Name, NewTypeName=room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name,NewTypeExpiryDate=room.RoomType.EndDate,Points=val}, null, room.RoomID);
+                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName=room.Name, NewTypeName=room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name,NewTypeExpiryDate=room.RoomType.EndDate,Points=points}, null, room.RoomID);
 
                     }
                     catch (Exception ex)
@@ -102,39 +91,5 @@ namespace Chat2Connect.usercontrols
             }
         }
 
-        private int roomTypespecID;
-        protected void repRoomTypeSpecs_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                DataRowView row = (DataRowView)e.Item.DataItem;
-                GridView grdDurationTypespec = (GridView)e.Item.FindControl("grdDurationTypespec");
-                roomTypespecID = Convert.ToInt32(row["ID"]);
-
-                RoomTypeSpecDuration specDurations = new RoomTypeSpecDuration();
-                specDurations.LoadByRoomTypeSpecID(roomTypespecID);
-                grdDurationTypespec.DataSource = specDurations.DefaultView;
-                grdDurationTypespec.DataBind();
-
-            }
-        }
-
-        public string GetRoomOrder(int order)
-        {
-            string orderString = "";
-            switch (order)
-            {
-                case 1:
-                    orderString = "فى أعلى الغرف";
-                    break;
-                case 2:
-                    orderString = "بعد الغرف المميزة";
-                    break;
-            }
-
-            return orderString;
-        }
-
-        
     }
 }

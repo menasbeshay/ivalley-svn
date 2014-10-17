@@ -2,26 +2,31 @@
 <script src="../js/dreamcodes.js"></script>
 <link href="../css/tsc_pricingtables.css" rel="stylesheet" />
 <script src="../js/tsc_pricingtables.js"></script>
+<style>
+    .spec {
+        width: 20px;
+        height: 20px;
+        margin: 5px 5px 5px 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0,0,0,.2);
+    }
+
+    .roomType {
+        width: 20px;
+        height: 20px;
+        margin: 5px 5px 5px 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0,0,0,.2);
+    }
+</style>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#roomtypes').addClass('active');
-        $("input[name='RoomTypeSpecDurationID']").change(function () {
-            $("#<%=selectedTypeSpecDurationID.ClientID%>").val($(this).data("id"));
-            $("#<%=selectedTypeSpecDurationPrice.ClientID%>").val($(this).data("price"));
-        });
     });
 </script>
 <div class="form-horizontal blockBoxshadow">
-    <div class="row">
-        <div class="form-group">
-            <div class="col-lg-4 pull-right control-label">
-                اختر غرفة
-            </div>
-            <div class="col-lg-4 pull-right">
-                <asp:DropDownList ID="uiDropDownListMyRooms" runat="server" CssClass="form-control"></asp:DropDownList>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="form-group">
             <div class="col-lg-4 pull-right control-label">
@@ -32,79 +37,110 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-12 control-label center-block" style="float: none !important; padding: 0px;">
-        <!-- DC Pricing Tables:3 Start -->
-        <div class="tsc_pricingtable03 tsc_pt3_style1">
-            <div class="caption_column" style="width: 15%;">
-                <ul>
-                    <li class="header_row_1 align_center radius5_topleft"></li>
-                    <li class="header_row_2">
-                        <h2 class="caption">إختر نوع الغرفة</h2>
-                    </li>
-                    <li class="row_style_4"><span>مايكرفون</span></li>
-                    <li class="row_style_2"><span>كاميرا</span></li>
-                    <li class="row_style_4"><span style="font-size: 14px;">ظهورها فى القائمة</span><br />
-                    </li>
-                    <li class="row_style_4" style="height: 100px !important;"><span>مدة الإشتراك</span></li>
-                </ul>
+    <div class="row">
+        <div class="col-lg-8" style="float: right;">
+            <!-- DC Pricing Tables:3 Start -->
+            <div class="tsc_pricingtable03 tsc_pt3_style1">
+                <div class="caption_column" style="width: 30%;">
+                    <ul>
+                        <li class="header_row_2">
+                            <h2 class="caption">إختر نوع الغرفة</h2>
+                        </li>
+                        <li class="row_style_4"><span>العدد المسموح فى الغرفة</span></li>
+                        <li class="row_style_4"><span>مايكرفون</span></li>
+                        <li class="row_style_2"><span>كاميرا</span></li>
+                        <li class="row_style_4"><span style="font-size: 14px;">ظهورها الغرفة</span>
+                        <li class="row_style_4"><span style="font-size: 14px;">ظهور إعلانات فى الغرفة</span>
+                        </li>
+                        <li class="row_style_4"><span>مدة الإشتراك</span></li>
+                    </ul>
+                </div>
+                <div class="column_1" style="width: 35%;">
+                    <ul>
+                        <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center; background-color: #000; background-image: url('images/bots/Room_1.png')"></li>
+                        <li class="row_style_4 align_center"><span>500</span></li>
+                        <li class="row_style_4 align_center"><span>صوت واضح</span></li>
+                        <li class="row_style_2 align_center"><span>رؤية واضحة</span></li>
+                        <li class="row_style_4 align_center"><span>بعد الغرف المميزة</span></li>
+                        <li class="row_style_4 align_center"><span>نعم</li>
+                        <li class="row_style_4 align_center"><span>مجانا</span></li>
+                    </ul>
+                </div>
+                <div class="column_2" style="width: 35%;">
+                    <ul>
+                        <li class="header_row_2 align_center">
+                            <ul style="width: 100%; height: 100%">
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #ff00fe; background-image: url('images/bots/Room_2.png')"></li>
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #880088; background-image: url('images/bots/Room_3.png')"></li>
+                            </ul>
+                        </li>
+                        <li class="row_style_4 align_center"><span>2000</span></li>
+                        <li class="row_style_4 align_center"><span>صوت نقى</span></li>
+                        <li class="row_style_2 align_center"><span>رؤية مباشرة</span></li>
+                        <li class="row_style_4 align_center"><span>فى أعلى الغرف</span></li>
+                        <li class="row_style_4 align_center"><span>لا</span></li>
+                        <li class="row_style_4 align_center"><span>شراء نقاط</span></li>
+                    </ul>
+                </div>
             </div>
-            <asp:Repeater ID="repRoomTypeSpecs" runat="server" OnItemDataBound="repRoomTypeSpecs_ItemDataBound">
-                <ItemTemplate>
-                    <div class="column_<%# Eval("ID") %>">
-                        <ul>
-                            <li class="header_row_1 align_center radius5_topleft" style="background-color:<%# Eval("Color") %>">
-                                <h2 class="col4"><%# Eval("Name") %></h2>
-                            </li>
-                            <li class="header_row_2 align_center" style="background-repeat:no-repeat;background-position:center;background-color:<%# Eval("Color") %>;background-image:url('images/bots/Room_<%# Eval("ID") %>.png')">
-                            </li>
-                            <li class="row_style_4 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("MicQuality") %></a></span></li>
-                            <li class="row_style_2 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("CamQuality") %></a></span></li>
-                            <li class="row_style_4 align_center" style="padding-top: 5px !important;"><span><a style="direction: rtl;" href="#" class="" rel=" info.">
-                                <%# GetRoomOrder(Convert.ToInt32(Eval("OrderInRoomList"))) %>
-                            </li>
-                            <li class="row_style_4 align_center" style="height: 100px !important;">
-                                <center>
-                                <asp:GridView ID="grdDurationTypespec" runat="server" AutoGenerateColumns="false" ShowHeader="false" CellPadding="5">
-                                    <Columns>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <input type="radio" name="RoomTypeSpecDurationID" id='RoomTypeSpecDurationID_<%# Eval("ID") %>' data-id='<%# Eval("ID") %>' data-price='<%# Eval("Points") %>' style='<%# Convert.ToDouble(Eval("Points"))!=0?"": "display:none;" %>' />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <label for="RoomTypeSpecDurationID_<%# Eval("ID") %>" style="font-size: 13px;">
-                                                    <%# Eval("DurationName") %>
-                                                </label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <label for="RoomTypeSpecDurationID_<%# Eval("ID") %>" style="font-size: 13px;">
-                                                    <%# Convert.ToDouble(Eval("Points"))>0?Convert.ToDouble(Eval("Points")).ToString("0")+" نقطة":"" %>
-                                                </label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                                    </center>
-                            </li>
-                        </ul>
+        </div>
+        <div class="col-lg-4" style="padding-top: 100px; padding-right: 10px;">
+            <div class="row">
+                إسم الغرفة المراد ترقية
+            </div>
+            <div class="row">
+                <asp:TextBox ID="txtRoom" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="row">
+                لون الترقية
+            </div>
+            <div class="row" id="specs">
+                <div class="col-lg-6 ">
+                    <div class="col-lg-3">
+                        <span class="spec" style="background-color: #ff00fe"></span>
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            <input type="hidden" runat="server" id="selectedTypeSpecDurationID" value="0" />
-            <input type="hidden" runat="server" id="selectedTypeSpecDurationPrice" value="0" />
+                    <div class="col-lg-3">
+                        <input type="radio" value="2" name="rdSpec" checked="checked" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="col-lg-3">
+                        <span class="spec" style="background-color: #880088"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="radio" value="3" name="rdSpec" />
+                    </div>
+                </div>
+                <input type="hidden" id="hdnSpec" runat="server" value="2" />
+            </div>
+            <div class="row" id="durations">
+                <input type="hidden" id="hdnDuration" runat="server" />
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="1" checked="checked" />
+                    </div>
+                    <div class="col-lg-5 pull-right">شهر</div>
+                    <div class="col-lg-5 pull-right">(1500 نقطة)</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="2" />
+                    </div>
+                    <div class="col-lg-5 pull-right">6 شهور</div>
+                    <div class="col-lg-5 pull-right">(6000 نقطة)</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="3" />
+                    </div>
+                    <div class="col-lg-5 pull-right">سنة</div>
+                    <div class="col-lg-5 pull-right">(10000 نقطة)</div>
+                </div>
+            </div>
+            <div class="row align_center">
+            <a href="#confirm" data-toggle="modal" class="btn btn-warning">تنفيذ</a>
+                </div>
         </div>
-        <div class="tsc_clear"></div>
-        <div class="tsc_pricingtable03 tsc_pt3_style1">
-            <center>
-            <a href="#confirm" class="tsc_buttons2 grey" data-toggle="modal" >تنفيذ</a>
-                    </center>
-        </div>
-        <!-- DC Pricing Tables:3 End -->
-        <div class="tsc_clear"></div>
-        <!-- line break/clear line -->
     </div>
 </div>
 
@@ -152,3 +188,11 @@
         </div>
     </div>
 </div>
+<script>
+    $("#specs").on("change", "[name=rdSpec]", function () {
+        $("#<%= hdnSpec.ClientID%>").val($(this).val());
+    });
+    $("#durations").on("change", "[name=rdDuration]", function () {
+        $("#<%= hdnDuration.ClientID%>").val($(this).val());
+    });
+</script>

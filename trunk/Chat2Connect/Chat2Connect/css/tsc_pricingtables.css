@@ -38,8 +38,8 @@ div.tsc_pricingtable03 div.caption_column li.header_row_2,
 div.tsc_pricingtable03 div.column_1 li.header_row_2,
 div.tsc_pricingtable03 div.column_2 li.header_row_2,
 div.tsc_pricingtable03 div.column_3 li.header_row_2,
-div.tsc_pricingtable03 div.column_4 li.header_row_2 { height:100px; width:100%; padding:3px 0px 7px 0px !important;}
-div.tsc_pricingtable03 div.caption_column li.header_row_2 { height:100px; width:100%; padding:32px 0px 6px 10px !important;}
+div.tsc_pricingtable03 div.column_4 li.header_row_2 { height:100px; width:100%;}
+div.tsc_pricingtable03 div.caption_column li.header_row_2 { height:100px; width:100%;}
 
 
 div.tsc_pricingtable03 div.caption_column { width:24%; height:100%; float:right;}

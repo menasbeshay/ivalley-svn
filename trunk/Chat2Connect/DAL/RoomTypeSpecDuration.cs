@@ -250,15 +250,15 @@ namespace DAL
 			}
 		}
 
-		public virtual decimal Points
+		public virtual int Points
 	    {
 			get
 	        {
-				return base.Getdecimal(ColumnNames.Points);
+				return base.Getint(ColumnNames.Points);
 			}
 			set
 	        {
-				base.Setdecimal(ColumnNames.Points, value);
+				base.Setint(ColumnNames.Points, value);
 			}
 		}
 
@@ -328,14 +328,14 @@ namespace DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Points) ? string.Empty : base.GetdecimalAsString(ColumnNames.Points);
+				return this.IsColumnNull(ColumnNames.Points) ? string.Empty : base.GetintAsString(ColumnNames.Points);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.Points);
 				else
-					this.Points = base.SetdecimalAsString(ColumnNames.Points, value);
+					this.Points = base.SetintAsString(ColumnNames.Points, value);
 			}
 		}
 
