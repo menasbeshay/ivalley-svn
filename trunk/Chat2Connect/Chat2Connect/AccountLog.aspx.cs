@@ -25,6 +25,12 @@ namespace Chat2Connect
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                txtStartDate.Text = Helper.Date.ToString(DateTime.Now.AddMonths(-1));
+                txtEndDate.Text = Helper.Date.ToString(DateTime.Now);
+                BindReport();
+            }
         }
 
         protected void grdLog_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -78,7 +78,7 @@ namespace Chat2Connect
 
                         // logging
                         BLL.MemberLog log = new BLL.MemberLog();
-                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferPoints() { MemberName = ToMember.Name, Points = points }, ToMember.MemberID, null);
+                        log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.TransferPoints() { FromMemberName=BLL.Member.CurrentMember.Name, ToMemberName = ToMember.Name, Points = points }, ToMember.MemberID, null);
 
                         LoadBalance();
                         uiTextBoxAmount.Text = "";
