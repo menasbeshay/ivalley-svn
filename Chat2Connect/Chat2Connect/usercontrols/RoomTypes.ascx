@@ -51,7 +51,7 @@
                         <li class="row_style_4"><span>العدد المسموح فى الغرفة</span></li>
                         <li class="row_style_4"><span>مايكرفون</span></li>
                         <li class="row_style_2"><span>كاميرا</span></li>
-                        <li class="row_style_4"><span style="font-size: 14px;">ظهورها الغرفة</span>
+                        <li class="row_style_4"><span style="font-size: 14px;">ظهور الغرفة</span>
                         <li class="row_style_4"><span style="font-size: 14px;">ظهور إعلانات فى الغرفة</span>
                         </li>
                         <li class="row_style_4"><span>مدة الإشتراك</span></li>
