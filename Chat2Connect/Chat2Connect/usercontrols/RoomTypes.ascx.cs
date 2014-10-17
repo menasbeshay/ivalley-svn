@@ -20,29 +20,15 @@ namespace Chat2Connect.usercontrols
             }
         }
 
-        private void BindPage()
-        {
-            Room rooms = new Room();
-            if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()))
-            {
-                rooms.LoadAll();
-            }
-            else
-            {
-                rooms.GetRoomsByCreatorID(BLL.Member.CurrentMemberID);
-            }
-
-        }
-
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
         {
             MembershipUser user = Membership.GetUser();
             if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
             {
-                if (!String.IsNullOrEmpty(txtRoom.Text))
+                if (!String.IsNullOrEmpty(hdnRoom.Value))
                 {
                     Room room = new Room();
-                    room.LoadByPrimaryKey(Convert.ToInt32(txtRoom.Text));
+                    room.LoadByPrimaryKey(Convert.ToInt32(hdnRoom.Value));
 
                     try
                     {

@@ -106,6 +106,14 @@ namespace BLL
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", (int)Helper.Enums.RowStatus.Enabled, filterText);
 
         }
+        public bool SearchRooms(string filterText,int? createdByID)
+        {
+            string sql = @"SELECT Room.* FROM Room WHERE RowStatusID={0} AND Name LIKE N'%' + {1} + N'%'";
+            if (createdByID.HasValue)
+                sql += " AND CreatedBy=" + createdByID.Value.ToString();
+            return LoadFromRawSql(sql,
+                (int)Helper.Enums.RowStatus.Enabled,filterText);
+        }
 
         #region override properties reading
         public override bool EnableCam
