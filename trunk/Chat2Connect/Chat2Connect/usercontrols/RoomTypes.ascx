@@ -49,23 +49,23 @@
                             <h2 class="caption">إختر لون الترقية (الصبغة)</h2>
                         </li>
                         <li class="row_style_4"><span>العدد المسموح فى الغرفة</span></li>
-                        <li class="row_style_4"><span>مايكرفون</span></li>
-                        <li class="row_style_2"><span>كاميرا</span></li>
-                        <li class="row_style_4"><span style="font-size: 14px;">ظهور الغرفة</span>
+                        <li class="row_style_2"><span>مايكرفون</span></li>
+                        <li class="row_style_4"><span>كاميرا</span></li>
+                        <li class="row_style_2"><span style="font-size: 14px;">ظهور الغرفة</span>
                         <li class="row_style_4"><span style="font-size: 14px;">ظهور إعلانات فى الغرفة</span>
                         </li>
-                        <li class="row_style_4"><span>مدة الإشتراك</span></li>
+                        <li class="row_style_2"><span>مدة الإشتراك</span></li>
                     </ul>
                 </div>
                 <div class="column_1" style="width: 35%;">
                     <ul>
                         <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center; background-color: #000; background-image: url('images/bots/Room_1.png')"></li>
                         <li class="row_style_4 align_center"><span>500</span></li>
-                        <li class="row_style_4 align_center"><span>صوت واضح</span></li>
-                        <li class="row_style_2 align_center"><span>رؤية واضحة</span></li>
-                        <li class="row_style_4 align_center"><span>بعد الغرف المميزة</span></li>
+                        <li class="row_style_2 align_center"><span>صوت واضح</span></li>
+                        <li class="row_style_4 align_center"><span>رؤية واضحة</span></li>
+                        <li class="row_style_2 align_center"><span>بعد الغرف المميزة</span></li>
                         <li class="row_style_4 align_center"><span>نعم</li>
-                        <li class="row_style_4 align_center"><span>مجانا</span></li>
+                        <li class="row_style_2 align_center"><span>مجانا</span></li>
                     </ul>
                 </div>
                 <div class="column_2" style="width: 35%;">
@@ -77,11 +77,11 @@
                             </ul>
                         </li>
                         <li class="row_style_4 align_center"><span>2000</span></li>
-                        <li class="row_style_4 align_center"><span>صوت نقى</span></li>
-                        <li class="row_style_2 align_center"><span>رؤية مباشرة</span></li>
-                        <li class="row_style_4 align_center"><span>فى أعلى الغرف</span></li>
+                        <li class="row_style_2 align_center"><span>صوت نقى</span></li>
+                        <li class="row_style_4 align_center"><span>رؤية مباشرة</span></li>
+                        <li class="row_style_2 align_center"><span>فى أعلى الغرف</span></li>
                         <li class="row_style_4 align_center"><span>لا</span></li>
-                        <li class="row_style_4 align_center"><span>شراء نقاط</span></li>
+                        <li class="row_style_2 align_center"><span>شراء نقاط</span></li>
                     </ul>
                 </div>
             </div>
@@ -97,27 +97,27 @@
             <div class="row" style="padding-top: 10px;">
                 لون الترقية
             </div>
-            <div class="row pull-right" id="specs" style="padding-top: 10px;padding-bottom: 10px">
+            <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     <div class="col-lg-2">
-                        <span style="display:block; width:25px;height:25px; background-color: #880088"></span>
+                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
                     </div>
                     <div class="col-lg-2">
-                        <input type="radio" value="3" name="rdSpec" style="padding-top:3px;"/>
+                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
                     </div>
                 </div>
                 <div class="col-lg-4 ">
                     <div class="col-lg-2">
-                        <span style="display:block; width:25px;height:25px; background-color: #ff00fe"></span>
+                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
                     </div>
                     <div class="col-lg-2">
-                        <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top:3px;" />
+                        <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
                 </div>
                 <input type="hidden" id="hdnSpec" runat="server" value="2" />
             </div>
-            <div class="row" id="durations" style="padding-top:5px;">
+            <div class="row" id="durations" style="padding-top: 5px;">
                 <input type="hidden" id="hdnDuration" runat="server" value="1" />
                 <div class="form-group">
                     <div class="col-lg-2 pull-right">
@@ -142,8 +142,8 @@
                 </div>
             </div>
             <div class="row align_center">
-            <a href="#confirm" data-toggle="modal" class="btn btn-warning">تنفيذ</a>
-                </div>
+                <a href="#confirm" data-toggle="modal" class="btn btn-warning">تنفيذ</a>
+            </div>
         </div>
     </div>
 </div>
@@ -203,15 +203,15 @@
         $("#<%= hdnSpec.ClientID%>").val($("[name=rdSpec]:checked").val());
         $("#<%= hdnDuration.ClientID%>").val($("[name=rdDuration]:checked").val());
         $("#<%= txtRoom.ClientID%>").tokenInput("../Services/Services.asmx/SearchRooms", {
-                 theme: "facebook",
-                 preventDuplicates: true,
-                 hintText: "",
-                 noResultsText: "لا يوجد",
-                 searchingText: "بحث فى الغرف...",    
-                 tokenLimit: 1,
-                 onAdd: function (item) {
-                     $('#<%= hdnRoom.ClientID%>').val(item.id);
-                 },
-             });
+            theme: "facebook",
+            preventDuplicates: true,
+            hintText: "",
+            noResultsText: "لا يوجد",
+            searchingText: "بحث فى الغرف...",
+            tokenLimit: 1,
+            onAdd: function (item) {
+                $('#<%= hdnRoom.ClientID%>').val(item.id);
+            },
+        });
     });
 </script>
