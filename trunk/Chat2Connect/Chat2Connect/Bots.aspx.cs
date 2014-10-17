@@ -9,6 +9,7 @@ namespace Chat2Connect
     public partial class Bots : System.Web.UI.Page
     {
         private object _dicRoomsBots;
+        private object _dicRoomsSpecs;
         public object RoomsBots
         {
             get
@@ -18,6 +19,18 @@ namespace Chat2Connect
             set
             {
                 _dicRoomsBots = value;
+            }
+        }
+
+        public object RoomsSpecs
+        {
+            get
+            {
+                return _dicRoomsSpecs;
+            }
+            set
+            {
+                _dicRoomsSpecs = value;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -38,6 +51,8 @@ namespace Chat2Connect
 
                 lblPointsBalance.Text = BLL.Member.CurrentMember.s_Credit_Point;
 
+                _dicRoomsSpecs = new List<object>();
+                _dicRoomsSpecs = bllRooms.DefaultView.Table.AsEnumerable().Select(m => new { RoomID = m[BLL.Room.ColumnNames.RoomID], SpecID = m["RoomTypeSpecID"] }).ToList();
                 BindRoomsBots();
 
             }
@@ -72,11 +87,11 @@ namespace Chat2Connect
             {
                 CheckBox chkBot = (CheckBox)bot.FindControl("chkSelect");
                 HiddenField hdnBotID = (HiddenField)bot.FindControl("hdnBotID");
-                Label lblPoints = (Label)bot.FindControl("lblPoints");
+                HiddenField hdnBotPoints = (HiddenField)bot.FindControl("hdnBotPoints");
                 if (chkBot.Checked)
                 {
                     int botID = Helper.TypeConverter.ToInt32(hdnBotID.Value);
-                    int points=Helper.TypeConverter.ToInt32(lblPoints.Text);
+                    int points = Helper.TypeConverter.ToInt32(hdnBotPoints.Value);
                     totalPoint += points;
                     bllRoomBot.AddNew();
                     bllRoomBot.BotID = botID;
@@ -120,6 +135,16 @@ namespace Chat2Connect
                 dvError.Visible = true;
                 lblError.Text = "رصيد نقاطك غير كافى";
             }
+        }
+
+        protected void lstRooms_DataBinding(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void lstRooms_DataBound(object sender, EventArgs e)
+        {
+            
         }
     }
 }
