@@ -173,7 +173,7 @@ namespace Chat2Connect.services
             }
             return true;
         }
-        
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool SendRoomFriendsBotMsg(int roomID, string message)
@@ -185,13 +185,13 @@ namespace Chat2Connect.services
             if (!bllRoomMember.GetRoomFriends(roomID))
                 return false;
             message.Replace("\r\n", "</br>");
-            List<int> recipients = bllRoomMember.DefaultView.Table.AsEnumerable().Select(m =>Helper.TypeConverter.ToInt32(m[BLL.RoomMember.ColumnNames.MemberID])).ToList();
+            List<int> recipients = bllRoomMember.DefaultView.Table.AsEnumerable().Select(m => Helper.TypeConverter.ToInt32(m[BLL.RoomMember.ColumnNames.MemberID])).ToList();
             BLL.Message msg = new BLL.Message();
             msg.AddNew();
             msg.Body = message;
             msg.SenderID = BLL.Member.CurrentMemberID;
             msg.Subject = "بوت أصدقاء الغرفة";
-            msg.ToMembers = "أصدقاء غرفة -"+bllRoom.Name;
+            msg.ToMembers = "أصدقاء غرفة -" + bllRoom.Name;
             msg.Save();
             MemberMessage memberMsg = new MemberMessage();
             //add to member sent items
@@ -205,7 +205,7 @@ namespace Chat2Connect.services
                 memberMsg.MessageID = msg.ID;
             }
             memberMsg.Save();
-            
+
             //send mail notifications
             NotificationHub notifications = new NotificationHub();
             for (int i = 0; i < recipients.Count; i++)
@@ -215,7 +215,7 @@ namespace Chat2Connect.services
 
             return true;
         }
-        
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool SendEmailOwnerBotMsg(int roomID, string message)
@@ -324,6 +324,27 @@ namespace Chat2Connect.services
             //return result;
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SearchRooms(string q)
+        {
+            Room bllRooms = new Room();
+            int? createdBy;
+            if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()))
+            {
+                createdBy=null;
+            }
+            else
+            {
+                createdBy=BLL.Member.CurrentMemberID;
+            }
+            bllRooms.SearchRooms(q,createdBy);
+            var rooms = bllRooms.DefaultView.Table.AsEnumerable().Select(m => new { id = m[BLL.Room.ColumnNames.RoomID], name = m[BLL.Room.ColumnNames.Name] }).ToList();
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(rooms);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            //return result;
+        }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int GetQueueOrder(int memberID, int roomID)
@@ -563,7 +584,7 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             string error;
             Room room;
-            if(!IsValideRoom(id,isTemp,out room,out error))
+            if (!IsValideRoom(id, isTemp, out room, out error))
             {
                 var errorResult = new { Status = 0, Data = error };
                 HttpContext.Current.Response.Write(Helper.JsonConverter.Serialize(errorResult));
@@ -578,7 +599,7 @@ namespace Chat2Connect.services
             //return result;
         }
 
-        private static bool IsValideRoom(int id,bool isTemp,out Room room,out string message)
+        private static bool IsValideRoom(int id, bool isTemp, out Room room, out string message)
         {
             message = "";
             room = new Room();
@@ -624,7 +645,7 @@ namespace Chat2Connect.services
             return true;
         }
 
-        private static bool ValidateMemberLoginTypeBot(int id,out string acceptedTypes)
+        private static bool ValidateMemberLoginTypeBot(int id, out string acceptedTypes)
         {
             bool isValidMemberType = true;
             acceptedTypes = "";
@@ -636,7 +657,7 @@ namespace Chat2Connect.services
                 if (infoBot != null)
                 {
                     List<string> typeNames = (from s in infoBot.AcceptedMemberTypes
-                                                      select Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.MemberType>(Convert.ToInt32(s)))).ToList();
+                                              select Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.MemberType>(Convert.ToInt32(s)))).ToList();
                     acceptedTypes = String.Join(",", typeNames);
                     switch (BLL.Member.CurrentMember.MemberType.MemberTypeSpecDuration.MemberTypeSpecID)
                     {
@@ -749,13 +770,13 @@ namespace Chat2Connect.services
                 ID = (int)l,
                 Name = Helper.StringEnum.GetStringValue(l)
             }).ToList();
-            
+
             //messages
             //roomObject.MessageHistory = new RoomMessages().GetLatestMessags(id, 0);            
             roomObject.MessageHistory = new List<Helper.ChatMessage>() { };
             ///////////////////////////
 
-            
+
 
             Gift allgifts = new Gift();
             allgifts.LoadAll();
@@ -770,14 +791,14 @@ namespace Chat2Connect.services
                 Info.WelcomeBot infoWelcomeBot = (Info.WelcomeBot)bots.First().Settings;
                 roomObject.WelcomeBot = infoWelcomeBot;
             }
-            
+
             return roomObject;
         }
 
-        [WebMethod]        
+        [WebMethod]
         public List<dynamic> SearchMembers_AddFriends(int mid, string stext)
         {
-            
+
             List<dynamic> people = new List<dynamic>();
             Member members = new Member();
 
@@ -785,20 +806,20 @@ namespace Chat2Connect.services
 
             for (int i = 0; i < members.RowCount; i++)
             {
-                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount") });                
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount") });
                 members.MoveNext();
-            }             
+            }
             if (people.Count > 0)
             {
                 return people;
             }
             else
                 return null;
-                    
+
 
         }
 
-        
+
         [WebMethod]
         public void BanRoomMember(int memberID, int roomID, int type, int adminID)
         {
@@ -958,7 +979,7 @@ namespace Chat2Connect.services
         {
             string[] ToMembers = toIds.Split(',');
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            
+
             try
             {
                 for (int i = 0; i < ToMembers.Length; i++)
@@ -1039,7 +1060,7 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void GetMemberNode(int mid)
         {
-            
+
             Member member = new Member();
             member.LoadByPrimaryKey(mid);
 
@@ -1088,7 +1109,7 @@ namespace Chat2Connect.services
                                     </div>                                
                                 </div>";
 
-            string result = string.Format(memberdiv, member.MemberID, member.UserName, Helper.Defaults.MemberTypeSpecDurationID, member.ProfilePic, member.StatusMsg, (member.IsOnLine)? "online" : "offline");
+            string result = string.Format(memberdiv, member.MemberID, member.UserName, Helper.Defaults.MemberTypeSpecDurationID, member.ProfilePic, member.StatusMsg, (member.IsOnLine) ? "online" : "offline");
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             result = Newtonsoft.Json.JsonConvert.SerializeObject(result);
             HttpContext.Current.Response.Write(result);
@@ -1123,7 +1144,7 @@ namespace Chat2Connect.services
                 }
                 rooms.Save();
 
-                
+
             }
 
             MemberFriend friends = new MemberFriend();
@@ -1191,7 +1212,7 @@ namespace Chat2Connect.services
                 like.Save();
                 return 1;
             }
-            
+
             return 0;
 
         }
@@ -1288,7 +1309,7 @@ namespace Chat2Connect.services
             return true;
 
         }
-        #endregion 
+        #endregion
 
         #region resetPass
 
@@ -1329,7 +1350,7 @@ namespace Chat2Connect.services
             for (int i = 0; i < members.RowCount; i++)
             {
                 accounts += string.Format("<li><a href='http://chat2connect.com/resetpass.aspx?rc={0}'>{1}</a></li>", Helper.General.EncryptString("mid=" + members.MemberID.ToString() + "&email=" + members.Email), members.GetColumn("UserName"));
-                members.MoveNext();                
+                members.MoveNext();
             }
 
 
@@ -1358,7 +1379,7 @@ namespace Chat2Connect.services
             {
                 return false;
             }
-                return true;
+            return true;
 
         }
 
@@ -1371,7 +1392,7 @@ namespace Chat2Connect.services
         public void LoadBots()
         {
             BLL.Bot bot = new Bot();
-            var lst= bot.GetAll();
+            var lst = bot.GetAll();
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
@@ -1383,7 +1404,7 @@ namespace Chat2Connect.services
         public void LoadRoomBots(int roomId)
         {
             BLL.RoomBot rmBots = new BLL.RoomBot();
-            List<Info.RoomBot> lst= rmBots.GetByRoomID(roomId);
+            List<Info.RoomBot> lst = rmBots.GetByRoomID(roomId);
 
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
@@ -1416,7 +1437,7 @@ namespace Chat2Connect.services
         public void ShowRoomLaw(int roomId)
         {
             BLL.RoomBot rmBots = new BLL.RoomBot();
-            List<Info.RoomBot> lst = rmBots.GetByRoomIDandBotID(roomId,Helper.Enums.Bot.RoomLaw);
+            List<Info.RoomBot> lst = rmBots.GetByRoomIDandBotID(roomId, Helper.Enums.Bot.RoomLaw);
             if (lst.Count == 0)
                 return;
 

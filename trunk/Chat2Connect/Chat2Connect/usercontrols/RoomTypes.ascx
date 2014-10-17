@@ -2,6 +2,8 @@
 <script src="../js/dreamcodes.js"></script>
 <link href="../css/tsc_pricingtables.css" rel="stylesheet" />
 <script src="../js/tsc_pricingtables.js"></script>
+<script src="../js/jquery.tokeninput.js"></script>
+<link href="../css/token-input-facebook.css" rel="stylesheet" />
 <style>
     .spec {
         width: 20px;
@@ -44,7 +46,7 @@
                 <div class="caption_column" style="width: 30%;">
                     <ul>
                         <li class="header_row_2">
-                            <h2 class="caption">إختر نوع الغرفة</h2>
+                            <h2 class="caption">إختر لون الترقية (الصبغة)</h2>
                         </li>
                         <li class="row_style_4"><span>العدد المسموح فى الغرفة</span></li>
                         <li class="row_style_4"><span>مايكرفون</span></li>
@@ -90,51 +92,53 @@
             </div>
             <div class="row">
                 <asp:TextBox ID="txtRoom" runat="server" CssClass="form-control"></asp:TextBox>
+                <input type="hidden" runat="server" id="hdnRoom" />
             </div>
-            <div class="row">
+            <div class="row" style="padding-top: 10px;">
                 لون الترقية
             </div>
-            <div class="row" id="specs">
-                <div class="col-lg-6 ">
-                    <div class="col-lg-3">
-                        <span class="spec" style="background-color: #ff00fe"></span>
+            <div class="row pull-right" id="specs" style="padding-top: 10px;padding-bottom: 10px">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+                    <div class="col-lg-2">
+                        <span style="display:block; width:25px;height:25px; background-color: #880088"></span>
                     </div>
-                    <div class="col-lg-3">
-                        <input type="radio" value="2" name="rdSpec" checked="checked" />
+                    <div class="col-lg-2">
+                        <input type="radio" value="3" name="rdSpec" style="padding-top:3px;"/>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="col-lg-3">
-                        <span class="spec" style="background-color: #880088"></span>
+                <div class="col-lg-4 ">
+                    <div class="col-lg-2">
+                        <span style="display:block; width:25px;height:25px; background-color: #ff00fe"></span>
                     </div>
-                    <div class="col-lg-3">
-                        <input type="radio" value="3" name="rdSpec" />
+                    <div class="col-lg-2">
+                        <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top:3px;" />
                     </div>
                 </div>
                 <input type="hidden" id="hdnSpec" runat="server" value="2" />
             </div>
-            <div class="row" id="durations">
-                <input type="hidden" id="hdnDuration" runat="server" />
+            <div class="row" id="durations" style="padding-top:5px;">
+                <input type="hidden" id="hdnDuration" runat="server" value="1" />
                 <div class="form-group">
                     <div class="col-lg-2 pull-right">
                         <input type="radio" name="rdDuration" value="1" checked="checked" />
                     </div>
-                    <div class="col-lg-5 pull-right">شهر</div>
-                    <div class="col-lg-5 pull-right">(1500 نقطة)</div>
+                    <div class="col-lg-4 pull-right">شهر</div>
+                    <div class="col-lg-6 pull-right">(1500 نقطة)</div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-2 pull-right">
                         <input type="radio" name="rdDuration" value="2" />
                     </div>
-                    <div class="col-lg-5 pull-right">6 شهور</div>
-                    <div class="col-lg-5 pull-right">(6000 نقطة)</div>
+                    <div class="col-lg-4 pull-right">6 شهور</div>
+                    <div class="col-lg-6 pull-right">(6000 نقطة)</div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-2 pull-right">
                         <input type="radio" name="rdDuration" value="3" />
                     </div>
-                    <div class="col-lg-5 pull-right">سنة</div>
-                    <div class="col-lg-5 pull-right">(10000 نقطة)</div>
+                    <div class="col-lg-4 pull-right">سنة</div>
+                    <div class="col-lg-6 pull-right">(10000 نقطة)</div>
                 </div>
             </div>
             <div class="row align_center">
@@ -194,5 +198,20 @@
     });
     $("#durations").on("change", "[name=rdDuration]", function () {
         $("#<%= hdnDuration.ClientID%>").val($(this).val());
+    });
+    $(document).ready(function () {
+        $("#<%= hdnSpec.ClientID%>").val($("[name=rdSpec]:checked").val());
+        $("#<%= hdnDuration.ClientID%>").val($("[name=rdDuration]:checked").val());
+        $("#<%= txtRoom.ClientID%>").tokenInput("../Services/Services.asmx/SearchRooms", {
+                 theme: "facebook",
+                 preventDuplicates: true,
+                 hintText: "",
+                 noResultsText: "لا يوجد",
+                 searchingText: "بحث فى الغرف...",    
+                 tokenLimit: 1,
+                 onAdd: function (item) {
+                     $('#<%= hdnRoom.ClientID%>').val(item.id);
+                 },
+             });
     });
 </script>
