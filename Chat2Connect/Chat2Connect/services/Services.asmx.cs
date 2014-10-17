@@ -326,7 +326,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void SearchRooms(string q)
+        public void SearchRoomsForTypes(string q)
         {
             Room bllRooms = new Room();
             int? createdBy;
