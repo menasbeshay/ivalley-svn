@@ -13,15 +13,6 @@ namespace Chat2Connect.usercontrols {
     public partial class MemberTypes {
         
         /// <summary>
-        /// uiDropDownListFriends control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListFriends;
-        
-        /// <summary>
         /// lblPoints control.
         /// </summary>
         /// <remarks>
@@ -31,31 +22,40 @@ namespace Chat2Connect.usercontrols {
         protected global::System.Web.UI.WebControls.Label lblPoints;
         
         /// <summary>
-        /// repMemberTypeSpecs control.
+        /// txtMember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repMemberTypeSpecs;
+        protected global::System.Web.UI.WebControls.TextBox txtMember;
         
         /// <summary>
-        /// selectedTypeSpecDurationID control.
+        /// hdnMember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnMember;
         
         /// <summary>
-        /// selectedTypeSpecDurationPoints control.
+        /// hdnSpec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden selectedTypeSpecDurationPoints;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnSpec;
+        
+        /// <summary>
+        /// hdnDuration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnDuration;
         
         /// <summary>
         /// uiDropDownListQuestion control.

@@ -1,28 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MemberTypes.ascx.cs" Inherits="Chat2Connect.usercontrols.MemberTypes" %>
 <link href="../css/tsc_pricingtables.css" rel="stylesheet" />
 <script src="../js/tsc_pricingtables.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#acctypes').addClass('active');
-
-        $("input[name='MemberTypeSpecDurationID']").change(function () {
-            $("#<%=selectedTypeSpecDurationID.ClientID%>").val($(this).data("id"));
-            $("#<%=selectedTypeSpecDurationPoints.ClientID%>").val($(this).data("points"));
-        });
-
-    });
-
-</script>
+<script src="../js/jquery.tokeninput.js"></script>
+<link href="../css/token-input-facebook.css" rel="stylesheet" />
 <div class="form-horizontal blockBoxshadow">
 
-    <div class="form-group">
-        <div class="col-lg-2 control-label pull-right">
-            الأسم المراد صبغه   
-        </div>
-        <div class="col-lg-6 pull-right">
-            <asp:DropDownList ID="uiDropDownListFriends" runat="server" CssClass="form-control"></asp:DropDownList>
-        </div>
-    </div>
     <div class="row">
         <div class="form-group">
             <div class="col-lg-4 pull-right control-label">
@@ -34,15 +16,13 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-12 control-label center-block" style="float: none !important;">
-
+        <div class="col-lg-8 control-label center-block" style="float: right;">
             <!-- DC Pricing Tables:3 Start -->
             <div class="tsc_pricingtable03 tsc_pt3_style1">
-                <div class="caption_column">
+                <div class="caption_column" style="width:30%">
                     <ul>
-                        <li class="header_row_1 align_center radius5_topleft"></li>
                         <li class="header_row_2">
-                            <h2 class="caption">إختر لون الصبغة</h2>
+                            <h2 class="caption">إختر لون الترقية (الصبغة)</h2>
                         </li>
                         <li class="row_style_4"><span>المسموح دخول غرف	</span></li>
                         <li class="row_style_2"><span>كاميرات</span></li>
@@ -54,76 +34,111 @@
                         <li class="row_style_2"><span>إنشاء غرف مؤقتة	</span></li>
                         <li class="row_style_4"><span style="font-size: 14px;">هل يدخل الغرف المكتملة العدد</span></li>
                         <li class="row_style_2"><span>عضو فى نادى التواصل		</span></li>
-                        <li class="row_style_4" style="height: 100px !important;"><span>مدة الإشتراك</span></li>
+                        <li class="row_style_4"><span>مدة الإشتراك</span></li>
                     </ul>
                 </div>
-                <asp:Repeater ID="repMemberTypeSpecs" runat="server" OnItemDataBound="repMemberTypeSpecs_ItemDataBound">
-                    <ItemTemplate>
-                        <div class="column_<%# Eval("ID") %>">
-                            <ul>
-                                <li class="header_row_1 align_center" style="background-color: <%# Eval("Color") %>">
-                                    <h2 class="col1"></h2>
-                                </li>
-                                <li class="header_row_2 align_center" style="background-color: <%# Eval("Color") %>">
-                                    <h2 class="col1"><%# Eval("Name") %></h2>
-                                    <h3 class="col1"></h3>
-                                </li>
-                                <li class="row_style_3 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("OpenRoomCount") %>	</a></span></li>
-                                <li class="row_style_1 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><%# Eval("OpenedCamCount") %></a></span></li>
-                                <li class="row_style_3 align_center"><span><a href="#" class="" rel=" info."><%# Eval("FriendsCount") %><br />
-                                </a></span></li>
-                                <li class="row_style_1 align_center"><span><a href="#" class="" rel="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-                                    <%# GetMailSize(Eval("MailSize")) %> 
-                                </a></span></li>
-                                <li class="row_style_3 align_center"><%# Eval("CreatePrivateRoomCount") %></li>
-                                <li class="row_style_1 align_center"><%# Eval("CreateTempRoomCount") %><br />
-                                </li>
-                                <li class="row_style_3 align_center"><%# (Helper.TypeConverter.ToBoolean(Eval("CanOpenFullRoom"))?"نعم":"لا") %></li>
-                                <li class="row_style_1 align_center"><%# Helper.TypeConverter.ToBoolean(Eval("IsMemberOfConnectionClup"))?"نعم":"لا" %><br />
-                                </li>
-                                <li class="row_style_3 align_center" style="height: 100px !important;">
-                                    <asp:GridView ID="grdDurations" runat="server" AutoGenerateColumns="false" ShowHeader="false">
-                                        <Columns>
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <input type="radio" name="MemberTypeSpecDurationID" id='MemberTypeSpecDurationID_<%# Eval("ID") %>' data-id='<%# Eval("ID") %>' data-points='<%# Eval("Points") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <label for="MemberTypeSpecDurationID_<%# Eval("ID") %>">
-                                                        <%# Eval("DurationName") %>
-                                                        <%# Eval("Points"," ({0} نقطة)") %>
-                                                    </label>
-
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                        <EmptyDataTemplate>
-                                            <span style="color: red">مجانا</span>
-                                        </EmptyDataTemplate>
-                                    </asp:GridView>
-                                </li>
+                <div class="column_1" style="width:35%">
+                    <ul>
+                        <li class="header_row_2 align_center" style="background-color: #000">
+                            <h3 class="col1"></h3>
+                        </li>
+                        <li class="row_style_3 align_center"><span>5</span></li>
+                        <li class="row_style_1 align_center"><span>2</span></li>
+                        <li class="row_style_3 align_center"><span>500</span></li>
+                        <li class="row_style_1 align_center"><span>250 ك/ب</span></li>
+                        <li class="row_style_3 align_center">2</li>
+                        <li class="row_style_1 align_center">1</li>
+                        <li class="row_style_3 align_center">لا</li>
+                        <li class="row_style_1 align_center">لا</li>
+                        <li class="row_style_3 align_center">مجانا
+                        </li>
+                    </ul>
+                </div>
+                <div class="column_2" style="width:35%">
+                    <ul>
+                        <li class="header_row_2 align_center">
+                            <ul style="height:100%;width:100%">
+                                <li style="float:right;width:50%;height:100%; background-color:#ff00fe"></li>
+                                <li style="float:right;width:50%;height:100%; background-color:#880088"></li>
                             </ul>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-                <input type="hidden" runat="server" id="selectedTypeSpecDurationID" value="0" />
-                <input type="hidden" runat="server" id="selectedTypeSpecDurationPoints" value="0" />
+                        </li>
+                        <li class="row_style_3 align_center"><span>10</span></li>
+                        <li class="row_style_1 align_center"><span>8</span></li>
+                        <li class="row_style_3 align_center"><span>1000</span></li>
+                        <li class="row_style_1 align_center"><span>1 جيجا</span></li>
+                        <li class="row_style_3 align_center">2</li>
+                        <li class="row_style_1 align_center">1</li>
+                        <li class="row_style_3 align_center">نعم</li>
+                        <li class="row_style_1 align_center">نعم</li>
+                        <li class="row_style_3 align_center">شراء نقاط
+                        </li>
+                    </ul>
+                </div>
             </div>
-
             <!-- DC Pricing Tables:3 End -->
             <div class="tsc_clear"></div>
             <!-- line break/clear line -->
         </div>
-
+        <div class="col-lg-4" style="padding-top: 100px; padding-right: 10px;">
+            <div class="row">
+                الإسم المراد صبغه
+            </div>
+            <div class="row">
+                <asp:TextBox ID="txtMember" runat="server" CssClass="form-control" placeholder="أكتب الإسم المراد ترقيته"></asp:TextBox>
+                <input type="hidden" runat="server" id="hdnMember" />
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                لون الترقية
+            </div>
+            <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+                    <div class="col-lg-2">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="col-lg-2">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
+                    </div>
+                </div>
+                <input type="hidden" id="hdnSpec" runat="server" value="2" />
+            </div>
+            <div class="row" id="durations" style="padding-top: 5px;">
+                <input type="hidden" id="hdnDuration" runat="server" value="1" />
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="1" checked="checked" />
+                    </div>
+                    <div class="col-lg-4 pull-right">شهر</div>
+                    <div class="col-lg-6 pull-right">(300 نقطة)</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="2" />
+                    </div>
+                    <div class="col-lg-4 pull-right">6 شهور</div>
+                    <div class="col-lg-6 pull-right">(1200 نقطة)</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" name="rdDuration" value="3" />
+                    </div>
+                    <div class="col-lg-4 pull-right">سنة</div>
+                    <div class="col-lg-6 pull-right">(2100 نقطة)</div>
+                </div>
+            </div>
+            <div class="row align_center">
+                <a href="#confirm" data-toggle="modal" class="btn btn-warning">تنفيذ</a>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <center>
-            <a href="#confirm" class="tsc_buttons2 grey" data-toggle="modal" >تنفيذ</a>
-                    </center>
-    </div>
-
 </div>
 
 <div id="confirm" class="modal fade" role="modal" aria-hidden="true">
@@ -169,3 +184,27 @@
         </div>
     </div>
 </div>
+<script>
+    $("#specs").on("change", "[name=rdSpec]", function () {
+        $("#<%= hdnSpec.ClientID%>").val($(this).val());
+    });
+    $("#durations").on("change", "[name=rdDuration]", function () {
+        $("#<%= hdnDuration.ClientID%>").val($(this).val());
+    });
+    $(document).ready(function () {
+        $('#acctypes').addClass('active');
+        $("#<%= hdnSpec.ClientID%>").val($("[name=rdSpec]:checked").val());
+        $("#<%= hdnDuration.ClientID%>").val($("[name=rdDuration]:checked").val());
+        $("#<%= txtMember.ClientID%>").tokenInput("../Services/Services.asmx/SearchMembersForTypes", {
+            theme: "facebook",
+            preventDuplicates: true,
+            hintText: "",
+            noResultsText: "لا يوجد",
+            searchingText: "بحث فى الأسماء...",
+            tokenLimit: 1,
+            onAdd: function (item) {
+                $('#<%= hdnMember.ClientID%>').val(item.id);
+            },
+        });
+    });
+</script>

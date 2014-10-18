@@ -345,6 +345,30 @@ namespace Chat2Connect.services
             HttpContext.Current.Response.Write(result);
             //return result;
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SearchMembersForTypes(string q)
+        {
+            Member bllMembers = new Member();
+            if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_UpdateAccountType.ToString()))
+            {
+                bllMembers.SearchMembers(q);
+            }
+            else
+            {
+                bllMembers.SearchMembersFriends(q, BLL.Member.CurrentMemberID);
+                var currentMemberRow = bllMembers.DefaultView.Table.NewRow();
+                currentMemberRow[BLL.Member.ColumnNames.MemberID] = BLL.Member.CurrentMemberID;
+                currentMemberRow[BLL.Member.ColumnNames.Name] = BLL.Member.CurrentMember.Name;
+                bllMembers.DefaultView.Table.Rows.Add(currentMemberRow);
+            }
+            var members = bllMembers.DefaultView.Table.AsEnumerable().Select(m => new { id = m[BLL.Member.ColumnNames.MemberID], name = m[BLL.Room.ColumnNames.Name] }).ToList();
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(members);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int GetQueueOrder(int memberID, int roomID)
