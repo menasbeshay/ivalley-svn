@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="ManageRoom.aspx.cs" Inherits="Chat2Connect.Admin.ManageRoom" %>
 <%@ Register Src="~/Admin/UserControls/Room/RoomStatus.ascx" TagPrefix="uc1" TagName="RoomStatus" %>
 <%@ Register src="UserControls/Room/RoomInfo.ascx" tagname="RoomInfo" tagprefix="uc2" %>
-<%@ Register Src="~/usercontrols/RoomTypes.ascx" TagPrefix="uc1" TagName="RoomTypes" %>
-
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
       <script src="../js/dreamcodes.js"></script>

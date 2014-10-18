@@ -42,7 +42,6 @@ namespace Chat2Connect.Admin
             ctrlAccountInfo.Visible = false;
             ctrlAccountRoles.Visible = false;
             ctrlAdminRoles.Visible = false;
-            ctrlAccountType.Visible = false;
             ctrlAccountStatus.Visible = false;
         }
 
@@ -71,11 +70,6 @@ namespace Chat2Connect.Admin
                 {
                     ctrlAccountRoles.Visible = true;
                     ctrlAccountRoles.MemberUserName = user.UserName;
-                }
-                if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_UpdateAccountType.ToString()))
-                {
-                    ctrlAccountType.Visible = true;
-                    ctrlAccountType.MemberUserName = user.UserName;
                 }
                 if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_UpdateAccountStatus.ToString()))
                 {
