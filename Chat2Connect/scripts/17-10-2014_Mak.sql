@@ -58,3 +58,6 @@ UPDATE Bot SET Description=N'يساعد هذا البوت إدارة الغرف�
 UPDATE Bot SET Description=N'يساعد هذا البوت فى نشر برامج الغرفة امام المتواجدين والنشر كل 5 أو 10 او 15 أو 30 دقيقة أو ساعة' WHERE ID=8
 
 UPDATE BotPoints SET Points=0
+
+UPDATE MemberTypeSpec SET CreatePrivateRoomCount=2 ,CreateTempRoomCount=1--WHERE ID=1
+UPDATE MemberTypeSpec SET OpenedCamCount=8 ,OpenRoomCount=10,FriendsCount=1000,CreatePrivateRoomCount=2,CreateTempRoomCount=2 WHERE ID=4
