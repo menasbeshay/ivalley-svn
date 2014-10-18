@@ -126,10 +126,16 @@ namespace Chat2Connect.Admin.UserControls
         protected void btnUpdateUserName_Click(object sender, EventArgs e)
         {
             TextBox txtNewUserName = (TextBox)dtlAccountInfo.FindControl("txtUsername");
+            BLL.Member member = new BLL.Member();
+            if (member.GetMemberByUserName(MemberUserName))
+            {
+                member.Name = txtNewUserName.Text;
+            }
             BLL.MembershipBLL membership = new BLL.MembershipBLL();
             string msg;
             if (membership.ChangeUsername(MemberUserName, txtNewUserName.Text, Membership.ApplicationName, out msg))
             {
+                member.Save();
                 Response.Redirect(Request.Url.AbsolutePath + "?search=" + txtNewUserName.Text);
             }
             else
