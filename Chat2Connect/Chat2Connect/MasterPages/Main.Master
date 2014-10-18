@@ -334,11 +334,11 @@
                             </li>
                             <li id="msgmain" class="MenuItem" title="رسائلى" data-placement="left">
                                 <i class="icon icon-envelope-alt" style="font-size: 25px;"><span class="badge" id="msgCount_<%= MemberID%>"></span></i>
-                                <a onclick="OpenPopup('Messages_popup.aspx','رسائلى');" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
+                                <a onclick="OpenPopup('../popuppages/Messages_popup.aspx','رسائلى');" style="opacity: 0;"><span class="badge">3</span>رسائلى</a>
                             </li>
                             <li id="actionsmain" class="MenuItem" title="إجراءات" data-placement="left">
                                 <i class="icon icon-cogs" style="font-size: 36px;"></i>
-                                <a href="../actions.aspx" style="opacity: 0;">إجراءات</a>
+                                <a onclick="OpenPopup('createRoom.aspx','إجراءات');" style="opacity: 0;">إجراءات</a>
                             </li>
                             <li id="profilemain" class="MenuItem" title="تواصل" data-placement="left">
                                 <i class="icon-globe" style="font-size: 36px;"></i>
@@ -347,7 +347,7 @@
 
                             <li id="balancemain" class="MenuItem" title="رصيدى" data-placement="left">
                                 <i class="modernicon iconmodern-credit" style="font-size: 52px;"></i>
-                                <a href="../MyBalance.aspx" style="opacity: 0;">رصيدى</a>
+                                <a onclick="OpenPopup('mybalance.aspx','رصيدى');" style="opacity: 0;">رصيدى</a>
                             </li>
 
                         </ul>

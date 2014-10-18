@@ -13,6 +13,9 @@
             <div class="col-lg-4 pull-right">
                 <asp:Label ID="lblPoints" runat="server"></asp:Label>
             </div>
+            <div class="col-lg-4 pull-right">
+                (كل 100 نقطة تساوى 10 ريال)
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -90,26 +93,29 @@
             <div class="row" style="padding-top: 10px;">
                 لون الترقية
             </div>
-            <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-4">
-                    <div class="col-lg-2">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
-                    </div>
-                    <div class="col-lg-2">
-                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
-                    </div>
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="col-lg-2">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
-                    </div>
-                    <div class="col-lg-2">
+            <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">                
+                
+                <div class="col-lg-4 pull-right">
+                    <div class="col-lg-2 pull-right">
                         <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
+                    <div class="col-lg-2 pull-right">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 pull-right">
+                     <div class="col-lg-2 pull-right">
+                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
+                    </div>
+                    <div class="col-lg-2 pull-right">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
+                    </div>
+                   
                 </div>
                 <input type="hidden" id="hdnSpec" runat="server" value="2" />
             </div>
+            <div class="clear" style="height:5px;"></div>
             <div class="row" id="durations" style="padding-top: 5px;">
                 <input type="hidden" id="hdnDuration" runat="server" value="1" />
                 <div class="form-group">

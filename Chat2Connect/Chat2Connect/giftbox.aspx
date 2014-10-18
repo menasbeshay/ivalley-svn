@@ -19,7 +19,7 @@
         
         <div class="clear" style="height:5px"></div>
         <div class="pull-right col-lg-5">
-            <a href="giftbox.aspx?t=sent" class="btn btn-main pull-left" id="sentbtn">الهدايا المرسلة</a>
+            <a href="giftbox.aspx?t=sent" class="btn btn-main pull-left" id="sentbtn">الهدايا المرسلة</a> &nbsp;&nbsp;
             <a href="giftbox.aspx" class="btn btn-main pull-right" id="recievedbtn">الهدايا المستلمة</a>
         </div>
         <div class="clear" style="height:5px"></div>

@@ -132,4 +132,10 @@
   <data name="Now" xml:space="preserve">
     <value>الأن</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تم الحفظ بنجاح</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>تم إنشاء الغرفة بنجاح</value>
+  </data>
 </root>

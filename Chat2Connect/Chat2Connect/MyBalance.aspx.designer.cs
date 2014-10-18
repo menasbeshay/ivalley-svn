@@ -58,6 +58,15 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.HyperLink uiLinkButtonTransfere;
         
         /// <summary>
+        /// uiDropDownListPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListPoints;
+        
+        /// <summary>
         /// uiDropDownListQuestion control.
         /// </summary>
         /// <remarks>

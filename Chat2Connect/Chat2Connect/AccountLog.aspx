@@ -25,14 +25,14 @@
         </div>
     </div>
     <div class="form-horizontal blockBox">
-        <div class="form-group">
-            <div class="col-md-2 control-label pull-right">
+        <div class="col-sm-12" style="padding-right:0px;">
+            <div class="col-md-2 control-label pull-right" style="padding-right:0px;">
                 <label>فى الفترة من </label>
             </div>
             <div class="col-md-2 pull-right">
-                <div class="input-group">
-                    <asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control datecontrol"></asp:TextBox>
-                    <span class="input-group-btn">
+                <div class="input-group pull-right">
+                    <asp:TextBox ID="txtStartDate" runat="server" CssClass="datecontrol pull-right"></asp:TextBox>
+                    <span class="input-group-btn pull-right">
                         <button class="btn bg-warning clearInput icon icon-remove" data-control="<%= txtStartDate.ClientID %>" type="button"></button>
                     </span>
                 </div>
@@ -41,14 +41,14 @@
                 <label>إلى </label>
             </div>
             <div class="col-md-2 pull-right">
-                <div class="input-group">
-                    <asp:TextBox ID="txtEndDate" runat="server" CssClass="form-control datecontrol"></asp:TextBox>
-                    <span class="input-group-btn">
+                <div class="input-group pull-right">
+                    <asp:TextBox ID="txtEndDate" runat="server" CssClass=" datecontrol pull-right"></asp:TextBox>
+                    <span class="input-group-btn pull-right">
                         <button class="btn bg-warning clearInput icon icon-remove" data-control="<%= txtEndDate.ClientID %>" type="button"></button>
                     </span>
                 </div>
             </div>
-            <div class="col-md-1 pull-right">
+            <div class="col-md-1 pull-right" style="padding-left:0px;padding-right:0px;">
                 <asp:LinkButton ID="lnkBtnLoadReport" runat="server" class="btn btn-main" OnClick="lnkBtnLoadReport_Click">عرض</asp:LinkButton>
             </div>
         </div>

@@ -60,6 +60,11 @@
             <hr style="background:#ffd800;width:100%;margin:5px auto;"/>
             <div class="clearfix"></div>
         <div class="form-horizontal blockBox " >
+            <asp:Panel runat="server" ID="uiPanelSuccess" Visible="false">
+                <div class="alert alert-success">
+                    <asp:Label ID="uiLabelsuccess" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
             <asp:Panel runat="server" ID="uiPanelCreateRoom">
                  <div class="form-group">
                 <div class="col-sm-12 control-label pull-right">

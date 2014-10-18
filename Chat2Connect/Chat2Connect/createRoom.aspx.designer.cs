@@ -31,6 +31,24 @@ namespace Chat2Connect {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListMyRooms;
         
         /// <summary>
+        /// uiPanelSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelSuccess;
+        
+        /// <summary>
+        /// uiLabelsuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelsuccess;
+        
+        /// <summary>
         /// uiPanelCreateRoom control.
         /// </summary>
         /// <remarks>

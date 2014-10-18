@@ -108,6 +108,7 @@
         <div class="col-sm-2 pull-right">
             <label>المحتوى </label>
         </div>
+        <div class="clear" style="height:5px;"></div>
         <div class="col-sm-8 pull-right">            
             <textarea id="txtbody" class="form-control" style="height: 200px; padding: 0 !important;" maxlength="500"></textarea>
             <span id="txtCount">500</span>

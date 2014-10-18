@@ -1,17 +1,20 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="createMaster.master.cs" Inherits="Chat2Connect.MasterPages.createMaster" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Popup.Master" AutoEventWireup="true" CodeBehind="createMaster.master.cs" Inherits="Chat2Connect.MasterPages.createMaster" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
             $('#myroomsmain').addClass('selected');
         });
+
+        
     </script>
+    
     <asp:ContentPlaceHolder ID="ContentPlaceHolderhead" runat="server">
 
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="padding:10px;">
-    <div class="col-lg-3 pull-right">
+    <div class="col-sm-3 pull-right">
         <div class="center-block" style="width:100%;">
                    <a href="../createRoom.aspx" id="createRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة</a>                
         </div>
@@ -26,7 +29,7 @@
         <div class="clearfix"></div>--%>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../GroupMsg.aspx" id="sendmsgtoall" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إرسال رسالة جماعية على الخاص</a>
+                <a href="../GroupMsg.aspx" id="sendmsgtoall" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إرسال رسالة جماعية<br /> على الخاص</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
@@ -42,7 +45,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>--%>
     </div>
-    <div class="col-lg-9 pull-right ">
+    <div class="col-sm-9 pull-right ">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
     </div>
@@ -58,7 +61,7 @@
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
                            <div class="form-group">
-                                <label class="col-sm-2 control-label pull-right">البريد الإلكترونى لصديقك</label>
+                                <label class="col-sm-10 control-label pull-right">البريد الإلكترونى لصديقك</label>
                                 <asp:TextBox ID="uiTextBoxMail" CssClass="form-control col-sm-8" runat="server" TextMode="Email" ValidationGroup="invite_friends"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="invite_friends" ControlToValidate="uiTextBoxMail" Font-Bold="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="البريد الإلكترونى غير صحيح" ValidationGroup="invite_friends" ControlToValidate="uiTextBoxMail" Font-Bold="true" ForeColor="Red" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>

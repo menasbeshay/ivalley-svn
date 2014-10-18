@@ -1,6 +1,8 @@
 ﻿function OpenPopup(url, title)
 {
     $('#GeneralModalPage #GMP_Title').text(title);
-    $('#GeneralModalPage #GMP_Content').attr('src',"../PopupPages/" + url);
+    $('#GeneralModalPage #GMP_Content').attr('src', url);
     $('#GeneralModalPage').modal('show');
 }
+
+

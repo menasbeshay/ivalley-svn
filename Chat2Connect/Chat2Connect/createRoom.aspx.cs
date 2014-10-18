@@ -28,6 +28,34 @@ namespace Chat2Connect
             }
         }
 
+        public bool IsCreated
+        {
+            get
+            {
+                bool result = false;
+                if (Request.QueryString["c"] != null)
+                {
+                    bool.TryParse(Request.QueryString["c"], out result);
+
+                }
+                return result;
+            }
+        }
+
+        public bool IsEdited
+        {
+            get
+            {
+                bool result = false;
+                if (Request.QueryString["e"] != null)
+                {
+                    bool.TryParse(Request.QueryString["e"], out result);
+
+                }
+                return result;
+            }
+        }
+
         public int CurrentRoom
         {
             get
@@ -116,6 +144,17 @@ namespace Chat2Connect
                 uiDropDownListEditSubCat.SelectedValue = room.SubCategoryID.ToString();
 
             BindAdmins();
+
+            if (IsCreated)
+            {
+                uiLabelsuccess.Text = GetLocalResourceObject("Save").ToString();
+
+            }
+            else
+            {
+                uiLabelsuccess.Text = GetLocalResourceObject("Edit").ToString();
+
+            }
         }
 
 
@@ -132,17 +171,25 @@ namespace Chat2Connect
         protected void uiLinkButtonSaveRoom_Click(object sender, EventArgs e)
         {
             // check member type 
-            // check number of created rooms 
+            // check number of created rooms
+            string querystring = "";
             if (Request.IsAuthenticated)
             {
                 Member member = new Member();
                 member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 Room room = new Room();
                 if (!IsEdit)
+                {
                     room.AddNew();
+                    room.Name = uiTextBoxADD_Name.Text;
+                    querystring = "c=true";
+                }
                 else
+                {
                     room.LoadByPrimaryKey(CurrentRoom);
-                room.Name = uiTextBoxADD_Name.Text;
+                    querystring = "e=true";
+                }
+                
                 if (!IsEdit)
                 {
                     room.CreatedDate = DateTime.Now;
@@ -175,6 +222,15 @@ namespace Chat2Connect
                 room.RowStatusID = 1;
                 room.Save();
 
+               
+                uiPanelSuccess.Visible = true;
+                uiTextBoxADD_Name.Text = "";
+                uiDropDownListADD_Category.SelectedIndex = 0;
+                uiDropDownListADD_SubCategory.SelectedIndex = 0;
+                uiTextBoxPassword.Text = "";
+                uiTextBoxAdminPass.Text = "";
+                uiCheckBoxPasswordEnable.Checked = false;
+
                 // log 
                 BLL.MemberLog log = new BLL.MemberLog();
                 log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
@@ -195,6 +251,9 @@ namespace Chat2Connect
 
                     roommember.Save();
                 }
+
+                CurrentRoom = room.RoomID;
+                Response.Redirect("createRoom.aspx?IsEdit=true&" +querystring);
 
             }
         }
