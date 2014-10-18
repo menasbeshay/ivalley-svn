@@ -17,10 +17,13 @@
     <div class="form-horizontal blockBoxshadow">
         <div class="form-group">
             <div class="col-lg-2 control-label pull-right">
-                رصيد نقاطى
+                رصيد النقاط
             </div>
             <div class="col-lg-4 pull-right">
                 <asp:Label ID="lblPointsBalance" runat="server"></asp:Label>
+            </div>
+            <div class="col-lg-4 pull-right">
+                (كل 100 نقطة تساوى 10 ريال)
             </div>
         </div>
         <div class="form-group">
@@ -48,9 +51,9 @@
             <table dir="rtl" class="table">
                 <tr>
                     <th width="10%" class="text-right" colspan="2">إختر البوت المراد شرائه</th>
-                    <th width="20%" class="text-right">البوت</th>
-                    <th width="50%" class="text-right">تفاصيل</th>
-                    <th width="10%" class="text-right">النقاط</th>
+                    <th width="20%" class="text-right">نوع البوت</th>
+                    <th width="50%" class="text-right">معلومات أكثر عن البوت</th>
+                    <th width="10%" class="text-right">القيمة بالنقاط</th>
                     <th width="10%" class="text-right">الحالة</th>
                 </tr>
                 <asp:Repeater ID="repBots" runat="server">
@@ -62,14 +65,14 @@
                                 </span>
                             </td>
                             <td>
-                                <img width="35px" height="35px" src='<%# Eval(BLL.Bot.ColumnNames.IconPath,"{0}_1.png") %>' />
+                                <img style="width:35px;" src='<%# Eval(BLL.Bot.ColumnNames.IconPath,"{0}_1.png") %>' />
                                 <asp:HiddenField ID="hdnBotPoints" runat="server" Value='<%# Eval(BLL.BotPoints.ColumnNames.Points) %>' />
                                 <asp:HiddenField ID="hdnBotID" runat="server" Value='<%# Eval(BLL.Bot.ColumnNames.ID) %>' />
                             </td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Title) %></td>
                             <td><%# Eval(BLL.Bot.ColumnNames.Description) %></td>
                             <td>
-                                <%# Helper.TypeConverter.ToInt32(Eval(BLL.BotPoints.ColumnNames.Points))>0?Eval(BLL.BotPoints.ColumnNames.Points):"عرض مجانا" %>
+                                <%# Helper.TypeConverter.ToInt32(Eval(BLL.BotPoints.ColumnNames.Points))>0?Eval(BLL.BotPoints.ColumnNames.Points):"(عرض) مجانا" %>
                             </td>
                             <td>
                                 <span class="has-success">

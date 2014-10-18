@@ -18,7 +18,7 @@
                     <h5>
                         إختر الأصدقاء 
                     </h5>
-                    <div class="form-control SScroll" data-height="400px">
+                    <div class="form-control SScroll" data-height="250px">
                     <asp:CheckBoxList ID="uiCheckBoxListFriends" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%" CssClass="checkbox-main" >
                     </asp:CheckBoxList>
                         <asp:Panel runat="server" ID="uiPanelNoFriendsFound" Visible="false">

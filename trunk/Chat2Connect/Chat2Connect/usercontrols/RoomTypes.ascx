@@ -37,6 +37,9 @@
             <div class="col-lg-4 pull-right">
                 <asp:Label ID="lblPoints" runat="server"></asp:Label>
             </div>
+            <div class="col-lg-4 pull-right">
+                (كل 100 نقطة تساوى 10 ريال)
+            </div>
         </div>
     </div>
     <div class="row">
@@ -59,12 +62,12 @@
                 </div>
                 <div class="column_1" style="width: 35%;">
                     <ul>
-                        <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center; background-color: #000; background-image: url('images/bots/Room_1.png')"></li>
+                        <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center; background-color: #000; background-image: url('images/bots/Room_1.png');background-size:70px;"></li>
                         <li class="row_style_4 align_center"><span>500</span></li>
                         <li class="row_style_2 align_center"><span>صوت واضح</span></li>
                         <li class="row_style_4 align_center"><span>رؤية واضحة</span></li>
                         <li class="row_style_2 align_center"><span>بعد الغرف المميزة</span></li>
-                        <li class="row_style_4 align_center"><span>نعم</li>
+                        <li class="row_style_4 align_center"><span>نعم</span></li>
                         <li class="row_style_2 align_center"><span>مجانا</span></li>
                     </ul>
                 </div>
@@ -72,8 +75,8 @@
                     <ul>
                         <li class="header_row_2 align_center">
                             <ul style="width: 100%; height: 100%">
-                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #ff00fe; background-image: url('images/bots/Room_2.png')"></li>
-                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #880088; background-image: url('images/bots/Room_3.png')"></li>
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #ff00fe; background-image: url('images/bots/Room_2.png');background-size:70px;"></li>
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #880088; background-image: url('images/bots/Room_3.png');background-size:70px;"></li>
                             </ul>
                         </li>
                         <li class="row_style_4 align_center"><span>2000</span></li>
@@ -98,25 +101,29 @@
                 لون الترقية
             </div>
             <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-4">
-                    <div class="col-lg-2">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
-                    </div>
-                    <div class="col-lg-2">
-                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
-                    </div>
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="col-lg-2">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
-                    </div>
-                    <div class="col-lg-2">
+                
+                
+                <div class="col-lg-4 pull-right">
+                    <div class="col-lg-2 pull-right">
                         <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
+                    <div class="col-lg-2 pull-right">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 pull-right">
+                    <div class="col-lg-2 pull-right">
+                        <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
+                    </div>
+                    <div class="col-lg-2 pull-right">
+                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
+                    </div>
+                    
                 </div>
                 <input type="hidden" id="hdnSpec" runat="server" value="2" />
             </div>
+            <div class="clear" style="height:10px;"></div>
             <div class="row" id="durations" style="padding-top: 5px;">
                 <input type="hidden" id="hdnDuration" runat="server" value="1" />
                 <div class="form-group">

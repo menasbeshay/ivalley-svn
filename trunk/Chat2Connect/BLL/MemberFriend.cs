@@ -27,7 +27,7 @@ namespace BLL
         {
             ListDictionary parameters = new ListDictionary();
             parameters.Add(new SqlParameter("@MemberID", SqlDbType.Int, 0), MemberID);
-            return LoadFromSql("GetAllMemberFriends", parameters);
+            return LoadFromSql("GetAllMemberOnlineFriends", parameters);
 
         }
 

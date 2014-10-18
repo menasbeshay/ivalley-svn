@@ -10,13 +10,16 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../css/base_popup.css" rel="stylesheet" />
     <link href="../css/skeleton_subject.css" rel="stylesheet" />
-   
+   <link href="../js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="../css/main.css" rel="stylesheet" />
     <!-- end stylesheets -->
 
     <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="../js/html5shiv-printshiv.js"></script>
+    <script src="../js/jquery.pnotify.js"></script>
+    <link href="../css/jquery.pnotify.default.css" rel="stylesheet" />
+    <script src="../js/popup_main.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -29,10 +32,12 @@
 
         <!-- All js -->
             <script src="../js/trmix.js"></script>
+            <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
 
             <script src="../js/jquery.slimscroll.min.js"></script>
             <script src="../js/jquery.nicescroll.js"></script>
             <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+         <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.SScroll').each(function () {
@@ -44,9 +49,14 @@
                         position: 'left'
                     });
                 });
+
+                $('.datecontrol').datepicker({
+                    format: 'yyyy/mm/dd'
+                });
             });
 
         </script>
+         <div class="clear" style="height:1px;"></div>
     </div>
     </form>
 </body>
