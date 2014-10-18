@@ -2,6 +2,11 @@
 
 <%@ Register Src="~/Admin/UserControls/MemberLogDetails.ascx" TagPrefix="uc1" TagName="MemberLogDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="BHead" runat="server">
+    <style>
+        .table {
+            margin-bottom:0px;
+        }
+    </style>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#userlog').addClass('active');
