@@ -60,6 +60,8 @@ namespace Chat2Connect.usercontrols
 
                         BLL.MemberLog log = new BLL.MemberLog();
                         log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = upgrademember.Name, NewTypeName = upgrademember.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = upgrademember.MemberType.EndDate, Points = points }, upgrademember.MemberID, null);
+
+                        lblPoints.Text = BLL.Member.CurrentMember.Credit_Point.ToString();
                     }
                     catch (Exception ex)
                     {
