@@ -12,17 +12,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
-    <div class=" pull-right col-sm-3" >
+    <div class=" pull-right col-sm-2" style="padding-right:0px;padding-left:0px;">
         <div class="center-block" style="width:100%;">
-                   <a href="../mybalance.aspx" id="mybalance" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                   <a href="../mybalance.aspx" id="mybalance" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">
                        
-                       <i class="modernicon iconmodern-balance col-md-1 " style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
+                       <i class="modernicon iconmodern-balance pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
                        <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">رصيدى/ نقاط</span>
                    </a>                
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../AccountLog.aspx" id="userlog" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                <a href="../AccountLog.aspx" id="userlog" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">
                     <i class="modernicon iconmodern-statement pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
                     <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">كشف الحساب</span>
 
@@ -31,7 +31,7 @@
         
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../AccTypes.aspx" id="acctypes" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                <a href="../AccTypes.aspx" id="acctypes" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">
                     
                     <i class="modernicon iconmodern-acctype pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
                     <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">ترقية حساب</span>
@@ -39,7 +39,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>
         <div class="center-block" style="width:100%;">
-                <a href="../roomtypes.aspx" id="roomtypes" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                <a href="../roomtypes.aspx" id="roomtypes" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">
                     
                     <i class="modernicon iconmodern-roomtype pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
                     <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">ترقية غرفة</span>
@@ -47,24 +47,24 @@
         </div>
         <div class="clearfix" style="height:5px;"></div> 
          <div class="center-block" style="width:100%;">
-                <a href="../Bots.aspx" id="bots" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">بوتات</a>
+                <a href="../Bots.aspx" id="bots" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">بوتات</a>
         </div>
         <div class="clearfix" style="height:5px;"></div> 
         <div class="center-block" style="width:100%;">
-                <a href="../GiftPoints.aspx" id="gifts" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">شحن نقاط الهدايا  </a>
+                <a href="../GiftPoints.aspx" id="gifts" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">شحن نقاط الهدايا  </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
-                <a href="../VIP.aspx?t=a" id="VIPAcc" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">إصدار حساب مميز  </a>
+                <a href="../VIP.aspx?t=a" id="VIPAcc" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إصدار حساب مميز  </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
-                <a href="../VIP.aspx?t=r" id="VIPRoom" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">إصدار غرفة مميزة  </a>
+                <a href="../VIP.aspx?t=r" id="VIPRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إصدار غرفة مميزة  </a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <%--       
         <div class="center-block" style="width:100%;">
-                <a href="../VIPPrices.aspx" id="vipaccounts" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">
+                <a href="../VIPPrices.aspx" id="vipaccounts" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">
                     
                     <i class="modernicon iconmodern-premium pull-left" style="font-size:30px;padding-left:0px;padding-right:0px;"></i>
                     <span class="col-md-9 " style="padding-left:0px;padding-right:0px;">أسعار الحسابات <br />والغرف المميزة</span>
@@ -72,17 +72,17 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>        
         <div class="center-block" style="width:100%;">
-                <a href="#" id="hiddenrooms" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">الغرف المخفية</a>
+                <a href="#" id="hiddenrooms" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">الغرف المخفية</a>
         </div>
         <div class="clearfix" style="height:5px;"></div>        
               
         
         <div class="center-block" style="width:100%;">
-                <a href="#" id="packages" class="btn btn-main" role="button" style="font-size:18px;padding:3px;width:100%;">الباقات</a>
+                <a href="#" id="packages" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">الباقات</a>
         </div>--%>
         <div class="clearfix" style="height:5px;"></div>        
     </div>
-    <div class="col-sm-9 pull-right " >
+    <div class="col-sm-10 pull-right " >
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
         <div class="clear" style="height:1px;"></div>

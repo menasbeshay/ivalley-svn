@@ -17,7 +17,7 @@ namespace Chat2Connect
             if (!IsPostBack)
             {
                 LoadBalance();
-                LoadFriends();
+                //LoadFriends();
 
                 // logging
                 BLL.MemberLog log = new BLL.MemberLog();
@@ -38,10 +38,10 @@ namespace Chat2Connect
             MemberFriend friends = new MemberFriend();
             friends.GetAllMemberFriends(BLL.Member.CurrentMember.MemberID);
 
-            uiRadioButtonListFriends.DataSource = friends.DefaultView;
-            uiRadioButtonListFriends.DataTextField = "MemberName";
-            uiRadioButtonListFriends.DataValueField = "FriendID";
-            uiRadioButtonListFriends.DataBind();
+            //uiRadioButtonListFriends.DataSource = friends.DefaultView;
+            //uiRadioButtonListFriends.DataTextField = "MemberName";
+            //uiRadioButtonListFriends.DataValueField = "FriendID";
+            //uiRadioButtonListFriends.DataBind();
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace Chat2Connect
 
             if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
             {
-                if (uiRadioButtonListFriends.SelectedIndex != -1)
+                if (uiHiddenFieldFriendID.Value != "")
                 {
 
                     if (string.IsNullOrEmpty(uiTextBoxAmount.Text))
@@ -66,8 +66,19 @@ namespace Chat2Connect
                             ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام التحويل.'); });", true);
                             return;
                         }
+
                         Member ToMember = new Member();
-                        ToMember.LoadByPrimaryKey(Convert.ToInt32(uiRadioButtonListFriends.SelectedValue));
+                        if (uiHiddenFieldFriendID.Value != "0" && uiHiddenFieldFriendID.Value != "")
+                        {
+                            ToMember.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldFriendID.Value));
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "Error7", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أختر صديق للتحويل.'); });", true);
+                            return;
+                        }
+                        
+                        
 
                         ToMember.Credit_Point += points;
                         BLL.Member.CurrentMember.Credit_Point -= points;
@@ -90,7 +101,7 @@ namespace Chat2Connect
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "Error4", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أعد المحاولة.'); });", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Error7", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك أختر صديق للتحويل.'); });", true);
                 }
             }
             else

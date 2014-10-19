@@ -13,8 +13,8 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding:10px;">
-    <div class="col-sm-3 pull-right">
+    <div style="padding:5px;">
+    <div class="col-sm-2 pull-right" style="padding-right:0px;padding-left:0px;">
         <div class="center-block" style="width:100%;">
                    <a href="../createRoom.aspx" id="createRoom" class="btn btn-main" role="button" style="font-size:15px;padding:3px;width:100%;">إنشاء غرفة</a>                
         </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="clearfix" style="height:5px;"></div>--%>
     </div>
-    <div class="col-sm-9 pull-right ">
+    <div class="col-sm-10 pull-right ">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
     </div>

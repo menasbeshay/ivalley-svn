@@ -16,16 +16,16 @@
     </div>
     <div class="form-horizontal blockBoxshadow">
         <div class="form-group">
-            <div class="col-lg-2 control-label pull-right">
-                رصيد النقاط
-            </div>
-            <div class="col-lg-4 pull-right">
-                <asp:Label ID="lblPointsBalance" runat="server"></asp:Label>
-            </div>
-            <div class="col-lg-4 pull-right">
+        <div class="col-lg-2 pull-right" style="padding-top:3px;">
+            رصيد النقاط
+        </div>
+        <div class="col-lg-4 pull-right bordered" style="padding:3px;">
+            <asp:Label ID="lblPointsBalance" runat="server" ></asp:Label> نقطة
+        </div>
+            <div class="col-lg-4 pull-right" style="color:#b5b5b5;padding-top:3px;">
                 (كل 100 نقطة تساوى 10 ريال)
             </div>
-        </div>
+            </div>
         <div class="form-group">
             <div class="col-lg-2 control-label pull-right">
                 إختر الغرفة
