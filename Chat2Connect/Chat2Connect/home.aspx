@@ -1293,8 +1293,8 @@
 
                 </div>
 
-                <!-- ko if: Type()=="Room" -->
-                <div class="col-lg-12" data-bind="if:!IsTemp()">
+                <!-- ko if: Type()=="Room" && !IsTemp()-->
+                <div class="col-lg-12">
                     <div style="padding: 5px;" class="pull-right col-lg-3">
                         <label><span id="Label1">مدير الغرفة</span></label>
                         <span id="uiLabelAdmin" data-bind="text:OwnerMember().MemberName"></span>
@@ -1871,7 +1871,7 @@
                 </div>
             </div>
         </div>
-        <!-- ko if:Type()=="Room" -->
+        <!-- ko if:Type()=="Room" && !IsTemp() -->
         <div data-bind="attr:{id:'infoModal_'+uniqueID()}" class="modal fade" role="modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

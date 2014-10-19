@@ -51,6 +51,7 @@ namespace Chat2Connect
                     room.EnableCam = true;
                     room.EnableOneMic = true;
                     room.RowStatusID = 1;
+                    room.Name = "غرفة مؤقتة";
                     room.Save();
 
                     room.Name = room.RoomID.ToString();
@@ -70,7 +71,8 @@ namespace Chat2Connect
                             _Ncontext.Clients.Group(u.UserName).inviteToTempRoom(room.RoomID, member.Name);
                         }
                     }
-                    Response.Redirect("home.aspx");
+                    ClientScript.RegisterStartupScript(this.GetType(), "initTempRoom", "self.parent.location='/home.aspx';", true);
+                    //Response.Redirect("home.aspx");
                 }
                 else
                 {
