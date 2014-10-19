@@ -656,14 +656,17 @@ namespace Chat2Connect.services
                 return false;
             }
 
-            if (room.CreatedBy != BLL.Member.CurrentMember.MemberID)
+            if (!isTemp)
             {
-                //check member type bot
-                string acceptedType;
-                if (!ValidateMemberLoginTypeBot(id, out acceptedType))
+                if (room.CreatedBy != BLL.Member.CurrentMember.MemberID)
                 {
-                    message = "عفوا هذه الغرفة تقبل الأعضاء من الفئات (" + acceptedType + ") فقط";
-                    return false;
+                    //check member type bot
+                    string acceptedType;
+                    if (!ValidateMemberLoginTypeBot(id, out acceptedType))
+                    {
+                        message = "عفوا هذه الغرفة تقبل الأعضاء من الفئات (" + acceptedType + ") فقط";
+                        return false;
+                    }
                 }
             }
             return true;
@@ -718,6 +721,7 @@ namespace Chat2Connect.services
             roomObject.OpenCams = room.OpenCams;
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
+           
 
             RoomBot Allbots = new RoomBot();
             roomObject.RoomBots = Allbots.GetByRoomID(id);
@@ -773,9 +777,13 @@ namespace Chat2Connect.services
             //roomObject.Admins = roomMember.GetAdminsMembersByRoomID(id);
 
             // load cat & subcat
+            
             Category cat = new Category();
-            cat.LoadByPrimaryKey(room.CategoryID);
-            roomObject.CategoryName = cat.Name;
+            if (!room.IsColumnNull("CategoryID"))
+            {
+                cat.LoadByPrimaryKey(room.CategoryID);
+                roomObject.CategoryName = cat.Name;
+            }
 
             SubCategory scat = new SubCategory();
             if (!room.IsColumnNull("SubCategoryID"))
