@@ -7,20 +7,34 @@
             $('#<%= uiDropDownListPoints.ClientID%>').change(function() {
                 $('#price').val($('#<%= uiDropDownListPoints.ClientID%>').val()/10);
             });
+
+            $("#uiTextBoxFriend").tokenInput("../Services/Services.asmx/SearchMembersFriends?memberID=" + <%= BLL.Member.CurrentMemberID.ToString() %> , {
+                theme: "facebook",
+                preventDuplicates: true,
+                hintText: "",
+                noResultsText: "لا يوجد",
+                searchingText: "بحث فى الأصدقاء...",    
+                tokenLimit: 1,
+                onAdd: function (item) {
+                    $('#uiHiddenFieldFriendID').val(item.id);
+                },
+            });
         });
 
     </script>
+     <script src="js/jquery.tokeninput.js"></script>
+<link href="css/token-input-facebook.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div class="form-horizontal blockBoxshadow">
+    <div class="form-horizontal blockBoxshadow" style="padding-top:5px;">
         <div class="form-group">
-        <div class="col-lg-2 control-label pull-right">
+        <div class="col-lg-2 pull-right" style="padding-top:3px;">
             رصيد النقاط
         </div>
-        <div class="col-lg-4 pull-right">
+        <div class="col-lg-4 pull-right bordered" style="padding:3px;">
             <asp:Label ID="uiLabelBalance" runat="server" ></asp:Label>
         </div>
-            <div class="col-lg-4 pull-right">
+            <div class="col-lg-4 pull-right" style="color:#b5b5b5;padding-top:3px;">
                 (كل 100 نقطة تساوى 10 ريال)
             </div>
             </div>
@@ -32,17 +46,19 @@
         
             </div>
 
-          <div class="form-group col-sm-12" style="padding-right:0px;">
-                    <h5>
+          <div class="form-group " style="padding-right:0px;">
+                    <div class="col-sm-2 control-label pull-right">
                         إختر الأصدقاء 
-                    </h5>
-                    <div class=" form-control SScroll" data-height="220px">
-                    <asp:RadioButtonList ID="uiRadioButtonListFriends" runat="server" RepeatColumns="5" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%"  >
-                    </asp:RadioButtonList>                        
-                        </div>
-                    <div class="clearfix" style="height:10px;"></div>
+                    </div>
+              <div class="col-sm-6 pull-right">
+              <asp:TextBox ID="uiTextBoxFriend" runat="server" ClientIDMode="Static" Width="40%"></asp:TextBox>
+                  <asp:HiddenField ID="uiHiddenFieldFriendID" runat="server" ClientIDMode="Static" />
+                  </div>
+              
+                   
+                    <div class="clearfix" style="height:1px;"></div>
                 </div>
-
+        <div class="clearfix" style="height:1px;"></div>
         <div class="form-group">
         <div class="col-sm-2 control-label pull-right">
             عدد النقاط</div>
@@ -62,33 +78,36 @@
     </div>
 
     <div class="clear" style="height:10px;"></div>
-    <div class="form-horizontal blockBoxshadow">
+    <div class="form-horizontal blockBoxshadow" style="padding-top:5px;">
         
          <div class="form-group">
         <div class="col-sm-12 control-label pull-right">
-           <h3> شحن رصيد نقاط</h3> (كيف تريد أن تدفع)
+           <h3 class="col-sm-4 pull-right"> شحن رصيد نقاط</h3>
+            <span class="col-sm-3 pull-right" style="padding-right:0px;padding-top:10px;"> (كيف تريد أن تدفع)</span>
         </div>
         
             </div>
 
           <div class="form-group col-sm-12" style="padding-right:0px;">
-                    <div class="col-sm-4 pull-right bordered" style="height:100px;padding:5px;text-align:center;margin-left:10px;"  > 
-                        <img src="images/onecard.png" style="max-width:80px;vertical-align:middle;"/>                       
+              <div class="col-sm-7 pull-right">
+                    <div class="col-sm-5 pull-right bordered" style="height:70px;padding:5px;text-align:center;margin-left:10px;"  > 
+                        <img src="images/onecard.png" style="max-width:60px;vertical-align:middle;"/>                       
                     </div>
-              <div class="col-sm-4 pull-right bordered" style="height:100px;padding:5px;text-align:center;"><img src="images/cashu.png" style="max-width:100%;vertical-align:middle;"/></div>
+              <div class="col-sm-5 pull-right bordered" style="height:70px;padding:5px;text-align:center;">
+                  <img src="images/cashu.png" style="max-width:100%;vertical-align:middle;"/></div>
                    <div class="clear" style="height:10px;"></div>
                
-        <div class="col-sm-4 pull-right bordered" style="height:100px;padding:5px;text-align:center;margin-left:10px;"> 
-                        <img src="images/etisalat.jpg" style="max-width:60px;vertical-align:middle;"/>                       
+        <div class="col-sm-5 pull-right bordered" style="height:70px;padding:5px;text-align:center;margin-left:10px;"> 
+                        <img src="images/etisalat.jpg" style="max-width:40px;vertical-align:middle;"/>                       
                     </div>
-              <div class="col-sm-4 pull-right bordered" style="height:100px;padding:5px;text-align:center;" >عن طريق موظفين المساعدة (Help) المتواجدين فى قائمة أصدقائى </div>
+              <div class="col-sm-5 pull-right bordered" style="height:70px;padding:5px;text-align:center;" >عن طريق موظفين المساعدة (Help) المتواجدين فى قائمة أصدقائى </div>
                     <div class="clearfix" style="height:10px;"></div>
                 </div>
-
-        <div class="form-group">
-        <div class="col-sm-2 control-label pull-right">
+              <div class="col-sm-5 pull-right">
+                     <div class="form-group">
+        <div class="col-sm-3 control-label pull-right">
              النقاط</div>
-        <div class="col-sm-3 pull-right">
+        <div class="col-sm-5 pull-right">
             <asp:DropDownList ID="uiDropDownListPoints" runat="server" CssClass="form-control">
                 <asp:ListItem>100</asp:ListItem>
                 <asp:ListItem>200</asp:ListItem>
@@ -99,16 +118,24 @@
                 <asp:ListItem>10000</asp:ListItem>
             </asp:DropDownList>
         </div>
+                         <div class="col-sm-4" style="padding-left:0px;padding-right:0px;">
+                             العملة بالريال<br />السعودى فقط
+                         </div>
             </div>
 
         <div class="form-group">
-        <div class="col-sm-2 control-label pull-right">
+            
+        <div class="col-sm-3 control-label pull-right">
              السعر</div>
-        <div class="col-sm-3 pull-right">
-            <input type="text" id="price" readonly="true" value="10" />
+        <div class="col-sm-5 pull-right">
+            <input type="text" class="form-control" id="price" readonly="true" value="10" />
         </div>
-            <div class="col-sm-3 pull-right">العملة بالريال السعودى فقط</div>
+            <div class="col-sm-4 pull-left"> ريال </div>
             </div>
+              </div>
+              </div>
+
+     <div class="clear" style="height:1px;"></div>
 
     </div>
 
@@ -131,7 +158,7 @@
                                     <div class="col-sm-8 pull-right">                                        
                                         <asp:DropDownList ID="uiDropDownListQuestion" runat="server" CssClass="form-control" >                     
             	                            <asp:ListItem Value="0">اختر السؤال السرى</asp:ListItem>
-            	                            <asp:ListItem> اين ولدت</asp:ListItem>
+            	                            <asp:ListItem>اين ولدت</asp:ListItem>
             	                            <asp:ListItem>اقرب صديق اليك</asp:ListItem>
             	                            <asp:ListItem>اين تسكن</asp:ListItem>
             	                            <asp:ListItem>افضل مدينه زرتها</asp:ListItem>

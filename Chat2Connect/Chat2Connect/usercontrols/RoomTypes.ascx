@@ -30,18 +30,16 @@
 </script>
 <div class="form-horizontal blockBoxshadow">
     <div class="row">
-        <div class="form-group">
-            <div class="col-lg-4 pull-right control-label">
-                رصيد النقاط
-            </div>
-            <div class="col-lg-4 pull-right">
-                <asp:Label ID="lblPoints" runat="server"></asp:Label>
-            </div>
-            <div class="col-lg-4 pull-right">
+        <div class="col-lg-2 pull-right" style="padding-top:3px;">
+            رصيد النقاط
+        </div>
+        <div class="col-lg-4 pull-right bordered" style="padding:3px;">
+            <asp:Label ID="lblPoints" runat="server" ></asp:Label> نقطة
+        </div>
+            <div class="col-lg-4 pull-right" style="color:#b5b5b5;padding-top:3px;">
                 (كل 100 نقطة تساوى 10 ريال)
             </div>
-        </div>
-    </div>
+            </div>
     <div class="row">
         <div class="col-lg-8" style="float: right;">
             <!-- DC Pricing Tables:3 Start -->
@@ -89,7 +87,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4" style="padding-top: 100px; padding-right: 10px;">
+        <div class="tsc_clear" style="height:10px"></div>
+        <div class="col-lg-4" style="padding-right: 10px;">
             <div class="row">
                 إسم الغرفة المراد ترقية
             </div>
@@ -126,26 +125,26 @@
             <div class="clear" style="height:10px;"></div>
             <div class="row" id="durations" style="padding-top: 5px;">
                 <input type="hidden" id="hdnDuration" runat="server" value="1" />
-                <div class="form-group">
-                    <div class="col-lg-2 pull-right">
+               <div class="form-group col-sm-12">
+                    <div class="col-sm-1 pull-right">
                         <input type="radio" name="rdDuration" value="1" checked="checked" />
                     </div>
-                    <div class="col-lg-4 pull-right">شهر</div>
-                    <div class="col-lg-6 pull-right">(1500 نقطة)</div>
+                    <div class="col-sm-2 pull-right">شهر</div>
+                    <div class="col-sm-3 pull-right">(1500 نقطة)</div>
                 </div>
-                <div class="form-group">
-                    <div class="col-lg-2 pull-right">
+                <div class="form-group col-sm-12">
+                    <div class="col-sm-1 pull-right">
                         <input type="radio" name="rdDuration" value="2" />
                     </div>
-                    <div class="col-lg-4 pull-right">6 شهور</div>
-                    <div class="col-lg-6 pull-right">(6000 نقطة)</div>
+                    <div class="col-sm-2 pull-right">6 شهور</div>
+                    <div class="col-sm-3 pull-right">(6000 نقطة)</div>
                 </div>
-                <div class="form-group">
-                    <div class="col-lg-2 pull-right">
+                <div class="form-group col-sm-12">
+                    <div class="col-sm-1 pull-right">
                         <input type="radio" name="rdDuration" value="3" />
                     </div>
-                    <div class="col-lg-4 pull-right">سنة</div>
-                    <div class="col-lg-6 pull-right">(10000 نقطة)</div>
+                    <div class="col-sm-2 pull-right">سنة</div>
+                    <div class="col-sm-3 pull-right">(10000 نقطة)</div>
                 </div>
             </div>
             <div class="row align_center">
@@ -173,7 +172,7 @@
                         <div class="col-sm-8 pull-right">
                             <asp:DropDownList ID="uiDropDownListQuestion" runat="server" CssClass="form-control">
                                 <asp:ListItem Value="0">اختر السؤال السرى</asp:ListItem>
-                                <asp:ListItem> اين ولدت</asp:ListItem>
+                                <asp:ListItem>اين ولدت</asp:ListItem>
                                 <asp:ListItem>اقرب صديق اليك</asp:ListItem>
                                 <asp:ListItem>اين تسكن</asp:ListItem>
                                 <asp:ListItem>افضل مدينه زرتها</asp:ListItem>

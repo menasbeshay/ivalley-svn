@@ -13,12 +13,12 @@
         </h3>
         <div class="form-horizontal">
             <div class="clearfix" style="height:10px;"></div>
-            <div class="col-lg-12 pull-right">
+            <div class="col-sm-12 pull-right">
                 <div class="form-group">
                     <h5>
                         إختر الأصدقاء 
                     </h5>
-                    <div class="form-control SScroll" data-height="250px">
+                    <div class="form-control SScroll" data-height="150px">
                     <asp:CheckBoxList ID="uiCheckBoxListFriends" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%" CssClass="checkbox-main" >
                     </asp:CheckBoxList>
                         <asp:Panel runat="server" ID="uiPanelNoFriendsFound" Visible="false">

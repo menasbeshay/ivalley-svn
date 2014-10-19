@@ -29,7 +29,7 @@
             <div class="col-md-2 control-label pull-right" style="padding-right:0px;">
                 <label>فى الفترة من </label>
             </div>
-            <div class="col-md-2 pull-right">
+            <div class="col-md-2 pull-right" style="padding-right:0px;">
                 <div class="input-group pull-right">
                     <asp:TextBox ID="txtStartDate" runat="server" CssClass="datecontrol pull-right"></asp:TextBox>
                     <span class="input-group-btn pull-right">
@@ -37,10 +37,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-1 control-label pull-right">
+            <div class="col-md-1 control-label pull-right" style="padding-right:0px;">
                 <label>إلى </label>
             </div>
-            <div class="col-md-2 pull-right">
+            <div class="col-md-2 pull-right" style="padding-right:0px;">
                 <div class="input-group pull-right">
                     <asp:TextBox ID="txtEndDate" runat="server" CssClass=" datecontrol pull-right"></asp:TextBox>
                     <span class="input-group-btn pull-right">
@@ -53,8 +53,9 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 pull-right">
-        <asp:GridView ID="grdLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
+    <div class="clear" style="height:10px;"></div>
+    <div class="col-sm-12 pull-right">
+        <asp:GridView ID="grdLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader" Width="100%">
             <RowStyle HorizontalAlign="Center" />
             <Columns>
                 <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HeaderText="التاريخ والوقت" />

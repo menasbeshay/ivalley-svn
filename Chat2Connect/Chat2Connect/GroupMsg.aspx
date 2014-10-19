@@ -78,15 +78,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="form-horizontal blockBoxshadow">
-   
-    <div class="clearfix" style="height: 10px;"></div>
-    
-       <div class="col-lg-10 pull-right" id="grbfriends">
-                <div class="form-group">
+   <h3>
+       إرسال رسالة جماعية على الخاص
+
+   </h3>    
+        <div class="col-sm-12 pull-right" id="grbfriends">
+                
                     <h5>
                         إختر الأصدقاء 
                     </h5>
-                    <div class="form-control SScroll" data-height="200px">
+                    <div class="form-control SScroll" data-height="150px">
                     <asp:CheckBoxList ID="uiCheckBoxListFriends" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="5" Width="100%" CssClass="checkbox-main" >
                     </asp:CheckBoxList>
                         <asp:Panel runat="server" ID="uiPanelNoFriendsFound" Visible="false">
@@ -97,29 +98,30 @@
                         
                         </div>
                     <div class="clearfix" style="height:10px;"></div>
-                </div>                
+                             
             </div>
 
     
 
     <div class="clear" style="height: 10px;"></div>
 
-    <div class="row">
+    
         <div class="col-sm-2 pull-right">
             <label>المحتوى </label>
         </div>
         <div class="clear" style="height:5px;"></div>
-        <div class="col-sm-8 pull-right">            
-            <textarea id="txtbody" class="form-control" style="height: 200px; padding: 0 !important;" maxlength="500"></textarea>
+        <div class="col-sm-12 pull-right">            
+            <textarea id="txtbody" class="form-control" style="height: 80px; padding: 0 !important;" maxlength="500"></textarea>
             <span id="txtCount">500</span>
         </div>
-    </div>
-    <div class="clearfix" style="height: 10px;"></div>
+    
+    <div class="clear" style="height: 20px;"></div>
     <div class="row">
         <div class="col-sm-2 pull-right">
+            <a class="btn btn-main" id="sendmsgbtn">إرسال</a>
         </div>
         <div class="col-sm-8 pull-right">
-            <a class="btn btn-main" id="sendmsgbtn">إرسال</a>
+            
         </div>
     </div>    
 </div>
