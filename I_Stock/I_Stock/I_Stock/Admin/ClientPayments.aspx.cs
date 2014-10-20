@@ -54,8 +54,11 @@ namespace I_Stock.Admin
         protected void uiLinkButtonOK_Click(object sender, EventArgs e)
         {
             IStock.BLL.Payments Payment = new IStock.BLL.Payments();
-            if (CurrentPayment == null)            
-                Payment.AddNew();                
+            if (CurrentPayment == null)
+            {
+                Payment.AddNew();
+                Payment.Confirmed = false;
+            }
             else
                 Payment = CurrentPayment;
 
@@ -70,7 +73,7 @@ namespace I_Stock.Admin
                 Payment.Amount = 0;
 
             Payment.PaymentTypeID = Convert.ToInt32(uiRadioButtonListPaymentType.SelectedValue);
-            Payment.Confirmed = false;
+            
             Payment.Save();
 
             
@@ -107,6 +110,8 @@ namespace I_Stock.Admin
             uiRadioButtonListPaymentType.Enabled = true;
             uiTextBoxCode.Enabled = true;
             uiDropDownListEmployee.Enabled = true;
+            uiLinkButtonOK.Enabled = true;
+            uiLinkButtonOK.Attributes.Remove("disabled");
         }
 
 
@@ -123,7 +128,7 @@ namespace I_Stock.Admin
                 IStock.BLL.Payments objData = new IStock.BLL.Payments();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
-                uiTextBoxCode.Text = objData.PaymentID.ToString();
+                uiTextBoxCode.Text = objData.PaymentNo.ToString();
                 uiTextBoxDate.Text = objData.PaymentDate.ToString("dd/MM/yyy");
                 uiDropDownListClients.SelectedValue = objData.ClientID.ToString();
                 if (!objData.IsColumnNull("PaymentTypeID"))
@@ -203,20 +208,27 @@ namespace I_Stock.Admin
             if (!CurrentPayment.IsColumnNull("Confirmed"))
             {
                 if (CurrentPayment.Confirmed)
+                {
                     uiLinkButtonConfirm.Attributes.Add("disabled", "disabled");
+                    uiLinkButtonOK.Attributes.Add("disabled", "disabled");
+                }
                 else
+                {
                     uiLinkButtonConfirm.Attributes.Remove("disabled");
-
+                    uiLinkButtonOK.Attributes.Remove("disabled");
+                }
                 uiDropDownListClients.Enabled = !CurrentPayment.Confirmed;
                 uiTextBoxDate.Enabled = !CurrentPayment.Confirmed;
                 uiTextBoxAmount.Enabled = !CurrentPayment.Confirmed;
                 uiRadioButtonListPaymentType.Enabled = !CurrentPayment.Confirmed;
                 uiTextBoxCode.Enabled = !CurrentPayment.Confirmed;
                 uiDropDownListEmployee.Enabled = !CurrentPayment.Confirmed;
+                
             }
             else
             {
                 uiLinkButtonConfirm.Attributes.Remove("disabled");
+                uiLinkButtonOK.Attributes.Remove("disabled");
                 uiLinkButtonConfirm.Enabled = true;
                 uiDropDownListClients.Enabled = true;
                 uiTextBoxDate.Enabled = true;
