@@ -1518,7 +1518,7 @@
                                 <!-- /ko -->
                                 <!-- ko if: Type()=="Room" && hasEmailOwnerBot -->
                                 <a title="بريد المالك" data-bind="click:showEmailOwnerBot" data-placement="top" class="btn btn-default roomMenuItem" style="padding:5px;max-height:35px;">
-                                    <img src="/images/bots/EmailOwner_1.png" width=30 height=30>
+                                    <img data-bind="attr:{src:'/images/bots/EmailOwner_'+Settings.TypeID()+'.png'}" width=30 height=30>
                                 </a>
                                 <!-- /ko -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-binding="attr:{id:'attach_'+uniqueID()}" data-original-title="تحميل ملفات" data-bind="click:ShowAttachFiles"><i class="icon-paper-clip" style="font-size: 17px;"></i></a>
