@@ -42,18 +42,20 @@
                 </div>
                 <div class="column_1" style="width:35%">
                     <ul>
-                        <li class="header_row_2 align_center" style="background-color: #000">
-                            <h3 class="col1"></h3>
+                        <li class="header_row_2 align_center" >
+                            
+                                <i class="icon-5x icon-user" style="color:#000;font-size:70px;"></i>
+                            
                         </li>
-                        <li class="row_style_3 align_center"><span>5</span></li>
-                        <li class="row_style_1 align_center"><span>2</span></li>
-                        <li class="row_style_3 align_center"><span>500</span></li>
-                        <li class="row_style_1 align_center"><span>250 ك/ب</span></li>
-                        <li class="row_style_3 align_center">2</li>
-                        <li class="row_style_1 align_center">1</li>
-                        <li class="row_style_3 align_center">لا</li>
-                        <li class="row_style_1 align_center">لا</li>
-                        <li class="row_style_3 align_center">مجانا
+                        <li class="row_style_4 align_center"><span>5</span></li>
+                        <li class="row_style_2 align_center"><span>2</span></li>
+                        <li class="row_style_4 align_center"><span>500</span></li>
+                        <li class="row_style_2 align_center"><span>250 ك/ب</span></li>
+                        <li class="row_style_4 align_center">2</li>
+                        <li class="row_style_2 align_center">1</li>
+                        <li class="row_style_4 align_center">لا</li>
+                        <li class="row_style_2 align_center">لا</li>
+                        <li class="row_style_4 align_center">مجانا
                         </li>
                     </ul>
                 </div>
@@ -61,19 +63,23 @@
                     <ul>
                         <li class="header_row_2 align_center">
                             <ul style="height:100%;width:100%">
-                                <li style="float:right;width:50%;height:100%; background-color:#ff00fe"></li>
-                                <li style="float:right;width:50%;height:100%; background-color:#880088"></li>
+                                <li style="float:right;width:50%;height:100%; ">
+                                    <i class="icon-5x icon-user" style="color:#ff00fe;"></i>
+                                </li>
+                                <li style="float:right;width:50%;height:100%; ">
+                                    <i class="icon-5x icon-user" style="color:#880088;"></i>
+                                </li>
                             </ul>
                         </li>
-                        <li class="row_style_3 align_center"><span>10</span></li>
-                        <li class="row_style_1 align_center"><span>8</span></li>
-                        <li class="row_style_3 align_center"><span>1000</span></li>
-                        <li class="row_style_1 align_center"><span>1 جيجا</span></li>
-                        <li class="row_style_3 align_center">2</li>
-                        <li class="row_style_1 align_center">1</li>
-                        <li class="row_style_3 align_center">نعم</li>
-                        <li class="row_style_1 align_center">نعم</li>
-                        <li class="row_style_3 align_center">شراء نقاط
+                        <li class="row_style_4 align_center"><span>10</span></li>
+                        <li class="row_style_2 align_center"><span>8</span></li>
+                        <li class="row_style_4 align_center"><span>1000</span></li>
+                        <li class="row_style_2 align_center"><span>1 جيجا</span></li>
+                        <li class="row_style_4 align_center">2</li>
+                        <li class="row_style_2 align_center">1</li>
+                        <li class="row_style_4 align_center">نعم</li>
+                        <li class="row_style_2 align_center">نعم</li>
+                        <li class="row_style_4 align_center">شراء نقاط
                         </li>
                     </ul>
                 </div>
@@ -100,7 +106,9 @@
                         <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
                     <div class="col-lg-2 pull-right">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
+                        <span style="display: block; width: 25px; height: 25px;">
+                            <i class="icon-2x icon-circle" style="color: #ff00fe"></i>
+                        </span>
                     </div>
                     
                 </div>
@@ -109,7 +117,9 @@
                         <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
                     </div>
                     <div class="col-lg-2 pull-right">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
+                        <span style="display: block; width: 25px; height: 25px;" >
+                            <i class="icon-2x icon-circle" style="color: #ff00fe"></i>
+                        </span>
                     </div>
                    
                 </div>
@@ -129,7 +139,7 @@
                     <div class="col-sm-1 pull-right">
                         <input type="radio" name="rdDuration" value="2" />
                     </div>
-                    <div class="col-sm-2 pull-right">6 شهور</div>
+                    <div class="col-sm-2 pull-right">6 أشهر</div>
                     <div class="col-sm-3 pull-right">(1200 نقطة)</div>
                 </div>
                 <div class="form-group col-sm-12">

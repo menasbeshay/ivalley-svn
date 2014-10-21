@@ -60,7 +60,7 @@
                 </div>
                 <div class="column_1" style="width: 35%;">
                     <ul>
-                        <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center; background-color: #000; background-image: url('images/bots/Room_1.png');background-size:70px;"></li>
+                        <li class="header_row_2 align_center" style="background-repeat: no-repeat; background-position: center;  background-image: url('images/bots/Room_1.png');background-size:70px;"></li>
                         <li class="row_style_4 align_center"><span>500</span></li>
                         <li class="row_style_2 align_center"><span>صوت واضح</span></li>
                         <li class="row_style_4 align_center"><span>رؤية واضحة</span></li>
@@ -73,8 +73,8 @@
                     <ul>
                         <li class="header_row_2 align_center">
                             <ul style="width: 100%; height: 100%">
-                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #ff00fe; background-image: url('images/bots/Room_2.png');background-size:70px;"></li>
-                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center; background-color: #880088; background-image: url('images/bots/Room_3.png');background-size:70px;"></li>
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center;  background-image: url('images/bots/Room_2.png');background-size:70px;"></li>
+                                <li style="width: 50%; height: 100%; float: right; background-repeat: no-repeat; background-position: center;  background-image: url('images/bots/Room_3.png');background-size:70px;"></li>
                             </ul>
                         </li>
                         <li class="row_style_4 align_center"><span>2000</span></li>
@@ -107,7 +107,9 @@
                         <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
                     <div class="col-lg-2 pull-right">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #ff00fe"></span>
+                        <span style="display: block; width: 25px; height: 25px; ">
+                            <i class="icon-2x icon-circle" style="color: #ff00fe"></i>
+                        </span>
                     </div>
                     
                 </div>
@@ -116,7 +118,9 @@
                         <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
                     </div>
                     <div class="col-lg-2 pull-right">
-                        <span style="display: block; width: 25px; height: 25px; background-color: #880088"></span>
+                        <span style="display: block; width: 25px; height: 25px;" >
+                            <i class="icon-2x icon-circle" style="color: #880088"></i>
+                        </span>
                     </div>
                     
                 </div>
@@ -136,7 +140,7 @@
                     <div class="col-sm-1 pull-right">
                         <input type="radio" name="rdDuration" value="2" />
                     </div>
-                    <div class="col-sm-2 pull-right">6 شهور</div>
+                    <div class="col-sm-2 pull-right">6 أشهر</div>
                     <div class="col-sm-3 pull-right">(6000 نقطة)</div>
                 </div>
                 <div class="form-group col-sm-12">

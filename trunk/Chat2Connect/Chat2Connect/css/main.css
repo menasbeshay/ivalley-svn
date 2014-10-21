@@ -765,13 +765,13 @@ img.offline {
     color:#000 !important;
 }
 .type_2 {
-    color:#808040 !important;
+    color:#ff00fe !important;
 }
 .type_3 {
-    color:#FF00FE !important;
+    color:#880088 !important;
 }
 .type_4 {
-    color:#CCCC00 !important;
+    color:#f6fc3f !important;
 }
 
 
@@ -2039,7 +2039,7 @@ input[type="text"], textarea {
 .border-callout .border-notch { border-right-color: #c5d9e8;left: -8px;}
 
 .RoomAlertRed {
-    background-color:red !important;
+    background-color:#FEC200 !important;
 }
 
 
@@ -2270,4 +2270,29 @@ input[type="text"], textarea {
 
 .listInRoom {
     text-align:right;
+    color:inherit;
+}
+
+
+#coming-body {
+    background: url("../images/bg-denim.png") !important;
+}
+
+.coming-soon {
+    
+    text-align: center;
+    color: #c6c6c6;
+}
+
+.coming-soon h1 label{
+    color: #2fbfca;
+    display: inline;
+    font-size: 40px;
+}
+.coming-soon h1 span{
+    color: #facc5f;
+    font-size: 60px;
+}
+.coming-soon h1 {
+    font-family: 'Alex Brush', cursive;
 }

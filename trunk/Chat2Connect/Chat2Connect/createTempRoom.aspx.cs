@@ -49,7 +49,7 @@ namespace Chat2Connect
                     room.AddNew();
 
                     room.EnableCam = true;
-                    room.EnableOneMic = true;
+                    room.EnableMic = true;
                     room.RowStatusID = 1;
                     room.Name = "غرفة مؤقتة";
                     room.Save();

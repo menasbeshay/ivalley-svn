@@ -215,6 +215,8 @@ namespace Chat2Connect
                 room.RoomPassword = uiTextBoxPassword.Text;
                 room.RoomAdminPassword = uiTextBoxAdminPass.Text;
                 room.RoomPasswordenabled = uiCheckBoxPasswordEnable.Checked;
+                room.EnableCam = true;
+                room.EnableMic = true;
                /* room.EnableCam = uiCheckBoxEnableCam.Checked;
                 room.EnableOneMic = uiCheckBoxEnableOneMic.Checked;
                 room.EnableTwoMic = uiCheckBoxEnableTwoMic.Checked;
@@ -232,9 +234,11 @@ namespace Chat2Connect
                 uiCheckBoxPasswordEnable.Checked = false;
 
                 // log 
-                BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
-
+                if (!IsEdit)
+                {
+                    BLL.MemberLog log = new BLL.MemberLog();
+                    log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
+                }
                 if (AdminsTable.Rows.Count > 0)
                 {
                     RoomMember roommember = new RoomMember();
