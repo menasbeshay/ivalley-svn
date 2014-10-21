@@ -342,7 +342,7 @@
                             </li>
                             <li id="profilemain" class="MenuItem" title="تواصل" data-placement="left">
                                 <i class="icon-globe" style="font-size: 36px;"></i>
-                                <a href="#" style="opacity: 0;">تواصل</a>
+                                <a onclick="OpenPopup('Tawasolsoon.aspx','تواصل');" style="opacity: 0;">تواصل</a>
                             </li>
 
                             <li id="balancemain" class="MenuItem" title="رصيدى" data-placement="left">

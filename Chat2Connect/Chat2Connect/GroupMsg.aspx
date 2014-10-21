@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/createMaster.master" AutoEventWireup="true" CodeBehind="GroupMsg.aspx.cs" Inherits="Chat2Connect.GroupMsg" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderhead" runat="server">
-    <script src="js/jquery.tokeninput.js"></script>
+    <%--<script src="js/jquery.tokeninput.js"></script>
     <link href="css/token-input-facebook.css" rel="stylesheet" />
     <script src="../js/wysihtml5-0.3.0.js"></script>
-<script src="../js/advanced.js"></script>
+<script src="../js/advanced.js"></script>--%>
 
       <script type="text/javascript">
           $(document).ready(function () {
               $('#sendmsgtoall').addClass('active');
 
-              $("#txtBody").on('change keyup paste', function () {
+              $("#txtbody").on('change keyup paste', function () {
                   $('#txtCount').html(500 - $(this).val().length);
               });
 

@@ -130,7 +130,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2014 14:14:07</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>10/19/2014 17:11:32</publishTime>
+      <publishTime>10/20/2014 14:56:29</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -448,7 +448,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:02</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>10/16/2014 10:16:18</publishTime>
+      <publishTime>10/20/2014 14:56:14</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>09/11/2014 12:25:02</publishTime>

@@ -685,6 +685,7 @@
     <None Include="Scripts\moment.min.js" />
     <None Include="testswf\c2c\c2c.html" />
     <None Include="testswf\c2c\js\swfobject.js" />
+    <Content Include="TawasolSoon.aspx" />
     <Content Include="testswf\chat2connect.swf" />
     <None Include="testswf\chat2connect5.swf" />
     <None Include="testswf\chat2connect_fv.swf" />
@@ -1224,6 +1225,13 @@
     <Compile Include="SRCustomHubs\PMHub.cs" />
     <Compile Include="Startup.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TawasolSoon.aspx.cs">
+      <DependentUpon>TawasolSoon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TawasolSoon.aspx.designer.cs">
+      <DependentUpon>TawasolSoon.aspx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
