@@ -29,7 +29,8 @@ namespace EduMontreal
 
                 if (history.ApplicationStatusID == 3)
                 {
-                    amount = "1501";
+                   // amount = "1501";
+                    amount = "0.01";
                 }
                 else
                 {
@@ -40,18 +41,18 @@ namespace EduMontreal
                 {
                     var data = new NameValueCollection();
                     // mena.samy@gmail.com
-                    data["merchant_id"] = "d5365b0304";
-                    data["key"] = "71e19c6b83a20732d89be47ed4b96fa4ccbc05d9";
+                    //data["merchant_id"] = "d5365b0304";
+                    //data["key"] = "71e19c6b83a20732d89be47ed4b96fa4ccbc05d9";
                     
                     // heshamhunter@edumontreal.com
-                    //data["merchant_id"] = "dd19a290a5";
-                    //data["key"] = "d12336b277dc7dd42119a8745adeab14a08ea113";
+                    data["merchant_id"] = "dd19a290a5";
+                    data["key"] = "d12336b277dc7dd42119a8745adeab14a08ea113";
                     data["amount"] = amount;
                     data["token"] = Request["token"];
                     data["first_name"] = Request["first_name"];
                     data["last_name"] = Request["last_name"];
                     data["currency"] = "CA$";
-                    data["test_mode"] = "true";
+                   // data["test_mode"] = "true";
                     string url = "https://ecom.payfirma.com/sale";
 
                     byte[] ServerResponse = wb.UploadValues(url, "POST", data);
