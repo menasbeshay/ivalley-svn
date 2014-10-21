@@ -507,6 +507,8 @@ namespace Chat2Connect.SRCustomHubs
             log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName }, FriendID, null);
         }
 
+        
+
         #region Room supervisor
 
         public void ClearQueue(int rid)

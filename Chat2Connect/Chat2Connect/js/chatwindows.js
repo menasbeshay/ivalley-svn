@@ -942,19 +942,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 });
             $("#" + window.roomBotsModalID).modal('hide');
         };
-        this.addRoomBot = function (bot) {
-            var roomBot = {
-                ID: 0, RoomID: this.ID(), BotID: bot.ID, IsEnabled: true, ShortcutKey: "",
-                Bot: { ID: bot.ID, Title: bot.Title, IconPath: bot.IconPath, Points: bot.Points },
-                Settings: bot.SettingObject
-            };
+        this.addRoomBot = function (roomBot) {
             this.RoomBots.push(ko.mapping.fromJS(roomBot));
-        };
-        this.removeRoomBot = function () {
-            var bot = this;
-            if (bot.ID > 0)
-                return;
-            self.RoomBots.remove(bot);
         };
         this.allowInviteFriends = ko.computed(function () {
             if (self.Type() == 'Private')
@@ -1079,6 +1068,14 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 });
         };
 
+        this.updateMemberType = function (mid, mTypeSpecID)
+        {
+            var member = this.getMember(mid);
+            if(member!=null)
+            {
+                member.MemberTypeID(mTypeSpecID);
+            }
+        }
         this.ToggleFav = function () {
             var window = this;
             $.ajax({
@@ -1584,13 +1581,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
     self.getBotTemplate = function (id) {
         return 'bot_template_' + id;
     };
-    self.AddRoomBot = function (bot) {
-        if (self.CreditPoints() < bot.Points) {
-            alert('رصيد نقاطك لا يكفى لإضافة هذا البوت');
-            return;
-        }
-        self.ActivWindow().addRoomBot(bot);
-    };
+    
 }
 
 function onCamClose(userId, roomId) {
@@ -1987,6 +1978,35 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers)
             window.addBotMsg(msg, botImg);
         }
     };
+    rHub.client.updateRoomType=function(rid,settings)
+    {
+        var roomInList = $("#rooms_rm_" + rid);
+        if (roomInList.length > 0) {
+            $(roomInList).css({ 'color': settings.Color });
+        }
+
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            window.Settings.CamCount(settings.CamCount);
+            window.Settings.MaxMic(settings.MaxMic);
+            window.Settings.TypeID(settings.TypeID);
+            window.Settings.Color(settings.Color);
+        }
+    }
+    rHub.client.addRoomBot=function(rid,roomBot)
+    {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            window.addRoomBot(roomBot);
+        }
+    }
+    rHub.client.updateMemberType=function(mid,memberTypeSpecId,rid)
+    {
+        var window = chatVM.getWindow(rid, "Room");
+        if (window != null) {
+            window.updateMemberType(mid,memberTypeSpecId);
+        }
+    }
 }
 
 
