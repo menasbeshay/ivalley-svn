@@ -20,7 +20,7 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="ContentRow">
-                    <div class="col-lg-4 pull-right"><a href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>'><%# Eval("Name") %></a></div>
+                    <div class="col-lg-4 pull-right"><a href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
                     <div class="pull-right center" style="width: 21%; padding: 0 5px;">
                         <%# Eval("ExistingMembersCount") %>
                     </div>
