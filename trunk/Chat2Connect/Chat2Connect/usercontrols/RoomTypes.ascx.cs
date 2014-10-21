@@ -59,6 +59,7 @@ namespace Chat2Connect.usercontrols
                         BLL.MemberLog log = new BLL.MemberLog();
                         log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName=room.Name, NewTypeName=room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name,NewTypeExpiryDate=room.RoomType.EndDate,Points=points}, null, room.RoomID);
 
+                        NotifyRoom(room, bllRoomTypeSpecDuration);
                     }
                     catch (Exception ex)
                     {
@@ -75,6 +76,19 @@ namespace Chat2Connect.usercontrols
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Error5", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك تأكد من السؤال والإجابة السرى.'); });", true);
                 return;
             }
+        }
+
+        private static void NotifyRoom(Room room, BLL.RoomTypeSpecDuration bllRoomTypeSpecDuration)
+        {
+            var settings = new
+            {
+                CamCount = bllRoomTypeSpecDuration.RoomTypeSpec.MicCount,
+                MaxMic = bllRoomTypeSpecDuration.RoomTypeSpec.MicCount,
+                TypeID = bllRoomTypeSpecDuration.RoomTypeSpec.ID,
+                Color = bllRoomTypeSpecDuration.RoomTypeSpec.Color
+            };
+            Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
+            _Rcontext.Clients.Group(room.RoomID.ToString()).updateRoomType(room.RoomID.ToString(), settings);
         }
 
     }

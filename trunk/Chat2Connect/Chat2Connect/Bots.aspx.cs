@@ -120,6 +120,9 @@ namespace Chat2Connect
                         bllLog.AddNew(BLL.Member.CurrentMemberID, log, null, roomID);
                     }
                     tx.CommitTransaction();
+                    //notify rooms
+                    List<int> newBots = bllRoomBot.DefaultView.Table.AsEnumerable().Select(r => Helper.TypeConverter.ToInt32(r[BLL.RoomBot.ColumnNames.ID])).ToList();
+                    services.Services.AddRoomBots(roomID, newBots);
 
                     Response.Redirect("Bots.aspx");
                 }

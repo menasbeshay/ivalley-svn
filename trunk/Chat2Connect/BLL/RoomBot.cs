@@ -60,6 +60,18 @@ namespace BLL
             return result;
         }
 
+        public Info.RoomBot GetbyID(int roomBotID)
+        {
+            Info.RoomBot infoRoomBot = null;
+            if (LoadFromRawSql(@"SELECT RoomBot.*,Bot.ID,Bot.Title,Bot.IconPath
+	                                FROM RoomBot INNER JOIN Bot on RoomBot.BotID=Bot.ID
+                                WHERE RoomBot.ID={0}", roomBotID))
+            {
+                infoRoomBot = GetInfoObject();
+            }
+            return infoRoomBot;
+        }
+
         #region Private methods
         private Info.RoomBot GetInfoObject()
         {

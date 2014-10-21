@@ -1521,6 +1521,35 @@ namespace Chat2Connect.services
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
             _Rcontext.Clients.Group(infoBot.RoomID.ToString()).getBotMsg(infoBot.RoomID, msg, infoBot.Bot.IconPath);
         }
+
+        public static void AddRoomBots(int rid, List<int> roomBotsIDs)
+        {
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            RoomBot bllRoomBot = new BLL.RoomBot();
+            foreach (int roomBotID in roomBotsIDs)
+            {
+                Info.RoomBot bot = bllRoomBot.GetbyID(roomBotID);
+                if (bot != null)
+                {
+                    _Rcontext.Clients.Group(rid.ToString()).addRoomBot(rid, bot);
+                }
+            }
+        }
+
+        public void updateRoomType(int rid, int typeSpecID)
+        {
+            BLL.RoomTypeSpec bllroomTypeSpec = new RoomTypeSpec();
+            bllroomTypeSpec.LoadByPrimaryKey(typeSpecID);
+            var settings = new
+            {
+                CamCount = bllroomTypeSpec.MicCount,
+                MaxMic = bllroomTypeSpec.MicCount,
+                TypeID = bllroomTypeSpec.ID,
+                Color = bllroomTypeSpec.Color
+            };
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.Group(rid.ToString()).updateRoomType(rid, settings);
+        }
         #endregion
     }
 }
