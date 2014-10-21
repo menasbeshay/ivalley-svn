@@ -21,6 +21,7 @@ namespace BLL
 	                                    ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
 	                                    ,[RoomRate]=isnull((select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID),0)
                                         ,[RoomTypeSpecID]=ISNULL(RoomTypeSpec.ID,{2})
+                                        ,RoomTypeSpec.Color
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
@@ -37,6 +38,7 @@ namespace BLL
             return this.LoadFromRawSql(@"Select  R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                         ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                         ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                        ,RoomTypeSpec.Color
                                         from Room R
                                         INNER JOIN RoomType ON RoomType.RoomID=R.RoomID
                                         INNER JOIN RoomTypeSpecDuration ON RoomType.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
@@ -50,13 +52,14 @@ namespace BLL
             return LoadFromRawSql(@"select  R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
 	                                ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
 	                                ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                    ,RoomTypeSpec.Color
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     where R.CategoryID = {0} AND ISNULL(R.RowStatusID,{1})={1}
-                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList
+                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList,RoomTypeSpec.Color
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
@@ -66,6 +69,7 @@ namespace BLL
             return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                     ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                     ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                    ,RoomTypeSpec.Color
                                     from Room R
                                     Inner JOIN Category C ON R.CategoryID = C.CategoryID
                                     Inner Join SubCategory SC on C.CategoryID = SC.CategoryID
@@ -73,7 +77,7 @@ namespace BLL
                                     LEFT JOIN RoomTypeSpecDuration  ON RT.RoomTypeSpecDurationID=RoomTypeSpecDuration.ID
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     where R.SubCategoryID = {0}  AND ISNULL(R.RowStatusID,{1})={1}
-                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList
+                                    GROUP BY R.RoomID,R.Name,R.OpenCams,RoomTypeSpec.OrderInRoomList,RoomTypeSpec.Color
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", SubCategoryID, (int)Helper.Enums.RowStatus.Enabled);
 
         }
@@ -83,6 +87,7 @@ namespace BLL
             return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                     ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                     ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                    ,RoomTypeSpec.Color
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
@@ -98,6 +103,7 @@ namespace BLL
             return LoadFromRawSql(@"select R.RoomID,R.Name,[OpenCams] = (select COUNT(MemberID) From RoomMember Where RoomMember.RoomID = R.RoomID And RoomMember.HasCam = 1)
                                     ,[ExistingMembersCount]= (SELECT COUNT(MemberID) FROM RoomMember WHERE RoomMember.RoomID=R.RoomID AND RoomMember.InRoom=1)
                                     ,[RoomRate]=(select floor(sum(isnull(UserRate,0)) / count(MemberID)) from RoomMember where RoomID = R.RoomID)
+                                    ,RoomTypeSpec.Color
                                     from Room R
                                     LEFT JOIN RoomType on RoomType.RoomID=R.RoomID
                                     LEFT Join RoomTypeSpecDuration ON RoomTypeSpecDuration.ID=RoomType.RoomTypeSpecDurationID
