@@ -1215,7 +1215,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         $('.nav-tabs a:last').tab('show');
         if (this.Type() == "Room") {
             if (this.WelcomeBot.hasOwnProperty("LogoutMsgPart1")) {
-                notify('success', this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2());
+                var msg=this.WelcomeBot.LogoutMsgPart1() + ' ' + this.CurrentMember().MemberName() + ' ' + this.WelcomeBot.LogoutMsgPart2();
+                var botImg = "<img src='/images/bots/EmailOwner_" + this.Settings.TypeID() + ".png' width=25px;height=25px/>";
+                msg = botImg+'<span class="botMsg" style="color:' + this.Settings.Color() + '">' + msg + '</span>';
+                notify('success', msg);
             }
         }
     }
@@ -1396,8 +1399,11 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
 
         // add welcome message
         if (window.Type() == "Room") {
-            if (window.WelcomeBot.hasOwnProperty("LoginMsgPart1"))
-                addMsgToWindow(window, window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2(), "welcomeText");
+            if (window.WelcomeBot.hasOwnProperty("LoginMsgPart1")) {
+                var msg = window.WelcomeBot.LoginMsgPart1() + ' ' + window.CurrentMember().MemberName() + ' ' + window.WelcomeBot.LoginMsgPart2();
+                var botImg = "/images/bots/welcome";
+                window.addBotMsg(msg,botImg);
+            }
         }
 
     };
