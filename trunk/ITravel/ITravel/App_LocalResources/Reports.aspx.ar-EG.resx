@@ -120,22 +120,28 @@
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>التاريخ : من</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>التقارير</value>
   </data>
   <data name="SendSMS" xml:space="preserve">
-    <value>ارسال رساله على جوال العميل</value>
+    <value>ارسال رساله على&lt;br /&gt; جوال العميل</value>
   </data>
   <data name="Summary" xml:space="preserve">
-    <value>ملخص الحركات التى تمت خلال فتره</value>
+    <value>ملخص الحركات التى &lt;br /&gt;تمت خلال فتره</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>إلى</value>
   </data>
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>اجماليات التذاكر الملغاه</value>
   </data>
   <data name="TotalReturned" xml:space="preserve">
-    <value>اجمالى التذاكر التى تم استردادها</value>
+    <value>اجمالى التذاكر التى &lt;br /&gt;تم استردادها</value>
   </data>
   <data name="TotalSold" xml:space="preserve">
-    <value>اجمالى التذاكر المباعه</value>
+    <value>اجمالى التذاكر المباعه والملغاة &lt;br /&gt;وصافى الدخل</value>
   </data>
 </root>

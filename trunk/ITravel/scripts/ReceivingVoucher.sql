@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_ReceivingVoucherLoadByPrimaryKey]    Script Date: 10/7/2014 4:05:04 PM ******/
+/****** Object:  StoredProcedure [proc_ReceivingVoucherLoadByPrimaryKey]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReceivingVoucherLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReceivingVoucherLoadByPrimaryKey];
 GO
@@ -43,7 +43,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReceivingVoucherLoadByPrimaryKe
 ELSE PRINT 'Procedure Creation: proc_ReceivingVoucherLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReceivingVoucherLoadAll]    Script Date: 10/7/2014 4:05:04 PM ******/
+/****** Object:  StoredProcedure [proc_ReceivingVoucherLoadAll]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReceivingVoucherLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReceivingVoucherLoadAll];
 GO
@@ -83,7 +83,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReceivingVoucherLoadAll Succeed
 ELSE PRINT 'Procedure Creation: proc_ReceivingVoucherLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReceivingVoucherUpdate]    Script Date: 10/7/2014 4:05:04 PM ******/
+/****** Object:  StoredProcedure [proc_ReceivingVoucherUpdate]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReceivingVoucherUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReceivingVoucherUpdate];
 GO
@@ -144,7 +144,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_ReceivingVoucherInsert]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_ReceivingVoucherInsert]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReceivingVoucherInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReceivingVoucherInsert];
 GO
@@ -217,7 +217,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ReceivingVoucherInsert Succeede
 ELSE PRINT 'Procedure Creation: proc_ReceivingVoucherInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ReceivingVoucherDelete]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_ReceivingVoucherDelete]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ReceivingVoucherDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ReceivingVoucherDelete];
 GO

@@ -382,7 +382,8 @@ em {
 }
 ul.iconlist li {
   border: 1px solid #ccc;
-  height: 50px;
+  height: 120px;
+  width: 230px;
   margin-bottom: 25px;
   margin-left: 10px;
   margin-right: 10px;

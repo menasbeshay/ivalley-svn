@@ -3,6 +3,9 @@
 
 using System;
 using ITravel.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace ITravel.BLL
 {
 	public class PaymentVoucher : _PaymentVoucher
@@ -11,5 +14,15 @@ namespace ITravel.BLL
 		{
 		
 		}
+
+        public virtual bool SearchPaymentVoucher(string FilterText)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), FilterText);
+
+            return LoadFromSql("SearchPaymentVoucher", parameters);
+
+        }
 	}
 }

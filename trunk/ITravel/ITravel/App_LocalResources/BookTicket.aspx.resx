@@ -210,4 +210,10 @@
   <data name="SeatNo" xml:space="preserve">
     <value>رقم المقعد</value>
   </data>
+  <data name="Card" xml:space="preserve">
+    <value>كارت الإئتمان</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>حالة التذكرة</value>
+  </data>
 </root>

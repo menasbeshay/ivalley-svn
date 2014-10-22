@@ -10,7 +10,7 @@
 namespace ITravel {
     
     
-    public partial class PaymentVoucher {
+    public partial class creditcards {
         
         /// <summary>
         /// uiPanelAll control.
@@ -40,33 +40,6 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// uiPanelSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelSearch;
-        
-        /// <summary>
-        /// uiTextBoxSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxSearch;
-        
-        /// <summary>
-        /// uiLinkButtonSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSearch;
-        
-        /// <summary>
         /// uiLinkButtonAdd control.
         /// </summary>
         /// <remarks>
@@ -85,13 +58,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// uiGridViewVouchers control.
+        /// uiGridViewCards control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView uiGridViewVouchers;
+        protected global::System.Web.UI.WebControls.GridView uiGridViewCards;
         
         /// <summary>
         /// uiPanelEdit control.
@@ -130,13 +103,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label22;
         
         /// <summary>
-        /// uiTextBoxVoucherNo control.
+        /// uiTextBoxName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxVoucherNo;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxName;
         
         /// <summary>
         /// Label23 control.
@@ -148,13 +121,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label23;
         
         /// <summary>
-        /// uiTextBoxVoucherDate control.
+        /// uiTextBoxCardNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxVoucherDate;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCardNumber;
         
         /// <summary>
         /// Label16 control.
@@ -166,13 +139,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label16;
         
         /// <summary>
-        /// uiDropDownListCustomer control.
+        /// uiTextBoxExpiry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCustomer;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxExpiry;
         
         /// <summary>
         /// Label24 control.
@@ -184,103 +157,13 @@ namespace ITravel {
         protected global::System.Web.UI.WebControls.Label Label24;
         
         /// <summary>
-        /// uiTextBoxPaidFor control.
+        /// uiTextBoxCCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxPaidFor;
-        
-        /// <summary>
-        /// uiLabelAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelAmount;
-        
-        /// <summary>
-        /// uiTextBoxAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxAmount;
-        
-        /// <summary>
-        /// uiCheckBoxIsCheque control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox uiCheckBoxIsCheque;
-        
-        /// <summary>
-        /// Label12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
-        
-        /// <summary>
-        /// Label21 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label21;
-        
-        /// <summary>
-        /// uiTextBoxBank control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxBank;
-        
-        /// <summary>
-        /// Label20 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label20;
-        
-        /// <summary>
-        /// uiTextBoxChequeDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxChequeDate;
-        
-        /// <summary>
-        /// Label18 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label18;
-        
-        /// <summary>
-        /// uiTextBoxReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxReason;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCCV;
         
         /// <summary>
         /// uiLinkButtonSave control.

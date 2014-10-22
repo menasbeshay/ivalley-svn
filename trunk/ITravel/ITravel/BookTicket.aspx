@@ -47,8 +47,11 @@
                                <asp:Label ID="uiLabelTo" runat="server" ></asp:Label>
                            </ItemTemplate>  
                        </asp:TemplateField>
-                        <asp:CheckBoxField DataField="IsCanceled" HeaderText="<%$ Resources:Canceled %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsConfirmed" HeaderText="<%$ Resources:Confirmed %>" ReadOnly="true"/>
+                       <asp:TemplateField HeaderText="<%$ Resources:Status %>">
+                           <ItemTemplate>
+                               <asp:Label ID="uiLabelStatus" runat="server" ></asp:Label>
+                           </ItemTemplate>  
+                       </asp:TemplateField>
                         <asp:TemplateField HeaderText="<%$ Resources:Actions %>">
                             <ItemTemplate>
                                 <asp:LinkButton ID="LinkButton1" runat="server" CommandName="EditR" CommandArgument='<%# Eval("TicketID") %>'>
@@ -84,6 +87,16 @@
         </header>
 
         <div class="box-content ">
+            <div class="grid_3 left" style="margin-right:0px;">
+            <div class="field fullwidth">
+                
+                <label for="uiDropDownListCreditCard">
+                    <asp:Label ID="Label22" runat="server" Text="<%$ Resources:Card %>"></asp:Label>
+                </label>
+                <asp:DropDownList ID="uiDropDownListCreditCard" runat="server" ClientIDMode="Static"></asp:DropDownList>
+            </div>
+                </div>
+            <div class="clear"></div>
             <div class="grid_3 left" style="margin-right:0px;">
             <div class="field fullwidth">
                 
@@ -229,7 +242,7 @@
 
                  </div>
             <div class="clear" ></div>
-             <div class="grid_1 left">
+             <%--<div class="grid_1 left">
 
             
                 <div class="field fullwidth">
@@ -252,7 +265,21 @@
                     <asp:CheckBox ID="uiCheckBoxIsConfirmed" runat="server"  />&nbsp;<asp:Label ID="Label14" runat="server" Text="<%$ Resources:Confirmed %>"></asp:Label>
             </div>
 
+             </div>--%>
+
+            <div class="grid_3 left">
+
+            
+               <div class="field fullwidth">
+                
+                <label for="uiDropDownListStatus">
+                    <asp:Label ID="Label23" runat="server" Text="<%$ Resources:Status %>"></asp:Label>
+                </label>
+                     <asp:DropDownList ID="uiDropDownListStatus" runat="server" ClientIDMode="Static"></asp:DropDownList>
+            </div>
+
              </div>
+
             <div class="clear" ></div>
              <div class="grid_3 left">
             <div class="field fullwidth">
@@ -291,9 +318,12 @@
                                <asp:Label ID="uiLabelTo" runat="server" ></asp:Label>
                            </ItemTemplate>  
                        </asp:TemplateField>
-                        <asp:CheckBoxField DataField="IsCanceled" HeaderText="<%$ Resources:Canceled %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsConfirmed" HeaderText="<%$ Resources:Confirmed %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsRefunded" HeaderText="<%$ Resources:Refunded %>" ReadOnly="true"/>
+                      <asp:TemplateField HeaderText="<%$ Resources:Status %>">
+                           <ItemTemplate>
+                               <asp:Label ID="uiLabelStatus" runat="server" ></asp:Label>
+                           </ItemTemplate>  
+                       </asp:TemplateField>
+                        
                         <asp:BoundField DataField="UpdatedDate" HeaderText="<%$ Resources:UpdatedDate %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
                     </Columns>
                 </asp:GridView>
