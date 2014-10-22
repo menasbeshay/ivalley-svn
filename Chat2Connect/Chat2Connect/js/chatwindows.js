@@ -91,17 +91,18 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return win.Type() == "Room";
         });
     }, self);
-    self.getWindow = function (id, type, name) {
+    self.getWindow = function (id, type, name,typeSpec) {
         var window = ko.utils.arrayFirst(self.windows(), function (win) {
             return win.ID() == id && win.Type() == type;
         });
         if (window == null) {
             if (type == "Private") {
-                chatVM.addWindow(id, name, type);
+                chatVM.addWindow(id, name, type);//(id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec)
                 // generated id for private chat
                 //var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
                 //window = chatVM.getWindow(newroomid, type);
                 window = chatVM.getWindow(id, type);
+                window.Settings.TypeID(typeSpec);
             }
         }
         return window;
@@ -1130,12 +1131,12 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp) {
+    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp,typeSpec) {
         if (id == self.CurrentMemberID && type != 'Room')
             return;
-        var window = self.getWindow(id, type, name);
+        var window = self.getWindow(id, type, name,typeSpec);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp,typeSpec);
         }
         else {
             if (type != 'Room')
@@ -1145,7 +1146,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
 
     };
-    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend, isHelp) {
+    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec) {
         if (istemp == undefined)
             istemp = false;
         if (isHelp == undefined)
@@ -1165,7 +1166,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: [{ TypeID: 1, EnableCam: true, EnableMic: true }] };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1621,10 +1622,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend) {
+function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend, typespec) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend);
+    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend,typespec);
 }
 
 function getFlashMovie(movieName) {

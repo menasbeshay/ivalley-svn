@@ -60,6 +60,10 @@
             display:list-item;
             font-size:90%;
         }
+        .type_0
+        {
+            color:#f00;
+        }
     </style>
     <script src="js/bootstrap-slider.js"></script>
     <link href="css/slider.css" rel="stylesheet" />
@@ -171,7 +175,7 @@
                 <li class="pull-right active"><a href="#home" data-toggle="tab" data-bind="click: changeCurrent.bind('home')">الرئيسية</a></li>
                 <!-- ko foreach: windows -->
                 <li class="pull-right"><a style="display: block; height: 28px;" data-toggle="tab" data-bind="attr: { href: '#' + uniqueID() }, click: $parent.changeCurrent.bind($data, $data.uniqueID(), $data.ID(), $data.Type())">
-                    <span data-bind="text: Name" class="pull-right"></span>
+                    <span data-bind="text: Name,css:'type_'+Settings.TypeID()" class="pull-right"></span>
                     <button type="button" class="close" data-bind="click: $parent.removeWindow">×</button></a></li>
                 <!-- /ko -->
             </ul>
@@ -401,7 +405,7 @@
                     <div class="col-lg-9 pull-right" style="padding: 0 5px;">
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
-                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend())"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID())"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <!-- ko if: IsCamOpened()-->
                                 <li><a class="jslink" data-bind="click:$parent.startCam.bind($data,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                 <!-- /ko -->
@@ -1165,12 +1169,12 @@
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
                             <!-- ko if: Type()=="Room" -->
                             <a data-bind="click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;">
-                                <span data-bind="text:Name, attr:{style:'color:'+Settings.Color()}"></span>
+                                <span data-bind="text:Name,css:'type_'+Settings.TypeID()"></span>
                             </a>
                             <!-- /ko -->
                             <!-- ko if: Type()!="Room" -->
                             <a style="font-weight: bold; text-decoration: none; cursor: pointer;">
-                                <span data-bind="text:Name"></span>
+                                <span data-bind="text:Name,css:'type_'+Settings.TypeID()"></span>
                             </a>
                             <!-- /ko -->
                         </div>
