@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MyGeneration.dOOdads">
       <HintPath>..\libs\MyGeneration.dOOdads.dll</HintPath>
     </Reference>
@@ -273,6 +274,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="creditcards.aspx" />
     <Content Include="css\960.css" />
     <Content Include="css\chosen.css" />
     <Content Include="css\elfinder.css" />
@@ -649,6 +651,17 @@
     <Content Include="App_Themes\fonts\aljazeera-webfont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ITravelDataSet.xsc">
+      <DependentUpon>ITravelDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ITravelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ITravelDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ITravelDataSet.xss">
+      <DependentUpon>ITravelDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="PaymentVoucher.aspx" />
@@ -781,6 +794,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="creditcards.aspx.cs">
+      <DependentUpon>creditcards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="creditcards.aspx.designer.cs">
+      <DependentUpon>creditcards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -811,6 +831,11 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ITravelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITravelDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -975,6 +1000,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Reports.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\RecievingVoucher.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\RecievingVoucher.aspx.ar-EG.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\RecievingVoucher.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\creditcards.aspx.ar-EG.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\creditcards.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\creditcards.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportsFiles\CanceledTickets.rdlc" />
+    <EmbeddedResource Include="ReportsFiles\NetIncomeTickets.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

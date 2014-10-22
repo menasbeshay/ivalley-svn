@@ -120,41 +120,26 @@
   <data name="Actions" xml:space="preserve">
     <value>إجراءات</value>
   </data>
-  <data name="ActualPrice" xml:space="preserve">
-    <value>السعر الفعلى</value>
-  </data>
-  <data name="AddedPercentage" xml:space="preserve">
-    <value>القيمة المضافة (%)</value>
-  </data>
-  <data name="AddedValue" xml:space="preserve">
-    <value>القيمة المضافة</value>
-  </data>
   <data name="AddNew" xml:space="preserve">
-    <value>إضافة تذكرة جديدة</value>
+    <value>إضافة سند جديد</value>
   </data>
-  <data name="AirLine" xml:space="preserve">
-    <value>شركة الطيران</value>
+  <data name="Amount" xml:space="preserve">
+    <value>مبلغ وقدره</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>بنك</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
-  <data name="Canceled" xml:space="preserve">
-    <value>ملغاة</value>
+  <data name="ChequeDate" xml:space="preserve">
+    <value>تاريخ الشيك</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
-  <data name="Confirmed" xml:space="preserve">
-    <value>مؤكدة</value>
-  </data>
   <data name="Customer" xml:space="preserve">
-    <value>العميل</value>
-  </data>
-  <data name="Date" xml:space="preserve">
-    <value>التاريخ</value>
-  </data>
-  <data name="DateTime" xml:space="preserve">
-    <value>التاريخ والوقت</value>
+    <value>تسلمنا من</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -162,58 +147,25 @@
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
   </data>
-  <data name="FinalPrice" xml:space="preserve">
-    <value>السعر النهائى</value>
-  </data>
-  <data name="From" xml:space="preserve">
-    <value>من</value>
-  </data>
-  <data name="History" xml:space="preserve">
-    <value>أخر التحديثات</value>
+  <data name="IsCheque" xml:space="preserve">
+    <value>شيك</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
-    <value>إدارة التذاكر</value>
+    <value>سندات إستلام</value>
   </data>
-  <data name="Refunded" xml:space="preserve">
-    <value>تم ردها</value>
+  <data name="PaidFor" xml:space="preserve">
+    <value>تسلمنا من</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>وذلك قيمة</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>حفظ</value>
   </data>
-  <data name="TicketNo" xml:space="preserve">
-    <value>رقم التذكرة</value>
+  <data name="VoucherDate" xml:space="preserve">
+    <value>التاريخ</value>
   </data>
-  <data name="To" xml:space="preserve">
-    <value>إلى </value>
-  </data>
-  <data name="UpdatedDate" xml:space="preserve">
-    <value>تاريخ التحديث</value>
-  </data>
-  <data name="BussinessClass" xml:space="preserve">
-    <value>Bussiness Class</value>
-  </data>
-  <data name="CabinTypes" xml:space="preserve">
-    <value>نوع الحجز</value>
-  </data>
-  <data name="EconomyClass" xml:space="preserve">
-    <value>Economy Class</value>
-  </data>
-  <data name="FirstClass" xml:space="preserve">
-    <value>First Class</value>
-  </data>
-  <data name="FlightNo" xml:space="preserve">
-    <value>رقم الرحلة</value>
-  </data>
-  <data name="PremuimEconomy" xml:space="preserve">
-    <value>Premuim Economy</value>
-  </data>
-  <data name="SeatNo" xml:space="preserve">
-    <value>رقم المقعد</value>
-  </data>
-  <data name="Card" xml:space="preserve">
-    <value>كارت الإئتمان</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>حالة التذكرة</value>
+  <data name="VoucherNo" xml:space="preserve">
+    <value>رقم السند</value>
   </data>
 </root>

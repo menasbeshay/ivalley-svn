@@ -33,12 +33,12 @@
             </div>
             <div class="clear"></div>
             <div class="grid_11 table">
-                <asp:GridView ID="uiGridViewVouchers" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewVouchers_PageIndexChanging" OnRowCommand="uiGridViewVouchers_RowCommand" AutoGenerateColumns="false" OnRowDataBound="uiGridViewVouchers_RowDataBound">
+                <asp:GridView ID="uiGridViewVouchers" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewVouchers_PageIndexChanging" OnRowCommand="uiGridViewVouchers_RowCommand" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="VoucherNo" HeaderText="<%$ Resources:VouchertNo %>" />
+                        <asp:BoundField DataField="VoucherNo" HeaderText="<%$ Resources:VoucherNo %>" />
                         <asp:BoundField DataField="VoucherDate" HeaderText="<%$ Resources:VoucherDate %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
                         <asp:BoundField DataField="Reason" HeaderText="<%$ Resources:Reason %>" />
-                        <asp:CheckBoxField DataField="IsChuque" HeaderText="<%$ Resources:Chuque %>" ReadOnly="true"/>
+                        <asp:CheckBoxField DataField="IsChuque" HeaderText="<%$ Resources:IsCheque %>" ReadOnly="true"/>
                         <asp:BoundField DataField="Amount" HeaderText="<%$ Resources:Amount %>" />
                         <asp:TemplateField HeaderText="<%$ Resources:Actions %>">
                             <ItemTemplate>
@@ -75,6 +75,28 @@
         </header>
 
         <div class="box-content ">
+
+            <div class="grid_3 left" style="margin-right:0px;">
+            <div class="field fullwidth">
+                
+                <label for="uiTextBoxVoucherNo">
+                    <asp:Label ID="Label22" runat="server" Text="<%$ Resources:VoucherNo %>"></asp:Label>
+                </label>
+                <asp:TextBox ID="uiTextBoxVoucherNo" runat="server" ClientIDMode="Static"></asp:TextBox>
+            </div>
+                </div>
+             <div class="grid_3 left" style="margin-right:0px;">
+                 <div class="field fullwidth">
+                
+                <label for="uiTextBoxVoucherDate">
+                    <asp:Label ID="Label23" runat="server" Text="<%$ Resources:VoucherDate %>"></asp:Label>
+                </label>
+                     <asp:TextBox ID="uiTextBoxVoucherDate" runat="server" ClientIDMode="Static" CssClass="datepicker"></asp:TextBox>
+            </div>
+                
+            </div>
+            <div class="clear"></div>
+
             <div class="grid_3 left" style="margin-right:0px;">
             <div class="field fullwidth">
                 
@@ -84,167 +106,78 @@
                 <asp:DropDownList ID="uiDropDownListCustomer" runat="server" ClientIDMode="Static"></asp:DropDownList>
             </div>
                 </div>
-            <div class="clear"></div>
-            <div class="grid_3 left" style="margin-right:0px;">
-            <div class="field fullwidth">
-                
-                <label for="uiTextBoxTicketNo">
-                    <asp:Label ID="uiLabelTicketNo" runat="server" Text="<%$ Resources:TicketNo %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxTicketNo" runat="server"></asp:TextBox>
-            </div>
-                </div>
-             <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiDropDownListAirLine">
-                    <asp:Label ID="Label15" runat="server" Text="<%$ Resources:AirLine %>"></asp:Label>
-                </label>
-                     <asp:DropDownList ID="uiDropDownListAirLine" runat="server" ClientIDMode="Static"></asp:DropDownList>
-            </div>
-                
-            </div>
-            <div class="clear"></div>
-            <div class="grid_3 left" style="margin-right:0px;">
-            <div class="field fullwidth">
-                
-                <label for="uiTextBoxFlightNo">
-                    <asp:Label ID="Label19" runat="server" Text="<%$ Resources:FlightNo %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxFlightNo" runat="server"></asp:TextBox>
-            </div>
-                </div>
-            <div class="grid_3 left" style="margin-right:0px;">
-            <div class="field fullwidth">
-                
-                <label for="uiTextBoxSeatNo">
-                    <asp:Label ID="Label21" runat="server" Text="<%$ Resources:SeatNo %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxSeatNo" runat="server"></asp:TextBox>
-            </div>
-                </div>
-             <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiDropDownListCabinType">
-                    <asp:Label ID="Label20" runat="server" Text="<%$ Resources:CabinTypes %>"></asp:Label>
-                </label>
-                     <asp:DropDownList ID="uiDropDownListCabinType" runat="server" ClientIDMode="Static">
 
-                         <asp:ListItem Value="First Class" Text="<%$ Resources:FirstClass %>">
-                             </asp:ListItem> 
-                         <asp:ListItem Value="Bussiness Class" Text="<%$ Resources:BussinessClass %>"></asp:ListItem>
-                         <asp:ListItem Value="Economy Class" Text="<%$ Resources:EconomyClass %>"></asp:ListItem>
-                         <asp:ListItem Value="Premuim Economy" Text="<%$ Resources:PremuimEconomy %>"></asp:ListItem>
-
-                     </asp:DropDownList>
+            <div class="clear"></div>
+            <div class="grid_3 left" style="margin-right:0px;">
+                 <div class="field fullwidth">
+                
+                <label for="uiTextBoxPaidFor">
+                    <asp:Label ID="Label24" runat="server" Text="<%$ Resources:PaidFor %>"></asp:Label>
+                </label>
+                     <asp:TextBox ID="uiTextBoxPaidFor" runat="server" ClientIDMode="Static"></asp:TextBox>
             </div>
                 
             </div>
             <div class="clear"></div>
             <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
+            <div class="field fullwidth">
                 
-                <label for="uiDropDownListFrom">
-                    <asp:Label ID="uiLabelFrom" runat="server" Text="<%$ Resources:From %>"></asp:Label>
+                <label for="uiTextBoxAmount">
+                    <asp:Label ID="uiLabelAmount" runat="server" Text="<%$ Resources:Amount %>"></asp:Label>
                 </label>
-                     <asp:DropDownList ID="uiDropDownListFrom" runat="server" ClientIDMode="Static"></asp:DropDownList>
+                <asp:TextBox ID="uiTextBoxAmount" runat="server"></asp:TextBox>
             </div>
-                
-            </div>
-            <div class="grid_3  left" style="margin-right:0px;">
+                </div>
+             
+            <div class="clear"></div>
+            <div class="grid_2 left" style="margin-right:0px;">
+
+            
                 <div class="field fullwidth">
+                    <asp:CheckBox ID="uiCheckBoxIsCheque" runat="server"  />&nbsp;<asp:Label ID="Label12" runat="server" Text="<%$ Resources:IsCheque %>"></asp:Label>
+            </div>
+
+             </div>
+            <div class="grid_3 left" style="margin-right:0px;">
+            <div class="field fullwidth">
                 
-                <label for="uiDropDownListTo">
-                    <asp:Label ID="uiLabelTo" runat="server" Text="<%$ Resources:To %>"></asp:Label>
+                <label for="uiTextBoxBank">
+                    <asp:Label ID="Label21" runat="server" Text="<%$ Resources:Bank %>"></asp:Label>
                 </label>
-                <asp:DropDownList ID="uiDropDownListTo" runat="server" ClientIDMode="Static"></asp:DropDownList>
+                <asp:TextBox ID="uiTextBoxBank" runat="server" ClientIDMode="Static"></asp:TextBox>
+            </div>
+                </div>
+             <div class="grid_3 left" style="margin-right:0px;">
+                 <div class="field fullwidth">
+                
+                <label for="uiTextBoxChequeDate">
+                    <asp:Label ID="Label20" runat="server" Text="<%$ Resources:ChequeDate %>"></asp:Label>
+                </label>
+                     <asp:TextBox ID="uiTextBoxChequeDate" runat="server" ClientIDMode="Static" CssClass="datepicker">
+                     </asp:TextBox>
             </div>
                 
             </div>
+            <div class="clear"></div>
+            
+            
 
             <div class="grid_3  left" style="margin-right:0px;">
                 <div class="field fullwidth">
                 
-                <label for="uiTextBoxFromDate">
-                    <asp:Label ID="Label18" runat="server" Text="<%$ Resources:DateTime %>"></asp:Label>
+                <label for="uiTextBoxReason">
+                    <asp:Label ID="Label18" runat="server" Text="<%$ Resources:Reason %>"></asp:Label>
                 </label>
-                <asp:TextBox ID="uiTextBoxFromDate" runat="server" ClientIDMode="Static" CssClass="datetimepicker"></asp:TextBox>
+                <asp:TextBox ID="uiTextBoxReason" runat="server" ClientIDMode="Static" TextMode="MultiLine" Rows="3"></asp:TextBox>
             </div>
                 
             </div>
 
             
-           <div class="clear"></div>
-             <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiTextBoxActualPrice">
-                    <asp:Label ID="uiLabelActualPrice" runat="server" Text="<%$ Resources:ActualPrice %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxActualPrice" runat="server" ClientIDMode="Static"></asp:TextBox>
-            </div>
-
-                 </div>
-
-            <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiTextBoxFinalPrice">
-                    <asp:Label ID="Label9" runat="server" Text="<%$ Resources:FinalPrice %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxFinalPrice" runat="server" ClientIDMode="Static"></asp:TextBox>
-            </div>
-
-                 </div>
-
-            <div class="grid_3 left" style="margin-right:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiTextBoxAddedValue">
-                    <asp:Label ID="Label10" runat="server" Text="<%$ Resources:AddedValue %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxAddedValue" runat="server" ClientIDMode="Static"></asp:TextBox>
-            </div>
-
-                 </div>
-
-            <div class="grid_3 left" style="margin-right:0px;margin-left:0px;">
-                 <div class="field fullwidth">
-                
-                <label for="uiTextBoxAddedPercentage">
-                    <asp:Label ID="Label11" runat="server" Text="<%$ Resources:AddedPercentage %>"></asp:Label>
-                </label>
-                <asp:TextBox ID="uiTextBoxAddedPercentage" runat="server" ClientIDMode="Static"></asp:TextBox>
-            </div>
-
-                 </div>
+          
             <div class="clear" ></div>
-             <div class="grid_1 left">
-
-            
-                <div class="field fullwidth">
-                    <asp:CheckBox ID="uiCheckBoxIsCanceld" runat="server"  />&nbsp;<asp:Label ID="Label12" runat="server" Text="<%$ Resources:Canceled %>"></asp:Label>
-            </div>
-
-             </div>
-            <div class="grid_1 left">
-
-            
-                <div class="field fullwidth">
-                    <asp:CheckBox ID="uiCheckBoxIsRefunded" runat="server"  />&nbsp;<asp:Label ID="Label13" runat="server" Text="<%$ Resources:Refunded %>"></asp:Label>
-            </div>
-
-             </div>
-            <div class="grid_1 left">
-
-            
-                <div class="field fullwidth">
-                    <asp:CheckBox ID="uiCheckBoxIsConfirmed" runat="server"  />&nbsp;<asp:Label ID="Label14" runat="server" Text="<%$ Resources:Confirmed %>"></asp:Label>
-            </div>
-
-             </div>
-            <div class="clear" ></div>
+             
+           
              <div class="grid_3 left">
             <div class="field fullwidth">
                 <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="bt green large" OnClick="uiLinkButtonSave_Click">
@@ -264,30 +197,6 @@
             
         </div>
     </div>
-        <div class="divider"></div>
-        <h4>
-            <asp:Label ID="Label17" runat="server" Text="<%$ Resources:History %>"></asp:Label>
-        </h4>
-        <div class="grid_11 table">
-                <asp:GridView ID="uiGridViewHistory" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewHistory_PageIndexChanging" AutoGenerateColumns="false" OnRowDataBound="uiGridViewHistory_RowDataBound">
-                    <Columns>                        
-                        <asp:BoundField DataField="FromDate" HeaderText="<%$ Resources:Date %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
-                       <asp:TemplateField HeaderText="<%$ Resources:From %>">
-                           <ItemTemplate>
-                               <asp:Label ID="uiLabelFrom" runat="server" ></asp:Label>
-                           </ItemTemplate>
-                       </asp:TemplateField>
-                        <asp:TemplateField HeaderText="<%$ Resources:To %>">
-                           <ItemTemplate>
-                               <asp:Label ID="uiLabelTo" runat="server" ></asp:Label>
-                           </ItemTemplate>  
-                       </asp:TemplateField>
-                        <asp:CheckBoxField DataField="IsCanceled" HeaderText="<%$ Resources:Canceled %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsConfirmed" HeaderText="<%$ Resources:Confirmed %>" ReadOnly="true"/>
-                        <asp:CheckBoxField DataField="IsRefunded" HeaderText="<%$ Resources:Refunded %>" ReadOnly="true"/>
-                        <asp:BoundField DataField="UpdatedDate" HeaderText="<%$ Resources:UpdatedDate %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
-                    </Columns>
-                </asp:GridView>
-            </div>
+       
     </asp:Panel>
 </asp:Content>

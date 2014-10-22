@@ -23,5 +23,37 @@ namespace ITravel.BLL
 
             return LoadFromSql("SearchTickets", parameters);
         }
+
+        public virtual bool RPT_GetTickets_Canceled(DateTime From, DateTime To)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);                        
+
+            return LoadFromSql("RPT_GetTickets_Canceled", parameters);
+        }
+
+        public virtual bool RPT_GetTicketsByStatusID(DateTime From, DateTime To, int StatusID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);
+            parameters.Add(new SqlParameter("@StatusID", SqlDbType.Int, 0), StatusID);
+
+            return LoadFromSql("RPT_GetTicketsByStatusID", parameters);
+        }
+
+        public virtual bool RPT_GetTickets_NetIncome(DateTime From, DateTime To)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);
+
+            return LoadFromSql("RPT_GetTickets_NetIncome", parameters);
+        }
     }
 }
+

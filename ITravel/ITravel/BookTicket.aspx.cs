@@ -100,14 +100,13 @@ namespace ITravel
                 uiDropDownListTo.SelectedValue = ticket.To_AirportID.ToString();
                 uiDropDownListAirLine.SelectedValue = ticket.AirLineID.ToString();
                 uiDropDownListCustomer.SelectedValue = ticket.PassengerID.ToString();
+                uiDropDownListCreditCard.SelectedValue = ticket.CreditCardID.ToString();
                 uiTextBoxTicketNo.Text =ticket.TicketNo;
                 uiTextBoxActualPrice.Text = ticket.ActualPrice.ToString();
                 uiTextBoxFinalPrice.Text = ticket.FinalPrice.ToString();
                 uiTextBoxAddedValue.Text = ticket.AddedValue.ToString();
                 uiTextBoxAddedPercentage.Text = ticket.AddedPercentage.ToString();
-                uiCheckBoxIsCanceld.Checked = ticket.IsCanceled;
-                uiCheckBoxIsRefunded.Checked = ticket.IsRefunded;
-                uiCheckBoxIsConfirmed.Checked= ticket.IsConfirmed;
+                uiDropDownListStatus.SelectedValue = ticket.TicketStatusID.ToString();
                 uiTextBoxFromDate.Text = ticket.FromDate.ToString("MM/dd/yyyy hh:mm");
                 LoadHistory();
                 uiPanelAll.Visible = false;
@@ -145,6 +144,7 @@ namespace ITravel
             Ticket.To_AirportID = History.To_AirportID = Convert.ToInt32(uiDropDownListTo.SelectedValue);
             Ticket.AirLineID = History.AirLineID = Convert.ToInt32(uiDropDownListAirLine.SelectedValue);
             Ticket.PassengerID = Convert.ToInt32(uiDropDownListCustomer.SelectedValue);
+            Ticket.CreditCardID = Convert.ToInt32(uiDropDownListCreditCard.SelectedValue);
             Ticket.TicketNo = uiTextBoxTicketNo.Text;
             Ticket.FlightNo = History.FlightNo = uiTextBoxFlightNo.Text;
             int.TryParse(uiTextBoxSeatNo.Text, out seatno);
@@ -158,9 +158,9 @@ namespace ITravel
             Ticket.FinalPrice = History.FinalPrice = finalprice;
             Ticket.AddedValue = History.AddedValue = addedvalue;
             Ticket.AddedPercentage = History.AddedPercentage = addedpercentage;
-            Ticket.IsCanceled = History.IsCanceled = uiCheckBoxIsCanceld.Checked;
-            Ticket.IsRefunded = History.IsRefunded = uiCheckBoxIsRefunded.Checked;
-            Ticket.IsConfirmed = History.IsConfirmed = uiCheckBoxIsConfirmed.Checked;
+
+            Ticket.TicketStatusID = History.TicketStatusID = Convert.ToInt32(uiDropDownListStatus.SelectedValue);
+
             Ticket.FromDate = History.FromDate = DateTime.ParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy hh:mm", null);
             Ticket.Save();
             History.TicketID = Ticket.TicketID;
@@ -181,6 +181,7 @@ namespace ITravel
 
                 Label lblfrom = (Label)e.Row.FindControl("uiLabelFrom");
                 Label lblto = (Label)e.Row.FindControl("uiLabelTo");
+                Label lblstatus = (Label)e.Row.FindControl("uiLabelStatus");
 
                 AirPort airport = new AirPort();
                 airport.LoadByPrimaryKey(Convert.ToInt32(row["From_AirportID"].ToString()));
@@ -188,6 +189,9 @@ namespace ITravel
 
                 airport.LoadByPrimaryKey(Convert.ToInt32(row["To_AirportID"].ToString()));
                 lblto.Text = airport.IATACode;
+
+                TicketStatus Status = new TicketStatus();
+                Status.LoadByPrimaryKey(Convert.ToInt32(row["TicketStatusID"].ToString()));
 
             }
         }
@@ -201,6 +205,7 @@ namespace ITravel
 
                 Label lblfrom = (Label)e.Row.FindControl("uiLabelFrom");
                 Label lblto = (Label)e.Row.FindControl("uiLabelTo");
+                Label lblstatus = (Label)e.Row.FindControl("uiLabelStatus");
 
                 AirPort airport = new AirPort();
                 airport.LoadByPrimaryKey(Convert.ToInt32(row["From_AirportID"].ToString()));
@@ -209,7 +214,8 @@ namespace ITravel
                 airport.LoadByPrimaryKey(Convert.ToInt32(row["To_AirportID"].ToString()));
                 lblto.Text = airport.IATACode;
 
-
+                TicketStatus Status = new TicketStatus();
+                Status.LoadByPrimaryKey(Convert.ToInt32(row["TicketStatusID"].ToString()));
             }
         }
         #endregion
@@ -276,6 +282,13 @@ namespace ITravel
             uiDropDownListTo.DataTextField = AirPort.ColumnNames.IATACode;
             uiDropDownListTo.DataValueField = AirPort.ColumnNames.AirPortID;
             uiDropDownListTo.DataBind();
+
+            CreditCard cards = new CreditCard();
+            cards.LoadAll();
+            uiDropDownListCreditCard.DataSource = cards.DefaultView;
+            uiDropDownListCreditCard.DataTextField = CreditCard.ColumnNames.CardNumber;
+            uiDropDownListCreditCard.DataValueField = CreditCard.ColumnNames.CreditCardID;
+            uiDropDownListCreditCard.DataBind();
 
 
         }

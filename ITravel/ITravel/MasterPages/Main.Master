@@ -49,7 +49,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
           <!-- wrapper -->
         <div id="wrapper">
             <header>
@@ -70,7 +70,9 @@
                                 <li><a href="../Customer" ><span class="glyph user"></span> 
                                     <asp:Label ID="Label5" runat="server" Text="<%$ Resources:Customers %>"></asp:Label>
                                     </a></li>
-                                
+                                <li><a href="../creditcards" ><span class="glyph archive"></span> 
+                                    <asp:Label ID="Label12" runat="server" Text="<%$ Resources:CreditCard %>"></asp:Label>
+                                    </a></li>
                                 <li><a href="../Reports" ><span class="glyph rating"></span> 
                                     <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Reports %>"></asp:Label>
                                     </a></li>
@@ -177,6 +179,7 @@
                                 </li>
                             </ul>
                         </nav>
+                        <div class="clear"style="height:10px;"></div>
                     </div>
 
                     <div id="content">

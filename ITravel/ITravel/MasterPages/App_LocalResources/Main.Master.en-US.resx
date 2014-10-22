@@ -127,7 +127,10 @@
     <value>Arabic</value>
   </data>
   <data name="Book" xml:space="preserve">
-    <value>Book ticket</value>
+    <value>Enter Online Ticketing</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Credit Cards</value>
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Customers</value>

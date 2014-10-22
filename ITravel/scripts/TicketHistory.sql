@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadByPrimaryKey]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadByPrimaryKey];
 GO
@@ -33,7 +33,8 @@ BEGIN
 		[TicketNo],
 		[FlightNo],
 		[SeatNo],
-		[cabin_type]
+		[cabin_type],
+		[TicketStatusID]
 	FROM [TicketHistory]
 	WHERE
 		([TicketHistoryID] = @TicketHistoryID)
@@ -50,7 +51,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryLoadAll]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryLoadAll];
 GO
@@ -82,7 +83,8 @@ BEGIN
 		[TicketNo],
 		[FlightNo],
 		[SeatNo],
-		[cabin_type]
+		[cabin_type],
+		[TicketStatusID]
 	FROM [TicketHistory]
 
 	SET @Err = @@Error
@@ -97,7 +99,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryUpdate]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryUpdate];
 GO
@@ -123,7 +125,8 @@ CREATE PROCEDURE [proc_TicketHistoryUpdate]
 	@TicketNo nvarchar(20) = NULL,
 	@FlightNo nvarchar(20) = NULL,
 	@SeatNo int = NULL,
-	@cabin_type nvarchar(30) = NULL
+	@cabin_type nvarchar(30) = NULL,
+	@TicketStatusID int = NULL
 )
 AS
 BEGIN
@@ -151,7 +154,8 @@ BEGIN
 		[TicketNo] = @TicketNo,
 		[FlightNo] = @FlightNo,
 		[SeatNo] = @SeatNo,
-		[cabin_type] = @cabin_type
+		[cabin_type] = @cabin_type,
+		[TicketStatusID] = @TicketStatusID
 	WHERE
 		[TicketHistoryID] = @TicketHistoryID
 
@@ -172,7 +176,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryInsert]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryInsert];
 GO
@@ -198,7 +202,8 @@ CREATE PROCEDURE [proc_TicketHistoryInsert]
 	@TicketNo nvarchar(20) = NULL,
 	@FlightNo nvarchar(20) = NULL,
 	@SeatNo int = NULL,
-	@cabin_type nvarchar(30) = NULL
+	@cabin_type nvarchar(30) = NULL,
+	@TicketStatusID int = NULL
 )
 AS
 BEGIN
@@ -227,7 +232,8 @@ BEGIN
 		[TicketNo],
 		[FlightNo],
 		[SeatNo],
-		[cabin_type]
+		[cabin_type],
+		[TicketStatusID]
 	)
 	VALUES
 	(
@@ -249,7 +255,8 @@ BEGIN
 		@TicketNo,
 		@FlightNo,
 		@SeatNo,
-		@cabin_type
+		@cabin_type,
+		@TicketStatusID
 	)
 
 	SET @Err = @@Error
@@ -266,7 +273,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_TicketHistoryInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_TicketHistoryInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 10/7/2014 4:05:05 PM ******/
+/****** Object:  StoredProcedure [proc_TicketHistoryDelete]    Script Date: 10/22/2014 2:41:09 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_TicketHistoryDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_TicketHistoryDelete];
 GO

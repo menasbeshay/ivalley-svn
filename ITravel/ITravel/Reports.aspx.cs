@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ITravel.BLL;
+using Microsoft.Reporting.WebForms;
 namespace ITravel
 {
     public partial class Reports : BasePage
@@ -15,6 +16,38 @@ namespace ITravel
             {
                 Master.PageTitle = GetLocalResourceObject("PageTitle").ToString();
             }
+        }
+
+        protected void uiLinkButtonCanceledTickets_Click(object sender, EventArgs e)
+        {
+            TicketInfo tickets = new TicketInfo();
+            DateTime from, to;
+            from = DateTime.TryParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out from) ? from : new DateTime(1900, 1, 1);
+            to = DateTime.TryParseExact(uiTextBoxToDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out to) ? to : new DateTime(8000, 12, 31);
+            
+            tickets.RPT_GetTickets_Canceled(from, to);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/CanceledTickets.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("CanceledDataSet", tickets.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
+        }
+
+        protected void uiLinkButtonSold_Click(object sender, EventArgs e)
+        {
+            TicketInfo tickets = new TicketInfo();
+            DateTime from, to;
+            from = DateTime.TryParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out from) ? from : new DateTime(1900, 1, 1);
+            to = DateTime.TryParseExact(uiTextBoxToDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out to) ? to : new DateTime(8000, 12, 31);
+            
+            tickets.RPT_GetTickets_NetIncome(from, to);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/NetIncomeTickets.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("NetIncomeDataSet", tickets.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
         }
     }
 }

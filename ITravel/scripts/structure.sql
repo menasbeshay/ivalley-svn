@@ -18,6 +18,21 @@ Create Table Title
 )
 Go
 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'TicketStatus' and
+		        xtype = 'U')
+Drop Table TicketStatus
+Go
+Create Table TicketStatus
+(
+	TicketStatusID int identity(1,1) primary key ,
+	ArName nvarchar(40),
+	EnName nvarchar(40)
+)
+Go
+
 If Exists (select Name 
 		   from sysobjects 
 		   where name = 'AirPort' and
@@ -86,6 +101,7 @@ Create Table TicketInfo
 	LastUpdatedDate DateTime,
 	LastUpdatedBy UniqueIdentifier
 	
+	
 )
 Go
 
@@ -94,8 +110,9 @@ add TicketNo nvarchar(20),
 	PassengerID int foreign key references Passenger(PassengerID),
 	FlightNo nvarchar(20),
 	SeatNo int,
-	cabin_type nvarchar(30)
-	
+	cabin_type nvarchar(30),
+	CreditCardID int foreign key references CreditCard(CreditCardID),
+	TicketStatusID int foreign key references TicketStatus(TicketStatusID)
 	
 	
 
@@ -235,6 +252,24 @@ Create Table ReceivingVoucher
 )
 Go
 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'CreditCard' and
+		        xtype = 'U')
+Drop Table CreditCard
+Go
+Create Table CreditCard
+(
+	CreditCardID int not null
+			identity(1,1)
+			Primary Key,
+	
+	Name nvarchar(200),
+	CardNumber nvarchar(20),
+	ExpiryMonthYear nvarchar(10),
+	CVV nvarchar(5)
+)
 
 
 If Exists (select Name 

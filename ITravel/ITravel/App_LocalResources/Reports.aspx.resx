@@ -120,6 +120,9 @@
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>التاريخ : من</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>التقارير</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="Summary" xml:space="preserve">
     <value>ملخص الحركات التى تمت خلال فتره</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>إلى</value>
   </data>
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>اجماليات التذاكر الملغاه</value>

@@ -127,7 +127,10 @@
     <value>العربية</value>
   </data>
   <data name="Book" xml:space="preserve">
-    <value>حجز تذكرة جديدة</value>
+    <value>دخول موقع حجز التذاكر</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>كروت إئتمان</value>
   </data>
   <data name="Customers" xml:space="preserve">
     <value>العملاء</value>

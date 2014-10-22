@@ -120,6 +120,9 @@
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Reports</value>
   </data>
@@ -129,6 +132,9 @@
   <data name="Summary" xml:space="preserve">
     <value>Summary for transactions in period</value>
   </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>Total Canceled Tickets</value>
   </data>
@@ -136,6 +142,6 @@
     <value>Total Returned Tickets</value>
   </data>
   <data name="TotalSold" xml:space="preserve">
-    <value>Total Sold Tickets</value>
+    <value>Total Sold/Canceled Tickets with Net Income</value>
   </data>
 </root>
