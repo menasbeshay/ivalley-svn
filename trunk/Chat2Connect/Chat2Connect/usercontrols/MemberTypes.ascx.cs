@@ -62,6 +62,8 @@ namespace Chat2Connect.usercontrols
                         log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = upgrademember.Name, NewTypeName = upgrademember.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = upgrademember.MemberType.EndDate, Points = points }, upgrademember.MemberID, null);
 
                         lblPoints.Text = BLL.Member.CurrentMember.Credit_Point.ToString();
+
+                        NotifyMember(upgrademember.MemberID, bllMemberTypeSpecDuration.MemberTypeSpecID);
                     }
                     catch (Exception ex)
                     {
@@ -77,6 +79,19 @@ namespace Chat2Connect.usercontrols
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Error5", @"$(document).ready(function () { notify('error', 'حدث خطأ . من فضلك تأكد من السؤال والإجابة السرى.'); });", true);
                 return;
+            }
+        }
+
+        private static void NotifyMember(int mid,int typeSpecID)
+        {
+            List<Helper.SignalRUser> users = Chat2Connect.SRCustomHubs.ChatRoomHub.ConnectedUsers.Where(u => u.MemberID == mid).ToList();
+            Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
+            foreach (var user in users)
+            {
+                foreach (var room in user.Rooms)
+                {
+                    _Rcontext.Clients.Group(room.ToString()).updateRoomMemberType(user.MemberID, typeSpecID, room);
+                }
             }
         }
 

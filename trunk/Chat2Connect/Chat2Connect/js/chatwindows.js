@@ -2001,7 +2001,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers)
             window.addRoomBot(roomBot);
         }
     }
-    rHub.client.updateMemberType=function(mid,memberTypeSpecId,rid)
+    rHub.client.updateRoomMemberType = function (mid, memberTypeSpecId, rid)
     {
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {

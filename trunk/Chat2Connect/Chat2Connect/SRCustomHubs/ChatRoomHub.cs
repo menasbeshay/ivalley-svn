@@ -17,7 +17,7 @@ namespace Chat2Connect.SRCustomHubs
             Clients.All.hello();
         }
 
-        static List<Helper.SignalRUser> ConnectedUsers = new List<Helper.SignalRUser>();
+        public static List<Helper.SignalRUser> ConnectedUsers = new List<Helper.SignalRUser>();
 
         public override Task OnConnected()
         {
