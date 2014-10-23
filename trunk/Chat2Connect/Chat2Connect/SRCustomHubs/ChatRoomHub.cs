@@ -61,9 +61,12 @@ namespace Chat2Connect.SRCustomHubs
                 roomMember.InRoom = isVisible;
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
-                if (room.CreatedBy == roomMember.MemberID)
-                    roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
-                roomMember.Save();
+                if (!room.IsColumnNull("CreatedBy"))
+                {
+                    if (room.CreatedBy == roomMember.MemberID)
+                        roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+                    roomMember.Save();
+                }
 
                 Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID).FirstOrDefault();
                 item.Rooms.Add(roomid);
