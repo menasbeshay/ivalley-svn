@@ -154,7 +154,7 @@
         <header class="row navbar-fixed-top" role="navigation">
             <div class="user">
                 <div class="AccountMenu">
-                    <asp:HyperLink runat="server" NavigateUrl="~/Account.aspx" data-toggle="tooltip" title="حسابى" data-placement="left"><i class="icon-user"></i></asp:HyperLink>
+                    <a onclick="OpenPopup('account.aspx','حسابى');" data-toggle="tooltip" title="حسابى" data-placement="left" style="cursor:pointer;"><i class="icon-user"></i></a>
                     <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left" style="height:16px;"><i data-toggle="modal" data-target="#helpModal" class="icon-question-sign" ></i></asp:HyperLink>
                     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج" />
                 </div>

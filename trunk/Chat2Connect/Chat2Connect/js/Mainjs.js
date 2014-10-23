@@ -640,14 +640,22 @@ $(document).ready(function () {
     sHub.client.inviteToTempRoom = function (rid, fname) {
         var location = window.location.href;
         if (location.indexOf('home.aspx') > -1)
-            notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a onclick="addChatRoom(' + rid + ', \'غرفة مؤقتة\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a>');
+        {
+            $('#TempRoomInvitationModalContent').html(fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a onclick="addChatRoom(' + rid + ', \'غرفة مؤقتة\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
+            $('#TempRoomInvitationModal').modal('show');
+        }
         else
-            notify('info', fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a href="home.aspx?t=' + rid + '" target="_blank" class="btn btn-main">إضغط هنا للدخول</a>');
-
+        {
+            $('#TempRoomInvitationModalContent').html(fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a href="home.aspx?t=' + rid + '" target="_blank" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
+            $('#TempRoomInvitationModal').modal('show');
+        }
+            
     };
 
     sHub.client.InviteToRoomByFriend = function (rid, roomname, MemberName) {
-        notify('info', MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a>');
+        //  notify('info', MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a>');
+        $('#RoomInvitationModalContent').html(MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
+        $('#RoomInvitationModal').modal('show');
     };
 
     sHub.client.recieveMailNotification = function (id, totalNewMessages) {

@@ -2296,3 +2296,12 @@ input[type="text"], textarea {
 .coming-soon h1 {
     font-family: 'Alex Brush', cursive;
 }
+
+a.catLink, a.subcatLink {
+    display:block;
+    width:100%;
+}
+
+.catLink.selected , .subcatLink.selected {
+    background-color:#FEC200;
+}

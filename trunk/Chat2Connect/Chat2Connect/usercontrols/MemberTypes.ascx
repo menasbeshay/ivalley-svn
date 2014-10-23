@@ -118,7 +118,7 @@
                     </div>
                     <div class="col-lg-2 pull-right">
                         <span style="display: block; width: 25px; height: 25px;" >
-                            <i class="icon-2x icon-circle" style="color: #ff00fe"></i>
+                            <i class="icon-2x icon-circle" style="color: #880088"></i>
                         </span>
                     </div>
                    
