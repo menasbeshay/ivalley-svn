@@ -49,7 +49,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        
           <!-- wrapper -->
         <div id="wrapper">
             <header>
@@ -72,6 +72,12 @@
                                     </a></li>
                                 <li><a href="../creditcards" ><span class="glyph archive"></span> 
                                     <asp:Label ID="Label12" runat="server" Text="<%$ Resources:CreditCard %>"></asp:Label>
+                                    </a></li>
+                                 <li><a href="../RecievingVoucher" ><span class="glyph archive"></span> 
+                                    <asp:Label ID="Label15" runat="server" Text="<%$ Resources:RecievingVoucher %>"></asp:Label>
+                                    </a></li>
+                                 <li><a href="../PaymentVoucher" ><span class="glyph archive"></span> 
+                                    <asp:Label ID="Label16" runat="server" Text="<%$ Resources:PaymentVoucher %>"></asp:Label>
                                     </a></li>
                                 <li><a href="../Reports" ><span class="glyph rating"></span> 
                                     <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Reports %>"></asp:Label>
@@ -97,7 +103,12 @@
                                        
                                     </ul>
                                 </li>
+                                
+                                    
+                                
                             </ul>
+
+                            <img src="img/logo.png" alt="logo" style="float:left;position:absolute;"/>
                         </nav>
                         <!-- /navigation menu -->
 
@@ -138,13 +149,13 @@
                     </div>                
                 </div>
             </header>
-
+            <div class="clear" style="height:5px;"></div>
             <section id="main">
                 <div class="container_12">
                     <div class="grid_12" id="content-top">
-                        <div id="logo">
+                        <%--<div id="logo">
                             <img src="img/logo.png" alt="logo" />
-                        </div>
+                        </div>--%>
                         <nav>
                             <ul>
                                 <%--<li>
@@ -159,6 +170,19 @@
                                         Modal
                                     </a>
                                 </li>--%>
+                                <li>
+                                    <a href="../sc?t=s">
+                                        <span class="glyph zoom-in"></span>
+                                        <asp:Label ID="Label14" runat="server" Text="<%$ Resources:ShahinAirLine %>" ></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="../sc?t=n">
+                                        <span class="glyph zoom-in"></span>
+                                        <asp:Label ID="Label13" runat="server" Text="<%$ Resources:NesmaAirLine %>" ></asp:Label>
+                                    </a>
+                                </li>
+                                 
                                 <li>
                                     <a href="#">
                                         <span class="glyph tag"></span>
@@ -177,6 +201,7 @@
                                         <asp:Label ID="Label2" runat="server" Text="<%$ Resources:AddNewTicket %>" ></asp:Label>
                                     </a>
                                 </li>
+                                
                             </ul>
                         </nav>
                         <div class="clear"style="height:10px;"></div>

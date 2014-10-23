@@ -49,5 +49,21 @@ namespace ITravel
             uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("NetIncomeDataSet", tickets.DefaultView));
             uiReportViewerMain.LocalReport.Refresh();
         }
+
+        protected void uiLinkButtonTotalCanceledNotRefended_Click(object sender, EventArgs e)
+        {
+            TicketInfo tickets = new TicketInfo();
+            DateTime from, to;
+            from = DateTime.TryParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out from) ? from : new DateTime(1900, 1, 1);
+            to = DateTime.TryParseExact(uiTextBoxToDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out to) ? to : new DateTime(8000, 12, 31);
+
+            tickets.RPT_GetTicketsByStatusID(from, to,3);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/CanceledPendingRefunded.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("CanceledPendingRefundedDataSet", tickets.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
+        }
     }
 }

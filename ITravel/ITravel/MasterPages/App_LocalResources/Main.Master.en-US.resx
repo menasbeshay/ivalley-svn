@@ -147,8 +147,20 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="NesmaAirLine" xml:space="preserve">
+    <value>Book Nesma AirLine Tickets</value>
+  </data>
+  <data name="PaymentVoucher" xml:space="preserve">
+    <value>Payment Vouchers</value>
+  </data>
+  <data name="RecievingVoucher" xml:space="preserve">
+    <value>Recieving Vouchers</value>
+  </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
+  </data>
+  <data name="ShahinAirLine" xml:space="preserve">
+    <value>Book Shahin AirLine Tickets</value>
   </data>
   <data name="Tickets" xml:space="preserve">
     <value>Tickets</value>

@@ -290,6 +290,37 @@ where FirstName like @FilterText + N'%' OR
 Go
 
 
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchReceivingVoucher' and
+		        xtype = 'P')
+Drop Procedure SearchReceivingVoucher
+Go
+Create Procedure SearchReceivingVoucher @FilterText nvarchar(200)
+as
+
+select * 
+from ReceivingVoucher 
+where VoucherNumber like @FilterText + N'%'  OR
+	  @FilterText = ''
+Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchPaymentVoucher' and
+		        xtype = 'P')
+Drop Procedure SearchPaymentVoucher
+Go
+Create Procedure SearchPaymentVoucher @FilterText nvarchar(200)
+as
+
+select * 
+from PaymentVoucher 
+where VoucherNumber like @FilterText + N'%' OR
+	  @FilterText = ''
+Go
+
+
 
 
 If Exists (select Name 

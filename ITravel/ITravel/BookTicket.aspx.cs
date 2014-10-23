@@ -108,6 +108,7 @@ namespace ITravel
                 uiTextBoxAddedPercentage.Text = ticket.AddedPercentage.ToString();
                 uiDropDownListStatus.SelectedValue = ticket.TicketStatusID.ToString();
                 uiTextBoxFromDate.Text = ticket.FromDate.ToString("MM/dd/yyyy hh:mm");
+                uiDropDownListCabinType.SelectedValue = ticket.Cabin_type;
                 LoadHistory();
                 uiPanelAll.Visible = false;
                 uiPanelEdit.Visible = true;

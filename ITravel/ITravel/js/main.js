@@ -241,7 +241,12 @@ jQuery(function($){
                     jqXHR.setRequestHeader('X-Requested-With', {toString: function(){ return ''; }})
                     parent();
                 };
-                ajaxOptions.success = function(data){
+                ajaxOptions.success = function (data) {
+                    if (data == undefined || data == "") {
+                        $('#content').animate({ opacity: 1 });
+                        return;
+                    }
+                        
                     var body = data.split('<body>')[1].split('</body>')[0];
                     var $body = $('<div>').html(body);
                     var $nav = $body.find('#wrapper > header nav'), $newNav = $('<nav class="menu" />');
