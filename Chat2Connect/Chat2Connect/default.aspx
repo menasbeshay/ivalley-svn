@@ -26,7 +26,7 @@
     <section class="row">
         <div class="header">
             <div>
-                <asp:Login ID="Login1" runat="server" style="float:left;margin-top:40px;margin-left:40px;" OnLoggedIn="Login1_LoggedIn">
+                <asp:Login ID="Login1" runat="server" style="float:left;margin-top:40px;margin-left:40px;" OnLoggedIn="Login1_LoggedIn" FailureText="حدث خطأ . من فضلك تأكد من إسم المستخدم وكلمة المرور الخاصة بك." FailureTextStyle-ForeColor="Red">
                     <LayoutTemplate>
                         
                         <div class="form-horizontal blockBoxBlack validationGroup" id="Login">
@@ -54,7 +54,10 @@
                             <div class="form-group">
                                 
                                 <div class="col-sm-9">                
-                                    <a style="color:#fff;text-decoration:none;font-size:12px;" class="pull-right" href="#resetPassModal" data-toggle="modal">نسيت كلمة السر ؟</a><span class="pull-right">&nbsp;&nbsp;</span>    
+                                    <a style="color:#fff;text-decoration:none;font-size:12px;" class="pull-right" href="#resetPassModal" data-toggle="modal">نسيت كلمة السر ؟</a>
+                                    <span class="pull-right" style="color:#f00;">
+                                        <asp:Literal runat="server" ID="FailureText" EnableViewState="False"></asp:Literal>
+                                    </span>    
                                 <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="دخول" ValidationGroup="Login1" CssClass="pull-left btn"  />
                                             
                                 </div>
@@ -68,7 +71,9 @@
 
                         </div>
                     </LayoutTemplate>
-                </asp:Login>                
+                </asp:Login>
+                
+                                
             </div>
         </div>
     </section>

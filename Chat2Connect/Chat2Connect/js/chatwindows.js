@@ -91,18 +91,26 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return win.Type() == "Room";
         });
     }, self);
-    self.getWindow = function (id, type, name,typeSpec) {
+    self.getWindow = function (id, type, name, typeSpec, iscreator) {
         var window = ko.utils.arrayFirst(self.windows(), function (win) {
             return win.ID() == id && win.Type() == type;
         });
         if (window == null) {
             if (type == "Private") {
-                chatVM.addWindow(id, name, type);//(id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec)
+                chatVM.addWindow(id, name, type);
+                //(id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec)
                 // generated id for private chat
                 //var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
                 //window = chatVM.getWindow(newroomid, type);
                 window = chatVM.getWindow(id, type);
                 window.Settings.TypeID(typeSpec);
+
+                if (!iscreator || iscreator == undefined)
+                {
+                    $('#AduioNotification_' + window.uniqueID()).html('<audio autoplay><source src="files/sounds/invite.wav"></audio>');
+                }
+
+                
             }
         }
         return window;
@@ -838,7 +846,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             var window = this;
             var member = window.getMember(memberID);
             getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, member.MemberName());
-            member.IsCamOpened(true);
+            
             if (window.Type() == 'Private') {
                 // show cam to friend 
                 if (window.CurrentMember().MemberID() == memberID) {
@@ -854,6 +862,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             }
             if (window.CurrentMember().MemberID() == memberID) {
                 rHub.server.userStartCam(window.ID(), window.CurrentMember().MemberID());
+                member.IsCamOpened(true);
             }
         }
         this.stopCam = function (memberID) {
@@ -862,7 +871,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             var member = window.getMember(memberID);
             if (member == null)
                 return;
-            member.IsCamOpened(false);
+            
             if (window.Type() == 'Private') {
                 // close cam on friend
                 if (window.CurrentMember().MemberID() == memberID) {
@@ -878,6 +887,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             }
             if (window.CurrentMember().MemberID() == memberID) {
                 rHub.server.userStopCam(window.ID(), window.CurrentMember().MemberID());
+                member.IsCamOpened(false);
             }
         }
 
@@ -1131,12 +1141,12 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp,typeSpec) {
+    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator) {
         if (id == self.CurrentMemberID && type != 'Room')
             return;
-        var window = self.getWindow(id, type, name,typeSpec);
+        var window = self.getWindow(id, type, name, typeSpec, iscreator);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp,typeSpec);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator);
         }
         else {
             if (type != 'Room')
@@ -1146,7 +1156,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }
 
     };
-    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec) {
+    self.addWindow = function (id, name, type, istemp, isHidden, levelid, isfriend, isHelp, typeSpec, iscreator) {
         if (istemp == undefined)
             istemp = false;
         if (isHelp == undefined)
@@ -1404,6 +1414,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             }
         }
 
+        
+
     };
 
     self.removeMember = function (mid) { //remove member from rooms and private chat
@@ -1622,10 +1634,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend, typespec) {
+function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend,ishelp,  typespec, iscreator) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend,typespec);
+    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, ishelp, typespec, iscreator);
 }
 
 function getFlashMovie(movieName) {
@@ -1652,7 +1664,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers)
     /****** signalR ********/
 
     rHub.client.getPrivateMessage = function (fromId, message) {
-        var window = chatVM.getWindow(fromId, "Private", message.FromName);
+        var window = chatVM.getWindow(fromId, "Private", message.FromName);        
         window.addMessage(message);
     };
     rHub.client.getAdminMessage = function (rid, msg) {

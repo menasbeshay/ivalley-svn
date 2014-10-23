@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Chat2Connect.Account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Popup.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Chat2Connect.Account" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.blueimp-gallery.min.js"></script>
     <script src="js/bootstrap-image-gallery.js"></script>
@@ -134,8 +134,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-        <div class="blockBoxshadow pull-right margin20" style="width:66.5%;padding:13px;min-height:235px;"> 
-            <div style="width:16%;float:right;position:relative;">
+        <div class="blockBoxshadow pull-right " style="width:66%;padding:13px;min-height:220px;"> 
+            <div style="width:24%;float:right;position:relative;">
                 <div class="profileImageEdit">
                 <asp:Image ID="uiImageMain" runat="server" ImageUrl="~/images/defaultavatar.png" style="height:100px;" CssClass="img-thumbnail"/>
                 <div class="btn-group" id="EditProfilePic">                    
@@ -167,7 +167,7 @@
                     <asp:HyperLink ID="uiHyperLinkyt" runat="server" Target="_blank"><img src="images/youtube.png" /></asp:HyperLink>
                 </div>
             </div>
-            <div style="width:81%;float:right;">
+            <div style="width:72%;float:right;">
                 <div>
                     <div class="col-lg-4 pull-right" >
                         <asp:Label ID="Label1" runat="server" Text="الإسم :" Font-Bold="true"></asp:Label>
@@ -224,7 +224,7 @@
                 </div>
         </div>
             
-        <div class="blockBoxshadow pull-left margin20" style="width:30%;">
+        <div class="blockBoxshadow pull-left " style="width:32%;">
              <asp:Label ID="Label10" runat="server" Text="معلومات عن الحساب" Font-Bold="true"></asp:Label>
             <hr style="background:#ffd800;width:100%;margin:5px auto;"/>
             <div class="clearfix"></div>
@@ -271,7 +271,7 @@
         </div>
         
         <div class="clearfix"></div>
-        <div class="blockBoxshadow pull-right col-lg-3 margin20 " style="height:210px;max-height:210px;">
+        <div class="blockBoxshadow pull-right col-sm-3 margin20 " style="height:210px;max-height:210px;margin-right:0px;">
             <div style="padding:5px 0px;">
                 <div class="pull-right"><asp:Label ID="Label18" runat="server" Text=" الغرف" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left"></div>
@@ -295,7 +295,7 @@
             <div class="clearfix"></div>
 
         </div>
-        <div class="blockBoxshadow pull-right col-lg-4 margin20" style="width:40%;height:210px;max-height:210px;">
+        <div class="blockBoxshadow pull-right col-sm-5 margin20" style="width:39.5%;height:210px;max-height:210px;margin-right:0px;">
             <div>
                 <div class="pull-right"><asp:Label ID="Label12" runat="server" Text=" صورى" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left">
@@ -327,7 +327,7 @@
 
             </div>
         </div>
-        <div class="blockBoxshadow pull-left col-lg-4 margin20" style="width:30%;height:210px;max-height:210px;">
+        <div class="blockBoxshadow pull-left col-sm-4 margin20" style="width:31.5%;height:210px;max-height:210px;margin-left:0px;">
             <div>
                 <div class="pull-right"><asp:Label ID="Label14" runat="server" Text=" حائط البروفايل" Font-Bold="true"></asp:Label></div>
                 <div class="pull-left">

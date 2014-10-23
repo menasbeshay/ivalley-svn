@@ -19,13 +19,13 @@
             <div class="clearfix" style="height: 5px;"></div>
 
         </div>
-        <div class="panel" style="border-bottom: 1px solid #FEC200">
+        <%--<div class="panel" style="border-bottom: 1px solid #FEC200">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">الغرف المخفية
 		                	 
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 
-        </div>
+        </div>--%>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">نادى التواصل
 		                	 

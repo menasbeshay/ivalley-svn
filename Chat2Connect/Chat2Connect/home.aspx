@@ -85,6 +85,9 @@
                         return false;
                     });
                 scrollRooms();
+                $('#accordion').find('.catLink').removeClass('selected');
+                $('#accordion').find('.subcatLink').removeClass('selected');
+                $(this).addClass('selected');
                 
             });
             $(".subcatLink").click(function () {
@@ -95,6 +98,9 @@
                         return false;
                     });
                 scrollRooms();
+                $('#accordion').find('.catLink').removeClass('selected');
+                $('#accordion').find('.subcatLink').removeClass('selected');
+                $(this).addClass('selected');
             });
 
             $("#SearchRooms").click(function () {
@@ -190,11 +196,11 @@
                             <i class="icon-2x modernicon iconmodern-mainlist"></i>
                             القائمة الرئيسية
                         </div>
-                        <div class="pull-left">
+                        <div class="pull-left col-lg-4" style="padding-left:0px;">
 
                             <div class="form-group">
-                                <asp:TextBox ID="uiTextBoxRoomSearch" runat="server" placeholder="ابحث عن غرفة" Style="padding: 5px; padding-top: 7px;"></asp:TextBox>
-                                <a href="#" style="font-size: 20px; text-decoration: none;" id="SearchRooms"><i class="icon icon-search"></i></a>
+                                <asp:TextBox ID="uiTextBoxRoomSearch" runat="server" placeholder="ابحث عن غرفة" Style="padding: 5px; padding-top: 7px;" CssClass="col-lg-11 pull-right"></asp:TextBox>
+                                <a href="#" class="col-lg-1" style="font-size: 20px; text-decoration: none;padding-left:0px;padding-right:5px;padding-top:5px;" id="SearchRooms"><i class="icon icon-search"></i></a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -330,7 +336,7 @@
                 <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
                     <%--<span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>--%>
                     <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left: 2px;"></span>
-                    <span data-bind="date:MessageDate, format:'H:M '" class="pull-right"></span>
+                    <span data-bind="date:MessageDate, format:'H:m '" class="pull-right"></span>
                 </div>
                 <!-- ko if:MemberLevel -->
                 <div class="pull-right" data-bind="css:MemberLevel == 2 ? 'adminrole_reviewer' : 'adminrole' , visible:MemberLevel != 1">
@@ -405,9 +411,9 @@
                     <div class="col-lg-9 pull-right" style="padding: 0 5px;">
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
-                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID())"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <!-- ko if: IsCamOpened()-->
-                                <li><a class="jslink" data-bind="click:$parent.startCam.bind($data,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.startCam.bind($parent,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                 <!-- /ko -->
                                 <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
@@ -1990,7 +1996,57 @@
             </div>
         </div>
         <!-- /ko -->
+
+        <div data-bind="attr:{id:'AduioNotification_'+uniqueID()}"></div>
+
     </script>
+    <div id="TempRoomInvitationModal" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content hamsaModal">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon  icon-envelope" style="float: left; margin-left: 10px;"></i>
+                        <h3>دعوة </h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h3>دعوة إلى غرفة مؤقتة</h3>
+
+                            <div class="form-group" id="TempRoomInvitationModalContent">
+                               
+                            </div>
+                           
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <div id="RoomInvitationModal" class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content hamsaModal">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
+                        <i class="icon  icon-envelope" style="float: left; margin-left: 10px;"></i>
+                        <h3>دعوة </h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal blockBox validationGroup">
+                            <h3>دعوة إلى غرفة </h3>
+
+                            <div class="form-group" id="RoomInvitationModalContent">
+                               
+                            </div>
+                           
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     <div id='GeneralGiftModal' class="modal fade " role="modal" aria-hidden="true">
         <div class="modal-dialog modal-lg" style="width: 700px;">
