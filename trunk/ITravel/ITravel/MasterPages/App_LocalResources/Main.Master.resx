@@ -147,8 +147,20 @@
   <data name="Logout" xml:space="preserve">
     <value>خروج</value>
   </data>
+  <data name="NesmaAirLine" xml:space="preserve">
+    <value>حجز تذاكر نسما</value>
+  </data>
+  <data name="PaymentVoucher" xml:space="preserve">
+    <value>سندات صرف</value>
+  </data>
+  <data name="RecievingVoucher" xml:space="preserve">
+    <value>سندات إستلام</value>
+  </data>
   <data name="Reports" xml:space="preserve">
     <value>التقارير</value>
+  </data>
+  <data name="ShahinAirLine" xml:space="preserve">
+    <value>حجز تذاكر شاهين</value>
   </data>
   <data name="Tickets" xml:space="preserve">
     <value>التذاكر</value>

@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
      <div class="box grid_12">
         <header>
             <div class="inner">
@@ -70,11 +71,11 @@
             <div class="clear" style="height:25px;"></div>
             <ul class="iconlist">
                 <li>
-                    <a href="#" >
+                    <asp:LinkButton ID="uiLinkButtonTotalCanceledNotRefended" runat="server" OnClick="uiLinkButtonTotalCanceledNotRefended_Click">
                         <span class="glyph reply"></span>
                         <br />
                         <asp:Label ID="Label6" runat="server" Text="<%$ Resources:TotalReturned %>"></asp:Label>
-                    </a>
+                   </asp:LinkButton>
                 </li>
                 <li>
                     <a href="#" >

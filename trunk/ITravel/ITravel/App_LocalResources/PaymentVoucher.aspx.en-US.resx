@@ -117,52 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddNewCustomer" xml:space="preserve">
-    <value>إضافة عميل جديد</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="AddNewTicket" xml:space="preserve">
-    <value>إضافة تذكرة جديدة</value>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add new voucher</value>
   </data>
-  <data name="Arabic" xml:space="preserve">
-    <value>العربية</value>
+  <data name="Amount" xml:space="preserve">
+    <value>An amount for</value>
   </data>
-  <data name="Book" xml:space="preserve">
-    <value>دخول موقع حجز التذاكر</value>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
   </data>
-  <data name="CreditCard" xml:space="preserve">
-    <value>كروت إئتمان</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="Customers" xml:space="preserve">
-    <value>العملاء</value>
+  <data name="ChequeDate" xml:space="preserve">
+    <value>Chuque Date</value>
   </data>
-  <data name="English" xml:space="preserve">
-    <value>الإنحليزية</value>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>الرئيسية</value>
+  <data name="Customer" xml:space="preserve">
+    <value>Received From</value>
   </data>
-  <data name="Lang" xml:space="preserve">
-    <value>تغيير اللغة</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="Logout" xml:space="preserve">
-    <value>خروج</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="NesmaAirLine" xml:space="preserve">
-    <value>حجز تذاكر نسما</value>
+  <data name="IsCheque" xml:space="preserve">
+    <value>Cheque</value>
   </data>
-  <data name="PaymentVoucher" xml:space="preserve">
-    <value>سندات صرف</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Payment Vouchers</value>
   </data>
-  <data name="RecievingVoucher" xml:space="preserve">
-    <value>سندات إستلام</value>
+  <data name="PaidFor" xml:space="preserve">
+    <value>Paid For</value>
   </data>
-  <data name="Reports" xml:space="preserve">
-    <value>التقارير</value>
+  <data name="Reason" xml:space="preserve">
+    <value>Being</value>
   </data>
-  <data name="ShahinAirLine" xml:space="preserve">
-    <value>حجز تذاكر شاهين</value>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="Tickets" xml:space="preserve">
-    <value>التذاكر</value>
+  <data name="VoucherDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="VoucherNo" xml:space="preserve">
+    <value>Voucher No.</value>
   </data>
 </root>

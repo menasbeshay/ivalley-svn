@@ -667,6 +667,7 @@
     <Content Include="PaymentVoucher.aspx" />
     <Content Include="RecievingVoucher.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="sc.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -886,6 +887,13 @@
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
+    <Compile Include="sc.aspx.cs">
+      <DependentUpon>sc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sc.aspx.designer.cs">
+      <DependentUpon>sc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1020,6 +1028,13 @@
     <Content Include="App_LocalResources\creditcards.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_LocalResources\sc.aspx.resx" />
+    <Content Include="App_LocalResources\sc.aspx.ar-EG.resx" />
+    <Content Include="App_LocalResources\sc.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\PaymentVoucher.aspx.ar-EG.resx" />
+    <Content Include="App_LocalResources\PaymentVoucher.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\PaymentVoucher.aspx.resx" />
+    <EmbeddedResource Include="ReportsFiles\CanceledPendingRefunded.rdlc" />
     <EmbeddedResource Include="ReportsFiles\CanceledTickets.rdlc" />
     <EmbeddedResource Include="ReportsFiles\NetIncomeTickets.rdlc" />
   </ItemGroup>

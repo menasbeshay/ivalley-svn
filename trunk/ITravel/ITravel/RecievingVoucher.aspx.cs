@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITravel.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -33,11 +34,14 @@ namespace ITravel
         {
             if (!IsPostBack)
             {
-                Master.PageTitle = GetLocalResourceObject("PageTitle").ToString();                
+                Master.PageTitle = GetLocalResourceObject("PageTitle").ToString();
+                LoadDDLs();
                 LoadAllVouchers();
-
+                uiPanelAll.Visible = true;
+                uiPanelEdit.Visible = false;
             }
         }
+
 
         
 
@@ -141,6 +145,23 @@ namespace ITravel
             vouchers.SearchReceivingVoucher(uiTextBoxSearch.Text);
             uiGridViewVouchers.DataSource = vouchers.DefaultView;
             uiGridViewVouchers.DataBind();
+        }
+
+
+        private void LoadDDLs()
+        {
+            Passenger customers = new Passenger();
+            customers.LoadAll();
+            customers.AddColumn("DisplayName", typeof(string));
+            for (int i = 0; i < customers.RowCount; i++)
+            {
+                customers.SetColumn("DisplayName", customers.FirstName + " " + customers.LastName);
+                customers.MoveNext();
+            }
+            uiDropDownListCustomer.DataSource = customers.DefaultView;
+            uiDropDownListCustomer.DataTextField = "DisplayName";
+            uiDropDownListCustomer.DataValueField = Passenger.ColumnNames.PassengerID;
+            uiDropDownListCustomer.DataBind();
         }
 
         private void ClearFields()
