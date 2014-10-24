@@ -18,6 +18,12 @@ namespace BLL.Log
         }
         public int RoomID { get; set; }
         [Helper.BoundProperty(HeaderText = "إسم الغرفة", DisplayOrder = 1)]
-        public string RoomName { get; set; }        
+        public string RoomName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
+        public string RoomTypeName { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 3)]
+        public int Points { get; set; }
     }
 }

@@ -263,6 +263,11 @@
                         <ul class="dropdown-menu">
                             <li><a href='<%=ResolveUrl("~/Admin/ManageRoom.aspx") %>'>إدارة غرفة</a></li>
                             <li><a href='<%=ResolveUrl("~/Admin/RoomsReport.aspx") %>'>تقرير الغرف</a></li>
+                            <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.VIPRoom.PageRoles))
+                              {%>
+                            <li class="divider"></li>
+                            <li><a href='<%=ResolveUrl("~/Admin/VIPRoom.aspx") %>'>إنشاء غرفة مميزة</a></li>
+                            <%} %>
                         </ul>
                     </li>
                     <%} %>
