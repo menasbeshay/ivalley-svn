@@ -12,14 +12,5 @@ namespace BLL.Log
             get;
             set;
         }
-
-        public string ToString()
-        {
-            return Helper.JsonConverter.Serialize(this);
-        }
-        public static Log FromString(string stringValue)
-        {
-            return Helper.JsonConverter.Deserialize<Log>(stringValue);
-        }
     }
 }

@@ -35,7 +35,7 @@ namespace Chat2Connect.PopupPages
 
                 // logging
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ViewMailPage() { }, null, null);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.Log() { Type = Helper.Enums.LogType.ViewMailPage }, null, null);
             }
         }
 

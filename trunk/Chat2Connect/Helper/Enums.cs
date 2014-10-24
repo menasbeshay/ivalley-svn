@@ -185,7 +185,15 @@ namespace Helper
             [StringValue("حذف صديق")]
             DeleteFriend = 14,
             [StringValue("إضافة بوت")]
-            AddRoomBot = 15
+            AddRoomBot = 15,
+            [StringValue("إسكات عضو")]
+            MarkRoomMember = 16,
+            [StringValue("إلغاء إسكات عضو")]
+            UnMarkRoomMember = 17,
+            [StringValue("حظر عضو")]
+            BanRoomMember,
+            [StringValue("إلغاء حظر عضو")]
+            UnBanRoomMember,
         }
 
         /// <summary>

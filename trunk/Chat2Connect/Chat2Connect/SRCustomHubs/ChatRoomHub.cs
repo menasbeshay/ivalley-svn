@@ -43,7 +43,7 @@ namespace Chat2Connect.SRCustomHubs
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
             return base.OnDisconnected();
         }
-        public void addToRoom(int roomid,bool isVisible)
+        public void addToRoom(int roomid, bool isVisible)
         {
             Groups.Add(Context.ConnectionId, roomid.ToString());
             try
@@ -70,13 +70,16 @@ namespace Chat2Connect.SRCustomHubs
 
                 Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID).FirstOrDefault();
                 item.Rooms.Add(roomid);
-                if(isVisible) 
+                if (isVisible)
                     Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Add(Context.ConnectionId, GetRoomAdminGroupName(roomid));
 
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom(isVisible) { RoomID = roomid, RoomName = room.Name }, null, roomid);
+                Helper.Enums.LogType lgType = Helper.Enums.LogType.EnterRoom;
+                if (!isVisible)
+                    lgType = Helper.Enums.LogType.EnterRoomHidden;
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() {Type=lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
 
             }
             catch (Exception ex)
@@ -110,7 +113,7 @@ namespace Chat2Connect.SRCustomHubs
 
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
-              
+
             }
             catch (Exception ex)
             {
@@ -245,7 +248,7 @@ namespace Chat2Connect.SRCustomHubs
 
 
             var resultMsg = new Helper.ChatMessage()
-            {               
+            {
                 FromID = senderid,
                 ToID = roomid,
                 FromName = sender,
@@ -398,9 +401,9 @@ namespace Chat2Connect.SRCustomHubs
             var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
 
             // send to 
-            Clients.Client(toUser.ConnectionId).StopListenMic_Private(memberid);       
+            Clients.Client(toUser.ConnectionId).StopListenMic_Private(memberid);
         }
-        
+
         public void userStartCam_Private(int rid, int memberid)
         {
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == rid);
@@ -418,7 +421,7 @@ namespace Chat2Connect.SRCustomHubs
             // send to 
             Clients.Client(toUser.ConnectionId).StopCam_Private(memberid);
         }
-        
+
         public void userRaisHand(int rid, int memberid, int queueOrder)
         {
             Clients.Group(rid.ToString(), Context.ConnectionId).UserRaisHand(rid, memberid, queueOrder);
@@ -443,6 +446,18 @@ namespace Chat2Connect.SRCustomHubs
                 if (String.IsNullOrEmpty(banDays))
                 {
                     banning.MarkAsDeleted();
+                    try
+                    {
+                        if (banning.RowState() != System.Data.DataRowState.Added)
+                        {
+                            //deleted ban from member
+                            BLL.Member member = new Member();
+                            member.LoadByPrimaryKey(memberid);
+                            BLL.MemberLog log = new BLL.MemberLog();
+                            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.UnBanRoomMember() { MemberName = member.Name }, member.MemberID, roomid);
+                        }
+                    }
+                    catch { }
                 }
                 else
                 {
@@ -455,6 +470,21 @@ namespace Chat2Connect.SRCustomHubs
                     {
                         banning.EndDate = DateTime.Now.AddDays(days);
                     }
+
+                    try
+                    {
+                        BLL.Member member = new Member();
+                        member.LoadByPrimaryKey(memberid);
+                        BLL.MemberLog log = new BLL.MemberLog();
+                        BLL.Log.BanRoomMember infoLog = new BLL.Log.BanRoomMember() { MemberName = member.Name };
+                        if (days > 0)
+                        {
+                            infoLog.BanningDays = days;
+                            infoLog.EndDate = banning.EndDate;
+                        }
+                        log.AddNew(BLL.Member.CurrentMemberID, infoLog, member.MemberID, roomid);
+                    }
+                    catch { }
                 }
                 banning.Save();
                 //room member settings
@@ -510,7 +540,7 @@ namespace Chat2Connect.SRCustomHubs
             log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName }, FriendID, null);
         }
 
-        
+
 
         #region Room supervisor
 
@@ -529,25 +559,53 @@ namespace Chat2Connect.SRCustomHubs
                 room.SetColumn(setting, newValue);
                 room.Save();
             }
-            Clients.Group(rid.ToString()).updateRoomSetting(rid,setting,newValue);
+            Clients.Group(rid.ToString()).updateRoomSetting(rid, setting, newValue);
         }
 
-        public void MarkAllWithWrite(int rid,bool isMarked,int adminID)
+        public void MarkAllWithWrite(int rid, bool isMarked, int adminID)
         {
-            Clients.Group(rid.ToString()).markAllWithWrite(rid, isMarked,adminID);
+            Clients.Group(rid.ToString()).markAllWithWrite(rid, isMarked, adminID);
         }
-        public void MarkAllWithoutWrite(int rid, bool isMarked,int adminID)
+        public void MarkAllWithoutWrite(int rid, bool isMarked, int adminID)
         {
-            Clients.Group(rid.ToString()).markAllWithoutWrite(rid, isMarked,adminID);
+            Clients.Group(rid.ToString()).markAllWithoutWrite(rid, isMarked, adminID);
         }
 
+        /// <summary>
+        /// Eskat or Cancel Eskat of room member
+        /// </summary>
+        /// <param name="rid"></param>
+        /// <param name="isMarked"></param>
+        /// <param name="memberid"></param>
         public void ToggleUserMark(int rid, bool isMarked, int memberid)
         {
-            if(isMarked)
+            if (isMarked)
                 Clients.Group(rid.ToString()).UserMarked(rid, memberid);
             else
                 Clients.Group(rid.ToString()).UserUnMarked(rid, memberid);
-        }        
+            try
+            {
+                BLL.Member member = new Member();
+                member.LoadByPrimaryKey(memberid);
+                BLL.MemberLog log = new BLL.MemberLog();
+                if (isMarked)
+                {
+                    log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.MarkRoomMember() { MemberID = memberid, MemberName = member.Name }, memberid, rid);
+                }
+                else
+                {
+                    log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.UnMarkRoomMember() { MemberID = memberid, MemberName = member.Name }, memberid, rid);
+                }
+                RoomMember rm = new RoomMember();
+                if (rm.LoadByPrimaryKey(memberid, rid))
+                {
+                    rm.CanWrite = isMarked;
+                    rm.IsMarked = isMarked;
+                    rm.Save();
+                }
+            }
+            catch { }
+        }
         #endregion
     }
 }

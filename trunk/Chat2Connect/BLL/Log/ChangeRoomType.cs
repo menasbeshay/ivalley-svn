@@ -11,12 +11,6 @@ namespace BLL.Log
         {
             Type = Helper.Enums.LogType.ChangeRoomType;
         }
-
-        public static ChangeRoomType FromString(string stringValue)
-        {
-            return Helper.JsonConverter.Deserialize<ChangeRoomType>(stringValue);
-        }
-
         [Helper.BoundProperty(HeaderText = "إنتهاء الصبغة", DisplayOrder = 3,DataFormat=Helper.Date.DateStringFormat)]
         public DateTime NewTypeExpiryDate { get; set; }
 

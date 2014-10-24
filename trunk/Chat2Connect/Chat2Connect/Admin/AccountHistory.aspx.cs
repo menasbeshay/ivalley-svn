@@ -49,7 +49,7 @@ namespace Chat2Connect.Admin
                     log.Where.MemberID.Value = member.MemberID;
                     log.Where.CreateDate.Operator=MyGeneration.dOOdads.WhereParameter.Operand.Between;
                     log.Where.CreateDate.BetweenBeginValue=Helper.Date.ToDate(txtStartDate.Text);
-                    log.Where.CreateDate.BetweenEndValue=Helper.Date.ToDate(txtEndDate.Text).AddHours(DateTime.Now.Hour);
+                    log.Where.CreateDate.BetweenEndValue=Helper.Date.ToDate(txtEndDate.Text).AddDays(1);
                     log.Query.Load();
                 }
             }

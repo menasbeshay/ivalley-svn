@@ -21,7 +21,7 @@ namespace Chat2Connect
 
                 // logging
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ViewBalancePage() { }, null, null);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.Log() {Type=Helper.Enums.LogType.ViewBalancePage }, null, null);
             }
         }
 

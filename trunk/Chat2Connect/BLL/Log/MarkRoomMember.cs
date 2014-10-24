@@ -5,15 +5,15 @@ using System.Text;
 
 namespace BLL.Log
 {
-    public class DeleteFriend : Log
+    public class MarkRoomMember : Log
     {
-        public DeleteFriend()
+        public MarkRoomMember()
         {
-            Type = Helper.Enums.LogType.DeleteFriend;
+            Type = Helper.Enums.LogType.MarkRoomMember;
         }
-        public int FriendID { get; set; }
+        public int MemberID { get; set; }
         [Helper.BoundProperty(HeaderText = "النيكنيم", DisplayOrder = 1)]
-        public string FriendName { get; set; }
+        public string MemberName { get; set; }
 
     }
 }
