@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -49,6 +53,10 @@
     <Compile Include="Country.cs" />
     <Compile Include="FriendGroup.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="Log\UnBanRoomMember.cs" />
+    <Compile Include="Log\BanRoomMember.cs" />
+    <Compile Include="Log\UnMarkRoomMember.cs" />
+    <Compile Include="Log\MarkRoomMember.cs" />
     <Compile Include="Log\DeleteFriend.cs" />
     <Compile Include="Log\AddFriend.cs" />
     <Compile Include="Log\ChangeMemberType.cs" />
@@ -61,8 +69,6 @@
     <Compile Include="Log\RechargeBalance.cs" />
     <Compile Include="Log\AddRoomBot.cs" />
     <Compile Include="Log\TransferBalance.cs" />
-    <Compile Include="Log\ViewBalancePage.cs" />
-    <Compile Include="Log\ViewMailPage.cs" />
     <Compile Include="MailAds.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberChatWindowEditorSettings.cs" />
@@ -114,6 +120,9 @@
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
       <Name>MyGeneration.dOOdads</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

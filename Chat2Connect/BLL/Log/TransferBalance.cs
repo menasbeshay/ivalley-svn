@@ -11,12 +11,6 @@ namespace BLL.Log
         {
             Type = Helper.Enums.LogType.TransferPoints;
         }
-
-        public static TransferPoints FromString(string stringValue)
-        {
-            return Helper.JsonConverter.Deserialize<TransferPoints>(stringValue);
-        }
-
         [Helper.BoundProperty(HeaderText = "من العضو", DisplayOrder = 1)]
         public string FromMemberName { get; set; }
 

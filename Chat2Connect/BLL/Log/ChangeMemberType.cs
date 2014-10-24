@@ -12,11 +12,6 @@ namespace BLL.Log
             Type = Helper.Enums.LogType.ChangeMemberType;
         }
 
-        public static ChangeMemberType FromString(string stringValue)
-        {
-            return Helper.JsonConverter.Deserialize<ChangeMemberType>(stringValue);
-        }
-
         [Helper.BoundProperty(HeaderText = "إنتهاء الصبغة", DisplayOrder = 3, DataFormat = Helper.Date.DateStringFormat)]
         public DateTime NewTypeExpiryDate { get; set; }
 

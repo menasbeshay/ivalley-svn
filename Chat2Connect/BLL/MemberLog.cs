@@ -25,7 +25,7 @@ namespace BLL
         public void AddNew(int currentMemberID, Log.Log log, int? relatedMemberID, int? relatedRoomID)
         {
             AddNew();
-            this.LogDetails = log.ToString();
+            this.LogDetails = Helper.JsonConverter.Serialize(log, true);
             this.LogTypeID = (int)log.Type;
             this.MemberID = currentMemberID;
             if(relatedMemberID.HasValue) 

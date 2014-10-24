@@ -11,11 +11,6 @@ namespace BLL.Log
         {
             Type = Helper.Enums.LogType.RechargePoints;
         }
-        public static RechargePoints FromString(string stringValue)
-        {
-            return Helper.JsonConverter.Deserialize<RechargePoints>(stringValue);
-        }
-
         [Helper.BoundProperty(HeaderText = "من العضو", DisplayOrder = 1)]
         public string FromMemberName { get; set; }
 
@@ -24,7 +19,6 @@ namespace BLL.Log
 
         [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 3)]
         public int Points { get; set; }
-
 
     }
 }
