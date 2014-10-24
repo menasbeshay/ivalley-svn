@@ -1551,5 +1551,52 @@ namespace Chat2Connect.services
             _Rcontext.Clients.Group(rid.ToString()).updateRoomType(rid, settings);
         }
         #endregion
+
+        #region Editor Setting
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void LoadWindowEditorSettings(int mid,int windowID,string type)
+        {
+            dynamic settings = new { IsBold = false, IsItalic = false, FontSize = "meduim", ForeColor = "black" };
+            BLL.MemberChatWindowEditorSettings bllSettings = new MemberChatWindowEditorSettings();
+            if (bllSettings.LoadByMemberAndWindow(mid, windowID, type))
+            {
+                settings = new
+                {
+                    IsBold = bllSettings.IsBold,
+                    IsItalic = bllSettings.IsItalic,
+                    FontSize = bllSettings.FontSize,
+                    ForeColor = bllSettings.ForeColor
+                };
+            }
+
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(settings);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+        }
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void UpdateWindowEditorSettings(int mid, int windowID, string type, string settings)
+        {
+            dynamic newSettings = Helper.JsonConverter.Deserialize<dynamic>(settings);
+            BLL.MemberChatWindowEditorSettings bllSettings = new MemberChatWindowEditorSettings();
+            if (!bllSettings.LoadByMemberAndWindow(mid, windowID, type))
+            {
+                bllSettings.AddNew();
+                bllSettings.MemberID = mid;
+                bllSettings.WindowID = windowID;
+                bllSettings.WindowType = type;
+            }
+            bllSettings.IsBold = newSettings.IsBold;
+            bllSettings.IsItalic = newSettings.IsItalic;
+            bllSettings.FontSize = newSettings.FontSize;
+            bllSettings.ForeColor = newSettings.ForeColor;
+
+            bllSettings.Save();
+        }
+        
+        #endregion
     }
 }

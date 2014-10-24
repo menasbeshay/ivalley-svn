@@ -179,12 +179,28 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.Editor = null;
         this.AdminsEditor = null;
         this.selectedGift = null;
-        // default editor styles
-        this.IsBold = false;
-        this.IsItalic = false;
-        this.FontSize = 'meduim';
-        this.ForeColor = 'black';
         this.IsActive = false;
+        // default editor styles
+        this.IsBold = ko.observable(false);
+        this.IsItalic =ko.observable(false);
+        this.FontSize = ko.observable('meduim');
+        this.ForeColor = ko.observable('black');
+        this.toggleBold = function () {
+            self.IsBold(!self.IsBold());
+            self.saveEditorSetting();
+        };
+        this.toggleItalic = function () {
+            self.IsItalic(!self.IsItalic());
+            self.saveEditorSetting();
+        };
+        this.setFontSize = function (fontsize) {
+            self.FontSize(fontsize);
+            self.saveEditorSetting();
+        };
+        this.setForeColor = function (color) {
+            self.ForeColor(color);
+            self.saveEditorSetting();
+        };
 
         this.getMember = function (id) {
             return ko.utils.arrayFirst(self.Members(), function (mem) {
@@ -231,7 +247,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         }, this);
         //MicMember
         this.MicMember = ko.observable();
-
         // openedCams
         this.OpenedCams = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
@@ -525,7 +540,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 });
             }
         };
-
         // attach
         this.ShowAttachFiles = function () {
             $("#attachModal_" + self.uniqueID()).modal('show');
@@ -540,13 +554,11 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             $('#UploadedFile_' + self.uniqueID()).html('');
             $('#videoURL_' + self.uniqueID()).val('');
         };
-
         // audio 
         this.audioAttachment = "";
         this.UpdateAudioAttachment = function (audioDiv) {
             this.audioAttachment = audioDiv;
         };
-
         this.SendAudio = function () {
             if (this.audioAttachment != "") {
                 rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberID(), self.CurrentMember().MemberName(), self.audioAttachment, self.CurrentMember().MemberLevelID(), self.CurrentMember().ProfileImg(), self.CurrentMember().MemberTypeID());
@@ -891,31 +903,35 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             }
         }
 
+        $.ajax({
+            url: '../Services/Services.asmx/LoadWindowEditorSettings?mid=' + chatVM.CurrentMemberID + '&windowID=' + this.ID() + '&type=' + this.Type(),
+            success: function (data) {
+                self.IsBold(data.IsBold);
+                self.IsItalic(data.IsItalic);
+                self.FontSize(data.FontSize);
+                self.ForeColor(data.ForeColor);
+            }
+        });
         this.initEditor = function () {
             this.Editor.setValue("");
-            if (self.IsBold) {
+            if (self.IsBold()) {
                 self.Editor.composer.commands.exec("bold");
+                $('btnBold_' + self.uniqueID()).click();
             }
-            if (self.IsItalic) {
+            if (self.IsItalic()) {
                 self.Editor.composer.commands.exec("italic");
+                $('btnItalic_' + self.uniqueID()).click();
             }
             // self.Editor.composer.commands.exec("fontSize", self.FontSize);
-            self.Editor.composer.commands.exec("foreColor", self.ForeColor);
+            self.Editor.composer.commands.exec("foreColor", self.ForeColor());
+
         }
 
-        this.toggleBold = function () {
-            self.IsBold = !self.IsBold;
+        this.saveEditorSetting = function ()
+        {
+            var settings = JSON.stringify({ IsBold: self.IsBold(), IsItalic: self.IsItalic(), FontSize: self.FontSize(), ForeColor: self.ForeColor() });
+            $.post("../Services/Services.asmx/UpdateWindowEditorSettings", { mid: chatVM.CurrentMemberID, windowID: self.ID(), type: self.Type(), settings: settings });
         };
-        this.toggleItalic = function () {
-            self.IsItalic = !self.IsItalic;
-        };
-        this.setFontSize = function (fontsize) {
-            self.FontSize = fontsize;
-        };
-        this.setForeColor = function (color) {
-            self.ForeColor = color;
-        };
-
         this.showRoomInfo = function () {
             $("#infoModal_" + self.uniqueID()).modal('show');
         };
@@ -940,16 +956,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             var window = this;
             $.post("../Services/Services.asmx/SaveRoomBots", { roomBots: ko.toJSON(window.RoomBots) })
                 .done(function (data) {
-                    //if (data.status) {
-                    //    window.RoomBots([]);
-                    //    ko.utils.arrayMap(data.bots, function (item) {
-                    //        window.RoomBots.push(ko.mapping.fromJS(item));
-                    //    });
-                    //    initPopover(window);
-                    //}
-                    //else {
-                    //    alert(data.error);
-                    //}
+                    
                 });
             $("#" + window.roomBotsModalID).modal('hide');
         };
@@ -1302,7 +1309,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 }
             });
         });
-
         // popover menu for members
         initPopover(window);
 
@@ -1500,7 +1506,6 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             window.audioAttachment = "";
         }
     };
-
 
     /************ add friends logic *****************/
     self.SearchText = ko.observable('');

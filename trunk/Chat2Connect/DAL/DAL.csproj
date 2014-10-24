@@ -48,6 +48,7 @@
     <Compile Include="Gift.cs" />
     <Compile Include="MailAds.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="MemberChatWindowEditorSettings.cs" />
     <Compile Include="MemberFriend.cs" />
     <Compile Include="MemberGift.cs" />
     <Compile Include="MemberLog.cs" />
