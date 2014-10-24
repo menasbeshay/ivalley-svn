@@ -92,8 +92,10 @@ namespace Helper
             Admin_UpdateAccountStatus,
             [StringValue("حركة حساب")]
             Admin_AccountHistory,
-            [StringValue("إصدار صبغة مميزة")]
+            [StringValue("إصدار حساب مميز")]
             Admin_AddVIPAccount,
+            [StringValue("إصدار غرفة مميز")]
+            Admin_AddVIPRoom,
             [StringValue("صبغ غرفة")]
             Admin_RoomType,
             [StringValue("بريد الموقع")]

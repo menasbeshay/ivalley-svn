@@ -16,6 +16,7 @@ namespace Chat2Connect.Admin
                 List<string> lstRoles = new List<string>();
                 lstRoles.Add(Helper.Enums.AdminRoles.Admin_RoomStatus.ToString());
                 lstRoles.Add(Helper.Enums.AdminRoles.Admin_RoomType.ToString());
+                lstRoles.Add(Helper.Enums.AdminRoles.Admin_AddVIPRoom.ToString());
                 return lstRoles;
             }
         }
