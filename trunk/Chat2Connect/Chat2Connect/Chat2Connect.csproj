@@ -617,6 +617,7 @@
     <Content Include="images\hand.png" />
     <Content Include="images\video_camera.png" />
     <None Include="images\youtube.png" />
+    <Content Include="Jobs\Daily.aspx" />
     <Content Include="Jobs\MailAds.aspx" />
     <Content Include="Jobs\Types.aspx" />
     <Content Include="js\advanced.js" />
@@ -676,6 +677,7 @@
     <Content Include="PopupPages\Messages_popup.aspx" />
     <Content Include="resetpass.aspx" />
     <Content Include="Bots.aspx" />
+    <Content Include="RoomHistory.aspx" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -1075,6 +1077,13 @@
     <Compile Include="images.aspx.designer.cs">
       <DependentUpon>images.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Jobs\Daily.aspx.cs">
+      <DependentUpon>Daily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jobs\Daily.aspx.designer.cs">
+      <DependentUpon>Daily.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Jobs\MailAds.aspx.cs">
       <DependentUpon>MailAds.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1201,6 +1210,13 @@
     </Compile>
     <Compile Include="Bots.aspx.designer.cs">
       <DependentUpon>Bots.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomHistory.aspx.cs">
+      <DependentUpon>RoomHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoomHistory.aspx.designer.cs">
+      <DependentUpon>RoomHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="roomtypes.aspx.cs">
       <DependentUpon>roomtypes.aspx</DependentUpon>

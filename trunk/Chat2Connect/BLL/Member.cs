@@ -341,7 +341,7 @@ namespace BLL
                 return lstSiteMembers;
             }
         }
-        private static Member GetSiteMember(string name)
+        public static Member GetSiteMember(string name)
         {
             Member member = new Member();
             if (!member.GetByName(name))

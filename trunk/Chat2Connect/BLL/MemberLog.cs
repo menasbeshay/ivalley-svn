@@ -50,5 +50,13 @@ namespace BLL
 
             return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_MemberLogGetPointsReport]", parameters);   
         }
+
+        public bool LoadForRoom(int roomID, DateTime dtCreateDate,string membersLevel)
+        {
+            return LoadFromRawSql(@"SELECT MemberLog.* ,[MemberName]=Member.Name,[MemberLevel]=RoomMember.RoomMemberLevelID FROM MemberLog INNER JOIN Member ON Member.MemberID=MemberLog.MemberID 
+                                    INNER JOIN RoomMember ON RoomMember.RoomID=MemberLog.RelatedRoomID AND RoomMember.MemberID=MemberLog.MemberID
+                                    WHERE RelatedRoomID={0} AND CreateDate>={1} AND RoomMember.RoomMemberLevelID IN ("+membersLevel+")"
+                                    , roomID, dtCreateDate);
+        }
     }
 }
