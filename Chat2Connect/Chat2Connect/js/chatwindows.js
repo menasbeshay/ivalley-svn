@@ -1530,7 +1530,11 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 if (data.d != null || data.d != undefined) {
                     self.People.removeAll();
                     ko.utils.arrayMap(data.d, function (item) {
-                        self.People.push(item);
+                        var newObj = {};
+                        Object.keys(item).forEach(function (key) {
+                            newObj[key] = ko.observable(item[key]);
+                        });
+                        self.People.push(newObj);
                     })
                 }
                 else {
@@ -1553,10 +1557,16 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             data: { mid: self.CurrentMemberID, fid: fid, isFriend: false },
             success: function (result) {
                 $.each(self.People, function () {
-                    if (this.MemberID == fid) {
-                        self.People.destroy(this);
-                        return;
-                    }
+                    //if (this.MemberID == fid) {
+                    //    self.People.remove(this);
+                    //    return;
+                    //}
+                    var mem = ko.utils.arrayFirst(self.People(), function (mem) {
+                        return (mem.MemberID() == fid);
+                    });
+
+                    mem.IsFriend(true);
+
                 });
             }
         });

@@ -257,14 +257,17 @@
                             </div>
                             <ul class="findFriends SScroll" data-height="400px">
                                 <!-- ko foreach:People -->
-                                <li>
+                                <li data-bind="if:!IsFriend()">
                                     <div style="width: 27%; float: left; margin-right: 3px;">
                                         <img style="width: 50px;" data-bind="attr:{src:ProfileImg}" />
                                     </div>
                                     <div style="width: 70%; float: left; text-align: left;">
                                         <span data-bind="text:MemberName"></span>
                                         <div class="clear" style="height: 2px;"></div>
-                                        <a href="#" data-bind="click:$parent.AddNewFriend.bind($data,$data.MemberID)" class="btn btn-main smallbtn">أضف صديق</a>
+                                        <!--ko if: !IsFriend() -->
+                                        <a href="#" data-bind="click:$parent.AddNewFriend.bind($data,$data.MemberID())" class="btn btn-main smallbtn">أضف صديق</a>
+                                        <!-- /ko -->
+                                        
                                         &nbsp;<span style="font-family: Arial !important;" data-bind="text:FriendsCount"></span>
                                         &nbsp;<i class="icon icon-group"></i>
 

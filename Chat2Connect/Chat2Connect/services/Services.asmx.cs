@@ -838,7 +838,7 @@ namespace Chat2Connect.services
 
             for (int i = 0; i < members.RowCount; i++)
             {
-                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount") });
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount"), IsFriend= false });
                 members.MoveNext();
             }
             if (people.Count > 0)

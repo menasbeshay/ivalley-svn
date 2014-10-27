@@ -625,6 +625,7 @@ $(document).ready(function () {
             var member = { id: id, name: $("#usernode-" + id).attr('data-name') };
             chatVM.removeOnlineFriend(member);
             initPopupMenu();
+            CountFriends();
         }
         else if ($("#usernode-" + id).parent("#offlinepeople") && status != "offline") {
             var node = $("#usernode-" + id);
@@ -633,6 +634,7 @@ $(document).ready(function () {
             var member = { id: id, name: $("#usernode-" + id).attr('data-name') };
             chatVM.addOnlineFriend(member);
             initPopupMenu();
+            CountFriends();
         }
 
     };
