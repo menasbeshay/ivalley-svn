@@ -50,7 +50,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' />
+                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -106,7 +106,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' />
+                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -176,7 +176,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' />
+                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -232,7 +232,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' />
+                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
