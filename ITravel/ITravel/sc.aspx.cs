@@ -17,7 +17,7 @@ namespace ITravel
                 {
                     if (Request.QueryString["t"].ToString() == "n")
                     {
-                        IFramePage.Attributes.Add("src", "http://nesmaairlines.com");
+                        IFramePage.Attributes.Add("src", "http://nesmaairlines.com/en/booking");
                         Label3.Text = GetLocalResourceObject("PageTitleN").ToString();
                     }
                     else if (Request.QueryString["t"].ToString() == "s")
@@ -25,9 +25,14 @@ namespace ITravel
                         IFramePage.Attributes.Add("src", "http://www.shaheenair.com");
                         Label3.Text = GetLocalResourceObject("PageTitleS").ToString();
                     }
+                    else if (Request.QueryString["t"].ToString() == "k")
+                    {
+                        IFramePage.Attributes.Add("src", "http://www.kayak.com/");
+                        Label3.Text = GetLocalResourceObject("PageTitleK").ToString();
+                    }
                     else
                     {
-                        IFramePage.Attributes.Add("src", "http://nesmaairlines.com");
+                        IFramePage.Attributes.Add("src", "http://nesmaairlines.com/en/booking");
                         Label3.Text = GetLocalResourceObject("PageTitleN").ToString();
                     }
                 }

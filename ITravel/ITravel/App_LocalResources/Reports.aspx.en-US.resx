@@ -135,13 +135,16 @@
   <data name="ToDate" xml:space="preserve">
     <value>To Date</value>
   </data>
+  <data name="TotalCanceledRefundedTickets" xml:space="preserve">
+    <value>Total Canceled &amp; Refunded Tickets</value>
+  </data>
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>Total Canceled Tickets</value>
   </data>
   <data name="TotalReturned" xml:space="preserve">
-    <value>Total Returned Tickets</value>
+    <value>Total Canceled &amp; pending refunded Tickets</value>
   </data>
-  <data name="TotalSold" xml:space="preserve">
+  <data name="TotalSoldCanceled" xml:space="preserve">
     <value>Total Sold/Canceled Tickets with Net Income</value>
   </data>
 </root>

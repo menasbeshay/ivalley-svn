@@ -34,7 +34,7 @@ namespace ITravel
             uiReportViewerMain.LocalReport.Refresh();
         }
 
-        protected void uiLinkButtonSold_Click(object sender, EventArgs e)
+        protected void uiLinkButtonSoldCanceled_Click(object sender, EventArgs e)
         {
             TicketInfo tickets = new TicketInfo();
             DateTime from, to;
@@ -47,6 +47,22 @@ namespace ITravel
             uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/NetIncomeTickets.rdlc";
             uiReportViewerMain.LocalReport.DataSources.Clear();
             uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("NetIncomeDataSet", tickets.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
+        }
+
+        protected void uiLinkButtonSold_Click(object sender, EventArgs e)
+        {
+            TicketInfo tickets = new TicketInfo();
+            DateTime from, to;
+            from = DateTime.TryParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out from) ? from : new DateTime(1900, 1, 1);
+            to = DateTime.TryParseExact(uiTextBoxToDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out to) ? to : new DateTime(8000, 12, 31);
+
+            tickets.RPT_GetTickets_Sold(from, to);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/SoldTickets.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("SoldDataSet", tickets.DefaultView));
             uiReportViewerMain.LocalReport.Refresh();
         }
 
@@ -63,6 +79,22 @@ namespace ITravel
             uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/CanceledPendingRefunded.rdlc";
             uiReportViewerMain.LocalReport.DataSources.Clear();
             uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("CanceledPendingRefundedDataSet", tickets.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
+        }
+
+        protected void uiLinkButtonTotalCanceledRefunded_Click(object sender, EventArgs e)
+        {
+            TicketInfo tickets = new TicketInfo();
+            DateTime from, to;
+            from = DateTime.TryParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out from) ? from : new DateTime(1900, 1, 1);
+            to = DateTime.TryParseExact(uiTextBoxToDate.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out to) ? to : new DateTime(8000, 12, 31);
+
+            tickets.RPT_GetTicketsByStatusID(from, to, 4);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/CanceledRefunded.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("CanceledRefundedDataSet", tickets.DefaultView));
             uiReportViewerMain.LocalReport.Refresh();
         }
     }

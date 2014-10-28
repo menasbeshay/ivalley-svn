@@ -156,6 +156,9 @@
   <data name="PaidFor" xml:space="preserve">
     <value>Received From</value>
   </data>
+  <data name="PrintVoucher" xml:space="preserve">
+    <value>Print Voucher</value>
+  </data>
   <data name="Reason" xml:space="preserve">
     <value>Being</value>
   </data>

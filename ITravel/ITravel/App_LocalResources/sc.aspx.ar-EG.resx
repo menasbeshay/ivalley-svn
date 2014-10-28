@@ -120,6 +120,9 @@
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
+  <data name="PageTitleK" xml:space="preserve">
+    <value>حجز التذاكر</value>
+  </data>
   <data name="PageTitleN" xml:space="preserve">
     <value>حجز تذاكر نسما</value>
   </data>

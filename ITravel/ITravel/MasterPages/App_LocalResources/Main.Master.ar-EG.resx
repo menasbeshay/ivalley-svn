@@ -132,6 +132,9 @@
   <data name="CreditCard" xml:space="preserve">
     <value>كروت إئتمان</value>
   </data>
+  <data name="CreditCardWindow" xml:space="preserve">
+    <value>كروت إئتمان - شاشة خارحية</value>
+  </data>
   <data name="Customers" xml:space="preserve">
     <value>العملاء</value>
   </data>

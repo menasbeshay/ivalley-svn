@@ -72,7 +72,16 @@
                                     </a></li>
                                 <li><a href="../creditcards" ><span class="glyph archive"></span> 
                                     <asp:Label ID="Label12" runat="server" Text="<%$ Resources:CreditCard %>"></asp:Label>
-                                    </a></li>
+                                    </a>
+                                     <ul class="submenu">
+                                        <li>
+                                            <a onclick="window.open('creditcards','_blank','width=1000');" style="cursor:pointer;" >
+                                         <asp:Label ID="Label17" runat="server" Text="<%$ Resources:CreditCardWindow %>"></asp:Label>
+                                    </a>
+                                            </li>
+                                         </ul>
+
+                                </li>
                                  <li><a href="../RecievingVoucher" ><span class="glyph archive"></span> 
                                     <asp:Label ID="Label15" runat="server" Text="<%$ Resources:RecievingVoucher %>"></asp:Label>
                                     </a></li>
@@ -82,9 +91,12 @@
                                 <li><a href="../Reports" ><span class="glyph rating"></span> 
                                     <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Reports %>"></asp:Label>
                                     </a></li>
-                                <li><a href="login.html" ><span class="glyph logout"></span> 
+                                <li>
+                                        <asp:LinkButton ID="uiLinkButtonLogout" runat="server" OnClick="uiLinkButtonLogout_Click">
+                                            <span class="glyph logout"></span> 
                                     <asp:Label ID="Label7" runat="server" Text="<%$ Resources:Logout %>"></asp:Label>
-                                    </a></li>
+                                        </asp:LinkButton>
+                                    </li>
                                 <li>
                                     <a href="#" title="Elements"><span class="glyph move"></span> 
                                          <asp:Label ID="Label9" runat="server" Text="<%$ Resources:Lang %>"></asp:Label>

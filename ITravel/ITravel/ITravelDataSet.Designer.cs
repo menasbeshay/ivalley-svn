@@ -30,6 +30,14 @@ namespace ITravel {
         
         private RPT_GetTicketsByStatusIDDataTable tableRPT_GetTicketsByStatusID;
         
+        private proc_PaymentVoucherLoadByPrimaryKeyDataTable tableproc_PaymentVoucherLoadByPrimaryKey;
+        
+        private proc_ReceivingVoucherLoadByPrimaryKeyDataTable tableproc_ReceivingVoucherLoadByPrimaryKey;
+        
+        private RPT_GetTickets_SoldDataTable tableRPT_GetTickets_Sold;
+        
+        private RPT_GetTicketInfoDataTable tableRPT_GetTicketInfo;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +74,18 @@ namespace ITravel {
                 }
                 if ((ds.Tables["RPT_GetTicketsByStatusID"] != null)) {
                     base.Tables.Add(new RPT_GetTicketsByStatusIDDataTable(ds.Tables["RPT_GetTicketsByStatusID"]));
+                }
+                if ((ds.Tables["proc_PaymentVoucherLoadByPrimaryKey"] != null)) {
+                    base.Tables.Add(new proc_PaymentVoucherLoadByPrimaryKeyDataTable(ds.Tables["proc_PaymentVoucherLoadByPrimaryKey"]));
+                }
+                if ((ds.Tables["proc_ReceivingVoucherLoadByPrimaryKey"] != null)) {
+                    base.Tables.Add(new proc_ReceivingVoucherLoadByPrimaryKeyDataTable(ds.Tables["proc_ReceivingVoucherLoadByPrimaryKey"]));
+                }
+                if ((ds.Tables["RPT_GetTickets_Sold"] != null)) {
+                    base.Tables.Add(new RPT_GetTickets_SoldDataTable(ds.Tables["RPT_GetTickets_Sold"]));
+                }
+                if ((ds.Tables["RPT_GetTicketInfo"] != null)) {
+                    base.Tables.Add(new RPT_GetTicketInfoDataTable(ds.Tables["RPT_GetTicketInfo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +132,46 @@ namespace ITravel {
         public RPT_GetTicketsByStatusIDDataTable RPT_GetTicketsByStatusID {
             get {
                 return this.tableRPT_GetTicketsByStatusID;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public proc_PaymentVoucherLoadByPrimaryKeyDataTable proc_PaymentVoucherLoadByPrimaryKey {
+            get {
+                return this.tableproc_PaymentVoucherLoadByPrimaryKey;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public proc_ReceivingVoucherLoadByPrimaryKeyDataTable proc_ReceivingVoucherLoadByPrimaryKey {
+            get {
+                return this.tableproc_ReceivingVoucherLoadByPrimaryKey;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public RPT_GetTickets_SoldDataTable RPT_GetTickets_Sold {
+            get {
+                return this.tableRPT_GetTickets_Sold;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public RPT_GetTicketInfoDataTable RPT_GetTicketInfo {
+            get {
+                return this.tableRPT_GetTicketInfo;
             }
         }
         
@@ -191,6 +251,18 @@ namespace ITravel {
                 if ((ds.Tables["RPT_GetTicketsByStatusID"] != null)) {
                     base.Tables.Add(new RPT_GetTicketsByStatusIDDataTable(ds.Tables["RPT_GetTicketsByStatusID"]));
                 }
+                if ((ds.Tables["proc_PaymentVoucherLoadByPrimaryKey"] != null)) {
+                    base.Tables.Add(new proc_PaymentVoucherLoadByPrimaryKeyDataTable(ds.Tables["proc_PaymentVoucherLoadByPrimaryKey"]));
+                }
+                if ((ds.Tables["proc_ReceivingVoucherLoadByPrimaryKey"] != null)) {
+                    base.Tables.Add(new proc_ReceivingVoucherLoadByPrimaryKeyDataTable(ds.Tables["proc_ReceivingVoucherLoadByPrimaryKey"]));
+                }
+                if ((ds.Tables["RPT_GetTickets_Sold"] != null)) {
+                    base.Tables.Add(new RPT_GetTickets_SoldDataTable(ds.Tables["RPT_GetTickets_Sold"]));
+                }
+                if ((ds.Tables["RPT_GetTicketInfo"] != null)) {
+                    base.Tables.Add(new RPT_GetTicketInfoDataTable(ds.Tables["RPT_GetTicketInfo"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +314,30 @@ namespace ITravel {
                     this.tableRPT_GetTicketsByStatusID.InitVars();
                 }
             }
+            this.tableproc_PaymentVoucherLoadByPrimaryKey = ((proc_PaymentVoucherLoadByPrimaryKeyDataTable)(base.Tables["proc_PaymentVoucherLoadByPrimaryKey"]));
+            if ((initTable == true)) {
+                if ((this.tableproc_PaymentVoucherLoadByPrimaryKey != null)) {
+                    this.tableproc_PaymentVoucherLoadByPrimaryKey.InitVars();
+                }
+            }
+            this.tableproc_ReceivingVoucherLoadByPrimaryKey = ((proc_ReceivingVoucherLoadByPrimaryKeyDataTable)(base.Tables["proc_ReceivingVoucherLoadByPrimaryKey"]));
+            if ((initTable == true)) {
+                if ((this.tableproc_ReceivingVoucherLoadByPrimaryKey != null)) {
+                    this.tableproc_ReceivingVoucherLoadByPrimaryKey.InitVars();
+                }
+            }
+            this.tableRPT_GetTickets_Sold = ((RPT_GetTickets_SoldDataTable)(base.Tables["RPT_GetTickets_Sold"]));
+            if ((initTable == true)) {
+                if ((this.tableRPT_GetTickets_Sold != null)) {
+                    this.tableRPT_GetTickets_Sold.InitVars();
+                }
+            }
+            this.tableRPT_GetTicketInfo = ((RPT_GetTicketInfoDataTable)(base.Tables["RPT_GetTicketInfo"]));
+            if ((initTable == true)) {
+                if ((this.tableRPT_GetTicketInfo != null)) {
+                    this.tableRPT_GetTicketInfo.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +354,14 @@ namespace ITravel {
             base.Tables.Add(this.tableRPT_GetTickets_NetIncome);
             this.tableRPT_GetTicketsByStatusID = new RPT_GetTicketsByStatusIDDataTable();
             base.Tables.Add(this.tableRPT_GetTicketsByStatusID);
+            this.tableproc_PaymentVoucherLoadByPrimaryKey = new proc_PaymentVoucherLoadByPrimaryKeyDataTable();
+            base.Tables.Add(this.tableproc_PaymentVoucherLoadByPrimaryKey);
+            this.tableproc_ReceivingVoucherLoadByPrimaryKey = new proc_ReceivingVoucherLoadByPrimaryKeyDataTable();
+            base.Tables.Add(this.tableproc_ReceivingVoucherLoadByPrimaryKey);
+            this.tableRPT_GetTickets_Sold = new RPT_GetTickets_SoldDataTable();
+            base.Tables.Add(this.tableRPT_GetTickets_Sold);
+            this.tableRPT_GetTicketInfo = new RPT_GetTicketInfoDataTable();
+            base.Tables.Add(this.tableRPT_GetTicketInfo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +379,30 @@ namespace ITravel {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeRPT_GetTicketsByStatusID() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeproc_PaymentVoucherLoadByPrimaryKey() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeproc_ReceivingVoucherLoadByPrimaryKey() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeRPT_GetTickets_Sold() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeRPT_GetTicketInfo() {
             return false;
         }
         
@@ -341,6 +469,18 @@ namespace ITravel {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void RPT_GetTicketsByStatusIDRowChangeEventHandler(object sender, RPT_GetTicketsByStatusIDRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void proc_PaymentVoucherLoadByPrimaryKeyRowChangeEventHandler(object sender, proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEventHandler(object sender, proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void RPT_GetTickets_SoldRowChangeEventHandler(object sender, RPT_GetTickets_SoldRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void RPT_GetTicketInfoRowChangeEventHandler(object sender, RPT_GetTicketInfoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1780,6 +1920,2163 @@ namespace ITravel {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "RPT_GetTicketsByStatusIDDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class proc_PaymentVoucherLoadByPrimaryKeyDataTable : global::System.Data.TypedTableBase<proc_PaymentVoucherLoadByPrimaryKeyRow> {
+            
+            private global::System.Data.DataColumn columnPaymentVoucherID;
+            
+            private global::System.Data.DataColumn columnVoucherNumber;
+            
+            private global::System.Data.DataColumn columnAmount;
+            
+            private global::System.Data.DataColumn columnPaidFor;
+            
+            private global::System.Data.DataColumn columnPassengerId;
+            
+            private global::System.Data.DataColumn columnIsCheque;
+            
+            private global::System.Data.DataColumn columnBankName;
+            
+            private global::System.Data.DataColumn columnChuqueDate;
+            
+            private global::System.Data.DataColumn columnReason;
+            
+            private global::System.Data.DataColumn columnVoucherDate;
+            
+            private global::System.Data.DataColumn columnCreatedBy;
+            
+            private global::System.Data.DataColumn columnLastUpdatedDate;
+            
+            private global::System.Data.DataColumn columnLastUpdatedBy;
+            
+            private global::System.Data.DataColumn columnNumberWord;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyDataTable() {
+                this.TableName = "proc_PaymentVoucherLoadByPrimaryKey";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal proc_PaymentVoucherLoadByPrimaryKeyDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected proc_PaymentVoucherLoadByPrimaryKeyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PaymentVoucherIDColumn {
+                get {
+                    return this.columnPaymentVoucherID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VoucherNumberColumn {
+                get {
+                    return this.columnVoucherNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PaidForColumn {
+                get {
+                    return this.columnPaidFor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassengerIdColumn {
+                get {
+                    return this.columnPassengerId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsChequeColumn {
+                get {
+                    return this.columnIsCheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BankNameColumn {
+                get {
+                    return this.columnBankName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChuqueDateColumn {
+                get {
+                    return this.columnChuqueDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VoucherDateColumn {
+                get {
+                    return this.columnVoucherDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedByColumn {
+                get {
+                    return this.columnCreatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedDateColumn {
+                get {
+                    return this.columnLastUpdatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedByColumn {
+                get {
+                    return this.columnLastUpdatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NumberWordColumn {
+                get {
+                    return this.columnNumberWord;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyRow this[int index] {
+                get {
+                    return ((proc_PaymentVoucherLoadByPrimaryKeyRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_PaymentVoucherLoadByPrimaryKeyRowChangeEventHandler proc_PaymentVoucherLoadByPrimaryKeyRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_PaymentVoucherLoadByPrimaryKeyRowChangeEventHandler proc_PaymentVoucherLoadByPrimaryKeyRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_PaymentVoucherLoadByPrimaryKeyRowChangeEventHandler proc_PaymentVoucherLoadByPrimaryKeyRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_PaymentVoucherLoadByPrimaryKeyRowChangeEventHandler proc_PaymentVoucherLoadByPrimaryKeyRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addproc_PaymentVoucherLoadByPrimaryKeyRow(proc_PaymentVoucherLoadByPrimaryKeyRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyRow Addproc_PaymentVoucherLoadByPrimaryKeyRow(string VoucherNumber, decimal Amount, string PaidFor, int PassengerId, bool IsCheque, string BankName, System.DateTime ChuqueDate, string Reason, System.DateTime VoucherDate, System.Guid CreatedBy, System.DateTime LastUpdatedDate, System.Guid LastUpdatedBy, string NumberWord) {
+                proc_PaymentVoucherLoadByPrimaryKeyRow rowproc_PaymentVoucherLoadByPrimaryKeyRow = ((proc_PaymentVoucherLoadByPrimaryKeyRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        VoucherNumber,
+                        Amount,
+                        PaidFor,
+                        PassengerId,
+                        IsCheque,
+                        BankName,
+                        ChuqueDate,
+                        Reason,
+                        VoucherDate,
+                        CreatedBy,
+                        LastUpdatedDate,
+                        LastUpdatedBy,
+                        NumberWord};
+                rowproc_PaymentVoucherLoadByPrimaryKeyRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowproc_PaymentVoucherLoadByPrimaryKeyRow);
+                return rowproc_PaymentVoucherLoadByPrimaryKeyRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                proc_PaymentVoucherLoadByPrimaryKeyDataTable cln = ((proc_PaymentVoucherLoadByPrimaryKeyDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new proc_PaymentVoucherLoadByPrimaryKeyDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnPaymentVoucherID = base.Columns["PaymentVoucherID"];
+                this.columnVoucherNumber = base.Columns["VoucherNumber"];
+                this.columnAmount = base.Columns["Amount"];
+                this.columnPaidFor = base.Columns["PaidFor"];
+                this.columnPassengerId = base.Columns["PassengerId"];
+                this.columnIsCheque = base.Columns["IsCheque"];
+                this.columnBankName = base.Columns["BankName"];
+                this.columnChuqueDate = base.Columns["ChuqueDate"];
+                this.columnReason = base.Columns["Reason"];
+                this.columnVoucherDate = base.Columns["VoucherDate"];
+                this.columnCreatedBy = base.Columns["CreatedBy"];
+                this.columnLastUpdatedDate = base.Columns["LastUpdatedDate"];
+                this.columnLastUpdatedBy = base.Columns["LastUpdatedBy"];
+                this.columnNumberWord = base.Columns["NumberWord"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnPaymentVoucherID = new global::System.Data.DataColumn("PaymentVoucherID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentVoucherID);
+                this.columnVoucherNumber = new global::System.Data.DataColumn("VoucherNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherNumber);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnPaidFor = new global::System.Data.DataColumn("PaidFor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaidFor);
+                this.columnPassengerId = new global::System.Data.DataColumn("PassengerId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassengerId);
+                this.columnIsCheque = new global::System.Data.DataColumn("IsCheque", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCheque);
+                this.columnBankName = new global::System.Data.DataColumn("BankName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBankName);
+                this.columnChuqueDate = new global::System.Data.DataColumn("ChuqueDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChuqueDate);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
+                this.columnVoucherDate = new global::System.Data.DataColumn("VoucherDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherDate);
+                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedBy);
+                this.columnLastUpdatedDate = new global::System.Data.DataColumn("LastUpdatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedDate);
+                this.columnLastUpdatedBy = new global::System.Data.DataColumn("LastUpdatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedBy);
+                this.columnNumberWord = new global::System.Data.DataColumn("NumberWord", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberWord);
+                this.columnPaymentVoucherID.AutoIncrement = true;
+                this.columnPaymentVoucherID.AutoIncrementSeed = -1;
+                this.columnPaymentVoucherID.AutoIncrementStep = -1;
+                this.columnPaymentVoucherID.AllowDBNull = false;
+                this.columnPaymentVoucherID.ReadOnly = true;
+                this.columnVoucherNumber.MaxLength = 10;
+                this.columnPaidFor.MaxLength = 200;
+                this.columnBankName.MaxLength = 200;
+                this.columnReason.MaxLength = 400;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyRow Newproc_PaymentVoucherLoadByPrimaryKeyRow() {
+                return ((proc_PaymentVoucherLoadByPrimaryKeyRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new proc_PaymentVoucherLoadByPrimaryKeyRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(proc_PaymentVoucherLoadByPrimaryKeyRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.proc_PaymentVoucherLoadByPrimaryKeyRowChanged != null)) {
+                    this.proc_PaymentVoucherLoadByPrimaryKeyRowChanged(this, new proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent(((proc_PaymentVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.proc_PaymentVoucherLoadByPrimaryKeyRowChanging != null)) {
+                    this.proc_PaymentVoucherLoadByPrimaryKeyRowChanging(this, new proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent(((proc_PaymentVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.proc_PaymentVoucherLoadByPrimaryKeyRowDeleted != null)) {
+                    this.proc_PaymentVoucherLoadByPrimaryKeyRowDeleted(this, new proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent(((proc_PaymentVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.proc_PaymentVoucherLoadByPrimaryKeyRowDeleting != null)) {
+                    this.proc_PaymentVoucherLoadByPrimaryKeyRowDeleting(this, new proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent(((proc_PaymentVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeproc_PaymentVoucherLoadByPrimaryKeyRow(proc_PaymentVoucherLoadByPrimaryKeyRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ITravelDataSet ds = new ITravelDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "proc_PaymentVoucherLoadByPrimaryKeyDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class proc_ReceivingVoucherLoadByPrimaryKeyDataTable : global::System.Data.TypedTableBase<proc_ReceivingVoucherLoadByPrimaryKeyRow> {
+            
+            private global::System.Data.DataColumn columnReceivingVoucherID;
+            
+            private global::System.Data.DataColumn columnVoucherNumber;
+            
+            private global::System.Data.DataColumn columnAmount;
+            
+            private global::System.Data.DataColumn columnPaidFor;
+            
+            private global::System.Data.DataColumn columnPassengerId;
+            
+            private global::System.Data.DataColumn columnIsCheque;
+            
+            private global::System.Data.DataColumn columnBankName;
+            
+            private global::System.Data.DataColumn columnChuqueDate;
+            
+            private global::System.Data.DataColumn columnReason;
+            
+            private global::System.Data.DataColumn columnVoucherDate;
+            
+            private global::System.Data.DataColumn columnCreatedBy;
+            
+            private global::System.Data.DataColumn columnLastUpdatedDate;
+            
+            private global::System.Data.DataColumn columnLastUpdatedBy;
+            
+            private global::System.Data.DataColumn columnNumberWord;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyDataTable() {
+                this.TableName = "proc_ReceivingVoucherLoadByPrimaryKey";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal proc_ReceivingVoucherLoadByPrimaryKeyDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected proc_ReceivingVoucherLoadByPrimaryKeyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReceivingVoucherIDColumn {
+                get {
+                    return this.columnReceivingVoucherID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VoucherNumberColumn {
+                get {
+                    return this.columnVoucherNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PaidForColumn {
+                get {
+                    return this.columnPaidFor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassengerIdColumn {
+                get {
+                    return this.columnPassengerId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsChequeColumn {
+                get {
+                    return this.columnIsCheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BankNameColumn {
+                get {
+                    return this.columnBankName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChuqueDateColumn {
+                get {
+                    return this.columnChuqueDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VoucherDateColumn {
+                get {
+                    return this.columnVoucherDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedByColumn {
+                get {
+                    return this.columnCreatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedDateColumn {
+                get {
+                    return this.columnLastUpdatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedByColumn {
+                get {
+                    return this.columnLastUpdatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NumberWordColumn {
+                get {
+                    return this.columnNumberWord;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyRow this[int index] {
+                get {
+                    return ((proc_ReceivingVoucherLoadByPrimaryKeyRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEventHandler proc_ReceivingVoucherLoadByPrimaryKeyRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEventHandler proc_ReceivingVoucherLoadByPrimaryKeyRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEventHandler proc_ReceivingVoucherLoadByPrimaryKeyRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEventHandler proc_ReceivingVoucherLoadByPrimaryKeyRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addproc_ReceivingVoucherLoadByPrimaryKeyRow(proc_ReceivingVoucherLoadByPrimaryKeyRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyRow Addproc_ReceivingVoucherLoadByPrimaryKeyRow(string VoucherNumber, decimal Amount, string PaidFor, int PassengerId, bool IsCheque, string BankName, System.DateTime ChuqueDate, string Reason, System.DateTime VoucherDate, System.Guid CreatedBy, System.DateTime LastUpdatedDate, System.Guid LastUpdatedBy, string NumberWord) {
+                proc_ReceivingVoucherLoadByPrimaryKeyRow rowproc_ReceivingVoucherLoadByPrimaryKeyRow = ((proc_ReceivingVoucherLoadByPrimaryKeyRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        VoucherNumber,
+                        Amount,
+                        PaidFor,
+                        PassengerId,
+                        IsCheque,
+                        BankName,
+                        ChuqueDate,
+                        Reason,
+                        VoucherDate,
+                        CreatedBy,
+                        LastUpdatedDate,
+                        LastUpdatedBy,
+                        NumberWord};
+                rowproc_ReceivingVoucherLoadByPrimaryKeyRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowproc_ReceivingVoucherLoadByPrimaryKeyRow);
+                return rowproc_ReceivingVoucherLoadByPrimaryKeyRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                proc_ReceivingVoucherLoadByPrimaryKeyDataTable cln = ((proc_ReceivingVoucherLoadByPrimaryKeyDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new proc_ReceivingVoucherLoadByPrimaryKeyDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnReceivingVoucherID = base.Columns["ReceivingVoucherID"];
+                this.columnVoucherNumber = base.Columns["VoucherNumber"];
+                this.columnAmount = base.Columns["Amount"];
+                this.columnPaidFor = base.Columns["PaidFor"];
+                this.columnPassengerId = base.Columns["PassengerId"];
+                this.columnIsCheque = base.Columns["IsCheque"];
+                this.columnBankName = base.Columns["BankName"];
+                this.columnChuqueDate = base.Columns["ChuqueDate"];
+                this.columnReason = base.Columns["Reason"];
+                this.columnVoucherDate = base.Columns["VoucherDate"];
+                this.columnCreatedBy = base.Columns["CreatedBy"];
+                this.columnLastUpdatedDate = base.Columns["LastUpdatedDate"];
+                this.columnLastUpdatedBy = base.Columns["LastUpdatedBy"];
+                this.columnNumberWord = base.Columns["NumberWord"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnReceivingVoucherID = new global::System.Data.DataColumn("ReceivingVoucherID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceivingVoucherID);
+                this.columnVoucherNumber = new global::System.Data.DataColumn("VoucherNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherNumber);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnPaidFor = new global::System.Data.DataColumn("PaidFor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaidFor);
+                this.columnPassengerId = new global::System.Data.DataColumn("PassengerId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassengerId);
+                this.columnIsCheque = new global::System.Data.DataColumn("IsCheque", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCheque);
+                this.columnBankName = new global::System.Data.DataColumn("BankName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBankName);
+                this.columnChuqueDate = new global::System.Data.DataColumn("ChuqueDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChuqueDate);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
+                this.columnVoucherDate = new global::System.Data.DataColumn("VoucherDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherDate);
+                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedBy);
+                this.columnLastUpdatedDate = new global::System.Data.DataColumn("LastUpdatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedDate);
+                this.columnLastUpdatedBy = new global::System.Data.DataColumn("LastUpdatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedBy);
+                this.columnNumberWord = new global::System.Data.DataColumn("NumberWord", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberWord);
+                this.columnReceivingVoucherID.AutoIncrement = true;
+                this.columnReceivingVoucherID.AutoIncrementSeed = -1;
+                this.columnReceivingVoucherID.AutoIncrementStep = -1;
+                this.columnReceivingVoucherID.AllowDBNull = false;
+                this.columnReceivingVoucherID.ReadOnly = true;
+                this.columnVoucherNumber.MaxLength = 10;
+                this.columnPaidFor.MaxLength = 200;
+                this.columnBankName.MaxLength = 200;
+                this.columnReason.MaxLength = 400;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyRow Newproc_ReceivingVoucherLoadByPrimaryKeyRow() {
+                return ((proc_ReceivingVoucherLoadByPrimaryKeyRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new proc_ReceivingVoucherLoadByPrimaryKeyRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(proc_ReceivingVoucherLoadByPrimaryKeyRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.proc_ReceivingVoucherLoadByPrimaryKeyRowChanged != null)) {
+                    this.proc_ReceivingVoucherLoadByPrimaryKeyRowChanged(this, new proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent(((proc_ReceivingVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.proc_ReceivingVoucherLoadByPrimaryKeyRowChanging != null)) {
+                    this.proc_ReceivingVoucherLoadByPrimaryKeyRowChanging(this, new proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent(((proc_ReceivingVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.proc_ReceivingVoucherLoadByPrimaryKeyRowDeleted != null)) {
+                    this.proc_ReceivingVoucherLoadByPrimaryKeyRowDeleted(this, new proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent(((proc_ReceivingVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.proc_ReceivingVoucherLoadByPrimaryKeyRowDeleting != null)) {
+                    this.proc_ReceivingVoucherLoadByPrimaryKeyRowDeleting(this, new proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent(((proc_ReceivingVoucherLoadByPrimaryKeyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeproc_ReceivingVoucherLoadByPrimaryKeyRow(proc_ReceivingVoucherLoadByPrimaryKeyRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ITravelDataSet ds = new ITravelDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "proc_ReceivingVoucherLoadByPrimaryKeyDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class RPT_GetTickets_SoldDataTable : global::System.Data.TypedTableBase<RPT_GetTickets_SoldRow> {
+            
+            private global::System.Data.DataColumn columnTicketID;
+            
+            private global::System.Data.DataColumn columnFrom_AirportID;
+            
+            private global::System.Data.DataColumn columnTo_AirportID;
+            
+            private global::System.Data.DataColumn columnAirLineID;
+            
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
+            private global::System.Data.DataColumn columnActualPrice;
+            
+            private global::System.Data.DataColumn columnFinalPrice;
+            
+            private global::System.Data.DataColumn columnAddedValue;
+            
+            private global::System.Data.DataColumn columnAddedPercentage;
+            
+            private global::System.Data.DataColumn columnIsCanceled;
+            
+            private global::System.Data.DataColumn columnIsRefunded;
+            
+            private global::System.Data.DataColumn columnIsConfirmed;
+            
+            private global::System.Data.DataColumn columnCreatedDate;
+            
+            private global::System.Data.DataColumn columnCreatedBy;
+            
+            private global::System.Data.DataColumn columnLastUpdatedDate;
+            
+            private global::System.Data.DataColumn columnLastUpdatedBy;
+            
+            private global::System.Data.DataColumn columnTicketNo;
+            
+            private global::System.Data.DataColumn columnPassengerID;
+            
+            private global::System.Data.DataColumn columnFlightNo;
+            
+            private global::System.Data.DataColumn columnSeatNo;
+            
+            private global::System.Data.DataColumn columncabin_type;
+            
+            private global::System.Data.DataColumn columnCreditCardID;
+            
+            private global::System.Data.DataColumn columnTicketStatusID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldDataTable() {
+                this.TableName = "RPT_GetTickets_Sold";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_GetTickets_SoldDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected RPT_GetTickets_SoldDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketIDColumn {
+                get {
+                    return this.columnTicketID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn From_AirportIDColumn {
+                get {
+                    return this.columnFrom_AirportID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn To_AirportIDColumn {
+                get {
+                    return this.columnTo_AirportID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirLineIDColumn {
+                get {
+                    return this.columnAirLineID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ActualPriceColumn {
+                get {
+                    return this.columnActualPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FinalPriceColumn {
+                get {
+                    return this.columnFinalPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AddedValueColumn {
+                get {
+                    return this.columnAddedValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AddedPercentageColumn {
+                get {
+                    return this.columnAddedPercentage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsCanceledColumn {
+                get {
+                    return this.columnIsCanceled;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsRefundedColumn {
+                get {
+                    return this.columnIsRefunded;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsConfirmedColumn {
+                get {
+                    return this.columnIsConfirmed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedDateColumn {
+                get {
+                    return this.columnCreatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedByColumn {
+                get {
+                    return this.columnCreatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedDateColumn {
+                get {
+                    return this.columnLastUpdatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedByColumn {
+                get {
+                    return this.columnLastUpdatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketNoColumn {
+                get {
+                    return this.columnTicketNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassengerIDColumn {
+                get {
+                    return this.columnPassengerID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightNoColumn {
+                get {
+                    return this.columnFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SeatNoColumn {
+                get {
+                    return this.columnSeatNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cabin_typeColumn {
+                get {
+                    return this.columncabin_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreditCardIDColumn {
+                get {
+                    return this.columnCreditCardID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketStatusIDColumn {
+                get {
+                    return this.columnTicketStatusID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldRow this[int index] {
+                get {
+                    return ((RPT_GetTickets_SoldRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTickets_SoldRowChangeEventHandler RPT_GetTickets_SoldRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTickets_SoldRowChangeEventHandler RPT_GetTickets_SoldRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTickets_SoldRowChangeEventHandler RPT_GetTickets_SoldRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTickets_SoldRowChangeEventHandler RPT_GetTickets_SoldRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddRPT_GetTickets_SoldRow(RPT_GetTickets_SoldRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldRow AddRPT_GetTickets_SoldRow(
+                        int From_AirportID, 
+                        int To_AirportID, 
+                        int AirLineID, 
+                        System.DateTime FromDate, 
+                        System.DateTime ToDate, 
+                        decimal ActualPrice, 
+                        decimal FinalPrice, 
+                        decimal AddedValue, 
+                        decimal AddedPercentage, 
+                        bool IsCanceled, 
+                        bool IsRefunded, 
+                        bool IsConfirmed, 
+                        System.DateTime CreatedDate, 
+                        System.Guid CreatedBy, 
+                        System.DateTime LastUpdatedDate, 
+                        System.Guid LastUpdatedBy, 
+                        string TicketNo, 
+                        int PassengerID, 
+                        string FlightNo, 
+                        int SeatNo, 
+                        string cabin_type, 
+                        int CreditCardID, 
+                        int TicketStatusID) {
+                RPT_GetTickets_SoldRow rowRPT_GetTickets_SoldRow = ((RPT_GetTickets_SoldRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        From_AirportID,
+                        To_AirportID,
+                        AirLineID,
+                        FromDate,
+                        ToDate,
+                        ActualPrice,
+                        FinalPrice,
+                        AddedValue,
+                        AddedPercentage,
+                        IsCanceled,
+                        IsRefunded,
+                        IsConfirmed,
+                        CreatedDate,
+                        CreatedBy,
+                        LastUpdatedDate,
+                        LastUpdatedBy,
+                        TicketNo,
+                        PassengerID,
+                        FlightNo,
+                        SeatNo,
+                        cabin_type,
+                        CreditCardID,
+                        TicketStatusID};
+                rowRPT_GetTickets_SoldRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPT_GetTickets_SoldRow);
+                return rowRPT_GetTickets_SoldRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                RPT_GetTickets_SoldDataTable cln = ((RPT_GetTickets_SoldDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new RPT_GetTickets_SoldDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnTicketID = base.Columns["TicketID"];
+                this.columnFrom_AirportID = base.Columns["From_AirportID"];
+                this.columnTo_AirportID = base.Columns["To_AirportID"];
+                this.columnAirLineID = base.Columns["AirLineID"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
+                this.columnActualPrice = base.Columns["ActualPrice"];
+                this.columnFinalPrice = base.Columns["FinalPrice"];
+                this.columnAddedValue = base.Columns["AddedValue"];
+                this.columnAddedPercentage = base.Columns["AddedPercentage"];
+                this.columnIsCanceled = base.Columns["IsCanceled"];
+                this.columnIsRefunded = base.Columns["IsRefunded"];
+                this.columnIsConfirmed = base.Columns["IsConfirmed"];
+                this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnCreatedBy = base.Columns["CreatedBy"];
+                this.columnLastUpdatedDate = base.Columns["LastUpdatedDate"];
+                this.columnLastUpdatedBy = base.Columns["LastUpdatedBy"];
+                this.columnTicketNo = base.Columns["TicketNo"];
+                this.columnPassengerID = base.Columns["PassengerID"];
+                this.columnFlightNo = base.Columns["FlightNo"];
+                this.columnSeatNo = base.Columns["SeatNo"];
+                this.columncabin_type = base.Columns["cabin_type"];
+                this.columnCreditCardID = base.Columns["CreditCardID"];
+                this.columnTicketStatusID = base.Columns["TicketStatusID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnTicketID = new global::System.Data.DataColumn("TicketID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketID);
+                this.columnFrom_AirportID = new global::System.Data.DataColumn("From_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrom_AirportID);
+                this.columnTo_AirportID = new global::System.Data.DataColumn("To_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTo_AirportID);
+                this.columnAirLineID = new global::System.Data.DataColumn("AirLineID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirLineID);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
+                this.columnActualPrice = new global::System.Data.DataColumn("ActualPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActualPrice);
+                this.columnFinalPrice = new global::System.Data.DataColumn("FinalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalPrice);
+                this.columnAddedValue = new global::System.Data.DataColumn("AddedValue", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddedValue);
+                this.columnAddedPercentage = new global::System.Data.DataColumn("AddedPercentage", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddedPercentage);
+                this.columnIsCanceled = new global::System.Data.DataColumn("IsCanceled", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCanceled);
+                this.columnIsRefunded = new global::System.Data.DataColumn("IsRefunded", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsRefunded);
+                this.columnIsConfirmed = new global::System.Data.DataColumn("IsConfirmed", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsConfirmed);
+                this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedDate);
+                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedBy);
+                this.columnLastUpdatedDate = new global::System.Data.DataColumn("LastUpdatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedDate);
+                this.columnLastUpdatedBy = new global::System.Data.DataColumn("LastUpdatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedBy);
+                this.columnTicketNo = new global::System.Data.DataColumn("TicketNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketNo);
+                this.columnPassengerID = new global::System.Data.DataColumn("PassengerID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassengerID);
+                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightNo);
+                this.columnSeatNo = new global::System.Data.DataColumn("SeatNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSeatNo);
+                this.columncabin_type = new global::System.Data.DataColumn("cabin_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncabin_type);
+                this.columnCreditCardID = new global::System.Data.DataColumn("CreditCardID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreditCardID);
+                this.columnTicketStatusID = new global::System.Data.DataColumn("TicketStatusID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketStatusID);
+                this.columnTicketID.AutoIncrement = true;
+                this.columnTicketID.AutoIncrementSeed = -1;
+                this.columnTicketID.AutoIncrementStep = -1;
+                this.columnTicketID.AllowDBNull = false;
+                this.columnTicketID.ReadOnly = true;
+                this.columnTicketNo.MaxLength = 20;
+                this.columnFlightNo.MaxLength = 20;
+                this.columncabin_type.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldRow NewRPT_GetTickets_SoldRow() {
+                return ((RPT_GetTickets_SoldRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new RPT_GetTickets_SoldRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(RPT_GetTickets_SoldRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.RPT_GetTickets_SoldRowChanged != null)) {
+                    this.RPT_GetTickets_SoldRowChanged(this, new RPT_GetTickets_SoldRowChangeEvent(((RPT_GetTickets_SoldRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.RPT_GetTickets_SoldRowChanging != null)) {
+                    this.RPT_GetTickets_SoldRowChanging(this, new RPT_GetTickets_SoldRowChangeEvent(((RPT_GetTickets_SoldRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.RPT_GetTickets_SoldRowDeleted != null)) {
+                    this.RPT_GetTickets_SoldRowDeleted(this, new RPT_GetTickets_SoldRowChangeEvent(((RPT_GetTickets_SoldRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.RPT_GetTickets_SoldRowDeleting != null)) {
+                    this.RPT_GetTickets_SoldRowDeleting(this, new RPT_GetTickets_SoldRowChangeEvent(((RPT_GetTickets_SoldRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveRPT_GetTickets_SoldRow(RPT_GetTickets_SoldRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ITravelDataSet ds = new ITravelDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "RPT_GetTickets_SoldDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class RPT_GetTicketInfoDataTable : global::System.Data.TypedTableBase<RPT_GetTicketInfoRow> {
+            
+            private global::System.Data.DataColumn columnTicketID;
+            
+            private global::System.Data.DataColumn columnFrom_AirportID;
+            
+            private global::System.Data.DataColumn columnTo_AirportID;
+            
+            private global::System.Data.DataColumn columnAirLineID;
+            
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
+            private global::System.Data.DataColumn columnActualPrice;
+            
+            private global::System.Data.DataColumn columnFinalPrice;
+            
+            private global::System.Data.DataColumn columnAddedValue;
+            
+            private global::System.Data.DataColumn columnAddedPercentage;
+            
+            private global::System.Data.DataColumn columnIsCanceled;
+            
+            private global::System.Data.DataColumn columnIsRefunded;
+            
+            private global::System.Data.DataColumn columnIsConfirmed;
+            
+            private global::System.Data.DataColumn columnCreatedDate;
+            
+            private global::System.Data.DataColumn columnCreatedBy;
+            
+            private global::System.Data.DataColumn columnLastUpdatedDate;
+            
+            private global::System.Data.DataColumn columnLastUpdatedBy;
+            
+            private global::System.Data.DataColumn columnTicketNo;
+            
+            private global::System.Data.DataColumn columnPassengerID;
+            
+            private global::System.Data.DataColumn columnFlightNo;
+            
+            private global::System.Data.DataColumn columnSeatNo;
+            
+            private global::System.Data.DataColumn columncabin_type;
+            
+            private global::System.Data.DataColumn columnCreditCardID;
+            
+            private global::System.Data.DataColumn columnTicketStatusID;
+            
+            private global::System.Data.DataColumn columnStatusName;
+            
+            private global::System.Data.DataColumn columnFromName;
+            
+            private global::System.Data.DataColumn columnToName;
+            
+            private global::System.Data.DataColumn columnAirLineName;
+            
+            private global::System.Data.DataColumn columnPassName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoDataTable() {
+                this.TableName = "RPT_GetTicketInfo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_GetTicketInfoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected RPT_GetTicketInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketIDColumn {
+                get {
+                    return this.columnTicketID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn From_AirportIDColumn {
+                get {
+                    return this.columnFrom_AirportID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn To_AirportIDColumn {
+                get {
+                    return this.columnTo_AirportID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirLineIDColumn {
+                get {
+                    return this.columnAirLineID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ActualPriceColumn {
+                get {
+                    return this.columnActualPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FinalPriceColumn {
+                get {
+                    return this.columnFinalPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AddedValueColumn {
+                get {
+                    return this.columnAddedValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AddedPercentageColumn {
+                get {
+                    return this.columnAddedPercentage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsCanceledColumn {
+                get {
+                    return this.columnIsCanceled;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsRefundedColumn {
+                get {
+                    return this.columnIsRefunded;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsConfirmedColumn {
+                get {
+                    return this.columnIsConfirmed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedDateColumn {
+                get {
+                    return this.columnCreatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedByColumn {
+                get {
+                    return this.columnCreatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedDateColumn {
+                get {
+                    return this.columnLastUpdatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastUpdatedByColumn {
+                get {
+                    return this.columnLastUpdatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketNoColumn {
+                get {
+                    return this.columnTicketNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassengerIDColumn {
+                get {
+                    return this.columnPassengerID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightNoColumn {
+                get {
+                    return this.columnFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SeatNoColumn {
+                get {
+                    return this.columnSeatNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cabin_typeColumn {
+                get {
+                    return this.columncabin_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreditCardIDColumn {
+                get {
+                    return this.columnCreditCardID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TicketStatusIDColumn {
+                get {
+                    return this.columnTicketStatusID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StatusNameColumn {
+                get {
+                    return this.columnStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FromNameColumn {
+                get {
+                    return this.columnFromName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ToNameColumn {
+                get {
+                    return this.columnToName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirLineNameColumn {
+                get {
+                    return this.columnAirLineName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassNameColumn {
+                get {
+                    return this.columnPassName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoRow this[int index] {
+                get {
+                    return ((RPT_GetTicketInfoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTicketInfoRowChangeEventHandler RPT_GetTicketInfoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTicketInfoRowChangeEventHandler RPT_GetTicketInfoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTicketInfoRowChangeEventHandler RPT_GetTicketInfoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_GetTicketInfoRowChangeEventHandler RPT_GetTicketInfoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddRPT_GetTicketInfoRow(RPT_GetTicketInfoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoRow AddRPT_GetTicketInfoRow(
+                        int From_AirportID, 
+                        int To_AirportID, 
+                        int AirLineID, 
+                        System.DateTime FromDate, 
+                        System.DateTime ToDate, 
+                        decimal ActualPrice, 
+                        decimal FinalPrice, 
+                        decimal AddedValue, 
+                        decimal AddedPercentage, 
+                        bool IsCanceled, 
+                        bool IsRefunded, 
+                        bool IsConfirmed, 
+                        System.DateTime CreatedDate, 
+                        System.Guid CreatedBy, 
+                        System.DateTime LastUpdatedDate, 
+                        System.Guid LastUpdatedBy, 
+                        string TicketNo, 
+                        int PassengerID, 
+                        string FlightNo, 
+                        int SeatNo, 
+                        string cabin_type, 
+                        int CreditCardID, 
+                        int TicketStatusID, 
+                        string StatusName, 
+                        string FromName, 
+                        string ToName, 
+                        string AirLineName, 
+                        string PassName) {
+                RPT_GetTicketInfoRow rowRPT_GetTicketInfoRow = ((RPT_GetTicketInfoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        From_AirportID,
+                        To_AirportID,
+                        AirLineID,
+                        FromDate,
+                        ToDate,
+                        ActualPrice,
+                        FinalPrice,
+                        AddedValue,
+                        AddedPercentage,
+                        IsCanceled,
+                        IsRefunded,
+                        IsConfirmed,
+                        CreatedDate,
+                        CreatedBy,
+                        LastUpdatedDate,
+                        LastUpdatedBy,
+                        TicketNo,
+                        PassengerID,
+                        FlightNo,
+                        SeatNo,
+                        cabin_type,
+                        CreditCardID,
+                        TicketStatusID,
+                        StatusName,
+                        FromName,
+                        ToName,
+                        AirLineName,
+                        PassName};
+                rowRPT_GetTicketInfoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPT_GetTicketInfoRow);
+                return rowRPT_GetTicketInfoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                RPT_GetTicketInfoDataTable cln = ((RPT_GetTicketInfoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new RPT_GetTicketInfoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnTicketID = base.Columns["TicketID"];
+                this.columnFrom_AirportID = base.Columns["From_AirportID"];
+                this.columnTo_AirportID = base.Columns["To_AirportID"];
+                this.columnAirLineID = base.Columns["AirLineID"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
+                this.columnActualPrice = base.Columns["ActualPrice"];
+                this.columnFinalPrice = base.Columns["FinalPrice"];
+                this.columnAddedValue = base.Columns["AddedValue"];
+                this.columnAddedPercentage = base.Columns["AddedPercentage"];
+                this.columnIsCanceled = base.Columns["IsCanceled"];
+                this.columnIsRefunded = base.Columns["IsRefunded"];
+                this.columnIsConfirmed = base.Columns["IsConfirmed"];
+                this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnCreatedBy = base.Columns["CreatedBy"];
+                this.columnLastUpdatedDate = base.Columns["LastUpdatedDate"];
+                this.columnLastUpdatedBy = base.Columns["LastUpdatedBy"];
+                this.columnTicketNo = base.Columns["TicketNo"];
+                this.columnPassengerID = base.Columns["PassengerID"];
+                this.columnFlightNo = base.Columns["FlightNo"];
+                this.columnSeatNo = base.Columns["SeatNo"];
+                this.columncabin_type = base.Columns["cabin_type"];
+                this.columnCreditCardID = base.Columns["CreditCardID"];
+                this.columnTicketStatusID = base.Columns["TicketStatusID"];
+                this.columnStatusName = base.Columns["StatusName"];
+                this.columnFromName = base.Columns["FromName"];
+                this.columnToName = base.Columns["ToName"];
+                this.columnAirLineName = base.Columns["AirLineName"];
+                this.columnPassName = base.Columns["PassName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnTicketID = new global::System.Data.DataColumn("TicketID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketID);
+                this.columnFrom_AirportID = new global::System.Data.DataColumn("From_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrom_AirportID);
+                this.columnTo_AirportID = new global::System.Data.DataColumn("To_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTo_AirportID);
+                this.columnAirLineID = new global::System.Data.DataColumn("AirLineID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirLineID);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
+                this.columnActualPrice = new global::System.Data.DataColumn("ActualPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActualPrice);
+                this.columnFinalPrice = new global::System.Data.DataColumn("FinalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalPrice);
+                this.columnAddedValue = new global::System.Data.DataColumn("AddedValue", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddedValue);
+                this.columnAddedPercentage = new global::System.Data.DataColumn("AddedPercentage", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddedPercentage);
+                this.columnIsCanceled = new global::System.Data.DataColumn("IsCanceled", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCanceled);
+                this.columnIsRefunded = new global::System.Data.DataColumn("IsRefunded", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsRefunded);
+                this.columnIsConfirmed = new global::System.Data.DataColumn("IsConfirmed", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsConfirmed);
+                this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedDate);
+                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedBy);
+                this.columnLastUpdatedDate = new global::System.Data.DataColumn("LastUpdatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedDate);
+                this.columnLastUpdatedBy = new global::System.Data.DataColumn("LastUpdatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastUpdatedBy);
+                this.columnTicketNo = new global::System.Data.DataColumn("TicketNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketNo);
+                this.columnPassengerID = new global::System.Data.DataColumn("PassengerID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassengerID);
+                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightNo);
+                this.columnSeatNo = new global::System.Data.DataColumn("SeatNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSeatNo);
+                this.columncabin_type = new global::System.Data.DataColumn("cabin_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncabin_type);
+                this.columnCreditCardID = new global::System.Data.DataColumn("CreditCardID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreditCardID);
+                this.columnTicketStatusID = new global::System.Data.DataColumn("TicketStatusID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketStatusID);
+                this.columnStatusName = new global::System.Data.DataColumn("StatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatusName);
+                this.columnFromName = new global::System.Data.DataColumn("FromName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromName);
+                this.columnToName = new global::System.Data.DataColumn("ToName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToName);
+                this.columnAirLineName = new global::System.Data.DataColumn("AirLineName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirLineName);
+                this.columnPassName = new global::System.Data.DataColumn("PassName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassName);
+                this.columnTicketID.AutoIncrement = true;
+                this.columnTicketID.AutoIncrementSeed = -1;
+                this.columnTicketID.AutoIncrementStep = -1;
+                this.columnTicketID.AllowDBNull = false;
+                this.columnTicketID.ReadOnly = true;
+                this.columnTicketNo.MaxLength = 20;
+                this.columnFlightNo.MaxLength = 20;
+                this.columncabin_type.MaxLength = 30;
+                this.columnStatusName.MaxLength = 40;
+                this.columnFromName.MaxLength = 100;
+                this.columnToName.MaxLength = 100;
+                this.columnAirLineName.MaxLength = 100;
+                this.columnPassName.ReadOnly = true;
+                this.columnPassName.MaxLength = 401;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoRow NewRPT_GetTicketInfoRow() {
+                return ((RPT_GetTicketInfoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new RPT_GetTicketInfoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(RPT_GetTicketInfoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.RPT_GetTicketInfoRowChanged != null)) {
+                    this.RPT_GetTicketInfoRowChanged(this, new RPT_GetTicketInfoRowChangeEvent(((RPT_GetTicketInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.RPT_GetTicketInfoRowChanging != null)) {
+                    this.RPT_GetTicketInfoRowChanging(this, new RPT_GetTicketInfoRowChangeEvent(((RPT_GetTicketInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.RPT_GetTicketInfoRowDeleted != null)) {
+                    this.RPT_GetTicketInfoRowDeleted(this, new RPT_GetTicketInfoRowChangeEvent(((RPT_GetTicketInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.RPT_GetTicketInfoRowDeleting != null)) {
+                    this.RPT_GetTicketInfoRowDeleting(this, new RPT_GetTicketInfoRowChangeEvent(((RPT_GetTicketInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveRPT_GetTicketInfoRow(RPT_GetTicketInfoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ITravelDataSet ds = new ITravelDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "RPT_GetTicketInfoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3280,6 +5577,2292 @@ namespace ITravel {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class proc_PaymentVoucherLoadByPrimaryKeyRow : global::System.Data.DataRow {
+            
+            private proc_PaymentVoucherLoadByPrimaryKeyDataTable tableproc_PaymentVoucherLoadByPrimaryKey;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal proc_PaymentVoucherLoadByPrimaryKeyRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableproc_PaymentVoucherLoadByPrimaryKey = ((proc_PaymentVoucherLoadByPrimaryKeyDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PaymentVoucherID {
+                get {
+                    return ((int)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PaymentVoucherIDColumn]));
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PaymentVoucherIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string VoucherNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherNumber\' in table \'proc_PaymentVoucherLoadByPrimaryKe" +
+                                "y\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.AmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PaidFor {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PaidForColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaidFor\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PaidForColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PassengerId {
+                get {
+                    try {
+                        return ((int)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PassengerIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassengerId\' in table \'proc_PaymentVoucherLoadByPrimaryKey\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PassengerIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCheque {
+                get {
+                    try {
+                        return ((bool)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.IsChequeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCheque\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.IsChequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BankName {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.BankNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BankName\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.BankNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ChuqueDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ChuqueDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChuqueDate\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ChuqueDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reason\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime VoucherDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherDate\' in table \'proc_PaymentVoucherLoadByPrimaryKey\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid CreatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.CreatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.CreatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime LastUpdatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'proc_PaymentVoucherLoadByPrimary" +
+                                "Key\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid LastUpdatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedBy\' in table \'proc_PaymentVoucherLoadByPrimaryKe" +
+                                "y\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NumberWord {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_PaymentVoucherLoadByPrimaryKey.NumberWordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NumberWord\' in table \'proc_PaymentVoucherLoadByPrimaryKey\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_PaymentVoucherLoadByPrimaryKey.NumberWordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVoucherNumberNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVoucherNumberNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAmountNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAmountNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPaidForNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.PaidForColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPaidForNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PaidForColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassengerIdNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.PassengerIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassengerIdNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.PassengerIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsChequeNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.IsChequeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsChequeNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.IsChequeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBankNameNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.BankNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBankNameNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.BankNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChuqueDateNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.ChuqueDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChuqueDateNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ChuqueDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.ReasonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVoucherDateNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVoucherDateNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.VoucherDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedByNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.CreatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedByNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.CreatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedDateNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedDateNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedByNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedByNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.LastUpdatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNumberWordNull() {
+                return this.IsNull(this.tableproc_PaymentVoucherLoadByPrimaryKey.NumberWordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNumberWordNull() {
+                this[this.tableproc_PaymentVoucherLoadByPrimaryKey.NumberWordColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class proc_ReceivingVoucherLoadByPrimaryKeyRow : global::System.Data.DataRow {
+            
+            private proc_ReceivingVoucherLoadByPrimaryKeyDataTable tableproc_ReceivingVoucherLoadByPrimaryKey;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal proc_ReceivingVoucherLoadByPrimaryKeyRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableproc_ReceivingVoucherLoadByPrimaryKey = ((proc_ReceivingVoucherLoadByPrimaryKeyDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ReceivingVoucherID {
+                get {
+                    return ((int)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReceivingVoucherIDColumn]));
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReceivingVoucherIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string VoucherNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherNumber\' in table \'proc_ReceivingVoucherLoadByPrimary" +
+                                "Key\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.AmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PaidFor {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PaidForColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaidFor\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PaidForColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PassengerId {
+                get {
+                    try {
+                        return ((int)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PassengerIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassengerId\' in table \'proc_ReceivingVoucherLoadByPrimaryKe" +
+                                "y\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PassengerIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCheque {
+                get {
+                    try {
+                        return ((bool)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.IsChequeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCheque\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.IsChequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BankName {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.BankNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BankName\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.BankNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ChuqueDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ChuqueDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChuqueDate\' in table \'proc_ReceivingVoucherLoadByPrimaryKey" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ChuqueDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reason\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime VoucherDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherDate\' in table \'proc_ReceivingVoucherLoadByPrimaryKe" +
+                                "y\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid CreatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.CreatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'proc_ReceivingVoucherLoadByPrimaryKey\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.CreatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime LastUpdatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'proc_ReceivingVoucherLoadByPrima" +
+                                "ryKey\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid LastUpdatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedBy\' in table \'proc_ReceivingVoucherLoadByPrimary" +
+                                "Key\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NumberWord {
+                get {
+                    try {
+                        return ((string)(this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.NumberWordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NumberWord\' in table \'proc_ReceivingVoucherLoadByPrimaryKey" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.NumberWordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVoucherNumberNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVoucherNumberNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAmountNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAmountNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPaidForNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.PaidForColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPaidForNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PaidForColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassengerIdNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.PassengerIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassengerIdNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.PassengerIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsChequeNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.IsChequeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsChequeNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.IsChequeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBankNameNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.BankNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBankNameNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.BankNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChuqueDateNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.ChuqueDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChuqueDateNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ChuqueDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.ReasonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVoucherDateNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVoucherDateNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.VoucherDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedByNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.CreatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedByNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.CreatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedDateNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedDateNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedByNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedByNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.LastUpdatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNumberWordNull() {
+                return this.IsNull(this.tableproc_ReceivingVoucherLoadByPrimaryKey.NumberWordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNumberWordNull() {
+                this[this.tableproc_ReceivingVoucherLoadByPrimaryKey.NumberWordColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class RPT_GetTickets_SoldRow : global::System.Data.DataRow {
+            
+            private RPT_GetTickets_SoldDataTable tableRPT_GetTickets_Sold;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_GetTickets_SoldRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableRPT_GetTickets_Sold = ((RPT_GetTickets_SoldDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TicketID {
+                get {
+                    return ((int)(this[this.tableRPT_GetTickets_Sold.TicketIDColumn]));
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.TicketIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int From_AirportID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.From_AirportIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'From_AirportID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.From_AirportIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int To_AirportID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.To_AirportIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'To_AirportID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.To_AirportIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int AirLineID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.AirLineIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AirLineID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.AirLineIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FromDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTickets_Sold.FromDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromDate\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ToDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTickets_Sold.ToDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToDate\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ActualPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTickets_Sold.ActualPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ActualPrice\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.ActualPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal FinalPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTickets_Sold.FinalPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalPrice\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.FinalPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AddedValue {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTickets_Sold.AddedValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AddedValue\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.AddedValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AddedPercentage {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTickets_Sold.AddedPercentageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AddedPercentage\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.AddedPercentageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCanceled {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTickets_Sold.IsCanceledColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCanceled\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.IsCanceledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRefunded {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTickets_Sold.IsRefundedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsRefunded\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.IsRefundedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsConfirmed {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTickets_Sold.IsConfirmedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsConfirmed\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.IsConfirmedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CreatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTickets_Sold.CreatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.CreatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid CreatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableRPT_GetTickets_Sold.CreatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.CreatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime LastUpdatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTickets_Sold.LastUpdatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.LastUpdatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid LastUpdatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableRPT_GetTickets_Sold.LastUpdatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedBy\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.LastUpdatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TicketNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTickets_Sold.TicketNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TicketNo\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.TicketNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PassengerID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.PassengerIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassengerID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.PassengerIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FlightNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTickets_Sold.FlightNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.FlightNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SeatNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.SeatNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SeatNo\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.SeatNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cabin_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTickets_Sold.cabin_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cabin_type\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.cabin_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CreditCardID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.CreditCardIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreditCardID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.CreditCardIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TicketStatusID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTickets_Sold.TicketStatusIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TicketStatusID\' in table \'RPT_GetTickets_Sold\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTickets_Sold.TicketStatusIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFrom_AirportIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.From_AirportIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFrom_AirportIDNull() {
+                this[this.tableRPT_GetTickets_Sold.From_AirportIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTo_AirportIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.To_AirportIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTo_AirportIDNull() {
+                this[this.tableRPT_GetTickets_Sold.To_AirportIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAirLineIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.AirLineIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAirLineIDNull() {
+                this[this.tableRPT_GetTickets_Sold.AirLineIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFromDateNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.FromDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFromDateNull() {
+                this[this.tableRPT_GetTickets_Sold.FromDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsToDateNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.ToDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetToDateNull() {
+                this[this.tableRPT_GetTickets_Sold.ToDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsActualPriceNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.ActualPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetActualPriceNull() {
+                this[this.tableRPT_GetTickets_Sold.ActualPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFinalPriceNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.FinalPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFinalPriceNull() {
+                this[this.tableRPT_GetTickets_Sold.FinalPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAddedValueNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.AddedValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAddedValueNull() {
+                this[this.tableRPT_GetTickets_Sold.AddedValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAddedPercentageNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.AddedPercentageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAddedPercentageNull() {
+                this[this.tableRPT_GetTickets_Sold.AddedPercentageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsCanceledNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.IsCanceledColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsCanceledNull() {
+                this[this.tableRPT_GetTickets_Sold.IsCanceledColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsRefundedNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.IsRefundedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsRefundedNull() {
+                this[this.tableRPT_GetTickets_Sold.IsRefundedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsConfirmedNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.IsConfirmedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsConfirmedNull() {
+                this[this.tableRPT_GetTickets_Sold.IsConfirmedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedDateNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.CreatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedDateNull() {
+                this[this.tableRPT_GetTickets_Sold.CreatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedByNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.CreatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedByNull() {
+                this[this.tableRPT_GetTickets_Sold.CreatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedDateNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.LastUpdatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedDateNull() {
+                this[this.tableRPT_GetTickets_Sold.LastUpdatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedByNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.LastUpdatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedByNull() {
+                this[this.tableRPT_GetTickets_Sold.LastUpdatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTicketNoNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.TicketNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTicketNoNull() {
+                this[this.tableRPT_GetTickets_Sold.TicketNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassengerIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.PassengerIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassengerIDNull() {
+                this[this.tableRPT_GetTickets_Sold.PassengerIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFlightNoNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.FlightNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFlightNoNull() {
+                this[this.tableRPT_GetTickets_Sold.FlightNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSeatNoNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.SeatNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSeatNoNull() {
+                this[this.tableRPT_GetTickets_Sold.SeatNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscabin_typeNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.cabin_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcabin_typeNull() {
+                this[this.tableRPT_GetTickets_Sold.cabin_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreditCardIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.CreditCardIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreditCardIDNull() {
+                this[this.tableRPT_GetTickets_Sold.CreditCardIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTicketStatusIDNull() {
+                return this.IsNull(this.tableRPT_GetTickets_Sold.TicketStatusIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTicketStatusIDNull() {
+                this[this.tableRPT_GetTickets_Sold.TicketStatusIDColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class RPT_GetTicketInfoRow : global::System.Data.DataRow {
+            
+            private RPT_GetTicketInfoDataTable tableRPT_GetTicketInfo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_GetTicketInfoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableRPT_GetTicketInfo = ((RPT_GetTicketInfoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TicketID {
+                get {
+                    return ((int)(this[this.tableRPT_GetTicketInfo.TicketIDColumn]));
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.TicketIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int From_AirportID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.From_AirportIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'From_AirportID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.From_AirportIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int To_AirportID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.To_AirportIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'To_AirportID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.To_AirportIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int AirLineID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.AirLineIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AirLineID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.AirLineIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FromDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTicketInfo.FromDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromDate\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ToDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTicketInfo.ToDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToDate\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ActualPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTicketInfo.ActualPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ActualPrice\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.ActualPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal FinalPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTicketInfo.FinalPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalPrice\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.FinalPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AddedValue {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTicketInfo.AddedValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AddedValue\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.AddedValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AddedPercentage {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_GetTicketInfo.AddedPercentageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AddedPercentage\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.AddedPercentageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCanceled {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTicketInfo.IsCanceledColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCanceled\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.IsCanceledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRefunded {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTicketInfo.IsRefundedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsRefunded\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.IsRefundedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsConfirmed {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRPT_GetTicketInfo.IsConfirmedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsConfirmed\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.IsConfirmedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CreatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTicketInfo.CreatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.CreatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid CreatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableRPT_GetTicketInfo.CreatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.CreatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime LastUpdatedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_GetTicketInfo.LastUpdatedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.LastUpdatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid LastUpdatedBy {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tableRPT_GetTicketInfo.LastUpdatedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedBy\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.LastUpdatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TicketNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.TicketNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TicketNo\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.TicketNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PassengerID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.PassengerIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassengerID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.PassengerIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FlightNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.FlightNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.FlightNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SeatNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.SeatNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SeatNo\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.SeatNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cabin_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.cabin_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cabin_type\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.cabin_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CreditCardID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.CreditCardIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreditCardID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.CreditCardIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TicketStatusID {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPT_GetTicketInfo.TicketStatusIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TicketStatusID\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.TicketStatusIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.StatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StatusName\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.StatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FromName {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.FromNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromName\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.FromNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ToName {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.ToNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToName\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.ToNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AirLineName {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.AirLineNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AirLineName\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.AirLineNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PassName {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_GetTicketInfo.PassNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassName\' in table \'RPT_GetTicketInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_GetTicketInfo.PassNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFrom_AirportIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.From_AirportIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFrom_AirportIDNull() {
+                this[this.tableRPT_GetTicketInfo.From_AirportIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTo_AirportIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.To_AirportIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTo_AirportIDNull() {
+                this[this.tableRPT_GetTicketInfo.To_AirportIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAirLineIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.AirLineIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAirLineIDNull() {
+                this[this.tableRPT_GetTicketInfo.AirLineIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFromDateNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.FromDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFromDateNull() {
+                this[this.tableRPT_GetTicketInfo.FromDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsToDateNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.ToDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetToDateNull() {
+                this[this.tableRPT_GetTicketInfo.ToDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsActualPriceNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.ActualPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetActualPriceNull() {
+                this[this.tableRPT_GetTicketInfo.ActualPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFinalPriceNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.FinalPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFinalPriceNull() {
+                this[this.tableRPT_GetTicketInfo.FinalPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAddedValueNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.AddedValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAddedValueNull() {
+                this[this.tableRPT_GetTicketInfo.AddedValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAddedPercentageNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.AddedPercentageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAddedPercentageNull() {
+                this[this.tableRPT_GetTicketInfo.AddedPercentageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsCanceledNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.IsCanceledColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsCanceledNull() {
+                this[this.tableRPT_GetTicketInfo.IsCanceledColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsRefundedNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.IsRefundedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsRefundedNull() {
+                this[this.tableRPT_GetTicketInfo.IsRefundedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsConfirmedNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.IsConfirmedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsConfirmedNull() {
+                this[this.tableRPT_GetTicketInfo.IsConfirmedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedDateNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.CreatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedDateNull() {
+                this[this.tableRPT_GetTicketInfo.CreatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedByNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.CreatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedByNull() {
+                this[this.tableRPT_GetTicketInfo.CreatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedDateNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.LastUpdatedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedDateNull() {
+                this[this.tableRPT_GetTicketInfo.LastUpdatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastUpdatedByNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.LastUpdatedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastUpdatedByNull() {
+                this[this.tableRPT_GetTicketInfo.LastUpdatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTicketNoNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.TicketNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTicketNoNull() {
+                this[this.tableRPT_GetTicketInfo.TicketNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassengerIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.PassengerIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassengerIDNull() {
+                this[this.tableRPT_GetTicketInfo.PassengerIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFlightNoNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.FlightNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFlightNoNull() {
+                this[this.tableRPT_GetTicketInfo.FlightNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSeatNoNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.SeatNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSeatNoNull() {
+                this[this.tableRPT_GetTicketInfo.SeatNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscabin_typeNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.cabin_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcabin_typeNull() {
+                this[this.tableRPT_GetTicketInfo.cabin_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreditCardIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.CreditCardIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreditCardIDNull() {
+                this[this.tableRPT_GetTicketInfo.CreditCardIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTicketStatusIDNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.TicketStatusIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTicketStatusIDNull() {
+                this[this.tableRPT_GetTicketInfo.TicketStatusIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStatusNameNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.StatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStatusNameNull() {
+                this[this.tableRPT_GetTicketInfo.StatusNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFromNameNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.FromNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFromNameNull() {
+                this[this.tableRPT_GetTicketInfo.FromNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsToNameNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.ToNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetToNameNull() {
+                this[this.tableRPT_GetTicketInfo.ToNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAirLineNameNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.AirLineNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAirLineNameNull() {
+                this[this.tableRPT_GetTicketInfo.AirLineNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassNameNull() {
+                return this.IsNull(this.tableRPT_GetTicketInfo.PassNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassNameNull() {
+                this[this.tableRPT_GetTicketInfo.PassNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3367,6 +7950,142 @@ namespace ITravel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RPT_GetTicketsByStatusIDRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent : global::System.EventArgs {
+            
+            private proc_PaymentVoucherLoadByPrimaryKeyRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyRowChangeEvent(proc_PaymentVoucherLoadByPrimaryKeyRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_PaymentVoucherLoadByPrimaryKeyRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent : global::System.EventArgs {
+            
+            private proc_ReceivingVoucherLoadByPrimaryKeyRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyRowChangeEvent(proc_ReceivingVoucherLoadByPrimaryKeyRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public proc_ReceivingVoucherLoadByPrimaryKeyRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class RPT_GetTickets_SoldRowChangeEvent : global::System.EventArgs {
+            
+            private RPT_GetTickets_SoldRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldRowChangeEvent(RPT_GetTickets_SoldRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTickets_SoldRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class RPT_GetTicketInfoRowChangeEvent : global::System.EventArgs {
+            
+            private RPT_GetTicketInfoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoRowChangeEvent(RPT_GetTicketInfoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_GetTicketInfoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4023,6 +8742,818 @@ namespace ITravel.ITravelDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             ITravelDataSet.RPT_GetTicketsByStatusIDDataTable dataTable = new ITravelDataSet.RPT_GetTicketsByStatusIDDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class proc_PaymentVoucherLoadByPrimaryKeyTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public proc_PaymentVoucherLoadByPrimaryKeyTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "proc_PaymentVoucherLoadByPrimaryKey";
+            tableMapping.ColumnMappings.Add("PaymentVoucherID", "PaymentVoucherID");
+            tableMapping.ColumnMappings.Add("VoucherNumber", "VoucherNumber");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("PaidFor", "PaidFor");
+            tableMapping.ColumnMappings.Add("PassengerId", "PassengerId");
+            tableMapping.ColumnMappings.Add("IsCheque", "IsCheque");
+            tableMapping.ColumnMappings.Add("BankName", "BankName");
+            tableMapping.ColumnMappings.Add("ChuqueDate", "ChuqueDate");
+            tableMapping.ColumnMappings.Add("Reason", "Reason");
+            tableMapping.ColumnMappings.Add("VoucherDate", "VoucherDate");
+            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
+            tableMapping.ColumnMappings.Add("LastUpdatedDate", "LastUpdatedDate");
+            tableMapping.ColumnMappings.Add("LastUpdatedBy", "LastUpdatedBy");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ITravelConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.proc_PaymentVoucherLoadByPrimaryKey";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentVoucherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ITravelDataSet.proc_PaymentVoucherLoadByPrimaryKeyDataTable dataTable, global::System.Nullable<int> PaymentVoucherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PaymentVoucherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PaymentVoucherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ITravelDataSet.proc_PaymentVoucherLoadByPrimaryKeyDataTable GetData(global::System.Nullable<int> PaymentVoucherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PaymentVoucherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PaymentVoucherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            ITravelDataSet.proc_PaymentVoucherLoadByPrimaryKeyDataTable dataTable = new ITravelDataSet.proc_PaymentVoucherLoadByPrimaryKeyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class proc_ReceivingVoucherLoadByPrimaryKeyTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public proc_ReceivingVoucherLoadByPrimaryKeyTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "proc_ReceivingVoucherLoadByPrimaryKey";
+            tableMapping.ColumnMappings.Add("ReceivingVoucherID", "ReceivingVoucherID");
+            tableMapping.ColumnMappings.Add("VoucherNumber", "VoucherNumber");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("PaidFor", "PaidFor");
+            tableMapping.ColumnMappings.Add("PassengerId", "PassengerId");
+            tableMapping.ColumnMappings.Add("IsCheque", "IsCheque");
+            tableMapping.ColumnMappings.Add("BankName", "BankName");
+            tableMapping.ColumnMappings.Add("ChuqueDate", "ChuqueDate");
+            tableMapping.ColumnMappings.Add("Reason", "Reason");
+            tableMapping.ColumnMappings.Add("VoucherDate", "VoucherDate");
+            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
+            tableMapping.ColumnMappings.Add("LastUpdatedDate", "LastUpdatedDate");
+            tableMapping.ColumnMappings.Add("LastUpdatedBy", "LastUpdatedBy");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ITravelConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.proc_ReceivingVoucherLoadByPrimaryKey";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReceivingVoucherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ITravelDataSet.proc_ReceivingVoucherLoadByPrimaryKeyDataTable dataTable, global::System.Nullable<int> ReceivingVoucherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReceivingVoucherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReceivingVoucherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ITravelDataSet.proc_ReceivingVoucherLoadByPrimaryKeyDataTable GetData(global::System.Nullable<int> ReceivingVoucherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReceivingVoucherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReceivingVoucherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            ITravelDataSet.proc_ReceivingVoucherLoadByPrimaryKeyDataTable dataTable = new ITravelDataSet.proc_ReceivingVoucherLoadByPrimaryKeyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class RPT_GetTickets_SoldTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public RPT_GetTickets_SoldTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "RPT_GetTickets_Sold";
+            tableMapping.ColumnMappings.Add("TicketID", "TicketID");
+            tableMapping.ColumnMappings.Add("From_AirportID", "From_AirportID");
+            tableMapping.ColumnMappings.Add("To_AirportID", "To_AirportID");
+            tableMapping.ColumnMappings.Add("AirLineID", "AirLineID");
+            tableMapping.ColumnMappings.Add("FromDate", "FromDate");
+            tableMapping.ColumnMappings.Add("ToDate", "ToDate");
+            tableMapping.ColumnMappings.Add("ActualPrice", "ActualPrice");
+            tableMapping.ColumnMappings.Add("FinalPrice", "FinalPrice");
+            tableMapping.ColumnMappings.Add("AddedValue", "AddedValue");
+            tableMapping.ColumnMappings.Add("AddedPercentage", "AddedPercentage");
+            tableMapping.ColumnMappings.Add("IsCanceled", "IsCanceled");
+            tableMapping.ColumnMappings.Add("IsRefunded", "IsRefunded");
+            tableMapping.ColumnMappings.Add("IsConfirmed", "IsConfirmed");
+            tableMapping.ColumnMappings.Add("CreatedDate", "CreatedDate");
+            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
+            tableMapping.ColumnMappings.Add("LastUpdatedDate", "LastUpdatedDate");
+            tableMapping.ColumnMappings.Add("LastUpdatedBy", "LastUpdatedBy");
+            tableMapping.ColumnMappings.Add("TicketNo", "TicketNo");
+            tableMapping.ColumnMappings.Add("PassengerID", "PassengerID");
+            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
+            tableMapping.ColumnMappings.Add("SeatNo", "SeatNo");
+            tableMapping.ColumnMappings.Add("cabin_type", "cabin_type");
+            tableMapping.ColumnMappings.Add("CreditCardID", "CreditCardID");
+            tableMapping.ColumnMappings.Add("TicketStatusID", "TicketStatusID");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ITravelConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.RPT_GetTickets_Sold";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateFrom", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTo", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ITravelDataSet.RPT_GetTickets_SoldDataTable dataTable, global::System.Nullable<global::System.DateTime> DateFrom, global::System.Nullable<global::System.DateTime> DateTo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((DateFrom.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DateFrom.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((DateTo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(DateTo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ITravelDataSet.RPT_GetTickets_SoldDataTable GetData(global::System.Nullable<global::System.DateTime> DateFrom, global::System.Nullable<global::System.DateTime> DateTo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((DateFrom.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DateFrom.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((DateTo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(DateTo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            ITravelDataSet.RPT_GetTickets_SoldDataTable dataTable = new ITravelDataSet.RPT_GetTickets_SoldDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class RPT_GetTicketInfoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public RPT_GetTicketInfoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "RPT_GetTicketInfo";
+            tableMapping.ColumnMappings.Add("TicketID", "TicketID");
+            tableMapping.ColumnMappings.Add("From_AirportID", "From_AirportID");
+            tableMapping.ColumnMappings.Add("To_AirportID", "To_AirportID");
+            tableMapping.ColumnMappings.Add("AirLineID", "AirLineID");
+            tableMapping.ColumnMappings.Add("FromDate", "FromDate");
+            tableMapping.ColumnMappings.Add("ToDate", "ToDate");
+            tableMapping.ColumnMappings.Add("ActualPrice", "ActualPrice");
+            tableMapping.ColumnMappings.Add("FinalPrice", "FinalPrice");
+            tableMapping.ColumnMappings.Add("AddedValue", "AddedValue");
+            tableMapping.ColumnMappings.Add("AddedPercentage", "AddedPercentage");
+            tableMapping.ColumnMappings.Add("IsCanceled", "IsCanceled");
+            tableMapping.ColumnMappings.Add("IsRefunded", "IsRefunded");
+            tableMapping.ColumnMappings.Add("IsConfirmed", "IsConfirmed");
+            tableMapping.ColumnMappings.Add("CreatedDate", "CreatedDate");
+            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
+            tableMapping.ColumnMappings.Add("LastUpdatedDate", "LastUpdatedDate");
+            tableMapping.ColumnMappings.Add("LastUpdatedBy", "LastUpdatedBy");
+            tableMapping.ColumnMappings.Add("TicketNo", "TicketNo");
+            tableMapping.ColumnMappings.Add("PassengerID", "PassengerID");
+            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
+            tableMapping.ColumnMappings.Add("SeatNo", "SeatNo");
+            tableMapping.ColumnMappings.Add("cabin_type", "cabin_type");
+            tableMapping.ColumnMappings.Add("CreditCardID", "CreditCardID");
+            tableMapping.ColumnMappings.Add("TicketStatusID", "TicketStatusID");
+            tableMapping.ColumnMappings.Add("StatusName", "StatusName");
+            tableMapping.ColumnMappings.Add("FromName", "FromName");
+            tableMapping.ColumnMappings.Add("ToName", "ToName");
+            tableMapping.ColumnMappings.Add("AirLineName", "AirLineName");
+            tableMapping.ColumnMappings.Add("PassName", "PassName");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ITravelConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.RPT_GetTicketInfo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ITravelDataSet.RPT_GetTicketInfoDataTable dataTable, global::System.Nullable<int> TicketID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((TicketID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TicketID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ITravelDataSet.RPT_GetTicketInfoDataTable GetData(global::System.Nullable<int> TicketID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((TicketID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TicketID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            ITravelDataSet.RPT_GetTicketInfoDataTable dataTable = new ITravelDataSet.RPT_GetTicketInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -139,7 +139,7 @@
     <value>إغلاق</value>
   </data>
   <data name="Customer" xml:space="preserve">
-    <value>تسلمنا من</value>
+    <value>ادفعوا للمكرم</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -155,6 +155,9 @@
   </data>
   <data name="PaidFor" xml:space="preserve">
     <value>صرف لـ</value>
+  </data>
+  <data name="PrintVoucher" xml:space="preserve">
+    <value>طباعة المستند</value>
   </data>
   <data name="Reason" xml:space="preserve">
     <value>وذلك قيمة</value>

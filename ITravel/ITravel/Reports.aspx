@@ -58,11 +58,11 @@
                         <asp:Label ID="Label2" runat="server" Text="<%$ Resources:TotalCanceledTickets %>"></asp:Label></asp:LinkButton>                    
                 </li>
                 <li>
-                    <asp:LinkButton ID="uiLinkButtonSold" runat="server" OnClick="uiLinkButtonSold_Click">
+                    <asp:LinkButton ID="uiLinkButtonSoldCanceled" runat="server" OnClick="uiLinkButtonSoldCanceled_Click">
                     
                         <span class="glyph done"></span>
                         <br />
-                        <asp:Label ID="Label5" runat="server" Text="<%$ Resources:TotalSold %>"></asp:Label></asp:LinkButton>
+                        <asp:Label ID="Label5" runat="server" Text="<%$ Resources:TotalSoldCanceled %>"></asp:Label></asp:LinkButton>
                     
                 </li>
                 
@@ -78,13 +78,30 @@
                    </asp:LinkButton>
                 </li>
                 <li>
+                    <asp:LinkButton ID="uiLinkButtonTotalCanceledRefunded" runat="server" OnClick="uiLinkButtonTotalCanceledRefunded_Click"> <span class="glyph close-2"></span>
+                        <br />
+                        <asp:Label ID="Label9" runat="server" Text="<%$ Resources:TotalCanceledRefundedTickets %>"></asp:Label></asp:LinkButton>                    
+                </li>
+                <li>
+                    <asp:LinkButton ID="uiLinkButtonSold" runat="server" OnClick="uiLinkButtonSold_Click">
+                    
+                        <span class="glyph done"></span>
+                        <br />
+                        <asp:Label ID="Label10" runat="server" Text="<%$ Resources:TotalSold %>"></asp:Label></asp:LinkButton>
+                    
+                </li>
+                
+            </ul>
+            <div class="clear" style="height:25px;"></div>
+            <ul class="iconlist">
+                <li>
                     <a href="#" >
                         <span class="glyph clock"></span>
                         <br />
                         <asp:Label ID="Label7" runat="server" Text="<%$ Resources:Summary %>"></asp:Label>
                     </a>
                 </li>
-            </ul>
+                </ul>
             <div class="clear" style="height:20px;"></div>
 
             <rsweb:ReportViewer ID="uiReportViewerMain" runat="server" Width="100%"></rsweb:ReportViewer>

@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="PaymentVoucher.aspx.cs" Inherits="ITravel.PaymentVoucher" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ MasterType VirtualPath="~/MasterPages/Main.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:Panel ID="uiPanelAll" runat="server">
         <div class="box grid_12">
         <header>
@@ -35,18 +37,18 @@
             <div class="grid_11 table">
                 <asp:GridView ID="uiGridViewVouchers" runat="server" AllowPaging="True" OnPageIndexChanging="uiGridViewVouchers_PageIndexChanging" OnRowCommand="uiGridViewVouchers_RowCommand" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="VoucherNo" HeaderText="<%$ Resources:VoucherNo %>" />
+                        <asp:BoundField DataField="VoucherNumber" HeaderText="<%$ Resources:VoucherNo %>" />
                         <asp:BoundField DataField="VoucherDate" HeaderText="<%$ Resources:VoucherDate %>" DataFormatString="{0:hh:mm tt dd/MM/yyyy}"/>
                         <asp:BoundField DataField="Reason" HeaderText="<%$ Resources:Reason %>" />
-                        <asp:CheckBoxField DataField="IsChuque" HeaderText="<%$ Resources:IsCheque %>" ReadOnly="true"/>
+                        <asp:CheckBoxField DataField="IsCheque" HeaderText="<%$ Resources:IsCheque %>" ReadOnly="true"/>
                         <asp:BoundField DataField="Amount" HeaderText="<%$ Resources:Amount %>" />
                         <asp:TemplateField HeaderText="<%$ Resources:Actions %>">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CommandName="EditR" CommandArgument='<%# Eval("TicketID") %>'>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CommandName="EditR" CommandArgument='<%# Eval("PaymentVoucherID") %>'>
                                     <asp:Label ID="Label5" runat="server" Text="<%$ Resources:Edit %>"></asp:Label>
                                 </asp:LinkButton>
                                 &nbsp;|&nbsp;
-                                <asp:LinkButton ID="LinkButton2" runat="server" CommandName="DeleteR" CommandArgument='<%# Eval("TicketID") %>'>
+                                <asp:LinkButton ID="LinkButton2" runat="server" CommandName="DeleteR" CommandArgument='<%# Eval("PaymentVoucherID") %>'>
                                     <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Delete %>"></asp:Label>
                                 </asp:LinkButton>
                             </ItemTemplate>
@@ -95,6 +97,13 @@
             </div>
                 
             </div>
+            <div class="grid_3 right" style="margin-right:0px;">
+            <div class="field fullwidth">
+                
+                
+                <asp:LinkButton ID="uiLinkButtonPrint" runat="server" CssClass="bt blue" ClientIDMode="Static" OnClick="uiLinkButtonPrint_Click" Text="<%$ Resources:PrintVoucher %>"></asp:LinkButton>
+            </div>
+                </div>
             <div class="clear"></div>
 
             <div class="grid_3 left" style="margin-right:0px;">
@@ -107,7 +116,7 @@
             </div>
                 </div>
 
-            <div class="clear"></div>
+            
             <div class="grid_3 left" style="margin-right:0px;">
                  <div class="field fullwidth">
                 
@@ -168,7 +177,7 @@
                 <label for="uiTextBoxReason">
                     <asp:Label ID="Label18" runat="server" Text="<%$ Resources:Reason %>"></asp:Label>
                 </label>
-                <asp:TextBox ID="uiTextBoxReason" runat="server" ClientIDMode="Static" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                <asp:TextBox ID="uiTextBoxReason" runat="server" ClientIDMode="Static" TextMode="MultiLine" Rows="2"></asp:TextBox>
             </div>
                 
             </div>
@@ -194,7 +203,7 @@
                 </div>
             <div class="clear" ></div>
             
-            
+            <rsweb:ReportViewer ID="uiReportViewerMain" runat="server" Width="100%"></rsweb:ReportViewer>
         </div>
     </div>
        

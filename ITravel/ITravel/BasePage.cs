@@ -19,10 +19,13 @@ namespace ITravel
 
         protected void BasePage_Load(object sender, EventArgs e)
         {
-            //if (!Request.IsAuthenticated)
-            //{
-            //    Response.Redirect("~/login.html");
-            //}
+            if (Request.QueryString["al"] == null)
+            {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/login.html");
+                }
+            }
         }
 
        

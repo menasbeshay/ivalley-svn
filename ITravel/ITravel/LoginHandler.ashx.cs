@@ -18,8 +18,9 @@ namespace ITravel
             {
                 if (Membership.ValidateUser(context.Request.Form["Username"].ToString(), context.Request.Form["Password"].ToString()))
                 {
-                    FormsAuthentication.SetAuthCookie(context.Request.Form["Username"].ToString(), true);                    
-                    context.Server.TransferRequest("home.aspx");
+                    FormsAuthentication.SetAuthCookie(context.Request.Form["Username"].ToString(), true);
+                    FormsAuthentication.RedirectFromLoginPage(context.Request.Form["Username"].ToString(),true);
+                   // context.Server.TransferRequest("home.aspx?al=1");
                 }
             }
         }
