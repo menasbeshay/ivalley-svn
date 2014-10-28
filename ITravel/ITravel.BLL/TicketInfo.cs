@@ -65,12 +65,35 @@ namespace ITravel.BLL
             return LoadFromSql("RPT_GetTickets_Sold", parameters);
         }
 
+        public virtual bool RPT_Summary(DateTime From, DateTime To)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);
+
+            return LoadFromSql("RPT_Summary", parameters);
+        }
+
+       
+
         public virtual bool RPT_GetTicketInfo(int ticketid)
         {
             ListDictionary parameters = new ListDictionary();
 
             parameters.Add(new SqlParameter("@TicketID", SqlDbType.Int, 0), ticketid);
             return LoadFromSql("RPT_GetTicketInfo", parameters);
+        }
+
+        public virtual bool RPT_GetTickets_ByCreditCardID(DateTime From, DateTime To, int CreditCardID)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);
+            parameters.Add(new SqlParameter("@CreditCardID", SqlDbType.Int, 0), CreditCardID);
+
+            return LoadFromSql("RPT_GetTickets_ByCreditCardID", parameters);
         }
     }
 }

@@ -120,6 +120,9 @@
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
+  <data name="CreditCards" xml:space="preserve">
+    <value>إختر بطاقة</value>
+  </data>
   <data name="FromDate" xml:space="preserve">
     <value>التاريخ : من</value>
   </data>
@@ -141,8 +144,20 @@
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>اجماليات التذاكر الملغاه</value>
   </data>
+  <data name="TotalCC" xml:space="preserve">
+    <value>إجمالى التذاكر عن طريق بطاقة إئتمان</value>
+  </data>
+  <data name="TotalPayment" xml:space="preserve">
+    <value>إجمالى سندات الصرف</value>
+  </data>
+  <data name="TotalReceive" xml:space="preserve">
+    <value>إجمالى سندات الإستلام</value>
+  </data>
   <data name="TotalReturned" xml:space="preserve">
     <value>اجمالى التذاكر التى تم إلغائها&lt;br /&gt; ولم يتم استردادها</value>
+  </data>
+  <data name="TotalSold" xml:space="preserve">
+    <value>إجمالى التذاكر المباعة</value>
   </data>
   <data name="TotalSoldCanceled" xml:space="preserve">
     <value>اجمالى التذاكر المباعه والملغاة &lt;br /&gt;وصافى الدخل</value>

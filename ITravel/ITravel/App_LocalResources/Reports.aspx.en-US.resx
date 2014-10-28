@@ -120,6 +120,9 @@
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="CreditCards" xml:space="preserve">
+    <value>Select Card</value>
+  </data>
   <data name="FromDate" xml:space="preserve">
     <value>From Date</value>
   </data>
@@ -141,8 +144,20 @@
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>Total Canceled Tickets</value>
   </data>
+  <data name="TotalCC" xml:space="preserve">
+    <value>Total Tickets by credit card</value>
+  </data>
+  <data name="TotalPayment" xml:space="preserve">
+    <value>Total Payment Vouchers</value>
+  </data>
+  <data name="TotalReceive" xml:space="preserve">
+    <value>Total Receiving Vouchers</value>
+  </data>
   <data name="TotalReturned" xml:space="preserve">
     <value>Total Canceled &amp; pending refunded Tickets</value>
+  </data>
+  <data name="TotalSold" xml:space="preserve">
+    <value>Total Sold Tickets</value>
   </data>
   <data name="TotalSoldCanceled" xml:space="preserve">
     <value>Total Sold/Canceled Tickets with Net Income</value>
