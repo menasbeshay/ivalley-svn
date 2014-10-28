@@ -279,8 +279,7 @@ namespace Chat2Connect.services
         {
             List<dynamic> friends = new List<dynamic>();
             Member member = new Member();
-            member.SearchMembersExceptFriends(q, memberID);
-            if (member.RowCount > 0)
+            if (member.SearchMembers(q))
             {
                 for (int i = 0; i < member.RowCount; i++)
                 {
@@ -288,6 +287,7 @@ namespace Chat2Connect.services
                     member.MoveNext();
                 }
             }
+            
             if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_SendMessgae.ToString()))
             {
                 friends.AddRange(Helper.EnumUtil.GetValues<Helper.Enums.AdminMailAddressAlias>().Select(r => new
