@@ -196,7 +196,7 @@
                                 </li>
                                  
                                 <li>
-                                    <a href="#">
+                                    <a href="../sc?t=k">
                                         <span class="glyph tag"></span>
                                         <asp:Label ID="Label8" runat="server" Text="<%$ Resources:Book %>" ></asp:Label>
                                     </a>

@@ -24,5 +24,16 @@ namespace ITravel.BLL
             return LoadFromSql("SearchPaymentVoucher", parameters);
 
         }
+
+        public virtual bool RPT_GetTotalPaymentVoucher(DateTime From, DateTime To)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@DateFrom", SqlDbType.DateTime, 0), From);
+            parameters.Add(new SqlParameter("@DateTo", SqlDbType.DateTime, 0), To);
+
+            return LoadFromSql("RPT_GetTotalPaymentVoucher", parameters);
+        }
+
 	}
 }

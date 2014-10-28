@@ -27,7 +27,7 @@ namespace ITravel
                     }
                     else if (Request.QueryString["t"].ToString() == "k")
                     {
-                        IFramePage.Attributes.Add("src", "http://www.kayak.com/");
+                        IFramePage.Attributes.Add("src", "http://www.expedia.com/");
                         Label3.Text = GetLocalResourceObject("PageTitleK").ToString();
                     }
                     else

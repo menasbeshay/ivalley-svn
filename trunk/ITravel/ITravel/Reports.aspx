@@ -43,6 +43,17 @@
             </div>
                 
             </div>
+
+             <div class="grid_3  left" style="margin-right:0px;">
+                <div class="field fullwidth">
+                
+                <label for="uiDropDownListCC">
+                    <asp:Label ID="Label14" runat="server" Text="<%$ Resources:CreditCards %>"></asp:Label>
+                </label>
+                    <asp:DropDownList ID="uiDropDownListCC" runat="server" ClientIDMode="Static"></asp:DropDownList>
+            </div>
+                
+            </div>
             <div class="clear" style="height:10px;"></div>
             <ul class="iconlist">
                 <li>
@@ -78,7 +89,7 @@
                    </asp:LinkButton>
                 </li>
                 <li>
-                    <asp:LinkButton ID="uiLinkButtonTotalCanceledRefunded" runat="server" OnClick="uiLinkButtonTotalCanceledRefunded_Click"> <span class="glyph close-2"></span>
+                    <asp:LinkButton ID="uiLinkButtonTotalCanceledRefunded" runat="server" OnClick="uiLinkButtonTotalCanceledRefunded_Click"> <span class="glyph reply"></span>
                         <br />
                         <asp:Label ID="Label9" runat="server" Text="<%$ Resources:TotalCanceledRefundedTickets %>"></asp:Label></asp:LinkButton>                    
                 </li>
@@ -95,11 +106,34 @@
             <div class="clear" style="height:25px;"></div>
             <ul class="iconlist">
                 <li>
-                    <a href="#" >
+                    <asp:LinkButton ID="uiLinkButtonTicketsCC" runat="server" OnClick="uiLinkButtonTicketsCC_Click">
+                        <span class="glyph archive"></span>
+                        <br />
+                        <asp:Label ID="Label13" runat="server" Text="<%$ Resources:TotalCC %>"></asp:Label>
+                   </asp:LinkButton>
+                </li>       
+                <li>
+                    <asp:LinkButton ID="uiLinkButtonTotalPayment" runat="server" OnClick="uiLinkButtonTotalPayment_Click">
+                        <span class="glyph archive"></span>
+                        <br />
+                        <asp:Label ID="Label11" runat="server" Text="<%$ Resources:TotalPayment %>"></asp:Label>
+                   </asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="uiLinkButtonTotalReceive" runat="server" OnClick="uiLinkButtonTotalReceive_Click"> <span class="glyph archive"></span>
+                        <br />
+                        <asp:Label ID="Label12" runat="server" Text="<%$ Resources:TotalReceive %>"></asp:Label></asp:LinkButton>                    
+                </li>         
+                </ul>
+            <div class="clear" style="height:25px;"></div>
+            <ul class="iconlist">
+                
+                <li>
+                    <asp:LinkButton ID="uiLinkButtonSummary" runat="server" OnClick="uiLinkButtonSummary_Click">
                         <span class="glyph clock"></span>
                         <br />
                         <asp:Label ID="Label7" runat="server" Text="<%$ Resources:Summary %>"></asp:Label>
-                    </a>
+                    </asp:LinkButton>
                 </li>
                 </ul>
             <div class="clear" style="height:20px;"></div>

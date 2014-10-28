@@ -23,7 +23,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>إجماليات التذاكر الملغاه ولم يتم إسترداد قيمتها</Value>
+                <Value>إجماليات التذاكر المحجوزة بواسطة بطاقة </Value>
                 <Style>
                   <FontSize>20pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -694,8 +694,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <LayoutDirection>RTL</LayoutDirection>
-        <DataSetName>CanceledPendingRefundedDataSet</DataSetName>
-        <Top>3.46287cm</Top>
+        <DataSetName>CCDataSet</DataSetName>
+        <Top>4.41537cm</Top>
         <Left>1.92531cm</Left>
         <Height>2.23187cm</Height>
         <Width>14.94709cm</Width>
@@ -706,8 +706,50 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="CCNumber">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> رقم البطاقة : </Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!CCNumber.Value</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CCNumber</rd:DefaultName>
+        <Top>3.22474cm</Top>
+        <Left>4.28837cm</Left>
+        <Height>0.6cm</Height>
+        <Width>10.02412cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.85349cm</Height>
+    <Height>6.64724cm</Height>
     <Style />
   </Body>
   <Width>17.21636cm</Width>
@@ -867,7 +909,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="CanceledPendingRefundedDataSet">
+    <DataSet Name="CCDataSet">
       <Query>
         <DataSourceName>ITravelDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -973,13 +1015,19 @@
       <rd:DataSetInfo>
         <rd:DataSetName>ITravelDataSet</rd:DataSetName>
         <rd:SchemaPath>D:\I-Valley\Travel Agency\ITravel\ITravel\ITravelDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>RPT_GetTicketsByStatusID</rd:TableName>
+        <rd:TableName>RPT_GetTickets_ByCreditCardID</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>RPT_GetTicketsByStatusIDTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>RPT_GetTickets_ByCreditCardIDTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="CCNumber">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <EmbeddedImages>
     <EmbeddedImage Name="logo">
       <MIMEType>image/png</MIMEType>
