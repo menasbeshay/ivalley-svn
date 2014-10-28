@@ -28,6 +28,12 @@ namespace ITravel.MasterPages
             Response.Redirect(Request.RawUrl);
         }
 
+        protected void uiLinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            System.Web.Security.FormsAuthentication.SignOut();
+            System.Web.Security.FormsAuthentication.RedirectToLoginPage();
+        }
+
        
     }
 }

@@ -1034,9 +1034,14 @@
     <Content Include="App_LocalResources\PaymentVoucher.aspx.ar-EG.resx" />
     <Content Include="App_LocalResources\PaymentVoucher.aspx.en-US.resx" />
     <Content Include="App_LocalResources\PaymentVoucher.aspx.resx" />
+    <EmbeddedResource Include="ReportsFiles\CanceledRefunded.rdlc" />
     <EmbeddedResource Include="ReportsFiles\CanceledPendingRefunded.rdlc" />
+    <EmbeddedResource Include="ReportsFiles\SoldTickets.rdlc" />
     <EmbeddedResource Include="ReportsFiles\CanceledTickets.rdlc" />
     <EmbeddedResource Include="ReportsFiles\NetIncomeTickets.rdlc" />
+    <EmbeddedResource Include="ReportsFiles\RPT_ReceivingVoucher.rdlc" />
+    <EmbeddedResource Include="ReportsFiles\RPT_PaymentVoucher.rdlc" />
+    <EmbeddedResource Include="ReportsFiles\TicketInfo.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

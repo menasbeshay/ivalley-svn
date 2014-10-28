@@ -1,4 +1,6 @@
 ﻿using ITravel.BLL;
+using Microsoft.Reporting.WebForms;
+using NumberToWord;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,7 +105,14 @@ namespace ITravel
             else
                 voucher = CurrentVoucher;
             voucher.VoucherNumber = uiTextBoxVoucherNo.Text;
-            voucher.VoucherDate = DateTime.ParseExact(uiTextBoxVoucherDate.Text, "dd/MM/yyyy", null); 
+            try
+            {
+                voucher.VoucherDate = DateTime.ParseExact(uiTextBoxVoucherDate.Text, "dd/MM/yyyy", null);
+            }
+            catch (Exception)
+            {
+                
+            }
             voucher.Amount = decimal.Parse(uiTextBoxAmount.Text);
             if (uiDropDownListCustomer.SelectedIndex == 0)
                 voucher.PaidFor = uiTextBoxPaidFor.Text;
@@ -115,7 +124,14 @@ namespace ITravel
             voucher.IsCheque = uiCheckBoxIsCheque.Checked;
             voucher.BankName = uiTextBoxBank.Text;
             voucher.Reason = uiTextBoxReason.Text;
-            voucher.ChuqueDate = DateTime.ParseExact(uiTextBoxChequeDate.Text, "dd/MM/yyyy", null); 
+            try
+            {
+                voucher.ChuqueDate = DateTime.ParseExact(uiTextBoxChequeDate.Text, "dd/MM/yyyy", null);
+            }
+            catch (Exception)
+            {
+                
+            }
             voucher.Save();
             LoadAllVouchers();
             uiPanelAll.Visible = true;
@@ -135,6 +151,20 @@ namespace ITravel
         protected void uiLinkButtonSearch_Click(object sender, EventArgs e)
         {
             LoadAllVouchers();
+        }
+
+        protected void uiLinkButtonPrint_Click(object sender, EventArgs e)
+        {
+            ToWord toWord = new ToWord(CurrentVoucher.Amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+
+            CurrentVoucher.AddColumn("NumberWord", typeof(string));
+            CurrentVoucher.SetColumn("NumberWord", toWord.ConvertToArabic());
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/RPT_ReceivingVoucher.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("PaymentDataSet", CurrentVoucher.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
         }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="BookTicket.aspx.cs" Inherits="ITravel.BookTicket" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ MasterType VirtualPath="~/MasterPages/Main.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -61,6 +62,10 @@
                                 <asp:LinkButton ID="LinkButton2" runat="server" CommandName="DeleteR" CommandArgument='<%# Eval("TicketID") %>'>
                                     <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Delete %>"></asp:Label>
                                 </asp:LinkButton>
+                                &nbsp;|&nbsp;
+                                <asp:LinkButton ID="LinkButton3" runat="server" CommandName="SendSMS" CommandArgument='<%# Eval("TicketID") %>'>
+                                    <asp:Label ID="Label12" runat="server" Text="<%$ Resources:SendSMS %>"></asp:Label>
+                                </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -94,6 +99,12 @@
                     <asp:Label ID="Label22" runat="server" Text="<%$ Resources:Card %>"></asp:Label>
                 </label>
                 <asp:DropDownList ID="uiDropDownListCreditCard" runat="server" ClientIDMode="Static"></asp:DropDownList>
+            </div>
+                </div>
+             <div class="grid_3 right" style="margin-right:0px;">
+            <div class="field fullwidth">
+                
+                <asp:LinkButton ID="uiLinkButtonPrint" runat="server" CssClass="bt blue" ClientIDMode="Static" OnClick="uiLinkButtonPrint_Click" Text="<%$ Resources:PrintTicket %>"></asp:LinkButton>
             </div>
                 </div>
             <div class="clear"></div>
@@ -328,5 +339,62 @@
                     </Columns>
                 </asp:GridView>
             </div>
+
+        <div class="divider"></div>
+
+        <rsweb:ReportViewer ID="uiReportViewerMain" runat="server" Width="100%"></rsweb:ReportViewer>
     </asp:Panel>
+
+    <div class="box grid_5" id="ConfirmModal" hidden>
+        <header>
+            <div class="inner">
+                <div class="left title">
+                    <h1>
+                        <asp:Label ID="Label13" runat="server" Text="<%$ Resources:Confirm %>"></asp:Label></h1>
+                </div>
+                <div class="right">
+                    <a href="#" class="close">X</a>
+                </div>
+            </div>
+        </header>
+                    
+        <div class="box-content">
+            <p>
+                <asp:Label ID="Label24" runat="server" Text="<%$ Resources:ConfirmSMS %>"></asp:Label>
+            </p>
+            <footer class="pane">
+                <a href="#" class="close bt red">
+                    <asp:Label ID="Label14" runat="server" Text="<%$ Resources:Close %>"></asp:Label>
+                </a>                                
+            </footer>
+        </div>
+    </div>
+
+    <div class="box grid_5" id="CancelModal" hidden>
+        <header>
+            <div class="inner">
+                <div class="left title">
+                    <h1>
+                        <asp:Label ID="Label25" runat="server" Text="<%$ Resources:ErrorSMS %>"></asp:Label></h1>
+                </div>
+                <div class="right">
+                    <a href="#" class="close">X</a>
+                </div>
+            </div>
+        </header>
+                    
+        <div class="box-content">
+            <p>
+                <asp:Label ID="Label26" runat="server" Text="<%$ Resources:ErrorSMSBody %>"></asp:Label>
+            </p>
+            <footer class="pane">
+                <a href="#" class="close bt red">
+                    <asp:Label ID="Label27" runat="server" Text="<%$ Resources:Close %>"></asp:Label>
+                </a>                                
+            </footer>
+        </div>
+    </div>
+
+    <a href="#ConfirmModal" id="confirm" style="display:none" class="modal"></a>
+    <a href="#CancelModal" id="cancel" style="display:none" class="modal"></a>
 </asp:Content>

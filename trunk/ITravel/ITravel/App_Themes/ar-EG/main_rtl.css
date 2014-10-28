@@ -368,10 +368,23 @@ em {
   font-size: 18px;
   margin-bottom: 8px;
   margin-top: 8px;
+  
 }
 #content-top nav li:hover, ul.iconlist li:hover {
   background: #ededed;
   background: linear-gradient(top, #e0e0e0, #ffffff);
+}
+
+ul.iconlist li span.glyph {
+    transition: all 0.7s ease-in-out 0s;
+    -webkit-transition: all 0.7s ease-in-out 0s;
+    -o-transition: all 0.7s ease-in-out 0s;
+}
+ul.iconlist li:hover span.glyph {
+    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    opacity:0.5;
 }
 #content-top nav li a, ul.iconlist li a {
   display: block;

@@ -135,13 +135,16 @@
   <data name="ToDate" xml:space="preserve">
     <value>إلى</value>
   </data>
+  <data name="TotalCanceledRefundedTickets" xml:space="preserve">
+    <value>اجمالى التذاكر التى تم إلغائها&lt;br /&gt; وتم استردادها</value>
+  </data>
   <data name="TotalCanceledTickets" xml:space="preserve">
     <value>اجماليات التذاكر الملغاه</value>
   </data>
   <data name="TotalReturned" xml:space="preserve">
-    <value>اجمالى التذاكر التى تم استردادها</value>
+    <value>اجمالى التذاكر التى تم إلغائها&lt;br /&gt; ولم يتم استردادها</value>
   </data>
-  <data name="TotalSold" xml:space="preserve">
-    <value>اجمالى التذاكر المباعه</value>
+  <data name="TotalSoldCanceled" xml:space="preserve">
+    <value>اجمالى التذاكر المباعه والملغاة &lt;br /&gt;وصافى الدخل</value>
   </data>
 </root>

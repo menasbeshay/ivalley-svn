@@ -1,9 +1,14 @@
 ﻿using ITravel.BLL;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -113,6 +118,12 @@ namespace ITravel
                 uiPanelAll.Visible = false;
                 uiPanelEdit.Visible = true;
             }
+            else if (e.CommandName == "SendSMS")
+            {
+                TicketInfo ticket = new TicketInfo();
+                ticket.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                SendSMS(ticket);
+            }
             
         }
 
@@ -164,6 +175,11 @@ namespace ITravel
 
             Ticket.FromDate = History.FromDate = DateTime.ParseExact(uiTextBoxFromDate.Text, "MM/dd/yyyy hh:mm", null);
             Ticket.Save();
+
+            if (Ticket.TicketStatusID == 2) // confirmed
+            {
+                SendSMS(Ticket);
+            }
             History.TicketID = Ticket.TicketID;
             History.UpdatedDate = DateTime.Now;
             History.Save();
@@ -172,6 +188,41 @@ namespace ITravel
             uiPanelEdit.Visible = false;
             ClearFields();
             CurrentTicket = null;
+        }
+
+        private void SendSMS(TicketInfo Ticket)
+        {
+            Passenger passenger = new Passenger();
+            passenger.LoadByPrimaryKey(Ticket.PassengerID);
+
+            AirPort to = new AirPort();
+            to.LoadByPrimaryKey(Ticket.To_AirportID);
+            using (var wb = new WebClient())
+            {
+                var data = new NameValueCollection();
+
+                data["username"] = "esso";
+                data["password"] = "123123";
+                data["message"] = string.Format(GetLocalResourceObject("SMSBody").ToString(), Ticket.TicketNo, to.Name);
+                data["numbers"] = passenger.Mobile;
+                data["sender"] = GetLocalResourceObject("SenderName").ToString();
+                data["retrun"] = "Json";
+                data["Rmduplicated"] = "1";
+
+                string url = "http://www.4jawaly.net/api/sendsms.php";
+
+                byte[] ServerResponse = wb.UploadValues(url, "POST", data);
+                string responsetext = Encoding.ASCII.GetString(ServerResponse);
+                if (responsetext != "100")
+                {
+ 
+                }
+                else
+                {
+
+                }
+
+            }
         }
 
         protected void uiGridViewTickets_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -193,6 +244,11 @@ namespace ITravel
 
                 TicketStatus Status = new TicketStatus();
                 Status.LoadByPrimaryKey(Convert.ToInt32(row["TicketStatusID"].ToString()));
+                if (Session["CurrentCulture"].ToString() == "ar-EG")
+                    lblstatus.Text = Status.ArName;
+                else
+                    lblstatus.Text = Status.EnName;
+                
 
             }
         }
@@ -216,7 +272,14 @@ namespace ITravel
                 lblto.Text = airport.IATACode;
 
                 TicketStatus Status = new TicketStatus();
-                Status.LoadByPrimaryKey(Convert.ToInt32(row["TicketStatusID"].ToString()));
+                if (!string.IsNullOrEmpty(row["TicketStatusID"].ToString()))
+                {
+                    Status.LoadByPrimaryKey(Convert.ToInt32(row["TicketStatusID"].ToString()));
+                    if (Session["CurrentCulture"].ToString() == "ar-EG")
+                        lblstatus.Text = Status.ArName;
+                    else
+                        lblstatus.Text = Status.EnName;
+                }
             }
         }
         #endregion
@@ -291,12 +354,35 @@ namespace ITravel
             uiDropDownListCreditCard.DataValueField = CreditCard.ColumnNames.CreditCardID;
             uiDropDownListCreditCard.DataBind();
 
+            TicketStatus status = new TicketStatus();
+            status.LoadAll();
+            uiDropDownListStatus.DataSource = status.DefaultView;
+            if (Session["CurrentCulture"].ToString() == "ar-EG")
+                uiDropDownListStatus.DataTextField = TicketStatus.ColumnNames.ArName;
+            else
+                uiDropDownListStatus.DataTextField = TicketStatus.ColumnNames.EnName;
+            uiDropDownListStatus.DataValueField = TicketStatus.ColumnNames.TicketStatusID;
+            uiDropDownListStatus.DataBind();
+
 
         }
         #endregion 
+
+        protected void uiLinkButtonPrint_Click(object sender, EventArgs e)
+        {
+            TicketInfo ticket = new TicketInfo();
+            ticket.RPT_GetTicketInfo(CurrentTicket.TicketID);
+
+            uiReportViewerMain.Reset();
+            uiReportViewerMain.LocalReport.ReportPath = "ReportsFiles/TicketInfo.rdlc";
+            uiReportViewerMain.LocalReport.DataSources.Clear();
+            uiReportViewerMain.LocalReport.DataSources.Add(new ReportDataSource("InfoDataSet", CurrentTicket.DefaultView));
+            uiReportViewerMain.LocalReport.Refresh();
+        }
 
        
 
        
     }
+
 }

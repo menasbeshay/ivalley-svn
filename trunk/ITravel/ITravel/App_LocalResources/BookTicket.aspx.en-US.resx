@@ -216,4 +216,28 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Sending Confirmation</value>
+  </data>
+  <data name="ConfirmSMS" xml:space="preserve">
+    <value>Sending SMS to client done successfully </value>
+  </data>
+  <data name="ErrorSMS" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorSMSBody" xml:space="preserve">
+    <value>An error occured.please try again later.</value>
+  </data>
+  <data name="PrintTicket" xml:space="preserve">
+    <value>Print Ticket</value>
+  </data>
+  <data name="SenderName" xml:space="preserve">
+    <value>esso</value>
+  </data>
+  <data name="SendSMS" xml:space="preserve">
+    <value>إرسال sms للعميل</value>
+  </data>
+  <data name="SMSBody" xml:space="preserve">
+    <value>إمتياز السفر .تم تأكيد تذكرتك رقم {0} ، المتجهة إلى {1}</value>
+  </data>
 </root>
