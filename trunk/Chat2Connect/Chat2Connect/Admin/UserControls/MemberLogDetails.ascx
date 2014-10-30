@@ -4,7 +4,7 @@
         text-align: right;
     }
 </style>
-<asp:GridView CssClass="table" ID="dtlLog" runat="server" AutoGenerateColumns="false">
+<asp:GridView CssClass="table table-striped table-condensed" ID="dtlLog" runat="server" AutoGenerateColumns="false">
     <Columns></Columns>
     <HeaderStyle HorizontalAlign="Right" />
     <RowStyle HorizontalAlign="Right" />

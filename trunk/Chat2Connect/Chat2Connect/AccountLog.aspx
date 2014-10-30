@@ -19,6 +19,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <div class="blockBoxshadow">
     <div class="form-group">
         <div class="col-lg-2 pull-right" style="padding-top:3px;">
             رصيد النقاط
@@ -67,7 +68,7 @@
     </div>
     <div class="clear" style="height:10px;"></div>
     <div class="col-sm-12 pull-right">
-        <asp:GridView ID="grdLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader" Width="100%">
+        <asp:GridView ID="grdLog" runat="server" CssClass="table table-striped table-condensed table-bordered" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader" Width="100%">
             <RowStyle HorizontalAlign="Center" />
             <Columns>
                 <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HeaderText="التاريخ والوقت" />
@@ -84,4 +85,6 @@
             </Columns>
         </asp:GridView>
     </div>
+        <div class="clear" style="height:5px;"></div>
+        </div>
 </asp:Content>
