@@ -71,7 +71,7 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink openGiftModal" data-mid='<%# Eval("MemberID") %>'><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" style="cursor:pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
 
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
 
