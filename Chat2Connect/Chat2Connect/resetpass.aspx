@@ -17,7 +17,7 @@
     <link href="css/skeleton_subject.css" rel="stylesheet" />
     <%--<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link media="screen" href="http://openfontlibrary.org/face/kacstpen" rel="stylesheet" type="text/css" />    
+    <%--<link media="screen" href="http://openfontlibrary.org/face/kacstpen" rel="stylesheet" type="text/css" />    --%>
     <link href="css/main.css" rel="stylesheet" />    
     <!-- end stylesheets -->
 
