@@ -73,7 +73,7 @@ $(document).ready(function () {
     //    }        
     //});
 
-    function isF5(e) {
+    /*function isF5(e) {
         return e.which == 116;
     }
     function isCtrlR(e) {
@@ -102,7 +102,7 @@ $(document).ready(function () {
     $(window).bind("beforeunload", function () {
         if(!inFormOrLink)
             HandleClose();
-    });
+    });*/
 
     ///////////////////////// profile functions ///////////////////////////////////
 

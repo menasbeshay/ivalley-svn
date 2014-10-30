@@ -1097,7 +1097,7 @@ namespace Chat2Connect.services
             member.LoadByPrimaryKey(mid);
 
             string memberdiv = @"<div class='Altodd friend-link' id='usernode-{0}' data-name='{1}'>
-                                    <img src='images/defaultavatar.png' id='user-{0}' class='friendpic {5}'/>
+                                    <img src='{3}' id='user-{0}' class='friendpic {5}'/>
                                     <a href='#' class='type_{2}'>{1}
                                     </a>
                             <div class='clearfix' style='height: 1px;'></div>
@@ -1141,7 +1141,7 @@ namespace Chat2Connect.services
                                     </div>                                
                                 </div>";
 
-            string result = string.Format(memberdiv, member.MemberID, member.UserName, Helper.Defaults.MemberTypeSpecDurationID, member.ProfilePic, member.StatusMsg, (member.IsOnLine) ? "online" : "offline");
+            string result = string.Format(memberdiv, member.MemberID, member.UserName, Helper.Defaults.MemberTypeSpecDurationID, string.IsNullOrEmpty(member.ProfilePic) ? "images/defaultavatar.png" : member.ProfilePic, member.StatusMsg, (member.IsOnLine) ? "online" : "offline");
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             result = Newtonsoft.Json.JsonConvert.SerializeObject(result);
             HttpContext.Current.Response.Write(result);
