@@ -20,6 +20,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="form-group">
+        <div class="col-lg-2 pull-right" style="padding-top:3px;">
+            رصيد النقاط
+        </div>
+        <div class="col-lg-4 pull-right bordered" style="padding:3px;">
+            <asp:Label ID="uiLabelBalance" runat="server" ></asp:Label>
+        </div>
+            <div class="col-lg-4 pull-right" style="color:#b5b5b5;padding-top:3px;">
+                (كل 100 نقطة تساوى 10 ريال)
+            </div>
+            </div>
+    <div class="form-group">
         <div class="col-lg-12 control-label pull-right">
             <h3>كشف الحساب</h3>
         </div>

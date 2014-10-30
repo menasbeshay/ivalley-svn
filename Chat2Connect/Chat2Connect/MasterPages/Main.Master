@@ -231,7 +231,7 @@
 
                 <div>
                     <i class="modernicon iconmodern-createroom" style="font-size: 25px;"></i>
-                    <a href="../createRoom.aspx">إنشاء غرفة</a>
+                    <a onclick="OpenPopup('createRoom.aspx','إجراءات');">إنشاء غرفة</a>
                 </div>
                 <div style="color: #FEC200; display: none;">
                     <i class="icon icon-off" style="font-size: 25px;"></i>
@@ -495,9 +495,9 @@
                         <div class="modal-body">
                             <iframe id="GMP_Content" style="width:100%;min-height:450px;"></iframe>
                         </div>
-                        <div class="modal-footer center">                            
+                        <%--<div class="modal-footer center">                            
                             <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </div>

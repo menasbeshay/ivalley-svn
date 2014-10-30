@@ -96,27 +96,30 @@
                 <asp:TextBox ID="txtMember" runat="server" CssClass="form-control" placeholder="أكتب الإسم المراد ترقيته"></asp:TextBox>
                 <input type="hidden" runat="server" id="hdnMember" />
             </div>
-            <div class="row" style="padding-top: 10px;">
-                لون الترقية
-            </div>
-            <div class="row pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px">                
+            <div class="col-sm-4 pull-right" style="padding-top: 10px;">
+                <div class="col-sm-12">
+                    لون الترقية
+                </div>
+                <div class="clear" style="height:5px;"></div>
+                <div class="col-sm-12 pull-right" id="specs" style="padding-top: 10px; padding-bottom: 10px;padding-right:0px;">                
                 
-                <div class="col-lg-4 pull-right">
-                    <div class="col-lg-2 pull-right">
+                <div class="col-sm-12 pull-right">
+                    <div class="col-sm-4 pull-right">
                         <input type="radio" value="2" name="rdSpec" checked="checked" style="padding-top: 3px;" />
                     </div>
-                    <div class="col-lg-2 pull-right">
+                    <div class="col-sm-8 pull-right" style="padding-right:0;">
                         <span style="display: block; width: 25px; height: 25px;">
                             <i class="icon-2x icon-circle" style="color: #ff00fe"></i>
                         </span>
                     </div>
                     
                 </div>
-                <div class="col-lg-4 pull-right">
-                     <div class="col-lg-2 pull-right">
+                     <div class="clear" style="height:5px;"></div>
+                <div class="col-sm-12 pull-right">
+                     <div class="col-sm-4 pull-right">
                         <input type="radio" value="3" name="rdSpec" style="padding-top: 3px;" />
                     </div>
-                    <div class="col-lg-2 pull-right">
+                    <div class="col-sm-8 pull-right" style="padding-right:0;">
                         <span style="display: block; width: 25px; height: 25px;" >
                             <i class="icon-2x icon-circle" style="color: #880088"></i>
                         </span>
@@ -125,32 +128,41 @@
                 </div>
                 <input type="hidden" id="hdnSpec" runat="server" value="2" />
             </div>
-            <div class="clear" style="height:5px;"></div>
-            <div class="row" id="durations" style="padding-top: 5px;">
+                <div class="clear" style="height:5px;"></div>
+            </div>
+            
+             <div class="col-sm-7 pull-right" style="padding-top: 10px;">
+                <div class="col-sm-12">
+                    مدة الإشتراك        
+                </div>
+                 <div class="clear" style="height:5px;"></div>
+            <div class="col-sm-12" id="durations" style="padding-top: 5px;padding-right:0px;">
                 <input type="hidden" id="hdnDuration" runat="server" value="1" />
-                <div class="form-group col-sm-12">
-                    <div class="col-sm-1 pull-right">
+                <div class="form-group col-sm-12" style="padding-right:0;">
+                    <div class="col-sm-1 pull-right" style="padding-right:0;">
                         <input type="radio" name="rdDuration" value="1" checked="checked" />
                     </div>
-                    <div class="col-sm-2 pull-right">شهر</div>
-                    <div class="col-sm-3 pull-right">(300 نقطة)</div>
+                    <div class="col-sm-3 pull-right">شهر</div>
+                    <div class="col-sm-6 pull-right">(300 نقطة)</div>
                 </div>
-                <div class="form-group col-sm-12">
-                    <div class="col-sm-1 pull-right">
+                <div class="form-group col-sm-12" style="padding-right:0;">
+                    <div class="col-sm-1 pull-right" style="padding-right:0;">
                         <input type="radio" name="rdDuration" value="2" />
                     </div>
-                    <div class="col-sm-2 pull-right">6 أشهر</div>
-                    <div class="col-sm-3 pull-right">(1200 نقطة)</div>
+                    <div class="col-sm-3 pull-right">6 أشهر</div>
+                    <div class="col-sm-6 pull-right">(1200 نقطة)</div>
                 </div>
-                <div class="form-group col-sm-12">
-                    <div class="col-sm-1 pull-right">
+                <div class="form-group col-sm-12" style="padding-right:0;">
+                    <div class="col-sm-1 pull-right" style="padding-right:0;">
                         <input type="radio" name="rdDuration" value="3" />
                     </div>
-                    <div class="col-sm-2 pull-right">سنة</div>
-                    <div class="col-sm-3 pull-right">(2100 نقطة)</div>
+                    <div class="col-sm-3 pull-right">سنة</div>
+                    <div class="col-sm-6 pull-right">(2100 نقطة)</div>
                 </div>
             </div>
-            <div class="row align_center">
+                 <div class="clear" style="height:10px;"></div>
+                 </div>
+            <div class="col-sm-8 center_block">
                 <a href="#confirm" data-toggle="modal" class="btn btn-warning">تنفيذ</a>
             </div>
         </div>

@@ -38,7 +38,7 @@
                 <FooterTemplate></div></FooterTemplate>
                 <ItemTemplate>
                     <div class="Altodd friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
-                        <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class='friendpic online' />
+                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' id='user-<%# Eval("MemberID") %>' class='friendpic online' />
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
@@ -50,7 +50,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
+                                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -71,7 +71,7 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink openGiftModal" data-mid='<%# Eval("MemberID") %>'><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
 
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
 
@@ -80,23 +80,12 @@
                                 </div>
                                 <div class="clear" style="height: 1px;"></div>
                             </div>
-                        </div>
-                        <%-- <ul class="popup-menu profileMenu g-dark g-dark-list">
-                                    <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
-						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>						            
-						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
-                                   
-                                </ul> --%>
+                        </div>                       
                     </div>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <div class="Alteven friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
-                        <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic online" />
+                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' id='user-<%# Eval("MemberID") %>' class="friendpic online" />
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
@@ -106,7 +95,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
+                                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -127,7 +116,7 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink openGiftModal" data-mid='<%# Eval("MemberID") %>'><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
 
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
 
@@ -137,17 +126,7 @@
                                 <div class="clear" style="height: 1px;"></div>
                             </div>
                         </div>
-                        <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
-                                    <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");' ><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
-						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>						            
-						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
-                                   
-                                </ul>--%>
+                     
                     </div>
                 </AlternatingItemTemplate>
             </asp:Repeater>
@@ -166,7 +145,7 @@
                 <FooterTemplate></div></FooterTemplate>
                 <ItemTemplate>
                     <div class="Altodd friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
-                        <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic offline" />
+                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' id='user-<%# Eval("MemberID") %>' class="friendpic offline" />
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
@@ -176,7 +155,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
+                                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -197,7 +176,7 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink openGiftModal" data-mid='<%# Eval("MemberID") %>'><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
 
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
 
@@ -207,22 +186,12 @@
                                 <div class="clear" style="height: 1px;"></div>
                             </div>
                         </div>
-                        <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
-                                    <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
-						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>						            
-						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
-                                   
-                                </ul>--%>
+                     
                     </div>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <div class="Alteven friend-link" id='usernode-<%# Eval("MemberID") %>' data-name='<%# Eval("UserName") %>'>
-                        <img src="images/defaultavatar.png" id='user-<%# Eval("MemberID") %>' class="friendpic offline" />
+                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' id='user-<%# Eval("MemberID") %>' class="friendpic offline" />
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
@@ -232,7 +201,7 @@
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
                                 <div class="col-lg-3 pull-right">
                                     <div class=" thumbnail">
-                                        <img src='<%# Eval("ProfilePic") %>' style="max-height:70px;" />
+                                        <img src='<%# string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "images/defaultavatar.png" : Eval("ProfilePic").ToString() %>' style="max-height:70px;" />
 
                                     </div>
                                     <div class="clearfix" style="height: 1px;">
@@ -253,7 +222,7 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink openGiftModal" data-mid='<%# Eval("MemberID") %>'><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                            <li><a onclick="OpenPopup('../popuppages/Messages_popup.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>','الرسائل');" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
 
                                             <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
 
@@ -263,17 +232,7 @@
                                 <div class="clear" style="height: 1px;"></div>
                             </div>
                         </div>
-                        <%--<ul class="popup-menu profileMenu g-dark g-dark-list">
-                                    <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf030;</span> عرض الكاميرا</a ></li>
-						            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf06b;</span> أرسل هدية</a ></li>
-						            <li><a href='Messages.aspx?t=createmsg&u=<%# Eval("MemberID") %>&un=<%# Eval("UserName") %>' target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a ></li>						            
-						            <li><a class="jslink" ><span class="awesome">&#xf093;</span> أرسل ملف</a ></li>
-						            <li><a class="jslink" ><span class="awesome">&#xf05e;</span> حجب</a ></li>
-                                   
-                                </ul>--%>
+                        
                     </div>
                 </AlternatingItemTemplate>
             </asp:Repeater>
