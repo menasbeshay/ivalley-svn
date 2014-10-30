@@ -16,12 +16,10 @@
             <i class="icon icon-envelope-alt"></i>
             <%= MemberName %></h3>
     </div>
-    <div class=" pull-left">        
-        
-            <asp:LinkButton ID="lnkSendMessage" runat="server" OnClick="lnkSendMessage_Click" CssClass="btn btn-main mailbtn" role="button">
-                
-                       <i class="entypoicon iconentypo-newmsg pull-left col-md-1" style="font-size:40px;padding-left:0px;"></i>
-                <span class="col-md-11 " style="padding-left:0px;padding-right:0px;">إرسال رسالة</span>
+    <div class=" pull-left">                
+            <asp:LinkButton ID="lnkSendMessage" runat="server" OnClick="lnkSendMessage_Click" CssClass="btn btn-main mailbtn" role="button">                
+                       <i class="icon icon-edit pull-left " ></i>
+                <span class="pull-right " >إرسال رسالة</span>
             </asp:LinkButton>
         
     </div>
@@ -38,10 +36,10 @@
             </ItemTemplate>
         </asp:Repeater>
     <div class="pull-right" >
-            <asp:LinkButton ID="lnkCreateFolder" runat="server" OnClick="lnkCreateFolder_Click" CssClass="btn btn-main mailbtn" role="button">
+            <asp:LinkButton ID="lnkCreateFolder" runat="server" OnClick="lnkCreateFolder_Click" CssClass="btn btn-main mailbtn" role="button" >
                 
-                       <i class="entypoicon iconentypo-newfolder pull-left" style="font-size:40px;padding-left:0px;"></i>
-                 <span class="col-md-11 " style="padding-left:0px;padding-right:0px;">إنشاء تصنيف جديد</span>
+                       <i class="icon icon-plus pull-left "></i>
+                 <span class=" pull-right">إنشاء تصنيف جديد</span>
             </asp:LinkButton>
         </div>
 </div>

@@ -1277,11 +1277,18 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggle();
         });
-
+/*
         $("#" + window.uniqueID() + " .adminSettingsMenu > button.dropdown-toggle").click(function (e) {
-            e.stopPropagation();
+            e.stopPropagation();            
             $(this).next('.dropdown-menu').toggle();
+        });  */
+
+        $("#" + window.uniqueID() + ' .adminSettingsMenu .dropdown-menu').on({
+            "click": function (e) {
+                e.stopPropagation();
+            }
         });
+
 
         window.Editor = new wysihtml5.Editor('uiTextMsg_' + window.uniqueID(), { toolbar: 'toolbar' + window.uniqueID(), parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
 

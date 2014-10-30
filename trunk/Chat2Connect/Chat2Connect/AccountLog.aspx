@@ -30,6 +30,7 @@
                 (كل 100 نقطة تساوى 10 ريال)
             </div>
             </div>
+    <div class="clear" style="height:10px;"></div>
     <div class="form-group">
         <div class="col-lg-12 control-label pull-right">
             <h3>كشف الحساب</h3>

@@ -100,7 +100,7 @@ namespace Chat2Connect
             }
 
             MembershipCreateStatus objstatus;
-            MembershipUser objUser = Membership.CreateUser(UserName.Text, Password.Text, Email.Text, Question.Text, Answer.Text, true, out objstatus);
+            MembershipUser objUser = Membership.CreateUser(UserName.Text, Password.Text, Email.Text, Question.Text, Answer.Text.Trim(), true, out objstatus);
             bool success = true;
             switch (objstatus)
             {
@@ -127,7 +127,7 @@ namespace Chat2Connect
             {
                 Member member = new Member();
                 member.AddNew();
-                member.Answer = Answer.Text;
+                member.Answer = Answer.Text.Trim();
                 member.UserID = new Guid(objUser.ProviderUserKey.ToString());
                 member.Name = objUser.UserName;
                 member.IsOnLine = true;

@@ -42,7 +42,7 @@ namespace Chat2Connect.services
             Member member = new Member();
 
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-            if (user.PasswordQuestion == question && member.Answer == answer)
+            if (user.PasswordQuestion == question && member.Answer == answer.Trim())
             {
                 MembershipUser[] users = Membership.GetAllUsers().Cast<MembershipUser>().Where(m => m.Email == mail).ToArray();
                 if (users.Length < 15)
@@ -70,7 +70,7 @@ namespace Chat2Connect.services
             Member member = new Member();
 
             member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
-            if (user.PasswordQuestion == question && member.Answer == answer)
+            if (user.PasswordQuestion == question && member.Answer == answer.Trim())
             {
                 string Oldpass = oldpass;
                 update = user.ChangePassword(Oldpass, pass);
