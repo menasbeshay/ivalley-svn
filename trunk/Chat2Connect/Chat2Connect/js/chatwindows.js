@@ -646,7 +646,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 $('#MainTabs a[href="#' + this.uniqueID() + '"]').addClass('RoomAlertRed');
             }
 
-            // update save coversation link
+            /* update save coversation link*/
             this.SaveConversation();
 
         };
@@ -664,11 +664,13 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.SaveConversation = function () {
             var str = "<link href='http://chat2connect.com/css/bootstrap.min.css' rel='stylesheet' /> <link href='http://chat2connect.com/css/main.css' rel='stylesheet' /> ";
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
-                if (msg.FromName() && msg.Message())
-                    str += msg.FromName() + ":" + msg.Message();
+                if (msg.FromName && msg.Message)
+                    str += msg.FromName + ":" + msg.Message + "<br />";
             });
 
-            $('#SaveConv_' + self.ID()).attr("href", "data:html/plain;charset=UTF-8," + str);
+            $('#SaveConv_' + self.ID()).click(function () { 
+                this.href = "data:html/plain;charset=UTF-8," + str;
+            });            
         };
         this.showOlderMessages = function () {
             var window = this;
@@ -1122,6 +1124,8 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                 }
             });
         };
+
+        
     }
 
     self.changeCurrent = function (selctor, id, type) {
