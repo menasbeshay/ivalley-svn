@@ -29,8 +29,17 @@ namespace Chat2Connect
             {
                 txtStartDate.Text = Helper.Date.ToString(DateTime.Now.AddMonths(-1));
                 txtEndDate.Text = Helper.Date.ToString(DateTime.Now);
+                LoadBalance();
                 BindReport();
             }
+        }
+
+        private void LoadBalance()
+        {
+            if (BLL.Member.CurrentMember.Credit_Point > 0)
+                uiLabelBalance.Text = BLL.Member.CurrentMember.Credit_Point.ToString() + " نقطة";
+            else
+                uiLabelBalance.Text = "لا يوجد رصيد";
         }
 
         protected void grdLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
