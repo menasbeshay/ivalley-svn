@@ -26,6 +26,9 @@ namespace Chat2Connect.SRCustomHubs
 
             // add user to new group by his user name 
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
+
+            HandleUserState(true);
+
             return base.OnConnected();
         }
         public override System.Threading.Tasks.Task OnDisconnected()
@@ -41,7 +44,31 @@ namespace Chat2Connect.SRCustomHubs
             }
             // remove user to new group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
+
+            HandleUserState(false);
+            
             return base.OnDisconnected();
+        }
+
+        private void HandleUserState(bool CanConnect)
+        {
+
+            Member user = new Member();
+            user.GetMemberByUserId(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()));
+            user.IsOnLine = CanConnect;
+            user.Status = CanConnect ? 1 : 4;
+            user.Save();
+
+            MemberFriend friends = new MemberFriend();
+            friends.GetAllMemberFriends(user.MemberID);
+            for (int i = 0; i < friends.RowCount; i++)
+            {
+                Member temp = new Member();
+                temp.LoadByPrimaryKey(friends.FriendID);
+                MembershipUser u = Membership.GetUser(temp.UserID);
+                IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, CanConnect ? "online" : "offline");
+            }
         }
         public void addToRoom(int roomid, bool isVisible)
         {
