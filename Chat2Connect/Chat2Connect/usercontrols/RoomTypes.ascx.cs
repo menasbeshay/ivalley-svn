@@ -23,7 +23,7 @@ namespace Chat2Connect.usercontrols
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
         {
             MembershipUser user = Membership.GetUser();
-            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
+            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && BLL.Member.CurrentMember.Answer == uiTextBoxAnswer.Text.Trim())
             {
                 if (!String.IsNullOrEmpty(hdnRoom.Value))
                 {

@@ -38,7 +38,7 @@ namespace Chat2Connect
         {
             MembershipUser user = Membership.GetUser();
 
-            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && Member.CurrentMember.Answer == uiTextBoxAnswer.Text)
+            if (user.PasswordQuestion == uiDropDownListQuestion.SelectedValue && Member.CurrentMember.Answer == uiTextBoxAnswer.Text.Trim())
             {
                 if (!string.IsNullOrEmpty(uiHiddenFieldFriendID.Value))
                 {

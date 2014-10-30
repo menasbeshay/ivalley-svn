@@ -41,10 +41,12 @@
             </div>
 
          <div class="form-group">
-        <div class="col-lg-12 control-label pull-right">
+        <div class="col-sm-10 control-label pull-right">
            <h3> شحن نقاط الهدايا</h3>
         </div>
-        
+         <div class="col-sm-2 control-label pull-right">
+           <i class="icon-3x icon-gift"></i>&nbsp;<i class="icon-2x icon-refresh"></i>
+        </div>
             </div>
 
          <div class="form-group">
