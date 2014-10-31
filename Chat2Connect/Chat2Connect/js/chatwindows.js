@@ -1150,18 +1150,15 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator,friendPic) {
+    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, typeSpec, iscreator,friendPic) {
         if (id == self.CurrentMemberID && type != 'Room')
             return;
         var window = self.getWindow(id, type, name, typeSpec, iscreator,friendPic);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, typeSpec, iscreator);
         }
         else {
-            if (type != 'Room')
-                window.IsHelp(isHelp);
             self.changeCurrent(window.uniqueID(), window.ID(), window.Type());
-
         }
 
     };
@@ -1658,10 +1655,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend,ishelp,  typespec, iscreator,friendPic) {
+function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend,  typespec, iscreator,friendPic) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, ishelp, typespec, iscreator,friendPic);
+    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, typespec, iscreator,friendPic);
 }
 
 function getFlashMovie(movieName) {

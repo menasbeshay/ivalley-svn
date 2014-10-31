@@ -355,13 +355,6 @@ namespace BLL
             return member;
         }
 
-        public bool LoadHelpMembers()
-        {
-            return LoadFromRawSql(String.Format(@"SELECT m.*
-                                    FROM Member m INNER JOIN aspnet_UsersInRoles ur on ur.UserId=m.UserID
-	                                    INNER JOIN aspnet_Roles r ON r.RoleId=ur.RoleId AND r.RoleName='{0}'", Helper.Enums.AdminRoles.Admin_SiteHelper.ToString()));
-        }
-
         public bool GetFriends(int mid)
         {
             return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* 
@@ -375,13 +368,13 @@ namespace BLL
 
         public bool GetHelpMembers()
         {
-            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* 
-                                    from MemberFriend MF INNER JOIN Member M ON MF.FriendID=M.MemberID
-	                                    INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
-	                                    LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
-	                                    LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
-                                    WHERE M.RowStatusID={0} AND d.MemberTypeSpecID={1}
-                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled,(int)Helper.Enums.MemberTypeSpec.Help);
+            return LoadFromRawSql(@"select d.MemberTypeSpecID,M.* 
+                                    from Member M
+                                        INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
+                                        INNER JOIN MemberType MT ON MT.MemberID=M.MemberID
+                                        INNER JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
+                                    WHERE M.RowStatusID=1 AND d.MemberTypeSpecID=5
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, (int)Helper.Enums.MemberTypeSpec.Help);
         }
     }
 }

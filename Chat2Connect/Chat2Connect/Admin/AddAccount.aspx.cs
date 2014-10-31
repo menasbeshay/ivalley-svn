@@ -29,28 +29,30 @@ namespace Chat2Connect.Admin
                 ClearFields();
                 uiPanelDone.Visible = false;
                 uiPanelRegister.Visible = true;
+                for (int i = 1; i <= 12; i++)
+                {
+                    lstTypeDuration.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
 
-                BLL.MemberTypeSpecDuration bllMemberTypes = new MemberTypeSpecDuration();
-                bllMemberTypes.LoadByMemberTypeSpecID((int)Helper.Enums.MemberTypeSpec.VIP);
-                var lstDurations = bllMemberTypes.DefaultView.Table.AsEnumerable().Select(m => new 
-                { 
-                    ID = m[BLL.MemberTypeSpecDuration.ColumnNames.ID] ,
-                    Value = String.Format("{0} ({1})", m["DurationName"], m[BLL.MemberTypeSpecDuration.ColumnNames.Points])
+                var lstMemberTypes = Helper.EnumUtil.GetValues<Helper.Enums.MemberTypeSpec>().Where(r=> (int)r>1).Select(r => new
+                {
+                    ID = (int)r,
+                    Name = Helper.StringEnum.GetStringValue(r)
                 }).ToList();
-                lstTypeDuration.DataSource = lstDurations;
-                lstTypeDuration.DataValueField="ID";
-                lstTypeDuration.DataTextField="Value";
-                lstTypeDuration.DataBind();
+                lstTypes.DataValueField = "ID";
+                lstTypes.DataTextField = "Name";
+                lstTypes.DataSource = lstMemberTypes;
+                lstTypes.DataBind();
             }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            int type = Convert.ToInt32(lstTypeDuration.SelectedValue);
+            int type = Convert.ToInt32(lstTypes.SelectedValue);
             BLL.MemberTypeSpecDuration bllSpec = new MemberTypeSpecDuration();
-            if (bllSpec.LoadByPrimaryKey(type))
+            if (!bllSpec.LoadByMemberTypeSpecID(type))
                 return;
-            int val = Convert.ToInt32(bllSpec.Points);
+            int val = 0;//Convert.ToInt32(bllSpec.Points);
             if (BLL.Member.CurrentMember.Credit_Point < val)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
@@ -114,15 +116,11 @@ namespace Chat2Connect.Admin
                     client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
                     client.Send(msg);
 
-                    //member type
-                    BLL.Member.CurrentMember.Credit_Point -= val;
-                    BLL.Member.CurrentMember.Save();
-
-                    //upgrademember.MemberTypeID = type;
-                    member.MemberType.MemberTypeSpecDurationID = type;
+                    
+                    member.MemberType.MemberTypeSpecDurationID = bllSpec.ID;
                     member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
                     member.MemberType.StartDate = DateTime.Now;
-                    member.MemberType.EndDate = DateTime.Now.AddMonths(bllSpec.TypeDuration.MonthesNumber);
+                    member.MemberType.EndDate = DateTime.Now.AddMonths(Convert.ToInt32(lstTypeDuration.SelectedValue));
                     member.MemberType.Save();
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الإسم بنجاح.'); });", true);
