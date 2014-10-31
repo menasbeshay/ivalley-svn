@@ -12,6 +12,16 @@ namespace BLL
 		
 		}
 
+        public void DeleteOldType(int roomID)
+        {
+             Query.FlushWhereParameters();
+            Where.RoomID.Value = roomID;
+            if (Query.Load())
+            {
+                DeleteAll();
+                Save();
+            }
+        }
         public bool LoadByRoomID(int roomID)
         {
             Query.FlushWhereParameters();

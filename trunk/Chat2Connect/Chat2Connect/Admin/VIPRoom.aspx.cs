@@ -74,11 +74,7 @@ namespace Chat2Connect.Admin
 
                 //delete old records
                 BLL.RoomType bllRoomType = new RoomType();
-                if (bllRoomType.LoadByRoomID(room.RoomID))
-                {
-                    bllRoomType.DeleteAll();
-                    bllRoomType.Save();
-                }
+                bllRoomType.DeleteOldType(room.RoomID);
 
                 BLL.RoomTypeSpecDuration bllTypeSpecDuration = new RoomTypeSpecDuration();
                 bllTypeSpecDuration.LoadByRoomTypeSpecID(Convert.ToInt32(lstTypes.SelectedValue));

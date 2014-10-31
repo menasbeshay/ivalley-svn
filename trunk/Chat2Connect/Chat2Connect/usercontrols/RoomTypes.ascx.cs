@@ -50,11 +50,8 @@ namespace Chat2Connect.usercontrols
 
                         //delete old records
                         BLL.RoomType bllRoomType = new RoomType();
-                        if (bllRoomType.LoadByRoomID(room.RoomID))
-                        {
-                            bllRoomType.DeleteAll();
-                            bllRoomType.Save();
-                        }
+                        bllRoomType.DeleteOldType(room.RoomID);
+
                         room.RoomType.RoomTypeSpecDurationID = bllRoomTypeSpecDuration.ID;
                         room.RoomType.CreateBy = BLL.Member.CurrentMember.MemberID;
                         room.RoomType.StartDate = DateTime.Now;
