@@ -292,6 +292,7 @@
 
     <asp:HiddenField ID="uiHiddenFieldFriendID" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrent" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldProfilePic" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCurrentName" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldMaxNoOfRooms" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldOpenedRooms" ClientIDMode="Static" runat="server" />
@@ -312,9 +313,10 @@
             var currentMemberID=eval($("#<%=uiHiddenFieldCurrent.ClientID %>").val());
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
+            var profilePic=$("#<%=uiHiddenFieldProfilePic.ClientID %>").val();
             var openedRooms=eval(<%=OpenedRooms %>);
             var helpMembers=eval(<%=HelpMembers %>);
-            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers);            
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers,profilePic);            
             
             <%--$("#<%= uiTextBoxFriendSearch.ClientID %>").on('change keyup paste', function() {
                 AllPeople.SearchText = $("#<%= uiTextBoxFriendSearch.ClientID %>").val();
@@ -414,7 +416,7 @@
                     <div class="col-lg-9 pull-right" style="padding: 0 5px;">
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
-                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true,$data.ProfileImg)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                 <!-- ko if: IsCamOpened()-->
                                 <li><a class="jslink" data-bind="click:$parent.startCam.bind($parent,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                 <!-- /ko -->

@@ -56,10 +56,11 @@ ko.bindingHandlers.date = {
         }
     }
 };
-function Chat(maxWin, memberID, memberName, helpMembers) {
+function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
     var self = this;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
+    self.CurrentMemberPic = profilePic;
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
@@ -91,20 +92,17 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return win.Type() == "Room";
         });
     }, self);
-    self.getWindow = function (id, type, name, typeSpec, iscreator) {
+    self.getWindow = function (id, type, name, typeSpec, iscreator,friendPic) {
         var window = ko.utils.arrayFirst(self.windows(), function (win) {
             return win.ID() == id && win.Type() == type;
         });
         if (window == null) {
             if (type == "Private") {
                 chatVM.addWindow(id, name, type);
-                //(id, name, type, istemp, isHidden, levelid, isfriend, isHelp,typeSpec)
-                // generated id for private chat
-                //var newroomid = (id < self.CurrentMemberID) ? id + "_" + self.CurrentMemberID : self.CurrentMemberID + "_" + id;
-                //window = chatVM.getWindow(newroomid, type);
+
                 window = chatVM.getWindow(id, type);
                 window.Settings.TypeID(typeSpec);
-
+                window.Members()[1].ProfileImg(friendPic);
                 if (!iscreator || iscreator == undefined)
                 {
                     $('#AduioNotification_' + window.uniqueID()).html('<audio autoplay><source src="files/sounds/invite.wav"></audio>');
@@ -609,7 +607,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
         this.AdminMessageHistory = ko.observableArray();
         this.toggleMessageTime = function () { };
         function chatMessage(msg,senderImg) {
-            if (senderImg == null)
+            if (senderImg == null || senderImg==undefined || senderImg=='')
                 senderImg = 'images/defaultavatar.png';
             var msgData = { ID: 9999999, FromName: "", Message: msg, MessageDate: null, MemberLevel: 1, FromProfileImg: senderImg, FromID: 0, MemberTypeID: 1 };
             return ko.mapping.fromJS(msgData, {}, this);
@@ -1152,10 +1150,10 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
             return;
         }
     };
-    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator) {
+    self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator,friendPic) {
         if (id == self.CurrentMemberID && type != 'Room')
             return;
-        var window = self.getWindow(id, type, name, typeSpec, iscreator);
+        var window = self.getWindow(id, type, name, typeSpec, iscreator,friendPic);
         if (window == undefined) {
             self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, isHelp, typeSpec, iscreator);
         }
@@ -1187,7 +1185,7 @@ function Chat(maxWin, memberID, memberName, helpMembers) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1660,10 +1658,10 @@ function DeleteFile(roomid, file) {
 
 }
 
-function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend,ishelp,  typespec, iscreator) {
+function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend,ishelp,  typespec, iscreator,friendPic) {
     if (chatVM == undefined)
         InitChat(100);
-    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, ishelp, typespec, iscreator);
+    chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, ishelp, typespec, iscreator,friendPic);
 }
 
 function getFlashMovie(movieName) {
@@ -1676,10 +1674,10 @@ function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
 }
-function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers) {
+function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,profilePic) {
     rHub = $.connection.chatRoomHub;
     $.connection.hub.start();
-    chatVM = new Chat(maxWinRooms, memberID, memberName, helpMembers);
+    chatVM = new Chat(maxWinRooms, memberID, memberName, helpMembers,profilePic);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
         ko.utils.arrayMap(openedWindows, function (item) {
