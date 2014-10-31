@@ -11,13 +11,13 @@ namespace BLL.Log
         {
             Type = Helper.Enums.LogType.ChangeRoomType;
         }
-        [Helper.BoundProperty(HeaderText = "إنتهاء الصبغة", DisplayOrder = 3,DataFormat=Helper.Date.DateStringFormat)]
+        [Helper.BoundProperty(HeaderText = "إنتهاء الترقية", DisplayOrder = 3,DataFormat=Helper.Date.DateStringFormat)]
         public DateTime NewTypeExpiryDate { get; set; }
 
         [Helper.BoundProperty(HeaderText = "إسم الغرفة", DisplayOrder = 1)]
         public string RoomName { get; set; }
 
-        [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
+        [Helper.BoundProperty(HeaderText = "نوع الترقية", DisplayOrder = 2)]
         public string NewTypeName { get; set; }
 
         [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 4)]

@@ -15,7 +15,7 @@ namespace BLL.Log
         [Helper.BoundProperty(HeaderText = "إسم الغرفة", DisplayOrder = 1)]
         public string RoomName { get; set; }
 
-        [Helper.BoundProperty(HeaderText = "نوع الصبغة", DisplayOrder = 2)]
+        [Helper.BoundProperty(HeaderText = "نوع الترقية", DisplayOrder = 2)]
         public string RoomTypeName { get; set; }
 
         [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 3)]

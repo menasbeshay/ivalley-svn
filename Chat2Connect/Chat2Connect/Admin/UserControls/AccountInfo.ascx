@@ -75,12 +75,12 @@
                         </asp:TemplateField>
                         <asp:BoundField Visible="false" HeaderText="تاريخ التسجيل" DataField="CreationDate" DataFormatString="{0:dd / MM / yyyy hh:mm}" HtmlEncode="false" />
                         <asp:BoundField Visible="false" HeaderText="اّى بى التسجيل" DataField="IP" />
-                        <asp:TemplateField Visible="false" HeaderText="لون الصبغة">
+                        <asp:TemplateField Visible="false" HeaderText="لون الترقية">
                             <ItemTemplate>
                                 <span style='display:block;color:<%# Eval("MemberTypeColor") %>;background-color:<%# Eval("MemberTypeColor") %>'><%# Eval("MemberTypeColor") %></span>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField Visible="false" HeaderText="إنتهاء الصبغة" DataField="MemberTypeExpiryDate" DataFormatString="{0:dd / MM / yyyy hh:mm}" HtmlEncode="false" />
+                        <asp:BoundField Visible="false" HeaderText="إنتهاء الترقية" DataField="MemberTypeExpiryDate" DataFormatString="{0:dd / MM / yyyy hh:mm}" HtmlEncode="false" />
                         <asp:BoundField Visible="false" HeaderText="الرصيد" DataField="Credit_Money" />
                         <asp:BoundField Visible="false" HeaderText="متصل؟" DataField="IsOnline" />
                         <asp:BoundField Visible="false" HeaderText="الحالة" DataField="StatusName" />

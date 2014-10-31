@@ -234,12 +234,12 @@
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label13" runat="server" Text="لون الصبغة :" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="Label13" runat="server" Text="لون الترقية :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelAccountType" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label15" runat="server" Text="تاريخ إنتهاء الصبغة :" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="Label15" runat="server" Text="تاريخ إنتهاء الترقية :" Font-Bold="true"></asp:Label>
                         <asp:Label ID="uiLabelTypeExpiry" runat="server" ></asp:Label>                 
             </div>
             <div class="clearfix"></div>
