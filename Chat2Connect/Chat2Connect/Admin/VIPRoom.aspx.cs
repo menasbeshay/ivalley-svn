@@ -72,6 +72,14 @@ namespace Chat2Connect.Admin
                 room.Name = txtNewName.Text;
                 room.Save();
 
+                //delete old records
+                BLL.RoomType bllRoomType = new RoomType();
+                if (bllRoomType.LoadByRoomID(room.RoomID))
+                {
+                    bllRoomType.DeleteAll();
+                    bllRoomType.Save();
+                }
+
                 BLL.RoomTypeSpecDuration bllTypeSpecDuration = new RoomTypeSpecDuration();
                 bllTypeSpecDuration.LoadByRoomTypeSpecID(Convert.ToInt32(lstTypes.SelectedValue));
                 room.RoomType.RoomTypeSpecDurationID = bllTypeSpecDuration.ID;
