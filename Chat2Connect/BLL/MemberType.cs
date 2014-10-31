@@ -12,6 +12,16 @@ namespace BLL
 
         }
 
+        public void DeleteMemberTypes(int memberID)
+        {
+            Query.FlushWhereParameters();
+            Where.MemberID.Value = memberID;
+            if (Query.Load())
+            {
+                DeleteAll();
+                Save();
+            }
+        }
         public bool LoadByMemberID(int memberID)
         {
             Query.FlushWhereParameters();

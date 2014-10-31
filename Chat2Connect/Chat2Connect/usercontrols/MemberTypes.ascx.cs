@@ -50,6 +50,10 @@ namespace Chat2Connect.usercontrols
                         BLL.Member.CurrentMember.Credit_Point -= points;
                         BLL.Member.CurrentMember.Save();
 
+                        //delete old records
+                        BLL.MemberType bllMemberType = new MemberType();
+                        bllMemberType.DeleteMemberTypes(upgrademember.MemberID);
+                        
                         upgrademember.MemberType.MemberTypeSpecDurationID = bllMemberTypeSpecDuration.ID;
                         upgrademember.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
                         upgrademember.MemberType.StartDate = DateTime.Now;
