@@ -330,7 +330,7 @@ namespace Chat2Connect.services
         {
             Room bllRooms = new Room();
             int? createdBy;
-            if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()))
+            if (Helper.Admin.IsAdmin() && (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()) || Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AddVIPRoom.ToString())))
             {
                 createdBy=null;
             }
@@ -688,14 +688,14 @@ namespace Chat2Connect.services
                     acceptedTypes = String.Join(",", typeNames);
                     switch (BLL.Member.CurrentMember.MemberType.MemberTypeSpecDuration.MemberTypeSpecID)
                     {
-                        case (int)Helper.Enums.MemberTypeSpec.Free:
+                        case (int)Helper.Enums.TypeSpec.Free:
                             isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.Free));
                             break;
-                        case (int)Helper.Enums.MemberTypeSpec.Pink1:
-                        case (int)Helper.Enums.MemberTypeSpec.Pink2:
+                        case (int)Helper.Enums.TypeSpec.Pink1:
+                        case (int)Helper.Enums.TypeSpec.Pink2:
                             isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.Upgraded));
                             break;
-                        case (int)Helper.Enums.MemberTypeSpec.VIP:
+                        case (int)Helper.Enums.TypeSpec.VIP:
                             isValidMemberType = infoBot.AcceptedMemberTypes.Contains(Convert.ToString((int)Helper.Enums.MemberType.VIP));
                             break;
                     }

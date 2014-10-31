@@ -34,27 +34,20 @@ namespace Chat2Connect.Admin
                     if (!Helper.Admin.HasAnyOfRoles(PageRoles))
                         Response.Redirect("~/default.aspx");
 
-                    if (Request.QueryString["status"] == "1")
-                        uiPanelSuccess.Visible = true;
-                    hdnCreatorID.Value = BLL.Member.CurrentMember.MemberID.ToString();
-                    txtCreator.Text = BLL.Member.CurrentMember.Name;
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#" + txtCreator.ClientID + "').tokenInput('add', { id: " + Helper.TypeConverter.ToString(BLL.Member.CurrentMemberID) + ", name: '" + Helper.TypeConverter.ToString(BLL.Member.CurrentMember.Name) + "' }); });", true);
-                    LoadDDLs();
-
-                    nameValidator.Visible = false;
-                    BLL.RoomTypeSpecDuration bllMemberTypes = new RoomTypeSpecDuration();
-                    bllMemberTypes.LoadByRoomTypeSpecID((int)Helper.Enums.MemberTypeSpec.VIP);
-                    var lstDurations = bllMemberTypes.DefaultView.Table.AsEnumerable().Select(m => new
+                    for (int i = 1; i <= 12; i++)
                     {
-                        ID = m[BLL.MemberTypeSpecDuration.ColumnNames.ID],
-                        Value = String.Format("{0} ({1})", m["DurationName"], m[BLL.MemberTypeSpecDuration.ColumnNames.Points])
-                    }).ToList();
-                    lstTypeDuration.DataSource = lstDurations;
-                    lstTypeDuration.DataValueField = "ID";
-                    lstTypeDuration.DataTextField = "Value";
-                    lstTypeDuration.DataBind();
+                        lstTypeDuration.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                    }
 
-                    dvVIPRoom.Visible = true;
+                    var lstRoomTypes = Helper.EnumUtil.GetValues<Helper.Enums.TypeSpec>().Where(r => (int)r > 1).Select(r => new
+                    {
+                        ID = (int)r,
+                        Name = Helper.StringEnum.GetStringValue(r)
+                    }).ToList();
+                    lstTypes.DataValueField = "ID";
+                    lstTypes.DataTextField = "Name";
+                    lstTypes.DataSource = lstRoomTypes;
+                    lstTypes.DataBind();
                 }
 
             }
@@ -64,113 +57,42 @@ namespace Chat2Connect.Admin
             }
         }
 
-        protected void uiDropDownListADD_Category_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BindSubCats();
-        }
-
        protected void uiLinkButtonSaveRoom_Click(object sender, EventArgs e)
         {
-            // check member type 
-            // check number of created rooms
-            string querystring = "";
             if (Request.IsAuthenticated)
             {
                 Member member = BLL.Member.CurrentMember;
                 Room room = new Room();
-                BLL.RoomTypeSpecDuration bllTypeSpecDuration = new RoomTypeSpecDuration();
-                room.AddNew();
-                room.Name = uiTextBoxADD_Name.Text;
-                querystring = "c=true";
-
-                int typeDuratoinID = Convert.ToInt32(lstTypeDuration.SelectedValue);
-                bllTypeSpecDuration.LoadByPrimaryKey(typeDuratoinID);
-
-                if (member.Credit_Point < bllTypeSpecDuration.Points)
+                if (!room.LoadByPrimaryKey(Convert.ToInt32(hdnRoomID.Value)))
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Error3", @"$(document).ready(function () { notify('error', 'حدث خطأ . لا توجد غرفة بهذا الإسم.'); });", true);
                     return;
                 }
 
-                room.CreatedDate = DateTime.Now;
-                room.CreatedBy = Convert.ToInt32(hdnCreatorID.Value);
-
-                if (uiDropDownListADD_Category.SelectedIndex != -1)
-                    room.CategoryID = Convert.ToInt32(uiDropDownListADD_Category.SelectedValue);
-                if (uiDropDownListADD_SubCategory.SelectedIndex != 0)
-                    room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);
-
-                if (uiFileUploadRoomPic.HasFile)
-                {
-                    string path = "~/" + ConfigurationManager.AppSettings["roomspics"].ToString();
-                    DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
-                    if (!dir.Exists)
-                        dir.Create();
-                    path += "/" + Membership.GetUser().ProviderUserKey.ToString() + "/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "_" + uiFileUploadRoomPic.FileName;
-                    uiFileUploadRoomPic.SaveAs(Server.MapPath(path));
-                    room.IconPath = path;
-                }
-
-                room.RoomPasswordenabled = false;
-                room.EnableCam = true;
-                room.EnableMic = true;
-                room.RowStatusID = 1;
+                room.Name = txtNewName.Text;
                 room.Save();
 
-
-                uiPanelSuccess.Visible = true;
-                uiTextBoxADD_Name.Text = "";
-                uiDropDownListADD_Category.SelectedIndex = 0;
-                uiDropDownListADD_SubCategory.SelectedIndex = 0;
-                
-                // log 
-                BLL.MemberLog log = new BLL.MemberLog();
-                BLL.Member.CurrentMember.Credit_Point -= bllTypeSpecDuration.Points;
-                BLL.Member.CurrentMember.Save();
-
-                //upgrademember.MemberTypeID = type;
+                BLL.RoomTypeSpecDuration bllTypeSpecDuration = new RoomTypeSpecDuration();
+                bllTypeSpecDuration.LoadByRoomTypeSpecID(Convert.ToInt32(lstTypes.SelectedValue));
                 room.RoomType.RoomTypeSpecDurationID = bllTypeSpecDuration.ID;
                 room.RoomType.CreateBy = BLL.Member.CurrentMember.MemberID;
                 room.RoomType.StartDate = DateTime.Now;
-                room.RoomType.EndDate = DateTime.Now.AddMonths(bllTypeSpecDuration.TypeDuration.MonthesNumber);
+                room.RoomType.EndDate = DateTime.Now.AddMonths(Convert.ToInt32(lstTypeDuration.SelectedValue));
+                room.RoomType.OldName = txtRoomName.Text;
                 room.RoomType.Save();
 
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name, RoomTypeName = bllTypeSpecDuration.RoomTypeSpec.Name, Points = bllTypeSpecDuration.Points }, null, room.RoomID);
+                uiPanelSuccess.Visible = true;
+                txtRoomName.Text = "";
+                txtNewName.Text = "";
                 
-                Response.Redirect("VIPRoom.aspx?status=1");
+                // log 
+                BLL.MemberLog log = new BLL.MemberLog();
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName = room.Name, NewTypeName = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name, NewTypeExpiryDate = room.RoomType.EndDate, Points = 0 }, null, room.RoomID);
+                Chat2Connect.usercontrols.RoomTypes.NotifyRoom(room, bllTypeSpecDuration);
             }
         }
 
         #endregion
 
-        #region methods
-
-        private void LoadDDLs()
-        {
-            Category cats = new Category();
-            cats.LoadAll();
-            uiDropDownListADD_Category.DataSource = cats.DefaultView;
-            uiDropDownListADD_Category.DataTextField = "Name";
-            uiDropDownListADD_Category.DataValueField = "CategoryID";
-            uiDropDownListADD_Category.DataBind();
-
-            BindSubCats();
-
-        }
-
-        private void BindSubCats()
-        {
-            SubCategory subcats = new SubCategory();
-            if (uiDropDownListADD_Category.SelectedIndex != -1)
-                subcats.GetSubCategoryByCategoryID(Convert.ToInt32(uiDropDownListADD_Category.SelectedValue));
-            uiDropDownListADD_SubCategory.DataSource = subcats.DefaultView;
-            uiDropDownListADD_SubCategory.DataTextField = "Name";
-            uiDropDownListADD_SubCategory.DataValueField = "SubCategoryID";
-            uiDropDownListADD_SubCategory.DataBind();
-            uiDropDownListADD_SubCategory.Items.Insert(0, new ListItem("إختر قسم فرعى. . . ."));
-        }
-
-
-        #endregion
     }
 }

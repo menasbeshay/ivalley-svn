@@ -48,7 +48,7 @@ namespace Helper
             VIP = 3
         }
 
-        public enum MemberTypeSpec
+        public enum TypeSpec
         {
             [StringValue("أسود")]
             Free = 1,
@@ -102,7 +102,7 @@ namespace Helper
             Admin_AddVIPAccount,
             [StringValue("إصدار غرفة مميز")]
             Admin_AddVIPRoom,
-            [StringValue("صبغ غرفة")]
+            [StringValue("ترقية غرفة")]
             Admin_RoomType,
             [StringValue("بريد الموقع")]
             Admin_SiteMails,

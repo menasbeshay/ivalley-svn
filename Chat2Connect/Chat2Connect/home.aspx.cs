@@ -85,7 +85,7 @@ namespace Chat2Connect
                     helpMembers.GetHelpMembers();
 
                     HelpMembers = Helper.JsonConverter.Serialize(
-                        helpMembers.DefaultView.Table.AsEnumerable().Select(m => new { ID = m[BLL.Member.ColumnNames.MemberID], ProfilePic = (m.IsNull(BLL.Member.ColumnNames.ProfilePic))? "images/defaultavatar.png" : m[BLL.Member.ColumnNames.ProfilePic] , Name = m[BLL.Member.ColumnNames.Name], IsOnline = m[BLL.Member.ColumnNames.IsOnLine],TypeSpecID=(int)Helper.Enums.MemberTypeSpec.Help }).ToList()
+                        helpMembers.DefaultView.Table.AsEnumerable().Select(m => new { ID = m[BLL.Member.ColumnNames.MemberID], ProfilePic = (m.IsNull(BLL.Member.ColumnNames.ProfilePic))? "images/defaultavatar.png" : m[BLL.Member.ColumnNames.ProfilePic] , Name = m[BLL.Member.ColumnNames.Name], IsOnline = m[BLL.Member.ColumnNames.IsOnLine],TypeSpecID=(int)Helper.Enums.TypeSpec.Help }).ToList()
                         );
                 }
             }

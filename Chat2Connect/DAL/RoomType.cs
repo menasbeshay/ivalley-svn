@@ -147,6 +147,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter OldName
+			{
+				get
+				{
+					return new SqlParameter("@OldName", SqlDbType.NVarChar, 400);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace DAL
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
             public const string CreateBy = "CreateBy";
+            public const string OldName = "OldName";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace DAL
 					ht[StartDate] = _RoomType.PropertyNames.StartDate;
 					ht[EndDate] = _RoomType.PropertyNames.EndDate;
 					ht[CreateBy] = _RoomType.PropertyNames.CreateBy;
+					ht[OldName] = _RoomType.PropertyNames.OldName;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace DAL
             public const string StartDate = "StartDate";
             public const string EndDate = "EndDate";
             public const string CreateBy = "CreateBy";
+            public const string OldName = "OldName";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace DAL
 					ht[StartDate] = _RoomType.ColumnNames.StartDate;
 					ht[EndDate] = _RoomType.ColumnNames.EndDate;
 					ht[CreateBy] = _RoomType.ColumnNames.CreateBy;
+					ht[OldName] = _RoomType.ColumnNames.OldName;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace DAL
             public const string StartDate = "s_StartDate";
             public const string EndDate = "s_EndDate";
             public const string CreateBy = "s_CreateBy";
+            public const string OldName = "s_OldName";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.CreateBy, value);
+			}
+		}
+
+		public virtual string OldName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.OldName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.OldName, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_OldName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.OldName) ? string.Empty : base.GetstringAsString(ColumnNames.OldName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.OldName);
+				else
+					this.OldName = base.SetstringAsString(ColumnNames.OldName, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter OldName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.OldName, Parameters.OldName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter OldName
+		    {
+				get
+		        {
+					if(_OldName_W == null)
+	        	    {
+						_OldName_W = TearOff.OldName;
+					}
+					return _OldName_W;
+				}
+			}
+
 			private WhereParameter _ID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _RoomTypeSpecDurationID_W = null;
 			private WhereParameter _StartDate_W = null;
 			private WhereParameter _EndDate_W = null;
 			private WhereParameter _CreateBy_W = null;
+			private WhereParameter _OldName_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace DAL
 				_StartDate_W = null;
 				_EndDate_W = null;
 				_CreateBy_W = null;
+				_OldName_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter OldName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OldName, Parameters.OldName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter OldName
+		    {
+				get
+		        {
+					if(_OldName_W == null)
+	        	    {
+						_OldName_W = TearOff.OldName;
+					}
+					return _OldName_W;
+				}
+			}
+
 			private AggregateParameter _ID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _RoomTypeSpecDurationID_W = null;
 			private AggregateParameter _StartDate_W = null;
 			private AggregateParameter _EndDate_W = null;
 			private AggregateParameter _CreateBy_W = null;
+			private AggregateParameter _OldName_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace DAL
 				_StartDate_W = null;
 				_EndDate_W = null;
 				_CreateBy_W = null;
+				_OldName_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.CreateBy);
 			p.SourceColumn = ColumnNames.CreateBy;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.OldName);
+			p.SourceColumn = ColumnNames.OldName;
 			p.SourceVersion = DataRowVersion.Current;
 
 

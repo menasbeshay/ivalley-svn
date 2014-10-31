@@ -29,7 +29,7 @@ namespace BLL
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
                                     where R.CreatedBy = {0} --AND ISNULL(R.RowStatusID,{1})={1} 
-                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled,(int)Helper.Enums.MemberTypeSpec.Free);
+                                    order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled,(int)Helper.Enums.TypeSpec.Free);
 
         }
 
@@ -247,6 +247,12 @@ namespace BLL
                 parameters.Add(new SqlParameter("@RoomStatus", SqlDbType.TinyInt), status);
 
             return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_RoomSearch]", parameters);
+        }
+
+        public bool LoadByName(string roomName)
+        {
+            Where.Name.Value = roomName;
+            return Query.Load();
         }
     }
 }
