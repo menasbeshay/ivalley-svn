@@ -32,6 +32,7 @@ namespace Chat2Connect
                     uiHiddenFieldCreditPoints.Value = (!member.IsColumnNull("Credit_Point")) ? member.Credit_Point.ToString() : "0";
                     uiHiddenFieldOpenedCams.Value = 0.ToString();
                     uiHiddenFieldOpenedRooms.Value = 0.ToString();
+                    uiHiddenFieldProfilePic.Value = member.s_ProfilePic;
                     int membertype = 0;
                     membertype = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID;
                     uiHiddenFieldMaxCams.Value = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.OpenedCamCount.ToString();

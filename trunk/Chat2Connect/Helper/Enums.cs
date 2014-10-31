@@ -29,13 +29,13 @@ namespace Helper
         public enum MemberStatus
         {
             [StringValue("متصل")]
-            Online=1,
+            Online = 1,
             [StringValue("مشغول")]
-            Busy=2,
+            Busy = 2,
             [StringValue("بعيد")]
-            Away=3,
+            Away = 3,
             [StringValue("غير متصل")]
-            Offline=4
+            Offline = 4
         }
 
         public enum MemberType
@@ -50,10 +50,11 @@ namespace Helper
 
         public enum MemberTypeSpec
         {
-            Free=1,
-            Pink1=2,
-            Pink2=3,
-            VIP=4
+            Free = 1,
+            Pink1 = 2,
+            Pink2 = 3,
+            VIP = 4,
+            Help = 5
         }
 
         public enum MemberRoles
@@ -238,25 +239,25 @@ namespace Helper
         public enum Bot
         {
             [StringValue("بوت الترحيب")]
-            Welcome=1,
+            Welcome = 1,
             [StringValue("حظر دعوة الأصدقاء")]
-            InviteFriendsBan=2,
+            InviteFriendsBan = 2,
             [StringValue("متابعة الإدارة")]
-            FollowAdmin=3,
+            FollowAdmin = 3,
             [StringValue("فئات الدخول")]
-            MemberTypeLogin=4,
+            MemberTypeLogin = 4,
             [StringValue("بريد المالك")]
-            EmailOwner=5,
+            EmailOwner = 5,
             [StringValue("أصدقاء الغرفة")]
-            RoomFriends=6,
+            RoomFriends = 6,
             [StringValue("قانون الغرفة")]
-            RoomLaw=7,
+            RoomLaw = 7,
             [StringValue("برامج الغرفة")]
-            RoomProgram=8,
+            RoomProgram = 8,
             [StringValue("غرفة مجانية")]
-            FreeRoom=9,
+            FreeRoom = 9,
             [StringValue("ترقية غرفة")]
-            UpgradedRoom=10
+            UpgradedRoom = 10
         }
 
         public enum FollowAdminBotSchedule
