@@ -13,8 +13,7 @@ namespace Chat2Connect.usercontrols
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Member user = new Member();
-            user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            Member user = BLL.Member.CurrentMember;
             Member online = new Member();
             online.GetMemberFriendsByStatus(user.MemberID, true);
             Member offline = new Member();

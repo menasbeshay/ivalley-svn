@@ -50,10 +50,15 @@ namespace Helper
 
         public enum MemberTypeSpec
         {
+            [StringValue("أسود")]
             Free = 1,
+            [StringValue("أرجوانى فاتح")]
             Pink1 = 2,
+            [StringValue("أرجوانى غامق")]
             Pink2 = 3,
+            [StringValue("ذهبى")]
             VIP = 4,
+            [StringValue("أحمر")]
             Help = 5
         }
 
@@ -105,8 +110,6 @@ namespace Helper
             Admin_SendMessgae,
             [StringValue("إحصائيات")]
             Admin_StatsReport,
-            [StringValue("المساعدة")]
-            Admin_SiteHelper,
             [StringValue("إعدادات عامة")]
             Admin_GeneralSettings,
             [StringValue("إعدادات إعلانات البريد")]

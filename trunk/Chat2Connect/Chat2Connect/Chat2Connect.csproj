@@ -856,6 +856,11 @@
     <Compile Include="Admin\Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\App_LocalResources\AddAccount.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddAccount.aspx.resx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1500,7 +1505,10 @@
     <Content Include="App_LocalResources\default.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\App_LocalResources\AddAccount.aspx.resx" />
+    <Content Include="Admin\App_LocalResources\AddAccount.aspx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AddAccount.aspx.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Global.resx">

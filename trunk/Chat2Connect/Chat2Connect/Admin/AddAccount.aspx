@@ -81,16 +81,28 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-2 control-label pull-right">
-                        <label>مدة الصبغة</label>
+                        <label>نوع الترقية</label>
                     </div>
                     <div class="col-sm-5 pull-right">
-                        <asp:RadioButtonList ID="lstTypeDuration" runat="server" RepeatDirection="Horizontal" CssClass="form-control radio-inlineMain" RepeatLayout="Table"></asp:RadioButtonList>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lstTypeDuration" ErrorMessage="من فضلك إختار مدة الصبغة ." ToolTip="من فضلك إختار مدة الصبغة ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                                                
+                        <asp:RadioButtonList ID="lstTypes" runat="server" RepeatDirection="Horizontal" CssClass="form-control radio-inlineMain" RepeatLayout="Table">
+                            
+                        </asp:RadioButtonList>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 control-label pull-right">
+                        <label>مدة الترقية</label>
+                    </div>
+                    <div class="col-sm-2 pull-right">
+                        <asp:DropDownList ID="lstTypeDuration" runat="server" CssClass="form-control"></asp:DropDownList>
+                    </div>
+                    <div class="col-sm-2 pull-right">
+                        شهر
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6 pull-left">
-                        <asp:Button ID="btnRegister" runat="server" Text="إشترك" CssClass="btn btn-warning " ValidationGroup="CreateUserWizard1" Style="width: 100px;" OnClick="btnRegister_Click" />
+                        <asp:Button ID="btnRegister" runat="server" Text="إصدار" CssClass="btn btn-warning " ValidationGroup="CreateUserWizard1" Style="width: 100px;" OnClick="btnRegister_Click" />
                     </div>
                 </div>
 
