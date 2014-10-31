@@ -2,7 +2,7 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <h3 id="myModalLabel1">صبغة الحساب</h3>
+        <h3 id="myModalLabel1">ترقية الحساب</h3>
     </div>
     <div class="modal-body">
         <div class="form-horizontal blockBox validationGroup">

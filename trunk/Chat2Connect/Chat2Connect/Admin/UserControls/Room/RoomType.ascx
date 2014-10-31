@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RoomType.ascx.cs" Inherits="Chat2Connect.Admin.UserControls.Room.RoomType" %>
 <div class="modal-content">
     <div class="modal-header">
-        <h3 id="myModalLabel1">صبغة غرفة</h3>
+        <h3 id="myModalLabel1">ترقية غرفة</h3>
     </div>
     <div class="modal-body">
         <div class="form-horizontal blockBox validationGroup">

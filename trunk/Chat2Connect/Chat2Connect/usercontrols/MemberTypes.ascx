@@ -25,7 +25,7 @@
                 <div class="caption_column" style="width:30%">
                     <ul>
                         <li class="header_row_2">
-                            <h2 class="caption">إختر لون الترقية (الصبغة)</h2>
+                            <h2 class="caption">إختر لون الترقية (الترقية)</h2>
                         </li>
                         <li class="row_style_4"><span>المسموح دخول غرف	</span></li>
                         <li class="row_style_2"><span>كاميرات</span></li>

@@ -56,7 +56,7 @@ namespace Chat2Connect.usercontrols
                         upgrademember.MemberType.EndDate = DateTime.Now.AddMonths(bllMemberTypeSpecDuration.TypeDuration.MonthesNumber);
                         upgrademember.MemberType.Save();
 
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الإسم بنجاح.'); });", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم ترقية الإسم بنجاح.'); });", true);
 
                         BLL.MemberLog log = new BLL.MemberLog();
                         log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = upgrademember.Name, NewTypeName = upgrademember.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = upgrademember.MemberType.EndDate, Points = points }, upgrademember.MemberID, null);

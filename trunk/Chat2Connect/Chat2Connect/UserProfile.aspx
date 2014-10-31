@@ -91,7 +91,7 @@
            
             <div class="clearfix"></div>
             <div class="col-lg-12" style="margin:8px 0px;padding-right:0px;">
-                    <asp:Label ID="Label13" runat="server" Text="لون الصبغة :"></asp:Label>
+                    <asp:Label ID="Label13" runat="server" Text="لون الترقية :"></asp:Label>
                         <asp:Label ID="uiLabelAccountType" runat="server" ></asp:Label>
             </div>
             <div class="clearfix"></div>            

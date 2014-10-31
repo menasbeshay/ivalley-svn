@@ -54,7 +54,7 @@ namespace Chat2Connect.usercontrols
                         room.RoomType.EndDate = DateTime.Now.AddMonths(bllRoomTypeSpecDuration.TypeDuration.MonthesNumber);
                         room.RoomType.Save();
 
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم صبغة الغرفة بنجاح.'); });", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم ترقية الغرفة بنجاح.'); });", true);
 
                         BLL.MemberLog log = new BLL.MemberLog();
                         log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName = room.Name, NewTypeName = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name, NewTypeExpiryDate = room.RoomType.EndDate, Points = points }, null, room.RoomID);
