@@ -374,7 +374,7 @@ namespace BLL
                                         INNER JOIN MemberType MT ON MT.MemberID=M.MemberID
                                         INNER JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
                                     WHERE M.RowStatusID=1 AND d.MemberTypeSpecID=5
-                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, (int)Helper.Enums.MemberTypeSpec.Help);
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, (int)Helper.Enums.TypeSpec.Help);
         }
     }
 }

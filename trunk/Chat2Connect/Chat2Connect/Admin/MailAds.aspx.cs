@@ -24,6 +24,9 @@ namespace Chat2Connect.Admin
         {
             if (!IsPostBack)
             {
+                if (!Helper.Admin.HasAnyOfRoles(PageRoles))
+                    Response.Redirect("~/default.aspx");
+
                 txtStartDate.Text = Helper.Date.ToString(DateTime.Now);
 
                 BLL.MailAds ads = new BLL.MailAds();

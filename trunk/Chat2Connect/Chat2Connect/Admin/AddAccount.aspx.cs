@@ -11,7 +11,7 @@ using BLL;
 
 namespace Chat2Connect.Admin
 {
-    public partial class AddAccount : System.Web.UI.Page
+    public partial class AddAccount : Page
     {
         public static List<string> PageRoles
         {
@@ -26,6 +26,9 @@ namespace Chat2Connect.Admin
         {
             if (!IsPostBack)
             {
+                if (!Helper.Admin.HasAnyOfRoles(PageRoles))
+                    Response.Redirect("~/default.aspx");
+
                 ClearFields();
                 uiPanelDone.Visible = false;
                 uiPanelRegister.Visible = true;
@@ -34,7 +37,7 @@ namespace Chat2Connect.Admin
                     lstTypeDuration.Items.Add(new ListItem(i.ToString(), i.ToString()));
                 }
 
-                var lstMemberTypes = Helper.EnumUtil.GetValues<Helper.Enums.MemberTypeSpec>().Where(r=> (int)r>1).Select(r => new
+                var lstMemberTypes = Helper.EnumUtil.GetValues<Helper.Enums.TypeSpec>().Where(r=> (int)r>1).Select(r => new
                 {
                     ID = (int)r,
                     Name = Helper.StringEnum.GetStringValue(r)

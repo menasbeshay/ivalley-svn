@@ -13,15 +13,6 @@ namespace Chat2Connect.Admin {
     public partial class VIPRoom {
         
         /// <summary>
-        /// Label10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-        
-        /// <summary>
         /// uiPanelSuccess control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,22 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.Label uiLabelsuccess;
         
         /// <summary>
-        /// uiTextBoxADD_Name control.
+        /// hdnRoomID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxADD_Name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnRoomID;
+        
+        /// <summary>
+        /// txtRoomName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -58,49 +58,31 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// nameValidator control.
+        /// txtNewName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator nameValidator;
+        protected global::System.Web.UI.WebControls.TextBox txtNewName;
         
         /// <summary>
-        /// CustomValidator1 control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// uiDropDownListADD_Category control.
+        /// lstTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListADD_Category;
-        
-        /// <summary>
-        /// uiDropDownListADD_SubCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListADD_SubCategory;
-        
-        /// <summary>
-        /// txtCreator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCreator;
+        protected global::System.Web.UI.WebControls.RadioButtonList lstTypes;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -112,49 +94,13 @@ namespace Chat2Connect.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// hdnCreatorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnCreatorID;
-        
-        /// <summary>
-        /// dvVIPRoom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvVIPRoom;
-        
-        /// <summary>
         /// lstTypeDuration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList lstTypeDuration;
-        
-        /// <summary>
-        /// req_TypeDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator req_TypeDuration;
-        
-        /// <summary>
-        /// uiFileUploadRoomPic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadRoomPic;
+        protected global::System.Web.UI.WebControls.DropDownList lstTypeDuration;
         
         /// <summary>
         /// uiLinkButtonSaveRoom control.

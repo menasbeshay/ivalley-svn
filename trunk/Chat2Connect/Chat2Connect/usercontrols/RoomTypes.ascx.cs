@@ -78,7 +78,7 @@ namespace Chat2Connect.usercontrols
             }
         }
 
-        private static void NotifyRoom(Room room, BLL.RoomTypeSpecDuration bllRoomTypeSpecDuration)
+        public static void NotifyRoom(Room room, BLL.RoomTypeSpecDuration bllRoomTypeSpecDuration)
         {
             var settings = new
             {
