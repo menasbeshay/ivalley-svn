@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MyGeneration.dOOdads, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\MyGeneration13\Architectures\dOOdads\CSharp\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll</HintPath>
+    <Reference Include="MyGeneration.dOOdads">
+      <HintPath>..\DAL\bin\Debug\MyGeneration.dOOdads.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

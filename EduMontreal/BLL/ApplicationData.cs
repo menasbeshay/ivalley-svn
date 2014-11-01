@@ -21,6 +21,12 @@ namespace EDU.BLL
             return LoadFromSql("GetAllApplications", parameters);
         }
 
+        public virtual bool GetNotCompletedApplications()
+        {
+            ListDictionary parameters = new ListDictionary();
+            return LoadFromSql("GetNotCompletedApplications", parameters);
+        }
+
         public virtual bool GetApplication_print(int ApplicationDataID)
         {
             ListDictionary parameters = new ListDictionary();
