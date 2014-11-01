@@ -8,6 +8,8 @@
         			
             <div class="span12">
                 <asp:Panel runat="server" ID="uiPanelAllApplications">
+                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="List of students Completed Their Applications:"></asp:Label>
+
                     <asp:GridView ID="uiGridViewAllApplications" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" OnPageIndexChanging="uiGridViewAllApplications_PageIndexChanging" OnRowCommand="uiGridViewAllApplications_RowCommand" PageSize="15" Width="100%" CssClass="table table-hover " >
                         <AlternatingRowStyle HorizontalAlign="Center" />
                         <RowStyle HorizontalAlign="Center" />                    
@@ -22,6 +24,28 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                 <asp:LinkButton runat="server" CommandName="EditApp" CommandArgument='<%# Eval("ApplicationDataID") %>' CssClass="btn btn-primary">Update application</asp:LinkButton>
+                                    <div class="clearfix" style="height:2px;"></div>
+                                    <a href='appdata?sid=<%# Eval("StudentID") %>' class="btn btn-sm btn-primary">Update application data</a>
+                                    </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+
+                    <br />
+                    <br />
+
+                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="List of students not created their applications:"></asp:Label>
+                    <asp:GridView ID="uiGridViewNotCompletedApplications" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" OnPageIndexChanging="uiGridViewAllApplications_PageIndexChanging" OnRowCommand="uiGridViewAllApplications_RowCommand" PageSize="15" Width="100%" CssClass="table table-hover " >
+                        <AlternatingRowStyle HorizontalAlign="Center" />
+                        <RowStyle HorizontalAlign="Center" />                    
+                        <Columns>
+                            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                            <asp:BoundField DataField="MiddleName" HeaderText="Middle Name" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" />                        
+                            <asp:BoundField DataField="CityofBirth" HeaderText="City Of Birth" />
+                            <asp:BoundField DataField="CellPhoneNumber" HeaderText="Cell Phone" />  
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
                                     <div class="clearfix" style="height:2px;"></div>
                                     <a href='appdata?sid=<%# Eval("StudentID") %>' class="btn btn-sm btn-primary">Update application data</a>
                                     </ItemTemplate>

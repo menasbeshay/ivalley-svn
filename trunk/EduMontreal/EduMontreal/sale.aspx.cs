@@ -29,8 +29,8 @@ namespace EduMontreal
 
                 if (history.ApplicationStatusID == 3)
                 {
-                   // amount = "1501";
-                    amount = "0.01";
+                    amount = "1500";
+                    //amount = "0.01";
                 }
                 else
                 {

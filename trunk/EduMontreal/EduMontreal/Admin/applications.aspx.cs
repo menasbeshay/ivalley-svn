@@ -90,6 +90,10 @@ namespace WebApplication.Admin
             apps.GetAllApplications();
             uiGridViewAllApplications.DataSource = apps.DefaultView;
             uiGridViewAllApplications.DataBind();
+
+            apps.GetNotCompletedApplications();
+            uiGridViewNotCompletedApplications.DataSource = apps.DefaultView;
+            uiGridViewNotCompletedApplications.DataBind();
         }
 
         private void BindApplicationData()
