@@ -302,7 +302,9 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
                     type: 'GET',
                     data: { mid: fid },
                     success: function (result) {
-                        $(result).appendTo("#onlinepeople");
+                        var allresult = result.split('$$$');
+                        var parentdivid = (allresult[0] == "online") ? "#onlinepeople" : "#offlinepeople";
+                        $(allresult[1]).appendTo(parentdivid);
                         initPopupMenu();
                         // init link in friends menu 
                         $('.openGiftModal').click(function () {
@@ -1583,7 +1585,9 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
             type: 'GET',
             data: { mid: fid },
             success: function (result) {
-                $(result).appendTo("#onlinepeople");
+                var allresult = result.split('$$$');
+                var parentdivid= (allresult[0] == "online") ? "#onlinepeople" : "#offlinepeople";
+                $(allresult[1]).appendTo(parentdivid);
                 initPopupMenu();
                 // init link in friends menu 
                 $('.openGiftModal').click(function () {

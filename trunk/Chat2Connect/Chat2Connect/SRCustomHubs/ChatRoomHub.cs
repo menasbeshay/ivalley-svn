@@ -343,7 +343,7 @@ namespace Chat2Connect.SRCustomHubs
                 var resultMsg = new Helper.ChatMessage()
                 {
                     FromName = "",
-                    Message = "  المستخدم الذى تحاول التحدث معه الان غير موجود اونلاين" + "&nbsp;<a href='Messages.aspx?t=createmsg&u=" + friend.MemberID.ToString() + "&un=" + friend.UserName + "' class='SendMsg' target='_blank'>يمكنك ان ترسل له رساله الان</a>",
+                    Message = "  المستخدم الذى تحاول التحدث معه الان غير موجود اونلاين" + "&nbsp;<a onclick=\"OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=" + friend.MemberID.ToString() + "&un=" + friend.UserName + "\',\'الرسائل\');\" class='SendMsg' target='_blank' style='cursor:pointer;'>يمكنك ان ترسل له رساله الان</a>",
                     MessageDate = DateTime.Now,
                     FromProfileImg = profileImg
                 };

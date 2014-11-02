@@ -260,6 +260,24 @@ function initPopupMenu() {
 }
 
 
+function removeFriend(mid, fid)
+{
+    $.ajax({
+        url: '../Services/Services.asmx/AddRemoveFriend',
+        type: 'GET',
+        data: { mid: mid, fid: fid, isFriend: true },
+        success: function (result) {
+            $('#usernode-' + fid).popover('hide');
+            $("#usernode-" + fid).remove();
+            notify('success', 'تم حذف صديقك بنجاح.');
+            CountFriends();
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
+        }
+    });
+}
+
 
 var generalSelectedGift;
 function initGeneralGiftModal() {

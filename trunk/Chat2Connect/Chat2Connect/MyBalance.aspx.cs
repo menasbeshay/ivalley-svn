@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using Chat2Connect.SRCustomHubs;
 using Helper;
 
 namespace Chat2Connect
@@ -84,6 +85,23 @@ namespace Chat2Connect
                         BLL.Member.CurrentMember.Credit_Point -= points;
                         ToMember.Save();
                         BLL.Member.CurrentMember.Save();
+
+                        BLL.Message msg = new BLL.Message();
+                        msg.AddNew();
+                        msg.Body = string.Format(GetLocalResourceObject("ConfirmMsgBody").ToString(),BLL.Member.CurrentMember.UserName, points.ToString());
+                        msg.SenderID = BLL.Member.CurrentMemberID;
+                        msg.Subject = GetLocalResourceObject("ConfirmMsgSubject").ToString();
+                        msg.ToMembers = ToMember.UserName;
+                        msg.Save();
+
+                        MemberMessage memberMsg = new MemberMessage();                        
+                        memberMsg.AddNew();
+                        memberMsg.MemberID = ToMember.MemberID;
+                        memberMsg.MessageID = msg.ID;
+                        memberMsg.Save();
+
+                        NotificationHub notifications = new NotificationHub();
+                        notifications.SendMailNotifications(ToMember.MemberID);
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل النقاط بنجاح.'); });", true);
 
