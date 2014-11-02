@@ -38,53 +38,69 @@ namespace Chat2Connect
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
+            bool signout = false;
             IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
 
             MembershipUser user = Membership.GetUser(Login1.UserName);
             Member member = new Member();
-            
-            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));            
-            member.IsOnLine = true;
-            CheckBox cb = (CheckBox)Login1.FindControl("uiCheckBoxInvisible");
-            if (cb.Checked)
-                member.Status = 4;
+
+            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+
+            if (member.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
+            {
+                signout = true;  
+                ClientScript.RegisterStartupScript(this.GetType(), "notEnabled", "$(document).ready(function (){ $('#NotEnabled').modal('show'); });", true);                
+            }
             else
-                member.Status = 1;
-            member.Save();
-
-            string status = "";
-            switch (member.Status)
             {
-                case 1:
-                    status = "online";
-                    break;
-                case 2:
-                    status = "busy";
-                    break;
-                case 3:
-                    status = "away";
-                    break;
-                case 4:
-                    status = "offline";
-                    break;
 
-                default:
-                    status = "offline";
-                    break;
+
+                member.IsOnLine = true;
+                CheckBox cb = (CheckBox)Login1.FindControl("uiCheckBoxInvisible");
+                if (cb.Checked)
+                    member.Status = 4;
+                else
+                    member.Status = 1;
+                member.Save();
+
+                string status = "";
+                switch (member.Status)
+                {
+                    case 1:
+                        status = "online";
+                        break;
+                    case 2:
+                        status = "busy";
+                        break;
+                    case 3:
+                        status = "away";
+                        break;
+                    case 4:
+                        status = "offline";
+                        break;
+
+                    default:
+                        status = "offline";
+                        break;
+                }
+
+                // notify friends 
+                MemberFriend friends = new MemberFriend();
+                friends.GetAllMemberFriends(member.MemberID);
+                for (int i = 0; i < friends.RowCount; i++)
+                {
+                    Member temp = new Member();
+                    temp.LoadByPrimaryKey(friends.FriendID);
+                    MembershipUser u = Membership.GetUser(temp.UserID);
+                    _Ncontext.Clients.Group(u.UserName).friendStatusChanged(member.MemberID, member.StatusMsg, status);
+                }
+
+                Response.Redirect("home.aspx");
             }
-
-            // notify friends 
-            MemberFriend friends = new MemberFriend();
-            friends.GetAllMemberFriends(member.MemberID);
-            for (int i = 0; i < friends.RowCount; i++)
+            if (signout)
             {
-                Member temp = new Member();
-                temp.LoadByPrimaryKey(friends.FriendID);
-                MembershipUser u = Membership.GetUser(temp.UserID);
-                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(member.MemberID, member.StatusMsg, status);
+                FormsAuthentication.SignOut();
             }
-
-            Response.Redirect("home.aspx");
         }
 
         protected void uiButtonRegister_Click(object sender, EventArgs e)
@@ -132,6 +148,7 @@ namespace Chat2Connect
                 member.Name = objUser.UserName;
                 member.IsOnLine = true;
                 member.Status = 1;
+                member.RowStatusID = 1;  // Enabled
                 member.IsMailActivated = true;                
                 member.Save();
                 FormsAuthentication.SetAuthCookie(objUser.UserName, false);
@@ -172,5 +189,6 @@ namespace Chat2Connect
             }
 
         }
+
     }
 }

@@ -82,7 +82,8 @@
             <div class="col-lg-5" style="margin-top:5px;">
                 <a href="#registerModal" data-toggle="modal">
                 <img src="images/home/join.png" />
-                    </a>
+                    
+                    </a>                
                 <div class="clearfix"></div>
                 <div style="margin-right:-20px;margin-top:10px;">
                     <img src="images/home/txt.png" />
@@ -285,6 +286,30 @@
                 </div>
             </div>
         </div>
+
+        <div id="NotEnabled"  class="modal fade" role="modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration:none;" >
+                            ×</a>
+                        <i class="icon-2x  icon-remove" style="float:left;margin-left:10px;"></i>
+                        <h3>
+                            خطأ
+                        </h3>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-horizontal blockBox ">                                                              
+                                <div class="alert alert-danger" style="text-align:center !important;">
+                  هذا الحساب غير فعال حالياً . 
+                                    <h5>     راجع أحد موظفى المساعدة (Help)
+           </h5>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <footer class="row">
                 <div class="col-lg-4">
                     <asp:HyperLink ID="uiHyperLinkFB" runat="server">
@@ -340,9 +365,8 @@
         <script src="js/resetpass.js"></script>
          <script type="text/javascript">
              $(document).ready(function () {
-                 initaccount();
-             });
-
+                 initaccount();        
+             });        
     </script>
     </form>
 </body>

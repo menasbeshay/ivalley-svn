@@ -193,6 +193,7 @@
     <Content Include="css\validationEngine.jquery.css" />
     <Content Include="css\validationEngine1.jquery.css" />
     <Content Include="default.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="getRooms.aspx" />
     <Content Include="getRooms2.aspx" />
     <Content Include="giftbox.aspx" />
@@ -1022,6 +1023,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="getRooms.aspx.cs">
       <DependentUpon>getRooms.aspx</DependentUpon>
