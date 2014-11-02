@@ -417,7 +417,7 @@
                                 <!-- ko if: IsCamOpened()-->
                                 <li><a class="jslink" data-bind="click:$parent.startCam.bind($parent,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
                                 <!-- /ko -->
-                                <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+MemberID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                <li><a class="jslink" data-bind="click:OpenPopup.bind($data,'../userprofile.aspx?uid='+MemberID(),'حساب صديق')" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
                             </ul>

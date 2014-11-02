@@ -36,6 +36,8 @@ namespace Chat2Connect
 
         private void LoadProfile()
         {
+            uiPanelHideProfile.Visible = false;
+            uipanelProfile.Visible = true;
             if (userId != 0)
             {
                 Member member = new Member();
@@ -49,7 +51,10 @@ namespace Chat2Connect
                     if (!setting.IsColumnNull("HideProfile"))
                     {
                         if (setting.HideProfile)
-                            Response.Redirect("home.aspx");
+                        {
+                            uiPanelHideProfile.Visible = true;
+                            uipanelProfile.Visible = false;
+                        }
                     }
                     if (!setting.IsColumnNull("HidePics"))
                         uiPanelPics.Visible = setting.HidePics;
@@ -85,10 +90,14 @@ namespace Chat2Connect
                 uiHyperLinktwitter.NavigateUrl = member.TURL;
                 uiHyperLinkyt.NavigateUrl = member.YtURL;
 
+                uiLabelCreatedDate.Text = Membership.GetUser().CreationDate.ToString("yyyy/MM/dd");
                 if (member.MemberType.MemberTypeSpecDurationID != Helper.Defaults.MemberTypeSpecDurationID)
                 {
                     uiLabelAccountType.Text = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name;
+                    uiLabelAccountType.Attributes.Add("style", "background-color:" + member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Color + ";color:#fff;");
 
+                    if (!member.MemberType.IsColumnNull("EndDate"))
+                        uiLabelTypeExpiry.Text = member.MemberType.EndDate.ToString("yyyy/MM/dd");
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {

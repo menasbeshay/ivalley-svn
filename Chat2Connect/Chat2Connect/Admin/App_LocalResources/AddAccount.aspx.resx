@@ -135,7 +135,7 @@
          &lt;p&gt;
              شكرا لكم على الاشتراك في بموقع دردشة تواصل. من فضلك قم بتأكيد عنوان البريد الإلكتروني الخاص بك عن طريق النقر (أو نسخ ولصق إلى المتصفح) على الرابط أدناه:&lt;/p&gt;
          &lt;p&gt;
-         &amp;nbsp;&lt;a href="http://chat2connect.com/activate.aspx?ac={1}"&gt;http://chat2connect.com/activate.aspx?ac={1}&lt;/a&gt;
+         &amp;nbsp;&lt;a href="http://chatconnect.com/activate.aspx?ac={1}"&gt;http://chatconnect.com/activate.aspx?ac={1}&lt;/a&gt;
 
          &lt;/p&gt;
          &lt;p&gt;
@@ -178,8 +178,5 @@
   </data>
   <data name="subject" xml:space="preserve">
     <value>دردشة تواصل - تأكيد البريد الإلكترونى الخاص بحسابك</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>مستخدم جديد</value>
   </data>
 </root>

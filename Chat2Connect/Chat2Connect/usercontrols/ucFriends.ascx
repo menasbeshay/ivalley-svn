@@ -63,8 +63,8 @@
                                     <div class="col-lg-6 pull-right">
                                         <ul>
                                             <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true,<%# Eval("MemberTypeID") %>, true,"<%# Eval("ProfilePic") %>");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            <li><a class="jslink" onclick="OpenPopup('../userprofile.aspx?uid=<%# Eval("MemberID") %>','حساب صديق');" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                            <li><a class="jslink" onclick="removeFriend(<%# BLL.Member.CurrentMemberID %>,<%# Eval("MemberID") %>);"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 pull-right">
@@ -88,7 +88,9 @@
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
-                        <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        <span id='user-status-<%# Eval("MemberID") %>'>
+                            <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        </span>
                         <div class="clearfix" style="height: 1px;"></div>
                         <div class="friendSubMenu">
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
@@ -108,8 +110,8 @@
                                         <ul>
                                             <li><a class="jslink" onclick='addChatRoom(<%# Eval("MemberID") %>, "<%# Eval("UserName") %>", "Private", false, false, 1, true,<%# Eval("MemberTypeID") %>, true,"<%# Eval("ProfilePic") %>");'><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
                                             <%--<li><a class="jslink"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>--%>
-                                            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            <li><a class="jslink" onclick="OpenPopup('../userprofile.aspx?uid=<%# Eval("MemberID") %>','حساب صديق');" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                            <li><a class="jslink" onclick="removeFriend(<%# BLL.Member.CurrentMemberID %>,<%# Eval("MemberID") %>);"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 pull-right">
@@ -148,7 +150,9 @@
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
-                        <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        <span id='user-status-<%# Eval("MemberID") %>'>
+                            <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        </span>
                         <div class="clearfix" style="height: 1px;"></div>
                         <div class="friendSubMenu">
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
@@ -166,8 +170,8 @@
                                 <div class="col-lg-9 pull-right">
                                     <div class="col-lg-6 pull-right">
                                         <ul>
-                                            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            <li><a class="jslink" onclick="OpenPopup('../userprofile.aspx?uid=<%# Eval("MemberID") %>','حساب صديق');" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                            <li><a class="jslink" onclick="removeFriend(<%# BLL.Member.CurrentMemberID %>,<%# Eval("MemberID") %>);"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 pull-right">
@@ -192,7 +196,9 @@
                         <a href="#" class='type_<%# Eval("MemberTypeID") %>'><%# Eval("UserName") %>
                         </a>
                         <div class="clearfix" style="height: 1px;"></div>
-                        <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        <span id='user-status-<%# Eval("MemberID") %>'>
+                            <%# string.IsNullOrEmpty(Eval("StatusMsg").ToString()) ? "&nbsp;" : Eval("StatusMsg")  %>
+                        </span>
                         <div class="clearfix" style="height: 1px;"></div>
                         <div class="friendSubMenu">
                             <div class="popup-menu profileMenu" data-for='usernode-<%# Eval("MemberID") %>'>
@@ -210,8 +216,8 @@
                                 <div class="col-lg-9 pull-right">
                                     <div class="col-lg-6 pull-right">
                                         <ul>
-                                            <li><a class="jslink" href='userprofile.aspx?uid=<%# Eval("MemberID") %>' target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                            <li><a class="jslink"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                            <li><a class="jslink" onclick="OpenPopup('../userprofile.aspx?uid=<%# Eval("MemberID") %>','حساب صديق');" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                            <li><a class="jslink" onclick="removeFriend(<%# BLL.Member.CurrentMemberID %>,<%# Eval("MemberID") %>);" ><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 pull-right">
