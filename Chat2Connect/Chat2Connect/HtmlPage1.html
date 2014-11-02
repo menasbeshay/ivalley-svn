@@ -47,5 +47,52 @@
 
         </div>
     </footer>
+
+
+
+
+
+
+
+    <div class='Altodd friend-link' id='usernode-{0}' data-name='{1}'>
+        <img src='{3}' id='user-{0}' class='friendpic {5}' />
+        <a href='#' class='type_{2}'>{1}                                    </a>
+        <div class='clearfix' style='height: 1px;'></div>
+        <span id='user-status-{0}'>                             {4}                                </span>
+        <div class='clearfix' style='height: 1px;'></div>
+        <div class='friendSubMenu'>
+            <div class='popup-menu profileMenu' data-for='usernode-{0}'>
+                <div class='col-lg-3 pull-right'>
+                    <div class=' thumbnail'>
+                        <img src='{3}' />
+                    </div>
+                    <div class='clearfix' style='height:1px;'>
+                    </div>
+                    <div style='text-align:right;'>                                            {1}                                                </div>
+                </div>
+                <div class='col-lg-9 pull-right'>
+                    <div class='col-lg-6 pull-right'>
+                        <ul>
+                            <li>
+                                <a class='jslink' onclick=\"addChatRoom({0}, '{1}' , 'Private' );\">
+                                    <span class='awesome'>&#xf0e6;</span> محادثة خاصة
+                                </a>
+                            </li>
+                            <li><a class='jslink' onclick=\"OpenPopup('../userprofile.aspx?uid ={0}','حساب صديق');\" target='_blank'><span class='awesome'>&#xf08e;</span> عرض البروفايل</a></li>
+                            <li><a class='jslink'><span class='awesome'>&#xf00d;</span> حذف من الأصدقاء</a></li>
+                        </ul>
+                    </div>
+                    <div class='col-lg-6 pull-right'>
+                        <ul>
+                            <li><a class='jslink openGiftModal' data-mid='{0}'><span class='awesome'>&#xf06b;</span> أرسل هدية</a></li>
+                            <li><a onclick=\"OpenPopup('../popuppages/Messages_popup.aspx?t =createmsg&u ={0}&un ={1}','الرسائل'); target='_blank'><span class='awesome'>&#xf003;</span> أرسل رسالة</a></li>
+                            <li><a class='jslink'><span class='awesome'>&#xf05e;</span> حجب</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class='clear' style='height: 1px;'></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
