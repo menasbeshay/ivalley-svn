@@ -1,4 +1,12 @@
-﻿
+﻿.loading {
+    cursor: default !important;
+    pointer-events: none;
+    background-image: url("images/loading.GIF");
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 50px;
+    min-height: 50px;
+}
 html, body {
     direction:rtl;    
     margin:0;

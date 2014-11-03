@@ -201,6 +201,7 @@
     <Content Include="Global.asax" />
     <Content Include="GroupMsg.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="Home1.aspx" />
     <Content Include="Home2.aspx" />
     <Content Include="HtmlPage1.html" />
     <Content Include="images.aspx" />
@@ -679,6 +680,11 @@
     <Content Include="resetpass.aspx" />
     <Content Include="Bots.aspx" />
     <Content Include="RoomHistory.aspx" />
+    <Content Include="Scripts\chat2onnect\chatwindow.js" />
+    <Content Include="Scripts\chat2onnect\knockout.extensions.js" />
+    <Content Include="Scripts\chat2onnect\member.js" />
+    <Content Include="Scripts\chat2onnect\roomHubEvents.js" />
+    <Content Include="Scripts\chat2onnect\tab.js" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -689,7 +695,12 @@
     <None Include="Scripts\moment.min.js" />
     <None Include="testswf\c2c\c2c.html" />
     <None Include="testswf\c2c\js\swfobject.js" />
+    <Content Include="services\chat2connect.asmx" />
     <Content Include="TawasolSoon.aspx" />
+    <Content Include="templates\Friends.ascx" />
+    <Content Include="templates\PrivateChat.ascx" />
+    <Content Include="templates\RoomChat.ascx" />
+    <Content Include="templates\Rooms.ascx" />
     <Content Include="testswf\chat2connect.swf" />
     <None Include="testswf\chat2connect5.swf" />
     <None Include="testswf\chat2connect_fv.swf" />
@@ -1076,6 +1087,13 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home1.aspx.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home1.aspx.designer.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home2.aspx.cs">
       <DependentUpon>Home2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1238,6 +1256,10 @@
     <Compile Include="roomtypes.aspx.designer.cs">
       <DependentUpon>roomtypes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="services\chat2connect.asmx.cs">
+      <DependentUpon>chat2connect.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="services\ChatRoomService.asmx.cs">
       <DependentUpon>ChatRoomService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -1269,6 +1291,34 @@
     </Compile>
     <Compile Include="TawasolSoon.aspx.designer.cs">
       <DependentUpon>TawasolSoon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\Friends.ascx.cs">
+      <DependentUpon>Friends.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\Friends.ascx.designer.cs">
+      <DependentUpon>Friends.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\PrivateChat.ascx.cs">
+      <DependentUpon>PrivateChat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\PrivateChat.ascx.designer.cs">
+      <DependentUpon>PrivateChat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\RoomChat.ascx.cs">
+      <DependentUpon>RoomChat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\RoomChat.ascx.designer.cs">
+      <DependentUpon>RoomChat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\Rooms.ascx.cs">
+      <DependentUpon>Rooms.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\Rooms.ascx.designer.cs">
+      <DependentUpon>Rooms.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
