@@ -83,3 +83,26 @@ function createHamsaWindow(hamsa, sender) {
         }
     });
 }
+function getFlashMovie(movieName) {
+    return document[movieName] || window[movieName];
+}
+
+function DeleteFile(roomid, file) {
+
+    $('#UploadStatus_Room_' + roomid).html('جارى الحذف...');
+    $.ajax({
+        url: 'services/FileUploader.ashx?file=' + file,
+        type: 'GET',
+        cache: false,
+        async: true,
+        success: function (html) {
+            $('#UploadedFile_Room_' + roomid).html('');
+            $('#UploadStatus_Room_' + roomid).html('تم حذف الملف');
+            $('#UploadButton_Room_' + roomid).show();
+            $('#uploadSendbtn_Room_' + roomid).hide();
+            $('#UploadFileName_Room_' + roomid).val('');
+
+        }
+    });
+
+}

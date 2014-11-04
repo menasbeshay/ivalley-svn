@@ -1,4 +1,6 @@
 ﻿function member(roomHub, id, name, pic, points) {
+    this.roomChatWindowType = 'RoomChat';
+    this.privateChatWindowType = 'PrivateChat';
     this.rHub = roomHub;
     this.memberID = mid;
     this.memberName = name;
@@ -86,11 +88,18 @@
             return w.id == id && w.type==type;
         });
     };
+    this.getRoomChatWindow = function (id) {
+        var w = self.getTab(id, self.roomChatWindowType);
+        return w;
+    }
+    this.getPrivateChatWindow = function (id) {
+        var w = self.getTab(id, self.privateChatWindowType);
+        return w;
+    }
     this.openChatRoom = function (room) {
-        var tabType = 'RoomChat';
-        var w = self.getTab(room.ID(), tabType);
+        var w = self.getRoomChatWindow(room.ID());
         if (w == undefined) {
-            w = new tab(room.ID(), room.Name(), room.TypeSpecID(), tabType, self);
+            w = new tab(room.ID(), room.Name(), room.TypeSpecID(), self.roomChatWindowType, self);
             
             self.tabs.push(w);
         }
@@ -98,11 +107,10 @@
     }
     this.openPrivateRoom = function (data)
     {
-        var tabType='PrivateChat';
-        var w = self.getTab(data.MemberID(), tabType);
+        var w = self.getPrivateChatWindow(data.MemberID());
         if (w == undefined)
         {
-            w = new tab(data.MemberID(), data.Name(), data.TypeSpecID(), tabType);
+            w = new tab(data.MemberID(), data.Name(), data.TypeSpecID(), self.privateChatWindowType);
             self.tabs.push(w);
         }
         self.selectedTab(w);

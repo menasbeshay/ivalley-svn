@@ -1,5 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrivateChat.ascx.cs" Inherits="Chat2Connect.templates.PrivateChat" %>
-<div id="roomContents">
+<!--ko ifnot:room.loaded()-->
+<div data-bind="with: room()" class="loading">
+</div>
+<!--/ko-->
+<!--ko if:error().length>0-->
+<div class="form-group has-error">
+    <label class="control-label" data-bind="text:error"></label>
+</div>
+<!--/ko-->
+<!--ko if:error().length==0 && room.loaded()-->
+<div id="roomContents"  data-bind="with: room()">
     <div class="col-lg-12" style="padding: 5px;">
         <div>
             <div class="pull-right ">
@@ -126,3 +136,4 @@
         </div>
     </div>
 </div>
+<!--/ko-->
