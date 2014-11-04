@@ -13,13 +13,13 @@ namespace Chat2Connect {
     public partial class home {
         
         /// <summary>
-        /// ucFriends1 control.
+        /// Friends control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Chat2Connect.usercontrols.ucFriends ucFriends1;
+        protected global::Chat2Connect.usercontrols.Friends Friends;
         
         /// <summary>
         /// uiTextBoxRoomSearch control.

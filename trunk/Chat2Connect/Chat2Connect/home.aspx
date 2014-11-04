@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Chat2Connect.home" %>
 
 <%@ Register Src="usercontrols/ucRooms.ascx" TagName="ucRooms" TagPrefix="uc1" %>
-<%@ Register Src="usercontrols/ucFriends.ascx" TagName="ucFriends" TagPrefix="uc2" %>
+<%@ Register Src="usercontrols/Friends.ascx" TagPrefix="uc1" TagName="Friends" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         label {
@@ -172,8 +173,7 @@
 
         <div style="height: 5px;" class="clearfix"></div>
 
-        <uc2:ucFriends ID="ucFriends1" runat="server" />
-
+        <uc1:Friends runat="server" ID="Friends" />
     </div>
     <div id="MainTabs" class="pull-right" style="width: 76%; margin-right: 23%;">
         <div style="padding: 5px; padding-right: 0px; margin-left: 10px; padding-right: 20px;" class="col-lg-12" id="homeNav">
@@ -257,7 +257,7 @@
                             </div>
                             <ul class="findFriends SScroll" data-height="400px">
                                 <!-- ko foreach:People -->
-                                <li data-bind="if:!IsFriend()">
+                                <li>
                                     <div style="width: 27%; float: left; margin-right: 3px;">
                                         <img style="width: 50px;" data-bind="attr:{src:ProfileImg}" />
                                     </div>

@@ -2,7 +2,6 @@
 <div class="SScroll" data-height="380px">
     <div class="panel-group" id="accordion1">
         <div>
-
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#helpcontact">المساعدة</a></div>
             <div class="clearfix"></div>
             <div id="helpcontact" class="panel-collapse collapse in" style="font-weight: bold;">

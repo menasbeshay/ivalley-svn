@@ -42,6 +42,20 @@ namespace BLL
             }
         }
 
+        public override bool IsOnLine
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(s_IsOnLine))
+                    return false;
+                return base.Getbool(ColumnNames.IsOnLine);
+            }
+            set
+            {
+                base.Setbool(ColumnNames.IsOnLine, value);
+            }
+        }
+
         #region Extended Properties
         private System.Web.Security.MembershipUser _membershipUser;
         private bool isLoaded;
@@ -248,6 +262,17 @@ namespace BLL
 
             return LoadFromSql("SearchMembers", parameters);
 
+        }
+
+        public bool SearchForAddFriend(int memberID, string query)
+        {
+            return LoadFromRawSql(@"SELECT m.*,[MemberTypeSpecID]=ISNULL(mtd.MemberTypeSpecID,1)
+                                    FROM Member m INNER JOIN aspnet_Users u on u.UserId=m.UserID
+	                                    LEFT JOIN MemberType mt on m.MemberID=mt.MemberID
+	                                    LEFT JOIN MemberTypeSpecDuration mtd on mtd.ID=mt.MemberTypeSpecDurationID
+                                    WHERE m.RowStatusID={2}
+	                                    AND m.MemberID NOT IN (SELECT FriendID FROM MemberFriend WHERE MemberID={0})
+	                                    AND m.Name like N'%{1}%'",memberID,query,(int)Helper.Enums.RowStatus.Enabled);
         }
 
         public virtual bool Proc_SearchMembers( int MemberID ,string query)

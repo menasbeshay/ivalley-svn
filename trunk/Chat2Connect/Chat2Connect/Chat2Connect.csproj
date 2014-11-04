@@ -708,6 +708,7 @@
     <None Include="testswf\chat2connect4.swf" />
     <None Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
+    <Content Include="usercontrols\Friends.ascx" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\MemberTypes.ascx" />
     <Content Include="usercontrols\RoomTypes.ascx" />
@@ -1319,6 +1320,13 @@
     </Compile>
     <Compile Include="templates\Rooms.ascx.designer.cs">
       <DependentUpon>Rooms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\Friends.ascx.cs">
+      <DependentUpon>Friends.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\Friends.ascx.designer.cs">
+      <DependentUpon>Friends.ascx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Mail.ascx.cs">
       <DependentUpon>Mail.ascx</DependentUpon>
