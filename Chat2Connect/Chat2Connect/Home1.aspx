@@ -5,8 +5,6 @@
 <%@ Register Src="~/templates/Rooms.ascx" TagPrefix="uc1" TagName="Rooms" %>
 <%@ Register Src="~/templates/RoomChat.ascx" TagPrefix="uc1" TagName="RoomChat" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         label {
@@ -129,6 +127,42 @@
     <script id="template_PrivateChat" type="text/html">
         <uc1:PrivateChat runat="server" ID="PrivateChat" />
     </script>
+    <script id="chatMsgTemplate" type="text/html">
+        <div class="clear" style="height: 2px;"></div>
+        <div class="row">
+            <div class="imgholder col-lg-1 pull-left">
+                <img data-bind="attr:{'src': (FromProfileImg != '') ? FromProfileImg : 'images/defaultavatar.png' }" class="thumbnail" style="max-width: 40px; margin-bottom: 0px; max-height: 40px;" />
+            </div>
+            <div class="callout border-callout col-lg-11 pull-left" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''">
+                <b class="border-notch notch" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''"></b>
+                <b class="notch" data-bind="css:FromID == $parent.CurrentMemberID() ? 'msgFromMe' : ''"></b>
+                <div class='pull-left msgHolder' style='width: auto; margin-right: 5px; font-size: 12px; font-family: tahoma;'>
+                    <b data-bind="if:FromName">:</b>
+                    <b data-bind="text:FromName, css:'type_' + MemberTypeID"></b>
+                </div>
+                <div class='pull-left msgHolder msgbody' data-bind="html:Message">
+                </div>
+                <div class="pull-right MessageTime" data-bind="visible:$parent.CurrentMember().ShowMessageTime">
+                    <%--<span data-bind="date:MessageDate, format:' D-M-YYYY '" class="pull-left" style="margin-right: 2px;"></span>--%>
+                    <span data-bind="date:MessageDate, format:' A '" class="pull-right" style="margin-left: 2px;"></span>
+                    <span data-bind="date:MessageDate, format:'H:m '" class="pull-right"></span>
+                </div>
+                <!-- ko if:MemberLevel -->
+                <div class="pull-right" data-bind="css:MemberLevel == 2 ? 'adminrole_reviewer' : 'adminrole' , visible:MemberLevel != 1">
+                    <!-- ko if: MemberLevel == 4 -->
+                    المالك
+                <!-- /ko -->
+                    <!-- ko if: MemberLevel == 3 -->
+                    مدير
+                <!-- /ko -->
+                    <!-- ko if: MemberLevel == 2 -->
+                    مراقب
+                <!-- /ko -->
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </script>
     <script src="Scripts/knockout.mapping-latest.js"></script>
     <script src="Scripts/chat2onnect/knockout.extensions.js"></script>
     <script src="Scripts/chat2onnect/roomHubEvents.js"></script>
@@ -150,7 +184,7 @@
             var srHub = $.connection.chatRoomHub;
 
             viewModel = new member(srHub, mid, name, pic, points);
-            registerRoomHubEvents(srHub,viewModel);
+            //registerRoomHubEvents(srHub,viewModel);
 
             $.connection.hub.start().done(function () {
                 ko.applyBindings(viewModel);
@@ -158,6 +192,21 @@
 
             
         });
+        function onCamClose(userId, roomId) {
+            var window = viewModel.getRoomChatWindow(roomId.substr(roomId.indexOf("_") + 1));
+            if (window == null)
+                return;
+            window.room().stopCam(userId);
+        }
+        function onMicRecordSaveSuccess(fileName) {
+            // returned file name & roomid in this format [roomId,filename]
+            var window = viewModel.getRoomChatWindow(fileName.substr(0, fileName.indexOf(",")));
+            if (window == null)
+                return;
+            var audioDiv = "<div style='margin:0 auto;text-align:center;'><audio controls><source src='files/rooms/attacheaudio/" + fileName.substr(fileName.indexOf(",") + 1) + "' type='audio/mpeg'>Your browser does not support this audio format.</audio></div>";
+            window.room().UpdateAudioAttachment(audioDiv);
+
+        }
     </script>
     <script>
         $(document).on('click', '.friend-link', function (e) {
