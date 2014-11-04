@@ -1066,6 +1066,18 @@ namespace Chat2Connect.services
                     // logging
                     BLL.MemberLog log = new BLL.MemberLog();
                     log.AddNew(mid, new BLL.Log.AddFriend() { FriendID = fid, FriendName = friendMember.Name }, fid, null);
+
+                    var resultFriend = new
+                    {
+                        MemberID = friendMember.MemberID,
+                        Name = friendMember.Name,
+                        TypeSpecID = friendMember.MemberType.MemberTypeSpecDuration.MemberTypeSpecID,
+                        ProfilePic = (friendMember.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : friendMember.ProfilePic),
+                        IsOnline = friendMember.IsOnLine,
+                        StatusMsg = friendMember.s_StatusMsg,
+                        Status = friendMember.s_Status
+                    };
+                    SetContentResult(resultFriend);            
                 }
                 else
                 {
@@ -1078,6 +1090,13 @@ namespace Chat2Connect.services
 
             }
             catch { }
+        }
+
+        private void SetContentResult(dynamic data)
+        {
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(data);
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
         }
 
         [WebMethod(EnableSession = true)]

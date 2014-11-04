@@ -31,7 +31,7 @@ namespace Chat2Connect.services
                 {
                     MemberID = m[Member.ColumnNames.MemberID],
                     Name = m[Member.ColumnNames.Name],
-                    TypeSpecID = member.GetColumn("MemberTypeSpecID"),
+                    TypeSpecID = m["MemberTypeSpecID"],
                     ProfilePic = (m[Member.ColumnNames.ProfilePic]==DBNull.Value?defaultImg:m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
@@ -39,6 +39,28 @@ namespace Chat2Connect.services
                 }
                 ).ToList();
             
+            SetContentResult(friends);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void SearchAddFriend(int mid,string q)
+        {
+            Member member = new Member();
+            member.SearchForAddFriend(mid,q);
+            var friends = member.DefaultView.Table.AsEnumerable().Select(m =>
+                new
+                {
+                    MemberID = m[Member.ColumnNames.MemberID],
+                    Name = m[Member.ColumnNames.Name],
+                    TypeSpecID = m["MemberTypeSpecID"],
+                    ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
+                    IsOnline = m[Member.ColumnNames.IsOnLine],
+                    StatusMsg = m[Member.ColumnNames.StatusMsg],
+                    Status = m[Member.ColumnNames.Status]
+                }
+                ).ToList();
+
             SetContentResult(friends);
         }
 

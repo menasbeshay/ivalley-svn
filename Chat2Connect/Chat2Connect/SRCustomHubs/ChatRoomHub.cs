@@ -22,18 +22,19 @@ namespace Chat2Connect.SRCustomHubs
         public override Task OnConnected()
         {
             Member m = BLL.Member.CurrentMember;
-            ConnectedUsers.Add(new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() });
+            var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
+            ConnectedUsers.Add(newMember);
 
             // add user to new group by his user name 
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
 
-            HandleUserState(true);
+            updateMemberStatus(newMember,true);
 
             return base.OnConnected();
         }
         public override System.Threading.Tasks.Task OnDisconnected()
         {
-            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            Helper.SignalRUser item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
             if (item != null)
             {
                 for (int i = 0; i < item.Rooms.Count; i++)
@@ -45,30 +46,23 @@ namespace Chat2Connect.SRCustomHubs
             // remove user to new group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
 
-            HandleUserState(false);
+            updateMemberStatus(item,false);
             
             return base.OnDisconnected();
         }
 
-        private void HandleUserState(bool CanConnect)
+        private void updateMemberStatus(Helper.SignalRUser connectedUser,bool isConnected)
         {
-
-            Member user = new Member();
-            user.GetMemberByUserId(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()));
-            user.IsOnLine = CanConnect;
-            user.Status = CanConnect ? 1 : 4;
-            user.Save();
-
-            MemberFriend friends = new MemberFriend();
-            friends.GetAllMemberFriends(user.MemberID);
-            for (int i = 0; i < friends.RowCount; i++)
+            Member bllMember = new Member();
+            if (bllMember.LoadByPrimaryKey(connectedUser.MemberID))
             {
-                Member temp = new Member();
-                temp.LoadByPrimaryKey(friends.FriendID);
-                MembershipUser u = Membership.GetUser(temp.UserID);
-                IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
-                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, CanConnect ? "online" : "offline");
+                bllMember.IsOnLine = isConnected;
+                bllMember.Status = isConnected ? 1 : 4;
+                bllMember.Save();
             }
+
+            Clients.All.updateMemberOnlineStatus(connectedUser.MemberID,isConnected);
+            
         }
         public void addToRoom(int roomid, bool isVisible)
         {

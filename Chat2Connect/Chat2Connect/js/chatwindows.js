@@ -115,17 +115,68 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
     }
 
     //
-    self.HelpMembers = ko.mapping.fromJS(helpMembers);
-    self.OnlineHelpMembers = ko.computed(function () {
-        return ko.utils.arrayFilter(self.HelpMembers(), function (help) {
-            return help.IsOnline;
+    //Help Members
+    this.getHelpMembers = function () {
+        $.post("../services/chat2connect.asmx/GetHelpMembers", { mid: this.memberID })
+                .done(function (data) {
+                    var lst = [];
+                    ko.utils.arrayMap(data, function (item) {
+                        lst.push(ko.mapping.fromJS(item));
+                    });
+                    self.helpMembers(lst);
+                });
+    };
+    this.helpMembers = ko.onDemandObservable(this.getHelpMembers, this);
+    this.onlineHelpMembers = ko.computed(function () {
+        if (this.helpMembers() == undefined)
+            return [];
+        return ko.utils.arrayFilter(this.helpMembers(), function (help) {
+            return help.IsOnline();
         });
-    }, self);
-    self.OfflineHelpMembers = ko.computed(function () {
-        return ko.utils.arrayFilter(self.HelpMembers(), function (help) {
-            return !help.IsOnline;
+    }, this);
+    this.offlineHelpMembers = ko.computed(function () {
+        if (this.helpMembers() == undefined)
+            return [];
+        return ko.utils.arrayFilter(this.helpMembers(), function (help) {
+            return !help.IsOnline();
         });
-    }, self);
+    }, this);
+    //Friends
+    this.getFriends = function () {
+        $.post("../services/chat2connect.asmx/GetFriends", { mid: this.CurrentMemberID })
+                .done(function (data) {
+                    var lst = [];
+                    ko.utils.arrayMap(data, function (item) {
+                        lst.push(ko.mapping.fromJS(item));
+                    });
+                    self.friends(lst);
+                });
+    };
+    this.friends = ko.onDemandObservable(this.getFriends, this);
+    this.onlineFriends = ko.computed(function () {
+        if (this.friends() == undefined)
+            return [];
+        return ko.utils.arrayFilter(this.friends(), function (f) {
+            return f.IsOnline();
+        });
+    }, this);
+    this.offlineFriends = ko.computed(function () {
+        if (this.friends() == undefined)
+            return [];
+        return ko.utils.arrayFilter(this.friends(), function (f) {
+            return !f.IsOnline();
+        });
+    }, this);
+    this.removeFriend = function ()
+    {
+        var friend = this;
+        $('#usernode-' + friend.MemberID()).popover('hide');
+        var newlst = ko.utils.arrayFilter(self.friends(), function (f) {
+            return f.MemberID()!=friend.MemberID();
+        });
+        self.friends(newlst);
+        removeFriend(self.CurrentMemberID,friend.MemberID());
+    };
     // init online friends    
     $.ajax({
         url: '../services/Services.asmx/GetOnlineFriends',
@@ -289,37 +340,21 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
                 type: 'GET',
                 data: { mid: mid, fid: fid, isFriend: isFriend },
                 success: function (result) {
+                    if (result != '') {
+                        //add friend
+                        var lst = chatVM.friends();
+                        var newFriend = ko.mapping.fromJS(result);
+                        lst.push(newFriend);
+                        chatVM.friends(lst);
+                    }
+                    else {//remove friend
+                        var newlst = ko.utils.arrayFilter(chatVM.friends(), function (f) {
+                            return f.MemberID() != friend.MemberID();
+                        });
+                        chatVM.friends(newlst);
+                    }
                 }
             });
-
-            // update friend list
-            if (isFriend) {
-                $("#usernode-" + fid).remove();
-            }
-            else {
-                $.ajax({
-                    url: '../Services/Services.asmx/GetMemberNode',
-                    type: 'GET',
-                    data: { mid: fid },
-                    success: function (result) {
-                        var allresult = result.split('$$$');
-                        var parentdivid = (allresult[0] == "online") ? "#onlinepeople" : "#offlinepeople";
-                        $(allresult[1]).appendTo(parentdivid);
-                        initPopupMenu();
-                        // init link in friends menu 
-                        $('.openGiftModal').click(function () {
-                            $('#GeneralGiftModal').modal('show');
-                            $('#GeneralGiftModal input.checkboxes').each(function () {
-                                $(this).attr('checked', false);
-                            });
-                            $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
-                        });
-                    }
-                });
-            }
-
-            // update friend list counter
-            setTimeout(CountFriends, 1500);
         };
         this.toggleMark = function (window, friend) {
             var newvalue = !friend.IsMarked();
@@ -1564,45 +1599,19 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
             type: 'GET',
             data: { mid: self.CurrentMemberID, fid: fid, isFriend: false },
             success: function (result) {
+                var lst = self.friends();
+                var newFriend = ko.mapping.fromJS(result);
+                lst.push(newFriend);
+                self.friends(lst);
+
                 $.each(self.People, function () {
-                    //if (this.MemberID == fid) {
-                    //    self.People.remove(this);
-                    //    return;
-                    //}
                     var mem = ko.utils.arrayFirst(self.People(), function (mem) {
                         return (mem.MemberID() == fid);
                     });
-
                     mem.IsFriend(true);
-
                 });
             }
         });
-
-
-        $.ajax({
-            url: '../Services/Services.asmx/GetMemberNode',
-            type: 'GET',
-            data: { mid: fid },
-            success: function (result) {
-                var allresult = result.split('$$$');
-                var parentdivid= (allresult[0] == "online") ? "#onlinepeople" : "#offlinepeople";
-                $(allresult[1]).appendTo(parentdivid);
-                initPopupMenu();
-                // init link in friends menu 
-                $('.openGiftModal').click(function () {
-                    $('#GeneralGiftModal').modal('show');
-                    $('#GeneralGiftModal input.checkboxes').each(function () {
-                        $(this).attr('checked', false);
-                    });
-                    $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
-                });
-            }
-        });
-
-
-        // update friend list counter
-        setTimeout(CountFriends, 1500);
     }
 
     self.ActivWindow = ko.observable();
@@ -2044,6 +2053,19 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
         if (window != null) {
             window.updateMemberType(mid,memberTypeSpecId);
         }
+    }
+    rHub.client.updateMemberOnlineStatus = function (mid, isOnline)
+    {
+        var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+            member.IsOnline(isOnline);
+        member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+            member.IsOnline(isOnline);
     }
 }
 
