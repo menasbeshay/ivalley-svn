@@ -92,7 +92,7 @@ namespace Chat2Connect.Admin
                 member.Answer = Answer.Text.Trim();
                 member.UserID = new Guid(objUser.ProviderUserKey.ToString());
                 member.Name = objUser.UserName;
-                member.IsOnLine = true;
+                member.IsOnLine = false;
                 member.Status = 1;
                 member.Save();                
                 try
@@ -130,6 +130,11 @@ namespace Chat2Connect.Admin
 
                     BLL.MemberLog log = new BLL.MemberLog();
                     log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
+
+                    if (bllSpec.MemberTypeSpecID == (int)Helper.Enums.TypeSpec.Help)
+                    {
+                        NotifyNewHelpMember(member);
+                    }
                 }
                 catch (Exception)
                 {
@@ -160,6 +165,23 @@ namespace Chat2Connect.Admin
             Question.SelectedIndex = 0;
             Answer.Text = "";
             ErrorMessage.Visible = false;
+        }
+
+        private static void NotifyNewHelpMember(BLL.Member member)
+        {
+            var helpMember = new
+            {
+                MemberID = member.MemberID,
+                Name = member.Name,
+                TypeSpecID = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID,
+                ProfilePic = (member.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : member.ProfilePic),
+                IsOnline = member.IsOnLine,
+                StatusMsg = member.s_StatusMsg,
+                Status = member.s_Status
+            };
+
+            Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
+            _Rcontext.Clients.All.addNewHelpMember(helpMember);
         }
     }
 }

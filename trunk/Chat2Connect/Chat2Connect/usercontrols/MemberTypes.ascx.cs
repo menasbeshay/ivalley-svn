@@ -88,15 +88,8 @@ namespace Chat2Connect.usercontrols
 
         private static void NotifyMember(int mid,int typeSpecID)
         {
-            List<Helper.SignalRUser> users = Chat2Connect.SRCustomHubs.ChatRoomHub.ConnectedUsers.Where(u => u.MemberID == mid).ToList();
             Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
-            foreach (var user in users)
-            {
-                foreach (var room in user.Rooms)
-                {
-                    _Rcontext.Clients.Group(room.ToString()).updateRoomMemberType(user.MemberID, typeSpecID, room);
-                }
-            }
+            _Rcontext.Clients.All.updateMemberType(mid, typeSpecID);
         }
 
     }

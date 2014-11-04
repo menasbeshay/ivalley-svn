@@ -2047,13 +2047,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
             window.addRoomBot(roomBot);
         }
     }
-    rHub.client.updateRoomMemberType = function (mid, memberTypeSpecId, rid)
-    {
-        var window = chatVM.getWindow(rid, "Room");
-        if (window != null) {
-            window.updateMemberType(mid,memberTypeSpecId);
-        }
-    }
+
     rHub.client.updateMemberOnlineStatus = function (mid, isOnline)
     {
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
@@ -2066,6 +2060,35 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
         });
         if (member != undefined)
             member.IsOnline(isOnline);
+    }
+    rHub.client.updateMemberType = function (mid, typeSpecID) {
+        var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+            member.TypeSpecID(typeSpecID);
+        member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+        {
+            if (typeSpecID != member.typeSpecID())
+            {
+                var newLst = ko.utils.arrayFilter(chatVM.helpMembers(), function (f) {
+                    return f.MemberID() != mid;
+                });
+                chatVM.helpMembers(newLst);
+            }
+        }
+        ko.utils.arrayForEach(chatVM.allRooms, function (window) {
+            window.updateMemberType(mid, typeSpecID);
+        });
+    }
+    rHub.client.addNewHelpMember = function (member) {
+        var newHelp = ko.mapping.fromJS(member);
+        var lst = chatVM.helpMembers();
+        lst.push(newHelp);
+        chatVM.helpMembers(lst);
     }
 }
 
