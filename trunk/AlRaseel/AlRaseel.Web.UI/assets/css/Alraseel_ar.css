@@ -987,3 +987,20 @@ p.lead, .taxonomy-description {
 
 /*________________________*/
 
+
+
+
+
+#thumbnails ul li {
+    list-style:none;
+    float:left;
+    margin:10px;
+    text-align:center;
+    width:18%;
+    padding:5px;
+}
+
+#thumbnails ul li img {
+    width:210px;
+    margin:0 auto;
+    }
