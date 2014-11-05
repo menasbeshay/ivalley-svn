@@ -26,15 +26,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <html>
-<!--
-===========================================================================
- Brooklyn WordPress Theme by United Themes (http://www.unitedthemes.com)
- Marcel Moerkens & Matthias Nettekoven
-===========================================================================
--->
-<!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:27:39 GMT -->
-<!-- Added by HTTrack -->
-<!-- /Added by HTTrack -->
+
 <head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -69,7 +61,8 @@
     <link rel='stylesheet' href='../wp-content/themes/brooklyn/css/ut-fontface7e2e.css?ver=3.8.1' type='text/css' media='all' />
     <link rel='stylesheet' href='../wp-content/themes/brooklyn/css/ut-superfish7e2e.css?ver=3.8.1' type='text/css' media='all' />
     <link rel='stylesheet' href='../wp-content/themes/brooklyn/style7e2e.css?ver=3.8.1' type='text/css' media='all' />
-    <script type='text/javascript' src='../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+    <%--<script type='text/javascript' src='../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>--%>
+    <script type="text/javascript" src="../lib/jquery-1.10.1.min.js"></script>
     <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
     <script type='text/javascript' src='../wp-content/plugins/ut-portfolio/assets/js/jquery.isotope.min4b1d.js?ver=1.8'></script>
     <script type='text/javascript' src='../wp-content/plugins/ut-portfolio/assets/js/jquery.lazy.load3109.js?ver=1.9.1'></script>
@@ -91,7 +84,10 @@
     <script src="../js/jquery.fancygallery.min.js" type="text/javascript"></script>
 
 
-
+     <script src="../js/jphotogrid.min.js"></script>
+    
+    <link href="../css/jphotogrid.css" rel="stylesheet" />
+    <link href="../css/jphotogrid.ie.css" rel="stylesheet" />
 
 
     <!-- Add mousewheel plugin (this is optional) -->
@@ -593,14 +589,14 @@
                         <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
                             <header class="section-header pt-style-2">
                                 <h2 class="section-title"><span>Colors</span></h2>
-                                <p class="lead">some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.</p>
+                                <%--<p class="lead">some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.some data about Colors here.</p>--%>
                             </header>
                         </div>
                         <!-- close section header -->
                     </div>
                     <div class="clear"></div>
                     <div class="section-content">
-                        <script type='text/javascript'> (function ($) { $(document).ready(function () { $('#ut_masonry_45').utmasonry({ columns: 4, tcolumns: 3, mcolumns: 2, itemClass: 'ut-grid-item', unitHeight: 300 }); }); })(jQuery); </script>
+                        <%--<script type='text/javascript'> (function ($) { $(document).ready(function () { $('#ut_masonry_45').utmasonry({ columns: 4, tcolumns: 3, mcolumns: 2, itemClass: 'ut-grid-item', unitHeight: 300 }); }); })(jQuery); </script>
                         <div id="ut-loader-45" class="ut-portfolio-detail-loader"><i class="fa fa-refresh fa-spin"></i></div>
                         <div id="ut-portfolio-details-wrap-45" class="ut-portfolio-details-wrap clearfix">
                             <div id="ut-portfolio-details-45" class="inner ut-portfolio-details">
@@ -859,8 +855,44 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div>--%>
                         <!-- end ut_masonry_45-->
+
+                        <div id="thumbnails">
+                              <ul class="clearfix" id="pg">
+                                  <li>
+                                      <img src="../images/colors/8.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/9.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/10.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/11.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/12.jpg" alt="img01" />
+
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/15.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/16.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/17.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/18.jpg" alt="img01" />
+                                  </li>
+                                  <li>
+                                      <img src="../images/colors/19.jpg" alt="img01" />
+                                  </li>
+                              </ul>
+                        </div>
 
                     </div>
                 </div>
@@ -1101,13 +1133,28 @@
                     jQuery.scrollTo(this.hash, 1300, { easing: 'easeInOutExpo', offset: 0, 'axis': 'y' });
                     event.preventDefault();
                 });
+
+                jQuery('#pg').jphotogrid({
+                    baseCSS: {
+                        width: '220px',
+                        height: '220px',
+                        padding: '0px'
+                    },
+                    selectedCSS: {
+                        top: '50px',
+                        left: '300px',
+                        width: '500px',
+                        height: '360px',
+                        padding: '10px'
+                    }
+                });
             });
         </script>
 
     </div>
     <!-- close #main-content -->
     <!--http://youtu.be/b62B4IDUUpE-->
-    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : '' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
+    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/b62B4IDUUpE' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
 </body>
 
 <!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:28:39 GMT -->

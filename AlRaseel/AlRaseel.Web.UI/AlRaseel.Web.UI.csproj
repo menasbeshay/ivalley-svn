@@ -159,15 +159,24 @@
     <Content Include="assets\css\Alraseel_en.css" />
     <Content Include="assets\css\style7e2e.css" />
     <Content Include="assets\fonts\aljazeera-webfont.svg" />
+    <Content Include="assets\fonts\entypo-selected.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\Logo-ar.png" />
     <Content Include="assets\img\Logo-en.png" />
     <Content Include="assets\img\Logo-en-lead.png" />
     <Content Include="assets\js\FWDInfiniteGrid.js" />
     <Content Include="css\boutique.css" />
+    <Content Include="css\jphotogrid.css" />
+    <Content Include="css\jphotogrid.ie.css" />
     <Content Include="css\jquery.fancygallery.css" />
+    <Content Include="css\jquery.lightbox-0.5.css" />
     <Content Include="css\prettyPhoto.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="blog\index.html" />
     <Content Include="blog\index7f4f.html" />
     <Content Include="blog\page\22a99.html" />
@@ -237,6 +246,13 @@
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
     <Content Include="GetProductDetails.aspx" />
+    <Content Include="images\lightbox-blank.gif" />
+    <Content Include="images\lightbox-btn-close.gif" />
+    <Content Include="images\lightbox-btn-next.gif" />
+    <Content Include="images\lightbox-btn-prev.gif" />
+    <Content Include="images\lightbox-ico-loading.gif" />
+    <Content Include="images\loader_dark.gif" />
+    <Content Include="images\loader_light.gif" />
     <Content Include="images\loading.GIF" />
     <Content Include="images\fancygallery\hover_icons\circle-magnifier.png" />
     <Content Include="images\fancygallery\hover_icons\circle-plus.png" />
@@ -306,6 +322,8 @@
     <Content Include="images\thumbnails\t_3.jpg" />
     <Content Include="images\thumbnails\t_4.jpg" />
     <Content Include="images\thumbnails\t_5.jpg" />
+    <Content Include="js\gamma.js" />
+    <Content Include="js\jphotogrid.min.js" />
     <Content Include="js\jquery-1.3.2.min.js" />
     <Content Include="js\jquery-1.4.4.min.js" />
     <Content Include="js\jquery-1.6.1.min.js" />
@@ -313,8 +331,15 @@
     <Content Include="js\jquery.boutique.min.js" />
     <Content Include="js\jquery.fancygallery.js" />
     <Content Include="js\jquery.fancygallery.min.js" />
+    <Content Include="js\jquery.history.js" />
+    <Content Include="js\jquery.lightbox-0.5.min.js" />
+    <Content Include="js\jquery.masonry.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\jquerypp.custom.js" />
+    <Content Include="js\js-url.min.js" />
+    <Content Include="js\modernizr.custom.70736.js" />
+    <Content Include="js\setup.js" />
     <Content Include="mejs\background.png" />
     <Content Include="mejs\background_yellow.png" />
     <Content Include="mejs\bigplay copy.png" />
@@ -493,6 +518,21 @@
     <Content Include="prettyphoto\images\prettyPhoto\light_square\sprite.png" />
     <Content Include="prettyphoto\jquery.prettyPhoto.js" />
     <Content Include="ProductDetails.aspx" />
+    <Content Include="source\blank.gif" />
+    <Content Include="source\fancybox_loading%402x.gif" />
+    <Content Include="source\fancybox_loading.gif" />
+    <Content Include="source\fancybox_overlay.png" />
+    <Content Include="source\fancybox_sprite%402x.png" />
+    <Content Include="source\fancybox_sprite.png" />
+    <Content Include="source\helpers\fancybox_buttons.png" />
+    <Content Include="source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="source\helpers\jquery.fancybox-media.js" />
+    <Content Include="source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="source\jquery.fancybox.css" />
+    <Content Include="source\jquery.fancybox.js" />
+    <Content Include="source\jquery.fancybox.pack.js" />
     <Content Include="wp-content\themes\brooklyn\style7e2e.css" />
     <Content Include="assets\js\comment-reply.min7e2e.js" />
     <Content Include="assets\js\jquery\jquery-migrate.min1576.js" />
@@ -662,6 +702,15 @@
     <Content Include="mejs\.DS_Store" />
     <Content Include="mejs\Thumbs.db" />
     <Content Include="prettyphoto\images\.DS_Store" />
+    <Content Include="assets\fonts\entypo-selected.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\fonts\entypo-selected.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\fonts\entypo-selected.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\alraseelpub.pubxml" />
     <None Include="Properties\PublishProfiles\alraseelpub_2.pubxml" />
     <None Include="Properties\PublishProfiles\alraseelpub_SVN.pubxml" />
@@ -1183,9 +1232,11 @@
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="en\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1261,7 +1312,6 @@
     <Folder Include="lib\" />
     <Folder Include="Models\" />
     <Folder Include="Pages\" />
-    <Folder Include="source\helpers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlRaseel.Data.DAL\AlRaseel.Data.DAL.csproj">
