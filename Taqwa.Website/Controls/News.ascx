@@ -57,7 +57,7 @@
             
 		</div>
 		<div class="accordion-content">
-			<%# Eval("ArBody").ToString().Length > 200 ? System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()).Substring(0, 200), @"<[^>]+>|&nbsp;", "") : System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "")%>
+			<%# System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Length > 200 ? System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Substring(0, 200) : System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "") %>
             <div class="clearfix"></div>
             <div class="pull-left">
             <a href='../news.aspx?NID=<%# Eval("NewsID").ToString() %>'>المزيد</a>
@@ -89,7 +89,7 @@
             
 		</div>
 		<div class="accordion-content">
-			<%# Eval("ArBody").ToString().Length > 200 ? System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()).Substring(0, 200), @"<[^>]+>|&nbsp;", "") : System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "")%>
+			<%# System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Length > 200 ? System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Substring(0, 200) : System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "") %>
             <div class="clearfix"></div>
             <div class="pull-left">
             <a href='../news.aspx?NID=<%# Eval("NewsID").ToString() %>'>المزيد</a>
