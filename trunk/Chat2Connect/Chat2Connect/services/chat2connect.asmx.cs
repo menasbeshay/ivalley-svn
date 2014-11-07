@@ -16,7 +16,7 @@ namespace Chat2Connect.services
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class chat2connect : System.Web.Services.WebService
     {
         private const string defaultImg = "images/defaultavatar.png";
