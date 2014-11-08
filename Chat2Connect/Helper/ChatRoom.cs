@@ -160,6 +160,8 @@ namespace Helper
 
         public object MemberTypeID { get; set; }
 
+
+        public int FromTypeSpecID { get; set; }
     }
 
     public class People

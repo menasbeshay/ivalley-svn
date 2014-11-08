@@ -15,7 +15,7 @@
             <div class="pull-right ">
                 <i class="icon-2x modernicon iconmodern-mainlist"></i>
                 <a data-bind="click:showRoomInfo" style="font-weight: bold; text-decoration: none; cursor: pointer;">
-                    <span data-bind="text:name,css:'type_'+$root.selectedTab().typeSpecID()"></span>
+                    <span data-bind="text:Name,css:'type_'+$parent.typeSpecID()"></span>
                 </a>
             </div>
             <div class="pull-right " style="margin-right: 30px; height: 15px; padding: 8px; font-weight: bold;">

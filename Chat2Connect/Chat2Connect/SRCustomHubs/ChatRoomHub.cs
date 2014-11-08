@@ -28,7 +28,7 @@ namespace Chat2Connect.SRCustomHubs
             // add user to new group by his user name 
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
 
-            updateMemberStatus(newMember,true);
+            updateMemberStatus(newMember, true);
 
             return base.OnConnected();
         }
@@ -46,12 +46,12 @@ namespace Chat2Connect.SRCustomHubs
             // remove user to new group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
 
-            updateMemberStatus(item,false);
-            
+            updateMemberStatus(item, false);
+
             return base.OnDisconnected();
         }
 
-        private void updateMemberStatus(Helper.SignalRUser connectedUser,bool isConnected)
+        private void updateMemberStatus(Helper.SignalRUser connectedUser, bool isConnected)
         {
             Member bllMember = new Member();
             if (bllMember.LoadByPrimaryKey(connectedUser.MemberID))
@@ -61,8 +61,8 @@ namespace Chat2Connect.SRCustomHubs
                 bllMember.Save();
             }
 
-            Clients.All.updateMemberOnlineStatus(connectedUser.MemberID,isConnected);
-            
+            Clients.All.updateMemberOnlineStatus(connectedUser.MemberID, isConnected);
+
         }
         public void addToRoom(int roomid, bool isVisible)
         {
@@ -100,7 +100,7 @@ namespace Chat2Connect.SRCustomHubs
                 Helper.Enums.LogType lgType = Helper.Enums.LogType.EnterRoom;
                 if (!isVisible)
                     lgType = Helper.Enums.LogType.EnterRoomHidden;
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() {Type=lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
 
             }
             catch (Exception ex)
@@ -322,7 +322,8 @@ namespace Chat2Connect.SRCustomHubs
                     FromName = fromUser.MemberName,
                     Message = message,
                     MessageDate = DateTime.Now,
-                    FromProfileImg = profileImg
+                    FromProfileImg = profileImg,
+                    FromTypeSpecID = fromUser.MemberTypeSpecID
                 };
                 // send to 
                 Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, resultMsg);
@@ -339,7 +340,8 @@ namespace Chat2Connect.SRCustomHubs
                     FromName = "",
                     Message = "  المستخدم الذى تحاول التحدث معه الان غير موجود اونلاين" + "&nbsp;<a onclick=\"OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=" + friend.MemberID.ToString() + "&un=" + friend.UserName + "\',\'الرسائل\');\" class='SendMsg' target='_blank' style='cursor:pointer;'>يمكنك ان ترسل له رساله الان</a>",
                     MessageDate = DateTime.Now,
-                    FromProfileImg = profileImg
+                    FromProfileImg = profileImg,
+                    FromTypeSpecID = 1
                 };
                 Clients.Caller.getPrivateMessage(toUserId, resultMsg);
             }

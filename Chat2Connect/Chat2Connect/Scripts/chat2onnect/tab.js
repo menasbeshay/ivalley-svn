@@ -14,6 +14,8 @@
                         self.room(room);
                         room.Init();
                         setTimeout(function () { room.initEditor(); }, 1500);
+
+                        self.viewModel.rHub.server.addToRoom(room.ID(), room.CurrentMember().InRoom());
                     }
                     else {
                         self.error(data.Data);

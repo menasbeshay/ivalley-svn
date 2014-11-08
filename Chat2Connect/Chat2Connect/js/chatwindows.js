@@ -143,7 +143,7 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
     }, this);
     //Friends
     this.getFriends = function () {
-        $.post("../services/chat2connect.asmx/GetFriends", { mid: this.CurrentMemberID })
+        $.get("../services/chat2connect.asmx/GetFriends", { mid: this.CurrentMemberID })
                 .done(function (data) {
                     var lst = [];
                     ko.utils.arrayMap(data, function (item) {

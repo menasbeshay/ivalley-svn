@@ -1,19 +1,15 @@
 ﻿function registerRoomHubEvents(rHub,viewModel)
 {
     var chatVM = viewModel;
-    rHub.client.getPrivateMessage = function (fromId, message) {
-        var window = chatVM.getWindow(fromId, "Private", message.FromName);
-        window.addMessage(message);
-    };
+    
     rHub.client.getAdminMessage = function (rid, msg) {
-        var type = "Room";
-        var window = chatVM.getWindow(rid, type);
+        var window = chatVM.getRoomChatWindow(rid);
         if (window == null)
             return;
         window.addAdminMessage(msg);
     };
     rHub.client.showMemberInRoom = function (rid, mid) {
-        var window = chatVM.getWindow(rid, "Room");
+        var window = chatVM.getRoomChatWindow(rid);
         if (window == null)
             return;
         var member = window.getMember(mid);
@@ -26,8 +22,7 @@
         }
     };
     rHub.client.getMessage = function (rid, msg) {
-        var type = "Room";
-        var window = chatVM.getWindow(rid, type);
+        var window = chatVM.getRoomChatWindow(rid);
         if (window == null)
             return;
         window.addMessage(msg);
@@ -35,8 +30,7 @@
 
     rHub.client.addNewMember = function (rid, memberData) {
         var newMember = ko.mapping.fromJS(memberData);
-        var type = "Room";
-        var window = chatVM.getWindow(rid, type);
+        var window = chatVM.getRoomChatWindow(rid);
         if (window == null)
             return;
         var existingMember = window.getMember(newMember.MemberID());
@@ -63,7 +57,7 @@
         });
     };
     rHub.client.removeMember = function (mid, roomId) {
-        var window = chatVM.getWindow(roomId, "Room", "");
+        var window = chatVM.getRoomChatWindow(roomId);
         if (window == null)
             return;
         var member = window.getMember(mid);
@@ -75,9 +69,9 @@
             var msg = member.MemberName() + ' خرج من الغرفة ';
             addMsgToWindow(window, msg, "leftalert");
         }
-        if (mid == chatVM.CurrentMemberID) {
-            chatVM.windows.remove(window);
-        }
+        //if (mid == chatVM.CurrentMemberID) {
+        //    chatVM.windows.remove(window);
+        //}
     };
     function banMemberFromroom(mid, roomId, banTypeName, adminName) {
         var window = chatVM.getWindow(roomId, "Room", "");

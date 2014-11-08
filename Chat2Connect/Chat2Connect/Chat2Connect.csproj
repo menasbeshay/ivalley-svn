@@ -683,6 +683,7 @@
     <Content Include="Scripts\chat2onnect\chatwindow.js" />
     <Content Include="Scripts\chat2onnect\knockout.extensions.js" />
     <Content Include="Scripts\chat2onnect\member.js" />
+    <Content Include="Scripts\chat2onnect\privateChatHubEvents.js" />
     <Content Include="Scripts\chat2onnect\roomHubEvents.js" />
     <Content Include="Scripts\chat2onnect\tab.js" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
@@ -1584,9 +1585,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPages\App_LocalResources\createMaster.master.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\MyBalance.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

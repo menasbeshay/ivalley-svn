@@ -166,6 +166,7 @@
     <script src="Scripts/knockout.mapping-latest.js"></script>
     <script src="Scripts/chat2onnect/knockout.extensions.js"></script>
     <script src="Scripts/chat2onnect/roomHubEvents.js"></script>
+    <script src="Scripts/chat2onnect/privateChatHubEvents.js"></script>
     <script src="Scripts/chat2onnect/tab.js"></script>
     <script src="Scripts/chat2onnect/member.js"></script>
     <script src="Scripts/chat2onnect/chatwindow.js"></script>
@@ -182,15 +183,16 @@
         var viewModel;
         $(function () {
             var srHub = $.connection.chatRoomHub;
+            srHub.client.connected = function () { };
 
             viewModel = new member(srHub, mid, name, pic, points);
-            //registerRoomHubEvents(srHub,viewModel);
+                
+            registerRoomHubEvents(srHub,viewModel);
+            registerPrivateHubEvents(srHub,viewModel);
 
             $.connection.hub.start().done(function () {
                 ko.applyBindings(viewModel);
             });
-
-            
         });
         function onCamClose(userId, roomId) {
             var window = viewModel.getRoomChatWindow(roomId.substr(roomId.indexOf("_") + 1));

@@ -1,12 +1,11 @@
-﻿function member(roomHub, id, name, pic, points) {
+﻿function member(rHub, id, name, pic, points) {
     this.roomChatWindowType = 'RoomChat';
     this.privateChatWindowType = 'PrivateChat';
-    this.rHub = roomHub;
+    this.rHub = rHub;
     this.memberID = mid;
     this.memberName = name;
     this.profilePic = ko.observable(pic);
     this.creditPoints = ko.observable(points);
-    this.roomHub = roomHub;
     this.tabs = ko.observableArray([]);
     var w = new tab(0, 'الرئيسية', 1, 'RoomsList');
     this.tabs.push(w);
@@ -90,33 +89,52 @@
     };
     this.getRoomChatWindow = function (id) {
         var w = self.getTab(id, self.roomChatWindowType);
-        return w;
+        if (w != undefined)
+            return w.room();
+        return null;
     }
-    this.getPrivateChatWindow = function (id) {
+    this.getPrivateChatWindow = function (id,name,typeSpecID) {
         var w = self.getTab(id, self.privateChatWindowType);
-        return w;
+        if (w == undefined) {
+            w = new tab(id, name, typeSpecID, self.privateChatWindowType);
+            self.tabs.push(w);
+        }
+        return w.room();
     }
     this.openChatRoom = function (room) {
         var w = self.getRoomChatWindow(room.ID());
         if (w == undefined) {
             w = new tab(room.ID(), room.Name(), room.TypeSpecID(), self.roomChatWindowType, self);
-            
             self.tabs.push(w);
         }
         self.selectedTab(w);
     }
-    this.openPrivateRoom = function (data)
-    {
-        var w = self.getPrivateChatWindow(data.MemberID());
-        if (w == undefined)
-        {
+    this.openPrivateRoom = function (data) {
+        var w = self.getTab(data.MemberID(), self.privateChatWindowType);
+        if (w == undefined) {
             w = new tab(data.MemberID(), data.Name(), data.TypeSpecID(), self.privateChatWindowType);
             self.tabs.push(w);
         }
         self.selectedTab(w);
     };
     this.removeWindow = function () {
-        var win = this;
-        self.chatWindows.remove(this);
+        var tab = this;
+        if (tab.type == self.roomChatWindowType) {
+            if (tab.room().WelcomeBot.hasOwnProperty("LogoutMsgPart1")) {
+                var msg = tab.room().WelcomeBot.LogoutMsgPart1() + ' ' + tab.room().CurrentMember().MemberName() + ' ' + tab.room().WelcomeBot.LogoutMsgPart2();
+                var botImg = "<img src='/images/bots/EmailOwner_" + tab.room().Settings.TypeID() + ".png' width=25px;height=25px/>";
+                msg = botImg + '<span class="botMsg" style="color:' + tab.room().Settings.Color() + '">' + msg + '</span>';
+                notify('success', msg);
+            }
+            if (tab.room().CurrentMember().IsCamOpened())
+                tab.room().stopCam(self.memberID);
+            rHub.server.removeFromRoom(tab.id);
+            $.post("../services/Services.asmx/closeChatRoom", { id: tab.id });
+        }
+        self.selectedTab(null);
+        self.tabs.remove(tab);
+        if (self.tabs().length > 0) {
+            self.selectedTab(self.tabs()[0]);
+        }
     };
 };
