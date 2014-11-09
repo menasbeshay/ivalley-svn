@@ -132,7 +132,6 @@ namespace Chat2Connect
         protected void Session_End(object sender, EventArgs e)
         {
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
 
             if (Membership.GetUser() != null)
             {
@@ -140,7 +139,6 @@ namespace Chat2Connect
                 Member user = new Member();
                 user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
                 user.IsOnLine = false;
-                user.Status = 4;
                 user.Save();
 
                 // remove user from rooms 
@@ -157,15 +155,7 @@ namespace Chat2Connect
                 }
 
                 // notify friends with new status 
-                MemberFriend friends = new MemberFriend();
-                friends.GetAllMemberFriends(user.MemberID);
-                for (int i = 0; i < friends.RowCount; i++)
-                {
-                    Member temp = new Member();
-                    temp.LoadByPrimaryKey(friends.FriendID);
-                    MembershipUser u = Membership.GetUser(temp.UserID);
-                    _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, "offline");
-                }
+                _Rcontext.Clients.All.updateMember(user.MemberID, "IsOnline", false);
             }
         }
 

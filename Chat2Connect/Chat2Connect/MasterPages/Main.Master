@@ -37,16 +37,16 @@
     <script src="/signalr/hubs"></script>
 
     <script type="text/javascript">
+        var currentMemberStatus = '<%= BLL.Member.CurrentMember.StatusValue.ToString().ToLower() %>';
         $(document).ready(function () {
             $('.MenuItem').tooltip();
             $('.input-ok').tooltip();
             $('.input-cancel').tooltip();
+            $('.user_img img').addClass(currentMemberStatus);
 
         });
 
-
         function changeStatus() {
-
             $.ajax({
                 url: "../Services/Services.asmx/changeStatusMsg",
                 dataType: "json",
@@ -59,85 +59,38 @@
                     }
                     else if (data.d == true) {
                         notify('success', 'تم التحديث بنجاح.');
-
-                        sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
             });
-    }
+        };
 
-
-    function changeS(x) {
-        $.ajax({
-            url: "../Services/Services.asmx/changeStatus",
-            dataType: "json",
-            type: "post",
-            data: "{'status':'" + x + "'}",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                if (data.d == true) {
-                    sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
-                    $('.user_img img').removeClass("online offline away busy");
-                    switch (x) {
-                        case 1:
-                            $('.user_img img').addClass("online");
-                            break;
-                        case 2:
-                            $('.user_img img').addClass("busy");
-                            break;
-                        case 3:
-                            $('.user_img img').addClass("away");
-                            break;
-                        case 4:
-                            $('.user_img img').addClass("offline");
-                            break;
-                        default:
-                            $('.user_img img').addClass("online");
-                            break;
-
+        function changeS(id, value) {
+            $.ajax({
+                url: "../Services/Services.asmx/changeStatus",
+                dataType: "json",
+                type: "post",
+                data: "{'status':'" + id + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == true) {
+                        $('.user_img img').removeClass(currentMemberStatus);
+                        currentMemberStatus = value;
+                        $('.user_img img').addClass(currentMemberStatus);
                     }
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
-            }
-        });
-    }
-
-
-    function clearStatus() {
-        $('#pGeneral').css('display', 'block');
-        $.ajax({
-            url: "../Services/Services.asmx/changeStatus",
-            dataType: "json",
-            type: "post",
-            data: "{'status':''}",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                if (data.d == false) {
-                    $('#pGeneral').css('display', 'none');
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
                     notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
-                else if (data.d == true) {
-                    $('#pGeneral').css('display', 'none');
-                    notify('success', 'تم التحديث بنجاح.');
-                    $('#<%= uiTextBoxStatus.ClientID %>').val('');
-                    sHub.server.statusChanged($("#<%= uiHiddenFieldClientID.ClientID %>").val());
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#pGeneral').css('display', 'none');
-                notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
-            }
-        });
-}
+            });
+        }
 
-
-
-
+        function clearStatus() {
+            $('#<%= uiTextBoxStatus.ClientID %>').val('');
+            changeStatus();
+        }
 
     </script>
     <!-- stylesheets -->
@@ -154,56 +107,29 @@
         <header class="row navbar-fixed-top" role="navigation">
             <div class="user">
                 <div class="AccountMenu">
-                    <a onclick="OpenPopup('account.aspx','حسابى');" data-toggle="tooltip" title="حسابى" data-placement="left" style="cursor:pointer;"><i class="icon-user"></i></a>
-                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left" style="height:16px;"><i data-toggle="modal" data-target="#helpModal" class="icon-question-sign" ></i></asp:HyperLink>
+                    <a onclick="OpenPopup('account.aspx','حسابى');" data-toggle="tooltip" title="حسابى" data-placement="left" style="cursor: pointer;"><i class="icon-user"></i></a>
+                    <asp:HyperLink runat="server" NavigateUrl="#" data-toggle="tooltip" title="مساعدة" data-placement="left" Style="height: 16px;"><i data-toggle="modal" data-target="#helpModal" class="icon-question-sign" ></i></asp:HyperLink>
                     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> " OnLoggingOut="LoginStatus1_LoggingOut" data-toggle="tooltip" data-placement="left" title="خروج" />
                 </div>
-                <%--<ul class="nav pull-right top-menu login-menu">
-                    <!-- BEGIN USER LOGIN DROPDOWN -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="arrow_menu"><i class="icon  icon-chevron-down"></i></div>
-
-                        </a>
-                        <ul class="dropdown-menu extended logout" style="right: 0 !important;z-index:1040 !important;">
-                            <li>
-                                </li>
-                            <li>
-                                </li>
-                            <li>
-                               
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- END USER LOGIN DROPDOWN -->
-
-                </ul>--%>
                 <div class="vl pull-right"></div>
                 <ul class="nav pull-right top-menu login-menu">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle statusimg" data-toggle="dropdown">
                             <div class="user_img">
-                                <asp:Image ID="uiImageUser" runat="server" ImageUrl="~/images/defaultavatar.png" />
+                                <img src="<%= ProfilePic %>" />
                             </div>
                         </a>
                         <ul class="dropdown-menu extended " style="right: 0 !important; z-index: 1040 !important;">
-                            <li>
-                                <a class="status" onclick="changeS(1);return false;">
-                                    <asp:Image CssClass="online" ID="uiImageUser1" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;متصل</a>
-                            </li>
-                            <li>
-                                <a class="status" onclick="changeS(3);return false;">
-                                    <asp:Image CssClass="away" ID="uiImageUser3" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;بعيد</a>
-                            </li>
-                            <li>
-                                <a class="status" onclick="changeS(2);return false;">
-                                    <asp:Image CssClass="busy" ID="uiImageUser2" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مشغول</a>
-                            </li>
-
-                            <li>
-                                <a class="status" onclick="changeS(4);return false;">
-                                    <asp:Image CssClass="offline" ID="uiImageUser4" runat="server" ImageUrl="~/images/defaultavatar.png" />&nbsp;مخفى</a>
-                            </li>
+                            <asp:Repeater ID="repStatus" runat="server">
+                                <ItemTemplate>
+                                    <li>
+                                        <a class="status" onclick="changeS(<%# Eval("ID") %>,'<%# Eval("Name") %>');return false;">
+                                            <img class="<%# Eval("Name") %>" src="<%= ProfilePic %>" />
+                                            &nbsp;<%# Eval("Title") %>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </ul>
                     </li>
                 </ul>
@@ -244,12 +170,12 @@
         <nav class="navbar navbar-inverse adminmenu navbar-fixed-top" role="navigation" style="margin-top: 87px !important; z-index: 1029 !important;">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" dir="ltr">
-                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SiteSettings.PageRoles))
-                        {%>                            
+                    <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.SiteSettings.PageRoles))
+                      {%>
                     <li><a href='<%=ResolveUrl("~/Admin/SiteSettings.aspx") %>'>إعدادات عامة</a></li>
                     <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.MailAds.PageRoles))
-                        {%>                            
+                      {%>
                     <li><a href='<%=ResolveUrl("~/Admin/MailAds.aspx") %>'>إعدادات إعلانات البريد</a></li>
                     <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.StatsReport.PageRoles))
@@ -258,7 +184,7 @@
                         <ul class="dropdown-menu">
                             <li><a href='<%=ResolveUrl("~/Admin/StatsReport.aspx") %>'>إحصائيات</a></li>
                             <li><a href='<%=ResolveUrl("~/Admin/VIPReport.aspx") %>'>تقرير الغرف والحسابات المميزة</a></li>
-                            </ul>
+                        </ul>
                     </li>
                     <%} %>
                     <%if (Helper.Admin.HasAnyOfRoles(Chat2Connect.Admin.ManageRoom.PageRoles))
@@ -304,7 +230,6 @@
                             <li class="divider"></li>
                             <li><a href='<%=ResolveUrl("~/Admin/SendMessage.aspx") %>'>إرسال رسالة</a></li>
                             <%} %>
-                           
                         </ul>
                     </li>
                     <%} %>
@@ -322,7 +247,6 @@
                         </ul>
                     </li>
                     <%} %>
-                     
                 </ul>
             </div>
         </nav>
@@ -390,32 +314,32 @@
                     <asp:HyperLink ID="uiHyperLinkGp" runat="server">
                         <i class="icon-google-plus-sign " style="font-size:20px;"></i>
                     </asp:HyperLink>
-                      
-                    <a href="../viewnode.aspx?node=privacy" style="font-size:10px;margin:0 5px;">سياسة الخصوصية</a>
-                    
+
+                    <a href="../viewnode.aspx?node=privacy" style="font-size: 10px; margin: 0 5px;">سياسة الخصوصية</a>
+
                     | 
-                    <a href="../viewnode.aspx?node=terms" style="font-size:10px;margin:0 5px;">الشروط والأحكام</a>
-                     | 
-                    <a href="../viewnode.aspx?node=faq" style="font-size:10px;margin:0 5px;">أسئلة شائعة</a>
-                     <div class="clear" style="height:5px;"></div>
-                     &copy;
+                    <a href="../viewnode.aspx?node=terms" style="font-size: 10px; margin: 0 5px;">الشروط والأحكام</a>
+                    | 
+                    <a href="../viewnode.aspx?node=faq" style="font-size: 10px; margin: 0 5px;">أسئلة شائعة</a>
+                    <div class="clear" style="height: 5px;"></div>
+                    &copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
-                جميع الحقوق محفوظة لموقع دردشة تواصل.&nbsp;
+                    جميع الحقوق محفوظة لموقع دردشة تواصل.&nbsp;
                     
                 </div>
-                
-                <div class="col-lg-4 pull-right" style="text-align:right;margin-top:5px;">
-                    
-                    <div class="clear" style="height:10px;"></div>
-                    <div>
-                Powered by &nbsp; <a href="http://I-valley.com">
-                    <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle;max-width:50px;"
-                        alt="I-VALLEY software solutions" /></a>
 
-            </div>
-               
+                <div class="col-lg-4 pull-right" style="text-align: right; margin-top: 5px;">
+
+                    <div class="clear" style="height: 10px;"></div>
+                    <div>
+                        Powered by &nbsp; <a href="http://I-valley.com">
+                            <img src="../images/IValley.png" title="I-VALLEY software solutions" style="vertical-align: middle; max-width: 50px;"
+                                alt="I-VALLEY software solutions" /></a>
+
                     </div>
-            
+
+                </div>
+
             </footer>
             <div id="pGeneral" style="min-height: 100%; min-width: 100%; text-align: center; vertical-align: bottom; display: table-cell; color: #fff; font-size: 16px; font-weight: bold; z-index: 9999999; background: url(images/loading.GIF) no-repeat center center rgba(254,194,0,0.65); position: fixed; top: 0; left: 0; display: none;">
                 <div style="margin: auto; width: 120px; height: 60px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; font-size: 20px; font-weight: bold;">
@@ -446,7 +370,7 @@
             <div id="helpModal" class="modal fade" role="modal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header" style="height:35px">
+                        <div class="modal-header" style="height: 35px">
                             <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                             <%--<i class="icon-2x icon-question-sign" style="float: left; margin-left: 10px;"></i>--%>
                             <%--<h3>المساعدة</h3>--%>
@@ -493,12 +417,12 @@
             <div id="GeneralModalPage" class="modal fade " role="modal" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header" style="height:35px">
+                        <div class="modal-header" style="height: 35px">
                             <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                             <span id="GMP_Title"></span>
                         </div>
                         <div class="modal-body">
-                            <iframe id="GMP_Content" style="width:100%;min-height:450px;"></iframe>
+                            <iframe id="GMP_Content" style="width: 100%; min-height: 450px;"></iframe>
                         </div>
                         <%--<div class="modal-footer center">                            
                             <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">إغلاق</a>

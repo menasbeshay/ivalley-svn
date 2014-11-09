@@ -34,9 +34,11 @@ namespace Helper
         /// <returns></returns>
         public static T ParseEnum<T>(int value)
         {
+            if (value == 0)
+                value = 1;
             if (Enum.IsDefined(typeof(T), value))
                 return (T)Enum.ToObject(typeof(T), value);
-            throw new NotImplementedException(String.Format("Invalid value '{0}' Of type '{1}'", value, typeof(T).Name));
+            throw new Exception("invalid value of enum");
         }
 
         public static bool HasValue<T>(int value)

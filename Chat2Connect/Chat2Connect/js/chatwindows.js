@@ -131,14 +131,14 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
         if (this.helpMembers() == undefined)
             return [];
         return ko.utils.arrayFilter(this.helpMembers(), function (help) {
-            return help.IsOnline();
+            return help.IsOnline() && help.Status() != 'offline'; //not invisible
         });
     }, this);
     this.offlineHelpMembers = ko.computed(function () {
         if (this.helpMembers() == undefined)
             return [];
         return ko.utils.arrayFilter(this.helpMembers(), function (help) {
-            return !help.IsOnline();
+            return !help.IsOnline() || help.Status() == 'offline'; //invisible;
         });
     }, this);
     //Friends
@@ -157,14 +157,14 @@ function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
         if (this.friends() == undefined)
             return [];
         return ko.utils.arrayFilter(this.friends(), function (f) {
-            return f.IsOnline();
+            return f.IsOnline() && f.Status() != 'offline'; //not invisible;
         });
     }, this);
     this.offlineFriends = ko.computed(function () {
         if (this.friends() == undefined)
             return [];
         return ko.utils.arrayFilter(this.friends(), function (f) {
-            return !f.IsOnline();
+            return !f.IsOnline() || f.Status() == 'offline'; //invisible;
         });
     }, this);
     this.removeFriend = function ()
@@ -2048,18 +2048,17 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
         }
     }
 
-    rHub.client.updateMemberOnlineStatus = function (mid, isOnline)
-    {
+    rHub.client.updateMember = function (mid,prop, val) {
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
             return f.MemberID() == mid;
         });
         if (member != undefined)
-            member.IsOnline(isOnline);
+            member[prop](val);
         member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
             return f.MemberID() == mid;
         });
         if (member != undefined)
-            member.IsOnline(isOnline);
+            member[prop](val);
     }
     rHub.client.updateMemberType = function (mid, typeSpecID) {
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {

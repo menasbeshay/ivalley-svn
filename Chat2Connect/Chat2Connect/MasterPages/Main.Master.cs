@@ -26,6 +26,17 @@ namespace Chat2Connect.MasterPages
                 ViewState["ID"] = value;
             }
         }
+        public string ProfilePic
+        {
+            get
+            {
+                return Convert.ToString(ViewState["ProfilePic"]);
+            }
+            set
+            {
+                ViewState["ProfilePic"] = value;
+            }
+        }
         protected override void OnInit(EventArgs e)
         {
             if (Request.IsAuthenticated)
@@ -46,7 +57,7 @@ namespace Chat2Connect.MasterPages
 
                     SiteSettings settings = new SiteSettings();
                     settings.LoadByPrimaryKey(1); //fb
-                    uiHyperLinkFB.NavigateUrl= settings.URL;
+                    uiHyperLinkFB.NavigateUrl = settings.URL;
 
                     settings.LoadByPrimaryKey(2); //twitter
                     uiHyperLinkTwitter.NavigateUrl = settings.URL;
@@ -66,37 +77,30 @@ namespace Chat2Connect.MasterPages
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
         private void loadUserInfo()
         {
-            Member user = new Member();
-            user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            Member user = BLL.Member.CurrentMember;
             MemberID = user.MemberID;
+            string img = "/images/defaultavatar.png";
             if (!user.IsColumnNull("ProfilePic"))
-                uiImageUser.ImageUrl = user.ProfilePic;
-            switch (user.Status)
+                img = user.ProfilePic;
+            ProfilePic = img;
+
+            var lstStatus = Helper.EnumUtil.GetValues<Helper.Enums.MemberStatus>().Select(l => new
             {
-                case 1: // online
-                    uiImageUser.CssClass = "online";
-                    break;
-                case 2: // busy
-                    uiImageUser.CssClass = "busy";
-                    break;
-                case 3: // away
-                    uiImageUser.CssClass = "away";
-                    break;
-                case 4 : // offline
-                    uiImageUser.CssClass = "offline";
-                    break;
-                default:
-                break;
-            }
-            
-            uiLabelName.Text = Membership.GetUser().UserName;
-            uiLinkButtonLock.PostBackUrl = "../lock.aspx?u=" + Membership.GetUser().UserName;
+                ID = (int)l,
+                Title = Helper.StringEnum.GetStringValue(l),
+                Name = l.ToString().ToLower()
+            }).ToList();
+            repStatus.DataSource = lstStatus;
+            repStatus.DataBind();
+
+            uiLabelName.Text = user.Name;
+            uiLinkButtonLock.PostBackUrl = "../lock.aspx?u=" + user.Name;
             uiTextBoxStatus.Text = user.StatusMsg;
             uiHiddenFieldClientID.Value = user.MemberID.ToString();
             Session["Activate_session"] = 1;
@@ -104,31 +108,12 @@ namespace Chat2Connect.MasterPages
 
         protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+            Member member = BLL.Member.CurrentMember;
+            member.IsOnLine = false;
+            member.Save();
 
-            Member user = new Member();
-            user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-            user.IsOnLine = false;
-            user.Status = 4;
-            user.Save();
-
-            /*RoomMember rooms = new RoomMember();
-            rooms.GetAllRoomsByMemberID(user.MemberID);
-            if (rooms.RowCount > 0)
-            {
-                rooms.MarkAsDeleted();
-                rooms.Save();
-            }*/
-
-            MemberFriend friends = new MemberFriend();
-            friends.GetAllMemberFriends(user.MemberID);
-            for (int i = 0; i < friends.RowCount; i++)
-            {
-                Member temp = new Member();
-                temp.LoadByPrimaryKey(friends.FriendID);
-                MembershipUser u = Membership.GetUser(temp.UserID);
-                _Ncontext.Clients.Group(u.UserName).friendStatusChanged(user.MemberID, user.StatusMsg, "offline");
-            }
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.All.updateMember(member.MemberID, "IsOnline", false);
 
             // clear all session vars
             Session.Abandon();
