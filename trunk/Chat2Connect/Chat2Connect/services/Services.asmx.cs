@@ -88,12 +88,13 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool changeStatusMsg(string status)
         {
-            MembershipUser user = Membership.GetUser();
-            Member member = new Member();
-
-            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            Member member = BLL.Member.CurrentMember;
             member.StatusMsg = status;
             member.Save();
+
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.All.updateMember(member.MemberID, "StatusMsg", status);
+
             return true;
         }
 
@@ -101,12 +102,14 @@ namespace Chat2Connect.services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public bool changeStatus(int status)
         {
-            MembershipUser user = Membership.GetUser();
-            Member member = new Member();
-
-            member.GetMemberByUserId(new Guid(user.ProviderUserKey.ToString()));
+            Member member = BLL.Member.CurrentMember;
             member.Status = status;
             member.Save();
+            
+            string statusString = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(status).ToString().ToLower();
+            IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+            _Rcontext.Clients.All.updateMember(member.MemberID,"Status", statusString);
+
             return true;
         }
 

@@ -56,6 +56,28 @@ namespace BLL
             }
         }
 
+        public override int Status
+        {
+            get
+            {
+                if (IsColumnNull(ColumnNames.Status))
+                    return (int)Helper.Enums.MemberStatus.Online;
+                return base.Getint(ColumnNames.Status);
+            }
+            set
+            {
+                base.Setint(ColumnNames.Status, value);
+            }
+        }
+
+        public Helper.Enums.MemberStatus StatusValue
+        {
+            get
+            {
+                return Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Status);
+            }
+        }
+
         #region Extended Properties
         private System.Web.Security.MembershipUser _membershipUser;
         private bool isLoaded;

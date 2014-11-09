@@ -28,7 +28,7 @@ namespace Chat2Connect.SRCustomHubs
             // add user to new group by his user name 
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);
 
-            updateMemberStatus(newMember, true);
+            updateMemberOnlineStatus(newMember, true);
 
             return base.OnConnected();
         }
@@ -42,28 +42,28 @@ namespace Chat2Connect.SRCustomHubs
                     removeFromRoom(item.Rooms.ElementAt(i));
                 }
                 ConnectedUsers.Remove(item);
+
+                updateMemberOnlineStatus(item, false);
             }
             // remove user to new group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
 
-            updateMemberStatus(item, false);
-
             return base.OnDisconnected();
         }
 
-        private void updateMemberStatus(Helper.SignalRUser connectedUser, bool isConnected)
+        public void updateMemberOnlineStatus(Helper.SignalRUser connectedUser, bool isOnline)
         {
             Member bllMember = new Member();
             if (bllMember.LoadByPrimaryKey(connectedUser.MemberID))
             {
-                bllMember.IsOnLine = isConnected;
-                bllMember.Status = isConnected ? 1 : 4;
+                bllMember.IsOnLine = isOnline;
+                //bllMember.Status = isConnected ? 1 : 4;
                 bllMember.Save();
+
+                Clients.All.updateMember(bllMember.MemberID, "IsOnline", isOnline);
             }
-
-            Clients.All.updateMemberOnlineStatus(connectedUser.MemberID, isConnected);
-
         }
+
         public void addToRoom(int roomid, bool isVisible)
         {
             Groups.Add(Context.ConnectionId, roomid.ToString());

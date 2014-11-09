@@ -35,7 +35,7 @@ namespace Chat2Connect.services
                     ProfilePic = (m[Member.ColumnNames.ProfilePic]==DBNull.Value?defaultImg:m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
-                    Status = m[Member.ColumnNames.Status]
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower()
                 }
                 ).ToList();
             
@@ -86,7 +86,7 @@ namespace Chat2Connect.services
                     ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
-                    Status = m[Member.ColumnNames.Status]
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower()
                 }
                 ).ToList();
 
