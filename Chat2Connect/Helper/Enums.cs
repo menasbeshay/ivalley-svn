@@ -114,6 +114,8 @@ namespace Helper
             Admin_GeneralSettings,
             [StringValue("إعدادات إعلانات البريد")]
             Admin_MailAds,
+            [StringValue("تقرير الحسابات والغرف المميزة")]
+            Admin_VIPReport
         }
 
         public enum SiteMembers

@@ -145,7 +145,7 @@
             $("#lblSelect_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
             $("#take_<%= (int)Helper.Enums.Bot.FreeRoom%>").hide();
             $("#select_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();
-            if(specID=='<%= (int)Helper.Enums.MemberTypeSpec.Pink1%>' || specID=='<%= (int)Helper.Enums.MemberTypeSpec.Pink2%>')
+            if(specID=='<%= (int)Helper.Enums.TypeSpec.Pink1%>' || specID=='<%= (int)Helper.Enums.TypeSpec.Pink2%>')
             {
                 $("#take_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").show().html("تم الترقية");
                 $("#lblSelect_<%= (int)Helper.Enums.Bot.UpgradedRoom%>").hide();

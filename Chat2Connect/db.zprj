@@ -27,7 +27,7 @@
     </obj>
     <obj name="DAL" uid="1b2935a3-16f8-45ed-b50b-5cc6d1855428" path="C:\Program Files (x86)\MyGeneration13\Templates\C#\CSharp_SQL_dOOdads_BusinessEntity.vbgen">
       <items>
-        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Persist Security Info=False;Data Source=mena-pc;Initial Catalog=Health_Final_2;User ID=sa;Password=sqladmin" />
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Data Source=mena-lap;password=sqladmin;" />
         <item name="__dbDriver" type="System.String" val="SQL" />
         <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Settings\Languages.xml" />
         <item name="__dbTarget" type="System.String" val="SqlClient" />
@@ -44,7 +44,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|ProfileLike;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|MemberType;" />
         <item name="prefix" type="System.Boolean" val="False" />
         <item name="trimName" type="System.Boolean" val="False" />
         <item name="txtNamespace" type="System.String" val="DAL" />
@@ -53,7 +53,7 @@
     </obj>
     <obj name="sps" uid="10998336-5037-496c-a163-050060de065a" path="C:\Program Files (x86)\MyGeneration13\Templates\Microsoft_SQL_Server\SQL_StoredProcs.vbgen">
       <items>
-        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Persist Security Info=False;Data Source=mena-pc;Initial Catalog=Health_Final_2;User ID=sa;Password=sqladmin" />
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Data Source=mena-lap;password=sqladmin;" />
         <item name="__dbDriver" type="System.String" val="SQL" />
         <item name="__dbLanguageMappingFileName" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Settings\Languages.xml" />
         <item name="__dbTarget" type="System.String" val="SqlClient" />
@@ -73,7 +73,7 @@
         <item name="dbDriver" type="System.String" val="SQL" />
         <item name="defaultOutputPath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\GeneratedCode\" />
         <item name="defaultTemplatePath" type="System.String" val="C:\Program Files (x86)\MyGeneration13\Templates\" />
-        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|ProfileLike;" />
+        <item name="lstTables" type="System.Collections.ArrayList" val="System.String|H|MemberType;" />
         <item name="txtPath" type="System.String" val="D:\SmartValley\chat2connect\generated\sps" />
       </items>
     </obj>

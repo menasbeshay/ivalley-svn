@@ -19,5 +19,27 @@ namespace DAL
 
             return LoadFromSqlReader("proc_StatsReport", parameters);
         }
+
+        public virtual IDataReader GetVIPMembersReport(DateTime startDate, DateTime endDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@StartDate", SqlDbType.DateTime, 0), startDate);
+            parameters.Add(new SqlParameter("@EndDate", SqlDbType.DateTime, 0), endDate);
+
+            return LoadFromSqlReader("GetVIPMembersReport", parameters);
+        }
+
+
+        public virtual IDataReader GetVIPRoomsReport(DateTime startDate, DateTime endDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@StartDate", SqlDbType.DateTime, 0), startDate);
+            parameters.Add(new SqlParameter("@EndDate", SqlDbType.DateTime, 0), endDate);
+
+            return LoadFromSqlReader("GetVIPRoomsReport", parameters);
+        }
+
     }
 }
