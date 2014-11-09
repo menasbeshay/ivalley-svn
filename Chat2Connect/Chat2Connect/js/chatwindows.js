@@ -1737,7 +1737,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
             return;
         var existingMember = window.getMember(newMember.MemberID());
         if (existingMember == null) {
-            window.Members().push(newMember);
+            window.Members.push(newMember);
             existingMember = newMember;
         }
         else {

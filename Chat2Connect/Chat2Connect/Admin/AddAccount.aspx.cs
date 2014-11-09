@@ -32,9 +32,16 @@ namespace Chat2Connect.Admin
                 ClearFields();
                 uiPanelDone.Visible = false;
                 uiPanelRegister.Visible = true;
+
+                clearUpgradeFields();
+                uiPanelUpgradeSuccess.Visible = false;
+                uiPanelUpgrade.Visible = true;
+
+
                 for (int i = 1; i <= 12; i++)
                 {
                     lstTypeDuration.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                    uiDropDownListTypeDuration.Items.Add(new ListItem(i.ToString(), i.ToString()));
                 }
 
                 var lstMemberTypes = Helper.EnumUtil.GetValues<Helper.Enums.TypeSpec>().Where(r=> (int)r>1).Select(r => new
@@ -46,6 +53,11 @@ namespace Chat2Connect.Admin
                 lstTypes.DataTextField = "Name";
                 lstTypes.DataSource = lstMemberTypes;
                 lstTypes.DataBind();
+
+                uiRadioButtonListTypes.DataValueField = "ID";
+                uiRadioButtonListTypes.DataTextField = "Name";
+                uiRadioButtonListTypes.DataSource = lstMemberTypes;
+                uiRadioButtonListTypes.DataBind();
             }
         }
 
@@ -148,12 +160,80 @@ namespace Chat2Connect.Admin
             
         }
 
+
+        protected void uiLinkButtonSaveMember_Click(object sender, EventArgs e)
+        {
+            int type = Convert.ToInt32(uiDropDownListTypeDuration.SelectedValue);
+            BLL.MemberTypeSpecDuration bllSpec = new MemberTypeSpecDuration();
+            if (!bllSpec.LoadByMemberTypeSpecID(type))
+                return;
+            int val = 0;//Convert.ToInt32(bllSpec.Points);
+            if (BLL.Member.CurrentMember.Credit_Point < val)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "balanceError", @"$(document).ready(function () { notify('error', 'حدث خطأ . رصيدك الحالى لا يسمح لإتمام العملية.'); });", true);
+                return;
+            }
+
+            Member member = new Member();
+            if (!member.LoadByPrimaryKey(Convert.ToInt32(hdnMember.Value)))
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "NoacountError", @"$(document).ready(function () { notify('error', 'حدث خطأ . لا يوجد حساب بهذا الإسم.'); });", true);
+                return;
+            }
+
+            BLL.MembershipBLL membership = new BLL.MembershipBLL();
+            string msg;
+            string oldname = member.Name;
+            if (membership.ChangeUsername(oldname, uiTextBoxNewName.Text, Membership.ApplicationName, out msg))
+            {
+                member.Name = uiTextBoxNewName.Text;
+                member.Save();                
+            }
+            else
+            {
+                uiTextBoxNewName.Text = oldname;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "changeName", @"$(document).ready(function () { notify('error', 'حدث خطأ ."+ msg +".'); });", true);
+                return;
+            }
+
+            member.MemberType.MemberTypeSpecDurationID = bllSpec.ID;
+            member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
+            member.MemberType.StartDate = DateTime.Now;
+            member.MemberType.EndDate = DateTime.Now.AddMonths(Convert.ToInt32(lstTypeDuration.SelectedValue));
+            member.MemberType.OldName = oldname;
+            member.MemberType.Save();
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم ترقية الإسم بنجاح.'); });", true);
+
+            uiPanelUpgradeSuccess.Visible = true;
+            uiPanelUpgrade.Visible = false;
+            clearUpgradeFields();
+
+            BLL.MemberLog log = new BLL.MemberLog();
+            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
+
+            if (bllSpec.MemberTypeSpecID == (int)Helper.Enums.TypeSpec.Help)
+            {
+                NotifyNewHelpMember(member);
+            }
+
+
+        }
+
         protected void uiLinkButtonCreateNew_Click(object sender, EventArgs e)
         {
             ClearFields();
             uiPanelDone.Visible = false;
             uiPanelRegister.Visible = true;
             
+        }
+
+        protected void uiLinkButtonUpgradeNew_Click(object sender, EventArgs e)
+        {
+            clearUpgradeFields();
+            uiPanelUpgradeSuccess.Visible = false;
+            uiPanelUpgrade.Visible = true;
+
         }
 
         private void ClearFields()
@@ -166,6 +246,15 @@ namespace Chat2Connect.Admin
             Answer.Text = "";
             ErrorMessage.Visible = false;
         }
+
+
+        private void clearUpgradeFields()
+        {
+            uiLabelError.Visible = false;
+            uiTextBoxNewName.Text = "";
+            uiTextBoxUsername.Text = "";
+        }
+
 
         private static void NotifyNewHelpMember(BLL.Member member)
         {
