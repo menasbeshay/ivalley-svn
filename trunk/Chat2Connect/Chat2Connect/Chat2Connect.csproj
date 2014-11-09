@@ -119,6 +119,7 @@
     <Content Include="Admin\UserControls\Room\RoomInfo.ascx" />
     <Content Include="Admin\UserControls\Room\RoomStatus.ascx" />
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
+    <Content Include="Admin\VIPReport.aspx" />
     <Content Include="Admin\VIPRoom.aspx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1000,6 +1001,13 @@
     </Compile>
     <Compile Include="Admin\UserControls\Room\RoomType.ascx.designer.cs">
       <DependentUpon>RoomType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\VIPReport.aspx.cs">
+      <DependentUpon>VIPReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\VIPReport.aspx.designer.cs">
+      <DependentUpon>VIPReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\VIPRoom.aspx.cs">
       <DependentUpon>VIPRoom.aspx</DependentUpon>
