@@ -1,0 +1,754 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Full.master.cs" Inherits="MTSA.Full" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>MTSA</title>   
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../css/jquery.fullPage.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/screen.css" rel="stylesheet" />
+    <link href="../css/component.css" rel="stylesheet" />
+    <link href="../css/apps/elastic_grid.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+    <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery.cycle2.min.js"></script>
+    <script src="../Scripts/jquery.cycle2.carousel.min.js"></script>
+    <script src="../Scripts/jquery.easings.min.js"></script>
+    <script src="../Scripts/jquery.slimscroll.min.js"></script>
+    <script src="../Scripts/jquery.fullPage.min.js"></script>
+    <script src="../Scripts/modernizr.custom.js"></script>
+    <script src="../Scripts/imagesloaded.pkgd.min.js"></script>
+	<script src="../Scripts/masonry.pkgd.min.js"></script>
+	<script src="../Scripts/classie.js"></script>
+	<script src="../Scripts/cbpGridGallery.js"></script>
+	<script src="../Scripts/apps/classie.js"></script>
+    <script src="../Scripts/apps/jquery.elastislide.js"></script>
+    <script src="../Scripts/apps/jquery.hoverdir.js"></script>
+    <script src="../Scripts/apps/elastic_grid.js"></script>	
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#superContainer').fullpage({
+                navigation: false,                
+                scrollOverflow: true,
+                slidesNavigation: false,
+                afterLoad: function (anchorLink, index) {
+                    if ($('#nextsection_' + index).length) {
+                        $('#nextTopic span').html($('#nextsection_' + index).html());
+                        $('#nextTopic').css('display', 'block');
+                    }
+                    else
+                        $('#nextTopic').css('display', 'none');
+                },
+                afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
+                    if (slideIndex > 0) {
+                        $.fn.fullpage.setAllowScrolling(false);
+                        $.fn.fullpage.setKeyboardScrolling(false);
+                        $('#nextTopic').css('display', 'none');
+                    }
+                    else {
+                        $.fn.fullpage.setAllowScrolling(true);
+                        $.fn.fullpage.setKeyboardScrolling(true);
+                        $('#nextTopic').css('display', 'block');
+                    }
+
+                    $('.section .animleft').removeClass('active');
+                    $('.section .animright').removeClass('active');
+                    $('.section .active .animleft').addClass('active');
+                    $('.section .active .animright').addClass('active');
+                }
+            });
+
+            $('.BackToHome').click(function (e) {
+                e.preventDefault();
+                $.fn.fullpage.setAllowScrolling(true);
+                $.fn.fullpage.setKeyboardScrolling(true);
+                $.fn.fullpage.moveTo(1, 0);
+            });
+
+            $('.MoveRight').click(function (e) {
+                e.preventDefault();
+                $.fn.fullpage.setAllowScrolling(false);
+                $.fn.fullpage.setKeyboardScrolling(false);
+                $.fn.fullpage.moveSlideRight();
+            });
+
+            $('#nextTopic').click(function (e) {
+                e.preventDefault();
+                $.fn.fullpage.moveSectionDown();
+            });
+
+
+            $('.appicon').each(function () {
+                var $this = $(this);
+                var popoverContent = $this.find('.appcontent');
+                $this.popover({
+                    trigger: 'hover',
+                    html: true,
+                    content: popoverContent
+                });
+            });
+
+            new CBPGridGallery(document.getElementById('grid-gallery'));
+
+            $('#nextTopic span').html($('#nextsection_1').html());
+
+
+            
+
+            $("#appholder").elastic_grid({
+                'items':
+                [
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Ads',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Outdoor advertising signage</li><li> Kiosk systems advertising module</li></ul>',
+                        'thumbnail': ['../images/Icons/png/1.png'],
+                        'large': ['../images/Icons/png/large/1.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'view details',
+                        'MainTitle': 'Airports',
+                        'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
+                        'thumbnail': ['../images/Icons/png/2.png'],
+                        'large': ['../images/Icons/png/large/2.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Train Stations',
+                        'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
+                        'thumbnail': ['../images/Icons/png/3.png'],
+                        'large': ['../images/Icons/png/large/3.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Banks',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Attendance fingerprint </li><li>Branches queuing management</li><li>Customers self-service</li><li>Management systems</li></ul>',
+                        'thumbnail': ['../images/Icons/png/4.png'],
+                        'large': ['../images/Icons/png/large/4.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Hotels',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Self-Service Check-In & Out </li><li>Wayfinding</li><li>Kitchen & room service operation systems management</li></ul>',
+                        'thumbnail': ['../images/Icons/png/5.png'],
+                        'large': ['../images/Icons/png/large/5.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Hospitals',
+                        'description': '<ul class="applist"><li>Wayfinding</li><li>Indoor advertising signage</li> <li>Patients service systems</li><li>Hospital management systems<li><li>Employees Self-Service</li></ul>',
+                        'thumbnail': ['../images/Icons/png/6.png'],
+                        'large': ['../images/Icons/png/large/6.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Resturants',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Menu display</li><li> Employees self-service</li><li>Self-Service Sales</li></ul>',
+                        'thumbnail': ['../images/Icons/png/7.png'],
+                        'large': ['../images/Icons/png/large/7.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Business',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Attendance fingerprint </li><li>Queuing  management</li><li>Customers self-service</li><li>POS</li><li>Consulting & Planning</li><li>Tradeshows</li></ul>',
+                        'thumbnail': ['../images/Icons/png/8.png'],
+                        'large': ['../images/Icons/png/large/8.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Real Estate',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Real Estate marketing</li><li>Wayfinding</li><li>Real Estate management systems</li><li>POS</li><li>Information systems</li></ul>',
+                        'thumbnail': ['../images/Icons/png/9.png'],
+                        'large': ['../images/Icons/png/large/9.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Shopping',
+                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>POS</li><li> Virtual fitting room</li><li>Products catalogue & information</li><li>Products Wayfinding</li><li>Employees Self-Service</li></ul>',
+                        'thumbnail': ['../images/Icons/png/10.png'],
+                        'large': ['../images/Icons/png/large/10.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Manufacturing',
+                        'description': '<ul class="applist"><li>Production management</li> <li>Showroom products display</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
+                        'thumbnail': ['../images/Icons/png/11.png'],
+                        'large': ['../images/Icons/png/large/11.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Studying',
+                        'description': '<ul class="applist"><li>Wayfinding for universities</li> <li>Students information</li><li>Student Self-Service<li><li>Educational materials display</li><li>Indoor advertising signage</li><li>Fingerprint staff attendance control</li><li>Consulting & Planning</li><li>Employees Self-Service</li><li>Queuing management</li><li>Tradeshows & Exhibitions</li></ul>',
+                        'thumbnail': ['../images/Icons/png/12.png'],
+                        'large': ['../images/Icons/png/large/12.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Sports',
+                        'description': '<ul class="applist"><li>Stadiums tickets dispensing</li> <li>Stadiums tickets barcode scanning</li><li> Indoor & Outdoor advertising signage</li><li>POS</li><li>Information systems</li><li>Employees Self-Service</li></ul>',
+                        'thumbnail': ['../images/Icons/png/13.png'],
+                        'large': ['../images/Icons/png/large/13.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Info',
+                        'description': '<ul class="applist"><li>Wayfinding </li> <li>Public information systems</li><li> Public advertising</li><li>Indoor advertising</li></ul>',
+                        'thumbnail': ['../images/Icons/png/14.png'],
+                        'large': ['../images/Icons/png/large/14.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Government',
+                        'description': '<ul class="applist"><li>Public information</li> <li>Public Self-Service</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
+                        'thumbnail': ['../images/Icons/png/15.png'],
+                        'large': ['../images/Icons/png/large/15.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    },
+                    {
+                        'title': 'View details',
+                        'MainTitle': 'Haj',
+                        'description': '<ul class="applist"><li>Wayfinding for pilgrims & Visitors</li> <li>Information systems</li><li> Trains & Buses schedules</li><li>Tickets dispensing </li><li>Outdoor Advertising</li><li>Lost & Found Info</li><li>Employees Self-Service</li><li>POS</li><li>Internet communications</li><li>Security communications</li></ul>',
+                        'thumbnail': ['../images/Icons/png/16.png'],
+                        'large': ['../images/Icons/png/large/16.png'],
+                        'button_list': [],
+                        'tags': []
+
+                    }
+
+
+
+                ]
+
+            });
+
+            /*
+            $('img.appsvg').each(function () {
+                var $img = jQuery(this);
+                var imgID = $img.attr('id');
+                var imgClass = $img.attr('class');
+                var imgURL = $img.attr('src');
+
+                jQuery.get(imgURL, function (data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = jQuery(data).find('svg');
+
+                    // Add replaced image's ID to the new SVG
+                    if (typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // Add replaced image's classes to the new SVG
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
+
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
+
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
+
+                }, 'xml');
+
+            });*/
+        });
+	</script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header id="header" class="">
+    <div class="innerWrapper">
+      <div id="logo"></div>
+      <div id="lang" style="width:50px;position:absolute;top:30px;color:#fff;right:10px;font-size:20px;" class="jf">العربية</div>
+      <nav>
+        <ul id="header-ul">
+          <li>
+              <div>
+                  <a href="#">Products</a>
+                  <section class="tip"><br>
+                      - Multi touchscreens<br />
+                      - Digital signage <br />
+                      - Kiosk systems <br />
+                      - Electronic door signs
+                  </section>
+              </div>
+          </li>
+          <li>
+              <div>
+                <a href="#">Apps Development</a>
+                <section class="tip"><br>
+                    - 3D Wayfinding<br />
+                      - Real Estate <br />                      
+                     - Other Apps
+                </section>
+              </div>
+          </li>
+          <li>
+              <div>
+                <a href="#">Where to use</a>
+                <section class="tip"><br></section>
+              </div>
+          </li>
+          <li>
+              <div>
+                <a href="#">Projects</a>
+                <section class="tip"><br></section>
+              </div>
+          </li>
+          <li>
+              <div>
+                <a href="#">Technical support</a>
+                <section class="tip"><br></section>
+              </div>
+          </li>
+          <li>
+              <div>
+                <a href="#">Contact us</a>
+                <section class="tip"><br></section>
+              </div>
+          </li>
+             <li>
+              <div>
+                <a href="#"></a>
+                <section>
+                    <img src="../images/vstudiologo.png" />
+                </section>
+              </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <div id="superContainer">
+        <div class="section splashslider" id="splash">
+            <span id="nextsection_1" class="NextSection">Products</span>
+		    <div class="slide" id="Home">
+                <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+                <div class="cycle-slideshow"  data-cycle-auto-height="true" data-cycle-caption="#alt-caption" data-cycle-caption-template="{{alt}}">
+                         <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="3000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>Touchscreens, Interactive Kiosk Systems <br />& Digital Signage </span>"/>
+                         <img src="../images/slides/Slide-2.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="2000" alt="<span class='blueblack'>Bridge your business gaps <br />With smart Apps</span>"/>
+                         <img src="../images/slides/Slide-4.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-5.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-6.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/slide-7.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/slide-8.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-9.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-10.jpg" data-cycle-timeout="2000" alt=""/>
+                         <img src="../images/slides/Slide-11.jpg" data-cycle-timeout="2000" alt=""/>
+                     
+                     </div>
+                <div id="alt-caption" class="cycle-caption"></div>
+                <div style="clear:both;height:1px;display:block;"></div>
+            </div>
+            <div class="slide" id="WTU">
+               <div class="anyPage innerslide">
+                   <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+                   <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
+                   
+                   <h3 class="slidetitle">Applications</h3>
+                   <ul class="AppsIcons" style="display:none;">
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-01.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Stadiums tickets dispensing</li>
+                                   <li>- Stadiums tickets barcode scanning</li>
+                                   <li>- Indoor & Outdoor advertising signage</li>
+                                   <li>- POS</li>
+                                   <li>- Information systems</li>
+                                   <li>- Employees Self-Service</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                        <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/banner-ads.svg" class="svg checksvg"/>
+                           <div class="appcontent">
+                               <ul>
+                                   
+                                   <li>Test popover</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                        
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-02.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li></li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-03.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Wayfinding </li>
+                                   <li>- Public information systems</li>
+                                   <li>- Public advertising</li>
+                                   <li>- Indoor advertising</li>
+                               </ul>
+                           </div>
+                       </a>
+                       </li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-04.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Indoor advertising signage</li>
+                                   <li>- Employees self-service</li>
+                                   <li>- Self-Service Check-In & Out</li>
+                                   <li>- Wayfinding</li>
+                                   <li>- Kitchen & room service</li>
+                                   <li>- operation systems management</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-05.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- indoor advertising signage</li>
+                                   <li>- Menu display</li>
+                                   <li>- Employees Self-Service</li>
+                                   <li>- Self-Service Sales</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-06.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-07.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Wayfinding</li>
+                                   <li>- indoor advertising signage</li>
+                                   <li>- Patients service systems</li>
+                                   <li>- Hospital management systems</li>
+                                   <li>- Employees Self-Service</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-08.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Indoor advertising signage</li>
+                                   <li>- Employees self-service
+
+                                   </li>
+                                   <li>- Attendance fingerprint 
+                                   </li>
+                                   <li>- Queuing  management
+                                   </li>
+                                   <li>- Customers self-service
+                                   </li>
+                                   <li>- POS
+                                   </li>
+                                   <li>- Consulting & Planning
+                                   </li>
+                                   <li>- Tradeshows</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-09.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-10.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-11.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="right">
+                           <img src="../images/Icons/icon-12.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Wayfinding for pilgrims & Visitors</li>
+                                   <li>- Information systems
+                                   </li>
+                                   <li>- Trains & Buses schedules</li>
+                                   <li>- Tickets dispensing </li>
+                                   <li>- Outdoor Advertising</li>
+                                   <li>- Lost & Found Info</li>
+                                   <li>- Employees Self-Service</li>
+                                   <li>- POS</li>
+                                   <li>- Internet communications</li>
+                                   <li>- Security communications</li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-13.png" />
+                           <div class="appcontent">
+                               <ul>
+                                   <li>- Public information</li>
+                                   <li>- Public Self-Service</li>
+                                   <li>- Employees Self-Service</li>
+                                   <li>- Tradeshows
+                                   </li>
+                               </ul>
+                           </div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-14.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+                       <li><a class="appicon" data-toggle="popover" data-placement="left">
+                           <img src="../images/Icons/icon-15.png" />
+                           <div class="appcontent"></div>
+                       </a></li>
+
+                   </ul>
+
+                   <div id="appholder">
+                      
+                   </div>
+                   
+               </div>
+            </div>
+            <div class="slide" id="Projects">
+               <div class="anyPage innerslide">
+                   <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+                   <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
+                   <h3 class="slidetitle">Recent Projects</h3>
+                   <div id="grid-gallery" class="grid-gallery">
+				    <section class="grid-wrap">
+					    <ul class="grid">
+                           <li class="grid-sizer"></li>
+                           <!-- for Masonry column width -->
+                           <li>
+                               <figure>
+                                   <img src="../images/projects/1.jpg" alt="img01" />
+                                   <figcaption>
+                                       <h3>ISIS & MITRA</h3>
+                                       <p >
+                                           King Faisal Specialist Hospital & Research Center<br />
+                                           Riyadh, Saudi Arabia<br />
+                                           Product’s type: ISIS & MITRA<br />
+                                           Application: Info systems & Patients services
+                                       </p>
+                                   </figcaption>
+                               </figure>
+                           </li>
+                           <li>
+                               <figure>
+                                   <img src="../images/projects/2.jpg" alt="img02" />
+                                   <figcaption>
+                                       <h3>Wayfinding</h3>
+                                       <p >
+                                           King Fahad Medical City<br />
+                                           Riyadh, Saudi Arabia<br />
+                                           Product’s type: PHEX Stand<br />
+                                           Application: Wayfinding 
+                                       </p>
+                                   </figcaption>
+                               </figure>
+                           </li>
+                           <li>
+                               <figure>
+                                   <img src="../images/projects/3.jpg" alt="img03" />
+                                   <figcaption>
+                                       <h3>HERA</h3>
+                                       <p>
+                                           Ministry of water & Electricity<br />
+                                           Riyadh Saudi Arabia<br />
+                                           Product’s type: HERA<br />
+                                           Application: Employees elf-Service
+                                       </p>
+                                   </figcaption>
+                               </figure>
+                           </li>
+                       </ul>
+                        </section>
+                       <section class="slideshow">
+					    <ul >                           
+                           
+                           <li>
+                               <figure>
+                                   
+                                   <figcaption>
+                                       <h3>ISIS & MITRA</h3>
+                                       <p >
+                                           King Faisal Specialist Hospital & Research Center<br />
+                                           Riyadh, Saudi Arabia<br />
+                                           Product’s type: ISIS & MITRA<br />
+                                           Application: Info systems & Patients services
+                                       </p>
+                                   </figcaption>
+                                   <img src="../images/projects/1.jpg" alt="img01" />
+                               </figure>
+                           </li>
+                           <li>
+                               <figure>
+                                   
+                                   <figcaption>
+                                       <h3>Wayfinding</h3>
+                                       <p >
+                                           King Fahad Medical City<br />
+                                           Riyadh, Saudi Arabia<br />
+                                           Product’s type: PHEX Stand<br />
+                                           Application: Wayfinding 
+                                       </p>
+                                   </figcaption>
+                                   <img src="../images/projects/2.jpg" alt="img02" />
+                               </figure>
+                           </li>
+                           <li>
+                               <figure>
+                                   
+                                   <figcaption>
+                                       <h3>HERA</h3>
+                                       <p>
+                                           Ministry of water & Electricity<br />
+                                           Riyadh Saudi Arabia<br />
+                                           Product’s type: HERA<br />
+                                           Application: Employees elf-Service
+                                       </p>
+                                   </figcaption>
+                                   <img src="../images/projects/3.jpg" alt="img03" />
+                               </figure>
+                           </li>
+                       </ul>
+                           <nav>
+						<span class="fa nav-prev fa-arrow-circle-left"></span>
+						<span class="fa nav-next fa-arrow-circle-right"></span>
+						<span class="fa nav-close fa-close"></span>
+					</nav>
+					
+                        </section>
+                   </div>
+                   
+               </div>
+            </div>
+            <div class="slide" id="TechSupp">
+               <div class="anyPage innerslide">
+                   <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>   
+                   <div class="animwrapper">
+                   <div class="col-lg-5 col-sm-5 anim animleft">
+                       <i class="fa fa-cog fa-spin" style="font-size:150px;position:absolute;"></i>                       
+                       <img src="../images/VanDirections.gif" style="max-width:80%" />
+                       </div>
+                   <div class="col-lg-7 col-sm-7 anim animright">
+                       <h3 class="slidetitle headerLeft" style="width:100%">Technical support</h3>
+                   <p class="form-group">
+                       MTSA products & software are sold & serviced through authorized distributors/service agents carefully selected to guarantee customers full satisfaction and best after sale services. 
+Our services include:
+                       </p>
+                   <ul class="form-group">
+                           <li><i class="fa fa-check"></i> On-site service</li>
+                           <li><i class="fa fa-check"></i>  Remote maintenance</li>
+                           <li><i class="fa fa-check"></i>  Phone troubleshooting </li>
+                           <li><i class="fa fa-check"></i>  Assistance with kiosk custom designs</li>
+                           <li><i class="fa fa-check"></i>  Software updates & upgrades  </li>
+                           <li><i class="fa fa-check"></i>  Assistance with software modification</li>
+                           <li><i class="fa fa-check"></i>  Operators training </li>
+                           <li><i class="fa fa-check"></i>  Users how to use tutorial videos</li>
+                           <li><i class="fa fa-check"></i>  Problems’ solutions </li>
+                       </ul>
+                   <p class="form-group">                       
+Thanks to our professional network of partners, we offer on-site services throughout all of Saudi Arabia. 
+ </p><p class="form-group">
+Our service level agreements offer you the highest level of plan­ning reliability. By entering into such an agreement, you can budget for the total cost of ownership as soon as you make an investment.
+ </p><p class="form-group">
+MTSA provides innovative interactive & digital information systems supported by smart apps help you bridge your business gaps. 
+ 
+
+                   </p>
+                       </div>
+                   </div>                
+               </div>
+            </div>
+	    </div>
+        <div class="section " id="Products">
+            <span id="nextsection_2" class="NextSection">Applications Development</span>
+            <p style="text-align:center;">This section For Products</p>
+        </div>
+        <div class="section " id="AppDev">
+
+            <p style="text-align:center;">This section for App-Development</p>
+        </div>
+    </div>
+
+    <footer id="footer">
+    <div class="innerWrapper">
+      <figure id="share">
+          <a href="#"  data-lang="en"><i class="fa fa-youtube-square" style="font-size:2em;"></i></a>
+          <a href="#"  data-lang="en"><i class="fa fa-google-plus-square" style="font-size:2em;"></i></a>
+          <a href="#"  data-lang="en"><i class="fa fa-twitter-square" style="font-size:2em;"></i></a>
+      </figure>
+      <%--<div id="keys" class="keys_down_active"></div>--%>
+      <span id="subline"><span class="video"></span><span id="sublineContent"><i class="fa fa-cubes" style="font-size:1.5em"></i> Bridge your business gaps With smart Apps</span></span>
+      <div id="nextTopic"><span></span></div>
+        <%--<div id="nav_land_sub"><span><i class="fa fa-arrow-circle-o-right" style="font-size:2em"></i></span></div>--%>
+    </div>
+  </footer>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
