@@ -24,7 +24,7 @@
     <script src="../Scripts/jquery.cycle2.carousel.min.js"></script>
     <script src="../Scripts/jquery.easings.min.js"></script>
     <script src="../Scripts/jquery.slimscroll.min.js"></script>
-    <script src="../Scripts/jquery.fullPage.min.js"></script>
+    <script src="../Scripts/jquery.fullPage.js"></script>
     <script src="../Scripts/modernizr.custom.js"></script>
     <script src="../Scripts/imagesloaded.pkgd.min.js"></script>
 	<script src="../Scripts/masonry.pkgd.min.js"></script>
@@ -40,6 +40,7 @@
                 navigation: false,                
                 scrollOverflow: true,
                 slidesNavigation: false,
+                normalScrollElements: '#WTU',
                 afterLoad: function (anchorLink, index) {
                     if ($('#nextsection_' + index).length) {
                         $('#nextTopic span').html($('#nextsection_' + index).html());
@@ -53,6 +54,11 @@
                         $.fn.fullpage.setAllowScrolling(false);
                         $.fn.fullpage.setKeyboardScrolling(false);
                         $('#nextTopic').css('display', 'none');
+                        // where to use
+                       /* if (index == 1 && slideIndex == 1)
+                        {
+                            $.fn.fullpage.setSlimScrollSlide('#WTU');
+                        }*/
                     }
                     else {
                         $.fn.fullpage.setAllowScrolling(true);
@@ -71,7 +77,7 @@
                 e.preventDefault();
                 $.fn.fullpage.setAllowScrolling(true);
                 $.fn.fullpage.setKeyboardScrolling(true);
-                $.fn.fullpage.moveTo(1, 0);
+                $.fn.fullpage.moveSlideLeft();
             });
 
             $('.MoveRight').click(function (e) {
@@ -401,7 +407,7 @@
                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    
-                   <h3 class="slidetitle">Applications</h3>
+                   <h3 class="slidetitle">Where to use ?</h3>
                    <ul class="AppsIcons" style="display:none;">
                        <li><a class="appicon" data-toggle="popover" data-placement="right">
                            <img src="../images/Icons/icon-01.png" />
@@ -564,6 +570,8 @@
                    <div id="appholder">
                       
                    </div>
+
+                   <div style="height:180px;width:100%;">&nbsp;</div>
                    
                </div>
             </div>
