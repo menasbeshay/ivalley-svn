@@ -205,7 +205,7 @@ namespace Chat2Connect.Admin
             clearUpgradeFields();
 
             BLL.MemberLog log = new BLL.MemberLog();
-            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
+            log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name,OldName=oldname, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
 
         }
 
