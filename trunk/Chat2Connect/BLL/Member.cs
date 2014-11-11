@@ -417,11 +417,13 @@ namespace BLL
         {
             return LoadFromRawSql(@"select d.MemberTypeSpecID,M.* 
                                     from Member M
-                                        INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
-                                        INNER JOIN MemberType MT ON MT.MemberID=M.MemberID
-                                        INNER JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
-                                    WHERE M.RowStatusID=1 AND d.MemberTypeSpecID=5
-                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, (int)Helper.Enums.TypeSpec.Help);
+                                        INNER JOIN aspnet_Users u ON u.UserId=M.UserID
+                                        INNER JOIN aspnet_UsersInRoles ur on ur.UserId=u.UserId
+                                        INNER JOIN aspnet_Roles r on r.RoleId=ur.RoleId AND r.RoleName='{1}'
+                                        LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+                                        LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID  
+                                    WHERE M.RowStatusID={0}
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, Helper.Enums.AdminRoles.Admin_SiteHelper.ToString());
         }
     }
 }

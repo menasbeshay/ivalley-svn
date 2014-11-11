@@ -2070,15 +2070,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
             return f.MemberID() == mid;
         });
         if (member != undefined)
-        {
-            if (typeSpecID != member.typeSpecID())
-            {
-                var newLst = ko.utils.arrayFilter(chatVM.helpMembers(), function (f) {
-                    return f.MemberID() != mid;
-                });
-                chatVM.helpMembers(newLst);
-            }
-        }
+            member.TypeSpecID(typeSpecID);
         ko.utils.arrayForEach(chatVM.allRooms, function (window) {
             window.updateMemberType(mid, typeSpecID);
         });
@@ -2088,6 +2080,12 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,
         var lst = chatVM.helpMembers();
         lst.push(newHelp);
         chatVM.helpMembers(lst);
+    }
+    rHub.client.removeHelpMember = function (mid) {
+        var newLst = ko.utils.arrayFilter(chatVM.helpMembers(), function (f) {
+            return f.MemberID() != mid;
+        });
+        chatVM.helpMembers(newLst);
     }
 }
 

@@ -59,7 +59,7 @@ namespace Helper
             [StringValue("ذهبى")]
             VIP = 4,
             [StringValue("أحمر")]
-            Help = 5
+            Red = 5
         }
 
         public enum MemberRoles
@@ -115,7 +115,9 @@ namespace Helper
             [StringValue("إعدادات إعلانات البريد")]
             Admin_MailAds,
             [StringValue("تقرير الحسابات والغرف المميزة")]
-            Admin_VIPReport
+            Admin_VIPReport,
+            [StringValue("عضو مساعدة")]
+            Admin_SiteHelper
         }
 
         public enum SiteMembers
