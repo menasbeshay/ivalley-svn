@@ -315,8 +315,7 @@
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
             var profilePic=$("#<%=uiHiddenFieldProfilePic.ClientID %>").val();
             var openedRooms=eval(<%=OpenedRooms %>);
-            var helpMembers=eval(<%=HelpMembers %>);
-            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,helpMembers,profilePic);            
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,profilePic);            
             
         });
     </script>

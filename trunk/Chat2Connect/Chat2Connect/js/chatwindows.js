@@ -56,7 +56,7 @@ ko.bindingHandlers.date = {
         }
     }
 };
-function Chat(maxWin, memberID, memberName, helpMembers,profilePic) {
+function Chat(maxWin, memberID, memberName,profilePic) {
     var self = this;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
@@ -1684,10 +1684,10 @@ function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
 }
-function InitChat(maxWinRooms, memberID, memberName, openedWindows, helpMembers,profilePic) {
+function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
     rHub = $.connection.chatRoomHub;
     $.connection.hub.start();
-    chatVM = new Chat(maxWinRooms, memberID, memberName, helpMembers,profilePic);
+    chatVM = new Chat(maxWinRooms, memberID, memberName,profilePic);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
         ko.utils.arrayMap(openedWindows, function (item) {
