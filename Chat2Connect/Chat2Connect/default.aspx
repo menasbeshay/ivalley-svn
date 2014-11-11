@@ -72,7 +72,6 @@
                         </div>
                     </LayoutTemplate>
                 </asp:Login>
-                
                                 
             </div>
         </div>

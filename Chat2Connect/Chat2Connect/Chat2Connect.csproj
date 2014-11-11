@@ -101,6 +101,7 @@
     <Content Include="Admin\AccountsReport.aspx" />
     <Content Include="Admin\AccountType.aspx" />
     <Content Include="Admin\AddAccount.aspx" />
+    <Content Include="Admin\Cleandb.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\MailAds.aspx" />
     <Content Include="Admin\ManageAccount.aspx" />
@@ -691,10 +692,10 @@
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
-    <None Include="Scripts\moment-with-langs.js" />
-    <None Include="Scripts\moment-with-langs.min.js" />
-    <None Include="Scripts\moment.js" />
-    <None Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <None Include="testswf\c2c\c2c.html" />
     <None Include="testswf\c2c\js\swfobject.js" />
     <Content Include="services\chat2connect.asmx" />
@@ -875,6 +876,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AddAccount.aspx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Cleandb.aspx.cs">
+      <DependentUpon>Cleandb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Cleandb.aspx.designer.cs">
+      <DependentUpon>Cleandb.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

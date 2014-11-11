@@ -28,7 +28,7 @@ namespace BLL
                                     LEFT JOIN RoomTypeSpec ON RoomTypeSpec.ID=RoomTypeSpecDuration.RoomTypeSpecID
                                     Left JOIN Category C ON R.CategoryID = C.CategoryID
                                     Left JOIN SubCategory SC ON R.SubCategoryID = SC.SubCategoryID
-                                    where R.CreatedBy = {0} --AND ISNULL(R.RowStatusID,{1})={1} 
+                                    where R.CreatedBy = {0} AND ISNULL(R.RowStatusID,{1})={1} 
                                     order by ISNULL(RoomTypeSpec.OrderInRoomList,10000) ASC , R.Name Asc", CreatedBy, (int)Helper.Enums.RowStatus.Enabled,(int)Helper.Enums.TypeSpec.Free);
 
         }
