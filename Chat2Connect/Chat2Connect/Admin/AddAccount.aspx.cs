@@ -106,7 +106,7 @@ namespace Chat2Connect.Admin
                 member.Name = objUser.UserName;
                 member.IsOnLine = false;
                 member.Status = 1;
-                member.Save();                
+                member.Save();
                 try
                 {
                     MailMessage msg = new MailMessage();
@@ -131,7 +131,7 @@ namespace Chat2Connect.Admin
                     client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("mailpass").ToString());
                     client.Send(msg);
 
-                    
+
                     member.MemberType.MemberTypeSpecDurationID = bllSpec.ID;
                     member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
                     member.MemberType.StartDate = DateTime.Now;
@@ -142,11 +142,6 @@ namespace Chat2Connect.Admin
 
                     BLL.MemberLog log = new BLL.MemberLog();
                     log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
-
-                    if (bllSpec.MemberTypeSpecID == (int)Helper.Enums.TypeSpec.Help)
-                    {
-                        NotifyNewHelpMember(member);
-                    }
                 }
                 catch (Exception)
                 {
@@ -187,12 +182,12 @@ namespace Chat2Connect.Admin
             if (membership.ChangeUsername(oldname, uiTextBoxNewName.Text, Membership.ApplicationName, out msg))
             {
                 member.Name = uiTextBoxNewName.Text;
-                member.Save();                
+                member.Save();
             }
             else
             {
                 uiTextBoxNewName.Text = oldname;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "changeName", @"$(document).ready(function () { notify('error', 'حدث خطأ ."+ msg +".'); });", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "changeName", @"$(document).ready(function () { notify('error', 'حدث خطأ ." + msg + ".'); });", true);
                 return;
             }
 
@@ -211,12 +206,6 @@ namespace Chat2Connect.Admin
 
             BLL.MemberLog log = new BLL.MemberLog();
             log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
-
-            if (bllSpec.MemberTypeSpecID == (int)Helper.Enums.TypeSpec.Help)
-            {
-                NotifyNewHelpMember(member);
-            }
-
 
         }
 
@@ -246,8 +235,7 @@ namespace Chat2Connect.Admin
             Answer.Text = "";
             ErrorMessage.Visible = false;
         }
-
-
+        
         private void clearUpgradeFields()
         {
             uiLabelError.Visible = false;
@@ -255,22 +243,5 @@ namespace Chat2Connect.Admin
             uiTextBoxUsername.Text = "";
         }
 
-
-        private static void NotifyNewHelpMember(BLL.Member member)
-        {
-            var helpMember = new
-            {
-                MemberID = member.MemberID,
-                Name = member.Name,
-                TypeSpecID = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID,
-                ProfilePic = (member.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : member.ProfilePic),
-                IsOnline = member.IsOnLine,
-                StatusMsg = member.s_StatusMsg,
-                Status = member.s_Status
-            };
-
-            Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
-            _Rcontext.Clients.All.addNewHelpMember(helpMember);
-        }
     }
 }
