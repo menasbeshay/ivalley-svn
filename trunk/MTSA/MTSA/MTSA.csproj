@@ -361,6 +361,7 @@
     <Content Include="Scripts\jquery.cycle2.min.js" />
     <Content Include="css\jquery.fullPage.css" />
     <Content Include="Scripts\jquery.easings.min.js" />
+    <Content Include="Scripts\jquery.fullPage.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\libs2.js" />
