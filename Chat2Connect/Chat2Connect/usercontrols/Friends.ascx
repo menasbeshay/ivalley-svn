@@ -15,6 +15,7 @@
                     <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
                 </div>
                 <!-- /ko -->
+                <div class="clearfix" style="border-bottom: 1px solid #FEC200"></div>
                 <!-- ko foreach: offlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
                     <img data-bind="attr: { 'src': (ProfilePic() != '') ? ProfilePic() : 'images/defaultavatar.png' }" class='friendpic offline' style="display: block" />
