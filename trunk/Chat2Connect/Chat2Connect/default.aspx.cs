@@ -49,7 +49,7 @@ namespace Chat2Connect
             if (member.RowStatusID != (int)Helper.Enums.RowStatus.Enabled)
             {
                 signout = true;  
-                ClientScript.RegisterStartupScript(this.GetType(), "notEnabled", "$(document).ready(function (){ $('#NotEnabled').modal('show'); });", true);                
+                                
             }
             else
             {
@@ -100,6 +100,7 @@ namespace Chat2Connect
             if (signout)
             {
                 FormsAuthentication.SignOut();
+                ClientScript.RegisterStartupScript(this.GetType(), "notEnabled", "$(document).ready(function (){ $('#NotEnabled').modal('show'); });", true);
             }
         }
 
