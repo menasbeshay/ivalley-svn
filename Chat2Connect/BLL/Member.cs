@@ -419,7 +419,7 @@ namespace BLL
                                     from Member M
                                         INNER JOIN aspnet_Users u ON u.UserId=M.UserID
                                         INNER JOIN aspnet_UsersInRoles ur on ur.UserId=u.UserId
-                                        INNER JOIN aspnet_Roles r on r.RoleId=ur.RoleId AND r.RoleName='{1}'
+                                        INNER JOIN aspnet_Roles r on r.RoleId=ur.RoleId AND r.RoleName={1}
                                         LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
                                         LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID  
                                     WHERE M.RowStatusID={0}
