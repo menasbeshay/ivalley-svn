@@ -91,7 +91,7 @@ namespace Chat2Connect.Admin
                 
                 // log 
                 BLL.MemberLog log = new BLL.MemberLog();
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName = room.Name, NewTypeName = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name, NewTypeExpiryDate = room.RoomType.EndDate, Points = 0 }, null, room.RoomID);
+                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeRoomType() { RoomName = room.Name,OldName=txtRoomName.Text, NewTypeName = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Name, NewTypeExpiryDate = room.RoomType.EndDate, Points = 0 }, null, room.RoomID);
                 Chat2Connect.usercontrols.RoomTypes.NotifyRoom(room, bllTypeSpecDuration);
             }
         }

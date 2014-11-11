@@ -22,5 +22,8 @@ namespace BLL.Log
 
         [Helper.BoundProperty(HeaderText = "النقاط", DisplayOrder = 4)]
         public int Points { get; set; }
+
+        [Helper.BoundProperty(HeaderText = "الإسم القديم", DisplayOrder = 5)]
+        public string OldName { get; set; }
     }
 }
