@@ -30,3 +30,9 @@ function notify(type, msg) {
         stack: myStack
     });
 }
+
+
+/* validate profile wall */
+function validateLength(oSrc, args) {
+    args.IsValid = (args.Value.length <= 300);
+}

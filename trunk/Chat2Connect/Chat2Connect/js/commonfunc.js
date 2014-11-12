@@ -25,3 +25,8 @@ function isValid(source, arguments) {
 function CheckBoxRequired_ClientValidate(sender, e) {
     e.IsValid = jQuery(".AcceptedAgreement input:checkbox").is(':checked');
 }
+
+/* validate profile wall */
+function validateLength(oSrc, args) {
+    args.IsValid = (args.Value.length <= 300);
+}

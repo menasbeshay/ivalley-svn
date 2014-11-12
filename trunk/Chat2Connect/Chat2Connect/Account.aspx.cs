@@ -179,6 +179,7 @@ namespace Chat2Connect
 
             member.Save();
             LoadProfile();
+            ClientScript.RegisterStartupScript(this.GetType(), "doneSave", "$(document).ready(function (){ notify('success','تم التحديث بنجاح.');}); ", true);
         }
 
         protected void uiLinkButtonSaveInterests_Click(object sender, EventArgs e)
@@ -189,6 +190,7 @@ namespace Chat2Connect
             member.Interests = uiTextBoxInterests.Text;
             member.Save();
             LoadProfile();
+            ClientScript.RegisterStartupScript(this.GetType(), "doneSaveInter", "$(document).ready(function (){ notify('success','تم التحديث بنجاح.');}); ", true);
         }
 
         protected void uiLinkButtonSaveMemberSettings_Click(object sender, EventArgs e)
@@ -245,6 +247,7 @@ namespace Chat2Connect
 
             setting.Save();
             LoadProfile();
+            ClientScript.RegisterStartupScript(this.GetType(), "doneSavesett", "$(document).ready(function (){ notify('success','تم حقظ الإعدادات بنجاح.');}); ", true);
         }
 
         protected void uiLinkButtonAddPhoto_Click(object sender, EventArgs e)
@@ -268,6 +271,7 @@ namespace Chat2Connect
                 pic.Save();
             }
             LoadPics();
+            ClientScript.RegisterStartupScript(this.GetType(), "donePic", "$(document).ready(function (){ notify('success','تم إضافة الصورة بنجاح.');}); ", true);
         }
 
         protected void uiLinkButtonAddProfilePhoto_Click(object sender, EventArgs e)
@@ -293,6 +297,8 @@ namespace Chat2Connect
             }
             LoadPics();
             LoadProfile();
+
+            ClientScript.RegisterStartupScript(this.GetType(), "doneaccPic", "$(document).ready(function (){ notify('success','تم تعديل صورة الحساب بنجاح.');}); ", true);
         }
 
         private void LoadPics()
