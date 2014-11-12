@@ -261,32 +261,48 @@
     <Content Include="images\bots\EmailOwner_1.png" />
     <Content Include="images\bots\EmailOwner_2.png" />
     <Content Include="images\bots\EmailOwner_3.png" />
+    <Content Include="images\bots\EmailOwner_4.png" />
+    <Content Include="images\bots\EmailOwner_5.png" />
     <Content Include="images\bots\FollowAdmin_1.png" />
     <Content Include="images\bots\FollowAdmin_2.png" />
     <Content Include="images\bots\FollowAdmin_3.png" />
     <Content Include="images\bots\FollowAdmin_4.png" />
+    <Content Include="images\bots\FollowAdmin_5.png" />
     <Content Include="images\bots\InviteFriendsBan_1.png" />
     <Content Include="images\bots\InviteFriendsBan_2.png" />
     <Content Include="images\bots\InviteFriendsBan_3.png" />
+    <Content Include="images\bots\InviteFriendsBan_4.png" />
+    <Content Include="images\bots\InviteFriendsBan_5.png" />
     <Content Include="images\bots\MembersLogin_1.png" />
     <Content Include="images\bots\MembersLogin_2.png" />
     <Content Include="images\bots\MembersLogin_3.png" />
+    <Content Include="images\bots\MembersLogin_4.png" />
+    <Content Include="images\bots\MembersLogin_5.png" />
     <Content Include="images\bots\RoomFriends_1.png" />
     <Content Include="images\bots\RoomFriends_2.png" />
     <Content Include="images\bots\RoomFriends_3.png" />
+    <Content Include="images\bots\RoomFriends_4.png" />
+    <Content Include="images\bots\RoomFriends_5.png" />
     <Content Include="images\bots\RoomLaw_1.png" />
     <Content Include="images\bots\RoomLaw_2.png" />
     <Content Include="images\bots\RoomLaw_3.png" />
+    <Content Include="images\bots\RoomLaw_4.png" />
+    <Content Include="images\bots\RoomLaw_5.png" />
     <Content Include="images\bots\RoomProgram_1.png" />
     <Content Include="images\bots\RoomProgram_2.png" />
     <Content Include="images\bots\RoomProgram_3.png" />
+    <Content Include="images\bots\RoomProgram_4.png" />
+    <Content Include="images\bots\RoomProgram_5.png" />
     <Content Include="images\bots\Room_1.png" />
     <Content Include="images\bots\Room_2.png" />
     <Content Include="images\bots\Room_3.png" />
     <Content Include="images\bots\Room_4.png" />
+    <Content Include="images\bots\Room_5.png" />
     <Content Include="images\bots\welcome_1.png" />
     <Content Include="images\bots\welcome_2.png" />
     <Content Include="images\bots\welcome_3.png" />
+    <Content Include="images\bots\Welcome_4.png" />
+    <Content Include="images\bots\Welcome_5.png" />
     <Content Include="images\cashu.png" />
     <Content Include="images\Emotes-icon.png" />
     <None Include="images\emotions\1.gif" />
@@ -1601,6 +1617,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPages\App_LocalResources\createMaster.master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\MyBalance.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

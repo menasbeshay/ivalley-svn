@@ -71,7 +71,10 @@ namespace Chat2Connect
                             _Ncontext.Clients.Group(u.UserName).inviteToTempRoom(room.RoomID, member.Name);
                         }
                     }
-                    ClientScript.RegisterStartupScript(this.GetType(), "initTempRoom", "self.parent.location='/home.aspx';", true);
+
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                    _Rcontext.Clients.Group(member.UserName).openTempRoom(room.RoomID);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "initTempRoom", "self.parent.location='/home.aspx';", true);
                     //Response.Redirect("home.aspx");
                 }
                 else

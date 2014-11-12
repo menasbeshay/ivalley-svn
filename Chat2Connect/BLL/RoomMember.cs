@@ -90,7 +90,7 @@ namespace BLL
                             LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
                             LEFT JOIN MemberTypeSpecDuration MTSpec ON MTSpec.ID=ISNULL(MT.MemberTypeSpecDurationID,{1}) 
                             LEFT JOIN RoomMemberBanning B ON B.RoomID=RM.RoomID AND B.MemberID=RM.MemberID AND (B.EndDate>=GETDATE() OR B.EndDate IS NULL)
-                            WHERE RM.RoomID={0} And ISNULL(R.RowStatusID,{3})={3}";
+                            WHERE RM.RoomID={0} And ISNULL(M.RowStatusID,{3})={3}";
             if (memberID.HasValue)
                 sql += String.Format(" AND RM.MemberID={0}", memberID.Value);
 

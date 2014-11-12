@@ -129,6 +129,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="App_LocalResources/LoadRoom.aspx.resx">
       <publishTime>09/11/2014 12:24:43</publishTime>
     </File>
+    <File Include="App_LocalResources/MyBalance.aspx.resx">
+      <publishTime>11/05/2014 21:59:20</publishTime>
+    </File>
     <File Include="App_LocalResources/Register.aspx.resx">
       <publishTime>09/11/2014 12:24:43</publishTime>
     </File>
@@ -136,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>11/11/2014 21:39:06</publishTime>
+      <publishTime>11/12/2014 10:01:32</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>11/11/2014 21:39:06</publishTime>
+      <publishTime>11/12/2014 13:05:48</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -801,6 +804,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/bots/EmailOwner_3.png">
       <publishTime>10/23/2014 22:00:32</publishTime>
     </File>
+    <File Include="images/bots/EmailOwner_4.png">
+      <publishTime>11/10/2014 22:05:54</publishTime>
+    </File>
+    <File Include="images/bots/EmailOwner_5.png">
+      <publishTime>11/03/2014 00:36:44</publishTime>
+    </File>
     <File Include="images/bots/FollowAdmin_1.png">
       <publishTime>09/15/2014 00:10:24</publishTime>
     </File>
@@ -811,6 +820,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2014 22:00:26</publishTime>
     </File>
     <File Include="images/bots/FollowAdmin_4.png">
+      <publishTime>11/10/2014 22:05:48</publishTime>
+    </File>
+    <File Include="images/bots/FollowAdmin_5.png">
       <publishTime>09/15/2014 00:10:12</publishTime>
     </File>
     <File Include="images/bots/InviteFriendsBan_1.png">
@@ -822,6 +834,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/bots/InviteFriendsBan_3.png">
       <publishTime>10/23/2014 22:00:28</publishTime>
     </File>
+    <File Include="images/bots/InviteFriendsBan_4.png">
+      <publishTime>11/10/2014 22:05:50</publishTime>
+    </File>
+    <File Include="images/bots/InviteFriendsBan_5.png">
+      <publishTime>11/03/2014 00:36:42</publishTime>
+    </File>
     <File Include="images/bots/MembersLogin_1.png">
       <publishTime>09/15/2014 00:24:14</publishTime>
     </File>
@@ -830,6 +848,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/bots/MembersLogin_3.png">
       <publishTime>10/23/2014 22:00:30</publishTime>
+    </File>
+    <File Include="images/bots/MembersLogin_4.png">
+      <publishTime>11/10/2014 22:05:52</publishTime>
+    </File>
+    <File Include="images/bots/MembersLogin_5.png">
+      <publishTime>11/03/2014 00:36:42</publishTime>
     </File>
     <File Include="images/bots/RoomFriends_1.png">
       <publishTime>09/15/2014 00:27:38</publishTime>
@@ -840,6 +864,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/bots/RoomFriends_3.png">
       <publishTime>10/23/2014 22:00:32</publishTime>
     </File>
+    <File Include="images/bots/RoomFriends_4.png">
+      <publishTime>11/10/2014 22:05:54</publishTime>
+    </File>
+    <File Include="images/bots/RoomFriends_5.png">
+      <publishTime>11/03/2014 00:36:44</publishTime>
+    </File>
     <File Include="images/bots/RoomLaw_1.png">
       <publishTime>09/15/2014 00:22:08</publishTime>
     </File>
@@ -849,6 +879,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/bots/RoomLaw_3.png">
       <publishTime>10/23/2014 22:00:30</publishTime>
     </File>
+    <File Include="images/bots/RoomLaw_4.png">
+      <publishTime>11/10/2014 22:05:50</publishTime>
+    </File>
+    <File Include="images/bots/RoomLaw_5.png">
+      <publishTime>11/03/2014 00:36:42</publishTime>
+    </File>
     <File Include="images/bots/RoomProgram_1.png">
       <publishTime>09/15/2014 00:22:48</publishTime>
     </File>
@@ -857,6 +893,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/bots/RoomProgram_3.png">
       <publishTime>10/23/2014 22:00:30</publishTime>
+    </File>
+    <File Include="images/bots/RoomProgram_4.png">
+      <publishTime>11/10/2014 22:05:52</publishTime>
+    </File>
+    <File Include="images/bots/RoomProgram_5.png">
+      <publishTime>11/03/2014 00:36:42</publishTime>
     </File>
     <File Include="images/bots/Room_1.png">
       <publishTime>09/14/2014 00:08:44</publishTime>
@@ -868,6 +910,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2014 22:00:22</publishTime>
     </File>
     <File Include="images/bots/Room_4.png">
+      <publishTime>11/10/2014 22:05:54</publishTime>
+    </File>
+    <File Include="images/bots/Room_5.png">
       <publishTime>09/14/2014 00:04:36</publishTime>
     </File>
     <File Include="images/bots/welcome_1.png">
@@ -878,6 +923,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/bots/welcome_3.png">
       <publishTime>10/23/2014 22:00:24</publishTime>
+    </File>
+    <File Include="images/bots/Welcome_4.png">
+      <publishTime>11/10/2014 22:05:48</publishTime>
+    </File>
+    <File Include="images/bots/Welcome_5.png">
+      <publishTime>11/03/2014 00:36:40</publishTime>
     </File>
     <File Include="images/btndelete.png">
       <publishTime>09/11/2014 12:24:56</publishTime>
@@ -1951,7 +2002,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>11/11/2014 21:37:54</publishTime>
+      <publishTime>11/12/2014 13:04:41</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>09/11/2014 12:24:47</publishTime>
@@ -2065,7 +2116,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>11/05/2014 21:50:30</publishTime>
+      <publishTime>11/12/2014 12:33:49</publishTime>
     </File>
     <File Include="js/popups.js">
       <publishTime>10/21/2014 15:19:57</publishTime>
@@ -2353,7 +2404,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/11/2014 21:39:07</publishTime>
+      <publishTime>11/12/2014 13:05:49</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>11/02/2014 12:35:29</publishTime>
