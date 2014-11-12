@@ -178,7 +178,7 @@ $(function() {
             hoverDirection: true,
             hoverDelay: 0,
             hoverInverse: false,
-            expandingHeight: 150,
+            expandingHeight: 50,
             expandingSpeed: 300,
             callback: function() {}
         }, config);
@@ -673,7 +673,7 @@ $(function() {
                     // set the height for the preview and the item
                     this.setHeights();
                     // scroll to position the preview in the right place
-                    this.positionPreview();
+                   // this.positionPreview();
                 }, this ), 25 );
 
             },
@@ -735,8 +735,8 @@ $(function() {
                     };
 
                 this.calcHeight();
-                this.$previewEl.css( 'height', this.height );
-                this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
+                this.$previewEl.css( 'height', this.height * 0.75 );
+                this.$item.css( 'height', this.itemHeight *0.78 ).on( transEndEventName, onEndFn );
 
                 if( !support ) {
                     onEndFn.call();
