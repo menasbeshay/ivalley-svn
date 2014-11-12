@@ -12,6 +12,7 @@
     <link href="../css/screen.css" rel="stylesheet" />
     <link href="../css/component.css" rel="stylesheet" />
     <link href="../css/apps/elastic_grid.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <!--[if lt IE 9]>
@@ -24,7 +25,7 @@
     <script src="../Scripts/jquery.cycle2.carousel.min.js"></script>
     <script src="../Scripts/jquery.easings.min.js"></script>
     <script src="../Scripts/jquery.slimscroll.min.js"></script>
-    <script src="../Scripts/jquery.fullPage.js"></script>
+    <script src="../Scripts/jquery.fullPage.min.js"></script>
     <script src="../Scripts/modernizr.custom.js"></script>
     <script src="../Scripts/imagesloaded.pkgd.min.js"></script>
 	<script src="../Scripts/masonry.pkgd.min.js"></script>
@@ -115,7 +116,7 @@
                 [
                     {
                         'title': 'View details',
-                        'MainTitle': 'Ads',
+                        'MainTitle': 'Advertisement',
                         'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Outdoor advertising signage</li><li> Kiosk systems advertising module</li></ul>',
                         'thumbnail': ['../images/Icons/png/1.png'],
                         'large': ['../images/Icons/png/large/1.png'],
@@ -135,7 +136,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Train Stations',
+                        'MainTitle': 'Public transportation',
                         'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
                         'thumbnail': ['../images/Icons/png/3.png'],
                         'large': ['../images/Icons/png/large/3.png'],
@@ -175,7 +176,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Resturants',
+                        'MainTitle': 'Hospitality',
                         'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Menu display</li><li> Employees self-service</li><li>Self-Service Sales</li></ul>',
                         'thumbnail': ['../images/Icons/png/7.png'],
                         'large': ['../images/Icons/png/large/7.png'],
@@ -195,7 +196,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Real Estate',
+                        'MainTitle': 'Public buildings & Real Estate',
                         'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Real Estate marketing</li><li>Wayfinding</li><li>Real Estate management systems</li><li>POS</li><li>Information systems</li></ul>',
                         'thumbnail': ['../images/Icons/png/9.png'],
                         'large': ['../images/Icons/png/large/9.png'],
@@ -213,10 +214,10 @@
                         'tags': []
 
                     },
-                    
+
                     {
                         'title': 'View details',
-                        'MainTitle': 'Manufacturing',
+                        'MainTitle': 'Industries',
                         'description': '<ul class="applist"><li>Production management</li> <li>Showroom products display</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
                         'thumbnail': ['../images/Icons/png/11.png'],
                         'large': ['../images/Icons/png/large/11.png'],
@@ -226,7 +227,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Studying',
+                        'MainTitle': 'Education',
                         'description': '<ul class="applist"><li>Wayfinding for universities</li> <li>Students information</li><li>Student Self-Service<li><li>Educational materials display</li><li>Indoor advertising signage</li><li>Fingerprint staff attendance control</li><li>Consulting & Planning</li><li>Employees Self-Service</li><li>Queuing management</li><li>Tradeshows & Exhibitions</li></ul>',
                         'thumbnail': ['../images/Icons/png/12.png'],
                         'large': ['../images/Icons/png/large/12.png'],
@@ -236,7 +237,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Sports',
+                        'MainTitle': 'Stadiums',
                         'description': '<ul class="applist"><li>Stadiums tickets dispensing</li> <li>Stadiums tickets barcode scanning</li><li> Indoor & Outdoor advertising signage</li><li>POS</li><li>Information systems</li><li>Employees Self-Service</li></ul>',
                         'thumbnail': ['../images/Icons/png/13.png'],
                         'large': ['../images/Icons/png/large/13.png'],
@@ -246,7 +247,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Info',
+                        'MainTitle': 'Information points',
                         'description': '<ul class="applist"><li>Wayfinding </li> <li>Public information systems</li><li> Public advertising</li><li>Indoor advertising</li></ul>',
                         'thumbnail': ['../images/Icons/png/14.png'],
                         'large': ['../images/Icons/png/large/14.png'],
@@ -256,7 +257,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Government',
+                        'MainTitle': 'Government services',
                         'description': '<ul class="applist"><li>Public information</li> <li>Public Self-Service</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
                         'thumbnail': ['../images/Icons/png/15.png'],
                         'large': ['../images/Icons/png/large/15.png'],
@@ -266,7 +267,7 @@
                     },
                     {
                         'title': 'View details',
-                        'MainTitle': 'Haj',
+                        'MainTitle': 'Hajj',
                         'description': '<ul class="applist"><li>Wayfinding for pilgrims & Visitors</li> <li>Information systems</li><li> Trains & Buses schedules</li><li>Tickets dispensing </li><li>Outdoor Advertising</li><li>Lost & Found Info</li><li>Employees Self-Service</li><li>POS</li><li>Internet communications</li><li>Security communications</li></ul>',
                         'thumbnail': ['../images/Icons/png/16.png'],
                         'large': ['../images/Icons/png/large/16.png'],
@@ -281,35 +282,140 @@
 
             });
 
-            /*
-            $('img.appsvg').each(function () {
-                var $img = jQuery(this);
-                var imgID = $img.attr('id');
-                var imgClass = $img.attr('class');
-                var imgURL = $img.attr('src');
 
-                jQuery.get(imgURL, function (data) {
-                    // Get the SVG tag, ignore the rest
-                    var $svg = jQuery(data).find('svg');
 
-                    // Add replaced image's ID to the new SVG
-                    if (typeof imgID !== 'undefined') {
-                        $svg = $svg.attr('id', imgID);
+
+            // NAVIGATION
+            $(function () {
+
+                "use strict";
+
+                $('a.page-scroll').bind('click', function (event) {
+
+                    var contentWrap = $("#content-wrap");
+                    var catPages = $(".cat-pages");
+                    var sectionId = $(this).attr('href');
+                    var rmenu = $('#responsive-menu');
+                    var ascroll = $('a.page-scroll');
+
+                   // $("#content-wrap, .cat-pages").getNiceScroll().hide(0);
+                    ascroll.removeClass('nav-current');
+                    $(this).addClass('nav-current');
+                    rmenu.addClass('responsive-menu');
+                    clearTimeout(prr1); clearTimeout(prr2); clearTimeout(prr3); clearTimeout(prl1); clearTimeout(prl2); clearTimeout(prl3); clearTimeout(prn1); clearTimeout(prn2);
+                    clearTimeout(pll1); clearTimeout(pll2); clearTimeout(pll2); clearTimeout(plr1); clearTimeout(plr2); clearTimeout(plr3); clearTimeout(pln1); clearTimeout(pln2);
+
+                    setTimeout(function () {
+                        rmenu.css("opacity", "1");
+                    }, 100);
+
+                    if (!$(sectionId).hasClass('cat-pages-active')) {
+                        catPages.removeClass('cat-pages-active');
+                        $(sectionId).addClass('cat-pages-active');
+
+                        if ($(this).hasClass("page-right")) {
+
+                            if (contentWrap.hasClass("content-wrap-right")) {
+
+                                catPages.css("z-index", "2").removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
+                                var prr1 = setTimeout(function () {
+                                    catPages.css("display", "none");
+                                    $(sectionId).css({ "display": "block", "z-index": "3" });
+                                    catPages.removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-25');
+                                }, 300);
+                                var prr2 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
+                                }, 350);
+                                var prr3 = setTimeout(function () {
+                                    //$("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
+                                }, 1300);
+
+                            } else if (contentWrap.hasClass("content-wrap-left")) {
+                                catPages.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
+                                var prl1 = setTimeout(function () {
+                                    catPages.css("display", "none");
+                                    $(sectionId).css("display", "block");
+                                }, 1000);
+                                var prl2 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-50');
+                                }, 1050);
+                                var prl3 = setTimeout(function () {
+                                   // $("#content-wrap, .cat-pages").delay(2100).getNiceScroll().show(0).resize();
+                                }, 2000);
+                            }
+
+                            else {
+
+                                $(sectionId).css("display", "block");
+                                var prn1 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50').addClass('cat-pages-responsive-0');
+                                }, 1);
+                                var prn2 = setTimeout(function () {
+                                   // $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
+                                }, 1300);
+                            }
+
+                            contentWrap.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0').removeClass("content-wrap-right").addClass("content-wrap-left");
+
+                        } else {
+
+                            if (contentWrap.hasClass("content-wrap-left")) {
+
+                                catPages.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
+                                var pll1 = setTimeout(function () {
+                                    catPages.css("display", "none");
+                                    $(sectionId).css("display", "block");
+                                    catPages.removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-25');
+                                }, 300);
+                                var pll2 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
+                                }, 350);
+                                var pll3 = setTimeout(function () {
+                                   // $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
+                                }, 1300);
+
+                            } else if (contentWrap.hasClass("content-wrap-right")) {
+                                catPages.removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
+                                var plr1 = setTimeout(function () {
+                                    catPages.css("display", "none");
+                                    $(sectionId).css("display", "block");
+                                }, 1000);
+                                var plr2 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
+                                }, 1050);
+                                var plr3 = setTimeout(function () {
+                                   // $("#content-wrap, .cat-pages").delay(2100).getNiceScroll().show(0).resize();
+                                }, 2000);
+                            }
+
+                            else {
+
+                                $(sectionId).css("display", "block");
+                                var pln1 = setTimeout(function () {
+                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0').addClass('cat-pages-responsive-0');
+                                }, 1);
+                                var pln2 = setTimeout(function () {
+                                   // $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
+                                }, 1300);
+                            }
+
+                            contentWrap.removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50').removeClass("content-wrap-left").addClass("content-wrap-right");
+                        }
+                    } else {
+                        catPages.removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
+                        contentWrap.removeClass("content-wrap-left").removeClass("content-wrap-right").removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
+                        catPages.removeClass('cat-pages-active');
+                        ascroll.removeClass('nav-current');
+                        setTimeout(function () {
+                            catPages.css("display", "none");
+                        }, 1000);
                     }
-                    // Add replaced image's classes to the new SVG
-                    if (typeof imgClass !== 'undefined') {
-                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
-                    }
 
-                    // Remove any invalid XML tags as per http://validator.w3.org
-                    $svg = $svg.removeAttr('xmlns:a');
+                    return false;
+                });
+            });
 
-                    // Replace image with new SVG
-                    $img.replaceWith($svg);
-
-                }, 'xml');
-
-            });*/
+            
         });
 	</script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -407,166 +513,11 @@
                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    
-                   <h3 class="slidetitle">Where to use ?</h3>
-                   <ul class="AppsIcons" style="display:none;">
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-01.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Stadiums tickets dispensing</li>
-                                   <li>- Stadiums tickets barcode scanning</li>
-                                   <li>- Indoor & Outdoor advertising signage</li>
-                                   <li>- POS</li>
-                                   <li>- Information systems</li>
-                                   <li>- Employees Self-Service</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                        <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/banner-ads.svg" class="svg checksvg"/>
-                           <div class="appcontent">
-                               <ul>
-                                   
-                                   <li>Test popover</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                        
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-02.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li></li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-03.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Wayfinding </li>
-                                   <li>- Public information systems</li>
-                                   <li>- Public advertising</li>
-                                   <li>- Indoor advertising</li>
-                               </ul>
-                           </div>
-                       </a>
-                       </li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-04.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Indoor advertising signage</li>
-                                   <li>- Employees self-service</li>
-                                   <li>- Self-Service Check-In & Out</li>
-                                   <li>- Wayfinding</li>
-                                   <li>- Kitchen & room service</li>
-                                   <li>- operation systems management</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-05.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- indoor advertising signage</li>
-                                   <li>- Menu display</li>
-                                   <li>- Employees Self-Service</li>
-                                   <li>- Self-Service Sales</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-06.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-07.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Wayfinding</li>
-                                   <li>- indoor advertising signage</li>
-                                   <li>- Patients service systems</li>
-                                   <li>- Hospital management systems</li>
-                                   <li>- Employees Self-Service</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-08.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Indoor advertising signage</li>
-                                   <li>- Employees self-service
-
-                                   </li>
-                                   <li>- Attendance fingerprint 
-                                   </li>
-                                   <li>- Queuing  management
-                                   </li>
-                                   <li>- Customers self-service
-                                   </li>
-                                   <li>- POS
-                                   </li>
-                                   <li>- Consulting & Planning
-                                   </li>
-                                   <li>- Tradeshows</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-09.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-10.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-11.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="right">
-                           <img src="../images/Icons/icon-12.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Wayfinding for pilgrims & Visitors</li>
-                                   <li>- Information systems
-                                   </li>
-                                   <li>- Trains & Buses schedules</li>
-                                   <li>- Tickets dispensing </li>
-                                   <li>- Outdoor Advertising</li>
-                                   <li>- Lost & Found Info</li>
-                                   <li>- Employees Self-Service</li>
-                                   <li>- POS</li>
-                                   <li>- Internet communications</li>
-                                   <li>- Security communications</li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-13.png" />
-                           <div class="appcontent">
-                               <ul>
-                                   <li>- Public information</li>
-                                   <li>- Public Self-Service</li>
-                                   <li>- Employees Self-Service</li>
-                                   <li>- Tradeshows
-                                   </li>
-                               </ul>
-                           </div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-14.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-                       <li><a class="appicon" data-toggle="popover" data-placement="left">
-                           <img src="../images/Icons/icon-15.png" />
-                           <div class="appcontent"></div>
-                       </a></li>
-
-                   </ul>
-
+                   <div class="PageTitle">
+                       <div class="slidetitle">Where to use ?</div>
+                       <div class="headerbottom"></div>
+                   </div>
+                   
                    <div id="appholder">
                       
                    </div>
@@ -579,8 +530,12 @@
                <div class="anyPage innerslide">
                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
-                   <h3 class="slidetitle">Recent Projects</h3>
-                   <div id="grid-gallery" class="grid-gallery">
+                   <div class="PageTitle">
+                       <div class="slidetitle">Recent Projects</div>
+                       <div class="headerbottom"></div>
+                   </div>
+                   
+                   <div id="grid-gallery" class="grid-gallery" style="display:none;">
 				    <section class="grid-wrap">
 					    <ul class="grid">
                            <li class="grid-sizer"></li>
@@ -686,6 +641,79 @@
 					
                         </section>
                    </div>
+
+                   <section id="content-wrap">
+                       <div class="container-liquid">
+
+
+                           <div class="row">
+                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 navigations">
+                                   <ul>
+
+                                       <li id="about-link">
+                                           <a href="#about" class="page-scroll">
+                                               <h3>about
+                                               </h3>
+                                               <i class="fa fa-user nav-left"></i>
+                                           </a>
+                                       </li>
+
+                                       <li id="resume-link">
+                                           <a href="#resume" class="page-scroll page-right">
+                                               <h3>resume
+                                               </h3>
+                                               <i class="fa fa-globe nav-right"></i>
+                                           </a>
+                                       </li>
+
+                                       <li id="portfolio-link">
+                                           <a href="#portfolio" class="page-scroll">
+                                               <h3>portfolio
+                                               </h3>
+                                               <i class="fa fa-book nav-left"></i>
+                                           </a>
+                                       </li>
+
+                                       <li id="blog-link">
+                                           <a href="#blog" class="page-scroll page-right">
+                                               <h3>blog
+                                               </h3>
+                                               <i class="fa fa-paperclip nav-right"></i>
+                                           </a>
+                                       </li>
+
+                                       <li id="contact-link">
+                                           <a href="#contact" class="page-scroll">
+                                               <h3>contact
+                                               </h3>
+                                               <i class="fa fa-envelope nav-left"></i>
+                                           </a>
+                                       </li>
+
+                                   </ul>
+                               </div>
+                           </div>
+
+
+                       </div>
+                   </section>
+
+                   <section id="about" class="cat-pages">
+                       <div class="container-liquid">
+
+                           <!-- TITLE -->
+                           <div class="row">
+                               <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
+                                   <div class="title-seprator"></div>
+                                   <h2>about
+                                   </h2>
+                               </header>
+                           </div>
+                           <!-- end TITLE -->
+
+
+                       </div>
+                   </section>
                    
                </div>
             </div>
@@ -698,7 +726,10 @@
                        <img src="../images/VanDirections.gif" style="max-width:80%" />
                        </div>
                    <div class="col-lg-7 col-sm-7 anim animright">
-                       <h3 class="slidetitle headerLeft" style="width:100%">Technical support</h3>
+                       <div class="PageTitle">
+                       <div class="slidetitle headerLeft" style="width:100%">Technical support</div>
+                       <div class="headerbottom"></div>
+                   </div>                       
                    <p class="form-group">
                        MTSA products & software are sold & serviced through authorized distributors/service agents carefully selected to guarantee customers full satisfaction and best after sale services. 
 Our services include:

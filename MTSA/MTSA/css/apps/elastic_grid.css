@@ -33,14 +33,19 @@
     position:relative;
 }
 
-.og-grid li {
+.og-grid > li {
 	display: inline-block;
 	margin: 10px 5px 0 5px;
 	vertical-align: top;
 	height: 120px;
+    line-height:110px;
     width:11%;
     text-align:center;
-    
+     border:1px #a2a2a2 solid;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
 }
 
 .og-grid li.hidden {
@@ -51,14 +56,23 @@
 .og-grid li > a img {
 	border: none;
 	outline: none;
-	display: block;
+	display: inline-block;
 	position: relative;
     margin:0 auto;
     text-align:center;    
+    vertical-align:middle;
+    max-width:100%;
 }
 
 .og-grid li > a img {
     max-width:75%;
+     opacity:0.2;
+    transition:opacity 0.8s ease-in-out 0s;
+    }
+
+.og-grid li:hover > a img {
+    opacity:1;
+    
     }
 
 /*.og-grid .sep {
@@ -511,6 +525,7 @@
 	width: 100%;
 	height: 100%;
     left:-100%;
+    display:none !important;
 }
 .og-grid li a figure span {
 	display: block;
