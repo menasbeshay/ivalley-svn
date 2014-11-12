@@ -2087,6 +2087,12 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
         });
         chatVM.helpMembers(newLst);
     }
+
+    rHub.client.openTemproom = function (roomid) {
+        $('#GeneralModalPage').modal('hide');
+        var window = chatVM.addWindow(roomid, 'غرفة مؤقتة', 'Room', true);
+
+    };
 }
 
 

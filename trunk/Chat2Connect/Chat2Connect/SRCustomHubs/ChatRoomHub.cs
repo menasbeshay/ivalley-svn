@@ -566,7 +566,6 @@ namespace Chat2Connect.SRCustomHubs
         }
 
 
-
         #region Room supervisor
 
         public void ClearQueue(int rid)

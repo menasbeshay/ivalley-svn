@@ -659,7 +659,7 @@ $(document).ready(function () {
         var location = window.location.href;
         if (location.indexOf('home.aspx') > -1)
         {
-            $('#TempRoomInvitationModalContent').html(fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a onclick="addChatRoom(' + rid + ', \'غرفة مؤقتة\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
+            $('#TempRoomInvitationModalContent').html(fname + ' يدعوك لمحادثة فى غرفة مؤقتة' + '<br /><a onclick="addChatRoom(' + rid + ', \'غرفة مؤقتة\', \'Room\', true);$(\'#TempRoomInvitationModal\').modal(\'hide\');" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
             $('#TempRoomInvitationModal').modal('show');
         }
         else
@@ -672,7 +672,7 @@ $(document).ready(function () {
 
     sHub.client.InviteToRoomByFriend = function (rid, roomname, MemberName) {
         //  notify('info', MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a>');
-        $('#RoomInvitationModalContent').html(MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
+        $('#RoomInvitationModalContent').html(MemberName + ' يدعوك لدخول الغرفة "' + roomname + '"' + '<br /><a onclick="addChatRoom(' + rid + ', \'' + roomname + '\', \'Room\', true);$(\'#RoomInvitationModal\').modal(\'hide\');" class="btn btn-main">إضغط هنا للدخول</a><audio autoplay><source src="files/sounds/invite.wav"></audio>');
         $('#RoomInvitationModal').modal('show');
     };
 
