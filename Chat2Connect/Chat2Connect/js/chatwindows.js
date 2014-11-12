@@ -114,6 +114,8 @@ function Chat(maxWin, memberID, memberName,profilePic) {
         return window;
     }
 
+   
+
     //
     //Help Members
     this.getHelpMembers = function () {
@@ -549,6 +551,9 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                 ToMember.push(member);
             });
             var total = window.selectedGift.price() * ToMember.length;
+
+            var winid = window.Type() == "Room" ? window.ID() : window.CurrentMember().MemberID();
+
             if (total > chatVM.CreditPoints()) {
                 notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
                 $("#giftModal_" + window.uniqueID()).modal('hide');
@@ -559,7 +564,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                     url: '../Services/Services.asmx/SendGift',
                     dataType: 'json',
                     type: 'post',
-                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + window.selectedGift.giftid() + "}",
+                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + winid + ", 'roomName' :'" + window.Name() + "','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + window.selectedGift.giftid() + "}",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
@@ -1219,7 +1224,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic, MemberTypeID : 1 }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1512,7 +1517,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
             var imageDiv = "<div style='margin:0 auto;text-align:center;'><a href='#imageModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='images.aspx?Image=files/rooms/attachedimages/" + hiddenfield.val() + "' style='margin:0 !important;'/></a></div>";
 
             var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>صورة</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;max-width:450px;'/></div></div></div></div></div></div></div>";
-
+            
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
         }
         hiddenfield.val('');
@@ -1537,13 +1542,13 @@ function Chat(maxWin, memberID, memberName,profilePic) {
         var videoLink = "<div style='margin:0 auto;text-align:center;'><a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='width:160px;margin:0 !important;' /></a></div>";
         var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
         var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>فيديو</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
-        var newMsg = videoLink + modaldiv;
+        var newMsg = videoLink + modaldiv;        
         rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
 
     self.SendAudio = function (window) {
-        if (window.audioAttachment != "") {
+        if (window.audioAttachment != "") {            
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.audioAttachment, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
             $("#attachModal_" + window.uniqueID()).modal('hide');
             window.audioAttachment = "";
@@ -1997,6 +2002,10 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
     };
     rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath, audiopath) {
         var window = chatVM.getWindow(roomID, "Room");
+        if (window == null)
+            window = chatVM.getWindow(roomID, "Private");
+        if (window == null)
+            return;
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
 
