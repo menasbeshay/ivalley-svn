@@ -363,6 +363,7 @@
     <Content Include="Scripts\jquery.easings.min.js" />
     <Content Include="Scripts\jquery.fullPage.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.nicescroll.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\libs2.js" />
     <Content Include="Scripts\main.js" />
