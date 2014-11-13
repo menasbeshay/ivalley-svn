@@ -3265,11 +3265,16 @@ background-color:#d3d3d3;
 }
 
 #Projects {
-background-color:#87CEFA;
+background-color:#d3d3d3;
 }
 
 #TechSupp {
 background-color:#d3d3d3;
+}
+
+.whitefont {
+    color:#fff;
+    font-weight:bold;
 }
 
 #Products {
@@ -3284,10 +3289,19 @@ background-color:#87CEFA;
     margin:15px; 
 }
 
-.animwrapper {
+#TechSupp {
     width:100%;
     height:100%;
     position:relative;
+    background:url('../images/search-region-bg.jpg') center center fixed no-repeat;    
+
+}
+
+.techsuppbg {
+    width:100%;
+    height:100%;
+    position:relative;
+    background-color:  rgba(50,50,50,0.7);
 }
 
 .anim {
@@ -3408,11 +3422,13 @@ background-color:#87CEFA;
   height: 60vh;
   /*background-image: url('images/pattern.jpg'); 
   background-repeat: repeat;*/
+  background-color:#fff;
   left: 25%;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
-  z-index: 3;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 5;
   -webkit-transition: all 1s ease;
   transition:         all 1s ease;
   -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.20);
@@ -3426,12 +3442,13 @@ background-color:#87CEFA;
   position: absolute;
   float: none;
   width: 50%;
-  height: 100vh;
+  height: 60vh;
   left: 25%;
   color: #f9f9f9;
   margin: 0;
   padding: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 1;
   -webkit-transition: all 1s ease;
   transition:         all 1s ease;
@@ -3607,7 +3624,7 @@ background-color:#87CEFA;
 
 li#about-link a.nav-current {
   border-width: 2px;
-  border-color: #f66152;
+  border-color: #5C4775;
 }
 
 li#about-link a.nav-current h3, li#resume-link a.nav-current h3, li#portfolio-link a.nav-current h3, li#blog-link a.nav-current h3, li#contact-link a.nav-current h3 {
@@ -3616,25 +3633,25 @@ li#about-link a.nav-current h3, li#resume-link a.nav-current h3, li#portfolio-li
 }
 
 li#about-link a.nav-current h3, li#about-link a.nav-current i {
-  color: #f66152;
+  color: #5C4775;
 }
 
 li#resume-link a.nav-current {
   border-width: 2px;
-  border-color: #d7af0d;
+  border-color: #5C4775;
 }
 
 li#resume-link a.nav-current h3, #resume-link a.nav-current i {
-  color: #d7af0d;
+  color: #5C4775;
 }
 
 li#portfolio-link a.nav-current {
   border-width: 2px;
-  border-color: #3498db;
+  border-color: #5C4775;
 }
 
 li#portfolio-link a.nav-current h3, #portfolio-link a.nav-current i {
-  color: #3498db;
+  color: #5C4775;
 }
 
 li#blog-link a.nav-current {
@@ -3654,3 +3671,19 @@ li#contact-link a.nav-current {
 li#contact-link a.nav-current h3, #contact-link a.nav-current i {
   color: #424242;
 }
+
+
+#ISIS, #ISIS .cat-pages-title h2 {
+  background-color: #5C4775;
+}
+
+
+#Wayfinding, #Wayfinding .cat-pages-title h2 {
+  background-color: #5C4775;
+}
+
+
+#HERA, #HERA .cat-pages-title h2 {
+  background-color: #5C4775;
+}
+
