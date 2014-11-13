@@ -246,7 +246,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
-        public void sendToRoom(int roomid, int senderid, string sender, string msg, int MemberLevelID, string profileImg, int MemberTypeID)
+        public void sendToRoom(int roomid, int senderid, string sender, string msg, int MemberLevelID, string profileImg, int MemberTypeID, string uniqueID)
         {
             msg = msg.Replace("<br>", "");
             /*RoomMessages messages = new RoomMessages();
@@ -281,8 +281,17 @@ namespace Chat2Connect.SRCustomHubs
                 FromProfileImg = profileImg,
                 MemberTypeID = MemberTypeID
             };
+            if(uniqueID.Contains("Room"))
+                Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg, uniqueID);
+            else if (uniqueID.Contains("Private"))
+            {
+                var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == roomid);
+                var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
 
-            Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg);
+                Clients.Client(toUser.ConnectionId).getMessage(roomid, resultMsg, uniqueID);
+                Clients.Client(fromUser.ConnectionId).getMessage(roomid, resultMsg, uniqueID);
+            }
+
         }
         public void showMemberInRoom(int roomid, int memberid)
         {
