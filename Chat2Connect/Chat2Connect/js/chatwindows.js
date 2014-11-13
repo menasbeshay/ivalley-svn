@@ -56,11 +56,12 @@ ko.bindingHandlers.date = {
         }
     }
 };
-function Chat(maxWin, memberID, memberName,profilePic) {
+function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     var self = this;
     self.CurrentMemberID = memberID;
     self.CurrentMemberName = memberName;
     self.CurrentMemberPic = profilePic;
+    self.CurrentMemberType = memberType;
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
@@ -96,21 +97,30 @@ function Chat(maxWin, memberID, memberName,profilePic) {
         var window = ko.utils.arrayFirst(self.windows(), function (win) {
             return win.ID() == id && win.Type() == type;
         });
+        
         if (window == null) {
             if (type == "Private") {
-                chatVM.addWindow(id, name, type);
+                chatVM.addWindow(id, name, type, false, false, 0, false, false,typeSpec,iscreator );
 
                 window = chatVM.getWindow(id, type);
                 window.Settings.TypeID(typeSpec);
                 window.Members()[1].ProfileImg(friendPic);
-                if (!iscreator || iscreator == undefined)
-                {
+                if (!iscreator || iscreator == undefined) {
                     $('#AduioNotification_' + window.uniqueID()).html('<audio autoplay><source src="files/sounds/invite.wav"></audio>');
                 }
 
-                
+
             }
         }
+
+        return window;
+    }
+
+    self.getWindowByUniqueID = function (uniqueID, type) {
+        var window = ko.utils.arrayFirst(self.windows(), function (win) {
+            return win.uniqueID() == uniqueID && win.Type() == type;
+        });
+        
         return window;
     }
 
@@ -550,9 +560,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                 var member = { ID: $(this).val(), Name: $(this).attr('data-member-name') };
                 ToMember.push(member);
             });
-            var total = window.selectedGift.price() * ToMember.length;
-
-            var winid = window.Type() == "Room" ? window.ID() : window.CurrentMember().MemberID();
+            var total = window.selectedGift.price() * ToMember.length;            
 
             if (total > chatVM.CreditPoints()) {
                 notify('error', 'حدث خطأ . ليس لديك رصيد كافى.');
@@ -564,7 +572,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                     url: '../Services/Services.asmx/SendGift',
                     dataType: 'json',
                     type: 'post',
-                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + winid + ", 'roomName' :'" + window.Name() + "','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + window.selectedGift.giftid() + "}",
+                    data: "{'memberName':'" + self.CurrentMember().MemberName() + "', 'roomID' : " + window.ID() + ", 'roomName' :'" + window.Name() + "','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + window.selectedGift.giftid() + ", 'uniqueID' : '"+ window.uniqueID() +"'}",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
@@ -601,7 +609,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
         };
         this.SendAudio = function () {
             if (this.audioAttachment != "") {
-                rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberID(), self.CurrentMember().MemberName(), self.audioAttachment, self.CurrentMember().MemberLevelID(), self.CurrentMember().ProfileImg(), self.CurrentMember().MemberTypeID());
+                rHub.server.sendToRoom(self.ID(), self.CurrentMember().MemberID(), self.CurrentMember().MemberName(), self.audioAttachment, self.CurrentMember().MemberLevelID(), self.CurrentMember().ProfileImg(), self.CurrentMember().MemberTypeID(), self.uniqueID());
                 $("#attachModal_" + self.uniqueID()).modal('hide');
                 self.audioAttachment = "";
             }
@@ -1197,7 +1205,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
             return;
         var window = self.getWindow(id, type, name, typeSpec, iscreator,friendPic);
         if (window == undefined) {
-            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, typeSpec, iscreator);
+            self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, false,typeSpec, iscreator);
         }
         else {
             self.changeCurrent(window.uniqueID(), window.ID(), window.Type());
@@ -1224,13 +1232,14 @@ function Chat(maxWin, memberID, memberName,profilePic) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic, MemberTypeID : 1 }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '' }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic, MemberTypeID: self.CurrentMemberType, HasGift: false }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '', HasGift: false, MemberTypeID: typeSpec }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
 
             self.Init(win);
             setTimeout(function () { win.initEditor(); }, 1500);
+
             if (!isHelp)
                 rHub.server.enterPrivateChatLog(id, name);
         }
@@ -1291,7 +1300,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
             if (!window.CurrentMember().InRoom()) {
                 rHub.server.showMemberInRoom(window.ID(), window.CurrentMember().MemberID());
             }
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         }
         else {
             rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue(), window.CurrentMember().ProfileImg());
@@ -1518,7 +1527,7 @@ function Chat(maxWin, memberID, memberName,profilePic) {
 
             var modaldiv = "<div id='imageModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>صورة</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-10 center'><img src='files/rooms/attachedimages/" + hiddenfield.val() + "' style='max-height:400px;max-width:450px;'/></div></div></div></div></div></div></div>";
             
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), imageDiv + modaldiv, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         }
         hiddenfield.val('');
         $('#UploadFileName_' + window.uniqueID()).val('');
@@ -1543,13 +1552,13 @@ function Chat(maxWin, memberID, memberName,profilePic) {
         var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
         var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>فيديو</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
         var newMsg = videoLink + modaldiv;        
-        rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
+        rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
 
     self.SendAudio = function (window) {
         if (window.audioAttachment != "") {            
-            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.audioAttachment, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
+            rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.audioAttachment, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
             $("#attachModal_" + window.uniqueID()).modal('hide');
             window.audioAttachment = "";
         }
@@ -1689,10 +1698,10 @@ function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
 }
-function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
+function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic, memberType) {
     rHub = $.connection.chatRoomHub;
     $.connection.hub.start();
-    chatVM = new Chat(maxWinRooms, memberID, memberName,profilePic);
+    chatVM = new Chat(maxWinRooms, memberID, memberName,profilePic, memberType);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
         ko.utils.arrayMap(openedWindows, function (item) {
@@ -1726,11 +1735,15 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
             addMsgToWindow(window, msg, "joinalert");
         }
     };
-    rHub.client.getMessage = function (rid, msg) {
+    rHub.client.getMessage = function (rid, msg, uniqueID) {
         var type = "Room";
         var window = chatVM.getWindow(rid, type);
         if (window == null)
-            return;
+        {
+            window = chatVM.getWindowByUniqueID(uniqueID, "Private")
+            if (window == null) return;
+        }
+            
         window.addMessage(msg);
     };
 
@@ -2000,12 +2013,13 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic) {
             });
         }
     };
-    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath, audiopath) {
-        var window = chatVM.getWindow(roomID, "Room");
+    rHub.client.GiftSentInRoom = function (roomID, memberName, friendName, giftName, friendID, giftpath, audiopath, uniqueID) {
+        var window = chatVM.getWindow(roomID, "Room");        
         if (window == null)
-            window = chatVM.getWindow(roomID, "Private");
-        if (window == null)
-            return;
+        {            
+            window = chatVM.getWindowByUniqueID(uniqueID, "Private")
+            if (window == null) return;
+        }
         message = "<div class='pull-left giftmsg'>" + memberName + " أرسل هدية (" + giftName + ") إلى " + friendName + "</div><div style='clear:both;height:1px;'></div>";
         window.addNotificationMessage(message);
 

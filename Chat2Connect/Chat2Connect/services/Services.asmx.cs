@@ -923,7 +923,7 @@ namespace Chat2Connect.services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SendGift(string memberName, int roomID, string roomName, Helper.Item[] friends, int giftid)
+        public bool SendGift(string memberName, int roomID, string roomName, Helper.Item[] friends, int giftid, string uniqueID)
         {
             MembershipUser user = Membership.GetUser();
             Member member = new Member();
@@ -951,7 +951,15 @@ namespace Chat2Connect.services
                 if (roomID != 0)
                 {
                     IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath);
+                    if(uniqueID.Contains("Room"))
+                        _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath, uniqueID);
+                    else if (uniqueID.Contains("Private"))
+                    {
+                        var toUser = ChatRoomHub.ConnectedUsers.FirstOrDefault(x => x.MemberID == roomID);
+                        var fromUser = ChatRoomHub.ConnectedUsers.FirstOrDefault(x => x.MemberID == member.MemberID);
+                        _Ncontext.Clients.Client(toUser.ConnectionId).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath, uniqueID);
+                        _Ncontext.Clients.Client(fromUser.ConnectionId).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath, uniqueID);
+                    }
                 }
 
             }

@@ -299,6 +299,7 @@
     <asp:HiddenField ID="uiHiddenFieldMaxCams" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldOpenedCams" ClientIDMode="Static" runat="server" />
     <asp:HiddenField ID="uiHiddenFieldCreditPoints" ClientIDMode="Static" runat="server" />
+    <asp:HiddenField ID="uiHiddenFieldMemberType" ClientIDMode="Static" runat="server" />
 
     <script src="Scripts/knockout.mapping-latest.js"></script>
     <script src="js/chatwindows.js"></script>
@@ -314,8 +315,9 @@
             var currentMemberName=$("#<%=uiHiddenFieldCurrentName.ClientID %>").val();
             var maxRooms=eval($("#<%=uiHiddenFieldMaxNoOfRooms.ClientID %>").val());
             var profilePic=$("#<%=uiHiddenFieldProfilePic.ClientID %>").val();
+            var membertype=$("#<%=uiHiddenFieldMemberType.ClientID %>").val();
             var openedRooms=eval(<%=OpenedRooms %>);
-            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,profilePic);            
+            InitChat(maxRooms,currentMemberID,currentMemberName,openedRooms,profilePic, membertype);            
             
         });
     </script>
@@ -1242,10 +1244,10 @@
                                         إجراءات  <span class="caret"></span>
                                     </button>
                                     <ul role="menu" class="dropdown-menu RoomAdminMenu">
-                                        <li><a class="jslink" data-bind="attr:{href:'userprofile.aspx?uid='+ID()}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                                        <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../userprofile.aspx?uid='+ID()+ '\',\'حساب صديق\');'}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                                         <%--<li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.Members(1))"><span class="awesome">&#xf00d;</span> <span data-bind="    text:$data.Members(1).IsFriend?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>--%>
                                         <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':ID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                        <li><a data-bind="attr:{href:'Messages.aspx?t=createmsg&u='+ID()+'&un='+Name()}" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <li><a data-bind="attr:{'onclick':'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u='+ID()+'&un='+Name()+ '\',\'الرسائل\');' }" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                         <li><a href="#"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                     </ul>
                                 </div>
