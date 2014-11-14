@@ -59,7 +59,16 @@
                         // projects
                         if (index == 1 && slideIndex != 2)
                         {
-                            $('.cat-pages').removeClass("content-wrap-left").removeClass("content-wrap-right").removeClass('cat-left-0').removeClass('cat-left-50');
+                            var contentWrap = $("#content-wrap");
+                            var catPages = $(".cat-pages");
+                            var ascroll = $('a.page-scroll');
+                            catPages.removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
+                            contentWrap.removeClass("content-wrap-left").removeClass("content-wrap-right").removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
+                            catPages.removeClass('cat-pages-active');
+                            ascroll.removeClass('nav-current');
+                            setTimeout(function () {
+                                catPages.css("display", "none");
+                            }, 1000);
                         }
                     }
                     else {
@@ -498,6 +507,7 @@
         <div class="section splashslider" id="splash">
             <span id="nextsection_1" class="NextSection">Products</span>
 		    <div class="slide" id="Home">
+                <div class="anyPage innerslide" style="padding:0px !important;padding-bottom:40px;position:relative;">
                 <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                 <div class="cycle-slideshow"  data-cycle-auto-height="true" data-cycle-caption="#alt-caption" data-cycle-caption-template="{{alt}}">
                          <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="3000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>Touchscreens, Interactive Kiosk Systems <br />& Digital Signage </span>"/>
@@ -515,6 +525,7 @@
                      </div>
                 <div id="alt-caption" class="cycle-caption"></div>
                 <div style="clear:both;height:1px;display:block;"></div>
+                    </div>
             </div>
             <div class="slide" id="WTU">
                <div class="anyPage innerslide">
@@ -556,7 +567,7 @@
 
                                        <li id="about-link">
                                            <a href="#ISIS" class="page-scroll">
-                                               <h3>ISIS & MITRA
+                                               <h3 style="font-size:97%">General presidency of the promotion of virtue & the prevention of vices
                                                </h3>
                                                <i class="fa fa-desktop nav-left"></i>
                                            </a>
@@ -564,7 +575,7 @@
 
                                        <li id="resume-link">
                                            <a href="#Wayfinding" class="page-scroll page-right">
-                                               <h3>Wayfinding
+                                               <h3>King Fahad Medical City
                                                </h3>
                                                <i class="fa fa-laptop nav-right"></i>
                                            </a>
@@ -572,7 +583,7 @@
 
                                        <li id="portfolio-link">
                                            <a href="#HERA" class="page-scroll">
-                                               <h3>HERA
+                                               <h3>Ministry of water & Electricity
                                                </h3>
                                                <i class="fa fa-tablet nav-left"></i>
                                            </a>
@@ -594,22 +605,33 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2>ISIS & MITRA
+                                   <h2 style="font-size:99%">General presidency of the promotion <br />of virtue & the prevention of vices
                                    </h2>                                   
                                </header>
                            </div>
                            <!-- end TITLE -->
                            <div class="row">
-                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="position:relative;">
+                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="position:relative;">
                                        <img src="../images/projects/2_1.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <p >
-                                           King Faisal Specialist Hospital & Research Center<br />
-                                           Riyadh, Saudi Arabia<br />
-                                           Product’s type: ISIS & MITRA<br />
-                                           Application: Info systems & Patients services
-                                       </p>
+                                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <div style="font-size:120%;">
+                                            <span class="label label-default">Client Name </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           General presidency of the promotion of virtue & the prevention of vices.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">City , Country </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Riyadh, Saudi Arabia.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Product’s type </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                            ISIS & MITRA.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Application</span>
+                                            <div style="clear:both;height:2px;"></div>
+                                            Info systems & Patients services.
+                                       </div>
                                    </div>
                            </div>
 
@@ -623,7 +645,8 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2>Wayfinding
+                                   <h2>King Fahad Medical City
+
                                    </h2>                                   
                                </header>
                            </div>
@@ -633,12 +656,23 @@
                                        <img src="../images/projects/2_2.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <p >
-                                           King Fahad Medical City<br />
-                                           Riyadh, Saudi Arabia<br />
-                                           Product’s type: PHEX Stand<br />
-                                           Application: Wayfinding 
-                                       </p>
+                                        <div style="font-size:120%;">
+                                            <span class="label label-default">Client Name </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           King Fahad Medical City.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">City, Country </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Riyadh, Saudi Arabia.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Product’s type </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                            PHEX Stand.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Application </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Wayfinding 
+                                       </div>
                                    </div>
                            </div>
 
@@ -652,7 +686,7 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2>HERA
+                                   <h2>Ministry of water & Electricity
                                    </h2>                                   
                                </header>
                            </div>
@@ -662,12 +696,24 @@
                                        <img src="../images/projects/2_3.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <p>
-                                           Ministry of water & Electricity<br />
-                                           Riyadh Saudi Arabia<br />
-                                           Product’s type: HERA<br />
-                                           Application: Employees elf-Service
-                                       </p>
+                                        <div style="font-size:120%;">
+                                            
+                                            <span class="label label-default">Client Name </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Ministry of water & Electricity.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">City , Country </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Riyadh, Saudi Arabia.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Product’s type </span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           HERA.
+                                            <div style="clear:both;height:5px;"></div>
+                                            <span class="label label-default">Application</span>
+                                            <div style="clear:both;height:2px;"></div>
+                                           Employees elf-Service
+                                       </div>
                                    </div>
                            </div>
 
@@ -681,50 +727,127 @@
                 <div class="anyPage innerslide">
 
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
-                    <div class="animwrapper">
-                                                
-                        <div class="col-lg-12 col-sm-12 anim animright">
-                            <div class="PageTitle">
-                                <div class="slidetitle" >Technical support</div>
-                                <div class="headerbottom"></div>
-                            </div>
 
-                             <div class="col-lg-4 col-sm-4 anim animright" style="text-align:center;">
-                                 <i class="fa fa-mobile-phone" style="font-size:350px;margin:0 auto;"></i>
-                                 </div>
+                    <div class="PageTitle">
+                        <div class="slidetitle" style="padding-bottom:5px !important;">Technical support</div>
+                        <div class="headerbottom"></div>
+                    </div>
 
-                            <div class="col-lg-8 col-sm-8 anim animright" style="margin-top:8px;">
-                                <p class="form-group">
-                                MTSA products & software are sold & serviced through authorized distributors/service agents carefully selected to guarantee customers full satisfaction and best after sale services. 
+                    <p style="text-align:center;">
+                        MTSA products & software are sold & serviced through authorized distributors/service agents carefully selected to guarantee customers <br />full satisfaction and best after sale services. 
                                 Our services include:
-                            </p>
-                            <ul class="form-group">
-                                <li><i class="fa fa-check"></i>&nbsp;On-site service</li>
-                                <li><i class="fa fa-check"></i>&nbsp;Remote maintenance</li>
-                                <li><i class="fa fa-check"></i>&nbsp;Phone troubleshooting </li>
-                                <li><i class="fa fa-check"></i>&nbsp;Assistance with kiosk custom designs</li>
-                                <li><i class="fa fa-check"></i>&nbsp;Software updates & upgrades  </li>
-                                <li><i class="fa fa-check"></i>&nbsp;Assistance with software modification</li>
-                                <li><i class="fa fa-check"></i>&nbsp;Operators training </li>
-                                <li><i class="fa fa-check"></i>&nbsp;Users how to use tutorial videos</li>
-                                <li><i class="fa fa-check"></i>&nbsp;Problems’ solutions </li>
-                            </ul>
-                            <p class="form-group">
-                                Thanks to our professional network of partners, we offer on-site services throughout all of Saudi Arabia. 
-                            </p>
-                            <p class="form-group">
-                                Our service level agreements offer you the highest level of plan­ning reliability. By entering into such an agreement, you can budget for the total cost of ownership as soon as you make an investment.
-                            </p>
-                            <p class="form-group">
-                                MTSA provides innovative interactive & digital information systems supported by smart apps help you bridge your business gaps. 
+                    </p>
+
+                    <section class="main">
+
+                        <ul class="ch-grid">
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-1"></div>
+                                        <div class="ch-info-back">
+                                            <h3>On-site service</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-2"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Remote maintenance</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-3"></div>
+                                        <div class="ch-info-back">
+                                            <h3 style="font-size: 14px; letter-spacing: 1px; padding-left: 5px; padding-right: 5px;">Phone troubleshooting</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-4"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Assistance with kiosk custom designs</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-5"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Software updates & upgrades</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-6"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Assistance with software modification</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-7"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Operators training</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-8"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Users how to use tutorial videos</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item">
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-9"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Problems’ solutions</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </section>
+                    <p style="text-align:center;">
+                        Thanks to our professional network of partners, we offer on-site services throughout all of Saudi Arabia. 
+                    </p>
+                    <p style="text-align:center;">
+                        Our service level agreements offer you the highest level of plan­ning reliability. 
+                        <br />By entering into such an agreement, you can budget for the total cost of ownership as soon as you make an investment.
+                    </p>
+                    <p style="text-align:center;">
+                        MTSA provides innovative interactive & digital information systems supported by smart apps help you bridge your business gaps. 
  
 
-                            </p>
-                            </div>
-                            
-                        </div>
-                            <div class="clearfix"></div>
-                            </div>
+                    </p>
+
+                    <div class="clearfix"></div>                            
                     </div>
                 
             </div>
