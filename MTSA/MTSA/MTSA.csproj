@@ -165,6 +165,9 @@
     <Content Include="css\ie8.css" />
     <Content Include="css\ipad.css" />
     <Content Include="css\screen.css" />
+    <Content Include="css\YTPlayer.css" />
+    <Content Include="flash\ptv.mp4" />
+    <Content Include="flash\VStudioPolytouchVideoEn.swf" />
     <Content Include="fonts\adihrg-webfont-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -184,6 +187,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="home.aspx" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="images\banner-ads.svg" />
     <Content Include="images\Icons\icon-01.png" />
     <Content Include="images\Icons\icon-02.png" />
@@ -258,6 +262,16 @@
     <Content Include="images\crafted_7_middle.jpg" />
     <Content Include="images\keys.png" />
     <Content Include="images\pfeile_sprite.png" />
+    <Content Include="images\products\bg.jpg" />
+    <Content Include="images\products\logo_polytouch_976px.png" />
+    <Content Include="images\products\multitouchscreens\1.png" />
+    <Content Include="images\products\multitouchscreens\2_2.png" />
+    <Content Include="images\products\multitouchscreens\mig.png" />
+    <Content Include="images\products\poly_1st_page.png" />
+    <Content Include="images\products\PTV.jpg" />
+    <Content Include="images\products\ptv_1.jpg" />
+    <Content Include="images\products\rsz_ptv.jpg" />
+    <Content Include="images\products\simply.png" />
     <Content Include="images\projects\1.jpg" />
     <Content Include="images\projects\2.jpg" />
     <Content Include="images\projects\3.jpg" />
@@ -354,6 +368,17 @@
     <Content Include="fonts\adineue-bold-webfont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="css\ytp-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\ytp-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\ytp-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="flash\Polytouch.flv" />
+    <Content Include="flash\ptv.flv" />
     <None Include="Properties\PublishProfiles\mtsa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\apps\classie.js" />
@@ -376,6 +401,7 @@
     <Content Include="css\jquery.fullPage.css" />
     <Content Include="Scripts\jquery.easings.min.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\jquery.nicescroll.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\libs2.js" />

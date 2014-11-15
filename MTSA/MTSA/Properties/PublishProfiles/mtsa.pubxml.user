@@ -39,6 +39,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
       <publishTime>11/11/2014 18:56:43</publishTime>
     </File>
+    <File Include="bin/css/ytp-regular.eot">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
+    <File Include="bin/css/ytp-regular.ttf">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
+    <File Include="bin/css/ytp-regular.woff">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/11/2014 18:58:07</publishTime>
     </File>
@@ -172,7 +181,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>11/14/2014 13:22:36</publishTime>
+      <publishTime>11/15/2014 18:37:51</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -241,13 +250,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:36</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>11/14/2014 13:21:00</publishTime>
+      <publishTime>11/15/2014 18:35:05</publishTime>
+    </File>
+    <File Include="css/ytp-regular.eot">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
+    <File Include="css/ytp-regular.ttf">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
+    <File Include="css/ytp-regular.woff">
+      <publishTime>11/15/2014 12:46:47</publishTime>
+    </File>
+    <File Include="css/YTPlayer.css">
+      <publishTime>11/15/2014 13:32:14</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>11/11/2014 18:51:38</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/11/2014 18:44:49</publishTime>
+    </File>
+    <File Include="flash/ptv.flv">
+      <publishTime>11/14/2014 15:39:11</publishTime>
+    </File>
+    <File Include="flash/ptv.mp4">
+      <publishTime>11/14/2014 16:53:15</publishTime>
+    </File>
+    <File Include="flash/VStudioPolytouchVideoEn.swf">
+      <publishTime>11/15/2014 14:25:44</publishTime>
     </File>
     <File Include="fonts/adihrg-webfont-webfont.eot">
       <publishTime>11/11/2014 18:40:49</publishTime>
@@ -332,6 +362,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="home.aspx">
       <publishTime>11/11/2014 20:54:04</publishTime>
+    </File>
+    <File Include="HtmlPage1.html">
+      <publishTime>11/15/2014 12:28:17</publishTime>
     </File>
     <File Include="images/allcrafted_grain.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
@@ -555,6 +588,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/pfeile_sprite.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
     </File>
+    <File Include="images/products/bg.jpg">
+      <publishTime>11/14/2014 17:09:06</publishTime>
+    </File>
+    <File Include="images/products/logo_polytouch_976px.png">
+      <publishTime>11/14/2014 19:16:22</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/1.png">
+      <publishTime>11/15/2014 16:53:29</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/2_2.png">
+      <publishTime>11/15/2014 16:53:29</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/mig.png">
+      <publishTime>11/15/2014 17:42:23</publishTime>
+    </File>
+    <File Include="images/products/poly_1st_page.png">
+      <publishTime>11/14/2014 19:07:02</publishTime>
+    </File>
+    <File Include="images/products/PTV.jpg">
+      <publishTime>11/14/2014 14:21:41</publishTime>
+    </File>
+    <File Include="images/products/ptv_1.jpg">
+      <publishTime>11/14/2014 15:11:45</publishTime>
+    </File>
+    <File Include="images/products/rsz_ptv.jpg">
+      <publishTime>11/14/2014 15:09:10</publishTime>
+    </File>
+    <File Include="images/products/simply.png">
+      <publishTime>11/14/2014 19:17:24</publishTime>
+    </File>
     <File Include="images/projects/1.jpg">
       <publishTime>11/11/2014 18:51:02</publishTime>
     </File>
@@ -655,7 +718,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:23</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>11/14/2014 13:18:09</publishTime>
+      <publishTime>11/15/2014 18:37:37</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -726,6 +789,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery.fullPage.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
     </File>
+    <File Include="Scripts/jquery.mb.YTPlayer.js">
+      <publishTime>11/15/2014 18:18:48</publishTime>
+    </File>
     <File Include="Scripts/jquery.nicescroll.min.js">
       <publishTime>11/13/2014 15:30:08</publishTime>
     </File>
@@ -736,7 +802,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/10/2014 18:14:30</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/15/2014 18:27:40</publishTime>
     </File>
     <File Include="Scripts/masonry.pkgd.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
@@ -817,7 +883,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:25</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>11/13/2014 15:07:03</publishTime>
+      <publishTime>11/15/2014 12:45:24</publishTime>
     </File>
     <File Include="Site.Master">
       <publishTime>11/11/2014 18:44:49</publishTime>

@@ -13,6 +13,7 @@
     <link href="../css/component.css" rel="stylesheet" />
     <link href="../css/apps/elastic_grid.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+    <link href="../css/YTPlayer.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <!--[if lt IE 9]>
@@ -36,405 +37,8 @@
     <script src="../Scripts/apps/jquery.elastislide.js"></script>
     <script src="../Scripts/apps/jquery.hoverdir.js"></script>
     <script src="../Scripts/apps/elastic_grid.js"></script>	
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#superContainer').fullpage({
-                navigation: false,                
-                scrollOverflow: true,
-                slidesNavigation: false,
-                normalScrollElements: '#WTU',
-                afterLoad: function (anchorLink, index) {
-                    if ($('#nextsection_' + index).length) {
-                        $('#nextTopic span').html($('#nextsection_' + index).html());
-                        $('#nextTopic').css('display', 'block');
-                    }
-                    else
-                        $('#nextTopic').css('display', 'none');
-                },
-                afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
-                    if (slideIndex > 0) {
-                        $.fn.fullpage.setAllowScrolling(false);
-                        $.fn.fullpage.setKeyboardScrolling(false);
-                        $('#nextTopic').css('display', 'none');
-                        // projects
-                        if (index == 1 && slideIndex != 2)
-                        {
-                            var contentWrap = $("#content-wrap");
-                            var catPages = $(".cat-pages");
-                            var ascroll = $('a.page-scroll');
-                            catPages.removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
-                            contentWrap.removeClass("content-wrap-left").removeClass("content-wrap-right").removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
-                            catPages.removeClass('cat-pages-active');
-                            ascroll.removeClass('nav-current');
-                            setTimeout(function () {
-                                catPages.css("display", "none");
-                            }, 1000);
-                        }
-                    }
-                    else {
-                        $.fn.fullpage.setAllowScrolling(true);
-                        $.fn.fullpage.setKeyboardScrolling(true);
-                        $('#nextTopic').css('display', 'block');
-                    }
-
-                    $('.section .animleft').removeClass('active');
-                    $('.section .animright').removeClass('active');
-                    $('.section .active .animleft').addClass('active');
-                    $('.section .active .animright').addClass('active');
-                }
-            });
-
-            $('.BackToHome').click(function (e) {
-                e.preventDefault();
-                $.fn.fullpage.setAllowScrolling(true);
-                $.fn.fullpage.setKeyboardScrolling(true);
-                $.fn.fullpage.moveSlideLeft();
-            });
-
-            $('.MoveRight').click(function (e) {
-                e.preventDefault();
-                $.fn.fullpage.setAllowScrolling(false);
-                $.fn.fullpage.setKeyboardScrolling(false);
-                $.fn.fullpage.moveSlideRight();
-            });
-
-            $('#nextTopic').click(function (e) {
-                e.preventDefault();
-                $.fn.fullpage.moveSectionDown();
-            });
-
-
-            $('.appicon').each(function () {
-                var $this = $(this);
-                var popoverContent = $this.find('.appcontent');
-                $this.popover({
-                    trigger: 'hover',
-                    html: true,
-                    content: popoverContent
-                });
-            });
-
-           // new CBPGridGallery(document.getElementById('grid-gallery'));
-
-            $('#nextTopic span').html($('#nextsection_1').html());
-
-
-            
-
-            $("#appholder").elastic_grid({
-                'items':
-                [
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Advertisement',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Outdoor advertising signage</li><li> Kiosk systems advertising module</li></ul>',
-                        'thumbnail': ['../images/Icons/png/1.png'],
-                        'large': ['../images/Icons/png/large/1.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'view details',
-                        'MainTitle': 'Airports',
-                        'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
-                        'thumbnail': ['../images/Icons/png/2.png'],
-                        'large': ['../images/Icons/png/large/2.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Public transportation',
-                        'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
-                        'thumbnail': ['../images/Icons/png/3.png'],
-                        'large': ['../images/Icons/png/large/3.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Banks',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Attendance fingerprint </li><li>Branches queuing management</li><li>Customers self-service</li><li>Management systems</li></ul>',
-                        'thumbnail': ['../images/Icons/png/4.png'],
-                        'large': ['../images/Icons/png/large/4.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Hotels',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Self-Service Check-In & Out </li><li>Wayfinding</li><li>Kitchen & room service operation systems management</li></ul>',
-                        'thumbnail': ['../images/Icons/png/5.png'],
-                        'large': ['../images/Icons/png/large/5.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Hospitals',
-                        'description': '<ul class="applist"><li>Wayfinding</li><li>Indoor advertising signage</li> <li>Patients service systems</li><li>Hospital management systems</li><li>Employees Self-Service</li></ul>',
-                        'thumbnail': ['../images/Icons/png/6.png'],
-                        'large': ['../images/Icons/png/large/6.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Hospitality',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Menu display</li><li> Employees self-service</li><li>Self-Service Sales</li></ul>',
-                        'thumbnail': ['../images/Icons/png/7.png'],
-                        'large': ['../images/Icons/png/large/7.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Business',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Employees self-service</li><li>Attendance fingerprint </li><li>Queuing  management</li><li>Customers self-service</li><li>POS</li><li>Consulting & Planning</li><li>Tradeshows</li></ul>',
-                        'thumbnail': ['../images/Icons/png/8.png'],
-                        'large': ['../images/Icons/png/large/8.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Public buildings & Real Estate',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>Real Estate marketing</li><li>Wayfinding</li><li>Real Estate management systems</li><li>POS</li><li>Information systems</li></ul>',
-                        'thumbnail': ['../images/Icons/png/9.png'],
-                        'large': ['../images/Icons/png/large/9.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Shopping',
-                        'description': '<ul class="applist"><li>Indoor advertising signage</li> <li>POS</li><li> Virtual fitting room</li><li>Products catalogue & information</li><li>Products Wayfinding</li><li>Employees Self-Service</li></ul>',
-                        'thumbnail': ['../images/Icons/png/10.png'],
-                        'large': ['../images/Icons/png/large/10.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Industries',
-                        'description': '<ul class="applist"><li>Production management</li> <li>Showroom products display</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
-                        'thumbnail': ['../images/Icons/png/11.png'],
-                        'large': ['../images/Icons/png/large/11.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Education',
-                        'description': '<ul class="applist"><li>Wayfinding for universities</li> <li>Students information</li><li>Student Self-Service</li><li>Educational materials display</li><li>Indoor advertising signage</li><li>Fingerprint staff attendance control</li><li>Consulting & Planning</li><li>Employees Self-Service</li><li>Queuing management</li><li>Tradeshows & Exhibitions</li></ul>',
-                        'thumbnail': ['../images/Icons/png/12.png'],
-                        'large': ['../images/Icons/png/large/12.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Stadiums',
-                        'description': '<ul class="applist"><li>Stadiums tickets dispensing</li> <li>Stadiums tickets barcode scanning</li><li> Indoor & Outdoor advertising signage</li><li>POS</li><li>Information systems</li><li>Employees Self-Service</li></ul>',
-                        'thumbnail': ['../images/Icons/png/13.png'],
-                        'large': ['../images/Icons/png/large/13.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Information points',
-                        'description': '<ul class="applist"><li>Wayfinding </li> <li>Public information systems</li><li> Public advertising</li><li>Indoor advertising</li></ul>',
-                        'thumbnail': ['../images/Icons/png/14.png'],
-                        'large': ['../images/Icons/png/large/14.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Government services',
-                        'description': '<ul class="applist"><li>Public information</li> <li>Public Self-Service</li><li>Employees Self-Service</li><li>Tradeshows</li></ul>',
-                        'thumbnail': ['../images/Icons/png/15.png'],
-                        'large': ['../images/Icons/png/large/15.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    },
-                    {
-                        'title': 'View details',
-                        'MainTitle': 'Hajj',
-                        'description': '<ul class="applist"><li>Wayfinding for pilgrims & Visitors</li> <li>Information systems</li><li> Trains & Buses schedules</li><li>Tickets dispensing </li><li>Outdoor Advertising</li><li>Lost & Found Info</li><li>Employees Self-Service</li><li>POS</li><li>Internet communications</li><li>Security communications</li></ul>',
-                        'thumbnail': ['../images/Icons/png/16.png'],
-                        'large': ['../images/Icons/png/large/16.png'],
-                        'button_list': [],
-                        'tags': []
-
-                    }
-
-
-
-                ]
-
-            });
-
-            $("#content-wrap, .cat-pages").niceScroll({
-                cursorcolor: "#d7d7d7",
-                cursorwidth: "6px",
-                cursorborder: "none",
-                cursorborderradius: "8px",
-                horizrailenabled: false,
-                autohidemode: false
-            });
-
-
-            // NAVIGATION
-            $(function () {
-
-                "use strict";
-
-                $('a.page-scroll').bind('click', function (event) {
-
-                    var contentWrap = $("#content-wrap");
-                    var catPages = $(".cat-pages");
-                    var sectionId = $(this).attr('href');
-                    var rmenu = $('#responsive-menu');
-                    var ascroll = $('a.page-scroll');
-
-                    $("#content-wrap, .cat-pages").getNiceScroll().hide(0);
-                    ascroll.removeClass('nav-current');
-                    $(this).addClass('nav-current');
-                    rmenu.addClass('responsive-menu');
-                    clearTimeout(prr1); clearTimeout(prr2); clearTimeout(prr3); clearTimeout(prl1); clearTimeout(prl2); clearTimeout(prl3); clearTimeout(prn1); clearTimeout(prn2);
-                    clearTimeout(pll1); clearTimeout(pll2); clearTimeout(pll2); clearTimeout(plr1); clearTimeout(plr2); clearTimeout(plr3); clearTimeout(pln1); clearTimeout(pln2);
-
-                    setTimeout(function () {
-                        rmenu.css("opacity", "1");
-                    }, 100);
-
-                    if (!$(sectionId).hasClass('cat-pages-active')) {
-                        catPages.removeClass('cat-pages-active');
-                        $(sectionId).addClass('cat-pages-active');
-
-                        if ($(this).hasClass("page-right")) {
-
-                            if (contentWrap.hasClass("content-wrap-right")) {
-
-                                catPages.css("z-index", "2").removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
-                                var prr1 = setTimeout(function () {
-                                    catPages.css("display", "none");
-                                    $(sectionId).css({ "display": "block", "z-index": "3" });
-                                    catPages.removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-25');
-                                }, 300);
-                                var prr2 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
-                                }, 350);
-                                var prr3 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
-                                }, 1300);
-
-                            } else if (contentWrap.hasClass("content-wrap-left")) {
-                                catPages.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
-                                var prl1 = setTimeout(function () {
-                                    catPages.css("display", "none");
-                                    $(sectionId).css("display", "block");
-                                }, 1000);
-                                var prl2 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-50');
-                                }, 1050);
-                                var prl3 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(2100).getNiceScroll().show(0).resize();
-                                }, 2000);
-                            }
-
-                            else {
-
-                                $(sectionId).css("display", "block");
-                                var prn1 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50').addClass('cat-pages-responsive-0');
-                                }, 1);
-                                var prn2 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
-                                }, 1300);
-                            }
-
-                            contentWrap.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0').removeClass("content-wrap-right").addClass("content-wrap-left");
-
-                        } else {
-
-                            if (contentWrap.hasClass("content-wrap-left")) {
-
-                                catPages.removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
-                                var pll1 = setTimeout(function () {
-                                    catPages.css("display", "none");
-                                    $(sectionId).css("display", "block");
-                                    catPages.removeClass('cat-left-50').removeClass('cat-left-0').addClass('cat-left-25');
-                                }, 300);
-                                var pll2 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
-                                }, 350);
-                                var pll3 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
-                                }, 1300);
-
-                            } else if (contentWrap.hasClass("content-wrap-right")) {
-                                catPages.removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50');
-                                var plr1 = setTimeout(function () {
-                                    catPages.css("display", "none");
-                                    $(sectionId).css("display", "block");
-                                }, 1000);
-                                var plr2 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0');
-                                }, 1050);
-                                var plr3 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(2100).getNiceScroll().show(0).resize();
-                                }, 2000);
-                            }
-
-                            else {
-
-                                $(sectionId).css("display", "block");
-                                var pln1 = setTimeout(function () {
-                                    $(sectionId).removeClass('cat-left-50').removeClass('cat-left-25').addClass('cat-left-0').addClass('cat-pages-responsive-0');
-                                }, 1);
-                                var pln2 = setTimeout(function () {
-                                    $("#content-wrap, .cat-pages").delay(1300).getNiceScroll().show(0).resize();
-                                }, 1300);
-                            }
-
-                            contentWrap.removeClass('cat-left-0').removeClass('cat-left-25').addClass('cat-left-50').removeClass("content-wrap-left").addClass("content-wrap-right");
-                        }
-                    } else {
-                        catPages.removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
-                        contentWrap.removeClass("content-wrap-left").removeClass("content-wrap-right").removeClass('cat-left-0').removeClass('cat-left-50').addClass('cat-left-25');
-                        catPages.removeClass('cat-pages-active');
-                        ascroll.removeClass('nav-current');
-                        setTimeout(function () {
-                            catPages.css("display", "none");
-                        }, 1000);
-                    }
-
-                    return false;
-                });
-            });
-
-            
-        });
-	</script>
+    <script src="../Scripts/jquery.mb.YTPlayer.js"></script>
+    <script src="../Scripts/main.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -626,11 +230,11 @@
                                             <div style="clear:both;height:5px;"></div>
                                             <span class="label label-default">Product’s type </span>
                                             <div style="clear:both;height:2px;"></div>
-                                            ISIS & MITRA.
+                                            ISIS.
                                             <div style="clear:both;height:5px;"></div>
                                             <span class="label label-default">Application</span>
                                             <div style="clear:both;height:2px;"></div>
-                                            Info systems & Patients services.
+                                            Public services & Information.
                                        </div>
                                    </div>
                            </div>
@@ -853,12 +457,87 @@
             </div>
 	    </div>
         <div class="section " id="Products">
-            <span id="nextsection_2" class="NextSection">Applications Development</span>
-            <p style="text-align:center;">This section For Products</p>
+            <span id="nextsection_2" class="NextSection">Digital signage</span>
+            <div class="slide" id="polytouchSplash">
+                <div class="anyPage innerslide" style="position:relative;padding:10px 0px;">
+                <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+                <div id="polytouchvideoOverLayer">
+                    <div class="hi-icon-effect-1 hi-icon-effect-1a" id="playVideo">
+                        <a href="#" class="hi-icon fa fa-play-circle" ></a>
+                    </div>
+                    
+                    
+                </div>
+
+                <div id="polytouchVideo">
+			       <div style="clear:both;height:1px;"></div>
+		        </div>
+
+                    <div class="footer-polytouch">
+                        <div class="footerLeft">
+                            <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;"/><br />
+                            <img src="../images/products/simply.png" style="max-width:70%;"/>
+                        </div>
+                        <div class="footerRight">
+                            Click <a href="../flash/VStudioPolytouchVideoEn.swf" style="color:#05088e;font-weight:bold;">here</a> to download flash video <br />
+                            if you can’t stream the video
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" id="polytouchslide2">
+                 <div class="anyPage innerslide" style="padding-top:70px;">
+
+                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div> 
+                     
+                     <div class="col-lg-10 col-md-10 col-sm-10">
+                         <div class="col-lg-4 col-sm-4 col-md-4" style="padding: 0;">
+                             <img src="../images/products/logo_polytouch_976px.png" style="max-width: 70%;" />
+                         </div>
+                         <div class="col-lg-8 col-sm-8 col-md-8" style="padding: 0; text-align: center;">
+                             <img src="../images/products/multitouchscreens/mig.png" style="position: absolute; top: 0; left: 15%; max-width: 18%" />
+                             <img src="../images/products/multitouchscreens/1.png" />
+                         </div>
+                         <div style="clear:both; height:5px;"></div>
+                         <div class="col-lg-12 col-md-12 col-sm-12">
+                             <label style="text-transform:capitalize;">Multitouchscreens</label>
+                             <p>
+                                Polytouch is an expandable, all-in-one multi-touch system using projected capacitive technology (PCT). PCT is absolutely <strong> insensitive </strong>to daylight and infrared radiation. Polytouch® QMS (patent pending) guarantees the future of your Polytouch® system. Polytouch® extension modules can be easily exchanged to expand the functionality of your system or adapt it to new requirements. <br />
+                                With Polytouch® QMS you are already at par with future standards and processes, e.g., cashless transactions.<br />
+                                Polytouch is suitable for a variety of industries and applications. Due to the compact design with built-in computer hardware you may use Polytouch instantly wherever you find a power socket. The small installation depth and the flat surface are ideal for integration at the point of sale.<strong>Whatever your business is - it will be smarter with Polytouch.</strong> 
+                             </p>
+                             <div style="clear:both; height:5px;"></div>
+                             <div class="col-lg-6 col-md-6 col-sm-6" style="padding: 0;">
+                                 <label style="text-transform:capitalize;">Applications</label>
+                             <p>
+                                 If you have developed your own POS or any other application, or you are an apps developer, Polytouch with no limits is the multi touchscreen you want to use. 
+                             </p>
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-6" style="padding: 0;">
+                                 <label style="text-transform:capitalize;">QMS - Quick Mounting System - Modular POS functionality </label>
+                             <p>
+                                 Polytouch POS systems offer the patent pending Quick Mounting System (QMS). With QMS it's easy to change or upgrade the configuration of the Polytouch systems. QMS extension modules like POS thermal printers, Chip & PIN payment, camera, RFID and NFC are available. Only QMS ensures that your systems will comply with future standards.
+                             </p>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-2 col-md-2 col-sm-2">
+                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;text-align:center;">                         
+                             <video loop id="multitouchflashvideo" style="max-width:100%;border:1px solid #ccc;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
+                             </video>                             <div style="clear:both; height:30px;"></div>
+                             <img src="../images/products/multitouchscreens/2_2.png" style="max-width:100%" />
+                        </div>  
+                     </div>
+                                         
+                    
+                                           
+                     </div>
+                </div>
         </div>
         <div class="section " id="AppDev">
 
-            <p style="text-align:center;">This section for App-Development</p>
+            <p style="text-align:center;">This section for Digital signage </p>
         </div>
     </div>
 
