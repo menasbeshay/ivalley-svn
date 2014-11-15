@@ -4060,3 +4060,15 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     font-size:108%;
     
 }
+
+.imgzoom:after {
+    content:'';
+    display:block;
+    width:33px;
+    height:33px;
+    position:absolute;
+    top:0;
+    right:0;
+    background:url(../images/zoom.png);
+
+}
