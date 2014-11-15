@@ -402,6 +402,8 @@
     <Content Include="Scripts\jquery.easings.min.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
     <Content Include="Scripts\jquery.mb.YTPlayer.js" />
+    <Content Include="Scripts\jquery.mb.YTPlayer.min.js" />
+    <Content Include="Scripts\jquery.mb.YTPlayer_272.js" />
     <Content Include="Scripts\jquery.nicescroll.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\libs2.js" />

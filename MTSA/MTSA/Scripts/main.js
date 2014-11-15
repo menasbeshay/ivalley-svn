@@ -4,6 +4,7 @@
         navigation: false,
         scrollOverflow: true,
         slidesNavigation: false,
+        resize: false,
         normalScrollElements: '#WTU',
         afterLoad: function (anchorLink, index) {
             if ($('#nextsection_' + index).length) {
@@ -101,7 +102,7 @@
         });
     });
 
-    $("#polytouchVideo").mb_YTPlayer({ videoURL: 'QXfxHrnLBK8', containment: '#polytouchVideo', loop: false, autoPlay: false });
+    $("#polytouchVideo").mb_YTPlayer({ videoURL: 'QXfxHrnLBK8', containment: '#polytouchVideo', loop: false, autoplay: false });
 
     $('#playVideo').click(function () {
         $('#polytouchVideo').fadeIn("slow");
@@ -428,6 +429,17 @@
             return false;
         });
     });
+
+
+    // zoom images
+    $('img.zoom').each(function () {
+        $(this)
+        .wrap('<span style="display:inline-block" class="imgzoom"></span>')
+        .css('display', 'block')
+        .parent()
+        .zoom();       
+    });
+
 
 
 });
