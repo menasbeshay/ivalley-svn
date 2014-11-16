@@ -434,7 +434,7 @@
     // zoom images
     $('img.zoom').each(function () {
         $(this)
-        .wrap('<span style="display:inline-block" class="imgzoom"></span>')
+        .wrap('<span style="display:block" class="imgzoom"></span>')
         .css('display', 'block')
         .parent()
         .zoom();       
