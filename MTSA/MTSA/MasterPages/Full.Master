@@ -472,7 +472,7 @@
 
                 <div id="polytouchVideo">
 			       <div style="clear:both;height:1px;"></div>
-                    <div class="stopback"><div class="circle"> <i class="fa fa-stop" style="font-size:1.5em"></i></div> <br />Stop & back <br />to navigation</div>
+                    <div class="stopback"><div class="circle"> <i class="fa fa-stop"></i></div> <br />Stop & back <br />to navigation</div>
 		        </div>
 
                     <div class="footer-polytouch">
@@ -481,7 +481,7 @@
                             <img src="../images/products/simply.png" style="max-width:70%;"/>
                         </div>
                         <div class="footerRight">
-                            Click <a href="../flash/VStudioPolytouchVideoEn.swf" style="color:#05088e;font-weight:bold;">here</a> to download flash video <br />
+                            Click <a href="../flash/VStudioPolytouchVideoEn.swf" style="color:#05088e;font-weight:bold;" download target="_blank">here</a> to download flash video <br />
                             if you can’t stream the video
 
                         </div>

@@ -115,6 +115,14 @@
         $('#polytouchvideoOverLayer').fadeIn("slow");
     });
 
+    $('.stopback').click(function () {
+        $('#polytouchVideo').fadeOut("slow");
+        $('#polytouchvideoOverLayer').fadeIn("slow");
+        try {
+            $('#polytouchVideo').stopYTP();
+        } catch (err) { }
+    });
+
 
     $('#nextTopic span').html($('#nextsection_1').html());
 
@@ -145,7 +153,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'Public transportation',
-                'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Flights schedule information</li><li>Self Check-In </li></ul>',
+                'description': '<ul class="applist"><li>Wayfinding</li> <li>indoor advertising signage</li><li>POS</li><li>Trips schedule information</li><li>Self Check-In </li></ul>',
                 'thumbnail': ['../images/Icons/png/3.png'],
                 'large': ['../images/Icons/png/large/3.png'],
                 'button_list': [],
