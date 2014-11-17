@@ -115,9 +115,9 @@
                 <div class="anyPage innerslide" style="padding:0px !important;padding-bottom:40px;position:relative;">
                 <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                 <div class="cycle-slideshow"  data-cycle-auto-height="true" data-cycle-caption="#alt-caption" data-cycle-caption-template="{{alt}}">
-                         <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="3000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>Touchscreens, Interactive Kiosk Systems <br />& Digital Signage </span>"/>
+                         <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="4000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>Touchscreens, Interactive Kiosk Systems <br />& Digital Signage </span>"/>
                          <img src="../images/slides/Slide-2.jpg" data-cycle-timeout="2000" alt=""/>
-                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="2000" alt="<span class='blueblack'>Bridge your business gaps <br />With smart Apps</span>"/>
+                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="3000" alt="<span class='blueblack'>Bridge your business gaps <br />With smart Apps</span>"/>
                          <img src="../images/slides/Slide-4.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-5.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-6.jpg" data-cycle-timeout="2000" alt=""/>
@@ -133,7 +133,7 @@
                     </div>
             </div>
             <div class="slide" id="WTU">
-               <div class="anyPage innerslide">
+               <div class="anyPage innerslide" style="position:relative;">
                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    
@@ -147,7 +147,7 @@
                       
                    </div>
 
-                   <div style="height:180px;width:100%;">&nbsp;</div>
+                   <div style="height:100px;width:100%;">&nbsp;</div>
                    
                </div>
             </div>
@@ -467,7 +467,17 @@
                         <a href="#" class="hi-icon fa fa-play-circle" ></a>
                     </div>
                     
-                    
+                    <div class="footer-polytouch">
+                        <div class="footerLeft">
+                            <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;"/><br />
+                            <img src="../images/products/simply.png" style="max-width:70%;"/>
+                        </div>
+                        <div class="footerRight">
+                            Click <a href="https://www.dropbox.com/s/3araruu98seemmy/V-Studio%20Polytouch%20Video%20English.swf?dl=1" style="color:#05088e;font-weight:bold;" target="_blank">here</a> to download flash video <br />
+                            if you can’t stream the video
+
+                        </div>
+                    </div>
                 </div>
 
                 <div id="polytouchVideo">
@@ -475,17 +485,7 @@
                     <div class="stopback"><div class="circle"> <i class="fa fa-stop"></i></div> <br />Stop & back <br />to navigation</div>
 		        </div>
 
-                    <div class="footer-polytouch">
-                        <div class="footerLeft">
-                            <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;"/><br />
-                            <img src="../images/products/simply.png" style="max-width:70%;"/>
-                        </div>
-                        <div class="footerRight">
-                            Click <a href="../flash/VStudioPolytouchVideoEn.swf" style="color:#05088e;font-weight:bold;" download target="_blank">here</a> to download flash video <br />
-                            if you can’t stream the video
-
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="slide" id="polytouchslide2">

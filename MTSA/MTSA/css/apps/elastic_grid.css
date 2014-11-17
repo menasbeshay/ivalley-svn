@@ -65,7 +65,7 @@
 }
 
 .og-grid li > a img {
-    max-width:75%;
+    max-width:65%;
      opacity:0.2;
     transition:opacity 0.8s ease-in-out 0s;
     }
@@ -126,6 +126,13 @@
 	height: 0;
 	overflow: hidden;
 }
+
+.og-expander::after {
+    display:inline-block;
+    width:100%;
+    clear:both;
+    height:1px;
+    }
 
 .og-expander-inner {
 	padding: 30px 30px;
