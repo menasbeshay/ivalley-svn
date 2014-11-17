@@ -62,10 +62,11 @@
     text-align:center;    
     vertical-align:middle;
     max-height:100%;
+    max-width:100%;
 }
 
 .og-grid li > a img {
-    max-width:70%;
+    max-width:70% !important;
      opacity:0.2;
     transition:opacity 0.8s ease-in-out 0s;
     }

@@ -384,8 +384,8 @@ function onYouTubePlayerAPIReady() {
 												YTPlayer.canTrigger = true;
 												if (YTPlayer.opt.autoPlay){
 
-												    //$YTPlayer.playYTP();
-												    YTPlayer.player.pauseVideo();
+												    $YTPlayer.playYTP();
+												    //YTPlayer.player.pauseVideo();
 													$YTPlayer.css("background-image", "none");
 													YTPlayer.wrapper.CSSAnimate({opacity: YTPlayer.isAlone ? 1 : YTPlayer.opt.opacity}, 2000);
 
@@ -395,8 +395,8 @@ function onYouTubePlayerAPIReady() {
 											},100)
 
 										} else {
-										    YTPlayer.player.pauseVideo();
-											//YTPlayer.player.playVideo();
+										    //YTPlayer.player.pauseVideo();
+											YTPlayer.player.playVideo();
 											YTPlayer.player.seekTo(startAt, true);
 										}
 									}, jQuery.browser.chrome ? 1000 : 1);
