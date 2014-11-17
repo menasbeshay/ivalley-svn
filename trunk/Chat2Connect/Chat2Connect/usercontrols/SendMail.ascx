@@ -45,7 +45,7 @@
         <div class="col-sm-8 pull-right">
 
             <div id="toolbar">
-                <div class="btn-group" data-toggle="buttons">
+                <%--<div class="btn-group" data-toggle="buttons">
 
                     <button class="btn btn-default" data-wysihtml5-command='bold' title='CTRL+B'><span class="icon-bold"></span></button>
 
@@ -191,7 +191,7 @@
                     <div style="background-color: #FFFFFF;" class="colorDiv"></div>
                 </a></li>
             </ul>
-                </div>
+                </div>--%>
 
 
                 <div class="btn-group">
