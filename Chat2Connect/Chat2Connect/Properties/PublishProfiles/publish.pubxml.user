@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/12/2014 14:38:09</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>11/12/2014 14:38:09</publishTime>
+      <publishTime>11/13/2014 15:56:32</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -643,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2014 15:49:39</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>11/12/2014 14:59:42</publishTime>
+      <publishTime>11/13/2014 14:18:22</publishTime>
     </File>
     <File Include="Home1.aspx">
       <publishTime>11/09/2014 13:26:10</publishTime>
@@ -2002,7 +2002,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>11/12/2014 16:08:27</publishTime>
+      <publishTime>11/13/2014 14:02:21</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2116,13 +2116,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>11/12/2014 12:33:49</publishTime>
+      <publishTime>11/17/2014 11:09:41</publishTime>
     </File>
     <File Include="js/popups.js">
-      <publishTime>10/21/2014 15:19:57</publishTime>
+      <publishTime>11/13/2014 14:12:03</publishTime>
     </File>
     <File Include="js/popup_main.js">
-      <publishTime>11/12/2014 14:33:52</publishTime>
+      <publishTime>11/17/2014 11:16:08</publishTime>
     </File>
     <File Include="js/purl.js">
       <publishTime>10/16/2014 11:26:15</publishTime>
@@ -2383,7 +2383,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/02/2014 12:35:27</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>10/30/2014 12:44:52</publishTime>
+      <publishTime>11/17/2014 10:26:02</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>11/05/2014 21:50:29</publishTime>
@@ -2404,7 +2404,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/12/2014 14:53:48</publishTime>
+      <publishTime>11/13/2014 15:56:35</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>11/02/2014 12:35:29</publishTime>

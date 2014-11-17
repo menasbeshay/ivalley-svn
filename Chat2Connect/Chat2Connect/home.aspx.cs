@@ -35,7 +35,7 @@ namespace Chat2Connect
                     uiHiddenFieldProfilePic.Value = member.s_ProfilePic;
                     int membertype = 0;
                     membertype = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID;
-                    uiHiddenFieldMemberType.Value = membertype;
+                    uiHiddenFieldMemberType.Value = membertype.ToString();
                     uiHiddenFieldMaxCams.Value = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.OpenedCamCount.ToString();
                     uiHiddenFieldMaxNoOfRooms.Value = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.OpenRoomCount.ToString();
 
