@@ -3798,21 +3798,21 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 
 .ch-img-1 { 
-	background-image: url(../images/tech/icon-02_2.png);
+	background-image: url(../images/tech/icon-02_2_256.png);
     background-size:45%;
     background-repeat:no-repeat;
-    background-color:#ccc;
+    background-color:#ccc; 
 }
 
 .ch-img-2 { 
-	background-image: url(../images/tech/icon-01_2.png);
+	background-image: url(../images/tech/icon-01_2_256.png);
     background-size:45%;
     background-repeat:no-repeat;
     background-color:#ccc;
 }
 
 .ch-img-3 { 
-	background-image: url(../images/tech/phone2.png);
+	background-image: url(../images/tech/phone2_256.png);
     background-size:45%;
     background-repeat:no-repeat;
     background-color:#ccc;
@@ -3833,14 +3833,14 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 
 .ch-img-6 { 
-	background-image: url(../images/tech/assitance2.png);
+	background-image: url(../images/tech/assitance2_256.png);
     background-size:50%;
     background-repeat:no-repeat;
     background-color:#ccc;
 }
 
 .ch-img-7 { 
-	background-image: url(../images/tech/operator.png);
+	background-image: url(../images/tech/operator_256.png);
     background-size:45%;
     background-repeat:no-repeat;
     background-color:#ccc;
@@ -3854,7 +3854,7 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 
 .ch-img-9 { 
-	background-image: url(../images/tech/solutions.png);
+	background-image: url(../images/tech/solutions_256.png);
     background-size:40%;
     background-repeat:no-repeat;
     background-color:#ccc;
