@@ -86,7 +86,7 @@ namespace Chat2Connect.SRCustomHubs
                 {
                     if (room.CreatedBy == roomMember.MemberID)
                         roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
-                    
+
                 }
 
                 roomMember.Save();
@@ -281,7 +281,7 @@ namespace Chat2Connect.SRCustomHubs
                 FromProfileImg = profileImg,
                 MemberTypeID = MemberTypeID
             };
-            if(uniqueID.Contains("Room"))
+            if (uniqueID.Contains("Room"))
                 Clients.Group(roomid.ToString()).getMessage(roomid, resultMsg, uniqueID);
             else if (uniqueID.Contains("Private"))
             {
@@ -334,7 +334,7 @@ namespace Chat2Connect.SRCustomHubs
                     Message = message,
                     MessageDate = DateTime.Now,
                     FromProfileImg = profileImg,
-                    FromTypeSpecID = fromUser.MemberTypeSpecID
+                    MemberTypeID = fromUser.MemberTypeSpecID
                 };
                 // send to 
                 Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, resultMsg);
