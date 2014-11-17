@@ -673,7 +673,7 @@ $(function() {
                     // set the height for the preview and the item
                     this.setHeights();
                     // scroll to position the preview in the right place
-                   // this.positionPreview();
+                    this.positionPreview();
                 }, this ), 25 );
 
             },

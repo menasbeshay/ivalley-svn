@@ -4,8 +4,7 @@
         navigation: false,
         scrollOverflow: true,
         slidesNavigation: false,
-        resize: false,
-        normalScrollElements: '#WTU',
+        resize: false,        
         afterLoad: function (anchorLink, index) {
             if ($('#nextsection_' + index).length) {
                 $('#nextTopic span').html($('#nextsection_' + index).html());
@@ -102,7 +101,8 @@
         });
     });
 
-    $("#polytouchVideo").mb_YTPlayer({ videoURL: 'QXfxHrnLBK8', containment: '#polytouchVideo', loop: false, autoplay: false });
+    $("#polytouchVideo").mb_YTPlayer({ videoURL: 'QXfxHrnLBK8', containment: '#polytouchVideo', loop: false, autoPlay: false });
+    
 
     $('#playVideo').click(function () {
         $('#polytouchVideo').fadeIn("slow");
