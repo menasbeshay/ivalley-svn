@@ -4,7 +4,8 @@
         navigation: false,
         scrollOverflow: true,
         slidesNavigation: false,
-        resize: false,        
+        resize: false,
+        verticalCentered: false,
         afterLoad: function (anchorLink, index) {
             if ($('#nextsection_' + index).length) {
                 $('#nextTopic span').html($('#nextsection_' + index).html());

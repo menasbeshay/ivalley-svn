@@ -4096,3 +4096,15 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     background:url(../images/zoom.png);
 
 }
+
+.fixwtu {
+    height:100px;
+    width:100%;
+}
+
+@media screen and (max-height: 900px) {
+   .fixwtu {
+    height:240px;
+    width:100%;
+}
+}
