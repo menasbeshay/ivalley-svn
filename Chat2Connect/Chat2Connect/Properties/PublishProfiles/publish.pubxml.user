@@ -115,7 +115,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/02/2014 12:35:27</publishTime>
     </File>
     <File Include="App_GlobalResources/Global.resx">
-      <publishTime>09/11/2014 12:24:53</publishTime>
+      <publishTime>11/18/2014 16:06:46</publishTime>
     </File>
     <File Include="App_LocalResources/activate.aspx.resx">
       <publishTime>09/11/2014 12:24:43</publishTime>
@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/12/2014 14:38:09</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>11/13/2014 15:56:32</publishTime>
+      <publishTime>11/18/2014 16:07:15</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
