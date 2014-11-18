@@ -124,7 +124,7 @@
     <value>f21301fa33d15a854f9a5010ae51b7a01fa20c094c2ef377</value>
   </data>
   <data name="Mail" xml:space="preserve">
-    <value>noreply@chat2connect.com</value>
+    <value>chat2connect@i-valley.com</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>123456</value>
@@ -176,6 +176,6 @@
     <value>دردشة تواصل - تغيير كلمة المرور الخاصة بك</value>
   </data>
   <data name="server" xml:space="preserve">
-    <value>mail.chat2connect.com</value>
+    <value>mail.i-valley.com</value>
   </data>
 </root>

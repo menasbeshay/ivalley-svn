@@ -104,7 +104,7 @@ namespace Chat2Connect
                 }
             }
 
-            if (totalPoint < BLL.Member.CurrentMember.Credit_Point)
+            if (totalPoint < BLL.Member.CurrentMember.Credit_Point || totalPoint == 0)
             {
                 MyGeneration.dOOdads.TransactionMgr tx = MyGeneration.dOOdads.TransactionMgr.ThreadTransactionMgr();
                 try
