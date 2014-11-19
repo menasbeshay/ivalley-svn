@@ -93,14 +93,21 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             return win.Type() == "Room";
         });
     }, self);
-    self.getWindow = function (id, type, name, typeSpec, iscreator,friendPic) {
+    self.getWindow = function (id, type, name, typeSpec, iscreator, friendPic, isfriend) {
         var window = ko.utils.arrayFirst(self.windows(), function (win) {
             return win.ID() == id && win.Type() == type;
         });
         
         if (window == null) {
             if (type == "Private") {
-                chatVM.addWindow(id, name, type, false, false, 0, false, false,typeSpec,iscreator );
+                if (isfriend == undefined)
+                {
+                    var myfriend = ko.utils.arrayFirst(self.friends(), function (fr) {
+                        return fr.MemberID() == id;
+                    });
+                    isfriend = (myfriend != null);                    
+                }
+                chatVM.addWindow(id, name, type, false, false, 0, isfriend, false, typeSpec, iscreator);
 
                 window = chatVM.getWindow(id, type);
                 window.Settings.TypeID(typeSpec);
@@ -353,7 +360,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             var mid = window.CurrentMember().MemberID();
             var fid = friend.MemberID();
             var isFriend = friend.IsFriend();
-            friend.IsFriend(!isFriend);
+            windowmember = window.getMember(friend.MemberID());
+            windowmember.IsFriend(!isFriend);
             $.ajax({
                 url: '../Services/Services.asmx/AddRemoveFriend',
                 type: 'GET',
@@ -1210,7 +1218,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     self.openWindow = function (id, name, type, istemp, ishidden, levelid, isfriend, typeSpec, iscreator,friendPic) {
         if (id == self.CurrentMemberID && type != 'Room')
             return;
-        var window = self.getWindow(id, type, name, typeSpec, iscreator,friendPic);
+        var window = self.getWindow(id, type, name, typeSpec, iscreator,friendPic, isfriend);
         if (window == undefined) {
             self.addWindow(id, name, type, istemp, ishidden, levelid, isfriend, false,typeSpec, iscreator);
         }
