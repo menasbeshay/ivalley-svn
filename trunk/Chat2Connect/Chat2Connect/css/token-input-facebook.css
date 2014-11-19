@@ -34,7 +34,7 @@ ul.token-input-list-facebook {
 
 ul.token-input-list-facebook li input {
     border: 0;
-    width: 100px;
+    width: 100% !important;
     padding: 3px 8px;
     background-color: white;
     margin: 2px 0;
@@ -83,6 +83,7 @@ li.token-input-input-token-facebook {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    width:100%;
 }
 
 div.token-input-dropdown-facebook {

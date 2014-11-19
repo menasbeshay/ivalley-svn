@@ -197,18 +197,27 @@ namespace Chat2Connect
                     room.LoadByPrimaryKey(CurrentRoom);
                     querystring = "e=true";
                 }
-                
+
                 if (!IsEdit)
                 {
                     room.CreatedDate = DateTime.Now;
                     room.CreatedBy = member.MemberID;
+                    if (uiDropDownListADD_Category.SelectedIndex != -1)
+                        room.CategoryID = Convert.ToInt32(uiDropDownListADD_Category.SelectedValue);
+                    if (uiDropDownListADD_SubCategory.SelectedIndex != 0)
+                        room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);
+
+                }
+                else
+                {
+                    if (uiDropDownListEdit_Category.SelectedIndex != -1)
+                        room.CategoryID = Convert.ToInt32(uiDropDownListEdit_Category.SelectedValue);
+                    if (uiDropDownListEditSubCat.SelectedIndex != 0)
+                        room.SubCategoryID = Convert.ToInt32(uiDropDownListEditSubCat.SelectedValue);
+
                 }
 
-                if (uiDropDownListADD_Category.SelectedIndex != -1)
-                    room.CategoryID = Convert.ToInt32(uiDropDownListADD_Category.SelectedValue);
-                if (uiDropDownListADD_SubCategory.SelectedIndex != 0)
-                    room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);
-
+                
                 if (uiFileUploadRoomPic.HasFile)
                 {
                     string path = "~/" + ConfigurationManager.AppSettings["roomspics"].ToString();
@@ -247,20 +256,32 @@ namespace Chat2Connect
                     BLL.MemberLog log = new BLL.MemberLog();
                     log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
                 }
+
                 if (AdminsTable.Rows.Count > 0)
                 {
                     RoomMember roommember = new RoomMember();
                     roommember.GetAllAdminMembersByRoomID(room.RoomID);
                     roommember.DeleteAll();
                     roommember.Save();
+
+                    RoomMember toAdd = new RoomMember();
                     for (int i = 0; i < AdminsTable.Rows.Count; i++)
                     {
-                        roommember.AddNew();
-                        roommember.RoomID = room.RoomID;
-                        roommember.MemberID = Convert.ToInt32(AdminsTable.Rows[i]["MemberID"].ToString());
-                        roommember.RoomMemberLevelID = Convert.ToInt32(AdminsTable.Rows[i]["AdminTypeID"].ToString());
+                        toAdd.AddNew();
+                        toAdd.RoomID = room.RoomID;
+                        toAdd.MemberID = Convert.ToInt32(AdminsTable.Rows[i]["MemberID"].ToString());
+                        toAdd.RoomMemberLevelID = Convert.ToInt32(AdminsTable.Rows[i]["AdminTypeID"].ToString());
                     }
 
+                    toAdd.Save();
+                }
+                else 
+                {
+                    RoomMember roommember = new RoomMember();
+                    roommember.AddNew();
+                    roommember.RoomID = room.RoomID;
+                    roommember.MemberID = room.CreatedBy;
+                    roommember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
                     roommember.Save();
                 }
 

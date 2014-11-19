@@ -279,7 +279,14 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         //Room Members
         this.RoomMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
-                return (mem.QueueOrder() == null);
+                return (mem.QueueOrder() == null && mem.IsMicOpened() != true && mem.IsCamOpened() != true);
+            });
+        }, this);
+        
+        //Cams only Member
+        this.CamOnlyMembers = ko.computed(function () {
+            return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
+                return (mem.IsCamOpened() == true && (mem.QueueOrder() < 0 || mem.QueueOrder() == null));
             });
         }, this);
         //Queue Members
@@ -2094,7 +2101,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows,profilePic, m
         });
         if (member != undefined)
             member.TypeSpecID(typeSpecID);
-        ko.utils.arrayForEach(chatVM.allRooms, function (window) {
+        ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
             window.updateMemberType(mid, typeSpecID);
         });
     }

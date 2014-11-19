@@ -1245,9 +1245,9 @@
                                     </button>
                                     <ul role="menu" class="dropdown-menu RoomAdminMenu">
                                         <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../userprofile.aspx?uid='+ID()+ '\',\'حساب صديق\');'}" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                        <%--<li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.Members(1))"><span class="awesome">&#xf00d;</span> <span data-bind="    text:$data.Members(1).IsFriend?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>--%>
+                                        <li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.getMember(ID()))"><span class="awesome">&#xf00d;</span> <span data-bind="text:$data.getMember(ID()).IsFriend ? ' حذف من ' : 'إضافة إلى' "></span>الأصدقاء</a></li>
                                         <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':ID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                        <li><a data-bind="attr:{'onclick':'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u='+ID()+'&un='+Name()+ '\',\'الرسائل\');' }" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                                        <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u='+ID()+'&un='+Name()+ '\',\'الرسائل\');' }" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                         <li><a href="#"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                     </ul>
                                 </div>
@@ -1430,11 +1430,18 @@
                     <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
                         <div id="roomMembersDiv" data-bind="attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '550px' : '510px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '550px' : '510px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
                             <div id="MicDiv">
+                                <!-- ko template: { name: 'memberTemplate', foreach: MicMember } -->
+                                <!-- /ko -->
                             </div>
                             <div id="queueDiv">
                                 <!-- ko template: { name: 'memberTemplate', foreach: QueueMembers } -->
                                 <!-- /ko -->
                             </div>
+                            <div id="CamsDiv">
+                                <!-- ko template: { name: 'memberTemplate', foreach: CamOnlyMembers } -->
+                                <!-- /ko -->
+                            </div>
+
                             <div id="regular">
                                 <!-- ko template: { name: 'memberTemplate', foreach: RoomMembers } -->
                                 <!-- /ko -->
