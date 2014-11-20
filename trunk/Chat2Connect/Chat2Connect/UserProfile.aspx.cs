@@ -57,7 +57,7 @@ namespace Chat2Connect
                         }
                     }
                     if (!setting.IsColumnNull("HidePics"))
-                        uiPanelPics.Visible = setting.HidePics;
+                        uiPanelPics.Visible = !setting.HidePics;
                 }
 
                 uiLabelName.Text = member.Name;

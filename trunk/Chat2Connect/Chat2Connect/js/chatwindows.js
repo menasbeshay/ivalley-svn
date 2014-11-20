@@ -314,7 +314,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         //Cams only Member
         this.CamOnlyMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
-                return (mem.IsCamOpened() == true && (mem.QueueOrder() < 0 || mem.QueueOrder() == null));
+                return (mem.IsCamOpened() == true && (mem.QueueOrder() < 0 || mem.QueueOrder() == null) && !mem.IsMicOpened());
             });
         }, this);
         //Queue Members

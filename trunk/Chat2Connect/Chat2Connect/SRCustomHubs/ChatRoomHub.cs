@@ -45,7 +45,7 @@ namespace Chat2Connect.SRCustomHubs
 
                 updateMemberOnlineStatus(item, false);
             }
-            // remove user to new group by his user name 
+            // remove user from his group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
 
             return base.OnDisconnected();
@@ -117,12 +117,6 @@ namespace Chat2Connect.SRCustomHubs
         }
         public void removeFromRoom(int roomid)
         {
-            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
-            if (item == null)
-                return;
-            item.Rooms.Remove(roomid);
-            Clients.Group(roomid.ToString()).removeMember(item.MemberID, roomid);
-            Groups.Remove(Context.ConnectionId, roomid.ToString());
             // just remove member from signalr hub and update flag InRoom to false
             try
             {
@@ -141,6 +135,14 @@ namespace Chat2Connect.SRCustomHubs
             catch (Exception ex)
             {
             }
+
+            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            if (item == null)
+                return;
+            item.Rooms.Remove(roomid);
+            Clients.Group(roomid.ToString()).removeMember(item.MemberID, roomid);
+            Groups.Remove(Context.ConnectionId, roomid.ToString());
+            
         }
 
         public void banMemberFromRoom(int memberid, int roomid, int banType, string adminName)

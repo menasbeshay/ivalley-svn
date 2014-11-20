@@ -396,5 +396,14 @@ namespace BLL
                                     WHERE RM.IsFavorite=1 AND RM.RoomID={0}",
                                   roomID);
         }
+
+        public bool CleanRooms()
+        {
+            return LoadFromRawSql(@"update RM 
+                                    set RM.InRoom = 0  
+                                    From roommember RM
+                                    Inner Join Member M on RM.MemberID = M.MemberID                                                                       
+                                    WHERE M.IsOnline <> 1");
+        }
     }
 }

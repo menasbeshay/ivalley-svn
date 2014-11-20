@@ -139,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>11/20/2014 13:39:19</publishTime>
+      <publishTime>11/20/2014 15:57:02</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>11/20/2014 13:39:19</publishTime>
+      <publishTime>11/20/2014 15:57:03</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -308,6 +308,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Bots.aspx">
       <publishTime>11/09/2014 20:14:11</publishTime>
+    </File>
+    <File Include="CleanRooms.aspx">
+      <publishTime>11/20/2014 15:19:39</publishTime>
     </File>
     <File Include="coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -2002,7 +2005,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>11/20/2014 13:04:59</publishTime>
+      <publishTime>11/20/2014 15:30:12</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2371,7 +2374,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2014 11:22:35</publishTime>
     </File>
     <File Include="usercontrols/Friends.ascx">
-      <publishTime>11/20/2014 13:32:38</publishTime>
+      <publishTime>11/20/2014 15:55:57</publishTime>
     </File>
     <File Include="usercontrols/Mail.ascx">
       <publishTime>10/30/2014 12:44:52</publishTime>
