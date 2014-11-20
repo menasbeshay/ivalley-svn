@@ -324,6 +324,20 @@ namespace Chat2Connect.SRCustomHubs
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == toUserId);
             var fromUser = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
 
+            MemberFriend checkblock = new MemberFriend();
+            checkblock.Where.MemberID.Value = toUserId;
+            checkblock.Where.FriendID.Value = fromUser.MemberID;
+            checkblock.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            checkblock.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            checkblock.Query.Load();
+            if (checkblock.RowCount > 0)
+            {
+                if (!checkblock.IsColumnNull("IsBlocked"))
+                {
+                    toUser = checkblock.IsBlocked ? null : toUser;
+                }
+            }
+
             if (toUser != null && fromUser != null)
             {
                 var resultMsg = new Helper.ChatMessage()

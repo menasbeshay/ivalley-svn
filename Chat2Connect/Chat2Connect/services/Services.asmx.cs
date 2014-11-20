@@ -136,7 +136,21 @@ namespace Chat2Connect.services
                 if (!string.IsNullOrEmpty(item))
                 {
                     int recipientID = Convert.ToInt32(item);
-                    if (recipientID > 0 && !recipients.Contains(recipientID))
+                    // check if friend don't block sender
+                    MemberFriend mf = new MemberFriend();
+                    mf.Where.MemberID.Value = recipientID;
+                    mf.Where.FriendID.Value = sender;
+                    mf.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                    mf.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                    mf.Query.Load();
+                    bool cansend = true;
+                    if (mf.RowCount > 0)
+                    {
+                        if (!mf.IsColumnNull("IsBlocked"))
+                            cansend = !mf.IsBlocked;
+                    }
+
+                    if (recipientID > 0 && !recipients.Contains(recipientID) && cansend) // cansend - check if friend don't block sender
                     {
                         recipients.Add(recipientID);
                         memberMsg.AddNew();
@@ -1068,11 +1082,27 @@ namespace Chat2Connect.services
                 BLL.MemberFriend friend = new MemberFriend();
                 Member friendMember = new Member();
                 friendMember.LoadByPrimaryKey(fid);
+
+                MemberFriend friendtoAdd = new MemberFriend();
+                friendtoAdd.Where.MemberID.Value = fid;
+                friendtoAdd.Where.FriendID.Value = mid;
+                friendtoAdd.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                friendtoAdd.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                friendtoAdd.Query.Load();
+
+                bool friendBlockme = false;
+                if (friendtoAdd.RowCount > 0)
+                {
+                    if (!friendtoAdd.IsColumnNull("IsBlocked"))
+                        friendBlockme = friendtoAdd.IsBlocked;
+                }
+
                 if (!isFriend)
                 {
                     friend.AddNew();
                     friend.MemberID = mid;
                     friend.FriendID = fid;
+                    friend.IsBlocked = false;
                     friend.Save();
                     // logging
                     BLL.MemberLog log = new BLL.MemberLog();
@@ -1086,7 +1116,9 @@ namespace Chat2Connect.services
                         ProfilePic = (friendMember.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : friendMember.ProfilePic),
                         IsOnline = friendMember.IsOnLine,
                         StatusMsg = friendMember.s_StatusMsg,
-                        Status = friendMember.s_Status
+                        Status = friendMember.s_Status,
+                        IsBlocked = friend.IsBlocked,   // I blocked my friend
+                        MeBlocked = friendBlockme    // my friend blocked me
                     };
                     SetContentResult(resultFriend);            
                 }
@@ -1627,5 +1659,34 @@ namespace Chat2Connect.services
         }
         
         #endregion
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void toggleBlockFriend(int mid, int fid, bool block)
+        {
+            try
+            {
+                BLL.MemberFriend friend = new MemberFriend();
+                friend.Where.MemberID.Value = mid;
+                friend.Where.FriendID.Value = fid;
+                friend.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                friend.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                friend.Query.Load();
+
+                Member member = new Member();
+                member.LoadByPrimaryKey(fid);
+                if (friend.RowCount > 0)
+                {
+                    friend.IsBlocked = block;
+                    friend.Save();
+                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();                    
+                    _Rcontext.Clients.Group(member.UserName).updateMember(mid, "MeBlocked", block);
+                }
+                
+            }
+            catch { }
+        }
+
     }
 }

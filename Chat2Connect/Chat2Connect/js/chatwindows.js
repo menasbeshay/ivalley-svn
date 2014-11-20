@@ -176,14 +176,14 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         if (this.friends() == undefined)
             return [];
         return ko.utils.arrayFilter(this.friends(), function (f) {
-            return f.IsOnline() && f.Status() != 'offline'; //not invisible;
+            return f.IsOnline() && f.Status() != 'offline' && !f.MeBlocked(); //not invisible & not blocked by my friend;
         });
     }, this);
     this.offlineFriends = ko.computed(function () {
         if (this.friends() == undefined)
             return [];
         return ko.utils.arrayFilter(this.friends(), function (f) {
-            return !f.IsOnline() || f.Status() == 'offline'; //invisible;
+            return !f.IsOnline() || f.Status() == 'offline' || f.MeBlocked(); //invisible & blocked by my friend;
         });
     }, this);
     this.removeFriend = function ()
@@ -223,6 +223,27 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         });
 
     }
+
+
+    self.toggleBlockFriend = function (mid, fid, block) {
+        $.ajax({
+            url: '../Services/Services.asmx/toggleBlockFriend',
+            type: 'GET',
+            data: { mid: mid, fid: fid, block: block },
+            success: function (result) {
+                if (block)
+                    notify('success', 'تم حجب الصديق بنجاح');
+                else
+                    notify('success', 'تم إلغاء حجب الصديق بنجاح');
+
+                var friend = ko.utils.arrayFirst(self.friends(), function (friend) {
+                    return friend.MemberID() == fid;
+                });
+
+                friend.IsBlocked(block);
+            }
+        });
+    };
 
     var mapping = {
         '': {
@@ -383,6 +404,9 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
             });
         };
+
+
+       
         this.toggleMark = function (window, friend) {
             var newvalue = !friend.IsMarked();
             friend.IsMarked(newvalue);

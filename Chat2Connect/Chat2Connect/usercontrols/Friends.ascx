@@ -8,11 +8,11 @@
                 <!-- ko foreach: onlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
                     <img data-bind="attr: { 'src': (ProfilePic() != '') ? ProfilePic() : 'images/defaultavatar.png' }, css: Status().toLowerCase()" class='friendpic ' style="display: block" />
-                    <a href="#" data-bind="attr: { 'onclick': 'addChatRoom('+$data.MemberID()+',\''+$data.Name()+'\',\'Private\', false, false, 1, true,'+$data.TypeSpecID()+', true,\''+$data.ProfilePic()+'\');' }" style="margin: 5px; display: block">
+                    <a h    ref="#" data-bind="attr: { 'onclick': 'addChatRoom('+$data.MemberID()+',\''+$data.Name()+'\',\'Private\', false, false, 1, true,'+$data.TypeSpecID()+', true,\''+$data.ProfilePic()+'\');' }" style="margin: 5px; display: block">
                         <span data-bind="text: Name"></span>
                     </a>
                     <div class="clearfix" style="height: 1px;"></div>
-                    <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
+                    <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>                    
                 </div>
                 <!-- /ko -->
                 <div class="clearfix" style="border-bottom: 1px solid #FEC200"></div>
@@ -67,11 +67,14 @@
 </div>
 <script id="friendTmpl" type="text/html">
     <div class="friend-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-        <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: IsOnline() == true ? Status() : 'offline'" class='friendpic' />
+        <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: IsOnline() && !MeBlocked() == true ? Status() : 'offline'" class='friendpic' />
         <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
         <div class="clearfix" style="height: 1px;"></div>
+        <!-- ko if: IsBlocked()-->
+        <i class="icon-ban-circle" style="color: #f00;position:absolute;top:10px;left:20px;"></i>
+        <!-- /ko -->
         <div class="friendSubMenu">
             <div class="popup-menu profileMenu" data-bind="attr: { 'data-for': 'usernode-' + $data.MemberID() }">
                 <div class="col-lg-3 pull-right">
@@ -95,7 +98,7 @@
                         <ul>
                             <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                             <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                            <li><a class="jslink"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                            <li><a class="jslink" data-bind="click: $root.toggleBlockFriend.bind($data, $root.CurrentMemberID, $data.MemberID(), !$data.IsBlocked())"><span class="icon" data-bind="    css: $data.IsBlocked() ? 'icon icon-remove' : 'icon icon-ban-circle'"></span> <span data-bind="    text: !$data.IsBlocked() ? ' حجب ' : ' إلغاء الحجب '"></span></a></li>
                         </ul>
                     </div>
                 </div>

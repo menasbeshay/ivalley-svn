@@ -131,6 +131,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter IsBlocked
+			{
+				get
+				{
+					return new SqlParameter("@IsBlocked", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +149,7 @@ namespace DAL
             public const string MemberID = "MemberID";
             public const string FriendID = "FriendID";
             public const string FriendGroupID = "FriendGroupID";
+            public const string IsBlocked = "IsBlocked";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +161,7 @@ namespace DAL
 					ht[MemberID] = _MemberFriend.PropertyNames.MemberID;
 					ht[FriendID] = _MemberFriend.PropertyNames.FriendID;
 					ht[FriendGroupID] = _MemberFriend.PropertyNames.FriendGroupID;
+					ht[IsBlocked] = _MemberFriend.PropertyNames.IsBlocked;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +178,7 @@ namespace DAL
             public const string MemberID = "MemberID";
             public const string FriendID = "FriendID";
             public const string FriendGroupID = "FriendGroupID";
+            public const string IsBlocked = "IsBlocked";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +190,7 @@ namespace DAL
 					ht[MemberID] = _MemberFriend.ColumnNames.MemberID;
 					ht[FriendID] = _MemberFriend.ColumnNames.FriendID;
 					ht[FriendGroupID] = _MemberFriend.ColumnNames.FriendGroupID;
+					ht[IsBlocked] = _MemberFriend.ColumnNames.IsBlocked;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +207,7 @@ namespace DAL
             public const string MemberID = "s_MemberID";
             public const string FriendID = "s_FriendID";
             public const string FriendGroupID = "s_FriendGroupID";
+            public const string IsBlocked = "s_IsBlocked";
 
 		}
 		#endregion		
@@ -246,6 +259,18 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.FriendGroupID, value);
+			}
+		}
+
+		public virtual bool IsBlocked
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsBlocked);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsBlocked, value);
 			}
 		}
 
@@ -311,6 +336,21 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.FriendGroupID);
 				else
 					this.FriendGroupID = base.SetintAsString(ColumnNames.FriendGroupID, value);
+			}
+		}
+
+		public virtual string s_IsBlocked
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsBlocked) ? string.Empty : base.GetboolAsString(ColumnNames.IsBlocked);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsBlocked);
+				else
+					this.IsBlocked = base.SetboolAsString(ColumnNames.IsBlocked, value);
 			}
 		}
 
@@ -387,6 +427,16 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter IsBlocked
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsBlocked, Parameters.IsBlocked);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +490,23 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter IsBlocked
+		    {
+				get
+		        {
+					if(_IsBlocked_W == null)
+	        	    {
+						_IsBlocked_W = TearOff.IsBlocked;
+					}
+					return _IsBlocked_W;
+				}
+			}
+
 			private WhereParameter _MemberFriendID_W = null;
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _FriendID_W = null;
 			private WhereParameter _FriendGroupID_W = null;
+			private WhereParameter _IsBlocked_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +514,7 @@ namespace DAL
 				_MemberID_W = null;
 				_FriendID_W = null;
 				_FriendGroupID_W = null;
+				_IsBlocked_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +611,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter IsBlocked
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBlocked, Parameters.IsBlocked);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +674,23 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter IsBlocked
+		    {
+				get
+		        {
+					if(_IsBlocked_W == null)
+	        	    {
+						_IsBlocked_W = TearOff.IsBlocked;
+					}
+					return _IsBlocked_W;
+				}
+			}
+
 			private AggregateParameter _MemberFriendID_W = null;
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _FriendID_W = null;
 			private AggregateParameter _FriendGroupID_W = null;
+			private AggregateParameter _IsBlocked_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +698,7 @@ namespace DAL
 				_MemberID_W = null;
 				_FriendID_W = null;
 				_FriendGroupID_W = null;
+				_IsBlocked_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +787,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.FriendGroupID);
 			p.SourceColumn = ColumnNames.FriendGroupID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsBlocked);
+			p.SourceColumn = ColumnNames.IsBlocked;
 			p.SourceVersion = DataRowVersion.Current;
 
 
