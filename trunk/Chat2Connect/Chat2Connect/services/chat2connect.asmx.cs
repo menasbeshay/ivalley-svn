@@ -35,7 +35,9 @@ namespace Chat2Connect.services
                     ProfilePic = (m[Member.ColumnNames.ProfilePic]==DBNull.Value?defaultImg:m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
-                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower()
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(), 
+                    IsBlocked = m["IsBlocked"],   // I blocked my friend
+                    MeBlocked = m["MeBlocked"]    // my friend blocked me
                 }
                 ).ToList();
             

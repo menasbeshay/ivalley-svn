@@ -404,11 +404,13 @@ namespace BLL
 
         public bool GetFriends(int mid)
         {
-            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* 
+            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* , MF.IsBlocked , MF2.IsBlocked MeBlocked
                                     from MemberFriend MF INNER JOIN Member M ON MF.FriendID=M.MemberID
 	                                    INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
 	                                    LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
 	                                    LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
+                                        Left Join MemberFriend MF2 on MF.MemberID = MF2.FriendID And
+                                                                      MF.FriendID = MF2.MemberID 
                                     WHERE M.RowStatusID={0} AND MF.MemberID={1}
                                     Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, mid);
         }
