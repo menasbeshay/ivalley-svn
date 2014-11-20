@@ -98,7 +98,7 @@
                         <ul>
                             <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                             <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                            <li><a class="jslink" data-bind="click: $root.toggleBlockFriend.bind($data, $root.CurrentMemberID, $data.MemberID(), !$data.IsBlocked())"><span class="icon" data-bind="    css: $data.IsBlocked() ? 'icon icon-remove' : 'icon icon-ban-circle'"></span> <span data-bind="    text: !$data.IsBlocked() ? ' حجب ' : ' إلغاء الحجب '"></span></a></li>
+                            <li><a class="jslink" data-bind="click: $root.toggleBlockFriend.bind($data, $root.CurrentMemberID, $data.MemberID(), !$data.IsBlocked())"><span class="icon" data-bind="    css: $data.IsBlocked() ? 'icon icon-remove' : 'icon icon-ban-circle'"></span> <span data-bind="    text: !$data.IsBlocked() ? ' حظر ' : ' إلغاء الحظر '"></span></a></li>
                         </ul>
                     </div>
                 </div>
