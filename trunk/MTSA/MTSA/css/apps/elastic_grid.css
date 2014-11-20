@@ -52,8 +52,7 @@
 	display: none;
 }
 
-.og-grid li > a,
-.og-grid li > a img {
+.og-grid li > a {
 	border: none;
 	outline: none;
 	display: inline-block;
@@ -66,7 +65,14 @@
 }
 
 .og-grid li > a img {
-    max-width:70% !important;
+    border: none;
+	outline: none;
+	display: inline-block;
+	position: relative;
+    margin:0 auto;
+    text-align:center;    
+    vertical-align:middle;    
+    max-width:75% !important;
      opacity:0.2;
     transition:opacity 0.8s ease-in-out 0s;
     }
@@ -935,4 +941,13 @@ nav#porfolio-nav li:last-child a {
 
 @media (min-width: 980px) {
 
+}
+
+
+.og-details .label {
+    font-size:120% !important;
+}
+
+#polywts .og-grid > li{
+    width:18% !important;
 }
