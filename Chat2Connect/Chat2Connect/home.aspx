@@ -397,7 +397,7 @@
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
-            <!-- ko if: MemberID()!=$root.CurrentMemberID-->
+            <!-- ko if: MemberID()!=$root.CurrentMemberID && !$root.isBlockingMe(MemberID())-->
             <div class="clear" style="height: 1px;"></div>
             <div class="friendSubMenu">
                 <div class="popup-menu profileMenu">
