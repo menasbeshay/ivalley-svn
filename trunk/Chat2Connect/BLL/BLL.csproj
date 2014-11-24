@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockedMembers.cs" />
     <Compile Include="Bot.cs" />
     <Compile Include="BotPoints.cs" />
     <Compile Include="Category.cs" />

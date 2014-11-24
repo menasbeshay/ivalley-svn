@@ -105,10 +105,10 @@ namespace Chat2Connect.services
             Member member = BLL.Member.CurrentMember;
             member.Status = status;
             member.Save();
-            
+
             string statusString = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(status).ToString().ToLower();
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            _Rcontext.Clients.All.updateMember(member.MemberID,"Status", statusString);
+            _Rcontext.Clients.All.updateMember(member.MemberID, "Status", statusString);
 
             return true;
         }
@@ -137,18 +137,10 @@ namespace Chat2Connect.services
                 {
                     int recipientID = Convert.ToInt32(item);
                     // check if friend don't block sender
-                    MemberFriend mf = new MemberFriend();
-                    mf.Where.MemberID.Value = recipientID;
-                    mf.Where.FriendID.Value = sender;
-                    mf.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                    mf.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                    mf.Query.Load();
-                    bool cansend = true;
-                    if (mf.RowCount > 0)
-                    {
-                        if (!mf.IsColumnNull("IsBlocked"))
-                            cansend = !mf.IsBlocked;
-                    }
+                    BlockedMembers bllBlocked = new BlockedMembers();
+                    bllBlocked.Where.MemberID.Value = sender;
+                    bllBlocked.Where.BlockID.Value = recipientID;
+                    bool cansend = !bllBlocked.Query.Load();
 
                     if (recipientID > 0 && !recipients.Contains(recipientID) && cansend) // cansend - check if friend don't block sender
                     {
@@ -304,7 +296,7 @@ namespace Chat2Connect.services
                     member.MoveNext();
                 }
             }
-            
+
             if (Helper.Admin.IsAdmin() && Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_SendMessgae.ToString()))
             {
                 friends.AddRange(Helper.EnumUtil.GetValues<Helper.Enums.AdminMailAddressAlias>().Select(r => new
@@ -349,13 +341,13 @@ namespace Chat2Connect.services
             int? createdBy;
             if (Helper.Admin.IsAdmin() && (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomType.ToString()) || Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_AddVIPRoom.ToString())))
             {
-                createdBy=null;
+                createdBy = null;
             }
             else
             {
-                createdBy=BLL.Member.CurrentMemberID;
+                createdBy = BLL.Member.CurrentMemberID;
             }
-            bllRooms.SearchRooms(q,createdBy);
+            bllRooms.SearchRooms(q, createdBy);
             var rooms = bllRooms.DefaultView.Table.AsEnumerable().Select(m => new { id = m[BLL.Room.ColumnNames.RoomID], name = m[BLL.Room.ColumnNames.Name] }).ToList();
             string result = Newtonsoft.Json.JsonConvert.SerializeObject(rooms);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
@@ -738,7 +730,7 @@ namespace Chat2Connect.services
             roomObject.OpenCams = room.OpenCams;
             if (!room.IsColumnNull("CreatedBy"))
                 roomObject.CreatedBy = room.CreatedBy;
-           
+
 
             RoomBot Allbots = new RoomBot();
             roomObject.RoomBots = Allbots.GetByRoomID(id);
@@ -794,7 +786,7 @@ namespace Chat2Connect.services
             //roomObject.Admins = roomMember.GetAdminsMembersByRoomID(id);
 
             // load cat & subcat
-            
+
             Category cat = new Category();
             if (!room.IsColumnNull("CategoryID"))
             {
@@ -855,7 +847,7 @@ namespace Chat2Connect.services
 
             for (int i = 0; i < members.RowCount; i++)
             {
-                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount"), IsFriend= false });
+                people.Add(new { MemberID = members.MemberID, MemberName = members.GetColumn("UserName").ToString(), ProfileImg = members.ProfilePic, FriendsCount = (int)members.GetColumn("FriendsCount"), IsFriend = false });
                 members.MoveNext();
             }
             if (people.Count > 0)
@@ -965,7 +957,7 @@ namespace Chat2Connect.services
                 if (roomID != 0)
                 {
                     IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-                    if(uniqueID.Contains("Room"))
+                    if (uniqueID.Contains("Room"))
                         _Ncontext.Clients.Group(roomID.ToString()).GiftSentInRoom(roomID, memberName, item.Name, srcgift.Name, item.ID, srcgift.PicPath, srcgift.AudioPath, uniqueID);
                     else if (uniqueID.Contains("Private"))
                     {
@@ -1083,26 +1075,11 @@ namespace Chat2Connect.services
                 Member friendMember = new Member();
                 friendMember.LoadByPrimaryKey(fid);
 
-                MemberFriend friendtoAdd = new MemberFriend();
-                friendtoAdd.Where.MemberID.Value = fid;
-                friendtoAdd.Where.FriendID.Value = mid;
-                friendtoAdd.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                friendtoAdd.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                friendtoAdd.Query.Load();
-
-                bool friendBlockme = false;
-                if (friendtoAdd.RowCount > 0)
-                {
-                    if (!friendtoAdd.IsColumnNull("IsBlocked"))
-                        friendBlockme = friendtoAdd.IsBlocked;
-                }
-
                 if (!isFriend)
                 {
                     friend.AddNew();
                     friend.MemberID = mid;
                     friend.FriendID = fid;
-                    friend.IsBlocked = false;
                     friend.Save();
                     // logging
                     BLL.MemberLog log = new BLL.MemberLog();
@@ -1116,11 +1093,9 @@ namespace Chat2Connect.services
                         ProfilePic = (friendMember.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : friendMember.ProfilePic),
                         IsOnline = friendMember.IsOnLine,
                         StatusMsg = friendMember.s_StatusMsg,
-                        Status = friendMember.s_Status,
-                        IsBlocked = friend.IsBlocked,   // I blocked my friend
-                        MeBlocked = friendBlockme    // my friend blocked me
+                        Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(friendMember.s_Status)).ToString().ToLower()
                     };
-                    SetContentResult(resultFriend);            
+                    SetContentResult(resultFriend);
                 }
                 else
                 {
@@ -1185,7 +1160,7 @@ namespace Chat2Connect.services
                                             <ul>
                                                 <li><a class='jslink' onclick=" + "\"addChatRoom({0}, " + "'{1}', 'Private', false, false, 1, true," + member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.ID.ToString() + " , true,'" + (member.IsColumnNull("ProfilePic") ? "images/defaultavatar.png" : member.ProfilePic) + "');\"" + @"><span class='awesome'>&#xf0e6;</span> محادثة خاصة</a></li>
                                                 <li><a class='jslink' onclick=" + "\"OpenPopup('../userprofile.aspx?uid={0}','حساب صديق');\"" + @" target='_blank'><span class='awesome'>&#xf08e;</span> عرض البروفايل</a></li>
-                                                <li><a class='jslink' onclick=" + "\"removeFriend("+ BLL.Member.CurrentMemberID.ToString() +","+ member.MemberID.ToString() + ");\""+@"><span class='awesome'>&#xf00d;</span> حذف من الأصدقاء</a></li>
+                                                <li><a class='jslink' onclick=" + "\"removeFriend(" + BLL.Member.CurrentMemberID.ToString() + "," + member.MemberID.ToString() + ");\"" + @"><span class='awesome'>&#xf00d;</span> حذف من الأصدقاء</a></li>
                                             </ul>
                                         </div>
                                         <div class='col-lg-6 pull-right'>
@@ -1617,7 +1592,7 @@ namespace Chat2Connect.services
 
         [System.Web.Services.WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void LoadWindowEditorSettings(int mid,int windowID,string type)
+        public void LoadWindowEditorSettings(int mid, int windowID, string type)
         {
             dynamic settings = new { IsBold = false, IsItalic = false, FontSize = "meduim", ForeColor = "black" };
             BLL.MemberChatWindowEditorSettings bllSettings = new MemberChatWindowEditorSettings();
@@ -1657,36 +1632,11 @@ namespace Chat2Connect.services
 
             bllSettings.Save();
         }
-        
+
         #endregion
 
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void toggleBlockFriend(int mid, int fid, bool block)
-        {
-            try
-            {
-                BLL.MemberFriend friend = new MemberFriend();
-                friend.Where.MemberID.Value = mid;
-                friend.Where.FriendID.Value = fid;
-                friend.Where.FriendID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                friend.Where.MemberID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                friend.Query.Load();
 
-                Member member = new Member();
-                member.LoadByPrimaryKey(fid);
-                if (friend.RowCount > 0)
-                {
-                    friend.IsBlocked = block;
-                    friend.Save();
-                    IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();                    
-                    _Rcontext.Clients.Group(member.UserName).updateMember(mid, "MeBlocked", block);
-                }
-                
-            }
-            catch { }
-        }
 
     }
 }

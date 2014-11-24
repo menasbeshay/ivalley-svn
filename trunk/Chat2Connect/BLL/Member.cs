@@ -404,7 +404,7 @@ namespace BLL
 
         public bool GetFriends(int mid)
         {
-            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* , MF.IsBlocked , MF2.IsBlocked MeBlocked
+            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.*
                                     from MemberFriend MF INNER JOIN Member M ON MF.FriendID=M.MemberID
 	                                    INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
 	                                    LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
@@ -426,6 +426,48 @@ namespace BLL
                                         LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID  
                                     WHERE M.RowStatusID={0}
                                     Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, Helper.Enums.AdminRoles.Admin_SiteHelper.ToString());
+        }
+
+        /// <summary>
+        /// return list of blocked members by the specified member
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        public bool GetBlocked(int mid)
+        {
+            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* 
+                                    from BlockedMembers MB INNER JOIN Member M ON MB.BlockID=M.MemberID
+                                        INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
+                                        LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+                                        LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
+                                    WHERE M.RowStatusID={0} AND MB.MemberID={1}
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, mid);
+        }
+
+        /// <summary>
+        /// return list of members whom block the specified member id
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        public bool GetMembersBlockingMember(int mid)
+        {
+            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.* 
+                                    from BlockedMembers MB INNER JOIN Member M ON MB.MemberID=M.MemberID
+                                        INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
+                                        LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+                                        LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
+                                    WHERE M.RowStatusID={0} AND MB.BlockID={1}
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, mid);
+        }
+
+        public bool LoadByPrimaryKeyWithTypeSpec(int mid)
+        {
+            return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,{2}),M.* 
+                                    from Member M
+                                        LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+                                        LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID  
+                                    WHERE M.RowStatusID={0} AND M.MemberID={1}
+                                    Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, mid,(int)Helper.Enums.TypeSpec.Free);
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
 using System.Data;
+using Microsoft.AspNet.SignalR;
+using Chat2Connect.SRCustomHubs;
 
 namespace Chat2Connect.services
 {
@@ -32,24 +34,22 @@ namespace Chat2Connect.services
                     MemberID = m[Member.ColumnNames.MemberID],
                     Name = m[Member.ColumnNames.Name],
                     TypeSpecID = m["MemberTypeSpecID"],
-                    ProfilePic = (m[Member.ColumnNames.ProfilePic]==DBNull.Value?defaultImg:m[Member.ColumnNames.ProfilePic]),
+                    ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
-                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(), 
-                    IsBlocked = m["IsBlocked"],   // I blocked my friend
-                    MeBlocked = m["MeBlocked"]    // my friend blocked me
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
                 }
                 ).ToList();
-            
+
             SetContentResult(friends);
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void SearchAddFriend(int mid,string q)
+        public void SearchAddFriend(int mid, string q)
         {
             Member member = new Member();
-            member.SearchForAddFriend(mid,q);
+            member.SearchForAddFriend(mid, q);
             var friends = member.DefaultView.Table.AsEnumerable().Select(m =>
                 new
                 {
@@ -59,7 +59,7 @@ namespace Chat2Connect.services
                     ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
-                    Status = m[Member.ColumnNames.Status]
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
                 }
                 ).ToList();
 
@@ -95,6 +95,98 @@ namespace Chat2Connect.services
             SetContentResult(friends);
         }
 
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetBlockedMembers()
+        {
+            Member member = new Member();
+            member.GetBlocked(BLL.Member.CurrentMemberID);
+            var friends = member.DefaultView.Table.AsEnumerable().Select(m =>
+                new
+                {
+                    MemberID = m[Member.ColumnNames.MemberID],
+                    Name = m[Member.ColumnNames.Name],
+                    TypeSpecID = m["MemberTypeSpecID"],
+                    ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
+                    IsOnline = m[Member.ColumnNames.IsOnLine],
+                    StatusMsg = m[Member.ColumnNames.StatusMsg],
+                    Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
+                }
+                ).ToList();
+
+            SetContentResult(friends);
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetBlockingMeMembers()
+        {
+            Member member = new Member();
+            member.GetMembersBlockingMember(BLL.Member.CurrentMemberID);
+            var lst = member.DefaultView.Table.AsEnumerable().Select(m =>
+                new
+                {
+                    MemberID = m[Member.ColumnNames.MemberID],
+                }
+                ).ToList();
+
+            SetContentResult(lst);
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void toggleBlockMember(int mid, bool block)
+        {
+            try
+            {
+                BlockedMembers blockedMembers = new BlockedMembers();
+                blockedMembers.Where.BlockID.Value = mid;
+                blockedMembers.Where.MemberID.Value = BLL.Member.CurrentMemberID;
+                if (blockedMembers.Query.Load())
+                {
+                    if (!block)
+                    {
+                        blockedMembers.DeleteAll();
+                        blockedMembers.Save();
+                    }
+                }
+                else
+                {
+                    if (block)
+                    {
+                        blockedMembers.AddNew();
+                        blockedMembers.MemberID = BLL.Member.CurrentMemberID;
+                        blockedMembers.BlockID = mid;
+                        blockedMembers.CreateDate = DateTime.Now;
+                        blockedMembers.Save();
+
+                        BLL.Member bllMember = new BLL.Member();
+                        bllMember.LoadByPrimaryKeyWithTypeSpec(mid);
+                        var member = bllMember.DefaultView.Table.AsEnumerable().Select(m =>
+                        new
+                        {
+                            MemberID = m[Member.ColumnNames.MemberID],
+                            Name = m[Member.ColumnNames.Name],
+                            TypeSpecID = m["MemberTypeSpecID"],
+                            ProfilePic = (m[Member.ColumnNames.ProfilePic] == DBNull.Value ? defaultImg : m[Member.ColumnNames.ProfilePic]),
+                            IsOnline = m[Member.ColumnNames.IsOnLine],
+                            StatusMsg = m[Member.ColumnNames.StatusMsg],
+                            Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
+                        }
+                        ).FirstOrDefault();
+                        SetContentResult(member);
+                    }
+                }
+
+                IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                var blocked = ChatRoomHub.ConnectedUsers.FirstOrDefault(u => u.MemberID == mid);
+                if (blocked != null)
+                {
+                    _Rcontext.Clients.Client(blocked.ConnectionId).toggleBlockedFromMember(new { MemberID = BLL.Member.CurrentMemberID }, block);
+                }
+            }
+            catch { }
+        }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void GetRooms(string localParams)
