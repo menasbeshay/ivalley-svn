@@ -494,10 +494,50 @@
 
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
-                      
-                     <div class="col-lg-10 col-md-10 col-sm-10" style="padding: 0;">
+                      <div class="col-lg-12 col-sm-12 col-md-12" style="padding:10px 50px;">
+                     <div class="col-lg-4 col-sm-4 col-md-4">
+                         <div class="clearfix" style="height:5px;"></div>
+                          <img src="../images/products/multitouchscreens/Page2/logo.png" />
+                         <div class="clearfix" style="height:15px;"></div>
+                         <img src="../images/products/multitouchscreens/Page2/MultiIcon.png" />&nbsp; <label class="touchscreenlabel"> Multitouchscreens</label>
+                          <p style="text-align:justify;">
+                                Polytouch is an expandable, all-in-one multi-touch system using projected capacitive technology (PCT). PCT is absolutely <strong> insensitive </strong>to daylight and infrared radiation. Polytouch® QMS (patent pending) guarantees the future of your Polytouch® system. Polytouch® extension modules can be easily exchanged to expand the functionality of your system or adapt it to new requirements.</p>
+                          <div class="clearfix" style="height:10px;"></div>
+                                <p style="text-align:justify;">With Polytouch® QMS you are already at par with future standards and processes, e.g., cashless transactions.</p>
+                          <div class="clearfix" style="height:10px;"></div>
+                             <img src="../images/products/multitouchscreens/Page2/Screens.png" style="margin-top:-30px;" />
+                                                        
+                          
+                     </div>
+                     <div class="col-lg-4 col-sm-4 col-md-4" >
+                         <img src="../images/products/multitouchscreens/Page2/Made.png" style="margin-top:10px;"/>
+                         <div class="clearfix" style="height:20px;"></div>
+                          <p style="text-align:justify;">Polytouch is suitable for a variety of industries and applications. Due to the compact design with built-in computer hardware you may use Polytouch instantly wherever you find a power socket. The small installation depth and the flat surface are ideal for integration at the point of sale.<strong>Whatever your business is - it will be smarter with Polytouch.</strong> 
+                             </p>
+                         <div class="clearfix" style="height:15px;"></div>
+                         <img src="../images/products/multitouchscreens/Page2/AppsIcon.png" />&nbsp; <label class="touchscreenlabel"> Applications</label>
+                         <div class="clearfix" style="height:5px;"></div>
+                         <p style="text-align:justify;">
+                            If you have developed your own POS or any other application, or you are an apps developer, Polytouch with no limits is the multi touchscreen you want to use. 
+                         </p>
+                         <div class="clearfix" style="height:4px;"></div>
+                         <img src="../images/products/multitouchscreens/Page2/Polytouchpic.png" style="width:90%;margin:0 auto;"/>
+                     </div>
+                     <div class="col-lg-4 col-sm-4 col-md-4" style="width:31%" >
+                         <div class="col-lg-12 col-sm-12 col-md-12" style="text-align:center">
+                              <video loop id="multitouchflashvideo" style="width:60%;border:1px solid #aaa;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
+                             </video>                             
+                         </div>
+                         <div style="clear:both; height:15px;"></div>
+                          <img src="../images/products/multitouchscreens/Page2/QmsIcon.png" />&nbsp;<label class="touchscreenlabel smallLabel"> QMS - Quick Mounting System - Modular </label> <label class="touchscreenlabel smallLabel">POS functionality</label>
+                         <p style="text-align:justify;">
+                            Polytouch POS systems offer the patent pending Quick Mounting System (QMS). With QMS it's easy to change or upgrade the configuration of the Polytouch systems. QMS extension modules like POS thermal printers, Chip & PIN payment, camera, RFID and NFC are available. Only QMS ensures that your systems will comply with future standards.
+                         </p>
+                     </div>
+                    </div>
+                     <div class="col-lg-10 col-md-10 col-sm-10" style="padding: 0;display:none;">
                          <div class="col-lg-3 col-sm-3 col-md-3 borderedbox" style="padding: 0;text-align:center;margin:0 !important;">
-                             <img src="../images/products/logo_polytouch_976px.png" style="max-width: 80%;" />
+                            
                          </div>
                          <div class="col-lg-9 col-sm-9 col-md-9" style="padding-right: 22px; text-align: right;">                             
                              <%--<img src="../images/products/multitouchscreens/1.png"  />--%>
@@ -508,11 +548,7 @@
                          <div class="col-lg-12 col-md-12 col-sm-12" style="padding:0;">
                              <div class="col-lg-6 col-md-6 col-sm-6 borderedbox" style="padding:0;text-align:justify;margin-right:0 !important;margin-left:0 !important;">
                                   <label style="text-transform:capitalize;"><i class="fa fa-desktop"></i> &nbsp; Multitouchscreens</label>
-                             <p >
-                                Polytouch is an expandable, all-in-one multi-touch system using projected capacitive technology (PCT). PCT is absolutely <strong> insensitive </strong>to daylight and infrared radiation. Polytouch® QMS (patent pending) guarantees the future of your Polytouch® system. Polytouch® extension modules can be easily exchanged to expand the functionality of your system or adapt it to new requirements. <br />
-                                With Polytouch® QMS you are already at par with future standards and processes, e.g., cashless transactions.<br />
-                                Polytouch is suitable for a variety of industries and applications. Due to the compact design with built-in computer hardware you may use Polytouch instantly wherever you find a power socket. The small installation depth and the flat surface are ideal for integration at the point of sale.<strong>Whatever your business is - it will be smarter with Polytouch.</strong> 
-                             </p>
+                            
                              </div>
                              <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0px;text-align:justify;padding-right:25px;">
                                 <div class="col-lg-12 col-md-12 col-sm-12 borderedbox">
@@ -539,7 +575,7 @@
                              </div>
                          </div>
                      </div>
-                     <div class="col-lg-2 col-md-2 col-sm-2" style="padding: 0;">
+                     <div class="col-lg-2 col-md-2 col-sm-2" style="padding: 0;display:none;">
                          
                              <video loop id="multitouchflashvideo" style="width:100%;border:1px solid #ccc;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
                              </video>                             <div style="clear:both; height:15px;"></div>
