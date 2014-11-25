@@ -165,6 +165,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                         lst.push(ko.mapping.fromJS(item));
                     });
                     self.blockedMembers(lst);
+                    //init tooltip
+                    $('.blocktip').tooltip();
                 });
     };
     this.blockedMembers = ko.onDemandObservable(this.getBlockedMembers, this);
@@ -186,19 +188,21 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             data: { mid: mid, block: block },
             success: function (result) {
                 if (block) {
-                    notify('success', 'تم حجب الصديق بنجاح');
+                    notify('success', 'تم حظر الصديق بنجاح');
                     var lst = self.blockedMembers();
                     var newItem = ko.mapping.fromJS(result);
                     lst.push(newItem);
                     self.blockedMembers(lst);
                 }
                 else {
-                    notify('success', 'تم إلغاء حجب الصديق بنجاح');
+                    notify('success', 'تم إلغاء حظر الصديق بنجاح');
                     var newlst = ko.utils.arrayFilter(self.blockedMembers(), function (f) {
                         return f.MemberID() != mid;
                     });
                     self.blockedMembers(newlst);
                 }
+
+                $('.blocktip').tooltip();
             }
         });
     };

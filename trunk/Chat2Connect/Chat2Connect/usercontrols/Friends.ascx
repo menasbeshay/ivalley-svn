@@ -161,8 +161,9 @@
 <script id="blockedTmpl" type="text/html">
     <div class="block-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
         <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: IsOnline() ? Status() : 'offline'" class='friendpic' />
-        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
-        <li class="icon-ban-circle" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), false)"></li>
+        <i class="icon-ban-circle blockcircle"></i>    
+        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a> 
+        <div style="float:left;margin-left:30px;cursor:pointer;" class="blocktip" title="إلغاء الحظر" data-placement="top"><i class="icon icon-remove" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), false)"></i></div>       
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
         <div class="clearfix" style="height: 1px;"></div>
