@@ -138,9 +138,10 @@ namespace Chat2Connect.services
                     int recipientID = Convert.ToInt32(item);
                     // check if friend don't block sender
                     BlockedMembers bllBlocked = new BlockedMembers();
-                    bllBlocked.Where.MemberID.Value = sender;
-                    bllBlocked.Where.BlockID.Value = recipientID;
-                    bool cansend = !bllBlocked.Query.Load();
+                    bllBlocked.Where.MemberID.Value = recipientID;
+                    bllBlocked.Where.BlockID.Value = sender;
+                    bllBlocked.Query.Load();
+                    bool cansend = !(bllBlocked.RowCount > 0);
 
                     if (recipientID > 0 && !recipients.Contains(recipientID) && cansend) // cansend - check if friend don't block sender
                     {

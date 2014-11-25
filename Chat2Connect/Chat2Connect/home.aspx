@@ -1248,7 +1248,7 @@
                                         <li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.getMember(ID()))"><span data-bind="    css:$data.getMember(ID()).IsFriend() ? 'icon icon-remove' : 'icon icon-plus' " ></span> <span data-bind="    text:$data.getMember(ID()).IsFriend() ? ' حذف من ' : ' إضافة إلى' "></span> الأصدقاء</a></li>
                                         <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':ID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                         <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u='+ID()+'&un='+Name()+ '\',\'الرسائل\');' }" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <%--<li><a href="#"><span class="awesome">&#xf05e;</span> حجب</a></li>--%>
+                                        <li><a data-bind="click:$parent.toggleBlockMember.bind($data,$data.ID(), !$parent.isBlocked($data.ID()))" style="cursor:pointer;"><i class="icon icon-ban-circle"></i> <span data-bind="    text:$parent.isBlocked($data.ID()) ? 'إلغاء الحظر':'حظر'"></span></a></li>
                                     </ul>
                                 </div>
                                 <!-- /ko -->

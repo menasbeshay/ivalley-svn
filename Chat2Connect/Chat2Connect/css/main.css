@@ -772,6 +772,17 @@ hr {
     margin-top:-2px;
 }
 
+.block-link {
+    position:relative;
+}
+.blockcircle {
+    position:absolute;
+    color:#f00;
+    font-size:2em;
+    right:12px;
+    bottom:8px;
+}
+
 img.online {
     border:3px solid #2CCE01 !important;
 }

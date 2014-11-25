@@ -49,7 +49,7 @@ $(document).ready(function () {
         format: 'yyyy/mm/dd'
     });
     
-    $('.AccountMenu a').tooltip();
+    $('.AccountMenu a').tooltip();    
 
     $('.SScroll').each(function () {
         $(this).slimScroll({
