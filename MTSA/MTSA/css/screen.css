@@ -20,11 +20,11 @@ table {
 fieldset, img {
     border: 0;
 }
-
+/*
 address, caption, cite, code, dfn, em, strong, th, var {
     font-style: normal;
     font-weight: normal;
-}
+}*/
 
 caption, th {
     text-align: left;
@@ -3314,8 +3314,18 @@ background-color:#B8B6B8;
 }
 
 #polytouchslide2 {
-    background:#d3d3d3;
-    
+    background:url(../images/products/multitouchscreens/Page2/Background.png) #d3d3d3 no-repeat top left;    
+    background-size:contain;
+}
+
+.touchscreenlabel {
+    color:#2c7aff;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.smallLabel {
+    font-size:90%;
 }
 
 .anim {
