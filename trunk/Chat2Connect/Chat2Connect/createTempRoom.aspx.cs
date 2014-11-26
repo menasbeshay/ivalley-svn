@@ -51,10 +51,10 @@ namespace Chat2Connect
                     room.EnableCam = true;
                     room.EnableMic = true;
                     room.RowStatusID = 1;
-                    room.Name = "غرفة مؤقتة";
+                    room.CreatedDate = DateTime.Now;                    
                     room.Save();
 
-                    room.Name = room.RoomID.ToString();
+                    room.Name = "غرفة مؤقتة - " + room.RoomID.ToString();
                     room.Save();
 
                     Session["TempRoomCreate"] = room.RoomID;

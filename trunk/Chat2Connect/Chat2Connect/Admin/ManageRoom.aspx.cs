@@ -37,15 +37,16 @@ namespace Chat2Connect.Admin
 
         protected void lnkLoadRoom_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(drpRooms.SelectedValue))
+            //if (!string.IsNullOrEmpty(drpRooms.SelectedValue))
+            if (!string.IsNullOrEmpty(hdnRoomID.Value))
             {
                 if (Helper.Admin.HasRole(Helper.Enums.AdminRoles.Admin_RoomStatus.ToString()))
                 {
                     ctrlRoomStatus.Visible = true;
-                    ctrlRoomStatus.RoomID = Convert.ToInt32(drpRooms.SelectedValue);
+                    ctrlRoomStatus.RoomID = Convert.ToInt32(hdnRoomID.Value);
                 }
 
-                ctrlRoomInfo.RoomID = Convert.ToInt32(drpRooms.SelectedValue);
+                ctrlRoomInfo.RoomID = Convert.ToInt32(hdnRoomID.Value);
             }
         }
     }

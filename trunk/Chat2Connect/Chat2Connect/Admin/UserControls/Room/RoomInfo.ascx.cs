@@ -52,6 +52,7 @@ namespace Chat2Connect.Admin.UserControls.Room
             { 
                 creator.LoadByPrimaryKey(room.CreatedBy);
                 uiLabelCreator.Text = creator.UserName;
+                uiLabelName.Text = room.Name;
                 loadAdminTable();
                 uiGridViewAdmins.DataSource = AdminsTable;
                 uiGridViewAdmins.DataBind();

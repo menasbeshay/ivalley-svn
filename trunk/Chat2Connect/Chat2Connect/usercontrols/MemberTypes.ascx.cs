@@ -86,10 +86,16 @@ namespace Chat2Connect.usercontrols
             }
         }
 
-        private static void NotifyMember(int mid,int typeSpecID)
+        public static void NotifyMember(int mid,int typeSpecID)
         {
             Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
-            _Rcontext.Clients.All.updateMemberType(mid, typeSpecID);
+            _Rcontext.Clients.All.updateMemberType(mid, typeSpecID);            
+        }
+
+        public static void NotifyMember(int mid, string newName)
+        {
+            Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
+            _Rcontext.Clients.All.updateMemberName(mid, newName);
         }
 
     }

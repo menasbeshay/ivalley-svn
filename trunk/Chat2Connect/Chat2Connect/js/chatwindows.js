@@ -1224,6 +1224,14 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 member.MemberTypeID(mTypeSpecID);
             }
         }
+
+        this.updateMemberName = function (mid, newName) {
+            var member = this.getMember(mid);
+            if (member != null) {
+                member.MemberName(newName);
+            }
+        }
+
         this.ToggleFav = function () {
             var window = this;
             $.ajax({
@@ -2195,6 +2203,22 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             member.TypeSpecID(typeSpecID);
         ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
             window.updateMemberType(mid, typeSpecID);
+        });
+    }
+
+    rHub.client.updateMemberName = function (mid, newName) {
+        var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+            member.memberName(newName);
+        member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
+            return f.MemberID() == mid;
+        });
+        if (member != undefined)
+            member.memberName(newName);
+        ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
+            window.updateMemberName(mid, newName);
         });
     }
     rHub.client.addNewHelpMember = function (member) {

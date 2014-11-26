@@ -660,7 +660,10 @@
                         sticker: false
                     });
                     setTimeout(function () {
-                        document.location.href = '<%=ResolveUrl("~/popuppages/Messages_popup.aspx") %>?t=inbox';
+                        if (document.location.href.toLowerCase().indexOf('admin') == -1)
+                            document.location.href = '<%=ResolveUrl("~/popuppages/Messages_popup.aspx") %>?t=inbox';
+                        else
+                            document.location.href = '<%=ResolveUrl("~/Admin/SendMessage.aspx") %>';
                     }, 3000);
 
 

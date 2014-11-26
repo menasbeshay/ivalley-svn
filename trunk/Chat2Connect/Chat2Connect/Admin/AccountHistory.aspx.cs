@@ -50,6 +50,7 @@ namespace Chat2Connect.Admin
                     log.Where.CreateDate.Operator=MyGeneration.dOOdads.WhereParameter.Operand.Between;
                     log.Where.CreateDate.BetweenBeginValue=Helper.Date.ToDate(txtStartDate.Text);
                     log.Where.CreateDate.BetweenEndValue=Helper.Date.ToDate(txtEndDate.Text).AddDays(1);
+                    log.Query.AddOrderBy("CreateDate", MyGeneration.dOOdads.WhereParameter.Dir.DESC);
                     log.Query.Load();
                 }
             }
