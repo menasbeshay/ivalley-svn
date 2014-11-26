@@ -180,12 +180,24 @@ namespace Chat2Connect
                 Room room = new Room();
                 if (!IsEdit)
                 {
+                    // check no room exists with the same name
                     room.Where.Name.Value = uiTextBoxADD_Name.Text;
                     room.Where.Name.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
                     room.Query.Load();
                     if (room.RowCount > 0)
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "error_roomnameexists", "$(document).ready(function (){ notify('error','حدث خطأ. إسم الغرفة موجود من قبل.');}); ", true);
+                        return;
+                    }
+
+                    // max no of created room = 2
+                    room.Where.WhereClauseReset();
+                    room.Where.CreatedBy.Value = member.MemberID;
+                    room.Where.CreatedBy.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                    room.Query.Load();
+                    if (room.RowCount >= 2)
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "error_roomnameexists", "$(document).ready(function (){ notify('error','عفواً ، تم تخطى العدد المسموح للغرف الخاصة بك.');}); ", true);
                         return;
                     }
                     room.AddNew();
