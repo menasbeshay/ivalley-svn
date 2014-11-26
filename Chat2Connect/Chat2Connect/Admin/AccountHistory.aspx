@@ -6,13 +6,14 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <div class="col-lg-12 blockBoxshadow">
     <div class="form-group">
         <div class="col-lg-12 control-label pull-right">
             <h3>حركة حساب</h3>
         </div>
 
     </div>
-    <div class="form-horizontal blockBox">
+    <div class="form-horizontal blockBox ">
 
         <div class="form-group">
             <div class="col-md-2 control-label pull-right">
@@ -41,7 +42,7 @@
 
     </div>
     <div class="col-md-12 pull-right">
-        <asp:GridView ID="grdLog" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
+        <asp:GridView ID="grdLog" runat="server" CssClass="table table-striped table-condensed table-bordered" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="grdLog_PageIndexChanging" HeaderStyle-CssClass="MsgHeader">
                  <RowStyle HorizontalAlign="Center" />
             <Columns>
                 <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd / MM / yyyy hh:mm tt}" HeaderText="التاريخ والوقت"/>
@@ -58,4 +59,5 @@
             </Columns>
         </asp:GridView>
     </div>
+        </div>
 </asp:Content>

@@ -6,16 +6,22 @@
     <div class="modal-body">
         <div class="form-horizontal blockBox validationGroup">
             <div class="form-group">
-                 <div class="col-sm-2 pull-right">
+                <div class="col-sm-2 pull-right">
+                    <label>اسم الغرفة:</label>
+                </div>
+                <div class="col-sm-2 pull-right">
+                    <asp:Label ID="uiLabelName" runat="server" ></asp:Label>                    
+                </div> 
+                <div class="col-sm-2 pull-right">
                     <label>مالك الغرفة:</label>
                 </div>
-                <div class="col-sm-3 pull-right">
+                <div class="col-sm-2 pull-right">
                     <asp:Label ID="uiLabelCreator" runat="server" ></asp:Label>                    
                 </div>
-                <div class="col-sm-3 pull-right">
+                <div class="col-sm-2 pull-right">
                     <label>تاريخ إنشائها:</label>
                 </div>
-                <div class="col-sm-3 pull-right">
+                <div class="col-sm-2 pull-right">
                     <asp:Label ID="uiLabelCreatedDate" runat="server" ></asp:Label>                    
                 </div>
             </div>

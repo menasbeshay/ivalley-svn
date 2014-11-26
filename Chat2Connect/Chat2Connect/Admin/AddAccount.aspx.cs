@@ -158,7 +158,7 @@ namespace Chat2Connect.Admin
 
         protected void uiLinkButtonSaveMember_Click(object sender, EventArgs e)
         {
-            int type = Convert.ToInt32(uiDropDownListTypeDuration.SelectedValue);
+            int type = Convert.ToInt32(uiRadioButtonListTypes.SelectedValue);
             BLL.MemberTypeSpecDuration bllSpec = new MemberTypeSpecDuration();
             if (!bllSpec.LoadByMemberTypeSpecID(type))
                 return;
@@ -194,7 +194,7 @@ namespace Chat2Connect.Admin
             member.MemberType.MemberTypeSpecDurationID = bllSpec.ID;
             member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
             member.MemberType.StartDate = DateTime.Now;
-            member.MemberType.EndDate = DateTime.Now.AddMonths(Convert.ToInt32(lstTypeDuration.SelectedValue));
+            member.MemberType.EndDate = DateTime.Now.AddMonths(Convert.ToInt32(uiDropDownListTypeDuration.SelectedValue));
             member.MemberType.OldName = oldname;
             member.MemberType.Save();
 
@@ -207,6 +207,9 @@ namespace Chat2Connect.Admin
             BLL.MemberLog log = new BLL.MemberLog();
             log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.ChangeMemberType() { MemberName = member.Name,OldName=oldname, NewTypeName = member.MemberType.MemberTypeSpecDuration.MemberTypeSpec.Name, NewTypeExpiryDate = member.MemberType.EndDate, Points = val }, member.MemberID, null);
 
+
+            Chat2Connect.usercontrols.MemberTypes.NotifyMember(member.MemberID, type);
+            Chat2Connect.usercontrols.MemberTypes.NotifyMember(member.MemberID, member.UserName);
         }
 
         protected void uiLinkButtonCreateNew_Click(object sender, EventArgs e)
