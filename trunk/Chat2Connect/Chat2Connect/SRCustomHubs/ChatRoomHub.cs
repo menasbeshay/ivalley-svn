@@ -553,6 +553,14 @@ namespace Chat2Connect.SRCustomHubs
                     rm.RoomMemberLevelID = level;
                     rm.Save();
                 }
+
+                //add/remove member to/from signalR admins group 
+                var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
+                if (level > (int)Helper.Enums.RoomMemberLevel.Visitor)
+                    Groups.Add(item.ConnectionId, GetRoomAdminGroupName(roomid));
+                else
+                    Groups.Remove(item.ConnectionId, GetRoomAdminGroupName(roomid));
+
                 //update clients
                 Clients.Group(roomid.ToString(), Context.ConnectionId).updateMemberLevel(roomid, memberid, level);
             }

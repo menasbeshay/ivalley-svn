@@ -66,6 +66,21 @@ $(document).ready(function () {
     initGeneralGiftModal();
 
     CountFriends();
+    // hide popover on click on body
+    $('body').on('click', function (e) {
+        $('.roomMemberlink').each(function () {
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+
+        $('.friend-link').each(function () {
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+    });
+
 
     //$(window).bind('keydown keyup', function (e) {
     //    if (e.which === 116) {

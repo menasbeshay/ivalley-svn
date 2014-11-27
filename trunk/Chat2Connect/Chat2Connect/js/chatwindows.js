@@ -1894,6 +1894,10 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         if (member == null)
             return;
         member.QueueOrder(null);
+
+        // hide popover if opened
+        $("#m_" + member.MemberID()).popover('hide');
+
         member.InRoom(false);
         if (window.CurrentMember().NotifyOnFriendsLogOff()) {
             var msg = member.MemberName() + ' خرج من الغرفة ';
@@ -1933,7 +1937,24 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         if (member == null)
             return;
         member.MemberLevelID(level);
+        // init admin editor 
+        if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0 && level > 1) {
+            window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
+            if (window.AdminsEditor != null && window.AdminsEditor != undefined) {                
+                setTimeout(attachEnterkeyToAdminEditor(window), 1000);
+            }
+        }
     };
+
+    function attachEnterkeyToAdminEditor(window) {
+        window.AdminsEditor.composer.element.addEventListener('keyup', function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                self.sendAdminMessage(window);
+            }
+        });
+    }
+
     rHub.client.updateRoomTopic = function (roomID, topic) {
         var type = "Room";
         var window = chatVM.getWindow(roomID, type);

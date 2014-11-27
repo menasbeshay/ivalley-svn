@@ -176,9 +176,9 @@
                     <h5>قائمة الإدارة</h5>
                 </div>                
             </div>
-                <div class="form-group">
-                <div class="col-lg-6 pull-right">
-                    <asp:GridView ID="uiGridViewAdmins" runat="server" AutoGenerateColumns="false" EmptyDataText="لا توجد بيانات" CssClass="adminsTable" OnRowCommand="uiGridViewAdmins_RowCommand">
+                <div class="col-sm-12 form-group">
+                <div class="col-sm-12 pull-right">
+                    <asp:GridView ID="uiGridViewAdmins" runat="server" AutoGenerateColumns="false" EmptyDataText="لا توجد بيانات" CssClass="adminsTable table" OnRowCommand="uiGridViewAdmins_RowCommand">
                         <AlternatingRowStyle CssClass="Alteven" />
                         <RowStyle CssClass="Altodd" />
                         <Columns>
@@ -191,19 +191,21 @@
                             <asp:TemplateField>
                                 <HeaderTemplate>الأسم</HeaderTemplate>
                                 <ItemTemplate>
-                                    <%# Eval("AdminName") %>
+                                    <%# Eval("MemberName") %>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <HeaderTemplate>الفئة</HeaderTemplate>
                                 <ItemTemplate>
-                                    <%# Eval("AdminTypeName") %>
+                                   <%# Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(Convert.ToInt32(Eval("RoomMemberLevelID")))) %> 
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <HeaderTemplate>حذف</HeaderTemplate>
                                 <ItemTemplate>
+                                    
                                     <asp:LinkButton ID="uiLinkButtonDelAdmin" runat="server" CommandName="DeleteAdmin" CommandArgument='<%# Eval("MemberID") %>' OnClientClick="return confirm('هل أنت متأكد أنك تريد حذف هذا السجل ؟');"><i class=" icon-trash"></i></asp:LinkButton>
+                                    
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

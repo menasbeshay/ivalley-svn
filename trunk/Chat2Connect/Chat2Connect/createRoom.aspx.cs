@@ -104,8 +104,8 @@ namespace Chat2Connect
                     uiLabelCreator.Text = member.Name;
                     uiLabelCreatedDate.Text = GetLocalResourceObject("Now").ToString();
                     LoadDDLs();
-                    setupAdminTable();
-                    loadAdminTable();
+                    //setupAdminTable();
+                    //loadAdminTable();
                     if (!IsEdit)
                     {
                         uiPanelCreateRoom.Visible = true;
@@ -269,7 +269,7 @@ namespace Chat2Connect
                     log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.CreateRoom() { RoomID = room.RoomID, RoomName = room.Name }, null, room.RoomID);
                 }
 
-                if (AdminsTable.Rows.Count > 0)
+               /* if (AdminsTable.Rows.Count > 0)
                 {
                     RoomMember roommember = new RoomMember();
                     roommember.GetAllAdminMembersByRoomID(room.RoomID);
@@ -279,6 +279,8 @@ namespace Chat2Connect
                     RoomMember toAdd = new RoomMember();
                     for (int i = 0; i < AdminsTable.Rows.Count; i++)
                     {
+                        if (Convert.ToInt32(AdminsTable.Rows[i]["MemberID"].ToString()) == room.CreatedBy)
+                            continue;
                         toAdd.AddNew();
                         toAdd.RoomID = room.RoomID;
                         toAdd.MemberID = Convert.ToInt32(AdminsTable.Rows[i]["MemberID"].ToString());
@@ -296,7 +298,7 @@ namespace Chat2Connect
                     roommember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
                     roommember.Save();
                 }
-
+                */
                 CurrentRoom = room.RoomID;
                 Response.Redirect("createRoom.aspx?IsEdit=true&" +querystring);
 
@@ -305,9 +307,10 @@ namespace Chat2Connect
 
         protected void uiLinkButton_Click(object sender, EventArgs e)
         {
-            Member currentMember = new Member();
-            currentMember.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldAdminID.Value));
             Helper.Enums.RoomMemberLevel currentType = Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(Convert.ToInt32(uiDropDownListAdminType.SelectedValue));
+            /*Member currentMember = new Member();
+            currentMember.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldAdminID.Value));
+            
 
             for (int i = 0; i < AdminsTable.Rows.Count; i++)
             {
@@ -320,6 +323,23 @@ namespace Chat2Connect
 
             AdminsTable.Rows.Add(currentMember.MemberID, currentMember.Name, (int)currentType, Helper.StringEnum.GetStringValue(currentType));
             AdminsTable.AcceptChanges();
+            */
+            RoomMember member = new RoomMember();
+            if (member.LoadByPrimaryKey(Convert.ToInt32(uiHiddenFieldAdminID.Value), CurrentRoom))
+            {
+                if(member.RoomMemberLevelID != (int)Helper.Enums.RoomMemberLevel.Owner) // not owner
+                    member.RoomMemberLevelID = (int)currentType;
+                member.Save();
+            }
+            else
+            {
+                member.AddNew();
+                member.MemberID = Convert.ToInt32(uiHiddenFieldAdminID.Value);
+                member.RoomID = CurrentRoom;
+                member.RoomMemberLevelID = (int)currentType;
+                member.Save();
+            }
+
             BindAdmins();
         }
         #endregion
@@ -340,17 +360,17 @@ namespace Chat2Connect
 
         private void loadAdminTable()
         {
-            AdminsTable.Clear();
+           // AdminsTable.Clear();
             RoomMember currentadmins = new RoomMember();
             if (IsEdit)
                 currentadmins.GetAllAdminMembersByRoomID(CurrentRoom);
-            Helper.Enums.RoomMemberLevel adminType;
+            /*Helper.Enums.RoomMemberLevel adminType;
             for (int i = 0; i < currentadmins.RowCount; i++)
             {
                 adminType = Helper.EnumUtil.ParseEnum<Helper.Enums.RoomMemberLevel>(currentadmins.RoomMemberLevelID);
                 AdminsTable.Rows.Add(currentadmins.MemberID, currentadmins.GetColumn("MemberName"), currentadmins.RoomMemberLevelID, Helper.StringEnum.GetStringValue(adminType));
                 currentadmins.MoveNext();
-            }
+            }*/
         }
         private void LoadDDLs()
         {
@@ -417,7 +437,10 @@ namespace Chat2Connect
 
         private void BindAdmins()
         {
-            uiGridViewAdmins.DataSource = AdminsTable;
+            RoomMember currentadmins = new RoomMember();
+            if (IsEdit)
+                currentadmins.GetAllAdminMembersByRoomID(CurrentRoom);
+            uiGridViewAdmins.DataSource = currentadmins.DefaultView;
             uiGridViewAdmins.DataBind();
         }
         #endregion
@@ -439,10 +462,14 @@ namespace Chat2Connect
             if (e.CommandName == "DeleteAdmin")
             {
                 RoomMember mem = new RoomMember();
-                mem.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()), CurrentRoom);
-                mem.RoomMemberLevelID = 1; //Helper.Enums.RoomMemberLevel.Visitor;
-                mem.Save();
-                loadAdminTable();
+                if (mem.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()), CurrentRoom))
+                {
+                    if (mem.RoomMemberLevelID != (int)Helper.Enums.RoomMemberLevel.Owner)
+                    {
+                        mem.RoomMemberLevelID = 1; //Helper.Enums.RoomMemberLevel.Visitor;
+                        mem.Save();
+                    }
+                }               
                 BindAdmins();
             }
         }
