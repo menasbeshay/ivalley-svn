@@ -3,10 +3,10 @@
     $('#superContainer').fullpage({
         navigation: false,
         scrollOverflow: true,
-        slidesNavigation: false,
+        slidesNavigation: false,        
         resize: false,
         verticalCentered: false,
-        afterLoad: function (anchorLink, index) {
+        afterLoad: function (anchorLink, index) {            
             if ($('#nextsection_' + index).length) {
                 $('#nextTopic span').html($('#nextsection_' + index).html());
                 $('#nextTopic').css('display', 'block');
@@ -30,7 +30,12 @@
                     ascroll.removeClass('nav-current');
                     setTimeout(function () {
                         catPages.css("display", "none");
+                        // back to 1st project
+                        $(ascroll[0]).trigger('click');
+                        $(catPages[0]).css('display', 'block');
                     }, 1000);
+
+                    
                 }
                     // move from polytouch screen video slide
                 else if (index == 2 && slideIndex != 0) {
@@ -43,6 +48,11 @@
                 if (index == 2 && slideIndex == 1)
                 {
                     $('#multitouchflashvideo').get(0).play();
+                }
+                if (index == 2 && slideIndex == 3)
+                {
+                    // open 1st item in grid 
+                    setTimeout(function () { $('#polywts > ul > li > a:first').trigger("click") }, 200);
                 }
 
             }
@@ -365,6 +375,7 @@
 
     });
 
+
     $("#content-wrap, .cat-pages").niceScroll({
         cursorcolor: "#d7d7d7",
         cursorwidth: "6px",
@@ -373,7 +384,8 @@
         horizrailenabled: false,
         autohidemode: false
     });
-
+    
+  //  $('.mutliGallery').each(function () { $(this).hoverdir(); });
 
     // NAVIGATION
     $(function () {
