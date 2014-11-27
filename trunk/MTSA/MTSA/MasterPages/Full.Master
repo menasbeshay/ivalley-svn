@@ -40,7 +40,7 @@
     <script src="../Scripts/apps/elastic_grid.js"></script>	
     <script src="../Scripts/jquery.mb.YTPlayer.js"></script>
     <script src="../Scripts/jquery.zoom.min.js"></script>
-    <script src="../Scripts/lightbox.min.js"></script>    <script src="../Scripts/main.js"></script>
+    <script src="../Scripts/lightbox.min.js"></script>    <%--<script src="../Scripts/jquery.hoverdir.js"></script>--%>    <script src="../Scripts/main.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -161,7 +161,7 @@
                        <div class="headerbottom"></div>
                    </div>                                      
 
-                   <div style="height:100%;position:relative;padding-top:5px;">
+                   <div style="height:90%;position:relative;padding-top:5px;">
 
                    <section id="content-wrap">
                        <div class="container-liquid">
@@ -244,7 +244,7 @@
                        </div>
                    </section>
 
-                    <section id="Wayfinding" class="cat-pages">
+                   <section id="Wayfinding" class="cat-pages">
                        <div class="container-liquid">
 
                            <!-- TITLE -->
@@ -285,7 +285,7 @@
                        </div>
                    </section>
 
-                       <section id="HERA" class="cat-pages">
+                   <section id="HERA" class="cat-pages">
                        <div class="container-liquid">
 
                            <!-- TITLE -->
@@ -471,7 +471,7 @@
                     <div class="footer-polytouch">
                         <div class="footerLeft">
                             <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;"/><br />
-                            <img src="../images/products/simply.png" style="max-width:70%;"/>
+                            <img src="../images/products/simply.png" style="max-width:85%;"/>
                         </div>
                         <div class="footerRight">
                             Click <a href="https://www.dropbox.com/s/3araruu98seemmy/V-Studio%20Polytouch%20Video%20English.swf?dl=1" style="color:#05088e;font-weight:bold;" target="_blank">here</a> to download flash video <br />
@@ -505,16 +505,16 @@
                               <div class="clearfix" style="height:10px;"></div>
                                     <p style="text-align:justify;">With Polytouch® QMS you are already at par with future standards and processes, e.g., cashless transactions.</p>
                               <div class="clearfix" style="height:10px;"></div>
-                                 <img src="../images/products/multitouchscreens/Page2/Screens.png" style="margin-top:-30px;" />
+                                 <img src="../images/products/multitouchscreens/Page2/Screens.png" />
                                                         
                           
                          </div>
                          <div class="col-lg-4 col-sm-4 col-md-4" >
                              <img src="../images/products/multitouchscreens/Page2/Made.png" style="margin-top:10px;"/>
-                             <div class="clearfix" style="height:20px;"></div>
+                             <div class="clearfix" style="height:10px;"></div>
                               <p style="text-align:justify;">Polytouch is suitable for a variety of industries and applications. Due to the compact design with built-in computer hardware you may use Polytouch instantly wherever you find a power socket. The small installation depth and the flat surface are ideal for integration at the point of sale.<strong>Whatever your business is - it will be smarter with Polytouch.</strong> 
                                  </p>
-                             <div class="clearfix" style="height:15px;"></div>
+                             <div class="clearfix" style="height:10px;"></div>
                              <img src="../images/products/multitouchscreens/Page2/AppsIcon.png" />&nbsp; <label class="touchscreenlabel upper"> Applications</label>
                              <div class="clearfix" style="height:5px;"></div>
                              <p style="text-align:justify;">
@@ -525,10 +525,10 @@
                          </div>
                          <div class="col-lg-4 col-sm-4 col-md-4" style="width:31%" >
                          <div class="col-lg-12 col-sm-12 col-md-12" style="text-align:center">
-                              <video loop id="multitouchflashvideo" style="width:60%;border:1px solid #aaa;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
+                              <video loop id="multitouchflashvideo" style="width:71%;border:1px solid #aaa;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
                              </video>                             
                          </div>
-                         <div style="clear:both; height:15px;"></div>
+                         <div style="clear:both; height:10px;"></div>
                           <img src="../images/products/multitouchscreens/Page2/QmsIcon.png" />&nbsp;<label class="touchscreenlabel smallLabel upper"> QMS - Quick Mounting System - Modular </label> <label class="touchscreenlabel smallLabel">POS functionality</label>
                          <p style="text-align:justify;">
                             Polytouch POS systems offer the patent pending Quick Mounting System (QMS). With QMS it's easy to change or upgrade the configuration of the Polytouch systems. QMS extension modules like POS thermal printers, Chip & PIN payment, camera, RFID and NFC are available. Only QMS ensures that your systems will comply with future standards.
@@ -606,97 +606,26 @@
                          </div>
                          <div class="col-lg-2 col-sm-2 col-md-2" >
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/1.jpg" class="mutliGallery">
-                                 <img src="../images/products/multitouchscreens/Page3/pic3.png" />
+                                 <img src="../images/products/multitouchscreens/Page3/pic3.png" style="width:100%" />
+                                 <div class="myhoverdiv">Do it the Polytouch way</div>
                              </a>
-                             <div class="clearfix" style="height:10px;"></div>
+                             <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/2.jpg" class="mutliGallery">
-                                 <img src="../images/products/multitouchscreens/Page3/Pic2.png" />
+                                 <img src="../images/products/multitouchscreens/Page3/Pic2.png" style="width:100%" />
+                                 <div class="myhoverdiv">Do it the Polytouch way</div>
                              </a>
-                             <div class="clearfix" style="height:10px;"></div>
+                             <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/3.jpg" class="mutliGallery">
-                                 <img src="../images/products/multitouchscreens/Page3/Pic1.png" />
+                                 <img src="../images/products/multitouchscreens/Page3/Pic1.png" style="width:100%" />
+                                 <div class="myhoverdiv">Do it the Polytouch way</div>
                              </a>
-                             <div class="clearfix" style="height:10px;"></div>
+                             <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/4.jpg" class="mutliGallery">
-                                 <img src="../images/products/multitouchscreens/Page3/Pic4.png" />
+                                 <img src="../images/products/multitouchscreens/Page3/Pic4.png" style="width:100%" />
+                                 <div class="myhoverdiv">Do it the Polytouch way</div>
                              </a>
                         </div>
-                    </div>
-                     <div style="display:none">
-                     <div class="col-lg-10 col-md-10 col-sm-10" style="padding: 0;">
-                         <div class="col-lg-3 col-sm-3 col-md-3 borderedbox" style="padding: 0;text-align:center;margin:0 !important;">
-                             <img src="../images/products/logo_polytouch_976px.png" style="max-width: 80%;" />
-                         </div>                         
-                         
-                     </div>        
-                     <div style="clear:both; height:1px;"></div>
-                     
-                     <div class="col-lg-10 col-sm-10 col-md-10" style="padding:0;width:82.5% !important">
-                         <div class="col-lg-12 col-sm-12 col-md-12 borderedbox" style="padding:0;text-align:justify;margin-right:0 !important;margin-left:0 !important;">
-                          <div class="col-lg-5 col-sm-5 col-md-5">
-                                  <label style="text-transform:capitalize;"><i class="fa fa-tag"></i> &nbsp; Product overview</label>
-                             <ul class="mylist">
-                                 <li>22"/ 24"/ 32"/ 46" all-in-one multi-touch system</li>
-                                 <li>up to 20 touches (+ palm recognition)</li>
-                                 <li>projected capacitive technology</li>
-                                 <li>anti-glare, full HD display (1920 x 1080 pixels)</li>
-                                 <li>Quick Mounting System (QMS) for custom system configuration:barcode scanner, HF RFID, Chip & PIN payment, magnetic card reader, 80 x 80 mm POS thermal printer, …</li>
-                             </ul>
-
-                          </div>
-                         <div class="col-lg-4 col-sm-4 col-md-4">
-                                  <label style="text-transform:capitalize;"><i class="fa fa-cogs"></i> &nbsp; Specifications</label>
-                             <ul class="mylist">
-                                <li>Intel® Core™ i7-3770S processor (Ivy Bridge)</li>
-                                <li>Intel® HD4600 graphics (or the latest) on chip; optional AMD FirePro graphics card</li>
-                                <li>120GB Solid State Drive (SSD)</li>
-                                <li>1 Gb Ethernet, 300 Mb Wi-Fi</li>
-                                <li>ADA compatible, also for products for wheelchair users</li>
-
-                             </ul>
-                          </div>
-                         <div class="col-lg-3 col-sm-3 col-md-3" style="text-align:center">
-                             <img src="../images/products/multitouchscreens/classic22.png" style="max-width:50%;margin:0 auto;" class="zoom" />
-                         </div>
-                             </div>
-                         <div style="clear:both;height:1px;"></div>
-                         <div class="col-lg-12 col-sm-12 col-md-12 borderedbox" style="padding:0;text-align:justify;margin-right:0 !important;margin-left:0 !important;">
-                          <div class="col-lg-9 col-sm-9 col-md-9">
-                                  <label style="text-transform:capitalize;"><i class="fa fa-sitemap"></i> &nbsp; POS & Classic systems</label>
-                             <ul class="mylist">
-                                 <li>The <strong>Polytouch® POS systems</strong> are modular and easily extensible with the following peripherals:POS thermal printer, Chip & PIN payment, camera, and RFID, NFC and barcode reader.</li>
-                                 <li>The <strong>Polytouch® CLASSIC systems</strong> are equipped with NFC/RFID readers. If needed additional hardware peripherals can be easily added. This makes your investment extremely future-proof</li>                                 
-                             </ul>
-                              <a href="../files/Polytouchcatalogue.pdf" title="Download catalogue" style="position:absolute;bottom:-60px;right:0;display:block;width:70px;height:70px;"><img src="../images/downen.png" style="max-width:100%;"/></a>
-                              
-                          </div>
-                         
-                         <div class="col-lg-3 col-sm-3 col-md-3" style="text-align:center">
-                             <img src="../images/products/multitouchscreens/pos32.png" style="max-width:50%;margin:0 auto;" class="zoom" />
-                         </div>
-                             </div>
-                     </div>                                   
-                     <div class="col-lg-2 col-sm-2 col-md-2 borderedbox" style="padding-top:10px;margin-left:10px !important;margin-right:0px !important;min-height:385px;">
-                         <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/all.jpg" class="mutlihover">
-                             <div class="hoverdiv">
-                                 Do it the Polytouch way
-                             </div>
-                             <img src="../images/products/multitouchscreens/all.jpg"  style="max-width:100%"/>
-                         </a>
-                         <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/1.jpg" class="mutliGallery" style="display:none;">
-                         <img src="../images/products/multitouchscreens/1.jpg"  style="max-width:100%"/>
-                             </a>
-                             <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/2.jpg" class="mutliGallery" style="display:none;">
-                         <img src="../images/products/multitouchscreens/2.jpg"  style="max-width:100%"/></a>
-                         <a data-lightbox="mutlitouch" class="mutliGallery" href="../images/products/multitouchscreens/3.jpg" style="display:none;">
-                         <img src="../images/products/multitouchscreens/3.jpg"  style="max-width:100%"/></a>
-                         <a data-lightbox="mutlitouch" class="mutliGallery" href="../images/products/multitouchscreens/4.jpg" style="display:none;">
-                         <img src="../images/products/multitouchscreens/4.jpg"  style="max-width:100%"/></a>
-
-                         <div style="clear:both; height:90px;"></div>
-                         <img src="../images/products/multitouchscreens/Classic46.jpg"  style="max-width:100%;bottom:10px;"/>
-                     </div>       
-                         </div>                            
+                    </div>                                                 
                      </div>
                 </div>
             <div class="slide" id="polytouchslide4">
@@ -715,7 +644,7 @@
                    </div>
 
                    <div class="fixwtu">&nbsp;</div>                   
-                   
+                   <div class="fixwtu" style="height:40px;">&nbsp;</div> 
                </div>
             </div>
         </div>

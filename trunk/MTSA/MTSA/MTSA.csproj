@@ -158,7 +158,6 @@
     <Content Include="css\apps\component.css" />
     <Content Include="css\apps\default.css" />
     <Content Include="css\apps\elastic_grid.css" />
-    <Content Include="css\blank.gif" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\component.css" />
@@ -266,7 +265,6 @@
     <Content Include="images\products\logo_polytouch_976px.png" />
     <Content Include="images\products\multitouchscreens\1.jpg" />
     <Content Include="images\products\multitouchscreens\1.png" />
-    <Content Include="images\products\multitouchscreens\1bg.png" />
     <Content Include="images\products\multitouchscreens\2.jpg" />
     <Content Include="images\products\multitouchscreens\2_2.png" />
     <Content Include="images\products\multitouchscreens\3.jpg" />
@@ -311,6 +309,7 @@
     <Content Include="images\projects\1.jpg" />
     <Content Include="images\projects\2.jpg" />
     <Content Include="images\projects\3.jpg" />
+    <Content Include="images\projects\PHEX.png" />
     <Content Include="images\slides\Slide-1.jpg" />
     <Content Include="images\slides\Slide-10.jpg" />
     <Content Include="images\slides\Slide-11.jpg" />
@@ -423,7 +422,6 @@
     <Content Include="css\ytp-regular.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="files\Polytouchcatalogue.pdf" />
     <None Include="Properties\PublishProfiles\mtsa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\apps\classie.js" />
@@ -445,8 +443,8 @@
     <Content Include="Scripts\jquery.cycle2.min.js" />
     <Content Include="css\jquery.fullPage.css" />
     <Content Include="Scripts\jquery.easings.min.js" />
-    <Content Include="Scripts\jquery.fancybox.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.hoverdir.js" />
     <Content Include="Scripts\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\jquery.nicescroll.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
@@ -610,6 +608,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="files\" />
     <Folder Include="flash\" />
     <Folder Include="images\projects\thumbs\" />
   </ItemGroup>
