@@ -269,7 +269,7 @@ input, .fake_input {
 
     #header .innerWrapper, #footer .innerWrapper {
         margin: 0 auto;
-        width: 1133px;
+        width: 83%;
         position: relative;
         height: 100%;
         zoom: 1;
@@ -329,13 +329,13 @@ input, .fake_input {
     -o-transform-style: flat;
 }
 
-    #header:hover nav ul {
+    #header:hover nav ul , #header:active nav ul {
         padding: 20px 0;
         height: 145px;
         border-top: 1px solid white;
     }
 
-        #header:hover nav ul section {
+        #header:hover nav ul section, #header:active nav ul section {
             height: 100px;
         }
 
@@ -3286,7 +3286,7 @@ background-color:#d3d3d3 !important;
 }
 
 #Products {
-background-color:#B8B6B8;
+background-color:#d3d3d3;
 }
 
 .appsvg {
@@ -3321,6 +3321,10 @@ background-color:#B8B6B8;
 .touchscreenlabel {
     color:#2c7aff;
     font-weight:bold;
+    
+}
+
+.upper {
     text-transform:uppercase;
 }
 

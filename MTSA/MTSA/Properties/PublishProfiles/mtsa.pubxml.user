@@ -181,7 +181,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>11/21/2014 01:02:03</publishTime>
+      <publishTime>11/26/2014 20:33:38</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>11/19/2014 22:51:43</publishTime>
+      <publishTime>11/26/2014 21:01:34</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -660,6 +660,54 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/products/multitouchscreens/mig2.png">
       <publishTime>11/19/2014 18:25:17</publishTime>
     </File>
+    <File Include="images/products/multitouchscreens/Page2/AppsIcon.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/Background.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/Logo.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/Made.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/MultiIcon.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/Polytouchpic.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/QMSIcon.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page2/Screens.png">
+      <publishTime>11/26/2014 19:47:30</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/download.png">
+      <publishTime>11/26/2014 19:47:31</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/Logo.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/pic1.png">
+      <publishTime>11/26/2014 19:47:31</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/Pic2.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/Pic3.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/Pic4.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/POS22.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
+    <File Include="images/products/multitouchscreens/Page3/POS32.png">
+      <publishTime>11/26/2014 19:47:32</publishTime>
+    </File>
     <File Include="images/products/multitouchscreens/pos.JPG">
       <publishTime>11/21/2014 00:00:23</publishTime>
     </File>
@@ -823,7 +871,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>11/21/2014 01:07:30</publishTime>
+      <publishTime>11/26/2014 21:02:32</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
