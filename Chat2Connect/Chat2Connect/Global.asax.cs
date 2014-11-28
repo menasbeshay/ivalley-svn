@@ -26,7 +26,7 @@ namespace Chat2Connect
             scheduleTimer.Interval = 1000 * 60 * 2; //5 minutes
             scheduleTimer.AutoReset = true;
             scheduleTimer.Elapsed += new System.Timers.ElapsedEventHandler(scheduleTimer_Elapsed);
-            scheduleTimer.Enabled = true; 
+            scheduleTimer.Enabled = true;
         }
 
         public int timerTricks;
@@ -132,30 +132,16 @@ namespace Chat2Connect
         protected void Session_End(object sender, EventArgs e)
         {
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-
-            if (Membership.GetUser() != null)
+            int loggedInMemberID = Helper.TypeConverter.ToInt32(Session[SessionManager.loggedInMemberID]);
+            if (loggedInMemberID > 0)
             {
-                // uupdate status to offline 
-                Member user = new Member();
-                user.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
-                user.IsOnLine = false;
-                user.Save();
+                var user = ChatRoomHub.ConnectedUsers.FirstOrDefault(u => u.MemberID == loggedInMemberID);
+                ChatRoomHub.ConnectedUsers.Remove(user);
+                IHubContext _Ncontext = GlobalHost.ConnectionManager.GetHubContext<NotificationHub>();
+                _Ncontext.Clients.All.updateMember(loggedInMemberID, "IsOnline", false);
 
-                // remove user from rooms 
-                RoomMember rooms = new RoomMember();
-                rooms.GetAllRoomsByMemberID(user.MemberID);
-                if (rooms.RowCount > 0)
-                {
-                    for (int i = 0; i < rooms.RowCount; i++)
-                    {
-                        _Rcontext.Clients.Group(rooms.RoomID.ToString()).removeMember(user.MemberID);                       
-                        rooms.MoveNext();
-                    }
-                    rooms.Save();
-                }
-
-                // notify friends with new status 
-                _Rcontext.Clients.All.updateMember(user.MemberID, "IsOnline", false);
+                BLL.Member bllMember = new Member();
+                bllMember.SetOffline(loggedInMemberID);
             }
         }
 

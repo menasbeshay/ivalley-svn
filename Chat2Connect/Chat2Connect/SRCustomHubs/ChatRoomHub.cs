@@ -35,6 +35,10 @@ namespace Chat2Connect.SRCustomHubs
         public override System.Threading.Tasks.Task OnDisconnected()
         {
             Helper.SignalRUser item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            if (item == null)
+            {
+                item = ConnectedUsers.FirstOrDefault(x => x.MemberName == Context.User.Identity.Name);
+            }
             if (item != null)
             {
                 for (int i = 0; i < item.Rooms.Count; i++)
@@ -91,7 +95,7 @@ namespace Chat2Connect.SRCustomHubs
 
                 roomMember.Save();
 
-                Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID).FirstOrDefault();
+                Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID,null).FirstOrDefault();
                 item.Rooms.Add(roomid);
                 if (isVisible)
                     Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
@@ -125,6 +129,7 @@ namespace Chat2Connect.SRCustomHubs
                 roomMember.LoadByPrimaryKey(memberID, roomid);
                 roomMember.InRoom = false;
                 roomMember.HasCam = false;
+                roomMember.HasMic = false;
                 roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
                 roomMember.Save();
 

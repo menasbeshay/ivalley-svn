@@ -4,7 +4,7 @@
         <div>
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#helpcontact">المساعدة</a></div>
             <div class="clearfix"></div>
-            <div id="helpcontact" class="panel-collapse collapse in" style="font-weight: bold;" data-bind="if: helpMembers.loaded()">
+            <div id="helpcontact" class="panel-collapse collapse" style="font-weight: bold;" data-bind="if: helpMembers.loaded()">
                 <!-- ko foreach: onlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
                     <img data-bind="attr: { 'src': (ProfilePic() != '') ? ProfilePic() : 'images/defaultavatar.png' }, css: Status().toLowerCase()" class='friendpic ' style="display: block" />
@@ -52,7 +52,7 @@
         <div>
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#offlinepeople">الأصدقاء غير المتواجدين (<span data-bind="text: offlineFriends().length"></span>)</a></div>
             <div class="clearfix"></div>
-            <div id="offlinepeople" class="panel-collapse collapse in " data-bind="if: friends.loaded()">
+            <div id="offlinepeople" class="panel-collapse collapse" data-bind="if: friends.loaded()">
                 <!--ko template: { name: 'offlineFriendTmpl',foreach: offlineFriends ,afterRender:function(){initPopupMenu();} }-->
                 <!--/ko-->
             </div>
@@ -66,7 +66,7 @@
         <div>
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#blockedpeople">الأعضاء المحظورين</a></div>
             <div class="clearfix"></div>
-            <div id="blockedpeople" class="panel-collapse collapse in" data-bind="if: blockedMembers.loaded()">
+            <div id="blockedpeople" class="panel-collapse collapse" data-bind="if: blockedMembers.loaded()">
                 <!--ko template: { name: 'blockedTmpl',foreach: blockedMembers}-->
                 <!--/ko-->
             </div>

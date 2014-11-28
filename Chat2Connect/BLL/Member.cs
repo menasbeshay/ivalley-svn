@@ -469,5 +469,11 @@ namespace BLL
                                     WHERE M.RowStatusID={0} AND M.MemberID={1}
                                     Order BY M.Name", (int)Helper.Enums.RowStatus.Enabled, mid,(int)Helper.Enums.TypeSpec.Free);
         }
+
+        public void SetOffline(int loggedInMemberID)
+        {
+            LoadFromRawSql(@"update Member set IsOnLine=0 WHERE MemberID={0}
+                            UPDATE RoomMember SET InRoom=0,HasCam=0,HasMic=0 WHERE MemberID={0}", loggedInMemberID);
+        }
     }
 }
