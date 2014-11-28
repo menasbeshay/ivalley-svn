@@ -22,7 +22,7 @@
                 <div class="ContentRow">
                     <div class="col-lg-4 pull-right"><a id="rooms_rm_<%# Eval("RoomID") %>" href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
                     <div class="pull-right center" style="width: 21%; padding: 0 5px;">
-                        <%# Eval("ExistingMembersCount") %>
+                        <span id="rooms_rm_<%# Eval("RoomID") %>_existingmembers"><%# Eval("ExistingMembersCount") %></span>
                     </div>
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;"><%# string.IsNullOrEmpty(Eval("OpenCams").ToString()) ? "0" : Eval("OpenCams").ToString() %></div>
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;">
