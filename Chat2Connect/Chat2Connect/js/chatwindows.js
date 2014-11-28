@@ -251,7 +251,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             return (!f.IsOnline() || f.Status() == 'offline' || self.isBlockingMe(f.MemberID())) && !self.isBlocked(f.MemberID())
         });
     }, this);
-    
+
     this.removeFriend = function () {
         var friend = this;
         $('#usernode-' + friend.MemberID()).popover('hide');
@@ -1255,7 +1255,14 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             });
         };
     }
-
+    var loadingWindowModel = function (id, name, typeSpec) {
+        var room = { ID: id, Name: name, Type: 'loading', IsTemp: false, Settings: { TypeID: typeSpec } };
+        ko.mapping.fromJS(room, {}, this);
+        var self = this;
+        this.uniqueID = ko.computed(function () {
+            return this.Type() + '_' + this.ID();
+        }, this);
+    }
     self.changeCurrent = function (selctor, id, type) {
         //self.ActivWindow();
         if (document.getElementById(selctor)) {
@@ -1329,15 +1336,18 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 return;
             }
 
+            var loadingWin = new loadingWindowModel(id, name, typeSpec);
+            self.windows.push(loadingWin);
+            self.changeCurrent(loadingWin.uniqueID(), loadingWin.ID(), loadingWin.Type());
             $.post("../services/Services.asmx/GetChatRoom", { id: id, isTemp: istemp })
                 .done(function (data) {
+                    self.windows.remove(loadingWin);
                     if (data.Status != 1) {
                         notify('error', data.Data);
                         return;
                     }
                     self.pushWindow(data.Data);
                 });
-
         }
     }
     self.pushWindow = function (data) {
@@ -1776,19 +1786,16 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     });
 
     /****** signalR ********/
-    rHub.client.toggleBlockedFromMember = function (member,block) {
-        if(block)
-        {
-            if(!chatVM.isBlockingMe(member.MemberID))
-            {
+    rHub.client.toggleBlockedFromMember = function (member, block) {
+        if (block) {
+            if (!chatVM.isBlockingMe(member.MemberID)) {
                 var lst = chatVM.blockingMeMembers();
                 var newItem = ko.mapping.fromJS(member);
                 lst.push(newItem);
                 chatVM.blockingMeMembers(lst);
             }
         }
-        else
-        {
+        else {
             var blocked = chatVM.blockingMeMembers();
             if (blocked == undefined)
                 return;
@@ -1918,7 +1925,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         // init admin editor 
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0 && level > 1) {
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
-            if (window.AdminsEditor != null && window.AdminsEditor != undefined) {                
+            if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
                 setTimeout(attachEnterkeyToAdminEditor(window), 1000);
             }
         }
