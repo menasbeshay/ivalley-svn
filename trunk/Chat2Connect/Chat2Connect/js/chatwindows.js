@@ -448,9 +448,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
             });
         };
-
-
-
         this.toggleMark = function (window, friend) {
             var newvalue = !friend.IsMarked();
             friend.IsMarked(newvalue);
@@ -1206,7 +1203,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             }
             return false;
         }, this);
-
         this.showRoomLaw = function () {
             $.post("../Services/Services.asmx/ShowRoomLaw", { roomID: this.ID() })
                 .done(function (data) {
@@ -1224,14 +1220,12 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 member.MemberTypeID(mTypeSpecID);
             }
         }
-
         this.updateMemberName = function (mid, newName) {
             var member = this.getMember(mid);
             if (member != null) {
                 member.MemberName(newName);
             }
         }
-
         this.ToggleFav = function () {
             var window = this;
             $.ajax({
@@ -1260,8 +1254,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
             });
         };
-
-
     }
 
     self.changeCurrent = function (selctor, id, type) {
@@ -1568,7 +1560,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
 
 
     };
-
     self.removeMember = function (mid) { //remove member from rooms and private chat
         ko.utils.arrayForEach(self.windows(), function (room) {
             if (room.Type() == 'Private' && room.ID() == mid)
@@ -1587,7 +1578,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     self.setListenVolume = function setPlaybackVolume(window, volume) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setPlaybackVolume(volume / 10.0);
     }
-
     self.MuteRoom = function (window) {
         if ($('#mute_' + window.uniqueID()).attr('data-mute') == 'false') {
             self.setListenVolume(window, 0);
@@ -1599,12 +1589,10 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         }
 
     }
-
     // set the recording volume (volume value is from 0 to 1)
     self.setMicVolume = function setMicVolume(window, volume) {
         getFlashMovie('chat2connect_' + window.uniqueID()).setMicVolume(volume / 10.0);
     }
-
     self.SendImage = function (window) {
         if (window == null)
             return;
@@ -1625,7 +1613,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         $('#UploadedFile_' + window.uniqueID()).html('');
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
-
     self.SendVideo = function (window) {
         var url = $('#videoURL_' + window.uniqueID()).val();
         if (url == '')
@@ -1643,7 +1630,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
-
     self.SendAudio = function (window) {
         if (window.audioAttachment != "") {
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.audioAttachment, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
@@ -1658,7 +1644,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         self.SearchPeople();
     });*/
     self.People = ko.observableArray();
-
     self.SearchPeople = function () {
         if (self.SearchText() == '')
             return;
@@ -1694,7 +1679,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             }
         });
     }
-
     self.AddNewFriend = function (fid) {
         $.ajax({
             url: '../Services/Services.asmx/AddRemoveFriend',
@@ -1715,7 +1699,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             }
         });
     }
-
     self.ActivWindow = ko.observable();
     self.Bots = ko.onDemandObservable(getBots, this);
     function getBots() {
@@ -1739,7 +1722,6 @@ function onCamClose(userId, roomId) {
         return;
     window.stopCam(userId);
 }
-
 function onMicRecordSaveSuccess(fileName) {
     // returned file name & roomid in this format [roomId,filename]
     var window = chatVM.getWindow(fileName.substr(0, fileName.indexOf(",")), 'Room');
@@ -1749,7 +1731,6 @@ function onMicRecordSaveSuccess(fileName) {
     window.UpdateAudioAttachment(audioDiv);
 
 }
-
 function DeleteFile(roomid, file) {
 
     $('#UploadStatus_Room_' + roomid).html('جارى الحذف...');
@@ -1769,19 +1750,16 @@ function DeleteFile(roomid, file) {
     });
 
 }
-
 function addChatRoom(id, name, type, istemp, isHidden, levelid, isfriend, typespec, iscreator, friendPic) {
     if (chatVM == undefined)
         InitChat(100);
     chatVM.openWindow(id, name, type, istemp, isHidden, levelid, isfriend, typespec, iscreator, friendPic);
 }
-
 function getFlashMovie(movieName) {
     return document[movieName] || window[movieName];
 }
 var chatVM;
 var roomFriendsBotID, emailOwnerBotID, inviteFriendBanBotID;
-
 function addMsgToWindow(window, msg, css) {
     msg = "<div class='pull-left msgHolder " + css + "' style='width:auto;margin-right:5px;'>" + msg + "</div><div style='clear:both;height:3px;'></div>";
     window.addNotificationMessage(msg);
@@ -2261,8 +2239,6 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
 
     };
 }
-
-
 /********* common functions ****************/
 function initPopover(window) {
     // popover menu for members
@@ -2323,9 +2299,3 @@ function createHamsaWindow(hamsa, sender) {
         }
     });
 }
-
-
-
-
-
-

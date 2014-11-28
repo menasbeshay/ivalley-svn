@@ -77,7 +77,7 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
-        public List<Helper.ChatMember> LoadWithSettings(int roomID,int? memberID)
+        public List<Helper.ChatMember> LoadWithSettings(int roomID, int? memberID, List<int> connectedMembers)
         {
             int currentMemberID = BLL.Member.CurrentMemberID;
             string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
@@ -102,7 +102,7 @@ namespace BLL
                 MemberID = Helper.TypeConverter.ToInt32(m[ColumnNames.MemberID]),
                 MemberName = m["MemberName"],
                 ProfileImg = Helper.TypeConverter.ToString(m["ProfilePic"]),
-                InRoom = Helper.TypeConverter.ToBoolean(m[ColumnNames.InRoom]),
+                InRoom = Helper.TypeConverter.ToBoolean(m[ColumnNames.InRoom]) && (connectedMembers == null || connectedMembers.Contains(Helper.TypeConverter.ToInt32(m[ColumnNames.MemberID]))),
                 MemberTypeID = Helper.TypeConverter.ToInt32(m["MemberTypeSpecID"]),
                 MemberLevelID = Helper.TypeConverter.ToInt32(m[ColumnNames.RoomMemberLevelID]),
                 IsFavorite = Helper.TypeConverter.ToBoolean(m[ColumnNames.IsFavorite]),
@@ -385,7 +385,7 @@ namespace BLL
                                     INNER JOIN Member M on RM.MemberID=M.MemberID
                                     Inner Join aspnet_Users on M.UserID = aspnet_Users.UserID
                                     WHERE RM.InRoom=1 AND RM.RoomID={0}
-	                                    AND RM.RoomMemberLevelID > (SELECT RoomMemberLevelID FROM RoomMember WHERE  RoomID={0} AND MemberID={1})", 
+	                                    AND RM.RoomMemberLevelID > (SELECT RoomMemberLevelID FROM RoomMember WHERE  RoomID={0} AND MemberID={1})",
                                   roomID, adminID);
         }
 

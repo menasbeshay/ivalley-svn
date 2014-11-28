@@ -1321,6 +1321,7 @@
       <DependentUpon>Services.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SessionManager.cs" />
     <Compile Include="SRCustomHubs\ChatRoomHub.cs" />
     <Compile Include="SRCustomHubs\NotificationHub.cs" />
     <Compile Include="SRCustomHubs\PMHub.cs" />
