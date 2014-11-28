@@ -4088,7 +4088,7 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     display:block;
     width:20%;
     height:100%;
-    margin-top:-10px;
+    margin-top:-20px;
     
 }
 
@@ -4126,6 +4126,16 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
    .fixwtu {
     height:240px;
     width:100%;
+}
+
+   
+}
+
+@media screen and (height: 900px) {
+    
+.footer-polytouch .footerLeft {    
+    margin-top:-55px;
+    
 }
 }
 
