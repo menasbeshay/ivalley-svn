@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ko template: { name: function(win){if(win.Type()=='loading'){return 'loadingRoomTemplate';} else {return 'chatTemplate';}}, foreach: windows} -->
+                <!-- ko template: { name: function(win){if(win.hasOwnProperty('IsLoading')){return 'loadingRoomTemplate';} else {return 'chatTemplate';}}, foreach: windows} -->
                 <!-- /ko -->
             </div>
         </div>
