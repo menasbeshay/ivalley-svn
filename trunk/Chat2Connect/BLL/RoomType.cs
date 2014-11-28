@@ -24,9 +24,8 @@ namespace BLL
         }
         public bool LoadByRoomID(int roomID)
         {
-            Query.FlushWhereParameters();
-            Where.RoomID.Value = roomID;
-            if (!Query.Load())
+            string sql = @"SELECT * FROM RoomType WHERE RoomID={0} ORDER BY StartDate DESC";
+            if (!LoadFromRawSql(sql,roomID))
             {
                 AddNew();
                 this.RoomID = roomID;

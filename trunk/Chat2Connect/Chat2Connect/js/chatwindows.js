@@ -1256,7 +1256,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         };
     }
     var loadingWindowModel = function (id, name, typeSpec) {
-        var room = { ID: id, Name: name, Type: 'loading', IsTemp: false, Settings: { TypeID: typeSpec } };
+        var room = { ID: id, Name: name, Type: 'Room', IsLoading: true, IsTemp: false, Settings: { TypeID: typeSpec } };
         ko.mapping.fromJS(room, {}, this);
         var self = this;
         this.uniqueID = ko.computed(function () {
@@ -1350,7 +1350,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 });
         }
     }
-    self.pushWindow = function (data,keepSelection) {
+    self.pushWindow = function (data, keepSelection) {
         var win = ko.mapping.fromJS(data, mapping);
         self.windows.push(win);
         if (!keepSelection)
@@ -1785,7 +1785,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     $.connection.hub.start().done(function () {
         var win;
         ko.utils.arrayMap(openedWindows, function (item) {
-            win = chatVM.pushWindow(item,true);
+            win = chatVM.pushWindow(item, true);
         })
         chatVM.changeCurrent(win.uniqueID(), win.ID(), win.Type())
     });
