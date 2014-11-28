@@ -37,8 +37,16 @@
 
                     
                 }
-                    // move from polytouch screen video slide
-                else if (index == 2 && slideIndex != 0) {
+                if (index == 1 && slideIndex == 1) {
+                    // open 9th item in grid 
+                    var link = $($('#appholder > ul > li > a')[8]);
+                    if (!link.parent().hasClass('og-expanded')) {
+                        setTimeout(function () { link.trigger("click") }, 200);
+                    }
+                }
+
+                // move from polytouch screen video slide
+                if (index == 2 && slideIndex != 0) {
                     $('#polytouchVideo').fadeOut("slow");
                     $('#polytouchvideoOverLayer').fadeIn("slow");
                     try {
@@ -52,8 +60,12 @@
                 if (index == 2 && slideIndex == 3)
                 {
                     // open 1st item in grid 
-                    setTimeout(function () { $('#polywts > ul > li > a:first').trigger("click") }, 200);
+                    var link = $('#polywts > ul > li > a:first');
+                    if (!link.parent().hasClass('og-expanded')) {
+                        setTimeout(function () { link.trigger("click") }, 200);
+                    }
                 }
+                
 
             }
             else {
@@ -133,6 +145,8 @@
             $('#polytouchVideo').stopYTP();
         } catch (err) { }
     });
+
+    $('.tip').tooltip();
 
 
     $('#nextTopic span').html($('#nextsection_1').html());
