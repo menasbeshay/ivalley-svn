@@ -77,9 +77,8 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
-        public List<Helper.ChatMember> LoadWithSettings(int roomID, int? memberID, List<int> connectedMembers)
+        public List<Helper.ChatMember> LoadWithSettings(int roomID,int currentMemberID, int? memberID, List<int> connectedMembers)
         {
-            int currentMemberID = BLL.Member.CurrentMemberID;
             string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
                                 ,B.EndDate,B.StartDate
                                 ,IsMemberBanned=CASE WHEN B.RoomID IS NULL THEN 0 ELSE 1 END , 

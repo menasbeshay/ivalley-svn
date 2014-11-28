@@ -22,7 +22,7 @@ namespace Chat2Connect.SRCustomHubs
         public override Task OnConnected()
         {
             Member m = BLL.Member.CurrentMember;
-            var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.UserName, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
+            var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
             ConnectedUsers.Add(newMember);
 
             // add user to new group by his user name 
@@ -90,12 +90,10 @@ namespace Chat2Connect.SRCustomHubs
                 {
                     if (room.CreatedBy == roomMember.MemberID)
                         roomMember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
-
                 }
-
                 roomMember.Save();
 
-                Helper.ChatMember member = roomMember.LoadWithSettings(roomid, roomMember.MemberID,null).FirstOrDefault();
+                Helper.ChatMember member = roomMember.LoadWithSettings(roomid,roomMember.MemberID, roomMember.MemberID,null).FirstOrDefault();
                 item.Rooms.Add(roomid);
                 if (isVisible)
                     Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
@@ -106,8 +104,9 @@ namespace Chat2Connect.SRCustomHubs
                 Helper.Enums.LogType lgType = Helper.Enums.LogType.EnterRoom;
                 if (!isVisible)
                     lgType = Helper.Enums.LogType.EnterRoomHidden;
-                log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
+                log.AddNew(item.MemberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
 
+                Clients.All.updateExistingCount(roomid,1);
             }
             catch (Exception ex)
             {
@@ -126,16 +125,20 @@ namespace Chat2Connect.SRCustomHubs
             {
                 int memberID = CurrentMemberID();
                 RoomMember roomMember = new RoomMember();
-                roomMember.LoadByPrimaryKey(memberID, roomid);
-                roomMember.InRoom = false;
-                roomMember.HasCam = false;
-                roomMember.HasMic = false;
-                roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
-                roomMember.Save();
+                if (roomMember.LoadByPrimaryKey(memberID, roomid))
+                {
+                    if (roomMember.InRoom)
+                        Clients.All.updateExistingCount(roomid, -1);
 
-                if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
-                    Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
+                    roomMember.InRoom = false;
+                    roomMember.HasCam = false;
+                    roomMember.HasMic = false;
+                    roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
+                    roomMember.Save();
 
+                    if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
+                        Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
+                }
             }
             catch (Exception ex)
             {

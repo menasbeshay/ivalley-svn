@@ -2238,6 +2238,15 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         var window = chatVM.addWindow(roomid, 'غرفة مؤقتة', 'Room', true);
 
     };
+
+    rHub.client.updateExistingCount = function (rid, count) {
+        var room = $("#rooms_rm_" + rid + "_existingmembers");
+        if (room) {
+            var existing = Number(room.text());
+            existing = existing + count;
+            room.text(existing);
+        }
+    };
 }
 /********* common functions ****************/
 function initPopover(window) {

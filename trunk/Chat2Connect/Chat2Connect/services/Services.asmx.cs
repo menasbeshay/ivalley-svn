@@ -769,7 +769,7 @@ namespace Chat2Connect.services
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
 
             List<int> connectedIDs = ChatRoomHub.ConnectedUsers.Select(m => m.MemberID).ToList();
-            roomObject.Members = roomMember.LoadWithSettings(id, null, connectedIDs);
+            roomObject.Members = roomMember.LoadWithSettings(id, roomObject.CurrentMemberID, null, connectedIDs);
             var currentMemberSettings = roomObject.Members.First(m => m.MemberID == roomObject.CurrentMemberID);
             if (currentMemberSettings != null)
             {
