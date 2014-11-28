@@ -1350,14 +1350,17 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 });
         }
     }
-    self.pushWindow = function (data) {
+    self.pushWindow = function (data,keepSelection) {
         var win = ko.mapping.fromJS(data, mapping);
         self.windows.push(win);
-        self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
+        if (!keepSelection)
+            self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
 
         self.Init(win);
         setTimeout(function () { win.initEditor(); }, 1500);
         rHub.server.addToRoom(win.ID(), win.CurrentMember().InRoom());
+
+        return win;
     };
     self.removeWindow = function () {
         if (this.Type() == "Room") {
@@ -1780,9 +1783,11 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     chatVM = new Chat(maxWinRooms, memberID, memberName, profilePic, memberType);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
+        var win;
         ko.utils.arrayMap(openedWindows, function (item) {
-            chatVM.pushWindow(item);
+            win = chatVM.pushWindow(item,true);
         })
+        chatVM.changeCurrent(win.uniqueID(), win.ID(), win.Type())
     });
 
     /****** signalR ********/
