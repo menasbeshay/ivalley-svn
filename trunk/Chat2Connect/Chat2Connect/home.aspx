@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ko template: { name: 'chatTemplate', foreach: windows} -->
+                <!-- ko template: { name: function(win){if(win.Type()=='loading'){return 'loadingRoomTemplate';} else {return 'chatTemplate';}}, foreach: windows} -->
                 <!-- /ko -->
             </div>
         </div>
@@ -1154,6 +1154,10 @@
             </div>
         </div>
     </script>
+    <script id="loadingRoomTemplate" type="text/html">
+        <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade loading" style="min-height:200px;">
+        </div>
+    </script>
     <script id="chatTemplate" type="text/html">
         <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade" style="">
             <div id="roomContents">
@@ -1244,11 +1248,11 @@
                                         إجراءات  <span class="caret"></span>
                                     </button>
                                     <ul role="menu" class="dropdown-menu RoomAdminMenu">
-                                        <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../userprofile.aspx?uid='+ID()+ '\',\'حساب صديق\');'}" target="_blank"><span class="awesome " >&#xf08e;</span> عرض البروفايل</a></li>
-                                        <li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.getMember(ID()))"><span data-bind="    css:$data.getMember(ID()).IsFriend() ? 'icon icon-remove' : 'icon icon-plus' " ></span> <span data-bind="    text:$data.getMember(ID()).IsFriend() ? ' حذف من ' : ' إضافة إلى' "></span> الأصدقاء</a></li>
+                                        <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../userprofile.aspx?uid='+ID()+ '\',\'حساب صديق\');'}" target="_blank"><span class="awesome ">&#xf08e;</span> عرض البروفايل</a></li>
+                                        <li><a class="jslink" data-bind="click:toggleFriend.bind($data,$data,$data.getMember(ID()))"><span data-bind="    css:$data.getMember(ID()).IsFriend() ? 'icon icon-remove' : 'icon icon-plus' "></span><span data-bind="    text:$data.getMember(ID()).IsFriend() ? ' حذف من ' : ' إضافة إلى' "></span>الأصدقاء</a></li>
                                         <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':ID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                         <li><a class="jslink" data-bind="attr:{'onclick':'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u='+ID()+'&un='+Name()+ '\',\'الرسائل\');' }" target="_blank"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                        <li><a data-bind="click:$parent.toggleBlockMember.bind($data,$data.ID(), !$parent.isBlocked($data.ID()))" style="cursor:pointer;"><i class="icon icon-ban-circle"></i> <span data-bind="    text:$parent.isBlocked($data.ID()) ? 'إلغاء الحظر':'حظر'"></span></a></li>
+                                        <li><a data-bind="click:$parent.toggleBlockMember.bind($data,$data.ID(), !$parent.isBlocked($data.ID()))" style="cursor: pointer;"><i class="icon icon-ban-circle"></i><span data-bind="    text:$parent.isBlocked($data.ID()) ? 'إلغاء الحظر':'حظر'"></span></a></li>
                                     </ul>
                                 </div>
                                 <!-- /ko -->
@@ -1352,7 +1356,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                             </object>
 
                         </div>
@@ -1371,7 +1375,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                             </object>
 
                         </div>
