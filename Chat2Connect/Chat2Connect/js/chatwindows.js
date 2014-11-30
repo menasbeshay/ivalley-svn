@@ -358,7 +358,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         //Cams only Member
         this.CamOnlyMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
-                return (mem.IsCamOpened() == true && (mem.QueueOrder() < 0 || mem.QueueOrder() == null) && !mem.IsMicOpened());
+                return (mem.IsCamOpened() == true && (mem.QueueOrder() < 0 || mem.QueueOrder() == null) && mem.IsMicOpened() != true);
             });
         }, this);
         //Queue Members
@@ -1226,6 +1226,13 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 member.MemberName(newName);
             }
         }
+        this.updateMember = function (mid, prop, val) {
+            var member = this.getMember(mid);
+            if (member != null) {
+                member[prop](val);
+            }
+        }
+
         this.ToggleFav = function () {
             var window = this;
             $.ajax({
@@ -1779,15 +1786,25 @@ function addMsgToWindow(window, msg, css) {
 }
 function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, memberType) {
     rHub = $.connection.chatRoomHub;
+
+    //  dubug
+    $.connection.logging = true;
+
     $.connection.hub.start();
+
+    $.connection.hub.connectionSlow(function () {
+        alert('We are currently experiencing difficulties with the connection.');
+    });
+
     chatVM = new Chat(maxWinRooms, memberID, memberName, profilePic, memberType);
     ko.applyBindings(chatVM);
     $.connection.hub.start().done(function () {
         var win;
         ko.utils.arrayMap(openedWindows, function (item) {
             win = chatVM.pushWindow(item, true);
-        })
-        chatVM.changeCurrent(win.uniqueID(), win.ID(), win.Type())
+        });
+        if (win != null && win != undefined)
+            chatVM.changeCurrent(win.uniqueID(), win.ID(), win.Type());
     });
 
     /****** signalR ********/
@@ -2200,6 +2217,10 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         });
         if (member != undefined)
             member[prop](val);
+
+        ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
+            window.updateMember(mid, prop, val);
+        });
     }
     rHub.client.updateMemberType = function (mid, typeSpecID) {
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
