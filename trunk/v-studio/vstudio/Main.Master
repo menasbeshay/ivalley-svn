@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="vstudio.Main" %>
+
+<!DOCTYPE html>
+
+<html class=" js no-touch">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>V-studio </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+   <%-- <link href="css/bootstrap-theme.min.css" rel="stylesheet" />--%>
+    
+    <link href="css/imageflow.packed.css" rel="stylesheet" />
+    <link href="css/master.css" rel="stylesheet" />
+    <%--<link href="css/jquery.fullPage.css" rel="stylesheet" />--%>
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script src="Scripts/portfolio.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/parallax.js"></script>
+    <script src="Scripts/function.js"></script>
+    <script src="Scripts/modernizer.js"></script>
+    <script src="Scripts/video.js"></script>
+    <script src="Scripts/init.js"></script>
+    <!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+<![endif]-->
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+
+    
+<style>
+video{display: block;}
+.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}
+</style>
+<script>
+    document.createElement('video');
+</script>
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+  
+
+    <form id="form1" runat="server">
+     <!-- Header [Small Navigation & Large Navigation] ---->
+	
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
