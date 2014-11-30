@@ -69,10 +69,10 @@ namespace Chat2Connect.SRCustomHubs
             return base.OnConnected();
         }
 
-        public override Task OnDisconnected()
+        public override Task OnDisconnected(bool stopCalled)
         {
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
-            return base.OnDisconnected();
+            return base.OnDisconnected(stopCalled);
         }
     }
 }

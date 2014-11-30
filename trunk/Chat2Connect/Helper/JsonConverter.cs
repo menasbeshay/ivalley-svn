@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Helper
 {
@@ -15,11 +16,11 @@ namespace Helper
 
         public static T Deserialize<T>(string stringValue,bool withType)
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+            Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings { TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All };
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(stringValue,settings);
         }
 
-        public static T Deserialize<T>(string stringValue,Newtonsoft.Json.JsonSerializerSettings settings)
+        public static T Deserialize<T>(string stringValue, Newtonsoft.Json.JsonSerializerSettings settings)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(stringValue,settings);
         }
@@ -31,7 +32,7 @@ namespace Helper
 
         public static string Serialize(object instance,bool withType)
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+            Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings { TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All };
             return Newtonsoft.Json.JsonConvert.SerializeObject(instance,settings);
         }
     }
