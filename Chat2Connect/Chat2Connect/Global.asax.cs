@@ -143,6 +143,8 @@ namespace Chat2Connect
                 BLL.Member bllMember = new Member();
                 bllMember.SetOffline(loggedInMemberID);
             }
+            Session.Abandon();
+            FormsAuthentication.SignOut();
         }
 
         protected void Application_End(object sender, EventArgs e)
