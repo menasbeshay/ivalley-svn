@@ -32,7 +32,7 @@ namespace Chat2Connect.SRCustomHubs
 
             return base.OnConnected();
         }
-        public override System.Threading.Tasks.Task OnDisconnected()
+        public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
             Helper.SignalRUser item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
             if (item == null)
@@ -52,7 +52,7 @@ namespace Chat2Connect.SRCustomHubs
             // remove user from his group by his user name 
             Groups.Remove(Context.ConnectionId, Context.User.Identity.Name);
 
-            return base.OnDisconnected();
+            return base.OnDisconnected(stopCalled);
         }
 
         public void updateMemberOnlineStatus(Helper.SignalRUser connectedUser, bool isOnline)
