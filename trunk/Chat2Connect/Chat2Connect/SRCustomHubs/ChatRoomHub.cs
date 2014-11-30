@@ -21,7 +21,9 @@ namespace Chat2Connect.SRCustomHubs
 
         public override Task OnConnected()
         {
-            Member m = BLL.Member.CurrentMember;
+            string user = Context.User.Identity.Name;
+            Member m = new BLL.Member();
+            m.GetMemberByUserName(user);
             var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
             ConnectedUsers.Add(newMember);
 
@@ -43,7 +45,7 @@ namespace Chat2Connect.SRCustomHubs
             {
                 for (int i = 0; i < item.Rooms.Count; i++)
                 {
-                    removeFromRoom(item.Rooms.ElementAt(i));
+                    removeFromRoom(item.MemberID,item.Rooms.ElementAt(i));
                 }
                 ConnectedUsers.Remove(item);
 
@@ -68,22 +70,24 @@ namespace Chat2Connect.SRCustomHubs
             }
         }
 
-        public void addToRoom(int roomid, bool isVisible)
+        public void addToRoom(int memberID, int roomid)
         {
             Groups.Add(Context.ConnectionId, roomid.ToString());
             try
             {
-                var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
-                if (item == null)
-                    return;
+                Member member=new Member();
+                member.LoadByPrimaryKey(memberID);
+                bool isHidden = member.Status == (int)Helper.Enums.MemberStatus.Offline &&
+                    Roles.IsUserInRole(member.Name, Helper.Enums.MemberRoles.InvisibleInRoom.ToString());
+                
                 RoomMember roomMember = new RoomMember();
-                if (!roomMember.LoadByPrimaryKey(item.MemberID, roomid))
+                if (!roomMember.LoadByPrimaryKey(memberID, roomid))
                 {
                     roomMember.AddNew();
-                    roomMember.MemberID = item.MemberID;
+                    roomMember.MemberID = memberID;
                     roomMember.RoomID = roomid;
                 }
-                roomMember.InRoom = isVisible;
+                roomMember.InRoom = !isHidden;
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
                 if (!room.IsColumnNull("CreatedBy"))
@@ -93,20 +97,31 @@ namespace Chat2Connect.SRCustomHubs
                 }
                 roomMember.Save();
 
-                Helper.ChatMember member = roomMember.LoadWithSettings(roomid,roomMember.MemberID, roomMember.MemberID,null).FirstOrDefault();
-                item.Rooms.Add(roomid);
-                if (isVisible)
-                    Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), member);
+                Helper.ChatMember chatMember = roomMember.LoadWithSettings(roomid,roomMember.MemberID, roomMember.MemberID,null).FirstOrDefault();
+                
+                if (!isHidden)
+                    Clients.Group(roomid.ToString()).addNewMember(roomid.ToString(), chatMember);
                 if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                     Groups.Add(Context.ConnectionId, GetRoomAdminGroupName(roomid));
 
                 BLL.MemberLog log = new BLL.MemberLog();
                 Helper.Enums.LogType lgType = Helper.Enums.LogType.EnterRoom;
-                if (!isVisible)
+                if (isHidden)
                     lgType = Helper.Enums.LogType.EnterRoomHidden;
-                log.AddNew(item.MemberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
+                log.AddNew(memberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
 
                 Clients.All.updateExistingCount(roomid,1);
+
+                var item = ConnectedUsers.FirstOrDefault(m => m.MemberID == memberID);
+                if (item == null)
+                {
+                    var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = member.Name, MemberID = member.MemberID, ProfilePic = member.ProfilePic, MemberTypeSpecID = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
+                    ConnectedUsers.Add(newMember);
+
+                    updateMemberOnlineStatus(newMember, true);
+                }
+                if (item != null)
+                    item.Rooms.Add(roomid);
             }
             catch (Exception ex)
             {
@@ -118,12 +133,14 @@ namespace Chat2Connect.SRCustomHubs
         {
             return String.Format("Admins_{0}", roomID);
         }
-        public void removeFromRoom(int roomid)
+        public void removeFromRoom(int memberID, int roomid)
         {
             // just remove member from signalr hub and update flag InRoom to false
             try
             {
-                int memberID = CurrentMemberID();
+                Clients.Group(roomid.ToString()).removeMember(memberID, roomid);
+                Groups.Remove(Context.ConnectionId, roomid.ToString());
+
                 RoomMember roomMember = new RoomMember();
                 if (roomMember.LoadByPrimaryKey(memberID, roomid))
                 {
@@ -143,13 +160,11 @@ namespace Chat2Connect.SRCustomHubs
             catch (Exception ex)
             {
             }
-
-            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberID);
             if (item == null)
                 return;
             item.Rooms.Remove(roomid);
-            Clients.Group(roomid.ToString()).removeMember(item.MemberID, roomid);
-            Groups.Remove(Context.ConnectionId, roomid.ToString());
+            
             
         }
 
@@ -157,22 +172,22 @@ namespace Chat2Connect.SRCustomHubs
         {
             try
             {
-                int memberID = CurrentMemberID();
                 RoomMember member = new RoomMember();
-                member.LoadByPrimaryKey(memberID, roomid);
+                member.LoadByPrimaryKey(memberid, roomid);
                 member.InRoom = false;
                 member.Save();
 
+                string banTypeName = Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.BanningType>(banType));
+                Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid, banTypeName, adminName);
+
+                var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
+                if (item == null)
+                    return;
+                item.Rooms.Remove(roomid);
             }
             catch (Exception ex)
             {
             }
-            var item = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
-            if (item == null)
-                return;
-            item.Rooms.Remove(roomid);
-            string banTypeName = Helper.StringEnum.GetStringValue(Helper.EnumUtil.ParseEnum<Helper.Enums.BanningType>(banType));
-            Clients.Group(roomid.ToString()).banMemberFromRoom(memberid, roomid, banTypeName, adminName);
         }
         public void removeBanningFromRoomMembers(int roomid, int[] members)
         {
@@ -184,23 +199,6 @@ namespace Chat2Connect.SRCustomHubs
             catch (Exception ex)
             {
             }
-        }
-
-        private int CurrentMemberID()
-        {
-            int memberID = 0;
-            var item = ConnectedUsers.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
-            if (item != null)
-            {
-                memberID = item.MemberID;
-            }
-            else
-            {
-                Member m = new Member();
-                m.GetMemberByUserId(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()));
-                memberID = m.MemberID;
-            }
-            return memberID;
         }
 
         public void updateRoomTopic(int roomID, string topic)

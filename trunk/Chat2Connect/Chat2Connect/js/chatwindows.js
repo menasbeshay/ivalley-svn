@@ -1365,15 +1365,15 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
 
         self.Init(win);
         setTimeout(function () { win.initEditor(); }, 1500);
-        rHub.server.addToRoom(win.ID(), win.CurrentMember().InRoom());
+        rHub.server.addToRoom(win.CurrentMember().MemberID(),win.ID());
 
         return win;
     };
     self.removeWindow = function () {
         if (this.Type() == "Room") {
             if (this.CurrentMember().IsCamOpened())
-                this.stopCam(this.CurrentMemberID());
-            rHub.server.removeFromRoom(this.ID());
+                this.stopCam(this.CurrentMember().MemberID());
+            rHub.server.removeFromRoom(this.CurrentMember().MemberID(),this.ID());
             $.post("../services/Services.asmx/closeChatRoom", { id: this.ID() });
         }
         self.windows.remove(this);
