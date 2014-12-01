@@ -125,7 +125,6 @@
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
         <div class="clearfix" style="height: 1px;"></div>
-        <!--ko if:!$parent.isBlockingMe($data.MemberID())-->
         <div class="friendSubMenu">
             <div class="popup-menu profileMenu" data-bind="attr: { 'data-for': 'usernode-' + $data.MemberID() }">
                 <div class="col-lg-3 pull-right">
@@ -138,16 +137,20 @@
                     </div>
                 </div>
                 <div class="col-lg-9 pull-right">
+                    <!--ko if:!$parent.isBlockingMe($data.MemberID())-->
                     <div class="col-lg-6 pull-right">
                         <ul>
                             <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                             <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                         </ul>
                     </div>
+                    <!--/ko-->
                     <div class="col-lg-6 pull-right">
                         <ul>
+                            <!--ko if:!$parent.isBlockingMe($data.MemberID())-->
                             <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                             <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                            <!--/ko-->
                             <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
                         </ul>
                     </div>
@@ -155,15 +158,14 @@
                 <div class="clear" style="height: 1px;"></div>
             </div>
         </div>
-        <!--/ko-->
     </div>
 </script>
 <script id="blockedTmpl" type="text/html">
     <div class="block-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
         <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: IsOnline() ? Status() : 'offline'" class='friendpic' />
-        <i class="icon-ban-circle blockcircle"></i>    
-        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a> 
-        <div style="float:left;margin-left:30px;cursor:pointer;" class="blocktip" title="إلغاء الحظر" data-placement="top"><i class="icon icon-remove" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), false)"></i></div>       
+        <i class="icon-ban-circle blockcircle"></i>
+        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
+        <div style="float: left; margin-left: 30px; cursor: pointer;" class="blocktip" title="إلغاء الحظر" data-placement="top"><i class="icon icon-remove" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), false)"></i></div>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
         <div class="clearfix" style="height: 1px;"></div>

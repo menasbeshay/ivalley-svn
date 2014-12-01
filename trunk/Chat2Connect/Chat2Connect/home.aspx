@@ -397,7 +397,7 @@
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
-            <!-- ko if: MemberID()!=$root.CurrentMemberID && !$root.isBlockingMe(MemberID())-->
+            <!-- ko if: MemberID()!=$root.CurrentMemberID-->
             <div class="clear" style="height: 1px;"></div>
             <div class="friendSubMenu">
                 <div class="popup-menu profileMenu">
@@ -412,6 +412,7 @@
                         </div>
                     </div>
                     <div class="col-lg-9 pull-right" style="padding: 0 5px;">
+                        <!-- ko if: !$root.isBlockingMe(MemberID()) -->
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
                                 <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true,$data.ProfileImg)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
@@ -423,15 +424,18 @@
                                 <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
                             </ul>
                         </div>
+                        <!-- /ko -->
                         <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                             <ul>
+                                <!-- ko if: !$root.isBlockingMe(MemberID()) -->
                                 <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                                 <li><a data-bind="click:OpenPopup.bind($data,'../popuppages/Messages_popup.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName(),'الرسائل')" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.toggleMark.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsMarked() ?' إلغاء الإسكات ':'إسكات'"></span></a></li>
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
-                                <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                                 <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
                                 <!-- /ko -->
+                                <!-- /ko -->
+                                <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
                             </ul>
                         </div>
 
@@ -1155,7 +1159,7 @@
         </div>
     </script>
     <script id="loadingRoomTemplate" type="text/html">
-        <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade loading" style="min-height:200px;">
+        <div data-bind="attr: { id: uniqueID() }" class="tab-pane fade loading" style="min-height: 200px;">
         </div>
     </script>
     <script id="chatTemplate" type="text/html">

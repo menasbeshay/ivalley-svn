@@ -118,7 +118,7 @@ namespace Chat2Connect.SRCustomHubs
                     var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = member.Name, MemberID = member.MemberID, ProfilePic = member.ProfilePic, MemberTypeSpecID = member.MemberType.MemberTypeSpecDuration.MemberTypeSpecID, Rooms = new List<int>() };
                     ConnectedUsers.Add(newMember);
 
-                    updateMemberOnlineStatus(newMember, true);
+                    //updateMemberOnlineStatus(newMember, true);
                 }
                 if (item != null)
                     item.Rooms.Add(roomid);
