@@ -1788,12 +1788,12 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     rHub = $.connection.chatRoomHub;
 
     //  dubug
-    $.connection.logging = true;
+    //$.connection.logging = true;
 
     $.connection.hub.start();
 
     $.connection.hub.connectionSlow(function () {
-        alert('We are currently experiencing difficulties with the connection.');
+        notify('info','نواجه بعض الصعوبات مع الإتصال بالخادم. بعض خدمات الموقع قد لا تعمل بشكل سليم');
     });
 
     chatVM = new Chat(maxWinRooms, memberID, memberName, profilePic, memberType);
@@ -1892,6 +1892,22 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             });
             $('#giftModal_' + window.uniqueID() + ' input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', true);
         });
+        if (window.Settings["MarkOnLoginWithoutWrite"]() == true && newMember.MemberLevelID() == 1)
+        {
+            newMember.CanWrite(false);
+            newMember.IsMarked(true);
+            window.Settings.EnableMic(false);
+            window.Settings.EnableMicForAdminsOnly(true);
+        }
+
+        if (window.Settings["MarkOnLoginWithWrite"]() == true && newMember.MemberLevelID() == 1)
+        {
+            newMember.CanWrite(true);
+            newMember.IsMarked(true);
+            window.Settings.EnableMic(false);
+            window.Settings.EnableMicForAdminsOnly(true);
+        }
+        
     };
     rHub.client.removeMember = function (mid, roomId) {
         var window = chatVM.getWindow(roomId, "Room", "");
@@ -1944,13 +1960,24 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         if (member == null)
             return;
         member.MemberLevelID(level);
-        // init admin editor 
+        
         if (window.Type() == 'Room' && $('#uiTextAdminMsg_' + window.uniqueID()).length > 0 && level > 1) {
+            // init admin editor 
             window.AdminsEditor = new wysihtml5.Editor('uiTextAdminMsg_' + window.uniqueID(), { parserRules: wysihtml5ParserRules, useLineBreaks: false, stylesheets: 'css/main.css' });
             if (window.AdminsEditor != null && window.AdminsEditor != undefined) {
                 setTimeout(attachEnterkeyToAdminEditor(window), 1000);
             }
+
+            setTimeout(updateAdminPart(window, true), 1000);
+
         }
+        else {
+            setTimeout(updateAdminPart(window, false), 1000);
+
+           
+        }
+
+       
     };
 
     function attachEnterkeyToAdminEditor(window) {
@@ -1960,6 +1987,36 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
                 self.sendAdminMessage(window);
             }
         });
+    }
+
+    function updateAdminPart(window, isAdmin)
+    {
+
+        window.showAdminPart(isAdmin);
+
+        if (isAdmin) {
+            // init slim scroll 
+            $("#MsgAdminHistroy_" + window.uniqueID()).slimScroll({
+                    railVisible: true,
+                    height: "100px",
+                    color: '#FEC401',
+                    railColor: '#C7C5C0',
+                    position: 'left'
+                });           
+            $(".MsgHistroy", " #" + window.uniqueID()).parent().animate({ height: 250 }, 700);
+        }
+        else {
+            $('.SScroll').each(function () {
+                $(this).slimScroll({
+                    railVisible: true,
+                    height: $(this).attr('data-height'),
+                    color: '#FEC401',
+                    railColor: '#C7C5C0',
+                    position: 'left'
+                });
+            });
+            $(".MsgHistroy", " #" + window.uniqueID()).parent().animate({ height: 400 }, 700);
+        }
     }
 
     rHub.client.updateRoomTopic = function (roomID, topic) {
@@ -2135,6 +2192,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
                 if (adminMember == null || member.MemberLevelID() < adminMember.MemberLevelID()) {
                     member.IsMarked(isMarked);
                     member.CanWrite(true);
+                    window.Settings.EnableMic(!isMarked);
+                    window.Settings.EnableMicForAdminsOnly(isMarked);
                 }
             });
         }
@@ -2147,6 +2206,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
                 if (adminMember == null || member.MemberLevelID() < adminMember.MemberLevelID()) {
                     member.IsMarked(isMarked);
                     member.CanWrite(!isMarked);
+                    window.Settings.EnableMic(!isMarked);
+                    window.Settings.EnableMicForAdminsOnly(isMarked);
                 }
             });
         }

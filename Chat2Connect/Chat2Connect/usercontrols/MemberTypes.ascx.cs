@@ -17,8 +17,16 @@ namespace Chat2Connect.usercontrols
         {
             if (!IsPostBack)
             {
-                lblPoints.Text = BLL.Member.CurrentMember.s_Credit_Point;
+                LoadBalance();
             }
+        }
+
+        private void LoadBalance()
+        {
+            if (BLL.Member.CurrentMember.Credit_Point > 0)
+                lblPoints.Text = BLL.Member.CurrentMember.Credit_Point.ToString() + " نقطة";
+            else
+                lblPoints.Text = "لا يوجد رصيد";
         }
 
         protected void uiLinkButtonConfirm_Click(object sender, EventArgs e)
@@ -68,6 +76,8 @@ namespace Chat2Connect.usercontrols
                         lblPoints.Text = BLL.Member.CurrentMember.Credit_Point.ToString();
 
                         NotifyMember(upgrademember.MemberID, bllMemberTypeSpecDuration.MemberTypeSpecID);
+
+                        LoadBalance();
                     }
                     catch (Exception ex)
                     {
