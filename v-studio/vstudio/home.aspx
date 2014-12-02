@@ -6,7 +6,7 @@
 	<section id="header">
 		<div id="nav-small">
 			<div id="arabic" class="text-center">
-				<a href="arabic"><span>عربي</span></a>
+				<a href="arabic.aspx"><span>عربي</span></a>
 			</div>
 			<div id="logo" class="home-icon text-center">
 				<a href="#"><img src="img/logo-icon.png"/></a>
@@ -17,7 +17,7 @@
 					<li id="menu-pd" class="pds"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/></a></li>
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
-                                        <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
+                    <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -34,9 +34,9 @@
 			</div>
 			<div id="menu1" style="display:none;">
 				<ul class="list-unstyled hover-both">
-					<li id="menu-products" class="products"><a href="#">Products</a></li>
+					<li id="menu-products" class="products"><a href="#">Holography & Projection</a></li>
 					<li id="menu-pd" class="pds"><a href="#">Product Description</a></li>
-					<li id="menu-services" class="services"><a href="#">Services</a></li>
+					<li id="menu-services" class="services"><a href="#">Multimedia Services</a></li>
 					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
 					<li id="menu-multi" class="multi"><a href="#">Multi Touchscreens</a></li>
 					<li id="menu-way" class="3dway"><a href="#">3D Wayfinding</a></li>
@@ -94,12 +94,12 @@
 				<div >
 					<img src="img/pull-me-down.png" id="pull-me-down"/>
 				</div>
-				</div>
+				
 				<div id="sager-text" style="position:absolute; display:none;">
 					<h1>At Sager V-Studio, We are an enthusiastic & passionate marketing team which loves to create.</h1>
 					<p>Whether you want to have a lasting impression identity, present yourself and your products through innovative website and impressive video, need cartoon animation, 3D visualization or wish to uniquely market your products & blow people's minds using our out of box multi touchscreen, 3D Wayfinding, holography and projection visual marketing products,</p>
-					<span class="text-med">we at V-Studio are here.</span><br>
-					<span class="text-large">PROMOTING VISIONS</span>
+					<span class="text-med">we at V-Studio are here</span><br>
+					<span class="text-med">PROMOTING VISIONS</span>
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
 					<img src="img/watch-video.png" class="img-responsive"/>
@@ -128,7 +128,7 @@ Your browser does not support the video tag
 			<div class="container">
 				<div class="row">
 					<div id="watch-video-icon" class="text-center icon-rotate">
-						<br></br><br><br><br>
+						<br><br><br><br><br>
 						<img class="" src="img/play-button.png" />
 						<br><br><br>
 					</div>
@@ -148,7 +148,7 @@ Your browser does not support the video tag
 			</div>
 		</div>
                 <div id="arrow-video" style="position:fixed; left:7%; top:44%; z-index:99; cursor:pointer;">
-                                       <img src="img/new-arrow-left.png" width="57" height="40" alt="Left Arrow"/>
+                                       <img src="img/arrow_left_violet.png" width="77" height="75" alt="Left Arrow"/>
 				</div>
 	</section>
 	<section id="holography" style="display:none;">
@@ -229,56 +229,62 @@ Your browser does not support the video tag
 							</div>
 						</div>
 						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;">
-							<h2 style="font-family:Ubuntu-Regular; font-size:24px;">Other Product Videos</h2>
-<div class="row">
-<div class="col-md-11 col-md-offset-1">
-							<div class="row holo-vids">
-								<div class="col-md-3 vid-hover" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/holoconic-1.jpg" class="img-responsive"/>
-									<div class="vid-play text-center" style="background:url(img/cap-1.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div class="col-md-3 vid-hover2" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/winshow.jpg" class="img-responsive"/>
-									<div class="vid-play2" style="background:url(img/cap-3.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-								<div class="col-md-3 vid-hover1" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/hostalk-1.jpg" class="img-responsive"/>
-									<div class="vid-play1" style="background:url(img/cap-2.png);background-size:100% 100%; z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-								
-								<div class="col-md-3 vid-hover3" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/cma-rollup-1.jpg" class="img-responsive"/>
-									<div class="vid-play3" style="background:url(img/cap-4.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div style="display:none;" class="col-md-3 vid-hover5" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/holoconic-2.jpg" class="img-responsive"/>
-									<div class="vid-play5" style="background:url(img/cap-6.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div style="display:none;" class="col-md-3 vid-hover4" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/hostalk-2.jpg" class="img-responsive"/>
-									<div class="vid-play4" style="background:url(img/cap-5.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px;width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                
-</div>
-</div>
-							</div>
+							<h2 style="font-family:Ubuntu-Regular; font-size:24px;">Products’ Videos</h2>
+                            <div class="row">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <div class="row holo-vids">
+                                        <div class="col-md-3 vid-hover" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
+                                            <div class="vid-play text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                                Hologram Showcases
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 vid-hover1" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
+                                            <div class="vid-play1 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Rear Projection film
+                                             </div>
+                                        </div>
+                                        <div class="col-md-3 vid-hover2" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
+                                            <div class="vid-play2 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Virtual speaker</div>
+                                        </div>
+
+                                        <div class="col-md-3 vid-hover3" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
+                                            <div class="vid-play3 text-center" style="background: url(../img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Video screen Roll Up</div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover4" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
+                                            <div class="vid-play4 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Mini virtual promoter</div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover5" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
+                                            <div class="vid-play5 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            LCD cooler’s door </div>
+                                        </div>
+                                         <div style="display: none;" class="col-md-3 vid-hover6" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
+                                            <div class="vid-play6 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Holographic ebook</div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover7" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
+                                            <div class="vid-play7 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            Floor projection</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 					<div id="presenter" style="background:#fff; width:380px; position:absolute; right:70px;"; >
 					<video style="height:550px; width:344px; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
-				<source src='http://203.124.98.195/~vstudioco/wp-content/themes/vstudio/media/3MB.mp4' >
+				<source src='media/3MB.mp4' >
 Your browser does not support the video tag
 			</video>
 						<div style="width:135px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
@@ -549,13 +555,13 @@ Your browser does not support the video tag
 				<div class="row" id="page-heading1" style="height:100px;">
 
 					<div class="col-md-12 page-heading">
-						<h1 class="heading3" style="display:none;">SERVICES</h1>
+						<h1 class="heading3" style="display:none;">MULTIMEDIA SERVICES </h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-2" style="padding-left:0px;">
 						<ul >
-							<li style="padding-top:5px;">Animation</li>
+							<li style="padding-top:5px;">Animation & Infographics </li>
 							<li style="padding-top:5px;">3D Visualization</li>
 							<li style="padding-top:5px;">Video Production</li>
 						</ul>

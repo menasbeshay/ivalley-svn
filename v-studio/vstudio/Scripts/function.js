@@ -1,170 +1,170 @@
-	
-	  $(function() {
-	  $('.bg-slide').mousemove(function(move){
-			var moveMouse = (move.pageX * -1 / 15);
-			$('.bg-slide .slide12').css({
-				'background-position': moveMouse + 'px 100%'  
-			});
-		});
-		//MOUSE LEAVE, ANIMATE BACKGROUND TO START POSITION
-		$('.bg-slide').mouseleave(function(){
-			$('.bg-slide .slide12').animate({
-				'background-position': '50% 100%'
-			});
-		});
-	
-		$( ".hover-both > li" ).mouseenter(function() {
-		  var className= $( this ).attr('class');
-		  $( "."+className ).css( {background:"rgba(255,255,255,0.05)"} );
-		  
-		});
-		$( ".hover-both > li" ).mouseleave(function() {
-			var className= $( this ).attr('class');
-		  $( "."+className ).css( {background:"transparent"});
-		  
-		});
 
-		$( "#nav-small" ).mouseenter(function() {
-		  $( "#nav-large" ).show("slide", {direction: "left"}, 500);
-		  $( "#logo1, #menu1, #contact1, #social" ).show("slide", {direction: "left"}, 500);
-		});
-		
-		$( "#header" ).mouseleave(function() {
-		  $( "#logo1, #menu1, #contact1, #social, #nav-large" ).delay(100).hide("slide", {direction: "left"}, 1000);
-		});
-		
-		// Call Back
-		function enableButton() {
-			$( "#switch, #switch1, #toggle-button-up, #toggle-button-down" ).removeAttr( "disabled", "disabled" );
-			$("#pull-me-down").fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0);
-                       autoPull();
-		  }
-		function autoPull(){
-                        $( "#toggle-button-up" ).delay(4000).fadeOut(100);
-			$( "#toggle-button-down" ).delay(4000).fadeIn(100, bulbGlow);
-			$( "#switch" ).delay(4000).attr('disabled', 'disabled');
-			$( "#toggle-button-up" ).delay(4000).attr('disabled', 'disabled');
-                }
-		// Show Small Nav Bar
-		function showmenu(){
-			$( "#nav-small" ).show("slide", {direction: "left"}, 1000, scrollAllow);
-			$( "#logo, #menu, #contact, #arabic" ).show("slide", {direction: "left"}, 1000);
-		}
-		
-		
-		// Show Watch Icon
-		function showWatch(){
-			$( "#watch-video" ).fadeIn( 1000, showmenu);
-		}
-		// Icons Flowing Out
-		function showflowouts(){
-                         
-                         $(".vp, .hp, .wf, .mt").fadeIn( 1000, showWatch);
-                         
-		}
-		// PULL ME DOWN
-		$( "#switch, #toggle-button-up" ).click(function(){
-			$( "#toggle-button-up" ).fadeOut(100);
-			$( "#toggle-button-down" ).fadeIn(100, bulbGlow);
-			$( "#switch" ).attr('disabled', 'disabled');
-			$( "#toggle-button-up" ).attr('disabled', 'disabled');
+$(function () {
+    $('.bg-slide').mousemove(function (move) {
+        var moveMouse = (move.pageX * -1 / 15);
+        $('.bg-slide .slide12').css({
+            'background-position': moveMouse + 'px 100%'
+        });
+    });
+    //MOUSE LEAVE, ANIMATE BACKGROUND TO START POSITION
+    $('.bg-slide').mouseleave(function () {
+        $('.bg-slide .slide12').animate({
+            'background-position': '50% 100%'
+        });
+    });
 
-		});
-		$( "#toggle-button-down, #switch1" ).click(function(){
-			$( "#toggle-button-down" ).fadeOut(100);
-			$( "#toggle-button-up" ).fadeIn(100, bulbOff);
-			$( "#switch" ).removeAttr('disabled', 'disabled');
-			$( "#toggle-button-up" ).removeAttr('disabled', 'disabled');
-		});
-		
-		
-		function bulbGlow() {
-			$( "#bulb-1, #bulb-2, #bulb-3, #bulb-4, #bulb-5, #bulb-6, #bulb-7" ).fadeOut(0);
-		   $( "#bulboff" ).delay(0).fadeIn(0);
-		   $( "#bulbon" ).fadeIn(100, bulbOff1);
-		   
-		};
-		function bulbGlow1() {
-		   $( "#bulbon" ).fadeIn(100, bulbOff2);
-		   
-		};
-		function bulbGlow2() {
-		   $( "#bulbon" ).fadeIn(100, showflowouts);
-		   
-		};
-		// Show Logo Slider
-		function logoSlider() {
-		   $( "#logo-slide" ).show("slide", {direction: "up"}, 1000, textSlider);
-		};
-		function textSlider() {
-		   $( "#sager-text" ).fadeIn(1000, enableButton);
-		};
-		function bulbOff1() {
-			$( "#bulbon" ).fadeOut(0);
-			
-		   $( "#bulboff" ).delay(300).fadeIn(50, bulbGlow1);
-		};
-		function bulbOff2() {
-			$( "#bulbon" ).fadeOut(0);
-			
-		   $( "#bulboff" ).delay(700).fadeIn(50, bulbGlow2);
-		};
-		function bulbOff() {
-			$( "#bulbon" ).fadeOut(0);
-			$( ".vp, .hp, .wf, .mt" ).fadeOut(1000);
-		   $( "#bulboff" ).fadeIn(100);
-		};
-		function bulb1() {
+    $(".hover-both > li").mouseenter(function () {
+        var className = $(this).attr('class');
+        $("." + className).css({ background: "rgba(255,255,255,0.05)" });
 
-		   $( "#bulb-1" ).delay(500).fadeIn(500);
-		   $( "#bulb-2" ).delay(1000).fadeIn(500);
-		   $( "#bulb-3" ).delay(1500).fadeIn(500);
-		   $( "#bulb-4" ).delay(2000).fadeIn(500);
-		   $( "#bulb-5" ).delay(2500).fadeIn(500);
-		   $( "#bulb-7" ).delay(3000).fadeIn(500);
-		   $( "#bulb-6" ).delay(3500).fadeIn(500, logoSlider);
+    });
+    $(".hover-both > li").mouseleave(function () {
+        var className = $(this).attr('class');
+        $("." + className).css({ background: "transparent" });
 
-		   
-		};
+    });
 
-		// Show Bulb
-		function showBulb() {
-		   $( "#bulb-container" ).show("blind", 2000, bulb1);
-		};
-		// set effect from select menu value
-		$(document).ready(function() {
-		  showBulb();
-		  
-		  return true;
-		});
-		
-		$(document).ready(function() {
-		
-			
-		});
-		});
-	  
-	 
-	  var rightKey, leftKey, topKey, bottomKey;
+    $("#nav-small").mouseenter(function () {
+        $("#nav-large").show("slide", { direction: "left" }, 500);
+        $("#logo1, #menu1, #contact1, #social").show("slide", { direction: "left" }, 500);
+    });
+
+    $("#header").mouseleave(function () {
+        $("#logo1, #menu1, #contact1, #social, #nav-large").delay(100).hide("slide", { direction: "left" }, 1000);
+    });
+
+    // Call Back
+    function enableButton() {
+        $("#switch, #switch1, #toggle-button-up, #toggle-button-down").removeAttr("disabled", "disabled");
+        $("#pull-me-down").fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0).fadeTo(300, 0.2).fadeTo(300, 1.0);
+        autoPull();
+    }
+    function autoPull() {
+        $("#toggle-button-up").delay(4000).fadeOut(100);
+        $("#toggle-button-down").delay(4000).fadeIn(100, bulbGlow);
+        $("#switch").delay(4000).attr('disabled', 'disabled');
+        $("#toggle-button-up").delay(4000).attr('disabled', 'disabled');
+    }
+    // Show Small Nav Bar
+    function showmenu() {
+        $("#nav-small").show("slide", { direction: "left" }, 1000, scrollAllow);
+        $("#logo, #menu, #contact, #arabic").show("slide", { direction: "left" }, 1000);
+    }
+
+
+    // Show Watch Icon
+    function showWatch() {
+        $("#watch-video").fadeIn(1000, showmenu);
+    }
+    // Icons Flowing Out
+    function showflowouts() {
+
+        $(".vp, .hp, .wf, .mt").fadeIn(1000, showWatch);
+
+    }
+    // PULL ME DOWN
+    $("#switch, #toggle-button-up").click(function () {
+        $("#toggle-button-up").fadeOut(100);
+        $("#toggle-button-down").fadeIn(100, bulbGlow);
+        $("#switch").attr('disabled', 'disabled');
+        $("#toggle-button-up").attr('disabled', 'disabled');
+
+    });
+    $("#toggle-button-down, #switch1").click(function () {
+        $("#toggle-button-down").fadeOut(100);
+        $("#toggle-button-up").fadeIn(100, bulbOff);
+        $("#switch").removeAttr('disabled', 'disabled');
+        $("#toggle-button-up").removeAttr('disabled', 'disabled');
+    });
+
+
+    function bulbGlow() {
+        $("#bulb-1, #bulb-2, #bulb-3, #bulb-4, #bulb-5, #bulb-6, #bulb-7").fadeOut(0);
+        $("#bulboff").delay(0).fadeIn(0);
+        $("#bulbon").fadeIn(100, bulbOff1);
+
+    };
+    function bulbGlow1() {
+        $("#bulbon").fadeIn(100, bulbOff2);
+
+    };
+    function bulbGlow2() {
+        $("#bulbon").fadeIn(100, showflowouts);
+
+    };
+    // Show Logo Slider
+    function logoSlider() {
+        $("#logo-slide").show("slide", { direction: "up" }, 1000, textSlider);
+    };
+    function textSlider() {
+        $("#sager-text").fadeIn(1000, enableButton);
+    };
+    function bulbOff1() {
+        $("#bulbon").fadeOut(0);
+
+        $("#bulboff").delay(300).fadeIn(50, bulbGlow1);
+    };
+    function bulbOff2() {
+        $("#bulbon").fadeOut(0);
+
+        $("#bulboff").delay(700).fadeIn(50, bulbGlow2);
+    };
+    function bulbOff() {
+        $("#bulbon").fadeOut(0);
+        $(".vp, .hp, .wf, .mt").fadeOut(1000);
+        $("#bulboff").fadeIn(100);
+    };
+    function bulb1() {
+
+        $("#bulb-1").delay(500).fadeIn(500);
+        $("#bulb-2").delay(1000).fadeIn(500);
+        $("#bulb-3").delay(1500).fadeIn(500);
+        $("#bulb-4").delay(2000).fadeIn(500);
+        $("#bulb-5").delay(2500).fadeIn(500);
+        $("#bulb-7").delay(3000).fadeIn(500);
+        $("#bulb-6").delay(3500).fadeIn(500, logoSlider);
+
+
+    };
+
+    // Show Bulb
+    function showBulb() {
+        $("#bulb-container").show("blind", 2000, bulb1);
+    };
+    // set effect from select menu value
+    $(document).ready(function () {
+        showBulb();
+
+        return true;
+    });
+
+    $(document).ready(function () {
+
+
+    });
+});
+
+
+var rightKey, leftKey, topKey, bottomKey;
 
 function scrollAllow() {
 
-	//Set up the triggers for the arrow keys
-	$(document).keydown(function(e){
-	var code = (e.keyCode ? e.keyCode : e.which);
-	var keypressed= e.keyCode;
-		if (e.keyCode == 37 && typeof leftKey === 'function') {
-			leftKey();
-		} else if(e.keyCode == 38 && typeof topKey === 'function') {
-			topKey();
-		} else if(e.keyCode == 39 && typeof rightKey === 'function') {
-			rightKey();
-		} else if(e.keyCode == 40 && typeof bottomKey === 'function') {
-			bottomKey();
-		}
-	});
+    //Set up the triggers for the arrow keys
+    $(document).keydown(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        var keypressed = e.keyCode;
+        if (e.keyCode == 37 && typeof leftKey === 'function') {
+            leftKey();
+        } else if (e.keyCode == 38 && typeof topKey === 'function') {
+            topKey();
+        } else if (e.keyCode == 39 && typeof rightKey === 'function') {
+            rightKey();
+        } else if (e.keyCode == 40 && typeof bottomKey === 'function') {
+            bottomKey();
+        }
+    });
 
-	parallax.add($("#video"))
+    parallax.add($("#video"))
 			.add($("#home"))
 			.add($("#holography"))
 			.add($("#productdes"))
@@ -176,937 +176,956 @@ function scrollAllow() {
 			.add($("#contactus"))
 			.add($("#portfolio"))
 			.add($("#join"));
-   
-	parallax.easing = 'linear';
-	parallax.speed = 700;
-	parallax.scaling = 0.1;
-	
-	//Clears each page navigation on load
-	parallax.preload = function(){
-	rightKey = leftKey = topKey = bottomKey = "";
-	};
+
+    parallax.easing = 'linear';
+    parallax.speed = 700;
+    parallax.scaling = 0.1;
+
+    //Clears each page navigation on load
+    parallax.preload = function () {
+        rightKey = leftKey = topKey = bottomKey = "";
+    };
 
 
-	//Setting up page navigation
+    //Setting up page navigation
 
-	function hexHover(){
-	$("#service-hex-2").mouseenter(function(){
-						$( "#hex-2-text" ).show("slide", {direction: "right"}, 1000);
-						$( "#service-hex-hover-2" ).fadeIn(1000);
+    function hexHover() {
+        $("#service-hex-2").mouseenter(function () {
+            $("#hex-2-text").show("slide", { direction: "right" }, 1000);
+            $("#service-hex-hover-2").fadeIn(1000);
 
-			}); 
-	$("#service-hex-2").mouseleave(function(){
-						$( "#service-hex-hover-2" ).stop( true, true ).fadeOut(500);
-						$( "#hex-2-text" ).stop( true, true ).fadeOut(500);
-			});
-	$("#service-hex-3").mouseenter(function(){
-						$( "#hex-3-text" ).show("slide", {direction: "right"}, 1000);
-						$( "#service-hex-hover-3" ).fadeIn(1000);
+        });
+        $("#service-hex-2").mouseleave(function () {
+            $("#service-hex-hover-2").stop(true, true).fadeOut(500);
+            $("#hex-2-text").stop(true, true).fadeOut(500);
+        });
+        $("#service-hex-3").mouseenter(function () {
+            $("#hex-3-text").show("slide", { direction: "right" }, 1000);
+            $("#service-hex-hover-3").fadeIn(1000);
 
-			});
-	$("#service-hex-3").mouseleave(function(){
-						$( "#service-hex-hover-3" ).stop( true, true ).fadeOut(500);
-						$( "#hex-3-text" ).stop( true, true ).fadeOut(500);
-			});
-	$("#service-hex-4").mouseenter(function(){
-						$( "#hex-4-text" ).show("slide", {direction: "right"}, 1000);
-						$( "#service-hex-hover-4" ).fadeIn(1000);
+        });
+        $("#service-hex-3").mouseleave(function () {
+            $("#service-hex-hover-3").stop(true, true).fadeOut(500);
+            $("#hex-3-text").stop(true, true).fadeOut(500);
+        });
+        $("#service-hex-4").mouseenter(function () {
+            $("#hex-4-text").show("slide", { direction: "right" }, 1000);
+            $("#service-hex-hover-4").fadeIn(1000);
 
-			});
-	$("#service-hex-4").mouseleave(function(){
-						$( "#service-hex-hover-4" ).stop( true, true ).fadeOut(500);
-						$( "#hex-4-text" ).stop( true, true ).fadeOut(500);
-			});
-	$("#service-hex-5").mouseenter(function(){
-						$( "#hex-5-text" ).show("slide", {direction: "right"}, 1000);
-						$( "#service-hex-hover-5" ).fadeIn(1000);
+        });
+        $("#service-hex-4").mouseleave(function () {
+            $("#service-hex-hover-4").stop(true, true).fadeOut(500);
+            $("#hex-4-text").stop(true, true).fadeOut(500);
+        });
+        $("#service-hex-5").mouseenter(function () {
+            $("#hex-5-text").show("slide", { direction: "right" }, 1000);
+            $("#service-hex-hover-5").fadeIn(1000);
 
-			});
-	$("#service-hex-5").mouseleave(function(){
-						$( "#service-hex-hover-5" ).stop( true, true ).fadeOut(500);
-						$( "#hex-5-text" ).stop( true, true ).fadeOut(500);
-			});
-	$("#service-hex-6").mouseenter(function(){
-						$( "#hex-6-text" ).show("slide", {direction: "right"}, 1000);
-						$( "#service-hex-hover-6" ).fadeIn(1000);
+        });
+        $("#service-hex-5").mouseleave(function () {
+            $("#service-hex-hover-5").stop(true, true).fadeOut(500);
+            $("#hex-5-text").stop(true, true).fadeOut(500);
+        });
+        $("#service-hex-6").mouseenter(function () {
+            $("#hex-6-text").show("slide", { direction: "right" }, 1000);
+            $("#service-hex-hover-6").fadeIn(1000);
 
-			});
-	$("#service-hex-6").mouseleave(function(){
-						$( "#service-hex-hover-6" ).stop( true, true ).fadeOut(500);
-						$( "#hex-6-text" ).stop( true, true ).fadeOut(500);
-			});
-	}
+        });
+        $("#service-hex-6").mouseleave(function () {
+            $("#service-hex-hover-6").stop(true, true).fadeOut(500);
+            $("#hex-6-text").stop(true, true).fadeOut(500);
+        });
+    }
 
-	function wayButton(){
-	$("#button-3d-1").mouseenter(function(){
-						/*$( "#button-3d-1-no-hover" ).hide("slide", {direction: "left"}, 500);*/
-						$( "#button-3d-hover-1" ).show("slide", {direction: "right"}, 500);
+    function wayButton() {
+        $("#button-3d-1").mouseenter(function () {
+            /*$( "#button-3d-1-no-hover" ).hide("slide", {direction: "left"}, 500);*/
+            $("#button-3d-hover-1").show("slide", { direction: "right" }, 500);
 
-			});
-		$("#button-3d-1").mouseleave(function(){
-						/*$( "#button-3d-1-no-hover" ).show("slide", {direction: "left"}, 500);*/
-						$( "#button-3d-hover-1" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $("#button-3d-1").mouseleave(function () {
+            /*$( "#button-3d-1-no-hover" ).show("slide", {direction: "left"}, 500);*/
+            $("#button-3d-hover-1").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$("#button-3d-2").mouseenter(function(){
-						/*$( "#button-3d-2-no-hover" ).hide("slide", {direction: "left"}, 500);*/
-						$( "#button-3d-hover-2" ).show("slide", {direction: "right"}, 500);
+        });
+        $("#button-3d-2").mouseenter(function () {
+            /*$( "#button-3d-2-no-hover" ).hide("slide", {direction: "left"}, 500);*/
+            $("#button-3d-hover-2").show("slide", { direction: "right" }, 500);
 
-			});
-		$("#button-3d-2").mouseleave(function(){
-						/*$( "#button-3d-2-no-hover" ).show("slide", {direction: "left"}, 500);*/
-						$( "#button-3d-hover-2" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $("#button-3d-2").mouseleave(function () {
+            /*$( "#button-3d-2-no-hover" ).show("slide", {direction: "left"}, 500);*/
+            $("#button-3d-hover-2").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-	}
-	function polyButton(){
-	$("#poly-button-1").mouseenter(function(){
-						/*$( "#poly-1-no-hover" ).hide("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-1" ).show("slide", {direction: "right"}, 500);
+        });
+    }
+    function polyButton() {
+        $("#poly-button-1").mouseenter(function () {
+            /*$( "#poly-1-no-hover" ).hide("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-1").show("slide", { direction: "right" }, 500);
 
-			});
-		$("#poly-button-1").mouseleave(function(){
-						/*$( "#poly-1-no-hover" ).show("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-1" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $("#poly-button-1").mouseleave(function () {
+            /*$( "#poly-1-no-hover" ).show("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-1").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$("#poly-button-2").mouseenter(function(){
-						/*$( "#poly-2-no-hover" ).hide("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-2" ).show("slide", {direction: "right"}, 500);
+        });
+        $("#poly-button-2").mouseenter(function () {
+            /*$( "#poly-2-no-hover" ).hide("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-2").show("slide", { direction: "right" }, 500);
 
-			});
-		$("#poly-button-2").mouseleave(function(){
-						/*$( "#poly-2-no-hover" ).show("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-2" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $("#poly-button-2").mouseleave(function () {
+            /*$( "#poly-2-no-hover" ).show("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-2").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$("#poly-button-3").mouseenter(function(){
-						/*$( "#poly-3-no-hover" ).hide("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-3" ).show("slide", {direction: "right"}, 500);
+        });
+        $("#poly-button-3").mouseenter(function () {
+            /*$( "#poly-3-no-hover" ).hide("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-3").show("slide", { direction: "right" }, 500);
 
-			});
-		$("#poly-button-3").mouseleave(function(){
-						/*$( "#poly-3-no-hover" ).show("slide", {direction: "left"}, 500);*/
-						$( "#poly-hover-3" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $("#poly-button-3").mouseleave(function () {
+            /*$( "#poly-3-no-hover" ).show("slide", {direction: "left"}, 500);*/
+            $("#poly-hover-3").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		}
-	function vidThumb(){
-	        $(".vid-hover").mouseenter(function(){
-						$( ".vid-play" ).show("slide", {direction: "right"}, 500);
+        });
+    }
+    function vidThumb() {
+        $(".vid-hover").mouseenter(function () {
+            $(".vid-play").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover").mouseleave(function(){
-						$( ".vid-play" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover").mouseleave(function () {
+            $(".vid-play").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover1").mouseenter(function(){
-						$( ".vid-play1" ).show("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover1").mouseenter(function () {
+            $(".vid-play1").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover1").mouseleave(function(){
-						$( ".vid-play1" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover1").mouseleave(function () {
+            $(".vid-play1").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover2").mouseenter(function(){
-						$( ".vid-play2" ).show("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover2").mouseenter(function () {
+            $(".vid-play2").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover2").mouseleave(function(){
-						$( ".vid-play2" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover2").mouseleave(function () {
+            $(".vid-play2").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover3").mouseenter(function(){
-						$( ".vid-play3" ).show("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover3").mouseenter(function () {
+            $(".vid-play3").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover3").mouseleave(function(){
-						$( ".vid-play3" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover3").mouseleave(function () {
+            $(".vid-play3").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover4").mouseenter(function(){
-						$( ".vid-play4" ).show("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover4").mouseenter(function () {
+            $(".vid-play4").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover4").mouseleave(function(){
-						$( ".vid-play4" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover4").mouseleave(function () {
+            $(".vid-play4").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover5").mouseenter(function(){
-						$( ".vid-play5" ).show("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover5").mouseenter(function () {
+            $(".vid-play5").show("slide", { direction: "right" }, 500);
 
-			});
-		$(".vid-hover5").mouseleave(function(){
-						$( ".vid-play5" ).stop( true, true ).hide("slide", {direction: "right"}, 500);
+        });
+        $(".vid-hover5").mouseleave(function () {
+            $(".vid-play5").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			});
-		}
-    function navClick()
-	{
-	
-		$(".products").bind('click', function(){
-		    parallax["holography"].bottom();
-			
-		});
-		$(".pds").bind('click', function(){
-		    parallax["productdes"].bottom();
-			
-		});
-		$(".cbs").bind('click', function(){
-		    parallax["corporate"].bottom();
-			
-		});
-		$(".ps").bind('click', function(){
-		    parallax["portfolio"].bottom();
-			
-		});
-		$(".jus").bind('click', function(){
-		    parallax["join"].bottom();
-			
-		});
-		$(".services").bind('click', function(){
-				parallax["services"].bottom();
-			});
-		$(".3dway").bind('click', function(){
-				parallax["wayfinding"].bottom();
-			});
-		$(".contact").bind('click', function(){
-				parallax["contactus"].bottom();
-			});
-		$(".multi").bind('click', function(){
-				parallax["polytouch"].bottom();
-			});
-		$(".home-icon ").bind('click', function(){
-				parallax["home"].top();
-			});	
-	}
-	function resetMenu(){
-		$( ".products, .services, .3dway, .multi, .contact" ).removeAttr("style", "background-color:rgba(255,255,255,0.05);");
-	}
-		
-	parallax.home.onload=function(){
-                navClick();
-		$('#home').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-				 //scroll down
-				 console.log('Down');
-				 parallax["holography"].bottom();
-				 $( "#home-wrap" ).fadeOut(100);
-			 }else {
-				 //scroll up
-				 console.log('Up');
-			 }
+        });
+        $(".vid-hover6").mouseenter(function () {
+            $(".vid-play6").show("slide", { direction: "right" }, 500);
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#home').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-				 parallax["holography"].bottom();
-			     $( "#home-wrap" ).fadeOut(100);
-			 }else {
-				 //scroll up
-				 console.log('Up');
-			 }
+        });
+        $(".vid-hover6").mouseleave(function () {
+            $(".vid-play6").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
+        });
+        $(".vid-hover7").mouseenter(function () {
+            $(".vid-play7").show("slide", { direction: "right" }, 500);
 
-		resetMenu();
-		$(".cbs, .pds").hide();
-		$(".ps, .jus").show();
-		$( "#home-wrap" ).fadeIn();
-		$(".products, .wf").bind('click', function(){
-				parallax["holography"].bottom();
-				$( "#home-wrap" ).fadeOut(100);
-			});
-		
-		$(".services, .vp").bind('click', function(){
-				parallax["services"].bottom();
-				$( "#home-wrap" ).fadeOut(100);
-			});
-		$(".mt").bind('click', function(){
-				parallax["polytouch"].bottom();
-				$( "#home-wrap" ).fadeOut(100);
-			});
-		$(".3dway, .hp").bind('click', function(){
-				parallax["wayfinding"].bottom();
-				$( "#home-wrap" ).fadeOut(100);
-			});
-		$(".contact").bind('click', function(){
-				parallax["contactus"].bottom();
-				$( "#home-wrap" ).fadeOut(100);
-			});
-			
-		$("#watch-video").bind('click', function(){
-			parallax["video"].right();
-			$( "#home-wrap" ).hide(100);
-		});
-		$(document).keydown(function(e){
-		if(e.keyCode == 40 || e.keyCode == 39){
-			$( "#home-wrap" ).hide(100);
+        });
+        $(".vid-hover7").mouseleave(function () {
+            $(".vid-play7").stop(true, true).hide("slide", { direction: "right" }, 500);
 
-			}
-		});
-		setRight("video", "Video");
-		setBottom("holography","Holography");
-	};
-	
-	parallax.video.onload=function(){
-            $( "#video-cover").show(100);
-            mediaPlayer0 = document.getElementById('media-video');
-	    navClick();
-		$(".cbs, .pds").hide();
-		$(".ps, .jus").show();
-		setLeft("home", "Home");
-                $("#arrow-video").bind('click', function(){
-			parallax["home"].left();
-                        mediaPlayer0.pause();
-		});
-                $("#watch-video-text, #watch-video-icon").click(function(){
-				$( "#video-cover").hide(500);
-                                mediaPlayer0.play();
-			
-			});
-                 $(".start-video-again").click(function(){
-                                mediaPlayer0.src = "media/demo1.mp4";
-                                mediaPlayer0.play();
-			
-			});
-$(document).keydown(function(e){
-		if(e.keyCode == 37){
-mediaPlayer0.pause();
-			}
-		});
-	};
-	
-	parallax.holography.onload=function(){
-                mediaPlayer1 = document.getElementById('holo-video');
-                mediaPlayer9 = document.getElementById('presenter-video');
-                mediaPlayer9.src = "media/3MB.mp4";
-		mediaPlayer9.load();
-                mediaPlayer9.play();
-		$('#holography').removeAttr("style","position:absolute");
-		$( "#holography-cover" ).fadeIn(200);
-		$('#holography').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-				 //scroll down
-				 console.log('Down');
-				 parallax["services"].bottom();
-                                 mediaPlayer1.pause();
-                                 mediaPlayer9.pause();
-				 $( "#holography-cover" ).fadeOut(500);
-			 }else {
-				 parallax["home"].top();
-				 $( "#holography-cover" ).fadeOut(500);
-				 console.log('Up');
-                                 mediaPlayer1.pause();
-                                 mediaPlayer9.pause();
-			 }
+        });
+    }
+    function navClick() {
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#holography').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-				 parallax["services"].bottom();
-                                 mediaPlayer1.pause();
-                                 mediaPlayer9.pause();
-				 $( "#holography-cover" ).fadeOut(500);
-			 }else {
-				 parallax["home"].top();
-				 $( "#holography-cover" ).fadeOut(500);
-                                 mediaPlayer1.pause();
-                                 mediaPlayer9.pause();
-				 console.log('Up');
-			 }
+        $(".products").bind('click', function () {
+            parallax["holography"].bottom();
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
+        });
+        $(".pds").bind('click', function () {
+            parallax["productdes"].bottom();
 
-		navClick();
-		resetMenu();
-		vidThumb();
-		$("#mac").show("slide", {direction: "up"}, 2000);
-		$(".pds").show();
-		$(".cbs").hide();
-		$(".ps, .jus").show();
-		$("#mac1").mouseenter(function(){
-						/*$(".media-icon-hover").stop( true, true ).removeAttr("style", "visibility:hidden");*/
+        });
+        $(".cbs").bind('click', function () {
+            parallax["corporate"].bottom();
 
-			});
-		$("#mac1").mouseleave(function(){
-						/*$(".media-icon-hover").stop( true, true ).attr("style","visibility:hidden");*/
+        });
+        $(".ps").bind('click', function () {
+            parallax["portfolio"].bottom();
 
-			});
-		
-		$("#shadow").fadeIn(2000);
-/*
-		$("#presenter").stop( true, true ).show("slide", {direction: "right"}, 3000);
-*/
-		$("#read-more").delay(3000).show();
-		$( ".products" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading1" ).fadeIn(1000);
-		/*$( ".heading1" ).effect("scale", {percent: 150, scale: 'content',  origin: ["right", "top"]},1000);*/
-			$("#read-more").click(function(){
-				$( "#holography-cover" ).fadeOut(500);
-				parallax["productdes"].right();
-                                mediaPlayer1.pause();
-                                mediaPlayer9.pause();
-			/*
+        });
+        $(".jus").bind('click', function () {
+            parallax["join"].bottom();
+
+        });
+        $(".services").bind('click', function () {
+            parallax["services"].bottom();
+        });
+        $(".3dway").bind('click', function () {
+            parallax["wayfinding"].bottom();
+        });
+        $(".contact").bind('click', function () {
+            parallax["contactus"].bottom();
+        });
+        $(".multi").bind('click', function () {
+            parallax["polytouch"].bottom();
+        });
+        $(".home-icon ").bind('click', function () {
+            parallax["home"].top();
+        });
+    }
+    function resetMenu() {
+        $(".products, .services, .3dway, .multi, .contact").removeAttr("style", "background-color:rgba(255,255,255,0.05);");
+    }
+
+    parallax.home.onload = function () {
+        navClick();
+        $('#home').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                //scroll down
+                console.log('Down');
+                parallax["holography"].bottom();
+                $("#home-wrap").fadeOut(100);
+            } else {
+                //scroll up
+                console.log('Up');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        $('#home').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                parallax["holography"].bottom();
+                $("#home-wrap").fadeOut(100);
+            } else {
+                //scroll up
+                console.log('Up');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        resetMenu();
+        $(".cbs, .pds").hide();
+        $(".ps, .jus").show();
+        $("#home-wrap").fadeIn();
+        $(".products, .wf").bind('click', function () {
+            parallax["holography"].bottom();
+            $("#home-wrap").fadeOut(100);
+        });
+
+        $(".services, .vp").bind('click', function () {
+            parallax["services"].bottom();
+            $("#home-wrap").fadeOut(100);
+        });
+        $(".mt").bind('click', function () {
+            parallax["polytouch"].bottom();
+            $("#home-wrap").fadeOut(100);
+        });
+        $(".3dway, .hp").bind('click', function () {
+            parallax["wayfinding"].bottom();
+            $("#home-wrap").fadeOut(100);
+        });
+        $(".contact").bind('click', function () {
+            parallax["contactus"].bottom();
+            $("#home-wrap").fadeOut(100);
+        });
+
+        $("#watch-video").bind('click', function () {
+            parallax["video"].right();
+            $("#home-wrap").hide(100);
+        });
+        $(document).keydown(function (e) {
+            if (e.keyCode == 40 || e.keyCode == 39) {
+                $("#home-wrap").hide(100);
+
+            }
+        });
+        setRight("video", "Video");
+        setBottom("holography", "Holography");
+    };
+
+    parallax.video.onload = function () {
+        $("#video-cover").show(100);
+        mediaPlayer0 = document.getElementById('media-video');
+        navClick();
+        $(".cbs, .pds").hide();
+        $(".ps, .jus").show();
+        setLeft("home", "Home");
+        $("#arrow-video").bind('click', function () {
+            parallax["home"].left();
+            mediaPlayer0.pause();
+        });
+        $("#watch-video-text, #watch-video-icon").click(function () {
+            $("#video-cover").hide(500);
+            mediaPlayer0.play();
+
+        });
+        $(".start-video-again").click(function () {
+            mediaPlayer0.src = "media/demo1.mp4";
+            mediaPlayer0.play();
+
+        });
+        $(document).keydown(function (e) {
+            if (e.keyCode == 37) {
+                mediaPlayer0.pause();
+            }
+        });
+    };
+
+    parallax.holography.onload = function () {
+        mediaPlayer1 = document.getElementById('holo-video');
+        mediaPlayer9 = document.getElementById('presenter-video');
+        mediaPlayer9.src = "media/3MB.mp4";
+        mediaPlayer9.load();
+        mediaPlayer9.play();
+        mediaPlayer9.onended = function (e) {
+            $("#play").fadeOut(0);
+            $("#pause1").fadeIn(0);
+        };
+
+        $('#holography').removeAttr("style", "position:absolute");
+        $("#holography-cover").fadeIn(200);
+        $('#holography').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                //scroll down
+                console.log('Down');
+                parallax["services"].bottom();
+                mediaPlayer1.pause();
+                mediaPlayer9.pause();
+                $("#holography-cover").fadeOut(500);
+            } else {
+                parallax["home"].top();
+                $("#holography-cover").fadeOut(500);
+                console.log('Up');
+                mediaPlayer1.pause();
+                mediaPlayer9.pause();
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        $('#holography').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                parallax["services"].bottom();
+                mediaPlayer1.pause();
+                mediaPlayer9.pause();
+                $("#holography-cover").fadeOut(500);
+            } else {
+                parallax["home"].top();
+                $("#holography-cover").fadeOut(500);
+                mediaPlayer1.pause();
+                mediaPlayer9.pause();
+                console.log('Up');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        navClick();
+        resetMenu();
+        vidThumb();
+        $("#mac").show("slide", { direction: "up" }, 2000);
+        $(".pds").show();
+        $(".cbs").hide();
+        $(".ps, .jus").show();
+        $("#mac1").mouseenter(function () {
+            /*$(".media-icon-hover").stop( true, true ).removeAttr("style", "visibility:hidden");*/
+
+        });
+        $("#mac1").mouseleave(function () {
+            /*$(".media-icon-hover").stop( true, true ).attr("style","visibility:hidden");*/
+
+        });
+
+        $("#shadow").fadeIn(2000);
+        /*
+                $("#presenter").stop( true, true ).show("slide", {direction: "right"}, 3000);
+        */
+        $("#read-more").delay(3000).show();
+        $(".products").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading1").fadeIn(1000);
+        /*$( ".heading1" ).effect("scale", {percent: 150, scale: 'content',  origin: ["right", "top"]},1000);*/
+        $("#read-more").click(function () {
+            $("#holography-cover").fadeOut(500);
+            parallax["productdes"].right();
+            mediaPlayer1.pause();
+            mediaPlayer9.pause();
+            /*
 				$("#presenter").hide("slide", {direction: "right"}, 3000);
 				$("#read-more").hide();
 				$("#holo-middle").hide("slide", {direction: "up"}, 1000);
 				$("#shadow").delay(2000).css("opacity","0", 1000);
 			*/
-			});
-			
-			$("#mac1, .media-icon-hover, .vid-hover, .vid-hover1, .vid-hover2").click(function(){
-			/*
+        });
+
+        $("#mac1, .media-icon-hover, .vid-hover, .vid-hover1, .vid-hover2").click(function () {
+            /*
 				$( "#mac1, .media-icon-hover" ).fadeOut(500);
 				$( "#mac2" ).fadeIn(500);
 			*/
-			
-			
-			});
-                $("#play").click(function(){			
-                        mediaPlayer9.pause();
-                        $("#play").fadeOut(0);
-                        $("#pause1").fadeIn(0);
-			});
-                $("#volume").click(function(){			
-                        mediaPlayer9.volume=0.0;
-                        $("#volume").fadeOut(0);
-                        $("#no-volume").fadeIn(0);
-
-			});
-
-                $("#pause1").click(function(){			
-                        mediaPlayer9.play();
-                        $("#pause1").fadeOut(0);
-                        $("#play").fadeIn(0);
 
 
-			});
+        });
+        $("#play").click(function () {
+            mediaPlayer9.pause();
+            $("#play").fadeOut(0);
+            $("#pause1").fadeIn(0);
+        });
+        $("#volume").click(function () {
+            mediaPlayer9.volume = 0.0;
+            $("#volume").fadeOut(0);
+            $("#no-volume").fadeIn(0);
 
-                $("#no-volume").click(function(){			
-                        mediaPlayer9.volume=1.0;
-                        $("#no-volume").fadeOut(0);
-                        $("#volume").fadeIn(0);
+        });
 
-			});
-                $("#arrow-holo-more").click(function(){
-			$( ".vid-hover4, .vid-hover5" ).fadeIn(10);
-			$( ".vid-hover, .vid-hover1" ).fadeOut(10);
-			});
-                $("#arrow-holo-more-left").click(function(){
-			$( ".vid-hover, .vid-hover1" ).fadeIn(10);
-			$( ".vid-hover4, .vid-hover5" ).fadeOut(10);
-			});
-                $(".vid-hover").click(function(){
-			/*
+        $("#pause1").click(function () {
+            mediaPlayer9.play();
+            $("#pause1").fadeOut(0);
+            $("#play").fadeIn(0);
+
+
+        });
+
+        $("#no-volume").click(function () {
+            mediaPlayer9.volume = 1.0;
+            $("#no-volume").fadeOut(0);
+            $("#volume").fadeIn(0);
+
+        });
+        $("#arrow-holo-more").click(function () {
+            $(".vid-hover4, .vid-hover5, .vid-hover6, .vid-hover7").fadeIn(10);
+            $(".vid-hover, .vid-hover1, .vid-hover2, .vid-hover3").fadeOut(10);
+        });
+        $("#arrow-holo-more-left").click(function () {
+            $(".vid-hover, .vid-hover1, .vid-hover2, .vid-hover3").fadeIn(10);
+            $(".vid-hover4, .vid-hover5, .vid-hover6, .vid-hover7").fadeOut(10);
+        });
+        $(".vid-hover").click(function () {
+            /*
 				$( "#mac1, .media-icon-hover, #mac2, #mac4, #mac5, #mac6" ).fadeOut(500);
 				$( "#mac3" ).fadeIn(500);
 			*/
-			mediaPlayer1.src = "media/media1.mp4";
-			mediaPlayer1.load();
-mediaPlayer1.play();
-			
-			});
-                $(".vid-hover1").click(function(){
-			/*
+            mediaPlayer1.src = "media/media1.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+
+        });
+        $(".vid-hover1").click(function () {
+            /*
 				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac5, #mac6" ).fadeOut(500);
 				$( "#mac4" ).fadeIn(500);
 			*/
-			mediaPlayer1.src = "media/media2.mp4";
-			mediaPlayer1.load();
-mediaPlayer1.play();
-			
-			});
-                $(".vid-hover2").click(function(){
-			/*
+            mediaPlayer1.src = "media/media2.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+
+        });
+        $(".vid-hover2").click(function () {
+            /*
 				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac4, #mac6" ).fadeOut(500);
 				$( "#mac5" ).fadeIn(500);
 			*/
-			mediaPlayer1.src = "media/media1.mp4";
-			mediaPlayer1.load();
-                        mediaPlayer1.play();
-			});
-            $(".vid-hover3").click(function(){
-			/*
+            mediaPlayer1.src = "media/media1.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+        });
+        $(".vid-hover3").click(function () {
+            /*
 				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac4, #mac5" ).fadeOut(500);
 				$( "#mac6" ).fadeIn(500);
 			*/
-			mediaPlayer1.src = "media/media2.mp4";
-			mediaPlayer1.load();
-mediaPlayer1.play();
-			});
-		$(document).keydown(function(e){
-		if(e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38){
-		/*
-			
-			$("#presenter").hide("slide", {direction: "right"}, 3000);
-			$("#read-more").hide();
-			$("#holo-middle").hide("slide", {direction: "up"}, 1000);
-			$("#shadow").delay(2000).css("opacity","0", 1000);
-		*/
+            mediaPlayer1.src = "media/media2.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+        });
+        $(document).keydown(function (e) {
+            if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38) {
+                /*
+                    
+                    $("#presenter").hide("slide", {direction: "right"}, 3000);
+                    $("#read-more").hide();
+                    $("#holo-middle").hide("slide", {direction: "up"}, 1000);
+                    $("#shadow").delay(2000).css("opacity","0", 1000);
+                */
                 mediaPlayer1.pause();
                 mediaPlayer9.pause();
-		$( "#holography-cover" ).fadeOut(500);
-			}
-		});
-		
-		setTop("home","Home");
-		setRight("productdes","Home");
-		setBottom("services","Home");
-		
-		
-	};
-	
-	parallax.productdes.onload=function(){
-            mediaPlayer4 = document.getElementById('product-des-video');
-            mediaPlayer4.src = "media/demo1.mp4";
-	    mediaPlayer4.load();
-            mediaPlayer4.play();
-		navClick();
-		resetMenu();
-		$(".pds").show();
-		$(".ps, .jus").show();
-		$(".cbs").hide();
-		$( ".products" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading2" ).fadeIn(1000);
-		setLeft("holography","Holography Projection");
-                $("#arrow-product-des").bind('click', function(){
-			parallax["holography"].left();
-                        mediaPlayer4.pause();
-		});
-$(document).keydown(function(e){
-		if(e.keyCode == 37){
-		mediaPlayer4.pause();
-					}
-			});
-	};
-	
-	parallax.services.onload=function(){
-mediaPlayer2 = document.getElementById('service-video-cont');
-		$( "#services-cover" ).fadeIn();
+                $("#holography-cover").fadeOut(500);
+            }
+        });
 
-		$('#services').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-mediaPlayer2.pause();
-				 //scroll down
-				 console.log('Down');
-				 parallax["polytouch"].bottom();
-				 $( "#services-cover" ).fadeOut(500);
-			 }else {
-mediaPlayer2.pause();
-				 parallax["holography"].top();
-				 console.log('Up');
-				 $( "#services-cover" ).fadeOut(500);
-			 }
+        setTop("home", "Home");
+        setRight("productdes", "Home");
+        setBottom("services", "Home");
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#services').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-mediaPlayer2.pause();
-				 parallax["polytouch"].bottom();
-				 $( "#services-cover" ).fadeOut(500);
-			 }else {
-mediaPlayer2.pause();
-				 parallax["holography"].top();
-				 $( "#services-cover" ).fadeOut(500);
-				 console.log('Up');
-			 }
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 $(".cbs").show();
-		 $(".pds").hide();
-		 $(".ps, .jus").show();
-	navClick();
-	resetMenu();
-	/* hexHover(); */
-		$( ".services" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading3" ).fadeIn(1000);
-		$("#discover").bind('click', function(){
-			parallax["corporate"].right();
-			$( "#services-cover" ).fadeOut(500);
+    };
 
-		});
-				
-				
-		$(document).keydown(function(e){
-		if(e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38){
-		$( "#services-cover" ).fadeOut(500);
-mediaPlayer2.pause();
-					}
-			});
-		
-	        $("#service-hex-2, #service-video, #service-media").click(function(){
-			/*
+    parallax.productdes.onload = function () {
+        mediaPlayer4 = document.getElementById('product-des-video');
+        mediaPlayer4.src = "media/demo1.mp4";
+        mediaPlayer4.load();
+        mediaPlayer4.play();
+        navClick();
+        resetMenu();
+        $(".pds").show();
+        $(".ps, .jus").show();
+        $(".cbs").hide();
+        $(".products").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading2").fadeIn(1000);
+        setLeft("holography", "Holography Projection");
+        $("#arrow-product-des").bind('click', function () {
+            parallax["holography"].left();
+            mediaPlayer4.pause();
+        });
+        $(document).keydown(function (e) {
+            if (e.keyCode == 37) {
+                mediaPlayer4.pause();
+            }
+        });
+    };
+
+    parallax.services.onload = function () {
+        mediaPlayer2 = document.getElementById('service-video-cont');
+        $("#services-cover").fadeIn();
+
+        $('#services').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                mediaPlayer2.pause();
+                //scroll down
+                console.log('Down');
+                parallax["polytouch"].bottom();
+                $("#services-cover").fadeOut(500);
+            } else {
+                mediaPlayer2.pause();
+                parallax["holography"].top();
+                console.log('Up');
+                $("#services-cover").fadeOut(500);
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        $('#services').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                mediaPlayer2.pause();
+                parallax["polytouch"].bottom();
+                $("#services-cover").fadeOut(500);
+            } else {
+                mediaPlayer2.pause();
+                parallax["holography"].top();
+                $("#services-cover").fadeOut(500);
+                console.log('Up');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+        $(".cbs").show();
+        $(".pds").hide();
+        $(".ps, .jus").show();
+        navClick();
+        resetMenu();
+        /* hexHover(); */
+        $(".services").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading3").fadeIn(1000);
+        $("#discover").bind('click', function () {
+            parallax["corporate"].right();
+            $("#services-cover").fadeOut(500);
+
+        });
+
+
+        $(document).keydown(function (e) {
+            if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38) {
+                $("#services-cover").fadeOut(500);
+                mediaPlayer2.pause();
+            }
+        });
+
+        $("#service-hex-2, #service-video, #service-media").click(function () {
+            /*
 				$( "#service-video, #service-media, #service-vid-2, #service-vid-3, #service-vid-4, #service-vid-5" ).hide(500);
 				$( "#service-vid-1" ).fadeIn(500);
 			*/
-			mediaPlayer2.src = "media/demo1.webm";
-			mediaPlayer2.load();
-mediaPlayer2.play();
-			
-			});
-                $("#service-hex-3").click(function(){
+            mediaPlayer2.src = "media/demo1.webm";
+            mediaPlayer2.load();
+            mediaPlayer2.play();
 
-			/*
+        });
+        $("#service-hex-3").click(function () {
+
+            /*
 				$( "#service-vid-1, #service-vid-3, #service-vid-4, #service-vid-5" ).hide(500);
 				$( "#service-vid-2" ).fadeIn(500);
 			*/
-mediaPlayer2.src = "media/demo1.mp4";
-			mediaPlayer2.load();
-mediaPlayer2.play();
-			});
-                $("#service-hex-4").click(function(){
-			mediaPlayer2.src = "media/demo1.mp4";
-			mediaPlayer2.load();
-mediaPlayer2.play();
-			/*
+            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.load();
+            mediaPlayer2.play();
+        });
+        $("#service-hex-4").click(function () {
+            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.load();
+            mediaPlayer2.play();
+            /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-4, #service-vid-5" ).hide(500);
 				$( "#service-vid-3" ).fadeIn(500);
 			*/
-			});
-                $("#service-hex-5").click(function(){
-			mediaPlayer2.src = "media/demo1.mp4";
-			mediaPlayer2.load();
-mediaPlayer2.play();
-			/*
+        });
+        $("#service-hex-5").click(function () {
+            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.load();
+            mediaPlayer2.play();
+            /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-3, #service-vid-5" ).hide(500);
 				$( "#service-vid-4" ).fadeIn(500);
 			*/
-			
-			});
-	        $("#service-hex-6").click(function(){
-			mediaPlayer2.src = "media/demo1.mp4";
-			mediaPlayer2.load();
-mediaPlayer2.play();
-			/*
+
+        });
+        $("#service-hex-6").click(function () {
+            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.load();
+            mediaPlayer2.play();
+            /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-3, #service-vid-4" ).hide(500);
 				$( "#service-vid-5" ).fadeIn(500);
 			*/
-			
-			});
-	
-		setTop("holography", "Holography Projection");
-		setRight("corporate", "Corporate Branding");
-		setBottom("polytouch","Polytouch");
-	};
-	
-	parallax.corporate.onload=function(){
-		$(".pds").hide();
-		$(".ps, .jus").show();
-		navClick();
-		resetMenu();
-		$("#corp-1, #corp-2").show('slide', {direction: "left"}, 500);
-		$("#corp-3").delay(500).show('slide', {direction: "left"}, 500);
-		$("#corp-4").delay(1000).show('slide', {direction: "left"}, 500);
-		$( ".services" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		setLeft("services", "Services");
-		$(".cbs").show();
-                $("#arrow-corporate").bind('click', function(){
-			parallax["services"].left();
-		});
-		$(document).keydown(function(e){
-		if(e.keyCode == 37){
-		/*
-			$( "#corp-1, #corp-2, #corp-3, #corp-4" ).hide();
-		*/
-			}
-		});
-	};
-	
-	parallax.wayfinding.onload=function(){
-mediaPlayer5 = document.getElementById('way-vid');
-		$('#wayfinding').removeAttr("style","position:absolute");
-		$( "#wayfinding-cover" ).fadeIn(300);
-		$('#wayfinding').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-				 //scroll down
-				 console.log('Down');
-				 parallax["contactus"].bottom();
-				 $( "#wayfinding-cover" ).fadeOut(500);
-                                 mediaPlayer5.pause();
-			 }else {
-				 parallax["polytouch"].top();
-				 console.log('Up');
-				 $( "#wayfinding-cover" ).fadeOut(500);
-mediaPlayer5.pause();
-			 }
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#wayfinding').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-				 parallax["contactus"].bottom();
-				 $( "#wayfinding-cover" ).fadeOut(500);
-mediaPlayer5.pause();
-			 }else {
-				 parallax["polytouch"].top();
-				 console.log('Up');
-				 $( "#wayfinding-cover" ).fadeOut(500);
-mediaPlayer5.pause();
-			 }
+        });
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-	navClick();
-	$("#way-vid, .watch-button").click(function(){
-		
-                mediaPlayer5.src = "media/media2.mp4";
-	        mediaPlayer5.load();
-                mediaPlayer5.play();
-			
-			});
-	/*		
-        $("#arrow-wayfinding").bind('click', function(){
-			parallax["polytouch"].right();
-                        mediaPlayer5.pause();
-	});
-        */
-	resetMenu();
-	$(".cbs, .pds").hide();
-	$(".ps, .jus").show();
-	$( ".3dway" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-	$( "#way-left" ).fadeIn(300);
-	$( "#way-left" ).animate({ left: "7.4%" }, 200);
-	$( "#way-right" ).fadeIn(300);
-	$( "#way-right" ).animate({ right: "40px" }, 200);
-	$( ".heading4" ).fadeIn(1000);
-			$(document).keydown(function(e){
-		
-		if(e.keyCode == 40 || e.keyCode == 38){
-		$( "#wayfinding-cover" ).fadeOut(500);
-		/*
-						$( "#way-left" ).stop().animate({ left: "50px" });
-						$( "#way-right" ).stop().animate({ right: "0px" });
-		*/
+        setTop("holography", "Holography Projection");
+        setRight("corporate", "Corporate Branding");
+        setBottom("polytouch", "Polytouch");
+    };
+
+    parallax.corporate.onload = function () {
+        $(".pds").hide();
+        $(".ps, .jus").show();
+        navClick();
+        resetMenu();
+        $("#corp-1, #corp-2").show('slide', { direction: "left" }, 500);
+        $("#corp-3").delay(500).show('slide', { direction: "left" }, 500);
+        $("#corp-4").delay(1000).show('slide', { direction: "left" }, 500);
+        $(".services").attr("style", "background-color:rgba(255,255,255,0.05);");
+        setLeft("services", "Services");
+        $(".cbs").show();
+        $("#arrow-corporate").bind('click', function () {
+            parallax["services"].left();
+        });
+        $(document).keydown(function (e) {
+            if (e.keyCode == 37) {
+                /*
+                    $( "#corp-1, #corp-2, #corp-3, #corp-4" ).hide();
+                */
+            }
+        });
+    };
+
+    parallax.wayfinding.onload = function () {
+        mediaPlayer5 = document.getElementById('way-vid');
+        $('#wayfinding').removeAttr("style", "position:absolute");
+        $("#wayfinding-cover").fadeIn(300);
+        $('#wayfinding').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                //scroll down
+                console.log('Down');
+                parallax["contactus"].bottom();
+                $("#wayfinding-cover").fadeOut(500);
                 mediaPlayer5.pause();
-						}
-			});
+            } else {
+                parallax["polytouch"].top();
+                console.log('Up');
+                $("#wayfinding-cover").fadeOut(500);
+                mediaPlayer5.pause();
+            }
 
-		setTop("polytouch", "Polytouch");
-		setBottom("contactus","contactus Us");
-	};
-	parallax.polytouch.onload=function(){
-$( "#polytouch-cover" ).fadeIn(300);
-$('#polytouch').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-				 //scroll down
-				 console.log('Down');
-				 parallax["wayfinding"].bottom();
-				 $( "#polytouch-cover" ).fadeOut(500);
-                                 mediaPlayer6.pause();
-			 }else {
-				 parallax["services"].top();
-				 console.log('Up');
-				 $( "#polytouch-cover" ).fadeOut(500);
-mediaPlayer6.pause();
-			 }
+            //prevent page fom scrolling
+            return false;
+        });
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#polytouch').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-				 parallax["wayfinding"].bottom();
-				 $( "#polytouch-cover" ).fadeOut(500);
-mediaPlayer6.pause();
-			 }else {
-				 parallax["services"].top();
-				 console.log('Up');
-				 $( "#polytouch-cover" ).fadeOut(500);
-mediaPlayer6.pause();
-			 }
+        $('#wayfinding').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                parallax["contactus"].bottom();
+                $("#wayfinding-cover").fadeOut(500);
+                mediaPlayer5.pause();
+            } else {
+                parallax["polytouch"].top();
+                console.log('Up');
+                $("#wayfinding-cover").fadeOut(500);
+                mediaPlayer5.pause();
+            }
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-mediaPlayer6 = document.getElementById('poly-vid');
-$("#poly-tv, #poly-button-2").click(function(){
-		
-                mediaPlayer6.src = "media/media2.mp4";
-	        mediaPlayer6.load();
-                mediaPlayer6.play();
-			
-			});
-	$( "#way-left1" ).fadeIn(300);
-	$( "#way-left1" ).animate({ left: "7.4%" }, 200);
-	$( "#way-right1" ).fadeIn(300);
-	$( "#way-right1" ).animate({ right: "10px" }, 200);
-	$( ".heading4" ).fadeIn(1000);
-        $("#arrow-polytouch").bind('click', function(){
-			parallax["wayfinding"].left();
-mediaPlayer6.pause();
-		});
-		navClick();
-		resetMenu();
-		$(".ps, .jus").show();
-		$(".cbs, .pds").hide();
-		$( ".multi" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading5" ).fadeIn(1000);
-			
-			$(document).keydown(function(e){
-		
-		if(e.keyCode == 40 || e.keyCode == 38){
-		/*
-						$( "#way-left1" ).stop().animate({ left: "50px" });
-						$( "#way-right1" ).stop().animate({ right: "0px" });
-		*/
-mediaPlayer6.pause();
-						}
-			});
+            //prevent page fom scrolling
+            return false;
+        });
+        navClick();
+        $("#way-vid, .watch-button").click(function () {
 
-                setTop("services", "Services");
-		setBottom("wayfinding","3D Wayfinding");
-	};
-	
-	parallax.contactus.onload=function(){
-		$('#contactus').bind('mousewheel', function(e){
-			 if(e.originalEvent.wheelDelta < 0) {
-				 //scroll down
-				 console.log('Down');
-                                 $('#ContactModal').modal('hide');
-			 }else {
-				 parallax["wayfinding"].top();
-				 console.log('Up');
-                                 $('#ContactModal').modal('hide');
-			 }
+            mediaPlayer5.src = "media/media2.mp4";
+            mediaPlayer5.load();
+            mediaPlayer5.play();
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		 
-			$('#contactus').bind('DOMMouseScroll', function(e){
-			 if(e.originalEvent.detail > 0) {
-                                  $('#ContactModal').modal('hide');
-			 }else {
-				 parallax["wayfinding"].top();
-				 console.log('Up');
-                                 $('#ContactModal').modal('hide');
-			 }
+        });
+        /*		
+            $("#arrow-wayfinding").bind('click', function(){
+                parallax["polytouch"].right();
+                            mediaPlayer5.pause();
+        });
+            */
+        resetMenu();
+        $(".cbs, .pds").hide();
+        $(".ps, .jus").show();
+        $(".3dway").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $("#way-left").fadeIn(300);
+        $("#way-left").animate({ left: "7.4%" }, 200);
+        $("#way-right").fadeIn(300);
+        $("#way-right").animate({ right: "40px" }, 200);
+        $(".heading4").fadeIn(1000);
+        $(document).keydown(function (e) {
 
-			 //prevent page fom scrolling
-			 return false;
-		 });
-		navClick();
-		resetMenu();
-		$(".ps, .jus").show();
-		$(".cbs, .pds").hide();
-		$( ".contact" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-	$("#watch-port").click(function(){
-			parallax["portfolio"].right();
-                        $('#ContactModal').modal('hide');
-		});
-	$( ".heading6" ).fadeIn(1000);
-	
-	$(".contact-image").mouseenter(function(){
-						$( ".contact-image-hover" ).fadeIn(500);
+            if (e.keyCode == 40 || e.keyCode == 38) {
+                $("#wayfinding-cover").fadeOut(500);
+                /*
+                                $( "#way-left" ).stop().animate({ left: "50px" });
+                                $( "#way-right" ).stop().animate({ right: "0px" });
+                */
+                mediaPlayer5.pause();
+            }
+        });
 
-			});
-		$(".contact-image").mouseleave(function(){
-						$( ".contact-image-hover" ).fadeOut(500);
+        setTop("polytouch", "Polytouch");
+        setBottom("contactus", "contactus Us");
+    };
+    parallax.polytouch.onload = function () {
+        $("#polytouch-cover").fadeIn(300);
+        $('#polytouch').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                //scroll down
+                console.log('Down');
+                parallax["wayfinding"].bottom();
+                $("#polytouch-cover").fadeOut(500);
+                mediaPlayer6.pause();
+            } else {
+                parallax["services"].top();
+                console.log('Up');
+                $("#polytouch-cover").fadeOut(500);
+                mediaPlayer6.pause();
+            }
 
-			});
-                $(document).keydown(function(e){
-		
-		if(e.keyCode == 39 || e.keyCode == 38){
-		$('#ContactModal').modal('hide');
-						}
-			});
-		setRight("portfolio","Portfolio");
-		setTop("wayfinding","3D Wayfiniding");
-	};
-	
-	parallax.portfolio.onload=function(){
-		navClick();
-		resetMenu();
-		$(".ps, .jus").show();
-		$(".cbs, .pds").hide();
-		$( ".contact" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading7" ).fadeIn(1000);
-			
-			
-			$("#work-with-us").click(function(){
-				parallax["join"].right();
-			});
-		$("#arrow-portfolio").bind('click', function(){
-			parallax["contactus"].left();
-		});
-		setLeft("contactus", "contactus Us");
-		setRight("join","Join");
-	};
-	parallax.join.onload=function(){
-		$(".ps, .jus").show();
-		$(".cbs, .pds").hide();
-		navClick();
-		resetMenu();
-		$( ".contact" ).attr("style", "background-color:rgba(255,255,255,0.05);");
-		$( ".heading8" ).fadeIn(1000);
-		setLeft("portfolio", "Portfolio");
-                $("#arrow-join").bind('click', function(){
-			parallax["portfolio"].left();
-		});
-	};
+            //prevent page fom scrolling
+            return false;
+        });
 
-	//Sets the correct triggers for the arrows, plus arrow keys
-	function setRight(page, text){
-		$("#rightText").text(text);
-		$("#rightControl").show().unbind('click').click(function(){
-			parallax[page].right();
-		});
-		rightKey = function(){
-			parallax[page].right();
-		};
-	}
+        $('#polytouch').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                parallax["wayfinding"].bottom();
+                $("#polytouch-cover").fadeOut(500);
+                mediaPlayer6.pause();
+            } else {
+                parallax["services"].top();
+                console.log('Up');
+                $("#polytouch-cover").fadeOut(500);
+                mediaPlayer6.pause();
+            }
 
-	function setLeft(page, text){
-		$("#leftText").text(text);
-		$("#leftControl").show().unbind('click').click(function(){
-			parallax[page].left();
-		});
-		leftKey = function(){
-			parallax[page].left();
-		};
-	}
+            //prevent page fom scrolling
+            return false;
+        });
+        mediaPlayer6 = document.getElementById('poly-vid');
+        $("#poly-tv, #poly-button-2").click(function () {
 
-	function setTop(page, text){
-		$("#topText").text(text);
-		$("#topControl").show().unbind('click').click(function(){
-			parallax[page].top();
-		});
-		topKey = function(){
-			parallax[page].top();
-		};
-	}
+            mediaPlayer6.src = "media/media2.mp4";
+            mediaPlayer6.load();
+            mediaPlayer6.play();
 
-	function setBottom(page, text){
-		$("#bottomText").text(text);
-		$("#bottomControl").show().unbind('click').click(function(){
-			parallax[page].bottom();
-		});
-		bottomKey = function(){
-			parallax[page].bottom();
-		};
-	}
+        });
+        $("#way-left1").fadeIn(300);
+        $("#way-left1").animate({ left: "7.4%" }, 200);
+        $("#way-right1").fadeIn(300);
+        $("#way-right1").animate({ right: "10px" }, 200);
+        $(".heading4").fadeIn(1000);
+        $("#arrow-polytouch").bind('click', function () {
+            parallax["wayfinding"].left();
+            mediaPlayer6.pause();
+        });
+        navClick();
+        resetMenu();
+        $(".ps, .jus").show();
+        $(".cbs, .pds").hide();
+        $(".multi").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading5").fadeIn(1000);
 
-	parallax.home.show();
-		
-	}
-	
+        $(document).keydown(function (e) {
+
+            if (e.keyCode == 40 || e.keyCode == 38) {
+                /*
+                                $( "#way-left1" ).stop().animate({ left: "50px" });
+                                $( "#way-right1" ).stop().animate({ right: "0px" });
+                */
+                mediaPlayer6.pause();
+            }
+        });
+
+        setTop("services", "Services");
+        setBottom("wayfinding", "3D Wayfinding");
+    };
+
+    parallax.contactus.onload = function () {
+        $('#contactus').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta < 0) {
+                //scroll down
+                console.log('Down');
+                $('#ContactModal').modal('hide');
+            } else {
+                parallax["wayfinding"].top();
+                console.log('Up');
+                $('#ContactModal').modal('hide');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+
+        $('#contactus').bind('DOMMouseScroll', function (e) {
+            if (e.originalEvent.detail > 0) {
+                $('#ContactModal').modal('hide');
+            } else {
+                parallax["wayfinding"].top();
+                console.log('Up');
+                $('#ContactModal').modal('hide');
+            }
+
+            //prevent page fom scrolling
+            return false;
+        });
+        navClick();
+        resetMenu();
+        $(".ps, .jus").show();
+        $(".cbs, .pds").hide();
+        $(".contact").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $("#watch-port").click(function () {
+            parallax["portfolio"].right();
+            $('#ContactModal').modal('hide');
+        });
+        $(".heading6").fadeIn(1000);
+
+        $(".contact-image").mouseenter(function () {
+            $(".contact-image-hover").fadeIn(500);
+
+        });
+        $(".contact-image").mouseleave(function () {
+            $(".contact-image-hover").fadeOut(500);
+
+        });
+        $(document).keydown(function (e) {
+
+            if (e.keyCode == 39 || e.keyCode == 38) {
+                $('#ContactModal').modal('hide');
+            }
+        });
+        setRight("portfolio", "Portfolio");
+        setTop("wayfinding", "3D Wayfiniding");
+    };
+
+    parallax.portfolio.onload = function () {
+        navClick();
+        resetMenu();
+        $(".ps, .jus").show();
+        $(".cbs, .pds").hide();
+        $(".contact").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading7").fadeIn(1000);
+
+
+        $("#work-with-us").click(function () {
+            parallax["join"].right();
+        });
+        $("#arrow-portfolio").bind('click', function () {
+            parallax["contactus"].left();
+        });
+        setLeft("contactus", "contactus Us");
+        setRight("join", "Join");
+    };
+    parallax.join.onload = function () {
+        $(".ps, .jus").show();
+        $(".cbs, .pds").hide();
+        navClick();
+        resetMenu();
+        $(".contact").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".heading8").fadeIn(1000);
+        setLeft("portfolio", "Portfolio");
+        $("#arrow-join").bind('click', function () {
+            parallax["portfolio"].left();
+        });
+    };
+
+    //Sets the correct triggers for the arrows, plus arrow keys
+    function setRight(page, text) {
+        $("#rightText").text(text);
+        $("#rightControl").show().unbind('click').click(function () {
+            parallax[page].right();
+        });
+        rightKey = function () {
+            parallax[page].right();
+        };
+    }
+
+    function setLeft(page, text) {
+        $("#leftText").text(text);
+        $("#leftControl").show().unbind('click').click(function () {
+            parallax[page].left();
+        });
+        leftKey = function () {
+            parallax[page].left();
+        };
+    }
+
+    function setTop(page, text) {
+        $("#topText").text(text);
+        $("#topControl").show().unbind('click').click(function () {
+            parallax[page].top();
+        });
+        topKey = function () {
+            parallax[page].top();
+        };
+    }
+
+    function setBottom(page, text) {
+        $("#bottomText").text(text);
+        $("#bottomControl").show().unbind('click').click(function () {
+            parallax[page].bottom();
+        });
+        bottomKey = function () {
+            parallax[page].bottom();
+        };
+    }
+
+    parallax.home.show();
+
+}

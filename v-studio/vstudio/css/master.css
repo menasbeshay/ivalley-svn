@@ -281,8 +281,9 @@ body
 	color:#fff;
 	width:30%;
 	position:fixed;
-	bottom:2.96%;
+	bottom:6%;
 	right:4.02%;
+    text-align:justify;
 }
 #sager-text h1
 {
@@ -1399,14 +1400,16 @@ border-radius:0px;
 {
 	position:absolute;
 	top:9%;
-	left:23%;
+	right:23%;
         z-index:3000;
+
 }
 .wf
 {
-	position:absolute;
+	
+        position:absolute;
 	top:9%;
-	right:23%;
+	left:23%;
         z-index:3000;
 }
 .mt
@@ -1423,6 +1426,43 @@ border-radius:0px;
 	right:28%;
         z-index:3000;
 }
+
+
+.vparabic
+{
+	position:absolute;
+	top:9%;
+	left:23% !important;
+    right:initial !important;
+        z-index:3000;
+
+}
+.wfarabic
+{
+	
+        position:absolute;
+	top:9%;
+	right:23% !important;
+    left:initial !important;
+        z-index:3000;
+}
+.mtarabic
+{
+	position:absolute;
+	top:38%;
+	right:26% !important;
+    left:initial !important;
+        z-index:3000;
+}
+.hparabic
+{
+	position:absolute;
+	top:38%;
+	left:28% !important;
+    right:initial !important;
+        z-index:3000;
+}
+
 #toggle-button-up
 {
 	background:url(../img/button.png);
