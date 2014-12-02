@@ -159,7 +159,6 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\imageflow.packed.css" />
-    <Content Include="css\jquery.fullPage.css" />
     <Content Include="css\master.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -232,6 +231,7 @@
     <Content Include="img\cap-4.png" />
     <Content Include="img\cap-5.png" />
     <Content Include="img\cap-6.png" />
+    <Content Include="img\cap.png" />
     <Content Include="img\captcha-box.png" />
     <Content Include="img\captcha-field.png" />
     <Content Include="img\cb-bg.png" />
@@ -252,6 +252,14 @@
     <Content Include="img\holoconic-2.jpg" />
     <Content Include="img\holography_projections.png" />
     <Content Include="img\holography_projections_a.png" />
+    <Content Include="img\holo\1.jpg" />
+    <Content Include="img\holo\2.jpg" />
+    <Content Include="img\holo\3.jpg" />
+    <Content Include="img\holo\4.jpg" />
+    <Content Include="img\holo\5.jpg" />
+    <Content Include="img\holo\6.jpg" />
+    <Content Include="img\holo\7.jpg" />
+    <Content Include="img\holo\8.jpg" />
     <Content Include="img\hostalk-1.jpg" />
     <Content Include="img\hostalk-2.jpg" />
     <Content Include="img\hq.png" />

@@ -42,9 +42,9 @@
 			</div>
 			<div id="menu1" style="display:none;">
 				<ul class="list-unstyled hover-both">
-					<li id="menu-products" class="products"><a href="#">المنتجات</a></li>
+					<li id="menu-products" class="products"><a href="#">هولوجرام والعرض الضوئي </a></li>
 					<li id="menu-pd" class="pds"><a href="#">Product Description</a></li>
-					<li id="menu-services" class="services"><a href="#">الخدمات</a></li>
+					<li id="menu-services" class="services"><a href="#">خدمات الوسائط الإعلامية المتعددة</a></li>
 					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
 					<li id="menu-way" class="3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
@@ -105,23 +105,23 @@
 				</div>
 				<div id="sager-text" style="position:absolute; display:none;font-family: 'Alj'">
 					<h1></h1>
-					<p>نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي</p>
+					<p style="line-height:20px;">نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي</p>
 					<span class="text-med">الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي</span><br>
-					<span class="text-large">نحن هنا في صقر في ستديو  لنعـزّز الرؤى.</span>
+					<span class="text-med">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span>
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
 					<img src="img/watch-video-a.png" class="img-responsive"/>
 				</div>
 				<div id="common-elements">
-					<div style="display:none;" class="vp icon-rotate"><a href="#"><img src="img/video_productions_a.png" class="img-responsive"/></a></div>
-					<div style="display:none;" class="hp icon-rotate"><a href="#"><img src="img/3d_wayfinding_a.png" class="img-responsive"/></a></div>
-					<div style="display:none;" class="wf icon-rotate"><a href="#"><img src="img/holography_projections_a.png" class="img-responsive"/></a></div>
-					<div style="display:none;" class="mt icon-rotate"><a href="#"><img src="img/multi_touchscreens_a.png" class="img-responsive"/></a></div>
+					<div style="display:none;" class="vp vparabic icon-rotate"><a href="#"><img src="img/video_productions_a.png" class="img-responsive"/></a></div>
+					<div style="display:none;" class="hp hparabic icon-rotate"><a href="#"><img src="img/3d_wayfinding_a.png" class="img-responsive"/></a></div>
+					<div style="display:none;" class="wf wfarabic icon-rotate"><a href="#"><img src="img/holography_projections_a.png" class="img-responsive"/></a></div>
+					<div style="display:none;" class="mt mtarabic icon-rotate"><a href="#"><img src="img/multi_touchscreens_a.png" class="img-responsive"/></a></div>
 				</div>
 				<div id="arabic1" class="text-center">
-					<a href="http://www.baronapartments.com/"><span style="font-family:Ubuntu-Regular; font-size:14px;">English</span></a>
+					<a href="home.aspx"><span style="font-family:Ubuntu-Regular; font-size:14px;">English</span></a>
 				</div>
-			</div>
+			
 			</div>
 		</div>
 	</section>
@@ -145,7 +145,7 @@ Your browser does not support the video tag
 						<br><br>
 					</div>
                                         <div class="text-center">
-                                                <span class="start-video-again">Start the Video Again</span>
+                                                <span class="start-video-again">إعادة عرض الفيديو</span>
 <br><br><br><br><br>
                                         </div>
 					<div class="text-center icon-rotate">
@@ -156,7 +156,7 @@ Your browser does not support the video tag
 			</div>
 		</div>
                 <div id="arrow-video" style="position:fixed; left:7%; top:44%; z-index:99; cursor:pointer;">
-                                       <img src="img/new-arrow-left.png" width="57" height="40" alt="Left Arrow"/>
+                                       <img src="img/arrow_left_violet.png" width="77" height="75" alt="Left Arrow"/>
 				</div>
 	</section>
 	<section id="holography" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
@@ -164,7 +164,7 @@ Your browser does not support the video tag
 			<div class="container">
 				<div class="row" style="height:100px;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading1" style="font-family: 'Ge';">هولوجرام والعرض الضوئي</h1>
+						<h1 class="heading1" style="font-family: 'Ge';text-align:right;">هولوجرام والعرض الضوئي</h1>
 					</div>
 				</div>
                                 <div id="arrow-holo-more" class="arrow" style="right:30%; z-index:200; position:absolute; bottom:7%;">
@@ -237,65 +237,71 @@ Your browser does not support the video tag
 							</div>
 						</div>
 						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;">
-							<h2 style="font-family:'Ge'; font-size:24px;">فيديو منتجات أخرى </h2>
-<div class="row">
-<div class="col-md-11 col-md-offset-1">
-							<div class="row holo-vids">
-								<div class="col-md-3 vid-hover" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/holoconic-1.jpg" class="img-responsive"/>
-									<div class="vid-play text-center" style="background:url(img/cap-1.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div class="col-md-3 vid-hover2" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/winshow.jpg" class="img-responsive"/>
-									<div class="vid-play2" style="background:url(img/cap-3.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-								<div class="col-md-3 vid-hover1" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/hostalk-1.jpg" class="img-responsive"/>
-									<div class="vid-play1" style="background:url(img/cap-2.png);background-size:100% 100%; z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-								
-								<div class="col-md-3 vid-hover3" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/cma-rollup-1.jpg" class="img-responsive"/>
-									<div class="vid-play3" style="background:url(img/cap-4.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div style="display:none;" class="col-md-3 vid-hover5" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/holoconic-2.jpg" class="img-responsive"/>
-									<div class="vid-play5" style="background:url(img/cap-6.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px; width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                <div style="display:none;" class="col-md-3 vid-hover4" onclick='loadVideo("media/media1.mp4");'>
-									<img style="border:2px solid #0072bc; border-radius:10px;" src="img/hostalk-2.jpg" class="img-responsive"/>
-									<div class="vid-play4" style="background:url(img/cap-5.png);background-size:100% 100%;  z-index:100; display:none; position:absolute; top:0px; left:15px;width:141px;height:82px; border:2px solid #0072bc; border-radius:10px;">
-										
-									</div>
-								</div>
-                                                                
-</div>
-</div>
-							</div>
+							<h2 style="font-family:'Ge'; font-size:24px;text-align:right;">فيديو المنتجات </h2>
+                            <div class="row">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <div class="row holo-vids">
+                                        <div class="col-md-3 vid-hover" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
+                                            <div class="vid-play text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                                وحدات عرض هولوجرام
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 vid-hover1" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
+                                            <div class="vid-play1 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            فيلم العرض الضوئي 
+                                             </div>
+                                        </div>
+                                        <div class="col-md-3 vid-hover2" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
+                                            <div class="vid-play2 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            المتحدث الإفتراضي </div>
+                                        </div>
+
+                                        <div class="col-md-3 vid-hover3" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
+                                            <div class="vid-play3 text-center" style="background: url(../img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            رول اب بشاشة فيديو </div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover4" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
+                                            <div class="vid-play4 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            المسوق الإفتراضي الصغير</div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover5" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
+                                            <div class="vid-play5 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                             لثلاجة العرض LCD شاشة </div>
+                                        </div>
+                                         <div style="display: none;" class="col-md-3 vid-hover6" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
+                                            <div class="vid-play6 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            الكتاب الإلكتروني الهولوغرافي</div>
+                                        </div>
+                                        <div style="display: none;" class="col-md-3 vid-hover7" >
+                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
+                                            <div class="vid-play7 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            العرض الضوئي على الأرضيات </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 					<div id="presenter" style="background:#fff; width:380px; position:absolute; right:70px;"; >
 					<video style="height:550px; width:344px; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
-				<source src='http://203.124.98.195/~vstudioco/wp-content/themes/vstudio/media/3MB.mp4' >
+				<source src='media/3MB.mp4' >
 Your browser does not support the video tag
 			</video>
 						<div style="width:135px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
 							<ul class="list-inline" >
 								<li id="play"><div class="play" style="width:30px; text-align:center; background:#5f5f5f; padding:5px; color: #fff;font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-pause"></span></div></li>
-<li id="pause1" style="display:none;"><div class="play" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff; font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-play"></span></div></li>
+                                <li id="pause1" style="display:none;"><div class="play" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff; font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-play"></span></div></li>
 								<li>&nbsp;</li>
 								<li id="volume"><div class="volume" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff;font-size: 14px;" id="presenter-volume"><span class="glyphicon glyphicon-volume-up"></span></div></li>
-<li id="no-volume" style="display:none;"><div class="no-volume" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff;font-size: 14px;" id="presenter-volume"><span class="glyphicon glyphicon-volume-off"></span></div></li>
+                                <li id="no-volume" style="display:none;"><div class="no-volume" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff;font-size: 14px;" id="presenter-volume"><span class="glyphicon glyphicon-volume-off"></span></div></li>
 							</ul>
 						</div>
 					</div>
@@ -324,7 +330,7 @@ Your browser does not support the video tag
 				</div>
 				<div class="row" id="page-heading" style="height:100px;">
 					<div class="col-md-11 col-md-offset-1">
-						<h1 class="heading2" style="display:none; font-family: 'Ge';">منتجاتنا</h1>
+						<h1 class="heading2" style="display:none; font-family: 'Ge';font-size:90px;">منتجاتنا</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -558,14 +564,14 @@ Your browser does not support the video tag
 				<div class="row" id="page-heading1" style="height:100px;">
 
 					<div class="col-md-6">
-						<h1 class="heading3" style="display:none;">خـدمـاتنا </h1>
+						<h1 class="heading3" style="display:none;font-size:40px;"> خدمات الوسائط الإعلامية المتعـددة  </h1>
 					</div>
 				</div>
 				<div class="row" style="float:left;">
 					<div class="col-md-5" style="padding-left:0px; font-size:12px;">
 						<ul >
 							<li style="padding-top:5px;">الرسوم المتحركة والجرافكس التوضيحي</li>
-							<li style="padding-top:5px;">الفيديو التخيّلي ثلاثي الأبعاد</li>
+							<li style="padding-top:5px;"> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </li>
 							<li style="padding-top:5px;">تصميم الهويّة التجارية والمطبوعات</li>
 						</ul>
 					</div>
@@ -626,7 +632,7 @@ Your browser does not support the video tag
 					
 					<img class="serve-img" src="img/3d.png"/>
 					
-					<p>الفيديو التخيّلي ثلاثي الأبعاد</p>
+					<p> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </p>
 				</div>
 				<div id="service-hex-hover-6">
 				</div>
