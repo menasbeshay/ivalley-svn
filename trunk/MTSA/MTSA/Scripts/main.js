@@ -67,11 +67,20 @@
                 }
                 
 
+                if (index == 3 && slideIndex > 0) {
+                    $('.slideFooter').css('display', 'none');
+                    $('#ds_p' + slideIndex).css('display', 'block');
+                }
+                else {
+                    $('.slideFooter').css('display', 'none');
+                }
+
             }
             else {
                 $.fn.fullpage.setAllowScrolling(true);
                 $.fn.fullpage.setKeyboardScrolling(true);
                 $('#nextTopic').css('display', 'block');
+                $('.slideFooter').css('display', 'none');
             }
 
             $('.section .animleft').removeClass('active');

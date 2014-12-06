@@ -648,9 +648,188 @@
                </div>
             </div>
         </div>
-        <div class="section " id="AppDev">
+        <div class="section " id="Digitalsignage">
+            <span id="nextsection_3" class="NextSection">Kiosk systems</span>
+            <div class="slide" id="D_p1">
+                <div class="anyPage innerslide" style="position:relative;">
+                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
-            <p style="text-align:center;">This section for Digital signage </p>
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 30px;margin:0 auto;float:none;">
+                         <div class="col-lg-3 col-sm-3 col-md-3">
+                             <label class="dlabel"> MTSA General Overview</label>
+                             <p class="text-justify">
+                                 MTSA is a brand name owned by S.O. Sager International & offers total solutions of all interactive information systems, touchscreen kiosks & digital signage hardware. <br />
+MTSA products are made of high quality in Germany with no limitation to any special request or design.
+In addition to products, MTSA provides total solutions of applications/software development services to use with its touchscreens & multi touchscreens custom made  to client’s need.
+                             </p>
+                             <div class="col-lg-12 col-sm-12 col-md-12">
+                                 <div class="col-lg-6 col-sm-6 col-md-6 ">
+                                     <a href="#" class=""><label class="touchscreenlabel"> Download</label><br />
+                             <img src="../images/products/digital_signage/Page1/present.png" /></a>
+                                     </div>
+                                 <div class="col-lg-6 col-sm-6 col-md-6 ">
+                                      <a href="#" class=""><label class="touchscreenlabel"> Download</label><br />
+                             <img src="../images/products/digital_signage/Page1/down.png" />
+                                          </a>
+                                     </div>
+                                 </div>
+                         </div>
+                         <div class="col-lg-6 col-sm-6 col-md-6" >
+                             <div class="col-lg-6 col-sm-6 col-md-6" style="margin:0 !important;padding:0!important;position:relative;">
+                                 <img src="../images/products/digital_signage/Page1/1.png" />
+                                 <img src="../images/products/digital_signage/Page1/germany.png" style="position:absolute;top:20px;left:10px;"/>
+                             </div>
+                             <div class="col-lg-6 col-sm-6 col-md-6" style="margin:0 !important;padding:0 !important;">
+                                 <img src="../images/products/digital_signage/Page1/2.png" />
+                             </div>
+                             
+                             
+                         </div>
+                         <div class="col-lg-3 col-sm-3 col-md-3">
+                        <label class="dlabel"> Digital Signage</label>
+                             <p class="text-justify">
+                                 MTSA offers various designs & sizes of high quality German made professional digital signage hardware, standard & customized solutions for outdoor & indoor applications.
+MTSA exclusively uses industrial components to comply with many hours per day in operation requirements i.e. in hospitals, transportation stations, production with shift work or shopping centers. 
+All screens of MTSA digital signage feature the following properties:
+                                 <br />
+                                  - All sides high viewing angle<br />
+                                 - Operating in portrait & landscape mode<br />
+                                 - suitability for display of static content (substantial suppression of Imagestickings) <br />
+                                 - Higher brightness for easy reading<br />
+                                 - High energy efficiency<br />
+                             </p>
+                             
+                                
+                             
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <div class="slide" id="D_p2">
+                
+                <div class="anyPage innerslide" style="position:relative;">
+                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
+                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
+                            <label class="slideHeaderBlack">INDOOR</label>
+                            <div class="clearfix" style="height:1px;"></div>
+                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
+                        </div>
+                        <div class="clearfix" style="height:1px;"></div>
+                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
+                             <label class="dlabel"> PHEX Series </label>
+                             <p class="text-justify">
+                                 Advertisement or information in its most upscale form. Digital signage solutions from MTSA are characterized by their high-quality electronic components, excellent workmanship, and customizable design.
+We use high-quality, brilliant displays and powerful computers with the most up-to-date performance parameters which are
+specifically designed for trouble-free continuous use. Each model in PHEX series can be customized in a wide variety of ways. These models can also be individually branded and/or have additional components integrated into them. 
+                             </p>
+                             
+                         </div>
+                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important">
+                            <img src="../images/products/digital_signage/Page2/pic.png" />
+                         </div>
+                        
+                        
+                    </div>
+                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
+                        <img src="../images/products/digital_signage/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
+                            <img src="../images/products/digital_signage/Page2/icon1.png" /><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" />
+                        </div>
+                </div>
+                
+            </div>
+
+            <div class="slide" id="D_p3">
+                
+                <div class="anyPage innerslide" style="position:relative;">
+                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
+                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
+
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
+                        <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important">
+                            <label class="slideHeaderBlack">INDOOR</label>
+                            <div class="clearfix" style="height:1px;"></div>
+                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
+                            <div class="clearfix" style="height:1px;"></div>
+                            <label class="dlabel"> PHEX Series </label>
+                             <p class="text-justify">
+                                 Advertisement or information in its most upscale form. Digital signage solutions from MTSA are characterized by their high-quality electronic components, excellent workmanship, and customizable design.
+We use high-quality, brilliant displays and powerful computers with the most up-to-date performance parameters which are
+specifically designed for trouble-free continuous use. Each model in PHEX series can be customized in a wide variety of ways. These models can also be individually branded and/or have additional components integrated into them. 
+                             </p>
+                        </div>
+                        
+                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:250px;vertical-align:text-bottom;padding-top:30px;position:relative;">
+                            <img src="../images/products/digital_signage/Page3/pic.png" style="margin-left:20px;position:absolute;bottom:0;"/>
+                            <img src="../images/products/digital_signage/Page3/pic2.png" style="position:absolute;bottom:15px;left:230px;" />
+                            <img src="../images/products/digital_signage/Page3/pic3.png" style="position:absolute;bottom:10px;left:345px;"/>
+                            <img src="../images/products/digital_signage/Page3/pic4.png" style="position:absolute;bottom:130px;left:500px;"/>
+                         </div>
+                        
+                        
+                    </div>
+                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
+                        <img src="../images/products/digital_signage/Page3/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
+                            <img src="../images/products/digital_signage/Page2/icon1.png" /><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
+                        </div>
+                </div>
+                
+            </div>
+
+            <div class="slide" id="D_p4">
+                
+                <div class="anyPage innerslide" style="position:relative;">
+                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
+                    
+
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
+                        <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important">
+                            <label class="slideHeaderBlack">INDOOR</label>
+                            <div class="clearfix" style="height:1px;"></div>
+                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
+                            <div class="clearfix" style="height:1px;"></div>
+                            <label class="dlabel"> OUTDOOR </label>
+                             <p class="text-justify">
+                                Kiosks used for outdoor and semi-outdoor applications are exposed to lot of heavier duties regarding vandalism or climatic conditions. Also the requirements regarding maintenance and service aspects are different to those of indoor-kiosks.
+The models SELKET, FARO and DALA are waterproof & made of stainless steel and equipped with high-quality electronic components.
+A high brightness monitor guarantees a good readability of the displayed content.
+                             </p>
+                        </div>
+                        
+                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:250px;vertical-align:text-bottom;padding-top:30px;position:relative;">
+                            <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:250px;position:relative;">
+                                <img src="../images/products/digital_signage/Page4/pic1.png" style="margin:0 auto; margin-top:40px;" /><br />
+                                <span class="col-lg-12 col-sm-12 col-md-12" style="position:absolute;bottom:0;left:0;">
+                                FARO</span>
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:250px;">
+                                <img src="../images/products/digital_signage/Page4/pic2.png"  /><br />
+                                DALA
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:250px;">
+                                <img src="../images/products/digital_signage/Page4/pic3.png" /><br />
+                                SELEKT XL
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:250px;">
+                                <img src="../images/products/digital_signage/Page4/pic4.png" /><br />
+                                SELEKT L
+                            </div>
+                            
+                            
+                         </div>
+                        
+                        
+                    </div>
+                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
+                        <img src="../images/products/digital_signage/Page4/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
+                            <img src="../images/products/digital_signage/Page4/icon1.png" /><img src="../images/products/digital_signage/Page4/icon2.png" /><img src="../images/products/digital_signage/Page4/icon3.png" /><img src="../images/products/digital_signage/Page4/icon4.png" /><img src="../images/products/digital_signage/Page4/icon5.png" />
+                        </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 
@@ -664,6 +843,52 @@
       <%--<div id="keys" class="keys_down_active"></div>--%>
       <span id="subline"><span class="video"></span><span id="sublineContent"><i class="fa fa-cubes" style="font-size:1.5em"></i> Bridge your business gaps With smart Apps</span></span>
       <div id="nextTopic"><span></span></div>
+      <div class="slideFooter" id="ds_p1">
+                    <div class="col-lg-12 col-sm-12 col-md-12">
+                    <label class="touchscreenlabel">PHEX Stand & Stand Dual/Triple Models & Sizes</label>
+                    <p class="text-justify">
+                        PHEX Stand:  only 6cm deep available in portrait or landscape mode from 32”- 82” screen’s size.
+                    </p>
+                    <p class="text-justify">
+                        PHEX Dual/Triple: with multi 46” screens, other sizes are available up on request.
+                        All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc. 
+                        <br />
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                    </p>
+                        </div>
+                </div>
+      <div class="slideFooter" id="ds_p2">
+                    <div class="col-lg-12 col-sm-12 col-md-12">
+                    <label class="touchscreenlabel">PHEX Console & Wall Models & Sizes</label>
+                    <p class="text-justify">
+                        PHEX Console: 32” & 40” screen, other sizes are available up on request. Also available with adjustable stand for handicapped users. 
+                    </p>
+                    <p class="text-justify">
+                        PHEX Wall: The PHEX Wall is technologically identical to the PHEX Stand. It was designed to be mounted to a wall or ceiling, and is available in both vertical and horizontal formats.
+All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc.
+                        <br />
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                    </p>
+                        </div>
+                </div>
+        <div class="slideFooter" id="ds_p3" style="width:465px;">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:5px;">
+                    <label class="touchscreenlabel">PHEX Console & Wall Models & Sizes</label>
+                    <p class="text-justify" style="font-size:13px;">
+                        SELKET:  Slim and all the same robust. Catching the user´s attention the SELKET series integrates perfectly in it´s environment.
+All  SELKET models can optionally be equipped with  touchscreen. Available in different screen sizes from 19”-70”
+                    <br />
+                        DALA: Space for optional components, interaction and robustness - three features that set this model as a standard in various fields of application. 19” screen’s size.                         
+                    <br />
+                        FARO: Functionality, design and a small form factor are characteristic for the model FARO. It´s particularly suitable for wall mount. 19” screen’s size. 
+                            <br />
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                    </p>
+                        </div>
+                </div>
         <%--<div id="nav_land_sub"><span><i class="fa fa-arrow-circle-o-right" style="font-size:2em"></i></span></div>--%>
     </div>
   </footer>
