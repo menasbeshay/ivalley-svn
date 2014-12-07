@@ -1317,7 +1317,7 @@
 
 
                     <div style="padding: 5px;" class="pull-right col-lg-2">
-                        <a style="cursor: pointer;" data-bind="attr:{id:'favlink_'+uniqueID()},click:ToggleFav.bind($data)"><i style="color: #FEC200;" class="icon-star"></i><span data-bind="    text:CurrentMember().IsFavorite() ? 'حذف من' : 'أضف إلى'"></span>المفضلة</a>
+                        <a style="cursor: pointer;" data-bind="attr:{id:'favlink_'+uniqueID()},click:ToggleFav.bind($data)"><i style="color: #FEC200;" class="icon-star"></i><span data-bind="    text:CurrentMember().IsFavorite() ? 'حذف من ' : 'أضف إلى '"></span>المفضلة</a>
                     </div>
 
                     <div style="padding: 5px;" class="pull-right col-lg-2">
