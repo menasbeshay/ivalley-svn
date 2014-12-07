@@ -656,7 +656,7 @@
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 30px;margin:0 auto;float:none;">
                          <div class="col-lg-3 col-sm-3 col-md-3">
-                             <label class="dlabel"> MTSA General Overview</label>
+                             <label class="dlabel myriad" style="font-weight:bold;font-size:25px;"> <span class="mtsa">MTSA</span> General Overview</label>
                              <p class="text-justify">
                                  MTSA is a brand name owned by S.O. Sager International & offers total solutions of all interactive information systems, touchscreen kiosks & digital signage hardware. <br />
 MTSA products are made of high quality in Germany with no limitation to any special request or design.
@@ -734,9 +734,9 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
                         
                         
                     </div>
-                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
-                        <img src="../images/products/digital_signage/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
-                            <img src="../images/products/digital_signage/Page2/icon1.png" /><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" />
+                    <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
+                        <img src="../images/products/digital_signage/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important"/>
+                            <img src="../images/products/digital_signage/Page2/icon1.png" /><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
                         </div>
                 </div>
                 
@@ -771,9 +771,9 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
                         
                         
                     </div>
-                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
-                        <img src="../images/products/digital_signage/Page3/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
-                            <img src="../images/products/digital_signage/Page2/icon1.png" /><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
+                    <div class="col-lg-8 col-sm-8 col-md-8 bottom ">
+                        <img src="../images/products/digital_signage/Page3/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
+                            <img src="../images/products/digital_signage/Page2/icon1.png" style="margin-left:10px;"/><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
                         </div>
                 </div>
                 
@@ -787,7 +787,7 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
                         <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                            <label class="slideHeaderBlack">OUTDOOR </label>
                             <div class="clearfix" style="height:1px;"></div>
                             <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
                             <div class="clearfix" style="height:1px;"></div>
@@ -823,9 +823,9 @@ A high brightness monitor guarantees a good readability of the displayed content
                         
                         
                     </div>
-                    <div class="col-lg-7 col-sm-7 col-md-7 bottom ">
-                        <img src="../images/products/digital_signage/Page4/screen.png" class="anim animleft" style="margin-bottom:-20px;"/>
-                            <img src="../images/products/digital_signage/Page4/icon1.png" /><img src="../images/products/digital_signage/Page4/icon2.png" /><img src="../images/products/digital_signage/Page4/icon3.png" /><img src="../images/products/digital_signage/Page4/icon4.png" /><img src="../images/products/digital_signage/Page4/icon5.png" />
+                    <div class="col-lg-8 col-sm-8 col-md-8 bottom ">
+                        <img src="../images/products/digital_signage/Page4/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
+                            <img src="../images/products/digital_signage/Page4/icon1.png" style="margin-left:20px;"/><img src="../images/products/digital_signage/Page4/icon2.png" /><img src="../images/products/digital_signage/Page4/icon3.png" /><img src="../images/products/digital_signage/Page4/icon4.png" /><img src="../images/products/digital_signage/Page4/icon5.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
                         </div>
                 </div>
                 
@@ -860,7 +860,7 @@ A high brightness monitor guarantees a good readability of the displayed content
                 </div>
       <div class="slideFooter" id="ds_p2">
                     <div class="col-lg-12 col-sm-12 col-md-12">
-                    <label class="touchscreenlabel">PHEX Console & Wall Models & Sizes</label>
+                    <label class="touchscreenlabel">PHEX Console, Wall mounted & Sizes</label>
                     <p class="text-justify">
                         PHEX Console: 32” & 40” screen, other sizes are available up on request. Also available with adjustable stand for handicapped users. 
                     </p>
@@ -873,9 +873,9 @@ All models are available with great selection of options including: touchscreen,
                     </p>
                         </div>
                 </div>
-        <div class="slideFooter" id="ds_p3" style="width:465px;">
+        <div class="slideFooter" id="ds_p3" style="width:465px;padding:5px !important">
                     <div class="col-lg-12 col-sm-12 col-md-12" style="padding:5px;">
-                    <label class="touchscreenlabel">PHEX Console & Wall Models & Sizes</label>
+                    <label class="touchscreenlabel">Models & Sizes</label>
                     <p class="text-justify" style="font-size:13px;">
                         SELKET:  Slim and all the same robust. Catching the user´s attention the SELKET series integrates perfectly in it´s environment.
 All  SELKET models can optionally be equipped with  touchscreen. Available in different screen sizes from 19”-70”
