@@ -105,6 +105,20 @@ legend {
     font-style: normal;
 }
 
+@font-face {
+	font-family: "MyriadProBold";
+    src: url('../fonts/MyriadProBoldCondensed.eot');
+    src: url('../fonts/MyriadProBoldCondensed.eot?#iefix') format('embedded-opentype'),    
+    url('../fonts/MyriadProBoldCondensed.woff') format('woff'),
+    url('../fonts/MyriadProBoldCondensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.myriad {
+    font-family:'MyriadProBold' !important;
+}
+
 .jf {
     font-family: "JF_Flat_Regular";
 }
@@ -4248,9 +4262,9 @@ height:100%;
 }
 
     .bottom img {
-        margin:0 10px;
+        margin:0 5px;
         vertical-align:bottom;
-        
+        width:7.5%;
     }
 
         .bottom img:first-child {
