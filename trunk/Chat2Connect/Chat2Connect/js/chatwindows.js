@@ -912,9 +912,16 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         }
         this.startMic = function (memberid) {
             var window = this;
+            // close current mic member mic
+            if (window.MicMember() != null) {
+                window.stopMic(window.MicMember().MemberID());
+            }
             var member = window.getMember(memberid);
             if (member != null) {
                 getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
+                // remove member from list and add it to mic
+                member.QueueOrder(null);
+                window.MicMember(member);
                 member.IsMicOpened(true);
                 if (window.Type() == 'Private') {
                     // start mic to friend
@@ -929,9 +936,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     }
                     return;
                 }
-                // remove member from list and add it to mic
-                member.QueueOrder(null);
-                window.MicMember(member);
+                
                 if (window.CurrentMember().MemberID() == memberid) {
                     rHub.server.userStartMic(window.ID(), memberid);
                 }
@@ -963,7 +968,9 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     return;
                 }
                 member.QueueOrder(null);
-                window.MicMember(null);
+                // fix user disappear when start his mic and remove current mic member
+                if (window.MicMember().MemberID() == memberid)
+                    window.MicMember(null);
                 if (window.CurrentMember().MemberID() == memberid)
                     rHub.server.userStopMic(window.ID(), memberid)
                 else {
@@ -2152,6 +2159,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
                 }
             }
         }
+        initPopover(window);
         // $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'inline-block');
     };
     rHub.client.HideCamLink = function (mid, rid) {
@@ -2166,6 +2174,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
                 }
             }
         }
+        initPopover(window);
         //  $('#Room_' + rid + ' #roomMembersDiv #m_' + mid + ' .controls .camera').css('display', 'none');
     };
     rHub.client.clearQueue = function (rid) {

@@ -127,6 +127,10 @@
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
     <Content Include="Admin\VIPReport.aspx" />
     <Content Include="Admin\VIPRoom.aspx" />
+    <Content Include="images\help\f1.jpg" />
+    <Content Include="images\help\f2.jpg" />
+    <Content Include="images\help\f3.jpg" />
+    <Content Include="images\help\f4.jpg" />
     <Content Include="Jobs\CleanRooms.aspx" />
     <Content Include="coming_soon.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -700,6 +704,7 @@
     <Content Include="js\tags\textext.plugin.tags.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
+    <Content Include="PopupPages\flashHelp.aspx" />
     <Content Include="PopupPages\Messages_popup.aspx" />
     <Content Include="resetpass.aspx" />
     <Content Include="Bots.aspx" />
@@ -1258,6 +1263,13 @@
     </Compile>
     <Compile Include="MyBalance.aspx.designer.cs">
       <DependentUpon>MyBalance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupPages\flashHelp.aspx.cs">
+      <DependentUpon>flashHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupPages\flashHelp.aspx.designer.cs">
+      <DependentUpon>flashHelp.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopupPages\Messages_popup.aspx.cs">
       <DependentUpon>Messages_popup.aspx</DependentUpon>
