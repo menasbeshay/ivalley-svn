@@ -1834,6 +1834,14 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             chatVM.changeCurrent(win.uniqueID(), win.ID(), win.Type());
     });
 
+    // try to connect if disconnected
+    $.connection.hub.disconnected(function () {
+        notify('info', 'تم فقد الإتصال. جارى إعادة الإتصال الأن .....');
+        setTimeout(function () {
+            $.connection.hub.start();
+        }, 5000); // Restart connection after 5 seconds.
+    });
+
     /****** signalR ********/
     rHub.client.toggleBlockedFromMember = function (member, block) {
         if (block) {

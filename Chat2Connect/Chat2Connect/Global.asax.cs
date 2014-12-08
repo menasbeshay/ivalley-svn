@@ -14,6 +14,9 @@ namespace Chat2Connect
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(180);
+            GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);
+
             if (Membership.GetUser(Helper.Admin.Defaults.UserName) == null)
             {
                 MembershipBLL memberShip = new MembershipBLL();
