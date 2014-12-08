@@ -52,6 +52,16 @@ namespace BLL
 
         }
 
+        public virtual bool GetAllOnlineMembersByRoomID(int RoomID)
+        {
+
+            this.Where.WhereClauseReset();
+            this.Where.InRoom.Value = 1;
+            this.Where.InRoom.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+
+        }
+
         public virtual bool GetMaxQueueOrderByRoomID(int RoomID)
         {
             ListDictionary parameters = new ListDictionary();
@@ -115,6 +125,7 @@ namespace BLL
                 IsMicOpened = Helper.TypeConverter.ToBoolean(m[ColumnNames.HasMic]),
                 IsCamOpened = Helper.TypeConverter.ToBoolean(m[ColumnNames.HasCam]),
                 IsCamViewed = false,
+                IsMarked = Helper.TypeConverter.ToBoolean(m[ColumnNames.IsMarked]),
                 NotifyOnCloseCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnCloseCam]),
                 NotifyOnFriendsLogOff = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnFriendsLogOff]),
                 NotifyOnFriendsLogOn = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnFriendsLogOn]),

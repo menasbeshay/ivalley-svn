@@ -1944,7 +1944,7 @@
                                     <label>تاريخ إنشائها</label>
                                 </div>
                                 <div class="col-sm-7 control-label pull-right">
-                                    <span data-bind="date:CreatedDate, format:' D-M-YYYY '"></span>
+                                    <span data-bind="date:CreatedDate, format:' DD-MM-YYYY '"></span>
                                 </div>
                             </div>
                             <div class="form-group">

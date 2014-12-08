@@ -139,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/02/2014 13:06:41</publishTime>
+      <publishTime>12/08/2014 12:31:47</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/07/2014 13:01:54</publishTime>
+      <publishTime>12/08/2014 12:31:49</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 11:24:49</publishTime>
@@ -646,7 +646,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2014 15:49:39</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>12/07/2014 12:54:20</publishTime>
+      <publishTime>12/08/2014 12:27:27</publishTime>
     </File>
     <File Include="Home1.aspx">
       <publishTime>11/09/2014 13:26:10</publishTime>
@@ -2020,7 +2020,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>12/07/2014 13:44:27</publishTime>
+      <publishTime>12/08/2014 12:36:32</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>

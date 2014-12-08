@@ -110,7 +110,9 @@ namespace Chat2Connect.SRCustomHubs
                     lgType = Helper.Enums.LogType.EnterRoomHidden;
                 log.AddNew(memberID, new BLL.Log.EnterRoom() { Type = lgType, RoomID = roomid, RoomName = room.Name }, null, roomid);
 
-                Clients.All.updateExistingCount(roomid,1);
+                RoomMember onlineroomMember = new RoomMember();
+                onlineroomMember.GetAllOnlineMembersByRoomID(roomid);
+                Clients.All.updateExistingCount(roomid, onlineroomMember.RowCount);
 
                 var item = ConnectedUsers.FirstOrDefault(m => m.MemberID == memberID);
                 if (item == null)
@@ -144,14 +146,16 @@ namespace Chat2Connect.SRCustomHubs
                 RoomMember roomMember = new RoomMember();
                 if (roomMember.LoadByPrimaryKey(memberID, roomid))
                 {
-                    if (roomMember.InRoom)
-                        Clients.All.updateExistingCount(roomid, -1);
-
+                    
                     roomMember.InRoom = false;
                     roomMember.HasCam = false;
                     roomMember.HasMic = false;
                     roomMember.SetColumnNull(RoomMember.ColumnNames.QueueOrder);
                     roomMember.Save();
+
+                    RoomMember onlineroomMember = new RoomMember();
+                    onlineroomMember.GetAllOnlineMembersByRoomID(roomid);
+                    Clients.All.updateExistingCount(roomid, onlineroomMember.RowCount);
 
                     if (roomMember.RoomMemberLevelID > (int)Helper.Enums.RoomMemberLevel.Visitor)
                         Groups.Remove(Context.ConnectionId, GetRoomAdminGroupName(roomid));
@@ -645,9 +649,9 @@ namespace Chat2Connect.SRCustomHubs
                 }
                 RoomMember rm = new RoomMember();
                 if (rm.LoadByPrimaryKey(memberid, rid))
-                {
-                    rm.CanWrite = isMarked;
+                {                    
                     rm.IsMarked = isMarked;
+                    rm.CanAccessMic = !isMarked;
                     rm.Save();
                 }
             }

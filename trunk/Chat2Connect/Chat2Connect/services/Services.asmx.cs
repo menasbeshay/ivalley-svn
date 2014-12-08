@@ -678,6 +678,22 @@ namespace Chat2Connect.services
                         return false;
                     }
                 }
+
+                if (room.IsColumnNull("CreatedBy"))
+                {
+                    message = "حدث خطأ. الغرفة غير متاحة الأن";
+                    return false;
+                }
+
+                RoomMember owner = new RoomMember();
+                if (!room.IsColumnNull("CreatedBy"))
+                {
+                    if (!owner.LoadByPrimaryKey(room.CreatedBy, id))
+                    {
+                        message = "حدث خطأ. الغرفة غير متاحة الأن";
+                        return false;
+                    }
+                }
             }
             return true;
         }
@@ -808,7 +824,7 @@ namespace Chat2Connect.services
             }
 
             //member level change
-            roomObject.MemberLevels = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l <= currentMemberSettings.MemberLevelID).Select(l => new
+            roomObject.MemberLevels = Helper.EnumUtil.GetValues<Helper.Enums.RoomMemberLevel>().Where(l => (int)l < currentMemberSettings.MemberLevelID).Select(l => new
             {
                 ID = (int)l,
                 Name = Helper.StringEnum.GetStringValue(l)
