@@ -895,8 +895,17 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     if (data.d > 0) {
+                        if (window.MicMember() != null) {
+                            // fix raise hand after open mic                                                                  
+                            if (window.CurrentMember().MemberID() == window.MicMember().MemberID()) {
+                                window.CurrentMember().IsMicOpened(false);
+                                window.MicMember(null);
+                                window.stopMic(window.CurrentMember().MemberID());
+                            }
+                        }
                         //move from roomMembers to queueMembers
                         window.CurrentMember().QueueOrder(data.d);
+
                         rHub.server.userRaisHand(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().QueueOrder());
                     }
                     else {
@@ -968,7 +977,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     return;
                 }
                 member.QueueOrder(null);
-                // fix user disappear when start his mic and remove current mic member
+                // fix user disappear when start his mic and remove current mic member & ensure that current mic member is the same member we're stoping his mic
                 if (window.MicMember().MemberID() == memberid)
                     window.MicMember(null);
                 if (window.CurrentMember().MemberID() == memberid)
@@ -1358,6 +1367,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     self.windows.remove(loadingWin);
                     if (data.Status != 1) {
                         notify('error', data.Data);
+                        // back to home tab
+                        self.changeCurrent("home");
                         return;
                     }
                     self.pushWindow(data.Data);
@@ -1374,6 +1385,15 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         setTimeout(function () { win.initEditor(); }, 1500);
         rHub.server.addToRoom(win.CurrentMember().MemberID(),win.ID());
 
+
+        // check if a member using mic - start it if exists
+        var _micmember = ko.utils.arrayFirst(win.ExistingMembers(), function (mem) {
+            return mem.IsMicOpened() == true;
+        });
+
+        if (_micmember != null && _micmember != undefined) {            
+            setTimeout(function () { win.startMic(_micmember.MemberID()); }, 2500);
+        }
         return win;
     };
     self.removeWindow = function () {
@@ -1903,6 +1923,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         {
             newMember.CanWrite(false);
             newMember.IsMarked(true);
+            rHub.server.toggleUserMark(window.ID(), true, newMember.MemberID());
             window.Settings.EnableMic(false);
             window.Settings.EnableMicForAdminsOnly(true);
         }
@@ -1911,6 +1932,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         {
             newMember.CanWrite(true);
             newMember.IsMarked(true);
+            rHub.server.toggleUserMark(window.ID(), true, newMember.MemberID());
             window.Settings.EnableMic(false);
             window.Settings.EnableMicForAdminsOnly(true);
         }
@@ -2109,7 +2131,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(memberid);
-            if (member != null) {
+            if (member != null) {                
                 member.QueueOrder(queueOrder);
                 initPopover(window);
             }
@@ -2131,7 +2153,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             var member = window.getMember(memberid);
             if (member != null) {
                 member.IsMarked(true);
-                member.CanWrite(false);
+                
             }
         }
         //  $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'block');
@@ -2142,7 +2164,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             var member = window.getMember(memberid);
             if (member != null) {
                 member.IsMarked(false);
-                member.CanWrite(true);
+                
             }
         }
         //   $("#Room_" + rid + " #roomMembersDiv #m_" + memberid + " .controls .mark").css('display', 'none');
@@ -2345,9 +2367,9 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     rHub.client.updateExistingCount = function (rid, count) {
         var room = $("#rooms_rm_" + rid + "_existingmembers");
         if (room) {
-            var existing = Number(room.text());
-            existing = existing + count;
-            room.text(existing);
+            /*var existing = Number(room.text());
+            existing = existing + count;*/
+            room.text(count);
         }
     };
 }
