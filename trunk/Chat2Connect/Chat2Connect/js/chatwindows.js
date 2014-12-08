@@ -386,7 +386,11 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             return self.getMember(self.CreatedBy());
         }, this);
         //MicMember
-        this.MicMember = ko.observable();
+        this.MicMember = ko.computed(function () {
+            return ko.utils.arrayFirst(self.ExistingMembers(), function (mem) {
+                return mem.IsMicOpened()==true;
+            });
+        }, this);
         // openedCams
         this.OpenedCams = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {
@@ -899,7 +903,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                             // fix raise hand after open mic                                                                  
                             if (window.CurrentMember().MemberID() == window.MicMember().MemberID()) {
                                 window.CurrentMember().IsMicOpened(false);
-                                window.MicMember(null);
                                 window.stopMic(window.CurrentMember().MemberID());
                             }
                         }
@@ -930,7 +933,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 getFlashMovie('chat2connect_' + window.uniqueID()).startMic(memberid);
                 // remove member from list and add it to mic
                 member.QueueOrder(null);
-                window.MicMember(member);
                 member.IsMicOpened(true);
                 if (window.Type() == 'Private') {
                     // start mic to friend
@@ -978,8 +980,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
                 member.QueueOrder(null);
                 // fix user disappear when start his mic and remove current mic member & ensure that current mic member is the same member we're stoping his mic
-                if (window.MicMember().MemberID() == memberid)
-                    window.MicMember(null);
+                //if (window.MicMember().MemberID() == memberid)
+                //    window.MicMember(null);
                 if (window.CurrentMember().MemberID() == memberid)
                     rHub.server.userStopMic(window.ID(), memberid)
                 else {
@@ -1387,12 +1389,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
 
 
         // check if a member using mic - start it if exists
-        var _micmember = ko.utils.arrayFirst(win.ExistingMembers(), function (mem) {
-            return mem.IsMicOpened() == true;
-        });
-
-        if (_micmember != null && _micmember != undefined) {            
-            setTimeout(function () { win.startMic(_micmember.MemberID()); }, 2500);
+        if (win.MicMember() != null && win.MicMember() != undefined) {
+            setTimeout(function () { win.startMic(win.MicMember().MemberID()); }, 2500);
         }
         return win;
     };
