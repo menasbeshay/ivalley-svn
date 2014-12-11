@@ -62,9 +62,9 @@
             من فضلك إختر أحد بدائل الدفع الآتية :
         </h4>
          <asp:Panel runat="server" ID="uiPanelAmount" CssClass="span12">
-        
+        <div class="alert alert-info">
             سوف تقوم بدفع مبلغ بقيمة  <asp:Label ID="uiLabelAmount" runat="server"></asp:Label> CAD.
-        
+        </div>
         </asp:Panel>
         
         <div class="clearfix" style="clear:both;height:10px;"></div>
@@ -138,13 +138,13 @@
                                     </div>
 
                                     <div class="form-group ">
-                                        <label class="col-md-3 control-label">سنة إنتهاء البطاقة</label>
+                                        <label class="col-md-3 control-label">سنة إنتهاء البطاقة (YY)</label>
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
-                                                <asp:TextBox ID="uiTextBoxCEY" runat="server" CssClass="form-control" placeholder="سنة إنتهاء البطاقة"></asp:TextBox>
+                                                <asp:TextBox ID="uiTextBoxCEY" runat="server" CssClass="form-control" placeholder="سنة إنتهاء البطاقة (YY)"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-1">

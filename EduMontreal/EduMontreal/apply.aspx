@@ -738,15 +738,15 @@
                                        <li>Completed and signed for refund and cancellation policy for International studies</li>
             <li>
                 Completed and signed for international student remedial contract (
-                <a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>download</a> )
+                <a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>download</a> then sign )
             </li>
             <li>
                 Completed and signed for international student insurance contract (
-                <a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>download</a> )
+                <a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>download</a> then sign )
             </li>
             <li>
                 Completed and signed for  international student attendance policy (
-                <a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>download</a> )
+                <a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>download</a> then sign )
             </li>
             <li>Bank statement (must be translated into English)</li>
             <li>Original Certificate/Diploma/Degree of the highest level of education achieved (documents should be in English/French or translated to English)</li>
@@ -765,6 +765,28 @@
                                 </div>
                             </div>
                             <div class="separator" style="height: 10px;"></div>
+                            
+                            <asp:Panel runat="server" ID="uiPanelAttachments" Visible="false"> 
+                                <div class="form-group">
+                                            <div class="col-md-11">
+                                <h5>
+                                    Attachments already uploaded : 
+                                </h5>
+                                <asp:GridView ID="uiGridViewAttachments" runat="server" AutoGenerateColumns="false" CssClass="table table-condensed">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="File Name">
+                                            <ItemTemplate>
+                                                <%# Eval("FilePath").ToString().Substring(Eval("FilePath").ToString().LastIndexOf("/") + 1) %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>  
+
+                                            </div>
+                                 </div>
+                                <div class="separator" style="height: 10px;"></div>
+                            </asp:Panel>
+                                              
                             <div class="form-group col-md-12">
 
 
