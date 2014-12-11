@@ -114,6 +114,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/fonts/JF-Flat-regular.woff">
       <publishTime>11/11/2014 18:40:48</publishTime>
     </File>
+    <File Include="bin/fonts/MyriadProBoldCondensed.eot">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="bin/fonts/MyriadProBoldCondensed.png">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="bin/fonts/MyriadProBoldCondensed.ttf">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="bin/fonts/MyriadProBoldCondensed.woff">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
     <File Include="bin/fonts/neuropol_x_rg-webfont.eot">
       <publishTime>11/11/2014 18:40:49</publishTime>
     </File>
@@ -181,7 +193,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/06/2014 23:43:07</publishTime>
+      <publishTime>12/11/2014 09:44:47</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -256,7 +268,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>12/06/2014 22:49:05</publishTime>
+      <publishTime>12/07/2014 14:50:38</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -350,6 +362,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="fonts/JF-Flat-regular.woff">
       <publishTime>11/11/2014 18:40:48</publishTime>
+    </File>
+    <File Include="fonts/MyriadProBoldCondensed.eot">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="fonts/MyriadProBoldCondensed.png">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="fonts/MyriadProBoldCondensed.ttf">
+      <publishTime>12/07/2014 14:33:10</publishTime>
+    </File>
+    <File Include="fonts/MyriadProBoldCondensed.woff">
+      <publishTime>12/07/2014 14:33:10</publishTime>
     </File>
     <File Include="fonts/neuropol_x_rg-webfont.eot">
       <publishTime>11/11/2014 18:40:49</publishTime>
@@ -649,7 +673,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2014 22:47:02</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page2/pic.png">
-      <publishTime>12/04/2014 22:43:26</publishTime>
+      <publishTime>12/11/2014 09:44:27</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page2/screen.png">
       <publishTime>12/04/2014 22:43:48</publishTime>
@@ -1000,7 +1024,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>12/06/2014 23:41:51</publishTime>
+      <publishTime>12/07/2014 15:01:59</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
