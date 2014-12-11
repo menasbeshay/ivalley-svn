@@ -198,7 +198,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="icon-smile"></span>
                     </button>
-                    <ul style="width: 300px !important" role="menu" class="dropdown-menu ">
+                    <ul style="width: 300px !important;right:0 !important;" role="menu" class="dropdown-menu ">
                 <li>
                     <ul data-height="120px" class="SScroll" id="smilesMenu" style="overflow: hidden; width: auto; height: 120px;">
                         <li class="itemImage"><a data-wysihtml5-command-value="../images/emotions/icon (1).png" data-wysihtml5-command="insertImage" href="javascript:;" unselectable="on">

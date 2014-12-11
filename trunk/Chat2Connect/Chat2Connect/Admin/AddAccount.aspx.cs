@@ -179,18 +179,20 @@ namespace Chat2Connect.Admin
             BLL.MembershipBLL membership = new BLL.MembershipBLL();
             string msg;
             string oldname = member.Name;
-            if (membership.ChangeUsername(oldname, uiTextBoxNewName.Text, Membership.ApplicationName, out msg))
+            if (!string.IsNullOrEmpty(uiTextBoxNewName.Text))
             {
-                member.Name = uiTextBoxNewName.Text;
-                member.Save();
+                if (membership.ChangeUsername(oldname, uiTextBoxNewName.Text, Membership.ApplicationName, out msg))
+                {
+                    member.Name = uiTextBoxNewName.Text;
+                    member.Save();
+                }
+                else
+                {
+                    uiTextBoxNewName.Text = oldname;
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "changeName", @"$(document).ready(function () { notify('error', 'حدث خطأ ." + msg + ".'); });", true);
+                    return;
+                }
             }
-            else
-            {
-                uiTextBoxNewName.Text = oldname;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "changeName", @"$(document).ready(function () { notify('error', 'حدث خطأ ." + msg + ".'); });", true);
-                return;
-            }
-
             member.MemberType.MemberTypeSpecDurationID = bllSpec.ID;
             member.MemberType.CreateBy = BLL.Member.CurrentMember.MemberID;
             member.MemberType.StartDate = DateTime.Now;

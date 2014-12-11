@@ -275,7 +275,7 @@ namespace Chat2Connect
         }
 
         protected void uiLinkButtonAddProfilePhoto_Click(object sender, EventArgs e)
-        {
+        {            
             string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
             if (!dir.Exists)

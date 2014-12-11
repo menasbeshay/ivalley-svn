@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account.aspx">
-      <publishTime>11/02/2014 12:35:30</publishTime>
+      <publishTime>12/10/2014 15:13:29</publishTime>
     </File>
     <File Include="AccountLog.aspx">
       <publishTime>10/30/2014 12:59:44</publishTime>
@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/08/2014 12:31:47</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/08/2014 16:30:01</publishTime>
+      <publishTime>12/10/2014 16:03:33</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 11:24:49</publishTime>
@@ -2020,7 +2020,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>12/08/2014 16:57:39</publishTime>
+      <publishTime>12/08/2014 20:16:51</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2416,7 +2416,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/02/2014 12:35:27</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>11/26/2014 14:29:46</publishTime>
+      <publishTime>12/10/2014 14:05:48</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>11/05/2014 21:50:29</publishTime>
