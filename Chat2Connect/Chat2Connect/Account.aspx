@@ -127,6 +127,10 @@
         {
             $.prettyPhoto.close();
         }
+
+        function Displayloading() {
+            $('#loadingFile').css('display','block');
+        }
     </script>
     <style type="text/css">
         .datepicker {z-index: 999999 !important;}
@@ -142,7 +146,7 @@
                   <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" style="font-size:12px;">
                     تعديل الصورة  <span class="caret"></span> 
                   </button>
-                  <ul class="dropdown-menu" role="menu">
+                  <ul class="dropdown-menu" role="menu" style="right:0 !important;">
                     <li><a id="selectProfilePic" href="#selectprofilephoto" data-toggle="modal" style="text-decoration:none;"><i class="icon-picture"></i>&nbsp;إختر من صورك الخاصة</a></li>
                     <li><a id="addProfilePic"  href="#addprofilephoto" data-toggle="modal" style="text-decoration:none;"><i class="icon-plus"></i>&nbsp;تحميل صورة جديدة</a></li>
                     <li><a id="clearCurrentProfilePic"><i class="icon-remove"></i>&nbsp;حذف الصورة الحالية</a></li>                    
@@ -278,7 +282,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
-            <div>
+            <div class="SScroll" data-height="170px">
                 <asp:Repeater ID="uiRepeaterMyRooms" runat="server">
                     <ItemTemplate>
                         <div class="Altodd">
@@ -304,16 +308,16 @@
                     </a>
                 </div>
                 <div class="clearfix"></div>
-                <div class="col-lg-12">
+                <div class="col-sm-12">
                      <div id="links" class="SScroll" data-height="170px">
                          <asp:Repeater ID="uiRepeaterPhotos" runat="server" OnItemCommand="uiRepeaterPhotos_ItemCommand">
                              <ItemTemplate>
-                                 <div style="position:relative;" class="col-lg-3">
+                                 <div style="position:relative;" class="col-sm-4">
                                  <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>' > 
                                      <img src="images.aspx?Image=<%# Eval("PicPath") %>&profile=1" class="img-thumbnail" style="width:100px;" alt='<%# Eval("Description") %>'/>                             
                                      
                                 </a>          
-                                 <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("MemberPicID") %>' Text="Delete" OnClientClick="return confirm('هل تريد حذف هذه الصورة؟');" CommandName="Delete" ForeColor="#000099" style="position:absolute;top:0;right:0;text-decoration:none;color:#ccc;" >  <i class="icon-remove"></i>  </asp:LinkButton>
+                                 <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("MemberPicID") %>' Text="Delete" OnClientClick="return confirm('هل تريد حذف هذه الصورة؟');" CommandName="Delete" ForeColor="#000099" style="position:absolute;top:0;right:0;text-decoration:none;color:#ccc;" >  <i class="icon-remove" title="حذف" data-placement="top" data-toggle="tooltip"></i>  </asp:LinkButton>
                                  </div>
                              </ItemTemplate>
 
@@ -828,16 +832,22 @@
                                     <div class="col-sm-4 control-label pull-right">
                                         <label>إختر الصورة</label>
                                     </div>
-                                    <div class="col-sm-8 pull-right">
+                                    <div class="col-sm-6 pull-right">
                                         <asp:FileUpload ID="uiFileUploadAddProfileImage" runat="server" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddProfileImage" ValidationGroup="addProfilePhoto" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
+                                    <div class="col-sm-2 pull-right">
+                                        <div id="loadingFile" style="display:none;width:32px;height:32px;" class="loading">
+
+                                        </div>
+                                    </div>
+                                    
                                 </div>                                                                  
                             </div>
                    </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration:none;">إغلاق</a>
-                        <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonAddProfilePhoto" style="text-decoration:none;" OnClick="uiLinkButtonAddProfilePhoto_Click" ValidationGroup="addProfilePhoto">حفظ</asp:LinkButton>
+                        <asp:LinkButton CssClass="btn btn-warning" runat="server" ID="uiLinkButtonAddProfilePhoto" style="text-decoration:none;" OnClick="uiLinkButtonAddProfilePhoto_Click" OnClientClick="Displayloading();return true;" ValidationGroup="addProfilePhoto">حفظ</asp:LinkButton>
                     </div>
                     </div>
             </div>
