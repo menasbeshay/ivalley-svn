@@ -44,12 +44,7 @@
                             <asp:BoundField DataField="Email" HeaderText="Email" />                        
                             <asp:BoundField DataField="CityofBirth" HeaderText="City Of Birth" />
                             <asp:BoundField DataField="CellPhoneNumber" HeaderText="Cell Phone" />  
-                            <asp:TemplateField HeaderText="Actions">
-                                <ItemTemplate>
-                                    <div class="clearfix" style="height:2px;"></div>
-                                    <a href='appdata?sid=<%# Eval("StudentID") %>' class="btn btn-sm btn-primary">Update application data</a>
-                                    </ItemTemplate>
-                            </asp:TemplateField>
+                            
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
