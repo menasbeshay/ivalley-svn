@@ -68,10 +68,45 @@ namespace EduMontreal
 
                 // visa result
                 uiPanelVisaResult.Visible = (status.ApplicationStatusID == 14);
+
+                // visa date 
+                uiPanelVisaSchedule.Visible = (status.ApplicationStatusID == 12);
                 
             }
             else
                 Response.Redirect("apply");
+        }
+
+        protected void uiLinkButtonSaveDate_Click(object sender, EventArgs e)
+        {
+            Student student = (Student)Session["CurrentUser"];
+            ApplicationData app = new ApplicationData();
+            app.GetApplicationByStudentID(student.StudentID);
+
+            ApplicationStatusHistory Apphistroy = new ApplicationStatusHistory();
+            Apphistroy.GetApplicationStatusHistorybyApplicationDataID(app.ApplicationDataID);
+
+            if (!string.IsNullOrEmpty( uiTextBoxVisaDate.Text))
+            {
+                DateTime visadate = DateTime.Now;
+                if (DateTime.TryParseExact(uiTextBoxVisaDate.Text, "dd/MM/yyy hh:mm", null, System.Globalization.DateTimeStyles.None, out visadate))
+                {
+                    Apphistroy.VisaAppointMentDate = visadate;
+                    Apphistroy.Save();
+                    uiPanelVSSucess.Visible = true;
+                    uiPanelVSFail.Visible = false;
+                }
+                else
+                {
+                    uiPanelVSSucess.Visible = false;
+                    uiPanelVSFail.Visible = true;
+                }                
+            }
+            else
+            {
+                uiPanelVSSucess.Visible = false;
+                uiPanelVSFail.Visible = true;
+            }
         }
 
         protected void uiLinkButtonUploadVisaResult_Click(object sender, EventArgs e)

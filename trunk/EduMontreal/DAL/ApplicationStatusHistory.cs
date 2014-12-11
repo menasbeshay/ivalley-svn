@@ -171,6 +171,14 @@ namespace EDU.DAL
 				}
 			}
 			
+			public static SqlParameter VisaAppointMentDate
+			{
+				get
+				{
+					return new SqlParameter("@VisaAppointMentDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -186,6 +194,7 @@ namespace EDU.DAL
             public const string TuitionFees = "TuitionFees";
             public const string WireTranseferReceipt = "WireTranseferReceipt";
             public const string VisaResult = "VisaResult";
+            public const string VisaAppointMentDate = "VisaAppointMentDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -202,6 +211,7 @@ namespace EDU.DAL
 					ht[TuitionFees] = _ApplicationStatusHistory.PropertyNames.TuitionFees;
 					ht[WireTranseferReceipt] = _ApplicationStatusHistory.PropertyNames.WireTranseferReceipt;
 					ht[VisaResult] = _ApplicationStatusHistory.PropertyNames.VisaResult;
+					ht[VisaAppointMentDate] = _ApplicationStatusHistory.PropertyNames.VisaAppointMentDate;
 
 				}
 				return (string)ht[columnName];
@@ -223,6 +233,7 @@ namespace EDU.DAL
             public const string TuitionFees = "TuitionFees";
             public const string WireTranseferReceipt = "WireTranseferReceipt";
             public const string VisaResult = "VisaResult";
+            public const string VisaAppointMentDate = "VisaAppointMentDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -239,6 +250,7 @@ namespace EDU.DAL
 					ht[TuitionFees] = _ApplicationStatusHistory.ColumnNames.TuitionFees;
 					ht[WireTranseferReceipt] = _ApplicationStatusHistory.ColumnNames.WireTranseferReceipt;
 					ht[VisaResult] = _ApplicationStatusHistory.ColumnNames.VisaResult;
+					ht[VisaAppointMentDate] = _ApplicationStatusHistory.ColumnNames.VisaAppointMentDate;
 
 				}
 				return (string)ht[propertyName];
@@ -260,6 +272,7 @@ namespace EDU.DAL
             public const string TuitionFees = "s_TuitionFees";
             public const string WireTranseferReceipt = "s_WireTranseferReceipt";
             public const string VisaResult = "s_VisaResult";
+            public const string VisaAppointMentDate = "s_VisaAppointMentDate";
 
 		}
 		#endregion		
@@ -371,6 +384,18 @@ namespace EDU.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.VisaResult, value);
+			}
+		}
+
+		public virtual DateTime VisaAppointMentDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.VisaAppointMentDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.VisaAppointMentDate, value);
 			}
 		}
 
@@ -514,6 +539,21 @@ namespace EDU.DAL
 			}
 		}
 
+		public virtual string s_VisaAppointMentDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.VisaAppointMentDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.VisaAppointMentDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.VisaAppointMentDate);
+				else
+					this.VisaAppointMentDate = base.SetDateTimeAsString(ColumnNames.VisaAppointMentDate, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -637,6 +677,16 @@ namespace EDU.DAL
 					}
 				}
 
+				public WhereParameter VisaAppointMentDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.VisaAppointMentDate, Parameters.VisaAppointMentDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -750,6 +800,18 @@ namespace EDU.DAL
 				}
 			}
 
+			public WhereParameter VisaAppointMentDate
+		    {
+				get
+		        {
+					if(_VisaAppointMentDate_W == null)
+	        	    {
+						_VisaAppointMentDate_W = TearOff.VisaAppointMentDate;
+					}
+					return _VisaAppointMentDate_W;
+				}
+			}
+
 			private WhereParameter _StatusHistoryID_W = null;
 			private WhereParameter _ApplicationStatusID_W = null;
 			private WhereParameter _StudentID_W = null;
@@ -759,6 +821,7 @@ namespace EDU.DAL
 			private WhereParameter _TuitionFees_W = null;
 			private WhereParameter _WireTranseferReceipt_W = null;
 			private WhereParameter _VisaResult_W = null;
+			private WhereParameter _VisaAppointMentDate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -771,6 +834,7 @@ namespace EDU.DAL
 				_TuitionFees_W = null;
 				_WireTranseferReceipt_W = null;
 				_VisaResult_W = null;
+				_VisaAppointMentDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -917,6 +981,16 @@ namespace EDU.DAL
 					}
 				}
 
+				public AggregateParameter VisaAppointMentDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.VisaAppointMentDate, Parameters.VisaAppointMentDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1030,6 +1104,18 @@ namespace EDU.DAL
 				}
 			}
 
+			public AggregateParameter VisaAppointMentDate
+		    {
+				get
+		        {
+					if(_VisaAppointMentDate_W == null)
+	        	    {
+						_VisaAppointMentDate_W = TearOff.VisaAppointMentDate;
+					}
+					return _VisaAppointMentDate_W;
+				}
+			}
+
 			private AggregateParameter _StatusHistoryID_W = null;
 			private AggregateParameter _ApplicationStatusID_W = null;
 			private AggregateParameter _StudentID_W = null;
@@ -1039,6 +1125,7 @@ namespace EDU.DAL
 			private AggregateParameter _TuitionFees_W = null;
 			private AggregateParameter _WireTranseferReceipt_W = null;
 			private AggregateParameter _VisaResult_W = null;
+			private AggregateParameter _VisaAppointMentDate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1051,6 +1138,7 @@ namespace EDU.DAL
 				_TuitionFees_W = null;
 				_WireTranseferReceipt_W = null;
 				_VisaResult_W = null;
+				_VisaAppointMentDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1159,6 +1247,10 @@ namespace EDU.DAL
 
 			p = cmd.Parameters.Add(Parameters.VisaResult);
 			p.SourceColumn = ColumnNames.VisaResult;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.VisaAppointMentDate);
+			p.SourceColumn = ColumnNames.VisaAppointMentDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 

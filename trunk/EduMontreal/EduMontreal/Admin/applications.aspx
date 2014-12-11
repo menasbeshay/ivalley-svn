@@ -8,7 +8,7 @@
         			
             <div class="span12">
                 <asp:Panel runat="server" ID="uiPanelAllApplications">
-                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="List of students Completed Their Applications:"></asp:Label>
+                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="Student Applications List:"></asp:Label>
 
                     <asp:GridView ID="uiGridViewAllApplications" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" OnPageIndexChanging="uiGridViewAllApplications_PageIndexChanging" OnRowCommand="uiGridViewAllApplications_RowCommand" PageSize="15" Width="100%" CssClass="table table-hover " >
                         <AlternatingRowStyle HorizontalAlign="Center" />
@@ -34,7 +34,7 @@
                     <br />
                     <br />
 
-                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="List of students not created their applications:"></asp:Label>
+                    <asp:Label runat="server" ForeColor="#003366" Font-Bold="true" Text="Prospect Students:"></asp:Label>
                     <asp:GridView ID="uiGridViewNotCompletedApplications" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" OnPageIndexChanging="uiGridViewAllApplications_PageIndexChanging" OnRowCommand="uiGridViewAllApplications_RowCommand" PageSize="15" Width="100%" CssClass="table table-hover " >
                         <AlternatingRowStyle HorizontalAlign="Center" />
                         <RowStyle HorizontalAlign="Center" />                    
@@ -295,6 +295,33 @@
                                                 <div class="modal-body">
                                                     <div class="form-horizontal blockBox">                                                        
                                                         <img src=' <%# Eval("VisaResult") %>' style="max-width:90%"/>
+                                                    </div>
+                                                </div>                                               
+                                                <div class="modal-footer">
+                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                             <asp:TemplateField HeaderText="Visa Schedul date">
+                                <ItemTemplate>
+                                   <%# string.IsNullOrEmpty(Eval("VisaAppointMentDate").ToString()) ? "<div style='display:none;'>" : "" %>
+                                     
+                                    <a href='#visaDateModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Visa Schedule Date</a>
+                                    <%# string.IsNullOrEmpty(Eval("VisaAppointMentDate").ToString()) ? "</div>" : "" %>
+                                    <div id='visaDateModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
+                                                    <h3>Visa schedule date</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal blockBox">                                                        
+                                                         <%# Eval("VisaAppointMentDate") %>
                                                     </div>
                                                 </div>                                               
                                                 <div class="modal-footer">

@@ -134,6 +134,12 @@ namespace EduMontreal
 
                     uiDropDownListCourses.SelectedValue = app.SelectedCourseID.ToString();
                 }
+
+                ApplicationAttachment attachments = new ApplicationAttachment();
+                attachments.GetAttachmentsForNotSubmittedApplication(app.ApplicationDataID);
+                uiPanelAttachments.Visible = (attachments.RowCount > 0);
+                uiGridViewAttachments.DataSource = attachments.DefaultView;
+                uiGridViewAttachments.DataBind();
                 
             }
         }
@@ -509,7 +515,7 @@ namespace EduMontreal
             }
 
             uiLabelSaved.Visible = true;
-            
+            BindFields();
         }
     }
 }

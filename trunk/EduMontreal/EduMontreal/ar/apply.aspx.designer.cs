@@ -535,6 +535,24 @@ namespace EduMontreal.ar {
         protected global::System.Web.UI.WebControls.CustomValidator CheckBoxRequired;
         
         /// <summary>
+        /// uiPanelAttachments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAttachments;
+        
+        /// <summary>
+        /// uiGridViewAttachments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView uiGridViewAttachments;
+        
+        /// <summary>
         /// uiLinkButtonFinish control.
         /// </summary>
         /// <remarks>

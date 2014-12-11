@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/EduMaster.Master" AutoEventWireup="true" CodeBehind="checkapp.aspx.cs" Inherits="EduMontreal.checkapp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.datetimepicker').datetimepicker({               
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="col-md-12 col-left">
@@ -17,12 +25,12 @@
                 <asp:FileUpload ID="uiFileUploadVisaResult" runat="server" />
                 <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click">Upload</asp:LinkButton>
             </div>
-            <asp:Panel runat="server" ID="uiPanelVisaSucc">
+            <asp:Panel runat="server" ID="uiPanelVisaSucc" Visible="false">
             <div class="alert-success">
                 Visa result uploaded successfully.
             </div>
                 </asp:Panel>
-            <asp:Panel runat="server" ID="uiPanelVisaFail">
+            <asp:Panel runat="server" ID="uiPanelVisaFail" Visible="false">
             <div class="alert-danger">
                 Visa result uploaded failed. Try again please.
             </div>
@@ -30,6 +38,33 @@
         </section>
     </asp:Panel>
     
+     <div style="clear: both; height: 10px;"></div>
+    <asp:Panel runat="server" ID="uiPanelVisaSchedule">
+        <section class="col-md-6 col-left">
+            <div class="control-label">Visa Schedule Appointment : </div>
+            
+                <div class=" datetimepicker col-md-6">                                        
+                    <div class="input-group date datetimepicker" data-time-icon="fa fa-time" data-date-icon="fa fa-calendar">
+                        <asp:TextBox ID="uiTextBoxVisaDate" runat="server" CssClass="form-control"></asp:TextBox>
+                        <span class="input-group-addon add-on"><i  class="fa fa-calendar"></i></span>
+                    </div>                                        
+                </div>                
+                <asp:LinkButton ID="uiLinkButtonSaveDate" runat="server" CssClass="btn btn-primary col-md-6" OnClick="uiLinkButtonSaveDate_Click">Save Appointment Date</asp:LinkButton>
+            
+            <asp:Panel runat="server" ID="uiPanelVSSucess" Visible="false">
+            <div class="alert-success">
+                Visa Appointment Date saved successfully.
+            </div>
+                </asp:Panel>
+            <asp:Panel runat="server" ID="uiPanelVSFail" Visible="false">
+            <div class="alert-danger">
+                An error accured. Try again please.
+            </div>
+                </asp:Panel>
+        </section>
+    </asp:Panel>
+    
+
     <div style="clear: both; height: 10px;"></div>
     <section class="col-md-12 col-left">
         <h4>Update History

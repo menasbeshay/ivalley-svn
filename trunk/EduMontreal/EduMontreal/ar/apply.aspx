@@ -707,9 +707,9 @@
                                                 <span class="label big">مرفقات مطلوبة: </span>
                                                 <ul class="list_1">
                                                     <li>بيان موقع من الطالب لسياسة الإلغاء و ترجيع النقود للدراسات الدولية</li>
-            <li> بيان موقع من الطالب لقواعد اعادة الامتحان للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>تحميل</a> )</li>
-            <li>بيان موقع من الطالب لعقد التأمين للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>تحميل</a> )</li>
-            <li>بيان موقع من الطالب لقواعد حضور الطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>تحميل</a> )</li>
+            <li> بيان موقع من الطالب لقواعد اعادة الامتحان للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>تحميل</a> ثم التوقيع )</li>
+            <li>بيان موقع من الطالب لعقد التأمين للطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentInsuranceContract.doc'>تحميل</a> ثم التوقيع )</li>
+            <li>بيان موقع من الطالب لقواعد حضور الطالب الدولى (<a href='http://application.edumontreal.ca/files/InternationalStudentAttendancePolicy.doc'>تحميل</a> ثم التوقيع )</li>
             <li>شهادة أصلية / دبلوم / درجة أعلى مستوى من التعليم حققها الطالب (ينبغي أن تكون الوثائق باللغة الإنجليزية / الفرنسية أو مترجمة ترجمة معتمدة إلى الإنجليزية).</li>
             <li>بيان درجات أصلى من المدرسة  أو الجامعه (ينبغي أن تكون الوثائق باللغة الإنجليزية / الفرنسية أو مترجمة إلى الإنجليزية).</li>
             <li>المستندات المؤيدة للخبرة في العمل، إن وجدت .</li>
@@ -729,6 +729,26 @@
                                             </div>
                                         </div>
                                         <div class="separator" style="height:10px;"></div>
+
+                                    <asp:Panel runat="server" ID="uiPanelAttachments" Visible="false">
+                                        <div class="form-group">
+                                            <div class="col-md-11">
+                                                <h5>
+                                    ملفات تم رفعها : 
+                                </h5>
+                                <asp:GridView ID="uiGridViewAttachments" runat="server" AutoGenerateColumns="false"  CssClass="table table-condensed">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="إسم الملف">
+                                            <ItemTemplate>
+                                                <%# Eval("FilePath").ToString().Substring(Eval("FilePath").ToString().LastIndexOf("/") + 1) %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                                </div>
+                                            </div>
+                                        <div class="separator" style="height:10px;"></div>
+                            </asp:Panel>
                                          <div class="form-group col-md-12" style="direction:rtl;">
                                             
                                                     
