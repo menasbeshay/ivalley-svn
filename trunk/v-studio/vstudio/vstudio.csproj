@@ -200,6 +200,7 @@
     <Content Include="img\bg.png" />
     <Content Include="img\big-hex.jpg" />
     <Content Include="img\big-hex.png" />
+    <Content Include="img\big-hex1.jpg" />
     <Content Include="img\bottom-shadow-1.png" />
     <Content Include="img\bottom-shadow.png" />
     <Content Include="img\bulb-1 %281%29.png" />
@@ -237,6 +238,7 @@
     <Content Include="img\cb-bg.png" />
     <Content Include="img\ci-bg.jpg" />
     <Content Include="img\ci-bg.png" />
+    <Content Include="img\ci-bg_a.jpg" />
     <Content Include="img\cma-rollup-1.jpg" />
     <Content Include="img\comma.png" />
     <Content Include="img\contact-bg.jpg" />
@@ -245,6 +247,7 @@
     <Content Include="img\download-catalouge-1-a.png" />
     <Content Include="img\download-catalouge-1.png" />
     <Content Include="img\download-catalouge.png" />
+    <Content Include="img\d_flash.png" />
     <Content Include="img\el-logo.png" />
     <Content Include="img\facebook.png" />
     <Content Include="img\google.png" />
@@ -295,6 +298,8 @@
     <Content Include="img\menu-half-bg.png" />
     <Content Include="img\menu-half-bg1.png" />
     <Content Include="img\message-field.png" />
+    <Content Include="img\MSSbg.jpg" />
+    <Content Include="img\MSSbg1.jpg" />
     <Content Include="img\multi_touchscreens.png" />
     <Content Include="img\multi_touchscreens_a.png" />
     <Content Include="img\new-arrow-left.png" />
@@ -373,6 +378,7 @@
     <Content Include="img\submit-button.png" />
     <Content Include="img\text-field.png" />
     <Content Include="img\textarea-field.png" />
+    <Content Include="img\transparent.png" />
     <Content Include="img\tv-image.png" />
     <Content Include="img\tv-poly.png" />
     <Content Include="img\twitter.png" />
@@ -387,6 +393,7 @@
     <Content Include="img\video_productions_a.png" />
     <Content Include="img\video_screen.png" />
     <Content Include="img\volume.png" />
+    <Content Include="img\v_tran.png" />
     <Content Include="img\watch-recent-a.png" />
     <Content Include="img\watch-recent.png" />
     <Content Include="img\watch-the-video-a.png" />
@@ -463,6 +470,15 @@
     </Content>
     <Content Include="media\demo.webm" />
     <Content Include="media\demo1.webm" />
+    <Content Include="fonts\Al-Jazeera-Arabic-Regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\Al-Jazeera-Arabic-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\Al-Jazeera-Arabic-Regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

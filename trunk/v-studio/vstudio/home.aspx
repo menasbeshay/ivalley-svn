@@ -98,8 +98,7 @@
 				<div id="sager-text" style="position:absolute; display:none;">
 					<h1>At Sager V-Studio, We are an enthusiastic & passionate marketing team which loves to create.</h1>
 					<p>Whether you want to have a lasting impression identity, present yourself and your products through innovative website and impressive video, need cartoon animation, 3D visualization or wish to uniquely market your products & blow people's minds using our out of box multi touchscreen, 3D Wayfinding, holography and projection visual marketing products,</p>
-					<span class="text-med">we at V-Studio are here</span><br>
-					<span class="text-med">PROMOTING VISIONS</span>
+					<span class="text-med">we at V-Studio are here PROMOTING VISIONS</span>					
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
 					<img src="img/watch-video.png" class="img-responsive"/>
@@ -168,14 +167,14 @@ Your browser does not support the video tag
 				<div class="row">
 					<div class="col-md-8" id="holo-left">
 						<div id="holo-middle" style=" position:absolute; left:0px;width:780px; height:380px;">
-							<div id="mac" class="mac" style="display:none; position:absolute; width:780px; height:372px; background-image:url(img/screen.jpg); background-position:20% 100%; background-repeat:no-repeat; z-index:4; overflow:hidden;	background-size:75% 90%; z-index:0">
+							<div id="mac" class="mac" style="display:none; position:absolute; width:780px; height:372px; background-image:url(img/screen.jpg); background-position:24% 100%; background-repeat:no-repeat; z-index:4; overflow:hidden;	background-size:85% 92%; z-index:0">
 								<!--
 								<div id="mac1" style="width:445px; height:273px; position:absolute;z-index:3; overflow:hidden;left:110px; top:62px;">
 									<img src="img/vid-1.png" style=" position:absolute; z-index:2"/>
 								</div>
 								-->
 								
-								<div id="mac2" style="width:445px; height:273px; position:absolute;z-index:3; overflow:hidden;left:110px; top:62px;">
+								<div id="mac2" style="width:500px; height:300px; position:absolute;z-index:3; overflow:hidden;left:110px; top:40px;">
 									<video id="holo-video" controls poster="img/vid-1.png">
 										<source src='media/media1.mp4' type='video/mp4'>
 Your browser does not support the video tag
@@ -228,52 +227,52 @@ Your browser does not support the video tag
 								&nbsp;
 							</div>
 						</div>
-						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;">
+						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;" class="col-md-12">
 							<h2 style="font-family:Ubuntu-Regular; font-size:24px;">Products’ Videos</h2>
                             <div class="row">
                                 <div class="col-md-11 col-md-offset-1">
                                     <div class="row holo-vids">
                                         <div class="col-md-3 vid-hover" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
-                                            <div class="vid-play text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
-                                                Hologram Showcases
+                                            <div class="vid-play text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                             Hologram Showcases
                                             </div>
                                         </div>
                                         <div class="col-md-3 vid-hover1" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
-                                            <div class="vid-play1 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play1 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Rear Projection film
                                              </div>
                                         </div>
                                         <div class="col-md-3 vid-hover2" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
-                                            <div class="vid-play2 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play2 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Virtual speaker</div>
                                         </div>
 
                                         <div class="col-md-3 vid-hover3" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
-                                            <div class="vid-play3 text-center" style="background: url(../img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play3 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Video screen Roll Up</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover4" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
-                                            <div class="vid-play4 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play4 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Mini virtual promoter</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover5" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
-                                            <div class="vid-play5 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play5 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             LCD cooler’s door </div>
                                         </div>
                                          <div style="display: none;" class="col-md-3 vid-hover6" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
-                                            <div class="vid-play6 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play6 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Holographic ebook</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover7" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
-                                            <div class="vid-play7 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play7 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             Floor projection</div>
                                         </div>
 
@@ -342,7 +341,7 @@ Your browser does not support the video tag
 <li>Networkable, customizable and effectively memorable</li>
 </ul></p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">Download Flash Video</a>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -393,7 +392,7 @@ Your browser does not support the video tag
 						<hr>
 						<p>V-Studio brings to you WINSHOW™, a seamless rear projection solution for all your shop’s window display needs. Just paste the V-Studio RT-RPF film on a transparent surface and mold the application with the appropriate surrounding lighting environment and distance between Winshow™ projector and surface & your product or service video display on your window is ready to impress all! No computer/laptop or video player is required.</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">Download Flash Video</a>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-right"><img src="img/3d-image-icon1.png" /> <span class="view-gallery">View Presentation</span></a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -446,7 +445,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Create an incredible experience for your target audience with a unique video screen Roll Up banner having V-Studio RT-RPF film coating & our Winshow™ projector. No computer/laptop or video is required. It is 1.1m or 0.8 wide x 2m in height and is available in full screen or ½ screens with print graphics.</p><br>
-												<span class="span-text"><a target="_blank" href="media/catalogue.pdf">Download Flash Video</a>
+												<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -496,7 +495,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Give the ultimate boost to your campaign with the help of HOSTALK™, the virtual mannequin speaker by V-Studio, powered by the latest rear projection techniques. Let your virtual speaker grab endless opportunities for you in the marketplace through providing a warm-up prior to events, presenting vital information uniquely, and rendering unparalleled entertainment to the audience.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">Download Flash Video</a>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -582,9 +581,11 @@ Your browser does not support the video tag
 					<p>Discover our<br> creative & corporate<br>identity designs service</p>
 					<img id="discover-more" src="img/service-arrow.png"/>
 				</div>
-				<div id="download-catalog" class="icon-rotate">
-					<img src="img/service-download.png"/>
-					<p>Download All Services<br> Presentation & Flash Video<p>
+				<div id="download-catalog" class="icon-rotate" >
+					<img src="img/service-download.png" style="max-height:40px;"/>
+					<p>Can't stream video ? <br />Download All Services video</p>
+                    <img src="img/service-download.png" style="max-height:40px;"/>
+                    <p>Download Service <br />Presentation</p>
 				</div>
 				<!--
 				<div id="service-hex-1">
@@ -659,15 +660,16 @@ Your browser does not support the video tag
 						
 						<div id="corp-3" style="display:none;">
 						<hr>
-						<p>Inspire your audience to action with v-studio creative, corporate identity, branding and marketing services.
+						<p>Inspire your audience to action with v-studio creative, corporate identity, branding, and marketing services. 
 
-Increase your brand recognition and value through:
-
-Corporate identity and branding
-Logo development and design
-Stationery, sales kits, presentation kits
-Brochures, flyers, direct mail, catalogues
-Multi-media and digital design and much more</p>
+Increase your brand recognition and value through:</p>
+                            <ul>
+<li>Corporate identity and branding</li>
+<li>Logo development and design</li>
+<li>Stationery, sales kits, presentation kits</li>
+<li>Brochures, flyers, direct mail, catalogues</li>
+<li>Multi-media and digital design </li>
+<li>and much more</li></ul>
 						</div>
 						<br>
 						<div id="corp-4" style="display:none;">
