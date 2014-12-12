@@ -8,6 +8,7 @@
   src: url(fonts/arabic.ttf);
 }
         </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- Header [Small Navigation & Large Navigation] ---->
@@ -105,8 +106,8 @@
 				</div>
 				<div id="sager-text" style="position:absolute; display:none;font-family: 'Alj'">
 					<h1></h1>
-					<p style="line-height:20px;">نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي</p>
-					<span class="text-med">الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي</span><br>
+					<p style="line-height:20px;"> نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي</p>
+					
 					<span class="text-med">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span>
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
@@ -176,14 +177,14 @@ Your browser does not support the video tag
 				<div class="row">
 					<div class="col-md-8" id="holo-left">
 						<div id="holo-middle" style=" position:absolute; left:0px;width:780px; height:380px;">
-							<div id="mac" class="mac" style="display:none; position:absolute; width:780px; height:372px; background-image:url(img/screen.jpg); background-position:20% 100%; background-repeat:no-repeat; z-index:4; overflow:hidden;	background-size:75% 90%; z-index:0">
+							<div id="mac" class="mac" style="display:none; position:absolute; width:780px; height:372px; background-image:url(img/screen.jpg); background-position:20% 100%; background-repeat:no-repeat; z-index:4; overflow:hidden;	background-size:85% 92%; z-index:0">
 								<!--
 								<div id="mac1" style="width:445px; height:273px; position:absolute;z-index:3; overflow:hidden;left:110px; top:62px;">
 									<img src="img/vid-1.png" style=" position:absolute; z-index:2"/>
 								</div>
 								-->
 								
-								<div id="mac2" style="width:445px; height:273px; position:absolute;z-index:3; overflow:hidden;left:110px; top:62px;">
+								<div id="mac2" style="width:500px; height:300px; position:absolute;z-index:3; overflow:hidden;left:110px; top:40px;">
 									<video id="holo-video" controls poster="img/vid-1.png">
 										<source src='media/media1.mp4' type='video/mp4'>
 Your browser does not support the video tag
@@ -236,52 +237,52 @@ Your browser does not support the video tag
 								&nbsp;
 							</div>
 						</div>
-						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;">
+						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;" class="col-md-12">
 							<h2 style="font-family:'Ge'; font-size:24px;text-align:right;">فيديو المنتجات </h2>
                             <div class="row">
                                 <div class="col-md-11 col-md-offset-1">
                                     <div class="row holo-vids">
                                         <div class="col-md-3 vid-hover" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
-                                            <div class="vid-play text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                                 وحدات عرض هولوجرام
                                             </div>
                                         </div>
                                         <div class="col-md-3 vid-hover1" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
-                                            <div class="vid-play1 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play1 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             فيلم العرض الضوئي 
                                              </div>
                                         </div>
                                         <div class="col-md-3 vid-hover2" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
-                                            <div class="vid-play2 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play2 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             المتحدث الإفتراضي </div>
                                         </div>
 
                                         <div class="col-md-3 vid-hover3" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
-                                            <div class="vid-play3 text-center" style="background: url(../img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play3 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             رول اب بشاشة فيديو </div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover4" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
-                                            <div class="vid-play4 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play4 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             المسوق الإفتراضي الصغير</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover5" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
-                                            <div class="vid-play5 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play5 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                              لثلاجة العرض LCD شاشة </div>
                                         </div>
                                          <div style="display: none;" class="col-md-3 vid-hover6" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
-                                            <div class="vid-play6 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play6 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             الكتاب الإلكتروني الهولوغرافي</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover7" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
-                                            <div class="vid-play7 text-center" style="background: url(img/cap.png); background-size: 100% 100%; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <div class="vid-play7 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
                                             العرض الضوئي على الأرضيات </div>
                                         </div>
 
@@ -351,7 +352,7 @@ Your browser does not support the video tag
 <li>فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
 </ul></p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">تحميل الفيدو فلاش </a>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -402,7 +403,7 @@ Your browser does not support the video tag
 						<hr>
 						<p>في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">تحميل الفيدو فلاش </a>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left"><img src="img/3d-image-icon1.png" /> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -454,8 +455,8 @@ Your browser does not support the video tag
 							
 						</h3>
 						<hr>
-						<p>الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
-												<span class="span-text"><a target="_blank" href="media/catalogue.pdf">تحميل الفيدو فلاش </a>
+						<p style="text-align:justify;">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
+												<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -504,8 +505,8 @@ Your browser does not support the video tag
 							
 						</h3>
 						<hr>
-						<p>إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf">تحميل الفيدو فلاش </a>
+						<p style="text-align:justify;">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
+						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -567,7 +568,8 @@ Your browser does not support the video tag
 						<h1 class="heading3" style="display:none;font-size:40px;"> خدمات الوسائط الإعلامية المتعـددة  </h1>
 					</div>
 				</div>
-				<div class="row" style="float:left;">
+                <div style="height:1px;clear:both;"></div>
+				<div class="row col-md-8" style="float:left;">
 					<div class="col-md-5" style="padding-left:0px; font-size:12px;">
 						<ul >
 							<li style="padding-top:5px;">الرسوم المتحركة والجرافكس التوضيحي</li>
@@ -589,8 +591,10 @@ Your browser does not support the video tag
 					<img id="discover-more" src="img/service-arrow-a.png"/>
 				</div>
 				<div id="download-catalog" class="icon-rotate">
-					<img src="img/service-download.png"/>
-					<p>Download All Services<br> Presentation & Flash Video<p>
+					<img src="img/service-download.png" style="max-height:40px;"/>
+					<p>لاتستطيع مشاهدة الفيديو؟<br />حمّل فيديو الخدمات  فلاش </p>
+                    <img src="img/service-download.png" style="max-height:40px;"/>
+                    <p>تحميل عرض<br /> جميع الخدمات </p>
 				</div>
 				<!--
 				<div id="service-hex-1">
@@ -649,8 +653,8 @@ Your browser does not support the video tag
 		</div>
 		</div>
 	</section>
-	<section id="corporate" style="display:none; direction: rtl; font-family: 'Alj' unicode-bidi: embed;">
-		<div id="corporate-cover">
+	<section id="corporate" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
+		<div id="corporate-cover" style="background-image:url(../img/ci-bg_a.jpg)">
 			<div class="container">
                                 <div id="arrow-corporate" class="arrow" style="position:absolute; top:40%; left:100px;">
                                        <img src="img/arrow_left.png" width="77" height="75" alt="Left Arrow"/>
@@ -659,36 +663,39 @@ Your browser does not support the video tag
 					<br><br><br>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-1">
-						<h2 id="corp-1" style="display:none;">YOU NEVER GET A SECOND CHANCE</h2>
-						<h1 id="corp-2" style="display:none;">TO MAKE A FIRST IMPRESSION</h1>
+					
+					<div class="col-md-5">
+					</div>
+                    <div class="col-md-6 col-md-offset-1">
+						<h2 id="corp-1" style="display:none;">لن تحظى بفرصة ثانية لخلق الإنطباع الأول</h2>
+						<%--<h1 id="corp-2" style="display:none;">TO MAKE A FIRST IMPRESSION</h1>--%>
 						
 						<div id="corp-3" style="display:none;">
 						<hr>
-						<p>Inspire your audience to action with v-studio creative, corporate identity, branding and marketing services.
+						<p>ألهم جمهورك بالتفاعل مع خدمات في ستديو V-studio  لتصاميم الجرافكس للهوية التجارية والتسويق  حيث الحلول الشاملة 
 
-Increase your brand recognition and value through:
-
-Corporate identity and branding
-Logo development and design
-Stationery, sales kits, presentation kits
-Brochures, flyers, direct mail, catalogues
-Multi-media and digital design and much more</p>
+</p>
+                            <ul>
+                                <li>صناعة  وتصميم الهوية التجارية</li>
+                                <li>تصميم وتطوير وتطبيقات الشعار</li>
+                                <li>تصميم المطبوعات ووسائل التسويق والعروض</li>
+                                <li>تصميم الكتيبات والمنشورات التسويقية ونشرات البريد الالكتروني</li>
+                                <li>خدمات الوسائط المتعددة</li>
+                                <li>والكثير من الخدمات الأخرى</li>
+                            </ul>
 						</div>
 						<br>
 						<div id="corp-4" style="display:none;">
-						<span>Make the right impression by delivering the right message to the right audience in the right way</span>
+						<span>أترك إنطباعا أفضل من خلال إيصال الرسالة التسويقية المناسبة للجمهور المستهدف بالطريقة الأفضل.</span>
 						<hr>
-						<span>Contact v-studio today to help you harness the power to captivate your audience again and again.</span>
+						<span>إتصل ب في ستديو V-studio   لمساعدتك في تسخير القدرات على الإستحواذ على إهتمام جمهورك مرارا وتكرارا.</span>
 	                    </div>
-					</div>
-					<div class="col-md-5">
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section id="wayfinding" style="display:none; direction: rtl; font-family: 'Alj' unicode-bidi: embed;">
+	<section id="wayfinding" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
 		<div id="wayfinding-cover">
 			<div class="container-fluid">
   <div id="wayModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -806,7 +813,7 @@ Your browser does not support the video tag
 			</div>
 		</div>
 	</section>
-	<section id="polytouch"  style="display:none; direction: rtl; font-family: 'Alj' unicode-bidi: embed;">
+	<section id="polytouch"  style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
 		<div id="polytouch-cover">
 			<div class="container-fluid">
   <div id="polyModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

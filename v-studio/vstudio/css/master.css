@@ -23,11 +23,35 @@ src: url(../fonts/ShadowsIntoLight.ttf);
 font-family: Gill;
 src: url(../fonts/GillSansMTPro-Bold.otf);
 }
+/*
 @font-face
 {
 font-family: Arabic;
 src: url(../fonts/arabic.ttf);
 }
+
+@font-face {
+    font-family: 'Arabic';
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot');
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Al-Jazeera-Arabic-Regular.woff') format('woff'), url('../fonts/Al-Jazeera-Arabic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+@font-face {
+    font-family: 'Arabic';
+    src: url('../fonts/al-jazeera-arabic-regular-webfont.eot');
+    src: url('../fonts/al-jazeera-arabic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/al-jazeera-arabic-regular-webfont.woff2') format('woff2'),
+         url('../fonts/al-jazeera-arabic-regular-webfont.woff') format('woff'),
+         url('../fonts/al-jazeera-arabic-regular-webfont.ttf') format('truetype'),
+         url('../fonts/al-jazeera-arabic-regular-webfont.svg#al-jazeera-arabicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @font-face
 {
 font-family: Ubuntu-Bold;
@@ -306,7 +330,7 @@ body
 }
 .text-med
 {
-	font-size:20px;
+	font-size:19px;
 	line-height:22px;
 }
 .right-icons
@@ -891,7 +915,7 @@ width: auto; height: auto; z-index: -100;
 {
 	position: absolute;
 	right: 37.06%;
-	bottom: 11.85%;
+	bottom: 3%;
 	z-index:1024;
 	text-align:center;
 	cursor:pointer;
@@ -926,7 +950,8 @@ width: auto; height: auto; z-index: -100;
 }
 #services h1 
 {
-	font-family:Ubuntu-Medium;
+	/*font-family:Ubuntu-Medium;*/
+    font-family: 'Ubuntu', sans-serif;
 	font-size:44px;
 	color:#dfd9e6;
 	line-height:80px;
@@ -1434,6 +1459,7 @@ border-radius:0px;
 	top:9%;
 	left:23% !important;
     right:initial !important;
+    right:auto;
         z-index:3000;
 
 }
@@ -1444,6 +1470,7 @@ border-radius:0px;
 	top:9%;
 	right:23% !important;
     left:initial !important;
+    left:auto;
         z-index:3000;
 }
 .mtarabic
@@ -1452,6 +1479,7 @@ border-radius:0px;
 	top:38%;
 	right:26% !important;
     left:initial !important;
+    left:auto;
         z-index:3000;
 }
 .hparabic
@@ -1460,6 +1488,7 @@ border-radius:0px;
 	top:38%;
 	left:28% !important;
     right:initial !important;
+    right:auto;
         z-index:3000;
 }
 
