@@ -501,6 +501,8 @@ function scrollAllow() {
         mediaPlayer1 = document.getElementById('holo-video');
         mediaPlayer9 = document.getElementById('presenter-video');
         mediaPlayer9.src = "media/3MB.mp4";
+        /*if (document.location.href.indexOf("arabic") > -1)
+            mediaPlayer9.src = "media/ar_webpres.mp4";*/
         mediaPlayer9.load();
         mediaPlayer9.play();
         mediaPlayer9.onended = function (e) {

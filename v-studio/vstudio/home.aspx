@@ -737,20 +737,20 @@ Increase your brand recognition and value through:</p>
 				</div>
 				<div class="row">
 					<div id="way-left" style="display:none; position:absolute; left:3.7%;">
-						<div class="col-md-5" >
+						<div class="col-md-6" >
 							
 							<h2>3D Wayfinder for kiosks, smartphones and the web</h2>
 							<div class="line-3d" style="width:95%"></div>
 							<p>Al daleel 3D Wayfinding is an interactive 3D map directory for large public buildings works on large multi-touch-screens with location-based view of the buildinghelping visitors find their destination, designed for indoor navigation in shopping malls, department stores, airports, train stations, hospitals, campuses, office buildings, universities, convention & exhibition centers etc.</p>
 							<h2>Features</h2>
 							<div class="line-3d" style="width:95%"></div>
-							<p>
-								Additional revenue through contextual banne	and	advertisements
-Events calendar and announcements
-Interactive info about tenants grouped by keyword, location, A-Z
-Search by tag, name, location, keyword
-Web-based content management for tenants
-Requires no apps to be installed on mobile phone whether Symbian, Android or iOS, Al daleel 3D Way finding is compatible with all major smart phones.							</p>
+							<ul>
+								<li>Additional revenue through contextual banne	and	advertisements</li>
+<li>Events calendar and announcements</li>
+<li>Interactive info about tenants grouped by keyword, location, A-Z</li>
+<li>Search by tag, name, location, keyword</li>
+<li>Web-based content management for tenants</li>
+<li>Requires no apps to be installed on mobile phone whether Symbian, Android or iOS, Al daleel 3D Way finding is compatible with all major smart phones.</li>							</ul>
                                                         <img src="img/wayfinding-lower.png" height="150" width="437"/>
 						</div>
 					</div>

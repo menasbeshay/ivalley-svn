@@ -160,7 +160,13 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\imageflow.packed.css" />
     <Content Include="css\master.css" />
+    <Content Include="fonts\al-jazeera-arabic-regular-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\JF-Flat-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="home.aspx" />
@@ -192,6 +198,7 @@
     <Content Include="img\arrow_right.png" />
     <Content Include="img\arrow_right_violet.png" />
     <Content Include="img\Back_image.png" />
+    <Content Include="img\Back_image_White.png" />
     <Content Include="img\ball-circle.png" />
     <Content Include="img\bg-joinus.jpg" />
     <Content Include="img\bg-video-a.jpg" />
@@ -388,7 +395,6 @@
     <Content Include="img\vid-3.png" />
     <Content Include="img\vid-4.png" />
     <Content Include="img\video.png" />
-    <Content Include="img\video_productions %281%29.png" />
     <Content Include="img\video_productions.png" />
     <Content Include="img\video_productions_a.png" />
     <Content Include="img\video_screen.png" />
@@ -407,6 +413,7 @@
     <Content Include="img\work-with-us.png" />
     <Content Include="img\youtube.png" />
     <Content Include="media\3MB.mp4" />
+    <Content Include="media\ar_webpres.mp4" />
     <Content Include="media\demo1.mp4" />
     <Content Include="media\demo1.mpeg" />
     <Content Include="media\media1.mp4" />
@@ -477,6 +484,27 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\Al-Jazeera-Arabic-Regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\JF-Flat-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\JF-Flat-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\JF-Flat-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\al-jazeera-arabic-regular-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\al-jazeera-arabic-regular-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\al-jazeera-arabic-regular-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\al-jazeera-arabic-regular-webfont.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
