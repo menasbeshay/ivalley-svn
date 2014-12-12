@@ -7,12 +7,16 @@
   font-weight: 400;
   src: url(fonts/arabic.ttf);
 }
+
+        #menu1 ul li {
+            font-family:'JF_Flat_Regular' !important;
+        }
         </style>
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- Header [Small Navigation & Large Navigation] ---->
-	<section id="header" style="font-family: 'Alj'; unicode-bidi: embed;">
+	<section id="header" style="font-family: 'JF_Flat_Regular'; unicode-bidi: embed;">
 		<div id="nav-small">
 			<div id="arabic" class="text-center">
 				<a href="home"><span style="font-family:Ubuntu-Regular;font-size:14px;">English</span></a>
@@ -26,7 +30,7 @@
 					<li id="menu-pd" class="pds"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/></a></li>
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
-                                        <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
+                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -44,9 +48,9 @@
 			<div id="menu1" style="display:none;">
 				<ul class="list-unstyled hover-both">
 					<li id="menu-products" class="products"><a href="#">هولوجرام والعرض الضوئي </a></li>
-					<li id="menu-pd" class="pds"><a href="#">Product Description</a></li>
-					<li id="menu-services" class="services"><a href="#">خدمات الوسائط الإعلامية المتعددة</a></li>
-					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
+					<li id="menu-pd" class="pds"><a href="#">وصف المنتجات</a></li>
+					<li id="menu-services" class="services"><a href="#" style="font-size:13px;">خدمات الوسائط الإعلامية المتعددة</a></li>
+					<li id="menu-cb" class="cbs"><a href="#">العلامات التجارية للشركات</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
 					<li id="menu-way" class="3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
 					<li id="menu-contact" class="contact"><a href="#">إتصل بنا</a></li>
@@ -293,7 +297,7 @@ Your browser does not support the video tag
 					</div>
 					<div id="presenter" style="background:#fff; width:380px; position:absolute; right:70px;"; >
 					<video style="height:550px; width:344px; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
-				<source src='media/3MB.mp4' >
+				<source src='media/ar_webpres.mp4' >
 Your browser does not support the video tag
 			</video>
 						<div style="width:135px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
@@ -742,26 +746,26 @@ Your browser does not support the video tag
 -->
 				<div class="row" style="height:100px; left:9.3%; position:relative;">
 					<div class="page-heading col-md-5" style="width:auto;">
-						<h1 class="text-left heading4" style="width:auto;text-align:right; display:none;"><img width="150" height="47" src="img/3D-Wayfinding_logo.png"> الدليل ثلاثي الأبعاد للمباني </h1>
+						<h1 class="text-left heading4" style="width:auto;text-align:right; display:none;font-family:alj;"><img width="150" height="47" src="img/3D-Wayfinding_logo.png"> الدليل ثلاثي الأبعاد للمباني </h1>
 						
 					</div>
 				</div>
 				<div class="row">
-					<div id="way-left" style="display:none; text-align:right; position:absolute; left:3.7%;">
-						<div class="col-md-5" >
+					<div id="way-left" style="display:none; text-align:right; position:absolute; left:3.7%;direction:rtl;width:45%" >
+						<div class="col-md-12" >
 							
-							<h2>دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
+							<h2 style="font-family:alj;">دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
 							<div class="line-3d" style="width:95%"></div>
 							<p>الدليل ثلاثي الأبعاد هو دليل تفاعلي بخارطة ثلاثية الأبعاد للمباني الكبيرة تساعد زوارها على إيجاد طريقهم ، وهو  برنامج مصمم للعمل على شاشة تعمل باللمس للملاحة داخل المباني كما في المراكز التجارية ، والمتاجر الكبرى والمطارات ومحطات السكة الحديدية والمستشفيات والجامعات والمجمعات السكنية الكبيرة وأثناء المعارض التجارية وخلاف ذلك. الدليل ثلاثي الأبعاد للمباني العامة تطبيق يمكن تثبيته على شاشاتنا باللمس او للعمل على أجهزة الهواتف الذكيّة او على شبكة الإنترنت.</p>
-							<h2>الخصائص الفنيّة :</h2>
+							<h2 style="font-family:alj;">الخصائص الفنيّة :</h2>
 							<div class="line-3d" style="width:95%"></div>
-							<p>
-								•	دخل إضافي للمشغّل من خلال إعلانات مبتكرة على الشاشة
-•	جدول للفعاليات و النشرات الإعلانية
-•	معلومات تفاعلية للمستأجرين  تظهر باستخدام كلمات بحث او موقع او أحرف أو ماركة تجارية
-•	التحكم بالمحتوى وتغييره عبر الإنترنت عن بعد
-•	لايحتاج إلى تحميل تطبيقات لمستخدمي الهواتف الذكية أيا كان نوعها عند الرغبة في نقل خارطة منطقة الوصول من الشاشة باللمس.							</p>
-                                                        <img src="img/wayfinding-lower.png" height="150" width="437"/>
+							<ul>
+								<li>دخل إضافي للمشغّل من خلال إعلانات مبتكرة على الشاشة</li>
+<li>جدول للفعاليات و النشرات الإعلانية</li>
+<li>معلومات تفاعلية للمستأجرين  تظهر باستخدام كلمات بحث او موقع او أحرف أو ماركة تجارية</li>
+<li>التحكم بالمحتوى وتغييره عبر الإنترنت عن بعد</li>
+<li>لايحتاج إلى تحميل تطبيقات لمستخدمي الهواتف الذكية أيا كان نوعها عند الرغبة في نقل خارطة منطقة الوصول من الشاشة باللمس.	</li>						</ul>
+                                                        <img src="img/wayfinding-lower.png" height="150" width="437" style="float:left;"/>
 						</div>
 					</div>
                                         <div class="col-md-1">
@@ -861,25 +865,32 @@ Your browser does not support the video tag
 -->
 				<div class="row" style="height:100px;left:9.3%; position:relative;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading5" style="display:none; padding-left:5px;"><img width="236" height="49" src="img/polytouch-logo1.jpg"/></h1>
+						<h1 class="heading5" style="display:none; padding-left:5px;margin-top:0 !important;"><img width="236" height="49" src="img/polytouch-logo1.jpg"/></h1>
 						
 					</div>
 				</div>
 				
 				<div class="row">
-					<div id="way-left1" style="display:none; position:absolute; left:3.7%;">
-						<div class="col-md-6" >
-							<h2>عربي عربي عربيعربي عربيعربيعربي عربي عربيعربي عربيعربي</h2>
+					<div id="way-left1" style="display:none; position:absolute; left:3.7%;" class="col-md-7">
+						<div class="col-md-12" style="padding:0 !important;width:99.5%">
+							<h2 style="margin-top:1px !important;">Polytouch</h2>
 							<div class="poly-line"></div>
-							<p>Polytouch  هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية ) PCT ) وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32 و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد all in 1) ( . النظام الجديد لـ Polytouch  (التركيب السريع) QMS   (براءة الإختراع تحت التسجيل)  يضمن للمستخدم  إستبدال بعض القطع لتوسيع وظائف النظام الخاص به أو لتكييفه مع متطلبات جديدة أو أنظمة حديثة. 
-نظرا لتصميم Polytouch الإنسيابي الذكي المتضمن كمبيوتر بداخل الشاشة يمكن إستخدام هذه الشاشات أينما وجد قابس كهرباء ، التركيب السريع السهل وأبعاد عمق الشاشة الصغيره والشاشة المسطحة تجعل منها آداة رائعة لنقاط البيع بالإضافة للإستخدامات الأخرى في أعمال وتطبيقات كثيرة. مهما كان نوع أعمالك فهي قطعا أذكى مع Polytouch</p>
+							<p style="text-align:justify;">Polytouch  هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية ) PCT ) وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32 و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد all in 1) ( . النظام الجديد لـ Polytouch  (التركيب السريع) QMS   (براءة الإختراع تحت التسجيل)  يضمن للمستخدم  إستبدال بعض القطع لتوسيع وظائف النظام الخاص به أو لتكييفه مع متطلبات جديدة أو أنظمة حديثة. 
+نظرا لتصميم Polytouch الإنسيابي الذكي المتضمن كمبيوتر بداخل الشاشة يمكن إستخدام هذه الشاشات أينما وجد قابس كهرباء ، التركيب السريع السهل وأبعاد عمق الشاشة الصغيره والشاشة المسطحة تجعل منها آداة رائعة لنقاط البيع بالإضافة للإستخدامات الأخرى في أعمال وتطبيقات كثيرة. مهما كان نوع أعمالك فهي قطعا أذكى مع Polytouch</p>							
+                            <div class="col-md-6" style="padding:0 !important;padding-right:10px !important;">
+                                <h3 style="margin-top:3px !important;font-size:20px;font-weight:bold;">QMS نظام التركيب السريع في شاشات نقاط البيع</h3>
+                            <div class="poly-line"></div>
+							<p style="text-align:justify;">تقدم شاشات Polytouch POS المخصصة لنقاط البيع نظام QMS التركيب السريع ومع براءة الإختراع هذه تنفرد Polytouch POS بسهولة تغيير أو ترقية مكونات نظام الشاشة ، أجزاء التغيير أو الترقية تشمل الطابعه ، الشريحة ، قراءة كلمة سر المدفوعات، الكاميرا، بالاضافة للأنظمة الجديدة RFID و NFC ، فقط وحدها Polytouch بنظام QMS التركيب السريع تضمن لك مطابقة الأنظمة الجديدة معها.</p>
+                                </div>
+                            <div class="col-md-6" style="padding:0 !important;">
+                                 <h3 style="margin-top:1px !important;">البرامج والتطبيقات</h3>
+                            <div class="poly-line"></div>
+							<p style="text-align:justify;">اذا كنت قد قمت بتطوير تطبيق أو برنامج خاص بنقاط البيع او أي استخدام آخر ، أو كنت من مصممي ومطوري التطبيقات ،  Polytouch  هي الشاشة التي تبحث عنها في ظل اللامحدودية من الإمكانيات. تقدم في ستديو V-Studio مجموعة من تطبيقات الأعمال وتعمل بالتعاون مع شركائها المطورين على تطوير المزيد من التطبيقات ، حاليا تشمل التطبيقات المتوفرة: دليل المباني ثلاثي الأبعاد ، تطبيق عقارات لبيع وتأجير العقار  ، تطبيقات البيع بالتجزئة ، والتسجيل والمغادرة الذاتية بالفنادق ، ومعرض الصور والفيديو..</p>
+                                </div>
+							
 							<div class="poly-line"></div>
-							<h3>عربي عربي عربيعربي عربيعربي
-عربي عربي عربيعربي عربيعربي
-عربي عربي عربيعربي عربيعربي
-عربي عربي عربيعربي عربيعربي</h3>
-
-                                                        <img src="img/poly-bottom.png" width="100%" class="img-responsive"/>
+                           
+                            <img src="img/poly-bottom.png" style="width:85%;float:left;" class="img-responsive"/>
 						</div>
 					</div>
 					<div id="way-right1" style="display:none; position:absolute;float:left;direction:ltr; margin-left:10px; right:10px;">

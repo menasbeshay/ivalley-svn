@@ -23,6 +23,18 @@ src: url(../fonts/ShadowsIntoLight.ttf);
 font-family: Gill;
 src: url(../fonts/GillSansMTPro-Bold.otf);
 }
+
+
+@font-face {
+    font-family: "JF_Flat_Regular";
+    src: url('../fonts/JF-Flat-regular.eot');
+    src: url('../fonts/JF-Flat-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/JF-Flat-regular.svg#JF Flat Regular') format('svg'),
+    url('../fonts/JF-Flat-regular.woff') format('woff'),
+    url('../fonts/JF-Flat-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /*
 @font-face
 {
@@ -209,7 +221,7 @@ body
 #menu1
 {
 	position:fixed;
-	width:249px;
+	width:270px;
 	height:auto;
 	top:22%;
 	left:77px;
@@ -695,7 +707,7 @@ width: auto; height: auto; z-index: -100;
 	background-image:url(../img/poly-line.png);
 	width:100%;
 	height:1px;
-	margin-bottom:10px;
+	margin-bottom:7px;
 }
 .active-menu
 {
@@ -1373,6 +1385,7 @@ border-radius:0px;
 	background-repeat:no-repeat;
 	background-position:50% 50%;
 	background-size:100% 100%;
+    /*background-image:url(../img/Back_image_White.png);*/
 	height:100%;
 	min-height:675px;
 	z-index:2000;
