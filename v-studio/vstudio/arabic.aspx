@@ -28,10 +28,11 @@
 				<ul class="list-unstyled hover-both">
 					<li id="menu-products" class="products"><a href="#"><img src="img/menu-1.png" width="32px" height="32px"/></a></li>
 					<li id="menu-pd" class="pds"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
-					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/></a></li>
+					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>                    
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
-                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
+                    <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -49,10 +50,11 @@
 				<ul class="list-unstyled hover-both">
 					<li id="menu-products" class="products"><a href="#">هولوجرام والعرض الضوئي </a></li>
 					<li id="menu-pd" class="pds"><a href="#">وصف المنتجات</a></li>
-					<li id="menu-services" class="services"><a href="#" style="font-size:13px;">خدمات الوسائط الإعلامية المتعددة</a></li>
+					<li id="menu-services" class="services" style="padding-top:14px;padding-bottom:14px"><a href="#">خدمات الوسائط<br /> الإعلامية المتعددة</a></li>
 					<li id="menu-cb" class="cbs"><a href="#">العلامات التجارية للشركات</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
 					<li id="menu-way" class="3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#">منصات الشاشات باللمس <br />واللوحات الإعلانية الرقمية</a></li>
 					<li id="menu-contact" class="contact"><a href="#">إتصل بنا</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">أعمالنا وعملاؤنا</a></li>
 					<li id="menu-join" class="jus"><a href="#">إنضم إلينا</a></li>
@@ -110,9 +112,8 @@
 				</div>
 				<div id="sager-text" style="position:absolute; display:none;font-family: 'Alj'">
 					<h1></h1>
-					<p style="line-height:20px;"> نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي</p>
+					<p style="line-height:20px;"> نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي &nbsp;<span class="text-med" style="margin-right:5px;position:absolute;">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span></p>
 					
-					<span class="text-med">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span>
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
 					<img src="img/watch-video-a.png" class="img-responsive"/>
@@ -169,15 +170,10 @@ Your browser does not support the video tag
 			<div class="container">
 				<div class="row" style="height:100px;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading1" style="font-family: 'Ge';text-align:right;">هولوجرام والعرض الضوئي</h1>
+						<h1 class="heading1" style="font-family: 'Ge';text-align:center;">هولوجرام والعرض الضوئي</h1>
 					</div>
 				</div>
-                                <div id="arrow-holo-more" class="arrow" style="right:30%; z-index:200; position:absolute; bottom:7%;">
-				    <img src="img/arrow_right_violet.png" width="65" height="63" alt="Right Arrow"/>
-				</div>
-                                 <div id="arrow-holo-more-left" class="arrow" style="left:7%; z-index:200; position:absolute; bottom:7%;">
-				    <img src="img/arrow_left_violet.png" width="65" height="63" alt="Left Arrow"/>
-				</div>
+                                <!-- arrows here -->
 				<div class="row">
 					<div class="col-md-8" id="holo-left">
 						<div id="holo-middle" style=" position:absolute; left:0px;width:780px; height:380px;">
@@ -242,8 +238,15 @@ Your browser does not support the video tag
 							</div>
 						</div>
 						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;" class="col-md-12">
+
 							<h2 style="font-family:'Ge'; font-size:24px;text-align:right;">فيديو المنتجات </h2>
                             <div class="row">
+                                <div id="arrow-holo-more" class="arrow" style="right:-10%; z-index:200; position:absolute; ">
+				                    <img src="img/arrow_right_violet.png" width="65" height="63" alt="Right Arrow"/>
+				                </div>
+                                                 <div id="arrow-holo-more-left" class="arrow" style="left:-2%; z-index:200; position:absolute; ">
+				                    <img src="img/arrow_left_violet.png" width="65" height="63" alt="Left Arrow"/>
+				                </div>
                                 <div class="col-md-11 col-md-offset-1">
                                     <div class="row holo-vids">
                                         <div class="col-md-3 vid-hover" >
@@ -339,7 +342,7 @@ Your browser does not support the video tag
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1" style="">
+					<div class="col-md-5 col-md-offset-1 productWrapper" style="">
 						<h2>هولوكونيك™ 
 						<a href="" class="pull-left"><img src="img/logo1.png"  height="65"/></a>
 						</h2>
@@ -356,8 +359,8 @@ Your browser does not support the video tag
 <li>فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
 </ul></p>
 						<br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -397,7 +400,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 productWrapper">
 						<h2>وينشــو™ 
 						<a href="" class="pull-left"><img src="img/logo3.png"  height="65"/></a>
 						</h2>
@@ -407,8 +410,8 @@ Your browser does not support the video tag
 						<hr>
 						<p>في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
 						<br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left"><img src="img/3d-image-icon1.png" /> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -451,7 +454,7 @@ Your browser does not support the video tag
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1" >
+					<div class="col-md-5 col-md-offset-1 productWrapper" >
 						<h2>سي ما رول اب™  
 						<a href="" class="pull-left"><img src="img/logo2.png"  height="65"/></a>
 						</h2>
@@ -460,8 +463,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
-												<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
+												<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -501,7 +504,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 productWrapper">
 						<h2>هوست توك™ 
 						<a href="" class="pull-left"><img src="img/logo4.png" height="65"/></a>
 						</h2>
@@ -510,8 +513,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> تحميل الفيدو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">تحميل العرض التفصيلي </span></a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -569,23 +572,25 @@ Your browser does not support the video tag
 				<div class="row" id="page-heading1" style="height:100px;">
 
 					<div class="col-md-6">
-						<h1 class="heading3" style="display:none;font-size:40px;"> خدمات الوسائط الإعلامية المتعـددة  </h1>
+						<h1 class="heading1" style="display:none;font-size:40px;font-family: 'Ge';"> خدمات الوسائط الإعلامية المتعـددة  </h1>
 					</div>
 				</div>
                 <div style="height:1px;clear:both;"></div>
 				<div class="row col-md-8" style="float:left;">
-					<div class="col-md-5" style="padding-left:0px; font-size:12px;">
+					
+					<div class="col-md-5">
+						<ul>
+							<li style="padding-top:5px;">تصميم الهويّة التجارية والمطبوعات</li>
+							<li style="padding-top:5px;">تصميم المواقع ومقدّم المواقع الإفتراضي</li>
+							<li style="padding-top:5px;">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</li>
+						</ul>
+					</div>
+                    <div class="col-md-5" style="padding-left:0px; font-size:12px;">
 						<ul >
 							<li style="padding-top:5px;">الرسوم المتحركة والجرافكس التوضيحي</li>
 							<li style="padding-top:5px;"> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </li>
-							<li style="padding-top:5px;">تصميم الهويّة التجارية والمطبوعات</li>
-						</ul>
-					</div>
-					<div class="col-md-5">
-						<ul>
-							<li style="padding-top:5px;">إنتاج الفيديو</li>
-							<li style="padding-top:5px;">تصميم المواقع ومقدّم المواقع الإفتراضي</li>
-							<li style="padding-top:5px;">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</li>
+                            <li style="padding-top:5px;">إنتاج الفيديو</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -594,7 +599,7 @@ Your browser does not support the video tag
 				<br><br><br><br>
 					<img id="discover-more" src="img/service-arrow-a.png"/>
 				</div>
-				<div id="download-catalog" class="icon-rotate">
+				<div id="download-catalog" class="icon-rotate" style="right:38%;">
 					<img src="img/service-download.png" style="max-height:40px;"/>
 					<p>لاتستطيع مشاهدة الفيديو؟<br />حمّل فيديو الخدمات  فلاش </p>
                     <img src="img/service-download.png" style="max-height:40px;"/>
@@ -865,7 +870,7 @@ Your browser does not support the video tag
 -->
 				<div class="row" style="height:100px;left:9.3%; position:relative;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading5" style="display:none; padding-left:5px;margin-top:0 !important;"><img width="236" height="49" src="img/polytouch-logo1.jpg"/></h1>
+						<h1 class="heading5" style="display:none; padding-left:5px;margin-top:0 !important;"><img width="236" height="49" src="img/polytouch-logo.png"/></h1>
 						
 					</div>
 				</div>

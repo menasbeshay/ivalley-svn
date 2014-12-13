@@ -19,6 +19,7 @@
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -40,6 +41,7 @@
 					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
 					<li id="menu-multi" class="multi"><a href="#">Multi Touchscreens</a></li>
 					<li id="menu-way" class="3dway"><a href="#">3D Wayfinding</a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#">MTSA</a></li>
 					<li id="menu-contact" class="contact"><a href="#">Contact Us</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">Portfolio</a></li>
 					<li id="menu-join" class="jus"><a href="#">Join Us</a></li>
@@ -158,12 +160,12 @@ Your browser does not support the video tag
 						<h1 class="heading1">HOLOGRAPHY & PROJECTION</h1>
 					</div>
 				</div>
-                                <div id="arrow-holo-more" class="arrow" style="right:30%; z-index:200; position:absolute; bottom:7%;">
+                                <%--<div id="arrow-holo-more" class="arrow" style="right:30%; z-index:200; position:absolute; bottom:7%;">
 				    <img src="img/arrow_right_violet.png" width="65" height="63" alt="Right Arrow"/>
 				</div>
                                  <div id="arrow-holo-more-left" class="arrow" style="left:7%; z-index:200; position:absolute; bottom:7%;">
 				    <img src="img/arrow_left_violet.png" width="65" height="63" alt="Left Arrow"/>
-				</div>
+				</div>--%>
 				<div class="row">
 					<div class="col-md-8" id="holo-left">
 						<div id="holo-middle" style=" position:absolute; left:0px;width:780px; height:380px;">
@@ -230,6 +232,12 @@ Your browser does not support the video tag
 						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;" class="col-md-12">
 							<h2 style="font-family:Ubuntu-Regular; font-size:24px;">Products’ Videos</h2>
                             <div class="row">
+                                <div id="arrow-holo-more" class="arrow" style="right:-10%; z-index:200; position:absolute; ">
+				                    <img src="img/arrow_right_violet.png" width="65" height="63" alt="Right Arrow"/>
+				                </div>
+                                                 <div id="arrow-holo-more-left" class="arrow" style="left:-2%; z-index:200; position:absolute; ">
+				                    <img src="img/arrow_left_violet.png" width="65" height="63" alt="Left Arrow"/>
+				                </div>
                                 <div class="col-md-11 col-md-offset-1">
                                     <div class="row holo-vids">
                                         <div class="col-md-3 vid-hover" >
@@ -325,7 +333,7 @@ Your browser does not support the video tag
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1" style="">
+					<div class="col-md-5 col-md-offset-1 productWrapper" style="">
 						<h2>Holoconic ™
 						<a href="" class="pull-right"><img src="img/logo1.png"  height="65"/></a>
 						</h2>
@@ -341,8 +349,9 @@ Your browser does not support the video tag
 <li>Networkable, customizable and effectively memorable</li>
 </ul></p>
 						<br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
+						<span class="span-text">
+                            <a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						    <a href="#" data-toggle="modal" data-target="#myModal" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -382,7 +391,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 productWrapper">
 						<h2>Winshow ™
 						<a href="" class="pull-right"><img src="img/logo3.png"  height="65"/></a>
 						</h2>
@@ -392,8 +401,8 @@ Your browser does not support the video tag
 						<hr>
 						<p>V-Studio brings to you WINSHOW™, a seamless rear projection solution for all your shop’s window display needs. Just paste the V-Studio RT-RPF film on a transparent surface and mold the application with the appropriate surrounding lighting environment and distance between Winshow™ projector and surface & your product or service video display on your window is ready to impress all! No computer/laptop or video player is required.</p>
 						<br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-right"><img src="img/3d-image-icon1.png" /> <span class="view-gallery">View Presentation</span></a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> View Presentation</a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -436,7 +445,7 @@ Your browser does not support the video tag
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1" >
+					<div class="col-md-5 col-md-offset-1 productWrapper" >
 						<h2>C. MA. Roll Up ™
 						<a href="" class="pull-right"><img src="img/logo2.png"  height="65"/></a>
 						</h2>
@@ -445,8 +454,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Create an incredible experience for your target audience with a unique video screen Roll Up banner having V-Studio RT-RPF film coating & our Winshow™ projector. No computer/laptop or video is required. It is 1.1m or 0.8 wide x 2m in height and is available in full screen or ½ screens with print graphics.</p><br>
-												<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
+												<span class="span-text"><a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -486,7 +495,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 productWrapper">
 						<h2>Hostalk ™
 						<a href="" class="pull-right"><img src="img/logo4.png" height="65"/></a>
 						</h2>
@@ -495,8 +504,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Give the ultimate boost to your campaign with the help of HOSTALK™, the virtual mannequin speaker by V-Studio, powered by the latest rear projection techniques. Let your virtual speaker grab endless opportunities for you in the marketplace through providing a warm-up prior to events, presenting vital information uniquely, and rendering unparalleled entertainment to the audience.	</p><br>
-						<span class="view-gallery"><a target="_blank" href="media/catalogue.pdf"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-right"><img src="img/3d-image-icon1.png"/> <span class="view-gallery">View Presentation</span></a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -554,11 +563,11 @@ Your browser does not support the video tag
 				<div class="row" id="page-heading1" style="height:100px;">
 
 					<div class="col-md-12 page-heading">
-						<h1 class="heading3" style="display:none;">MULTIMEDIA SERVICES </h1>
+						<h1 class="heading1" style="display:none;font-family:'Ubuntu-Medium';">MULTIMEDIA SERVICES </h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2" style="padding-left:0px;">
+					<div class="col-md-3" style="padding-left:0px;">
 						<ul >
 							<li style="padding-top:5px;">Animation & Infographics </li>
 							<li style="padding-top:5px;">3D Visualization</li>
@@ -572,7 +581,7 @@ Your browser does not support the video tag
 							<li style="padding-top:5px;">Mobile Applications Development</li>
 						</ul>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-5">
 					</div>
 				</div>
 				
@@ -585,7 +594,7 @@ Your browser does not support the video tag
 					<img src="img/service-download.png" style="max-height:40px;"/>
 					<p>Can't stream video ? <br />Download All Services video</p>
                     <img src="img/service-download.png" style="max-height:40px;"/>
-                    <p>Download Service <br />Presentation</p>
+                    <p>Download Services <br />Presentation</p>
 				</div>
 				<!--
 				<div id="service-hex-1">
@@ -851,7 +860,7 @@ Your browser does not support the video tag
 -->
 				<div class="row" style="height:100px;left:9.3%; position:relative;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading5" style="display:none; padding-left:5px;"><img width="236" height="49" src="img/polytouch-logo1.jpg"/></h1>
+						<h1 class="heading5" style="display:none; padding-left:5px;"><img width="236" height="49" src="img/polytouch-logo.png"/></h1>
 						
 					</div>
 				</div>

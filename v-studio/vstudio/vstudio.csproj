@@ -169,6 +169,9 @@
     <Content Include="fonts\JF-Flat-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\neuropol_x_rg-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="home.aspx" />
     <Content Include="img\1.jpg" />
     <Content Include="img\10.jpg" />
@@ -304,6 +307,7 @@
     <Content Include="img\menu-full-bg1.png" />
     <Content Include="img\menu-half-bg.png" />
     <Content Include="img\menu-half-bg1.png" />
+    <Content Include="img\menu-mtsa.png" />
     <Content Include="img\message-field.png" />
     <Content Include="img\MSSbg.jpg" />
     <Content Include="img\MSSbg1.jpg" />
@@ -505,6 +509,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\al-jazeera-arabic-regular-webfont.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\neuropol_x_rg-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\neuropol_x_rg-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\neuropol_x_rg-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\neuropol_x_rg-webfont.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
