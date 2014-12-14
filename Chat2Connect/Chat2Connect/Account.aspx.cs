@@ -89,7 +89,7 @@ namespace Chat2Connect
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
-                    uiImageMain.ImageUrl = member.ProfilePic;
+                    uiImageMain.ImageUrl = "images.aspx?Image=" + member.ProfilePic;
                 }
                 ///////////////////////////////
                 uiLabelInterests.Text = uiTextBoxInterests.Text = member.Interests;
@@ -357,6 +357,8 @@ namespace Chat2Connect
 
         private void LoadPics()
         {
+            // reset session variable after uploading
+            Session["CurrentUploadedFiles"] = null;
             MemberPic pics = new MemberPic();
             pics.GetMemberPicsByMemberID(Member.CurrentMemberID);
             uiRepeaterPhotos.DataSource = pics.DefaultView;

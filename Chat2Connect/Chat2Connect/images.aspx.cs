@@ -93,7 +93,7 @@ namespace Chat2Connect
 
             }
 
-            System.Drawing.Image bmp = CreateThumbnail(Path, 160, 160);
+            System.Drawing.Image bmp = CreateThumbnail(Path, 200, 200);
 
             if (bmp == null)
             {
