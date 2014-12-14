@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account.aspx">
-      <publishTime>12/10/2014 15:13:29</publishTime>
+      <publishTime>12/14/2014 13:48:38</publishTime>
     </File>
     <File Include="AccountLog.aspx">
       <publishTime>10/30/2014 12:59:44</publishTime>
@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2014 10:01:04</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/11/2014 10:01:06</publishTime>
+      <publishTime>12/14/2014 14:56:15</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 11:24:49</publishTime>
@@ -364,16 +364,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2014 14:39:24</publishTime>
     </File>
     <File Include="css/fileupload/jquery.fileupload-noscript.css">
-      <publishTime>04/09/2014 14:39:24</publishTime>
+      <publishTime>12/14/2014 12:53:45</publishTime>
     </File>
     <File Include="css/fileupload/jquery.fileupload-ui-noscript.css">
-      <publishTime>04/09/2014 14:39:24</publishTime>
+      <publishTime>12/14/2014 12:53:45</publishTime>
     </File>
     <File Include="css/fileupload/jquery.fileupload-ui.css">
-      <publishTime>04/09/2014 14:39:24</publishTime>
+      <publishTime>12/14/2014 12:53:45</publishTime>
     </File>
     <File Include="css/fileupload/jquery.fileupload.css">
-      <publishTime>04/09/2014 14:39:24</publishTime>
+      <publishTime>12/14/2014 12:53:45</publishTime>
     </File>
     <File Include="css/fileupload/style.css">
       <publishTime>04/09/2014 14:39:24</publishTime>
@@ -407,6 +407,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="css/images/animated-overlay.gif">
       <publishTime>09/11/2014 11:25:03</publishTime>
+    </File>
+    <File Include="css/images/loading.GIF">
+      <publishTime>11/05/2014 21:50:32</publishTime>
     </File>
     <File Include="css/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
       <publishTime>09/11/2014 11:25:03</publishTime>
@@ -463,7 +466,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:02</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>11/25/2014 10:27:21</publishTime>
+      <publishTime>12/14/2014 11:11:53</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>09/11/2014 11:25:02</publishTime>
@@ -2065,13 +2068,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:24:48</publishTime>
     </File>
     <File Include="js/fileupload/jquery.fileupload.js">
-      <publishTime>09/11/2014 11:24:48</publishTime>
+      <publishTime>12/14/2014 14:18:54</publishTime>
     </File>
     <File Include="js/fileupload/jquery.iframe-transport.js">
       <publishTime>09/11/2014 11:24:48</publishTime>
     </File>
+    <File Include="js/fileupload/load-image.min.js">
+      <publishTime>12/14/2014 13:07:09</publishTime>
+    </File>
     <File Include="js/fileupload/main.js">
-      <publishTime>09/11/2014 11:24:48</publishTime>
+      <publishTime>12/14/2014 13:34:25</publishTime>
+    </File>
+    <File Include="js/fileupload/modernizr.custom.17475.js">
+      <publishTime>12/14/2014 13:06:20</publishTime>
+    </File>
+    <File Include="js/fileupload/respond.min.js">
+      <publishTime>12/14/2014 13:10:51</publishTime>
     </File>
     <File Include="js/fileupload/vendor/jquery.ui.widget.js">
       <publishTime>09/11/2014 11:24:48</publishTime>
@@ -2227,7 +2239,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:04</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>11/30/2014 15:46:00</publishTime>
+      <publishTime>12/14/2014 11:12:56</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>09/11/2014 11:25:04</publishTime>
@@ -2334,6 +2346,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="services/FileUploader.ashx">
       <publishTime>09/11/2014 11:24:50</publishTime>
     </File>
+    <File Include="services/GeneralUploader.ashx">
+      <publishTime>12/14/2014 11:46:39</publishTime>
+    </File>
     <File Include="services/NotificationService.asmx">
       <publishTime>09/11/2014 11:24:50</publishTime>
     </File>
@@ -2400,11 +2415,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="testswf/recorder.swf">
       <publishTime>09/11/2014 11:24:53</publishTime>
     </File>
+    <File Include="upload.html">
+      <publishTime>12/14/2014 14:21:36</publishTime>
+    </File>
     <File Include="usercontrols/bot/WelcomeBot.ascx">
       <publishTime>09/14/2014 11:22:35</publishTime>
     </File>
     <File Include="usercontrols/Friends.ascx">
-      <publishTime>12/02/2014 10:22:30</publishTime>
+      <publishTime>12/14/2014 11:17:00</publishTime>
     </File>
     <File Include="usercontrols/Mail.ascx">
       <publishTime>10/30/2014 12:44:52</publishTime>
