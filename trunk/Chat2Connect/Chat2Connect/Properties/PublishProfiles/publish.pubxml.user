@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2014 10:01:04</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/14/2014 14:56:15</publishTime>
+      <publishTime>12/14/2014 18:41:33</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 11:24:49</publishTime>
@@ -535,10 +535,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:03</publishTime>
     </File>
     <File Include="default.aspx">
-      <publishTime>11/11/2014 15:18:11</publishTime>
+      <publishTime>12/14/2014 18:42:53</publishTime>
     </File>
     <File Include="Error.aspx">
       <publishTime>11/05/2014 21:50:35</publishTime>
+    </File>
+    <File Include="favico.ico">
+      <publishTime>12/12/2014 22:21:09</publishTime>
     </File>
     <File Include="fonts/cocon-next-arabic-light.eot">
       <publishTime>09/11/2014 11:24:52</publishTime>
@@ -2239,7 +2242,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:04</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
-      <publishTime>12/14/2014 11:12:56</publishTime>
+      <publishTime>12/14/2014 18:41:05</publishTime>
     </File>
     <File Include="MasterPages/MessageMaster.master">
       <publishTime>09/11/2014 11:25:04</publishTime>

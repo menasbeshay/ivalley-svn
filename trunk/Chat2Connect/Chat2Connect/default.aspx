@@ -10,6 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta content="I-VALLEY" name="author" />
+    <link rel="shortcut icon" href="favico.ico" />
     <!-- stylesheets -->
     <%--<link href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
