@@ -117,7 +117,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle statusimg" data-toggle="dropdown">
                             <div class="user_img">
-                                <img src="<%= ProfilePic %>" />
+                                <img src="images.aspx?Image=<%= ProfilePic %>&profileImg=1" />
                             </div>
                         </a>
                         <ul class="dropdown-menu extended " style="right: 0 !important; z-index: 1040 !important;">
@@ -125,7 +125,7 @@
                                 <ItemTemplate>
                                     <li>
                                         <a class="status" onclick="changeS(<%# Eval("ID") %>,'<%# Eval("Name") %>');return false;">
-                                            <img class="<%# Eval("Name") %>" src="<%= ProfilePic %>" />
+                                            <img class="<%# Eval("Name") %>" src="images.aspx?Image=<%= ProfilePic %>&profileImg=1" />
                                             &nbsp;<%# Eval("Title") %>
                                         </a>
                                     </li>

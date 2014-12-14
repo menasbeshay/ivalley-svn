@@ -8,6 +8,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using System.Collections;
 
 namespace Chat2Connect
 {
@@ -252,7 +253,7 @@ namespace Chat2Connect
 
         protected void uiLinkButtonAddPhoto_Click(object sender, EventArgs e)
         {
-            string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
+            /*string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
             if (!dir.Exists)
                 dir.Create();
@@ -269,14 +270,36 @@ namespace Chat2Connect
                 pic.PicPath = path.Substring(1);
                 pic.MemberID = member.MemberID;
                 pic.Save();
+            }*/
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            if (Session["CurrentUploadedFiles"] != null)
+            {
+                Hashtable Files;
+                Files = (Hashtable)Session["CurrentUploadedFiles"];
+
+                if (Files.Count > 0)
+                {
+                    MemberPic pic = new MemberPic();
+                    foreach (DictionaryEntry item in Files)
+                    {
+                        pic.AddNew();
+                        pic.Description = "";
+                        pic.PicPath = item.Value.ToString(); ;
+                        pic.MemberID = member.MemberID;
+                    }
+                    pic.Save();
+                    Session["CurrentUploadedFiles"] = null;
+                }
+
             }
             LoadPics();
-            ClientScript.RegisterStartupScript(this.GetType(), "donePic", "$(document).ready(function (){ notify('success','تم إضافة الصورة بنجاح.');}); ", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "donePic", "$(document).ready(function (){ notify('success','تم إضافة الصورة / الصور بنجاح.');}); ", true);
         }
 
         protected void uiLinkButtonAddProfilePhoto_Click(object sender, EventArgs e)
         {            
-            string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
+            /*string path = "~/" + ConfigurationManager.AppSettings["accountpics"].ToString();
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath(path + "/" + Membership.GetUser().ProviderUserKey.ToString()));
             if (!dir.Exists)
                 dir.Create();
@@ -294,6 +317,37 @@ namespace Chat2Connect
                 pic.Save();
                 member.ProfilePic = path.Substring(1);
                 member.Save();
+            }*/
+
+            Member member = new Member();
+            member.GetMemberByUserId(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
+            if (Session["CurrentUploadedFiles"] != null)
+            {
+                Hashtable Files;
+                Files = (Hashtable)Session["CurrentUploadedFiles"];
+                int count = 0;
+                if (Files.Count > 0)
+                {
+                    MemberPic pic = new MemberPic();
+                    foreach (DictionaryEntry item in Files)
+                    {
+
+                        pic.AddNew();
+                        pic.Description = "";
+                        pic.PicPath = item.Value.ToString();
+                        pic.MemberID = member.MemberID;
+
+                        if (count == 0)
+                        {
+                            member.ProfilePic = item.Value.ToString();
+                            member.Save();
+                        }
+                        count++;
+                    }
+                    pic.Save();
+                    Session["CurrentUploadedFiles"] = null;
+                }
+
             }
             LoadPics();
             LoadProfile();

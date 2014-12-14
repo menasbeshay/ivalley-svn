@@ -7,7 +7,7 @@
             <div id="helpcontact" class="panel-collapse collapse" style="font-weight: bold;" data-bind="if: helpMembers.loaded()">
                 <!-- ko foreach: onlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-                    <img data-bind="attr: { 'src': (ProfilePic() != '') ? ProfilePic() : 'images/defaultavatar.png' }, css: Status().toLowerCase()" class='friendpic ' style="display: block" />
+                    <img data-bind="attr: { 'src': (ProfilePic() != '') ? 'images.aspx?Image=' + ProfilePic() + '&FriendList=1' : 'images/defaultavatar.png' }, css: Status().toLowerCase()" class='friendpic ' style="display: block" />
                     <a h ref="#" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }" style="margin: 5px; display: block">
                         <span data-bind="text: Name"></span>
                     </a>
@@ -18,7 +18,7 @@
                 <div class="clearfix" style="border-bottom: 1px solid #FEC200"></div>
                 <!-- ko foreach: offlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-                    <img data-bind="attr: { 'src': (ProfilePic() != '') ? ProfilePic() : 'images/defaultavatar.png' }" class='friendpic offline' style="display: block" />
+                    <img data-bind="attr: { 'src': (ProfilePic() != '') ? 'images.aspx?Image=' + ProfilePic() + '&FriendList=1' : 'images/defaultavatar.png' }" class='friendpic offline' style="display: block" />
                     <a href="#" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }" style="margin: 5px; display: block">
                         <span data-bind="text: Name"></span>
                     </a>
@@ -81,7 +81,7 @@
 </div>
 <script id="onlineFriendTmpl" type="text/html">
     <div class="friend-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-        <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: Status()" class='friendpic' />
+        <img data-bind="attr: { src: 'images.aspx?Image=' + $data.ProfilePic() + '&FriendList=1', id: 'user-' + $data.MemberID() }, css: Status()" class='friendpic' />
         <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
@@ -90,7 +90,7 @@
             <div class="popup-menu profileMenu" data-bind="attr: { 'data-for': 'usernode-' + $data.MemberID() }">
                 <div class="col-lg-3 pull-right">
                     <div class=" thumbnail">
-                        <img data-bind="attr: { src: $data.ProfilePic() }" style="max-height: 70px;" />
+                        <img data-bind="attr: { src: 'images.aspx?Image=' + $data.ProfilePic() + '&Popover=1' }" style="max-height: 70px;" />
                     </div>
                     <div class="clearfix" style="height: 1px;">
                     </div>
@@ -120,7 +120,7 @@
 </script>
 <script id="offlineFriendTmpl" type="text/html">
     <div class="friend-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-        <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: 'offline'" class='friendpic' />
+        <img data-bind="attr: { src: 'images.aspx?Image=' + $data.ProfilePic() + '&FriendList=1', id: 'user-' + $data.MemberID() }, css: 'offline'" class='friendpic' />
         <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;', attr: { id: 'user-status-' + $data.MemberID() }"></span>
@@ -129,7 +129,7 @@
             <div class="popup-menu profileMenu" data-bind="attr: { 'data-for': 'usernode-' + $data.MemberID() }">
                 <div class="col-lg-3 pull-right">
                     <div class=" thumbnail">
-                        <img data-bind="attr: { src: $data.ProfilePic() }" style="max-height: 70px;" />
+                        <img data-bind="attr: { src: 'images.aspx?Image=' + $data.ProfilePic() + '&Popover=1' }" style="max-height: 70px;" />
                     </div>
                     <div class="clearfix" style="height: 1px;">
                     </div>
@@ -162,7 +162,7 @@
 </script>
 <script id="blockedTmpl" type="text/html">
     <div class="block-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
-        <img data-bind="attr: { src: $data.ProfilePic(), id: 'user-' + $data.MemberID() }, css: IsOnline() ? Status() : 'offline'" class='friendpic' />
+        <img data-bind="attr: { src: 'images.aspx?Image=' + $data.ProfilePic() + '&FriendList=1', id: 'user-' + $data.MemberID() }, css: IsOnline() ? Status() : 'offline'" class='friendpic' />
         <i class="icon-ban-circle blockcircle"></i>
         <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name"></a>
         <div style="float: left; margin-left: 30px; cursor: pointer;" class="blocktip" title="إلغاء الحظر" data-placement="top"><i class="icon icon-remove" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), false)"></i></div>

@@ -784,7 +784,10 @@
                             إضافة صورة</h3>
                     </div>
                     <div class="modal-body">
-                            <div class="form-horizontal blockBox">
+                        <div class="form-horizontal blockBox">
+                            <iframe src="upload.html" style="border: 0; width: 100%;"></iframe>
+                            </div>
+                            <div class="form-horizontal blockBox" style="display:none;">
                                 
                                 <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
@@ -792,7 +795,7 @@
                                     </div>
                                     <div class="col-sm-8 pull-right">
                                         <asp:FileUpload ID="uiFileUploadAddImage" runat="server" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddImage" ValidationGroup="addPhoto" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddImage" ValidationGroup="addPhoto" Display="Dynamic" ForeColor="Red" Enabled="false"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>    
                                  <div class="form-group">
@@ -826,7 +829,10 @@
                             إضافة صورة لحسابك</h3>
                     </div>
                     <div class="modal-body">
-                            <div class="form-horizontal blockBox">
+                        <div class="form-horizontal blockBox">
+                            <iframe src="upload.html" style="border: 0; width: 100%;"></iframe>
+                            </div>
+                            <div class="form-horizontal blockBox" style="display:none;">
                                 
                                 <div class="form-group">
                                     <div class="col-sm-4 control-label pull-right">
@@ -834,7 +840,7 @@
                                     </div>
                                     <div class="col-sm-6 pull-right">
                                         <asp:FileUpload ID="uiFileUploadAddProfileImage" runat="server" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddProfileImage" ValidationGroup="addProfilePhoto" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator Enabled="false" ID="RequiredFieldValidator5" runat="server" ErrorMessage="من فضلك اختر صورة" ControlToValidate="uiFileUploadAddProfileImage" ValidationGroup="addProfilePhoto" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-sm-2 pull-right">
                                         <div id="loadingFile" style="display:none;width:32px;height:32px;" class="loading">

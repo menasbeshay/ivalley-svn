@@ -31,7 +31,56 @@ namespace Chat2Connect
 
             if (Request.QueryString["profile"] != null)
             {
-                System.Drawing.Image pic = FixedSize(Path, 110, 110);
+                //System.Drawing.Image pic = FixedSize(Path, 110, 110);
+                Bitmap pic = CreateThumbnail(Path, 110, 110);
+                if (pic == null)
+                {
+                    this.ErrorResult();
+                    return;
+                }
+                Response.ContentType = "image/jpeg";
+                pic.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pic.Dispose();
+                return;
+
+            }
+
+            if (Request.QueryString["profileImg"] != null)
+            {
+                //System.Drawing.Image pic = FixedSize(Path, 160, 160);
+                Bitmap pic = CreateThumbnail(Path, 160, 160);
+                if (pic == null)
+                {
+                    this.ErrorResult();
+                    return;
+                }
+                Response.ContentType = "image/jpeg";
+                pic.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pic.Dispose();
+                return;
+
+            }
+
+            if (Request.QueryString["FriendList"] != null)
+            {
+                //System.Drawing.Image pic = FixedSize(Path, 160, 160);
+                Bitmap pic = CreateThumbnail(Path, 160, 160);
+                if (pic == null)
+                {
+                    this.ErrorResult();
+                    return;
+                }
+                Response.ContentType = "image/jpeg";
+                pic.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pic.Dispose();
+                return;
+
+            }
+
+            if (Request.QueryString["Popover"] != null)
+            {
+                //System.Drawing.Image pic = FixedSize(Path, 80, 80);
+                Bitmap pic = CreateThumbnail(Path, 80, 80);
                 if (pic == null)
                 {
                     this.ErrorResult();

@@ -58,6 +58,8 @@ namespace BLL
             this.Where.WhereClauseReset();
             this.Where.InRoom.Value = 1;
             this.Where.InRoom.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Where.RoomID.Value = RoomID;
+            this.Where.RoomID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             return this.Query.Load();
 
         }
