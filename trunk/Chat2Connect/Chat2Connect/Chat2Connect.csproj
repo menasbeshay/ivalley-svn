@@ -127,6 +127,7 @@
     <Content Include="Admin\UserControls\Room\RoomType.ascx" />
     <Content Include="Admin\VIPReport.aspx" />
     <Content Include="Admin\VIPRoom.aspx" />
+    <Content Include="css\images\loading.GIF" />
     <Content Include="images\help\f1.jpg" />
     <Content Include="images\help\f2.jpg" />
     <Content Include="images\help\f3.jpg" />
@@ -150,10 +151,10 @@
     <None Include="css\dreamcodes.css" />
     <None Include="css\fileupload\demo-ie8.css" />
     <None Include="css\fileupload\demo.css" />
-    <None Include="css\fileupload\jquery.fileupload-noscript.css" />
-    <None Include="css\fileupload\jquery.fileupload-ui-noscript.css" />
-    <None Include="css\fileupload\jquery.fileupload-ui.css" />
-    <None Include="css\fileupload\jquery.fileupload.css" />
+    <Content Include="css\fileupload\jquery.fileupload-noscript.css" />
+    <Content Include="css\fileupload\jquery.fileupload-ui-noscript.css" />
+    <Content Include="css\fileupload\jquery.fileupload-ui.css" />
+    <Content Include="css\fileupload\jquery.fileupload.css" />
     <None Include="css\fileupload\style.css" />
     <Content Include="css\font-awesome\css\font-awesome-ie7.min.css" />
     <Content Include="css\font-awesome\css\font-awesome.css" />
@@ -666,6 +667,9 @@
     <Content Include="js\chatwindows.js" />
     <Content Include="js\commonfunc.js" />
     <Content Include="js\fileupload\ajaxupload.js" />
+    <Content Include="js\fileupload\load-image.min.js" />
+    <Content Include="js\fileupload\modernizr.custom.17475.js" />
+    <Content Include="js\fileupload\respond.min.js" />
     <Content Include="js\jquery-1.11.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -728,6 +732,7 @@
     <Content Include="Scripts\moment-with-langs.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="services\GeneralUploader.ashx" />
     <None Include="testswf\c2c\c2c.html" />
     <None Include="testswf\c2c\js\swfobject.js" />
     <Content Include="services\chat2connect.asmx" />
@@ -743,6 +748,7 @@
     <None Include="testswf\chat2connect4.swf" />
     <None Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
+    <Content Include="upload.html" />
     <Content Include="usercontrols\Friends.ascx" />
     <Content Include="usercontrols\Mail.ascx" />
     <Content Include="usercontrols\MemberTypes.ascx" />
@@ -1324,6 +1330,9 @@
     </Compile>
     <Compile Include="services\FileUploader.ashx.cs">
       <DependentUpon>FileUploader.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="services\GeneralUploader.ashx.cs">
+      <DependentUpon>GeneralUploader.ashx</DependentUpon>
     </Compile>
     <Compile Include="services\NotificationService.asmx.cs">
       <DependentUpon>NotificationService.asmx</DependentUpon>

@@ -139,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 11:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/08/2014 12:31:47</publishTime>
+      <publishTime>12/11/2014 10:01:04</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/10/2014 16:03:33</publishTime>
+      <publishTime>12/11/2014 10:01:06</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 11:24:49</publishTime>

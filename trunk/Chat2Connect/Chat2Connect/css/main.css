@@ -141,7 +141,8 @@ margin:0 !important;
 
 
 .login-menu li a {
-    padding:0 !important;    
+    padding:0 !important; 
+    cursor:pointer;   
 }
 
 .login-menu .dropdown>a:hover, .login-menu .dropdown>a:focus, .login-menu .dropdown>a{
@@ -233,12 +234,13 @@ margin:0 !important;
 
 
 .status img {
-    width:18px !important;
-    height:18px !important;
+    width:25px !important;
+    height:25px !important;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -ms-border-radius: 50%;
+    vertical-align:bottom;
 }
 .login-menu li a.status {
     padding:2px !important;

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jQuery File Upload Plugin 5.40.1
  * https://github.com/blueimp/jQuery-File-Upload
  *
@@ -143,7 +143,7 @@
 
             // Error and info messages:
             messages: {
-                uploadedBytes: 'Uploaded bytes exceed file size'
+                uploadedBytes: 'تم تخطى الحد الأقصى لحجم للملف (5 ميجا بايت)'
             },
 
             // Translation function, gets the message key to be translated
