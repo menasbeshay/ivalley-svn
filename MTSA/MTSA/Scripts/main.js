@@ -13,6 +13,19 @@
             }
             else
                 $('#nextTopic').css('display', 'none');
+
+            // kiosk first page
+            if (index == 4) {
+                $('.slideFooter').css('display', 'none');
+                $('#k_p0').css('display', 'block');
+            }
+            else
+                $('.slideFooter').css('display', 'none');
+
+            $('.section .animleft').removeClass('active');
+            $('.section .animright').removeClass('active');
+            $('.section.active .animleft').addClass('active');
+            $('.section.active .animright').addClass('active');
         },
         afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
             if (slideIndex > 0) {
@@ -75,12 +88,24 @@
                     $('.slideFooter').css('display', 'none');
                 }
 
+                if (index == 4) {
+                    $('.slideFooter').css('display', 'none');
+                    $('#k_p' + slideIndex).css('display', 'block');
+                } else {
+                    $('.slideFooter').css('display', 'none');
+                }
+                
+
             }
             else {
                 $.fn.fullpage.setAllowScrolling(true);
                 $.fn.fullpage.setKeyboardScrolling(true);
                 $('#nextTopic').css('display', 'block');
                 $('.slideFooter').css('display', 'none');
+                if (index == 4) {
+                    $('.slideFooter').css('display', 'none');
+                    $('#k_p' + slideIndex).css('display', 'block');
+                }
             }
 
             $('.section .animleft').removeClass('active');

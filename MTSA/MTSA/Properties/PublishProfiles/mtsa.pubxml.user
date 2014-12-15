@@ -193,7 +193,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/11/2014 09:44:47</publishTime>
+      <publishTime>12/15/2014 12:20:44</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -753,6 +753,102 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/products/digital_signage/Page4/screen.png">
       <publishTime>12/04/2014 22:54:34</publishTime>
     </File>
+    <File Include="images/products/electronic_doors/5.png">
+      <publishTime>11/11/2014 18:45:19</publishTime>
+    </File>
+    <File Include="images/products/electronic_doors/7.png">
+      <publishTime>11/11/2014 18:45:19</publishTime>
+    </File>
+    <File Include="images/products/electronic_doors/screen.png">
+      <publishTime>12/13/2014 12:02:25</publishTime>
+    </File>
+    <File Include="images/products/electronic_doors/screen1.png">
+      <publishTime>12/13/2014 12:00:22</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon1.png">
+      <publishTime>12/04/2014 22:45:04</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon2.png">
+      <publishTime>12/04/2014 22:45:22</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon3.png">
+      <publishTime>12/04/2014 22:45:46</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon4.png">
+      <publishTime>12/04/2014 22:46:00</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon5.png">
+      <publishTime>12/04/2014 22:46:16</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon6.png">
+      <publishTime>12/04/2014 22:46:28</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon7.png">
+      <publishTime>12/04/2014 22:46:46</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/icon8.png">
+      <publishTime>12/04/2014 22:47:02</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen.png">
+      <publishTime>12/13/2014 12:15:58</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen1.png">
+      <publishTime>12/13/2014 12:13:48</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen2.png">
+      <publishTime>12/13/2014 12:10:24</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen3.png">
+      <publishTime>12/13/2014 12:12:08</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen4.png">
+      <publishTime>12/13/2014 12:17:06</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen5.png">
+      <publishTime>12/15/2014 10:34:02</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page1/screen6.png">
+      <publishTime>12/13/2014 12:13:18</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page2/screen.png">
+      <publishTime>12/15/2014 10:08:04</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page2/screen1.png">
+      <publishTime>12/13/2014 12:21:16</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page2/screen2.png">
+      <publishTime>12/13/2014 12:22:32</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page2/screen3.png">
+      <publishTime>12/15/2014 10:08:06</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page2/screen4.png">
+      <publishTime>12/15/2014 10:10:02</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page3/screen.png">
+      <publishTime>12/13/2014 12:28:20</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page3/screen1.png">
+      <publishTime>12/13/2014 12:25:50</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page3/screen2.png">
+      <publishTime>12/13/2014 12:28:40</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page3/screen3.png">
+      <publishTime>12/13/2014 12:29:26</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page4/screen.png">
+      <publishTime>12/15/2014 11:25:57</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page4/screen1.png">
+      <publishTime>12/13/2014 12:33:06</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page4/screen2.png">
+      <publishTime>12/13/2014 12:33:20</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page4/screen3.png">
+      <publishTime>12/13/2014 12:33:38</publishTime>
+    </File>
     <File Include="images/products/logo_polytouch_976px.png">
       <publishTime>11/14/2014 19:16:22</publishTime>
     </File>
@@ -1024,7 +1120,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>12/07/2014 15:01:59</publishTime>
+      <publishTime>12/15/2014 12:15:33</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -1123,7 +1219,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:15</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>12/06/2014 22:23:19</publishTime>
+      <publishTime>12/15/2014 11:14:03</publishTime>
     </File>
     <File Include="Scripts/masonry.pkgd.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
