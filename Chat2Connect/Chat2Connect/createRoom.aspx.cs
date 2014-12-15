@@ -217,7 +217,7 @@ namespace Chat2Connect
                     if (uiDropDownListADD_Category.SelectedIndex != -1)
                         room.CategoryID = Convert.ToInt32(uiDropDownListADD_Category.SelectedValue);
                     if (uiDropDownListADD_SubCategory.SelectedIndex != 0)
-                        room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);
+                        room.SubCategoryID = Convert.ToInt32(uiDropDownListADD_SubCategory.SelectedValue);                   
 
                 }
                 else
@@ -253,6 +253,14 @@ namespace Chat2Connect
                 room.RowStatusID = 1;
                 room.Save();
 
+
+                /* add room owner */
+                RoomMember roommember = new RoomMember();
+                roommember.AddNew();
+                roommember.RoomID = room.RoomID;
+                roommember.MemberID = room.CreatedBy;
+                roommember.RoomMemberLevelID = (int)Helper.Enums.RoomMemberLevel.Owner;
+                roommember.Save();
                
                 uiPanelSuccess.Visible = true;
                 uiTextBoxADD_Name.Text = "";
