@@ -4250,8 +4250,8 @@ height:100%;
 
 
 #D_p1 {
-    background:url(../images/products/digital_signage/Page1/Back.jpg) no-repeat top left;    
-    background-size:contain;
+    /*background:url(../images/products/digital_signage/Page1/Back.jpg) no-repeat top left;    
+    background-size:contain;*/
 }
 
 .bottom {

@@ -81,18 +81,18 @@
                 
 
                 if (index == 3 && slideIndex > 0) {
-                    $('.slideFooter').css('display', 'none');
+                    $('.slideFooter.ds').css('display', 'none');
                     $('#ds_p' + slideIndex).css('display', 'block');
                 }
                 else {
-                    $('.slideFooter').css('display', 'none');
+                    $('.slideFooter.ds').css('display', 'none');
                 }
 
                 if (index == 4) {
-                    $('.slideFooter').css('display', 'none');
+                    $('.slideFooter.ks').css('display', 'none');
                     $('#k_p' + slideIndex).css('display', 'block');
                 } else {
-                    $('.slideFooter').css('display', 'none');
+                    $('.slideFooter.ks').css('display', 'none');
                 }
                 
 
