@@ -193,7 +193,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/15/2014 12:20:44</publishTime>
+      <publishTime>12/16/2014 17:21:32</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -268,7 +268,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>12/07/2014 14:50:38</publishTime>
+      <publishTime>12/16/2014 16:18:19</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -649,7 +649,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2014 22:49:14</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page2/icon1.png">
-      <publishTime>12/04/2014 22:45:04</publishTime>
+      <publishTime>12/16/2014 15:56:59</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page2/icon2.png">
       <publishTime>12/04/2014 22:45:22</publishTime>
@@ -721,7 +721,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2014 22:53:26</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page3/screen.png">
-      <publishTime>12/04/2014 22:53:56</publishTime>
+      <publishTime>12/16/2014 16:42:21</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page4/icon1.png">
       <publishTime>12/04/2014 22:55:36</publishTime>
@@ -751,7 +751,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2014 22:55:24</publishTime>
     </File>
     <File Include="images/products/digital_signage/Page4/screen.png">
-      <publishTime>12/04/2014 22:54:34</publishTime>
+      <publishTime>12/16/2014 16:49:48</publishTime>
     </File>
     <File Include="images/products/electronic_doors/5.png">
       <publishTime>11/11/2014 18:45:19</publishTime>
@@ -848,6 +848,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/products/kiosk/Page4/screen3.png">
       <publishTime>12/13/2014 12:33:38</publishTime>
+    </File>
+    <File Include="images/products/kiosk/Page4/screen4.png">
+      <publishTime>12/16/2014 17:03:10</publishTime>
     </File>
     <File Include="images/products/logo_polytouch_976px.png">
       <publishTime>11/14/2014 19:16:22</publishTime>
@@ -1120,7 +1123,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>12/15/2014 12:15:33</publishTime>
+      <publishTime>12/16/2014 17:13:36</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -1219,7 +1222,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:15</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>12/15/2014 11:14:03</publishTime>
+      <publishTime>12/16/2014 15:43:54</publishTime>
     </File>
     <File Include="Scripts/masonry.pkgd.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
