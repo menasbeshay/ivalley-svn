@@ -315,7 +315,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             Clients.Group(roomid.ToString()).showMemberInRoom(roomid, memberid);
         }
-        public void sendToRoomAdmins(int roomid, int senderid, string sender, string msg, string profileImg, int MemberLevelID)
+        public void sendToRoomAdmins(int roomid, int senderid, string sender, string msg, string profileImg, int MemberLevelID, int MemberTypeID)
         {
             msg = msg.Replace("<br>", "");
             var resultMsg = new Helper.ChatMessage()
@@ -326,7 +326,8 @@ namespace Chat2Connect.SRCustomHubs
                 Message = msg,
                 MessageDate = DateTime.Now,
                 FromProfileImg = profileImg,
-                MemberLevel = MemberLevelID
+                MemberLevel = MemberLevelID,
+                MemberTypeID = MemberTypeID
             };
             Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, resultMsg);
         }
