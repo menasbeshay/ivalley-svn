@@ -1322,13 +1322,13 @@
 
                     <div style="padding: 5px;" class="pull-right col-lg-2">
                         <div>
-                            <a data-bind="attr:{href:fbURL}" target="_blank" id="uiHyperLinkFb">
+                            <a data-bind="attr:{href:fbURL() == '' ? 'javascript:' : fbURL}" target="_blank" id="uiHyperLinkFb">
                                 <img src="images/facebook.png"></a>
                             &nbsp;&nbsp;
-                    <a data-bind="attr:{href:tURL}" target="_blank" id="uiHyperLinktwitter">
+                    <a data-bind="attr:{href:tURL() == '' ? 'javascript:' : tURL}" target="_blank" id="uiHyperLinktwitter">
                         <img src="images/twitter.png"></a>
                             &nbsp;&nbsp;
-                    <a data-bind="attr:{href:utURL}" target="_blank" id="uiHyperLinkyt">
+                    <a data-bind="attr:{href:utURL() == '' ? 'javascript:' : utURL}" target="_blank" id="uiHyperLinkyt">
                         <img src="images/youtube.png"></a>
                         </div>
                     </div>

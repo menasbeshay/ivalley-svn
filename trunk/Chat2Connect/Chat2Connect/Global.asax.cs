@@ -26,10 +26,28 @@ namespace Chat2Connect
 
             timerTricks = 0;
             System.Timers.Timer scheduleTimer = new System.Timers.Timer();
-            scheduleTimer.Interval = 1000 * 60 * 2; //5 minutes
+            scheduleTimer.Interval = 1000 * 60 * 5; //5 minutes
             scheduleTimer.AutoReset = true;
             scheduleTimer.Elapsed += new System.Timers.ElapsedEventHandler(scheduleTimer_Elapsed);
             scheduleTimer.Enabled = true;
+
+           /* System.Timers.Timer scheduleTimerForMailAds = new System.Timers.Timer();
+            scheduleTimerForMailAds.Interval = 1000 * 60 * 60; //60 minutes (1 hour)
+            scheduleTimerForMailAds.AutoReset = true;
+            scheduleTimerForMailAds.Elapsed += new System.Timers.ElapsedEventHandler(scheduleTimerForMailAds_Elapsed);
+            scheduleTimerForMailAds.Enabled = true;*/
+        }
+
+        private void scheduleTimerForMailAds_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            // run mail ads
+            SendScheduleAds();
+        }
+
+        private void SendScheduleAds()
+        {
+            BLL.MailAds bllMailAds = new BLL.MailAds();
+            bllMailAds.SendScheduledAds();
         }
 
         public int timerTricks;
@@ -38,6 +56,16 @@ namespace Chat2Connect
             timerTricks++;
             SubmitRoomLawBotSchedule();
             SubmitRoomProgramBotSchedule();
+            // remove stuck members from rooms
+            //CleanRooms();
+
+            
+        }
+
+        private void CleanRooms()
+        {
+            BLL.RoomMember members = new RoomMember();
+            members.CleanRooms();
         }
 
         private void SubmitRoomLawBotSchedule()
@@ -153,6 +181,6 @@ namespace Chat2Connect
         protected void Application_End(object sender, EventArgs e)
         {
 
-        }
+        }        
     }
 }

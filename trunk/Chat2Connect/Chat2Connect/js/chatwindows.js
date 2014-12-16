@@ -1439,7 +1439,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         if (window == null)
             window = this;
         if (window.Type() == "Room" && window.CurrentMember().MemberLevelID() > 1) {
-            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberLevelID());
+            rHub.server.sendToRoomAdmins(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.AdminsEditor.getValue(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberLevelID(), window.CurrentMember().MemberTypeID());
             window.AdminsEditor.setValue("");
         }
     };
@@ -1910,6 +1910,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         }
         else {
             existingMember.InRoom(newMember.InRoom());
+            // fix marking admin when login issue
+            existingMember.IsMarked(newMember.IsMarked());
         }
         if (newMember.InRoom() && newMember.MemberID() != window.CurrentMember().MemberID() && window.CurrentMember().NotifyOnFriendsLogOn()) {
             var msg = newMember.MemberName() + ' قد إنضم للغرفة ';
@@ -2137,7 +2139,14 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         var window = chatVM.getWindow(rid, "Room");
         if (window != null) {
             var member = window.getMember(memberid);
-            if (member != null) {                
+            if (member != null) {
+                if (window.MicMember() != null) {
+                    // fix raise hand after open mic                                                                  
+                    if (member.MemberID() == window.MicMember().MemberID()) {
+                        member.IsMicOpened(false);                        
+                        window.stopMic(member.MemberID());
+                    }
+                }
                 member.QueueOrder(queueOrder);
                 initPopover(window);
             }

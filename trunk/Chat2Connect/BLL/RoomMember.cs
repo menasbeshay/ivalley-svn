@@ -412,7 +412,7 @@ namespace BLL
         public bool CleanRooms()
         {
             return LoadFromRawSql(@"update RM 
-                                    set RM.InRoom = 0  
+                                    set RM.InRoom = 0  ,HasCam = 0,HasMic =0,QueueOrder = null
                                     From roommember RM
                                     Inner Join Member M on RM.MemberID = M.MemberID                                                                       
                                     WHERE M.IsOnline <> 1");

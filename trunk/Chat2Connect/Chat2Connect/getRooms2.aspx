@@ -12,23 +12,24 @@
             <HeaderTemplate>
                
                     <div class="headerRow">
-                        <div class="col-lg-4 pull-right">إسم الغرفة</div>
+                        <div class="col-lg-5 pull-right">إسم الغرفة</div>
                         <div class="pull-right center" style="width: 21%; padding: 0 5px;">المتواجدين الأن</div>
                         <div class="pull-right center" style="width: 15%; padding: 0 5px;">كاميرات</div>
-                        <div class="pull-right center" style="width: 15%; padding: 0 5px;">تقييم</div>
+                        <div class="pull-right center" style="width: 12%; padding: 0 5px;">تقييم</div>
                     </div>
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="ContentRow">
-                    <div class="col-lg-4 pull-right"><a id="rooms_rm_<%# Eval("RoomID") %>" href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' data-typespec='<%# Eval("RoomTypeSpecID") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
+                    <div class="col-lg-5 pull-right"><a id="rooms_rm_<%# Eval("RoomID") %>" href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' data-typespec='<%# Eval("RoomTypeSpecID") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
                     <div class="pull-right center" style="width: 21%; padding: 0 5px;">
                         <span id="rooms_rm_<%# Eval("RoomID") %>_existingmembers"><%# Eval("ExistingMembersCount") %></span>
                     </div>
                     <div class="pull-right center" style="width: 15%; padding: 0 5px;"><%# string.IsNullOrEmpty(Eval("OpenCams").ToString()) ? "0" : Eval("OpenCams").ToString() %></div>
-                    <div class="pull-right center" style="width: 15%; padding: 0 5px;">
+                    <div class="pull-right center" style="width: 12%; padding: 0 5px;">
                         <%# !string.IsNullOrEmpty(Eval("RoomRate").ToString()) ? GetRoomRate(Convert.ToInt32(Eval("RoomRate"))) : "<i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i><i class='icon icon-star-empty GoldRate'></i>" %>
                     </div>
                 </div>
+                <div style="clear:both;height:1px;"></div>
             </ItemTemplate>
             <FooterTemplate>
                
