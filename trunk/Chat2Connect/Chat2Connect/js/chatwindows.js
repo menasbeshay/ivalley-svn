@@ -234,6 +234,26 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                         lst.push(ko.mapping.fromJS(item));
                     });
                     self.friends(lst);
+                    
+                    // init link in friends menu 
+                    $('.openGiftModal').click(function () {
+                        $('#GeneralGiftModal').modal('show');
+                        $('#GeneralGiftModal input.checkboxes').each(function () {
+                            $(this).attr('checked', false);
+                        });
+                        $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+                    });
+
+                    // init send btn 
+                    $('#btnGeneralSendGift').unbind('click');
+                    $('#btnGeneralSendGift').bind('click', function () { sendGeneralGift(); });
+
+                    // init select gift
+                    $('#GeneralGiftUL .GiftLabel').click(function () {
+                        generalSelectedGift = $(this);
+                        $('#GeneralGiftUL').find('label').removeClass('selected');
+                        $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
+                    });
                 });
     };
     this.friends = ko.onDemandObservable(this.getFriends, this);
@@ -661,8 +681,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     success: function (data) {
                         $("#giftModal_" + window.uniqueID()).modal('hide');
                         notify('success', 'تم إرسال الهدية بنجاح');
-                        $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
-                        chatVM.CreditPoints($('#uiHiddenFieldCreditPoints').val());
+                        chatVM.CreditPoints(chatVM.CreditPoints() - total);
+                        //chatVM.CreditPoints($('#uiHiddenFieldCreditPoints').val());
                         return;
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -1247,7 +1267,9 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         this.updateMember = function (mid, prop, val) {
             var member = this.getMember(mid);
             if (member != null) {
-                member[prop](val);
+                member[prop](val);                
+
+                $('#usernode-' + member.MemberID()).popover('hide');
             }
         }
 
@@ -2314,11 +2336,14 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     }
 
     rHub.client.updateMember = function (mid, prop, val) {
+        $('#usernode-' + mid).popover('hide');
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
             return f.MemberID() == mid;
         });
-        if (member != undefined)
+        if (member != undefined) {
             member[prop](val);
+            
+        }
         member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
             return f.MemberID() == mid;
         });
@@ -2328,6 +2353,28 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
             window.updateMember(mid, prop, val);
         });
+
+        // init link in friends menu 
+        $('.openGiftModal').click(function () {
+            $('#GeneralGiftModal').modal('show');
+            $('#GeneralGiftModal input.checkboxes').each(function () {
+                $(this).attr('checked', false);
+            });
+            $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+        });
+
+        // init send btn 
+        $('#btnGeneralSendGift').unbind('click');
+        $('#btnGeneralSendGift').bind('click', function () { sendGeneralGift(); });
+
+        // init select gift
+        $('#GeneralGiftUL .GiftLabel').click(function () {
+            generalSelectedGift = $(this);
+            $('#GeneralGiftUL').find('label').removeClass('selected');
+            $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
+        });
+
+       
     }
     rHub.client.updateMemberType = function (mid, typeSpecID) {
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
@@ -2387,6 +2434,10 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             room.text(count);
         }
     };
+
+    rHub.client.updateBalance = function (points) {
+        chatVM.CreditPoints(points);
+    }
 }
 /********* common functions ****************/
 function initPopover(window) {

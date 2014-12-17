@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using BLL;
 using Chat2Connect.SRCustomHubs;
 using Helper;
+using Microsoft.AspNet.SignalR;
 
 namespace Chat2Connect
 {
@@ -102,6 +103,9 @@ namespace Chat2Connect
 
                         NotificationHub notifications = new NotificationHub();
                         notifications.SendMailNotifications(ToMember.MemberID);
+
+                        IHubContext roomHub = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                        roomHub.Clients.Group(ToMember.UserName).updateBalance(ToMember.Credit_Point);
 
                         ClientScript.RegisterStartupScript(this.GetType(), "Success1", @"$(document).ready(function () { notify('success', 'تم تحويل النقاط بنجاح.'); });", true);
 

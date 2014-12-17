@@ -63,6 +63,7 @@ namespace Chat2Connect.SRCustomHubs
             context.Clients.All.RecieveMailNotification(memberID, unReadCount);
         }
 
+
         public override Task OnConnected()
         {
             Groups.Add(Context.ConnectionId, Context.User.Identity.Name);

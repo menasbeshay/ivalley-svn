@@ -270,7 +270,8 @@ function initGeneralGiftModal() {
     });
 
     // init send btn 
-    $('#btnGeneralSendGift').click(function () { sendGeneralGift(); });
+    $('#btnGeneralSendGift').unbind('click');
+    $('#btnGeneralSendGift').bind('click',function () { sendGeneralGift(); });
 
     // init select gift
     $('#GeneralGiftUL .GiftLabel').click(function () {
@@ -301,12 +302,12 @@ function sendGeneralGift()
             url: '../Services/Services.asmx/SendGift',
             dataType: 'json',
             type: 'post',
-            data: "{'memberName':'', 'roomID' : 0, 'roomName' :'','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + generalSelectedGift.attr('data-giftid') + "}",
+            data: "{'memberName':'', 'roomID' : 0, 'roomName' :'','friends':" + JSON.stringify(ToMember) + ", 'giftid':" + generalSelectedGift.attr('data-giftid') + ", 'uniqueID' : ''}",
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 $("#GeneralGiftModal").modal('hide');
                 notify('success', 'تم إرسال الهدية بنجاح');
-                $('#uiHiddenFieldCreditPoints').val(chatVM.CreditPoints() - total);
+                chatVM.CreditPoints(chatVM.CreditPoints() - total);
                 return;
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
