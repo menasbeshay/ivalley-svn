@@ -2129,7 +2129,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         var window = chatVM.getWindow(memberid, type);
         if (window == null)
             return;
-        window.startMic(memberid);
+        if(window.CurrentMemberID() != memberid)
+            window.startMic(memberid);
     };
     rHub.client.StopListenMic_Private = function (memberid) {
         var type = "Private";
