@@ -1794,7 +1794,7 @@
                         <div class="form-horizontal blockBox validationGroup">
                             <div class="form-group">
                                 <h4>لديك
-                                    <label data-bind="text:$parent.CreditPoints"></label>
+                                    <label data-bind="text:$parent.CreditPoints()"></label>
                                     نقطة
                                     <input type="hidden" data-bind="attr:{id: 'points_' + uniqueID(), value:$parent.CreditPoints}" />
                                 </h4>
@@ -2067,7 +2067,7 @@
                     <div class="form-horizontal blockBox validationGroup">
                         <div class="form-group">
                             <h4>لديك
-                                    <label id="generalGiftPoints" data-bind="text:CreditPoints"></label>
+                                    <label id="generalGiftPoints" data-bind="text:CreditPoints()"></label>
                                 نقطة
                                    
                             </h4>

@@ -577,6 +577,7 @@ namespace Chat2Connect.SRCustomHubs
             }
             catch { }
         }
+
         public void sendHamsa(int roomid, int memberid, string hamsa, string fromName)
         {
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == memberid);
@@ -659,5 +660,7 @@ namespace Chat2Connect.SRCustomHubs
             catch { }
         }
         #endregion
+
+        
     }
 }
