@@ -153,7 +153,7 @@
             <div id="help" class="help">
                 <a href="#" style="text-decoration:none !important;">
                     <img src="../images/logo.png" style="width:130px;"><br />
-                    <span style="color:#FEC200;font-size:16px;text-align:center;width:100%;font-weight:500;">نسخــــة تجــريبيـــة</span>
+                    <span style="color:#f00;font-size:16px;text-align:center;width:100%;font-weight:500;">( نسخــــة تجــريبيـــة )</span>
                 </a>
                 <div style="width: 1px; background-color: #D2D2D2; float: left; height: 50px; margin: 0px; margin-top: 15px; margin-right: 30px; padding: 0px; cursor: auto;"></div>
 
@@ -367,6 +367,7 @@
             <%--<script src="../js/typeahead.bundle.js"></script>--%>
             <script src="../js/bootstrap-typeahead.js"></script>
             <script src="../js/popups.js"></script>
+            <script src="../js/ytHelper.js"></script>
             <!-- End js -->
             <asp:HiddenField ID="uiHiddenFieldClientID" runat="server" />
 

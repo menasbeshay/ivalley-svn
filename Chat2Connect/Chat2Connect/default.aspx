@@ -169,6 +169,7 @@
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="Email" runat="server" CssClass="form-control" style="font-family:Arial"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="من فضلك أدخل البريد الإلكترونى." ToolTip="من فضلك أدخل البريد الإلكترونى." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="من فضلك أدخل البريد الإلكترونى بصورة صحيحة." ControlToValidate="Email" ToolTip="من فضلك أدخل البريد الإلكترونى  بصورة صحيحة." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="form-group">

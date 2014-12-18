@@ -143,7 +143,7 @@
                     $(self).parent().parent('tr').removeClass('un-readRow');
                     $(this).hide().fadeIn("slow");
                     $(this).removeAttr('style');
-
+                    sHub.server.sendMailNotifications();
                     return false;
                 });
                     });

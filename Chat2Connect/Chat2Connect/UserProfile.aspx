@@ -1,5 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Popup.Master" AutoEventWireup="true" CodeBehind="UserProfile.aspx.cs" Inherits="Chat2Connect.UserProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.js"></script>
+    <link href="css/blueimp-gallery.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-image-gallery.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            blueimp.Gallery(document.getElementById('links'),
+               {
+                   onslide: function (index, slide) {
+                       var text = this.list[index].getAttribute('data-description'),
+                           node = this.container.find('.description');
+                       node.empty();
+                       if (text) {
+                           node[0].appendChild(document.createTextNode(text));
+                       }
+                   }
+               });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -139,11 +158,18 @@
                 
                 <div class="clearfix"></div>
                 <div class="col-lg-12">
-                     <div id="links">
-                         <a href="images/defaultavatar.png" data-gallery title="صورة رقم 1" data-description="صورة رقم 1"><img src="images/defaultavatar.png" class="img-thumbnail" style="width:100px;"/>                             
-                         </a>                         
-                         <a href="images/defaultavatar.png" data-gallery title="صورة رقم 2" data-description="صورة رقم 2"><img src="images/defaultavatar.png" class="img-thumbnail" style="width:100px;"/>                             
-                         </a>                         
+                     <div id="links" class="SScroll" data-height="170px">
+                         <asp:Repeater ID="uiRepeaterPhotos" runat="server">
+                             <ItemTemplate>
+                                 <div style="position:relative;" class="col-sm-4">
+                                 <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>' > 
+                                     <img src="images.aspx?Image=<%# Eval("PicPath") %>&profile=1" class="img-thumbnail" style="width:100px;" alt='img'/>                             
+                                     
+                                </a>                                          
+                                 </div>
+                             </ItemTemplate>
+
+                         </asp:Repeater>                         
                      </div>
                 </div>
             </div>
@@ -182,5 +208,42 @@
 
     </asp:Panel>
 
+    <!-- gallery popup -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <p class="description"></p>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next ">
+                <div class="description"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        السابق
+                    </button>
+                    <button type="button" class="btn btn-warning next">
+                        التالى
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     
 </asp:Content>
