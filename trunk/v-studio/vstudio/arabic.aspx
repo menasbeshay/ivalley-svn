@@ -338,11 +338,11 @@ Your browser does not support the video tag
 				</div>
 				<div class="row" id="page-heading" style="height:100px;">
 					<div class="col-md-11 col-md-offset-1">
-						<h1 class="heading2" style="display:none; font-family: 'Ge';font-size:90px;">منتجاتنا</h1>
+						<h1 class="heading2" style="display:none; font-family: 'Ge';font-size:65px;line-height:initial;">منتجاتنا</h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1 productWrapper" style="">
+					<div class="col-md-6 col-md-offset-1 productWrapper" style="">
 						<h2>هولوكونيك™ 
 						<a href="" class="pull-left"><img src="img/logo1.png"  height="65"/></a>
 						</h2>
@@ -400,7 +400,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6 productWrapper">
+					<div class="col-md-5 productWrapper">
 						<h2>وينشــو™ 
 						<a href="" class="pull-left"><img src="img/logo3.png"  height="65"/></a>
 						</h2>
@@ -452,9 +452,9 @@ Your browser does not support the video tag
   </div><!-- /.modal -->
 					</div>
 				</div>
-				<br>
+				<div class="clearfix" style="height:1px;"></div>
 				<div class="row">
-					<div class="col-md-5 col-md-offset-1 productWrapper" >
+					<div class="col-md-6 col-md-offset-1 productWrapper" >
 						<h2>سي ما رول اب™  
 						<a href="" class="pull-left"><img src="img/logo2.png"  height="65"/></a>
 						</h2>
@@ -504,7 +504,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-					<div class="col-md-6 productWrapper">
+					<div class="col-md-5 productWrapper">
 						<h2>هوست توك™ 
 						<a href="" class="pull-left"><img src="img/logo4.png" height="65"/></a>
 						</h2>
@@ -759,10 +759,10 @@ Your browser does not support the video tag
 					<div id="way-left" style="display:none; text-align:right; position:absolute; left:3.7%;direction:rtl;width:45%" >
 						<div class="col-md-12" >
 							
-							<h2 style="font-family:alj;">دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
-							<div class="line-3d" style="width:95%"></div>
+							<h2 style="font-family:alj;margin:5px">دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
+							<div class="line-3d" style="width:95%;"></div>
 							<p>الدليل ثلاثي الأبعاد هو دليل تفاعلي بخارطة ثلاثية الأبعاد للمباني الكبيرة تساعد زوارها على إيجاد طريقهم ، وهو  برنامج مصمم للعمل على شاشة تعمل باللمس للملاحة داخل المباني كما في المراكز التجارية ، والمتاجر الكبرى والمطارات ومحطات السكة الحديدية والمستشفيات والجامعات والمجمعات السكنية الكبيرة وأثناء المعارض التجارية وخلاف ذلك. الدليل ثلاثي الأبعاد للمباني العامة تطبيق يمكن تثبيته على شاشاتنا باللمس او للعمل على أجهزة الهواتف الذكيّة او على شبكة الإنترنت.</p>
-							<h2 style="font-family:alj;">الخصائص الفنيّة :</h2>
+							<h2 style="font-family:alj;margin:5px">الخصائص الفنيّة :</h2>
 							<div class="line-3d" style="width:95%"></div>
 							<ul>
 								<li>دخل إضافي للمشغّل من خلال إعلانات مبتكرة على الشاشة</li>
@@ -953,25 +953,29 @@ Your browser does not support the video tag
 		<div id="contactus-cover">
 			<div class="container">
 				<div class="row" style="height:100px;">
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<h1  class="heading6" style="display:none;font-family: 'Ge';text-align:right">الإتصال بنا</h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-7">
-						<p>تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 م ، في ستديو هي إحدى  أعمالها وتقدم حلولاً تسويقية مرئية شاملة للأعمال الصغيرة والمتوسطة وشركات التسويق والدعاية.  خدماتنا تُقدّم فقط عبر موقعنا الإلكتروني وتوزّع منتجاتنا من خلال موزعين معتمدين.</p>
+					<div class="col-md-8" style="float:right;">
+						<p>تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 م ، في ستديو V-Studio   هي إحدى فروعها وتقدم حلولاً 
+
+تسويقية مرئية شاملة من خدمات ومنتجات تقوم بتصميمها وتصنيعها لحسابها  تستفيد منها الأعمال الصغيرة والمتوسطة  
+
+والكبيرة وشركات التسويق والدعاية والإعلان.  خدماتنا تُقدّم فقط عبر موقعنا الإلكتروني وتوزّع منتجاتنا من خلال موزعين 
+
+معتمدين.</p>
 					</div>
-					<div class="col-md-1"><div class="line2"></div></div>
-					<div class="col-md-4">
+					<div class="col-md-1" style="float:right;"><div class="line2"></div></div>
+					<div class="col-md-3" style="float:right;">
 						
 						<div class="media">
-									<a href="#" class="pull-left">
+                            <span>في ستديو إحدى أعمال</span><br />
+									<a href="#" class="pull-right">
 										<img src="img/sager-logo.png" class="media-object img-responsive"/>
 									</a>
-									<div class="media-body" style="padding-top:15px;">
-										
-										<span>في ستديوإحدى أعمال<br>س. ع. صقر الدولية</span>
-									</div>
+									
 								</div>
 					</div>
 				</div>
@@ -980,20 +984,22 @@ Your browser does not support the video tag
 						<h2>المركز الرئيسي:</h2>
 						<div class="line1"></div>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-4" style="float:right;">
 								<div class="media">
-									<a href="#" class="pull-left" style="width:46px; text-align:center">
+									<a href="#" class="pull-right" style="width:46px; text-align:center">
 <span class="glyphicon glyphicon-map-marker"></span>
 										<!--<img class="media-object" src="img/mapmarker.png" class="img-responsive"/>-->
 									</a>
 									<div class="media-body">
 										<address>
 											الطابق التاسع ،  جميل سكوير<br>
-تقلطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس، جدة<br>
+تقاطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس، جدة<br>
 ص.ب 40538 ، جدة 21511، المملكة العربية السعودية <br><br>
 
 هاتف: +966 12-283 4088  .  قاكس  : +966 12-660 8128<br>
-info@v-studio.co                                           
+info@v-studio.co                                      <br />
+                                            <br /><b>
+									فروعنا: مكتب الرياض.مكتب الخبر                      </b>
 										</address>
 									</div>
 								</div>
@@ -1004,83 +1010,83 @@ info@v-studio.co
 								<img src="img/hq.png" width="350px" height="250px" class="contact-image-hover img-rounded" style="z-index:2000; display:none; position:absolute; left:120px top:10px;"/>
 							</div>
 							-->
-							<div class="col-md-1"><div class="line2"></div></div>
-                                                        <div class="col-md-3">
-								<h3>Send us a message</h3>
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label">الإسم</label>
-    <div class="col-sm-9">
+							<div class="col-md-1" style="float:right;"><div class="line2"></div></div>
+                                                        <div class="col-md-6" style="float:right;">
+								<h3>أرسل لنا</h3>
+<div class="form-horizontal" role="form">
+  <div class="form-group col-md-12 pull-right">
+    <label for="inputEmail3" class="col-sm-4 control-label" style="float:right;">الإسم</label>
+    <div class="col-sm-8" style="float:right;">
       <input type="email" data-toggle="modal" data-target="#ContactModal" id="inputEmail3" placeholder="">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label">البريد الإلكتروني</label>
-    <div class="col-sm-9">
+  <div class="form-group col-md-12 pull-right">
+    <label for="inputPassword3" class="col-sm-4 control-label" style="float:right;">البريد الإلكتروني</label>
+    <div class="col-sm-8" style="float:right;">
       <input type="password" data-toggle="modal" data-target="#ContactModal"  id="inputPassword3" placeholder="">
     </div>
   </div>
-</form>
+</div>
 <div class="modal fade" id="ContactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <a style="color:#000;"class="close" data-dismiss="modal"><span style="color:#000;" aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-        <h4 class="modal-title" id="myModalLabel">Send us a message</h4>
+        <h4 class="modal-title" id="myModalLabel">أرسل لنا</h4>
       </div>
       <div class="modal-body">
 <form class="form-horizontal" role="form" method="" action="">
-											<div class="form-group">
-<label class="col-sm-3 control-label">الإسم</label>
-<div class="col-sm-9">
+											<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">الإسم</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="الإسم *"/>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">البريد الإلكتروني</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">البريد الإلكتروني</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="البريد الإلكتروني *"/>
 </div>
 											</div>
-											<div class="form-group">
-<label class="col-sm-3 control-label">العنوان</label>
-<div class="col-sm-9">
+											<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">العنوان</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="العنوان *"/>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">الهاتف</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">الهاتف</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="الهاتف *"/>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">الهاتف</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">الهاتف</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="الهاتف *"/>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">الموضوع</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">الموضوع</label>
+<div class="col-sm-9 pull-right">
 												<input type="text" maxlength="255" name="telephone" value="" placeholder="الموضوع *"/>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">الرسالة</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">الرسالة</label>
+<div class="col-sm-9 pull-right">
 												<textarea style="height:70px;" rows="2" name="telephone" value="" placeholder=""></textarea>
 </div>
 											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Captcha</label>
-<div class="col-sm-9">
+<div class="form-group col-md-12">
+<label class="col-sm-3 control-label pull-right">Captcha</label>
+<div class="col-sm-9 pull-right">
 										<div class="row">
-<div class="col-sm-12">
-										<div class="col-sm-5">	
+<div class="col-sm-12 pull-right">
+										<div class="col-sm-5 pull-right">	
 											<div style="margin:0px; height:40px; padding-top:0px; line-height:35px; font-size:24px;"class="captcha-box text-center">J K L 7 8 O</div>
 										</div>
-										<div class="col-sm-7">
+										<div class="col-sm-7 pull-right">
 											<input type="text" maxlength="255" name="captcha" value="" placeholder=""/>
 										</div>
 </div>
@@ -1090,7 +1096,7 @@ info@v-studio.co
 									
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group">
+											<div class="form-group col-md-12">
 <div class="col-sm-9 col-sm-offset-3">
 												<button style="z-index:1024;" type="submit">أرسل</button>
 </div>
@@ -1105,13 +1111,7 @@ info@v-studio.co
   </div>
 </div>
 							</div>
-                                                        <div class="col-md-1"><div class="line2"></div></div>
-							<div class="col-md-3">
-								<address>
-									فروعنا: مكتب الرياص: برج الفيصلية<br>
-مكتب الخبر: برج الحقيط                                          
-								</address>
-							</div>
+                                      
 						</div>
 					</div>
 					<div class="col-md-1" style="padding-top:60px; cursor:pointer;">
@@ -1127,7 +1127,7 @@ info@v-studio.co
 			</div>
 <div class="container-fluid">
 					<div class="col-md-12">
-<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=afhkshgkkgGJSJJHitfufbdkyIITTGHKLDL35y&q=Jeddah 21511"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.935201289177!2d39.15350000000001!3d21.54938890000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDMyJzU3LjgiTiAzOcKwMDknMTIuNiJF!5e0!3m2!1sen!2s!4v1418825969547" width="100%" height="250" frameborder="0" style="border:0"></iframe>
 					</div>
 				</div>
 		</div>
@@ -1224,8 +1224,8 @@ any other design company so far. Two thumbs way up! </p>
 				</div>
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
-						<p>Are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business? <br>
-Are you an innovative, creative & results-oriented sales rep, voiceover talent, web presenter or cameraman? </p>
+						<p>هل تبحث عن إستثمار مجزئ في بيئة عمل  تعزّز الرفاهية والنمو ، ولديك الإستعداد لإستثمار القليل من المال لتصبح موزعاً لنا ؟<span style="color:#09a0f8"> إتصل بنا </span><br>
+هل تتمتع بالشخصية المنتجة والمبتكرة وترغب في العمل كممثل مبيعات مستقل أو مقدّم صوت فيديو أو  مقدّما للمواقع الإلكترونية أو تزاول مهنة تصوير الفيديو الإحترافي ؟ <span style="color:#09a0f8"> إنضم الينا </span></p>
 					</div>
 				</div>
 				<div class="row">
