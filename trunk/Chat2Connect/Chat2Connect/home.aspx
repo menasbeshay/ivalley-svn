@@ -42,7 +42,9 @@
             }
 
         .hamsa {
-            /*bottom:0px;*/
+            top:40%;
+            right:50%;
+            position:fixed !important;
         }
 
         .hamsaModal {
@@ -1537,10 +1539,10 @@
                                 <!-- /ko -->
                                 <!-- ko if:(!$data.hasOwnProperty('IsHelp') || !IsHelp()) -->
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableMic() ||  (Settings.EnableMicForAdminsOnly() && CurrentMember().MemberLevelID()>1)), click:toggleMic" data-original-title="تحدث">
-                                    <i class="icon-microphone" style="font-size: 17px;"></i>
+                                    <i class="icon-microphone" style="font-size: 17px;" data-bind="style:{color:CurrentMember().IsMicOpened() == true ? '#0f0' : '#333'}"></i>
                                 </a>
                                 <a data-placement="top" title="" class="btn btn-default roomMenuItem" data-bind="visible:(Type()=='Private' || Settings.EnableCam()), click:toggleCam" data-original-title="تشغيل/ إيقاف الكاميرا">
-                                    <i class="icon-camera" style="font-size: 17px;"></i>
+                                    <i class="icon-camera" style="font-size: 17px;" data-bind="style:{color:CurrentMember().IsCamOpened() == true ? '#0f0' : '#333'}"></i>
                                 </a>
                                 <!-- /ko -->
                             </div>
@@ -1567,7 +1569,7 @@
                             </div>
                             <!-- ko if:(!$data.hasOwnProperty('IsHelp') || !IsHelp()) -->
                             <div class="pull-right btn-group" style="margin-right: 3px;" data-toggle="buttons-checkbox">
-                                <button class="btn btn-default" data-bind="attr:{id:'mute_'+uniqueID()}, click:$parent.MuteRoom.bind($data)" data-mute='false'>×<i class="icon-volume-off" style="font-size: 17px;"></i></button>
+                                <button class="btn btn-default" data-bind="attr:{id:'mute_'+uniqueID()}, click:$parent.MuteRoom.bind($data), style:{color:IsMuted() == true ? '#f00' : '#333'}" data-mute='false'>x<i class="icon-volume-off" style="font-size: 17px;"></i></button>
                             </div>
 
                             <div class="pull-left col-lg-3" style="direction: ltr; padding-left: 0px; width: 22%;">
@@ -1577,7 +1579,7 @@
                                 </div>
                                 <div class="clear" style="height: 1px;"></div>
                                 <div class="pull-left col-lg-3" style="direction: ltr;">
-                                    <i class="icon-microphone" style="font-size: 17px;"></i>
+                                    <i class="icon-microphone" style="font-size: 17px;" data-bind="style:{color:CurrentMember().IsMicOpened() == true ? '#0f0' : '#333'}"></i>
                                 </div>
                                 <div class="pull-left col-lg-9" style="direction: ltr;">
                                     <input type="text" value="" data-bind="attr:{'data-slider-id':'uiMicVolume_'+uniqueID() + 'slider', id:'uiMicVolume_'+uniqueID()}" data-slider-value="5" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 70px;">

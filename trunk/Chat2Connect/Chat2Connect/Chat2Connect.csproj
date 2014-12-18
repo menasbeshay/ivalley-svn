@@ -707,6 +707,7 @@
     <Content Include="js\tags\textext.plugin.prompt.js" />
     <Content Include="js\tags\textext.plugin.suggestions.js" />
     <Content Include="js\tags\textext.plugin.tags.js" />
+    <Content Include="js\ytHelper.js" />
     <Content Include="LoadMessage.aspx" />
     <Content Include="MyBalance.aspx" />
     <Content Include="PopupPages\flashHelp.aspx" />

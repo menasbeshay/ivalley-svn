@@ -329,6 +329,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             return this.Type() + '_' + this.ID();
         }, this);
 
+        this.IsMuted = ko.observable(false);;
+
         this.Editor = null;
         this.AdminsEditor = null;
         this.selectedGift = null;
@@ -1649,10 +1651,12 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         if ($('#mute_' + window.uniqueID()).attr('data-mute') == 'false') {
             self.setListenVolume(window, 0);
             $('#mute_' + window.uniqueID()).attr('data-mute', 'true');
+            window.IsMuted(true);
         }
         else {
             self.setListenVolume(window, $('#uiListenVolume_' + window.uniqueID()).data('slider').getValue());
             $('#mute_' + window.uniqueID()).attr('data-mute', 'false');
+            window.IsMuted(false);
         }
 
     }
@@ -1692,8 +1696,9 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         var randomid = Math.floor((Math.random() * 100000) + 1);
         var videoLink = "<div style='margin:0 auto;text-align:center;'><a href='#videoModal_" + randomid + "' data-toggle='modal' style='text-decoration:none;'><img src='http://img.youtube.com/vi/" + id[0] + "/0.jpg' style='width:160px;margin:0 !important;' /></a></div>";
         var iframe = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + id[0] + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>"
-        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>فيديو</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
-        var newMsg = videoLink + modaldiv;
+        var modaldiv = "<div id='videoModal_" + randomid + "' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1' class='pull-right'>فيديو</h3><div style='clear:both;height:1px;'></div></div><div class='modal-body' id='video_body_" + randomid + "'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>" + iframe + "</div></div></div></div></div></div></div>";
+        var helperscript = "<script type='text/javascript'>$('#videoModal_" + randomid + "').on('hidden.bs.modal', function () { callPlayer('video_body_"+randomid+"', 'stopVideo'); }); </script>";
+        var newMsg = videoLink + modaldiv + helperscript;
         rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), newMsg, window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         $("#attachModal_" + window.uniqueID()).modal('hide');
     }
@@ -2493,7 +2498,7 @@ function createHamsaWindow(hamsa, sender) {
                '<div id="divMessage" class="messageArea">' + hamsa + '<div class="clear" style="height:1px;"></div></div>' + '</div>';
 
     var $div = $(div);
-    $('#MainTabs').prepend($div);
+    $('body').prepend($div);
     $div.draggable({
         handle: ".header",
         stop: function () {

@@ -219,7 +219,7 @@ margin:0 !important;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -ms-border-radius: 50%;
-    border:1px solid #ccc;
+    /*border:1px solid #ccc;*/
 }
 .user .user_img img {
     width:56px;

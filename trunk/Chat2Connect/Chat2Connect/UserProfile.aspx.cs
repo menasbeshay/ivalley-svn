@@ -101,7 +101,7 @@ namespace Chat2Connect
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
-                    uiImageMain.ImageUrl = member.ProfilePic;
+                    uiImageMain.ImageUrl = "images.aspx?Image=" + member.ProfilePic;
                 }
                 ///////////////////////////////
                 uiLabelInterests.Text = member.Interests;
@@ -125,6 +125,11 @@ namespace Chat2Connect
                     uiLinkButtonLike.Attributes.Add("style", "display:inline;padding:0px;");
                 }
 
+
+                MemberPic pics = new MemberPic();
+                pics.GetMemberPicsByMemberID(member.MemberID);
+                uiRepeaterPhotos.DataSource = pics.DefaultView;
+                uiRepeaterPhotos.DataBind();
             }
             else
             {

@@ -367,7 +367,7 @@
                                         <label>الإسم </label>
                                     </div>
                                     <div class="col-sm-8 pull-right">
-                                        <asp:TextBox ID="uiTextBoxName" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="uiTextBoxName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                         
                                     </div>
                                 </div>

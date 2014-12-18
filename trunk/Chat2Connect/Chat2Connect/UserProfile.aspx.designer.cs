@@ -328,6 +328,15 @@ namespace Chat2Connect {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiPanelPics;
         
         /// <summary>
+        /// uiRepeaterPhotos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterPhotos;
+        
+        /// <summary>
         /// uiLabelInterests control.
         /// </summary>
         /// <remarks>

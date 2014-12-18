@@ -100,7 +100,9 @@
                 <div class="col-lg-9 pull-right">
                     <div class="col-lg-6 pull-right">
                         <ul>
+                            <!-- ko if(Status() != 'busy')-->
                             <li><a class="jslink" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                            <!--/ko-->
                             <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
                             <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
                         </ul>
