@@ -276,7 +276,7 @@ Your browser does not support the video tag
                                          <div style="display: none;" class="col-md-3 vid-hover6" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
                                             <div class="vid-play6 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
-                                            Holographic ebook</div>
+                                            Holographic e-book</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover7" >
                                             <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
@@ -740,7 +740,9 @@ Increase your brand recognition and value through:</p>
 -->
 				<div class="row" style="height:100px; left:9.3%; position:relative;">
 					<div class="page-heading">
-						<h1 class="text-left heading4" style="display:none;">3D WAYFINDING <img width="150" height="47" src="img/3D-Wayfinding_logo.png"></h1>
+						<h1 class="text-left heading4" style="display:none;line-height:initial !important;"> <img width="150" height="47" src="img/3D-Wayfinding_logo.png">
+                            <span style="clear:both;height:1px;"></span><span style="font-size:16px;display:block">3D WAYFINDING</span>
+						</h1>
 						
 					</div>
 				</div>
@@ -748,10 +750,10 @@ Increase your brand recognition and value through:</p>
 					<div id="way-left" style="display:none; position:absolute; left:3.7%;">
 						<div class="col-md-6" >
 							
-							<h2>3D Wayfinder for kiosks, smartphones and the web</h2>
+							<h2 style="margin:5px;">3D Wayfinder for kiosks, smartphones and the web</h2>
 							<div class="line-3d" style="width:95%"></div>
-							<p>Al daleel 3D Wayfinding is an interactive 3D map directory for large public buildings works on large multi-touch-screens with location-based view of the buildinghelping visitors find their destination, designed for indoor navigation in shopping malls, department stores, airports, train stations, hospitals, campuses, office buildings, universities, convention & exhibition centers etc.</p>
-							<h2>Features</h2>
+							<p class="text-justify">Al daleel 3D Wayfinding is an interactive 3D map directory for large public buildings works on large multi-touch-screens with location-based view of the buildinghelping visitors find their destination, designed for indoor navigation in shopping malls, department stores, airports, train stations, hospitals, campuses, office buildings, universities, convention & exhibition centers etc.</p>
+							<h2 style="margin:5px;">Features</h2>
 							<div class="line-3d" style="width:95%"></div>
 							<ul>
 								<li>Additional revenue through contextual banne	and	advertisements</li>
@@ -867,10 +869,10 @@ Your browser does not support the video tag
 				
 				<div class="row">
 					<div id="way-left1" style="display:none; position:absolute; left:3.7%;">
-						<div class="col-md-6" >
+						<div class="col-md-7" >
 							<h2>intuitive, emotional, interactive</h2>
 							<div class="poly-line"></div>
-							<p>Polytouch® POS Line allows the perfect digital presentation of your products. Let your customers have more fun with polytouch® in product selection and purchase and you dramatically increase your sales. In-Store Commerce with polytouch®, in conjunction with your existing e-commerce system, optimizes customer service and generates relaxed and satisfied customers. Hundreds of installations across Europe (June 2013), demonstrate the success, let yourself be advised by the Pyramid team, the German manufacturer of polytouch®.
+							<p class="text-justify">Polytouch® POS Line allows the perfect digital presentation of your products. Let your customers have more fun with polytouch® in product selection and purchase and you dramatically increase your sales. In-Store Commerce with polytouch®, in conjunction with your existing e-commerce system, optimizes customer service and generates relaxed and satisfied customers. Hundreds of installations across Europe (June 2013), demonstrate the success, let yourself be advised by the Pyramid team, the German manufacturer of polytouch®.
 
 Omni-channel sales with polytouch® Nowadays customers want to use all channels simultaneously. polytouch® is the in-store omni-channel device that virtually extends your shelves. Customers can scan products to read additional information, browse accessories, check availability in other branches, order for pickup or home delivery, redeem vouchers, post messages on social networks and much more.</p>
 							<div class="poly-line"></div>
@@ -940,20 +942,26 @@ Your browser does not support the video tag
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-7">
-						<p>S.O. Sager International established in 1982 in Jeddah, Saudi Arabia. V-Studio is a division of S.O. Sager International provides specialized visual marketing services & products for small to medium size corporate and marketing communication or advertisement companies. Our services are offered through our website only and our products are sold through authorized distributors</p>
+					<div class="col-md-8">
+						<p>S.O. Sager International established in 1982 in Jeddah, Saudi Arabia. V-Studio is a division of
+
+S.O. Sager International provides specialized visual marketing services & products engineered, 
+
+designed and manufactured by V-Studio for small to medium size all the way to large corporate 
+
+and marketing communication or advertising agencies. Our services are offered through our 
+
+website only and our products are sold through authorized distributors.</p>
 					</div>
 					<div class="col-md-1"><div class="line2"></div></div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						
 						<div class="media">
-									<a href="#" class="pull-left">
+							<span>V-Studio is a Division of</span><br />		
+                            <a href="#" class="pull-left">
 										<img src="img/sager-logo.png" class="media-object img-responsive"/>
 									</a>
-									<div class="media-body" style="padding-top:15px;">
-										
-										<span>V-Studio is a Division of<br>S.O Sager International</span>
-									</div>
+									
 								</div>
 					</div>
 				</div>
@@ -962,7 +970,7 @@ Your browser does not support the video tag
 						<h2>Head Office</h2>
 						<div class="line1"></div>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-5">
 								<div class="media">
 									<a href="#" class="pull-left" style="width:46px; text-align:center">
 <span class="glyphicon glyphicon-map-marker"></span>
@@ -970,12 +978,16 @@ Your browser does not support the video tag
 									</a>
 									<div class="media-body">
 										<address>
-											Level 9 Jameel Square<br>
+											Jameel Square<br>
 Corner of Tahlia and Al Andalus Street<br>
 P. O Box 40538 Jeddah 21511, Saudi Arabia<br><br>
 
 Tel: (+966) 12- 283 4088 | Fax: (+966) 12-660 8128 <br>
-info@v-studio.co                                           
+info@v-studio.co                                      
+                                            <br />
+                                <br />
+                                            <b>Branches: Riyadh .Al Khobar .</b>
+								     
 										</address>
 									</div>
 								</div>
@@ -987,113 +999,107 @@ info@v-studio.co
 							</div>
 							-->
 							<div class="col-md-1"><div class="line2"></div></div>
-                                                        <div class="col-md-3">
+                            <div class="col-md-5">
 								<h3>Send us a message</h3>
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
-    <div class="col-sm-9">
-      <input type="email" data-toggle="modal" data-target="#ContactModal" id="inputEmail3" placeholder="">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label">Email</label>
-    <div class="col-sm-9">
-      <input type="password" data-toggle="modal" data-target="#ContactModal"  id="inputPassword3" placeholder="">
-    </div>
-  </div>
-</form>
-<div class="modal fade" id="ContactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <a style="color:#000;"class="close" data-dismiss="modal"><span style="color:#000;" aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-        <h4 class="modal-title" id="myModalLabel">Send us a message</h4>
-      </div>
-      <div class="modal-body">
-<form class="form-horizontal" role="form" method="" action="">
-											<div class="form-group">
-<label class="col-sm-3 control-label">Name</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Name *"/>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Email</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Email *"/>
-</div>
-											</div>
-											<div class="form-group">
-<label class="col-sm-3 control-label">Address</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Address *"/>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Tel</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Tel *"/>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Mobile phone</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Mobile phone *"/>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Subject</label>
-<div class="col-sm-9">
-												<input type="text" maxlength="255" name="telephone" value="" placeholder="Subject *"/>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Message</label>
-<div class="col-sm-9">
-												<textarea style="height:70px;" rows="2" name="telephone" value="" placeholder=""></textarea>
-</div>
-											</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Captcha</label>
-<div class="col-sm-9">
-										<div class="row">
-<div class="col-sm-12">
-										<div class="col-sm-5">	
-											<div style="margin:0px; height:40px; padding-top:0px; line-height:35px; font-size:24px;"class="captcha-box text-center">J K L 7 8 O</div>
-										</div>
-										<div class="col-sm-7">
-											<input type="text" maxlength="255" name="captcha" value="" placeholder=""/>
-										</div>
-</div>
-</div>
-</div>
-									</div>
+                                <div class="form-horizontal" role="form">
+                                    <div class="form-group col-md-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" data-toggle="modal" data-target="#ContactModal" id="inputEmail3" placeholder="">
+                                    </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                    <label for="inputPassword3" class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" data-toggle="modal" data-target="#ContactModal"  id="inputPassword3" placeholder="">
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="ContactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <a style="color:#000;"class="close" data-dismiss="modal"><span style="color:#000;" aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                                        <h4 class="modal-title" id="myModalLabel">Send us a message</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                <form class="form-horizontal" role="form" method="" action="">
+											                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Name</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Name *"/>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Email *"/>
+                                </div>
+											                                </div>
+											                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Address</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Address *"/>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Tel</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Tel *"/>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Mobile phone</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Mobile phone *"/>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Subject</label>
+                                <div class="col-sm-9">
+												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Subject *"/>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Message</label>
+                                <div class="col-sm-9">
+												                                <textarea style="height:70px;" rows="2" name="telephone" value="" placeholder=""></textarea>
+                                </div>
+											                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Captcha</label>
+                                <div class="col-sm-9">
+										                                <div class="row">
+                                <div class="col-sm-12">
+										                                <div class="col-sm-5">	
+											                                <div style="margin:0px; height:40px; padding-top:0px; line-height:35px; font-size:24px;"class="captcha-box text-center">J K L 7 8 O</div>
+										                                </div>
+										                                <div class="col-sm-7">
+											                                <input type="text" maxlength="255" name="captcha" value="" placeholder=""/>
+										                                </div>
+                                </div>
+                                </div>
+                                </div>
+									                                </div>
 									
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-<div class="col-sm-9 col-sm-offset-3">
-												<button style="z-index:1024;" type="submit">Submit</button>
-</div>
-											</div>
-										</div>
-									</div>
-      </div>
-      <div class="modal-footer text-center pull-left">
-        <p style="text-align:center;">Uncompleted form or untrue information including phone number may result in not answering your message.</p>
-      </div>
-    </div>
-  </div>
-</div>
+									                                <div class="row">
+										                                <div class="col-md-12">
+											                                <div class="form-group">
+                                <div class="col-sm-9 col-sm-offset-3">
+												                                <button style="z-index:1024;" type="submit">Submit</button>
+                                </div>
+											                                </div>
+										                                </div>
+									                                </div>
+                                        </div>
+                                        <div class="modal-footer text-center pull-left">
+                                        <p style="text-align:center;">Uncompleted form or untrue information including phone number may result in not answering your message.</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
 							</div>
-                                                        <div class="col-md-1"><div class="line2"></div></div>
-							<div class="col-md-3">
-								<address>
-									Riyadh Office: Al Faisaliah Tower<br>
-Al Khobar office: Al Hugayet Tower                                          
-								</address>
-							</div>
+                            
 						</div>
 					</div>
 					<div class="col-md-1" style="padding-top:60px; cursor:pointer;">
@@ -1109,8 +1115,7 @@ Al Khobar office: Al Hugayet Tower
 			</div>
 <div class="container-fluid">
 					<div class="col-md-12">
-<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=afhkshgkkgGJSJJHitfufbdkyIITTGHKLDL35y&q=Jeddah 21511"></iframe>
-					</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.9141531414325!2d39.153628746033796!3d21.550211807259373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDMyJzU3LjgiTiAzOcKwMDknMTIuNiJF!5e0!3m2!1sen!2s!4v1418827115838" width="600" height="450" frameborder="0" style="border:0"></iframe>					</div>
 				</div>
 		</div>
 		<div class="right-icons" id="watch-port">
@@ -1206,8 +1211,8 @@ any other design company so far. Two thumbs way up! </p>
 				</div>
 				<div class="row">
 					<div class="col-md-11 col-md-offset-1">
-						<p>Are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business? <br>
-Are you an innovative, creative & results-oriented sales rep, voiceover talent, web presenter or cameraman? </p>
+						<p>Are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business? <span style="color:#09a0f8">Contact us</span><br>
+Are you an innovative, creative & results-oriented sales rep, voiceover talent, web presenter or cameraman? <span style="color:#09a0f8">Join us</span></p>
 					</div>
 				</div>
 				<div class="row">

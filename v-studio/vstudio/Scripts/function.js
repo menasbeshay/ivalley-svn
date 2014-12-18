@@ -696,7 +696,7 @@ function scrollAllow() {
         mediaPlayer4.play();
         navClick();
         resetMenu();
-        $(".pds").show();
+        /*$(".pds").show();*/
         $(".ps, .jus").show();
         $(".cbs").hide();
         $(".products").attr("style", "background-color:rgba(255,255,255,0.05);");
@@ -750,7 +750,7 @@ function scrollAllow() {
             //prevent page fom scrolling
             return false;
         });
-        $(".cbs").show();
+        /*$(".cbs").show();*/
         $(".pds").hide();
         $(".ps, .jus").show();
         navClick();
