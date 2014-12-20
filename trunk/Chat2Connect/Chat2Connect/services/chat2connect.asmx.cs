@@ -38,6 +38,7 @@ namespace Chat2Connect.services
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
                     Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
+                    IsSelected = false
                 }
                 ).ToList();
 
@@ -60,6 +61,7 @@ namespace Chat2Connect.services
                     IsOnline = m[Member.ColumnNames.IsOnLine],
                     StatusMsg = m[Member.ColumnNames.StatusMsg],
                     Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(m[Member.ColumnNames.Status])).ToString().ToLower(),
+                    IsSelected = false
                 }
                 ).ToList();
 
@@ -397,7 +399,7 @@ namespace Chat2Connect.services
             roomObject.CurrentMemberID = BLL.Member.CurrentMemberID;
 
             List<int> connectedIDs = ChatRoomHub.ConnectedUsers.Select(m => m.MemberID).ToList();
-            roomObject.Members = roomMember.LoadWithSettings(id,roomObject.CurrentMemberID, null, connectedIDs);
+            roomObject.Members = roomMember.LoadWithSettings(id, roomObject.CurrentMemberID, null, connectedIDs);
             var currentMemberSettings = roomObject.Members.First(m => m.MemberID == roomObject.CurrentMemberID);
             if (currentMemberSettings != null)
             {
