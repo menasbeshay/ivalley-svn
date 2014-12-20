@@ -50,14 +50,25 @@ namespace Chat2Connect.usercontrols
         {
             get
             {
-                return Convert.ToString(ViewState["MsgBody"]);
+                return ltrBody.Value;
             }
             set
             {
-                ViewState["MsgBody"] = value;
+                ltrBody.Value = value;
             }
         }
-        
+
+        public string ToMemberID
+        {
+            get;
+            set;
+        }
+
+        public string ToMemberName
+        {
+            get;
+            set;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
