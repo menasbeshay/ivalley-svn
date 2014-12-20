@@ -436,7 +436,7 @@
                                 <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
                                 <li><a class="jslink" data-bind="click:$parent.toggleMark.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsMarked() ?' إلغاء الإسكات ':'إسكات'"></span></a></li>
                                 <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> حجب</a></li>
+                                <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> طرد</a></li>
                                 <!-- /ko -->
                             </ul>
                         </div>
@@ -1600,11 +1600,11 @@
                     <div class="modal-header">
                         <a class="close pull-left" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>
                         <i class="icon-4x" style="float: left; font-family: 'entypo'; margin-left: 10px;">-</i>
-                        <h3 id="myModalLabel1">حجب عضو</h3>
+                        <h3 id="myModalLabel1">طرد عضو</h3>
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal blockBox validationGroup">
-                            <h4>حجب عضو</h4>
+                            <h4>طرد عضو</h4>
                             <div class="form-group" style="display: none">
                                 <div class="col-sm-4 control-label pull-right">
                                     <label>إسم العضو</label>
@@ -1615,7 +1615,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 control-label pull-right">
-                                    <label>نوع الحجب</label>
+                                    <label>نوع الطرد</label>
                                 </div>
                                 <div class="col-sm-7 pull-right">
                                     <!-- ko foreach: BanningTypes -->
