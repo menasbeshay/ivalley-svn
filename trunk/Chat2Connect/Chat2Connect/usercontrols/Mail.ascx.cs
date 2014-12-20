@@ -78,16 +78,20 @@ namespace Chat2Connect.usercontrols
                 string friendname = "";
                 if (!string.IsNullOrEmpty(Request.QueryString["t"]) && Request.QueryString["t"].ToString() == "createmsg")
                 {
-                    int.TryParse(Request.QueryString["u"].ToString(), out friendId);
-                    friendname = Request.QueryString["un"].ToString();
-                }
-                if (friendId != 0 && !string.IsNullOrEmpty(friendname))
-                {
+                    if (!String.IsNullOrEmpty(Request.QueryString["u"]))
+                    {
+                        int.TryParse(Request.QueryString["u"].ToString(), out friendId);
+                        friendname = Request.QueryString["un"].ToString();
+                    }
+                    if (friendId != 0 && !string.IsNullOrEmpty(friendname))
+                    {
+                        Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + friendId + ", name: '" + friendname + "' }); });", true);
+                    }
                     pnlSendMessage.Visible = true;
                     pnlCreateFolder.Visible = false;
                     pnlViewMessages.Visible = false;
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + friendId + ", name: '" + friendname + "' }); });", true);
                 }
+
                 if (!String.IsNullOrEmpty(Request.QueryString["reply"]))
                 {
                     int msgID = Convert.ToInt32(Request.QueryString["reply"]);
@@ -99,9 +103,11 @@ namespace Chat2Connect.usercontrols
                     {
                         ctrlSendMail.MessageBody = Helper.TypeConverter.ToString(msg.GetColumn("Body"));
                         ctrlSendMail.MessageSubject = "رد " + Helper.TypeConverter.ToString(msg.GetColumn("Subject"));
+                        ctrlSendMail.ToMemberID = Helper.TypeConverter.ToString(msg.GetColumn("SenderID"));
+                        ctrlSendMail.ToMemberName = Helper.TypeConverter.ToString(msg.GetColumn("FromMember"));
                     }
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "sendmsg", "$(document).ready(function (){  $('#txtTo').tokenInput('add', { id: " + Helper.TypeConverter.ToString(msg.GetColumn("SenderID")) + ", name: '" + Helper.TypeConverter.ToString(msg.GetColumn("FromMember")) + "' }); });", true);
                 }
+
             }
         }
 
@@ -148,13 +154,7 @@ namespace Chat2Connect.usercontrols
             BindMessages();
         }
 
-        protected void lnkSendMessage_Click(object sender, EventArgs e)
-        {
-            pnlSendMessage.Visible = true;
-            pnlCreateFolder.Visible = false;
-            pnlViewMessages.Visible = false;
-        }
-
+        
         protected void lnkCreateFolder_Click(object sender, EventArgs e)
         {
             pnlViewMessages.Visible = false;
