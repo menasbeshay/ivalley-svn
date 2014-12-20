@@ -65,24 +65,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
-    self.OnlineFriends = ko.observableArray();
-    self.AllOnlineFriendsSelected = ko.observable(false);
-    self.selectAllOnlineFriendsToInvite = function () {
-        var newValue = !self.AllOnlineFriendsSelected();
-        ko.utils.arrayForEach(self.OnlineFriends(), function (friend) {
-            friend.IsSelected(newValue);
-        });
-        return true;
-    };
-    self.selectOnlineFriendToInvite = function () {
-        var isAllSelected = true;
-        ko.utils.arrayForEach(self.OnlineFriends(), function (friend) {
-            if (!friend.IsSelected())
-                isAllSelected = false;
-        });
-        self.AllOnlineFriendsSelected(isAllSelected);
-        return true;
-    };
+    
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
             return win.IsTemp() == false && win.Type() == "Room";
@@ -229,6 +212,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     this.getFriends = function () {
         $.get("../services/chat2connect.asmx/GetFriends", { mid: this.CurrentMemberID })
                 .done(function (data) {
+
                     var lst = [];
                     ko.utils.arrayMap(data, function (item) {
                         lst.push(ko.mapping.fromJS(item));
@@ -271,6 +255,23 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             return (!f.IsOnline() || f.Status() == 'offline' || self.isBlockingMe(f.MemberID())) && !self.isBlocked(f.MemberID())
         });
     }, this);
+    self.AllOnlineFriendsSelected = ko.observable(false);
+    self.selectAllOnlineFriendsToInvite = function () {
+        var newValue = !self.AllOnlineFriendsSelected();
+        ko.utils.arrayForEach(self.onlineFriends(), function (friend) {
+            friend.IsSelected(newValue);
+        });
+        return true;
+    };
+    self.selectOnlineFriendToInvite = function () {
+        var isAllSelected = true;
+        ko.utils.arrayForEach(self.onlineFriends(), function (friend) {
+            if (!friend.IsSelected())
+                isAllSelected = false;
+        });
+        self.AllOnlineFriendsSelected(isAllSelected);
+        return true;
+    };
 
     this.removeFriend = function () {
         var friend = this;
@@ -281,33 +282,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         self.friends(newlst);
         removeFriend(self.CurrentMemberID, friend.MemberID());
     };
-    // init online friends    
-    $.ajax({
-        url: '../services/Services.asmx/GetOnlineFriends',
-        async: false,
-        success: function (data) {
-            self.OnlineFriends = ko.mapping.fromJS(data);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            return;
-        }
-    });
-
-    self.addOnlineFriend = function (member) {
-        // update IsSelected prop
-        member.IsSelected = false;
-        self.OnlineFriends.push(member);
-    }
-
-    self.removeOnlineFriend = function (member) {
-        $.each(self.OnlineFriends, function () {
-            if (this.id == member.id) {
-                self.OnlineFriends.remove(this);
-                return;
-            }
-        });
-
-    }
 
     var mapping = {
         '': {
@@ -1269,7 +1243,8 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         this.updateMember = function (mid, prop, val) {
             var member = this.getMember(mid);
             if (member != null) {
-                member[prop](val);                
+                if (member.hasOwnProperty(prop))
+                    member[prop](val);
 
                 $('#usernode-' + member.MemberID()).popover('hide');
             }
@@ -2355,7 +2330,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         });
         if (member != undefined)
             member[prop](val);
-
+        if (prop == 'IsOnline')
+            prop = 'InRoom';
         ko.utils.arrayForEach(chatVM.allRooms(), function (window) {
             window.updateMember(mid, prop, val);
         });

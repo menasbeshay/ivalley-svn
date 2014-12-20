@@ -1762,10 +1762,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="col-sm-12 SScroll" data-height="130px" style="width: 100% !important; float: right">
-                                        <ul class="giftMembers" data-bind="foreach:$parent.OnlineFriends, attr:{id:'inviteMembers_' + uniqueID()}">
+                                        <ul class="giftMembers" data-bind="foreach:$parent.onlineFriends, attr:{id:'inviteMembers_' + uniqueID()}">
                                             <li>
-                                                <input type="checkbox" class="invitecheckboxes" data-bind="attr:{value:id, 'data-member-name':name}, checked:IsSelected, click:$root.selectOnlineFriendToInvite" />
-                                                <span data-bind="text:name"></span></li>
+                                                <input type="checkbox" class="invitecheckboxes" data-bind="attr:{value:MemberID, 'data-member-name':Name}, checked:IsSelected, click:$root.selectOnlineFriendToInvite" />
+                                                <span data-bind="text:Name"></span></li>
                                         </ul>
                                     </div>
                                 </div>
