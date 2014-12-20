@@ -1987,7 +1987,7 @@
                                     <label>عدد الزوار</label>
                                 </div>
                                 <div class="col-sm-7 control-label pull-right">
-                                    <span data-bind="text:ExistingMembers().length"></span>
+                                    <span data-bind="text:Members().length"></span>
                                 </div>
 
                             </div>
