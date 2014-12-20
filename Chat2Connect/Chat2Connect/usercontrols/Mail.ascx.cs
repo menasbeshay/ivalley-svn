@@ -275,7 +275,11 @@ namespace Chat2Connect.usercontrols
                 {
                     message.MoveToTrash(selectedMessages);
                 }
+
                 BindMessages();
+
+                Chat2Connect.SRCustomHubs.NotificationHub notification = new SRCustomHubs.NotificationHub();
+                notification.SendMailNotifications(MemberID);
             }
         }
 
