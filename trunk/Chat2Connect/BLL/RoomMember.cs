@@ -89,7 +89,7 @@ namespace BLL
             return LoadFromRawSql("select RoomMember.*,[RoomName]=Room.Name from RoomMember INNER JOIN Room ON Room.RoomID=RoomMember.RoomID WHERE IsAdmin=1 AND RoomMember.MemberID={0}", MemberID);
         }
 
-        public List<Helper.ChatMember> LoadWithSettings(int roomID,int currentMemberID, int? memberID, List<int> connectedMembers)
+        public List<Helper.ChatMember> LoadWithSettings(int roomID, int currentMemberID, int? memberID, List<int> connectedMembers)
         {
             string sql = @"SELECT RM.*,MemberName=aspnet_Users.UserName,M.ProfilePic,MTSpec.MemberTypeSpecID
                                 ,B.EndDate,B.StartDate
@@ -416,6 +416,11 @@ namespace BLL
                                     From roommember RM
                                     Inner Join Member M on RM.MemberID = M.MemberID                                                                       
                                     WHERE M.IsOnline <> 1");
+        }
+
+        public bool LoadOpenedRoomsByMember(int memberID)
+        {
+            return LoadFromRawSql(@"SELECT * FROM RoomMember WHERE InRoom=1 AND MemberID={0}", memberID);
         }
     }
 }
