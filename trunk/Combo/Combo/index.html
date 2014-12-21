@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        function getUsers() {
+            /* $.getJSON("ComboAPI/combo.asmx/GetUsers",
+                function (data) {
+                    $('#users').empty(); // Clear the table body.
+
+                    if (data.bool_result != false) {
+                        $.each(data.Entity, function (key, val) {
+                            // Add a table row for the product.
+                            var row = '<td>' + val.ComboUserID + '</td><td>' + val.UserName + '</td><td><a onclick=\'forgetpass("' + val.UserName + '");\'>forgetpass</a></td><td><a onclick=\'deleteuser("' + val.ComboUserID + '");\'>delete</a></td>';
+                            $('<tr/>', { html: row })  // Append the name.
+                                .appendTo($('#users'));
+                        });
+
+                    }
+                    else {
+                        $('#error').css('display', 'block');
+                        $('#error').html(data.ErrorMsg);
+                    }
+                });
+
+            $.getJSON("api/ComboUser/GetUser?Username=asd&Password=21345",
+                function (data) {
+                    $('#users').empty(); // Clear the table body.
+
+                    if (data.bool_result != false)
+                    {
+                        $.each(data.Entity, function (key, val) {
+                            // Add a table row for the product.
+                            var row = '<td>' + val.ComboUserID + '</td><td>' + val.UserName + '</td><td><a onclick=\'forgetpass("' + val.UserName + '");\'>forgetpass</a></td><td><a onclick=\'deleteuser("' + val.ComboUserID + '");\'>delete</a></td>';
+                            $('<tr/>', { html: row })  // Append the name.
+                                .appendTo($('#users'));
+                        });
+                    }
+                    else
+                    {
+                        $('#error').css('display', 'block');
+                        $('#error').html(data.ErrorMsg);
+                    }
+                });
+            */
+             var user = { id: 9 }
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: '/api/ComboUser/GetUserByID',
+                cache: false,
+                type: 'Post',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+                           $.each(data.Entity, function (key, val) {
+                               // Add a table row for the product.
+                               var row = '<td>' + val.ComboUserID + '</td><td>' + val.UserName + '</td><td><a onclick=\'forgetpass("' + val.UserName + '");\'>forgetpass</a></td><td><a onclick=\'deleteuser("' + val.ComboUserID + '");\'>delete</a></td>';
+                               $('<tr/>', { html: row })  // Append the name.
+                                   .appendTo($('#users'));
+                           });
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
+
+        $(document).ready(getUsers);
+
+        function addUser() {
+            var user = { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val() };
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/AddUser',
+                cache: false,
+                type: 'POST',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success: 
+                   function (data) {
+                       if (data.bool_result != false) {
+                           
+                               // Add a table row for the product.
+                           var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                           $('<tr/>', { html: row })  // Append the name.
+                               .appendTo($('#users'));
+                           
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+                        
+                        
+                    }
+                
+            });
+        }
+
+
+        function forgetpass(username) {
+            var user = { Username: username }
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/ForgetPassword',
+                cache: false,
+                type: 'Post',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+                           alert(data.Entity);
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
+
+        function deleteuser(id) {
+            var user = { ID: id };
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/DeleteUser',
+                cache: false,
+                type: 'Delete',
+                data: id,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+                           alert(data.Entity);
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="error" style="display:none"></div>
+    <table id="users" border="1" style="border-collapse:collapse">
+
+    </table>
+
+    <input id="text" type="text" />
+    <input id="pass" type="password" />
+    <input id="email" type="text" />
+    <input id="Button1" type="button" value="button" onclick="addUser()" />
+</body>
+</html>
