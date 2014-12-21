@@ -25,7 +25,7 @@ namespace Combo.ComboAPI
         /// Get All combo Users
         /// </summary>
         /// <returns>ComboResponse object with List of all Combo Users </returns>
-        public void GetUsers()
+        public string GetUsers()
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -58,7 +58,9 @@ namespace Combo.ComboAPI
 
 
             _response.Entity = Users;
-            SetContentResult(_response);
+            SetContentResult();
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(_response);
+            return result;
 
         }
 
@@ -68,7 +70,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with requested User object </returns>
-        public void GetUserByID(int id)
+        public string GetUserByID(int id)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -101,7 +103,9 @@ namespace Combo.ComboAPI
 
 
             _response.Entity = Users;
-            SetContentResult(_response);
+            SetContentResult();
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(_response);
+            return result;
 
         }
 
@@ -158,7 +162,7 @@ namespace Combo.ComboAPI
 
                 _response.Entity = Users;
             }
-            SetContentResult(_response);
+            //SetContentResult(_response);
 
         }
 
@@ -212,7 +216,7 @@ namespace Combo.ComboAPI
             user.ComboUserID = newUser.ComboUserID;
             _response.Entity = user;
             */
-            SetContentResult(_response);
+            //SetContentResult(_response);
             return;
         }
 
@@ -244,7 +248,7 @@ namespace Combo.ComboAPI
             }
 
             _response.Entity = null;
-            SetContentResult(_response);
+            //SetContentResult(_response);
             return;
         }
 
@@ -306,15 +310,15 @@ namespace Combo.ComboAPI
             }
 
             _response.Entity = null;
-            SetContentResult(_response);
+            //SetContentResult(_response);
             return;
         }
 
-        private void SetContentResult(dynamic data)
+        private void SetContentResult()
         {
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(data);
+            //string result = Newtonsoft.Json.JsonConvert.SerializeObject(data);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
-            HttpContext.Current.Response.Write(result);
+            //HttpContext.Current.Response.Write(result);            
         }
     }
 }
