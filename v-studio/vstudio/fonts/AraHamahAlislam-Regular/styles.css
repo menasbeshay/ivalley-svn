@@ -1,0 +1,9 @@
+
+@font-face {
+	font-family: 'AraHamahAlislam-Regular';
+	src: url('AraHamahAlislam-Regular.eot?') format('eot'), 
+	     url('AraHamahAlislam-Regular.otf')  format('opentype'),
+	     url('AraHamahAlislam-Regular.woff') format('woff'), 
+	     url('AraHamahAlislam-Regular.ttf')  format('truetype'),
+	     url('AraHamahAlislam-Regular.svg#AraHamahAlislam-Regular') format('svg');
+}
