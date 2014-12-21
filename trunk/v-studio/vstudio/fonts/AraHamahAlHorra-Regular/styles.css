@@ -1,0 +1,9 @@
+
+@font-face {
+	font-family: 'AraHamahAlHorra-Regular';
+	src: url('AraHamahAlHorra-Regular.eot?') format('eot'), 
+	     url('AraHamahAlHorra-Regular.otf')  format('opentype'),
+	     url('AraHamahAlHorra-Regular.woff') format('woff'), 
+	     url('AraHamahAlHorra-Regular.ttf')  format('truetype'),
+	     url('AraHamahAlHorra-Regular.svg#AraHamahAlHorra-Regular') format('svg');
+}

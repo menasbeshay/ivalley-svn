@@ -1,0 +1,9 @@
+
+@font-face {
+	font-family: 'AraHamahZanki-Regular';
+	src: url('AraHamahZanki-Regular.eot?') format('eot'), 
+	     url('AraHamahZanki-Regular.otf')  format('opentype'),
+	     url('AraHamahZanki-Regular.woff') format('woff'), 
+	     url('AraHamahZanki-Regular.ttf')  format('truetype'),
+	     url('AraHamahZanki-Regular.svg#AraHamahZanki-Regular') format('svg');
+}
