@@ -554,8 +554,8 @@ function scrollAllow() {
         resetMenu();
         vidThumb();
         $("#mac").show("slide", { direction: "up" }, 2000);
-        $(".pds").show();
-        $(".cbs").hide();
+        /*$(".pds").show();
+        $(".cbs").hide();*/
         $(".ps, .jus").show();
         $("#mac1").mouseenter(function () {
             /*$(".media-icon-hover").stop( true, true ).removeAttr("style", "visibility:hidden");*/
@@ -837,7 +837,7 @@ function scrollAllow() {
         $("#corp-4").delay(1000).show('slide', { direction: "left" }, 500);
         $(".services").attr("style", "background-color:rgba(255,255,255,0.05);");
         setLeft("services", "Services");
-        $(".cbs").show();
+        /*$(".cbs").show();*/
         $("#arrow-corporate").bind('click', function () {
             parallax["services"].left();
         });
