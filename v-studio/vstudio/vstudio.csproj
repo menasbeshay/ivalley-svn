@@ -160,6 +160,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\imageflow.packed.css" />
     <Content Include="css\master.css" />
+    <Content Include="fonts.html" />
     <Content Include="fonts\al-jazeera-arabic-regular-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -172,6 +173,13 @@
     <Content Include="fonts\neuropol_x_rg-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\shroqwebfont\generator_config.txt" />
+    <Content Include="fonts\shroqwebfont\shoroq_font-demo.html" />
+    <Content Include="fonts\shroqwebfont\shoroq_font-webfont.svg" />
+    <Content Include="fonts\shroqwebfont\specimen_files\easytabs.js" />
+    <Content Include="fonts\shroqwebfont\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="fonts\shroqwebfont\specimen_files\specimen_stylesheet.css" />
+    <Content Include="fonts\shroqwebfont\stylesheet.css" />
     <Content Include="home.aspx" />
     <Content Include="img\1.jpg" />
     <Content Include="img\10.jpg" />
@@ -335,6 +343,7 @@
     <Content Include="img\poly-play.png" />
     <Content Include="img\poly-shadow.png" />
     <Content Include="img\polytouch-logo.jpg" />
+    <Content Include="img\polytouch-logo.png" />
     <Content Include="img\polytouch-logo1 %281%29.jpg" />
     <Content Include="img\polytouch-logo1.jpg" />
     <Content Include="img\polytouch.jpg" />
@@ -523,6 +532,10 @@
     <Content Include="fonts\neuropol_x_rg-webfont.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\shroqwebfont\shoroq_font-webfont.eot" />
+    <Content Include="fonts\shroqwebfont\shoroq_font-webfont.ttf" />
+    <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff" />
+    <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff2" />
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

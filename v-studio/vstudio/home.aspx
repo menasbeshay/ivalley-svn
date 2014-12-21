@@ -120,7 +120,7 @@
 	</section>
 	<section id="video" style="display:none;">
 			<video id='media-video' preload="none" class="video-js" poster="img/bg-video.jpg">
-				<source src='http://203.124.98.195/~vstudioco/wp-content/themes/vstudio/media/demo1.mp4'  type="video/mp4">
+				<source src='https://www.youtube.com/watch?v=FGVHbFWzDrQ'  type="video/mp4">
 Your browser does not support the video tag
 			</video>
 
@@ -740,7 +740,7 @@ Increase your brand recognition and value through:</p>
 -->
 				<div class="row" style="height:100px; left:9.3%; position:relative;">
 					<div class="page-heading">
-						<h1 class="text-left heading4" style="display:none;line-height:initial !important;"> <img width="150" height="47" src="img/3D-Wayfinding_logo.png">
+						<h1 class="text-left heading4" style="display:none;line-height:initial !important;line-height:normal;"> <img width="150" height="47" src="img/3D-Wayfinding_logo.png">
                             <span style="clear:both;height:1px;"></span><span style="font-size:16px;display:block">3D WAYFINDING</span>
 						</h1>
 						
@@ -768,7 +768,7 @@ Increase your brand recognition and value through:</p>
                                         <div class="col-md-1">
                                         </div>
 					<div id="way-right" style="display:none; position:absolute; right:0px;">
-						<div class="col-md-12" >
+						<div class="col-md-12" style="padding-right:0px;" >
 							<div style="height:460px;">
 							<div id="tv" >
 <video id="way-vid" style="width: 88%; height: 53%;
@@ -815,7 +815,7 @@ Your browser does not support the video tag
 		</div>
 	</section>
 	<section id="polytouch"  style="display:none;">
-		<div id="polytouch-cover">
+		<div id="polytouch-cover"> 
 			<div class="container-fluid">
   <div id="polyModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -1210,9 +1210,9 @@ any other design company so far. Two thumbs way up! </p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-11 col-md-offset-1">
-						<p>Are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business? <span style="color:#09a0f8">Contact us</span><br>
-Are you an innovative, creative & results-oriented sales rep, voiceover talent, web presenter or cameraman? <span style="color:#09a0f8">Join us</span></p>
+					<div class="col-md-11 col-md-offset-1" style="padding-right:0px;">
+						<p>Are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business? <span style="color:#09a0f8;font-size:18px;">Contact us</span><br>
+Are you an innovative, creative & results-oriented sales rep, voiceover talent, web presenter or cameraman? <span style="color:#09a0f8;font-size:18px;">Join us</span></p>
 					</div>
 				</div>
 				<div class="row">
