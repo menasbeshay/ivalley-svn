@@ -139,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/16/2014 00:34:14</publishTime>
+      <publishTime>12/21/2014 16:11:41</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/18/2014 13:54:53</publishTime>
+      <publishTime>12/21/2014 16:11:42</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -256,10 +256,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:53</publishTime>
     </File>
     <File Include="bin/Helper.dll">
-      <publishTime>12/02/2014 13:06:40</publishTime>
+      <publishTime>12/21/2014 16:11:41</publishTime>
     </File>
     <File Include="bin/Info.dll">
-      <publishTime>12/02/2014 13:06:40</publishTime>
+      <publishTime>12/21/2014 16:11:41</publishTime>
     </File>
     <File Include="bin/js/jquery-1.11.1.min.js">
       <publishTime>09/11/2014 12:24:47</publishTime>
@@ -652,7 +652,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2014 15:49:39</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>12/18/2014 12:16:03</publishTime>
+      <publishTime>12/21/2014 11:18:45</publishTime>
     </File>
     <File Include="Home1.aspx">
       <publishTime>11/09/2014 13:26:10</publishTime>
@@ -2026,7 +2026,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>12/18/2014 12:38:56</publishTime>
+      <publishTime>12/21/2014 11:43:02</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2431,7 +2431,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/18/2014 11:15:17</publishTime>
     </File>
     <File Include="usercontrols/Mail.ascx">
-      <publishTime>12/18/2014 11:58:54</publishTime>
+      <publishTime>12/21/2014 11:18:45</publishTime>
     </File>
     <File Include="usercontrols/MemberTypes.ascx">
       <publishTime>11/02/2014 12:35:27</publishTime>
@@ -2440,7 +2440,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/02/2014 12:35:27</publishTime>
     </File>
     <File Include="usercontrols/SendMail.ascx">
-      <publishTime>12/10/2014 14:05:48</publishTime>
+      <publishTime>12/21/2014 11:18:45</publishTime>
     </File>
     <File Include="usercontrols/ucFriends.ascx">
       <publishTime>11/05/2014 21:50:29</publishTime>

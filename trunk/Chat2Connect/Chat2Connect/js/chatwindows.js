@@ -1007,6 +1007,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 // show cam to friend 
                 if (window.CurrentMember().MemberID() == memberID) {
                     rHub.server.userStartCam_Private(window.ID(), memberID);
+                    member.IsCamOpened(true);
                 }
                 else {
                     if (window.CurrentMember().NotifyOnOpenCam()) {
@@ -1032,6 +1033,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 // close cam on friend
                 if (window.CurrentMember().MemberID() == memberID) {
                     rHub.server.userStopCam_Private(window.ID(), memberID);
+                    member.IsCamOpened(false);
                 }
                 else {
                     if (window.CurrentMember().NotifyOnCloseCam()) {
@@ -1765,6 +1767,9 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
 
 function onCamClose(userId, roomId) {
     var window = chatVM.getWindow(roomId.substr(roomId.indexOf("_") + 1), 'Room');
+    if (window == null) {
+        window = chatVM.getWindowByUniqueID(roomId, "Private");        
+    }
     if (window == null)
         return;
     window.stopCam(userId);
