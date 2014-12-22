@@ -38,7 +38,7 @@
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#onlinepeople">الأصدقاء المتواجدين (<span data-bind="text: onlineFriends().length"></span>)</a></div>
             <div class="clearfix"></div>
             <div id="onlinepeople" class="panel-collapse collapse in " data-bind="if: friends.loaded()">
-                <!--ko template: { name: 'onlineFriendTmpl',foreach: onlineFriends,afterRender:function(){initPopupMenu();} }-->
+                <!--ko template: { name: 'onlineFriendTmpl',foreach: onlineFriends}-->
 
                 <!--/ko-->
             </div>
@@ -53,7 +53,7 @@
             <div class="pull-right"><a data-toggle="collapse" data-parent="#accordion1" href="#offlinepeople">الأصدقاء غير المتواجدين (<span data-bind="text: offlineFriends().length"></span>)</a></div>
             <div class="clearfix"></div>
             <div id="offlinepeople" class="panel-collapse collapse in" data-bind="if: friends.loaded()">
-                <!--ko template: { name: 'offlineFriendTmpl',foreach: offlineFriends ,afterRender:function(){initPopupMenu();} }-->
+                <!--ko template: { name: 'offlineFriendTmpl',foreach: offlineFriends}-->
                 <!--/ko-->
             </div>
             <!--ko ifnot:friends.loaded()-->
