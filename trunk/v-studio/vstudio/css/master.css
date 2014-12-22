@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url(../fonts/AraHamah1964R-Regular/styles.css);
 @font-face
 {
 font-family: Alj;
@@ -330,7 +332,7 @@ body
 {
 	font-family: Ubuntu-Light;
 	color:#fff;
-	width:30%;
+	width:32%;
 	position:fixed;
 	bottom:6%;
 	right:4.02%;
@@ -2062,4 +2064,16 @@ margin-bottom:6px;
     }
 .mtsa {
     font-family:'neuropol_xregular' !important;
+}
+
+
+.vs_header {
+    font-family: 'Droid Arabic Kufi', serif !important; 
+    font-size: 35px;
+}
+
+.vs_content {
+    font-family : AraHamah1964B-Regular !important;
+    font-size:18px;
+    font-weight:600 !important;
 }

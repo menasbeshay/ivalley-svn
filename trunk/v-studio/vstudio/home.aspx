@@ -6,7 +6,7 @@
 	<section id="header">
 		<div id="nav-small">
 			<div id="arabic" class="text-center">
-				<a href="arabic.aspx"><span>عربي</span></a>
+				<a href="arabic.aspx"><span style="font-family:'Droid Arabic Kufi';">عربي</span></a>
 			</div>
 			<div id="logo" class="home-icon text-center">
 				<a href="#"><img src="img/logo-icon.png"/></a>
@@ -19,7 +19,7 @@
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -41,7 +41,7 @@
 					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
 					<li id="menu-multi" class="multi"><a href="#">Multi Touchscreens</a></li>
 					<li id="menu-way" class="3dway"><a href="#">3D Wayfinding</a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#">MTSA</a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#">MTSA <br /><span style="font-family:'Ubuntu-Light'; font-size:11px;">Info kiosk systems & digital signage</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#">Contact Us</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">Portfolio</a></li>
 					<li id="menu-join" class="jus"><a href="#">Join Us</a></li>
@@ -112,7 +112,7 @@
 					<div style="display:none;" class="mt icon-rotate"><a href="#"><img src="img/multi_touchscreens.png" class="img-responsive"/></a></div>
 				</div>
 				<div id="arabic1" class="text-center">
-					<a href="arabic/"><span>عربي</span></a>
+					<a href="arabic/"><span style="font-family:'Droid Arabic Kufi';">عربي</span></a>
 				</div>
 			</div>
 			</div>
@@ -879,7 +879,7 @@ Omni-channel sales with polytouch® Nowadays customers want to use all channels 
 							<h3>Whatever your business is,
 it will be smarter with polytouch®</h3>
 
-                                                        <img src="img/poly-bottom.png" width="100%" class="img-responsive"/>
+                                                        <img src="img/poly-bottom.png" style="width:92%" class="img-responsive"/>
 						</div>
 					</div>
 					<div id="way-right1" style="display:none; position:absolute; margin-left:10px; right:10px;">
@@ -957,9 +957,11 @@ website only and our products are sold through authorized distributors.</p>
 					<div class="col-md-3">
 						
 						<div class="media">
-							<span>V-Studio is a Division of</span><br />		
+							<span class="text-justify" style="font-size:14px;font-weight:500;line-height:5px;width:122px;">V-Studio is a                                 
+                                <br />Division of</span>
+                            <div style="clear:both;height:5px;"></div>
                             <a href="#" class="pull-left">
-										<img src="img/sager-logo.png" class="media-object img-responsive"/>
+										<img src="img/sager-logo.png" class="media-object img-responsive" style="margin-left:-7px;"/>
 									</a>
 									
 								</div>
@@ -986,7 +988,7 @@ Tel: (+966) 12- 283 4088 | Fax: (+966) 12-660 8128 <br>
 info@v-studio.co                                      
                                             <br />
                                 <br />
-                                            <b>Branches: Riyadh .Al Khobar .</b>
+                                            <b>Branches: Riyadh .  Al Khobar .</b>
 								     
 										</address>
 									</div>
@@ -1023,74 +1025,75 @@ info@v-studio.co
                                         <h4 class="modal-title" id="myModalLabel">Send us a message</h4>
                                         </div>
                                         <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="" action="">
-											                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Name</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Name *"/>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Email</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Email *"/>
-                                </div>
-											                                </div>
-											                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Address</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Address *"/>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Tel</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Tel *"/>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Mobile phone</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Mobile phone *"/>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Subject</label>
-                                <div class="col-sm-9">
-												                                <input type="text" maxlength="255" name="telephone" value="" placeholder="Subject *"/>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Message</label>
-                                <div class="col-sm-9">
-												                                <textarea style="height:70px;" rows="2" name="telephone" value="" placeholder=""></textarea>
-                                </div>
-											                                </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label">Captcha</label>
-                                <div class="col-sm-9">
-										                                <div class="row">
-                                <div class="col-sm-12">
-										                                <div class="col-sm-5">	
-											                                <div style="margin:0px; height:40px; padding-top:0px; line-height:35px; font-size:24px;"class="captcha-box text-center">J K L 7 8 O</div>
-										                                </div>
-										                                <div class="col-sm-7">
-											                                <input type="text" maxlength="255" name="captcha" value="" placeholder=""/>
-										                                </div>
-                                </div>
-                                </div>
-                                </div>
-									                                </div>
-									
-									                                <div class="row">
-										                                <div class="col-md-12">
-											                                <div class="form-group">
-                                <div class="col-sm-9 col-sm-offset-3">
-												                                <button style="z-index:1024;" type="submit">Submit</button>
-                                </div>
-											                                </div>
-										                                </div>
-									                                </div>
+                                            <div class="form-horizontal" role="form">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Name</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Name *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Email</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Email *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Address</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Address *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Tel</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Tel *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Mobile phone</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Mobile phone *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Subject</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" maxlength="255" name="telephone" value="" placeholder="Subject *" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Message</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea style="height: 70px;" rows="2" name="telephone" value="" placeholder=""></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-sm-3 control-label">Captcha</label>
+                                                    <div class="col-sm-9">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="col-sm-5">
+                                                                    <div style="margin: 0px; height: 40px; padding-top: 0px; line-height: 35px; font-size: 24px;" class="captcha-box text-center">J K L 7 8 O</div>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    <input type="text" maxlength="255" name="captcha" value="" placeholder="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group clearfix">
+                                                            <div class="col-sm-9 col-sm-offset-3">
+                                                                <button style="z-index: 1024;" type="submit">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-footer text-center pull-left">
                                         <p style="text-align:center;">Uncompleted form or untrue information including phone number may result in not answering your message.</p>
@@ -1139,9 +1142,9 @@ info@v-studio.co
 					</div>
 				</div>
 				<br>
-				<div class="row" id="portfolio-carousel">
-					<div class="col-md-12">
-					 	<div id="portfolio-carousel">
+				<div class="row" id="portfolio-carousel" >
+					<div class="col-md-6 center-block" style="float:none;">
+					 	<div id="portfolio-carousel" style="display:none;">
 						<!--<div id="background"></div>	-->	
 						<div class="arrows">
 							
@@ -1176,7 +1179,7 @@ info@v-studio.co
 							</div>
 						</div>
                                              </div>
-						
+						<img src="img/portfolio_def.jpg" class="thumbnail"/>
 					</div>
 					
 				</div>
