@@ -210,35 +210,39 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         });
     }
     this.getFriends = function () {
-        $.get("../services/chat2connect.asmx/GetFriends", { mid: this.CurrentMemberID })
-                .done(function (data) {
+        $.ajax({
+            url: "../services/chat2connect.asmx/GetFriends",
+            data:{ mid: this.CurrentMemberID },
+            context: this,
+            async:true
+        }).done(function (data) {
 
-                    var lst = [];
-                    ko.utils.arrayMap(data, function (item) {
-                        lst.push(ko.mapping.fromJS(item));
-                    });
-                    self.friends(lst);
-                    initPopupMenu();
-                    // init link in friends menu 
-                    $('.openGiftModal').click(function () {
-                        $('#GeneralGiftModal').modal('show');
-                        $('#GeneralGiftModal input.checkboxes').each(function () {
-                            $(this).attr('checked', false);
-                        });
-                        $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
-                    });
-
-                    // init send btn 
-                    $('#btnGeneralSendGift').unbind('click');
-                    $('#btnGeneralSendGift').bind('click', function () { sendGeneralGift(); });
-
-                    // init select gift
-                    $('#GeneralGiftUL .GiftLabel').click(function () {
-                        generalSelectedGift = $(this);
-                        $('#GeneralGiftUL').find('label').removeClass('selected');
-                        $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
-                    });
+            var lst = [];
+            ko.utils.arrayMap(data, function (item) {
+                lst.push(ko.mapping.fromJS(item));
+            });
+            self.friends(lst);
+            initPopupMenu();
+            // init link in friends menu 
+            $('.openGiftModal').click(function () {
+                $('#GeneralGiftModal').modal('show');
+                $('#GeneralGiftModal input.checkboxes').each(function () {
+                    $(this).attr('checked', false);
                 });
+                $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+            });
+
+            // init send btn 
+            $('#btnGeneralSendGift').unbind('click');
+            $('#btnGeneralSendGift').bind('click', function () { sendGeneralGift(); });
+
+            // init select gift
+            $('#GeneralGiftUL .GiftLabel').click(function () {
+                generalSelectedGift = $(this);
+                $('#GeneralGiftUL').find('label').removeClass('selected');
+                $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
+            });
+        });
     };
     this.friends = ko.onDemandObservable(this.getFriends, this);
     this.onlineFriends = ko.computed(function () {
