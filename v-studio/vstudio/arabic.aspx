@@ -110,9 +110,9 @@
 					<img src="img/pull-me-down-a.png" id="pull-me-down"/>
 				</div>
 				</div>
-				<div id="sager-text" style="position:absolute; display:none;font-family: 'Alj'">
+				<div id="sager-text" style="position:absolute; display:none;">
 					<h1></h1>
-					<p style="line-height:20px;"> نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي &nbsp;<span class="text-med" style="margin-right:5px;">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span></p>
+					<p style="line-height:23px;font-size:16px;" class="vs_content"> نحن فريقٌ لدى صقر في ستديو يقوده شغف وحماس التسويق ولكننا نعشق الإبتكار ايضا . سواءً كنت تبحث عن تصميم هوية تجارية تترك إنطباعا دائما أو ترغب في تقديم أعمالك ومنتجاتك من خلال موقع  إلكتروني متميز أو إنتاج فيديو مفعم بالإبهار أو   ممن تستهويهم إبداعات خلق الرسوم المتحركة وتصاميم الأجسام ثلاثية الأبعاد والفيديو التخيّلي  أو تتوق لتسويق منتجاتك بأفضل ما يكون من خلال استخدام منتجاتنا للتسويق المرئي خارج المنافسة من شاشات تعمل باللمس وتطبيقاتها المختلفة بمافي ذلك الدليل الإرشادي للمباني ثلاثي الأبعاد  أو الهولوجرام وأجهزة العرض الضوئي &nbsp;<span class="text-med vs_header" style="margin-right:5px;font-size:14px;">نحن هنا في صقر في ستديو  لنعـزّز الرؤى</span></p>
 					
 				</div>
 				<div class="right-icons" id="watch-video" style="display:none; z-index:3000;">
@@ -151,7 +151,7 @@ Your browser does not support the video tag
 						<br><br>
 					</div>
                                         <div class="text-center">
-                                                <span class="start-video-again">إعادة عرض الفيديو</span>
+                                                <span class="start-video-again vs_header">إعادة عرض الفيديو</span>
 <br><br><br><br><br>
                                         </div>
 					<div class="text-center icon-rotate">
@@ -170,7 +170,7 @@ Your browser does not support the video tag
 			<div class="container">
 				<div class="row" style="height:100px;">
 					<div class="col-md-12 page-heading">
-						<h1 class="heading1" style="font-family: 'Ge';text-align:center;">هولوجرام والعرض الضوئي</h1>
+						<h1 class="heading1 vs_header" style="text-align:center;">هولوجرام والعرض الضوئي</h1>
 					</div>
 				</div>
                                 <!-- arrows here -->
@@ -239,7 +239,7 @@ Your browser does not support the video tag
 						</div>
 						<div id="holo-bottom" style="position:absolute; height:auto; top:390px;" class="col-md-12">
 
-							<h2 style="font-family:'Ge'; font-size:24px;text-align:right;">فيديو المنتجات </h2>
+							<h2 class="vs_header" style=" font-size:24px;text-align:right;">فيديو المنتجات </h2>
                             <div class="row">
                                 <div id="arrow-holo-more" class="arrow" style="right:-10%; z-index:200; position:absolute; ">
 				                    <img src="img/arrow_right_violet.png" width="65" height="63" alt="Right Arrow"/>
@@ -338,29 +338,29 @@ Your browser does not support the video tag
 				</div>
 				<div class="row" id="page-heading" style="height:100px;">
 					<div class="col-md-11 col-md-offset-1">
-						<h1 class="heading2" style="display:none; font-family: 'Ge';font-size:65px;line-height:initial;">منتجاتنا</h1>
+						<h1 class="heading2 vs_header" style="display:none; font-size:40px;line-height:initial;">منتجاتنا</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 col-md-offset-1 productWrapper" style="">
-						<h2>هولوكونيك™ 
+						<h2 class="vs_header">هولوكونيك™ 
 						<a href="" class="pull-left"><img src="img/logo1.png"  height="65"/></a>
 						</h2>
-						<h3 style="font-size:12px;font-family: 'Ge';">وحدات عرض هولوجرام والكريستال السائل LCD 
+						<h3 style="font-size:12px;" class="vs_content">وحدات عرض هولوجرام والكريستال السائل LCD 
 							
 						</h3>
 						<hr>
-						<p>الهولوجرام هو من أحد أحدث تقنيات العروض المشاهدَة وهي صورة وهمية مكبرة متعددة الأبعاد  عائمة في الهواء لها تأثير كبير على المشاهدين.
-<ul>
-<li>تقدّم وحدات العرض صورة ثلاثية الأبعاد تبدو عائمة في الهواء</li>
-<li>يمكن الجمع بين عرض المنتج الحقيقي والعرض الإفتراضي داخل وحدة العرض الهولوجرام</li>
-<li>يمكن مشاهدة العرض من زاوية أو عدة زوايا أو جميع الزوايا من أجل رؤية ومشاهدة مدهشة</li>
-<li>تقنية متطورة ببساطة تثير الدهشة </li>
-<li>فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
+						<p class="vs_content">الهولوجرام هو من أحد أحدث تقنيات العروض المشاهدَة وهي صورة وهمية مكبرة متعددة الأبعاد  عائمة في الهواء لها تأثير كبير على المشاهدين.
+<ul >
+<li class="vs_content">تقدّم وحدات العرض صورة ثلاثية الأبعاد تبدو عائمة في الهواء</li>
+<li class="vs_content">يمكن الجمع بين عرض المنتج الحقيقي والعرض الإفتراضي داخل وحدة العرض الهولوجرام</li>
+<li class="vs_content">يمكن مشاهدة العرض من زاوية أو عدة زوايا أو جميع الزوايا من أجل رؤية ومشاهدة مدهشة</li>
+<li class="vs_content">تقنية متطورة ببساطة تثير الدهشة </li>
+<li class="vs_content">فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
 </ul></p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -401,17 +401,17 @@ Your browser does not support the video tag
   </div><!-- /.modal -->
 					</div>
 					<div class="col-md-5 productWrapper">
-						<h2>وينشــو™ 
+						<h2 class="vs_header">وينشــو™ 
 						<a href="" class="pull-left"><img src="img/logo3.png"  height="65"/></a>
 						</h2>
-						<h3 style="font-size:16px;font-family: 'Ge';"> فيلم العرض الضوئي
+						<h3 style="font-size:16px;" class="vs_content"> فيلم العرض الضوئي
 							
 						</h3>
 						<hr>
-						<p>في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
+						<p class="vs_content">في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -455,16 +455,16 @@ Your browser does not support the video tag
 				<div class="clearfix" style="height:1px;"></div>
 				<div class="row">
 					<div class="col-md-6 col-md-offset-1 productWrapper" >
-						<h2>سي ما رول اب™  
+						<h2 class="vs_header">سي ما رول اب™  
 						<a href="" class="pull-left"><img src="img/logo2.png"  height="65"/></a>
 						</h2>
-						<h3 style="font-size:16px;font-family: 'Ge';">ستاند رول أب بشاشة فيديو
+						<h3 style="font-size:16px;" class="vs_content">ستاند رول أب بشاشة فيديو
 							
 						</h3>
 						<hr>
-						<p style="text-align:justify;">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
-												<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+						<p style="text-align:justify;" class="vs_content">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
+												<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -505,16 +505,16 @@ Your browser does not support the video tag
   </div><!-- /.modal -->
 					</div>
 					<div class="col-md-5 productWrapper">
-						<h2>هوست توك™ 
+						<h2 class="vs_header">هوست توك™ 
 						<a href="" class="pull-left"><img src="img/logo4.png" height="65"/></a>
 						</h2>
-						<h3 style="font-size:16px;font-family: 'Ge';">المتحدث الإفتراضي " المانيكان " 
+						<h3 style="font-size:16px;" class="vs_content">المتحدث الإفتراضي " المانيكان " 
 							
 						</h3>
 						<hr>
-						<p style="text-align:justify;">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+						<p style="text-align:justify;" class="vs_content">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
+						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -572,24 +572,24 @@ Your browser does not support the video tag
 				<div class="row" id="page-heading1" style="height:100px;">
 
 					<div class="col-md-6">
-						<h1 class="heading1" style="display:none;font-size:40px;font-family: 'Ge';"> خدمات الوسائط الإعلامية المتعـددة  </h1>
+						<h1 class="heading1 vs_header" style="display:none;font-size:35px;"> خدمات الوسائط الإعلامية المتعـددة  </h1>
 					</div>
 				</div>
                 <div style="height:1px;clear:both;"></div>
-				<div class="row col-md-8" style="float:left;">
+				<div class="row col-md-8 vs_content" style="float:left;">
 					
-					<div class="col-md-5">
-						<ul>
-							<li style="padding-top:5px;">تصميم الهويّة التجارية والمطبوعات</li>
-							<li style="padding-top:5px;">تصميم المواقع ومقدّم المواقع الإفتراضي</li>
-							<li style="padding-top:5px;">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</li>
+					<div class="col-md-6">
+						<ul >
+							<li style="padding-top:5px;" class="vs_content">تصميم الهويّة التجارية والمطبوعات</li>
+							<li style="padding-top:5px;" class="vs_content">تصميم المواقع ومقدّم المواقع الإفتراضي</li>
+							<li style="padding-top:5px;" class="vs_content">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</li>
 						</ul>
 					</div>
-                    <div class="col-md-5" style="padding-left:0px; font-size:12px;">
+                    <div class="col-md-5 " style="padding-left:0px;">
 						<ul >
-							<li style="padding-top:5px;">الرسوم المتحركة والجرافكس التوضيحي</li>
-							<li style="padding-top:5px;"> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </li>
-                            <li style="padding-top:5px;">إنتاج الفيديو</li>
+							<li style="padding-top:5px;" class="vs_content">الرسوم المتحركة والجرافكس التوضيحي</li>
+							<li style="padding-top:5px;" class="vs_content"> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </li>
+                            <li style="padding-top:5px;" class="vs_content">إنتاج الفيديو</li>
 							
 						</ul>
 					</div>
@@ -599,53 +599,53 @@ Your browser does not support the video tag
 				<br><br><br><br>
 					<img id="discover-more" src="img/service-arrow-a.png"/>
 				</div>
-				<div id="download-catalog" class="icon-rotate" style="right:38%;">
+				<div id="download-catalog" class="icon-rotate " style="right:38%;">
 					<img src="img/service-download.png" style="max-height:40px;"/>
-					<p>لاتستطيع مشاهدة الفيديو؟<br />حمّل فيديو الخدمات  فلاش </p>
+					<p class="vs_content">لاتستطيع مشاهدة الفيديو؟<br />حمّل فيديو الخدمات  فلاش </p>
                     <img src="img/service-download.png" style="max-height:40px;"/>
-                    <p>تحميل عرض<br /> جميع الخدمات </p>
+                    <p class="vs_content">تحميل عرض<br /> جميع الخدمات </p>
 				</div>
 				<!--
 				<div id="service-hex-1">
 				</div>
 				-->
-				<div id="service-hex-2" class="service-text text-center icon-rotate">
+				<div id="service-hex-2" class="service-text text-center icon-rotate ">
 					
 					<img class="serve-img" src="img/phone.png" />
 					
-					<p style="padding-top:3px;">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</p>
+					<p style="padding-top:3px;" class="vs_content">تطوير تطبيقات شاشات اللمس والأجهزة الذكية</p>
 				</div>
 				<div id="service-hex-hover-2">
 				</div>
-				<div id="service-hex-3" class="service-text text-center icon-rotate">
+				<div id="service-hex-3" class="service-text text-center icon-rotate ">
 					
 					<img class="serve-img" src="img/animation.png"/>
 					
-					<p>الرسوم المتحركة والجرافكس التوضيحي</p>
+					<p class="vs_content"> الرسوم المتحركة والجرافكس التوضيحي</p>
 				</div>
 				<div id="service-hex-hover-3">
 				</div>
-				<div id="service-hex-4" class="service-text text-center icon-rotate">
+				<div id="service-hex-4" class="service-text text-center icon-rotate ">
 					
 					<img class="serve-img" src="img/video.png"/>
 					
-					<p>تصميم الهويّة التجارية والمطبوعات</p>
+					<p class="vs_content">تصميم الهويّة التجارية والمطبوعات</p>
 				</div>
 				<div id="service-hex-hover-4">
 				</div>
-				<div id="service-hex-5" class="service-text text-center icon-rotate">
+				<div id="service-hex-5" class="service-text text-center icon-rotate ">
 					
 					<img class="serve-img" src="img/web.png" />
 					
-					<p>تصميم المواقع ومقدّم المواقع الإفتراضي</p>
+					<p class="vs_content">تصميم المواقع ومقدّم المواقع الإفتراضي</p>
 				</div>
 				<div id="service-hex-hover-5">
 				</div>
-				<div id="service-hex-6" class="service-text text-center icon-rotate">
+				<div id="service-hex-6" class="service-text text-center icon-rotate ">
 					
 					<img class="serve-img" src="img/3d.png"/>
 					
-					<p> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </p>
+					<p class="vs_content"> إنتاج فيديو المحاكاة التخيّلي ثلاثي الأبعاد  </p>
 				</div>
 				<div id="service-hex-hover-6">
 				</div>
@@ -676,28 +676,28 @@ Your browser does not support the video tag
 					<div class="col-md-5">
 					</div>
                     <div class="col-md-6 col-md-offset-1">
-						<h2 id="corp-1" style="display:none;">لن تحظى بفرصة ثانية لخلق الإنطباع الأول</h2>
+						<h2 id="corp-1" style="display:none;" class="vs_header">لن تحظى بفرصة ثانية لخلق الإنطباع الأول</h2>
 						<%--<h1 id="corp-2" style="display:none;">TO MAKE A FIRST IMPRESSION</h1>--%>
 						
 						<div id="corp-3" style="display:none;">
 						<hr>
-						<p>ألهم جمهورك بالتفاعل مع خدمات في ستديو V-studio  لتصاميم الجرافكس للهوية التجارية والتسويق  حيث الحلول الشاملة 
+						<p class="vs_content">ألهم جمهورك بالتفاعل مع خدمات في ستديو V-studio  لتصاميم الجرافكس للهوية التجارية والتسويق  حيث الحلول الشاملة 
 
 </p>
-                            <ul>
-                                <li>صناعة  وتصميم الهوية التجارية</li>
-                                <li>تصميم وتطوير وتطبيقات الشعار</li>
-                                <li>تصميم المطبوعات ووسائل التسويق والعروض</li>
-                                <li>تصميم الكتيبات والمنشورات التسويقية ونشرات البريد الالكتروني</li>
-                                <li>خدمات الوسائط المتعددة</li>
-                                <li>والكثير من الخدمات الأخرى</li>
+                            <ul >
+                                <li class="vs_content">صناعة  وتصميم الهوية التجارية</li>
+                                <li class="vs_content">تصميم وتطوير وتطبيقات الشعار</li>
+                                <li class="vs_content">تصميم المطبوعات ووسائل التسويق والعروض</li>
+                                <li class="vs_content">تصميم الكتيبات والمنشورات التسويقية ونشرات البريد الالكتروني</li>
+                                <li class="vs_content">خدمات الوسائط المتعددة</li>
+                                <li class="vs_content">والكثير من الخدمات الأخرى</li>
                             </ul>
 						</div>
 						<br>
 						<div id="corp-4" style="display:none;">
-						<span>أترك إنطباعا أفضل من خلال إيصال الرسالة التسويقية المناسبة للجمهور المستهدف بالطريقة الأفضل.</span>
+						<span class="vs_header">أترك إنطباعا أفضل من خلال إيصال الرسالة التسويقية المناسبة للجمهور المستهدف بالطريقة الأفضل.</span>
 						<hr>
-						<span>إتصل ب في ستديو V-studio   لمساعدتك في تسخير القدرات على الإستحواذ على إهتمام جمهورك مرارا وتكرارا.</span>
+						<span class="vs_header">إتصل ب في ستديو V-studio   لمساعدتك في تسخير القدرات على الإستحواذ على إهتمام جمهورك مرارا وتكرارا.</span>
 	                    </div>
 					</div>
 				</div>
@@ -751,7 +751,7 @@ Your browser does not support the video tag
 -->
 				<div class="row" style="height:100px; left:9.3%; position:relative;">
 					<div class="page-heading col-md-5" style="width:auto;">
-						<h1 class="text-left heading4" style="width:auto;text-align:right; display:none;font-family:alj;"><img width="150" height="47" src="img/3D-Wayfinding_logo.png"> الدليل ثلاثي الأبعاد للمباني </h1>
+						<h1 class="text-left heading4 vs_header" style="width:auto;text-align:right; display:none;font-weight:bold;font-size:35px;"><img width="150" height="47" src="img/3D-Wayfinding_logo.png"> الدليل ثلاثي الأبعاد للمباني </h1>
 						
 					</div>
 				</div>
@@ -759,17 +759,17 @@ Your browser does not support the video tag
 					<div id="way-left" style="display:none; text-align:right; position:absolute; left:3.7%;direction:rtl;width:45%" >
 						<div class="col-md-12" >
 							
-							<h2 style="font-family:alj;margin:5px">دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
+							<h2 style="margin:5px;font-size:25px;" class="vs_header">دليل المباني ثلاثي الأبعاد لمنصات شاشات اللمس ، والهواتف الذكية والمواقع الألكترونية</h2>
 							<div class="line-3d" style="width:95%;"></div>
-							<p>الدليل ثلاثي الأبعاد هو دليل تفاعلي بخارطة ثلاثية الأبعاد للمباني الكبيرة تساعد زوارها على إيجاد طريقهم ، وهو  برنامج مصمم للعمل على شاشة تعمل باللمس للملاحة داخل المباني كما في المراكز التجارية ، والمتاجر الكبرى والمطارات ومحطات السكة الحديدية والمستشفيات والجامعات والمجمعات السكنية الكبيرة وأثناء المعارض التجارية وخلاف ذلك. الدليل ثلاثي الأبعاد للمباني العامة تطبيق يمكن تثبيته على شاشاتنا باللمس او للعمل على أجهزة الهواتف الذكيّة او على شبكة الإنترنت.</p>
-							<h2 style="font-family:alj;margin:5px">الخصائص الفنيّة :</h2>
+							<p class="vs_content">الدليل ثلاثي الأبعاد هو دليل تفاعلي بخارطة ثلاثية الأبعاد للمباني الكبيرة تساعد زوارها على إيجاد طريقهم ، وهو  برنامج مصمم للعمل على شاشة تعمل باللمس للملاحة داخل المباني كما في المراكز التجارية ، والمتاجر الكبرى والمطارات ومحطات السكة الحديدية والمستشفيات والجامعات والمجمعات السكنية الكبيرة وأثناء المعارض التجارية وخلاف ذلك. الدليل ثلاثي الأبعاد للمباني العامة تطبيق يمكن تثبيته على شاشاتنا باللمس او للعمل على أجهزة الهواتف الذكيّة او على شبكة الإنترنت.</p>
+							<h2 style="margin:5px" class="vs_header">الخصائص الفنيّة :</h2>
 							<div class="line-3d" style="width:95%"></div>
-							<ul>
-								<li>دخل إضافي للمشغّل من خلال إعلانات مبتكرة على الشاشة</li>
-<li>جدول للفعاليات و النشرات الإعلانية</li>
-<li>معلومات تفاعلية للمستأجرين  تظهر باستخدام كلمات بحث او موقع او أحرف أو ماركة تجارية</li>
-<li>التحكم بالمحتوى وتغييره عبر الإنترنت عن بعد</li>
-<li>لايحتاج إلى تحميل تطبيقات لمستخدمي الهواتف الذكية أيا كان نوعها عند الرغبة في نقل خارطة منطقة الوصول من الشاشة باللمس.	</li>						</ul>
+							<ul >
+								<li class="vs_content" style="font-size:16px;">دخل إضافي للمشغّل من خلال إعلانات مبتكرة على الشاشة</li>
+<li class="vs_content" style="font-size:16px;">جدول للفعاليات و النشرات الإعلانية</li>
+<li class="vs_content" style="font-size:16px;"> معلومات تفاعلية للمستأجرين  تظهر باستخدام كلمات بحث او موقع او أحرف أو ماركة تجارية</li>
+<li class="vs_content" style="font-size:16px;">التحكم بالمحتوى وتغييره عبر الإنترنت عن بعد</li>
+<li class="vs_content" style="font-size:16px;">لايحتاج إلى تحميل تطبيقات لمستخدمي الهواتف الذكية أيا كان نوعها عند الرغبة في نقل خارطة منطقة الوصول من الشاشة باللمس.	</li>						</ul>
                                                         <img src="img/wayfinding-lower.png" height="150" width="437" style="float:left;"/>
 						</div>
 					</div>
@@ -790,28 +790,28 @@ Your browser does not support the video tag
 							<div class="shadow-3d"></div>
 							</div>
 							<br><br>
-							<div class="row" id="way-buttons-bar">
+							<div class="row " id="way-buttons-bar">
 								<div class="col-md-3" id="button-3d-1">
 								<div id="b-effect" href="#" data-toggle="modal" data-target="#wayModel">
-									<button id="button-3d-1-no-hover" style="font-size:12px;"  class="button-3d b-effect text-center"><img src="img/3d-image-icon.png"/> &nbsp; العرض التفصيلي</button>
+									<button id="button-3d-1-no-hover" style="font-size:12px;"  class="button-3d b-effect text-center vs_content"><img src="img/3d-image-icon.png"/> &nbsp; العرض التفصيلي</button>
 								</div>
 								</div>
                                                                 <div class="col-md-3" id="button-3d-2">
 								<div id="b-effect" class="watch-button">
-									<button  id="button-3d-2-no-hover" class="button-3d text-center"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
+									<button  id="button-3d-2-no-hover" class="button-3d text-center vs_content"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
 								</div>
 									
 								</div>
                                                                 <div class="col-md-3" id="button-3d-1">
 								<div id="b-effect" href="#" data-toggle="modal" data-target="#wayModel">
-									<button id="button-3d-1-no-hover" class="button-3d b-effect text-center"><img src="img/3d-image-icon.png"/> &nbsp; جرّب التطبيق</button>
+									<button id="button-3d-1-no-hover" class="button-3d b-effect text-center vs_content"><img src="img/3d-image-icon.png"/> &nbsp; جرّب التطبيق</button>
 								</div>
 									
 								</div>
 								
                                                                 <div class="col-md-3" id="button-3d-2">
 								<div id="b-effect" class="watch-button">
-									<button  id="button-3d-2-no-hover" style="font-size:10px;" class="button-3d text-center"><img src="img/poly-play.png"/> &nbsp; تصفّح الموقع الخاص</button>
+									<button  id="button-3d-2-no-hover" style="font-size:10px;" class="button-3d text-center vs_content"><img src="img/poly-play.png"/> &nbsp; تصفّح الموقع الخاص</button>
 								</div>
 									
 								</div>
@@ -880,17 +880,17 @@ Your browser does not support the video tag
 						<div class="col-md-12" style="padding:0 !important;width:99.5%">
 							<h2 style="margin-top:1px !important;">Polytouch</h2>
 							<div class="poly-line"></div>
-							<p style="text-align:justify;">Polytouch  هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية ) PCT ) وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32 و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد all in 1) ( . النظام الجديد لـ Polytouch  (التركيب السريع) QMS   (براءة الإختراع تحت التسجيل)  يضمن للمستخدم  إستبدال بعض القطع لتوسيع وظائف النظام الخاص به أو لتكييفه مع متطلبات جديدة أو أنظمة حديثة. 
+							<p style="text-align:justify;" class="vs_content">Polytouch  هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية ) PCT ) وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32 و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد all in 1) ( . النظام الجديد لـ Polytouch  (التركيب السريع) QMS   (براءة الإختراع تحت التسجيل)  يضمن للمستخدم  إستبدال بعض القطع لتوسيع وظائف النظام الخاص به أو لتكييفه مع متطلبات جديدة أو أنظمة حديثة. 
 نظرا لتصميم Polytouch الإنسيابي الذكي المتضمن كمبيوتر بداخل الشاشة يمكن إستخدام هذه الشاشات أينما وجد قابس كهرباء ، التركيب السريع السهل وأبعاد عمق الشاشة الصغيره والشاشة المسطحة تجعل منها آداة رائعة لنقاط البيع بالإضافة للإستخدامات الأخرى في أعمال وتطبيقات كثيرة. مهما كان نوع أعمالك فهي قطعا أذكى مع Polytouch</p>							
-                            <div class="col-md-6" style="padding:0 !important;padding-right:10px !important;">
-                                <h3 style="margin-top:3px !important;font-size:20px;font-weight:bold;">QMS نظام التركيب السريع في شاشات نقاط البيع</h3>
+                            <div class="col-md-6" style="padding:0 !important;padding-right:20px !important;">
+                                <h3 style="margin-top:3px !important;font-size:15px;font-weight:bold;" class="vs_header">QMS نظام التركيب السريع في شاشات نقاط البيع</h3>
                             <div class="poly-line"></div>
-							<p style="text-align:justify;">تقدم شاشات Polytouch POS المخصصة لنقاط البيع نظام QMS التركيب السريع ومع براءة الإختراع هذه تنفرد Polytouch POS بسهولة تغيير أو ترقية مكونات نظام الشاشة ، أجزاء التغيير أو الترقية تشمل الطابعه ، الشريحة ، قراءة كلمة سر المدفوعات، الكاميرا، بالاضافة للأنظمة الجديدة RFID و NFC ، فقط وحدها Polytouch بنظام QMS التركيب السريع تضمن لك مطابقة الأنظمة الجديدة معها.</p>
+							<p style="text-align:justify;" class="vs_content">تقدم شاشات Polytouch POS المخصصة لنقاط البيع نظام QMS التركيب السريع ومع براءة الإختراع هذه تنفرد Polytouch POS بسهولة تغيير أو ترقية مكونات نظام الشاشة ، أجزاء التغيير أو الترقية تشمل الطابعه ، الشريحة ، قراءة كلمة سر المدفوعات، الكاميرا، بالاضافة للأنظمة الجديدة RFID و NFC ، فقط وحدها Polytouch بنظام QMS التركيب السريع تضمن لك مطابقة الأنظمة الجديدة معها.</p>
                                 </div>
                             <div class="col-md-6" style="padding:0 !important;">
-                                 <h3 style="margin-top:1px !important;">البرامج والتطبيقات</h3>
+                                 <h3 style="margin-top:1px !important;font-size:20px;font-weight:bold;" class="vs_header">البرامج والتطبيقات</h3>
                             <div class="poly-line"></div>
-							<p style="text-align:justify;">اذا كنت قد قمت بتطوير تطبيق أو برنامج خاص بنقاط البيع او أي استخدام آخر ، أو كنت من مصممي ومطوري التطبيقات ،  Polytouch  هي الشاشة التي تبحث عنها في ظل اللامحدودية من الإمكانيات. تقدم في ستديو V-Studio مجموعة من تطبيقات الأعمال وتعمل بالتعاون مع شركائها المطورين على تطوير المزيد من التطبيقات ، حاليا تشمل التطبيقات المتوفرة: دليل المباني ثلاثي الأبعاد ، تطبيق عقارات لبيع وتأجير العقار  ، تطبيقات البيع بالتجزئة ، والتسجيل والمغادرة الذاتية بالفنادق ، ومعرض الصور والفيديو..</p>
+							<p style="text-align:justify;" class="vs_content">اذا كنت قد قمت بتطوير تطبيق أو برنامج خاص بنقاط البيع او أي استخدام آخر ، أو كنت من مصممي ومطوري التطبيقات ،  Polytouch  هي الشاشة التي تبحث عنها في ظل اللامحدودية من الإمكانيات. تقدم في ستديو V-Studio مجموعة من تطبيقات الأعمال وتعمل بالتعاون مع شركائها المطورين على تطوير المزيد من التطبيقات ، حاليا تشمل التطبيقات المتوفرة: دليل المباني ثلاثي الأبعاد ، تطبيق عقارات لبيع وتأجير العقار  ، تطبيقات البيع بالتجزئة ، والتسجيل والمغادرة الذاتية بالفنادق ، ومعرض الصور والفيديو..</p>
                                 </div>
 							
 							<div class="poly-line"></div>
@@ -922,22 +922,22 @@ Your browser does not support the video tag
 							</div>
 							<div class="shadow-poly"></div>
 							<br><br>
-							<div class="row" id="poly-buttons-bar">
+							<div class="row vs_content" id="poly-buttons-bar">
 								<div class="col-md-4" id="poly-button-1">
 									<div id="b-effect" href="#" data-toggle="modal" data-target="#polyModel">
-										<button id="poly-1-no-hover" class="poly-button"><img src="img/poly-image.png"/> &nbsp; تحميل الكاتلوج</button>
+										<button id="poly-1-no-hover" class="poly-button vs_content"><img src="img/poly-image.png"/> &nbsp; تحميل الكاتلوج</button>
 									</div>
 									
 								</div>
 								<div class="col-md-4" id="poly-button-2">
 									<div id="b-effect" href="#" >
-										<button id="poly-2-no-hover" class="poly-button"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
+										<button id="poly-2-no-hover" class="poly-button vs_content"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
 									</div>
 									
 								</div>
 								<div class="col-md-4" id="poly-button-3">
 									<div id="b-effect">
-										<button id="poly-3-no-hover" style="font-size:12px;" class="poly-button"><img src="img/poly-image1.png"/> تصفح الموقع الخاص</button>
+										<button id="poly-3-no-hover" style="font-size:12px;" class="poly-button vs_content"><img src="img/poly-image1.png"/> تصفح الموقع الخاص</button>
 									</div>
 									
 								</div>
@@ -954,12 +954,12 @@ Your browser does not support the video tag
 			<div class="container">
 				<div class="row" style="height:100px;">
 					<div class="col-md-12">
-						<h1  class="heading6" style="display:none;font-family: 'Ge';text-align:right">الإتصال بنا</h1>
+						<h1  class="heading6 vs_header" style="display:none;text-align:right">الإتصال بنا</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8" style="float:right;">
-						<p>تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 م ، في ستديو V-Studio   هي إحدى فروعها وتقدم حلولاً 
+						<p class="vs_content">تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 م ، في ستديو V-Studio   هي إحدى فروعها وتقدم حلولاً 
 
 تسويقية مرئية شاملة من خدمات ومنتجات تقوم بتصميمها وتصنيعها لحسابها  تستفيد منها الأعمال الصغيرة والمتوسطة  
 
@@ -970,7 +970,7 @@ Your browser does not support the video tag
 					<div class="col-md-1" style="float:right;"><div class="line2"></div></div>
 					<div class="col-md-3" style="float:right;">
 						
-						<div class="media">
+						<div class="media vs_content">
                             <span>في ستديو إحدى أعمال</span><br />
 									<a href="#" class="pull-right">
 										<img src="img/sager-logo.png" class="media-object img-responsive"/>
@@ -981,7 +981,7 @@ Your browser does not support the video tag
 				</div>
 				<div class="row">
 					<div class="col-md-11">
-						<h2>المركز الرئيسي:</h2>
+						<h2 class="vs_header">المركز الرئيسي:</h2>
 						<div class="line1"></div>
 						<div class="row">
 							<div class="col-md-4" style="float:right;">
@@ -990,7 +990,7 @@ Your browser does not support the video tag
 <span class="glyphicon glyphicon-map-marker"></span>
 										<!--<img class="media-object" src="img/mapmarker.png" class="img-responsive"/>-->
 									</a>
-									<div class="media-body">
+									<div class="media-body vs_content">
 										<address>
 											الطابق التاسع ،  جميل سكوير<br>
 تقاطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس، جدة<br>
@@ -999,7 +999,7 @@ Your browser does not support the video tag
 هاتف: +966 12-283 4088  .  قاكس  : +966 12-660 8128<br>
 info@v-studio.co                                      <br />
                                             <br /><b>
-									فروعنا: مكتب الرياض.مكتب الخبر                      </b>
+									فروعنا: مكتب الرياض.  مكتب الخبر                      </b>
 										</address>
 									</div>
 								</div>
@@ -1012,16 +1012,16 @@ info@v-studio.co                                      <br />
 							-->
 							<div class="col-md-1" style="float:right;"><div class="line2"></div></div>
                                                         <div class="col-md-6" style="float:right;">
-								<h3>أرسل لنا</h3>
+								<h3 class="vs_header">أرسل لنا</h3>
 <div class="form-horizontal" role="form">
   <div class="form-group col-md-12 pull-right">
-    <label for="inputEmail3" class="col-sm-4 control-label" style="float:right;">الإسم</label>
+    <label for="inputEmail3" class="col-sm-4 control-label vs_content" style="float:right;">الإسم</label>
     <div class="col-sm-8" style="float:right;">
       <input type="email" data-toggle="modal" data-target="#ContactModal" id="inputEmail3" placeholder="">
     </div>
   </div>
   <div class="form-group col-md-12 pull-right">
-    <label for="inputPassword3" class="col-sm-4 control-label" style="float:right;">البريد الإلكتروني</label>
+    <label for="inputPassword3" class="col-sm-4 control-label vs_content" style="float:right;">البريد الإلكتروني</label>
     <div class="col-sm-8" style="float:right;">
       <input type="password" data-toggle="modal" data-target="#ContactModal"  id="inputPassword3" placeholder="">
     </div>
@@ -1119,7 +1119,7 @@ info@v-studio.co                                      <br />
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12 text-center">
+					<div class="col-md-12 text-center vs_content">
 						<span>نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . </span>
 					</div>
 				</div>
@@ -1143,18 +1143,18 @@ info@v-studio.co                                      <br />
 				</div>
 				<div class="row" style="height:100px;">
 					<div class="col-md-12 text-center page-heading">
-						<h1  class="heading7" style="color:#dfd9e6;font-family: 'Ge';text-align:center; display:none;">PORTFOLIO & TESTIMONIALS</h1>
+						<h1  class="heading7" style="color:#dfd9e6;text-align:center; display:none;">PORTFOLIO & TESTIMONIALS</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h2>شاهد أحدث أعمالنا وماذا يقول عملاؤنا عنا</h2>
+						<h2 class="vs_header">شاهد أحدث أعمالنا وماذا يقول عملاؤنا عنا</h2>
 					</div>
 				</div>
 				<br>
 				<div class="row" id="portfolio-carousel">
-					<div class="col-md-12">
-					 	<div id="portfolio-carousel">
+					<div class="col-md-6 center-block" style="float:none;">
+					 	<div id="portfolio-carousel" style="display:none;">
 						<!--<div id="background"></div>	-->	
 						<div class="arrows">
 							
@@ -1189,7 +1189,7 @@ info@v-studio.co                                      <br />
 							</div>
 						</div>
                                              </div>
-						
+                        <img src="img/portfolio_def.jpg" class="thumbnail"/>
 					</div>
 					
 				</div>
@@ -1219,20 +1219,20 @@ any other design company so far. Two thumbs way up! </p>
 				</div>
 				<div class="row" style="height:100px;">
 					<div class="col-md-10 col-md-offset-1" style="text-align:right">
-						<h1  class="heading8 pull-right text-right" style="display:none; font-family: 'Ge';text-align:right">إنضم إلينا</h1>
+						<h1  class="heading8 pull-right text-right vs_header" style="display:none; text-align:right">إنضم إلينا</h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<p>هل تبحث عن إستثمار مجزئ في بيئة عمل  تعزّز الرفاهية والنمو ، ولديك الإستعداد لإستثمار القليل من المال لتصبح موزعاً لنا ؟<span style="color:#09a0f8;font-size:18px;"> إتصل بنا </span><br>
+					<div class="col-md-10 col-md-offset-1 ">
+						<p class="vs_content">هل تبحث عن إستثمار مجزئ في بيئة عمل  تعزّز الرفاهية والنمو ، ولديك الإستعداد لإستثمار القليل من المال لتصبح موزعاً لنا ؟<span style="color:#09a0f8;font-size:18px;"> إتصل بنا </span><br>
 هل تتمتع بالشخصية المنتجة والمبتكرة وترغب في العمل كممثل مبيعات مستقل أو مقدّم صوت فيديو أو  مقدّما للمواقع الإلكترونية أو تزاول مهنة تصوير الفيديو الإحترافي ؟ <span style="color:#09a0f8;font-size:18px;"> إنضم الينا </span></p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
-						<h2>أكتب إلينا</h2>
+						<h2 class="vs_header">أكتب إلينا</h2>
 
-						<form method="post" action="">
+						<div class="vs_content">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="row">
@@ -1281,7 +1281,7 @@ any other design company so far. Two thumbs way up! </p>
 									</div>
 								</div>					
 							</div>
-						</form>
+						</div>
 						
 					</div>
 				</div>

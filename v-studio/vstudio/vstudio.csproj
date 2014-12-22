@@ -363,6 +363,7 @@
     <Content Include="img\portfolio\8.jpg" />
     <Content Include="img\portfolio\9.jpg" />
     <Content Include="img\portfolio\bg.png" />
+    <Content Include="img\portfolio_def.jpg" />
     <Content Include="img\presenter.png" />
     <Content Include="img\previous.png" />
     <Content Include="img\pull-me-down-a.png" />
@@ -425,13 +426,13 @@
     <Content Include="img\work-with-us-a.png" />
     <Content Include="img\work-with-us.png" />
     <Content Include="img\youtube.png" />
-    <Content Include="media\3MB.mp4" />
-    <Content Include="media\ar_webpres.mp4" />
-    <Content Include="media\demo1.mp4" />
-    <Content Include="media\demo1.mpeg" />
-    <Content Include="media\media1.mp4" />
-    <Content Include="media\media2.mp4" />
-    <Content Include="media\Video.mp4" />
+    <None Include="media\3MB.mp4" />
+    <None Include="media\ar_webpres.mp4" />
+    <None Include="media\demo1.mp4" />
+    <None Include="media\demo1.mpeg" />
+    <None Include="media\media1.mp4" />
+    <None Include="media\media2.mp4" />
+    <None Include="media\Video.mp4" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -488,8 +489,8 @@
     <Content Include="fonts\Ubuntu-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="media\demo.webm" />
-    <Content Include="media\demo1.webm" />
+    <None Include="media\demo.webm" />
+    <None Include="media\demo1.webm" />
     <Content Include="fonts\Al-Jazeera-Arabic-Regular.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -536,6 +537,7 @@
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.ttf" />
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff" />
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -548,6 +550,7 @@
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\modernizer.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\parallax.js" />
