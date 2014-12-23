@@ -12,7 +12,7 @@
             font-family:'JF_Flat_Regular' !important;
         }
         </style>
-    
+  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- Header [Small Navigation & Large Navigation] ---->
@@ -133,7 +133,7 @@
 	</section>
 	<section id="video" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
 			<video id='media-video' preload="none" class="video-js" poster="img/bg-video-a.jpg">
-				<source src='http://203.124.98.195/~vstudioco/wp-content/themes/vstudio/media/demo1.mp4'  type="video/mp4">
+				<source src='media/videos/arabic/home.mp4'  type="video/mp4">
 Your browser does not support the video tag
 			</video>
 
@@ -151,11 +151,11 @@ Your browser does not support the video tag
 						<br><br>
 					</div>
                                         <div class="text-center">
-                                                <span class="start-video-again vs_header">إعادة عرض الفيديو</span>
+                                                <span class="start-video-again vs_header" style="font-size:16px;">إعادة عرض الفيديو</span>
 <br><br><br><br><br>
                                         </div>
 					<div class="text-center icon-rotate">
-						<img src="img/download-catalouge-1-a.png"/>
+						<a href="media/videos/arabic/home.mp4"><img src="img/download-catalouge-1-a.png"/></a>
 					</div>
 				</div>
 				
@@ -185,8 +185,8 @@ Your browser does not support the video tag
 								-->
 								
 								<div id="mac2" style="width:500px; height:300px; position:absolute;z-index:3; overflow:hidden;left:110px; top:40px;">
-									<video id="holo-video" controls poster="img/vid-1.png">
-										<source src='media/media1.mp4' type='video/mp4'>
+									<video id="holo-video" controls poster="img/holo/holo.jpg">
+										
 Your browser does not support the video tag
 
 									</video>
@@ -250,46 +250,46 @@ Your browser does not support the video tag
                                 <div class="col-md-11 col-md-offset-1">
                                     <div class="row holo-vids">
                                         <div class="col-md-3 vid-hover" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
-                                            <div class="vid-play text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/1.jpg" class="img-responsive" />
+                                            <div class="vid-play text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                                 وحدات عرض هولوجرام
                                             </div>
                                         </div>
                                         <div class="col-md-3 vid-hover1" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
-                                            <div class="vid-play1 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/2.jpg" class="img-responsive" />
+                                            <div class="vid-play1 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             فيلم العرض الضوئي 
                                              </div>
                                         </div>
                                         <div class="col-md-3 vid-hover2" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
-                                            <div class="vid-play2 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/3.jpg" class="img-responsive" />
+                                            <div class="vid-play2 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             المتحدث الإفتراضي </div>
                                         </div>
 
                                         <div class="col-md-3 vid-hover3" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
-                                            <div class="vid-play3 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/4.jpg" class="img-responsive" />
+                                            <div class="vid-play3 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             رول اب بشاشة فيديو </div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover4" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
-                                            <div class="vid-play4 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/5.jpg" class="img-responsive" />
+                                            <div class="vid-play4 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             المسوق الإفتراضي الصغير</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover5" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
-                                            <div class="vid-play5 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/6.jpg" class="img-responsive" />
+                                            <div class="vid-play5 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                              لثلاجة العرض LCD شاشة </div>
                                         </div>
                                          <div style="display: none;" class="col-md-3 vid-hover6" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
-                                            <div class="vid-play6 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/7.jpg" class="img-responsive" />
+                                            <div class="vid-play6 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             الكتاب الإلكتروني الهولوغرافي</div>
                                         </div>
                                         <div style="display: none;" class="col-md-3 vid-hover7" >
-                                            <img style="border: 2px solid #0072bc; border-radius: 10px;width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
-                                            <div class="vid-play7 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; border-radius: 10px;padding-top:50px;color:#fff;">
+                                            <img style="border: 2px solid #0072bc; width:100%;height:90px;" src="img/holo/8.jpg" class="img-responsive" />
+                                            <div class="vid-play7 text-center" style="background: url(img/cap.png);background-repeat:no-repeat; background-size:cover; z-index: 100; display: none; position: absolute; top: 0px; left: 15px; width:83%;height:90px !important; border: 2px solid #0072bc; padding-top:50px;color:#fff;">
                                             العرض الضوئي على الأرضيات </div>
                                         </div>
 
@@ -298,12 +298,12 @@ Your browser does not support the video tag
                             </div>
 						</div>
 					</div>
-					<div id="presenter" style="background:#fff; width:380px; position:absolute; right:70px;"; >
+					<div id="presenter" style="background:#fff; width:330px; position:absolute; right:70px;overflow:hidden"; >
 					<video style="height:550px; width:344px; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
 				<source src='media/ar_webpres.mp4' >
 Your browser does not support the video tag
 			</video>
-						<div style="width:135px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
+						<div style="width:165px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
 							<ul class="list-inline" >
 								<li id="play"><div class="play" style="width:30px; text-align:center; background:#5f5f5f; padding:5px; color: #fff;font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-pause"></span></div></li>
                                 <li id="pause1" style="display:none;"><div class="play" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff; font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-play"></span></div></li>
@@ -559,8 +559,8 @@ Your browser does not support the video tag
 		</div>
 	</section>
 	<section id="services" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
-		      <div  id="service-video" style="height: 420px; width: 730px; left: 5%; bottom: 2.5%;">
-			<video class="video-js" id="service-video-cont" poster="img/big-hex.jpg" style=" position: absolute; z-index: -99;  background-size:cover;right: 0; bottom: 0; min-width: 100%; min-height: 650px; width: auto; height: 650px; z-index: -100;">
+		      <div  id="service-video" style="height: 480px; width: 540px; left: 11%; bottom: -10px;background-image:url(img/mssbg.jpg)">
+			<video class="video-js" id="service-video-cont" style="max-width:540px; position: absolute; z-index: -99;  background-size:cover;right: 0; bottom: 0; min-width: 100%; max-height: 480px; width: auto; height: 480px; z-index: -100;">
 Your browser does not support the video tag
 
 				
@@ -780,7 +780,7 @@ Your browser does not support the video tag
 							<div style="height:460px;">
 							<div id="tv" >
 <video id="way-vid" style="width: 88%; height: 53%;
-position: absolute; top: 15px; left: 40px;" controls poster="img/vid-0.png" src="media/media1.mp4">
+position: absolute; top: 15px; left: 40px;" controls poster="img/vid-0.png" src="media/videos/arabic/3dway.mp4">
 Your browser does not support the video tag
 
 </video>
@@ -904,14 +904,14 @@ Your browser does not support the video tag
 								
 <div id="poly-tv">
 <video id="poly-vid" style="width: 320px; height: 175px;
-position: absolute; top: 30px; left: 130px;" controls poster="img/tv-image.png" src="media/media1.mp4">
+position: absolute; top: 30px; left: 130px;" controls poster="img/tv-image.png" src="media/videos/arabic/polytouch.mp4">
 Your browser does not support the video tag
 
 </video>
 </div>
 <div id="poly-tv1">
 <video id="poly-vid1" autoplay loop muted style="width: 320px; height: 180px;
-position: relative; top: 30px; margin-bottom:30px; left:115px;" src="media/Video.mp4">
+position: relative; top: 30px; margin-bottom:30px; left:115px;" src="media/video.mp4">
 Your browser does not support the video tag
 
 </video>
@@ -952,9 +952,9 @@ Your browser does not support the video tag
 	<section id="contactus" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
 		<div id="contactus-cover">
 			<div class="container">
-				<div class="row" style="height:100px;">
+				<div class="row">
 					<div class="col-md-12">
-						<h1  class="heading6 vs_header" style="display:none;text-align:right">الإتصال بنا</h1>
+						<h1  class="heading6 vs_header" style="display:none;text-align:right;margin:20px 0 15px 0;">الإتصال بنا</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -981,7 +981,7 @@ Your browser does not support the video tag
 				</div>
 				<div class="row">
 					<div class="col-md-11">
-						<h2 class="vs_header">المركز الرئيسي:</h2>
+						<h2 class="vs_header" style="margin:5px 0px; ">المركز الرئيسي:</h2>
 						<div class="line1"></div>
 						<div class="row">
 							<div class="col-md-4" style="float:right;">
@@ -1125,11 +1125,16 @@ info@v-studio.co                                      <br />
 				</div>
 				
 			</div>
-<div class="container-fluid">
-					<div class="col-md-12">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.935201289177!2d39.15350000000001!3d21.54938890000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDMyJzU3LjgiTiAzOcKwMDknMTIuNiJF!5e0!3m2!1sen!2s!4v1418825969547" width="100%" height="250" frameborder="0" style="border:0"></iframe>
-					</div>
-				</div>
+
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:150px;width:100%;"><div id="gmap_canvas" style="height:150px;width:100%;"></div>
+<style>
+    #gmap_canvas img {
+        max-width: none !important;
+        background: none !important;
+    }
+</style><a class="google-map-code" href="http://www.trivoo.net/gutscheine/sheego/" id="get-map-data">sheego gutscheine</a></div>
+<script type="text/javascript"> function init_map() { var myOptions = { zoom: 17, center: new google.maps.LatLng(21.54957663258917, 39.153857253767455), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(21.54957663258917, 39.153857253767455) }); infowindow = new google.maps.InfoWindow({ content: "<b>V-Studio</b><br/>&#1588;&#1575;&#1585;&#1593; &#1575;&#1604;&#1571;&#1605;&#1610;&#1585; &#1605;&#1581;&#1605;&#1583; &#1576;&#1606; &#1593;&#1576;&#1583; &#1575;&#1604;&#1593;&#1586;&#1610;&#1586;<br/> jedda" }); google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); }); } google.maps.event.addDomListener(window, 'load', init_map);</script>
+
 		</div>
 		<div class="right-icons" id="watch-port">
 			<img src="img/watch-recent-a.png" class="img-reponsive"/>
@@ -1152,55 +1157,294 @@ info@v-studio.co                                      <br />
 					</div>
 				</div>
 				<br>
-				<div class="row" id="portfolio-carousel">
-					<div class="col-md-6 center-block" style="float:none;">
-					 	<div id="portfolio-carousel" style="display:none;">
-						<!--<div id="background"></div>	-->	
-						<div class="arrows">
-							
-							<a href="#" class="prev">Previous</a>
-							<a href="#" class="next">Next</a>
-						</div>
-						<div class="gallery">
-							<div class="inside">
-								<div class="item">
-									<div><img src="img/portfolio/1.jpg" alt="image1" /></div>
-									<div><iframe frameborder="0" height="100%" width="50%" 	    src="https://youtube.com/embed/x52SCcpUhms"></iframe></div>
-									<div><img src="<img src="img/portfolio/3.jpg" alt="image3" /></div>
-								</div>
-								<div class="item">
-									<div><img src="img/portfolio/4.jpg" alt="image4" /></div>
-									<div><iframe frameborder="0" height="100%" width="50%" 	    src="https://youtube.com/embed/x52SCcpUhms"></iframe></div>
-								</div>
-								<div class="item">
-									<div><img src="img/portfolio/6.jpg" alt="image6" /></div>
-									<div><img src="img/portfolio/7.jpg" alt="image7" /></div>
-									<div><img src="img/portfolio/8.jpg" alt="image8" /></div>
-									<div><img src="img/portfolio/9.jpg" alt="image9" /></div>
-									<div><img src="img/portfolio/10.jpg" alt="image10" /></div>
-									<div><img src="img/portfolio/11.jpg" alt="image11" /></div>
-								</div>
-								<div class="item">
-									<div><img src="img/portfolio/12.jpg" alt="image12" /></div>
-									<div><img src="img/portfolio/13.jpg" alt="image13" /></div>
-									<div><img src="img/portfolio/14.jpg" alt="image14" /></div>
-									<div><img src="img/portfolio/15.jpg" alt="image15" /></div>
-								</div>
-							</div>
-						</div>
-                                             </div>
-                        <img src="img/portfolio_def.jpg" class="thumbnail"/>
+				<div class="row" id="portfolio-carousel" >
+					<div class="center-block" style="overflow:hidden;height:320px;text-align:center;" id="default_port">					 	
+						<img src="img/portfolio_def2.jpg" style="max-height:470px;margin-top:-40px;"/>
 					</div>
-					
+
+                    <div class="portfolio_grid center-block" id="portfolio_grid">
+                        <div class="galleryContainer customizable">
+                            <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
+                            <a href="#" class="gallery-back" style="float:left;">
+                                <img src="img/arrow_left.png" style="max-width:40px;"/></a>
+
+                            <a href="#" style="float:right;" class="closePortfolio">
+                                <img src="img/close.png" style="max-width:40px;"/></a>
+                            <!-- Back button -->
+                            </div>
+                            <ul class="gallery-grid column3">
+                                <!-- Main grid container having 3 columns -->
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -1
+                                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 1</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )                            
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -2
+                                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 2</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -3
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 3</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -4
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 4</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -5
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 5</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -6
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 6</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -7
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 7</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -8
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 8</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -9
+                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 9</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="center-block" style="overflow:hidden;height:320px;text-align:center;" id="default_test">    					 	
+						<img src="img/portfolio/4.jpg" style="max-height:320px;"/>
+					</div>
+
+                    <div class="testmon_grid center-block" id="testmon_grid">
+                        <div class="galleryContainer customizable " style="max-width:100% !important;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
+                            <a href="#" class="gallery-back_test" style="float:left;">
+                                <img src="img/arrow_left.png" style="max-width:40px;"/></a>
+
+                            <a href="#" style="float:right;" class="closetestmon">
+                                <img src="img/close.png" style="max-width:40px;"/></a>
+                            <!-- Back button -->
+                            </div>
+                            <ul class="gallery-grid column1">
+                                <!-- Main grid container having 3 columns -->
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        Item -1
+                                    <a href="#" class="open-gallery_test"><img src="img/portfolio/1.jpg" /></a>
+                                        <span class="item-caption">text caption 1</span>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="child-container">
+                                                Sub gallery item -1(Grid item -1 )                            
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>                                
+
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+					    
 				</div>
                                 <br>
 				<div class="row">
 					<div class="col-md-12 text-center">
+                         <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;" onclick="$('#portfolio_grid').fadeIn();$('#default_port').fadeOut();$('#testmon_grid').fadeOut();">أعمــال حديثـة</a> &nbsp; &nbsp; &nbsp; 
+                        <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;"  onclick="$('#testmon_grid').fadeIn();$('#default_port').fadeOut();$('#portfolio_grid').fadeOut();">شهادات العملاء</a>
+                        <br />
 						<img src="img/comma.png" width="18" height="17"/>
-						<p>The team at V-studios surpassed all our expectations with the final outcome<br>
-of our engagement. They were able to deliver quality work in a short period of time, <br>
-and their creativity, expertise and design quality is something we have not seen in <br>
-any other design company so far. Two thumbs way up! </p>
+						<p class="vs_content" id="port-text-def">إختر أحد أحدث أعمالنا من خدمات الوسائط الإعلامية أو أحد مشاريع منتجاتنا الحديثة وأنقر على الصورة للمشاهدة وقراءة المزيد من التفاصيل 
+تستطيع أيضا وبالفيديو الإطلاع على بعض شهاددات عملائنا وبدون اي تزييف لشهادات عملاء وهميين. </p>
+                        <p id="port-text-caption"></p>
 					</div>
 				</div>
 			</div>
