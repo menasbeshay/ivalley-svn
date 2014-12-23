@@ -486,7 +486,7 @@ function scrollAllow() {
 
         });
         $(".start-video-again").click(function () {
-            mediaPlayer0.src = "media/demo1.mp4";
+            //mediaPlayer0.src = "media/demo1.mp4";
             mediaPlayer0.play();
 
         });
@@ -501,8 +501,8 @@ function scrollAllow() {
         mediaPlayer1 = document.getElementById('holo-video');
         mediaPlayer9 = document.getElementById('presenter-video');
         mediaPlayer9.src = "media/3MB.mp4";
-        /*if (document.location.href.indexOf("arabic") > -1)
-            mediaPlayer9.src = "media/ar_webpres.mp4";*/
+        if (document.location.href.indexOf("arabic") > -1)
+            mediaPlayer9.src = "media/ffwebpresenter_a.mp4";
         mediaPlayer9.load();
         mediaPlayer9.play();
         mediaPlayer9.onended = function (e) {
@@ -629,41 +629,63 @@ function scrollAllow() {
             $(".vid-hover, .vid-hover1, .vid-hover2, .vid-hover3").fadeIn(10);
             $(".vid-hover4, .vid-hover5, .vid-hover6, .vid-hover7").fadeOut(10);
         });
-        $(".vid-hover").click(function () {
-            /*
-				$( "#mac1, .media-icon-hover, #mac2, #mac4, #mac5, #mac6" ).fadeOut(500);
-				$( "#mac3" ).fadeIn(500);
-			*/
-            mediaPlayer1.src = "media/media1.mp4";
+        $(".vid-hover").click(function () {            
+            mediaPlayer1.src = "media/videos/holo1.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo1.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
 
         });
         $(".vid-hover1").click(function () {
-            /*
-				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac5, #mac6" ).fadeOut(500);
-				$( "#mac4" ).fadeIn(500);
-			*/
-            mediaPlayer1.src = "media/media2.mp4";
+            mediaPlayer1.src = "media/videos/holo2.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo2.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
 
         });
         $(".vid-hover2").click(function () {
-            /*
-				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac4, #mac6" ).fadeOut(500);
-				$( "#mac5" ).fadeIn(500);
-			*/
-            mediaPlayer1.src = "media/media1.mp4";
+            mediaPlayer1.src = "media/videos/holo3.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo3.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
         });
         $(".vid-hover3").click(function () {
-            /*
-				$( "#mac1, .media-icon-hover, #mac2, #mac3, #mac4, #mac5" ).fadeOut(500);
-				$( "#mac6" ).fadeIn(500);
-			*/
-            mediaPlayer1.src = "media/media2.mp4";
+            mediaPlayer1.src = "media/videos/holo4.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo4.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+        });
+        $(".vid-hover4").click(function () {
+            mediaPlayer1.src = "media/videos/holo5.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo5.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+
+        });
+        $(".vid-hover5").click(function () {
+            mediaPlayer1.src = "media/videos/holo6.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo6.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+
+        });
+        $(".vid-hover6").click(function () {
+            mediaPlayer1.src = "media/videos/holo7.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo7.mp4";
+            mediaPlayer1.load();
+            mediaPlayer1.play();
+        });
+        $(".vid-hover7").click(function () {
+            mediaPlayer1.src = "media/videos/holo8.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer1.src = "media/videos/arabic/holo8.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
         });
@@ -769,42 +791,46 @@ function scrollAllow() {
             if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38) {
                 $("#services-cover").fadeOut(500);
                 mediaPlayer2.pause();
+                $(mediaPlayer2).css('z-index', '-99');
             }
         });
 
         $("#service-hex-2, #service-video, #service-media").click(function () {
-            /*
-				$( "#service-video, #service-media, #service-vid-2, #service-vid-3, #service-vid-4, #service-vid-5" ).hide(500);
-				$( "#service-vid-1" ).fadeIn(500);
-			*/
-            mediaPlayer2.src = "media/demo1.webm";
-            mediaPlayer2.load();
+            mediaPlayer2.src = "media/videos/s_mobile.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer2.src = "media/videos/arabic/s_mobile.mp4";
+            mediaPlayer2.load();            
             mediaPlayer2.play();
+            $(mediaPlayer2).css('z-index', '1');
 
         });
         $("#service-hex-3").click(function () {
-
-            /*
-				$( "#service-vid-1, #service-vid-3, #service-vid-4, #service-vid-5" ).hide(500);
-				$( "#service-vid-2" ).fadeIn(500);
-			*/
-            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.src = "media/videos/s_anim.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer2.src = "media/videos/arabic/s_anim.mp4";
             mediaPlayer2.load();
             mediaPlayer2.play();
+            $(mediaPlayer2).css('z-index', '1');
         });
         $("#service-hex-4").click(function () {
-            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.src = "media/videos/s_vp.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer2.src = "media/videos/arabic/s_vp.mp4";
             mediaPlayer2.load();
             mediaPlayer2.play();
+            $(mediaPlayer2).css('z-index', '1');
             /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-4, #service-vid-5" ).hide(500);
 				$( "#service-vid-3" ).fadeIn(500);
 			*/
         });
         $("#service-hex-5").click(function () {
-            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.src = "media/videos/s_web.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer2.src = "media/videos/arabic/s_web.mp4";
             mediaPlayer2.load();
             mediaPlayer2.play();
+            $(mediaPlayer2).css('z-index', '1');
             /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-3, #service-vid-5" ).hide(500);
 				$( "#service-vid-4" ).fadeIn(500);
@@ -812,9 +838,12 @@ function scrollAllow() {
 
         });
         $("#service-hex-6").click(function () {
-            mediaPlayer2.src = "media/demo1.mp4";
+            mediaPlayer2.src = "media/videos/s_3dv.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer2.src = "media/videos/arabic/s_3dv.mp4";
             mediaPlayer2.load();
             mediaPlayer2.play();
+            $(mediaPlayer2).css('z-index', '1');
             /*
 				$( "#service-vid-1, #service-vid-2, #service-vid-3, #service-vid-4" ).hide(500);
 				$( "#service-vid-5" ).fadeIn(500);
@@ -890,7 +919,9 @@ function scrollAllow() {
         navClick();
         $("#way-vid, .watch-button").click(function () {
 
-            mediaPlayer5.src = "media/media2.mp4";
+            mediaPlayer5.src = "media/videos/3dway.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer5.src = "media/videos/arabic/3dway.mp4";
             mediaPlayer5.load();
             mediaPlayer5.play();
 
@@ -963,7 +994,9 @@ function scrollAllow() {
         mediaPlayer6 = document.getElementById('poly-vid');
         $("#poly-tv, #poly-button-2").click(function () {
 
-            mediaPlayer6.src = "media/media2.mp4";
+            mediaPlayer6.src = "media/videos/polytouch.mp4";
+            if (document.location.href.indexOf("arabic") > -1)
+                mediaPlayer6.src = "media/videos/arabic/polytouch.mp4";
             mediaPlayer6.load();
             mediaPlayer6.play();
 
@@ -1073,6 +1106,10 @@ function scrollAllow() {
         });
         setLeft("contactus", "contactus Us");
         setRight("join", "Join");
+        $('#portfolio_grid').fadeOut();
+        $('#default_port').fadeIn();
+        $('#port-text-def').fadeIn();
+        $('#port-text-caption').fadeOut();
     };
     parallax.join.onload = function () {
         $(".ps, .jus").show();

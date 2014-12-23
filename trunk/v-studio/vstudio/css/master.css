@@ -1587,8 +1587,11 @@ border-radius:0px;
 }
 .holo-vids img
 {
-	border-top:1px solid #333;
-	border-bottom:1px solid #333;
+	/*border-top:1px solid #333;
+	border-bottom:1px solid #333;*/
+    border:9px solid #ccc !important;
+    box-shadow:0 1px 1px #ccc inset, 0 1px 3px rgba(0, 0, 0, 0.4);
+    
 }
 
 .page-heading
@@ -1811,8 +1814,9 @@ border-radius:0px;
 	position:relative;
 	z-index:1;
 	width:1000px;
-	height:300px;
+	height:320px;
         margin:0 auto 0 auto;
+    overflow:hidden;
 }
 
 #background {
@@ -2076,4 +2080,20 @@ margin-bottom:6px;
     font-family : AraHamah1964B-Regular !important;
     font-size:18px;
     font-weight:600 !important;
+}
+
+.portfolio_grid, .testmon_grid {
+    overflow:hidden;
+    height:320px;
+    text-align:center;
+    width:680px;    
+    display:none;
+}
+
+#port-text-caption, .item-caption, #default_test {
+    display:none;
+}
+
+.open-gallery img {
+    max-width:100%;
 }
