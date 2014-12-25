@@ -47,7 +47,9 @@
 <body>
     <header id="header" class="">
     <div class="innerWrapper">
-      <div id="logo"></div>
+      <div id="logo">
+         
+      </div>
       <div id="lang" style="width:50px;position:absolute;top:30px;color:#fff;right:10px;font-size:20px;" class="jf">العربية</div>
       <nav>
         <ul id="header-ul">
@@ -64,11 +66,10 @@
           </li>
           <li>
               <div>
-                <a href="#">Apps Development</a>
+                <a href="#">Apps & Software</a>
                 <section class="tip"><br>
                     - 3D Wayfinding<br />
-                      - Real Estate <br />                      
-                     - Other Apps
+                      - Real Estate 
                 </section>
               </div>
           </li>
@@ -1060,7 +1061,7 @@ construction using steel plates and aluminum enables the use of the kiosk in una
             </div>
         </div>
 
-         <div class="section " id="Electronicdoor">
+        <div class="section " id="Electronicdoor">
             <span id="nextsection_5" class="NextSection">3D Wayfinding</span>            
             <div class="slide" id="e_p1">
                 
@@ -1101,6 +1102,61 @@ Available in the following versions:</p>
                         <img src="../images/products/electronic_doors/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
                             <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" /><img src="../images/products/electronic_doors/5.png" />
                         </div>
+                </div>
+                
+            </div>
+           
+        </div>
+
+        <div class="section " id="3Dwayfinding">
+            <span id="nextsection_6" class="NextSection">Real Estate</span>            
+            <div class="slide" id="d_p1">
+                
+                <div class="anyPage innerslide" style="position:relative;">                                         
+
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">
+                        
+                        <div class="clearfix" style="height:1px;"></div>
+                        <div class="col-lg-7 col-sm-7 col-md-7">
+                            <video loop id="3dflashvideo" autoplay preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
+                             </video>  
+                            <div class="clearfix" style="height:2px;clear:both"></div>
+                                                        
+                        </div>
+                        <div class="col-lg-5 col-sm-5 col-md-5" >
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left" style="padding:0 !important">
+                            <label class="slideHeaderWhite">Overview</label>
+                                </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-right">
+                                <img src="../images/aldaleel_mtsa.png" style="max-width:100%;"/>
+                                <br />
+                                <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:17px;">
+                                3D WAYFINDING</span>
+                            </div>    
+                            <div class="clearfix" style="height:15px;clear:both"></div>                        
+                            
+                            <p style="text-align:justify">
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. Download presentation for more details.
+                            </p>
+                            <div class="clearfix" style="height:15px;clear:both"></div>                        
+                            <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
+                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:20.5%;"/>
+                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:20.5%;" />
+                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:20.5%;"/>
+                                <img src="../images/Icons/web.png"  style="margin:0;width:20.5%;"/>
+                                <img src="../images/Icons/try.png"  style="margin:20px;width:20.5%;float:right"/>
+                            </div>
+                         </div>
+                        
+                        <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="bottom:30px !important;">                        
+                                <img src="../images/icons/png/large/10.png" style="margin:0 30px;width:8%;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 30px;width:8%;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 30px;width:8%;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 30px;width:8%;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 30px;width:8%;"/>
+                            </div>    
+                    </div>
+                    
                 </div>
                 
             </div>

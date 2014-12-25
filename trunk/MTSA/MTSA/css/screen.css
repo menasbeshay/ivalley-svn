@@ -311,6 +311,7 @@ input, .fake_input {
     background: url("../images/Logo1.png") no-repeat;
 }
 
+
 #header {
     top: 0px;
     padding-top: 40px;
@@ -4129,13 +4130,13 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     z-index:10;
 }
 
-.footer-polytouch .footerLeft {
-    float:left;
+.footer-polytouch .footerLeft {    
     display:block;
     width:20%;
     height:100%;
-    margin-top:-20px;
-    
+    bottom:35px;
+    position:absolute;
+    left:20px;
 }
 
 .footer-polytouch .footerRight {
