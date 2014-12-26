@@ -346,7 +346,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 return null;*/
             return ko.utils.arrayFilter(self.Members(), function (mem) {
                 return mem.InRoom();
-            });
+            }).sort(function (a, b) { return a.LastJoinDate() > b.LastJoinDate(); });
         }, this);
         //Room Members
         this.RoomMembers = ko.computed(function () {
@@ -1927,6 +1927,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         }
         else {
             existingMember.InRoom(newMember.InRoom());
+            existingMember.LastJoinDate(newMember.LastJoinDate());
             // fix marking admin when login issue
             existingMember.IsMarked(newMember.IsMarked());
         }

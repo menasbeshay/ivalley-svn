@@ -119,6 +119,8 @@ namespace Helper
         public bool ShowMessageTime { get; set; }
 
         public bool IsFriend { get; set; }
+
+        public object LastJoinDate { get; set; }
     }
 
     public class RoomSettings

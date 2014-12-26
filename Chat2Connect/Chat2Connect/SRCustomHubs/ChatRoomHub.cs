@@ -92,6 +92,7 @@ namespace Chat2Connect.SRCustomHubs
                     roomMember.MemberID = memberID;
                     roomMember.RoomID = roomid;
                 }
+                roomMember.LastJoinDate = DateTime.Now;
                 roomMember.InRoom = !isHidden;
                 Room room = new Room();
                 room.LoadByPrimaryKey(roomid);
@@ -644,7 +645,7 @@ namespace Chat2Connect.SRCustomHubs
                 }
                 RoomMember rm = new RoomMember();
                 if (rm.LoadByPrimaryKey(memberid, rid))
-                {                    
+                {
                     rm.IsMarked = isMarked;
                     rm.CanAccessMic = !isMarked;
                     rm.Save();
@@ -654,6 +655,6 @@ namespace Chat2Connect.SRCustomHubs
         }
         #endregion
 
-        
+
     }
 }

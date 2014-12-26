@@ -14,7 +14,6 @@ namespace BLL
     {
         public RoomMember()
         {
-
         }
 
         public virtual bool GetAllAdminMembersByRoomID(int RoomID)
@@ -104,7 +103,7 @@ namespace BLL
                             WHERE RM.RoomID={0} And ISNULL(M.RowStatusID,{3})={3}";
             if (memberID.HasValue)
                 sql += String.Format(" AND RM.MemberID={0}", memberID.Value);
-
+            sql += " Order By RM.LastJoinDate ASC";
             LoadFromRawSql(sql, roomID, Helper.Defaults.MemberTypeSpecDurationID, currentMemberID, (int)Helper.Enums.RowStatus.Enabled);
 
             return DefaultView.Table.AsEnumerable().Select(m =>
@@ -135,7 +134,8 @@ namespace BLL
                 NotifyOnMicOn = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnMicOn]),
                 NotifyOnOpenCam = Helper.TypeConverter.ToBoolean(m[ColumnNames.NotifyOnOpenCam]),
                 ShowMessageTime = Helper.TypeConverter.ToBoolean(m[ColumnNames.ShowMessageTime]),
-                IsFriend = Helper.TypeConverter.ToBoolean(m["IsFriend"])
+                IsFriend = Helper.TypeConverter.ToBoolean(m["IsFriend"]),
+                LastJoinDate = m[ColumnNames.LastJoinDate]
             }).ToList();
         }
         private int? GetBanType(object startDate, object endDate)
@@ -374,6 +374,7 @@ namespace BLL
         public override void AddNew()
         {
             base.AddNew();
+            LastJoinDate = DateTime.Now;
             CanAccessCam = true;
             CanAccessMic = true;
             CanWrite = true;
