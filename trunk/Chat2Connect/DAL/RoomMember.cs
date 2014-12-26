@@ -269,6 +269,14 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 			
+			public static SqlParameter LastJoinDate
+			{
+				get
+				{
+					return new SqlParameter("@LastJoinDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -296,6 +304,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnCloseCam = "NotifyOnCloseCam";
             public const string IsFavorite = "IsFavorite";
             public const string ShowMessageTime = "ShowMessageTime";
+            public const string LastJoinDate = "LastJoinDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -324,6 +333,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[NotifyOnCloseCam] = _RoomMember.PropertyNames.NotifyOnCloseCam;
 					ht[IsFavorite] = _RoomMember.PropertyNames.IsFavorite;
 					ht[ShowMessageTime] = _RoomMember.PropertyNames.ShowMessageTime;
+					ht[LastJoinDate] = _RoomMember.PropertyNames.LastJoinDate;
 
 				}
 				return (string)ht[columnName];
@@ -357,6 +367,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnCloseCam = "NotifyOnCloseCam";
             public const string IsFavorite = "IsFavorite";
             public const string ShowMessageTime = "ShowMessageTime";
+            public const string LastJoinDate = "LastJoinDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -385,6 +396,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 					ht[NotifyOnCloseCam] = _RoomMember.ColumnNames.NotifyOnCloseCam;
 					ht[IsFavorite] = _RoomMember.ColumnNames.IsFavorite;
 					ht[ShowMessageTime] = _RoomMember.ColumnNames.ShowMessageTime;
+					ht[LastJoinDate] = _RoomMember.ColumnNames.LastJoinDate;
 
 				}
 				return (string)ht[propertyName];
@@ -418,6 +430,7 @@ parameters.Add(Parameters.RoomID, RoomID);
             public const string NotifyOnCloseCam = "s_NotifyOnCloseCam";
             public const string IsFavorite = "s_IsFavorite";
             public const string ShowMessageTime = "s_ShowMessageTime";
+            public const string LastJoinDate = "s_LastJoinDate";
 
 		}
 		#endregion		
@@ -673,6 +686,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 			set
 	        {
 				base.Setbool(ColumnNames.ShowMessageTime, value);
+			}
+		}
+
+		public virtual DateTime LastJoinDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.LastJoinDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.LastJoinDate, value);
 			}
 		}
 
@@ -996,6 +1021,21 @@ parameters.Add(Parameters.RoomID, RoomID);
 			}
 		}
 
+		public virtual string s_LastJoinDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.LastJoinDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.LastJoinDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.LastJoinDate);
+				else
+					this.LastJoinDate = base.SetDateTimeAsString(ColumnNames.LastJoinDate, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1234,6 +1274,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.ShowMessageTime, Parameters.ShowMessageTime);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter LastJoinDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.LastJoinDate, Parameters.LastJoinDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1496,6 +1546,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public WhereParameter LastJoinDate
+		    {
+				get
+		        {
+					if(_LastJoinDate_W == null)
+	        	    {
+						_LastJoinDate_W = TearOff.LastJoinDate;
+					}
+					return _LastJoinDate_W;
+				}
+			}
+
 			private WhereParameter _MemberID_W = null;
 			private WhereParameter _RoomID_W = null;
 			private WhereParameter _HasMic_W = null;
@@ -1517,6 +1579,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private WhereParameter _NotifyOnCloseCam_W = null;
 			private WhereParameter _IsFavorite_W = null;
 			private WhereParameter _ShowMessageTime_W = null;
+			private WhereParameter _LastJoinDate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1541,6 +1604,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_NotifyOnCloseCam_W = null;
 				_IsFavorite_W = null;
 				_ShowMessageTime_W = null;
+				_LastJoinDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1807,6 +1871,16 @@ parameters.Add(Parameters.RoomID, RoomID);
 					}
 				}
 
+				public AggregateParameter LastJoinDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LastJoinDate, Parameters.LastJoinDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2064,6 +2138,18 @@ parameters.Add(Parameters.RoomID, RoomID);
 				}
 			}
 
+			public AggregateParameter LastJoinDate
+		    {
+				get
+		        {
+					if(_LastJoinDate_W == null)
+	        	    {
+						_LastJoinDate_W = TearOff.LastJoinDate;
+					}
+					return _LastJoinDate_W;
+				}
+			}
+
 			private AggregateParameter _MemberID_W = null;
 			private AggregateParameter _RoomID_W = null;
 			private AggregateParameter _HasMic_W = null;
@@ -2085,6 +2171,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 			private AggregateParameter _NotifyOnCloseCam_W = null;
 			private AggregateParameter _IsFavorite_W = null;
 			private AggregateParameter _ShowMessageTime_W = null;
+			private AggregateParameter _LastJoinDate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2109,6 +2196,7 @@ parameters.Add(Parameters.RoomID, RoomID);
 				_NotifyOnCloseCam_W = null;
 				_IsFavorite_W = null;
 				_ShowMessageTime_W = null;
+				_LastJoinDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2265,6 +2353,10 @@ parameters.Add(Parameters.RoomID, RoomID);
 
 			p = cmd.Parameters.Add(Parameters.ShowMessageTime);
 			p.SourceColumn = ColumnNames.ShowMessageTime;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.LastJoinDate);
+			p.SourceColumn = ColumnNames.LastJoinDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 

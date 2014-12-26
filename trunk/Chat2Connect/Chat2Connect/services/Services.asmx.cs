@@ -774,6 +774,7 @@ namespace Chat2Connect.services
                 roomMember.RoomID = id;
             }
             roomMember.InRoom = true;
+            roomMember.LastJoinDate = DateTime.Now;
             if (BLL.Member.CurrentMember.Status == (int)Helper.Enums.MemberStatus.Offline && Helper.Admin.HasRole(Helper.Enums.MemberRoles.InvisibleInRoom.ToString()))
                 roomMember.InRoom = false;
             if (!room.IsColumnNull("CreatedBy"))
