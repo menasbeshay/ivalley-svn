@@ -314,7 +314,7 @@
                              <ItemTemplate>
                                  <div style="position:relative;" class="col-sm-4">
                                  <a href='<%# Eval("PicPath") %>' data-gallery title='<%# Eval("Description") %>' data-description='<%# Eval("Description") %>' > 
-                                     <img src="images.aspx?Image=<%# Eval("PicPath") %>&profile=1" class="img-thumbnail" style="width:100px;" alt='<%# Eval("Description") %>'/>                             
+                                     <img src="thumb.aspx?w=60&h=60&Image=<%# Eval("PicPath") %>&profile=1" class="img-thumbnail" alt='<%# Eval("Description") %>'/>                             
                                      
                                 </a>          
                                  <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("MemberPicID") %>' Text="Delete" OnClientClick="return confirm('هل تريد حذف هذه الصورة؟');" CommandName="Delete" ForeColor="#000099" style="position:absolute;top:0;right:0;text-decoration:none;color:#ccc;" >  <i class="icon-remove" title="حذف" data-placement="top" data-toggle="tooltip"></i>  </asp:LinkButton>

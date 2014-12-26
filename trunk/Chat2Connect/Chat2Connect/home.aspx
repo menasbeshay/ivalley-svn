@@ -261,7 +261,7 @@
                                 <!-- ko foreach:People -->
                                 <li>
                                     <div style="width: 27%; float: left; margin-right: 3px;">
-                                        <img style="width: 50px;" data-bind="attr:{src:ProfileImg}" />
+                                        <img data-bind="attr:{src:'Thumb.aspx?w=50&h=50&Image='+ProfileImg()}" />
                                     </div>
                                     <div style="width: 70%; float: left; text-align: left;">
                                         <span data-bind="text:MemberName"></span>
