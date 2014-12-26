@@ -151,12 +151,14 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="arabic.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\apps\component.css" />
     <Content Include="css\apps\default.css" />
+    <Content Include="css\apps\elastic_grid_ar.css" />
     <Content Include="css\apps\elastic_grid.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -165,9 +167,12 @@
     <Content Include="css\ie8.css" />
     <Content Include="css\ipad.css" />
     <Content Include="css\lightbox.css" />
+    <Content Include="css\screen_ar.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\YTPlayer.css" />
     <Content Include="flash\3DWayfinding.mp4" />
+    <Content Include="flash\3garatvideoArabic.mp4" />
+    <Content Include="flash\3garatvideoEnglish.mp4" />
     <Content Include="fonts\adihrg-webfont-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -190,7 +195,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="home.aspx" />
+    <Content Include="images\3ag_01.jpg" />
+    <Content Include="images\3ag_02.jpg" />
+    <Content Include="images\3ag_03.jpg" />
     <Content Include="images\3D-Wayfinding_logo.png" />
+    <Content Include="images\3garatlogoar.png" />
+    <Content Include="images\3garatlogoen.png" />
     <Content Include="images\aldaleel_mtsa.png" />
     <Content Include="images\banner-ads.svg" />
     <Content Include="images\downen.png" />
@@ -392,9 +402,11 @@
     <Content Include="images\products\ptv_1.jpg" />
     <Content Include="images\products\rsz_ptv.jpg" />
     <Content Include="images\products\simply.png" />
+    <Content Include="images\products\simply2.png" />
     <Content Include="images\projects\1.jpg" />
     <Content Include="images\projects\2.jpg" />
     <Content Include="images\projects\3.jpg" />
+    <Content Include="images\sager-logo.png" />
     <Content Include="images\slides\Slide-1.jpg" />
     <Content Include="images\slides\Slide-10.jpg" />
     <Content Include="images\slides\Slide-11.jpg" />
@@ -516,6 +528,7 @@
     <Content Include="fonts\MyriadProBoldCondensed.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MasterPages\FullAr.Master" />
     <None Include="Properties\PublishProfiles\mtsa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\apps\classie.js" />
@@ -545,6 +558,7 @@
     <Content Include="Scripts\jquery.zoom.min.js" />
     <Content Include="Scripts\libs2.js" />
     <Content Include="Scripts\lightbox.min.js" />
+    <Content Include="Scripts\mainar.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\masonry.pkgd.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -637,6 +651,13 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="arabic.aspx.cs">
+      <DependentUpon>arabic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="arabic.aspx.designer.cs">
+      <DependentUpon>arabic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -667,6 +688,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\FullAr.Master.cs">
+      <DependentUpon>FullAr.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\FullAr.Master.designer.cs">
+      <DependentUpon>FullAr.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
