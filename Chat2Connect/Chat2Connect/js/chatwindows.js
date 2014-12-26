@@ -1405,7 +1405,12 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             if (this.CurrentMember().IsCamOpened())
                 this.stopCam(this.CurrentMember().MemberID());
             rHub.server.removeFromRoom(this.CurrentMember().MemberID(),this.ID());
-            $.post("../services/Services.asmx/closeChatRoom", { id: this.ID() });
+            $.ajax({
+                type: 'POST',
+                url: "../services/Services.asmx/closeChatRoom",
+                data: { id: this.ID() },
+                async: true
+            });
         }
         self.windows.remove(this);
         $('.nav-tabs a:last').tab('show');

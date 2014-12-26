@@ -750,6 +750,7 @@
     <None Include="testswf\chat2connect4.swf" />
     <None Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
+    <Content Include="Thumb.aspx" />
     <Content Include="upload.html" />
     <Content Include="usercontrols\Friends.ascx" />
     <Content Include="usercontrols\Mail.ascx" />
@@ -1389,6 +1390,10 @@
     </Compile>
     <Compile Include="templates\Rooms.ascx.designer.cs">
       <DependentUpon>Rooms.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Thumb.aspx.cs">
+      <DependentUpon>Thumb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="usercontrols\Friends.ascx.cs">
       <DependentUpon>Friends.ascx</DependentUpon>

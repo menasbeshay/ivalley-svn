@@ -89,7 +89,7 @@ namespace Chat2Connect
                 }
                 if (!member.IsColumnNull("ProfilePic"))
                 {
-                    uiImageMain.ImageUrl = "images.aspx?Image=" + member.ProfilePic;
+                    uiImageMain.ImageUrl = "Thumb.aspx?w=100&h=100&Image=" + member.ProfilePic;
                 }
                 ///////////////////////////////
                 uiLabelInterests.Text = uiTextBoxInterests.Text = member.Interests;
