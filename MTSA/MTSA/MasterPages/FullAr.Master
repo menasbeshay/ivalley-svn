@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Full.master.cs" Inherits="MTSA.Full" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FullAr.master.cs" Inherits="MTSA.MasterPages.FullAr" %>
 
 <!DOCTYPE html>
 
@@ -8,15 +8,15 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="../css/jquery.fullPage.css" rel="stylesheet" />
-    <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../css/screen.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />    
     <link href="../css/component.css" rel="stylesheet" />
-    <link href="../css/apps/elastic_grid.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+    <link href="../css/apps/elastic_grid_ar.css" rel="stylesheet" />
+    <link href="../css/screen_ar.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css' />
     <link href="../css/YTPlayer.css" rel="stylesheet" />    
     <link href="../css/lightbox.css" rel="stylesheet" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8" />
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
     <![endif]-->
@@ -40,62 +40,62 @@
     <script src="../Scripts/apps/elastic_grid.js"></script>	
     <script src="../Scripts/jquery.mb.YTPlayer.js"></script>
     <script src="../Scripts/jquery.zoom.min.js"></script>
-    <script src="../Scripts/lightbox.min.js"></script>    <%--<script src="../Scripts/jquery.hoverdir.js"></script>--%>    <script src="../Scripts/main.js"></script>
+    <script src="../Scripts/lightbox.min.js"></script>    <%--<script src="../Scripts/jquery.hoverdir.js"></script>--%>    <script src="../Scripts/mainar.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header id="header" class="">
+     <header id="header" class="">
     <div class="innerWrapper">
       <div id="logo">
          
       </div>
-      <div id="lang" style="width:50px;position:absolute;top:30px;color:#fff;right:10px;font-size:20px;" class="jf">
-          <a href="arabic.aspx" style="color:#fff !important;">العربية</a>
+      <div id="lang" style="width:50px;position:absolute;top:30px;color:#fff;left:10px;font-size:20px;">
+          <a href="home.aspx" style="color:#fff !important;font-family:'adihaus';">English</a>
       </div>
       <nav>
         <ul id="header-ul">
           <li>
               <div>
-                  <a href="#">Products</a>
+                  <a href="#">المنتجات</a>
                   <section class="tip"><br>
-                      <a class="navlink" id="mts">- Multi touchscreens</a>
-                      <a class="navlink" id="ds" >- Digital signage </a>
-                      <a class="navlink" id="ks" >- Kiosk systems </a>
-                      <a class="navlink" id="ed" >- Electronic door signs</a>
+                      <a class="navlink" id="mts">  شاشات تعددية اللمس</a>
+                      <a class="navlink" id="ds" >  منصات اللوحات الرقمية</a>
+                      <a class="navlink" id="ks" > منصات الشاشات </a>
+                      <a class="navlink" id="ed" > الشاشات الإلكترونية الحائطية</a>
                   </section>
               </div>
           </li>
           <li>
               <div>
-                <a href="#">Apps & Software</a>
+                <a href="#">البرامج والتطبيقات</a>
                 <section class="tip"><br>
-                    <a class="navlink" id="way" >- 3D Wayfinding</a>
-                     <a class="navlink" id="rs" > - Real Estate </a>
+                    <a class="navlink" id="way" > الدليل ثلاثي الأبعاد للمباني العامة</a>
+                     <a class="navlink" id="rs" > العقارات </a>
                 </section>
               </div>
           </li>
           <li>
               <div>
-                <a class="navlink" id="wts">Where to use</a>
+                <a class="navlink" id="wts">الإستخدامات</a>
                 <section class="tip"><br></section>
               </div>
           </li>
           <li>
               <div>  
-                <a class="navlink" id="pro">Projects</a>
+                <a class="navlink" id="pro">المشاريع</a>
                 <section class="tip"><br></section>
               </div>
           </li>
           <li>
               <div>
-                <a id="ts" class="navlink" >Technical support</a>
+                <a id="ts" class="navlink" >الدعم الفنى</a>
                 <section class="tip"><br></section>
               </div>
           </li>
           <li>
               <div>
-                <a id="contact" class="navlink" >Contact us</a>
+                <a id="contact" class="navlink" >إتصل بنا</a>
                 <section class="tip"><br></section>
               </div>
           </li>
@@ -114,14 +114,14 @@
 
     <div id="superContainer">
         <div class="section splashslider" id="splash">
-            <span id="nextsection_1" class="NextSection">Products</span>
+            <span id="nextsection_1" class="NextSection">المنتجات</span>
 		    <div class="slide" id="Home">
                 <div class="anyPage innerslide" style="padding:0px !important;padding-bottom:40px;position:relative;">
                 <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                 <div class="cycle-slideshow"  data-cycle-auto-height="true" data-cycle-caption="#alt-caption" data-cycle-caption-template="{{alt}}">
-                         <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="4000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>Touchscreens, Interactive Kiosk Systems <br />& Digital Signage </span>"/>
+                         <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="4000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>شاشات باللمس وأنظمة منصّات تفاعليّة <br />وشاشات اللوحات الرقميّة</span>"/>
                          <img src="../images/slides/Slide-2.jpg" data-cycle-timeout="2000" alt=""/>
-                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="3000" alt="<span class='blueblack'>Bridge your business gaps <br />With smart Apps</span>"/>
+                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="3000" alt="<span class='blueblack'>تطبيقات وبرامج ذكية ،  <br />لبناء جسور أعمال قويّة </span>"/>
                          <img src="../images/slides/Slide-4.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-5.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-6.jpg" data-cycle-timeout="2000" alt=""/>
@@ -142,7 +142,7 @@
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    
                    <div class="PageTitle">
-                       <div class="slidetitle">Where to use
+                       <div class="slidetitle">الإستخـدامات
                        </div>
                        <div class="headerbottom"></div>
                    </div>
@@ -160,7 +160,7 @@
                    <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    <div class="PageTitle">
-                       <div class="slidetitle">Recent Projects</div>
+                       <div class="slidetitle">المشاريع</div>
                        <div class="headerbottom"></div>
                    </div>                                      
 
@@ -176,7 +176,7 @@
 
                                        <li id="about-link">
                                            <a href="#ISIS" class="page-scroll">
-                                               <h3 style="font-size:97%">General presidency of the promotion of virtue & the prevention of vices
+                                               <h3 style="font-size:97%">هيئة الأمر بالمعروف والنهى عن المنكر
                                                </h3>
                                                <i class="fa fa-desktop nav-left"></i>
                                            </a>
@@ -184,7 +184,7 @@
 
                                        <li id="resume-link">
                                            <a href="#Wayfinding" class="page-scroll page-right">
-                                               <h3>King Fahad Medical City
+                                               <h3>مدينة الملك فهد الطبية
                                                </h3>
                                                <i class="fa fa-laptop nav-right"></i>
                                            </a>
@@ -192,7 +192,7 @@
 
                                        <li id="portfolio-link">
                                            <a href="#HERA" class="page-scroll">
-                                               <h3>Ministry of water & Electricity
+                                               <h3>وزارة المياه والكهرباء
                                                </h3>
                                                <i class="fa fa-tablet nav-left"></i>
                                            </a>
@@ -214,32 +214,32 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2 style="font-size:99%">General presidency of the promotion <br />of virtue & the prevention of vices
+                                   <h2 style="font-size:99%">هيئة الأمر بالمعروف <br />والنهى عن المنكر
                                    </h2>                                   
                                </header>
                            </div>
                            <!-- end TITLE -->
                            <div class="row">
-                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="position:relative;">
+                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right" style="position:relative;">
                                        <img src="../images/projects/2_1.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
-                                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <div style="font-size:120%;">
-                                            <span class="label label-default">Client Name </span>
+                                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                                        <div style="font-size:120%;text-align:right;">
+                                            <span class="label label-default">إسم العميل </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           General presidency of the promotion of virtue & the prevention of vices.
+                                           هيئة الأمر بالمعروف والنهى عن المنكر
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">City , Country </span>
+                                            <span class="label label-default">البلد ، المدينة </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Riyadh, Saudi Arabia.
+                                           .الرياض ، المملكة العربية السعودية
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Product’s type </span>
+                                            <span class="label label-default">الطراز</span>
                                             <div style="clear:both;height:2px;"></div>
                                             ISIS.
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Application</span>
+                                            <span class="label label-default">التطبيق</span>
                                             <div style="clear:both;height:2px;"></div>
-                                            Public services & Information.
+                                            الخدمات العامة.
                                        </div>
                                    </div>
                            </div>
@@ -254,33 +254,32 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2>King Fahad Medical City
-
+                                   <h2>مدينة الملك فهد الطبية، الرياض        
                                    </h2>                                   
                                </header>
                            </div>
                            <!-- end TITLE -->
                            <div class="row">
-                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="position:relative;">
+                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 pull-right" style="position:relative;">
                                        <img src="../images/projects/2_2.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <div style="font-size:120%;">
-                                            <span class="label label-default">Client Name </span>
+                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pull-right">
+                                        <div style="font-size:120%;text-align:right;">
+                                            <span class="label label-default">إسم العميل </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           King Fahad Medical City.
+                                           مدينة الملك فهد الطبية، الرياض        
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">City, Country </span>
+                                            <span class="label label-default">البلد ، المدينة</span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Riyadh, Saudi Arabia.
+                                           .الرياض ، المملكة العربية السعودية
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Product’s type </span>
+                                            <span class="label label-default">الطراز </span>
                                             <div style="clear:both;height:2px;"></div>
                                             PHEX Stand.
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Application </span>
+                                            <span class="label label-default">التطبيق </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Wayfinding 
+                                           دليل المباني العامة التفاعلي  
                                        </div>
                                    </div>
                            </div>
@@ -295,33 +294,33 @@
                            <div class="row">
                                <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cat-pages-title">
                                    <div class="title-seprator"></div>
-                                   <h2>Ministry of water & Electricity
+                                   <h2>وزارة المياه والكهرباء
                                    </h2>                                   
                                </header>
                            </div>
                            <!-- end TITLE -->
                            <div class="row">
-                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="position:relative;">
+                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 pull-right" style="position:relative;">
                                        <img src="../images/projects/2_3.jpg" alt="img01" style="max-width:75%;max-height:80%;margin:0 auto;display:block;"/>
                                    </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <div style="font-size:120%;">
+                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pull-right">
+                                        <div style="font-size:120%;text-align:right">
                                             
-                                            <span class="label label-default">Client Name </span>
+                                            <span class="label label-default">إسم العميل </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Ministry of water & Electricity.
+                                           وزارة المياه والكهرباء
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">City , Country </span>
+                                            <span class="label label-default">البلد ، المدينة </span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Riyadh, Saudi Arabia.
+                                           .الرياض ، المملكة العربية السعودية
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Product’s type </span>
+                                            <span class="label label-default">الطراز </span>
                                             <div style="clear:both;height:2px;"></div>
                                            HERA.
                                             <div style="clear:both;height:5px;"></div>
-                                            <span class="label label-default">Application</span>
+                                            <span class="label label-default">التطبيق</span>
                                             <div style="clear:both;height:2px;"></div>
-                                           Employees Self-Service
+                                           خدمة الموظفين الذاتيّة
                                        </div>
                                    </div>
                            </div>
@@ -338,13 +337,13 @@
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
 
                     <div class="PageTitle">
-                        <div class="slidetitle" style="padding-bottom:5px !important;">Technical support</div>
+                        <div class="slidetitle" style="padding-bottom:5px !important;">الدعم الفنى</div>
                         <div class="headerbottom"></div>
                     </div>
 
-                    <p style="text-align:center;">
-                        MTSA products & software are sold & serviced through authorized distributors/service agents carefully selected to guarantee customers <br />full satisfaction and best after sale services. 
-                                Our services include:
+                    <p style="text-align:center;direction:rtl;">                       
+                        منتجات وبرامج  <span class="mtsa"> MTSA </span> توزع وتؤمن صيانتها من خلال موزعين ووكلاء خدمة معتمدين يتم إختيارهم بعناية لضمان<br /> رضاء العميل التام وأفضل مستوى من خدمة مابعد البيع.
+خدماتنا تتضمن:
                     </p>
 
                     <section class="main">
@@ -355,7 +354,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-1"></div>
                                         <div class="ch-info-back">
-                                            <h3>On-site service</h3>
+                                            <h3>الصيانة في الموقع</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -365,7 +364,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-2"></div>
                                         <div class="ch-info-back">
-                                            <h3>Remote maintenance</h3>
+                                            <h3>الصيانة عن بعد</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -375,7 +374,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-3"></div>
                                         <div class="ch-info-back">
-                                            <h3 style="font-size: 14px; letter-spacing: 1px; padding-left: 5px; padding-right: 5px;">Phone troubleshooting</h3>
+                                            <h3 style="font-size: 14px; letter-spacing: 1px; padding-left: 5px; padding-right: 5px;">إكتشاف الأعطال<br /> وإصلاحها هاتفيا</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -385,7 +384,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-4"></div>
                                         <div class="ch-info-back">
-                                            <h3>Assistance with kiosk custom designs</h3>
+                                            <h3>المساعدة في تصاميم المنصات الخاصة</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -395,7 +394,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-5"></div>
                                         <div class="ch-info-back">
-                                            <h3>Software updates & upgrades</h3>
+                                            <h3>تحديث وترقية البرامج</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -405,7 +404,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-6"></div>
                                         <div class="ch-info-back">
-                                            <h3>Assistance with software modification</h3>
+                                            <h3>المساعدة في تعديل البرامج</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -415,7 +414,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-7"></div>
                                         <div class="ch-info-back">
-                                            <h3>Operators training</h3>
+                                            <h3>تدريب المشغلّين</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -425,7 +424,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-8"></div>
                                         <div class="ch-info-back">
-                                            <h3>Users how to use tutorial videos</h3>
+                                            <h3>فيديو توضيحي للزوار المستخدمين</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -435,7 +434,7 @@
                                     <div class="ch-info">
                                         <div class="ch-info-front ch-img-9"></div>
                                         <div class="ch-info-back">
-                                            <h3>Problems’ solutions</h3>
+                                            <h3>حلول شاملة للمشاكل والأعطال</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -443,17 +442,14 @@
                         </ul>
 
                     </section>
-                    <p style="text-align:center;">
-                        Thanks to our professional network of partners, we offer on-site services throughout all of Saudi Arabia. 
+                    <p style="text-align:center;direction:rtl;">
+                        بفضل شبكة من الشركاء المحترفين ، نؤمن خدمات صيانة في الموقع في جميع مناطق المملكة العربية السعودية.
                     </p>
-                    <p style="text-align:center;">
-                        Our service level agreements offer you the highest level of plan­ning reliability. 
-                        <br />By entering into such an agreement, you can budget for the total cost of ownership as soon as you make an investment.
+                    <p style="text-align:center;direction:rtl;">
+                        إتفاقيات الخدمة ذات المستويات المتعددة التي نقدمها توفر لعملائها أعلى مستوى من التخطيط الموثوق به <br />وتساعد العميل بمجرد الدخول في إتفاقية خدمة في تحديد التكلفة الإجمالية للملكية بعد الإستثمار.
                     </p>
-                    <p style="text-align:center;">
-                        MTSA provides innovative interactive & digital information systems supported by smart apps help you bridge your business gaps. 
- 
-
+                    <p style="text-align:center;direction:rtl;">
+                        منتجات  <span class="mtsa"> MTSA </span>المبتكرة من أنظمة المعلومات التفاعلية والرقميّة مدعومة ببرامج وتطبيقات ذكيّة تساهم في بناء جسور نجاح أعمالك
                     </p>
 
                     <div class="clearfix"></div>                            
@@ -462,7 +458,7 @@
             </div>
 	    </div>
         <div class="section " id="Products">
-            <span id="nextsection_2" class="NextSection">Digital signage</span>
+            <span id="nextsection_2" class="NextSection">منصات اللوحات الرقميّة</span>
             <div class="slide" id="polytouchSplash">
                 <div class="anyPage innerslide" style="position:relative;padding:0px 0px;">
                 <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
@@ -473,12 +469,12 @@
                     
                     <div class="footer-polytouch">
                         <div class="footerLeft">
-                            <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;"/><br />
-                            <img src="../images/products/simply2.png" style="max-width:80%;"/>
+                            <img src="../images/products/logo_polytouch_976px.png" style="max-width:70%;margin-left:12.8%;"/><br />
+                            <img src="../images/products/simply2_ar.png" style="max-width:90%;"/>
                         </div>
-                        <div class="footerRight">
-                            Click <a href="https://www.dropbox.com/s/3araruu98seemmy/V-Studio%20Polytouch%20Video%20English.swf?dl=1" style="color:#05088e;font-weight:bold;" target="_blank">here</a> to download flash video <br />
-                            if you can’t stream the video
+                        <div class="footerRight text-center">
+                            أنقر <a href="https://www.dropbox.com/s/3araruu98seemmy/V-Studio%20Polytouch%20Video%20English.swf?dl=1" style="color:#05088e;font-weight:bold;" target="_blank">هنا</a> لتحميل الفيديو فلاش  <br />
+                            اذا لم تتمكن من مشاهدته 
 
                         </div>
                     </div>
@@ -498,44 +494,52 @@
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                       <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 50px;margin:0 auto;float:none;">
-                         <div class="col-lg-4 col-sm-4 col-md-4">
+                         <div class="col-lg-4 col-sm-4 col-md-4 pull-right" style="direction:rtl;">
                              <div class="clearfix" style="height:5px;"></div>
+
                               <img src="../images/products/multitouchscreens/Page2/logo.png" />
                              <div class="clearfix" style="height:15px;"></div>
-                             <img src="../images/products/multitouchscreens/Page2/MultiIcon.png" />&nbsp; <label class="touchscreenlabel upper"> Multitouchscreens</label>
-                              <p style="text-align:justify;">
-                                    Polytouch is an expandable, all-in-one multi-touch system using projected capacitive technology (PCT). PCT is absolutely <strong> insensitive </strong>to daylight and infrared radiation. Polytouch® QMS (patent pending) guarantees the future of your Polytouch® system. Polytouch® extension modules can be easily exchanged to expand the functionality of your system or adapt it to new requirements.</p>
+                             <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0">
+                             <img src="../images/products/multitouchscreens/Page2/MultiIcon.png" style="float:right;"/>&nbsp; <label class="touchscreenlabel upper pull-right" style="direction:rtl;">&nbsp;&nbsp;  Polytouch ® بولي تتش ®</label>
+                             <div class="clearfix" style="height:5px;"></div>
+                              <p style="text-align:justify;direction:rtl;">
+                                    هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية (PCT)وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32     و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد . All in-1 النظام الجديد لـ </p>
                               <div class="clearfix" style="height:10px;"></div>
-                                    <p style="text-align:justify;">With Polytouch® QMS you are already at par with future standards and processes, e.g., cashless transactions.</p>
+                                    <p style="text-align:justify;direction:rtl;">Polytouch ®  (التركيب السريع) QMS   (براءة الإختراع تحت التسجيل)  يضمن للمستخدم  إستبدال بعض القطع لتوسيع وظائف النظام الخاص به أو لتكييفه مع متطلبات جديدة أو أنظمة حديثة. </p>
                               <div class="clearfix" style="height:10px;"></div>
                                  <img src="../images/products/multitouchscreens/Page2/Screens.png" style="max-width:100%;" />
                                                         
-                          
+                            </div>
                          </div>
-                         <div class="col-lg-4 col-sm-4 col-md-4" >
+                         <div class="col-lg-4 col-sm-4 col-md-4 pull-right" >
+                             <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;text-align:right;">
                              <img src="../images/products/multitouchscreens/Page2/Made.png" style="margin-top:10px;"/>
                              <div class="clearfix" style="height:10px;"></div>
-                              <p style="text-align:justify;">Polytouch is suitable for a variety of industries and applications. Due to the compact design with built-in computer hardware you may use Polytouch instantly wherever you find a power socket. The small installation depth and the flat surface are ideal for integration at the point of sale.<strong>Whatever your business is - it will be smarter with Polytouch.</strong> 
+                              <p style="text-align:justify;direction:rtl;">نظرا لتصميم Polytouch ® الإنسيابي الذكي المتضمن كمبيوتر بداخل الشاشة يمكن إستخدام هذه الشاشات أينما وجد قابس كهرباء ، التركيب السريع السهل وأبعاد عمق الشاشة الصغيره والشاشة المسطحة تجعل منها آداة رائعة لنقاط البيع بالإضافة للإستخدامات الأخرى في أعمال وتطبيقات كثيرة.  <strong>مهما كان نوع أعمالك فهي قطعا أذكى مع Polytouch ®</strong> 
                                  </p>
                              <div class="clearfix" style="height:10px;"></div>
-                             <img src="../images/products/multitouchscreens/Page2/AppsIcon.png" />&nbsp; <label class="touchscreenlabel upper"> Applications</label>
+                             <img src="../images/products/multitouchscreens/Page2/AppsIcon.png" />&nbsp; <label class="touchscreenlabel upper">&nbsp;&nbsp; البرامج والتطبيقات</label>
                              <div class="clearfix" style="height:5px;"></div>
-                             <p style="text-align:justify;">
-                                If you have developed your own POS or any other application, or you are an apps developer, Polytouch with no limits is the multi touchscreen you want to use. 
+                             <p style="text-align:justify;direction:rtl;">
+                                ذا كنت قد قمت بتطوير تطبيق أو برنامج خاص بنقاط البيع او أي استخدام آخر ، أو كنت من مصممي ومطوري التطبيقات ، Polytouch ®  هي الشاشة التي تبحث عنها في ظل اللامحدودية من الإمكانيات
                              </p>
                              <div class="clearfix" style="height:4px;"></div>
                              <img src="../images/products/multitouchscreens/Page2/Polytouchpic.png" style="width:90%;margin:0 auto;max-width:100%;"/>
+                            </div>
                          </div>
-                         <div class="col-lg-4 col-sm-4 col-md-4">
+                         <div class="col-lg-4 col-sm-4 col-md-4 pull-right">
                          <div class="col-lg-12 col-sm-12 col-md-12" style="text-align:center">
                               <video loop id="multitouchflashvideo" style="width:71%;border:1px solid #aaa;">                                 <source type="video/mp4" src="../flash/ptv_334.mp4" >
                              </video>                             
                          </div>
                          <div style="clear:both; height:10px;"></div>
-                          <img src="../images/products/multitouchscreens/Page2/QmsIcon.png" />&nbsp;<label class="touchscreenlabel smallLabel upper"> QMS - Quick Mounting System - Modular </label> <label class="touchscreenlabel smallLabel">POS functionality</label>
-                         <p style="text-align:justify;">
-                            Polytouch POS systems offer the patent pending Quick Mounting System (QMS). With QMS it's easy to change or upgrade the configuration of the Polytouch systems. QMS extension modules like POS thermal printers, Chip & PIN payment, camera, RFID and NFC are available. Only QMS ensures that your systems will comply with future standards.
-                         </p>
+                             <div class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;direction:rtl;">
+                                  <img src="../images/products/multitouchscreens/Page2/QmsIcon.png" />&nbsp;<label class="touchscreenlabel smallLabel upper">&nbsp;&nbsp; QMS نظام التركيب السريع في شاشات نقاط البيع</label> <label class="touchscreenlabel smallLabel">POS functionality</label>
+                                 <p style="text-align:justify;">
+                                    تقدم شاشات Polytouch POS المخصصة لنقاط البيع نظام QMS التركيب السريع ومع براءة الإختراع هذه تنفرد Polytouch POS بسهولة تغيير أو ترقية مكونات نظام الشاشة ، أجزاء التغيير أو الترقية تشمل الطابعه ، الشريحة ، قراءة كلمة سر المدفوعات، الكاميرا، بالاضافة للأنظمة الجديدة RFID و NFC ، فقط وحدهاPolytouch ®  بنظام QMS التركيب السريع تضمن لك مطابقة الأنظمة الجديدة معها.
+
+                                 </p>
+                                 </div>
                      </div>
                     </div>
                                           
@@ -548,84 +552,71 @@
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
                       
                      <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 50px;margin:0 auto;float:none;">
-                         <div class="col-lg-5 col-sm-5 col-md-5" style="position:relative;">
+                         <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="position:relative;direction:rtl;">
                              <div class="clearfix" style="height:5px;"></div>
                               <img src="../images/products/multitouchscreens/Page2/logo.png" />
                              <div class="clearfix" style="height:15px;"></div>
-                             <label class="touchscreenlabel"> Product overview</label>
+                             <label class="touchscreenlabel"> معلومات عــامة</label>
                               <ul class="mylist">
-                                 <li>22"/ 24"/ 32"/ 46" all-in-one multi-touch system</li>
-                                 <li>up to 20 touches (+ palm recognition)</li>
-                                 <li>projected capacitive technology</li>
-                                 <li>anti-glare, full HD display <br />(1920 x 1080 pixels)</li>
-                                 <li>Quick Mounting System (QMS)<br /> 
-                                     for custom system configuration:<br />
-                                     barcode scanner, HF RFID, Chip & PIN  <br />
-                                     payment, magnetic card reader, 80 x 80 mm <br />POS thermal printer, …</li>
+                                 <li>نظام تعددي اللمس (الجميع في واحد) بحجم 22 ،24 ، 32 ، و 46 بوصة </li>
+                                 <li>حتى 20 لمسة في نفس الوقت والقدرة على تمييز كف اليد</li>
+                                 <li>شاشات تعددية اللمس بتقنية<br /> الإسقاط التكاثفي</li>
+                                 <li>جودة عرض عالية الدقة ضد التوهج<br /> 1920 × 1080 بيكسل</li>
+                                 <li>نظام التركيب السريع ( QMS ) لتوليف متطلبات أي <br />نظام خاص :ماسح للباركود ، تمييز الموجات الراديوية ،<br /> قارئ بطاقات الدفع ، طابعة حرارية وغير ذلك</li>
                              </ul>                      
                           <div class="clearfix" style="height:15px;"></div>
-                               <label class="touchscreenlabel"> Specifications</label>
+                               <label class="touchscreenlabel"> المــواصفـات</label>
                              <ul class="mylist">
-                                <li>Intel® Core™ i7-3770S processor (Ivy Bridge)</li>
-                                <li>Intel® HD4600 graphics (or the latest) on chip;<br />
-                                     optional AMD FirePro graphics card</li>
-                                <li>120GB Solid State Drive (SSD)</li>
-                                <li>1 Gb Ethernet, 300 Mb Wi-Fi</li>
-                                <li>ADA compatible, also for products<br /> for 
-                                    wheelchair users</li>
+                                <li>معالج انتل كور I7-3770S </li>
+                                <li>كرت شاشة جرافكس انتل HD4600 أو الأحدث <br />
+                                    ، أو AMD FirePro  إختياريا</li>
+                                <li>محرك صلب ثابت  ( SSD ) 120 جيجا بايت</li>
+                                <li>1 جيجا بايت إيثرنت ، 300 ميجا بايت واي فاي</li>
+                                <li>مطابق لمتطلبات ADA لذوي الإحتياجات الخاصة <br />ومستخدمي الكراسي المتحركة</li>
 
                              </ul>
-                             <img src="../images/products/multitouchscreens/Page3/POS22.png" style="position:absolute;bottom:-10px;right:0px;" />
+                             <img src="../images/products/multitouchscreens/Page3/POS22.png" style="position:absolute;bottom:-10px;left:0px;" />
                          </div>
-                         <div class="col-lg-5 col-sm-5 col-md-5" style="position:relative;">
+                         <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="position:relative;direction:rtl;">
                              <div class="clearfix" style="height:61px;"></div>
-                            <label class="touchscreenlabel">POS & Classic systems</label>
+                            <label class="touchscreenlabel">طراز كلاسيك و POS   لنقاط البيع</label>
                              <p>
-                                 The <strong>Polytouch® POS systems</strong> are modular<br />
-                                  and easily extensible with the following peripherals:</p>
+                                نظام POS لنقاط البيع من Polytouch ®  <br />وحدوي التصميم قابل للتوسعة بسهولة متضمنا الأجزاء الجانبية التالية:</p>
                              <div class="clearfix" style="height:15px;"></div>
                              <p>
-                                 POS thermal printer, <br />
-                                 Chip & PIN payment,<br />
-                                  camera, and RFID, NFC <br />
-                                 and barcode reader.
+                                 طابعة حرارية خاصة بنقاط البيع ،<br /> قراءة كلمة سر المدفوعات ، بالاضافة <br />للأنظمة الجديدة RFID و NFC  ،<br /> كاميرا ، وماسح للباركود 
                              </p>
                              <div class="clearfix" style="height:15px;"></div>
                              <p>
-                                 The <strong>Polytouch® CLASSIC systems</strong> <br />
-                                 are equipped with NFC/RFID readers. <br />
-                                 If needed additional hardware peripherals <br />
-                                 can be easily added. <br />
-                                 This makes your investment extremely <br />
-                                 future-proof
+                                 نظام كلاسيك من Polytouch ® مجهز بقارئ<br /> RFID و  NFC  .<br /> عند الطلب يمكن إضافة أجزاء جانبية إضافية<br /> بسهولة مضيفا أمانا للإستثمار  ووفرا عند الرغبة <br />في توسيع الأعمال
                              </p>
                              <div class="clearfix" style="height:10px;"></div>
                              <a href="../files/Polytouchcatalogue.pdf" title="Download catalogue" style="display:block;text-decoration:none;">
                                  <label class="touchscreenlabel"> Download</label>
                                  <img src="../images/products/multitouchscreens/Page3/download.png" />
                              </a>
-                             <div class="clearfix" style="height:60px;"></div>
-                             <img src="../images/products/multitouchscreens/Page3/POS32.png" style="position:absolute;bottom:0;right:40px;" />
+                             <div class="clearfix" style="height:70px;"></div>
+                             <img src="../images/products/multitouchscreens/Page3/POS32.png" style="position:absolute;bottom:0;left:-5px;" />
                          </div>
-                         <div class="col-lg-2 col-sm-2 col-md-2" >
+                         <div class="col-lg-2 col-sm-2 col-md-2 pull-right" >
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/1.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/pic3.png" style="width:100%" />
-                                 <div class="myhoverdiv">Do it the Polytouch way</div>
+                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/2.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic2.png" style="width:100%" />
-                                 <div class="myhoverdiv">Do it the Polytouch way</div>
+                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/3.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic1.png" style="width:100%" />
-                                 <div class="myhoverdiv">Do it the Polytouch way</div>
+                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/4.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic4.png" style="width:100%" />
-                                 <div class="myhoverdiv">Do it the Polytouch way</div>
+                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
                              </a>
                         </div>
                     </div>                                                 
@@ -637,7 +628,7 @@
                    <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>
                    
                    <div class="PageTitle">
-                       <div class="slidetitle">Where to use
+                       <div class="slidetitle">الإستــخدامات
                        </div>
                        <div class="headerbottom"></div>
                    </div>
@@ -652,35 +643,35 @@
             </div>
         </div>
         <div class="section " id="Digitalsignage">
-            <span id="nextsection_3" class="NextSection">Kiosk systems</span>
+            <span id="nextsection_3" class="NextSection">منصات الشاشات</span>
             <div class="slide" id="D_p1">
                 <div class="anyPage innerslide" style="position:relative;">
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 30px;margin:0 auto;float:none;">
-                         <div class="col-lg-3 col-sm-3 col-md-3">
-                             <label class="dlabel myriad" style="font-weight:bold;font-size:25px;"> <span class="mtsa">MTSA</span> General Overview</label>
-                             <p class="text-justify">
-                                 MTSA is a brand name owned by S.O. Sager International & offers total solutions of all interactive information systems, touchscreen kiosks & digital signage hardware. <br />
-MTSA products are made of high quality in Germany with no limitation to any special request or design.
-In addition to products, MTSA provides total solutions of applications/software development services to use with its touchscreens & multi touchscreens custom made  to client’s need.
+                         <div class="col-lg-3 col-sm-3 col-md-3 pull-right">
+                             <label class="dlabel " style="font-weight:bold;font-size:25px;direction:rtl"> منتجات إم تي  اس آي  <span class="mtsa"> MTSA</span> </label>
+                             <p class="text-justify" style="direction:rtl;">
+                                 MTSA  هو إسم تجــاري مملوك لصقر الدولية ويقدم حلـولا شاملة لأنظة المعلومات التفاعلية ومنصّات الشاشات باللمس والشاشات اللوحات الرقمية.
+MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية ألمانيا  الإتحاديّة وتتميّز  بإمكانياتها اللامحدودة لتلبية أي  تصميم أو آداء خاص من اي من العملاء.
+بالإضافة للمنتجات، تقدم MTSA حلولا شاملة لخدمة تصاميم  وتطوير البرامج والتطبيقات للإستخدام  على شاشاتها التي تعمل باللمس وحسب حاجة العميل .
                              </p>
-                             <div class="touchscreenlabel">
-                                 Click below to download presentation & general catalogue
+                             <div class="touchscreenlabel" style="direction:rtl;">
+                                 انقر أدناه لتحميل العرض التوضيحي والكاتالوج 
                              </div>
-                             <div class="col-lg-12 col-sm-12 col-md-12">
+                             <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                     <a href="#" class=""><label class="touchscreenlabel"> Download</label><br />
+                                     <a href="#" class=""><label class="touchscreenlabel"> تحميل العرض التوضيحي</label><br />
                              <img src="../images/products/digital_signage/Page1/present.png" /></a>
                                      </div>
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                      <a href="#" class=""><label class="touchscreenlabel"> Download</label><br />
+                                      <a href="#" class=""><label class="touchscreenlabel"> تحميل الكاتالوج</label><br />
                              <img src="../images/products/digital_signage/Page1/down.png" />
                                           </a>
                                      </div>
                                  </div>
                          </div>
-                         <div class="col-lg-6 col-sm-6 col-md-6" >
+                         <div class="col-lg-6 col-sm-6 col-md-6 pull-right" >
                              <div class="col-lg-6 col-sm-6 col-md-6" style="margin:0 !important;padding:0!important;position:relative;">
                                  <img src="../images/products/digital_signage/Page1/1.png" />
                                  <img src="../images/products/digital_signage/Page1/germany.png" style="position:absolute;top:20px;left:10px;"/>
@@ -691,18 +682,17 @@ In addition to products, MTSA provides total solutions of applications/software 
                              
                              
                          </div>
-                         <div class="col-lg-3 col-sm-3 col-md-3">
-                        <label class="dlabel"> Digital Signage</label>
-                             <p class="text-justify">
-                                 MTSA offers various designs & sizes of high quality German made professional digital signage hardware, standard & customized solutions for outdoor & indoor applications.
-MTSA exclusively uses industrial components to comply with many hours per day in operation requirements i.e. in hospitals, transportation stations, production with shift work or shopping centers. 
-All screens of MTSA digital signage feature the following properties:
+                         <div class="col-lg-3 col-sm-3 col-md-3 pull-right" style="direction:rtl;">
+                        <label class="dlabel" > الشاشات اللوحات الرقميّة</label>
+                             <p class="text-justify" style="direction:rtl;">
+                                 تتضمن منتجات MTSA  مجموعة مختلفة من التصاميم والأحجام  للوحات الشاشات الرقمية الإحترافية عالية الجودة قياسية أو مصنّعة حسب الطلب للإستخدامات الداخليّة والخارجيّة .
+منتجات MTSA تستخدم فقط القطع والأجزاء الصناعية التي تساهم في آداء عالي الفعالية يتناسب مع متطلبات الإستخدامات الشاقة للشاشات التي تعمل لساعات طويلة في اليوم كما في المستشفيات وأماكن النقل العام والمصانع والأسواق المركزيّة. 
+جميع الشاشات الرقمية من MTSA تشمل الخصائص المتميّزة التالية:
                                  <br />
-                                  - All sides high viewing angle<br />
-                                 - Operating in portrait & landscape mode<br />
-                                 - suitability for display of static content (substantial suppression of Imagestickings) <br />
-                                 - Higher brightness for easy reading<br />
-                                 - High energy efficiency<br />
+                                  - زاوية رؤية أعلى من جميع الجهات<br />
+                                 - تعمل في الوضع الأفقي أو الرأسي<br />
+                                 - ملائمة لعرض محتوى ثابت <br />
+                                 - طاقة عالية الكفاءة 
                              </p>
                              
                                 
@@ -719,22 +709,21 @@ All screens of MTSA digital signage feature the following properties:
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
-                            <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">منصّات اللوحات الداخلية</label>
+                            <div class="clearfix" style="height:1px;"></div>                            
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
-                             <label class="dlabel"> PHEX Series </label>
-                             <p class="text-justify">
-                                 Advertisement or information in its most upscale form. Digital signage solutions from MTSA are characterized by their high-quality electronic components, excellent workmanship, and customizable design.
-We use high-quality, brilliant displays and powerful computers with the most up-to-date performance parameters which are
-specifically designed for trouble-free continuous use. Each model in PHEX series can be customized in a wide variety of ways. These models can also be individually branded and/or have additional components integrated into them. 
+                            <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="padding:0 0 0 20px !important;direction:rtl;">
+                             <label class="dlabel">  مجموعة PHEX </label>
+                             <p class="text-justify" style="direction:rtl;">
+                                الإعلانات والمعلومات العامة في أفضل أشكال العرض  من خلال حلول MTSA   للشاشات اللوحات الرقميّة  المتميّزة باجزائها الإلكترونية ذات الجودة العالية  والمصنعيّة الممتازة والتصاميم الخاصة حسب الطلب. 
+تستخدم MTSA شاشات عرض متناهية الجودة وأجهزة حاسوب قويّة  مزودة بأحدث  قياسات الآداء والمصممة خصيصا للعمل بشكل متواصل دون مشاكل فنيّة.. 
+يمكن تصنيع كل طراز من مجموعة PHEX  للتوافق مع أي تصاميم او متطلبات خاصة  بما في ذلك إضافة أجزاء إضافية إختيارية او إضافة هوية العميل .
                              </p>
                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="padding:0 !important">
                             <img src="../images/products/digital_signage/Page2/pic.png" />
                          </div>
                         
@@ -755,16 +744,15 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                        <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="padding:0 !important;direction:rtl">
+                            <label class="slideHeaderBlack">منصّات اللوحات الداخلية</label>                            
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
-                            <div class="clearfix" style="height:1px;"></div>
-                            <label class="dlabel"> PHEX Series </label>
-                             <p class="text-justify">
-                                 Advertisement or information in its most upscale form. Digital signage solutions from MTSA are characterized by their high-quality electronic components, excellent workmanship, and customizable design.
-We use high-quality, brilliant displays and powerful computers with the most up-to-date performance parameters which are
-specifically designed for trouble-free continuous use. Each model in PHEX series can be customized in a wide variety of ways. These models can also be individually branded and/or have additional components integrated into them. 
+                            <label class="dlabel">  مجموعة PHEX</label>
+                             <p class="text-justify" style="direction:rtl;">
+                                 الإعلانات والمعلومات العامة في أفضل أشكال العرض  من خلال حلول MTSA   للشاشات اللوحات الرقميّة  المتميّزة باجزائها الإلكترونية ذات الجودة العالية  والمصنعيّة الممتازة والتصاميم الخاصة حسب الطلب. 
+تستخدم MTSA شاشات عرض متناهية الجودة وأجهزة حاسوب قويّة  مزودة بأحدث  قياسات الآداء والمصممة خصيصا للعمل بشكل متواصل دون مشاكل فنيّة.. 
+يمكن تصنيع كل طراز من مجموعة PHEX  للتوافق مع أي تصاميم او متطلبات خاصة  بما في ذلك إضافة أجزاء إضافية إختيارية او إضافة هوية العميل .
+
                              </p>
                         </div>
                         
@@ -792,20 +780,17 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
                     
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important">
-                            <label class="slideHeaderBlack">OUTDOOR </label>
-                            <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">DIGITAL SIGNAGE</label>
-                            <div class="clearfix" style="height:1px;"></div>
-                            <label class="dlabel"> OUTDOOR </label>
-                             <p class="text-justify">
-                                Kiosks used for outdoor and semi-outdoor applications are exposed to lot of heavier duties regarding vandalism or climatic conditions. Also the requirements regarding maintenance and service aspects are different to those of indoor-kiosks.
-The models SELKET, FARO and DALA are waterproof & made of stainless steel and equipped with high-quality electronic components.
-A high brightness monitor guarantees a good readability of the displayed content.
+                        <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الخارجية </label>
+                            <div class="clearfix" style="height:1px;"></div>                            
+                             <p class="text-justify" style="direction:rtl;">
+                                منصات الشاشات للإستخدامات الخارجية أو شبه الخارجيّة معرضة أكثر للإستخدامات الشاقة بما في ذلك  أعمال التخريب أو  الظروف المناخية  ، كما أن متطلبات الصيانة  والخدمة مختلفة عنها في المنصات للإستخدام في الأماكن الداخلية المغلقة..
+طرازات SELKET و  DALA و FARO للإستخدامات الخارجية مقاومة للمياه ومصنّعة من المعدن الغير قابل للصدأ (ستنلس ستيل)  ومجهزة بأجزاء الكترونية عالية الجودة 
+الوضوح العالي للشاشة يضمن قراءة واضحة لمحتوى العرض. .
                              </p>
                         </div>
                         
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:250px;vertical-align:text-bottom;padding-top:30px;position:relative;">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="padding:0 !important;height:250px;vertical-align:text-bottom;padding-top:30px;position:relative;">
                             <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:250px;position:relative;">
                                 <img src="../images/products/digital_signage/Page4/pic1.png" style="margin:0 auto; margin-top:40px;" /><br />
                                 <span class="col-lg-12 col-sm-12 col-md-12" style="position:absolute;bottom:0;left:0;">
@@ -838,30 +823,30 @@ A high brightness monitor guarantees a good readability of the displayed content
             </div>
         </div>
         <div class="section " id="KioskSystems">
-            <span id="nextsection_4" class="NextSection">Electronic door signs</span>            
+            <span id="nextsection_4" class="NextSection">الشاشات الإلكترونية الحائطية </span>            
             <div class="slide" id="K_p1">
                 
                 <div class="anyPage innerslide" style="position:relative;">                     
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">Interactive kiosk systems</label>
+                            <label class="slideHeaderWhite">المنصّات التفاعلية الداخلية </label>
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
-                             <label class="dlabel"> Indoor Kiosks </label>
-                             <p class="text-justify">
-                                 MTSA products include a wide range of designs & sizes of high quality German made indoor kiosk systems for many different applications.
-Slim, elegant, freestanding or wall mounted with specially developed aluminum profile and high quality electronic components ensure perfect running for continues operations. 
-All kiosks can be equipped up on request with many unique optional features i.e.  Touchscreen, any operating system,  stainless steel keyboard, wireless LAN, thermal printer, barcode scanner, phone handset, camera, payment device, fingerprint sensor and many others options. 
-                                
+                            <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="padding:0 0 0 20px !important;direction:rtl;">
+                             <label class="dlabel"> المنصّات الداخلية </label>
+                             <p class="text-justify" style="direction:rtl;">
+                                 تتضمن منتجات  MTSA خيارات واسعة من تصاميم وأحجام مختلفة لمنصات أنظمة المعلومات التفاعلية ، عالية الجودة والمصنوعة في جمهورية ألمانيا الإتحادية ، لإستخدامات متعددة ومختلفة. 
+عمق محدود وأنيقة التصميم ، قائمة أو حائطية مدعومة بتصميم خاص لإطار الألومنيوم ، ومجهزة بأجزاء الكترونية متطورة وعالية الجودة لضمان آداء  متناهي الكفاءة في حالات التشغيل المستمر.
+يمكن نجهيز جميع الطرازات المختلفة بإختيارات إضافية متميزة عديدة  عند الطلب مثل الشاشة باللمس ، أي نظام تشغيل، لوحة مفاتيح من المعدن الغير قابل للصدأ ، لاسلكي إنترنت ، طابعة حرارية ، ماسح باركود ، سماعة هاتف ، كاميرا ، قارئ بطاقات الدفع ، حساس بصمة ، والعديد من الإضافات الأخرى. 
+
                              </p>
                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:210px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-85px;">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="padding:0 !important;height:210px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-85px;">
                             <div class="col-lg-2 col-sm-2 col-md-2" style="padding:0 !important;text-align:center;height:210px;position:relative;">
                                 <img src="../images/products/kiosk/page1/screen1.png" style="margin:0 auto; margin-top:40px;" /><br />
                                 <span class="col-lg-12 col-sm-12 col-md-12" style="position:absolute;bottom:-30px;left:0;">
@@ -905,26 +890,26 @@ All kiosks can be equipped up on request with many unique optional features i.e.
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                 
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
-                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">Interactive kiosk systems</label>
+                            <label class="slideHeaderWhite">المنصّات التفاعلية الداخلية </label>
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
+                            <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0 0 0 20px !important;direction:rtl;">
                              <label class="dlabel"> ISIS </label>
                              <p class="text-justify">
-                                The ISIS model is a design-oriented freestanding terminal for indoor areas. The curved design of the info-terminal has an unbroken front surface.
-The aluminum profile developed specifically for this info-terminal emphasizes its thin form factor (6 cm) and at the same still provides a high level of stability. The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption (25 watts).
-Possible uses of the ISIS model include providing general information, for Wayfinding, as a POI/POS, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
+                                الطراز ISIS  تم تصميمه كوحدة قائمة للإستخدامات الداخليّة . التصميم المنحني لمنصة المعلومات هذه يؤمّن سطحا غير قابل للكسر.
+إطار الألومنيوم المطور خصيصا لهذه الوحدة يبرز جمالية سماكتها المحدودة ب 6 سم فقط  وفي نفس الوقت  يؤمن درجة عالية من الثبات . الحاسوب المدمج  يعتمد على أسس تقنية الحاسوب المحمول  الواضحة في حرارة ناتجة أقل والمستوى المنخفض من إستهلاك الطاقة الذي لا يتجاوز 25 وات.
+الإستخدامات الداخليّة المتعددة للطراز ISIS تشمل المعلومات العامة ، دليل المباني العامة الإرشادي ، نقاط البيع ، خدمة الموظفين الذاتية ،  المعارض التجاريّة ، الإعلان وتقديم عروض الأعمال.
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12 pull-left" style="text-align:left;"> <img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                               </a> 
                              </p>
                                                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:15px;position:relative;margin-top:-80px;">
+                        <div class="col-lg-6 col-sm-6 col-md-6" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:15px;position:relative;margin-top:-80px;">
                             <div class="col-lg-4 col-sm-4 col-md-4" style="padding:0 !important;text-align:center;height:220px;position:relative;">
                                 <img src="../images/products/kiosk/page2/screen1.png" style="max-height:220px;" /><br />
                                 ISIS with touchscreen
@@ -958,25 +943,26 @@ Possible uses of the ISIS model include providing general information, for Wayfi
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">Interactive kiosk systems</label>
+                            <label class="slideHeaderWhite">المنصّات التفاعلية الداخلية </label>
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
+                            <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0 0 0 20px !important;direction:rtl;">
                              <label class="dlabel"> ERU </label>
                              <p class="text-justify">
-                                The ERU model has a compact form factor. The monitor is angled, similar to a lectern, and is especially suited for visually shielding transactions carried out at the kiosk system and/or when users should have a clear view of items located behind the kiosk.
-The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption(25 watts).
-Numerous branding options allow the device to be perfectly integrated into its surroundings.
+                                الطراز ERU يتمتع بعامل تصميم وحدة قائمة كاملة .
+الشاشة مصممة بزاوية مائلة خصيصا لحجب رؤية المعلومات لغير المستخدم أثناء الإستخدام أو آداء أي عمليات  وتسمح للمستخدم برؤية ماخلف منصة الوحدة ERU . الحاسوب المدمج  يعتمد على أسس تقنية الحاسوب المحمول  الواضحة في حرارة ناتجة أقل والمستوى المنخفض من إستهلاك الطاقة الذي لا يتجاوز 25 وات.
+العديد من خيارات وضع العلامة التجارية على الطراز ERU تسمح للجهاز بالاندماج تماما في المناطق المحيطة. 
+
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12 " style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" /> &nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label>
+                                </a> 
                              </p>
                                                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:10px;position:relative;margin-top:-60px;">
+                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:10px;position:relative;margin-top:-60px;">
                             <div class="col-lg-4 col-sm-4 col-md-4" style="padding:0 !important;text-align:center;height:220px;position:relative;">
                                 <img src="../images/products/kiosk/page3/screen1.png" style="max-height:220px;" /><br />
                                 ERU with touchscreen
@@ -1011,27 +997,27 @@ Numerous branding options allow the device to be perfectly integrated into its s
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                 
                     
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">Interactive kiosk systems</label>
+                            <label class="slideHeaderWhite">المنصّات التفاعلية الداخلية </label>
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 20px 0 0 !important">
+                            <div class="col-lg-7 col-sm-6 col-md-6 pull-right" style="padding:0 0 0 20px !important;direction:rtl;">
                              <label class="dlabel"> HERA </label>
                              <p class="text-justify">
-                                The HERA model is a standing terminal
-for inside areas with plenty of space for additional components.
-For instance, a A4 printer, a card reader, and even a fingerprint reader can all be integrated into the unit.
-The door on the front side of the machine allows easy access to all components, which means you can refill paper in the printer, for instance, without moving the machine away from the wall. Both a high quality security lock as well as the stable
-construction using steel plates and aluminum enables the use of the kiosk in unattended, heavily trafficked indoor areas. Possible uses of the HERA model include providing general information, for Wayfinding, as a POI or POS, for time recording, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
+                              الطراز HERA تم تصميمه كوحدة قائمة للإستخدامات الداخليّة . التصميم تضمّن توفير المساحة اللازمة لإضافة أي أجزاء أو قطع إضافية.
+يمكن على سبيل المثال إضافة طابعة A4 أو قارئ بطاقات وحتى قارئ البصمة  كإضافات مدمجة ضمن الجهاز .
+الباب الأمامي للجهاز يسمح بالوصول لجميع القطع الداخلية  مما يعني مثلا إعادة تعبئة أوراق الطابعة دون الحاجة لتحريك الجهاز  من مكانه . 
+قفل الأمان عالي الجودة  والتصنيع الثابت باستخدام  ألواح المعدن والألومنيوم  يسمحان بإستخدام الجهاز في الأماكن المزدحمة  الداخلية دون الحاجة لتواجد موظف لمراقبة الجهاز . 
+تشمل إستخدامات الطراز HERA تزويد المعلومات العامة ، دليل المباني الإرشادي ، خدمة الموظفين الذاتية ، إصدار وطباعة بطاقات صعود الطائرة ، مراقبة حضور الموظفين ، المعارض التجارية ووسائط الإعلان  والتسويق . 
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a> 
                              </p>
                                                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 !important;height:190px;vertical-align:text-bottom;padding-top:10px;position:relative;margin-top:-70px;">
+                        <div class="col-lg-5 col-sm-6 col-md-6 pull-right" style="padding:0 !important;height:190px;vertical-align:text-bottom;padding-top:10px;position:relative;margin-top:-70px;">
                             <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0 !important;text-align:center;height:190px;position:relative;">
                                 <img src="../images/products/kiosk/page4/screen1.png" style="max-height:190px;" /><br />
                                 HERA with keyboard
@@ -1064,34 +1050,38 @@ construction using steel plates and aluminum enables the use of the kiosk in una
         </div>
 
         <div class="section " id="Electronicdoor">
-            <span id="nextsection_5" class="NextSection">3D Wayfinding</span>            
+            <span id="nextsection_5" class="NextSection">الدليل ثلاثي الأبعاد للمباني العامة</span>            
             <div class="slide" id="e_p1">
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
 
                     <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
-                            <label class="slideHeaderBlack">INDOOR</label>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
+                            <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
-                            <label class="slideHeaderWhite">Electronic door signs</label>
+                            <label class="slideHeaderWhite">الشاشات الإلكترونية الحائطية </label>
                         </div>
                         <div class="clearfix" style="height:1px;"></div>
-                            <div class="col-lg-7 col-sm-7 col-md-7" style="padding:0 20px 0 0 !important">
+                            <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0 0 0 0px !important;direction:rtl;">
                              <label class="dlabel">SIRRION</label>
-                             <p class="text-justify">
-                                The digital signage door sign or the wall display SIRRION stands for a new model series of beautiful and slim panel PC's. The application fields for example are electronic door signs, interactive Wayfinder, control desks for machines, electronic wall display in shops etc. A suitable stand for the display is also available up on request & a variety of options.                        The supplied attachment allows an anti-theft-proofed mounting, therefore SIRRION is suitable for the public areas, Advantage to conventional panel pc's is the in the case integrated power supply. The models are available with a non-reflective protection glass or touchscreen and the colors can be adjusted to customer rooms.
-
-Available in the following versions:</p>
+                              <p class="text-justify">
+                                الشاشات الرقميّة الحائطية  SIRRION تمثل طرازا جديدا رائعا وبسماكة رفيعة من الحاسوب اللوحي .  مجال استخدامات هذا الطراز متعددة كلوحات الأبواب الإلكترونية  واللوحات التفاعلية المعلوماتية ، وحتى في وحدات مراقبة  الآت المصانع او للعرض على حوائط متاجر المحلات التجارية. 
+يمكن تزويد هذا الطراز بحامل  عرض  مناسب عند الحاجة  بالإضافة لمجموعة من الإختيارات الأخرى . 
+الملحقات المجهز بها الجهاز تجعل منه  وحدة مثبتة على الحائط وغير قابل للسلرقة  وبالتالي يمكن عرض SIRRION  في الأماكن العامة . 
+يمتاز هذا الطراز عن الحواسيب اللوحية التقليدية بخاصية دمج  تجهيزات مصدر الطاقة داخل الجهاز . 
+يتوفر  هذا الطراز بزجاج حماية غير عاكس او شاشة باللمس وكما يمكن  طلاؤه بالألوان المناسبة لألوان غرفة العميل .
+يتوفر طراز SIRRION  بالأحجام والتركيبات التالية:
+</p>
                                 <ul class="mylist">
-                                    <li>10,4" flush-mounted</li>
-                                    <li>15" surface or flush-mounted</li>
-                                    <li>21,5" surface or flush-mounted</li>
+                                    <li>10,4” للتركيب داخل تجويف الحائط</li>
+                                    <li>15” للتركيب على سطح الحائط او داخل تجويف الحائط </li>
+                                    <li>21,5” للتركيب على سطح الحائط او داخل تجويف الحائط </li>
                                 </ul>
 
                              
                              
                          </div>
-                        <div class="col-lg-5 col-sm-5 col-md-5" style="padding:0 !important;height:300px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-85px;">
+                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0 !important;height:300px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-85px;">
                             <div class="col-lg-2 col-sm-2 col-md-2" style="padding:0 !important;text-align:center;height:300px;position:relative;">
                                 <img src="../images/products/electronic_doors/screen1.png" style="margin:0 auto; margin-top:40px;" />                               
                             </div>
@@ -1111,7 +1101,7 @@ Available in the following versions:</p>
         </div>
 
         <div class="section " id="3Dwayfinding">
-            <span id="nextsection_6" class="NextSection">Real Estate</span>            
+            <span id="nextsection_6" class="NextSection">العقارات</span>            
             <div class="slide" id="d_p1">
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
@@ -1119,17 +1109,14 @@ Available in the following versions:</p>
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">
                         
                         <div class="clearfix" style="height:1px;"></div>
-                        <div class="col-lg-7 col-sm-7 col-md-7">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right">
                             <video loop id="3dflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
                                                         
                         </div>
-                        <div class="col-lg-5 col-sm-5 col-md-5" >
-                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left" style="padding:0 !important">
-                            <label class="slideHeaderWhite">Overview</label>
-                                </div>
-                            <div class="col-md-4 col-sm-4 col-lg-4 pull-right">
+                        <div class="col-lg-5 col-sm-5 col-md-5 pull-right" >                           
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left">
                                 <img src="../images/aldaleel_mtsa.png" style="max-width:100%;"/>
                                 <br />
                                 <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:17px;">
@@ -1137,8 +1124,8 @@ Available in the following versions:</p>
                             </div>    
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
-                            <p style="text-align:justify">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. Download presentation for more details.
+                            <p style="text-align:justify;direction:rtl">
+                                تقدّم MTSA  إم تي اس آي ( أحد أعمال صقر الدولية ) خدمة ومنتجات الدليل ثلاثي الأبعاد للمباني العامة كالمراكز التجارية والمطارات والجامعات والمستشفبات الكبيرة ومجمّعات المباني . الدليل ثلاثي الأبعاد هو تطبيق يساعد زوار المباني الكبيرة على إيجاد الطريق لجهة الوصول المطلوبة بسهولة وبسرعة ودون عناء.  الدليل ثلاثي الأبعاد تطبيق تفاعلي يتم تثبيته على شاشاتنا باللمس ، يتوفر ايضا كتطبيق على الهواتف الذكية او على موقع بالانترنت. قم بتحميل العرض لمزيد من التفاصيل
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
@@ -1150,12 +1137,12 @@ Available in the following versions:</p>
                             </div>
                          </div>
                         
-                        <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="bottom:30px !important;">                        
-                                <img src="../images/icons/png/large/10.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/12.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/6.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/2.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/9.png" style="margin:0 30px;width:8%;"/>
+                        <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="bottom:30px !important;right:0 !important; left:initial !important;left:auto !important;">                        
+                                <img src="../images/icons/png/large/10.png" style="margin:0 30px;width:8%;float:right;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 30px;width:8%;float:right;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 30px;width:8%;float:right;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 30px;width:8%;float:right;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 30px;width:8%;float:right;"/>
                             </div>    
                     </div>
                     
@@ -1166,7 +1153,7 @@ Available in the following versions:</p>
         </div>
 
         <div class="section " id="RealEstate">
-            <span id="nextsection_7" class="NextSection">Contact us</span>            
+            <span id="nextsection_7" class="NextSection">إتصل بنا</span>            
             <div class="slide" id="r_p1">
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
@@ -1174,29 +1161,30 @@ Available in the following versions:</p>
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">
                         
                         <div class="clearfix" style="height:1px;"></div>
-                        <div class="col-lg-6 col-sm-6 col-md-6">
+                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right">
                             
-                            <video loop id="reflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3garatvideoEnglish.mp4" >
+                            <video loop id="reflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3garatvideoarabic.mp4" >
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
-                             <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a>                            
+                             <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a>                            
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6" style="padding:0px;">                            
-                              <div class="col-md-4 col-sm-4 col-lg-4 pull-left clearfix" style="padding:0px;">
-                                <img src="../images/3garatlogoen.png" style="max-width:100%;"/>
+                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0px;">                            
+                              <div class="col-md-4 col-sm-4 col-lg-4 pull-right clearfix" style="padding:0px;">
+                                <img src="../images/3garatlogoar.png" style="max-width:100%;"/>
                                </div> 
-                            <div class="col-md-12 col-sm-12 col-lg-12 pull-left" style="padding:0px;">
-                                <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:14px;">
-                                Real estate leasing/selling solution with 360° Virtual tour</span>
+                            <div class="col-md-12 col-sm-12 col-lg-12 pull-right" style="padding:0px;direction:rtl;">
+                                <span style="font-weight:600;color:#6f647c;font-size:14px;">
+                                حلول عقارات  لتاجير او بيع العقارات مع جولة افتراضية 360°  داخل العقارات</span>
                               </div>
                             <div class="clearfix" style="height:5px;clear:both"></div>                        
                             
-                            <p style="text-align:justify">
-                                3garat is a software/application developed by S.O. Sager International and marketed under the umbrella of MTSA products to help real estate development/management companies market and sell /lease their own/landlord properties.
- The software is a cloud database & installed on MTSA touchscreen kiosks providing a self-service property searching , buying or leasing service for public.
-S.O. Sager International provides complete unique self-service property marketing concept including software development, 360° virtual tours, touchscreen kiosks supply & maintenance, and the design/building of the stand/booth to place in public areas i.e. malls, shopping centers, hypermarkets, airports, medical cities/hospitals, universities stadiums and others. 
-3garat software doesn’t only provide property finding; it also takes the customer through a 360° photograph or video virtual tour to all offered properties all the way to reserving a property and down payment process. 3garat software with CMS enables operator to update/change data anytime. 
+                            <p style="text-align:justify;direction:rtl;">
+                                عقارات هو برنامج/تطبيق تم تطويره من قبل صقر الدولية ويتم تسويقه تحت مظلة منتجات MTSA  ويعمل على مساعدة شركات تطوير أو إدارة العقارات على تسويق وبيع أو تأجير عقاراتهم أو عقارات المُلاّك .
+يعمل البرنامج من خلال الحوسبة السحابية ويتم تثبيته على منصّات MTSA المزودة بشاشات تعمل باللمس لتأمين خدمة ذاتية  للعامة للبحث أوشراء أو استئجار عقار
+تقدم صقر الدولية مفهوما كاملا متميّزا للخدمة الذاتية  لتسويق العقارات شاملاً تطوير البرنامج وخدمة الجولة الافتراضية 360° داخل العقار وتوريد المنصات بالشاشات باللمس وصيانتها وتصميم وبناء نقطة البيع/التسويق  التي يتم تركيبها في الأماكن العامة كالمراكز التجارية والهايبر ماركت ، والمطارات ، والمدن الطبية او المستشفيات ، والجامعات والإستادات الرياضية وخلاف ذلك. 
+برنامج/تطبيق عقارات يوفر أكثر من مجرد خدمة بحث ذاتية  لإيجاد العقار ، عقارات تأخذ العميل في جولةإفتراضية 360° درجة بالصور أو الفيديو داخل العقار وحتى إمكانية حجز العقار ودفع الدفعة المقدمة على شاشة المنصة.  عقارات مزود بنظام ادارة المحتوى والذي يتيح للمشغل تحديث/تغيير البيانات في أي وقت.
+
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
@@ -1220,33 +1208,34 @@ S.O. Sager International provides complete unique self-service property marketin
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
 
-                    <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">                                                
-                      <label class="slideHeaderBlack">Contact us</label>
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;direction:rtl;">                                                
+                      <label class="slideHeaderBlack">الإتصال بنا</label>
                       <div class="clearfix" style="height:1px;"></div>
-                      <div class="col-lg-8 col-md-8 col-sm-8" style="padding:0;">
+                      <div class="col-lg-8 col-md-8 col-sm-8 pull-right" style="padding:0;direction:rtl;">
                           <p class="text-justify">
-                              S.O. Sager International established in 1982 in Jeddah, Saudi Arabia. MTSA is a product brand name owned by. Sager International supplies touchscreens, info kiosk systems & digital signage as well as custom software and Apps development for better communication. 
-If you are you looking for a rewarding business & willing to invest little money to establish a profitable distributorship business,<label class="touchscreenlabel"> Contact us</label> and become a distributor.
+                           تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 ، إم تي اس آي MTSA   هي إحدى منتجاتها والتي تمتلك إسمها التجاري وتقدم حلولاً شاملة من منتجات الشاشت باللمس واللوحات الإعلانية الرقمية ومنصات الشاشات المعلوماتية باللمس وخدمات تطوير البرامج والتطبيقات من أجل تواصلٍ أفضل.
+إذا كنت تبحث عن إستثمار مجزئ في بيئة عمل  تعزّز الرفاهية والنمو ، ولديك الإستعداد لإستثمار القليل من المال لتصبح موزعاً معتمدا ، <label class="touchscreenlabel"> إتصل بنا</label>  لتصبح موزعا لمنتجاتنا.
+
                           </p>
                       </div>
-                      <div class="col-lg-3 col-md-3 col-sm-3 pull-right" style="text-align:center;">
-                          <span class="clearfix"><label class="mtsa">MTSA</label> is a product of</span>
+                      <div class="col-lg-3 col-md-3 col-sm-3 pull-left" style="text-align:center;">
+                          <span class="clearfix"><label class="mtsa">MTSA</label> أحد منتجـات</span>
                           <div class="clearfix"  style="height:1px"></div>
                           <img src="../images/sager-logo.png" style="margin-left:-10px;width:52%;"/>
                       </div>
                       <div class="clearfix" style="height:1px;"></div>
                       
-                      <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
-                          <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0;">
-                            <b>Head office: </b><br />
-                            Jameel Square, corner of Tahlia & Al Andalus Street<br />
-                            P. O Box 40538 Jeddah 21511, Saudi Arabia     <br />
-                            Tel: (+966) 12- 283 4088. Fax: (+966) 12-660 8128<br />
+                      <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;direction:rtl;">
+                          <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0;direction:rtl;">
+                            <b>المركز الرئيسي: </b><br />
+                            جميل سكوير ، تقلطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس<br />
+                            ص.ب 40538 ، جدة 21511، المملكة العربية السعودية    <br />
+                            هاتف: +966 12-283 4088  .  قاكس  : +966 12-660 8128<br />
                             <a href="mailto:info@v-studio.co" >info@v-studio.co</a><br />
-                            <b>Branches:</b> Riyadh. Al Khobar
+                            <b>فروعنا:</b> الرياض . الخبر  
                            </div>
                           <div class="col-lg-4 col-md-4 col-sm-4">
-                              We love to meet our clients, but would appreciate a pre-arranged appointment prior to visiting us.
+                              نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . 
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5" style="padding-top:15px;">
                               <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3710.9335362030365!2d39.153385!3d21.549454!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419538982470&zoom=17" width="100%" height="250" frameborder="0" style="border:0"></iframe>
@@ -1269,51 +1258,53 @@ If you are you looking for a rewarding business & willing to invest little money
           <a href="#"  data-lang="en"><i class="fa fa-twitter-square" style="font-size:2em;"></i></a>
       </figure>
       <%--<div id="keys" class="keys_down_active"></div>--%>
-      <span id="subline"><span class="video"></span><span id="sublineContent"><i class="fa fa-cubes" style="font-size:1.5em"></i> Bridge your business gaps With smart Apps</span></span>
+      <span id="subline"><span class="video"></span><span id="sublineContent"> تطبيقات وبرامج ذكية ، لبناء جسور أعمال قويّة  <i class="fa fa-cubes" style="font-size:1.5em"></i></span></span>
       <div id="nextTopic"><span></span></div>
       <div class="slideFooter ds" id="ds_p1">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
-                    <label class="touchscreenlabel">PHEX Stand & Stand Dual/Triple Models & Sizes</label>
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl">
+                    <label class="touchscreenlabel"> PHEX Stand / Stand Dual/Triple الطرازات والأحجام</label>
                     <p class="text-justify">
-                        PHEX Stand:  only 6cm deep available in portrait or landscape mode from 32”- 82” screen’s size.
+                        PHEX Stand:  فقط بعمق 6سم ، وحدة قائمة تتوفر يشاشة أفقية أو عمودية وبأحجام من 32- 82 بوصة.
                     </p>
                     <p class="text-justify">
-                        PHEX Dual/Triple: with multi 46” screens, other sizes are available up on request.
-                        All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc. 
+                        PHEX Dual/Triple: حدة قائمة بشاشتين أو ثلاث شاشات 46 بوصة وتتوفر بأحجام خاصة عند الطلب
+جميع طرازات PHEX تتوفر بإضافات إختيارية متميّزة مثل الشاشات باللمس ونظام صوت ستيريو وخاصية الإتصال بالانترنت ولوح الحماية الزجاجي وخلافه.  
                         <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a> 
                     </p>
                         </div>
                 </div>
       <div class="slideFooter ds" id="ds_p2">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
-                    <label class="touchscreenlabel">PHEX Console, Wall mounted & Sizes</label>
-                    <p class="text-justify">
-                        PHEX Console: 32” & 40” screen, other sizes are available up on request. Also available with adjustable stand for handicapped users. 
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
+                    <label class="touchscreenlabel"> PHEX Console, Wall الطرازات والأحجام</label>
+                    <p class="text-justify" style="direction:rtl;">
+                        PHEX Console:<span style="color:#FFF;font-size:1px;">ش</span>  32 و  40 بوصة وحدة مثيتة على قائم حامل وتتوفر بأحجام خاصة عند الطلب ، يتوفر أيضا بقائم حامل يمكن التحكم في إرتفاعه لمستخدمي الكراسي المتحركة. 
                     </p>
                     <p class="text-justify">
-                        PHEX Wall: The PHEX Wall is technologically identical to the PHEX Stand. It was designed to be mounted to a wall or ceiling, and is available in both vertical and horizontal formats.
-All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc.
+                        PHEX Wall: نفس تقنية الوحدة  PHEX Stand مصممة للتثبيت على الحائط أو التعليق من السقف وتتوفر بشاشة عمودية أو أفقية. 
+جميع طرازات PHEX تتوفر بإضافات إختيارية متميّزة مثل الشاشات باللمس ونظام صوت ستيريو وخاصية الإتصال بالانترنت ولوح الحماية الزجاجي وخلافه.
                         <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a> 
                     </p>
                         </div>
                 </div>
       <div class="slideFooter ds" id="ds_p3" style="width:465px;padding:5px !important">
-                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:5px;">
-                    <label class="touchscreenlabel">Models & Sizes</label>
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:5px; direction:rtl;">
+                    <label class="touchscreenlabel">الطرازات والأحجام</label>
                     <p class="text-justify" style="font-size:13px;">
-                        SELKET:  Slim and all the same robust. Catching the user´s attention the SELKET series integrates perfectly in it´s environment.
-All  SELKET models can optionally be equipped with  touchscreen. Available in different screen sizes from 19”-70”
+                        SELKET:  عمق صغير ومحدود وقوية وتحظى بانتباه الجمهور ، مجموعة SELKET تندمج بشكل رائع مع البيئة المحيطة. 
+جميع طرازات هذه المجموعة يمكن تزويدها بشاشة تعمل باللمس عند الطلب ،
+تتوفر بشاشات مختلفة الأحجام بدءا من 19 بوصة وحتى 70 بوصة. 
                     <br />
-                        DALA: Space for optional components, interaction and robustness - three features that set this model as a standard in various fields of application. 19” screen’s size.                         
+                        DALA: توفر المساحة المطلوبة لتجهيزات إضافية والتفاعلية  والقوة ، ثلاثة خصائص تجعل من DALA القياس المطلوب في كثير من الإستخدامات . تتوفر بشاشة 19 بوصة.
                     <br />
-                        FARO: Functionality, design and a small form factor are characteristic for the model FARO. It´s particularly suitable for wall mount. 19” screen’s size. 
+                        FARO: الوظائف والتصميم والحجم الصغير هي سمة الطراز FARO . 
+مناسبة للتركيب على الحائط وتتوفر بشاشة 19 بوصة.
                             <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a> 
                     </p>
                         </div>
                 </div>
@@ -1321,89 +1312,72 @@ All  SELKET models can optionally be equipped with  touchscreen. Available in di
 
         <!-- kiosk sections -->
         <div class="slideFooter ks" id="k_p0" style="width:465px;padding:5px !important;bottom:50px !important;">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
-                    <label class="touchscreenlabel">Solutions & Applications </label>
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
+                    <label class="touchscreenlabel">البرامج والإستخدامات </label>
                     <p class="text-justify">
-                        In order to provide a complete solution from a single source, MTSA offers software/application solutions development service for any custom requirement
-MTSA interactive info kiosk systems can be used for electronic reception, health and safety, employee self-service, airports, public transport, waiting areas, public authorities service, point of sales , point of information and administrations, HAJJ, and advertising or trade.
-                        
+                        من أجل توفير حل شامل من مصدر واحد ، MTSA تقدم خدمات تطوير وتصميم  البرامج والتطبيقات حسب متطلبات عمل العميل لأي من الأعمال التجاريّة.
+.يمكن إستخدام منصات MTSA  التفاعلية في عدد كبير من الإستخدامات مثل : الإستقبال الإلكتروني ، الصحة ، السلامة والأمن ، خدمة الموظفين الذاتيّة ، مناطق الإنتظار ، الوكالات الحكومية ، نقاط البع ، نقاط المعلومات ، الأعمال الإدارية ، والحج والمطارات ومحطات المواصلات العامة  والإعلان والدعاية .
                     </p>
                         </div>
                 </div>
 
-        <div class="slideFooter ks" id="k_p1" style="width:525px;padding:0px !important;right:-10px;">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
+        <div class="slideFooter ks" id="k_p1" style="width:500px;padding:0px !important;right:-10px;">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                     <label class="touchscreenlabel">VANA </label>
                     <p class="text-justify">
-                       The VANA model is a design-oriented terminal system for indoor areas.
-The straight form factor in a timeless design is comprised of an unbroken front surface and a slanted monitor.
-The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely
-low level of energy consumption (25 watts).
-Within the scope of digital signage projects, the VANA model can be used as an interactive terminal complete with touch screen, keyboard,
-webcam, or various audio components.
-Further possible use are as a virtual porter, for providing tourist information, for occupational safety, as a POI or POS, for providing employee
-information, for time recording, and for multimedia presentations.  
+                       الطراز VANA  تم تصميمه كوحدة قائمةللإستخدامات الداخليّة . 
+عامل الشكل المستقيم بتصميم راقي يكوّن سطحا أماميا غير قابل للكسر وشاشة مائلة . الحاسوب المدمج  يعتمد على أسس تقنية الحاسوب المحمول  الواضحة في حرارة ناتجة أقل والمستوى المنخفض من إستهلاك الطاقة الذي لا يتجاوز 25 وات.
+ضمن  أعمال مشاريع اللوحات الرقمية يمكن إستخدام طراز VANA كمنصّة تفاعليّة بشاشة باللمس أو لوحة مفاتيح وكاميرا وأجزاء نظام الصوت المتعددة. 
+يمكن إستخدام الطراز VANA كمنصة معلومات ، او لمتطلبات الأمن والسلامة ونقاط البيع والتسويق وخدمة الموظفين الذاتية ولمراقبة حضور الموظفين وللوسائط الإعلانية وتقديم عروض الأعمال. 
                          <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a>                       
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;">
+                                <img src="../images/products/digital_signage/Page2/down.png" /> &nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label></a>                       
                     </p>
                         </div>
                 </div>
 
         <div class="slideFooter ks" id="k_p2">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                     <label class="touchscreenlabel">MITRA </label>
                     <p class="text-justify">
-                       The MITRA model is a compact wall
-terminal with display sizes from 12"
-to 22". Its internal components can
-be accessed using a door on the front of the device.
-MITRA has a continuous sheet of
-glass without dust-collecting edges,
-which can also be equipped with
-touchscreen functionality.
-The version with a receipt printer,
-card reader, etc. can be used as a
-ticket dispenser, for time recording, or for access control, for example.
+                       الطراز MITRA وحدة حائطية بحجم صغير وشاشة عرض مختلفة الأحجام من 12 بوصة وحتى 22 بوصة ، ويمكن الوصول لأجزائها الداخلية عن طريق باب أمامي للجهاز ..
+الجهاز MITRA يتميز بواجهة زجاجية أمامية من قطعة واحدة وبأطراف مقاومة لتجميع الأتربة ، ويمكن تجهيز الجهاز بشاشة تعمل باللمس .
+عند تجهيز الطراز MITRA بطابعة حرارية وقارئ بطاقات يمكن إستخدامه في مناطق الإنتظار لطباعة تذاكر الإنتظار أو لمراقبة حضور الموظفين أو مراقبة  الدخول في الأماكن الغير مصرح بدخولها دون إذن مسيق .
                       <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                                </a> 
                     </p>
                         </div>
                 </div>
 
         <div class="slideFooter ks" id="k_p3" style="width:515px;right:-15px;padding:0 !important;">
-                    <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                     <label class="touchscreenlabel">RUTI </label>
                     <p class="text-justify">
-                       The ekiosk terminal RUTI is an universal payment terminal for products and services. It can manage cash or non-cash transactions.
-Properties of the Kiosk System RUTI
-very stable construction with housing of 3mm sheet steel
-front opening door for comfortable access over pivot lever with security lock
-protection glass with integrated touchscreen (SAW)
-transport roll for an easy handling of the terminal
-modular construction
-options for Integration of several components e.g.,:  </p>
+                       الطراز RUTI منصة لتنفيذ عمليات الدفع كافة للمنتجات أو الخدمات سواء النقد منها أو ماهو باستخدام بطاقات الدفع .
+خصائص نظام المنصة RUTI  .
+المنصة تتمتع بتصنيع عالي الجودة  مدعوما بإطار مغلق لتغطية الجهاز من المعدن سماكة 3 ملم ، مزودة بباب أمامي لوصول سهل لداخل الجهاز ومزودة بقفل أمان .
+لوح حماية زجاجي مع شاشة باللمس مدمجة ، الجهاز مزود بعناصر نقل حركية من أجل حركة اسهل وتشييد وحدات طرفية .
+إختيارات إضافية متعددة عند الطلب ومنها على سبيل المثال :
+  </p>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                              <ul class="mylist">
-<li>coin checking device</li>
-<li>bank notes acceptor</li>
-<li>coin recycler</li>
+<li>وحدة فحص العملة النقدية </li>
+<li>وحدة قبول الأوراق النقدية</li>
+<li>وحدة تغيير فئات الأوراق النقدية </li>
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                               <ul class="mylist">
-<li>banknote changer</li>
-<li>80mm thermal printer</li>
-<li>card reader
-and much more</li>
+<li>طابعة حرارية</li>
+<li>قارئ بطاقات 
+والكثير من الإضافات الإختيارية الأخرى .</li>
                             </ul>
                         </div>
                        
                       
                         <p class="text-justify">
-floor mounting or free-standing installation
-industry TFT LCD display (industry quality for continuous operation)                            
+يمكن تركيب الجهاز كوحدة قائمة او مثبت على الأرضية ويتميز بتجهيزه بشاشة صناعية TFT وتقنية عرض LCD لملائمة الحاجة للتشغيل المستمر دون توقف                           
                     </p>
                         </div>
                 </div>

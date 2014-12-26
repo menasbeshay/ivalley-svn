@@ -9,7 +9,8 @@ html {
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, figure {
     margin: 0;
     padding: 0;
-    font-family:'adihaus';
+    font-family:'JF_Flat_Regular';
+    
 }
 
 table {
@@ -120,7 +121,7 @@ legend {
 }
 
 .jf {
-    font-family: "JF_Flat_Regular";
+    font-family: "JF_Flat_Regular" !important;
 }
 ::-moz-selection {
     background: #000;
@@ -140,7 +141,7 @@ a:link {
 
 body {
     height: 100%;
-    font-family: "adihaus", Helvetica, Arial, sans-serif;
+    font-family: "JF_Flat_Regular", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -300,12 +301,12 @@ input, .fake_input {
             clear: both;
         }
 
-#logo {
+#logo {    
     width: 200px;
     height: 72px;
     position: absolute;
     top: -7px;
-    left: 0;
+    right: 0;
     overflow: hidden;
     cursor: pointer;
     background: url("../images/Logo1.png") no-repeat;
@@ -389,15 +390,15 @@ input, .fake_input {
         }
 
             #header nav ul li {
-                float: left;
-                text-align: left;
+                float: right;
+                text-align: right;
                 /*width: 156px;*/
-                margin-right: 39px;
+                margin-left: 39px;
             }
 
                 #header nav ul li:last-child {
-                    margin-right: 0;
-                    float:right;
+                    margin-left: 0;
+                    float:left;
                     margin-top:-18px;
                 }
 
@@ -409,14 +410,16 @@ input, .fake_input {
                     /*font-size: 18px;*/
                     display: block;
                     text-decoration: none;
-                    font-family: "adihaus", Helvetica, Arial, sans-serif;
+                    /*font-family: "JF_Flat_Regular", Helvetica, Arial, sans-serif;*/
+                    font-family: "JF_Flat_Regular" !important;
                     -webkit-font-smoothing: antialiased;
                     font-weight: normal;
                     color: #FFF;
                 }
 
                 #header nav ul li section {
-                    font-family: 'Ubuntu', sans-serif;
+                    /*font-family: 'Ubuntu', sans-serif;*/
+                    font-family: "JF_Flat_Regular" !important;
                     font-size: 12px;
                     width: 100%;
                     color: #FFF;
@@ -2626,11 +2629,11 @@ input, .fake_input {
         display: block;
         position: absolute;
         bottom: 13px;
-        right: 410px;
+        right: 510px;
         width: 400px;
         height: 20px;
         padding-left: 20px;
-        font-family: "adihaus", Helvetica, Arial, sans-serif;
+        font-family: "JF_Flat_Regular", Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -2638,6 +2641,7 @@ input, .fake_input {
         -o-user-select: none;
         user-select: none;
        font-weight:bold;
+       direction:rtl;
     }
 
     #footer #nextTopic, .slideFooter {
@@ -2670,7 +2674,7 @@ input, .fake_input {
             }
 
         #footer #nextTopic span {
-            font-family: "adihaus", Helvetica, Arial, sans-serif;
+            font-family: "JF_Flat_Regular", Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -3154,7 +3158,7 @@ input, .fake_input {
      .cycle-caption span.blueblack {
         color:#fff;
         font-size:60px;
-        font-family:'adineue';
+        font-family:'JF_Flat_Regular';
     }
     .cycle-caption .two-line {
         display: inline-block; 
@@ -3360,14 +3364,14 @@ background-color:#d3d3d3;
 
 .slideHeaderBlack {
     color:#444;
-    font-family:Verdana;
+    font-family: 'JF_Flat_Regular', sans-serif;   
     font-weight:bold;
     font-size:25px;   
 }
 
 .slideHeaderWhite {
     color:#fff;
-    font-family:Verdana;
+   font-family: 'JF_Flat_Regular', sans-serif;   
     font-weight:bold;
     font-size:25px;   
 }
@@ -3427,7 +3431,7 @@ background-color:#d3d3d3;
     display:block !important;
     width:100% !important;
     height:20px !important;
-    text-align:left !important;
+    text-align:right !important;
 }
 
 .headerbottom{    
@@ -3459,8 +3463,7 @@ background-color:#d3d3d3;
     }
 .slidetitle {
     padding:15px;
-    font-family: 'Ubuntu', sans-serif;
-    letter-spacing:10px;
+    font-family: 'JF_Flat_Regular', sans-serif;    
 }
 
 
@@ -4134,13 +4137,13 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     display:block;
     width:20%;
     height:100%;
-    bottom:35px;
+    bottom:5px;
     position:absolute;
-    left:20px;
+    right:60px;
 }
 
 .footer-polytouch .footerRight {
-    right:60px;
+    left:20px;
     bottom:10px;
     position:absolute;
     display:block;
@@ -4204,7 +4207,7 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 .mylist li
 {
-    margin-left:25px !important;
+    margin-right:25px !important;
     list-style:disc !important;
     display:list-item !important;
 }

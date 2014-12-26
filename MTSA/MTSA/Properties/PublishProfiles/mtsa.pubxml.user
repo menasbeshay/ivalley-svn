@@ -30,6 +30,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Account/Web.config">
       <publishTime>11/11/2014 18:40:50</publishTime>
     </File>
+    <File Include="arabic.aspx">
+      <publishTime>12/26/2014 16:52:41</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/11/2014 18:56:22</publishTime>
     </File>
@@ -193,7 +196,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/16/2014 17:21:32</publishTime>
+      <publishTime>12/27/2014 00:18:19</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -234,6 +237,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="css/apps/elastic_grid.css">
       <publishTime>11/21/2014 00:33:13</publishTime>
     </File>
+    <File Include="css/apps/elastic_grid_ar.css">
+      <publishTime>12/26/2014 18:51:52</publishTime>
+    </File>
     <File Include="css/blank.gif">
       <publishTime>11/19/2014 21:41:33</publishTime>
     </File>
@@ -268,7 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>12/16/2014 16:18:19</publishTime>
+      <publishTime>12/26/2014 17:26:08</publishTime>
+    </File>
+    <File Include="css/screen_ar.css">
+      <publishTime>12/27/2014 00:05:58</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -290,6 +299,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="files/Polytouchcatalogue.pdf">
       <publishTime>11/20/2014 22:28:34</publishTime>
+    </File>
+    <File Include="flash/3DWayfinding.mp4">
+      <publishTime>12/25/2014 17:11:35</publishTime>
+    </File>
+    <File Include="flash/3garatvideoArabic.mp4">
+      <publishTime>12/25/2014 16:25:04</publishTime>
+    </File>
+    <File Include="flash/3garatvideoEnglish.mp4">
+      <publishTime>12/25/2014 16:25:04</publishTime>
     </File>
     <File Include="flash/ptv.flv">
       <publishTime>11/14/2014 15:39:11</publishTime>
@@ -398,6 +416,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="HtmlPage1.html">
       <publishTime>11/15/2014 12:28:17</publishTime>
+    </File>
+    <File Include="images/3ag_01.jpg">
+      <publishTime>12/25/2014 21:09:58</publishTime>
+    </File>
+    <File Include="images/3ag_02.jpg">
+      <publishTime>12/25/2014 21:09:41</publishTime>
+    </File>
+    <File Include="images/3ag_03.jpg">
+      <publishTime>12/25/2014 21:09:53</publishTime>
+    </File>
+    <File Include="images/3D-Wayfinding_logo.png">
+      <publishTime>12/25/2014 16:20:27</publishTime>
+    </File>
+    <File Include="images/3garatlogoar.png">
+      <publishTime>12/25/2014 21:38:47</publishTime>
+    </File>
+    <File Include="images/3garatlogoen.png">
+      <publishTime>12/25/2014 21:38:50</publishTime>
+    </File>
+    <File Include="images/aldaleel_mtsa.png">
+      <publishTime>12/25/2014 17:17:45</publishTime>
     </File>
     <File Include="images/allcrafted_grain.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
@@ -510,6 +549,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/Icons/icon-15.png">
       <publishTime>11/11/2014 18:45:38</publishTime>
     </File>
+    <File Include="images/Icons/Kiosk.png">
+      <publishTime>12/25/2014 17:17:45</publishTime>
+    </File>
+    <File Include="images/Icons/mobile.png">
+      <publishTime>12/25/2014 17:17:44</publishTime>
+    </File>
     <File Include="images/Icons/png/1.png">
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
@@ -606,6 +651,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/Icons/png/large/9.png">
       <publishTime>11/11/2014 18:45:15</publishTime>
     </File>
+    <File Include="images/Icons/print.png">
+      <publishTime>12/25/2014 17:17:44</publishTime>
+    </File>
+    <File Include="images/Icons/try.png">
+      <publishTime>12/25/2014 17:17:45</publishTime>
+    </File>
+    <File Include="images/Icons/web.png">
+      <publishTime>12/25/2014 17:17:45</publishTime>
+    </File>
     <File Include="images/keys.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
     </File>
@@ -613,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:02</publishTime>
     </File>
     <File Include="images/Logo1.png">
-      <publishTime>11/11/2014 18:51:23</publishTime>
+      <publishTime>12/26/2014 17:20:12</publishTime>
     </File>
     <File Include="images/mtsa3d1.png">
       <publishTime>11/15/2014 21:48:35</publishTime>
@@ -990,6 +1044,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/products/simply.png">
       <publishTime>11/14/2014 19:17:24</publishTime>
     </File>
+    <File Include="images/products/simply2.png">
+      <publishTime>12/25/2014 17:17:45</publishTime>
+    </File>
     <File Include="images/projects/1.jpg">
       <publishTime>11/11/2014 18:51:02</publishTime>
     </File>
@@ -1001,6 +1058,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/projects/PHEX.png">
       <publishTime>11/27/2014 21:05:01</publishTime>
+    </File>
+    <File Include="images/sager-logo.png">
+      <publishTime>12/25/2014 21:59:30</publishTime>
     </File>
     <File Include="images/slides/Slide-1.jpg">
       <publishTime>11/11/2014 18:50:54</publishTime>
@@ -1123,7 +1183,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>12/16/2014 17:13:36</publishTime>
+      <publishTime>12/26/2014 19:04:11</publishTime>
+    </File>
+    <File Include="MasterPages/FullAr.Master">
+      <publishTime>12/27/2014 00:16:53</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -1222,7 +1285,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:15</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>12/16/2014 15:43:54</publishTime>
+      <publishTime>12/25/2014 22:56:13</publishTime>
+    </File>
+    <File Include="Scripts/mainar.js">
+      <publishTime>12/26/2014 22:14:27</publishTime>
     </File>
     <File Include="Scripts/masonry.pkgd.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
@@ -1303,7 +1369,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:25</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>12/06/2014 18:42:50</publishTime>
+      <publishTime>12/26/2014 18:15:29</publishTime>
     </File>
     <File Include="Site.Master">
       <publishTime>11/11/2014 18:44:49</publishTime>
