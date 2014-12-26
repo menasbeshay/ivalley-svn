@@ -196,7 +196,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/27/2014 00:18:19</publishTime>
+      <publishTime>12/27/2014 00:31:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -1047,6 +1047,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/products/simply2.png">
       <publishTime>12/25/2014 17:17:45</publishTime>
     </File>
+    <File Include="images/products/simply2_ar.png">
+      <publishTime>12/26/2014 19:26:28</publishTime>
+    </File>
     <File Include="images/projects/1.jpg">
       <publishTime>11/11/2014 18:51:02</publishTime>
     </File>
@@ -1369,7 +1372,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:25</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>12/26/2014 18:15:29</publishTime>
+      <publishTime>12/27/2014 00:31:36</publishTime>
     </File>
     <File Include="Site.Master">
       <publishTime>11/11/2014 18:44:49</publishTime>
