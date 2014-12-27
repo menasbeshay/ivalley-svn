@@ -12,58 +12,61 @@ using System.IO;
 using System.Drawing;
 using Helper;
 
-public partial class Thumb : System.Web.UI.Page
+namespace Chat2Connect
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Thumb : System.Web.UI.Page
     {
-        string imgPath;
-        int maxWidth = 200;
-        int maxHeight = 200;
-        if (!string.IsNullOrEmpty(Request.QueryString["w"]))
+        protected void Page_Load(object sender, EventArgs e)
         {
-            maxWidth = Convert.ToInt32(Request.QueryString["w"].ToString());
-        }
-        if (!string.IsNullOrEmpty(Request.QueryString["h"]))
-        {
-            maxHeight = Convert.ToInt32(Request.QueryString["h"].ToString());
-        }
-        if (Request.QueryString["Image"] != null)
-        {
-            if (!string.IsNullOrEmpty(Request.QueryString["Image"].ToString()))
+            string imgPath;
+            int maxWidth = 200;
+            int maxHeight = 200;
+            if (!string.IsNullOrEmpty(Request.QueryString["w"]))
             {
-                imgPath = Request.QueryString["Image"].ToString();
-                if (!string.IsNullOrEmpty(imgPath))
+                maxWidth = Convert.ToInt32(Request.QueryString["w"].ToString());
+            }
+            if (!string.IsNullOrEmpty(Request.QueryString["h"]))
+            {
+                maxHeight = Convert.ToInt32(Request.QueryString["h"].ToString());
+            }
+            if (Request.QueryString["Image"] != null)
+            {
+                if (!string.IsNullOrEmpty(Request.QueryString["Image"].ToString()))
                 {
-                    try
+                    imgPath = Request.QueryString["Image"].ToString();
+                    if (!string.IsNullOrEmpty(imgPath))
                     {
-                        if (!File.Exists(Server.MapPath(imgPath)))
+                        try
                         {
-                            imgPath = "images/defaultavatar.png";
+                            if (!File.Exists(Server.MapPath(imgPath)))
+                            {
+                                imgPath = "images/defaultavatar.png";
+                            }
+                            byte[] imgByte = GetImageByteArr(new Bitmap(Server.MapPath(imgPath)));
+                            MemoryStream memoryStream = new MemoryStream();
+                            memoryStream.Write(imgByte, 0, imgByte.Length);
+                            System.Drawing.Image imagen = System.Drawing.Image.FromStream(memoryStream);
+                            Response.ContentType = "image/Jpeg";
+                            ImageResize ir = new ImageResize();
+                            ir.File = imagen;
+                            ir.Height = maxHeight;
+                            ir.Width = maxWidth;
+                            ir.GetThumbnail().Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
-                        byte[] imgByte = GetImageByteArr(new Bitmap(Server.MapPath(imgPath)));
-                        MemoryStream memoryStream = new MemoryStream();
-                        memoryStream.Write(imgByte, 0, imgByte.Length);
-                        System.Drawing.Image imagen = System.Drawing.Image.FromStream(memoryStream);
-                        Response.ContentType = "image/Jpeg";
-                        ImageResize ir = new ImageResize();
-                        ir.File = imagen;
-                        ir.Height = maxHeight;
-                        ir.Width = maxWidth;
-                        ir.GetThumbnail().Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        catch { }
                     }
-                    catch { }
                 }
             }
         }
-    }
-    private static byte[] GetImageByteArr(System.Drawing.Image img)
-    {
-        byte[] ImgByte;
-        using (MemoryStream stream = new MemoryStream())
+        private static byte[] GetImageByteArr(System.Drawing.Image img)
         {
-            img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-            ImgByte = stream.ToArray();
+            byte[] ImgByte;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                ImgByte = stream.ToArray();
+            }
+            return ImgByte;
         }
-        return ImgByte;
     }
 }

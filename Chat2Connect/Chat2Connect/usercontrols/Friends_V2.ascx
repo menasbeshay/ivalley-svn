@@ -7,7 +7,7 @@
         <li class="pull-right"><a data-toggle="tab" href="#HelpMembers">المساعدة</a></li>
     </ul>
 </div>
-<div class="tab-content" style="min-height:400px;">
+<div class="tab-content" style="min-height:300px;">
     <div class="tab-pane active" id="OnlineFriends">
         <div data-bind="if: friends.loaded()">
             <div style="height:320px;" data-bind="koGrid: {
@@ -25,7 +25,7 @@
     </div>
     <div class="tab-pane active" id="OfflineFriends">
         <div data-bind="if: friends.loaded()">
-            <div style="height: 350px;" data-bind="koGrid: {
+            <div style="height: 250px;" data-bind="koGrid: {
     data: offlineFriends, showFilter: false, headerRowHeight: 0, footerVisible: false, canSelectRows: false,
     showColumnMenu: false, showFilter: false, displaySelectionCheckbox: false, autogenerateColumns: false,
     rowTemplate: $('#offlineFriendTmpl').html(), rowHeight: 50,
