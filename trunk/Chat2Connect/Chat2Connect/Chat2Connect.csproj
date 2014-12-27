@@ -128,6 +128,7 @@
     <Content Include="Admin\VIPReport.aspx" />
     <Content Include="Admin\VIPRoom.aspx" />
     <Content Include="css\images\loading.GIF" />
+    <Content Include="css\KoGrid.css" />
     <Content Include="favico.ico" />
     <Content Include="HomeV2.aspx" />
     <Content Include="images\help\f1.jpg" />
@@ -694,6 +695,7 @@
     <Content Include="js\fileupload\main.js" />
     <Content Include="images\Upload.png" />
     <Content Include="js\fileupload\vendor\jquery.ui.widget.js" />
+    <Content Include="js\koGrid-2.1.0.js" />
     <Content Include="js\popups.js" />
     <Content Include="js\popup_main.js" />
     <Content Include="js\purl.js" />
@@ -753,6 +755,7 @@
     <None Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
     <Content Include="Thumb.aspx" />
+    <Content Include="Thumbaspx.aspx" />
     <Content Include="upload.html" />
     <Content Include="usercontrols\Friends.ascx" />
     <Content Include="usercontrols\Friends_V2.ascx" />
@@ -1404,6 +1407,16 @@
     <Compile Include="Thumb.aspx.cs">
       <DependentUpon>Thumb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Thumb.aspx.designer.cs">
+      <DependentUpon>Thumb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Thumbaspx.aspx.cs">
+      <DependentUpon>Thumbaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Thumbaspx.aspx.designer.cs">
+      <DependentUpon>Thumbaspx.aspx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Friends.ascx.cs">
       <DependentUpon>Friends.ascx</DependentUpon>
