@@ -70,7 +70,7 @@ namespace Combo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mena.samy@gmail.com.
+        ///   Looks up a localized string similar to noreply@combomobile.com.
         /// </summary>
         internal static string mail {
             get {
@@ -79,7 +79,7 @@ namespace Combo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IMarryGina52012.
+        ///   Looks up a localized string similar to 123456.
         /// </summary>
         internal static string mailpass {
             get {
@@ -88,7 +88,7 @@ namespace Combo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to smtp.gmail.com.
+        ///   Looks up a localized string similar to mail.combomobile.com.
         /// </summary>
         internal static string mailserver {
             get {
@@ -97,7 +97,7 @@ namespace Combo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 587.
+        ///   Looks up a localized string similar to 25.
         /// </summary>
         internal static string port {
             get {

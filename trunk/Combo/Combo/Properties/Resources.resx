@@ -121,16 +121,16 @@
     <value>{0} click {1}</value>
   </data>
   <data name="mail" xml:space="preserve">
-    <value>mena.samy@gmail.com</value>
+    <value>noreply@combomobile.com</value>
   </data>
   <data name="mailpass" xml:space="preserve">
-    <value>IMarryGina52012</value>
+    <value>123456</value>
   </data>
   <data name="mailserver" xml:space="preserve">
-    <value>smtp.gmail.com</value>
+    <value>mail.combomobile.com</value>
   </data>
   <data name="port" xml:space="preserve">
-    <value>587</value>
+    <value>25</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>combo pass</value>
