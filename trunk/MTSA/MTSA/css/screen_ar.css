@@ -3157,8 +3157,9 @@ input, .fake_input {
     }
      .cycle-caption span.blueblack {
         color:#fff;
-        font-size:60px;
+        font-size:40px;
         font-family:'JF_Flat_Regular';
+        direction:rtl;
     }
     .cycle-caption .two-line {
         display: inline-block; 

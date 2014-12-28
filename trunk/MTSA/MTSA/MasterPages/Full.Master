@@ -1119,6 +1119,7 @@ Available in the following versions:</p>
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">
                         
                         <div class="clearfix" style="height:1px;"></div>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
                         <div class="col-lg-7 col-sm-7 col-md-7">
                             <video loop id="3dflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
                              </video>  
@@ -1140,22 +1141,23 @@ Available in the following versions:</p>
                             <p style="text-align:justify">
                                 <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. Download presentation for more details.
                             </p>
-                            <div class="clearfix" style="height:15px;clear:both"></div>                        
-                            <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
-                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:20.5%;"/>
-                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:20.5%;" />
-                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:20.5%;"/>
-                                <img src="../images/Icons/web.png"  style="margin:0;width:20.5%;"/>
-                                <img src="../images/Icons/try.png"  style="margin:20px;width:20.5%;float:right"/>
+                            <div class="clearfix" style="height:15px;clear:both"></div>                                                    
+                            </div>
+                            <div class="col-lg-5 col-sm-5 col-md-5 " style="padding:0px;position:absolute;bottom:0;right:0">  
+                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:21.5%;" />
+                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/web.png"  style="margin:0;width:21.5%;"/>                               
                             </div>
                          </div>
                         
-                        <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="bottom:30px !important;">                        
-                                <img src="../images/icons/png/large/10.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/12.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/6.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/2.png" style="margin:0 30px;width:8%;"/>
-                                <img src="../images/icons/png/large/9.png" style="margin:0 30px;width:8%;"/>
+                        <div class="col-lg-7 col-sm-7 col-md-7 bottom " style="bottom:10px !important;">                        
+                                <img src="../images/icons/png/large/10.png" style="margin:0 15px;width:10%;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 15px;width:10%;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 15px;width:10%;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 15px;width:10%;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 15px;width:10%;"/>
+                                <img src="../images/Icons/try.png"  style="margin:0 20px;width:12.5%;float:right"/>
                             </div>    
                     </div>
                     
@@ -1182,7 +1184,7 @@ Available in the following versions:</p>
                              <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a>                            
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6" style="padding:0px;">                            
+                        <div class="col-lg-6 col-sm-6 col-md-6" style="background-color:#eee;padding:5px;">                            
                               <div class="col-md-4 col-sm-4 col-lg-4 pull-left clearfix" style="padding:0px;">
                                 <img src="../images/3garatlogoen.png" style="max-width:100%;"/>
                                </div> 
@@ -1192,7 +1194,7 @@ Available in the following versions:</p>
                               </div>
                             <div class="clearfix" style="height:5px;clear:both"></div>                        
                             
-                            <p style="text-align:justify">
+                            <p style="text-align:justify;">
                                 3garat is a software/application developed by S.O. Sager International and marketed under the umbrella of MTSA products to help real estate development/management companies market and sell /lease their own/landlord properties.
  The software is a cloud database & installed on MTSA touchscreen kiosks providing a self-service property searching , buying or leasing service for public.
 S.O. Sager International provides complete unique self-service property marketing concept including software development, 360° virtual tours, touchscreen kiosks supply & maintenance, and the design/building of the stand/booth to place in public areas i.e. malls, shopping centers, hypermarkets, airports, medical cities/hospitals, universities stadiums and others. 
