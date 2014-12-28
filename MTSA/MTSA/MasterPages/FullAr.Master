@@ -121,7 +121,7 @@
                 <div class="cycle-slideshow"  data-cycle-auto-height="true" data-cycle-caption="#alt-caption" data-cycle-caption-template="{{alt}}">
                          <img src="../images/slides/Slide-1.jpg" data-cycle-timeout="4000" alt="<div class='two-line'><div class='mtsa'>MTSA</div></div><span class='blueblack'>شاشات باللمس وأنظمة منصّات تفاعليّة <br />وشاشات اللوحات الرقميّة</span>"/>
                          <img src="../images/slides/Slide-2.jpg" data-cycle-timeout="2000" alt=""/>
-                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="3000" alt="<span class='blueblack'>تطبيقات وبرامج ذكية ،  <br />لبناء جسور أعمال قويّة </span>"/>
+                         <img src="../images/slides/Slide-3.jpg" data-cycle-timeout="3000" alt="<span class='blueblack'>، تطبيقات وبرامج ذكية <br />لبناء جسور أعمال قويّة </span>"/>
                          <img src="../images/slides/Slide-4.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-5.jpg" data-cycle-timeout="2000" alt=""/>
                          <img src="../images/slides/Slide-6.jpg" data-cycle-timeout="2000" alt=""/>
@@ -500,7 +500,7 @@
                               <img src="../images/products/multitouchscreens/Page2/logo.png" />
                              <div class="clearfix" style="height:15px;"></div>
                              <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0">
-                             <img src="../images/products/multitouchscreens/Page2/MultiIcon.png" style="float:right;"/>&nbsp; <label class="touchscreenlabel upper pull-right" style="direction:rtl;">&nbsp;&nbsp;  Polytouch ® بولي تتش ®</label>
+                             <img src="../images/products/multitouchscreens/Page2/MultiIcon.png" style="float:right;"/>&nbsp; <label class="touchscreenlabel upper pull-right" style="direction:rtl;">&nbsp;&nbsp;  بولي تتش ®</label>
                              <div class="clearfix" style="height:5px;"></div>
                               <p style="text-align:justify;direction:rtl;">
                                     هي شاشة تعددية اللمس قابلة للتوسع تعمل بتقنية (PCT)وهي نفس التقنية المستخدمة في شاشات الأجهزة الذكية والغير حساسة إطلاقا لضوء النهار أو الأشعة تحت الحمراء ، وهي الأولى في العالم بشاشة 32     و 46 بوصة بهذه التقنية ومن الطراز المسمّى الجميع في واحد . All in-1 النظام الجديد لـ </p>
@@ -573,7 +573,7 @@
                                 <li>محرك صلب ثابت  ( SSD ) 120 جيجا بايت</li>
                                 <li>1 جيجا بايت إيثرنت ، 300 ميجا بايت واي فاي</li>
                                 <li>مطابق لمتطلبات ADA لذوي الإحتياجات الخاصة <br />ومستخدمي الكراسي المتحركة</li>
-
+                                 <div class="clearfix" style="height:5px;"></div>
                              </ul>
                              <img src="../images/products/multitouchscreens/Page3/POS22.png" style="position:absolute;bottom:-10px;left:0px;" />
                          </div>
@@ -601,22 +601,22 @@
                          <div class="col-lg-2 col-sm-2 col-md-2 pull-right" >
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/1.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/pic3.png" style="width:100%" />
-                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
+                                 <div class="myhoverdiv">افعلها على طريقة بولي تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/2.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic2.png" style="width:100%" />
-                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
+                                 <div class="myhoverdiv">افعلها على طريقة بولي تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/3.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic1.png" style="width:100%" />
-                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
+                                 <div class="myhoverdiv">افعلها على طريقة بولي تتش</div>
                              </a>
                              <div class="clearfix" style="height:5px;"></div>
                              <a data-lightbox="mutlitouch" href="../images/products/multitouchscreens/4.jpg" class="mutliGallery">
                                  <img src="../images/products/multitouchscreens/Page3/Pic4.png" style="width:100%" />
-                                 <div class="myhoverdiv">قم بطريقة بولى تتش</div>
+                                 <div class="myhoverdiv">افعلها على طريقة بولي تتش</div>
                              </a>
                         </div>
                     </div>                                                 
@@ -656,16 +656,16 @@
 MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية ألمانيا  الإتحاديّة وتتميّز  بإمكانياتها اللامحدودة لتلبية أي  تصميم أو آداء خاص من اي من العملاء.
 بالإضافة للمنتجات، تقدم MTSA حلولا شاملة لخدمة تصاميم  وتطوير البرامج والتطبيقات للإستخدام  على شاشاتها التي تعمل باللمس وحسب حاجة العميل .
                              </p>
-                             <div class="touchscreenlabel" style="direction:rtl;">
+                             <div class="touchscreenlabel" style="direction:rtl;font-size:12px;">
                                  انقر أدناه لتحميل العرض التوضيحي والكاتالوج 
                              </div>
                              <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                     <a href="#" class=""><label class="touchscreenlabel"> تحميل العرض التوضيحي</label><br />
+                                     <a href="#" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل العرض التوضيحي</label><br />
                              <img src="../images/products/digital_signage/Page1/present.png" /></a>
                                      </div>
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                      <a href="#" class=""><label class="touchscreenlabel"> تحميل الكاتالوج</label><br />
+                                      <a href="#" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل الكاتالوج</label><br />
                              <img src="../images/products/digital_signage/Page1/down.png" />
                                           </a>
                                      </div>
@@ -829,7 +829,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                 <div class="anyPage innerslide" style="position:relative;">                     
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
-                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:0px 15px 0 30px;margin:0 auto;float:none;position:relative;">
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
                             <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
@@ -846,7 +846,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                              </p>
                              
                          </div>
-                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="padding:0 !important;height:210px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-85px;">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="padding:0 !important;height:210px;vertical-align:text-bottom;padding-top:30px;position:relative;margin-top:-55px;">
                             <div class="col-lg-2 col-sm-2 col-md-2" style="padding:0 !important;text-align:center;height:210px;position:relative;">
                                 <img src="../images/products/kiosk/page1/screen1.png" style="margin:0 auto; margin-top:40px;" /><br />
                                 <span class="col-lg-12 col-sm-12 col-md-12" style="position:absolute;bottom:-30px;left:0;">
@@ -890,7 +890,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                 
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
-                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0px 15px 0 30px;margin:0 auto;float:none;position:relative;">
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important;direction:rtl;">
                             <label class="slideHeaderBlack">المنصّات الداخلية </label>
                             <div class="clearfix" style="height:1px;"></div>
@@ -909,7 +909,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                              </p>
                                                              
                          </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:15px;position:relative;margin-top:-80px;">
+                        <div class="col-lg-6 col-sm-6 col-md-6" style="padding:0 !important;height:220px;vertical-align:text-bottom;padding-top:15px;position:relative;margin-top:-50px;">
                             <div class="col-lg-4 col-sm-4 col-md-4" style="padding:0 !important;text-align:center;height:220px;position:relative;">
                                 <img src="../images/products/kiosk/page2/screen1.png" style="max-height:220px;" /><br />
                                 ISIS with touchscreen
@@ -1012,7 +1012,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 قفل الأمان عالي الجودة  والتصنيع الثابت باستخدام  ألواح المعدن والألومنيوم  يسمحان بإستخدام الجهاز في الأماكن المزدحمة  الداخلية دون الحاجة لتواجد موظف لمراقبة الجهاز . 
 تشمل إستخدامات الطراز HERA تزويد المعلومات العامة ، دليل المباني الإرشادي ، خدمة الموظفين الذاتية ، إصدار وطباعة بطاقات صعود الطائرة ، مراقبة حضور الموظفين ، المعارض التجارية ووسائط الإعلان  والتسويق . 
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;padding:0"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                              </p>
                                                              
@@ -1109,6 +1109,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">
                         
                         <div class="clearfix" style="height:1px;"></div>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
                         <div class="col-lg-7 col-sm-7 col-md-7 pull-right">
                             <video loop id="3dflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
                              </video>  
@@ -1116,7 +1117,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                                                         
                         </div>
                         <div class="col-lg-5 col-sm-5 col-md-5 pull-right" >                           
-                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left">
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-right">
                                 <img src="../images/aldaleel_mtsa.png" style="max-width:100%;"/>
                                 <br />
                                 <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:17px;">
@@ -1128,21 +1129,23 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                                 تقدّم MTSA  إم تي اس آي ( أحد أعمال صقر الدولية ) خدمة ومنتجات الدليل ثلاثي الأبعاد للمباني العامة كالمراكز التجارية والمطارات والجامعات والمستشفبات الكبيرة ومجمّعات المباني . الدليل ثلاثي الأبعاد هو تطبيق يساعد زوار المباني الكبيرة على إيجاد الطريق لجهة الوصول المطلوبة بسهولة وبسرعة ودون عناء.  الدليل ثلاثي الأبعاد تطبيق تفاعلي يتم تثبيته على شاشاتنا باللمس ، يتوفر ايضا كتطبيق على الهواتف الذكية او على موقع بالانترنت. قم بتحميل العرض لمزيد من التفاصيل
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
-                            <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
-                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:20.5%;"/>
-                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:20.5%;" />
-                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:20.5%;"/>
-                                <img src="../images/Icons/web.png"  style="margin:0;width:20.5%;"/>
-                                <img src="../images/Icons/try.png"  style="margin:20px;width:20.5%;float:right"/>
-                            </div>
+                            
                          </div>
-                        
-                        <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="bottom:30px !important;right:0 !important; left:initial !important;left:auto !important;">                        
-                                <img src="../images/icons/png/large/10.png" style="margin:0 30px;width:8%;float:right;"/>
-                                <img src="../images/icons/png/large/12.png" style="margin:0 30px;width:8%;float:right;"/>
-                                <img src="../images/icons/png/large/6.png" style="margin:0 30px;width:8%;float:right;"/>
-                                <img src="../images/icons/png/large/2.png" style="margin:0 30px;width:8%;float:right;"/>
-                                <img src="../images/icons/png/large/9.png" style="margin:0 30px;width:8%;float:right;"/>
+
+                            <div class="col-lg-5 col-sm-5 col-md-5 " style="padding:0px;position:absolute;bottom:0;left:0">  
+                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:21.5%;" />
+                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/web.png"  style="margin:0;width:21.5%;"/>                                
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-sm-7 col-md-7 bottom " style="bottom:10px !important;right:0 !important; left:initial !important;left:auto !important;">                        
+                                <img src="../images/icons/png/large/10.png" style="margin:0 15px;width:10%;float:right;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 15px;width:10%;float:right;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 15px;width:10%;float:right;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 15px;width:10%;float:right;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 15px;width:10%;float:right;"/>
+                                <img src="../images/Icons/try.png"  style="margin:0 20px;width:12.5%;float:left"/>
                             </div>    
                     </div>
                     
@@ -1169,7 +1172,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                              <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a>                            
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="padding:0px;">                            
+                        <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="background-color:#eee;padding:5px;">                            
                               <div class="col-md-4 col-sm-4 col-lg-4 pull-right clearfix" style="padding:0px;">
                                 <img src="../images/3garatlogoar.png" style="max-width:100%;"/>
                                </div> 
@@ -1262,7 +1265,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
       <div id="nextTopic"><span></span></div>
       <div class="slideFooter ds" id="ds_p1">
                     <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl">
-                    <label class="touchscreenlabel"> PHEX Stand / Stand Dual/Triple الطرازات والأحجام</label>
+                    <label class="touchscreenlabel">الطرازات والأحجام PHEX Stand / Stand Dual/Triple </label>
                     <p class="text-justify">
                         PHEX Stand:  فقط بعمق 6سم ، وحدة قائمة تتوفر يشاشة أفقية أو عمودية وبأحجام من 32- 82 بوصة.
                     </p>
@@ -1277,7 +1280,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                 </div>
       <div class="slideFooter ds" id="ds_p2">
                     <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
-                    <label class="touchscreenlabel"> PHEX Console, Wall الطرازات والأحجام</label>
+                    <label class="touchscreenlabel">الطرازات والأحجام PHEX Console, Wall </label>
                     <p class="text-justify" style="direction:rtl;">
                         PHEX Console:<span style="color:#FFF;font-size:1px;">ش</span>  32 و  40 بوصة وحدة مثيتة على قائم حامل وتتوفر بأحجام خاصة عند الطلب ، يتوفر أيضا بقائم حامل يمكن التحكم في إرتفاعه لمستخدمي الكراسي المتحركة. 
                     </p>
@@ -1337,7 +1340,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                 </div>
 
         <div class="slideFooter ks" id="k_p2">
-                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;padding:5px;width:460px;">
                     <label class="touchscreenlabel">MITRA </label>
                     <p class="text-justify">
                        الطراز MITRA وحدة حائطية بحجم صغير وشاشة عرض مختلفة الأحجام من 12 بوصة وحتى 22 بوصة ، ويمكن الوصول لأجزائها الداخلية عن طريق باب أمامي للجهاز ..
