@@ -7,6 +7,7 @@ using System.Web.Services;
 using System.Data;
 using System.Net.Mail;
 using System.Web.Script.Services;
+using System.IO;
 
 namespace Combo.ComboAPI
 {
@@ -20,12 +21,14 @@ namespace Combo.ComboAPI
     [System.Web.Script.Services.ScriptService]
     public class combo : System.Web.Services.WebService
     {
+        #region Users
         [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
         /// Get All combo Users
         /// </summary>
         /// <returns>ComboResponse object with List of all Combo Users </returns>
-        public string GetUsers()
+        public void GetUsers()
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -58,19 +61,19 @@ namespace Combo.ComboAPI
 
 
             _response.Entity = Users;
-            SetContentResult();
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(_response);
-            return result;
+            SetContentResult(_response);            
+            //return _response;
 
         }
 
         [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
         /// Get Combo User By ID
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with requested User object </returns>
-        public string GetUserByID(int id)
+        public void GetUserByID(int id)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -103,10 +106,8 @@ namespace Combo.ComboAPI
 
 
             _response.Entity = Users;
-            SetContentResult();
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(_response);
-            return result;
-
+            SetContentResult(_response);
+            
         }
 
         [WebMethod]
@@ -162,8 +163,8 @@ namespace Combo.ComboAPI
 
                 _response.Entity = Users;
             }
-            //SetContentResult(_response);
-
+            SetContentResult(_response);
+            return;
         }
 
         [WebMethod]        
@@ -172,7 +173,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="user">Combo user object to be added</param>
         /// <returns>ComboResponse object with Added User object</returns>
-        public void AddUser(int id)
+        public void AddUser(Models.ComboUser user)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -181,10 +182,10 @@ namespace Combo.ComboAPI
 
             BLL.ComboUser newUser = new ComboUser();
             BLL.ComboUser _user = new ComboUser();
-           /* if (_user.GetUserByUserName(user.UserName))
+            if (_user.GetUserByUserName(user.UserName) || _user.GetUserByUserName(user.Email))
             {
                 _response.ErrorCode = 12;
-                _response.ErrorMsg = "Username exists before";
+                _response.ErrorMsg = "Username or Email exists before";
                 _response.bool_result = false;
                 SetContentResult(_response);
                 return;
@@ -214,9 +215,54 @@ namespace Combo.ComboAPI
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;
-            _response.Entity = user;
-            */
-            //SetContentResult(_response);
+            _response.Entity = new Models.ComboUser[]{ user};
+            
+            SetContentResult(_response);
+            return;
+        }
+
+        [WebMethod]
+        /// <summary>
+        /// Update Combo user to db
+        /// </summary>
+        /// <param name="user">Combo user object to be added</param>
+        /// <returns>ComboResponse object with updated User object</returns>
+        public void UpdateUser(Models.ComboUser user)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            BLL.ComboUser newUser = new ComboUser();            
+            if (!string.IsNullOrEmpty(user.DisplayName))
+                newUser.DisplayName = user.DisplayName;
+            if (!string.IsNullOrEmpty(user.Password))
+                newUser.Password = user.Password;
+            if (!string.IsNullOrEmpty(user.Email))
+                newUser.Email = user.Email;
+            if (!string.IsNullOrEmpty(user.Bio))
+                newUser.Bio = user.Bio;
+            if (user.ProfileImgID != 0)
+                newUser.ProfileImgID = user.ProfileImgID;
+            if (user.CoverImgID != 0)
+                newUser.CoverImgID = user.CoverImgID;
+            if (user.GenderID != 0)
+                newUser.GenderID = user.GenderID;
+            
+            if (user.ExternalIDType != 0)
+            {
+                newUser.ExternalIDType = user.ExternalIDType;
+                newUser.ExternalID = user.ExternalID;
+            }
+            if (!string.IsNullOrEmpty(user.DeviceID))
+                newUser.DeviceID = user.DeviceID;
+            newUser.Save();
+
+            user.ComboUserID = newUser.ComboUserID;
+            _response.Entity = new Models.ComboUser[]{ user};
+
+            SetContentResult(_response);
             return;
         }
 
@@ -248,7 +294,7 @@ namespace Combo.ComboAPI
             }
 
             _response.Entity = null;
-            //SetContentResult(_response);
+            SetContentResult(_response);
             return;
         }
 
@@ -297,7 +343,7 @@ namespace Combo.ComboAPI
                     SmtpClient client = new SmtpClient(Combo.Properties.Resources.mailserver, Convert.ToInt32(Combo.Properties.Resources.port));
 
                     client.UseDefaultCredentials = false;
-                    client.EnableSsl = true;
+                    //client.EnableSsl = true;
                     client.Credentials = new System.Net.NetworkCredential(mail, Combo.Properties.Resources.mailpass);
                     client.Send(msg);
                 }
@@ -310,15 +356,81 @@ namespace Combo.ComboAPI
             }
 
             _response.Entity = null;
-            //SetContentResult(_response);
+            SetContentResult(_response);
             return;
         }
+        #endregion
 
-        private void SetContentResult()
+
+        #region Global
+        private void SetContentResult(dynamic data)
         {
-            //string result = Newtonsoft.Json.JsonConvert.SerializeObject(data);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(data);
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
-            //HttpContext.Current.Response.Write(result);            
+            HttpContext.Current.Response.Write(result);
+            HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+            HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+            HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
         }
+
+       
+        public void GeneralUpload(int userId)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            try
+            {
+                if (HttpContext.Current.Request.Files.Count != 0)
+                {
+                    var ext = Path.GetExtension(HttpContext.Current.Request.Files[0].FileName);
+                    var fileName = Path.GetFileName(HttpContext.Current.Request.Files[0].FileName);
+
+                    if (HttpContext.Current.Request.Files[0].FileName.LastIndexOf("\\") != -1)
+                    {
+                        fileName = HttpContext.Current.Request.Files[0].FileName.Remove(0, HttpContext.Current.Request.Files[0].FileName.LastIndexOf("\\")).ToLower();
+                    }
+
+                    DirectoryInfo dir = new DirectoryInfo(Server.MapPath("~/userfiles/" + userId.ToString()));
+                    if (!dir.Exists)
+                        dir.Create();
+
+                    string FilePath = "/userfiles/" + userId.ToString() + fileName + ext;
+
+
+                    string location = HttpContext.Current.Server.MapPath("~/" + FilePath);
+                    HttpContext.Current.Request.Files[0].SaveAs(location);
+
+                    BLL.Attachment newfile = new BLL.Attachment();
+                    newfile.AddNew();
+                    newfile.Path = FilePath;
+                    newfile.Save();
+
+                    Models.Attachment responseText = new Models.Attachment();
+                    responseText.AttachmentID = newfile.AttachmentID;
+                    responseText.Path = newfile.Path;
+
+                    _response.Entity = responseText;
+                    SetContentResult(_response);
+                }
+                else
+                {
+                    _response.bool_result = false;
+                    _response.ErrorCode = 21;
+                    _response.ErrorMsg = "No file found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.bool_result = false;
+                _response.ErrorCode = 20;
+                _response.ErrorMsg = "Error while uploading file.";
+            }
+
+            SetContentResult(_response);    
+        }
+        #endregion
     }
 }

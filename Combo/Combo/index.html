@@ -24,32 +24,50 @@
                         $('#error').html(data.ErrorMsg);
                     }
                 });
-            /*
-            $.getJSON("api/ComboUser/GetUser?Username=asd&Password=21345",
-                function (data) {
-                    $('#users').empty(); // Clear the table body.
+           
+        }
 
-                    if (data.bool_result != false)
-                    {
-                        $.each(data.Entity, function (key, val) {
-                            // Add a table row for the product.
-                            var row = '<td>' + val.ComboUserID + '</td><td>' + val.UserName + '</td><td><a onclick=\'forgetpass("' + val.UserName + '");\'>forgetpass</a></td><td><a onclick=\'deleteuser("' + val.ComboUserID + '");\'>delete</a></td>';
-                            $('<tr/>', { html: row })  // Append the name.
-                                .appendTo($('#users'));
-                        });
-                    }
-                    else
-                    {
-                        $('#error').css('display', 'block');
-                        $('#error').html(data.ErrorMsg);
-                    }
-                });
-            
-             var user = { id: 9 }
+        function getuserbyid()
+        {
+            var user = { id: 9 }
             var json = JSON.stringify(user);
 
             $.ajax({
                 url: 'ComboAPI/combo.asmx/GetUserByID',
+                cache: false,
+                type: 'Post',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       console.log(data);
+                       if (data.bool_result != false) {
+                           $.each(data.Entity, function (key, val) {
+                               // Add a table row for the product.
+                               var row = '<td>' + val.ComboUserID + '</td><td>' + val.UserName + '</td><td><a onclick=\'forgetpass("' + val.UserName + '");\'>forgetpass</a></td><td><a onclick=\'deleteuser("' + val.ComboUserID + '");\'>delete</a></td>';
+                               $('<tr/>', { html: row })  // Append the name.
+                                   .appendTo($('#users'));
+                           });
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
+
+        function getuserbyuernameandpass()
+        {
+            var user = { username : "awe", password :"666" }
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/GetUser',
                 cache: false,
                 type: 'Post',
                 data: json,
@@ -73,13 +91,13 @@
 
                    }
 
-            });*/
+            });
         }
 
-        $(document).ready(getUsers);
+       // $(document).ready(getUsers);
 
         function addUser() {
-            var user = { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val() };
+            var user = { user: { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val() } };
             var json = JSON.stringify(user);
 
             $.ajax({
@@ -163,6 +181,38 @@
 
             });
         }
+
+        function uploadFile() {
+            var alldata = new FormData();
+            alldata.append('file',$('#afile')[0].files[0]);
+            alldata.append('UserId', 9);
+            alldata.append("Type", 1);
+            //var json = JSON.stringify(alldata);
+
+            $.ajax({
+                url: 'ComboAPI/FileUploader.ashx',
+                cache: false,
+                type: 'Post',
+                data: alldata,
+                processData: false,
+                contentType: false,
+                success:
+                   function (data) {
+                       console.log(data);
+                       if (data.bool_result != false) {
+                           console.log(data);
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
     </script>
 </head>
 <body>
@@ -174,6 +224,15 @@
     <input id="text" type="text" />
     <input id="pass" type="password" />
     <input id="email" type="text" />
-    <input id="Button1" type="button" value="button" onclick="addUser()" />
+    <input id="Button1" type="button" value="add" onclick="addUser()" />
+    <input id="Button1" type="button" value="get user by user name" onclick="getuserbyuernameandpass()" />
+    <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
+    <input id="Button1" type="button" value="get all users" onclick="getUsers()" />
+
+
+    
+        <input type="file" id="afile"/>        
+        <input type="button" onclick="uploadFile()" />
+    
 </body>
 </html>

@@ -19,6 +19,8 @@ namespace Combo.Models
         /// 11 - username not found
         /// 12 - username exists before
         /// 13 - email is required
+        /// 20 - error while uploading file
+        /// 21 - no file found
         /// 9999 - General Error
         /// </summary>
         public int ErrorCode { get; set; }
