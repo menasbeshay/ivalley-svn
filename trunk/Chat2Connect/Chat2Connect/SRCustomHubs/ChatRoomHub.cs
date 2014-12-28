@@ -325,7 +325,7 @@ namespace Chat2Connect.SRCustomHubs
             };
             Clients.Group(GetRoomAdminGroupName(roomid)).getAdminMessage(roomid, resultMsg);
         }
-        public void sendPrivateMessage(int toUserId, string message, string profileImg)
+        public void sendPrivateMessage(int toUserId, string message, string profileImg, int MemberTypeID)
         {
             message = message.Replace("<br>", "");
             var toUser = ConnectedUsers.FirstOrDefault(x => x.MemberID == toUserId);
@@ -340,7 +340,7 @@ namespace Chat2Connect.SRCustomHubs
                     Message = message,
                     MessageDate = DateTime.Now,
                     FromProfileImg = profileImg,
-                    MemberTypeID = fromUser.MemberTypeSpecID
+                    MemberTypeID = MemberTypeID
                 };
                 // send to 
                 Clients.Client(toUser.ConnectionId).getPrivateMessage(fromUser.MemberID, resultMsg);

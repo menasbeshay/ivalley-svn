@@ -1047,7 +1047,8 @@ namespace Chat2Connect.services
         {
             string[] ToMembers = toIds.Split(',');
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-
+            Member sender = new Member();
+            sender.LoadByPrimaryKey(Member.CurrentMemberID);
             try
             {
                 for (int i = 0; i < ToMembers.Length; i++)
@@ -1062,7 +1063,8 @@ namespace Chat2Connect.services
                         FromName = Member.CurrentMember.UserName,
                         Message = msg,
                         MessageDate = DateTime.Now,
-                        FromProfileImg = Member.CurrentMember.ProfilePic
+                        FromProfileImg = Member.CurrentMember.ProfilePic,
+                        MemberTypeID = sender.MemberType.MemberTypeSpecDurationID
                     };
                     _Rcontext.Clients.Group(user.UserName).getPrivateMessage(Member.CurrentMemberID, resultMsg);
                 }

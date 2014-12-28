@@ -926,7 +926,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         this.startMic = function (memberid) {
             var window = this;
             // close current mic member mic
-            if (window.MicMember() != null) {
+            if (window.MicMember() != null && window.Type() != 'Private') {
                 window.stopMic(window.MicMember().MemberID());
             }
             var member = window.getMember(memberid);
@@ -1350,7 +1350,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     }
                 });
             }
-            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic, MemberTypeID: self.CurrentMemberType, HasGift: false }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '', HasGift: false, MemberTypeID: typeSpec }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
+            var room = { ID: id, Name: name, Type: type, IsTemp: true, IsHelp: isHelp, Message: "", MessageHistory: [], Members: [{ MemberID: self.CurrentMemberID, MemberName: self.CurrentMemberName, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: self.CurrentMemberPic, MemberTypeID: self.CurrentMemberType, HasGift: false, LastJoinDate: new Date() }, { MemberID: id, MemberName: name, IsMicOpened: false, IsCamOpened: false, IsCamViewed: false, MemberLevelID: 0, InRoom: 1, QueueOrder: 0, NotifyOnCloseCam: false, NotifyOnOpenCam: false, NotifyOnMicOn: false, NotifyOnMicOff: false, ShowMessageTime: false, IsFriend: isfriend, ProfileImg: '', HasGift: false, MemberTypeID: typeSpec, LastJoinDate: new Date() }], CurrentMemberID: self.CurrentMemberID, Gifts: gifts, Settings: { TypeID: typeSpec, EnableCam: true, EnableMic: true } };
             var win = ko.mapping.fromJS(room, mapping);
             self.windows.push(win);
             self.changeCurrent(win.uniqueID(), win.ID(), win.Type());
@@ -1439,7 +1439,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             rHub.server.sendToRoom(window.ID(), window.CurrentMember().MemberID(), window.CurrentMember().MemberName(), window.Editor.getValue(), window.CurrentMember().MemberLevelID(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID(), window.uniqueID());
         }
         else {
-            rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue(), window.CurrentMember().ProfileImg());
+            rHub.server.sendPrivateMessage(window.ID(), window.Editor.getValue(), window.CurrentMember().ProfileImg(), window.CurrentMember().MemberTypeID());
         }
         //window.Message("");
         window.initEditor();
@@ -2339,7 +2339,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
         });
         if (member != undefined) {
             member[prop](val);
-            
+            initPopupMenu();
         }
         member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
             return f.MemberID() == mid;
@@ -2371,6 +2371,8 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             $('#GeneralGiftUL').find('label').removeClass('selected');
             $('#GeneralGiftUL' + ' #gift_' + generalSelectedGift.attr('data-giftid')).next('label').addClass('selected');
         });
+
+
 
        
     }
