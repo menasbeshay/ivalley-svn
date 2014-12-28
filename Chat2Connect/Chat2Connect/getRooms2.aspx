@@ -20,7 +20,7 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="ContentRow">
-                    <div class="col-lg-5 pull-right"><a id="rooms_rm_<%# Eval("RoomID") %>" href="#" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' data-typespec='<%# Eval("RoomTypeSpecID") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
+                    <div class="col-lg-5 pull-right"><a id="rooms_rm_<%# Eval("RoomID") %>" class="OpenRoom" data-related="<%# Eval("RoomID").ToString() %>" data-name='<%# Eval("Name") %>' data-typespec='<%# Eval("RoomTypeSpecID") %>' style="color:<%# Eval("Color") %>"><%# Eval("Name") %></a></div>
                     <div class="pull-right center" style="width: 21%; padding: 0 5px;">
                         <span id="rooms_rm_<%# Eval("RoomID") %>_existingmembers"><%# Eval("ExistingMembersCount") %></span>
                     </div>

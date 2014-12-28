@@ -2344,3 +2344,6 @@ a.catLink, a.subcatLink {
 .catLink.selected , .subcatLink.selected {
     background-color:#FEC200;
 }
+.OpenRoom {
+    cursor:pointer;
+}

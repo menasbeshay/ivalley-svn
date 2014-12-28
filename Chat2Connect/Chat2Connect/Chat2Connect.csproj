@@ -755,7 +755,6 @@
     <None Include="testswf\chat2connect3.swf" />
     <Content Include="testswf\recorder.swf" />
     <Content Include="Thumb.aspx" />
-    <Content Include="Thumbaspx.aspx" />
     <Content Include="upload.html" />
     <Content Include="usercontrols\Friends.ascx" />
     <Content Include="usercontrols\Friends_V2.ascx" />
@@ -1410,13 +1409,6 @@
     </Compile>
     <Compile Include="Thumb.aspx.designer.cs">
       <DependentUpon>Thumb.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Thumbaspx.aspx.cs">
-      <DependentUpon>Thumbaspx.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Thumbaspx.aspx.designer.cs">
-      <DependentUpon>Thumbaspx.aspx</DependentUpon>
     </Compile>
     <Compile Include="usercontrols\Friends.ascx.cs">
       <DependentUpon>Friends.ascx</DependentUpon>
