@@ -167,10 +167,10 @@
 		
 
         <div class="grid_4">
-						<h3 class="col-title">PhotoStream <small>- Instagram</small></h3>
+						<h3 class="col-title">عدد الزوار</h3>
 	
 						<div class="widget-content">
-							<iframe src="http://snapwidget.com/in/?u=bW92ZW1iZXJ8aW58NzB8NHwyfHxub3wxOHxmYWRlT3V0fG9uU3RhcnR8bm8=&amp;v=171113" width="352" height="176"></iframe>
+							<div ><a href='http://www.hit-counts.com'><img src='http://www.hit-counts.com/counter.php?t=MTM0MjQ3Nw==' border='0' alt='Web Counter'></a><a href='http://www.hit-counts.com' style="display:none">Web Counter</a></div>
 						</div><!-- widget content -->
 					</div><!-- grid 4 -->
 				</div><!-- row -->
