@@ -73,6 +73,25 @@
             
         </FooterTemplate>
     </asp:Repeater>
+
+     <div class="AdminLeft" style="width: 195px">
+                <asp:Label ID="Label1" runat="server" CssClass="Label" 
+                Text="تقدير المجموع :"></asp:Label>
+            </div>
+            <div class="AdminMiddle">
+                <asp:DropDownList ID="uiDropDownListEvalTotal" runat="server">
+                        <asp:ListItem Text="ضعيف جداً" />
+                        <asp:ListItem Text="ضعيف " />
+                        <asp:ListItem Text="جيد" />
+                        <asp:ListItem Text="جيد جداً" />
+                        <asp:ListItem Text="ممتاز" />
+                    </asp:DropDownList>
+            </div>
+            <div class="AdminRight" style="width: 30%">
+                <asp:HiddenField ID="uiHiddenFieldTotalResultID" runat="server" />
+            &nbsp;</div>
+            <div class="clear">
+            </div>    
     <div class="clear" style="height: 10px;">
             </div>
             <asp:Button ID="uiButtonUpdate" runat="server" Text="تعديل / إضافة" 

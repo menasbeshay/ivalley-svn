@@ -882,12 +882,12 @@ namespace Taqwa.BLL
         #endregion
 
         #region  Courses Methods
-        public bool AddCourse(int MaxGrade ,int MinGrade ,string ENName ,string ARName ,int ClassID, bool InTotal)
+        public bool AddCourse(int MaxGradeFMT, int MinGradeFMT, int MaxGradeFT, int MinGradeFT, int MaxGradeSMT, int MinGradeSMT, int MaxGradeST, int MinGradeST, string ENName, string ARName, int ClassID, bool InTotal)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddCourse", MaxGrade , MinGrade , ENName , ARName , ClassID, InTotal);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddCourse", MaxGradeFMT, MinGradeFMT, MaxGradeFT, MinGradeFT, MaxGradeSMT, MinGradeSMT, MaxGradeST, MinGradeST, ENName, ARName, ClassID, InTotal);
                 return (rows > 0);
             }
             catch (Exception)
@@ -896,12 +896,12 @@ namespace Taqwa.BLL
             }
         }
 
-        public bool UpdateCourse(int CourseID, int MaxGrade, int MinGrade, string ENName, string ARName, int ClassID, bool InTotal)
+        public bool UpdateCourse(int CourseID, int MaxGradeFMT, int MinGradeFMT, int MaxGradeFT, int MinGradeFT, int MaxGradeSMT, int MinGradeSMT, int MaxGradeST, int MinGradeST, string ENName, string ARName, int ClassID, bool InTotal)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateCourse", CourseID, MaxGrade, MinGrade, ARName,ENName, ClassID, InTotal);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "UpdateCourse", CourseID, MaxGradeFMT, MinGradeFMT, MaxGradeFT, MinGradeFT, MaxGradeSMT, MinGradeSMT, MaxGradeST, MinGradeST, ARName, ENName, ClassID, InTotal);
                 return (rows > 0);
             }
             catch (Exception)
