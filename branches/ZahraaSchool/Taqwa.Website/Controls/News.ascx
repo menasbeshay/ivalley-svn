@@ -14,7 +14,7 @@
             </div>
             <div style="clear:both;height:1px;"></div>
             <div class="NewsDetails">
-                <%# Eval("ArBody").ToString().Length > 200 ? Server.HtmlDecode(Eval("ArBody").ToString()).Substring(0,200) : Server.HtmlDecode(Eval("ArBody").ToString()) %>
+                <%# System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Length > 200 ? System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "").Substring(0, 200) : System.Text.RegularExpressions.Regex.Replace(Server.HtmlDecode(Eval("ArBody").ToString()), @"<[^>]+>|&nbsp;", "") %>
             </div>
         </ItemTemplate>
         <SeparatorTemplate>

@@ -138,6 +138,47 @@ namespace Taqwa.Website.Admin.Controls
             CurrentStudentResults = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
             uiRepeaterResults.DataSource = db.GetAllCoursesByClass(classID);
             uiRepeaterResults.DataBind();
+
+            switch (CurrentResultType)
+            {
+                case 1:
+                    DataRow[] resultFMT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and FirstHalfMidTerm = 1");
+                    if (resultFMT.Length > 0)
+                    {
+                        uiDropDownListEvalTotal.SelectedValue = resultFMT[0]["Evaluation"].ToString();
+                        uiHiddenFieldTotalResultID.Value = resultFMT[0]["ResultID"].ToString();
+                    }
+
+                    break;
+                case 2:
+                    DataRow[] resultFT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and FirstHalfFinal = 1");
+                    if (resultFT.Length > 0)
+                    {
+                        uiDropDownListEvalTotal.SelectedValue = resultFT[0]["Evaluation"].ToString();
+                        uiHiddenFieldTotalResultID.Value = resultFT[0]["ResultID"].ToString();
+                    }
+                    break;
+                case 3:
+                    DataRow[] resultSMT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and SecondHalfMidTerm = 1");
+                    if (resultSMT.Length > 0)
+                    {
+                        uiDropDownListEvalTotal.SelectedValue = resultSMT[0]["Evaluation"].ToString();
+                        uiHiddenFieldTotalResultID.Value = resultSMT[0]["ResultID"].ToString();
+                    }
+                    break;
+                case 4:
+                    DataRow[] resultST = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and SecondHalfFinal = 1");
+                    if (resultST.Length > 0)
+                    {
+                        uiDropDownListEvalTotal.SelectedValue = resultST[0]["Evaluation"].ToString();
+                        uiHiddenFieldTotalResultID.Value = resultST[0]["ResultID"].ToString();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+
         }
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
@@ -170,7 +211,12 @@ namespace Taqwa.Website.Admin.Controls
                 }
                 
             }
-                                  
+
+            // add total evaluation
+            if(!db.AddResult(CurrentActiveStudent, 1000000, 0, uiDropDownListEvalTotal.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue)))
+                db.UpdateResult(Convert.ToInt32(uiHiddenFieldTotalResultID.Value), CurrentActiveStudent, 1000000, 0, uiDropDownListEvalTotal.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                      
+
             //BindData();
             BindResults(Convert.ToInt32(uiHiddenFieldClassID.Value));
         }
@@ -206,18 +252,19 @@ namespace Taqwa.Website.Admin.Controls
                 ResultId.Value = "0";
                 course.Text = row["ArName"].ToString();
                 CourseId.Value = row["CourseID"].ToString();
-                MaxGrade.Value = row["MaxGrade"].ToString();
+                
 
                 foreach (DataRow item in CurrentStudentResults.Tables[0].Rows)
-	            {
-                    
+                {
+
                     if (CurrentResultType == 1)
                     {
                         if (row["CourseID"].ToString() == item["CourseID"].ToString() && uiDropDownListSchoolYear.SelectedValue == item["SchoolYearID"].ToString() && item["FirstHalfMidterm"].ToString() == "True")
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();                            
+                            ResultId.Value = item["ResultID"].ToString();
+                            MaxGrade.Value = row["MaxGradeFMT"].ToString();
                         }
                     }
                     else if (CurrentResultType == 2)
@@ -226,7 +273,8 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();                          
+                            ResultId.Value = item["ResultID"].ToString();
+                            MaxGrade.Value = row["MaxGradeFT"].ToString();
                         }
                     }
                     else if (CurrentResultType == 3)
@@ -235,7 +283,8 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();                            
+                            ResultId.Value = item["ResultID"].ToString();
+                            MaxGrade.Value = row["MaxGradeSMT"].ToString();
                         }
                     }
                     else if (CurrentResultType == 4)
@@ -244,10 +293,12 @@ namespace Taqwa.Website.Admin.Controls
                         {
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
-                            ResultId.Value = item["ResultID"].ToString();                            
+                            ResultId.Value = item["ResultID"].ToString();
+                            MaxGrade.Value = row["MaxGradeST"].ToString();
                         }
                     }
-	            }
+
+                }
             }
         }
 
