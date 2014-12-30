@@ -62,6 +62,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\changepass.aspx" />
     <Content Include="Admin\EditClassFiles.aspx" />
     <Content Include="Admin\EditClassVideos.aspx" />
     <Content Include="ClassAttachment.aspx" />
@@ -1339,6 +1340,13 @@
     </Compile>
     <Compile Include="AccountMatster.master.designer.cs">
       <DependentUpon>AccountMatster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\changepass.aspx.cs">
+      <DependentUpon>changepass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\changepass.aspx.designer.cs">
+      <DependentUpon>changepass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditClassFiles.aspx.cs">
       <DependentUpon>EditClassFiles.aspx</DependentUpon>

@@ -91,11 +91,11 @@ namespace Taqwa.Website.Admin
             DBLayer db = new DBLayer();
             if (CurrentCourse != 0)
             {
-                db.UpdateCourse(CurrentCourse, Convert.ToInt32(uiTextBoxMaxGrade.Text), Convert.ToInt32(uiTextBoxMinGrade.Text), uiTextBoxEnName.Text, uiTextBoxArName.Text,Convert.ToInt32(uiDropDownListClasses.SelectedValue), uiCheckBoxInTotal.Checked);
+                db.UpdateCourse(CurrentCourse, Convert.ToInt32(uiTextBoxMaxGradeFMT.Text), Convert.ToInt32(uiTextBoxMinGradeFMT.Text), Convert.ToInt32(uiTextBoxMaxGradeFT.Text), Convert.ToInt32(uiTextBoxMinGradeFT.Text), Convert.ToInt32(uiTextBoxMaxGradeSMT.Text), Convert.ToInt32(uiTextBoxMinGradeSMT.Text), Convert.ToInt32(uiTextBoxMaxGradeST.Text), Convert.ToInt32(uiTextBoxMinGradeST.Text), uiTextBoxEnName.Text, uiTextBoxArName.Text, Convert.ToInt32(uiDropDownListClasses.SelectedValue), uiCheckBoxInTotal.Checked);
             }
             else
             {
-                db.AddCourse(Convert.ToInt32(uiTextBoxMaxGrade.Text), Convert.ToInt32(uiTextBoxMinGrade.Text), uiTextBoxEnName.Text, uiTextBoxArName.Text, Convert.ToInt32(uiDropDownListClasses.SelectedValue), uiCheckBoxInTotal.Checked);
+                db.AddCourse(Convert.ToInt32(uiTextBoxMaxGradeFMT.Text), Convert.ToInt32(uiTextBoxMinGradeFMT.Text), Convert.ToInt32(uiTextBoxMaxGradeFT.Text), Convert.ToInt32(uiTextBoxMinGradeFT.Text), Convert.ToInt32(uiTextBoxMaxGradeSMT.Text), Convert.ToInt32(uiTextBoxMinGradeSMT.Text), Convert.ToInt32(uiTextBoxMaxGradeST.Text), Convert.ToInt32(uiTextBoxMinGradeST.Text), uiTextBoxEnName.Text, uiTextBoxArName.Text, Convert.ToInt32(uiDropDownListClasses.SelectedValue), uiCheckBoxInTotal.Checked);
             }
             CurrentCourse = 0;
             uiPanelCurrentCourses.Visible = true;
@@ -129,8 +129,22 @@ namespace Taqwa.Website.Admin
                 {
                     uiTextBoxEnName.Text = ds.Tables[0].Rows[0]["ENName"].ToString();
                     uiTextBoxArName.Text = ds.Tables[0].Rows[0]["ARName"].ToString();
-                    uiTextBoxMaxGrade.Text = ds.Tables[0].Rows[0]["MinGrade"].ToString();
-                    uiTextBoxMinGrade.Text = ds.Tables[0].Rows[0]["MaxGrade"].ToString();
+                    if (ds.Tables[0].Rows[0]["MinGradeFMT"] != null)
+                        uiTextBoxMaxGradeFMT.Text = ds.Tables[0].Rows[0]["MinGradeFMT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MaxGradeFMT"] != null)
+                        uiTextBoxMinGradeFMT.Text = ds.Tables[0].Rows[0]["MaxGradeFMT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MinGradeFT"] != null)
+                        uiTextBoxMaxGradeFT.Text = ds.Tables[0].Rows[0]["MinGradeFT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MaxGradeFT"] != null)
+                        uiTextBoxMinGradeFT.Text = ds.Tables[0].Rows[0]["MaxGradeFT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MinGradeSMT"] != null)
+                        uiTextBoxMaxGradeSMT.Text = ds.Tables[0].Rows[0]["MinGradeSMT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MaxGradeSMT"] != null)
+                        uiTextBoxMinGradeSMT.Text = ds.Tables[0].Rows[0]["MaxGradeSMT"].ToString();
+                    if (ds.Tables[0].Rows[0]["MinGradeST"] != null)
+                        uiTextBoxMaxGradeST.Text = ds.Tables[0].Rows[0]["MinGradeST"].ToString();
+                    if (ds.Tables[0].Rows[0]["MaxGradeST"] != null)
+                        uiTextBoxMinGradeST.Text = ds.Tables[0].Rows[0]["MaxGradeST"].ToString();
                     uiCheckBoxInTotal.Checked = string.IsNullOrEmpty(ds.Tables[0].Rows[0]["InTotal"].ToString()) ? false : (bool)ds.Tables[0].Rows[0]["InTotal"];
                 }
                 uiPanelCurrentCourses.Visible = false;
@@ -152,8 +166,14 @@ namespace Taqwa.Website.Admin
         {
             uiTextBoxEnName.Text = "";
             uiTextBoxArName.Text = "";
-            uiTextBoxMaxGrade.Text = "";
-            uiTextBoxMinGrade.Text = "";
+            uiTextBoxMaxGradeFMT.Text = "";
+            uiTextBoxMinGradeFMT.Text = "";
+            uiTextBoxMaxGradeFT.Text = "";
+            uiTextBoxMinGradeFT.Text = "";
+            uiTextBoxMaxGradeSMT.Text = "";
+            uiTextBoxMinGradeSMT.Text = "";
+            uiTextBoxMaxGradeST.Text = "";
+            uiTextBoxMinGradeST.Text = "";
             uiCheckBoxInTotal.Checked = false;
         }
 

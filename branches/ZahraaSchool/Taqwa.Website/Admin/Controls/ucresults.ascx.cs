@@ -182,7 +182,8 @@ namespace Taqwa.Website.Admin.Controls
         }
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
-        {            
+        {
+            uiLabelError.Visible = false;
             DBLayer db = new DBLayer();
             foreach (RepeaterItem item in uiRepeaterResults.Items)
             {
@@ -191,30 +192,38 @@ namespace Taqwa.Website.Admin.Controls
                 HiddenField CourseId = (HiddenField)item.FindControl("uiHiddenFieldResultID");
                 HiddenField ResultId = (HiddenField)item.FindControl("uiHiddenFieldCourseID");
                 HiddenField MaxGrade = (HiddenField)item.FindControl("uiHiddenFieldMaxGrade");
-                if (float.Parse(grade.Text) <= float.Parse(MaxGrade.Value))
-                {
 
-                    if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
-                    {
-                        db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-                    }
-                    else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
-                    {
-                        db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
-                    }
-
-                }
-                else
+                if (string.IsNullOrEmpty(MaxGrade.Value))
+                    MaxGrade.Value = "1000";
+                if (!string.IsNullOrEmpty(grade.Text))
                 {
-                    uiLabelError.Visible = true;
-                    uiLabelError.Text += "<br/>لا يمكن إضافة نتيجة أعلى من النهاية العظمى";
+                    if (float.Parse(grade.Text) <= float.Parse(MaxGrade.Value))
+                    {
+
+                        if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                        {
+                            db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                        }
+                        else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                        {
+                            db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                        }
+
+                    }
+                    else
+                    {
+                        uiLabelError.Visible = true;
+                        uiLabelError.Text += "<br/>لا يمكن إضافة نتيجة أعلى من النهاية العظمى";
+                    }
                 }
                 
             }
 
             // add total evaluation
-            if(!db.AddResult(CurrentActiveStudent, 1000000, 0, uiDropDownListEvalTotal.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue)))
+            if (!string.IsNullOrEmpty(uiHiddenFieldTotalResultID.Value))
                 db.UpdateResult(Convert.ToInt32(uiHiddenFieldTotalResultID.Value), CurrentActiveStudent, 1000000, 0, uiDropDownListEvalTotal.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+            else
+                db.AddResult(CurrentActiveStudent, 1000000, 0, uiDropDownListEvalTotal.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                       
 
             //BindData();
@@ -252,7 +261,14 @@ namespace Taqwa.Website.Admin.Controls
                 ResultId.Value = "0";
                 course.Text = row["ArName"].ToString();
                 CourseId.Value = row["CourseID"].ToString();
-                
+                if(CurrentResultType == 1)
+                    MaxGrade.Value = row["MaxGradeFMT"].ToString();
+                if (CurrentResultType == 2)
+                    MaxGrade.Value = row["MaxGradeFT"].ToString();
+                if (CurrentResultType == 3)
+                    MaxGrade.Value = row["MaxGradeSMT"].ToString();
+                if (CurrentResultType == 4)
+                    MaxGrade.Value = row["MaxGradeST"].ToString();
 
                 foreach (DataRow item in CurrentStudentResults.Tables[0].Rows)
                 {
@@ -264,7 +280,7 @@ namespace Taqwa.Website.Admin.Controls
                             grade.Text = item["Grade"].ToString();
                             eval.Text = item["Evaluation"].ToString();
                             ResultId.Value = item["ResultID"].ToString();
-                            MaxGrade.Value = row["MaxGradeFMT"].ToString();
+                           
                         }
                     }
                     else if (CurrentResultType == 2)
