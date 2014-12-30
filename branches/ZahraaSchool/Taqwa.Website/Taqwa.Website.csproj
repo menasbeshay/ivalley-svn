@@ -65,6 +65,7 @@
     <Content Include="Admin\changepass.aspx" />
     <Content Include="Admin\EditClassFiles.aspx" />
     <Content Include="Admin\EditClassVideos.aspx" />
+    <Content Include="Admin\promotestudents.aspx" />
     <Content Include="ClassAttachment.aspx" />
     <Content Include="gpage.aspx" />
     <Content Include="Admin\AdminCP.aspx" />
@@ -1361,6 +1362,13 @@
     </Compile>
     <Compile Include="Admin\EditClassVideos.aspx.designer.cs">
       <DependentUpon>EditClassVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\promotestudents.aspx.cs">
+      <DependentUpon>promotestudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\promotestudents.aspx.designer.cs">
+      <DependentUpon>promotestudents.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClassAttachment.aspx.cs">
       <DependentUpon>ClassAttachment.aspx</DependentUpon>

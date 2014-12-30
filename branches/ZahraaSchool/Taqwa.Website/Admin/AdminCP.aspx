@@ -178,6 +178,18 @@
             <br />
              ملفات
         </a>
+
+        <a href="changepass.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             تغيير كلمة مرور الأدمن
+        </a>
+
+        <a href="promotestudents.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+            نقل الطلاب الناجحين للمراحل الجديدة
+        </a>
     </div>
 </div>
 </asp:Content>
