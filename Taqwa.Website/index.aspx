@@ -56,7 +56,8 @@
 
 			<div class="intro_p tac">
 				<div class="row inner clearfix">
-					<h2>مرحباً بكم فى موقع مدرسة الزهراء  الخاصة</h2>
+					<h1>مرحباً بكم فى موقع مدرسة الزهراء الخاصة 2</h1>
+                    <div class="clearfix" style="height:10px;"></div>
 					<a href="Pages.aspx?PID=12" class="tbutton large"><i class="icon_comment_alt"></i><span>شروط الإلتحاق بالمدرسة</span></a>
 					<a href="Pages.aspx?PID=6" class="tbutton large m_left"><i class="icon_lightbulb_alt"></i><span>وظائف بالمدرسة</span></a>
 				</div><!-- End row -->

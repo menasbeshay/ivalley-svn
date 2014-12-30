@@ -93,10 +93,10 @@
         
          <div class="AdminLeft" style="width: 195px">
             <asp:Label ID="Label1" runat="server" CssClass="Label" 
-                Text="النهاية الصغرى :"></asp:Label>
+                Text="النهاية الصغرى <br />(نصف الفصل الدارسى الأول):"></asp:Label>
         </div>
         <div class="AdminMiddle">
-            <asp:TextBox ID="uiTextBoxMinGrade" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+            <asp:TextBox ID="uiTextBoxMinGradeFMT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
         </div>
         <div class="AdminRight" style="width: 30%">
             &nbsp;</div>
@@ -105,10 +105,79 @@
         
          <div class="AdminLeft" style="width: 195px">
             <asp:Label ID="Label2" runat="server" CssClass="Label" 
-                Text="النهاية العظمى :"></asp:Label>
+                Text="النهاية العظمى <br />(نصف الفصل الدارسى الأول):"></asp:Label>
         </div>
         <div class="AdminMiddle">
-            <asp:TextBox ID="uiTextBoxMaxGrade" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+            <asp:TextBox ID="uiTextBoxMaxGradeFMT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label5" runat="server" CssClass="Label" 
+                Text="النهاية الصغرى <br />(نصف العام):"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMinGradeFT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+        
+        
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label6" runat="server" CssClass="Label" 
+                Text="النهاية العظمى <br />(نصف العام):"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMaxGradeFT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label8" runat="server" CssClass="Label" 
+                Text="النهاية الصغرى <br />(نصف الفصل الدراسى الثانى):"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMinGradeSMT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+        
+        
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label10" runat="server" CssClass="Label" 
+                Text="النهاية العظمى <br />(نصف الفصل الداراسى الثانى):"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMaxGradeSMT" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label11" runat="server" CssClass="Label" 
+                Text="النهاية الصغرى<br/> (نهاية العام) :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMinGradeST" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
+        </div>
+        <div class="AdminRight" style="width: 30%">
+            &nbsp;</div>
+        <div class="clear"></div>
+        
+        
+         <div class="AdminLeft" style="width: 195px">
+            <asp:Label ID="Label12" runat="server" CssClass="Label" 
+                Text="النهاية العظمى <br/> (نهاية العام) :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:TextBox ID="uiTextBoxMaxGradeST" runat="server" ValidationGroup="UpdatePage"></asp:TextBox>
         </div>
         <div class="AdminRight" style="width: 30%">
             &nbsp;</div>

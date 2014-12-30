@@ -18,6 +18,15 @@ namespace Taqwa.Website.Controls
                 {
                     uiPanelLogin.Visible = false;
                     uiPanelLogout.Visible = true;
+                    DBLayer db = new DBLayer();
+                    DataSet ds = new DataSet();
+                    ds = db.GetStudent(Convert.ToInt32(Session["CurrentLoggedInStudent"].ToString()));
+                    uiLabelInfo.Text = "مرحباً " + ds.Tables[0].Rows[0]["ARStudentName"].ToString() + " ، ";
+                    DataSet StudentClassRoom = new DataSet();
+                    StudentClassRoom = db.GetClassRoom(Convert.ToInt32(ds.Tables[0].Rows[0]["ClassRoomID"].ToString()));
+                    DataSet StudentClass = new DataSet();
+                    StudentClass = db.GetClass(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
+                    uiLabelInfo.Text += StudentClass.Tables[0].Rows[0]["ARName"].ToString();
                 }
                 else 
                 {
@@ -35,11 +44,17 @@ namespace Taqwa.Website.Controls
 
             if (ds.Tables[0].Rows.Count > 0 )
             {
-                if (ds.Tables[0].Rows[0]["IsActive"] != "0")
+                if (ds.Tables[0].Rows[0]["IsActive"].ToString() != "0")
                 {
                     Session["CurrentLoggedInStudent"] = ds.Tables[0].Rows[0]["StudentID"].ToString();
                     uiPanelLogin.Visible = false;
                     uiPanelLogout.Visible = true;
+                    uiLabelInfo.Text = "مرحباً " + ds.Tables[0].Rows[0]["ARStudentName"].ToString() + " ، ";
+                    DataSet StudentClassRoom = new DataSet();
+                    StudentClassRoom = db.GetClassRoom(Convert.ToInt32(ds.Tables[0].Rows[0]["ClassRoomID"].ToString()));
+                    DataSet StudentClass = new DataSet();
+                    StudentClass = db.GetClass(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
+                    uiLabelInfo.Text += StudentClass.Tables[0].Rows[0]["ARName"].ToString();
                 }
             }
         }

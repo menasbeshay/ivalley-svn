@@ -16,12 +16,15 @@
 
 <asp:Panel ID="uiPanelLogout" runat="server" CssClass="pull-left">
 <div class="grid_12 fll pull-left ">
-    <div class="grid_4 pull-right fll">
+    <div class="grid_6 pull-right ">
+        <asp:Label ID="uiLabelInfo" runat="server" ></asp:Label>
+        </div>
+    <div class="grid_3 pull-right ">
     <asp:LinkButton ID="LinkButton1" runat="server" 
         onclick="uiLinkButtonLogout_Click" CssClass="btn btn-default" 
         PostBackUrl="~/MyAccount.aspx">حسابى</asp:LinkButton>
         </div>&nbsp;
-        <div class="grid_4 pull-left fll">
+        <div class="grid_2 pull-left ">
     <asp:LinkButton ID="uiLinkButtonLogout" runat="server" 
         onclick="uiLinkButtonLogout_Click" CssClass="btn btn-default">خروج</asp:LinkButton>
         </div>

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Taqwa.Website.Controls {
+namespace Taqwa.Website.Admin {
     
     
-    public partial class LoginControl {
+    public partial class changepass {
         
         /// <summary>
         /// uiPanelLogin control.
@@ -22,13 +22,22 @@ namespace Taqwa.Website.Controls {
         protected global::System.Web.UI.WebControls.Panel uiPanelLogin;
         
         /// <summary>
-        /// uiTextBoxUsername control.
+        /// uiPanelError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxUsername;
+        protected global::System.Web.UI.WebControls.Panel uiPanelError;
+        
+        /// <summary>
+        /// uiLabelMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelMsg;
         
         /// <summary>
         /// uiTextBoxPassword control.
@@ -40,48 +49,48 @@ namespace Taqwa.Website.Controls {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxPassword;
         
         /// <summary>
-        /// uiLinkButtonLogin control.
+        /// RequiredFieldValidator8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonLogin;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// uiPanelLogout control.
+        /// uiTextBoxRePass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel uiPanelLogout;
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxRePass;
         
         /// <summary>
-        /// uiLabelInfo control.
+        /// CompareValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelInfo;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// uiLinkButtonLogout control.
+        /// uiLinkButtonSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonLogout;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSave;
     }
 }
