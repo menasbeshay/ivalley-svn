@@ -212,12 +212,22 @@
 
                      <div class="grid_3 f_blog">
 						<div class="f_thumb">
-							<iframe src="http://player.vimeo.com/video/8191217?title=0&amp;byline=0&amp;badge=0&amp;color=5486DA" height="144"></iframe>
+                            <a class="title" href='#modal_homev' data-toggle="modal" style="display: block;text-align:center;">
+							<asp:Image ID="uiImageVideoThumb" runat="server" style="max-height:144px;" /></a>
+                                <div class="clear">
+                                    <div class="f_hover"></div>
 						</div>
-						<h4> <a href="#">مدرسة الزهراء</a> </h4>						
+											
 					</div><!-- end grid3 -->
-					
+					<h4> <a href='#modal_homev' data-toggle="modal">
+                            <asp:Label id="uiLabelVTitle" runat="server" /></a> 
+                        
+					</h4>
+                         <a href="videos.aspx" class="pull-left">المزيد</a>	
 				</div><!-- end row -->
+                    <div id='modal_homev' class='modal fade' role='modal' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><a class='close pull-left' data-dismiss='modal' aria-hidden='true' style='text-decoration: none;'>×</a><h3 id='myModalLabel1'>فيديو</h3></div><div class='modal-body'><div class='form-horizontal blockBox'><div class='row'><div class='col-sm-12 center'>
+                                <asp:Literal ID="uiLiteralIFrame" runat="server"></asp:Literal>
+                            </div></div></div></div></div></div></div>
                 <%--
 				<div class="row clearfix mbs">
 					<div class="grid_6">

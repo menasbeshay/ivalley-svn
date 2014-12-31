@@ -1522,6 +1522,11 @@ namespace Taqwa.BLL
             return SqlHelper.ExecuteDataset(ConnectionString, "GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndType", ClassID, SchoolYearID, CourseID, IsVideo);
         }
 
+        public DataSet GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndTypeForHome()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndTypeForHome");
+        }
+
         public bool DeleteClassAttachment(int ClassAttachmentID)
         {
             int rows = 0;
