@@ -124,7 +124,8 @@ namespace EduMontreal
 
                     client.Credentials = new System.Net.NetworkCredential(mail, ConfigurationManager.AppSettings["ActivationMailpass"]);
                     client.Send(msg);
-                    Response.Redirect("activate");
+                    uiPanelActivateSuccess.Visible = true;
+                    //Response.Redirect("activate");
                 }
                 catch (Exception)
                 {

@@ -103,20 +103,27 @@ namespace WebApplication.Admin
 
             Course course = new Course();
             CourseLangauge lang = new CourseLangauge();
-
-            course.LoadByPrimaryKey(app.SelectedCourseID);
-            lang.LoadByPrimaryKey(course.CourseLangaugeID);
+            if (!app.IsColumnNull("SelectedCourseID"))
+                course.LoadByPrimaryKey(app.SelectedCourseID);
+            if (course.RowCount > 0 && !course.IsColumnNull("CourseLangaugeID"))
+                lang.LoadByPrimaryKey(course.CourseLangaugeID);
 
             uiImageMain.ImageUrl = ".." + app.RecentPhotoPath;
             uiLabelName.Text = app.FirstName + " " + app.FamilyName;
             uiLabelMail.Text = app.Email;
-            uiLabelCourse.Text = course.CourseName;
-            uiLabelLang.Text = lang.Langauge;
+            if (course.RowCount > 0)
+                uiLabelCourse.Text = course.CourseName;
+            else
+                uiLabelCourse.Text = "not selected";
+            if(lang.RowCount > 0)
+                uiLabelLang.Text = lang.Langauge;
+            else
+                uiLabelLang.Text = "not selected";
 
             ApplicationStatusHistory history = new ApplicationStatusHistory();
             history.GetApplicationStatusHistorybyApplicationDataID(CurrentApp);
 
-            if (history.ApplicationStatusID == 4 || history.ApplicationStatusID == 5) // Tuition  Fees - missing docs - refusal reasons
+            if (history.RowCount > 0 && (history.ApplicationStatusID == 4 || history.ApplicationStatusID == 5)) // Tuition  Fees - missing docs - refusal reasons
             {
                 uiPanelFees.Visible = true;
                 uiPanelMissingDocs.Visible = true;
@@ -135,7 +142,7 @@ namespace WebApplication.Admin
             status.GetNextApplicationStatusApplicationDataID(CurrentApp);
             if(status.RowCount > 0)
                 uiDropDownListStatus.DataSource = status.DefaultView;
-            else
+            else if(history.RowCount > 0)
             {                
                 ApplicationStatus next = new ApplicationStatus();
                
