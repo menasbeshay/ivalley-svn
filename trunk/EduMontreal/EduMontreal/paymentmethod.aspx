@@ -5,7 +5,7 @@
      <section class="col-md-12 col-left">
          <asp:Panel runat="server" ID="start">
              <div class="note note-success">
-         Your application has been saved successfully . You have to go and Pay only 1500 CAD in order to finalize submission for Edu Montreal as a registration fees.
+         Your application has been saved successfully . You have to go and Pay only 1500 CAD in order to finalize submission for Edu Montreal as a registration fee.
                  </div>
              </asp:Panel>
         <h4>

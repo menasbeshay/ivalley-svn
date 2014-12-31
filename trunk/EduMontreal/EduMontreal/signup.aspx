@@ -104,6 +104,8 @@
 					<div class="col-md-3">
 						<label class="control-label">Email (username) <span class="required">* </span></label>
                         <asp:TextBox ID="uiTextBoxEmail" runat="server" Cssclass="form-control"></asp:TextBox>
+                        <div class="clearfix" style="height:1px;"></div>
+                        <small style="margin-top:-10px;color:navy">Email can not be changed later</small>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Display="Dynamic" ErrorMessage="*" ControlToValidate="uiTextBoxEmail" ValidationGroup="signup" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ErrorMessage="invalid email format" ValidationGroup="signup" ForeColor="Red" ControlToValidate="uiTextBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
 					</div>

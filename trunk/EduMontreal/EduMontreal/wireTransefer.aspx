@@ -7,7 +7,8 @@
         <div class="span12">
             <asp:Panel runat="server" ID="uiPanelSuccess" Visible="false">
                 <div class="note note-success"  >
-                                Your receipt has been uploaded successfully
+                                Your receipt has been uploaded successfully, please wait for the transfer verfication. <br />
+                    Once verfied your application will be redirected automatically to the next phase.
                             </div>
             </asp:Panel>
             <asp:Panel runat="server" ID="uiPanelFail" Visible="false">

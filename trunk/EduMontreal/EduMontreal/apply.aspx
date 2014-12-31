@@ -725,9 +725,8 @@
                                         <!--
                                     I declare that I have answered all required questions in this application fully and truth fully.<br />
                                         -->
-                                        <a href="files/Refund_Policy_Agreement.pdf">Refund Policy Agreement</a>
-                                        <br />
-                                    <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;I approve the refund policy. By signing this application, I do approve the refund policy set for the international students. Please read                          
+                                       
+                                    <asp:CheckBox ID="uiCheckBoxIApproved" CssClass="ApproveCheck" runat="server" />&nbsp;I approve the refund policy. By signing this application, I do approve the refund policy set for the international students. Please read <a href="files/Refund_Policy_Agreement.pdf">Refund Policy Agreement</a>                        
                                                     <br />
                                     <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true" Enabled="true"
                                         Text="*"  ValidationGroup="signup" ForeColor="Red" Display="Dynamic" Font-Bold="true"
@@ -735,7 +734,7 @@
                                     </p>
                                     <span class="label big">Please attach: </span>
                                     <ul class="list_1">
-                                       <li>Completed and signed for refund and cancellation policy for International studies</li>
+                                       <li>Completed and signed for refund and cancellation policy for International studies (<a href="files/Refund_Policy_Agreement.pdf">download</a> then sign )</li>
             <li>
                 Completed and signed for international student remedial contract (
                 <a href='http://application.edumontreal.ca/files/InternationalStudentRemedialContract.doc'>download</a> then sign )
@@ -810,7 +809,7 @@
                                 
                         </ul>
 
-                        <asp:LinkButton ID="uiLinkButtonSave" runat="server" OnClick="uiLinkButtonSave_Click" CssClass="btn btn-primary">Save application</asp:LinkButton>
+                        <asp:LinkButton ID="uiLinkButtonSave" runat="server" OnClick="uiLinkButtonSave_Click" OnClientClick="$('#progressModal').modal('show');" CssClass="btn btn-primary">Save application</asp:LinkButton>
                         <asp:Label ID="uiLabelSaved" runat="server" Text="Application saved successfully.You can continue later or now." ForeColor="Green" Font-Bold="true" Visible="false"> </asp:Label>
                     </div>
                 </div>

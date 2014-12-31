@@ -15,6 +15,15 @@
 				</div>
         </asp:Panel>
         <asp:Panel ID="uiPanelReActivate" runat="server" Visible="false" >
+            <asp:Panel ID="uiPanelActivateSuccess" runat="server" Visible="false">
+            <div class="row">			
+                
+					<div class="col-md-12 note note-success">	
+                        <h4 class="has-success">Thanks</h4>					
+                        Activation Email has been sent successfully. <a href="Default.aspx" class="btn btn-primary">Continue</a>
+					</div>                     
+				</div>
+        </asp:Panel>
             <div class="row">					
 					<div class="col-md-9">						
                         <asp:Label ID="uiLabelUserError" runat="server" Text="Can't find your mail in our database.Please enter a valid registred mail." ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>                        
