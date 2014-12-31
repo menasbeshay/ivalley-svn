@@ -190,6 +190,12 @@
             <br />
             نقل الطلاب الناجحين للمراحل الجديدة
         </a>
+
+        <a href="HomePageVideos.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             تحميل فيديوهات الصفحة الرئيسية
+        </a>
     </div>
 </div>
 </asp:Content>

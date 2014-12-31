@@ -10,42 +10,42 @@
 namespace Taqwa.Website {
     
     
-    public partial class index {
+    public partial class videos {
         
         /// <summary>
-        /// News1 control.
+        /// uiRepeaterCurrentVedios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Taqwa.Website.Controls.News News1;
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterCurrentVedios;
         
         /// <summary>
-        /// uiImageVideoThumb control.
+        /// uiPanelPaging control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image uiImageVideoThumb;
+        protected global::System.Web.UI.WebControls.Panel uiPanelPaging;
         
         /// <summary>
-        /// uiLabelVTitle control.
+        /// uiLinkButtonPrev control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelVTitle;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonPrev;
         
         /// <summary>
-        /// uiLiteralIFrame control.
+        /// uiLinkButtonNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal uiLiteralIFrame;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonNext;
     }
 }

@@ -493,3 +493,17 @@ Where (R.StudentID = @StudentID or R.StudentID is null) and
      
      
 Select * from #CurrentResult          
+GO
+
+Create Procedure GetGetClassAttachmentByClassIDAndYearIDAndCourseIDAndTypeForHome 
+as  
+  
+Select *, CC.ArName ArClassName , CC.EnName ENClassName from ClassAttachment A  
+Left Join Courses C on A.CourseId = C.CourseID  
+Left join Class CC on CC.ClassID = A.ClassID  
+  
+Where (A.ClassID = 0) And  
+   (A.SchoolYearID  = 0 ) And   
+   (A.CourseID = 0) and  
+   (A.IsVideo = 1)  
+order by CreatedDate desc     
