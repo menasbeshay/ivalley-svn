@@ -19,7 +19,7 @@ namespace Chat2Connect {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Chat2Connect.usercontrols.Friends Friends;
+        protected global::Chat2Connect.usercontrols.Friends_V2 Friends;
         
         /// <summary>
         /// uiTextBoxRoomSearch control.

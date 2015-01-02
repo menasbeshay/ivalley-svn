@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Chat2Connect.home" %>
 
 <%@ Register Src="usercontrols/ucRooms.ascx" TagName="ucRooms" TagPrefix="uc1" %>
-<%@ Register Src="usercontrols/Friends.ascx" TagPrefix="uc1" TagName="Friends" %>
+<%@ Register Src="usercontrols/Friends_V2.ascx" TagPrefix="uc1" TagName="Friends" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -159,6 +159,7 @@
     <script src="Scripts/knockout-3.1.0.js"></script>
     <script src="js/jquery.tokeninput.js"></script>
     <link href="css/token-input-facebook.css" rel="stylesheet" />
+    <script src="js/knockout-bootstrap.min.js"> </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="blockBoxshadow pull-right col-lg-2 margin20 " style="width: 21% !important; position: fixed;">

@@ -1,4 +1,5 @@
-﻿ko.onDemandObservable = function (callback, target) {
+﻿
+ko.onDemandObservable = function (callback, target) {
     var _value = ko.observable();  //private observable
 
     var result = ko.dependentObservable({
@@ -222,7 +223,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 lst.push(ko.mapping.fromJS(item));
             });
             self.friends(lst);
-            initPopupMenu();
+            //initPopupMenu();
             // init link in friends menu 
             $('.openGiftModal').click(function () {
                 $('#GeneralGiftModal').modal('show');
@@ -442,7 +443,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                         var newFriend = ko.mapping.fromJS(result);
                         lst.push(newFriend);
                         chatVM.friends(lst);
-                        initPopupMenu();
+                        //initPopupMenu();
                     }
                     else {//remove friend
                         var newlst = ko.utils.arrayFilter(chatVM.friends(), function (f) {

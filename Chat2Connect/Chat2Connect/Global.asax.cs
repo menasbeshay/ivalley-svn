@@ -175,7 +175,7 @@ namespace Chat2Connect
                 bllMember.SetOffline(loggedInMemberID);
             }
             Session.Abandon();
-            FormsAuthentication.SignOut();
+            //FormsAuthentication.SignOut();
         }
 
         protected void Application_End(object sender, EventArgs e)

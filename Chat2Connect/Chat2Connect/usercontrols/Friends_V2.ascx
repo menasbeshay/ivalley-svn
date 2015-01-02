@@ -82,82 +82,86 @@
 <script id="onlineFriendTmpl" type="text/html">
     <div class="friend-link" data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
         <img src="#" data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=32&h=32' }, css: Status()" class='friendpic' />
-        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name, popover: { template: 'onlinePopupTmpl', placement: 'left' }"></a>
+        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name, popover: { template: 'onlinePopupTmpl', placement: 'left', container: 'body',trigger:'focus' }"></a>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;'"></span>
         <div class="clearfix" style="height: 1px;"></div>
-        
+
     </div>
 </script>
 <script id="onlinePopupTmpl" type="text/html">
-    <div class="col-lg-3 pull-right">
-                    <div class=" thumbnail">
-                        <img data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=80&h=80' }"/>
-                    </div>
-                    <div class="clearfix" style="height: 1px;">
-                    </div>
-                    <div data-bind="text: $data.Name" style="text-align: right;">
-                    </div>
+    <div class="friendSubMenu">
+        <div class="popup-menu profileMenu">
+            <div class="col-lg-3 pull-right">
+                <div class=" thumbnail">
+                    <img data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=80&h=80' }" />
                 </div>
-                <div class="col-lg-9 pull-right">
-                    <div class="col-lg-6 pull-right">
-                        <ul>
-                            <!-- ko if(Status() != 'busy')-->
-                            <li><a class="jslink" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                            <!--/ko-->
-                            <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                            <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 pull-right">
-                        <ul>
-                            <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                            <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                            <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
-                        </ul>
-                    </div>
+                <div class="clearfix" style="height: 1px;">
                 </div>
-                <div class="clear" style="height: 1px;"></div>
+                <div data-bind="text: $data.Name" style="text-align: right;">
+                </div>
+            </div>
+            <div class="col-lg-9 pull-right">
+                <div class="col-lg-6 pull-right">
+                    <ul>
+                        <!-- ko if(Status() != 'busy')-->
+                        <li><a class="jslink" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                        <!--/ko-->
+                        <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                        <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 pull-right">
+                    <ul>
+                        <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                        <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                        <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear" style="height: 1px;"></div>
+        </div>
+    </div>
 </script>
 <script id="offlineFriendTmpl" type="text/html">
     <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
         <img src="#" data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=32&h=32' }, css: 'offline'" class='friendpic' />
-        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name, popover: { template: 'offlinePopupTmpl', placement: 'left' }"></a>
+        <a href="#" data-bind="css: 'type_' + $data.TypeSpecID(), text: $data.Name, popover: { template: 'offlinePopupTmpl', placement: 'left',container:'body',trigger:'focus' }"></a>
         <div class="clearfix" style="height: 1px;"></div>
         <span data-bind="text: $data.StatusMsg() ? $data.StatusMsg() : '&nbsp;'"></span>
         <div class="clearfix" style="height: 1px;"></div>
     </div>
 </script>
 <script id="offlinePopupTmpl" type="text/html">
+    <div class="friendSubMenu">
+        <div class="popup-menu profileMenu">
     <div class="col-lg-3 pull-right">
-                    <div class=" thumbnail">
-                        <img data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=80&h=80' }" />
-                    </div>
-                    <div class="clearfix" style="height: 1px;">
-                    </div>
-                    <div data-bind="text: $data.Name" style="text-align: right;">
-                    </div>
-                </div>
-                <div class="col-lg-9 pull-right">
-                    <!--ko if:!$parent.isBlockingMe($data.MemberID())-->
-                    <div class="col-lg-6 pull-right">
-                        <ul>
-                            <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                            <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
-                        </ul>
-                    </div>
-                    <!--/ko-->
-                    <div class="col-lg-6 pull-right">
-                        <ul>
-                            <!--ko if:!$parent.isBlockingMe($data.MemberID())-->
-                            <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                            <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                            <!--/ko-->
-                            <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear" style="height: 1px;"></div>
+        <div class=" thumbnail">
+            <img data-bind="attr: { src: 'Thumb.aspx?Image=' + $data.ProfilePic() + '&w=80&h=80' }" />
+        </div>
+        <div class="clearfix" style="height: 1px;">
+        </div>
+        <div data-bind="text: $data.Name" style="text-align: right;">
+        </div>
+    </div>
+    <div class="col-lg-9 pull-right">
+        <div class="col-lg-6 pull-right">
+            <ul>
+                <li><a class="jslink" data-bind="attr: { 'onclick': 'OpenPopup(\'../userprofile.aspx?uid=' + $data.MemberID() + '\',\'حساب صديق\');' }" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                <li><a class="jslink" data-bind="click: $root.removeFriend"><span class="awesome">&#xf00d;</span> حذف من الأصدقاء</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-6 pull-right">
+            <ul>
+                <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear" style="height: 1px;"></div>
+            </div>
+        </div>
 </script>
 <script id="blockedTmpl" type="text/html">
     <div class="block-link" data-bind="attr: { id: 'usernode-' + $data.MemberID(), 'data-name': $data.Name() }, css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
