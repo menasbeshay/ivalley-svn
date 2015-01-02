@@ -120,36 +120,7 @@
                 }
             });
 
-            <%--$("#<%= uiTextBoxFriendSearch.ClientID %>").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "../Services/Services.asmx/SearchMembersExceptFriends",
-                        dataType: "json",
-                        type: "post",
-                        data: "{'query':'" + request.term.toString() + "','MemberID' : '" + $("#<%=uiHiddenFieldCurrent.ClientID %>").val() + "'}",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-                            response(jQuery.map(data.d, function (item) {
-                                return {
-                                    val: item.split('##')[0],
-                                    label: item.split('##')[1]
-                                }
-                            }))
-                        },
-                        error: function (XMLHttpRequest, textStatus, errorThrown) {
-                            alert(textStatus);
-                        }
-                    });
-
-                },
-                select: function (e, i) {
-                    $("#<%=uiHiddenFieldFriendID.ClientID %>").val(i.item.val);
-                },
-                minLength: 1
-            });--%>
-
-           
-
+            
         });
 
     </script>
@@ -157,15 +128,7 @@
     <script src="Scripts/knockout-3.1.0.js"></script>
     <script src="js/jquery.tokeninput.js"></script>
     <link href="css/token-input-facebook.css" rel="stylesheet" />
-    <link href="css/KoGrid.css" rel="stylesheet" />
-    <script src="js/koGrid-2.1.0.js"></script>
-    
-    <script>
-        function showPop(data,event)
-        {
-            alert('welcome');
-        }
-    </script>
+    <script src="js/knockout-bootstrap.min.js"> </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="blockBoxshadow pull-right col-lg-2 margin20 " style="width: 21% !important; position: fixed;">

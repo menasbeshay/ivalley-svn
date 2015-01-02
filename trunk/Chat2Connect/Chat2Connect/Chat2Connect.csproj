@@ -695,6 +695,7 @@
     <Content Include="js\fileupload\main.js" />
     <Content Include="images\Upload.png" />
     <Content Include="js\fileupload\vendor\jquery.ui.widget.js" />
+    <Content Include="js\knockout-bootstrap.min.js" />
     <Content Include="js\koGrid-2.1.0.js" />
     <Content Include="js\popups.js" />
     <Content Include="js\popup_main.js" />
@@ -725,6 +726,7 @@
     <Content Include="Scripts\chat2onnect\privateChatHubEvents.js" />
     <Content Include="Scripts\chat2onnect\roomHubEvents.js" />
     <Content Include="Scripts\chat2onnect\tab.js" />
+    <None Include="Properties\PublishProfiles\mak.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
