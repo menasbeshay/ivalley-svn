@@ -88,15 +88,16 @@ namespace EduMontreal
 
             if (!string.IsNullOrEmpty( uiTextBoxVisaDate.Text))
             {
-                DateTime visadate = DateTime.Now;
-                if (DateTime.TryParseExact(uiTextBoxVisaDate.Text, "dd/MM/yyy hh:mm", null, System.Globalization.DateTimeStyles.None, out visadate))
+                try
                 {
+                    DateTime visadate = Convert.ToDateTime(uiTextBoxVisaDate.Text);
+
                     Apphistroy.VisaAppointMentDate = visadate;
                     Apphistroy.Save();
                     uiPanelVSSucess.Visible = true;
                     uiPanelVSFail.Visible = false;
                 }
-                else
+                catch (Exception ex)
                 {
                     uiPanelVSSucess.Visible = false;
                     uiPanelVSFail.Visible = true;

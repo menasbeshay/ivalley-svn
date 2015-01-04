@@ -59,7 +59,7 @@ namespace EduMontreal.ar
                         {
                             MailMessage msg = new MailMessage();
                             string mail = ConfigurationManager.AppSettings["StatusEMail"];
-                            string mailto = app.Email;
+                            string mailto = student.Email;
                             msg.To.Add(mailto);
                             msg.From = new MailAddress(mail);
                             msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' ');

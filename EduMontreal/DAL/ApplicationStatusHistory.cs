@@ -179,6 +179,46 @@ namespace EDU.DAL
 				}
 			}
 			
+			public static SqlParameter PaymentDate
+			{
+				get
+				{
+					return new SqlParameter("@PaymentDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter PaymentAmount
+			{
+				get
+				{
+					return new SqlParameter("@PaymentAmount", SqlDbType.Decimal, 0);
+				}
+			}
+			
+			public static SqlParameter TrxID
+			{
+				get
+				{
+					return new SqlParameter("@TrxID", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter CardNo
+			{
+				get
+				{
+					return new SqlParameter("@CardNo", SqlDbType.NVarChar, 16);
+				}
+			}
+			
+			public static SqlParameter CardType
+			{
+				get
+				{
+					return new SqlParameter("@CardType", SqlDbType.NVarChar, 30);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -195,6 +235,11 @@ namespace EDU.DAL
             public const string WireTranseferReceipt = "WireTranseferReceipt";
             public const string VisaResult = "VisaResult";
             public const string VisaAppointMentDate = "VisaAppointMentDate";
+            public const string PaymentDate = "PaymentDate";
+            public const string PaymentAmount = "PaymentAmount";
+            public const string TrxID = "TrxID";
+            public const string CardNo = "CardNo";
+            public const string CardType = "CardType";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -212,6 +257,11 @@ namespace EDU.DAL
 					ht[WireTranseferReceipt] = _ApplicationStatusHistory.PropertyNames.WireTranseferReceipt;
 					ht[VisaResult] = _ApplicationStatusHistory.PropertyNames.VisaResult;
 					ht[VisaAppointMentDate] = _ApplicationStatusHistory.PropertyNames.VisaAppointMentDate;
+					ht[PaymentDate] = _ApplicationStatusHistory.PropertyNames.PaymentDate;
+					ht[PaymentAmount] = _ApplicationStatusHistory.PropertyNames.PaymentAmount;
+					ht[TrxID] = _ApplicationStatusHistory.PropertyNames.TrxID;
+					ht[CardNo] = _ApplicationStatusHistory.PropertyNames.CardNo;
+					ht[CardType] = _ApplicationStatusHistory.PropertyNames.CardType;
 
 				}
 				return (string)ht[columnName];
@@ -234,6 +284,11 @@ namespace EDU.DAL
             public const string WireTranseferReceipt = "WireTranseferReceipt";
             public const string VisaResult = "VisaResult";
             public const string VisaAppointMentDate = "VisaAppointMentDate";
+            public const string PaymentDate = "PaymentDate";
+            public const string PaymentAmount = "PaymentAmount";
+            public const string TrxID = "TrxID";
+            public const string CardNo = "CardNo";
+            public const string CardType = "CardType";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -251,6 +306,11 @@ namespace EDU.DAL
 					ht[WireTranseferReceipt] = _ApplicationStatusHistory.ColumnNames.WireTranseferReceipt;
 					ht[VisaResult] = _ApplicationStatusHistory.ColumnNames.VisaResult;
 					ht[VisaAppointMentDate] = _ApplicationStatusHistory.ColumnNames.VisaAppointMentDate;
+					ht[PaymentDate] = _ApplicationStatusHistory.ColumnNames.PaymentDate;
+					ht[PaymentAmount] = _ApplicationStatusHistory.ColumnNames.PaymentAmount;
+					ht[TrxID] = _ApplicationStatusHistory.ColumnNames.TrxID;
+					ht[CardNo] = _ApplicationStatusHistory.ColumnNames.CardNo;
+					ht[CardType] = _ApplicationStatusHistory.ColumnNames.CardType;
 
 				}
 				return (string)ht[propertyName];
@@ -273,6 +333,11 @@ namespace EDU.DAL
             public const string WireTranseferReceipt = "s_WireTranseferReceipt";
             public const string VisaResult = "s_VisaResult";
             public const string VisaAppointMentDate = "s_VisaAppointMentDate";
+            public const string PaymentDate = "s_PaymentDate";
+            public const string PaymentAmount = "s_PaymentAmount";
+            public const string TrxID = "s_TrxID";
+            public const string CardNo = "s_CardNo";
+            public const string CardType = "s_CardType";
 
 		}
 		#endregion		
@@ -396,6 +461,66 @@ namespace EDU.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.VisaAppointMentDate, value);
+			}
+		}
+
+		public virtual DateTime PaymentDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.PaymentDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.PaymentDate, value);
+			}
+		}
+
+		public virtual decimal PaymentAmount
+	    {
+			get
+	        {
+				return base.Getdecimal(ColumnNames.PaymentAmount);
+			}
+			set
+	        {
+				base.Setdecimal(ColumnNames.PaymentAmount, value);
+			}
+		}
+
+		public virtual string TrxID
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TrxID);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TrxID, value);
+			}
+		}
+
+		public virtual string CardNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CardNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CardNo, value);
+			}
+		}
+
+		public virtual string CardType
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CardType);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CardType, value);
 			}
 		}
 
@@ -554,6 +679,81 @@ namespace EDU.DAL
 			}
 		}
 
+		public virtual string s_PaymentDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PaymentDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.PaymentDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PaymentDate);
+				else
+					this.PaymentDate = base.SetDateTimeAsString(ColumnNames.PaymentDate, value);
+			}
+		}
+
+		public virtual string s_PaymentAmount
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PaymentAmount) ? string.Empty : base.GetdecimalAsString(ColumnNames.PaymentAmount);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PaymentAmount);
+				else
+					this.PaymentAmount = base.SetdecimalAsString(ColumnNames.PaymentAmount, value);
+			}
+		}
+
+		public virtual string s_TrxID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TrxID) ? string.Empty : base.GetstringAsString(ColumnNames.TrxID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TrxID);
+				else
+					this.TrxID = base.SetstringAsString(ColumnNames.TrxID, value);
+			}
+		}
+
+		public virtual string s_CardNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CardNo) ? string.Empty : base.GetstringAsString(ColumnNames.CardNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CardNo);
+				else
+					this.CardNo = base.SetstringAsString(ColumnNames.CardNo, value);
+			}
+		}
+
+		public virtual string s_CardType
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CardType) ? string.Empty : base.GetstringAsString(ColumnNames.CardType);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CardType);
+				else
+					this.CardType = base.SetstringAsString(ColumnNames.CardType, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -687,6 +887,56 @@ namespace EDU.DAL
 					}
 				}
 
+				public WhereParameter PaymentDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PaymentDate, Parameters.PaymentDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PaymentAmount
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PaymentAmount, Parameters.PaymentAmount);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TrxID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TrxID, Parameters.TrxID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CardNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CardNo, Parameters.CardNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CardType
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CardType, Parameters.CardType);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -812,6 +1062,66 @@ namespace EDU.DAL
 				}
 			}
 
+			public WhereParameter PaymentDate
+		    {
+				get
+		        {
+					if(_PaymentDate_W == null)
+	        	    {
+						_PaymentDate_W = TearOff.PaymentDate;
+					}
+					return _PaymentDate_W;
+				}
+			}
+
+			public WhereParameter PaymentAmount
+		    {
+				get
+		        {
+					if(_PaymentAmount_W == null)
+	        	    {
+						_PaymentAmount_W = TearOff.PaymentAmount;
+					}
+					return _PaymentAmount_W;
+				}
+			}
+
+			public WhereParameter TrxID
+		    {
+				get
+		        {
+					if(_TrxID_W == null)
+	        	    {
+						_TrxID_W = TearOff.TrxID;
+					}
+					return _TrxID_W;
+				}
+			}
+
+			public WhereParameter CardNo
+		    {
+				get
+		        {
+					if(_CardNo_W == null)
+	        	    {
+						_CardNo_W = TearOff.CardNo;
+					}
+					return _CardNo_W;
+				}
+			}
+
+			public WhereParameter CardType
+		    {
+				get
+		        {
+					if(_CardType_W == null)
+	        	    {
+						_CardType_W = TearOff.CardType;
+					}
+					return _CardType_W;
+				}
+			}
+
 			private WhereParameter _StatusHistoryID_W = null;
 			private WhereParameter _ApplicationStatusID_W = null;
 			private WhereParameter _StudentID_W = null;
@@ -822,6 +1132,11 @@ namespace EDU.DAL
 			private WhereParameter _WireTranseferReceipt_W = null;
 			private WhereParameter _VisaResult_W = null;
 			private WhereParameter _VisaAppointMentDate_W = null;
+			private WhereParameter _PaymentDate_W = null;
+			private WhereParameter _PaymentAmount_W = null;
+			private WhereParameter _TrxID_W = null;
+			private WhereParameter _CardNo_W = null;
+			private WhereParameter _CardType_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -835,6 +1150,11 @@ namespace EDU.DAL
 				_WireTranseferReceipt_W = null;
 				_VisaResult_W = null;
 				_VisaAppointMentDate_W = null;
+				_PaymentDate_W = null;
+				_PaymentAmount_W = null;
+				_TrxID_W = null;
+				_CardNo_W = null;
+				_CardType_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -991,6 +1311,56 @@ namespace EDU.DAL
 					}
 				}
 
+				public AggregateParameter PaymentDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PaymentDate, Parameters.PaymentDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PaymentAmount
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PaymentAmount, Parameters.PaymentAmount);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TrxID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TrxID, Parameters.TrxID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CardNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CardNo, Parameters.CardNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CardType
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CardType, Parameters.CardType);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1116,6 +1486,66 @@ namespace EDU.DAL
 				}
 			}
 
+			public AggregateParameter PaymentDate
+		    {
+				get
+		        {
+					if(_PaymentDate_W == null)
+	        	    {
+						_PaymentDate_W = TearOff.PaymentDate;
+					}
+					return _PaymentDate_W;
+				}
+			}
+
+			public AggregateParameter PaymentAmount
+		    {
+				get
+		        {
+					if(_PaymentAmount_W == null)
+	        	    {
+						_PaymentAmount_W = TearOff.PaymentAmount;
+					}
+					return _PaymentAmount_W;
+				}
+			}
+
+			public AggregateParameter TrxID
+		    {
+				get
+		        {
+					if(_TrxID_W == null)
+	        	    {
+						_TrxID_W = TearOff.TrxID;
+					}
+					return _TrxID_W;
+				}
+			}
+
+			public AggregateParameter CardNo
+		    {
+				get
+		        {
+					if(_CardNo_W == null)
+	        	    {
+						_CardNo_W = TearOff.CardNo;
+					}
+					return _CardNo_W;
+				}
+			}
+
+			public AggregateParameter CardType
+		    {
+				get
+		        {
+					if(_CardType_W == null)
+	        	    {
+						_CardType_W = TearOff.CardType;
+					}
+					return _CardType_W;
+				}
+			}
+
 			private AggregateParameter _StatusHistoryID_W = null;
 			private AggregateParameter _ApplicationStatusID_W = null;
 			private AggregateParameter _StudentID_W = null;
@@ -1126,6 +1556,11 @@ namespace EDU.DAL
 			private AggregateParameter _WireTranseferReceipt_W = null;
 			private AggregateParameter _VisaResult_W = null;
 			private AggregateParameter _VisaAppointMentDate_W = null;
+			private AggregateParameter _PaymentDate_W = null;
+			private AggregateParameter _PaymentAmount_W = null;
+			private AggregateParameter _TrxID_W = null;
+			private AggregateParameter _CardNo_W = null;
+			private AggregateParameter _CardType_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1139,6 +1574,11 @@ namespace EDU.DAL
 				_WireTranseferReceipt_W = null;
 				_VisaResult_W = null;
 				_VisaAppointMentDate_W = null;
+				_PaymentDate_W = null;
+				_PaymentAmount_W = null;
+				_TrxID_W = null;
+				_CardNo_W = null;
+				_CardType_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1251,6 +1691,26 @@ namespace EDU.DAL
 
 			p = cmd.Parameters.Add(Parameters.VisaAppointMentDate);
 			p.SourceColumn = ColumnNames.VisaAppointMentDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PaymentDate);
+			p.SourceColumn = ColumnNames.PaymentDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PaymentAmount);
+			p.SourceColumn = ColumnNames.PaymentAmount;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TrxID);
+			p.SourceColumn = ColumnNames.TrxID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CardNo);
+			p.SourceColumn = ColumnNames.CardNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CardType);
+			p.SourceColumn = ColumnNames.CardType;
 			p.SourceVersion = DataRowVersion.Current;
 
 

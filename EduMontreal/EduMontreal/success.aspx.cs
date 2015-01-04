@@ -45,6 +45,15 @@ namespace EduMontreal
                     parameters[3] = new ReportParameter("CardType", Request.QueryString["ct"].ToString());
                     parameters[4] = new ReportParameter("CardNo", Request.QueryString["cn"].ToString());
                     ReportViewer1.LocalReport.ReportPath = "Receipt.rdlc";
+
+                    /* add payment fields */
+                    history.TrxID = Request.QueryString["trx"].ToString();
+                    history.PaymentAmount = Convert.ToDecimal(Request.QueryString["a"].ToString());
+                    history.PaymentDate = DateTime.Parse(Request.QueryString["d"].ToString());
+                    history.CardType = Request.QueryString["ct"].ToString();
+                    history.CardNo = Request.QueryString["cn"].ToString();
+                    history.Save();
+
                     /*ReportViewer1.LocalReport.DataSources.Clear();
                     ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource());*/
 
@@ -58,7 +67,7 @@ namespace EduMontreal
                         {
                             MailMessage msg = new MailMessage();
                             string mail = ConfigurationManager.AppSettings["StatusEMail"];
-                            string mailto = app.Email;
+                            string mailto = student.Email;
                             msg.To.Add(mailto);
                             msg.From = new MailAddress(mail);
                             msg.Subject = template.Subject.Replace('\r', ' ').Replace('\n', ' '); 

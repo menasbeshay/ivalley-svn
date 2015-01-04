@@ -76,6 +76,51 @@ namespace EduMontreal.ar {
         protected global::System.Web.UI.WebControls.Panel uiPanelVisaFail;
         
         /// <summary>
+        /// uiPanelVisaSchedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVisaSchedule;
+        
+        /// <summary>
+        /// uiTextBoxVisaDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxVisaDate;
+        
+        /// <summary>
+        /// uiLinkButtonSaveDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSaveDate;
+        
+        /// <summary>
+        /// uiPanelVSSucess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVSSucess;
+        
+        /// <summary>
+        /// uiPanelVSFail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVSFail;
+        
+        /// <summary>
         /// uiGridViewStatusHistory control.
         /// </summary>
         /// <remarks>

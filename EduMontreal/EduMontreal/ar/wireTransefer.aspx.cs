@@ -31,6 +31,15 @@ namespace EduMontreal.ar
                 uiFileUploadReceipt.SaveAs(Server.MapPath("~" + path));
                 history.WireTranseferReceipt = path;
                 history.Save();
+
+                /* add payment fields */
+
+                history.PaymentAmount = (history.IsColumnNull("TuitionFees")) ? 1500 : history.TuitionFees;
+                history.PaymentDate = DateTime.Now;
+                history.CardType = "";
+                history.CardNo = "";
+                history.Save();
+
                 uiPanelSuccess.Visible = true;
                 uiPanelFail.Visible = false;
             }

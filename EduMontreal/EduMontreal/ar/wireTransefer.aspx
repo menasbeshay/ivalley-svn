@@ -7,7 +7,8 @@
         <div class="span12">
             <asp:Panel runat="server" ID="uiPanelSuccess" Visible="false">
                 <div class="note note-success"  >
-                               تم تحميل إيصالك بنجاح
+                               تم تحميل إيصالك بنجاح. برجاء الإنتظار حتى يتم تأكيد التحويل .<br />
+                    سيتم تحويل طلبك للمرحلة التالية تلقائياً بعد تأكيد التحويل.
                             </div>
             </asp:Panel>
             <asp:Panel runat="server" ID="uiPanelFail" Visible="false">

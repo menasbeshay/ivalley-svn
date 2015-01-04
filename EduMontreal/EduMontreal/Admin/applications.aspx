@@ -253,7 +253,7 @@
                                      <%# string.IsNullOrEmpty(Eval("WireTranseferReceipt").ToString()) ? "<div style='display:none;'>" : "" %>
                                     
                                     <a href='#paymentModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Payment receipt</a>&nbsp;
-                                      <%# string.IsNullOrEmpty(Eval("WireTranseferReceipt").ToString()) ? "</div>" : "" %>
+                                      <%# string.IsNullOrEmpty(Eval("WireTranseferReceipt").ToString()) ? "</div>" : "<br /><a class='btn btn-primary btn-sm' href='printreceipt.aspx?id=" + Eval("StatusHistoryID") + "'>Print receipt</a>" %>
                                     <div id='paymentModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -274,32 +274,7 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Visa result">
-                                <ItemTemplate>
-                                   <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "<div style='display:none;'>" : "" %>
-                                     
-                                    <a href='#visaModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Visa result</a>
-                                    <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "</div>" : "" %>
-                                    <div id='visaModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
-                                                    <h3>Visa result</h3>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-horizontal blockBox">                                                        
-                                                        <img src=' <%# Eval("VisaResult") %>' style="max-width:90%"/>
-                                                    </div>
-                                                </div>                                               
-                                                <div class="modal-footer">
-                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            
 
                              <asp:TemplateField HeaderText="Visa Schedul date">
                                 <ItemTemplate>
@@ -317,6 +292,33 @@
                                                 <div class="modal-body">
                                                     <div class="form-horizontal blockBox">                                                        
                                                          <%# Eval("VisaAppointMentDate") %>
+                                                    </div>
+                                                </div>                                               
+                                                <div class="modal-footer">
+                                                    <a href="#" class="btn " data-dismiss="modal" style="text-decoration: none;">close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="Visa result">
+                                <ItemTemplate>
+                                   <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "<div style='display:none;'>" : "" %>
+                                     
+                                    <a href='#visaModal_<%# Container.DataItemIndex %>' class="btn btn-primary btn-sm" data-toggle="modal" style="text-decoration:none;">Visa result</a>
+                                    <%# string.IsNullOrEmpty(Eval("VisaResult").ToString()) ? "</div>" : "" %>
+                                    <div id='visaModal_<%# Container.DataItemIndex %>' class="modal fade" role="modal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a class="close pull-right" data-dismiss="modal" aria-hidden="true" style="text-decoration: none;">×</a>                                                    
+                                                    <h3>Visa result</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal blockBox">                                                        
+                                                        <img src=' <%# Eval("VisaResult") %>' style="max-width:90%"/>
                                                     </div>
                                                 </div>                                               
                                                 <div class="modal-footer">
