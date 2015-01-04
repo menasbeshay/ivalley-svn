@@ -8,7 +8,7 @@
                 <!-- ko foreach: onlineHelpMembers -->
                 <div data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
                     <img data-bind="attr: { 'src': 'Thumb.aspx?Image=' + ProfilePic() + '&w=32&h=32' }, css: Status().toLowerCase()" class='friendpic ' style="display: block" />
-                    <a h ref="#" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }" style="margin: 5px; display: block">
+                    <a href="#" data-bind="attr: { 'onclick': 'addChatRoom(' + $data.MemberID() + ',\'' + $data.Name() + '\',\'Private\', false, false, 1, true,' + $data.TypeSpecID() + ', true,\'' + $data.ProfilePic() + '\');' }" style="margin: 5px; display: block">
                         <span data-bind="text: Name"></span>
                     </a>
                     <div class="clearfix" style="height: 1px;"></div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-6 pull-right">
                     <ul>
-                        <li><a class="jslink openGiftModal" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                        <li><a class="jslink openGiftModal" onclick="OpenGeneralGiftModal()" data-bind="attr: { 'data-mid': $data.MemberID() }"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                         <li><a data-bind="attr: { 'onclick': 'OpenPopup(\'../popuppages/Messages_popup.aspx?t=createmsg&u=' + $data.MemberID() + '&un=' + $data.Name() + '\',\'الرسائل\');' }" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                         <li><a class="jslink" data-bind="click: $root.toggleBlockMember.bind($data, $data.MemberID(), true)"><span class="icon icon-ban-circle"></span><span>حظر</span></a></li>
                     </ul>

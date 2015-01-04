@@ -283,6 +283,15 @@ function initGeneralGiftModal() {
     
 }
 
+function OpenGeneralGiftModal()
+{
+    $('#GeneralGiftModal').modal('show');
+    $('#GeneralGiftModal input.checkboxes').each(function () {
+        $(this).attr('checked', false);
+    });
+    $('#GeneralGiftModal input.checkboxes[value="' + $(this).attr('data-mid') + '"]').attr('checked', 'checked');
+}
+
 function sendGeneralGift()
 {
     var cbs = $('#GeneralGiftMembers input:checked');

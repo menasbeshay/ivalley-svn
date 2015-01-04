@@ -142,7 +142,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/28/2014 11:57:12</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>12/28/2014 12:41:58</publishTime>
+      <publishTime>01/04/2015 12:20:02</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -655,7 +655,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2014 15:49:39</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>12/28/2014 10:56:24</publishTime>
+      <publishTime>01/04/2015 10:45:54</publishTime>
     </File>
     <File Include="Home1.aspx">
       <publishTime>11/09/2014 13:26:10</publishTime>
@@ -664,7 +664,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="HomeV2.aspx">
-      <publishTime>12/28/2014 10:56:21</publishTime>
+      <publishTime>01/04/2015 10:45:54</publishTime>
     </File>
     <File Include="HtmlPage1.html">
       <publishTime>11/05/2014 21:50:31</publishTime>
@@ -2035,7 +2035,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/28/2014 10:56:22</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>12/28/2014 12:26:29</publishTime>
+      <publishTime>01/04/2015 10:45:50</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2157,11 +2157,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/jquery.validationEngine.js">
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
+    <File Include="js/knockout-bootstrap.min.js">
+      <publishTime>01/04/2015 10:45:50</publishTime>
+    </File>
     <File Include="js/koGrid-2.1.0.js">
       <publishTime>12/28/2014 10:56:21</publishTime>
     </File>
     <File Include="js/Mainjs.js">
-      <publishTime>12/17/2014 13:03:07</publishTime>
+      <publishTime>01/04/2015 11:50:50</publishTime>
     </File>
     <File Include="js/popups.js">
       <publishTime>11/13/2014 14:12:03</publishTime>
@@ -2446,7 +2449,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/28/2014 10:56:20</publishTime>
     </File>
     <File Include="usercontrols/Friends_V2.ascx">
-      <publishTime>12/28/2014 10:56:20</publishTime>
+      <publishTime>01/04/2015 11:51:03</publishTime>
     </File>
     <File Include="usercontrols/Mail.ascx">
       <publishTime>12/21/2014 11:18:45</publishTime>
@@ -2464,7 +2467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2014 21:50:29</publishTime>
     </File>
     <File Include="usercontrols/ucRooms.ascx">
-      <publishTime>10/23/2014 15:12:39</publishTime>
+      <publishTime>01/04/2015 11:52:20</publishTime>
     </File>
     <File Include="UserProfile.aspx">
       <publishTime>12/18/2014 13:54:24</publishTime>
@@ -2479,7 +2482,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:24:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/28/2014 12:41:59</publishTime>
+      <publishTime>01/04/2015 12:20:06</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>11/02/2014 12:35:29</publishTime>
