@@ -131,6 +131,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter IsDeleted
+			{
+				get
+				{
+					return new SqlParameter("@IsDeleted", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +149,7 @@ namespace Combo.DAL
             public const string ComboUserID = "ComboUserID";
             public const string PostText = "PostText";
             public const string PostDate = "PostDate";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +161,7 @@ namespace Combo.DAL
 					ht[ComboUserID] = _ComboPost.PropertyNames.ComboUserID;
 					ht[PostText] = _ComboPost.PropertyNames.PostText;
 					ht[PostDate] = _ComboPost.PropertyNames.PostDate;
+					ht[IsDeleted] = _ComboPost.PropertyNames.IsDeleted;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +178,7 @@ namespace Combo.DAL
             public const string ComboUserID = "ComboUserID";
             public const string PostText = "PostText";
             public const string PostDate = "PostDate";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +190,7 @@ namespace Combo.DAL
 					ht[ComboUserID] = _ComboPost.ColumnNames.ComboUserID;
 					ht[PostText] = _ComboPost.ColumnNames.PostText;
 					ht[PostDate] = _ComboPost.ColumnNames.PostDate;
+					ht[IsDeleted] = _ComboPost.ColumnNames.IsDeleted;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +207,7 @@ namespace Combo.DAL
             public const string ComboUserID = "s_ComboUserID";
             public const string PostText = "s_PostText";
             public const string PostDate = "s_PostDate";
+            public const string IsDeleted = "s_IsDeleted";
 
 		}
 		#endregion		
@@ -246,6 +259,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.PostDate, value);
+			}
+		}
+
+		public virtual bool IsDeleted
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsDeleted, value);
 			}
 		}
 
@@ -311,6 +336,21 @@ namespace Combo.DAL
 					this.SetColumnNull(ColumnNames.PostDate);
 				else
 					this.PostDate = base.SetDateTimeAsString(ColumnNames.PostDate, value);
+			}
+		}
+
+		public virtual string s_IsDeleted
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsDeleted) ? string.Empty : base.GetboolAsString(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsDeleted);
+				else
+					this.IsDeleted = base.SetboolAsString(ColumnNames.IsDeleted, value);
 			}
 		}
 
@@ -387,6 +427,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public WhereParameter IsDeleted
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +490,23 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private WhereParameter _ComboPostID_W = null;
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _PostText_W = null;
 			private WhereParameter _PostDate_W = null;
+			private WhereParameter _IsDeleted_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +514,7 @@ namespace Combo.DAL
 				_ComboUserID_W = null;
 				_PostText_W = null;
 				_PostDate_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +611,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter IsDeleted
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +674,23 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private AggregateParameter _ComboPostID_W = null;
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _PostText_W = null;
 			private AggregateParameter _PostDate_W = null;
+			private AggregateParameter _IsDeleted_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +698,7 @@ namespace Combo.DAL
 				_ComboUserID_W = null;
 				_PostText_W = null;
 				_PostDate_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +787,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.PostDate);
 			p.SourceColumn = ColumnNames.PostDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsDeleted);
+			p.SourceColumn = ColumnNames.IsDeleted;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -11,5 +11,12 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetPostAttachmentsByPostID(int pid)
+        {            
+            return LoadFromRawSql(@"Select * From Attachment A 
+                                    inner join ComboPostAttachment PA on A.AttachmentID = PA.AttachmentID
+                                    Where PA.ComboPostID = {0}",pid);
+        }
 	}
 }

@@ -11,5 +11,13 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetPostByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.* from ComboPost P
+                                    Where P.ComboUserID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", userid);
+        }
+
 	}
 }
