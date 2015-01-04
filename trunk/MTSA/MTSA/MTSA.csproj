@@ -195,6 +195,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="home.aspx" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="images\3ag_01.jpg" />
     <Content Include="images\3ag_02.jpg" />
     <Content Include="images\3ag_03.jpg" />
