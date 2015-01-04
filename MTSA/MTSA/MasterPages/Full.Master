@@ -1102,7 +1102,7 @@ Available in the following versions:</p>
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
                         <img src="../images/products/electronic_doors/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
-                            <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" /><img src="../images/products/electronic_doors/5.png" />
+                            <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" style="width:6.2%;margin-bottom:5px;" /><img src="../images/products/electronic_doors/5.png" style="width:6.2%;margin-bottom:5px;"/>
                         </div>
                 </div>
                 
@@ -1218,7 +1218,7 @@ S.O. Sager International provides complete unique self-service property marketin
 
         <div class="section " id="contactp">
             
-            <div class="slide" id="c_p1">
+            <div class="slide" id="c_p1" style="background-color:transparent !important;">
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
 
@@ -1243,7 +1243,7 @@ If you are you looking for a rewarding business & willing to invest little money
                             <b>Head office: </b><br />
                             Jameel Square, corner of Tahlia & Al Andalus Street<br />
                             P. O Box 40538 Jeddah 21511, Saudi Arabia     <br />
-                            Tel: (+966) 12- 283 4088. Fax: (+966) 12-660 8128<br />
+                            Tel: (+966) 12- 283 4088. <br />Fax: (+966) 12-660 8128<br />
                             <a href="mailto:info@v-studio.co" >info@v-studio.co</a><br />
                             <b>Branches:</b> Riyadh. Al Khobar
                            </div>

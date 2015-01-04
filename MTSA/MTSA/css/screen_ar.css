@@ -4305,3 +4305,12 @@ height:100%;
 .navlink {
     cursor:pointer;
 }
+
+
+#contactp {
+     background: url(../images/contact.jpg) no-repeat bottom right;    
+    background-size:cover;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

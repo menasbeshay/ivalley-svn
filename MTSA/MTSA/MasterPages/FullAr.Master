@@ -562,7 +562,7 @@
                                  <li>حتى 20 لمسة في نفس الوقت والقدرة على تمييز كف اليد</li>
                                  <li>شاشات تعددية اللمس بتقنية<br /> الإسقاط التكاثفي</li>
                                  <li>جودة عرض عالية الدقة ضد التوهج<br /> 1920 × 1080 بيكسل</li>
-                                 <li>نظام التركيب السريع ( QMS ) لتوليف متطلبات أي <br />نظام خاص :ماسح للباركود ، تمييز الموجات الراديوية ،<br /> قارئ بطاقات الدفع ، طابعة حرارية وغير ذلك</li>
+                                 <li>نظام التركيب السريع ( QMS )<br /> لتوليف متطلبات أي نظام خاص :<br />ماسح للباركود ، تمييز الموجات الراديوية<br /> ، قارئ بطاقات الدفع ، طابعة حرارية وغير ذلك</li>
                              </ul>                      
                           <div class="clearfix" style="height:15px;"></div>
                                <label class="touchscreenlabel"> المــواصفـات</label>
@@ -575,7 +575,7 @@
                                 <li>مطابق لمتطلبات ADA لذوي الإحتياجات الخاصة <br />ومستخدمي الكراسي المتحركة</li>
                                  <div class="clearfix" style="height:5px;"></div>
                              </ul>
-                             <img src="../images/products/multitouchscreens/Page3/POS22.png" style="position:absolute;bottom:-10px;left:0px;" />
+                             <img src="../images/products/multitouchscreens/Page3/POS22.png" style="position:absolute;bottom:-10px;left:-10px;" />
                          </div>
                          <div class="col-lg-5 col-sm-5 col-md-5 pull-right" style="position:relative;direction:rtl;">
                              <div class="clearfix" style="height:61px;"></div>
@@ -584,7 +584,7 @@
                                 نظام POS لنقاط البيع من Polytouch ®  <br />وحدوي التصميم قابل للتوسعة بسهولة متضمنا الأجزاء الجانبية التالية:</p>
                              <div class="clearfix" style="height:15px;"></div>
                              <p>
-                                 طابعة حرارية خاصة بنقاط البيع ،<br /> قراءة كلمة سر المدفوعات ، بالاضافة <br />للأنظمة الجديدة RFID و NFC  ،<br /> كاميرا ، وماسح للباركود 
+                                 طابعة حرارية خاصة بنقاط البيع ،<br /> قراءة كلمة سر المدفوعات ، <br />بالاضافة للأنظمة الجديدة <br />RFID و NFC  ، كاميرا ، وماسح للباركود 
                              </p>
                              <div class="clearfix" style="height:15px;"></div>
                              <p>
@@ -1092,7 +1092,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
                         <img src="../images/products/electronic_doors/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
-                            <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" /><img src="../images/products/electronic_doors/5.png" />
+                            <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" style="width:6.2%;margin-bottom:5px;"/><img src="../images/products/electronic_doors/5.png" style="width:6.2%;margin-bottom:5px;"/>
                         </div>
                 </div>
                 
@@ -1145,7 +1145,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                                 <img src="../images/icons/png/large/6.png" style="margin:0 15px;width:10%;float:right;"/>
                                 <img src="../images/icons/png/large/2.png" style="margin:0 15px;width:10%;float:right;"/>
                                 <img src="../images/icons/png/large/9.png" style="margin:0 15px;width:10%;float:right;"/>
-                                <img src="../images/Icons/try.png"  style="margin:0 20px;width:12.5%;float:left"/>
+                                <img src="../images/Icons/try_a.png"  style="margin:0 20px;width:12.5%;float:left"/>
                             </div>    
                     </div>
                     
@@ -1207,7 +1207,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 
         <div class="section " id="contactp">
             
-            <div class="slide" id="c_p1">
+            <div class="slide" id="c_p1" style="background-color:transparent !important;">
                 
                 <div class="anyPage innerslide" style="position:relative;">                                         
 
@@ -1233,7 +1233,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                             <b>المركز الرئيسي: </b><br />
                             جميل سكوير ، تقلطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس<br />
                             ص.ب 40538 ، جدة 21511، المملكة العربية السعودية    <br />
-                            هاتف: +966 12-283 4088  .  قاكس  : +966 12-660 8128<br />
+                            هاتف:<span style="direction:ltr;display:inline-block"> (+966) 12- 283 4088. </span><br /> فاكس  :<span style="direction:ltr;display:inline-block">  +966 12-660 8128</span><br />
                             <a href="mailto:info@v-studio.co" >info@v-studio.co</a><br />
                             <b>فروعنا:</b> الرياض . الخبر  
                            </div>
@@ -1339,8 +1339,8 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                         </div>
                 </div>
 
-        <div class="slideFooter ks" id="k_p2">
-                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;padding:5px;width:460px;">
+        <div class="slideFooter ks" id="k_p2" style="direction:rtl;padding:5px;width:460px;">
+                    <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;padding:0px;">
                     <label class="touchscreenlabel">MITRA </label>
                     <p class="text-justify">
                        الطراز MITRA وحدة حائطية بحجم صغير وشاشة عرض مختلفة الأحجام من 12 بوصة وحتى 22 بوصة ، ويمكن الوصول لأجزائها الداخلية عن طريق باب أمامي للجهاز ..
