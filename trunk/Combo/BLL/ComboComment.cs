@@ -3,6 +3,7 @@
 
 using System;
 using Combo.DAL;
+using System.Data;
 namespace Combo.BLL
 {
 	public class ComboComment : _ComboComment
@@ -11,5 +12,13 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetPostCommentsByPostID(int pid)
+        {
+            this.Where.ComboPostID.Value = pid;
+            this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
+
 	}
 }

@@ -21,6 +21,8 @@ namespace Combo.Models
         /// 13 - email is required
         /// 20 - error while uploading file
         /// 21 - no file found
+        /// 30 - no user id
+        /// 31 - no post id
         /// 9999 - General Error
         /// </summary>
         public int ErrorCode { get; set; }
