@@ -37,7 +37,7 @@
     <HeaderTemplate></HeaderTemplate>
     <ItemTemplate>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-        <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%# Container.ItemIndex.ToString()  %>"  data-related="cat=1&c=<%# Eval("CategoryID").ToString() %>"> <%# Eval("Name") %>		                	 
+        <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%# Container.ItemIndex.ToString()  %>"  data-related="cat=1&c=<%# Eval("CategoryID").ToString() %>"> <%# Eval("Name") %>	&nbsp;(<asp:Label ID="uiLabelCounter" runat="server" ></asp:Label>)
             </a>        
         <asp:Repeater ID="uiRepeaterSubcats" runat="server">
             <HeaderTemplate>
@@ -45,7 +45,7 @@
                 <div class="panel-body">                    
             </HeaderTemplate>
             <ItemTemplate>
-                <a class="subcatLink room" href="#" data-related="subcat=1&s=<%# Eval("SubCategoryID").ToString() %>"><i class="icon icon-sitemap"></i> <%# Eval("Name") %>	</a>
+                <a class="subcatLink room" href="#" data-related="subcat=1&s=<%# Eval("SubCategoryID").ToString() %>"><i class="icon icon-sitemap"></i> <%# Eval("Name") %>	&nbsp; (<asp:Label ID="uiLabelCounter" runat="server" ></asp:Label>)</a>
                     <div class="clearfix"></div>
             </ItemTemplate>
             <FooterTemplate>    
