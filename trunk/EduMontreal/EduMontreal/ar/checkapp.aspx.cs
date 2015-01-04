@@ -73,6 +73,39 @@ namespace EduMontreal.ar
                 Response.Redirect("apply");
         }
 
+        protected void uiLinkButtonSaveDate_Click(object sender, EventArgs e)
+        {
+            Student student = (Student)Session["CurrentUser"];
+            ApplicationData app = new ApplicationData();
+            app.GetApplicationByStudentID(student.StudentID);
+
+            ApplicationStatusHistory Apphistroy = new ApplicationStatusHistory();
+            Apphistroy.GetApplicationStatusHistorybyApplicationDataID(app.ApplicationDataID);
+
+            if (!string.IsNullOrEmpty(uiTextBoxVisaDate.Text))
+            {
+                try
+                {
+                    DateTime visadate = Convert.ToDateTime(uiTextBoxVisaDate.Text);
+
+                    Apphistroy.VisaAppointMentDate = visadate;
+                    Apphistroy.Save();
+                    uiPanelVSSucess.Visible = true;
+                    uiPanelVSFail.Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    uiPanelVSSucess.Visible = false;
+                    uiPanelVSFail.Visible = true;
+                }  
+            }
+            else
+            {
+                uiPanelVSSucess.Visible = false;
+                uiPanelVSFail.Visible = true;
+            }
+        }
+
         protected void uiLinkButtonUploadVisaResult_Click(object sender, EventArgs e)
         {
             Student student = (Student)Session["CurrentUser"];

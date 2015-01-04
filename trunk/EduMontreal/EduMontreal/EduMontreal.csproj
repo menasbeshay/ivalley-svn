@@ -128,6 +128,7 @@
     <Content Include="Admin\changepassword.aspx" />
     <Content Include="Admin\logout.aspx" />
     <Content Include="Admin\printapplication.aspx" />
+    <Content Include="Admin\printreceipt.aspx" />
     <Content Include="apply.aspx" />
     <Content Include="AppPayment.aspx" />
     <Content Include="ar\activate.aspx" />
@@ -1904,6 +1905,8 @@
     <Content Include="js\fancy_func.js" />
     <Content Include="js\functions.js" />
     <Content Include="js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="css\jquery.datetimepicker.css" />
+    <Content Include="js\jquery.datetimepicker.js" />
     <Content Include="js\jquery.easing.js" />
     <Content Include="js\jquery.fileupload-angular.js" />
     <Content Include="js\jquery.fileupload-audio.js" />
@@ -2169,6 +2172,7 @@
     <Content Include="EduMontrealDataSet.xsc">
       <DependentUpon>EduMontrealDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="test.html" />
     <Content Include="wireTransefer.aspx" />
     <None Include="EduMontrealDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -2262,6 +2266,13 @@
     </Compile>
     <Compile Include="Admin\printapplication.aspx.designer.cs">
       <DependentUpon>printapplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\printreceipt.aspx.cs">
+      <DependentUpon>printreceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\printreceipt.aspx.designer.cs">
+      <DependentUpon>printreceipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="apply.aspx.cs">
       <DependentUpon>apply.aspx</DependentUpon>
@@ -2570,6 +2581,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Receipt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Admin\EDUReceipt.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

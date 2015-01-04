@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/AREduMaster.Master" AutoEventWireup="true" CodeBehind="checkapp.aspx.cs" Inherits="EduMontreal.ar.checkapp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../css/jquery.datetimepicker.css" rel="stylesheet" />    
+    <script src="../js/jquery.datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.datetimepicker').datetimepicker();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -17,7 +24,7 @@
             <div class="control-label">نتيجة الفيزا : </div>
             <div class="form-control">
                 <asp:FileUpload ID="uiFileUploadVisaResult" runat="server" />
-                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click">إرسال</asp:LinkButton>
+                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click" OnClientClick="$('#progressModal').modal('show');">إرسال</asp:LinkButton>
             </div>
             <asp:Panel runat="server" ID="uiPanelVisaSucc">
             <div class="alert-success">
@@ -27,6 +34,31 @@
             <asp:Panel runat="server" ID="uiPanelVisaFail">
             <div class="alert-danger">
                 حدث خطأ . من فضلك حاول مرة أخرى 
+            </div>
+                </asp:Panel>
+        </section>
+    </asp:Panel>
+    <div style="clear:both;height:10px;"></div>
+    <asp:Panel runat="server" ID="uiPanelVisaSchedule">
+        <section class="col-md-6 col-left">
+            <div class="control-label">تحديد ميعاد للمقابلة بخصوص الفيزا : </div>
+            
+                <div class="  col-md-6">                                        
+                    <div class="input-group date " >
+                        <asp:TextBox ID="uiTextBoxVisaDate" runat="server" CssClass="form-control datetimepicker"></asp:TextBox>
+                        <span class="input-group-addon add-on"><i  class="fa fa-calendar"></i></span>
+                    </div>                                        
+                </div>                
+                <asp:LinkButton ID="uiLinkButtonSaveDate" runat="server" CssClass="btn btn-primary col-md-6" OnClick="uiLinkButtonSaveDate_Click">حفظ</asp:LinkButton>
+            
+            <asp:Panel runat="server" ID="uiPanelVSSucess" Visible="false">
+            <div class="alert-success">
+               تم حفظ الميعاد بنجاح
+            </div>
+                </asp:Panel>
+            <asp:Panel runat="server" ID="uiPanelVSFail" Visible="false">
+            <div class="alert-danger">
+                حدث خطأ . من فضلك أعد المحاولة.
             </div>
                 </asp:Panel>
         </section>
@@ -110,5 +142,21 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="progressModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <h3>رجاء الإنتظار... </h3>
+                </div>
+                <div class="modal-body">
+                    جارى العمل على طلبك . برجاء الإنتظار...
+                    <img src="../assets/img/loading.gif" />
+                    </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 </asp:Content>

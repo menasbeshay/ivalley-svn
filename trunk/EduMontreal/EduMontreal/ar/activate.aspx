@@ -23,6 +23,15 @@
 				</div>
         </asp:Panel>
         <asp:Panel ID="uiPanelReActivate" runat="server" Visible="false" >
+             <asp:Panel ID="uiPanelActivateSuccess" runat="server" Visible="false">
+            <div class="row">			
+                
+					<div class="col-md-12 note note-success">	
+                        <h4 class="has-success">شكراً</h4>					
+                        تم إرسال رسالة التأكيد على البريد الإلكترونى. <a href="Default.aspx" class="btn btn-primary">إستمرار</a>
+					</div>                     
+				</div>
+        </asp:Panel>
             <div class="row">					
 					<div class="col-md-9">						
                         <asp:Label ID="uiLabelUserError" runat="server" Text="البريد الإلكترونى غير مسجل لدينا. من فضلك قم بإدخال بريد إلكترونى مسجل." ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>                        

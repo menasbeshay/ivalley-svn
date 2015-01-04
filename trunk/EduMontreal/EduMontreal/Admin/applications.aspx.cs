@@ -279,7 +279,7 @@ namespace WebApplication.Admin
                             }
                         }
 
-                        msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge, missingDocs , refusalReasons);
+                        msg.Body = string.Format(Server.HtmlDecode(template.Body.Replace('\r', ' ').Replace('\n', ' ')), student.FirstName + " " + student.FamilyName, student.Email, course.CourseName + " - " + lang.Langauge, missingDocs , refusalReasons, string.IsNullOrEmpty(uiTextBoxComment.Text) ? "N/A" : uiTextBoxComment.Text);
 
                         // attachments
                         if (Session["CurrentUploadedFiles"] != null)

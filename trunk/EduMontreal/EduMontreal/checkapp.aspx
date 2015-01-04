@@ -1,11 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/EduMaster.Master" AutoEventWireup="true" CodeBehind="checkapp.aspx.cs" Inherits="EduMontreal.checkapp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <link href="css/jquery.datetimepicker.css" rel="stylesheet" />
+    <script src="js/jquery.datetimepicker.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.datetimepicker').datetimepicker({               
-            });
+            $('.datetimepicker').datetimepicker();
         });
     </script>
 </asp:Content>
@@ -23,7 +22,7 @@
             <div class="control-label">Visa Result : </div>
             <div class="form-control">
                 <asp:FileUpload ID="uiFileUploadVisaResult" runat="server" />
-                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click">Upload</asp:LinkButton>
+                <asp:LinkButton ID="uiLinkButtonUploadVisaResult" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonUploadVisaResult_Click" OnClientClick="$('#progressModal').modal('show');">Upload</asp:LinkButton>
             </div>
             <asp:Panel runat="server" ID="uiPanelVisaSucc" Visible="false">
             <div class="alert-success">
@@ -43,12 +42,12 @@
         <section class="col-md-6 col-left">
             <div class="control-label">Visa Schedule Appointment : </div>
             
-                <div class=" datetimepicker col-md-6">                                        
-                    <div class="input-group date datetimepicker" data-time-icon="fa fa-time" data-date-icon="fa fa-calendar">
-                        <asp:TextBox ID="uiTextBoxVisaDate" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="  col-md-6">                                        
+                    <div class="input-group ">
+                        <asp:TextBox ID="uiTextBoxVisaDate" runat="server" CssClass="form-control datetimepicker"></asp:TextBox>
                         <span class="input-group-addon add-on"><i  class="fa fa-calendar"></i></span>
                     </div>                                        
-                </div>                
+                </div>                           
                 <asp:LinkButton ID="uiLinkButtonSaveDate" runat="server" CssClass="btn btn-primary col-md-6" OnClick="uiLinkButtonSaveDate_Click">Save Appointment Date</asp:LinkButton>
             
             <asp:Panel runat="server" ID="uiPanelVSSucess" Visible="false">
@@ -134,6 +133,22 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="progressModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <h3>Please wait ... </h3>
+                </div>
+                <div class="modal-body">
+                    Your request is processing. Please wait...
+                    <img src="assets/img/loading.gif" />
+                    </div>
             </div>
             <!-- /.modal-content -->
         </div>
