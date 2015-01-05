@@ -9,6 +9,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BLL;
+using Microsoft.AspNet.SignalR;
+using Chat2Connect.SRCustomHubs;
 namespace Chat2Connect
 {
     public partial class createRoom : System.Web.UI.Page
@@ -253,6 +255,20 @@ namespace Chat2Connect
                 room.RowStatusID = 1;
                 room.Save();
 
+                // update room count for cats & subcats 
+                IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
+                Room rooms = new Room();
+                rooms.GetRoomsByCreatorID(Member.CurrentMemberID);
+                _Rcontext.Clients.Group(member.UserName).updateRoomCount(0, 0, rooms.RowCount, true);
+
+                rooms.GetRoomsByCategoryID(room.CategoryID);
+                _Rcontext.Clients.All.updateRoomCount(room.CategoryID, 0, rooms.RowCount, false);
+
+                if (!room.IsColumnNull(Room.ColumnNames.SubCategoryID))
+                {
+                    rooms.GetRoomsBySubCategoryID(room.SubCategoryID);
+                    _Rcontext.Clients.All.updateRoomCount(0, room.SubCategoryID, rooms.RowCount, false);
+                }
 
                 /* add room owner */
                 RoomMember roommember = new RoomMember();

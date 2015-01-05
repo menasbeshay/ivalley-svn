@@ -8,6 +8,7 @@ BEGIN
 	ALTER TABLE RoomMember ADD LastJoinDate DATETIME DEFAULT(GETDATE())
 	
 	UPDATE RoomMember SET LastJoinDate=GETDATE()
+	
 END
 
 /****** Object:  StoredProcedure [proc_RoomMemberLoadByPrimaryKey]    Script Date: 26/12/2014 4:32:12 PM ******/

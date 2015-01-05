@@ -588,6 +588,13 @@ namespace Chat2Connect.SRCustomHubs
             log.AddNew(BLL.Member.CurrentMemberID, new BLL.Log.EnterPrivateChate() { FriendID = FriendID, FriendName = FriendName }, FriendID, null);
         }
 
+        public void updateFavRoomCount(int mid)
+        {            
+            Room rooms = new Room();
+            rooms.GetFavoriteByMemberID(mid);
+            Clients.Caller.updateRoomCount(0, 0, rooms.RowCount, false, true);
+        }
+
 
         #region Room supervisor
 

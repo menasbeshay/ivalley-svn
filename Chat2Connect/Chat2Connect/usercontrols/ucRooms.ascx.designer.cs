@@ -13,6 +13,24 @@ namespace Chat2Connect.usercontrols {
     public partial class ucRooms {
         
         /// <summary>
+        /// catlink_minecount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label catlink_minecount;
+        
+        /// <summary>
+        /// catlink_favcount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label catlink_favcount;
+        
+        /// <summary>
         /// uiRepeaterCats control.
         /// </summary>
         /// <remarks>

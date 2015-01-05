@@ -139,10 +139,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2014 12:25:04</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/28/2014 11:57:12</publishTime>
+      <publishTime>01/05/2015 15:13:57</publishTime>
     </File>
     <File Include="bin/Chat2Connect.dll">
-      <publishTime>01/04/2015 12:20:02</publishTime>
+      <publishTime>01/05/2015 15:13:57</publishTime>
     </File>
     <File Include="bin/coming_soon.html">
       <publishTime>09/11/2014 12:24:49</publishTime>
@@ -469,7 +469,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/28/2014 10:56:22</publishTime>
     </File>
     <File Include="css/main.css">
-      <publishTime>12/28/2014 11:48:48</publishTime>
+      <publishTime>01/05/2015 15:48:52</publishTime>
     </File>
     <File Include="css/prettyPhoto.css">
       <publishTime>09/11/2014 12:25:02</publishTime>
@@ -2035,7 +2035,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/28/2014 10:56:22</publishTime>
     </File>
     <File Include="js/chatwindows.js">
-      <publishTime>01/04/2015 10:45:50</publishTime>
+      <publishTime>01/05/2015 15:09:52</publishTime>
     </File>
     <File Include="js/commonfunc.js">
       <publishTime>11/12/2014 14:32:29</publishTime>
@@ -2467,7 +2467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2014 21:50:29</publishTime>
     </File>
     <File Include="usercontrols/ucRooms.ascx">
-      <publishTime>01/04/2015 11:52:20</publishTime>
+      <publishTime>01/05/2015 15:47:12</publishTime>
     </File>
     <File Include="UserProfile.aspx">
       <publishTime>12/18/2014 13:54:24</publishTime>

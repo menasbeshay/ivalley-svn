@@ -2,13 +2,13 @@
 <div class="SScroll" data-height="500px">
     <div class="panel-group rooms" id="accordion">
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="cb=1">غرفى الخاصة
+            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="cb=1">غرفى الخاصة&nbsp;(<asp:Label ID="catlink_minecount" ClientIDMode="Static" runat="server"></asp:Label>)
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 
         </div>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="fav=1">غرفى المفضلة
+            <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-related="fav=1">غرفى المفضلة&nbsp;(<asp:Label id="catlink_favcount" runat="server" ClientIDMode="Static"> </asp:Label>)
             </a>
             <div class="clearfix" style="height: 5px;"></div>
 
@@ -37,7 +37,7 @@
     <HeaderTemplate></HeaderTemplate>
     <ItemTemplate>
         <div class="panel" style="border-bottom: 1px solid #FEC200">
-        <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%# Container.ItemIndex.ToString()  %>"  data-related="cat=1&c=<%# Eval("CategoryID").ToString() %>"> <%# Eval("Name") %>	&nbsp;(<asp:Label ID="uiLabelCounter" runat="server" ></asp:Label>)
+        <a class="catLink" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%# Container.ItemIndex.ToString()  %>"  data-related="cat=1&c=<%# Eval("CategoryID").ToString() %>"> <%# Eval("Name") %>	&nbsp;(<span id='catLink_<%# Eval("CategoryID").ToString() %>'><%# Eval("RoomCount") %></span>)
             </a>        
         <asp:Repeater ID="uiRepeaterSubcats" runat="server">
             <HeaderTemplate>
@@ -45,7 +45,7 @@
                 <div class="panel-body">                    
             </HeaderTemplate>
             <ItemTemplate>
-                <a class="subcatLink room" href="#" data-related="subcat=1&s=<%# Eval("SubCategoryID").ToString() %>"><i class="icon icon-sitemap"></i> <%# Eval("Name") %>	&nbsp; (<asp:Label ID="uiLabelCounter" runat="server" ></asp:Label>)</a>
+                <a class="subcatLink room" data-related="subcat=1&s=<%# Eval("SubCategoryID").ToString() %>"><i class="icon icon-sitemap"></i> <%# Eval("Name") %>	&nbsp; (<span id='subcatLink_<%# Eval("SubCategoryID").ToString() %>'><%# Eval("RoomCount") %></span>)</a>
                     <div class="clearfix"></div>
             </ItemTemplate>
             <FooterTemplate>    
