@@ -16,9 +16,15 @@ namespace Chat2Connect.usercontrols
             if (!IsPostBack)
             {
                 Category cats = new Category();
-                cats.LoadAll();
+                cats.GetAllCats();
                 uiRepeaterCats.DataSource = cats.DefaultView;
                 uiRepeaterCats.DataBind();
+
+                Room rooms = new Room();
+                rooms.GetRoomsByCreatorID(Member.CurrentMemberID);
+                catlink_minecount.Text = rooms.RowCount.ToString();
+                rooms.GetFavoriteByMemberID(Member.CurrentMemberID);
+                catlink_favcount.Text = rooms.RowCount.ToString();
             }
         }
 

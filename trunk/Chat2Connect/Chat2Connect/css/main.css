@@ -2339,6 +2339,7 @@ input[type="text"], textarea {
 a.catLink, a.subcatLink {
     display:block;
     width:100%;
+    cursor:pointer;
 }
 
 .catLink.selected , .subcatLink.selected {

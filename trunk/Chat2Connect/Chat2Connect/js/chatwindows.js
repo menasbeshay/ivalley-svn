@@ -1285,6 +1285,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                     notify('error', 'حدث خطأ . من فضلك أعد المحاولة.');
                 }
             });
+            rHub.server.updateFavRoomCount(window.CurrentMemberID());
         };
     }
     var loadingWindowModel = function (id, name, typeSpec) {
@@ -2439,6 +2440,26 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     rHub.client.updateBalance = function (points) {
         chatVM.CreditPoints(points);
     }
+
+    rHub.client.updateRoomCount = function (catid, subcatid, count, iscreatorCount, isfav) {
+        var cat = $("#catLink_" + catid);
+        var subcat = $("#subcatLink_" + subcatid);
+        var creator = $("#catlink_minecount");
+        var fav = $('#catlink_favcount');
+        if (iscreatorCount) {
+            /*var existing = Number(room.text());
+            existing = existing + count;*/
+            creator.text(count);
+        }
+
+        if (catid != 0)
+            cat.text(count);
+        if (subcatid != 0)
+            subcat.text(count);
+            
+        if (isfav)
+            fav.text(count);
+    };
 }
 /********* common functions ****************/
 function initPopover(window) {

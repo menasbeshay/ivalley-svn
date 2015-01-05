@@ -11,5 +11,10 @@ namespace BLL
 		{
 		
 		}
+
+        public virtual bool GetAllCats()
+        {
+            return LoadFromRawSql("select C.CategoryID, C.Name, C.IconPath, Count(R.RoomID) RoomCount from Category C left join Room R on C.CategoryID = R.CategoryID where (R.rowstatusid = 1 OR R.rowstatusid is null) Group by C.CategoryID, C.Name, C.IconPath ");
+        }
 	}
 }
