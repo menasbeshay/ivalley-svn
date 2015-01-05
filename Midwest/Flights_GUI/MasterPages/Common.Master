@@ -67,6 +67,13 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <div class="clear10"></div>
+        <div style="width:80%;margin: 0 auto;text-align:center;color:Black;font-family:Verdana;">
+        <div style="width:35%;border-top:2px solid #F6951D;margin: 0 auto;height:2px;" ></div>
+         Powered by &nbsp; <a href="http://I-valley.com">
+                    <img src="../images/ivalley.png" title="I-VALLEY software solutions" style="vertical-align: middle;border:0;"
+                        alt="I-VALLEY software solutions" /></a>
+        </div>
     </form>
 </body>
 </html>
