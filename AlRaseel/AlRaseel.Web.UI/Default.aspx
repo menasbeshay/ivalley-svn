@@ -186,12 +186,12 @@
             <div class="ha-header-perspective">
                 <div class="ha-header-front">
 
-                    <div class="grid-20 tablet-grid-80 mobile-grid-80 ">
+                    <div class="grid-20 tablet-grid-30 mobile-grid-30 ">
 
 
 
                         <div class="site-logo">
-                            <a href="index.html" title="الرسيل - أرضيات بمفاهيم متميّزة" rel="home">
+                            <a href="#top" title="الرسيل - أرضيات بمفاهيم متميّزة" rel="home">
                                 <img data-altlogo="../assets/img/logo-ar.png" src="../assets/img/logo-ar.png" alt="Al Raseel">
                                 <%--<div id="slogan"><span>أرضيات بمفاهيم متميّزة</span> </div>--%>
                             </a>
@@ -200,26 +200,25 @@
 
 
                     </div>
-                    <div class="grid-30 tablet-grid-40 mobile-grid-40 ">
-                        <div style="color: #7e2e30; font-size: 16px; font-weight: bold;">
+                    <div class="grid-30 tablet-grid-50 mobile-grid-50 " style="color: #7e2e30; font-size: 16px; font-weight: bold;padding-top:40px;">
+                        
 
-                            <div style="max-height: 30px; float: left;" class="">
-                                <p>
-                                    <i class="fa fa-phone">
+                            <div style="max-height: 30px; float: left;margin-left:20px" class="">
+                               
+                                    <i class="fa fa-phone" style="display:block;">
                                         <a href="#">
                                             <asp:Literal ID="lblPhoneMenue" runat="server" />
                                         </a></i>
-                                </p>
+                                
                             </div>
-                            <div style="max-height: 30px;" class="">
-                                <p>
-                                    <i class="fa fa-envelope">
+                            <div style="max-height: 30px;float: left;margin-left:20px" class="">
+                                
+                                    <i class="fa fa-envelope" style="display:block;">
                                         <asp:Literal ID="lblemailmenu" runat="server" />
                                     </i>
-                                </p>
+                                
                             </div>
 
-                        </div>
 
                     </div>
 
@@ -242,7 +241,7 @@
                     </div>
                     <nav id="ut-mobile-nav" class="ut-mobile-menu mobile-grid-100 tablet-grid-100 hide-on-desktop">
                         <div class="ut-scroll-pane">
-                            <ul id="ut-mobile-menu" class="ut-mobile-menu" style="font-family: 'Droid Arabic Kufi'!important;">
+                            <ul id="ut-mobile-menu" class="ut-mobile-menu" style="font-family: 'Droid Arabic Kufi'!important;text-align:right;">
                                 <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../en/Default.aspx" class="">EN</a></li>
 
                                 <li class="ut-home-link"><a href="#top" class="">الرئيسية</a></li>
@@ -322,10 +321,19 @@
                             </h1>
                         </div>
 
-                        <div class="hero-btn-holder">
+                        <div class="hero-btn-holder hide-on-mobile">
                             <a id="to-about-section" href="#ut-to-first-section" class="hero-btn">
 
                                 <div style="font-size: 100px; color: #7e2e30;">
+                                    <i class="fa fa-chevron-circle-down"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="hero-btn-holder hide-on-desktop">
+                            <a id="to-about-section" href="#ut-to-first-section" class="hero-btn">
+
+                                <div style="font-size: 30px; color: #7e2e30;">
                                     <i class="fa fa-chevron-circle-down"></i>
                                 </div>
                             </a>
@@ -465,16 +473,16 @@
                         <div class="" style="width: 100%; margin: 0 auto;" id="AllProds">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="" style="width: 45%; float: left; margin-bottom: 20px;">
+                                    <div class="grid-45 mobile-grid-100 tablet-grid-50" style="float: left; margin-bottom: 20px;">
                                         <div style="text-align: right;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 100%; margin: 0 auto;">
                                                     <h3 style="font-family: 'Droid Arabic Kufi'!important;">
-                                                        <a href='#section-Product-Section_<%# Eval("Id") %>' style="color: #e5c593 !important;" class="prodnav">
+                                                        <a href='#section-Product-Section_<%# Eval("Id") %>' style="color: #e5c593 !important;text-align:right;" class="prodnav">
                                                             <%#Eval("ProductTitle") %>
                                                         </a>
                                                     </h3>
-                                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;"><%#Eval("ShortDescription") %> </p>
+                                                    <p style="font-family: 'Al-Jazeera-Arabic-Regular' !important;text-align:right;"><%#Eval("ShortDescription") %> </p>
                                                 </div>
                                             </div>
                                             <a href='#section-Product-Section_<%# Eval("Id") %>' class="prodnav">
@@ -1134,8 +1142,8 @@
 
 
                             <!-- contact message -->
-                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100" style="width:1100px;margin-bottom: 75px;margin-top: -40px;">
-                                <div class="ut-left-footer-area clearfix" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; float: left; width: 350px; margin-left: -130px;margin-right: 20px;">
+                            <div class="grid-95 prefix-15 mobile-grid-95 tablet-grid-95" style="margin-bottom: 75px;margin-top: -40px;">
+                                <div class="ut-left-footer-area clearfix grid-33 mobile-grid-100  tablet-grid-100" style="font-family: 'Al-Jazeera-Arabic-Regular' !important; float: left; margin-left: -130px;margin-right: 20px;">
 
                                     <h2 style="text-align: center; direction: ltr">
                                        <a href="#" style="color: #e5c593; text-decoration:underline;">
@@ -1165,12 +1173,12 @@
                                         <span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-twitter fa-stack-1x" style="color: #e5c593"></i></a></span><span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-facebook fa-stack-1x" style="color: #e5c593"></i></a></span>
 
                                 </div>
-                                <div style="float: left;margin-right: 20px;">
+                                <div style="float: left;margin-right: 20px;" class="grid-33 mobile-grid-100  tablet-grid-100">
                                     <label>
                                         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1811.6160503230687!2d46.699036!3d24.75323!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419511858143" width="350" height="478" frameborder="0" style="border:0"></iframe>
                                     </label>
                                 </div>
-                                <div style="float: left;width: 350px;">
+                                <div style="float: left;" class="grid-33 mobile-grid-100  tablet-grid-100">
                                     <form id="contactForm" runat="server">
                                         <div style="font-family: 'Droid Arabic Kufi'!important;">
                                             <div>

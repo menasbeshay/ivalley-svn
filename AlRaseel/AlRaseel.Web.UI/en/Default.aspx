@@ -185,12 +185,12 @@
             <div class="ha-header-perspective">
                 <div class="ha-header-front">
 
-                    <div class="grid-20 tablet-grid-80 mobile-grid-80 ">
+                    <div class="grid-20 tablet-grid-20 mobile-grid-20 ">
 
 
 
                         <div class="site-logo">
-                            <a href="../en/Default.aspx" title="Al Raseel | Flooring with unique concepts" rel="home">
+                            <a href="#top" title="Al Raseel | Flooring with unique concepts" rel="home">
                                 <img data-altlogo="../assets/img/logo-en.png" src="../assets/img/logo-en.png" alt="Al Raseel">
                                 <%--<div id="slogan"><span>أرضيات بمفاهيم متميّزة</span> </div>--%>
                             </a>
@@ -199,26 +199,26 @@
 
 
                     </div>
-                    <div class="grid-30 tablet-grid-40 mobile-grid-40 ">
-                        <div style="color: #7e2e30; font-size: 16px; font-weight: bold;">
+                    <div class="grid-30 tablet-grid-50 mobile-grid-50 " style="color: #7e2e30; font-size: 16px; font-weight: bold;padding-top:40px;">
+                       
 
-                            <div style="max-height: 30px; float: right;" class="">
-                                <p>
-                                    <i class="fa fa-phone">
+                            <div style="max-height: 30px; float: right;margin-right:20px" class="">
+                                
+                                    <i class="fa fa-phone" style="display:block;">
                                         <a href="#">
                                             <asp:Literal ID="lblPhoneMenue" runat="server" />
                                         </a></i>
-                                </p>
+                                
                             </div>
-                            <div style="max-height: 30px;" class="">
-                                <p>
-                                    <i class="fa fa-envelope">
+                            <div style="max-height: 30px;float: right;margin-right:20px" class="">
+                                
+                                    <i class="fa fa-envelope" style="display:block;">
                                         <asp:Literal ID="lblemailmenu" runat="server" />
                                     </i>
-                                </p>
+                                
                             </div>
 
-                        </div>
+                       
 
                     </div>
 
@@ -226,11 +226,11 @@
 
                     <nav id="navigation" class="grid-50 hide-on-tablet hide-on-mobile ">
                         <ul id="menu-main" class="menu">
-                            <li class="ut-home-link"><a href="../#top" class="">Home</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-about-brooklyn" class="">About Us</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-our-service" class="">Products</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-work" class="">Colours </a></li>
-                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="/#section-contact" class="">Contact Us</a></li>
+                            <li class="ut-home-link"><a href="#top" class="">Home</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">About Us</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">Products</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">Colours </a></li>
+                            <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">Contact Us</a></li>
                             <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../Default.aspx" class="">AR</a></li>
 
                         </ul>
@@ -241,11 +241,11 @@
                     <nav id="ut-mobile-nav" class="ut-mobile-menu mobile-grid-100 tablet-grid-100 hide-on-desktop">
                         <div class="ut-scroll-pane">
                             <ul id="ut-mobile-menu" class="ut-mobile-menu">
-                                <li class="ut-home-link"><a href="../#top" class="">Home</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-about-brooklyn" class="">About Us</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-our-service" class="">Products</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="/#section-work" class="">Colours </a></li>
-                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="/#section-contact" class="">Contact Us</a></li>
+                                <li class="ut-home-link"><a href="#top" class="">Home</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-about-brooklyn" class="">About Us</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-our-service" class="">Products</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#section-work" class="">Colours </a></li>
+                                <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="#section-contact" class="">Contact Us</a></li>
                                 <li class="contact-us menu-item menu-item-type-custom menu-item-object-custom "><a href="../Default.aspx" class="">AR</a></li>
 
                             </ul>
@@ -319,10 +319,19 @@
                             </h1>
                         </div>
 
-                        <div class="hero-btn-holder">
+                        <div class="hero-btn-holder hide-on-mobile">
                             <a id="to-about-section" href="#ut-to-first-section" class="hero-btn">
 
                                 <div style="font-size: 100px; color: #7e2e30;">
+                                    <i class="fa fa-chevron-circle-down"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                         <div class="hero-btn-holder hide-on-desktop">
+                            <a id="to-about-section" href="#ut-to-first-section" class="hero-btn">
+
+                                <div style="font-size: 30px; color: #7e2e30;">
                                     <i class="fa fa-chevron-circle-down"></i>
                                 </div>
                             </a>
@@ -445,7 +454,7 @@
                         <div class="" style="width: 100%;" id="AllProds">
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
-                                    <div class="  " style="width: 50%; float: left">
+                                    <div class="grid-45 mobile-grid-100 tablet-grid-50" style="width: 50%; float: left">
                                         <div style="text-align: left;">
                                             <div data-effect="slideInLeft" class="clearfix democolor ut-column-last ut-animate-element animated">
                                                 <div class="ut-service-column" style="width: 70%; margin: 0 auto;">
@@ -1077,8 +1086,8 @@
 
 
                             <!-- contact message -->
-                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100"  style="width: 1140px;margin: 0 auto;margin-bottom: 75px; margin-top: -40px;">
-                                <div class="ut-left-footer-area clearfix" style="float: right;width: 350px;margin-left: 20px;">
+                            <div class="grid-95 mobile-grid-95 tablet-grid-95"  style="margin: 0 auto;margin-bottom: 75px; margin-top: -40px;">
+                                <div class="ut-left-footer-area clearfix grid-33 mobile-grid-100  tablet-grid-100" style="float: right;margin-left: 10px;margin-right:-60px;">
 
                                     <h2 style="text-align: center;">
                                         <a href="#" style="color: #e5c593; text-decoration:underline;">
@@ -1109,13 +1118,13 @@
                                         <span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-twitter fa-stack-1x" style="color: #e5c593"></i></a></span><span class="fa-stack ut-custom-icon fa-2x alignnone"><a target="_self" href="#"><i class="fa fa-circle fa-stack-2x" style="color: #222222"></i><i class="fa fa-facebook fa-stack-1x" style="color: #e5c593"></i></a></span>
 
                                 </div>
-                                <div  style="float: right;margin-left: 20px;"> 
+                                <div  style="float: right;" class="grid-33 mobile-grid-100  tablet-grid-100"> 
                                     <label>
                                         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1811.6160503230687!2d46.699036!3d24.75323!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419511858143" width="350" height="478" frameborder="0" style="border:0"></iframe>
                                     </label>
                                 </div>
 
-                                <div  style="float: right; width:350px;">
+                                <div  style="float: right; " class="grid-33 mobile-grid-100  tablet-grid-100">
                                     <form id="contactForm" runat="server">
                                         <div style="">
                                             <div>
