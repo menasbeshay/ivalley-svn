@@ -88,7 +88,7 @@
     
     <link href="../css/jphotogrid.css" rel="stylesheet" />
     <link href="../css/jphotogrid.ie.css" rel="stylesheet" />
-
+     <link href="../css/superbox.css" rel="stylesheet" />
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -108,7 +108,7 @@
     <!-- Add Media helper (this is optional) -->
     <script type="text/javascript" src="../source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
 
-
+    <script src="../js/jquery.superbox.min.js"></script>
 
 
 
@@ -353,7 +353,7 @@
                 <div class="grid-container section-header-holder" style="min-height: 400px;">
 
                     <!-- section header -->
-                    <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                    <div class="grid-75 prefix-15 mobile-grid-100 tablet-grid-100">
 
                         <header class="section-header pt-style-2">
                             <h2 class="section-title" style=""><span>
@@ -578,7 +578,87 @@
             </asp:Repeater>
 
 
+            <asp:Repeater ID="uiRepeaterWoodWall" runat="server" OnItemDataBound="uiRepeaterWoodWall_ItemDataBound">
+                <ItemTemplate>
 
+
+
+                    <section id='Product-Section_<%# Eval("Id") %>' data-effect="fadeIn" data-width="centered" class="prod page-id-1777 entry-content normal-background  light " style="min-height: 700px;">
+
+                        <a class="ut-offset-anchor" id='section-Product-Section_<%# Eval("Id") %>'></a>
+
+                        <div class="grid-container section-header-holder" >
+
+                            <!-- section header -->
+                            <div class="grid-70 prefix-15 mobile-grid-100 tablet-grid-100">
+                                 <div id="prod_details_back" style="margin-top: -30px; position: absolute; z-index: 100;">
+                                    <a id="backLink" href="#section-our-service" class=" prodnav cta-btn theme-btn" style="border: 1px solid #e5c593; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -webkit-border-radius: 5px; background-color: #e5c593; padding: 10px; float: left; clear: both; display: block;">Back to products</a>
+                                    <div class="clear clearfix" style="height: 5px; width: 100%"></div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <header class="parallax-header pt-style-2">
+
+                                    <h2 class="parallax-title" style=" background: #7e2e30;"><span>
+                                        <asp:Literal ID="lblProductTitle" runat="server" /></span></h2>
+
+                                    <p class="parallax-content" >
+                                        <asp:Literal ID="lblProductFullDescrition" runat="server" />
+                                    </p>
+                                </header>
+                            </div>
+                            <!-- close section header -->
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid-container section-content" style="min-height:440px;">
+
+                            <asp:Repeater ID="dlAlbums" runat="server" OnItemDataBound="dlAlbums_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <div class="grid-100 mobile-grid-100 tablet-grid-100 " style="float: left; margin-bottom: 15px;">
+                                        <div class="ut-left-footer-area clearfix" style=" width: 100%;">
+
+                                            <div id="divAlbumImages">
+                                                <header class="parallax-header ">
+                                                    <h3 class="parallax-title" style="font-size:25px;"><span>
+                                                        <asp:Literal ID="lblAlbumTitle" Text='<%# Eval("Title") %>' runat="server" /></span></h3>
+
+                                                    <p class="parallax-content" style="display:none">
+                                                        <asp:Literal ID="lblAlbumDescription" Text='<%# Eval("AlbumDescription") %>' runat="server" />
+                                                    </p>
+                                                </header>
+                                                <asp:Label ID="lblAlbumId" Text='<%# Eval("Id") %>' Visible="false" runat="server" />
+                                                <div id="divAlbums_<%# Container.ItemIndex  %>" style="margin: 0 auto; text-align: center; width: 95%; direction: ltr;">
+                                                    <div title='<%# Eval("Title") %>'>
+                                                         <div class="gallerybox_woodwall">
+                                                        <asp:Repeater ID="dlImages" runat="server" >
+                                                            <ItemTemplate>
+
+                                                                
+                             
+                                                                      <div>
+                                                                          <img src="../Files/Products/<%# Eval("ImageFile") %>" data-img="../Files/Products/<%# Eval("ImageFile") %>" />
+                                                                      </div>
+                                                                                                                                   
+
+
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+
+                                                    </div> 
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <div class="ut-scroll-up-waypoint" data-section='section-Product-Section_<%# Eval("Id") %>'></div>
+                    </section>
+                    <div class="clear"></div>
+                </ItemTemplate>
+            </asp:Repeater>
 
 
             <section id="work" data-effect="fadeIn" data-width="fullwidth" class="page-id-1943 entry-content normal-background  light  ">
@@ -858,7 +938,7 @@
                         </div>--%>
                         <!-- end ut_masonry_45-->
 
-                        <div id="thumbnails">
+                        <%--<div id="thumbnails">
                               <ul class="clearfix" id="pg">
                                   <li>
                                       <img src="../images/colors/8.jpg" alt="img01" />
@@ -892,8 +972,62 @@
                                       <img src="../images/colors/19.jpg" alt="img01" />
                                   </li>
                               </ul>
-                        </div>
+                        </div>--%>
 
+
+                        <div class="gallerybox">
+                             
+                                  <div>
+                                      <img src="../images/colors/8.jpg" data-img="../images/colors/8.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/9.jpg" data-img="../images/colors/9.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/10.jpg" data-img="../images/colors/10.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/11.jpg" data-img="../images/colors/11.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/12.jpg" data-img="../images/colors/12.jpg" />
+
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/15.jpg" data-img="../images/colors/15.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/16.jpg" data-img="../images/colors/16.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/17.jpg" data-img="../images/colors/17.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/18.jpg" data-img="../images/colors/18.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/19.jpg" data-img="../images/colors/19.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/30_1.jpg" data-img="../images/colors/30_1.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/31_1.jpg" data-img="../images/colors/31_1.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/32_1.jpg" data-img="../images/colors/32_1.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/33_1.jpg" data-img="../images/colors/33_1.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/34_1.jpg" data-img="../images/colors/34_1.jpg" />
+                                  </div>
+                                  <div>
+                                      <img src="../images/colors/35_1.jpg" data-img="../images/colors/35_1.jpg" />
+                                  </div>
+                              
+                        </div>
                     </div>
                 </div>
 
@@ -977,7 +1111,7 @@
                                 </div>
                                 <div  style="float: right;margin-left: 20px;"> 
                                     <label>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927756.589771915!2d46.82252880000002!3d24.725191849999963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh+Saudi+Arabia!5e0!3m2!1sen!2s!4v1407667916780" width="350" height="478" frameborder="0" style="border: 0"></iframe>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1811.6160503230687!2d46.699036!3d24.75323!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419511858143" width="350" height="478" frameborder="0" style="border:0"></iframe>
                                     </label>
                                 </div>
 
@@ -1134,27 +1268,30 @@
                     event.preventDefault();
                 });
 
-                jQuery('#pg').jphotogrid({
-                    baseCSS: {
-                        width: '220px',
-                        height: '220px',
-                        padding: '0px'
-                    },
-                    selectedCSS: {
-                        top: '50px',
-                        left: '300px',
-                        width: '500px',
-                        height: '360px',
-                        padding: '10px'
-                    }
-                });
+                //jQuery('#pg').jphotogrid({
+                //    baseCSS: {
+                //        width: '220px',
+                //        height: '220px',
+                //        padding: '0px'
+                //    },
+                //    selectedCSS: {
+                //        top: '50px',
+                //        left: '300px',
+                //        width: '500px',
+                //        height: '360px',
+                //        padding: '10px'
+                //    }
+                //});
+
+                jQuery('.gallerybox').SuperBox();
+                jQuery('.gallerybox_woodwall').SuperBox();
             });
         </script>
 
     </div>
     <!-- close #main-content -->
     <!--http://youtu.be/b62B4IDUUpE-->
-    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/b62B4IDUUpE' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
+    <a id="ut-background-video" class="ut-video-player" data-property="{ videoURL : 'http://youtu.be/gJ5aXIG0xRg' , containment : 'body' , autoPlay : true, mute : false, vol : 100, startAt : 0, opacity : 1}"></a>
 </body>
 
 <!-- Mirrored from themeforest.unitedthemes.com/wpversions/brooklyn/extended/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2014 17:28:39 GMT -->

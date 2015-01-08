@@ -56,8 +56,11 @@ namespace Web.UI.en
         private void LoadProductsSections()
         {
             ProductRepository _ProRepo = new ProductRepository();
-            rptrProductsSections.DataSource = _ProRepo.LoadByLanguageId("097BE02E-A019-4853-AD50-F22EF5F0BF0F");
+            rptrProductsSections.DataSource = _ProRepo.LoadWoodFloorsByLanguageId("097BE02E-A019-4853-AD50-F22EF5F0BF0F");
             rptrProductsSections.DataBind();
+
+            uiRepeaterWoodWall.DataSource = _ProRepo.LoadAllExceptWoodFloorByLanguageId("097BE02E-A019-4853-AD50-F22EF5F0BF0F"); //wood walls
+            uiRepeaterWoodWall.DataBind();
         }
 
         private void LoadAboutUS()
@@ -174,6 +177,28 @@ namespace Web.UI.en
                 albums.DataBind();
 
             }
+        }
+
+        protected void uiRepeaterWoodWall_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ProductRepository _prorpoObj = new ProductRepository();
+                ProductAlbumRepository _rpoProAlbumObj = new ProductAlbumRepository();
+
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                //tring varAlbumId = ((Label)e.Item.FindControl("lblAlbumId")).Text;
+                Literal lbltitle = (Literal)e.Item.FindControl("lblProductTitle");
+                Literal lblFullDesc = (Literal)e.Item.FindControl("lblProductFullDescrition");
+                lbltitle.Text = row["ProductTitle"].ToString();
+                lblFullDesc.Text = row["FullDescription"].ToString();
+
+                Repeater albums = (Repeater)e.Item.FindControl("dlAlbums");
+                albums.DataSource = _rpoProAlbumObj.LoadByProductIdAndLanguageId((row["LanguageId"].ToString()), (row["Id"].ToString()));
+                albums.DataBind();
+
+            }
+
         }
     }
 }
