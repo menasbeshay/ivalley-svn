@@ -168,12 +168,18 @@
     <Content Include="assets\img\Logo-en-lead.png" />
     <Content Include="assets\js\FWDInfiniteGrid.js" />
     <Content Include="css\boutique.css" />
+    <Content Include="css\demo.css" />
+    <Content Include="css\font\superboxicons.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="css\jphotogrid.css" />
     <Content Include="css\jphotogrid.ie.css" />
     <Content Include="css\jquery.fancygallery.css" />
     <Content Include="css\jquery.lightbox-0.5.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\superbox.css" />
+    <Content Include="css\superbox.min.css" />
     <Content Include="Default.aspx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -336,6 +342,7 @@
     <Content Include="js\jquery.masonry.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\jquery.superbox.min.js" />
     <Content Include="js\jquerypp.custom.js" />
     <Content Include="js\js-url.min.js" />
     <Content Include="js\modernizr.custom.70736.js" />
@@ -709,6 +716,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\fonts\entypo-selected.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\font\superboxicons.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\font\superboxicons.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\font\superboxicons.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\alraseelpub.pubxml" />

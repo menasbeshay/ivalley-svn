@@ -1004,3 +1004,22 @@ p.lead, .taxonomy-description {
     width:210px;
     margin:0 auto;
     }
+
+
+
+#about-brooklyn .bg
+{
+	
+	/*position: absolute;*/
+    background-clip:initial !important;
+	width: 800px;
+    margin: 0 auto;
+	height: 400px;
+	background: url('assets/img/logo-ar-w.png') center center no-repeat;
+    background-size:cover;
+	/*-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-o-transform: rotate(-30deg);
+	transform: rotate(-30deg);*/
+}

@@ -174,6 +174,48 @@ namespace Data.Repositories
             }
 
         }
+
+        public DataTable LoadWoodFloorsByLanguageId(String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
+        {
+            try
+            {
+
+                var Query = (from pram in db.Products
+                             where pram.Active == ActiveState && pram.LanguageId == new Guid(LanguageId) &&
+                             (pram.Id == new Guid("44E26152-0132-4659-AC5F-8C9F5AD7A00D") ||
+                             pram.Id == new Guid("AA259D95-0BCF-471F-8E65-90143EEEB5FC"))
+                             select pram);
+                return Query.ToDataTable(SortField, SortType);
+
+            }
+
+            catch (Exception Ex)
+            {
+                return null;
+            }
+
+        }
+
+        public DataTable LoadAllExceptWoodFloorByLanguageId(String LanguageId, Boolean ActiveState = true, String SortField = "CreatedOn", String SortType = "ASC")
+        {
+            try
+            {
+
+                var Query = (from pram in db.Products
+                             where pram.Active == ActiveState && pram.LanguageId == new Guid(LanguageId) &&
+                             pram.Id != new Guid("44E26152-0132-4659-AC5F-8C9F5AD7A00D") &&
+                             pram.Id != new Guid("AA259D95-0BCF-471F-8E65-90143EEEB5FC")
+                             select pram);
+                return Query.ToDataTable(SortField, SortType);
+
+            }
+
+            catch (Exception Ex)
+            {
+                return null;
+            }
+
+        }
         public Product LoadById(String ID)
         {
             if (ID != null)
