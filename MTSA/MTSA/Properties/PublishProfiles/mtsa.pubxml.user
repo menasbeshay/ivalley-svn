@@ -196,7 +196,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>12/27/2014 00:31:46</publishTime>
+      <publishTime>01/08/2015 17:23:49</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -274,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>12/26/2014 17:26:08</publishTime>
+      <publishTime>01/08/2015 18:07:38</publishTime>
     </File>
     <File Include="css/screen_ar.css">
-      <publishTime>12/27/2014 00:05:58</publishTime>
+      <publishTime>01/08/2015 18:07:46</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -297,8 +297,44 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="favicon.ico">
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
+    <File Include="files/3garatar.pdf">
+      <publishTime>12/17/2014 18:42:59</publishTime>
+    </File>
+    <File Include="files/3garaten.pdf">
+      <publishTime>12/17/2014 18:38:27</publishTime>
+    </File>
+    <File Include="files/ERU.pdf">
+      <publishTime>12/17/2014 15:28:10</publishTime>
+    </File>
+    <File Include="files/HERA.pdf">
+      <publishTime>12/17/2014 15:28:39</publishTime>
+    </File>
+    <File Include="files/ISIS.pdf">
+      <publishTime>12/17/2014 15:28:44</publishTime>
+    </File>
+    <File Include="files/MITRA.pdf">
+      <publishTime>12/17/2014 15:28:45</publishTime>
+    </File>
+    <File Include="files/MTSA3DWayfindingpresentationG3.pdf">
+      <publishTime>12/17/2014 15:29:04</publishTime>
+    </File>
+    <File Include="files/MTSAgeneralcatalogue.pdf">
+      <publishTime>12/17/2014 15:28:51</publishTime>
+    </File>
+    <File Include="files/MTSAoutdoor.pdf">
+      <publishTime>12/17/2014 15:29:01</publishTime>
+    </File>
+    <File Include="files/MTSAPresentation.pdf">
+      <publishTime>12/17/2014 15:30:11</publishTime>
+    </File>
+    <File Include="files/PHEX.pdf">
+      <publishTime>12/17/2014 15:30:05</publishTime>
+    </File>
     <File Include="files/Polytouchcatalogue.pdf">
-      <publishTime>11/20/2014 22:28:34</publishTime>
+      <publishTime>12/17/2014 15:30:04</publishTime>
+    </File>
+    <File Include="files/VANA.pdf">
+      <publishTime>12/17/2014 15:30:01</publishTime>
     </File>
     <File Include="flash/3DWayfinding.mp4">
       <publishTime>12/25/2014 17:11:35</publishTime>
@@ -415,7 +451,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 20:54:04</publishTime>
     </File>
     <File Include="HtmlPage1.html">
-      <publishTime>11/15/2014 12:28:17</publishTime>
+      <publishTime>12/25/2014 21:01:43</publishTime>
     </File>
     <File Include="images/3ag_01.jpg">
       <publishTime>12/25/2014 21:09:58</publishTime>
@@ -550,10 +586,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:45:38</publishTime>
     </File>
     <File Include="images/Icons/Kiosk.png">
-      <publishTime>12/25/2014 17:17:45</publishTime>
+      <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/Icons/mobile.png">
-      <publishTime>12/25/2014 17:17:44</publishTime>
+      <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/Icons/png/1.png">
       <publishTime>11/11/2014 18:44:49</publishTime>
@@ -652,13 +688,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:45:15</publishTime>
     </File>
     <File Include="images/Icons/print.png">
-      <publishTime>12/25/2014 17:17:44</publishTime>
+      <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/Icons/try.png">
-      <publishTime>12/25/2014 17:17:45</publishTime>
+      <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/Icons/web.png">
-      <publishTime>12/25/2014 17:17:45</publishTime>
+      <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/keys.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
@@ -808,10 +844,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/16/2014 16:49:48</publishTime>
     </File>
     <File Include="images/products/electronic_doors/5.png">
-      <publishTime>11/11/2014 18:45:19</publishTime>
+      <publishTime>01/08/2015 14:57:59</publishTime>
     </File>
     <File Include="images/products/electronic_doors/7.png">
-      <publishTime>11/11/2014 18:45:19</publishTime>
+      <publishTime>01/08/2015 14:57:59</publishTime>
     </File>
     <File Include="images/products/electronic_doors/screen.png">
       <publishTime>12/13/2014 12:02:25</publishTime>
@@ -1186,10 +1222,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>12/26/2014 19:04:11</publishTime>
+      <publishTime>01/08/2015 17:59:24</publishTime>
     </File>
     <File Include="MasterPages/FullAr.Master">
-      <publishTime>12/27/2014 00:16:53</publishTime>
+      <publishTime>01/08/2015 17:59:34</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -1288,10 +1324,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:15</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>12/25/2014 22:56:13</publishTime>
+      <publishTime>01/08/2015 18:02:09</publishTime>
     </File>
     <File Include="Scripts/mainar.js">
-      <publishTime>12/26/2014 22:14:27</publishTime>
+      <publishTime>01/08/2015 18:02:41</publishTime>
     </File>
     <File Include="Scripts/masonry.pkgd.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>

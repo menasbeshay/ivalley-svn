@@ -251,7 +251,7 @@ input, .fake_input {
     border: none;
 }
 
-    input[type=text], input[type=password], input[type=email], input[type=submit], textarea, .fake_input {
+    /*input[type=text], input[type=password], input[type=email], input[type=submit], textarea, .fake_input {
         border: none;
         background-color: #1c1c1b;
         color: #E4E4E4;
@@ -266,7 +266,7 @@ input, .fake_input {
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
-    }
+    }*/
 
     input[type=submit] {
         cursor: pointer;
@@ -4313,4 +4313,8 @@ height:100%;
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+}
+
+a label {
+ cursor:pointer;
 }

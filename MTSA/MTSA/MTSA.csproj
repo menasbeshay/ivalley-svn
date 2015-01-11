@@ -531,6 +531,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MasterPages\FullAr.Master" />
+    <Content Include="files\3garatar.pdf" />
+    <Content Include="files\3garaten.pdf" />
+    <Content Include="files\ERU.pdf" />
+    <Content Include="files\HERA.pdf" />
+    <Content Include="files\ISIS.pdf" />
+    <Content Include="files\MITRA.pdf" />
+    <Content Include="files\MTSA3DWayfindingpresentationG3.pdf" />
+    <Content Include="files\MTSAgeneralcatalogue.pdf" />
+    <Content Include="files\MTSAoutdoor.pdf" />
+    <Content Include="files\MTSAPresentation.pdf" />
+    <Content Include="files\PHEX.pdf" />
+    <Content Include="files\Polytouchcatalogue.pdf" />
+    <Content Include="files\VANA.pdf" />
     <None Include="Properties\PublishProfiles\mtsa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\apps\classie.js" />
@@ -732,7 +745,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="files\" />
     <Folder Include="images\projects\thumbs\" />
   </ItemGroup>
   <PropertyGroup>

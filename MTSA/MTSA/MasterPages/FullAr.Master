@@ -661,11 +661,11 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                              </div>
                              <div class="col-lg-12 col-sm-12 col-md-12" style="direction:rtl;">
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                     <a href="#" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل العرض التوضيحي</label><br />
+                                     <a href="../files/MTSAPresentation.pdf" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل العرض التوضيحي</label><br />
                              <img src="../images/products/digital_signage/Page1/present.png" /></a>
                                      </div>
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                      <a href="#" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل الكاتالوج</label><br />
+                                      <a href="../files/MTSAgeneralcatalogue.pdf" class=""><label class="touchscreenlabel" style="font-size:12px;"> تحميل الكاتالوج</label><br />
                              <img src="../images/products/digital_signage/Page1/down.png" />
                                           </a>
                                      </div>
@@ -904,7 +904,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 إطار الألومنيوم المطور خصيصا لهذه الوحدة يبرز جمالية سماكتها المحدودة ب 6 سم فقط  وفي نفس الوقت  يؤمن درجة عالية من الثبات . الحاسوب المدمج  يعتمد على أسس تقنية الحاسوب المحمول  الواضحة في حرارة ناتجة أقل والمستوى المنخفض من إستهلاك الطاقة الذي لا يتجاوز 25 وات.
 الإستخدامات الداخليّة المتعددة للطراز ISIS تشمل المعلومات العامة ، دليل المباني العامة الإرشادي ، نقاط البيع ، خدمة الموظفين الذاتية ،  المعارض التجاريّة ، الإعلان وتقديم عروض الأعمال.
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12 pull-left" style="text-align:left;"> <img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/ISIS.pdf" class="col-lg-12 col-sm-12 col-md-12 pull-left" style="text-align:left;"> <img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                </a> 
                              </p>
                                                              
@@ -957,7 +957,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 العديد من خيارات وضع العلامة التجارية على الطراز ERU تسمح للجهاز بالاندماج تماما في المناطق المحيطة. 
 
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12 " style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" /> &nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label>
+                            <a href="../files/ERU.pdf" class="col-lg-12 col-sm-12 col-md-12 " style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" /> &nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label>
                                 </a> 
                              </p>
                                                              
@@ -1012,7 +1012,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 قفل الأمان عالي الجودة  والتصنيع الثابت باستخدام  ألواح المعدن والألومنيوم  يسمحان بإستخدام الجهاز في الأماكن المزدحمة  الداخلية دون الحاجة لتواجد موظف لمراقبة الجهاز . 
 تشمل إستخدامات الطراز HERA تزويد المعلومات العامة ، دليل المباني الإرشادي ، خدمة الموظفين الذاتية ، إصدار وطباعة بطاقات صعود الطائرة ، مراقبة حضور الموظفين ، المعارض التجارية ووسائط الإعلان  والتسويق . 
                                  <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;padding:0"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/HERA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;padding:0"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                              </p>
                                                              
@@ -1111,7 +1111,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                         <div class="clearfix" style="height:1px;"></div>
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
                         <div class="col-lg-7 col-sm-7 col-md-7 pull-right">
-                            <video loop id="3dflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
+                            <video loop id="3dflashvideo" preload="auto" style="max-width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
                                                         
@@ -1145,7 +1145,8 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                                 <img src="../images/icons/png/large/6.png" style="margin:0 15px;width:10%;float:right;"/>
                                 <img src="../images/icons/png/large/2.png" style="margin:0 15px;width:10%;float:right;"/>
                                 <img src="../images/icons/png/large/9.png" style="margin:0 15px;width:10%;float:right;"/>
-                                <img src="../images/Icons/try_a.png"  style="margin:0 20px;width:12.5%;float:left"/>
+                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf">
+                                <img src="../images/Icons/try_a.png"  style="margin:0 20px;width:12.5%;float:left"/></a>
                             </div>    
                     </div>
                     
@@ -1169,7 +1170,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                             <video loop id="reflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3garatvideoarabic.mp4" >
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
-                             <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                             <a href="../files/3garatar.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a>                            
                         </div>
                         <div class="col-lg-6 col-sm-6 col-md-6 pull-right" style="background-color:#eee;padding:5px;">                            
@@ -1214,6 +1215,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;direction:rtl;">                                                
                       <label class="slideHeaderBlack">الإتصال بنا</label>
                       <div class="clearfix" style="height:1px;"></div>
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;direction:rtl;">
                       <div class="col-lg-8 col-md-8 col-sm-8 pull-right" style="padding:0;direction:rtl;">
                           <p class="text-justify">
                            تأسست مؤسسة  س.ع. صقر الدولية في جدة عام 1982 ، إم تي اس آي MTSA   هي إحدى منتجاتها والتي تمتلك إسمها التجاري وتقدم حلولاً شاملة من منتجات الشاشت باللمس واللوحات الإعلانية الرقمية ومنصات الشاشات المعلوماتية باللمس وخدمات تطوير البرامج والتطبيقات من أجل تواصلٍ أفضل.
@@ -1221,26 +1223,93 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 
                           </p>
                       </div>
+                        
                       <div class="col-lg-3 col-md-3 col-sm-3 pull-left" style="text-align:center;">
                           <span class="clearfix"><label class="mtsa">MTSA</label> أحد منتجـات</span>
                           <div class="clearfix"  style="height:1px"></div>
                           <img src="../images/sager-logo.png" style="margin-left:-10px;width:52%;"/>
                       </div>
-                      <div class="clearfix" style="height:1px;"></div>
+                            <div style="background-color:#aaa; height:120px;width:1px;float:left;">&nbsp;</div>
+                      
+                            </div>
                       
                       <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;direction:rtl;">
-                          <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0;direction:rtl;">
+                          <div class="clearfix" style="height:10px;"></div>
+                          <div style="background-color:#aaa; height:1px;width:80%;margin:0 auto;">&nbsp;</div>
+                          <div class="col-lg-3 col-sm-3 col-md-3" style="padding:0;direction:rtl;padding-top:20px;">
                             <b>المركز الرئيسي: </b><br />
-                            جميل سكوير ، تقلطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس<br />
+                            جميل سكوير ، تقاطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس<br />
                             ص.ب 40538 ، جدة 21511، المملكة العربية السعودية    <br />
                             هاتف:<span style="direction:ltr;display:inline-block"> (+966) 12- 283 4088. </span><br /> فاكس  :<span style="direction:ltr;display:inline-block">  +966 12-660 8128</span><br />
                             <a href="mailto:info@v-studio.co" >info@v-studio.co</a><br />
                             <b>فروعنا:</b> الرياض . الخبر  
                            </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4">
-                              نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . 
+                          <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top:20px;">
+                              نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . <br />
+                              <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;direction:rtl;">
+                                <div class="col-md-8 col-sm-8 col-lg-8 pull-right clearfix" style="margin-top:20px;">
+                                    <div class="form-group">
+                                        
+                                        <input type="text" class="form-control" id="name1" placeholder="الإسم" required="required" data-toggle="modal" data-target="#contactModal" />
+                                    </div>
+                                    <div class="form-group">                                                                                
+                                            <input type="email" class="form-control" id="email1" placeholder="البريد الإلكترونى" data-toggle="modal" data-target="#contactModal" required="required" />
+                                    </div>                                    
+                                </div>
+                                                                
+
+                                <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg" style="margin-top:120px;">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">أرسل لنا</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                          <div class="col-md-12 col-sm-12 col-lg-12 clearfix" style="float:none">
+
+                                          
+                                          <div class="col-md-6 col-sm-6 col-lg-6 pull-right clearfix">
+                                             <div class="form-group">
+                                        
+                                                <input type="text" class="form-control" id="name" placeholder="الإسم" required="required" />
+                                            </div>
+                                             <div class="form-group">
+                                                <input type="email" class="form-control" id="email" placeholder="البريد الإلكترونى" required="required" />
+                                            </div>
+                                             <div class="form-group">
+                                        
+                                            <input type="text" class="form-control" id="address" placeholder="العنوان" required="required" />
+                                    </div>
+                                             <div class="form-group">                                        
+                                                <input type="text" class="form-control" id="tele" placeholder="التليفون" required="required" />
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6 col-sm-6 col-lg-6 pull-right clearfix">
+                                             <div class="form-group">
+                                        
+                                                <input type="text" class="form-control" id="mobile" placeholder="موبايل" required="required" />
+                                            </div>
+                                             <div class="form-group">                                       
+                                                    <input type="text" class="form-control" id="subject" placeholder="الموضوع" required="required" />
+                                            </div>
+                                             <div class="form-group">                                        
+                                                <textarea class="form-control" id="msg" placeholder="الرسالة" required="required" rows="4" ></textarea>
+                                             </div>
+                                            
+                                          </div>
+                                          <div class="clearfix" style="height:1px;"></div>
+                                              </div>
+                                      </div>
+                                      <div class="modal-footer">                                       
+                                        <button type="button" class="btn btn-primary">أرسل</button>
+                                      </div>
+                                    </div><!-- /.modal-content -->
+                                  </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                              </div>
                           </div>
-                          <div class="col-lg-5 col-md-5 col-sm-5" style="padding-top:15px;">
+                          <div class="col-lg-5 col-md-5 col-sm-5" style="padding-top:20px;">
                               <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3710.9335362030365!2d39.153385!3d21.549454!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419538982470&zoom=17" width="100%" height="250" frameborder="0" style="border:0"></iframe>
                           </div>
                        </div>
@@ -1273,7 +1342,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                         PHEX Dual/Triple: حدة قائمة بشاشتين أو ثلاث شاشات 46 بوصة وتتوفر بأحجام خاصة عند الطلب
 جميع طرازات PHEX تتوفر بإضافات إختيارية متميّزة مثل الشاشات باللمس ونظام صوت ستيريو وخاصية الإتصال بالانترنت ولوح الحماية الزجاجي وخلافه.  
                         <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                     </p>
                         </div>
@@ -1288,7 +1357,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                         PHEX Wall: نفس تقنية الوحدة  PHEX Stand مصممة للتثبيت على الحائط أو التعليق من السقف وتتوفر بشاشة عمودية أو أفقية. 
 جميع طرازات PHEX تتوفر بإضافات إختيارية متميّزة مثل الشاشات باللمس ونظام صوت ستيريو وخاصية الإتصال بالانترنت ولوح الحماية الزجاجي وخلافه.
                         <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                     </p>
                         </div>
@@ -1306,7 +1375,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
                         FARO: الوظائف والتصميم والحجم الصغير هي سمة الطراز FARO . 
 مناسبة للتركيب على الحائط وتتوفر بشاشة 19 بوصة.
                             <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/MTSAoutdoor.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                     </p>
                         </div>
@@ -1333,7 +1402,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 ضمن  أعمال مشاريع اللوحات الرقمية يمكن إستخدام طراز VANA كمنصّة تفاعليّة بشاشة باللمس أو لوحة مفاتيح وكاميرا وأجزاء نظام الصوت المتعددة. 
 يمكن إستخدام الطراز VANA كمنصة معلومات ، او لمتطلبات الأمن والسلامة ونقاط البيع والتسويق وخدمة الموظفين الذاتية ولمراقبة حضور الموظفين وللوسائط الإعلانية وتقديم عروض الأعمال. 
                          <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;">
+                            <a href="../files/VANA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;">
                                 <img src="../images/products/digital_signage/Page2/down.png" /> &nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label></a>                       
                     </p>
                         </div>
@@ -1347,7 +1416,7 @@ MTSA مصنّعة بأعلى مقاييس الجودة في جمهورية أل�
 الجهاز MITRA يتميز بواجهة زجاجية أمامية من قطعة واحدة وبأطراف مقاومة لتجميع الأتربة ، ويمكن تجهيز الجهاز بشاشة تعمل باللمس .
 عند تجهيز الطراز MITRA بطابعة حرارية وقارئ بطاقات يمكن إستخدامه في مناطق الإنتظار لطباعة تذاكر الإنتظار أو لمراقبة حضور الموظفين أو مراقبة  الدخول في الأماكن الغير مصرح بدخولها دون إذن مسيق .
                       <br />
-                            <a href="#" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
+                            <a href="../files/MITRA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><img src="../images/products/digital_signage/Page2/down.png" />&nbsp;&nbsp;<label class="touchscreenlabel"> تحميل الكاتالوج</label> 
                                 </a> 
                     </p>
                         </div>
