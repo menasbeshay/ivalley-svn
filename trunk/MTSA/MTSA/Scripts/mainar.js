@@ -6,7 +6,8 @@
         slidesNavigation: false,        
         resize: false,
         verticalCentered: false,        
-        afterLoad: function (anchorLink, index) {            
+        afterLoad: function (anchorLink, index) {
+            $.fn.fullpage.setAllowScrolling(false);
             if ($('#nextsection_' + index).length) {
                 $('#nextTopic span').html($('#nextsection_' + index).html());
                 $('#nextTopic').css('display', 'block');
@@ -42,6 +43,9 @@
             else {
                 $('#reflashvideo').get(0).pause();
                 $('#3dflashvideo').get(0).pause();
+                try {
+                    $('#polytouchVideo').stopYTP();
+                } catch (err) { }
             }
         },
         afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
@@ -149,8 +153,8 @@
 
     $('.BackToHome').click(function (e) {
         e.preventDefault();
-        $.fn.fullpage.setAllowScrolling(true);
-        $.fn.fullpage.setKeyboardScrolling(true);
+       // $.fn.fullpage.setAllowScrolling(true);
+        //$.fn.fullpage.setKeyboardScrolling(true);
         $.fn.fullpage.moveSlideLeft();
     });
 
@@ -208,6 +212,15 @@
         $.fn.fullpage.moveTo(1, 3);
     });
     
+
+    $("body").keydown(function (e) {
+        if (e.which == 37) { // left     
+            $.fn.fullpage.moveSlideLeft();
+        }
+        else if (e.which == 39) { // right     
+            $.fn.fullpage.moveSlideRight();
+        }
+    });
 
 
     $('.appicon').each(function () {
