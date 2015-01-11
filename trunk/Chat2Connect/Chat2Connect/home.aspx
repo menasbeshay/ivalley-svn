@@ -42,9 +42,9 @@
             }
 
         .hamsa {
-            top:40%;
-            right:50%;
-            position:fixed !important;
+            top: 40%;
+            right: 50%;
+            position: fixed !important;
         }
 
         .hamsaModal {
@@ -367,7 +367,7 @@
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
-        <div class="friend-link rm roomMemberlink" data-bind="attr:{id:'m_'+MemberID()}, css:'Alteven'">
+        <div class="friend-link rm roomMemberlink Alteven">
             <div class="pull-left controls">
                 <div class="cameraHolder">
 
@@ -393,60 +393,65 @@
                     <!-- /ko -->
                 </div>
             </div>
-            <a data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css:'memberlink pull-left jslink type_'+MemberTypeID()"></a>
+            <!-- ko if: MemberID()!=$root.CurrentMemberID-->
+            <a class="memberlink pull-left jslink" href="javascript:void(0);" data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css: 'type_' + $data.MemberTypeID(), popover: { template: 'roomMemberPopTemplate', placement: 'left', container: 'body', trigger: 'focus' }"></a>
+            <!-- /ko -->
+            <!-- ko if: MemberID()==$root.CurrentMemberID-->
+            <a class="memberlink pull-left jslink" href="javascript:void(0);" data-bind="text:MemberName()+(MemberLevelID() > 1 ?' @ ':''),css: 'type_' + $data.MemberTypeID()"></a>
+            <!-- /ko -->
             <div class="GiftHolder">
                 <!-- ko if: HasGift() -->
                 <img src="images/gift-icon.png" style="width: 15px;" />
                 <!-- /ko -->
             </div>
             <div class="clear" style="height: 1px;"></div>
-            <!-- ko if: MemberID()!=$root.CurrentMemberID-->
-            <div class="clear" style="height: 1px;"></div>
-            <div class="friendSubMenu">
-                <div class="popup-menu profileMenu">
-                    <div class="col-lg-3 pull-right">
-                        <div class=" thumbnail">
-                            <img data-bind="attr:{'src':ProfileImg}" style="max-height: 70px;" />
-                        </div>
-                        <div class="clearfix" style="height: 1px;">
-                        </div>
-                        <div style="text-align: right;">
-                            <span data-bind="text:$data.MemberName()"></span>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 pull-right" style="padding: 0 5px;">
-                        <!-- ko if: !$root.isBlockingMe(MemberID()) -->
-                        <div class="col-lg-6 pull-right" style="padding: 0 5px;">
-                            <ul>
-                                <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true,$data.ProfileImg)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
-                                <!-- ko if: IsCamOpened()-->
-                                <li><a class="jslink" data-bind="click:$parent.startCam.bind($parent,$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
-                                <!-- /ko -->
-                                <li><a class="jslink" data-bind="click:OpenPopup.bind($data,'../userprofile.aspx?uid='+MemberID(),'حساب صديق')" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.toggleFriend.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
-                            </ul>
-                        </div>
-                        <!-- /ko -->
-                        <div class="col-lg-6 pull-right" style="padding: 0 5px;">
-                            <ul>
-                                <!-- ko if: !$root.isBlockingMe(MemberID()) -->
-                                <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
-                                <li><a data-bind="click:OpenPopup.bind($data,'../popuppages/Messages_popup.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName(),'الرسائل')" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
-                                <!-- /ko -->
-                                <!-- ko if:$parent.CurrentMember().MemberLevelID() > MemberLevelID()-->
-                                <li><a class="jslink" data-bind="click:$parent.toggleMark.bind($data,$parent,$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsMarked() ?' إلغاء الإسكات ':'إسكات'"></span></a></li>
-                                <li><a class="jslink" data-bind="click:$parent.showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
-                                <li><a class="jslink" data-bind="click:$parent.banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> طرد</a></li>
-                                <!-- /ko -->
-                            </ul>
-                        </div>
 
+        </div>
+    </script>
+    <script id="roomMemberPopTemplate" type="text/html">
+        <div class="friendSubMenu">
+            <div class="popup-menu profileMenu">
+                <div class="col-lg-3 pull-right">
+                    <div class=" thumbnail">
+                        <img data-bind="attr:{'src':'Thumb.aspx?w=80&h=80&Image='+ProfileImg()}" />
                     </div>
-                    <div class="clear" style="height: 1px;"></div>
+                    <div class="clearfix" style="height: 1px;">
+                    </div>
+                    <div style="text-align: right;">
+                        <span data-bind="text:$data.MemberName()"></span>
+                    </div>
                 </div>
+                <div class="col-lg-9 pull-right" style="padding: 0 5px;">
+                    <!-- ko if: !$root.isBlockingMe(MemberID()) -->
+                    <div class="col-lg-6 pull-right" style="padding: 0 5px;">
+                        <ul>
+                            <li><a class="jslink" data-bind="click:$root.openWindow.bind($data,$data.MemberID(),$data.MemberName(),'Private', false, false, 1, $data.IsFriend(),false,$data.MemberTypeID(), true,$data.ProfileImg)"><span class="awesome">&#xf0e6;</span> محادثة خاصة</a></li>
+                            <!-- ko if: IsCamOpened()-->
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().startCam.bind($root.ActivWindow(),$data.MemberID())"><span class="awesome">&#xf030;</span> عرض الكاميرا</a></li>
+                            <!-- /ko -->
+                            <li><a class="jslink" data-bind="click:OpenPopup.bind($data,'../userprofile.aspx?uid='+MemberID(),'حساب صديق')" target="_blank"><span class="awesome">&#xf08e;</span> عرض البروفايل</a></li>
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().toggleFriend.bind($data,$root.ActivWindow(),$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsFriend()?' حذف من ':'إضافة إلى'"></span>الأصدقاء</a></li>
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().showSendHamsa.bind($data,$data)"><span class="awesome">&#xf0a4;</span> إرسال همسة</a></li>
+                        </ul>
+                    </div>
+                    <!-- /ko -->
+                    <div class="col-lg-6 pull-right" style="padding: 0 5px;">
+                        <ul>
+                            <!-- ko if: !$root.isBlockingMe(MemberID()) -->
+                            <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                            <li><a data-bind="click:OpenPopup.bind($data,'../popuppages/Messages_popup.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName(),'الرسائل')" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
+                            <!-- /ko -->
+                            <!-- ko if:$root.ActivWindow().CurrentMember().MemberLevelID() > MemberLevelID()-->
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().toggleMark.bind($data,$root.ActivWindow(),$data)"><span class="awesome">&#xf00d;</span> <span data-bind="    text:IsMarked() ?' إلغاء الإسكات ':'إسكات'"></span></a></li>
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().showRoomMemberLevelsPopup.bind($data,$data.MemberID())"><span class="awesome">&#xf085;</span> تعديل الصلاحيات</a></li>
+                            <li><a class="jslink" data-bind="click:$root.ActivWindow().banMember.bind($data,$data.MemberID())"><span class="awesome">&#xf05e;</span> طرد</a></li>
+                            <!-- /ko -->
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="clear" style="height: 1px;"></div>
             </div>
-            <!-- /ko -->
         </div>
     </script>
     <script id="editorToolbarTemplate" type="text/html">
@@ -1356,8 +1361,8 @@
                     <div style="height: 5px;" class="clear"></div>
                     <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
                     <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                        <div class="col-lg-12" style="height:10px;font-size:12px;text-align:left;">
-                        <a style="text-decoration:none;cursor:pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
+                        <div class="col-lg-12" style="height: 10px; font-size: 12px; text-align: left;">
+                            <a style="text-decoration: none; cursor: pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
                         </div>
                         <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
@@ -1365,7 +1370,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                             </object>
 
                         </div>
@@ -1377,8 +1382,8 @@
                     <div style="height: 5px;" class="clear"></div>
                     <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
                     <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                        <div class="col-lg-12" style="height:10px;font-size:12px;text-align:left;">
-                        <a style="text-decoration:none;cursor:pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
+                        <div class="col-lg-12" style="height: 10px; font-size: 12px; text-align: left;">
+                            <a style="text-decoration: none; cursor: pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
                         </div>
                         <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
@@ -1386,7 +1391,7 @@
                                 <param name="quality" value="high">
                                 <param value="always" name="allowScriptAccess">
                                 <param name="wmode" value="opaque" />
-                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                                <param data-bind="attr:{value:'roomId='+uniqueID()+'&amp;userId='+CurrentMember().MemberID()+'&amp;allowedCams='+Settings.CamCount()+'&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                             </object>
 
                         </div>
@@ -1396,16 +1401,16 @@
                 <!-- ko if: Type()=="Private" && (!$data.hasOwnProperty('IsHelp') || !IsHelp())-->
                 <span class="col-lg-12" style="height: 16px; cursor: pointer; border-bottom: 1px solid #FEC200; color: #000;" data-bind="click:toggleFlashObj"><i class="icon-arrow-down" data-bind="    css:{ 'icon-arrow-up' :showFlashObject, 'icon-arrow-down': showFlashObject()==false}"></i>&nbsp;&nbsp;الكاميرات</span>
                 <div style="padding: 5px; border-bottom: 1px solid #FEC200; padding-top: 0px;" class="col-lg-12">
-                <div class="col-lg-12" style="height:10px;font-size:12px;text-align:left;">
-                        <a style="text-decoration:none;cursor:pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
-                        </div>
+                    <div class="col-lg-12" style="height: 10px; font-size: 12px; text-align: left;">
+                        <a style="text-decoration: none; cursor: pointer;" onclick="OpenPopup('../popuppages/flashHelp.aspx','كيف أقوم بالتغلب على مشاكل الكاميرا أو المايك ؟')">تواجه مشكلة فى الكاميرا أو المايك؟</a>
+                    </div>
                     <div style="padding: 2px;" class="pull-left col-lg-12" data-bind="attr:{id: 'flashWrapper_' +uniqueID()}">
 
                         <object style="width: 100%; height: 180px;" data="testswf/chat2connect.swf" class="flashmovie" data-bind="attr:{id:'chat2connect_'+uniqueID(), name:'chat2connect_'+uniqueID()}, style:{height: showFlashObject() == true? '180px' : '0px'}" type="application/x-shockwave-flash">
                             <param name="quality" value="high">
                             <param value="always" name="allowScriptAccess">
                             <param name="wmode" value="opaque" />
-                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>'}" name="flashvars">
+                            <param data-bind="attr:{value:'roomId='+uniqueID()+ '&amp;userId='+$root.CurrentMemberID+'&amp;allowedCams=2&amp;conn=<%= System.Configuration.ConfigurationManager.AppSettings["amsCoonection"]%>    '}" name="flashvars">
                         </object>
 
                     </div>
