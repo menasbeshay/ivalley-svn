@@ -198,23 +198,23 @@ function initPopupMenu() {
         });
     });
     */
-    $('.friend-link').each(function () {
-        var $this = $(this);
-        var popoverContent = $this.find('.friendSubMenu');
-        // check if popover content exists
-        if (popoverContent.length > 0) {
-            $this.popover({
-                trigger: 'click',
-                placement: 'left',
-                html: true,
-                title: '<a class="close pull-left closepopover" style="color:#fff;" onclick="$(&#39;#' + $this.attr('id') + '&#39;).popover(&#39;hide&#39;);">&times;</a>',
-                content: popoverContent,
-                container: 'body'
-            }).on('hidden.bs.popover', function () {
-                $this.append(popoverContent);
-            });
-        }
-    });
+    //$('.friend-link').each(function () {
+    //    var $this = $(this);
+    //    var popoverContent = $this.find('.friendSubMenu');
+    //    // check if popover content exists
+    //    if (popoverContent.length > 0) {
+    //        $this.popover({
+    //            trigger: 'click',
+    //            placement: 'left',
+    //            html: true,
+    //            title: '<a class="close pull-left closepopover" style="color:#fff;" onclick="$(&#39;#' + $this.attr('id') + '&#39;).popover(&#39;hide&#39;);">&times;</a>',
+    //            content: popoverContent,
+    //            container: 'body'
+    //        }).on('hidden.bs.popover', function () {
+    //            $this.append(popoverContent);
+    //        });
+    //    }
+    //});
 }
 
 

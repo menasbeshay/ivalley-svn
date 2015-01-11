@@ -2335,13 +2335,13 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     }
 
     rHub.client.updateMember = function (mid, prop, val) {
-        $('#usernode-' + mid).popover('hide');
+        //$('#usernode-' + mid).popover('hide');
         var member = ko.utils.arrayFirst(chatVM.friends(), function (f) {
             return f.MemberID() == mid;
         });
         if (member != undefined) {
             member[prop](val);
-            initPopupMenu();
+            //initPopupMenu();
         }
         member = ko.utils.arrayFirst(chatVM.helpMembers(), function (f) {
             return f.MemberID() == mid;

@@ -1114,7 +1114,8 @@ namespace Chat2Connect.services
                         ProfilePic = (friendMember.IsColumnNull(Member.ColumnNames.ProfilePic) ? "images/defaultavatar.png" : friendMember.ProfilePic),
                         IsOnline = friendMember.IsOnLine,
                         StatusMsg = friendMember.s_StatusMsg,
-                        Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(friendMember.s_Status)).ToString().ToLower()
+                        Status = Helper.EnumUtil.ParseEnum<Helper.Enums.MemberStatus>(Helper.TypeConverter.ToInt32(friendMember.s_Status)).ToString().ToLower(),
+                        IsSelected = false
                     };
                     SetContentResult(resultFriend);
                 }
