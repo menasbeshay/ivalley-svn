@@ -1649,6 +1649,7 @@
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="files\history\" />
     <Folder Include="files\rooms\attacheaudio\" />
     <Folder Include="files\rooms\attachedimages\" />
     <Folder Include="files\users\accountpics\" />
