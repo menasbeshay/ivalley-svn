@@ -14,6 +14,9 @@ using System.Dynamic;
 using System.Collections;
 using System.Net.Mail;
 using Newtonsoft.Json;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Chat2Connect.services
 {
@@ -761,7 +764,10 @@ namespace Chat2Connect.services
             roomObject.Settings.MarkOnLoginWithoutWrite = room.MarkOnLoginWithoutWrite;
             roomObject.Settings.MarkOnLoginWithWrite = room.MarkOnLoginWithWrite;
             roomObject.Settings.EnableMicForAdminsOnly = room.EnableMicForAdminsOnly;
-            roomObject.Settings.CamCount = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            if (room.RoomType.RoomTypeSpecDuration.RoomTypeSpecID > 1) // not a free room 
+                roomObject.Settings.CamCount = 8;
+            else
+                roomObject.Settings.CamCount = 4;
             roomObject.Settings.MaxMic = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.TypeID = room.RoomType.RoomTypeSpecDuration.RoomTypeSpecID;
             roomObject.Settings.Color = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Color;
@@ -1657,7 +1663,43 @@ namespace Chat2Connect.services
 
         #endregion
 
+        #region Export to word
+       
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void saveToWord(string body)
+        {
+            StringBuilder sbDocBody = new StringBuilder();
 
+            object oMissing = System.Reflection.Missing.Value;
+
+            body = body.Replace("images.aspx", "http://localhost:1827/images.aspx");
+            body = body.Replace("images/emotions", "http://localhost:1827/images/emotions");
+            sbDocBody.Append("<html><body>");
+            sbDocBody.Append(Server.HtmlDecode(body));
+            sbDocBody.Append("</body></html>");
+                       
+                        
+
+            string strdocPath;
+            strdocPath = "/files/history/" + Guid.NewGuid() + ".doc" ;
+            FileStream objfilestream = new FileStream(Server.MapPath(".."+strdocPath), FileMode.Create, FileAccess.ReadWrite);
+            byte[] buffer = Encoding.ASCII.GetBytes(sbDocBody.ToString());
+            objfilestream.Write(buffer, 0, buffer.Length);
+            objfilestream.Close();
+
+            
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(strdocPath);
+            
+            HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
+            HttpContext.Current.Response.Write(result);
+            HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+            HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+            HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+        
+           // HttpContext.Current.Response.End();
+        }
+        #endregion 
 
 
     }

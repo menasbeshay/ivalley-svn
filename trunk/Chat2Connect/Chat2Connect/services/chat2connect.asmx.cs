@@ -375,7 +375,10 @@ namespace Chat2Connect.services
             roomObject.Settings.MarkOnLoginWithoutWrite = room.MarkOnLoginWithoutWrite;
             roomObject.Settings.MarkOnLoginWithWrite = room.MarkOnLoginWithWrite;
             roomObject.Settings.EnableMicForAdminsOnly = room.EnableMicForAdminsOnly;
-            roomObject.Settings.CamCount = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
+            if(room.RoomType.RoomTypeSpecDuration.RoomTypeSpecID > 1) // not a free room 
+                roomObject.Settings.CamCount = 8;
+            else
+                roomObject.Settings.CamCount = 4;
             roomObject.Settings.MaxMic = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.MicCount;
             roomObject.Settings.TypeID = room.RoomType.RoomTypeSpecDuration.RoomTypeSpecID;
             roomObject.Settings.Color = room.RoomType.RoomTypeSpecDuration.RoomTypeSpec.Color;

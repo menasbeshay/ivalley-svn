@@ -66,6 +66,12 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
     self.CreditPoints = ko.observable($("#uiHiddenFieldCreditPoints").val());
     self.maxRoom = ko.observable(maxWin);
     self.windows = ko.observableArray();
+    // total opened cams for account 
+    self.MaxCams = 2;
+    if (memberType > 1)
+        self.MaxCams = 8;
+
+    self.TotalOpenedCams = 0;
     
     self.notTempRoom = ko.computed(function () {
         return ko.utils.arrayFilter(self.windows(), function (win) {
@@ -781,7 +787,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
             }
 
             /* update save coversation link*/
-            this.SaveConversation();
+            //this.SaveConversation();
 
         };
         this.addAdminMessage = function (msg) {
@@ -797,14 +803,31 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         };
         this.SaveConversation = function () {
             var str = "<link href='http://chat2connect.com/css/bootstrap.min.css' rel='stylesheet' /> <link href='http://chat2connect.com/css/main.css' rel='stylesheet' /> ";
+            
             ko.utils.arrayForEach(self.MessageHistory(), function (msg) {
                 if (msg.FromName && msg.Message)
                     str += msg.FromName + ":" + msg.Message + "<br />";
             });
-
+             /*
             $('#SaveConv_' + self.ID()).click(function () {
                 this.href = "data:html/plain;charset=UTF-8," + str;
+            });*/
+            
+            $.ajax({
+                url: '../Services/Services.asmx/saveToWord',
+                type: 'post',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify({ body: str }),
+                success: function (result) {
+                    window.open(result, '_blank');
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    notify('error', 'حدث خطأ . من فضلك أعد المحاولة')
+                }
+
             });
+
         };
         this.showOlderMessages = function () {
             var window = this;
@@ -1006,6 +1029,22 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
         }
         this.startCam = function (memberID) {
             var window = this;
+            
+            // check total opened cams 
+            if (chatVM.TotalOpenedCams == chatVM.MaxCams) {
+                notify('error', 'تم الوصول للحد الأقصى لعدد الكاميرات لحسابك');
+                return;
+            }
+
+            // open my cam 
+            if (window.CurrentMember().MemberID() == memberID) {
+                
+                if (window.OpenedCams().length == window.Settings.CamCount()) {
+                    notify('error', 'تم الوصول للحد الأقصى لعدد الكاميرات داخل الغرفة');
+                    return;
+                }
+
+            }
             var member = window.getMember(memberID);
             getFlashMovie('chat2connect_' + window.uniqueID()).startCam(memberID, member.MemberName());
 
@@ -1023,10 +1062,13 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
                 return;
             }
+            
+            
             if (window.CurrentMember().MemberID() == memberID) {
                 rHub.server.userStartCam(window.ID(), window.CurrentMember().MemberID());
-                member.IsCamOpened(true);
+                member.IsCamOpened(true);                
             }
+            chatVM.TotalOpenedCams++;
         }
         this.stopCam = function (memberID) {
             var window = this;
@@ -1049,10 +1091,12 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 }
                 return;
             }
+            
             if (window.CurrentMember().MemberID() == memberID) {
                 rHub.server.userStopCam(window.ID(), window.CurrentMember().MemberID());
                 member.IsCamOpened(false);
             }
+            chatVM.TotalOpenedCams--;
         }
 
         $.ajax({
@@ -2211,6 +2255,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             var member = window.getMember(mid);
             if (member != null) {
                 member.IsCamOpened(true);
+                
                 if (window.CurrentMember().MemberID() != member.MemberID() && window.CurrentMember().NotifyOnOpenCam()) {
                     var msg = member.MemberName() + ' قد بدأ فتح الكمراء';
                     addMsgToWindow(window, msg, "joinalert");
@@ -2226,6 +2271,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
             var member = window.getMember(mid);
             if (member != null) {
                 member.IsCamOpened(false);
+                
                 if (window.CurrentMember().MemberID() != member.MemberID() && window.CurrentMember().NotifyOnCloseCam()) {
                     var msg = member.MemberName() + ' أغلق الكمراء';
                     addMsgToWindow(window, msg, "leftalert");
