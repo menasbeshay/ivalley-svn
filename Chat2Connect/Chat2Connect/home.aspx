@@ -438,7 +438,7 @@
                     <div class="col-lg-6 pull-right" style="padding: 0 5px;">
                         <ul>
                             <!-- ko if: !$root.isBlockingMe(MemberID()) -->
-                            <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()}"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
+                            <li><a class="jslink MemberSendGift" data-bind="attr:{'data-mid':MemberID()},click:$root.ActivWindow().ShowSendGift"><span class="awesome">&#xf06b;</span> أرسل هدية</a></li>
                             <li><a data-bind="click:OpenPopup.bind($data,'../popuppages/Messages_popup.aspx?t=createmsg&u='+MemberID()+'&un='+MemberName(),'الرسائل')" style="cursor: pointer;"><span class="awesome">&#xf003;</span> أرسل رسالة</a></li>
                             <!-- /ko -->
                             <!-- ko if:$root.ActivWindow().CurrentMember().MemberLevelID() > MemberLevelID()-->
