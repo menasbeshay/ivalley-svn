@@ -4302,7 +4302,7 @@ height:100%;
     cursor:pointer;
 }
 #contactp {
-    background: url(../images/contact.jpg) no-repeat bottom right;    
+    background: url(../images/contact.jpg) no-repeat top left;    
     background-size:cover;
     -webkit-background-size: cover;
   -moz-background-size: cover;
