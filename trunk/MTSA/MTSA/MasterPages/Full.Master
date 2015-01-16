@@ -1127,38 +1127,38 @@ Available in the following versions:</p>
                                                         
                         </div>
                         <div class="col-lg-5 col-sm-5 col-md-5" >
-                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left" style="padding:0 !important">
-                            <label class="slideHeaderWhite">Overview</label>
-                                </div>
-                            <div class="col-md-4 col-sm-4 col-lg-4 pull-right">
+                            
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-left" style="padding:0;">
                                 <img src="../images/aldaleel_mtsa.png" style="max-width:100%;"/>
                                 <br />
                                 <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:17px;">
-                                3D WAYFINDING</span>
+                                3D WAYFINDING</span><br />
+                                <label class="slideHeaderWhite">Overview</label>
                             </div>    
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. Download presentation for more details.
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;"> Download presentation for more details.&nbsp;<img src="../images/products/digital_signage/Page1/present.png" /></a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
-                            <div class="col-lg-5 col-sm-5 col-md-5 " style="padding:0px;position:absolute;bottom:0;right:0">  
-                                <img src="../images/Icons/Kiosk.png" style="margin:0 20px 0 0;width:21.5%;"/>
-                                <img src="../images/Icons/mobile.png" style="margin:0 20px 0 0;width:21.5%;" />
-                                <img src="../images/Icons/print.png" style="margin:0 20px 0 0;width:21.5%;"/>
+                            
+                         </div>
+                        <div class="col-lg-5 col-sm-5 col-md-5 bottom" style="bottom:20px !important;right:0;left:initial !important;left:auto !important;">  
+                                <img src="../images/Icons/Kiosk.png" style="margin:0 15px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/mobile.png" style="margin:0 15px 0 0;width:21.5%;" />
+                                <img src="../images/Icons/print.png" style="margin:0 15px 0 0;width:21.5%;"/>
                                 <img src="../images/Icons/web.png"  style="margin:0;width:21.5%;"/>                               
                             </div>
-                         </div>
-                        
-                        <div class="col-lg-7 col-sm-7 col-md-7 bottom " style="bottom:10px !important;">                        
-                                <img src="../images/icons/png/large/10.png" style="margin:0 15px;width:10%;"/>
-                                <img src="../images/icons/png/large/12.png" style="margin:0 15px;width:10%;"/>
-                                <img src="../images/icons/png/large/6.png" style="margin:0 15px;width:10%;"/>
-                                <img src="../images/icons/png/large/2.png" style="margin:0 15px;width:10%;"/>
-                                <img src="../images/icons/png/large/9.png" style="margin:0 15px;width:10%;"/>
-                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf">
-                                <img src="../images/Icons/try.png"  style="margin:0 20px;width:12.5%;float:right"/></a>
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 bottom " style="bottom:20px !important;">                        
+                                <img src="../images/icons/png/large/10.png" style="margin:0 12px 0 0;width:12%;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 12px;width:12%;"/>
+                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 12px;width:12.5%;float:right;display:block">
+                                <img src="../images/Icons/try.png" style="width:100%" /></a>
                             </div>    
                     </div>
                     
@@ -1183,7 +1183,7 @@ Available in the following versions:</p>
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
                              <a href="../files/3garaten.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page2/down.png" /></a>                            
+                                <img src="../images/products/digital_signage/Page1/present.png" /></a>                            
                         </div>
                         <div class="col-lg-6 col-sm-6 col-md-6" style="background-color:#eee;padding:5px;">                            
                               <div class="col-md-4 col-sm-4 col-lg-4 pull-left clearfix" style="padding:0px;">
@@ -1226,7 +1226,7 @@ S.O. Sager International provides complete unique self-service property marketin
                     <div class="col-lg-12 col-sm-12 col-md-12" style="margin:0 auto;float:none;position:relative;height:100%;">                                                
                       <label class="slideHeaderBlack">Contact us</label>
                       <div class="clearfix" style="height:1px;"></div>
-                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;direction:rtl;">
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
                       <div class="col-lg-8 col-md-8 col-sm-8" style="padding:0;">
                           <p class="text-justify">
                               S.O. Sager International established in 1982 in Jeddah, Saudi Arabia. MTSA is a product brand name owned by. Sager International supplies touchscreens, info kiosk systems & digital signage as well as custom software and Apps development for better communication. 

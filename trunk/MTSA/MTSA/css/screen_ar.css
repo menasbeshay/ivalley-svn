@@ -4152,7 +4152,8 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
     height:20%;
     color:#888;
     vertical-align:bottom;
-    font-size:108%;
+    font-size:110%;
+    font-weight:bold;
     
 }
 
@@ -4308,7 +4309,7 @@ height:100%;
 
 
 #contactp {
-     background: url(../images/contact.jpg) no-repeat bottom right;    
+     background: url(../images/contact.jpg) no-repeat top left;    
     background-size:cover;
     -webkit-background-size: cover;
   -moz-background-size: cover;
