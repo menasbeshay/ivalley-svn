@@ -407,7 +407,7 @@ namespace BLL
             return LoadFromRawSql(@"select [MemberTypeSpecID]=ISNULL(d.MemberTypeSpecID,1),M.*
                                     from MemberFriend MF INNER JOIN Member M ON MF.FriendID=M.MemberID
 	                                    INNER JOIN aspnet_Users ON aspnet_Users.UserId=M.UserID
-	                                    LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID
+	                                    LEFT JOIN MemberType MT ON MT.MemberID=M.MemberID  AND (MT.EndDate IS NULL OR MT.EndDate>GetDATE())
 	                                    LEFT JOIN MemberTypeSpecDuration d ON MT.MemberTypeSpecDurationID=d.ID 
                                         Left Join MemberFriend MF2 on MF.MemberID = MF2.FriendID And
                                                                       MF.FriendID = MF2.MemberID 

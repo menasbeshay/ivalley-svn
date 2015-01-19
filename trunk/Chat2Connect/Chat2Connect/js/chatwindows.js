@@ -1926,7 +1926,7 @@ function InitChat(maxWinRooms, memberID, memberName, openedWindows, profilePic, 
     rHub.client.getPrivateMessage = function (fromId, message) {
         if (chatVM.isBlocked(fromId))
             return;
-        var window = chatVM.getWindow(fromId, "Private", message.FromName);
+        var window = chatVM.getWindow(fromId, "Private", message.FromName, message.MemberTypeID);
         window.addMessage(message);
     };
     rHub.client.getAdminMessage = function (rid, msg) {

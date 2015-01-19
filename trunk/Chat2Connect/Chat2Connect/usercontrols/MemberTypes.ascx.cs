@@ -98,6 +98,9 @@ namespace Chat2Connect.usercontrols
 
         public static void NotifyMember(int mid,int typeSpecID)
         {
+            var connectedUser = SRCustomHubs.ChatRoomHub.ConnectedUsers.FirstOrDefault(m => m.MemberID == mid);
+            if (connectedUser != null)
+                connectedUser.MemberTypeSpecID = typeSpecID;
             Microsoft.AspNet.SignalR.IHubContext _Rcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<Chat2Connect.SRCustomHubs.ChatRoomHub>();
             _Rcontext.Clients.All.updateMemberType(mid, typeSpecID);            
         }
