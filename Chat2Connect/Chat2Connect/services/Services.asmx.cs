@@ -1053,26 +1053,25 @@ namespace Chat2Connect.services
         {
             string[] ToMembers = toIds.Split(',');
             IHubContext _Rcontext = GlobalHost.ConnectionManager.GetHubContext<ChatRoomHub>();
-            Member sender = new Member();
-            sender.LoadByPrimaryKey(Member.CurrentMemberID);
             try
             {
+                var sender = ChatRoomHub.ConnectedUsers.FirstOrDefault(u => u.MemberID == BLL.Member.CurrentMemberID);
                 for (int i = 0; i < ToMembers.Length; i++)
                 {
-                    Member m = new Member();
-                    m.LoadByPrimaryKey(Convert.ToInt32(ToMembers[i]));
-                    MembershipUser user = Membership.GetUser(m.UserID);
+                    var receipent=ChatRoomHub.ConnectedUsers.FirstOrDefault(u => u.MemberID.ToString() == ToMembers[i]);
+                    if (receipent == null)
+                        continue;
                     var resultMsg = new Helper.ChatMessage()
                     {
-                        FromID = Member.CurrentMemberID,
-                        ToID = m.MemberID,
-                        FromName = Member.CurrentMember.UserName,
+                        FromID = sender.MemberID,
+                        ToID = receipent.MemberID,
+                        FromName = sender.MemberName,
                         Message = msg,
                         MessageDate = DateTime.Now,
-                        FromProfileImg = Member.CurrentMember.ProfilePic,
-                        MemberTypeID = sender.MemberType.MemberTypeSpecDurationID
+                        FromProfileImg = sender.ProfilePic,
+                        MemberTypeID = sender.MemberTypeSpecID
                     };
-                    _Rcontext.Clients.Group(user.UserName).getPrivateMessage(Member.CurrentMemberID, resultMsg);
+                    _Rcontext.Clients.Group(receipent.MemberName).getPrivateMessage(sender.MemberID, resultMsg);
                 }
             }
             catch (Exception ex)

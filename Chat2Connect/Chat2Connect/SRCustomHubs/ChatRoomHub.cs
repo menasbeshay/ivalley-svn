@@ -24,7 +24,7 @@ namespace Chat2Connect.SRCustomHubs
             string user = Context.User.Identity.Name;
             Member m = new BLL.Member();
             m.GetMemberByUserName(user);
-            var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = m.Name, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID };
+            var newMember = new Helper.SignalRUser { ConnectionId = Context.ConnectionId, MemberName = user, MemberID = m.MemberID, ProfilePic = m.ProfilePic, MemberTypeSpecID = m.MemberType.MemberTypeSpecDuration.MemberTypeSpecID };
             ConnectedUsers.Add(newMember);
 
             // add user to new group by his user name 
