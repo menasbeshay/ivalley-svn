@@ -137,7 +137,7 @@
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="UserName" runat="server" onkeypress="return validChars(event);" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="من فضلك أدخل إسم المستخدم ." ToolTip="من فضلك أدخل إسم المستخدم ." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
+                                        <asp:RegularExpressionValidator ID="valPassword" runat="server" ControlToValidate="UserName" ErrorMessage="يجب أن يكون اسم المستخدم مكون من 4 إلى 17 حرف."  ValidationGroup="CreateUserWizard1" ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
                                         <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="إسم المستخدم غير مطابق للشروط" ClientValidationFunction="isValid" ControlToValidate="UserName" Display="Dynamic" ForeColor="Red" ValidationGroup="CreateUserWizard1"></asp:CustomValidator>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                                     <div class="col-sm-8 pull-right">
                                         <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="من فضلك أدخل كلمة المرور." ToolTip="من فضلك أدخل كلمة المرور." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Password" ErrorMessage="يجب أن تكون كلمة المرور مكونة من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red" />
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Password" ErrorMessage="يجب أن تكون كلمة المرور مكونة من 4 إلى 17 حرف." ValidationExpression=".{4,17}.*" Display="Dynamic" ForeColor="Red"  ValidationGroup="CreateUserWizard1"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -178,13 +178,14 @@
                                     </div>
                                     <div class="col-sm-8 pull-right">                                        
                                         <asp:DropDownList ID="Question" runat="server" CssClass="form-control" >                     
-            	                            <asp:ListItem Value="0">اختر السؤال السرى</asp:ListItem>
-            	                            <asp:ListItem> اين ولدت</asp:ListItem>
-            	                            <asp:ListItem>اقرب صديق اليك</asp:ListItem>
-            	                            <asp:ListItem>اين تسكن</asp:ListItem>
-            	                            <asp:ListItem>افضل مدينه زرتها</asp:ListItem>
-            	                            <asp:ListItem>سيارة تتمنى اقتنائها</asp:ListItem>			
-                                        </asp:DropDownList>                                        
+            	                            <asp:ListItem Value="">اختر السؤال السرى</asp:ListItem>
+            	                            <asp:ListItem Value="1"> اين ولدت</asp:ListItem>
+            	                            <asp:ListItem Value="2">اقرب صديق اليك</asp:ListItem>
+            	                            <asp:ListItem Value="3">اين تسكن</asp:ListItem>
+            	                            <asp:ListItem Value="4">افضل مدينه زرتها</asp:ListItem>
+            	                            <asp:ListItem Value="5">سيارة تتمنى اقتنائها</asp:ListItem>			
+                                        </asp:DropDownList> 
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Question" ErrorMessage="من فضلك إختر السؤال السرى." ToolTip="من فضلك إختر السؤال السرى." ValidationGroup="CreateUserWizard1" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                                       
                                     </div>
                                 </div>
                                 <div class="form-group">
