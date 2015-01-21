@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Flight_BLL;
 using Flights_GUI.FlightReportDataSetTableAdapters;
 using System.Web.Security;
+using Microsoft.Reporting.WebForms;
 
 namespace Flights_GUI.CabinCrew
 {
@@ -98,7 +99,10 @@ namespace Flights_GUI.CabinCrew
                     case "2":
                         rds.Value = ACTA.GetData(From, To);
                         ReportViewer1.LocalReport.ReportPath = "Reports\\ALLCabinCrewHours.rdlc";
-                        ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("From", uiRadDatePickerFrom.SelectedDate.ToString()));
+                        ReportParameter[] rep_params1 = new ReportParameter[1];
+                        rep_params1[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));                        
+                        ReportViewer1.LocalReport.SetParameters(rep_params1);               
+                        
                         break;
                     case "3":
                         rds.Value = CSTA.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);

@@ -37,7 +37,8 @@ namespace Flights_GUI.Common.Controls
         #region Methods
         
         private void FillSectorData()
-        {            
+        {
+            if (CurrentSector != null) { 
             uiLabelDate.Text = CurrentSector.SectorDate.ToString("dd/MM/yyyy");
             AirPort from = new AirPort();
             from.LoadByPrimaryKey(CurrentSector.From_AirportID);
@@ -46,6 +47,7 @@ namespace Flights_GUI.Common.Controls
             uiLabelFrom.Text = from.IATACode;
             uiLabelTo.Text = to.IATACode;
             uiLabelNO.Text = CurrentSector.FlightNo;
+            }
         }
         #endregion
     }

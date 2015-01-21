@@ -33,6 +33,7 @@ namespace Flights_GUI.Operation
         {
             if (!IsPostBack)
             {
+                Master.PageTitle = "Sector crew";
                 LoadDDLs();
                 BindCrew();
             }
@@ -91,7 +92,7 @@ namespace Flights_GUI.Operation
         protected void uiLinkButtonBack_Click(object sender, EventArgs e)
         {
             CurrentSector = null;
-            Response.Redirect("~/Operation/SectorsList.aspx?" + Request.QueryString.ToString());
+            Response.Redirect("~/Operation/FlightList.aspx?" + Request.QueryString.ToString());
         }
         #endregion
 

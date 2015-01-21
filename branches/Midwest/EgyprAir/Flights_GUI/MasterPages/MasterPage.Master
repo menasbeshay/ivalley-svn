@@ -43,8 +43,8 @@
         <div id="HeaderPlan" style="margin-top: 12px;">
             <div id="HeaderContent">
                 <div id="logo">
-                    <a id="A1" href="../Default.aspx" title="Midwest AirLines">
-                        <img border="0" src="../images/newLogo.gif" alt="Midwest AirLines"
+                    <a id="A1" href="../Default.aspx" title="Fly Egypt AirLines">
+                        <img border="0" src="../img/flyegypt.png" alt="I-Flights"
                             width="228" height="70"></a>
                 </div>
                 <div id="TopMenu">
@@ -130,7 +130,7 @@
                     </div>
                     <div id="FooterBottom">
                         <p>
-                            Copyright © 1995-2012 Midwest.com. All rights reserved.
+                            Copyright © 1995-2012 FlyEgypt.com. All rights reserved.
                         </p>
                     </div>
                 </div>

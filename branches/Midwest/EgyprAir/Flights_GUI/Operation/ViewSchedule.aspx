@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true"
     CodeBehind="ViewSchedule.aspx.cs" Inherits="Flights_GUI.Operation.ViewSchedule" %>
     <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
@@ -60,7 +60,7 @@
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField DataField="Day" HeaderText="Day" />
-                        <asp:BoundField DataField="ReportDate" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Flight Date" />
+                        <asp:BoundField DataField="SectorDate" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Sector Date" />
                         <asp:BoundField DataField="FlightNo" HeaderText="Flight No." />
                         <asp:BoundField DataField="Pilots" HeaderText="Pilots" />
                         <asp:TemplateField HeaderText="Sector <br /> From - To ">

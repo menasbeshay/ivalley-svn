@@ -1,22 +1,37 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="SectorPilots.aspx.cs" Inherits="Flights_GUI.Operation.SectorPilots" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="SectorPilots.aspx.cs" Inherits="Flights_GUI.Operation.SectorPilots" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="../Common/Controls/SectorInfo.ascx" TagName="SectorInfo" TagPrefix="uc1" %>
+<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+           
+.seprator
+{
+    color: #FFFFFF;
+    font-weight: bold;    
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: left;
+    background-color: #79BCFF;
+    padding: 2px;
+    display: block;
+    clear: both;
+    padding-left:30px;
+    margin:10px 0;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="uiUpdatePanel" runat="server">
         <ContentTemplate>
-            <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 60px;
-                height: 25px; z-index: 99999;">
-                <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click">Back to flight list</asp:LinkButton>
-            </div>
+            
+                
+            
             <div class="ContentLeftDiv">
-                <h4>
-                    Edit Sector Details</h4>
+                
                 <div class="Details900">
                     <div class="whiteArea">
-                                <div style="height:25px;clear:both;"></div>
+                                <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click" CssClass="btn btn-primary pull-right">Back to flight list</asp:LinkButton>
                     <div>
                         <uc1:sectorinfo id="SectorInfo1" runat="server" />
                     </div>
@@ -52,7 +67,7 @@
                                         &nbsp;</div>
                                     <div class="AdminMiddle">
                                         <div class="More" style="float: left; height: 15px;">
-                                            <asp:LinkButton ID="uiLinkButtonAddFlying" runat="server" OnClick="uiLinkButtonAddFlying_Click">Add new Pilot</asp:LinkButton></div>
+                                            <asp:LinkButton ID="uiLinkButtonAddFlying" runat="server" OnClick="uiLinkButtonAddFlying_Click" CssClass="btn btn-primary">Add new Pilot</asp:LinkButton></div>
                                     </div>
                                     <div class="AdminRight">
                                     </div>
@@ -84,14 +99,14 @@
                                         &nbsp;</div>
                                     <div class="AdminMiddle">
                                         <div class="More" style="float: left; height: 15px;">
-                                            <asp:LinkButton ID="uiLinkButtonAddCo" runat="server" OnClick="uiLinkButtonAddCo_Click">Add new Co-Pilot</asp:LinkButton></div>
+                                            <asp:LinkButton ID="uiLinkButtonAddCo" runat="server" OnClick="uiLinkButtonAddCo_Click" CssClass="btn btn-primary">Add new Co-Pilot</asp:LinkButton></div>
                                     </div>
                                     <div class="AdminRight">
                                     </div>
-                                    <div class="clear10">
+                                    <div class="span12 clearfix" style="height:10px;">
                                     </div>
                                     </div>
-                                    <div class="AdminMiddle" style="text-align: center; width: 100%;">
+                                    <div class="AdminMiddle" style="text-align: center; width: 100%;margin-top:20px;">
                                         <asp:GridView ID="uiGridViewPiolts" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center"
                                             OnRowCommand="uiGridViewPiolts_RowCommand" OnRowDataBound="uiGridViewPiolts_RowDataBound"
                                             Width="80%">

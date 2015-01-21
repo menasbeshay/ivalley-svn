@@ -13,6 +13,15 @@ namespace Flights_GUI.MasterPages {
     public partial class E_Common {
         
         /// <summary>
+        /// style_color control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink style_color;
+        
+        /// <summary>
         /// head control.
         /// </summary>
         /// <remarks>

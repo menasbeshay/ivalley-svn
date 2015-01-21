@@ -53,6 +53,7 @@
     <Compile Include="Flight.cs" />
     <Compile Include="FlightCrew.cs" />
     <Compile Include="FlightPilot.cs" />
+    <Compile Include="FlightType.cs" />
     <Compile Include="IOSA_Answer.cs" />
     <Compile Include="IOSA_Attachement.cs" />
     <Compile Include="IOSA_Departement.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="PilotLog.cs" />
     <Compile Include="PilotPerDiemLog.cs" />
     <Compile Include="PilotTitle.cs" />
+    <Compile Include="PilotTransaction.cs" />
     <Compile Include="Pilot_CompanyPosition.cs" />
     <Compile Include="Pilot_TBF.cs" />
     <Compile Include="Position.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Title.cs" />
     <Compile Include="TitleCourse.cs" />
     <Compile Include="Training.cs" />
+    <Compile Include="Transactions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">

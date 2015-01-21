@@ -47,7 +47,7 @@ namespace Flight_DAL
 		{
 			this.QuerySource = "PilotCourse";
 			this.MappingName = "PilotCourse";
-            this.SchemaTableView = "Training.";
+
 		}	
 
 		//=================================================================
@@ -219,6 +219,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter PilotCityID
+			{
+				get
+				{
+					return new SqlParameter("@PilotCityID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -240,6 +248,7 @@ namespace Flight_DAL
             public const string ExpiryDate = "ExpiryDate";
             public const string Result = "Result";
             public const string Notes = "Notes";
+            public const string PilotCityID = "PilotCityID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -262,6 +271,7 @@ namespace Flight_DAL
 					ht[ExpiryDate] = _PilotCourse.PropertyNames.ExpiryDate;
 					ht[Result] = _PilotCourse.PropertyNames.Result;
 					ht[Notes] = _PilotCourse.PropertyNames.Notes;
+					ht[PilotCityID] = _PilotCourse.PropertyNames.PilotCityID;
 
 				}
 				return (string)ht[columnName];
@@ -289,6 +299,7 @@ namespace Flight_DAL
             public const string ExpiryDate = "ExpiryDate";
             public const string Result = "Result";
             public const string Notes = "Notes";
+            public const string PilotCityID = "PilotCityID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -311,6 +322,7 @@ namespace Flight_DAL
 					ht[ExpiryDate] = _PilotCourse.ColumnNames.ExpiryDate;
 					ht[Result] = _PilotCourse.ColumnNames.Result;
 					ht[Notes] = _PilotCourse.ColumnNames.Notes;
+					ht[PilotCityID] = _PilotCourse.ColumnNames.PilotCityID;
 
 				}
 				return (string)ht[propertyName];
@@ -338,6 +350,7 @@ namespace Flight_DAL
             public const string ExpiryDate = "s_ExpiryDate";
             public const string Result = "s_Result";
             public const string Notes = "s_Notes";
+            public const string PilotCityID = "s_PilotCityID";
 
 		}
 		#endregion		
@@ -521,6 +534,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Notes, value);
+			}
+		}
+
+		public virtual int PilotCityID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PilotCityID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PilotCityID, value);
 			}
 		}
 
@@ -754,6 +779,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_PilotCityID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PilotCityID) ? string.Empty : base.GetintAsString(ColumnNames.PilotCityID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PilotCityID);
+				else
+					this.PilotCityID = base.SetintAsString(ColumnNames.PilotCityID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -932,6 +972,16 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Notes, Parameters.Notes);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PilotCityID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1122,6 +1172,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter PilotCityID
+		    {
+				get
+		        {
+					if(_PilotCityID_W == null)
+	        	    {
+						_PilotCityID_W = TearOff.PilotCityID;
+					}
+					return _PilotCityID_W;
+				}
+			}
+
 			private WhereParameter _PilotCourseID_W = null;
 			private WhereParameter _CourseID_W = null;
 			private WhereParameter _PilotID_W = null;
@@ -1137,6 +1199,7 @@ namespace Flight_DAL
 			private WhereParameter _ExpiryDate_W = null;
 			private WhereParameter _Result_W = null;
 			private WhereParameter _Notes_W = null;
+			private WhereParameter _PilotCityID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1155,6 +1218,7 @@ namespace Flight_DAL
 				_ExpiryDate_W = null;
 				_Result_W = null;
 				_Notes_W = null;
+				_PilotCityID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1361,6 +1425,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter PilotCityID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1546,6 +1620,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter PilotCityID
+		    {
+				get
+		        {
+					if(_PilotCityID_W == null)
+	        	    {
+						_PilotCityID_W = TearOff.PilotCityID;
+					}
+					return _PilotCityID_W;
+				}
+			}
+
 			private AggregateParameter _PilotCourseID_W = null;
 			private AggregateParameter _CourseID_W = null;
 			private AggregateParameter _PilotID_W = null;
@@ -1561,6 +1647,7 @@ namespace Flight_DAL
 			private AggregateParameter _ExpiryDate_W = null;
 			private AggregateParameter _Result_W = null;
 			private AggregateParameter _Notes_W = null;
+			private AggregateParameter _PilotCityID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1579,6 +1666,7 @@ namespace Flight_DAL
 				_ExpiryDate_W = null;
 				_Result_W = null;
 				_Notes_W = null;
+				_PilotCityID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1711,6 +1799,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.Notes);
 			p.SourceColumn = ColumnNames.Notes;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PilotCityID);
+			p.SourceColumn = ColumnNames.PilotCityID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

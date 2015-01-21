@@ -87,7 +87,7 @@ namespace Flights_GUI.Operation
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 uiDropDownListAirCraftRegistration.SelectedValue = objData.AirCraft_AirPlaneID.ToString();
                 uiTextBoxFlightNo.Text = objData.FlightNo;
-                uiTextBoxDate.Text = objData.ReportDate.ToString("dd/MM/yyyy");
+                uiTextBoxDate.Text = objData.FlightDate.ToString("dd/MM/yyyy");
                 uiCheckBoxIsHeavy.Checked = objData.IsHeavy;
                 CurrentFlightReport = objData;
                 uiPanelEdit.Visible = true;
@@ -102,11 +102,11 @@ namespace Flights_GUI.Operation
                 Flight objData = new Flight();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 FlightCrew crew = new FlightCrew();
-                crew.GetCrewByFlightID(objData.ReportID);
+                crew.GetCrewByFlightID(objData.FlightID);
                 FlightPilot pilots = new FlightPilot();
-                pilots.GetPilotByFlightID(objData.ReportID);
+                pilots.GetPilotByFlightID(objData.FlightID);
                 Sector sectors = new Sector();
-                sectors.GetSectorsByFlightID(objData.ReportID);
+                sectors.GetSectorsByFlightID(objData.FlightID);
 
                 pilots.DeleteAll();
                 pilots.Save();
@@ -131,7 +131,7 @@ namespace Flights_GUI.Operation
                 Flight objData = CurrentFlightReport;
                 objData.FlightNo = uiTextBoxFlightNo.Text;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
-                objData.ReportDate = DateTime.ParseExact(uiTextBoxDate.Text, "dd/MM/yyyy", null);
+                objData.FlightDate = DateTime.ParseExact(uiTextBoxDate.Text, "dd/MM/yyyy", null);
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;                
                 objData.Save();
             }
@@ -141,7 +141,7 @@ namespace Flights_GUI.Operation
                 objData.AddNew();
                 objData.FlightNo = uiTextBoxFlightNo.Text;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
-                objData.ReportDate = DateTime.ParseExact(uiTextBoxDate.Text, "dd/MM/yyyy", null);
+                objData.FlightDate = DateTime.ParseExact(uiTextBoxDate.Text, "dd/MM/yyyy", null);
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
                 objData.Save();
                 CurrentFlightReport = objData;
@@ -154,7 +154,7 @@ namespace Flights_GUI.Operation
             if (CurrentSector != null)
             {
                 Sector objData = CurrentSector;
-                objData.ReportID = CurrentFlightReport.ReportID;
+                objData.FlightID = CurrentFlightReport.FlightID;
                 objData.From_AirportID = Convert.ToInt32(uiDropDownListSectorFrom.SelectedValue);
                 objData.To_AirportID = Convert.ToInt32(uiDropDownListSectorTo.SelectedValue);
                 objData.FlightNo = CurrentFlightReport.FlightNo;
@@ -165,7 +165,7 @@ namespace Flights_GUI.Operation
             {
                 Sector objData = new Sector();
                 objData.AddNew();
-                objData.ReportID = CurrentFlightReport.ReportID;
+                objData.FlightID = CurrentFlightReport.FlightID;
                 objData.From_AirportID = Convert.ToInt32(uiDropDownListSectorFrom.SelectedValue);
                 objData.To_AirportID = Convert.ToInt32(uiDropDownListSectorTo.SelectedValue);
                 objData.FlightNo = CurrentFlightReport.FlightNo;
@@ -226,7 +226,7 @@ namespace Flights_GUI.Operation
         {
             FlightPilot Member = new FlightPilot();
             Member.AddNew();
-            Member.ReportID = CurrentFlightReport.ReportID;
+            Member.ReportID = CurrentFlightReport.FlightID;
             Member.PositionID = Convert.ToInt32(uiDropDownListPilotPos.SelectedValue);
             Member.PilotID = Convert.ToInt32(uiDropDownListPilot.SelectedValue);
             Member.Save();
@@ -237,7 +237,7 @@ namespace Flights_GUI.Operation
         {
             FlightPilot Member = new FlightPilot();
             Member.AddNew();
-            Member.ReportID = CurrentFlightReport.ReportID;
+            Member.ReportID = CurrentFlightReport.FlightID;
             Member.PositionID = Convert.ToInt32(uiDropDownListCOPos.SelectedValue);
             Member.PilotID = Convert.ToInt32(uiDropDownListCoPilot.SelectedValue);
             Member.Save();
@@ -248,7 +248,7 @@ namespace Flights_GUI.Operation
         {
             FlightCrew Member = new FlightCrew();
             Member.AddNew();
-            Member.ReportID = CurrentFlightReport.ReportID;
+            Member.ReportID = CurrentFlightReport.FlightID;
             Member.PositionID = Convert.ToInt32(uiDropDownListCrewPos.SelectedValue);
             Member.CrewID = Convert.ToInt32(uiDropDownListCrew.SelectedValue);
             Member.Save();
@@ -352,7 +352,7 @@ namespace Flights_GUI.Operation
         private void BindPilots()
         {
             FlightPilot pilots = new FlightPilot();
-            pilots.GetPilotByFlightID(CurrentFlightReport.ReportID);
+            pilots.GetPilotByFlightID(CurrentFlightReport.FlightID);
             uiGridViewPiolts.DataSource = pilots.DefaultView;
             uiGridViewPiolts.DataBind();
         }
@@ -360,7 +360,7 @@ namespace Flights_GUI.Operation
         private void BindCrew()
         {
             FlightCrew crew = new FlightCrew();
-            crew.GetCrewByFlightID(CurrentFlightReport.ReportID);
+            crew.GetCrewByFlightID(CurrentFlightReport.FlightID);
             uiGridViewCrew.DataSource = crew.DefaultView;
             uiGridViewCrew.DataBind();
         }
@@ -368,7 +368,7 @@ namespace Flights_GUI.Operation
         private void BindSectors()
         {
             Sector Sectors = new Sector();
-            Sectors.GetSectorsByFlightID(CurrentFlightReport.ReportID);
+            Sectors.GetSectorsByFlightID(CurrentFlightReport.FlightID);
             uiGridViewSectors.DataSource = Sectors.DefaultView;
             uiGridViewSectors.DataBind();
         }

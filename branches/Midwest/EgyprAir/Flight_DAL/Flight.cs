@@ -86,10 +86,10 @@ namespace Flight_DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int ReportID)
+		public virtual bool LoadByPrimaryKey(int FlightID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.ReportID, ReportID);
+			parameters.Add(Parameters.FlightID, FlightID);
 
 		
 			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_FlightLoadByPrimaryKey]", parameters);
@@ -99,19 +99,19 @@ namespace Flight_DAL
 		protected class Parameters
 		{
 			
-			public static SqlParameter ReportID
+			public static SqlParameter FlightID
 			{
 				get
 				{
-					return new SqlParameter("@ReportID", SqlDbType.Int, 0);
+					return new SqlParameter("@FlightID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter ReportDate
+			public static SqlParameter FlightDate
 			{
 				get
 				{
-					return new SqlParameter("@ReportDate", SqlDbType.DateTime, 0);
+					return new SqlParameter("@FlightDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
@@ -211,14 +211,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter FlightTypeID
+			{
+				get
+				{
+					return new SqlParameter("@FlightTypeID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string ReportID = "ReportID";
-            public const string ReportDate = "ReportDate";
+            public const string FlightID = "FlightID";
+            public const string FlightDate = "FlightDate";
             public const string AirCraft_AirPlaneID = "AirCraft_AirPlaneID";
             public const string FlightNo = "FlightNo";
             public const string IsHeavy = "IsHeavy";
@@ -231,6 +239,7 @@ namespace Flight_DAL
             public const string IsPAX = "IsPAX";
             public const string IsReturnFlight = "IsReturnFlight";
             public const string ReturnFlightID = "ReturnFlightID";
+            public const string FlightTypeID = "FlightTypeID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -238,8 +247,8 @@ namespace Flight_DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ReportID] = _Flight.PropertyNames.ReportID;
-					ht[ReportDate] = _Flight.PropertyNames.ReportDate;
+					ht[FlightID] = _Flight.PropertyNames.FlightID;
+					ht[FlightDate] = _Flight.PropertyNames.FlightDate;
 					ht[AirCraft_AirPlaneID] = _Flight.PropertyNames.AirCraft_AirPlaneID;
 					ht[FlightNo] = _Flight.PropertyNames.FlightNo;
 					ht[IsHeavy] = _Flight.PropertyNames.IsHeavy;
@@ -252,6 +261,7 @@ namespace Flight_DAL
 					ht[IsPAX] = _Flight.PropertyNames.IsPAX;
 					ht[IsReturnFlight] = _Flight.PropertyNames.IsReturnFlight;
 					ht[ReturnFlightID] = _Flight.PropertyNames.ReturnFlightID;
+					ht[FlightTypeID] = _Flight.PropertyNames.FlightTypeID;
 
 				}
 				return (string)ht[columnName];
@@ -264,8 +274,8 @@ namespace Flight_DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string ReportID = "ReportID";
-            public const string ReportDate = "ReportDate";
+            public const string FlightID = "FlightID";
+            public const string FlightDate = "FlightDate";
             public const string AirCraft_AirPlaneID = "AirCraft_AirPlaneID";
             public const string FlightNo = "FlightNo";
             public const string IsHeavy = "IsHeavy";
@@ -278,6 +288,7 @@ namespace Flight_DAL
             public const string IsPAX = "IsPAX";
             public const string IsReturnFlight = "IsReturnFlight";
             public const string ReturnFlightID = "ReturnFlightID";
+            public const string FlightTypeID = "FlightTypeID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -285,8 +296,8 @@ namespace Flight_DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ReportID] = _Flight.ColumnNames.ReportID;
-					ht[ReportDate] = _Flight.ColumnNames.ReportDate;
+					ht[FlightID] = _Flight.ColumnNames.FlightID;
+					ht[FlightDate] = _Flight.ColumnNames.FlightDate;
 					ht[AirCraft_AirPlaneID] = _Flight.ColumnNames.AirCraft_AirPlaneID;
 					ht[FlightNo] = _Flight.ColumnNames.FlightNo;
 					ht[IsHeavy] = _Flight.ColumnNames.IsHeavy;
@@ -299,6 +310,7 @@ namespace Flight_DAL
 					ht[IsPAX] = _Flight.ColumnNames.IsPAX;
 					ht[IsReturnFlight] = _Flight.ColumnNames.IsReturnFlight;
 					ht[ReturnFlightID] = _Flight.ColumnNames.ReturnFlightID;
+					ht[FlightTypeID] = _Flight.ColumnNames.FlightTypeID;
 
 				}
 				return (string)ht[propertyName];
@@ -311,8 +323,8 @@ namespace Flight_DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string ReportID = "s_ReportID";
-            public const string ReportDate = "s_ReportDate";
+            public const string FlightID = "s_FlightID";
+            public const string FlightDate = "s_FlightDate";
             public const string AirCraft_AirPlaneID = "s_AirCraft_AirPlaneID";
             public const string FlightNo = "s_FlightNo";
             public const string IsHeavy = "s_IsHeavy";
@@ -325,33 +337,34 @@ namespace Flight_DAL
             public const string IsPAX = "s_IsPAX";
             public const string IsReturnFlight = "s_IsReturnFlight";
             public const string ReturnFlightID = "s_ReturnFlightID";
+            public const string FlightTypeID = "s_FlightTypeID";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int ReportID
+		public virtual int FlightID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ReportID);
+				return base.Getint(ColumnNames.FlightID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ReportID, value);
+				base.Setint(ColumnNames.FlightID, value);
 			}
 		}
 
-		public virtual DateTime ReportDate
+		public virtual DateTime FlightDate
 	    {
 			get
 	        {
-				return base.GetDateTime(ColumnNames.ReportDate);
+				return base.GetDateTime(ColumnNames.FlightDate);
 			}
 			set
 	        {
-				base.SetDateTime(ColumnNames.ReportDate, value);
+				base.SetDateTime(ColumnNames.FlightDate, value);
 			}
 		}
 
@@ -499,38 +512,50 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual int FlightTypeID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.FlightTypeID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.FlightTypeID, value);
+			}
+		}
+
 
 		#endregion
 		
 		#region String Properties
 	
-		public virtual string s_ReportID
+		public virtual string s_FlightID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ReportID) ? string.Empty : base.GetintAsString(ColumnNames.ReportID);
+				return this.IsColumnNull(ColumnNames.FlightID) ? string.Empty : base.GetintAsString(ColumnNames.FlightID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ReportID);
+					this.SetColumnNull(ColumnNames.FlightID);
 				else
-					this.ReportID = base.SetintAsString(ColumnNames.ReportID, value);
+					this.FlightID = base.SetintAsString(ColumnNames.FlightID, value);
 			}
 		}
 
-		public virtual string s_ReportDate
+		public virtual string s_FlightDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ReportDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.ReportDate);
+				return this.IsColumnNull(ColumnNames.FlightDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.FlightDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ReportDate);
+					this.SetColumnNull(ColumnNames.FlightDate);
 				else
-					this.ReportDate = base.SetDateTimeAsString(ColumnNames.ReportDate, value);
+					this.FlightDate = base.SetDateTimeAsString(ColumnNames.FlightDate, value);
 			}
 		}
 
@@ -714,6 +739,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_FlightTypeID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FlightTypeID) ? string.Empty : base.GetintAsString(ColumnNames.FlightTypeID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FlightTypeID);
+				else
+					this.FlightTypeID = base.SetintAsString(ColumnNames.FlightTypeID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -747,21 +787,21 @@ namespace Flight_DAL
 				}
 				
 				
-				public WhereParameter ReportID
+				public WhereParameter FlightID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ReportID, Parameters.ReportID);
+							WhereParameter where = new WhereParameter(ColumnNames.FlightID, Parameters.FlightID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter ReportDate
+				public WhereParameter FlightDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ReportDate, Parameters.ReportDate);
+							WhereParameter where = new WhereParameter(ColumnNames.FlightDate, Parameters.FlightDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -887,32 +927,42 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter FlightTypeID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FlightTypeID, Parameters.FlightTypeID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
 			#endregion
 		
-			public WhereParameter ReportID
+			public WhereParameter FlightID
 		    {
 				get
 		        {
-					if(_ReportID_W == null)
+					if(_FlightID_W == null)
 	        	    {
-						_ReportID_W = TearOff.ReportID;
+						_FlightID_W = TearOff.FlightID;
 					}
-					return _ReportID_W;
+					return _FlightID_W;
 				}
 			}
 
-			public WhereParameter ReportDate
+			public WhereParameter FlightDate
 		    {
 				get
 		        {
-					if(_ReportDate_W == null)
+					if(_FlightDate_W == null)
 	        	    {
-						_ReportDate_W = TearOff.ReportDate;
+						_FlightDate_W = TearOff.FlightDate;
 					}
-					return _ReportDate_W;
+					return _FlightDate_W;
 				}
 			}
 
@@ -1060,8 +1110,20 @@ namespace Flight_DAL
 				}
 			}
 
-			private WhereParameter _ReportID_W = null;
-			private WhereParameter _ReportDate_W = null;
+			public WhereParameter FlightTypeID
+		    {
+				get
+		        {
+					if(_FlightTypeID_W == null)
+	        	    {
+						_FlightTypeID_W = TearOff.FlightTypeID;
+					}
+					return _FlightTypeID_W;
+				}
+			}
+
+			private WhereParameter _FlightID_W = null;
+			private WhereParameter _FlightDate_W = null;
 			private WhereParameter _AirCraft_AirPlaneID_W = null;
 			private WhereParameter _FlightNo_W = null;
 			private WhereParameter _IsHeavy_W = null;
@@ -1074,11 +1136,12 @@ namespace Flight_DAL
 			private WhereParameter _IsPAX_W = null;
 			private WhereParameter _IsReturnFlight_W = null;
 			private WhereParameter _ReturnFlightID_W = null;
+			private WhereParameter _FlightTypeID_W = null;
 
 			public void WhereClauseReset()
 			{
-				_ReportID_W = null;
-				_ReportDate_W = null;
+				_FlightID_W = null;
+				_FlightDate_W = null;
 				_AirCraft_AirPlaneID_W = null;
 				_FlightNo_W = null;
 				_IsHeavy_W = null;
@@ -1091,6 +1154,7 @@ namespace Flight_DAL
 				_IsPAX_W = null;
 				_IsReturnFlight_W = null;
 				_ReturnFlightID_W = null;
+				_FlightTypeID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1147,21 +1211,21 @@ namespace Flight_DAL
 				}
 				
 				
-				public AggregateParameter ReportID
+				public AggregateParameter FlightID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReportID, Parameters.ReportID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightID, Parameters.FlightID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter ReportDate
+				public AggregateParameter FlightDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReportDate, Parameters.ReportDate);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightDate, Parameters.FlightDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1287,32 +1351,42 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter FlightTypeID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightTypeID, Parameters.FlightTypeID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
 			#endregion
 		
-			public AggregateParameter ReportID
+			public AggregateParameter FlightID
 		    {
 				get
 		        {
-					if(_ReportID_W == null)
+					if(_FlightID_W == null)
 	        	    {
-						_ReportID_W = TearOff.ReportID;
+						_FlightID_W = TearOff.FlightID;
 					}
-					return _ReportID_W;
+					return _FlightID_W;
 				}
 			}
 
-			public AggregateParameter ReportDate
+			public AggregateParameter FlightDate
 		    {
 				get
 		        {
-					if(_ReportDate_W == null)
+					if(_FlightDate_W == null)
 	        	    {
-						_ReportDate_W = TearOff.ReportDate;
+						_FlightDate_W = TearOff.FlightDate;
 					}
-					return _ReportDate_W;
+					return _FlightDate_W;
 				}
 			}
 
@@ -1460,8 +1534,20 @@ namespace Flight_DAL
 				}
 			}
 
-			private AggregateParameter _ReportID_W = null;
-			private AggregateParameter _ReportDate_W = null;
+			public AggregateParameter FlightTypeID
+		    {
+				get
+		        {
+					if(_FlightTypeID_W == null)
+	        	    {
+						_FlightTypeID_W = TearOff.FlightTypeID;
+					}
+					return _FlightTypeID_W;
+				}
+			}
+
+			private AggregateParameter _FlightID_W = null;
+			private AggregateParameter _FlightDate_W = null;
 			private AggregateParameter _AirCraft_AirPlaneID_W = null;
 			private AggregateParameter _FlightNo_W = null;
 			private AggregateParameter _IsHeavy_W = null;
@@ -1474,11 +1560,12 @@ namespace Flight_DAL
 			private AggregateParameter _IsPAX_W = null;
 			private AggregateParameter _IsReturnFlight_W = null;
 			private AggregateParameter _ReturnFlightID_W = null;
+			private AggregateParameter _FlightTypeID_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_ReportID_W = null;
-				_ReportDate_W = null;
+				_FlightID_W = null;
+				_FlightDate_W = null;
 				_AirCraft_AirPlaneID_W = null;
 				_FlightNo_W = null;
 				_IsHeavy_W = null;
@@ -1491,6 +1578,7 @@ namespace Flight_DAL
 				_IsPAX_W = null;
 				_IsReturnFlight_W = null;
 				_ReturnFlightID_W = null;
+				_FlightTypeID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1527,7 +1615,7 @@ namespace Flight_DAL
 			CreateParameters(cmd);
 			
 			SqlParameter p;
-			p = cmd.Parameters[Parameters.ReportID.ParameterName];
+			p = cmd.Parameters[Parameters.FlightID.ParameterName];
 			p.Direction = ParameterDirection.Output;
     
 			return cmd;
@@ -1553,8 +1641,8 @@ namespace Flight_DAL
 			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_FlightDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.ReportID);
-			p.SourceColumn = ColumnNames.ReportID;
+			p = cmd.Parameters.Add(Parameters.FlightID);
+			p.SourceColumn = ColumnNames.FlightID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -1565,12 +1653,12 @@ namespace Flight_DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.ReportID);
-			p.SourceColumn = ColumnNames.ReportID;
+			p = cmd.Parameters.Add(Parameters.FlightID);
+			p.SourceColumn = ColumnNames.FlightID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ReportDate);
-			p.SourceColumn = ColumnNames.ReportDate;
+			p = cmd.Parameters.Add(Parameters.FlightDate);
+			p.SourceColumn = ColumnNames.FlightDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.AirCraft_AirPlaneID);
@@ -1619,6 +1707,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.ReturnFlightID);
 			p.SourceColumn = ColumnNames.ReturnFlightID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FlightTypeID);
+			p.SourceColumn = ColumnNames.FlightTypeID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

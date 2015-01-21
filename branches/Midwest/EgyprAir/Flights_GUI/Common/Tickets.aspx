@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Common.Master" AutoEventWireup="true" CodeBehind="Tickets.aspx.cs" Inherits="Flights_GUI.Common.Tickets" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Common.Master" AutoEventWireup="true" CodeBehind="Tickets.aspx.cs" Inherits="Flights_GUI.Common.Tickets" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>

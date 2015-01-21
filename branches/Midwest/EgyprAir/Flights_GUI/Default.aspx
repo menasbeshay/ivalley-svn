@@ -1,6 +1,6 @@
 ﻿
 
-<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/MasterPages/Start.Master" AutoEventWireup="true"
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/MasterPages/E_Start.Master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="Flights_GUI._Default" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="head">
@@ -12,10 +12,10 @@
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <h4>
-        Welcome to MidWest AirLines Sysetm
+        Welcome to I-Flights Sysetm
     </h4>
     <div class="Details900">
-       <p style="text-align:center">  <img src="images/SU-MWD.jpg" style="float:none;display:inline;"/>
+       <p style="text-align:center">  <img src="images/fe_ac.jpg" style="float:none;display:inline;max-width:560px;"/>
        </p>
        
        <asp:Panel ID="uipanelDefault" runat="server">
@@ -83,7 +83,7 @@
 
     </asp:Panel>
        <asp:Panel ID="uiPanelAdmin" runat="server">
-       <div style="padding:2%">
+       <div style="padding:2%;display:none;">
        <ul  class="AdminMenu">
        <li class="MainIcon">
        <a href="Operation/Default.aspx">
@@ -131,6 +131,41 @@
        </ul>
        <div class="clear"></div>
        </div>
+
+           <div class="square-state">
+                        <div class="row-fluid">
+                            <a class="icon-btn span4" href="Operation/Default.aspx">
+                                <i class="icon-group"></i>
+                                <div>Operation</div>
+                                
+                            </a>
+                            <a class="icon-btn span4" href="CabinCrew/Default.aspx">
+                                <i class="icon-plane"></i>
+                                <div>Cabin Crew</div>
+                                
+                            </a>
+                            <a class="icon-btn span4" href="#">
+                                <i class="icon-money"></i>
+                                <div>Accounting</div>
+                            </a>
+                            </div>
+                            <div class="row-fluid">
+                            <a class="icon-btn span4" href="#">
+                                <i class="icon-calendar"></i>
+                                <div>Training</div>
+                            </a>
+                            <a class="icon-btn span4" href="#">
+                                <i class="icon-sitemap"></i>
+                                <div>Safety</div>
+                            </a>
+                            <a class="icon-btn span4" href="#">
+                                <i class="icon-wrench"></i>
+                                <div>Engineering</div>
+                                
+                            </a>
+                        </div>
+                        
+                    </div>
        </asp:Panel>
     
            </div>

@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="PilotSchedule.aspx.cs" Inherits="Flights_GUI.Operation.PilotSchedule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="PilotSchedule.aspx.cs" Inherits="Flights_GUI.Operation.PilotSchedule" %>
     <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ MasterType  VirtualPath="~/MasterPages/E_Admin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<style type="text/css">
+    <style type="text/css">
 .hidebr br
 {
 display:none; 
@@ -9,14 +11,14 @@ display:none;
     </style>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+   /* $(document).ready(function () {
         $('.Schedule br').replaceWith("<div style='clear:both;'></div>");
     });
 
     $(function () {
         $("#mi35").addClass("selected");
     });
-
+    */
 </script>
 
 <script type="text/javascript">
@@ -29,71 +31,46 @@ display:none;
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="ContentLeftDiv">
-        <h4>
-            Pilot Status
-        </h4>
+    <div class="ContentLeftDiv">
+        
         <div class="Details900" >
-        <div class="AdminLeft" style="width: 80px">
-                             <asp:Label ID="Label31" runat="server" Text="Select Pilot" CssClass="Label"></asp:Label>
-                            </div>
-                            <div class="AdminMiddle">
+        <div class="span12 clearfix" >
+            <div class="span2">
+                <asp:Label ID="Label31" runat="server" Text="Select Pilot" CssClass="Label"></asp:Label>
+            </div>
+            <div class="span4">
                                 <asp:DropDownList ID="uiDropDownListPilots" runat="server" Width="150px">
                                 </asp:DropDownList>&nbsp;
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" 
                                     ErrorMessage="Please select a pilot" ControlToValidate="uiDropDownListPilots" 
                                     Display="Dynamic" ForeColor="Red" Operator="NotEqual" 
                                     ValidationGroup="Schedule" ValueToCompare="0"></asp:CompareValidator>
+                </div>
+            <div class="span5"></div>
                             </div>
-                            <div class="AdminRight">
-                            </div>
-                            <div class="clear10"></div>
-
-        <div class="AdminLeft" style="width: 80px;">
-                                <asp:Label ID="Label2" runat="server" Text="From :" CssClass="Label"></asp:Label>
-                            </div>
-                            <div class="AdminMiddle" 
-                style="width:430px; vertical-align: 50%;">
-                                <asp:TextBox ID="uiTextBoxFrom" runat="server" Width="150px"></asp:TextBox>
+            <div class="span12 clearfix" style="margin-left:0px;">
+                <div class="span2"><asp:Label ID="Label2" runat="server" Text="From :" CssClass="Label"></asp:Label></div>
+                <div class="span2"><asp:TextBox ID="uiTextBoxFrom" runat="server" Width="150px"></asp:TextBox>
                                 <asp:CalendarExtender ID="uiTextBoxFrom_CalendarExtender" runat="server" 
                                     Enabled="True" TargetControlID="uiTextBoxFrom" Format="dd/MM/yyyy">
                                 </asp:CalendarExtender>
                                 &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                     ControlToValidate="uiTextBoxFrom" Display="Dynamic" ErrorMessage="*" 
-                                    ForeColor="Red" ValidationGroup="Schedule"></asp:RequiredFieldValidator>
-                                &nbsp;<asp:Label ID="Label3" runat="server" Text="To :" CssClass="Label"></asp:Label>
-                                &nbsp;<asp:TextBox ID="uiTextBoxTo" runat="server" Width="150px"></asp:TextBox>
+                                    ForeColor="Red" ValidationGroup="Schedule"></asp:RequiredFieldValidator></div>
+                <div class="span1"><asp:Label ID="Label3" runat="server" Text="To :" CssClass="Label"></asp:Label></div>
+                <div class="span2"><asp:TextBox ID="uiTextBoxTo" runat="server" Width="150px"></asp:TextBox>
                                 <asp:CalendarExtender ID="uiTextBoxTo_CalendarExtender" runat="server" 
                                     Enabled="True" TargetControlID="uiTextBoxTo"  Format="dd/MM/yyyy">
                                 </asp:CalendarExtender>
                             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                     ControlToValidate="uiTextBoxTo" Display="Dynamic" ErrorMessage="*" 
-                                    ForeColor="Red" ValidationGroup="Schedule"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="AdminRight" style="width:150px">
-                            
-                             <div class="More" style="float: left;margin-left:5px;height:15px;">
-                    <asp:LinkButton ID="uiLinkButtonView" runat="server" Text="View Status" 
+                                    ForeColor="Red" ValidationGroup="Schedule"></asp:RequiredFieldValidator></div>
+                <div class="span3"><asp:LinkButton ID="uiLinkButtonView" runat="server" Text="View Status" CssClass="btn btn-primary pull-right"
                         onclick="uiLinkButtonView_Click" ValidationGroup="Schedule"></asp:LinkButton></div>
-                           </div>
-
-                            <div class="clear10"></div>
-
-                            <div class="AdminLeft" style="height: 15px;padding-top:5px;width:25px;">
-                             &nbsp;
-                            </div>
-                            <div class="AdminMiddle" style="width:400px;">
-                                &nbsp;
-                            </div>
-                            <div class="AdminRight" style="width:150px">
-                            
-                            <div class="More" style="float: left;margin-left:5px;height:15px;">
-                    </div>
-                           </div>
-                            <div class="clear10"></div>
+            </div>
+     
             
-            
-            <div class="AdminMiddle" style="width: 100%" id="PrintArea">
+            <div class="AdminMiddle" style="width: 100%;display:none;" id="PrintArea">
 
             
             <div runat="server" style="float:left;padding:3px;border:1px solid black" id="Header">
@@ -269,7 +246,38 @@ display:none;
             </div>
 
     </div>
-            <input id="Button1" type="button" value="Print preview" onclick="printme()" />
+
+            <div class="span12 clearfix">
+                <telerik:RadGrid ID="uiRadGridTrx" runat="server" AllowPaging="True" 
+                        AutoGenerateColumns="False" CellSpacing="0" 
+                        HorizontalAlign="Center" Skin="Office2007" Width="90%"                         
+                        onpageindexchanged="uiRadGridTrx_PageIndexChanged" >
+                        <AlternatingItemStyle HorizontalAlign="Center" />
+                        <MasterTableView>
+                            
+                        <Columns>
+                        <telerik:GridBoundColumn DataField="day" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>   
+                        <telerik:GridBoundColumn DataField="StatusDay" HeaderText="Day" ></telerik:GridBoundColumn>                                                                                                    
+                        <telerik:GridTemplateColumn HeaderText="Status">
+                            <ItemTemplate>
+                                <%# string.IsNullOrEmpty(Eval("PilotID").ToString()) ? "Day Off" :  Eval("StatusType").ToString() %>
+                            </ItemTemplate>
+                        </telerik:GridTemplateColumn>
+                                                                                                                               
+                            <telerik:GridBoundColumn DataField="FlightNo" HeaderText="Flight No." ></telerik:GridBoundColumn>   
+                            <telerik:GridBoundColumn DataField="Route" HeaderText="Route" ></telerik:GridBoundColumn>   
+                        <telerik:GridBoundColumn DataField="STD" HeaderText="STD" DataFormatString="{0:HH:mm}"></telerik:GridBoundColumn>                            
+                        <telerik:GridBoundColumn DataField="STA" HeaderText="STA" DataFormatString="{0:HH:mm}"></telerik:GridBoundColumn>                            
+                        <telerik:GridBoundColumn DataField="City" HeaderText="Night city" ></telerik:GridBoundColumn>                                                                                                                        
+                        </Columns>                            
+                        </MasterTableView>
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                       
+                    </telerik:RadGrid>
+            </div>
+
+            <input id="Button1" type="button" value="Print preview" onclick="printme()" style="display:none;" />
              <div class="clear10">
             </div>
 

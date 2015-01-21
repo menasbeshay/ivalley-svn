@@ -38,8 +38,8 @@
     <div class="navbar-inner">
         <div class="container-fluid">
             <!-- BEGIN LOGO -->
-            <a class="brand" href="#">
-                <img src="../img/logo.png" alt="Admin Lab" />
+            <a class="brand" href="../Default.aspx">
+                <img src="../img/flyegypt.png" alt="Fly Egypt" style="max-height:45px;" />
             </a>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -47,7 +47,7 @@
                 data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar">
                 </span><span class="icon-bar"></span><span class="arrow"></span></a>
             <!-- END RESPONSIVE MENU TOGGLER -->
-            <div id="top_menu" class="nav notify-row">
+            <%--<div id="top_menu" class="nav notify-row">
                 <!-- BEGIN NOTIFICATION -->
                 <ul class="nav top-menu">
                     <!-- BEGIN SETTINGS -->
@@ -106,7 +106,7 @@
                     </li>
                     <!-- END NOTIFICATION DROPDOWN -->
                 </ul>
-            </div>
+            </div>--%>
             <!-- END  NOTIFICATION -->
             <div class="top-nav ">
                 <ul class="nav pull-right top-menu">
@@ -183,10 +183,11 @@
                         Blank Page <small>blank page sample</small>
                     </h3>
                     <ul class="breadcrumb">
-                        <li><a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                        <li><a href="../Default.aspx"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                         </li>
-                        <li><a href="#">Sample Pages</a> <span class="divider">&nbsp;</span> </li>
-                        <li><a href="#">Blank Page</a><span class="divider-last">&nbsp;</span></li>
+                        <li>
+                            <asp:linkbutton runat="server" ID="uiLinkButtonModule"></asp:linkbutton> <span class="divider">&nbsp;</span> </li>
+                        <li> <asp:linkbutton runat="server" ID="uiLinkButtonPage"></asp:linkbutton><span class="divider-last">&nbsp;</span></li>
                     </ul>
                     <!-- END PAGE TITLE & BREADCRUMB-->
                 </div>
@@ -198,7 +199,7 @@
                     <div class="widget">
                         <div class="widget-title">
                             <h4>
-                                <i class="icon-globe"></i>Blank Page</h4>
+                                <i class="icon-home"></i>&nbsp;Home</h4>
                             <span class="tools"><a href="javascript:;" class="icon-chevron-down"></a><a href="javascript:;"
                                 class="icon-remove"></a></span>
                         </div>

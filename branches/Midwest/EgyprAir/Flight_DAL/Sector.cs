@@ -107,11 +107,11 @@ namespace Flight_DAL
 				}
 			}
 			
-			public static SqlParameter ReportID
+			public static SqlParameter FlightID
 			{
 				get
 				{
-					return new SqlParameter("@ReportID", SqlDbType.Int, 0);
+					return new SqlParameter("@FlightID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -499,6 +499,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter PilotCityID
+			{
+				get
+				{
+					return new SqlParameter("@PilotCityID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -506,7 +514,7 @@ namespace Flight_DAL
 		public class ColumnNames
 		{  
             public const string SectorID = "SectorID";
-            public const string ReportID = "ReportID";
+            public const string FlightID = "FlightID";
             public const string From_AirportID = "From_AirportID";
             public const string To_AirportID = "To_AirportID";
             public const string FuleUplifted = "FuleUplifted";
@@ -555,6 +563,7 @@ namespace Flight_DAL
             public const string IsReturnSector = "IsReturnSector";
             public const string ReturnSectorID = "ReturnSectorID";
             public const string ClientID = "ClientID";
+            public const string PilotCityID = "PilotCityID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -563,7 +572,7 @@ namespace Flight_DAL
 					ht = new Hashtable();
 					
 					ht[SectorID] = _Sector.PropertyNames.SectorID;
-					ht[ReportID] = _Sector.PropertyNames.ReportID;
+					ht[FlightID] = _Sector.PropertyNames.FlightID;
 					ht[From_AirportID] = _Sector.PropertyNames.From_AirportID;
 					ht[To_AirportID] = _Sector.PropertyNames.To_AirportID;
 					ht[FuleUplifted] = _Sector.PropertyNames.FuleUplifted;
@@ -612,6 +621,7 @@ namespace Flight_DAL
 					ht[IsReturnSector] = _Sector.PropertyNames.IsReturnSector;
 					ht[ReturnSectorID] = _Sector.PropertyNames.ReturnSectorID;
 					ht[ClientID] = _Sector.PropertyNames.ClientID;
+					ht[PilotCityID] = _Sector.PropertyNames.PilotCityID;
 
 				}
 				return (string)ht[columnName];
@@ -625,7 +635,7 @@ namespace Flight_DAL
 		public class PropertyNames
 		{  
             public const string SectorID = "SectorID";
-            public const string ReportID = "ReportID";
+            public const string FlightID = "FlightID";
             public const string From_AirportID = "From_AirportID";
             public const string To_AirportID = "To_AirportID";
             public const string FuleUplifted = "FuleUplifted";
@@ -674,6 +684,7 @@ namespace Flight_DAL
             public const string IsReturnSector = "IsReturnSector";
             public const string ReturnSectorID = "ReturnSectorID";
             public const string ClientID = "ClientID";
+            public const string PilotCityID = "PilotCityID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -682,7 +693,7 @@ namespace Flight_DAL
 					ht = new Hashtable();
 					
 					ht[SectorID] = _Sector.ColumnNames.SectorID;
-					ht[ReportID] = _Sector.ColumnNames.ReportID;
+					ht[FlightID] = _Sector.ColumnNames.FlightID;
 					ht[From_AirportID] = _Sector.ColumnNames.From_AirportID;
 					ht[To_AirportID] = _Sector.ColumnNames.To_AirportID;
 					ht[FuleUplifted] = _Sector.ColumnNames.FuleUplifted;
@@ -731,6 +742,7 @@ namespace Flight_DAL
 					ht[IsReturnSector] = _Sector.ColumnNames.IsReturnSector;
 					ht[ReturnSectorID] = _Sector.ColumnNames.ReturnSectorID;
 					ht[ClientID] = _Sector.ColumnNames.ClientID;
+					ht[PilotCityID] = _Sector.ColumnNames.PilotCityID;
 
 				}
 				return (string)ht[propertyName];
@@ -744,7 +756,7 @@ namespace Flight_DAL
 		public class StringPropertyNames
 		{  
             public const string SectorID = "s_SectorID";
-            public const string ReportID = "s_ReportID";
+            public const string FlightID = "s_FlightID";
             public const string From_AirportID = "s_From_AirportID";
             public const string To_AirportID = "s_To_AirportID";
             public const string FuleUplifted = "s_FuleUplifted";
@@ -793,6 +805,7 @@ namespace Flight_DAL
             public const string IsReturnSector = "s_IsReturnSector";
             public const string ReturnSectorID = "s_ReturnSectorID";
             public const string ClientID = "s_ClientID";
+            public const string PilotCityID = "s_PilotCityID";
 
 		}
 		#endregion		
@@ -811,15 +824,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual int ReportID
+		public virtual int FlightID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ReportID);
+				return base.Getint(ColumnNames.FlightID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ReportID, value);
+				base.Setint(ColumnNames.FlightID, value);
 			}
 		}
 
@@ -1399,6 +1412,18 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual int PilotCityID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PilotCityID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PilotCityID, value);
+			}
+		}
+
 
 		#endregion
 		
@@ -1419,18 +1444,18 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string s_ReportID
+		public virtual string s_FlightID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ReportID) ? string.Empty : base.GetintAsString(ColumnNames.ReportID);
+				return this.IsColumnNull(ColumnNames.FlightID) ? string.Empty : base.GetintAsString(ColumnNames.FlightID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ReportID);
+					this.SetColumnNull(ColumnNames.FlightID);
 				else
-					this.ReportID = base.SetintAsString(ColumnNames.ReportID, value);
+					this.FlightID = base.SetintAsString(ColumnNames.FlightID, value);
 			}
 		}
 
@@ -2154,6 +2179,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_PilotCityID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PilotCityID) ? string.Empty : base.GetintAsString(ColumnNames.PilotCityID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PilotCityID);
+				else
+					this.PilotCityID = base.SetintAsString(ColumnNames.PilotCityID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2197,11 +2237,11 @@ namespace Flight_DAL
 					}
 				}
 
-				public WhereParameter ReportID
+				public WhereParameter FlightID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ReportID, Parameters.ReportID);
+							WhereParameter where = new WhereParameter(ColumnNames.FlightID, Parameters.FlightID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2687,6 +2727,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter PilotCityID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -2704,15 +2754,15 @@ namespace Flight_DAL
 				}
 			}
 
-			public WhereParameter ReportID
+			public WhereParameter FlightID
 		    {
 				get
 		        {
-					if(_ReportID_W == null)
+					if(_FlightID_W == null)
 	        	    {
-						_ReportID_W = TearOff.ReportID;
+						_FlightID_W = TearOff.FlightID;
 					}
-					return _ReportID_W;
+					return _FlightID_W;
 				}
 			}
 
@@ -3292,8 +3342,20 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter PilotCityID
+		    {
+				get
+		        {
+					if(_PilotCityID_W == null)
+	        	    {
+						_PilotCityID_W = TearOff.PilotCityID;
+					}
+					return _PilotCityID_W;
+				}
+			}
+
 			private WhereParameter _SectorID_W = null;
-			private WhereParameter _ReportID_W = null;
+			private WhereParameter _FlightID_W = null;
 			private WhereParameter _From_AirportID_W = null;
 			private WhereParameter _To_AirportID_W = null;
 			private WhereParameter _FuleUplifted_W = null;
@@ -3342,11 +3404,12 @@ namespace Flight_DAL
 			private WhereParameter _IsReturnSector_W = null;
 			private WhereParameter _ReturnSectorID_W = null;
 			private WhereParameter _ClientID_W = null;
+			private WhereParameter _PilotCityID_W = null;
 
 			public void WhereClauseReset()
 			{
 				_SectorID_W = null;
-				_ReportID_W = null;
+				_FlightID_W = null;
 				_From_AirportID_W = null;
 				_To_AirportID_W = null;
 				_FuleUplifted_W = null;
@@ -3395,6 +3458,7 @@ namespace Flight_DAL
 				_IsReturnSector_W = null;
 				_ReturnSectorID_W = null;
 				_ClientID_W = null;
+				_PilotCityID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -3461,11 +3525,11 @@ namespace Flight_DAL
 					}
 				}
 
-				public AggregateParameter ReportID
+				public AggregateParameter FlightID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReportID, Parameters.ReportID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FlightID, Parameters.FlightID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -3951,6 +4015,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter PilotCityID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -3968,15 +4042,15 @@ namespace Flight_DAL
 				}
 			}
 
-			public AggregateParameter ReportID
+			public AggregateParameter FlightID
 		    {
 				get
 		        {
-					if(_ReportID_W == null)
+					if(_FlightID_W == null)
 	        	    {
-						_ReportID_W = TearOff.ReportID;
+						_FlightID_W = TearOff.FlightID;
 					}
-					return _ReportID_W;
+					return _FlightID_W;
 				}
 			}
 
@@ -4556,8 +4630,20 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter PilotCityID
+		    {
+				get
+		        {
+					if(_PilotCityID_W == null)
+	        	    {
+						_PilotCityID_W = TearOff.PilotCityID;
+					}
+					return _PilotCityID_W;
+				}
+			}
+
 			private AggregateParameter _SectorID_W = null;
-			private AggregateParameter _ReportID_W = null;
+			private AggregateParameter _FlightID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
 			private AggregateParameter _To_AirportID_W = null;
 			private AggregateParameter _FuleUplifted_W = null;
@@ -4606,11 +4692,12 @@ namespace Flight_DAL
 			private AggregateParameter _IsReturnSector_W = null;
 			private AggregateParameter _ReturnSectorID_W = null;
 			private AggregateParameter _ClientID_W = null;
+			private AggregateParameter _PilotCityID_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_SectorID_W = null;
-				_ReportID_W = null;
+				_FlightID_W = null;
 				_From_AirportID_W = null;
 				_To_AirportID_W = null;
 				_FuleUplifted_W = null;
@@ -4659,6 +4746,7 @@ namespace Flight_DAL
 				_IsReturnSector_W = null;
 				_ReturnSectorID_W = null;
 				_ClientID_W = null;
+				_PilotCityID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -4737,8 +4825,8 @@ namespace Flight_DAL
 			p.SourceColumn = ColumnNames.SectorID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ReportID);
-			p.SourceColumn = ColumnNames.ReportID;
+			p = cmd.Parameters.Add(Parameters.FlightID);
+			p.SourceColumn = ColumnNames.FlightID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.From_AirportID);
@@ -4931,6 +5019,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.ClientID);
 			p.SourceColumn = ColumnNames.ClientID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PilotCityID);
+			p.SourceColumn = ColumnNames.PilotCityID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

@@ -16,8 +16,8 @@
             <h4>
                 Sectors List</h4>
             <div class="Details900">
-                <div class="More" style="float: left;" runat="server" id="AddDiv">
-                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" OnClick="uiLinkButtonAdd_Click">Add new sector</asp:LinkButton>
+                <div class="More" style="float: right;" runat="server" id="AddDiv">
+                    <asp:LinkButton ID="uiLinkButtonAdd" runat="server" OnClick="uiLinkButtonAdd_Click" CssClass="btn btn-primary">Add new sector</asp:LinkButton>
                 </div>
                 <div class="clear10">
                 </div>
